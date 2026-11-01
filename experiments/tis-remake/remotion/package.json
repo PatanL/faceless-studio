@@ -1,0 +1,8 @@
+{
+  "name": "tis-remake",
+  "private": true,
+  "description": "INTERNAL benchmark: shot-for-shot remake of a TIS Short in code. Never published. Uses studio/node_modules (symlinked on the Spark).",
+  "scripts": {
+    "render": "remotion render src/index.ts TisRemake out/remake.mp4"
+  }
+}
