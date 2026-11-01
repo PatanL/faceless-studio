@@ -34,6 +34,7 @@ TEXT_BOOST = 1.25
 CAPTION_Y = 0.86             # 16:9 caption centre (fraction of DH); core/captions clamps lower values to the safe band anyway
 CAPTION_SCALE = 0.8          # 16:9 caption font vs 9:16
 TEXT_VISIBLE = 0.32          # visible half-height of a text component as a fraction of its box height
+TOP_SAFE = 0.025 * DH        # text never starts above this (px): the uniform remap pulls high 9:16 headlines up to the edge
 
 
 class Map:
@@ -84,6 +85,28 @@ def _clear_captions(l: dict, cap_font: float):
         l["y"] = f"{(cy - over) / DH * 100:.2f}%"
 
 
+def _half_height(l: dict) -> float:
+    """Visible half-height (px) of a text component: Headline from its lines/size/sub, others from the box."""
+    p = l.get("props") or {}
+    if l.get("name") == "explainer/Headline" and isinstance(p.get("size"), (int, float)):
+        size = p["size"]
+        h = size * 1.1 * (str(p.get("text", "")).count("\n") + 1)
+        if isinstance(p.get("sub"), str):
+            h += size * 0.4 + size * 0.42 * 1.2
+        return h / 2
+    return l["height"] * TEXT_VISIBLE
+
+
+def _clear_top(l: dict):
+    """Keep a text component's visible box inside the top edge of the 16:9 frame."""
+    if not (isinstance(l.get("y"), str) and isinstance(l.get("height"), (int, float))):
+        return
+    cy = float(l["y"][:-1]) / 100 * DH
+    under = TOP_SAFE - (cy - _half_height(l))
+    if under > 0:
+        l["y"] = f"{(cy + under) / DH * 100:.2f}%"
+
+
 def layer16(layer: dict, m: Map, cap_font: float = 67) -> dict:
     if _full_frame(layer):
         l = copy.deepcopy(layer)
@@ -111,6 +134,7 @@ def layer16(layer: dict, m: Map, cap_font: float = 67) -> dict:
             if k in props:
                 props[k] = m.s(props[k])
     if layer.get("name") in TEXT_COMPONENTS:
+        _clear_top(l)
         _clear_captions(l, cap_font)
     return l
 
@@ -128,13 +152,34 @@ def camera16(cam: dict, m: Map) -> dict:
     return c
 
 
-def reformat(sb: dict, k: float = 0.78) -> dict:
+def native_scenes(slug: str) -> dict:
+    """Landscape-native scenes an episode module defines for its 16:9 cut ({scene index: scene}, 1920x1080 coords),
+    e.g. explainer_eps.EPISODES_16X9: used as they are instead of the uniform remap."""
+    from . import explainer_eps
+    fn = getattr(explainer_eps, "EPISODES_16X9", {}).get(slug)
+    if not fn:
+        return {}
+    from .common import load
+    _meta, scenes, *_ = load(slug)
+    return fn(scenes)
+
+
+def reformat(sb: dict, k: float = 0.78, native: dict | None = None) -> dict:
     m = Map(k)
     out = copy.deepcopy(sb)
     out["format"] = "16:9"
     out["id"] = f"{sb['id']}-16x9"
     cap_font = round((sb.get("captions") or {}).get("style", {}).get("fontSize", 84) * CAPTION_SCALE)
-    for sc in out["scenes"]:
+    for i, sc in enumerate(out["scenes"]):
+        if native and i in native:
+            nat = copy.deepcopy(native[i])
+            if abs(nat["duration"] - sc["duration"]) > 1e-3:
+                raise SystemExit(f"16:9 scene {i}: duration {nat['duration']} != 9:16 {sc['duration']}")
+            for key in ("transitionIn", "id"):
+                if key in sc:
+                    nat[key] = sc[key]
+            out["scenes"][i] = nat
+            continue
         sc["layers"] = [layer16(l, m, cap_font) for l in sc["layers"]]
         if "camera" in sc:
             sc["camera"] = camera16(sc["camera"], m)
@@ -145,7 +190,8 @@ def reformat(sb: dict, k: float = 0.78) -> dict:
         st["y"] = CAPTION_Y
         cap["maxChars"] = max(cap.get("maxChars", 16), 22)
         cap["maxWords"] = max(cap.get("maxWords", 3), 4)
-    out["_built"] = {**sb.get("_built", {}), "reformat": f"pipeline/episodes/reformat.py k={k} from 9:16"}
+    nat = f", landscape-native scenes {sorted(native)}" if native else ""
+    out["_built"] = {**sb.get("_built", {}), "reformat": f"pipeline/episodes/reformat.py k={k} from 9:16{nat}"}
     return out
 
 
@@ -158,7 +204,7 @@ def main():
     sb = json.load(open(os.path.join(ep, "storyboard.json")))
     out = os.path.join(ep, "storyboard_16x9.json")
     with open(out, "w") as f:
-        json.dump(reformat(sb, a.k), f, indent=1, ensure_ascii=False)
+        json.dump(reformat(sb, a.k, native_scenes(a.slug)), f, indent=1, ensure_ascii=False)
     print(f"{a.slug}: 16:9 cut (k={a.k}) -> {os.path.relpath(out, ROOT)}")
 
 

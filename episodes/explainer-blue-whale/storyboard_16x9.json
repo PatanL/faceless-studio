@@ -129,7 +129,7 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50.00%",
-     "y": "11.43%",
+     "y": "14.02%",
      "width": 975.0,
      "height": 361.92,
      "props": {
@@ -160,7 +160,7 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50.00%",
-     "y": "11.43%",
+     "y": "13.23%",
      "width": 975.0,
      "height": 336.96,
      "props": {
@@ -219,34 +219,33 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "42.98%",
-     "y": "46.96%",
-     "width": 795.6,
-     "height": 124.8,
+     "x": "50.00%",
+     "y": "25.00%",
+     "width": 1560,
+     "height": 245,
      "props": {
-      "pxPerM": 28.41,
+      "pxPerM": 55.714285714285715,
       "speed": 0.8
      },
-     "rotate": -90,
      "keyframes": [
       {
        "t": 0,
-       "y": "170.90%"
+       "x": "-60%"
       },
       {
        "t": 1.1,
-       "y": "46.96%",
+       "x": "50.00%",
        "ease": "out"
       }
      ]
     },
     {
      "type": "svg",
-     "markup": "<svg viewBox=\"0 0 160 1020\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"120\" y1=\"6\" x2=\"120\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"1014\" x2=\"140\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"846\" x2=\"140\" y2=\"846\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"678\" x2=\"140\" y2=\"678\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"510\" x2=\"140\" y2=\"510\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"342\" x2=\"140\" y2=\"342\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"174\" x2=\"140\" y2=\"174\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"6\" x2=\"140\" y2=\"6\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><text x=\"70\" y=\"1028\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">0</text><text x=\"70\" y=\"692\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">10</text><text x=\"70\" y=\"356\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">20</text></svg>",
-     "x": "32.45%",
-     "y": "46.96%",
-     "width": 124.8,
-     "height": 795.6,
+     "markup": "<svg viewBox=\"0 0 1680 112\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"60\" y1=\"10\" x2=\"1620\" y2=\"10\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"60\" y1=\"10\" x2=\"60\" y2=\"46\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"320\" y1=\"10\" x2=\"320\" y2=\"34\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"580\" y1=\"10\" x2=\"580\" y2=\"46\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"840\" y1=\"10\" x2=\"840\" y2=\"34\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"1100\" y1=\"10\" x2=\"1100\" y2=\"46\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"1360\" y1=\"10\" x2=\"1360\" y2=\"34\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"1620\" y1=\"10\" x2=\"1620\" y2=\"46\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><text x=\"60\" y=\"96\" text-anchor=\"middle\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"40\" fill=\"#f3f6f7\">0</text><text x=\"580\" y=\"96\" text-anchor=\"middle\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"40\" fill=\"#f3f6f7\">10</text><text x=\"1100\" y=\"96\" text-anchor=\"middle\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"40\" fill=\"#f3f6f7\">20</text></svg>",
+     "x": "50.00%",
+     "y": "44.26%",
+     "width": 1680,
+     "height": 112,
      "start": 1.062,
      "enter": {
       "type": "fade",
@@ -257,14 +256,15 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "33.33%",
-     "y": "6.52%",
-     "width": 234.0,
-     "height": 112.32,
+     "x": "90.62%",
+     "y": "46.67%",
+     "width": 220,
+     "height": 110.39999999999999,
      "props": {
       "text": "30 M",
       "at": 3.888,
-      "size": 46.8,
+      "size": 46,
+      "align": "center",
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -273,14 +273,13 @@
     {
      "type": "component",
      "name": "explainer/Bus",
-     "x": "59.65%",
-     "y": "69.06%",
-     "width": 318.24,
-     "height": 85.8,
+     "x": "25.62%",
+     "y": "68.15%",
+     "width": 624,
+     "height": 168,
      "props": {
-      "pxPerM": 26.52
+      "pxPerM": 52
      },
-     "rotate": -90,
      "start": 4.888,
      "enter": {
       "type": "slideUp",
@@ -291,14 +290,13 @@
     {
      "type": "component",
      "name": "explainer/Bus",
-     "x": "59.65%",
-     "y": "39.60%",
-     "width": 318.24,
-     "height": 85.8,
+     "x": "58.13%",
+     "y": "68.15%",
+     "width": 624,
+     "height": 168,
      "props": {
-      "pxPerM": 26.52
+      "pxPerM": 52
      },
-     "rotate": -90,
      "start": 5.15,
      "enter": {
       "type": "slideUp",
@@ -309,11 +307,10 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 600 312\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"20\" width=\"620\" height=\"250\" rx=\"30\" fill=\"#f2b632\"/><rect x=\"0\" y=\"196\" width=\"600\" height=\"30\" fill=\"#d9961c\"/><rect x=\"0\" y=\"20\" width=\"600\" height=\"22\" rx=\"11\" fill=\"#f7c95a\"/><rect x=\"30\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"138\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"246\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"354\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"462\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><circle cx=\"230\" cy=\"282\" r=\"50\" fill=\"#15191d\"/><circle cx=\"230\" cy=\"282\" r=\"24\" fill=\"#9aa3a9\"/><line x1=\"598\" y1=\"24\" x2=\"598\" y2=\"270\" stroke=\"#f3f6f7\" stroke-width=\"8\" stroke-dasharray=\"22 16\"/></svg>",
-     "x": "59.65%",
-     "y": "17.51%",
-     "width": 159.12,
-     "height": 82.74,
-     "rotate": -90,
+     "x": "82.50%",
+     "y": "68.15%",
+     "width": 312,
+     "height": 162.24,
      "start": 6.625,
      "enter": {
       "type": "slideUp",
@@ -324,15 +321,14 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "51.32%",
-     "y": "80.61%",
-     "width": 68.95,
-     "height": 23.4,
+     "x": "12.90%",
+     "y": "52.96%",
+     "width": 135.20000000000002,
+     "height": 46,
      "props": {
-      "pxPerM": 26.52,
+      "pxPerM": 52,
       "arms": "side"
      },
-     "rotate": -90,
      "start": 0.662,
      "enter": {
       "type": "pop",
@@ -343,14 +339,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "51.32%",
-     "y": "73.81%",
-     "width": 234.0,
-     "height": 102.96,
+     "x": "24.23%",
+     "y": "52.96%",
+     "width": 240,
+     "height": 105.6,
      "props": {
       "text": "YOU",
       "at": 0.662,
-      "size": 42.9,
+      "size": 44,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -362,14 +358,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50.00%",
-     "y": "64.06%",
-     "width": 321.75,
-     "height": 107.64,
+     "x": "39.33%",
+     "y": "52.96%",
+     "width": 330,
+     "height": 110.39999999999999,
      "props": {
       "text": "YOU ≈ 1/16",
       "at": 7.975,
-      "size": 44.85,
+      "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -379,14 +375,14 @@
     {
      "type": "component",
      "name": "explainer/Headline",
-     "x": "50.00%",
-     "y": "5.89%",
-     "width": 975.0,
-     "height": 205.92,
+     "x": "50%",
+     "y": "8.15%",
+     "width": 1000,
+     "height": 204.8,
      "props": {
       "text": "HOW BIG IS IT?",
       "at": 0,
-      "size": 64.35,
+      "size": 64,
       "color": "white",
       "underline": true,
       "out": 4.888
@@ -397,14 +393,14 @@
     {
      "type": "component",
      "name": "explainer/Headline",
-     "x": "50.00%",
-     "y": "5.89%",
-     "width": 975.0,
-     "height": 205.92,
+     "x": "50%",
+     "y": "8.15%",
+     "width": 1000,
+     "height": 204.8,
      "props": {
       "text": "≈ 2.5 CITY BUSES",
       "at": 6.275,
-      "size": 64.35,
+      "size": 64,
       "color": "white",
       "underline": true
      },
@@ -418,59 +414,59 @@
      {
       "t": 0.0,
       "zoom": 1.0,
-      "x": "50.00%",
-      "y": "59.97%"
+      "x": "50%",
+      "y": "50%"
      },
      {
       "t": 0.662,
-      "zoom": 1.0026
+      "zoom": 1.0013
      },
      {
       "t": 0.882,
-      "zoom": 1.184,
+      "zoom": 1.0718,
       "ease": "out"
      },
      {
       "t": 3.162,
-      "zoom": 1.1944
+      "zoom": 1.0765
      },
      {
       "t": 3.382,
-      "zoom": 1.0131,
+      "zoom": 1.0065,
       "ease": "out"
      },
      {
       "t": 4.888,
-      "zoom": 1.0189
+      "zoom": 1.0095
      },
      {
       "t": 5.108,
-      "zoom": 1.2033,
+      "zoom": 1.0806,
       "ease": "out"
      },
      {
       "t": 6.625,
-      "zoom": 1.2102
+      "zoom": 1.0837
      },
      {
       "t": 6.845,
-      "zoom": 1.0265,
+      "zoom": 1.0132,
       "ease": "out"
      },
      {
       "t": 7.975,
-      "zoom": 1.0309
+      "zoom": 1.0154
      },
      {
       "t": 8.195,
-      "zoom": 1.2174,
+      "zoom": 1.087,
       "ease": "out"
      },
      {
       "t": 10.34,
-      "zoom": 1.2272,
-      "x": "50.00%",
-      "y": "59.97%"
+      "zoom": 1.0914,
+      "x": "50%",
+      "y": "50%"
      }
     ]
    }
@@ -1785,7 +1781,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50.00%",
-     "y": "2.42%",
+     "y": "5.83%",
      "width": 975.0,
      "height": 112.32,
      "props": {
@@ -3135,15 +3131,23 @@
        "ease": "inOut"
       },
       {
-       "t": 8.107,
-       "x": "14.90%",
-       "rotate": -4,
+       "t": 6.957,
+       "x": "36.84%",
+       "rotate": -6,
+       "opacity": 1,
        "ease": "inOut"
       },
       {
+       "t": 7.3069999999999995,
+       "x": "24.55%",
+       "rotate": -4,
+       "opacity": 0
+      },
+      {
        "t": 8.825,
-       "x": "0.86%",
-       "rotate": 0
+       "x": "10.51%",
+       "rotate": 0,
+       "opacity": 0
       }
      ]
     },
@@ -3554,7 +3558,7 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50.00%",
-     "y": "11.43%",
+     "y": "13.23%",
      "width": 975.0,
      "height": 336.96,
      "props": {
@@ -3573,7 +3577,7 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50.00%",
-     "y": "11.43%",
+     "y": "14.02%",
      "width": 975.0,
      "height": 361.92,
      "props": {
@@ -4821,6 +4825,6 @@
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
   "audio": "studio/public/episodes/explainer-blue-whale/mix.wav (Spark; rebuild with pipeline.audio.make)",
-  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16"
+  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16, landscape-native scenes [1]"
  }
 }

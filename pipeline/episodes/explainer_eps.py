@@ -686,12 +686,15 @@ def blue_whale(S):
     cam = Cam(s.dur, z0=1.0, z1=1.05, y="44%").punch(s.at("danger"), way, s.at("tonnes"), tail)
     cam.shake = [{"at": turn + 0.3, "duration": 0.8, "amplitude": 22}, {"at": sweeps, "duration": 0.7, "amplitude": 16}]
     sc.append(bw_scene(s, ocean(30, rays=8), [
-        # head, eye and flipper fill the right edge from the cut
+        # head, eye and flipper fill the right edge from the cut; the body passes and fades into the murk before the
+        # fluke close-up below comes in, so its own tail never shares the frame with the FLUKE (QA: "two tails")
         comp("explainer/BlueWhale", "140%", "47%", 1900, 277, {"speed": 1.1}, z=1, flipX=True,
              keyframes=[{"t": 0, "x": "140%"}, {"t": way, "x": "128%", "rotate": 0},
                         {"t": turn, "x": "118%", "rotate": 0, "ease": "inOut"},
                         {"t": turn + 0.8, "x": "100%", "rotate": -14, "ease": "inOut"},
-                        {"t": sweeps + 0.4, "x": "-30%", "rotate": -4, "ease": "inOut"}, {"t": s.dur, "x": "-62%", "rotate": 0}]),
+                        {"t": sweeps - 0.75, "x": "20%", "rotate": -6, "opacity": 1, "ease": "inOut"},
+                        {"t": sweeps - 0.4, "x": "-8%", "rotate": -4, "opacity": 0},
+                        {"t": s.dur, "x": "-40%", "rotate": 0, "opacity": 0}]),
         comp("explainer/Diver", "50%", "36%", 260, 58, {"arms": "side"}, z=3,
              keyframes=[{"t": 0, "x": "50%", "y": "36%", "rotate": 0}, {"t": turn + 0.3, "x": "50%", "y": "36%", "rotate": 0},
                         {"t": turn + 1.3, "x": "30%", "y": "26%", "rotate": -230, "ease": "out"},
@@ -733,6 +736,53 @@ def blue_whale(S):
         _cover_arrow(start=barely + 0.45, enter=pop(barely + 0.45, 0.3)),
     ], cam))
     return sc
+
+
+def blue_whale_16x9(S):
+    """Landscape-native scenes for the 16:9 cut ({scene index: scene}, 1920x1080 px); pipeline/episodes/reformat.py
+    uses them instead of remapping the 9:16 scene. p01: the nose-up ruler left both sides of 16:9 empty and put the
+    30 M chip into the header, so the whale lies along a horizontal 0-30 m ruler with 2.5 buses nose to tail below."""
+    W16, H16 = 1920, 1080
+    s = S[1]
+    PPM = 52
+    L = 30 * PPM                                  # 1560 px for 30 m
+    X0 = (W16 - L) // 2                           # ruler 0 at x 180, 30 m at x 1740
+    Y_WHALE, Y_RULER, Y_YOU, Y_BUS = 270, 432, 572, 736
+    fx = lambda v: f"{v / W16 * 100:.2f}%"
+    fy = lambda v: f"{v / H16 * 100:.2f}%"
+    two, half, nose = s.at("two"), s.at("half", off=-0.1), s.at("nose")
+    heavy, lying = s.at("heaviest"), s.at("Lying", off=-0.1)
+    pad = 60
+    ruler = (f'<svg viewBox="0 0 {L + 2 * pad} 112" xmlns="http://www.w3.org/2000/svg">'
+             f'<line x1="{pad}" y1="10" x2="{pad + L}" y2="10" stroke="#f3f6f7" stroke-width="6" stroke-linecap="round"/>'
+             + "".join(f'<line x1="{pad + m * PPM}" y1="10" x2="{pad + m * PPM}" y2="{46 if m % 10 == 0 else 34}" '
+                       f'stroke="#f3f6f7" stroke-width="6" stroke-linecap="round"/>' for m in range(0, 31, 5))
+             + "".join(f'<text x="{pad + m * PPM}" y="96" text-anchor="middle" font-family="Montserrat, Arial Black, '
+                       f'sans-serif" font-weight="900" font-size="40" fill="#f3f6f7">{m}</text>' for m in (0, 10, 20))
+             + '</svg>')                          # 30 = the "30 M" chip at the ruler's end
+    bus_h, hb_w = round(110 * PPM / 34), 6 * PPM
+    bus = lambda m, at: comp("explainer/Bus", fx(X0 + m * PPM), fy(Y_BUS), 12 * PPM, bus_h, {"pxPerM": PPM}, start=at,
+                             enter={"type": "slideUp", "at": at, "duration": 0.35})
+    diver_w = 2.6 * PPM
+    layers = [
+        comp("explainer/BlueWhale", fx(X0 + L / 2), fy(Y_WHALE), L, round(160 * PPM / 34), {"pxPerM": PPM * 30 / 28, "speed": 0.8},
+             keyframes=[{"t": 0, "x": "-60%"}, {"t": 1.1, "x": fx(X0 + L / 2), "ease": "out"}]),
+        svg(ruler, fx(X0 + L / 2), fy(Y_RULER - 10 + 56), L + 2 * pad, 112, start=heavy + 0.4, enter=fade(heavy + 0.4, 0.3)),
+        t46("30 M", s.at("long"), x=fx(X0 + L), y=fy(Y_RULER + 72), size=46, w=220, align="center"),
+        bus(6, two),
+        bus(18, half),
+        svg(HALF_BUS, fx(X0 + 27 * PPM), fy(Y_BUS), hb_w, hb_w * 312 / 600, start=nose,
+            enter={"type": "slideUp", "at": nose, "duration": 0.35}),
+        comp("explainer/Diver", fx(X0 + diver_w / 2), fy(Y_YOU), diver_w, round(30 * PPM / 34), {"pxPerM": PPM, "arms": "side"},
+             start=heavy, enter=pop(heavy)),
+        you_chip(heavy, fx(X0 + diver_w + 150), fy(Y_YOU)),
+        t46("YOU ≈ 1/16", lying, x=fx(X0 + diver_w + 440), y=fy(Y_YOU), size=46, w=330, align="center"),
+        headline("HOW BIG IS IT?", at=0, y=fy(88), size=64, out=two),
+        headline("≈ 2.5 CITY BUSES", at=s.at("parked"), y=fy(88), size=64),
+    ]
+    # gentler punch-ins than 9:16 (1.07 vs 1.18): the ruler spans 81 % of the frame width
+    cam = Cam(s.dur, z0=1.0, z1=1.02, p=1.07).punch(heavy, s.at("thirty"), two, nose, lying)
+    return {1: bw_scene(s, ocean(60, rays=7), layers, cam)}
 
 
 # =========================================================================== pressure ladder
@@ -1025,3 +1075,5 @@ EPISODES = {
     "explainer-saltwater-croc": croc,
     "explainer-anglerfish": anglerfish,
 }
+# landscape-native scenes for the 16:9 cut (pipeline/episodes/reformat.py), {slug: fn(S) -> {scene index: scene}}
+EPISODES_16X9 = {"explainer-blue-whale": blue_whale_16x9}
