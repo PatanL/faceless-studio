@@ -1,0 +1,25 @@
+{
+  "name": "zackd-proto",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Feasibility test: a Zack D.-style toy-real low-poly 3D shot in Remotion + @remotion/three (internal experiment, not for publication)",
+  "scripts": {
+    "render": "remotion render src/index.ts ZackdProto out/zackd-proto.mp4",
+    "still": "remotion still src/index.ts ZackdProto"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "5.2.8",
+    "@react-three/fiber": "9.8.1",
+    "@remotion/cli": "4.0.539",
+    "@remotion/three": "4.0.539",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/three": "0.185.0",
+    "typescript": "5.8.3"
+  }
+}

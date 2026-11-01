@@ -1,0 +1,71 @@
+{
+ "id": "zackd-proto",
+ "niche": "explainer",
+ "script": "experiments/zackd-proto/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 0.96,
+  "synth_s": 17.45,
+  "duration_s": 12.91,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.11,
+  "true_peak_dbtp_4x": -1.36,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.1,
+   "LRA_lu": 1.3,
+   "true_peak_dbtp": -1.4
+  },
+  "duration_s": 12.61,
+  "music": "documentary_pulse",
+  "sfx_placed": [
+   {
+    "cue": "knock3",
+    "at": 4.802,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.324,
+    "level_db": -3.0,
+    "mix_momentary_max": -12.2
+   },
+   {
+    "cue": "whoosh",
+    "at": 6.69,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.186,
+    "level_db": -10.0,
+    "mix_momentary_max": -11.9
+   },
+   {
+    "cue": "click",
+    "at": 10.553,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 0.04,
+    "level_db": -14.0
+   },
+   {
+    "cue": "door_creak",
+    "at": 11.065,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 3.008,
+    "level_db": -8.0,
+    "mix_momentary_max": -12.8
+   }
+  ],
+  "music_rms_db_under_voice": -40.24,
+  "music_rms_db_in_gaps": -53.01,
+  "measured_duck_db": 12.77,
+  "bed_below_voice_db": 20.37
+ },
+ "words": 34,
+ "wall_s": 18.2
+}
