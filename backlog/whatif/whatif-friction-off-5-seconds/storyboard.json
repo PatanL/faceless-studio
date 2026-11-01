@@ -1,0 +1,7505 @@
+{
+ "version": 1,
+ "id": "whatif-friction-off-5-seconds",
+ "title": "What if friction switched off for 5 seconds?",
+ "format": "9:16",
+ "fps": 30,
+ "theme": {
+  "fontDisplay": "Montserrat",
+  "fontBody": "Montserrat",
+  "fontCondensed": "Anton",
+  "accent": "#FFB547",
+  "ink": "#0B0D10",
+  "paper": "#FFFFFF"
+ },
+ "scenes": [
+  {
+   "id": "s01-establish",
+   "duration": 4.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "low",
+     "palette": "golden"
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#C8453A"
+     },
+     "x": 380,
+     "y": 1120,
+     "width": 200,
+     "height": 100,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 380,
+       "y": 1120
+      },
+      {
+       "t": 4.5,
+       "x": 430,
+       "y": 1150,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#E3B04B"
+     },
+     "x": 700,
+     "y": 880,
+     "width": 170,
+     "height": 85,
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 700,
+       "y": 880
+      },
+      {
+       "t": 4.5,
+       "x": 660,
+       "y": 905,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/CableCar",
+     "props": {
+      "riders": 30,
+      "palette": "golden"
+     },
+     "x": 540,
+     "y": 330,
+     "width": 360,
+     "height": 150,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 470
+      },
+      {
+       "t": 4.5,
+       "x": 610,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#FFB547\" stroke-width=\"9\" stroke-linecap=\"round\"><path d=\"M100 60 C70 10 20 20 30 55 C40 85 80 70 100 60 Z\"/><path d=\"M100 60 C130 10 180 20 170 55 C160 85 120 70 100 60 Z\"/><path d=\"M100 60 C90 85 70 100 55 112\"/><path d=\"M100 60 C112 85 135 100 150 112\"/></g><circle cx=\"100\" cy=\"60\" r=\"10\" fill=\"#FFB547\"/></svg>",
+     "x": "50%",
+     "y": 560,
+     "width": 200,
+     "height": 120,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if",
+     "x": "50%",
+     "y": 690,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "friction",
+     "x": "50%",
+     "y": 800,
+     "fontSize": 132,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "switched off for 5 seconds?",
+     "x": "50%",
+     "y": 910,
+     "fontSize": 76,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 0.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Frame 1 = cover. Golden-hour Lombard from below hairpin 6; title clears by 4.5 before caption 1. [screen 0.0-4.5 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%",
+      "y": "50%",
+      "zoom": 1.0
+     },
+     {
+      "t": 4.5,
+      "x": "50%",
+      "y": "48%",
+      "zoom": 1.04,
+      "ease": "linear"
+     }
+    ]
+   },
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "clock_ticking",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s02-place-you",
+   "duration": 2.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "golden",
+     "slopeDeg": 15.1
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#7FA7B8"
+     },
+     "id": "hatchback",
+     "x": 300,
+     "y": 1060,
+     "width": 300,
+     "height": 150,
+     "rotate": -15.1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 620,
+     "y": 1150,
+     "width": 220,
+     "height": 360,
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 0.0
+      }
+     },
+     "rotate": -0.0
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 4.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You're on Lombard Street, San Francisco.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.5,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "You stand on the brick roadway just below hairpin 5; hatchback parked uphill (the tell). [screen 4.5-7.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 1.5,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.3,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s03-flip",
+   "duration": 1.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "frictionless",
+     "slopeDeg": 15.1
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#7FA7B8",
+      "wheelsSpin": false
+     },
+     "id": "hatchback",
+     "x": 300,
+     "y": 1060,
+     "width": 300,
+     "height": 150,
+     "rotate": -15.1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 300,
+       "y": 1060
+      },
+      {
+       "t": 1.0,
+       "x": 318,
+       "y": 1065,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 620,
+     "y": 1150,
+     "width": 220,
+     "height": 360,
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 0.0
+      }
+     }
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 7.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Hard cut to the frictionless look; HUD flips to BACK ON IN 5.000 S / SLOW-MO x11 / AIR DRAG OFF TOO. [screen 7.0-8.0 s]",
+   "camera": {
+    "keyframes": [],
+    "shake": [
+     {
+      "at": 0.0,
+      "duration": 0.35,
+      "amplitude": 14
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    },
+    {
+     "cue": "glitch",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s04-laces",
+   "duration": 3.0,
+   "background": {
+    "type": "color",
+    "color": "#8A4A3A",
+    "depth": 0.2,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/BrickTexture",
+     "props": {
+      "scroll": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3,
+        "v": 45
+       }
+      ]
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1350,
+     "height": 2400,
+     "depth": 1
+    },
+    {
+     "type": "component",
+     "name": "whatif/ShoePair",
+     "props": {
+      "state": [
+       {
+        "t": 0.3,
+        "v": 0
+       },
+       {
+        "t": 2.2,
+        "v": 1
+       }
+      ],
+      "laceSway": 0.6
+     },
+     "x": "50%",
+     "y": 1000,
+     "width": 760,
+     "height": 620
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 8.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Your shoelaces untie themselves.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "POV down at your own shoes: the bows slide open by themselves. [screen 8.0-11.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%",
+      "y": "46%",
+      "zoom": 1.0
+     },
+     {
+      "t": 1.2,
+      "x": "50%",
+      "y": "52%",
+      "zoom": 1.05
+     },
+     {
+      "t": 3,
+      "x": "51%",
+      "y": "53%",
+      "zoom": 1.07,
+      "ease": "linear"
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.3,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s05-glide",
+   "duration": 6.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "frictionless",
+     "slopeDeg": 15.1,
+     "scroll": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 6,
+       "v": 170
+      }
+     ]
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 520,
+     "y": 1140,
+     "width": 220,
+     "height": 360,
+     "props": {
+      "pose": "slide",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 0.0
+      }
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      },
+      {
+       "t": 6,
+       "rotate": -9
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#7FA7B8",
+      "wheelsSpin": false
+     },
+     "x": 250,
+     "y": 1050,
+     "width": 300,
+     "height": 150,
+     "rotate": -15.1
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 11.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Your shoelaces untie themselves.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 0.6,
+     "depth": 0,
+     "z": 70,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "You glide downhill without taking a step.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.6,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Wonder: gliding at walking pace (2.1 -> 5.2 mph); 13.6-17 textless breather. Everything glides together (same acceleration). [screen 11.0-17.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.2,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s06-nail-screw",
+   "duration": 5.0,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#0E2A33",
+     "#123C47"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/DiagramCard",
+     "props": {
+      "kind": "nail",
+      "at": 0.0,
+      "swapTo": "screw",
+      "swapAt": 4.0,
+      "labels": [
+       {
+        "text": "FRICTION",
+        "at": 0.3,
+        "fadeTo0At": 1.2
+       }
+      ]
+     },
+     "x": "50%",
+     "y": 880,
+     "width": 900,
+     "height": 900
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 17.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Nails hold wood only by friction.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.6,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "So does every screw.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 4.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Caption 4 over the nail sliding out of wood; caption 5 at 21.0 over the screw spinning back out. [screen 17.0-22.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 1.5,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 4.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s07-rowhouse",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "frictionless",
+     "slopeDeg": 15.1
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/RowHouse",
+     "props": {
+      "breakAt": 0.4,
+      "boards": 9,
+      "steps": 4,
+      "bayWindow": true,
+      "slopeDeg": 15.1
+     },
+     "x": 560,
+     "y": 820,
+     "width": 900,
+     "height": 1100
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 22.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "So does every screw.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 0.6,
+     "depth": 0,
+     "z": 70,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Textless break: siding boards, porch steps and the bay window slide apart and downhill. [screen 22.0-26.0 s]",
+   "camera": {
+    "preset": "panLeft",
+    "amount": 0.5
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.0,
+     "volume": 0.35
+    },
+    {
+     "cue": "pop",
+     "at": 1.0,
+     "volume": 0.3
+    },
+    {
+     "cue": "pop",
+     "at": 1.7,
+     "volume": 0.3
+    },
+    {
+     "cue": "pop",
+     "at": 2.5,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s08-thread",
+   "duration": 3.5,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#0E2A33",
+     "#123C47"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/DiagramCard",
+     "props": {
+      "kind": "thread",
+      "at": 0.0,
+      "bracket": "1 IN"
+     },
+     "x": "50%",
+     "y": 880,
+     "width": 900,
+     "height": 900
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 26.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Cotton thread is 1-inch fibers, twisted tight.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.3,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "One thread magnified into short twisted fibres sliding apart. [screen 26.0-29.5 s]",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.6
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s09-shirt",
+   "duration": 3.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "frictionless",
+     "slopeDeg": 15.1
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 560,
+     "y": 1180,
+     "width": 380,
+     "height": 200,
+     "props": {
+      "pose": "sprawl",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": [
+        {
+         "t": 0.2,
+         "v": 0
+        },
+        {
+         "t": 3.0,
+         "v": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/FluffWisps",
+     "props": {
+      "source": "you",
+      "at": 0.2,
+      "count": 40
+     },
+     "x": 560,
+     "y": 1150,
+     "width": 600,
+     "height": 300
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 220,
+     "y": 980,
+     "width": 160,
+     "height": 260,
+     "scale": 0.8,
+     "props": {
+      "pose": "slide",
+      "color": "#C8453A",
+      "shirt": {
+       "color": "#C8453A",
+       "unravel": [
+        {
+         "t": 0.5,
+         "v": 0
+        },
+        {
+         "t": 3.2,
+         "v": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 840,
+     "y": 1260,
+     "width": 160,
+     "height": 260,
+     "scale": 0.8,
+     "props": {
+      "pose": "slide",
+      "color": "#E3B04B",
+      "shirt": {
+       "color": "#E3B04B",
+       "unravel": [
+        {
+         "t": 0.5,
+         "v": 0
+        },
+        {
+         "t": 3.2,
+         "v": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 380,
+     "y": 1060,
+     "width": 160,
+     "height": 260,
+     "scale": 0.8,
+     "props": {
+      "pose": "slide",
+      "color": "#5DAA6B",
+      "shirt": {
+       "color": "#5DAA6B",
+       "unravel": [
+        {
+         "t": 0.5,
+         "v": 0
+        },
+        {
+         "t": 3.2,
+         "v": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 29.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Your shirt unravels into fluff.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.3,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Personal dip: YOUR shirt unravels (shirt.unravel 0 -> 1); SHIRTS UNRAVELLED IN SF meter starts at 30.0. [screen 29.5-33.0 s]",
+   "camera": {
+    "preset": "panDown",
+    "amount": 0.5
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.2,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s10-cars",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "high",
+     "palette": "frictionless"
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/TopDownCar",
+     "props": {
+      "color": "#C8453A",
+      "brakeLights": true,
+      "tyreGlow": true,
+      "tyreGlowAt": 0.4,
+      "tyreFadeAt": 2.4
+     },
+     "x": 420,
+     "y": 600,
+     "width": 110,
+     "height": 200,
+     "rotate": 8,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 420,
+       "y": 600
+      },
+      {
+       "t": 4,
+       "x": 460,
+       "y": 1120,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/TopDownCar",
+     "props": {
+      "color": "#E3B04B",
+      "brakeLights": true,
+      "tyreGlow": false,
+      "tyreGlowAt": 0.4,
+      "tyreFadeAt": 2.4
+     },
+     "x": 700,
+     "y": 380,
+     "width": 110,
+     "height": 200,
+     "rotate": -22,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 700,
+       "y": 380
+      },
+      {
+       "t": 4,
+       "x": 740,
+       "y": 900,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/TopDownCar",
+     "props": {
+      "color": "#7FA7B8",
+      "brakeLights": true,
+      "tyreGlow": false,
+      "tyreGlowAt": 0.4,
+      "tyreFadeAt": 2.4
+     },
+     "x": 300,
+     "y": 260,
+     "width": 110,
+     "height": 200,
+     "rotate": 30,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 300,
+       "y": 260
+      },
+      {
+       "t": 4,
+       "x": 340,
+       "y": 780,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 392,
+     "y": 696,
+     "width": 22,
+     "height": 22,
+     "fill": "#FF3B30",
+     "opacity": 0.9,
+     "blur": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 392,
+       "y": 696
+      },
+      {
+       "t": 4,
+       "x": 432,
+       "y": 1216,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 448,
+     "y": 696,
+     "width": 22,
+     "height": 22,
+     "fill": "#FF3B30",
+     "opacity": 0.9,
+     "blur": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 448,
+       "y": 696
+      },
+      {
+       "t": 4,
+       "x": 488,
+       "y": 1216,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "EACH ≈ A POSTCARD",
+     "x": 640,
+     "y": 560,
+     "fontSize": 34,
+     "font": "display",
+     "weight": 800,
+     "color": "#FFB547",
+     "background": "rgba(11,13,16,.75)",
+     "padding": 12,
+     "radius": 8,
+     "start": 0.5,
+     "end": 2.6,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.3
+     },
+     "z": 30
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 33.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "No car can brake or steer.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.8,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Top-down cars slide straight across the hairpins through a hydrangea bed; brake lights on, no effect; 4 tyre patches glow then go grey. [screen 33.0-37.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%",
+      "y": "45%",
+      "zoom": 1.0,
+      "rotate": 0
+     },
+     {
+      "t": 4,
+      "x": "50%",
+      "y": "55%",
+      "zoom": 1.05,
+      "rotate": 2
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.4,
+     "volume": 0.45
+    },
+    {
+     "cue": "impact",
+     "at": 2.5,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s11-cablecar",
+   "duration": 3.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "frictionless",
+     "slopeDeg": 15.1,
+     "variant": "hyde"
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CableCar",
+     "props": {
+      "riders": 30,
+      "bell": true
+     },
+     "x": 600,
+     "y": 980,
+     "width": 760,
+     "height": 330,
+     "rotate": -15.1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 600,
+       "y": 980
+      },
+      {
+       "t": 3,
+       "x": 520,
+       "y": 1000,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/DiagramCard",
+     "props": {
+      "kind": "cable-grip",
+      "at": 0.4,
+      "label": "CABLE 9.5 MPH",
+      "inset": true
+     },
+     "x": 800,
+     "y": 560,
+     "width": 420,
+     "height": 320,
+     "enter": {
+      "type": "pop",
+      "at": 0.4,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 37.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Cable cars grip their cable by friction.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Hyde St cable car with 30 riders slides downhill; inset shows the grip letting go of the 9.5 mph cable. [screen 37.0-40.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "y": "50%",
+      "zoom": 1.0
+     },
+     {
+      "t": 3,
+      "y": "42%",
+      "zoom": 1.12
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.3,
+     "volume": 0.6
+    },
+    {
+     "cue": "ding",
+     "at": 1.5,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s12-interrupt",
+   "duration": 3.0,
+   "background": {
+    "type": "color",
+    "color": "#0E2A33",
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/DebrisField",
+     "props": {
+      "count": 100,
+      "seed": 7,
+      "glyphs": [
+       "button",
+       "nail",
+       "bolt",
+       "threadCurl"
+      ],
+      "direction": "up",
+      "stretch": 2.2
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1200,
+     "height": 2100,
+     "blur": 4
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 90,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 2.0,
+       "opacity": 0
+      },
+      {
+       "t": 2.4,
+       "opacity": 1,
+       "ease": "in"
+      },
+      {
+       "t": 3.0,
+       "opacity": 1
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 40.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Full-frame interrupt: loose buttons, nails and bolts stream past; white flash 42.0-42.4 (rect opacity, not grade). [screen 40.0-43.0 s]",
+   "camera": {
+    "keyframes": [],
+    "shake": [
+     {
+      "at": 0.0,
+      "duration": 1.0,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "down"
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "stinger",
+     "at": 2.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s13a-aerial-fault",
+   "duration": 5.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "aerial",
+     "palette": "frictionless",
+     "zoom": [
+      {
+       "t": 0,
+       "v": 1.0
+      },
+      {
+       "t": 3.2,
+       "v": 0.35,
+       "ease": "inOut"
+      },
+      {
+       "t": 5,
+       "v": 0.33
+      }
+     ],
+     "showFault": true,
+     "faultAt": 1.2,
+     "hillsEmptying": true
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 43.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "The San Andreas Fault is locked by friction.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 1.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Pull out over the city to the San Andreas (red dashed line off the stylised west coast). Map is not to scale. [screen 43.0-48.0 s]",
+   "camera": {
+    "preset": "drift",
+    "amount": 0.3
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.4
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   }
+  },
+  {
+   "id": "s13b-fault-card",
+   "duration": 3.0,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#0E2A33",
+     "#123C47"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/DiagramCard",
+     "props": {
+      "kind": "fault",
+      "at": 0.0,
+      "brackets": [
+       {
+        "text": "1906: ~20 FT",
+        "at": 1.0
+       },
+       {
+        "text": "NOW: {v} FT (EST.)",
+        "track": [
+         {
+          "t": 0,
+          "v": 13.9
+         },
+         {
+          "t": 3,
+          "v": 14.9
+         }
+        ]
+       }
+      ]
+     },
+     "x": "50%",
+     "y": 880,
+     "width": 900,
+     "height": 900
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 48.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "In 1906, it slipped about 20 feet.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 1.0,
+     "end": 3.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Fault cross-section; 1906 offset next to our estimate (speculative, flagged EST.). [screen 48.0-51.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "boom",
+     "at": 0.2,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s14-chase",
+   "duration": 5.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "chase",
+     "palette": "frictionless",
+     "follow": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 5,
+       "v": 0.45
+      }
+     ],
+     "pile": true,
+     "pileAt": "lastBend"
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 500,
+     "y": 1250,
+     "width": 300,
+     "height": 170,
+     "rotate": 62,
+     "props": {
+      "pose": "sprawl",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 1
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/FluffPile",
+     "props": {
+      "grow": [
+       {
+        "t": 0,
+        "v": 0.5
+       },
+       {
+        "t": 5,
+        "v": 0.7
+       }
+      ]
+     },
+     "x": 760,
+     "y": 360,
+     "width": 360,
+     "height": 220,
+     "depth": 0.6
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 51.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Behind-and-above chase straight down the fall line over hedges and planter beds; pile-up at the garden wall of the last bend. HUD race: IMPACT IN vs BACK ON IN. [screen 51.0-56.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5,
+      "zoom": 1.25
+     }
+    ]
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat",
+     "at": 0.0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s15-race",
+   "duration": 6.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "chase",
+     "palette": "frictionless",
+     "follow": [
+      {
+       "t": 0,
+       "v": 0.45
+      },
+      {
+       "t": 6,
+       "v": 1.0
+      }
+     ],
+     "pile": true,
+     "pileAt": "lastBend"
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 500,
+     "y": 1250,
+     "width": 300,
+     "height": 170,
+     "rotate": 62,
+     "props": {
+      "pose": "sprawl",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 1
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/FluffPile",
+     "props": {
+      "grow": [
+       {
+        "t": 0,
+        "v": 0.7
+       },
+       {
+        "t": 6,
+        "v": 1.0
+       }
+      ]
+     },
+     "x": 700,
+     "y": 480,
+     "width": 520,
+     "height": 320,
+     "depth": 0.6,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": 6,
+       "scale": 1.6
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#9FE8FF",
+     "opacity": 0.18,
+     "blend": "screen",
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "whatif/Streaks",
+     "props": {
+      "opacity": 0.22,
+      "angle": -28
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 41
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 56.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Wordless race: only the HUD numbers move. [screen 56.0-62.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0
+   },
+   "grade": {
+    "hue": -18,
+    "saturate": 0.75,
+    "brightness": 1.05,
+    "contrast": 1.02,
+    "vignette": 0.15
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_fast",
+     "at": 0.0,
+     "volume": 0.45
+    },
+    {
+     "cue": "clock_ticking",
+     "at": 3.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s16a-skid",
+   "duration": 1.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "golden",
+     "slopeDeg": 15.1
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 420,
+     "y": 1180,
+     "width": 380,
+     "height": 200,
+     "props": {
+      "pose": "sprawl",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 1
+      }
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 380
+      },
+      {
+       "t": 1,
+       "x": 470,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 60,
+     "color": "#C9876F",
+     "size": [
+      3,
+      9
+     ],
+     "speed": 2.5,
+     "seed": 3,
+     "x": 420,
+     "y": 1260,
+     "width": 600,
+     "height": 160
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 62.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Everything grips again, just like before.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.5,
+     "end": 1.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "GRIP RESTORED. Hard cut to warm; you hit the bricks and skid. Caption 12 (false resolution) at 62.5. [screen 62.0-63.0 s]",
+   "camera": {
+    "keyframes": [],
+    "shake": [
+     {
+      "at": 0.0,
+      "duration": 0.5,
+      "amplitude": 16
+     }
+    ]
+   },
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s16b-bookend",
+   "duration": 1.2,
+   "background": {
+    "type": "component",
+    "name": "whatif/LombardMap",
+    "props": {
+     "view": "low",
+     "palette": "aftermath",
+     "carsInBeds": true,
+     "sidingDown": true,
+     "cableCarGone": true,
+     "fluff": true
+    },
+    "depth": 0.15,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#C8453A"
+     },
+     "x": 300,
+     "y": 1240,
+     "width": 200,
+     "height": 100,
+     "rotate": 24
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "props": {
+      "color": "#E3B04B"
+     },
+     "x": 820,
+     "y": 1010,
+     "width": 170,
+     "height": 85,
+     "rotate": -31,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 63.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Everything grips again, just like before.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 1.2,
+     "depth": 0,
+     "z": 70
+    }
+   ],
+   "notes": "Re-frame of shot 1, same camera: aftermath. HUD stamp T+5 S · LOMBARD ST. [screen 63.0-64.2 s]",
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.0,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s16c-skid-pile",
+   "duration": 2.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "golden",
+     "slopeDeg": 15.1,
+     "wallAt": "right"
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 420,
+     "y": 1180,
+     "width": 380,
+     "height": 200,
+     "props": {
+      "pose": "sprawl",
+      "color": "#3A8FD6",
+      "shirt": {
+       "color": "#3A8FD6",
+       "unravel": 1
+      }
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 380
+      },
+      {
+       "t": 2.0,
+       "x": 700,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/FluffPile",
+     "props": {
+      "grow": 1.0
+     },
+     "x": 930,
+     "y": 1120,
+     "width": 420,
+     "height": 300
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "#C9876F",
+     "size": [
+      3,
+      8
+     ],
+     "speed": 1.8,
+     "seed": 5,
+     "x": 520,
+     "y": 1260,
+     "width": 600,
+     "height": 140
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 64.2,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Everything grips again, just like before.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 1.3,
+     "depth": 0,
+     "z": 70,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "HUD: STOPPING DISTANCE 66 FT · PILE 15 FT; YOU 27 -> 25 MPH. [screen 64.2-66.2 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%"
+     },
+     {
+      "t": 2.0,
+      "x": "56%",
+      "ease": "out"
+     }
+    ]
+   },
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat",
+     "at": 0.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s17-landing",
+   "duration": 3.3,
+   "background": {
+    "type": "component",
+    "name": "whatif/SlopeStrip",
+    "props": {
+     "palette": "golden",
+     "slopeDeg": 15.1,
+     "wallAt": "right",
+     "damage": true
+    },
+    "depth": 0.3,
+    "overscan": 1.25
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/FluffPile",
+     "props": {
+      "grow": 1.0,
+      "burstAt": 0.0
+     },
+     "x": 760,
+     "y": 1110,
+     "width": 560,
+     "height": 380
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 700,
+     "y": 1080,
+     "width": 220,
+     "height": 320,
+     "props": {
+      "pose": "sitUp",
+      "fallbackPose": "shrug",
+      "color": "#3A8FD6",
+      "shirt": null
+     },
+     "start": 0.8,
+     "enter": {
+      "type": "pop",
+      "at": 0.8,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "circle",
+     "x": 520,
+     "y": 1290,
+     "width": 28,
+     "height": 28,
+     "fill": "#3A8FD6",
+     "stroke": "#1F4E7A",
+     "strokeWidth": 3,
+     "start": 0.6,
+     "keyframes": [
+      {
+       "t": 0.6,
+       "x": 380,
+       "rotate": 0
+      },
+      {
+       "t": 2.2,
+       "x": 520,
+       "rotate": 540,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 66.2,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "FRICTION",
+         "chip": "on"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "FRICTION",
+         "chip": "off"
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "FRICTION",
+         "chip": "on"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "OFF IN {v} S",
+         "track": [
+          {
+           "t": 0,
+           "v": 6.9
+          },
+          {
+           "t": 6.9,
+           "v": 0
+          }
+         ],
+         "decimals": 3,
+         "clampMin": 0
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "BACK ON IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 62,
+           "v": 0
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 62,
+         "to": 69.5,
+         "text": "GRIP RESTORED"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "EVERY STEP YOU TAKE NEEDS IT"
+        },
+        {
+         "from": 7,
+         "to": 23,
+         "text": "SLOW-MO ×11"
+        },
+        {
+         "from": 23,
+         "to": 33,
+         "text": "NAILS + SCREWS: BACKING OUT"
+        },
+        {
+         "from": 33,
+         "to": 37,
+         "text": "CARS: NO BRAKES · NO STEERING"
+        },
+        {
+         "from": 37,
+         "to": 44,
+         "text": "HYDE ST CABLE CAR · 30 RIDERS · SLIDING"
+        },
+        {
+         "from": 44,
+         "to": 51,
+         "text": "SAN ANDREAS: SLIPPED {v} FT (EST.)",
+         "track": [
+          {
+           "t": 44,
+           "v": 12.5
+          },
+          {
+           "t": 51,
+           "v": 14.9
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 51,
+         "to": 62,
+         "text": "PILE-UP AHEAD: {v} FT · IMPACT IN {w} S",
+         "formula": "pile_ft = 120 - 4.2*((t-7)/11)^2; impact_s = 5.349 - (t-7)/11",
+         "wDecimals": 2
+        },
+        {
+         "from": 62,
+         "to": 63,
+         "text": "PILE-UP AHEAD: 15 FT"
+        },
+        {
+         "from": 63,
+         "to": 64.2,
+         "text": "T+5 S · LOMBARD ST"
+        },
+        {
+         "from": 64.2,
+         "to": 66.2,
+         "text": "STOPPING DISTANCE: 66 FT · PILE: 15 FT"
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "IMPACT 25 MPH ≈ A 21-FT FALL"
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "HILL GRADE 27%"
+        },
+        {
+         "from": 7,
+         "to": 11,
+         "text": "AIR DRAG OFF TOO"
+        },
+        {
+         "from": 11,
+         "to": 62,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 11,
+           "v": 2.1,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 62,
+         "to": 66.2,
+         "text": "YOU: {v} MPH",
+         "track": [
+          {
+           "t": 62,
+           "v": 28.6,
+           "ease": "linear"
+          },
+          {
+           "t": 66.2,
+           "v": 25.1,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 0
+        },
+        {
+         "from": 66.2,
+         "to": 69.5,
+         "text": "YOU: 0 MPH"
+        }
+       ],
+       "S3": [
+        {
+         "from": 30,
+         "to": 62,
+         "text": "SHIRTS UNRAVELLED IN SF: {v}",
+         "track": [
+          {
+           "t": 30,
+           "v": 0
+          },
+          {
+           "t": 50,
+           "v": 808000,
+           "ease": "out"
+          },
+          {
+           "t": 62,
+           "v": 808000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true
+        },
+        {
+         "from": 67,
+         "to": 69.5,
+         "text": "YOUR SHIRT: IN THE PILE"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 330,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "But nothing that came apart goes back.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.3,
+     "end": 3.3,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "You plough into the fluff heap (slapstick), sit up shirtless, one button rolls to a stop; pull back on the damaged hill. Caption 13 at 66.5. [screen 66.2-69.5 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15
+     },
+     {
+      "t": 1.3,
+      "zoom": 1.15
+     },
+     {
+      "t": 3.3,
+      "zoom": 0.95
+     }
+    ]
+   },
+   "grade": {
+    "saturate": 1.05,
+    "vignette": 0.12
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.0,
+     "volume": 0.7
+    },
+    {
+     "cue": "whoosh",
+     "at": 0.2,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s18-black",
+   "duration": 1.5,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [],
+   "notes": "Black, silence, HUD hidden. [screen 69.5-71.0 s]"
+  },
+  {
+   "id": "s19-endcard",
+   "duration": 7.0,
+   "background": {
+    "type": "color",
+    "color": "#0B0D10",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#FFB547\" stroke-width=\"9\" stroke-linecap=\"round\"><path d=\"M100 60 C70 10 20 20 30 55 C40 85 80 70 100 60 Z\"/><path d=\"M100 60 C130 10 180 20 170 55 C160 85 120 70 100 60 Z\"/><path d=\"M100 60 C90 85 70 100 55 112\"/><path d=\"M100 60 C112 85 135 100 150 112\"/></g><circle cx=\"100\" cy=\"60\" r=\"10\" fill=\"#FFB547\"/></svg>",
+     "x": "50%",
+     "y": 560,
+     "width": 200,
+     "height": 120,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if",
+     "x": "50%",
+     "y": 690,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "friction",
+     "x": "50%",
+     "y": 800,
+     "fontSize": 132,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "switched off for 5 seconds?",
+     "x": "50%",
+     "y": 910,
+     "fontSize": 76,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "ABOUT 20% OF THE WORLD'S ENERGY IS SPENT FIGHTING FRICTION.\nEVERY KNOT YOU'VE EVER TIED DEPENDS ON IT.",
+     "x": "50%",
+     "y": 1120,
+     "fontSize": 34,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "lineHeight": 1.4,
+     "maxWidth": 860,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "End card: exact title repeat (not read) + fact (not read). [screen 71.0-78.0 s]",
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.25
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": false
+ },
+ "audio": {
+  "voice": [],
+  "music": [
+   {
+    "src": "music/tension_pulse.m4a",
+    "start": 7.0,
+    "end": 62.0,
+    "volume": 0.22,
+    "duckTo": 0.1,
+    "fadeIn": 0.3,
+    "fadeOut": 0.1
+   },
+   {
+    "src": "sfx/drone.wav",
+    "start": 7.0,
+    "end": 62.0,
+    "volume": 0.25,
+    "duckTo": 0.25,
+    "fadeIn": 0.2,
+    "fadeOut": 0.1,
+    "loop": true
+   },
+   {
+    "src": "sfx/underwater_rumble.wav",
+    "start": 43.0,
+    "end": 62.0,
+    "volume": 0.3,
+    "duckTo": 0.3,
+    "fadeIn": 0.5,
+    "fadeOut": 0.1,
+    "loop": true
+   }
+  ],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.03,
+  "vignette": 0.12,
+  "fadeIn": 0,
+  "fadeOut": 0.4
+ }
+}

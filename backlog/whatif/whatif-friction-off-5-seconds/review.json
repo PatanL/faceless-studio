@@ -1,0 +1,109 @@
+{
+  "episode": "whatif-friction-off-5-seconds",
+  "reviewed_at_utc": "2026-11-01T09:20Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "Physics and HUD numbers now come from one formula set. The hook text no longer stacks (title clears at 4.5 s, before caption 1). The scope subline plants caption 3 instead of giving away the rungs. The rule line points forward (nails -> screws -> houses come apart). The ladder climbs thread -> YOUR shirt -> cars -> cable car with riders -> San Andreas Fault, with 1906 as the precedent. The false resolution is reassuring and the twist is T1 'nothing goes back', landing on your own shirt. Remaining risk: the premise is familiar (PLAYBOOK 10C).",
+    "reference": "The race clocks are both in seconds (IMPACT IN vs BACK ON IN, return wins by 0.35 s). The plant has a rising meter (SHIRTS UNRAVELLED IN SF). Every rung carries a number. The top rung is crust scale with a dated precedent. There is a wonder phase plus a 3.4 s textless breather. The VO reads captions only. The 'But [mechanism]' credit is relabelled. The opening shot gets an aftermath bookend.",
+    "originality": "House HUD wording (status chip, BACK ON IN, GRIP RESTORED, T+5 S stamp). The title verb moves from 'disappeared' to 'switched off'. Event, interrupt, black and end-card times sit 1-2 s off ELECTRONS. The gate passes.",
+    "producibility": "Two backgrounds instead of six. Shot 12 white flash is a rect with opacity keyframes. The camera rotate is written as keyframes. The HUD state table gives every slot. Captions are drawn as text layers (no 6-word split). Caption 5 matches its diagram. Shot 10 uses top-down cars and shot 11 has a grip inset. The storyboard validates. Held at 7 because studio/src/kits/whatif still does not exist (Hud, SerifCaption, TitleCard, LombardMap, SlopeStrip, DiagramCard and others), explainer/You needs a shirt prop and three poses, and no calm music bed exists."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Twist number recomputed on the 27% grade: 4.07 m/s^2 -> 66 ft to stop, impact at 25 mph (= a 21 ft fall); mu 0.7 justified as the upper end of the body-on-road range, so the result is the most generous case",
+      "'steepest street' removed from the post caption ('a 27% hill in San Francisco')",
+      "All HUD values driven by the formulas: pile 53 -> 37 -> 15 ft, speed, return, impact, slip, shirts; the 'SLID' readout dropped, so no two near-equal FT numbers sit together",
+      "0:00 subline is now 'EVERY STEP YOU TAKE NEEDS IT' (plants caption 3)",
+      "Title clears at 4.5 s before caption 1; 'HILL GRADE 27%' moved to 0:02",
+      "Rule beat points forward: 'Nails hold wood only by friction.' -> 'So does every screw.' -> textless row-house siding, steps and bay window sliding apart",
+      "Ladder reordered: thread -> YOUR shirt -> cars -> cable car with 30 riders -> San Andreas Fault (top rung)",
+      "Captions 10 and 11 replaced with the fault rung and the 1906 precedent (new number)",
+      "Real false resolution ('Everything grips again, just like before.') + T1 damage-stays twist ('But nothing that came apart goes back.') + 'YOUR SHIRT: IN THE PILE'",
+      "Continuity: your own shirt unravels on screen at 0:29.5; you end shirtless; the end prop is a shirt button (no thread); you slide on the brick roadway, never the stair sidewalks"
+    ],
+    "reference": [
+      "66 ft stopping distance (see retention)",
+      "'steepest street' removed",
+      "Race clocks in the same units: 'PILE-UP AHEAD: 53 FT · IMPACT IN 1.35 S' against 'BACK ON IN 1.000 S'; the return wins by 0.35 s",
+      "HUD values recomputed; 'halfway' dropped; you start below hairpin 5, 120 ft above the garden wall at the last bend",
+      "The plant gets a rising meter: SHIRTS UNRAVELLED IN SF climbs to 808,000 (0:30-0:50, held to 1:02)",
+      "Crust-scale top rung: San Andreas Fault with a live 'SLIPPED 13 -> 15 FT (EST.)' meter; 1906 as the on-screen dated precedent; T12 hedge in fact_notes",
+      "Numbers on each rung: 1 inch, 808,000 shirts, 4 postcard-sized tyre patches, 9.5 mph cable, 30 riders, 13-15 ft slip, 1906/20 ft",
+      "Wonder phase: caption 3 (0:11) is now a gentle glide at 2.1 mph plus a 3.4 s textless breather (13.6-17.0) before the rule",
+      "VO contradiction fixed: only captions are read (80 words, 62 wpm); title, HUD and end card are never read"
+    ],
+    "originality": [
+      "Originality gate re-run: PASS",
+      "Twist number fixed (66 ft)",
+      "'STREET GRADE' relabelled 'HILL GRADE 27%'; fact_notes say the road itself is ~16% and the slide follows the fall line over hedges",
+      "Geometry made consistent (412 ft block, start below hairpin 5, pile 120 ft below, slide 105 ft, 15 ft left)",
+      "House HUD wording: 'FRICTION ● ON/OFF', 'OFF IN 6.900 S', 'BACK ON IN 5.000 S', 'SLOW-MO ×11', 'GRIP RESTORED', 'T+5 S · LOMBARD ST'",
+      "Retitled 'What if friction switched off for 5 seconds?' (bookend repeat matches)",
+      "VO spec unified (captions only)"
+    ],
+    "producibility": [
+      "Two backgrounds only (whatif/LombardMap with camera keyframes and an aerial pullOut; whatif/SlopeStrip with a hyde variant)",
+      "explainer/You needs a shirt prop with unravel plus slide, sprawl and sitUp poses (listed in kit_gaps; used in storyboard props)",
+      "Captions drawn as whole-sentence text layers (whatif/SerifCaption planned; core captions disabled); serif and mono fonts via @fontsource on the Spark; tabular-nums",
+      "Shot 12 white flash = full-frame white rect with opacity keyframes 42.0-42.4 + fade transitionIn on 13a; shot 10 rotate as camera keyframes",
+      "HUD state table with five slots (L, T, S1-S3) over time, each with its track/formula",
+      "HUD numbers from formulas (53/37/15 ft)",
+      "66 ft stopping distance; 'PILE-UP AHEAD' label; position fixed",
+      "VO collisions: caption 13 moved to 66.5; caption 1 shortened to 6 words at 4.5; TTS spellings given ('one-inch', 'nineteen-oh-six', 'twenty feet'); title not read",
+      "Shot 11 has a DiagramCard inset of the grip in its slot",
+      "Caption 5 plays over its own diagram (nail -> screw card 17-22); rope/gate asset dropped",
+      "Shot 10 uses whatif/TopDownCar; brake lights are red circle layers"
+    ]
+  },
+  "nice_to_have_applied": [
+    "Air drag: HUD 'AIR DRAG OFF TOO' + fact note (about 25 mph with drag; the twist holds)",
+    "US units: '1-inch fibers'",
+    "Caption 3 physics: 'You glide downhill without taking a step.'; caption 8 is one claim",
+    "Hairpin image locked by the first frame and by the brick-roadway staging",
+    "Cable car riders in the frame and in the HUD",
+    "Post-caption CTA from options shown on screen: laces, shirt or brakes",
+    "Thumbnail/first frame shows the specific thing (Lombard hairpins + shoelace icon)",
+    "Cotton qualifier on the thread caption; polyester caveat in fact_notes",
+    "End-fact citation goes in the post description",
+    "Caption 12 no longer echoes the HUD label",
+    "Event/interrupt/black/end-card timings nudged 1-2 s off ELECTRONS",
+    "Bookend: 1.2 s aftermath re-frame of shot 1 under the T+5 S stamp",
+    "Impact equivalence: 25 mph = a 21 ft fall",
+    "'But' credit relabelled to the twist line; NEUTRONS credited for the same-unit race and the breather",
+    "Cable car physics: the cable itself coasts (sheaves are friction-driven)",
+    "Chase path drawn straight down the fall line over hedges",
+    "Grade switched from a multiply tint to hue/saturate + a screen-blend overlay; one Spark frame check noted",
+    "HUD inside SAFE_AREA; captions above y = 1480",
+    "Debris field cut to 100 glyphs with scaleY stretch + layer blur; one screen-space streak overlay; RowHouse/PlankNails as rect layers; ShoePair as a two-state crossfade"
+  ],
+  "not_applied": [
+    "Second-person share stays at 4/13 captions (31%) on purpose, for the body-first and personal-dip beats (IFOLOGY 'you' correlation)",
+    "Monetization re-check against research/R5 deferred: R5 policy file is still empty"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-friction-off-5-seconds/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+    "max_shared_5gram_share": "0.20% (research/corpus/whatif/PLAYBOOK.md, beat-name phrases 'premise card pre event clock'); highest transcript source 0.13%"
+  },
+  "pacing": {
+    "runtime_s": 78,
+    "captions": 13,
+    "caption_words": 80,
+    "caption_wpm": 61.5,
+    "caption_gap_median_s": 4.0,
+    "event_s": 7.0,
+    "return_s": 62.0,
+    "twist_caption_s": 66.5,
+    "black_s": 69.5,
+    "master_loop_share": 0.71
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-friction-off-5-seconds/storyboard.json",
+    "validator": "studio/src/cli/validate.ts (working-tree schema.ts), run on the Spark with Node 22",
+    "result": "ok: 9:16 30fps 22 scenes 78.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/LombardMap", "whatif/SlopeStrip", "whatif/CableCar", "whatif/Streaks", "whatif/BrickTexture", "whatif/ShoePair", "whatif/DiagramCard", "whatif/RowHouse", "whatif/FluffWisps", "whatif/TopDownCar", "whatif/DebrisField", "whatif/FluffPile"]
+  }
+}
