@@ -1,7 +1,8 @@
 """Per-platform captions (docs/OPERATOR_DESIGN.md 5.9, 8.5) -> out/<slug>/publish/captions.json.
 
 Sources, in order: episodes/<slug>/package.json (5.5); else titles.md + description.md from episodes/<slug>/ or
-out/pilots/<slug>/ (the pilot format). The disclosure line is appended to every platform's text if missing.
+out/pilots/<slug>/ (the pilot format). The disclosure line is appended to every platform's text if missing. A
+package's own disclosure_line is used only when it is an AI-voice line (AI_VOICE_RX); otherwise DISCLOSURE is.
 
 Limits are the ones Buffer validates (https://developers.buffer.com/guides/character-limits.md, read 2026-11-01),
 counted in UTF-16 code units; Instagram counts each line break as 2:
@@ -18,6 +19,9 @@ from pipeline.common import timeutil
 from . import paths
 
 DISCLOSURE = "Narration: synthetic AI voice (Kokoro TTS). Animation: original 2D vector art."
+# What counts as an AI-voice disclosure (also used by the QA gate on the built captions of every platform).
+AI_VOICE_RX = re.compile(r"\b(?:synthetic|ai|computer)[- ]?(?:generated[- ])?(?:voice|narrat(?:ion|or))\b|"
+                         r"\btext[- ]to[- ]speech\b", re.I)
 LIMITS = {"youtube_title": 100, "youtube_description": 5000, "tiktok": 2200, "instagram": 2196}
 IG_MAX_HASHTAGS = 30
 HASHTAG_RE = re.compile(r"(?<![\w&])#[\w]+", re.U)
@@ -84,7 +88,7 @@ def parse_description_md(text: str) -> dict:
         s = line.strip()
         if not s:
             continue
-        if _norm(s) == _norm(DISCLOSURE) or s.lower().startswith("narration:"):
+        if _norm(s) == _norm(DISCLOSURE) or (s.lower().startswith("narration:") and AI_VOICE_RX.search(s)):
             disclosure = s
             continue
         toks = s.split()
@@ -126,7 +130,9 @@ def build(slug: str, pkg: dict | None = None) -> dict:
     sources = []
     if pkg is None:
         pkg, sources = load_package(slug)
-    disclosure = pkg.get("disclosure_line") or DISCLOSURE
+    disclosure = pkg.get("disclosure_line") or ""
+    if not AI_VOICE_RX.search(disclosure):  # an LLM-written line that does not say "AI voice" never replaces ours
+        disclosure = DISCLOSURE
     tags = []
     for t in pkg.get("hashtags") or []:
         t = t if t.startswith("#") else "#" + t
@@ -184,10 +190,12 @@ def validate(c: dict) -> list[str]:
     if len(HASHTAG_RE.findall(c["instagram"]["text"])) > IG_MAX_HASHTAGS:
         p.append("instagram > 30 hashtags")
     d = _norm(c["disclosure_line"])
+    if not AI_VOICE_RX.search(c["disclosure_line"]):
+        p.append("disclosure line is not an AI-voice disclosure")
     for k in ("tiktok", "instagram"):
-        if d not in _norm(c[k]["text"]):
+        if d not in _norm(c[k]["text"]) or not AI_VOICE_RX.search(c[k]["text"]):
             p.append(f"{k} text lacks the disclosure line")
-    if d not in _norm(c["youtube"]["description"]):
+    if d not in _norm(c["youtube"]["description"]) or not AI_VOICE_RX.search(c["youtube"]["description"]):
         p.append("youtube description lacks the disclosure line")
     return p
 

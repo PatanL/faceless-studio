@@ -2,7 +2,9 @@
 
     python -m pipeline.publish.status [--all-open] [--slug S] [--dry-run]
 
-Open = latest row per post_key with a buffer_post_id and status draft | scheduled | sending | missed. One GraphQL
+Open = latest row per post_key with a buffer_post_id and status draft | scheduled | sending | missed, plus a
+`published` row whose external_url/external_id is still null (Buffer fills externalLink after the platform has
+processed the upload) for up to LINK_GRACE_H after it was sent. One GraphQL
 request per 25 posts (aliased `post(input: {id})`). A row is appended only when something changed. Drafts still
 unapproved `drafts_missed_h` after their slot become `missed` (Buffer keeps them; approving later still works and
 the next refresh records it). Exit 4 when nothing is open, 5 when Buffer rejects the key.
@@ -24,12 +26,24 @@ OPEN = {"draft", "scheduled", "sending", "missed"}
 TERMINAL = {"published", "failed", "deleted"}
 TRACKED = ("status", "buffer_status", "published_at", "external_url", "external_id", "error", "scheduled_at")
 CHUNK = 25
+LINK_GRACE_H = 48
 
 
-def open_rows(ledger, slug: str | None = None) -> list[dict]:
+def needs_link(r: dict, now=None) -> bool:
+    """A published row without its platform link yet, sent less than LINK_GRACE_H ago."""
+    if r.get("status") != "published" or (r.get("external_url") and r.get("external_id")):
+        return False
+    sent = r.get("published_at")
+    if not sent:
+        return True
+    now = now or timeutil.now_utc()
+    return (now - timeutil.parse(sent)).total_seconds() < LINK_GRACE_H * 3600
+
+
+def open_rows(ledger, slug: str | None = None, now=None) -> list[dict]:
     rows = jsonl.latest(str(ledger), "post_key").values()
-    return [r for r in rows if r.get("buffer_post_id") and not r.get("dry_run") and r.get("status") in OPEN
-            and (not slug or r.get("slug") == slug)]
+    return [r for r in rows if r.get("buffer_post_id") and not r.get("dry_run")
+            and (r.get("status") in OPEN or needs_link(r, now)) and (not slug or r.get("slug") == slug)]
 
 
 def updated_row(prev: dict, post: dict | None, now, missed_h: float) -> dict | None:

@@ -1,22 +1,36 @@
 """Post one gated episode to YouTube Shorts, TikTok and Instagram Reels through Buffer (OPERATOR_DESIGN 8.1-8.5).
 
     python -m pipeline.publish.post <slug> --slot-at <ISO> [--platforms youtube,tiktok,instagram]
-                                    [--mode draft|auto] [--dry-run] [--ignore-gates] [--mp4 PATH]
+                                    [--mode draft|auto | --modes youtube=auto,tiktok=draft,...] [--dry-run]
+                                    [--ignore-gates] [--mp4 PATH] [--result-file F] [--hold-max-h 12]
     python -m pipeline.publish.post --record-manual <slug> <platform> <url> [--published-at ISO]
 
 Preconditions (exit 6 otherwise): gate.json PASS, review.json PASS, gate.mp4_sha256 == sha256(mp4),
-review.gate_sha == sha256(gate.json), no live row for the post_key, config.paused false.
-Credentials: BUFFER_API_KEY and BUFFER_CHANNEL_<PLATFORM> from ~/studio/.env; any missing -> dry-run, which prints
-the exact GraphQL request per platform and appends `dry_run` rows (with the payload) to data/posts.jsonl.
+review.gate_sha == sha256(gate.json), the gate's sameness ran on the default history (no --against / --last-n) and
+sameness re-run now from out/<slug>/qa/fingerprint.json against the current history still passes, no live row for
+the post_key, config.paused false.
+Credentials: BUFFER_API_KEY and BUFFER_CHANNEL_<PLATFORM> from ~/studio/.env. No BUFFER_API_KEY -> dry-run of every
+platform: it prints the exact GraphQL request per platform and appends `dry_run` rows (with the payload) to
+data/posts.jsonl. A missing BUFFER_CHANNEL_<PLATFORM> drops only that platform (listed as `skipped_platforms`); the
+others post for real.
 --ignore-gates is accepted only with --dry-run (for previewing payloads of an episode that has no gate yet).
-Mode: config.mode.<platform> unless --mode; "auto" needs config.disclosure_ok_auto.<platform>, else it drops to draft.
+Mode: --modes per platform, else --mode, else config.mode.<platform>; "auto" needs config.disclosure_ok_auto.<p>,
+else it drops to draft. One invocation creates every platform's post, so mixed modes share one URL and one hold.
+
+--result-file F: JSON written right after the posts are created (phase "created", with exit/created/failed/
+skipped_platforms/dry_run/holding/pid) and again when the process ends (phase "done"). pipeline.ops.run starts this
+command detached and returns as soon as phase "created" appears, so the cloudflared hold (until Buffer has fetched
+the media, up to --hold-max-h) is never killed by a job timeout. SIGTERM/SIGHUP close the tunnel before exiting.
 """
 from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
+import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -61,9 +75,34 @@ def preconditions(slug: str, mp4: Path | None, platforms, cfg: dict, ledger: Pat
                               "detail": "review.gate_sha == sha256(gate.json)" if review else "no review.json"}
     live = {k: r.get("status") for k, r in jsonl.latest(str(ledger), "post_key").items()
             if k in {f"{slug}:{p}" for p in platforms} and _blocking(r)}
+    chk["sameness_now"] = sameness_now(slug, gate, ledger)
     chk["idempotent"] = {"ok": not live, "detail": f"live rows: {live}" if live else "no live row"}
     chk["not_paused"] = {"ok": not cfg.get("paused"), "detail": f"config.paused={cfg.get('paused')}"}
     return chk
+
+
+def sameness_now(slug: str, gate: dict | None, ledger: Path) -> dict:
+    """The gate's sameness must have used the default history, and must still pass against today's history
+    (posts made since the gate ran, and the other slot's gated episode). Cheap: fingerprints only, no video decode."""
+    from pipeline.qa import fingerprint as fpmod
+    from pipeline.qa import sameness
+    if not gate:
+        return {"ok": False, "detail": "no gate.json"}
+    g = (gate.get("checks") or {}).get("sameness") or {}
+    mode = g.get("history_mode")
+    if mode not in (None, "default"):
+        return {"ok": False, "detail": f"gate.json sameness ran with history_mode={mode} (--against/--last-n): "
+                                       f"rerun `python -m pipeline.qa.gate {slug}` without them"}
+    fp = fpmod.load(paths.ROOT, slug)
+    if not fp:
+        return {"ok": False, "detail": f"out/{slug}/qa/fingerprint.json missing (rerun the gate)"}
+    try:
+        res = sameness.run(paths.ROOT, slug, fp, posts_path=ledger, build_missing=False)
+    except Exception as e:  # noqa: BLE001 - a broken history file must block, not crash
+        return {"ok": False, "detail": f"sameness re-check failed: {e}"}
+    return {"ok": res["status"] != "FAIL",
+            "detail": f"sameness now {res['status']} vs {len(res.get('history') or [])} videos"
+                      + (f": {res['detail']}" if res["status"] != "PASS" else "")}
 
 
 def _blocking(row: dict) -> bool:
@@ -77,6 +116,20 @@ def _blocking(row: dict) -> bool:
 
 # ---------------------------------------------------------------------------------------------------------------
 # payloads
+
+def parse_modes(text: str | None) -> dict[str, str]:
+    """'youtube=auto,tiktok=draft' -> {'youtube': 'auto', 'tiktok': 'draft'} (ValueError on anything else)."""
+    out = {}
+    for part in (text or "").split(","):
+        if not part.strip():
+            continue
+        p, _, m = part.partition("=")
+        p, m = p.strip(), m.strip()
+        if p not in PLATFORMS or m not in ("draft", "auto"):
+            raise ValueError(f"--modes entry {part!r}: use <platform>=draft|auto with platform in {PLATFORMS}")
+        out[p] = m
+    return out
+
 
 def effective_mode(platform: str, cfg: dict, cli_mode: str | None) -> tuple[str, str | None]:
     want = cli_mode or (cfg.get("mode") or {}).get(platform, "draft")
@@ -202,9 +255,23 @@ def cmd_post(a) -> int:
         print("--ignore-gates is only allowed with --dry-run", file=sys.stderr)
         return B.EXIT_USAGE
 
+    try:
+        per_mode = parse_modes(a.modes)
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return B.EXIT_USAGE
     allenv = cenv.load_env()
-    needed = ["BUFFER_API_KEY"] + [CHANNEL_VAR[p] for p in platforms]
-    missing = [n for n in needed if not allenv.get(n)]
+    skipped: list[str] = []
+    if not allenv.get("BUFFER_API_KEY"):
+        missing = ["BUFFER_API_KEY"] + [CHANNEL_VAR[p] for p in platforms if not allenv.get(CHANNEL_VAR[p])]
+    else:
+        # one missing channel never turns the others into a silent dry run: drop just that platform
+        skipped = [p for p in platforms if not allenv.get(CHANNEL_VAR[p])]
+        missing = [CHANNEL_VAR[p] for p in skipped] if len(skipped) == len(platforms) else []
+        if skipped and not missing:
+            print(f"SKIP: {', '.join(CHANNEL_VAR[p] for p in skipped)} missing in ~/studio/.env: not posting to "
+                  f"{', '.join(skipped)}; posting {', '.join(p for p in platforms if p not in skipped)} for real")
+            platforms = [p for p in platforms if p not in skipped]
     dry = a.dry_run or bool(missing)
     if missing:
         print(cenv.dry_run_notice(missing))
@@ -226,7 +293,8 @@ def cmd_post(a) -> int:
     if not mp4:
         return B.EXIT_GATE
     hard_fail = [k for k in failed if not (a.ignore_gates and k in
-                                           ("gate_pass", "review_pass", "gate_mp4_sha", "review_gate_sha"))]
+                                           ("gate_pass", "review_pass", "gate_mp4_sha", "review_gate_sha",
+                                            "sameness_now"))]
     if hard_fail and not dry:
         print(f"BLOCKED: {', '.join(hard_fail)}")
         return B.EXIT_GATE
@@ -248,7 +316,7 @@ def cmd_post(a) -> int:
 
     modes = {}
     for p in platforms:
-        m, note = effective_mode(p, cfg, a.mode)
+        m, note = effective_mode(p, cfg, per_mode.get(p) or a.mode)
         modes[p] = m
         if note:
             print("NOTE:", note)
@@ -276,7 +344,9 @@ def cmd_post(a) -> int:
             if ch.get("isQueuePaused"):
                 print(f"WARN: {p} channel queue is paused in Buffer: scheduled posts will not go out")
 
-    rows_written, created, exit_code = 0, [], B.EXIT_OK
+    rows_written, created, failed_p, exit_code = 0, [], [], B.EXIT_OK
+    result = {"v": 1, "slug": slug, "pid": os.getpid(), "dry_run": dry, "skipped_platforms": skipped,
+              "platforms": platforms, "modes": modes}
     with H.hosted(mp4, ttl_s=a.hold_max_h * 3600, dry_run=dry, name=f"{slug}.mp4") as hosted:
         for p in platforms:
             ch_id = allenv.get(CHANNEL_VAR[p]) or f"<{CHANNEL_VAR[p]}>"
@@ -310,6 +380,7 @@ def cmd_post(a) -> int:
                 print(f"ERROR {p}: {cenv.redact(str(e))}", file=sys.stderr)
                 jsonl.append(str(ledger), dict(base, dry_run=False, status="failed", buffer_post_id=None,
                                                error=cenv.redact(str(e))))
+                failed_p.append(p)
                 exit_code = e.exit_code
                 break  # stop creating, but still hold the URL for posts already created
             if post:
@@ -321,17 +392,40 @@ def cmd_post(a) -> int:
             else:
                 row = dict(base, dry_run=False, status="failed", buffer_post_id=None, error=err,
                            ambiguous=amb or None)
+                failed_p.append(p)
                 exit_code = B.EXIT_FAIL
                 print(f"{p}: FAILED {err}", file=sys.stderr)
             jsonl.append(str(ledger), row)
             rows_written += 1
-        if not dry and created and hosted.mode == "cloudflared":
+        holding = bool(not dry and created and hosted.mode == "cloudflared")
+        result.update(exit=exit_code, created=[p for p, _ in created], failed=failed_p, holding=holding,
+                      rows_written=rows_written, host_mode=hosted.mode)
+        _result(a.result_file, result, "created")
+        if holding:
             _hold(client, hosted, created, slot_dt, modes, cfg, a.hold_max_h)
+    _result(a.result_file, result, "done")
     if dry:
         print(f"\nDRY-RUN done: {rows_written} dry_run row(s) -> "
               f"{ledger if rows_written else '(none: blocked preview)'}")
         return B.EXIT_GATE if hard_fail else B.EXIT_OK
     return exit_code
+
+
+def _result(path: str | None, result: dict, phase: str) -> None:
+    if not path:
+        return
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_name(p.name + f".tmp{os.getpid()}")
+    tmp.write_text(json.dumps({**result, "phase": phase, "at": timeutil.iso()}, ensure_ascii=False) + "\n",
+                   encoding="utf-8")
+    tmp.replace(p)
+    print(f"result: {phase} -> {p}", flush=True)
+
+
+def _on_signal(signum, _frame):
+    """SIGTERM/SIGHUP -> SystemExit in the main thread, so hosted()'s finally stops cloudflared (no orphan tunnel)."""
+    raise SystemExit(128 + signum)
 
 
 def _map_status(s: str | None) -> str:
@@ -389,6 +483,8 @@ def main(argv=None) -> int:
     ap.add_argument("--slot-at")
     ap.add_argument("--platforms", default=",".join(PLATFORMS))
     ap.add_argument("--mode", choices=["draft", "auto"])
+    ap.add_argument("--modes", help="per platform, e.g. youtube=auto,tiktok=draft,instagram=draft (wins over --mode)")
+    ap.add_argument("--result-file", help="write phase created/done JSON here (pipeline.ops.run waits on it)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ignore-gates", action="store_true", help="dry-run only: preview without gate/review PASS")
     ap.add_argument("--mp4")
@@ -400,6 +496,8 @@ def main(argv=None) -> int:
         return cmd_record_manual(a)
     if not a.slug or not a.slot_at:
         ap.error("<slug> and --slot-at are required (or use --record-manual)")
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, _on_signal)
     try:
         return cmd_post(a)
     except (FileNotFoundError, ValueError) as e:

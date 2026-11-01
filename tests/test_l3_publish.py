@@ -60,10 +60,14 @@ class Fixture(unittest.TestCase):
         self.env.stop()
         shutil.rmtree(self.tmp, ignore_errors=True)
 
-    def write_gate(self, verdict, review="PASS", mp4_sha=None):
+    def write_gate(self, verdict, review="PASS", mp4_sha=None, history_mode="default", title="Orcas Could Hunt You"):
         qa = self.tmp / "out" / SLUG / "qa"
+        (qa / "fingerprint.json").write_text(json.dumps({"v": 1, "slug": SLUG, "title": title, "hook": "x",
+                                                         "topic": "orca"}))
         (qa / "gate.json").write_text(json.dumps({"v": 1, "verdict": verdict,
-                                                  "mp4_sha256": mp4_sha or sha(self.mp4)}))
+                                                  "mp4_sha256": mp4_sha or sha(self.mp4),
+                                                  "checks": {"sameness": {"status": "PASS",
+                                                                          "history_mode": history_mode}}}))
         (qa / "review.json").write_text(json.dumps({"v": 1, "verdict": review, "gate_sha": sha(qa / "gate.json")}))
 
     def run_post(self, *extra):
@@ -143,6 +147,86 @@ class TestPostDryRun(Fixture):
         self.assertEqual(code, 6, out)
         self.assertIn("idempotent", out)
         self.assertEqual(self.run_post("--platforms", "youtube")[0], 0)
+
+    def test_non_default_sameness_history_blocks(self):
+        self.write_gate("PASS", history_mode="against")  # e.g. `pipeline.qa.gate <slug> --against ""`
+        code, out = self.run_post()
+        self.assertEqual(code, 6, out)
+        self.assertIn("history_mode=against", out)
+
+    def test_sameness_is_rechecked_at_post_time(self):
+        other = "op-20261102-b-killer-whale"
+        q = self.tmp / "out" / other / "qa"
+        q.mkdir(parents=True)
+        (q / "fingerprint.json").write_text(json.dumps({"v": 1, "slug": other, "title": "Killer whales", "hook": "y",
+                                                        "topic": "killer whale"}))
+        jsonl.append(str(self.tmp / "data" / "posts.jsonl"),
+                     {"post_key": f"{other}:youtube", "slug": other, "platform": "youtube", "status": "scheduled",
+                      "dry_run": False, "buffer_post_id": "p9", "scheduled_at": "2026-11-02T12:00:00Z"})
+        code, out = self.run_post()
+        self.assertEqual(code, 6, out)  # orca == killer whale: posted since the gate ran
+        self.assertIn("sameness_now", out)
+
+    def test_modes_per_platform_in_one_call(self):
+        cfg_dir = self.tmp / "data" / "operator"
+        cfg_dir.mkdir(parents=True)
+        (cfg_dir / "config.json").write_text(json.dumps({"disclosure_ok_auto": {"youtube": True}}))
+        code, out = self.run_post("--modes", "youtube=auto,tiktok=draft,instagram=draft")
+        self.assertEqual(code, 0, out)
+        rows = {r["platform"]: r for r in self.rows()}
+        self.assertEqual({p: r["mode"] for p, r in rows.items()},
+                         {"youtube": "auto", "tiktok": "draft", "instagram": "draft"})
+        self.assertNotIn("saveToDraft", rows["youtube"]["payload"]["variables"]["input"])
+        self.assertTrue(rows["tiktok"]["payload"]["variables"]["input"]["saveToDraft"])
+        self.assertEqual(self.run_post("--modes", "youtube=sometimes")[0], 2)
+
+    def test_missing_channel_drops_only_that_platform_and_writes_result(self):
+        made = []
+
+        class FakeClient:
+            dry_run = False
+
+            def __init__(self, *a, **k):
+                pass
+
+            def resolve_org(self, org):
+                return "org1"
+
+            def channels(self, org):
+                return [{"id": "chY", "service": B.PLATFORM_SERVICE["youtube"]},
+                        {"id": "chT", "service": B.PLATFORM_SERVICE["tiktok"]}]
+
+            def create_post(self, inp, label=""):
+                made.append(inp["channelId"])
+                return {"id": f"post-{inp['channelId']}", "status": "draft", "dueAt": inp["dueAt"],
+                        "assets": [{"source": "https://cdn.buffer.example/x.mp4"}]}
+
+        @contextlib.contextmanager
+        def fake_hosted(path, **k):
+            yield H.Hosted("static", "https://media.example/tok/x.mp4", "t" * 32, "x.mp4", "now")
+
+        env = {"BUFFER_API_KEY": "k" * 20, "BUFFER_CHANNEL_YOUTUBE": "chY", "BUFFER_CHANNEL_TIKTOK": "chT"}
+        res = self.tmp / "res.json"
+        with mock.patch.object(post.cenv, "load_env", return_value=env), \
+                mock.patch.object(post.B, "BufferClient", FakeClient), mock.patch.object(post.H, "hosted", fake_hosted):
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+                code = post.main([SLUG, "--slot-at", "2030-01-01T00:00:00Z", "--result-file", str(res)])
+        out = buf.getvalue()
+        self.assertEqual(code, 0, out)
+        self.assertIn("SKIP: BUFFER_CHANNEL_INSTAGRAM", out)
+        self.assertEqual(made, ["chY", "chT"])
+        rows = self.rows()
+        self.assertEqual([(r["platform"], r["dry_run"], r["status"]) for r in rows],
+                         [("youtube", False, "draft"), ("tiktok", False, "draft")])
+        r = json.loads(res.read_text())
+        self.assertEqual((r["phase"], r["created"], r["skipped_platforms"], r["dry_run"], r["holding"]),
+                         ("done", ["youtube", "tiktok"], ["instagram"], False, False))
+
+    def test_sigterm_handler_raises_system_exit(self):
+        with self.assertRaises(SystemExit) as cm:
+            post._on_signal(15, None)
+        self.assertEqual(cm.exception.code, 143)
 
     def test_failed_ambiguous_row_blocks(self):
         jsonl.append(str(self.tmp / "data" / "posts.jsonl"),

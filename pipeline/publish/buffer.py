@@ -37,8 +37,14 @@ class BufferError(Exception):
 
 
 class DependencyDown(BufferError):
-    """Auth rejected (401/403, UNAUTHORIZED/FORBIDDEN) or the API is unreachable after retries."""
+    """Auth rejected (401/403, UNAUTHORIZED/FORBIDDEN): exit 5, which can pause the operator loop."""
     exit_code = EXIT_DEP
+
+
+class Unavailable(BufferError):
+    """Buffer 5xx or unreachable after the retries: a transient outage, exit 1 (the next status bucket retries; a
+    short blip must never pause an unattended loop)."""
+    exit_code = EXIT_FAIL
 
 
 class NotFound(BufferError):
@@ -192,7 +198,7 @@ class BufferClient:
                     if attempt < MAX_TRIES:
                         self.sleep(_backoff(attempt))
                         continue
-                    raise DependencyDown(f"Buffer HTTP {e.code} after {attempt} tries")
+                    raise Unavailable(f"Buffer HTTP {e.code} after {attempt} tries")
                 raise BufferError(f"Buffer HTTP {e.code}: {cenv.redact(body)}")
             except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
                 # refused / DNS failure: the request never reached Buffer, so even a mutation is safe to retry
@@ -202,7 +208,7 @@ class BufferClient:
                 if attempt < MAX_TRIES:
                     self.sleep(_backoff(attempt))
                     continue
-                raise DependencyDown(f"Buffer unreachable: {cenv.redact(str(e))}")
+                raise Unavailable(f"Buffer unreachable: {cenv.redact(str(e))}")
             errs = payload.get("errors") or []
             if errs:
                 code = ((errs[0].get("extensions") or {}).get("code") or "").upper()

@@ -82,7 +82,9 @@ Sources:
   `cloudflared` mode, `post.py` keeps the tunnel open after creating the posts. It closes when every post is
   sent/error/deleted, or when Buffer reports its own asset URL, or at the slot time plus `drafts_missed_h` (draft) or
   plus 1 h (auto), and in any case after at most `--hold-max-h` (12 h). So the publish job runs for hours: L5 must
-  start it detached and must not count it as hung. A quick tunnel has no uptime guarantee, so for auto mode the
+  start it detached and must not count it as hung. (Done: `pipeline.ops.run` h_publish starts one post.py for all
+  platforms with `--result-file`, ends the job at phase `created`, and leaves the hold running in its own session;
+  post.py closes the tunnel on SIGTERM/SIGHUP.) A quick tunnel has no uptime guarantee, so for auto mode the
   recommended setup is `PUBLIC_HOST_MODE=static`: a stable public URL the human provisions (for example a named
   Cloudflare tunnel or an R2 bucket) that maps to `PUBLIC_MEDIA_DIR`. `python -m pipeline.publish.host serve --dir
   $PUBLIC_MEDIA_DIR` is the matching file server. In static mode the file stays until `status.py` prunes it, once every

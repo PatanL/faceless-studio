@@ -11,7 +11,8 @@ against Buffer's docs, and what is still assumed, is in `BUFFER_NOTES.md`. Stdli
 python -m pipeline.publish.buffer channels [--dry-run]       # organizations + channel ids, for the human's .env
 python -m pipeline.publish.buffer introspect [--dry-run]     # data/buffer_schema.json + checks the fields we use
 python -m pipeline.publish.post <slug> --slot-at <ISO> [--platforms youtube,tiktok,instagram] [--mode draft|auto] \
-        [--dry-run] [--ignore-gates] [--mp4 PATH] [--hold-max-h 12]
+        [--modes youtube=auto,tiktok=draft,instagram=draft] [--dry-run] [--ignore-gates] [--mp4 PATH] \
+        [--hold-max-h 12] [--result-file F]
 python -m pipeline.publish.post --record-manual <slug> <platform> <url> [--published-at ISO]
 python -m pipeline.publish.status [--all-open] [--slug S] [--dry-run]
 python -m pipeline.publish.schedule next --date YYYY-MM-DD [--slot a|b]
@@ -20,8 +21,13 @@ python -m pipeline.publish.host serve --dir DIR --port 8787  # static-mode file 
 ```
 
 `post` refuses (exit 6) unless `out/<slug>/qa/gate.json` is PASS, `out/<slug>/qa/review.json` is PASS,
-`gate.mp4_sha256 == sha256(mp4)`, `review.gate_sha == sha256(gate.json)`, no live ledger row exists for the
-post_key, and `config.paused` is false. A live row has status `draft`, `scheduled`, `sending`, `published`, `missed`
+`gate.mp4_sha256 == sha256(mp4)`, `review.gate_sha == sha256(gate.json)`, the gate's sameness used the default
+history (`history_mode` not `against`/`last_n`) and sameness re-run now from `fingerprint.json` against the current
+history still passes, no live ledger row exists for the post_key, and `config.paused` is false.
+With BUFFER_API_KEY set, a missing `BUFFER_CHANNEL_<PLATFORM>` drops only that platform (printed as SKIP and listed in
+the result file as `skipped_platforms`); only a missing key makes the whole call a dry run. `--result-file` gets
+phase `created` right after the posts exist and `done` at exit; pipeline.ops.run starts post.py detached and returns
+at `created`, so the hold is never killed by a job timeout. SIGTERM/SIGHUP stop the tunnel before exiting. A live row has status `draft`, `scheduled`, `sending`, `published`, `missed`
 or `manual`, or is `failed` with `ambiguous: true`; `dry_run` rows never block. In a dry-run it prints the
 precondition table and the payloads either way, but it writes rows only when the preconditions pass, or with
 `--ignore-gates`. That flag is only for previewing an episode that has no gate yet (such as the pilots), and is
