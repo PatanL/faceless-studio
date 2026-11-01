@@ -43,8 +43,10 @@ export type ThumbSpec = {
 	/**
 	 * Optional kit art override: any component registered by src/kits/* (e.g.
 	 * "explainer/SpermWhale"). Rendered at time `art.time` (default 0) in the subject's box.
+	 * `facing` is the way the kit drawing faces (explainer kit figures face "right", the default);
+	 * the templates' placeholders face left, so right-facing art is mirrored to match.
 	 */
-	art?: {component: string; props?: Record<string, unknown>; time?: number};
+	art?: {component: string; props?: Record<string, unknown>; time?: number; facing?: 'left' | 'right'};
 	/** Optional kit art override for the tiny human (e.g. "explainer/Diver", "horror/Resident"). */
 	humanArt?: {component: string; props?: Record<string, unknown>; time?: number};
 	/** Small label next to the human ("YOU") or on the ruler ("30 m"). */

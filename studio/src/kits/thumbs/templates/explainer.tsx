@@ -39,7 +39,14 @@ const Subject: React.FC<{
 	const w = vw * s;
 	const h = vh * s;
 	if (spec.art && hasKit(spec.art.component)) {
-		return <KitArt name={spec.art.component} props={spec.art.props} time={spec.art.time} x={x} y={y} w={w} h={h} flip={flip} rotate={rotate} />;
+		// placeholders face left; kit figures face right unless art.facing says otherwise
+		const kitFlip = (spec.art.facing ?? 'right') === 'right' ? !flip : !!flip;
+		// rotate about the focus point like the placeholder does (KitArt alone would use the box centre)
+		return (
+			<g transform={`rotate(${rotate} ${at[0]} ${at[1]})`}>
+				<KitArt name={spec.art.component} props={spec.art.props} time={spec.art.time} x={x} y={y} w={w} h={h} flip={kitFlip} />
+			</g>
+		);
 	}
 	const C = cr.C;
 	return (

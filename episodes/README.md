@@ -29,6 +29,14 @@ rsync -a dgx-spark:~/studio/app/episodes/<slug>/audio/ episodes/<slug>/audio/
 # Mac (light): storyboard from script + timings, then validate + render on the Spark
 python3 -m pipeline.episodes.build <slug>
 CONC=4 PROPS=episodes/<slug>/storyboard.json scripts/spark_render.sh Storyboard <slug>.mp4
+# look-dev without an MP4 render (niced stills, no render lock): one contact sheet of chosen seconds
+scripts/spark_stills.sh episodes/<slug>/storyboard.json 0.5,3,8 out/stills/<slug>.jpg
+# first 10 s only: add --frames=0-299 to spark_render.sh
+# 16:9 cut (same audio/captions; uniform remap of the 9:16 picture zone, captions to a bottom band)
+python3 -m pipeline.episodes.reformat <slug>
+CONC=4 PROPS=episodes/<slug>/storyboard_16x9.json scripts/spark_render.sh Storyboard <slug>_16x9.mp4
+# thumbnails (B6): episodes/<slug>/thumbs.json, kit art via "art"/"humanArt" (see explainer-blue-whale)
+OUT=pilots/<slug>/thumbs scripts/thumbs_render.sh episodes/<slug>/thumbs.json
 ```
 
 The storyboard plays `episodes/<slug>/mix.wav` from `studio/public` (Spark only, gitignored); rerun

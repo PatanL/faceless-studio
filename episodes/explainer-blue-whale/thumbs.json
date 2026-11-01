@@ -1,0 +1,12 @@
+{
+  "id": "explainer-blue-whale",
+  "niche": "explainer",
+  "subject": "whale",
+  "art": {"component": "explainer/BlueWhale", "props": {"gape": 0.9, "idle": false}},
+  "humanArt": {"component": "explainer/Diver", "props": {"arms": "forward", "bubbles": false}},
+  "variants": [
+    {"template": "eye", "text": "IT CAN'T SWALLOW YOU", "accent": "YOU"},
+    {"template": "scale", "text": "YOU FIT INSIDE", "accent": "INSIDE", "label": "30 M", "humanLabel": "YOU"},
+    {"template": "eye", "id": "explainer-blue-whale-b", "text": "ROOM TO SPARE", "accent": "SPARE", "humanLabel": "YOU"}
+  ]
+}
