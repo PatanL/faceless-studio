@@ -1,0 +1,231 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 80.8,
+ "captions": {
+  "src": "episodes/horror-group-chat-extra-member/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-group-chat-extra-member/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 80.8
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-group-chat-extra-member/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 80.8
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-group-chat-extra-member/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-group-chat-extra-member/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "drone",
+   "at": 3.16
+  },
+  {
+   "cue": "message_pop",
+   "at": 4.21
+  },
+  {
+   "cue": "message_pop",
+   "at": 5.485
+  },
+  {
+   "cue": "pop",
+   "at": 6.8
+  },
+  {
+   "cue": "stinger",
+   "at": 10.64
+  },
+  {
+   "cue": "footsteps",
+   "at": 12.227
+  },
+  {
+   "cue": "message_send",
+   "at": 14.54
+  },
+  {
+   "cue": "message_pop",
+   "at": 15.585
+  },
+  {
+   "cue": "breath",
+   "at": 19.125
+  },
+  {
+   "cue": "heartbeat_slow",
+   "at": 21.212
+  },
+  {
+   "cue": "phone_buzz",
+   "at": 22.825
+  },
+  {
+   "cue": "stinger",
+   "at": 25.6
+  },
+  {
+   "cue": "message_send",
+   "at": 25.8
+  },
+  {
+   "cue": "message_pop",
+   "at": 27.088
+  },
+  {
+   "cue": "message_pop",
+   "at": 29.25
+  },
+  {
+   "cue": "pop",
+   "at": 34.33
+  },
+  {
+   "cue": "glitch",
+   "at": 34.33
+  },
+  {
+   "cue": "notify",
+   "at": 40.507
+  },
+  {
+   "cue": "glitch",
+   "at": 43.877
+  },
+  {
+   "cue": "drone",
+   "at": 44.14
+  },
+  {
+   "cue": "pop",
+   "at": 44.44
+  },
+  {
+   "cue": "footsteps",
+   "at": 44.44
+  },
+  {
+   "cue": "pop",
+   "at": 45.765
+  },
+  {
+   "cue": "pop",
+   "at": 48.345
+  },
+  {
+   "cue": "footsteps",
+   "at": 48.345
+  },
+  {
+   "cue": "impact",
+   "at": 50.612
+  },
+  {
+   "cue": "heartbeat_slow",
+   "at": 54.99
+  },
+  {
+   "cue": "click",
+   "at": 56.19
+  },
+  {
+   "cue": "stinger",
+   "at": 57.99
+  },
+  {
+   "cue": "message_pop",
+   "at": 58.24
+  },
+  {
+   "cue": "notify",
+   "at": 61.01
+  },
+  {
+   "cue": "clock_ticking",
+   "at": 63.06
+  },
+  {
+   "cue": "message_pop",
+   "at": 63.31
+  },
+  {
+   "cue": "message_pop",
+   "at": 65.41
+  },
+  {
+   "cue": "message_pop",
+   "at": 65.947
+  },
+  {
+   "cue": "clock_ticking",
+   "at": 66.472
+  },
+  {
+   "cue": "glitch",
+   "at": 67.747
+  },
+  {
+   "cue": "message_send",
+   "at": 69.322
+  },
+  {
+   "cue": "typing",
+   "at": 70.36
+  },
+  {
+   "cue": "clock_ticking",
+   "at": 71.17
+  },
+  {
+   "cue": "message_pop",
+   "at": 71.895
+  },
+  {
+   "cue": "stinger",
+   "at": 75.76
+  },
+  {
+   "cue": "message_send",
+   "at": 77.285
+  },
+  {
+   "cue": "message_pop",
+   "at": 78.415
+  },
+  {
+   "cue": "breath",
+   "at": 79.3
+  }
+ ]
+}

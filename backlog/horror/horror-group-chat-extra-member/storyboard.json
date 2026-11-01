@@ -1,0 +1,5558 @@
+{
+ "version": 1,
+ "id": "horror-group-chat-extra-member",
+ "title": "We Have No Night Security. Our Building Chat Does. (Part 1)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_cover_hook",
+   "duration": 6.15,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": false
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:12",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana · 9D",
+          "text": "anyone else's radiator banging",
+          "at": -40.0
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "every night lol",
+          "at": -39.0
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "someone's in the hall??",
+          "at": -6.0
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -5.0
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": 3.3
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": 4.21
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "we have no\nnight security",
+      "style": "scrawl",
+      "at": -0.3,
+      "duration": 6.6,
+      "fontSize": 80,
+      "shake": 0,
+      "y": 0.205
+     },
+     "depth": 0,
+     "z": 70
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.45,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.49,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "step"
+     },
+     {
+      "t": 6.15,
+      "zoom": 1.25,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "Frame 0 = cover: phone over her own front door (hall light under it), newest bubble \"Nobody. Go back to bed, 3D.\", red scrawl."
+  },
+  {
+   "id": "s02_profile_bio",
+   "duration": 2.2,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": false
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Night Security",
+        "subtitle": "Unit: — · Joined Mar 1",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:12",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana · 9D",
+          "text": "anyone else's radiator banging",
+          "at": -46.15
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "every night lol",
+          "at": -45.15
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "someone's in the hall??",
+          "at": -12.15
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -11.15
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": -2.85
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": -1.94
+         }
+        ],
+        "pinned": {
+         "label": "BIO",
+         "text": "Ask me.\nNever use your peephole.",
+         "lines": 2,
+         "at": 0.3
+        }
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.2,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s03_empty_2c",
+   "duration": 2.52,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "props": {
+      "lights": 1,
+      "figure": 0,
+      "runner": true,
+      "endDoor": true,
+      "flicker": 0.1
+     }
+    },
+    {
+     "type": "rect",
+     "x": "22%",
+     "y": "44%",
+     "width": 120,
+     "height": 64,
+     "fill": "#c9b98f",
+     "stroke": "#2a2410",
+     "strokeWidth": 4,
+     "radius": 6
+    },
+    {
+     "type": "text",
+     "text": "2C",
+     "x": "22%",
+     "y": "44%",
+     "fontSize": 44,
+     "color": "#2a2410",
+     "weight": 900
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "props": {
+      "strength": 0.1
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.52,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "s04_barrier",
+   "duration": 2.98,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 1.0,
+      "feet": [
+       1.33,
+       3.98
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.7,
+      "radius": 0.55,
+      "darkness": 0.6
+     },
+     "depth": 0,
+     "z": 45
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.98,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "callouts": [
+    {
+     "style": "label",
+     "text": "5B",
+     "at": 2.56,
+     "x": "50%",
+     "y": "30%"
+    }
+   ]
+  },
+  {
+   "id": "s05_ritual",
+   "duration": 4.55,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "taps": [
+       {
+        "at": 0.1,
+        "x": 0.82,
+        "y": 0.9
+       }
+      ],
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:12",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana · 9D",
+          "text": "anyone else's radiator banging",
+          "at": -53.85
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "every night lol",
+          "at": -52.85
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "someone's in the hall??",
+          "at": -19.85
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -18.85
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": -10.55
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": -9.64
+         },
+         {
+          "me": true,
+          "text": "who's in the hallway?",
+          "at": 0.15
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": 1.74
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.55,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06_nora_rule",
+   "duration": 0.72,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 1.0,
+      "feet": true
+     },
+     "blur": 4
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "idle",
+      "expr": "suspicious",
+      "lookX": 0.5,
+      "light": "none"
+     },
+     "x": "40%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1450,
+     "height": 2204
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.72,
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07_peephole_okafor",
+   "duration": 2.88,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "props": {
+      "figure": "neighbour",
+      "expr": "blank",
+      "blink": false,
+      "colors": {
+       "hair": "#1b1716",
+       "skin": "#7a4e33",
+       "top": "#3e5872",
+       "topShade": "#2c3f52",
+       "shirt": "#d9d2c3"
+      },
+      "lookX": 0,
+      "lookY": 0,
+      "lean": 0.45,
+      "flicker": 0.1,
+      "radius": 0.52,
+      "exposure": 1.2,
+      "surround": "#050506"
+     }
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.88,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "s08_peephole_empty",
+   "duration": 0.82,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "props": {
+      "figure": "none",
+      "flicker": 0.2,
+      "radius": 0.52,
+      "exposure": 1.2,
+      "surround": "#050506"
+     }
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ]
+  },
+  {
+   "id": "s09_dm_you_looked",
+   "duration": 2.98,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": false
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 2.48,
+        "duration": 0.2,
+        "amount": 0.8
+       }
+      ],
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "dm": "Night Security",
+        "title": "Night Security",
+        "subtitle": "private chat",
+        "accent": "#3d5a80",
+        "clock": "1:13",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "You looked, 5B.",
+          "at": 1.22
+         },
+         {
+          "from": "Night Security",
+          "text": "So did 2C.",
+          "at": 2.02
+         }
+        ]
+       },
+       "screens": [
+        {
+         "t": 0,
+         "mode": "lock"
+        },
+        {
+         "t": 0.9,
+         "mode": "chat"
+        }
+       ],
+       "lock": {
+        "time": "1:13",
+        "date": "Sunday, November 1",
+        "notifications": [
+         {
+          "at": 0.45,
+          "app": "Residents",
+          "title": "Night Security",
+          "text": "private message"
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.45,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.98,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.48,
+      "duration": 0.2,
+      "amplitude": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "s10_chorus_admin",
+   "duration": 7.83,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.8
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:13",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana · 9D",
+          "text": "anyone else's radiator banging",
+          "at": -65.8
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "every night lol",
+          "at": -64.8
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "someone's in the hall??",
+          "at": -31.8
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -30.8
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": -22.5
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": -21.59
+         },
+         {
+          "me": true,
+          "text": "who's in the hallway?",
+          "at": -11.8
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -10.21
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": 0.1
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": 1.29
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": 3.45
+         }
+        ],
+        "typing": [
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "at": 2.7,
+          "until": 3.45
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.45,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 7.83,
+      "zoom": 1.08,
+      "x": "55.60%",
+      "y": "70%",
+      "ease": "inOut"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11_admin_removed",
+   "duration": 3.07,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.8
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 0,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 0.7,
+        "duration": 0.2,
+        "amount": 0.9
+       }
+      ],
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:13",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Ama · 3D",
+          "text": "someone's in the hall??",
+          "at": -39.63
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -38.63
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": -30.33
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": -29.42
+         },
+         {
+          "me": true,
+          "text": "who's in the hallway?",
+          "at": -19.63
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -18.04
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": -7.73
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -6.54
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -4.38
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": 0.7
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.07,
+      "zoom": 1.02,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12_search_214",
+   "duration": 3.14,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.8
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Search: Night Security",
+        "subtitle": "214 results",
+        "dayLabel": "Mar 3",
+        "accent": "#3d5a80",
+        "clock": "1:13",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "Nobody. The boiler.",
+          "at": -9
+         },
+         {
+          "from": "Night Security",
+          "text": "One. 8A, locked out.",
+          "at": -8
+         },
+         {
+          "from": "Night Security",
+          "text": "Two. Delivery, 6B and 6C.",
+          "at": -7
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody. Wind in the stairwell.",
+          "at": -6
+         },
+         {
+          "from": "Night Security",
+          "text": "One. 4D's dog walker.",
+          "at": -5
+         },
+         {
+          "from": "Night Security",
+          "text": "Three. 1A's grandchildren.",
+          "at": -4
+         },
+         {
+          "from": "Night Security",
+          "text": "Nobody.",
+          "at": -3
+         },
+         {
+          "from": "Night Security",
+          "text": "One. 7A, night shift.",
+          "at": 0.4
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Outside 2C.",
+          "at": 1.6
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.02,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.14,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "s13_turn_me",
+   "duration": 4.6,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.8
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:13",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "Nobody. Go back to bed, 3D.",
+          "at": -44.84
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "who's in the hallway?",
+          "at": -36.54
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Delivery for 7A. Leaving now.",
+          "at": -35.63
+         },
+         {
+          "me": true,
+          "text": "who's in the hallway?",
+          "at": -25.84
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -24.25
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": -13.94
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -12.75
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -10.59
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -5.51
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": 1.8
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": 4.6
+         }
+        ],
+        "unread": 0,
+        "unreadFrom": 0.1
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 4.04,
+        "duration": 0.25,
+        "amount": 0.9
+       }
+      ],
+      "seed": "turn"
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.6,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.04,
+      "duration": 0.25,
+      "amplitude": 16
+     }
+    ]
+   }
+  },
+  {
+   "id": "s14_floor7",
+   "duration": 1.33,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "props": {
+      "floor": "7",
+      "exit": true,
+      "flicker": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.4,
+      "darkness": 0.6
+     },
+     "depth": 0,
+     "z": 45
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.33,
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s15_floor6",
+   "duration": 0.89,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "props": {
+      "floor": "6",
+      "exit": true,
+      "flicker": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.4,
+      "darkness": 0.6
+     },
+     "depth": 0,
+     "z": 45
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.89,
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s16_seen_by_36",
+   "duration": 1.68,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.8
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 0,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "Seen by 36",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:14",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "me": true,
+          "text": "who's in the hallway?",
+          "at": -32.66
+         },
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -31.07
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": -20.76
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -19.57
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -17.41
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -12.33
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": -5.02
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": -2.22
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 6.",
+          "at": -0.89
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 5.",
+          "at": 1.68
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ]
+  },
+  {
+   "id": "s17_floor5",
+   "duration": 0.91,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "props": {
+      "floor": "5",
+      "exit": true,
+      "flicker": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.4,
+      "darkness": 0.65
+     },
+     "depth": 0,
+     "z": 45
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "Night Security: Floor 5.",
+     "at": 0.0,
+     "y": "74%"
+    }
+   ]
+  },
+  {
+   "id": "s18_footsteps_stop",
+   "duration": 1.36,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 1.0,
+      "flicker": 0.3,
+      "feet": [
+       0.1,
+       2.36
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.7,
+      "radius": 0.5,
+      "darkness": 0.65
+     },
+     "depth": 0,
+     "z": 45
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.36,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s19_no_signal",
+   "duration": 2.73,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:14",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -35.02
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": -24.71
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -23.52
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -21.36
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -16.28
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": -8.97
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": -6.17
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 6.",
+          "at": -4.84
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 5.",
+          "at": -2.27
+         }
+        ],
+        "draft": "someone is at my door"
+       },
+       "screens": [
+        {
+         "t": 0,
+         "mode": "call"
+        },
+        {
+         "t": 1.55,
+         "mode": "chat"
+        }
+       ],
+       "call": {
+        "name": "911",
+        "sub": "No signal",
+        "label": "Call failed",
+        "at": 0
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [],
+    "shake": [
+     {
+      "at": 0.0,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "s20_nora_looks",
+   "duration": 0.59,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 1.0,
+      "feet": true
+     },
+     "blur": 4
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "idle",
+      "expr": "terrified",
+      "lookX": 0.6,
+      "light": "none"
+     },
+     "x": "40%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1450,
+     "height": 2204
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.59,
+      "zoom": 1.1,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s21_covered_peephole",
+   "duration": 4.31,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "props": {
+      "figure": "none",
+      "exposure": 0.03,
+      "flicker": 0,
+      "radius": 0.52,
+      "surround": "#26272d"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "props": {
+      "figure": "none",
+      "exposure": 0.6,
+      "flicker": 0,
+      "radius": 0.52,
+      "surround": "#26272d"
+     },
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 2.12,
+       "opacity": 0
+      },
+      {
+       "t": 2.32,
+       "opacity": 0.85
+      },
+      {
+       "t": 2.52,
+       "opacity": 0
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": "77.6%",
+     "y": "31.5%",
+     "width": 18,
+     "height": 18,
+     "fill": "#e8f4ff",
+     "opacity": 0,
+     "depth": 0,
+     "z": 52,
+     "keyframes": [
+      {
+       "t": 2.22,
+       "opacity": 0
+      },
+      {
+       "t": 2.32,
+       "opacity": 0.9
+      },
+      {
+       "t": 2.57,
+       "opacity": 0
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 70,
+      "bpmTo": 90,
+      "from": 1.06,
+      "intensity": 0.7
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "The only fully still shot: no camera move. Black lens (rim drawn), blinks at 56.05-56.45 with a wet glint."
+  },
+  {
+   "id": "s22_dm_step_back",
+   "duration": 1.93,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 4,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "dm": "Night Security",
+        "title": "Night Security",
+        "subtitle": "private chat",
+        "accent": "#3d5a80",
+        "clock": "1:14",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "You looked, 5B.",
+          "at": -34.2
+         },
+         {
+          "from": "Night Security",
+          "text": "So did 2C.",
+          "at": -33.4
+         },
+         {
+          "from": "Night Security",
+          "text": "Step back from the peephole, 5B.",
+          "at": 0.0
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.0,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ]
+  },
+  {
+   "id": "s23_door_check",
+   "duration": 3.14,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:15",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Night Security",
+          "text": "One. Mr. Okafor, next door. Taking out recycling.",
+          "at": -44.58
+         },
+         {
+          "me": true,
+          "text": "who actually runs night security??",
+          "at": -34.27
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -33.08
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -30.92
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -25.84
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": -18.53
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": -15.73
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 6.",
+          "at": -14.4
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 5.",
+          "at": -11.83
+         },
+         {
+          "from": "Night Security",
+          "text": "Door check. 5B. 20 seconds.",
+          "kind": "alert",
+          "at": 1.11
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "just open it 5B its never wrong",
+          "at": 3.14
+         }
+        ]
+       },
+       "banners": [
+        {
+         "at": 0.55,
+         "duration": 1.4,
+         "app": "Residents",
+         "title": "Night Security",
+         "text": "Door check. 5B. 20 seconds."
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:20",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 2.31,
+     "end": 3.14
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.14,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s24_open_it",
+   "duration": 3.16,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:15",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana · 9D",
+          "text": "leave it alone it found my cat 🐈",
+          "at": -36.22
+         },
+         {
+          "from": "Mrs. Petrov · 1A · admin",
+          "text": "Landlord says that account joined 2 days before this chat existed. Removing it.",
+          "at": -34.06
+         },
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -28.98
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": -21.67
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": -18.87
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 6.",
+          "at": -17.54
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 5.",
+          "at": -14.97
+         },
+         {
+          "from": "Night Security",
+          "text": "Door check. 5B. 20 seconds.",
+          "kind": "alert",
+          "at": -2.03
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "just open it 5B its never wrong",
+          "at": 0.0
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "open it",
+          "at": 2.1
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "open it 5B",
+          "at": 2.64
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:20",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0,
+     "end": 0.17
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:19",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0.17,
+     "end": 1.17
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:18",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 1.17,
+     "end": 2.17
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:17",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 2.17,
+     "end": 3.16
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ]
+  },
+  {
+   "id": "s25_dm_okafor",
+   "duration": 5.42,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 1.28,
+        "duration": 0.15,
+        "amount": 0.5
+       }
+      ],
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "dm": "Mr. Okafor",
+        "title": "Mr. Okafor",
+        "subtitle": "5A · last seen 9:02 PM",
+        "accent": "#3d5a80",
+        "clock": "1:15",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Mr. Okafor",
+          "text": "parcel for you at the front desk 📦",
+          "at": -366.47
+         },
+         {
+          "me": true,
+          "text": "got it thank you!!",
+          "at": -365.47
+         },
+         {
+          "kind": "system",
+          "text": "Night Security is in this chat",
+          "at": 1.28
+         },
+         {
+          "me": true,
+          "text": "was that you at my door??",
+          "at": 2.85
+         },
+         {
+          "from": "Mr. Okafor",
+          "text": "ive been asleep since 9. what night security?? nobodys posted in our chat since friday",
+          "at": 5.42
+         }
+        ],
+        "typing": [
+         {
+          "from": "Mr. Okafor",
+          "at": 3.89,
+          "until": 5.42
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:17",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0,
+     "end": 0.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:16",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0.01,
+     "end": 1.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:15",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 1.01,
+     "end": 2.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:14",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 2.01,
+     "end": 3.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:13",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 3.01,
+     "end": 4.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:12",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 4.01,
+     "end": 5.01
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:11",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 5.01,
+     "end": 5.42
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.42,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s26_twist",
+   "duration": 3.89,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "dm": "Mr. Okafor",
+        "title": "Mr. Okafor",
+        "subtitle": "5A · online",
+        "accent": "#3d5a80",
+        "clock": "1:15",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Mr. Okafor",
+          "text": "parcel for you at the front desk 📦",
+          "at": -371.89
+         },
+         {
+          "me": true,
+          "text": "got it thank you!!",
+          "at": -370.89
+         },
+         {
+          "kind": "system",
+          "text": "Night Security is in this chat",
+          "at": -4.14
+         },
+         {
+          "me": true,
+          "text": "was that you at my door??",
+          "at": -2.57
+         },
+         {
+          "from": "Mr. Okafor",
+          "text": "ive been asleep since 9. what night security?? nobodys posted in our chat since friday",
+          "at": 0.0
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 1.29,
+        "duration": 0.2,
+        "amount": 0.6
+       }
+      ],
+      "seed": "twist"
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:11",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0,
+     "end": 0.59
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:10",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0.59,
+     "end": 1.59
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:09",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 1.59,
+     "end": 2.59
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:08",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 2.59,
+     "end": 3.59
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:07",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 3.59,
+     "end": 3.89
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.89,
+      "zoom": 1.12,
+      "x": "55.60%",
+      "y": "72%",
+      "ease": "inOut"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s27_bookend_two",
+   "duration": 3.82,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0.75
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "hallLight": 0.0,
+      "chain": "on",
+      "feet": false
+     },
+     "depth": 0.2,
+     "blur": 8,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 2.82,
+       "opacity": 0
+      },
+      {
+       "t": 3.12,
+       "opacity": 0.75
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Night Security": {
+         "color": "#4b5563",
+         "initials": "🛡️"
+        },
+        "Leo · 7C": {
+         "color": "#4a628f",
+         "initials": "L"
+        },
+        "Ama · 3D": {
+         "color": "#7a5c8f",
+         "initials": "A"
+        },
+        "Dana · 9D": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Petrov · 1A · admin": {
+         "color": "#8f6a4a",
+         "initials": "P"
+        },
+        "Mr. Okafor": {
+         "color": "#3e5872",
+         "initials": "O"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Larkspur Court Residents",
+        "subtitle": "38 members",
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:15",
+        "battery": 23,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "kind": "system",
+          "text": "Night Security removed Mrs. Petrov (1A)",
+          "at": -41.45
+         },
+         {
+          "from": "Night Security",
+          "text": "Who's in the hallway? One. Floor 8, by the stairs. Me.",
+          "at": -34.14
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 7.",
+          "at": -31.34
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 6.",
+          "at": -30.01
+         },
+         {
+          "from": "Night Security",
+          "text": "Floor 5.",
+          "at": -27.44
+         },
+         {
+          "from": "Night Security",
+          "text": "Door check. 5B. 20 seconds.",
+          "kind": "alert",
+          "at": -14.5
+         },
+         {
+          "from": "Dana · 9D",
+          "text": "just open it 5B its never wrong",
+          "at": -12.47
+         },
+         {
+          "from": "Leo · 7C",
+          "text": "open it",
+          "at": -10.37
+         },
+         {
+          "from": "Ama · 3D",
+          "text": "open it 5B",
+          "at": -9.83
+         },
+         {
+          "me": true,
+          "text": "who's in 5B?",
+          "at": 1.5
+         },
+         {
+          "from": "Night Security",
+          "text": "Two.",
+          "at": 2.64
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:07",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0,
+     "end": 0.7
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:06",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 0.7,
+     "end": 1.7
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:05",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 1.7,
+     "end": 2.7
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:04",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 2.7,
+     "end": 3.7
+    },
+    {
+     "type": "text",
+     "text": "DOOR CHECK 0:03",
+     "fontSize": 40,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 12,
+     "radius": 12,
+     "x": "50%",
+     "y": 372,
+     "depth": 0,
+     "z": 92,
+     "start": 3.7,
+     "end": 3.82
+    },
+    {
+     "type": "text",
+     "text": "PT 1",
+     "fontSize": 34,
+     "font": "display",
+     "weight": 900,
+     "color": "#ffffff",
+     "background": "#c0202b",
+     "padding": 10,
+     "radius": 8,
+     "x": 135,
+     "y": 1440,
+     "depth": 0,
+     "z": 95
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.82,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "notes": "Bookend: framed exactly like s01. The light line under the door goes out after \"Two.\""
+  },
+  {
+   "id": "s28_part2_card",
+   "duration": 1.2,
+   "background": {
+    "type": "color",
+    "color": "#000000"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/EndCard",
+     "props": {
+      "rule": "Who's in 5B?",
+      "from": "Night Security",
+      "sub": "is typing…",
+      "label": "PART 2",
+      "at": 0.2,
+      "stampAt": 0.5
+     },
+     "depth": 0,
+     "z": 80
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "Our",
+    "start": 0.1,
+    "end": 0.147
+   },
+   {
+    "text": "building",
+    "start": 0.147,
+    "end": 0.36
+   },
+   {
+    "text": "chat",
+    "start": 0.36,
+    "end": 0.547
+   },
+   {
+    "text": "has",
+    "start": 0.547,
+    "end": 0.648
+   },
+   {
+    "text": "a",
+    "start": 0.648,
+    "end": 0.697
+   },
+   {
+    "text": "member",
+    "start": 0.697,
+    "end": 0.872
+   },
+   {
+    "text": "called",
+    "start": 0.872,
+    "end": 1.048
+   },
+   {
+    "text": "Night",
+    "start": 1.048,
+    "end": 1.223
+   },
+   {
+    "text": "Security.",
+    "start": 1.223,
+    "end": 1.885
+   },
+   {
+    "text": "We",
+    "start": 1.948,
+    "end": 2.073
+   },
+   {
+    "text": "have",
+    "start": 2.073,
+    "end": 2.173
+   },
+   {
+    "text": "no",
+    "start": 2.173,
+    "end": 2.323,
+    "emph": true
+   },
+   {
+    "text": "night",
+    "start": 2.323,
+    "end": 2.448
+   },
+   {
+    "text": "security.",
+    "start": 2.448,
+    "end": 3.06
+   },
+   {
+    "text": "Ask",
+    "start": 3.16,
+    "end": 3.348
+   },
+   {
+    "text": "who's",
+    "start": 3.348,
+    "end": 3.522
+   },
+   {
+    "text": "in",
+    "start": 3.522,
+    "end": 3.598
+   },
+   {
+    "text": "the",
+    "start": 3.598,
+    "end": 3.673
+   },
+   {
+    "text": "hallway.",
+    "start": 3.673,
+    "end": 4.11
+   },
+   {
+    "text": "A",
+    "start": 4.21,
+    "end": 4.272
+   },
+   {
+    "text": "number,",
+    "start": 4.272,
+    "end": 4.46
+   },
+   {
+    "text": "a",
+    "start": 4.497,
+    "end": 4.547
+   },
+   {
+    "text": "name,",
+    "start": 4.547,
+    "end": 4.785
+   },
+   {
+    "text": "in",
+    "start": 4.822,
+    "end": 4.897
+   },
+   {
+    "text": "one",
+    "start": 4.897,
+    "end": 5.035
+   },
+   {
+    "text": "second.",
+    "start": 5.035,
+    "end": 5.41
+   },
+   {
+    "text": "Never",
+    "start": 5.485,
+    "end": 5.647,
+    "emph": true
+   },
+   {
+    "text": "wrong.",
+    "start": 5.647,
+    "end": 5.95,
+    "emph": true
+   },
+   {
+    "text": "Its",
+    "start": 6.15,
+    "end": 6.262
+   },
+   {
+    "text": "bio",
+    "start": 6.262,
+    "end": 6.437
+   },
+   {
+    "text": "says:",
+    "start": 6.437,
+    "end": 6.725
+   },
+   {
+    "text": "Ask",
+    "start": 6.8,
+    "end": 7.037
+   },
+   {
+    "text": "me.",
+    "start": 7.037,
+    "end": 7.25,
+    "emph": true
+   },
+   {
+    "text": "Never",
+    "start": 7.325,
+    "end": 7.487,
+    "emph": true
+   },
+   {
+    "text": "use",
+    "start": 7.487,
+    "end": 7.637
+   },
+   {
+    "text": "your",
+    "start": 7.637,
+    "end": 7.737
+   },
+   {
+    "text": "peephole.",
+    "start": 7.737,
+    "end": 8.25,
+    "emph": true
+   },
+   {
+    "text": "Two",
+    "start": 8.35,
+    "end": 8.5,
+    "emph": true
+   },
+   {
+    "text": "C",
+    "start": 8.5,
+    "end": 8.65
+   },
+   {
+    "text": "used",
+    "start": 8.65,
+    "end": 8.837
+   },
+   {
+    "text": "hers",
+    "start": 8.837,
+    "end": 8.962
+   },
+   {
+    "text": "in",
+    "start": 8.962,
+    "end": 9.037
+   },
+   {
+    "text": "March.",
+    "start": 9.037,
+    "end": 9.45
+   },
+   {
+    "text": "Two",
+    "start": 9.55,
+    "end": 9.7,
+    "emph": true
+   },
+   {
+    "text": "C",
+    "start": 9.7,
+    "end": 9.837
+   },
+   {
+    "text": "has",
+    "start": 9.837,
+    "end": 9.938
+   },
+   {
+    "text": "been",
+    "start": 9.938,
+    "end": 10.062
+   },
+   {
+    "text": "empty",
+    "start": 10.062,
+    "end": 10.25,
+    "emph": true
+   },
+   {
+    "text": "since.",
+    "start": 10.25,
+    "end": 10.64
+   },
+   {
+    "text": "Tonight",
+    "start": 10.865,
+    "end": 11.053
+   },
+   {
+    "text": "at",
+    "start": 11.053,
+    "end": 11.127
+   },
+   {
+    "text": "one",
+    "start": 11.127,
+    "end": 11.252
+   },
+   {
+    "text": "twelve,",
+    "start": 11.252,
+    "end": 11.515
+   },
+   {
+    "text": "home",
+    "start": 11.553,
+    "end": 11.702
+   },
+   {
+    "text": "alone,",
+    "start": 11.702,
+    "end": 11.965,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 12.002,
+    "end": 12.077
+   },
+   {
+    "text": "heard",
+    "start": 12.077,
+    "end": 12.227
+   },
+   {
+    "text": "footsteps",
+    "start": 12.227,
+    "end": 12.502
+   },
+   {
+    "text": "stop",
+    "start": 12.502,
+    "end": 12.652
+   },
+   {
+    "text": "outside",
+    "start": 12.652,
+    "end": 12.902
+   },
+   {
+    "text": "my",
+    "start": 12.902,
+    "end": 13.002
+   },
+   {
+    "text": "door.",
+    "start": 13.002,
+    "end": 13.315
+   },
+   {
+    "text": "Five",
+    "start": 13.427,
+    "end": 13.665
+   },
+   {
+    "text": "B.",
+    "start": 13.665,
+    "end": 13.852
+   },
+   {
+    "text": "I",
+    "start": 13.852,
+    "end": 13.965
+   },
+   {
+    "text": "asked.",
+    "start": 13.965,
+    "end": 14.44
+   },
+   {
+    "text": "One",
+    "start": 14.54,
+    "end": 14.715
+   },
+   {
+    "text": "second",
+    "start": 14.715,
+    "end": 14.927
+   },
+   {
+    "text": "later:",
+    "start": 14.927,
+    "end": 15.31
+   },
+   {
+    "text": "One.",
+    "start": 15.585,
+    "end": 15.81
+   },
+   {
+    "text": "Mr.",
+    "start": 15.848,
+    "end": 16.11
+   },
+   {
+    "text": "Okafor,",
+    "start": 16.11,
+    "end": 16.435
+   },
+   {
+    "text": "next",
+    "start": 16.473,
+    "end": 16.697
+   },
+   {
+    "text": "door.",
+    "start": 16.697,
+    "end": 17.01
+   },
+   {
+    "text": "Taking",
+    "start": 17.11,
+    "end": 17.422
+   },
+   {
+    "text": "out",
+    "start": 17.422,
+    "end": 17.572
+   },
+   {
+    "text": "recycling.",
+    "start": 17.572,
+    "end": 18.2
+   },
+   {
+    "text": "I",
+    "start": 18.4,
+    "end": 18.462
+   },
+   {
+    "text": "broke",
+    "start": 18.462,
+    "end": 18.613
+   },
+   {
+    "text": "the",
+    "start": 18.613,
+    "end": 18.688
+   },
+   {
+    "text": "rule.",
+    "start": 18.688,
+    "end": 19.05
+   },
+   {
+    "text": "Through",
+    "start": 19.125,
+    "end": 19.288
+   },
+   {
+    "text": "the",
+    "start": 19.288,
+    "end": 19.363
+   },
+   {
+    "text": "peephole,",
+    "start": 19.363,
+    "end": 19.675
+   },
+   {
+    "text": "it",
+    "start": 19.712,
+    "end": 19.788
+   },
+   {
+    "text": "was",
+    "start": 19.788,
+    "end": 19.887
+   },
+   {
+    "text": "Mr.",
+    "start": 19.887,
+    "end": 20.062
+   },
+   {
+    "text": "Okafor.",
+    "start": 20.062,
+    "end": 20.475
+   },
+   {
+    "text": "Facing",
+    "start": 20.575,
+    "end": 20.837
+   },
+   {
+    "text": "my",
+    "start": 20.837,
+    "end": 20.938
+   },
+   {
+    "text": "door.",
+    "start": 20.938,
+    "end": 21.175
+   },
+   {
+    "text": "Not",
+    "start": 21.212,
+    "end": 21.337
+   },
+   {
+    "text": "blinking.",
+    "start": 21.337,
+    "end": 21.925,
+    "emph": true
+   },
+   {
+    "text": "Then",
+    "start": 22.0,
+    "end": 22.137
+   },
+   {
+    "text": "he",
+    "start": 22.137,
+    "end": 22.238
+   },
+   {
+    "text": "was",
+    "start": 22.238,
+    "end": 22.337
+   },
+   {
+    "text": "gone.",
+    "start": 22.337,
+    "end": 22.725
+   },
+   {
+    "text": "Then",
+    "start": 22.825,
+    "end": 22.962
+   },
+   {
+    "text": "a",
+    "start": 22.962,
+    "end": 23.012
+   },
+   {
+    "text": "private",
+    "start": 23.012,
+    "end": 23.262
+   },
+   {
+    "text": "message.",
+    "start": 23.262,
+    "end": 23.775
+   },
+   {
+    "text": "You",
+    "start": 24.04,
+    "end": 24.152
+   },
+   {
+    "text": "looked,",
+    "start": 24.152,
+    "end": 24.39
+   },
+   {
+    "text": "five",
+    "start": 24.465,
+    "end": 24.703
+   },
+   {
+    "text": "B.",
+    "start": 24.703,
+    "end": 24.84
+   },
+   {
+    "text": "So",
+    "start": 24.84,
+    "end": 24.977
+   },
+   {
+    "text": "did",
+    "start": 24.977,
+    "end": 25.115
+   },
+   {
+    "text": "two",
+    "start": 25.115,
+    "end": 25.265,
+    "emph": true
+   },
+   {
+    "text": "C.",
+    "start": 25.265,
+    "end": 25.6
+   },
+   {
+    "text": "I",
+    "start": 25.8,
+    "end": 25.9
+   },
+   {
+    "text": "asked",
+    "start": 25.9,
+    "end": 26.113
+   },
+   {
+    "text": "the",
+    "start": 26.113,
+    "end": 26.188
+   },
+   {
+    "text": "group",
+    "start": 26.188,
+    "end": 26.363
+   },
+   {
+    "text": "who",
+    "start": 26.363,
+    "end": 26.488
+   },
+   {
+    "text": "runs",
+    "start": 26.488,
+    "end": 26.675
+   },
+   {
+    "text": "it.",
+    "start": 26.675,
+    "end": 27.0
+   },
+   {
+    "text": "Nine",
+    "start": 27.088,
+    "end": 27.288
+   },
+   {
+    "text": "D:",
+    "start": 27.288,
+    "end": 27.625
+   },
+   {
+    "text": "leave",
+    "start": 27.7,
+    "end": 27.863
+   },
+   {
+    "text": "it",
+    "start": 27.863,
+    "end": 27.938
+   },
+   {
+    "text": "alone,",
+    "start": 27.938,
+    "end": 28.225,
+    "emph": true
+   },
+   {
+    "text": "it",
+    "start": 28.263,
+    "end": 28.338
+   },
+   {
+    "text": "found",
+    "start": 28.338,
+    "end": 28.513
+   },
+   {
+    "text": "my",
+    "start": 28.513,
+    "end": 28.625
+   },
+   {
+    "text": "cat.",
+    "start": 28.625,
+    "end": 29.15
+   },
+   {
+    "text": "Mrs.",
+    "start": 29.25,
+    "end": 29.463
+   },
+   {
+    "text": "Petrov,",
+    "start": 29.463,
+    "end": 29.725
+   },
+   {
+    "text": "our",
+    "start": 29.763,
+    "end": 29.863
+   },
+   {
+    "text": "admin:",
+    "start": 29.863,
+    "end": 30.3
+   },
+   {
+    "text": "the",
+    "start": 30.363,
+    "end": 30.438
+   },
+   {
+    "text": "landlord",
+    "start": 30.438,
+    "end": 30.713
+   },
+   {
+    "text": "says",
+    "start": 30.713,
+    "end": 30.888
+   },
+   {
+    "text": "that",
+    "start": 30.888,
+    "end": 30.988
+   },
+   {
+    "text": "account",
+    "start": 30.988,
+    "end": 31.25
+   },
+   {
+    "text": "joined",
+    "start": 31.25,
+    "end": 31.5
+   },
+   {
+    "text": "two",
+    "start": 31.5,
+    "end": 31.638,
+    "emph": true
+   },
+   {
+    "text": "days",
+    "start": 31.638,
+    "end": 31.863
+   },
+   {
+    "text": "before",
+    "start": 31.863,
+    "end": 32.062
+   },
+   {
+    "text": "this",
+    "start": 32.062,
+    "end": 32.175
+   },
+   {
+    "text": "chat",
+    "start": 32.175,
+    "end": 32.338
+   },
+   {
+    "text": "existed.",
+    "start": 32.338,
+    "end": 32.825
+   },
+   {
+    "text": "Removing",
+    "start": 32.925,
+    "end": 33.225
+   },
+   {
+    "text": "it.",
+    "start": 33.225,
+    "end": 33.43
+   },
+   {
+    "text": "A",
+    "start": 33.63,
+    "end": 33.68
+   },
+   {
+    "text": "grey",
+    "start": 33.68,
+    "end": 33.867
+   },
+   {
+    "text": "line.",
+    "start": 33.867,
+    "end": 34.255
+   },
+   {
+    "text": "Night",
+    "start": 34.33,
+    "end": 34.517
+   },
+   {
+    "text": "Security",
+    "start": 34.517,
+    "end": 34.917
+   },
+   {
+    "text": "removed",
+    "start": 34.917,
+    "end": 35.167,
+    "emph": true
+   },
+   {
+    "text": "Mrs.",
+    "start": 35.167,
+    "end": 35.367
+   },
+   {
+    "text": "Petrov.",
+    "start": 35.367,
+    "end": 35.855
+   },
+   {
+    "text": "Nobody",
+    "start": 35.967,
+    "end": 36.205
+   },
+   {
+    "text": "typed.",
+    "start": 36.205,
+    "end": 36.63
+   },
+   {
+    "text": "Two",
+    "start": 36.705,
+    "end": 36.842,
+    "emph": true
+   },
+   {
+    "text": "hundred",
+    "start": 36.842,
+    "end": 37.08
+   },
+   {
+    "text": "fourteen",
+    "start": 37.08,
+    "end": 37.392
+   },
+   {
+    "text": "answers",
+    "start": 37.392,
+    "end": 37.692
+   },
+   {
+    "text": "since",
+    "start": 37.692,
+    "end": 37.842
+   },
+   {
+    "text": "March.",
+    "start": 37.842,
+    "end": 38.28
+   },
+   {
+    "text": "Not",
+    "start": 38.405,
+    "end": 38.542
+   },
+   {
+    "text": "once",
+    "start": 38.542,
+    "end": 38.717
+   },
+   {
+    "text": "had",
+    "start": 38.717,
+    "end": 38.817
+   },
+   {
+    "text": "it",
+    "start": 38.817,
+    "end": 38.892
+   },
+   {
+    "text": "said",
+    "start": 38.892,
+    "end": 39.017
+   },
+   {
+    "text": "where",
+    "start": 39.017,
+    "end": 39.142
+   },
+   {
+    "text": "it",
+    "start": 39.142,
+    "end": 39.217
+   },
+   {
+    "text": "was.",
+    "start": 39.217,
+    "end": 39.62
+   },
+   {
+    "text": "Then",
+    "start": 39.845,
+    "end": 39.957
+   },
+   {
+    "text": "it",
+    "start": 39.957,
+    "end": 40.032
+   },
+   {
+    "text": "posted,",
+    "start": 40.032,
+    "end": 40.445
+   },
+   {
+    "text": "and",
+    "start": 40.507,
+    "end": 40.607
+   },
+   {
+    "text": "nobody",
+    "start": 40.607,
+    "end": 40.807
+   },
+   {
+    "text": "had",
+    "start": 40.807,
+    "end": 40.92
+   },
+   {
+    "text": "asked.",
+    "start": 40.92,
+    "end": 41.39
+   },
+   {
+    "text": "Who's",
+    "start": 41.64,
+    "end": 41.802
+   },
+   {
+    "text": "in",
+    "start": 41.802,
+    "end": 41.877
+   },
+   {
+    "text": "the",
+    "start": 41.877,
+    "end": 41.965
+   },
+   {
+    "text": "hallway?",
+    "start": 41.965,
+    "end": 42.44
+   },
+   {
+    "text": "One.",
+    "start": 42.54,
+    "end": 42.89
+   },
+   {
+    "text": "Floor",
+    "start": 42.965,
+    "end": 43.177
+   },
+   {
+    "text": "eight,",
+    "start": 43.177,
+    "end": 43.315
+   },
+   {
+    "text": "by",
+    "start": 43.352,
+    "end": 43.452
+   },
+   {
+    "text": "the",
+    "start": 43.452,
+    "end": 43.54
+   },
+   {
+    "text": "stairs.",
+    "start": 43.54,
+    "end": 43.84
+   },
+   {
+    "text": "Me.",
+    "start": 43.877,
+    "end": 44.14,
+    "emph": true
+   },
+   {
+    "text": "Floor",
+    "start": 44.44,
+    "end": 44.665
+   },
+   {
+    "text": "seven.",
+    "start": 44.665,
+    "end": 45.19
+   },
+   {
+    "text": "Floor",
+    "start": 45.765,
+    "end": 45.965
+   },
+   {
+    "text": "six.",
+    "start": 45.965,
+    "end": 46.43
+   },
+   {
+    "text": "Everyone",
+    "start": 46.655,
+    "end": 46.93
+   },
+   {
+    "text": "saw",
+    "start": 46.93,
+    "end": 47.092
+   },
+   {
+    "text": "it.",
+    "start": 47.092,
+    "end": 47.255
+   },
+   {
+    "text": "Nobody",
+    "start": 47.33,
+    "end": 47.542
+   },
+   {
+    "text": "replied.",
+    "start": 47.542,
+    "end": 48.02
+   },
+   {
+    "text": "Floor",
+    "start": 48.345,
+    "end": 48.545
+   },
+   {
+    "text": "five.",
+    "start": 48.545,
+    "end": 49.05
+   },
+   {
+    "text": "The",
+    "start": 49.25,
+    "end": 49.312
+   },
+   {
+    "text": "footsteps",
+    "start": 49.312,
+    "end": 49.612
+   },
+   {
+    "text": "stopped",
+    "start": 49.612,
+    "end": 49.787
+   },
+   {
+    "text": "outside",
+    "start": 49.787,
+    "end": 50.062
+   },
+   {
+    "text": "my",
+    "start": 50.062,
+    "end": 50.162
+   },
+   {
+    "text": "door.",
+    "start": 50.162,
+    "end": 50.525
+   },
+   {
+    "text": "I",
+    "start": 50.612,
+    "end": 50.687
+   },
+   {
+    "text": "called",
+    "start": 50.687,
+    "end": 50.862
+   },
+   {
+    "text": "nine",
+    "start": 50.862,
+    "end": 51.037
+   },
+   {
+    "text": "one",
+    "start": 51.037,
+    "end": 51.162
+   },
+   {
+    "text": "one.",
+    "start": 51.162,
+    "end": 51.425
+   },
+   {
+    "text": "No",
+    "start": 51.5,
+    "end": 51.675,
+    "emph": true
+   },
+   {
+    "text": "signal.",
+    "start": 51.675,
+    "end": 52.075,
+    "emph": true
+   },
+   {
+    "text": "Only",
+    "start": 52.175,
+    "end": 52.362
+   },
+   {
+    "text": "the",
+    "start": 52.362,
+    "end": 52.45
+   },
+   {
+    "text": "chat",
+    "start": 52.45,
+    "end": 52.612
+   },
+   {
+    "text": "would",
+    "start": 52.612,
+    "end": 52.712
+   },
+   {
+    "text": "send.",
+    "start": 52.712,
+    "end": 53.12
+   },
+   {
+    "text": "I",
+    "start": 53.345,
+    "end": 53.432
+   },
+   {
+    "text": "looked",
+    "start": 53.432,
+    "end": 53.582
+   },
+   {
+    "text": "again.",
+    "start": 53.582,
+    "end": 53.87
+   },
+   {
+    "text": "The",
+    "start": 53.932,
+    "end": 54.007
+   },
+   {
+    "text": "peephole",
+    "start": 54.007,
+    "end": 54.257
+   },
+   {
+    "text": "was",
+    "start": 54.257,
+    "end": 54.357
+   },
+   {
+    "text": "black.",
+    "start": 54.357,
+    "end": 54.595
+   },
+   {
+    "text": "Covered.",
+    "start": 54.645,
+    "end": 54.99,
+    "emph": true
+   },
+   {
+    "text": "It",
+    "start": 57.39,
+    "end": 57.477
+   },
+   {
+    "text": "blinked.",
+    "start": 57.477,
+    "end": 57.965,
+    "emph": true
+   },
+   {
+    "text": "Step",
+    "start": 58.24,
+    "end": 58.402
+   },
+   {
+    "text": "back",
+    "start": 58.402,
+    "end": 58.577
+   },
+   {
+    "text": "from",
+    "start": 58.577,
+    "end": 58.702
+   },
+   {
+    "text": "the",
+    "start": 58.702,
+    "end": 58.79
+   },
+   {
+    "text": "peephole,",
+    "start": 58.79,
+    "end": 59.24
+   },
+   {
+    "text": "five",
+    "start": 59.315,
+    "end": 59.615
+   },
+   {
+    "text": "B.",
+    "start": 59.615,
+    "end": 59.92
+   },
+   {
+    "text": "Then,",
+    "start": 60.17,
+    "end": 60.395
+   },
+   {
+    "text": "to",
+    "start": 60.432,
+    "end": 60.507
+   },
+   {
+    "text": "the",
+    "start": 60.507,
+    "end": 60.582
+   },
+   {
+    "text": "whole",
+    "start": 60.582,
+    "end": 60.707
+   },
+   {
+    "text": "group:",
+    "start": 60.707,
+    "end": 61.01
+   },
+   {
+    "text": "Door",
+    "start": 61.285,
+    "end": 61.435
+   },
+   {
+    "text": "check.",
+    "start": 61.435,
+    "end": 61.735
+   },
+   {
+    "text": "Five",
+    "start": 61.81,
+    "end": 62.06
+   },
+   {
+    "text": "B.",
+    "start": 62.06,
+    "end": 62.21
+   },
+   {
+    "text": "Twenty",
+    "start": 62.21,
+    "end": 62.485
+   },
+   {
+    "text": "seconds.",
+    "start": 62.485,
+    "end": 63.06
+   },
+   {
+    "text": "Nine",
+    "start": 63.31,
+    "end": 63.472
+   },
+   {
+    "text": "D:",
+    "start": 63.472,
+    "end": 63.685
+   },
+   {
+    "text": "just",
+    "start": 63.722,
+    "end": 63.872
+   },
+   {
+    "text": "open",
+    "start": 63.872,
+    "end": 64.085
+   },
+   {
+    "text": "it,",
+    "start": 64.085,
+    "end": 64.185
+   },
+   {
+    "text": "five",
+    "start": 64.235,
+    "end": 64.447
+   },
+   {
+    "text": "B.",
+    "start": 64.447,
+    "end": 64.572
+   },
+   {
+    "text": "It's",
+    "start": 64.572,
+    "end": 64.697
+   },
+   {
+    "text": "never",
+    "start": 64.697,
+    "end": 64.847,
+    "emph": true
+   },
+   {
+    "text": "wrong.",
+    "start": 64.847,
+    "end": 65.335,
+    "emph": true
+   },
+   {
+    "text": "Then",
+    "start": 65.41,
+    "end": 65.597
+   },
+   {
+    "text": "seven",
+    "start": 65.597,
+    "end": 65.81
+   },
+   {
+    "text": "C.",
+    "start": 65.81,
+    "end": 65.947
+   },
+   {
+    "text": "Then",
+    "start": 65.947,
+    "end": 66.085
+   },
+   {
+    "text": "three",
+    "start": 66.085,
+    "end": 66.26
+   },
+   {
+    "text": "D.",
+    "start": 66.26,
+    "end": 66.472
+   },
+   {
+    "text": "I",
+    "start": 66.472,
+    "end": 66.56
+   },
+   {
+    "text": "texted",
+    "start": 66.56,
+    "end": 66.797
+   },
+   {
+    "text": "Mr.",
+    "start": 66.797,
+    "end": 66.972
+   },
+   {
+    "text": "Okafor.",
+    "start": 66.972,
+    "end": 67.585
+   },
+   {
+    "text": "Night",
+    "start": 67.747,
+    "end": 67.922
+   },
+   {
+    "text": "Security",
+    "start": 67.922,
+    "end": 68.322
+   },
+   {
+    "text": "was",
+    "start": 68.322,
+    "end": 68.422
+   },
+   {
+    "text": "in",
+    "start": 68.422,
+    "end": 68.497
+   },
+   {
+    "text": "that",
+    "start": 68.497,
+    "end": 68.66
+   },
+   {
+    "text": "chat",
+    "start": 68.66,
+    "end": 68.835
+   },
+   {
+    "text": "too.",
+    "start": 68.835,
+    "end": 69.26
+   },
+   {
+    "text": "Was",
+    "start": 69.322,
+    "end": 69.447
+   },
+   {
+    "text": "that",
+    "start": 69.447,
+    "end": 69.585
+   },
+   {
+    "text": "you",
+    "start": 69.585,
+    "end": 69.697
+   },
+   {
+    "text": "at",
+    "start": 69.697,
+    "end": 69.772
+   },
+   {
+    "text": "my",
+    "start": 69.772,
+    "end": 69.91
+   },
+   {
+    "text": "door?",
+    "start": 69.91,
+    "end": 70.26
+   },
+   {
+    "text": "Okafor",
+    "start": 70.36,
+    "end": 70.647
+   },
+   {
+    "text": "was",
+    "start": 70.647,
+    "end": 70.747
+   },
+   {
+    "text": "typing.",
+    "start": 70.747,
+    "end": 71.17
+   },
+   {
+    "text": "I've",
+    "start": 71.895,
+    "end": 72.007
+   },
+   {
+    "text": "been",
+    "start": 72.007,
+    "end": 72.132
+   },
+   {
+    "text": "asleep",
+    "start": 72.132,
+    "end": 72.407
+   },
+   {
+    "text": "since",
+    "start": 72.407,
+    "end": 72.582
+   },
+   {
+    "text": "nine.",
+    "start": 72.582,
+    "end": 72.97,
+    "emph": true
+   },
+   {
+    "text": "What",
+    "start": 73.045,
+    "end": 73.182
+   },
+   {
+    "text": "Night",
+    "start": 73.182,
+    "end": 73.332
+   },
+   {
+    "text": "Security?",
+    "start": 73.332,
+    "end": 73.97
+   },
+   {
+    "text": "Nobody's",
+    "start": 74.07,
+    "end": 74.37
+   },
+   {
+    "text": "posted",
+    "start": 74.37,
+    "end": 74.632
+   },
+   {
+    "text": "in",
+    "start": 74.632,
+    "end": 74.707
+   },
+   {
+    "text": "our",
+    "start": 74.707,
+    "end": 74.82
+   },
+   {
+    "text": "chat",
+    "start": 74.82,
+    "end": 75.032
+   },
+   {
+    "text": "since",
+    "start": 75.032,
+    "end": 75.182
+   },
+   {
+    "text": "Friday.",
+    "start": 75.182,
+    "end": 75.56,
+    "emph": true
+   },
+   {
+    "text": "So",
+    "start": 75.785,
+    "end": 75.872
+   },
+   {
+    "text": "I",
+    "start": 75.872,
+    "end": 75.96
+   },
+   {
+    "text": "asked",
+    "start": 75.96,
+    "end": 76.172
+   },
+   {
+    "text": "it",
+    "start": 76.172,
+    "end": 76.247
+   },
+   {
+    "text": "the",
+    "start": 76.247,
+    "end": 76.335
+   },
+   {
+    "text": "only",
+    "start": 76.335,
+    "end": 76.497
+   },
+   {
+    "text": "thing",
+    "start": 76.497,
+    "end": 76.622
+   },
+   {
+    "text": "it",
+    "start": 76.622,
+    "end": 76.697
+   },
+   {
+    "text": "answers.",
+    "start": 76.697,
+    "end": 77.185
+   },
+   {
+    "text": "Who's",
+    "start": 77.285,
+    "end": 77.472
+   },
+   {
+    "text": "in",
+    "start": 77.472,
+    "end": 77.56
+   },
+   {
+    "text": "five",
+    "start": 77.56,
+    "end": 77.772
+   },
+   {
+    "text": "B?",
+    "start": 77.772,
+    "end": 78.09
+   },
+   {
+    "text": "Two.",
+    "start": 78.415,
+    "end": 78.9,
+    "emph": true
+   }
+  ],
+  "maxWords": 6,
+  "maxChars": 20,
+  "gapBreak": 0.25,
+  "glue": [
+   "Night Security",
+   "five B",
+   "two C",
+   "nine D",
+   "Mr. Okafor",
+   "seven C",
+   "three D"
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 58,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "none",
+   "strokeWidth": 10,
+   "uppercase": false,
+   "y": 0.12,
+   "backing": 0.85
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-group-chat-extra-member/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 80.8
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}

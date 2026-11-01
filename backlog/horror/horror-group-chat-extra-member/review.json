@@ -1,0 +1,246 @@
+{
+ "id": "horror-group-chat-extra-member",
+ "reviewed_at_utc": "2026-11-01T12:45Z",
+ "scores": {
+  "retention": {
+   "before": 7,
+   "after": 8
+  },
+  "reference": {
+   "before": 6,
+   "after": 8
+  },
+  "originality": {
+   "before": 5,
+   "after": 8
+  },
+  "producibility": {
+   "before": 6,
+   "after": 8
+  }
+ },
+ "after_scores_are": "self-assessed by the rewriting agent; not an independent review",
+ "measured": {
+  "source": "Kokoro af_heart on the Spark CPU, this exact script.md (audio/report.json, audio/captions.json)",
+  "runtime_s": 80.8,
+  "words": 307,
+  "wpm_full_runtime": 228,
+  "core_hook": "28 words, 0:00-0:05.95",
+  "contradiction_s": [
+   1.95,
+   3.06
+  ],
+  "turn_pct": [
+   49,
+   55
+  ],
+  "scariest_image_pct": [
+   67,
+   72
+  ],
+  "twist_pct": [
+   89,
+   93
+  ],
+  "cliff_word_pct": 97,
+  "open_loops_at_cut": 4,
+  "you_share_pct": 3.8
+ },
+ "originality": {
+  "gate": "python3 scripts/originality_check.py backlog/horror/horror-group-chat-extra-member/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "catalog_check": "narration shares 0 four-grams with episodes/horror-member-41, episodes/horror-pinned-rules and backlog/horror-new-building-rules; against all 15 sibling horror scripts the only 8-word runs are house-format headings ('Line-by-line timing and on-screen text', 'First visual (frame 0, also the cover)'), none in the narration",
+  "premise_duplicate": "resolved: no 40/41 count in title, hook or VO; admin beat is now the doubter being removed by the entity; ending is 'Who's in 5B?' 'Two.' (no door opening, no 'for your safety')"
+ },
+ "must_fix_status": {
+  "retention": [
+   {
+    "item": "twist confirms instead of reversing",
+    "status": "fixed",
+    "how": "'walked to the stairs' cut; the only peephole oddity is 'Not blinking'; Okafor's reply adds facts the viewer cannot have guessed (no Night Security in his chat, nobody posted since Friday)"
+   },
+   {
+    "item": "cliff adds no new rung",
+    "status": "fixed",
+    "how": "last rung goes past the door: 'Who's in five B?' 'Two.' after the 'home alone' plant; the neighbours also turn on her ('just open it, 5B') during the door check"
+   },
+   {
+    "item": "'@5B' read as 'At'",
+    "status": "fixed",
+    "how": "the open-up line is gone; every unit is spoken as 'five B', '@' never appears in VO"
+   },
+   {
+    "item": "second voice required",
+    "status": "fixed within the locked pipeline",
+    "how": "every Night Security line is its own paragraph at [speed: 1.3] [vox: -3] with a spoken lead-in; Okafor at [speed: 1.38] [vox: -1]; am_puck pending a [voice:] marker (pipeline/audio is locked to the horror closeout lane)"
+   },
+   {
+    "item": "held black disc looks like dead air",
+    "status": "fixed",
+    "how": "grey door surround makes it read as a covered lens; the lens blinks (lightens and back) with a wet glint at 56.05-56.45 inside the 3.5 s hold; heartbeat from the first frame of the hold (55.0); verified in stills out/stills/horror-group-chat-extra-member_blink.jpg"
+   },
+   {
+    "item": "core hook over 6 s, contradiction at 0:08",
+    "status": "fixed",
+    "how": "contradiction first, at 0:01.95; core hook 28 words / 5.95 s measured"
+   },
+   {
+    "item": "no on-screen part label",
+    "status": "fixed",
+    "how": "PT 1 pill in every scene + 1.0 s horror/EndCard 'PART 2' after the cut"
+   }
+  ],
+  "reference": [
+   {
+    "item": "WPM mis-measured",
+    "status": "fixed (honest)",
+    "how": "measured as words / full duration from TTS: 228 wpm, stated as 2 wpm under the 230 floor; runtime cut from ~91 to 80.8 s"
+   },
+   {
+    "item": "core hook 6.5 s",
+    "status": "fixed",
+    "how": "5.95 s"
+   },
+   {
+    "item": "midpoint turn late",
+    "status": "fixed",
+    "how": "49-55% (S6 band 43-55%); lull removed"
+   },
+   {
+    "item": "no count-match deduction",
+    "status": "fixed (adapted)",
+    "how": "headcount ritual planted at 0:04 + 'home alone' 0:11 paid by 'Two.'; pre-35% identifier match 'So did two C' at 31% against the 2C casualty plant"
+   },
+   {
+    "item": "twist does not reframe",
+    "status": "fixed",
+    "how": "Okafor falsifies the authority itself (T5 + T1): it is not in his chat, the chat has been silent since Friday"
+   },
+   {
+    "item": "stakes never stated",
+    "status": "fixed",
+    "how": "'Two C used hers in March. Two C has been empty since.' at 0:08-0:10"
+   },
+   {
+    "item": "no near-compliance / peer pressure / viewer-proxy shut down",
+    "status": "fixed",
+    "how": "Mrs. Petrov (outside evidence) is removed by the entity; 9D, 7C, 3D tell her to open during the door check"
+   },
+   {
+    "item": "mis-cited alignment rows, tag order",
+    "status": "fixed",
+    "how": "table rebuilt on S1-S10 plus B6/B10/B11, each row re-checked against research/corpus/horror/<id>.md; the numbered-rules device dropped; the 5:38 eavesdrop and the T42 0:53/0:54 rows removed or replaced"
+   },
+   {
+    "item": "'41 online' plot hole",
+    "status": "fixed",
+    "how": "no online count; header 'Seen by 36'; Okafor's DM shows 'last seen 9:02 PM'"
+   },
+   {
+    "item": "no isolation beat",
+    "status": "fixed",
+    "how": "'I called nine one one. No signal. Only the chat would send.' at 63-66%"
+   }
+  ],
+  "originality": [
+   {
+    "item": "duplicate of episodes/horror-member-41",
+    "status": "fixed",
+    "how": "own title formula, own admin beat, ending that does not open the door"
+   },
+   {
+    "item": "doubter repeats the narrator's fact",
+    "status": "fixed",
+    "how": "new outside evidence: the account joined two days before the chat existed (pays the 'Joined Mar 1' profile plant)"
+   },
+   {
+    "item": "VO/visual mismatches",
+    "status": "fixed",
+    "how": "recycling-bag line cut from what the picture must show (VO says 'Taking out recycling' only as Night Security's claim); covered lens now drawn with the grey surround"
+   },
+   {
+    "item": "countdown chip does not add up",
+    "status": "fixed",
+    "how": "chip = per-second text layers from 62.48 s carried through every later scene; reads 0:05/0:04 at 'Two.'"
+   },
+   {
+    "item": "no policy research",
+    "status": "fixed",
+    "how": "research/R5/report.md now exists; notes added to script.md (no disclosure needed for animated TTS fiction; templated-series risk is why the premise was reworked; not made for kids)"
+   }
+  ],
+  "producibility": [
+   {
+    "item": "premise duplicate",
+    "status": "fixed",
+    "how": "see originality"
+   },
+   {
+    "item": "beat headers read aloud",
+    "status": "fixed",
+    "how": "headers are HTML comments; script.parse returns 307 words, none from headers"
+   },
+   {
+    "item": "runtime math at 4.0 w/s",
+    "status": "fixed",
+    "how": "every time in the script is a measured Kokoro stamp"
+   },
+   {
+    "item": "absolute times as kit props",
+    "status": "fixed",
+    "how": "storyboard.json uses scene-local times throughout (gen_storyboard.py)"
+   },
+   {
+    "item": "covered-peephole fallback renders wrong",
+    "status": "fixed",
+    "how": "horror/Peephole figure none exposure 0.03 (no Darkness)"
+   },
+   {
+    "item": "countdown via phone clock",
+    "status": "fixed",
+    "how": "core text layers per second"
+   },
+   {
+    "item": "Hallway figure cannot walk / gives twist away",
+    "status": "fixed",
+    "how": "no walking shot; the visitor is only ever seen in the peephole"
+   },
+   {
+    "item": "pinned-rules gap stale",
+    "status": "fixed",
+    "how": "no rules post; the bio uses chat.pinned {label BIO, lines 2}"
+   }
+  ]
+ },
+ "nice_to_have_applied": [
+  "frame 0 shows the front door behind the phone",
+  "one hook exchange is already off ('Go back to bed, 3D')",
+  "rule wording no longer gives the last line away",
+  "'Five A' never spoken",
+  "typography split (humans lowercase, entity sentence case)",
+  "channel-removal rung inside the Okafor DM",
+  "location continuity (door, living room, door)",
+  "search view instead of a lull scroll",
+  "Okafor recolour reused",
+  "shield emoji initials",
+  "knocks removed from the ending (no picture-less sound)"
+ ],
+ "open_risks": [
+  "228 wpm is 2 under the PLAYBOOK narrated floor; raising it needs speed 1.5+ or ~40 more words",
+  "Night Security's register is speed/gain only until a per-paragraph voice marker exists",
+  "Numbers per minute (~19) are above the 3-5 target; unit labels are the building-map device",
+  "Do not post Part 1 before a Part 2 script and render exist (PLAYBOOK §5)"
+ ],
+ "files": {
+  "script": "backlog/horror/horror-group-chat-extra-member/script.md",
+  "storyboard": "backlog/horror/horror-group-chat-extra-member/storyboard.json (valid: studio/src/cli/validate.ts on the Spark, 28 scenes, 80.87 s)",
+  "generator": "backlog/horror/horror-group-chat-extra-member/gen_storyboard.py",
+  "audio_meta": "backlog/horror/horror-group-chat-extra-member/audio/",
+  "audio_wav": "dgx-spark:~/studio/app/studio/public/episodes/horror-group-chat-extra-member/mix.wav",
+  "stills": [
+   "out/stills/horror-group-chat-extra-member_storyboard.jpg",
+   "out/stills/horror-group-chat-extra-member_fix.jpg",
+   "out/stills/horror-group-chat-extra-member_blink.jpg"
+  ]
+ }
+}
