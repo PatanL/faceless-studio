@@ -9,7 +9,13 @@ graph.facebook.com; graph.instagram.com for an "Instagram Login" token). The tok
 header, never in a URL.
 
 Insights metric names change between Graph versions, so each metric is requested on its own: what returns is kept,
-what errors is recorded under raw.errors and never fails the row.
+what errors is recorded under raw.errors and never fails the row (if every metric errors, the row is an error row
+with `pending`, so it is retried).
+
+posts.jsonl `external_id` for Instagram is the permalink shortcode (Buffer's externalLink, record-manual), not a Graph
+media id. Only an all-digit external_id is used as a media id; anything else is resolved through /{ig-user-id}/media
+(shortcode or permalink match) and the numeric id is stored on the metrics row (`external_id`, with
+`external_shortcode`).
 """
 from __future__ import annotations
 
@@ -26,7 +32,20 @@ REQUIRED_ENV = ["IG_USER_ID", "IG_ACCESS_TOKEN"]
 # Reels metrics listed on the IG Media Insights reference (2026-11-01, v26.0)
 REELS_METRICS = ["views", "reach", "likes", "comments", "shares", "saved", "total_interactions",
                  "ig_reels_avg_watch_time", "ig_reels_video_view_total_time", "reels_skip_rate"]
-MEDIA_FIELDS = "id,permalink,timestamp,caption,media_product_type,media_type"
+MEDIA_FIELDS = "id,shortcode,permalink,timestamp,caption,media_product_type,media_type"
+SHORTCODE_RX = re.compile(r"instagram\.com/(?:reel|reels|p)/([\w-]+)")
+
+
+def is_media_id(x) -> bool:
+    return bool(x) and str(x).isdigit()
+
+
+def shortcode_of(post: dict) -> str | None:
+    x = post.get("external_id")
+    if x and not is_media_id(x):
+        return str(x)
+    m = SHORTCODE_RX.search(post.get("external_url") or "")
+    return m.group(1) if m else None
 
 
 def missing(env: dict) -> list[str]:
@@ -80,8 +99,11 @@ def match_media(media: list[dict], post: dict) -> dict | None:
     """Find our Reel: permalink == external_url, else timestamp within +-15 min of published_at and the same caption
     start (first 20 normalised chars, at least 10)."""
     url = (post.get("external_url") or "").rstrip("/")
+    code = shortcode_of(post)
     for m in media:
         if url and (m.get("permalink") or "").rstrip("/") == url:
+            return m
+        if code and (m.get("shortcode") == code or f"/{code}/" in (m.get("permalink") or "") + "/"):
             return m
     if not post.get("published_at"):
         return None
@@ -122,9 +144,9 @@ def to_row(vals: dict) -> dict:
 def requests_for(post: dict, env: dict) -> list[dict]:
     base = f"https://{env_or_default(env, 'IG_GRAPH_HOST', 'graph.facebook.com')}/" \
            f"{env_or_default(env, 'META_GRAPH_VERSION', 'v26.0')}"
-    mid = post.get("external_id") or "<resolved media id>"
-    out = [] if post.get("external_id") else [{"GET": f"{base}/{env.get('IG_USER_ID', '<IG_USER_ID>')}/media",
-                                                "fields": MEDIA_FIELDS, "limit": 50}]
+    mid = post.get("external_id") if is_media_id(post.get("external_id")) else "<resolved media id>"
+    out = [] if is_media_id(post.get("external_id")) else [{"GET": f"{base}/{env.get('IG_USER_ID', '<IG_USER_ID>')}/media",
+                                                            "fields": MEDIA_FIELDS, "limit": 50}]
     return out + [{"GET": f"{base}/{mid}/insights", "metric": m} for m in REELS_METRICS]
 
 
@@ -132,11 +154,11 @@ def fetch(post: dict, env: dict) -> dict:
     c = Client(env)
     mid = post.get("external_id")
     media = None
-    if not mid:
+    if not is_media_id(mid):  # a shortcode (or nothing): resolve to the Graph media id
         media = match_media(c.recent_media(), post)
         if not media:
-            return {"source": "ig_graph", "error": "media not found (no permalink match, no timestamp+caption match)",
-                    "retention": None, "pending": ["media_id"]}
+            return {"source": "ig_graph", "error": "media not found (no shortcode/permalink match, no timestamp+caption "
+                    "match)", "retention": None, "pending": ["media_id"]}
         mid = media["id"]
     vals, errs = {}, {}
     for m in REELS_METRICS:
@@ -148,7 +170,11 @@ def fetch(post: dict, env: dict) -> dict:
     row["external_id"] = mid
     if media:
         row["external_url"] = media.get("permalink")
+        row["external_shortcode"] = media.get("shortcode") or shortcode_of(post)
     row["raw"] = {"insights": vals, "errors": errs or None}
+    if errs and all(vals.get(m) is None for m in REELS_METRICS):
+        row["error"] = f"every insights metric failed for media {mid}"
+        row["pending"] = ["insights"]
     return row
 
 

@@ -9,9 +9,10 @@ old and has no real metrics row for the window yet. A YouTube row whose Analytic
 (`pending`) is retried every 12 h until window + 48 h (Analytics lags 1-3 days). TikTok has no API here: due
 TikTok windows are listed as "manual" (the human drops a CSV/screenshot, see TIKTOK_IMPORT.md).
 
-Credentials missing -> `DRY-RUN: missing <NAMES> in ~/studio/.env`, exit 0. With `--post-key` a dry run appends a
-synthetic row (`dry_run: true`, `source: synthetic`, the API requests it would make) so the downstream chain can be
-exercised; with `--due` a dry run only lists (no rows, so nothing fires twice). Synthetic rows never count for
+Credentials missing -> `DRY-RUN: missing <NAMES> in ~/studio/.env`, exit 0, decided per platform: with `--due`, the
+items of a platform that has its credentials are fetched and only the others are listed as dry-run (no rows). With
+`--post-key` a dry run appends a synthetic row (`dry_run: true`, `source: synthetic`, the API requests it would make)
+so the downstream chain can be exercised. Network errors exit 1 (retried later), never 5. Synthetic rows never count for
 experiments, learning or the kill rule.
 """
 from __future__ import annotations
@@ -22,7 +23,8 @@ import sys
 
 from . import beatmap as bmap
 from . import instagram, synthetic, youtube
-from ._common import (DependencyError, EXIT_DEP, EXIT_FAIL, EXIT_OK, EXIT_USAGE, config, dpath, iso, is_real,
+from ._common import (DependencyError, EXIT_DEP, EXIT_FAIL, EXIT_OK, EXIT_USAGE, TransientError, config, dpath, iso,
+                      is_real,
                       jsonl_append, jsonl_latest, jsonl_read, load_env, now_utc, parse, window_hours, window_label)
 from .align import interp
 
@@ -143,22 +145,29 @@ def main(argv=None) -> int:
     env = load_env()
     if a.due:
         items = due()
-        miss = sorted(set(youtube.missing(env) + instagram.missing(env)))
-        dry = a.dry_run or bool(miss)
-        if dry and miss:
-            print(f"DRY-RUN: missing {', '.join(miss)} in ~/studio/.env")
+        miss_by = {"youtube": youtube.missing(env), "instagram": instagram.missing(env)}
+        allmiss = sorted(set(miss_by["youtube"] + miss_by["instagram"]))
+        if allmiss:
+            print(f"DRY-RUN: missing {', '.join(allmiss)} in ~/studio/.env (per platform: a platform with its "
+                  f"credentials is still fetched)")
         print(f"{len(items)} due")
         for it in items:
+            m = miss_by.get(it["platform"]) or []
             print(f"  {it['post_key']} {it['window']} age {it['age_h']} h" + (" MANUAL (tiktok)" if it["manual"] else "")
-                  + (" retry" if it["retry"] else ""))
-        if a.list or dry:
-            if dry and items:
+                  + (" retry" if it["retry"] else "") + (f" DRY-RUN (missing {', '.join(m)})" if m else ""))
+        if a.list:
+            return EXIT_OK
+        if a.dry_run:
+            if items:
                 print("dry-run: would fetch the above; nothing written")
             return EXIT_OK
+        for plat, m in miss_by.items():
+            if m and any(it["platform"] == plat for it in items):
+                print(f"DRY-RUN {plat}: missing {', '.join(m)} in ~/studio/.env; its items are listed only")
         posts = jsonl_latest(dpath("posts.jsonl"), "post_key")
         rc = EXIT_OK
         for it in items:
-            if it["manual"]:
+            if it["manual"] or miss_by.get(it["platform"]):
                 continue
             try:
                 row, _ = collect_one(posts[it["post_key"]], it["window"], env)
@@ -185,6 +194,9 @@ def main(argv=None) -> int:
     except DependencyError as e:
         print(f"dependency: {e}", file=sys.stderr)
         return EXIT_DEP
+    except TransientError as e:
+        print(f"transient: {e} (retried later)", file=sys.stderr)
+        return EXIT_FAIL
     if reason:
         print(reason)
     if row is None:

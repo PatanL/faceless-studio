@@ -166,7 +166,11 @@ EXIT_OK, EXIT_FAIL, EXIT_USAGE, EXIT_BUDGET, EXIT_NOTHING, EXIT_DEP, EXIT_GATE =
 
 
 class DependencyError(RuntimeError):
-    """API 401/403, missing token file, network down: CLIs exit 5."""
+    """API 401/403, missing or revoked token: CLIs exit 5 (the operator may pause on repeated ones)."""
+
+
+class TransientError(RuntimeError):
+    """Network down or 429/5xx after the retries: CLIs exit 1 (the operator retries later; never a pause)."""
 
 
 def env_or_default(env: dict, name: str, default: str) -> str:

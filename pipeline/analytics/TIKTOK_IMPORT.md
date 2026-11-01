@@ -32,6 +32,8 @@ https://www.tiktok.com/@ourchannel/video/7432100000000000001,2026-11-04T18:00:00
    shown; leave a cell empty if it is not visible. Read 5-10 retention points from the graph if it is shown.
 3. Run `python -m pipeline.analytics.tiktok_import --inbox`. Rows from `*.screenshot.csv` get
    `source: tiktok_screenshot`; plain CSVs get `tiktok_csv`.
-4. Move the images to `data/inbox/tiktok/done/` (the importer moves the CSVs).
+4. Nothing to move by hand: the operator's `tiktok_inbox` job runs `tiktok_import --inbox` (CSVs go to `done/`,
+   a CSV that fails goes to `failed/`) and then moves every image not newer than an imported `*.screenshot.csv` to
+   `done/`. Re-importing a file never duplicates rows (dedupe on post_key, window, source, captured_at, file name).
 
 TikTok rows feed the scoreboard in LEARNING.md. Experiments and the kill rule use YouTube rows only.

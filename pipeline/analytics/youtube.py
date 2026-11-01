@@ -87,7 +87,9 @@ class Client:
             r = http.request("POST", self.client["token_uri"], form=True, data={
                 "client_id": self.client["client_id"], "client_secret": self.client["client_secret"],
                 "refresh_token": self.tok["refresh_token"], "grant_type": "refresh_token"})
-        except http.ApiError as e:  # invalid_grant = revoked/expired consent
+        except http.ApiError as e:  # invalid_grant = revoked/expired consent (400/401); 5xx is just an outage
+            if e.status >= 500 or e.status == 429:
+                raise
             raise DependencyError(f"token refresh failed ({e.status}): the human reruns `youtube auth`")
         self.tok["access_token"] = r["access_token"]
         self.tok["expires_at"] = int(time.time()) + int(r.get("expires_in", 3600))

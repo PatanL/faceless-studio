@@ -2,6 +2,10 @@
 
   python -m pipeline.analytics.tiktok_import <file.csv> [--post-key K] [--source tiktok_csv|tiktok_screenshot]
   python -m pipeline.analytics.tiktok_import --inbox          # every *.csv in data/inbox/tiktok/, then move to done/
+                                                              # (a CSV that fails to import goes to failed/)
+
+Rows already in data/metrics.jsonl (same post_key, window, source, captured_at and raw file name) are skipped, so a
+re-import never duplicates metrics.
 
 CSV header (required): tiktok_url_or_id,captured_at,views,likes,comments,shares,saves,avg_watch_s,full_watch_pct,
 new_followers,retention   (retention optional: "s:pct;s:pct;...", e.g. "0:100;3:71;10:48;30:22").
@@ -15,7 +19,8 @@ import re
 import shutil
 import sys
 
-from ._common import (EXIT_FAIL, EXIT_OK, EXIT_USAGE, dpath, iso, jsonl_append, jsonl_latest, now_utc, parse)
+from ._common import (EXIT_FAIL, EXIT_OK, EXIT_USAGE, dpath, iso, jsonl_append, jsonl_latest, jsonl_read, now_utc,
+                      parse)
 from .collect import derive
 
 COLUMNS = ["tiktok_url_or_id", "captured_at", "views", "likes", "comments", "shares", "saves", "avg_watch_s",
@@ -70,6 +75,11 @@ def find_post(posts: dict, ident: str) -> dict | None:
     return None
 
 
+def dedupe_key(row: dict) -> tuple:
+    return (row.get("post_key"), row.get("window"), row.get("source"), row.get("captured_at"),
+            os.path.basename(row.get("raw_file") or ""))
+
+
 def import_csv(path: str, post_key: str | None = None, source: str = "tiktok_csv") -> list[dict]:
     posts = jsonl_latest(dpath("posts.jsonl"), "post_key")
     rows = []
@@ -103,9 +113,16 @@ def import_csv(path: str, post_key: str | None = None, source: str = "tiktok_csv
                    "full_watch_pct": _num(r.get("full_watch_pct")), "retention": ret,
                    "derived": derive(ret, D), "raw_file": os.path.relpath(path, dpath(".."))}
             rows.append(row)
+    have = {dedupe_key(m) for m in jsonl_read(dpath("metrics.jsonl")) if str(m.get("source", "")).startswith("tiktok")}
+    new = []
     for row in rows:
+        k = dedupe_key(row)
+        if k in have:
+            continue
+        have.add(k)
         jsonl_append(dpath("metrics.jsonl"), row)
-    return rows
+        new.append(row)
+    return new
 
 
 def main(argv=None) -> int:
@@ -129,8 +146,12 @@ def main(argv=None) -> int:
         except (ValueError, KeyError) as e:
             print(f"error: {e}", file=sys.stderr)
             rc = EXIT_FAIL
+            if a.inbox:  # never re-tried daily: the human fixes it and drops it again
+                bad = os.path.join(inbox, "failed")
+                os.makedirs(bad, exist_ok=True)
+                shutil.move(f, os.path.join(bad, os.path.basename(f)))
             continue
-        print(f"{f}: {len(rows)} rows -> data/metrics.jsonl")
+        print(f"{f}: {len(rows)} new rows -> data/metrics.jsonl")
         if a.inbox:
             done = os.path.join(inbox, "done")
             os.makedirs(done, exist_ok=True)

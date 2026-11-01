@@ -2,7 +2,11 @@
 
   python -m pipeline.analytics.killrule [--dry-run]
 
-Only YouTube rows with window 7d count, one per published video (latest real row per post_key), in publish order.
+Only YouTube rows with window 7d count, one per published video, in publish order. `views` is the Data API
+lifetime count at collection time, so it comes from the FIRST real 7d row with views per post_key (collect re-fetches
+pending rows every 12 h for 2 more days, and those later rows carry ~9-day views); a 7d row collected more than
+LATE_H after publishing (age_h > 168 + 24, e.g. after operator downtime) is excluded and counted in
+`excluded_late`.
 n < after_videos (30) -> insufficient. median >= target (10k) -> continue. Else if the last-10 median >= target/2
 and the Theil-Sen slope > 0 and the rule has not been extended yet -> extend (re-check after 15 more videos; until
 then the verdict stays extend). Else -> stop. L5 acts on the verdict (stop pauses the loop and writes HUMAN.md).
@@ -16,6 +20,7 @@ import sys
 from ._common import EXIT_OK, config, dpath, iso, is_real, jsonl_read, median, now_utc, read_json, write_json_atomic
 
 EXTEND_BY = 15
+LATE_H = 168 + 24
 
 
 def theil_sen(ys: list[float]) -> float | None:
@@ -23,13 +28,24 @@ def theil_sen(ys: list[float]) -> float | None:
     return median(sl)
 
 
-def series() -> list[dict]:
-    latest: dict[str, dict] = {}
+def series(late_h: float = LATE_H, excluded: list | None = None) -> list[dict]:
+    """First real YouTube 7d row with views per post_key (see the module doc); late rows go to `excluded`."""
+    first: dict[str, dict] = {}
+    late: dict[str, dict] = {}
     for r in jsonl_read(dpath("metrics.jsonl")):
-        if r.get("platform") == "youtube" and r.get("window") == "7d" and is_real(r) and r.get("views") is not None:
-            latest[r["post_key"]] = r
+        if not (r.get("platform") == "youtube" and r.get("window") == "7d" and is_real(r) and r.get("views") is not None):
+            continue
+        k = r["post_key"]
+        if k in first:
+            continue
+        if r.get("age_h") is not None and float(r["age_h"]) > late_h:
+            late.setdefault(k, r)
+            continue
+        first[k] = r
+    if excluded is not None:
+        excluded.extend(r for k, r in late.items() if k not in first)
     pub = {p["post_key"]: p.get("published_at") for p in jsonl_read(dpath("posts.jsonl")) if p.get("published_at")}
-    return sorted(latest.values(), key=lambda r: (pub.get(r["post_key"]) or r.get("at") or "", r["post_key"]))
+    return sorted(first.values(), key=lambda r: (pub.get(r["post_key"]) or r.get("at") or "", r["post_key"]))
 
 
 def evaluate(views: list[float], prev: dict | None = None, after: int = 30, target: float = 10000,
@@ -73,12 +89,15 @@ def main(argv=None) -> int:
     ap.add_argument("--dry-run", action="store_true", help="print only")
     a = ap.parse_args(argv)
     kr = config().get("kill_rule", {})
-    rows = series()
+    late: list = []
+    rows = series(excluded=late)
     prev = read_json(dpath("killrule.json"))
     out = evaluate([float(r["views"]) for r in rows], prev, int(kr.get("after_videos", 30)),
                    float(kr.get("target_views_7d", 10000)), kr.get("extend_last10_min"),
                    int(kr.get("extend_videos", EXTEND_BY)))
     out["post_keys"] = [r["post_key"] for r in rows]
+    out["excluded_late"] = len(late)
+    out["excluded_late_keys"] = [r["post_key"] for r in late]
     print(json.dumps({k: v for k, v in out.items() if k != "post_keys"}, indent=1))
     if not a.dry_run:
         write_json_atomic(dpath("killrule.json"), out)

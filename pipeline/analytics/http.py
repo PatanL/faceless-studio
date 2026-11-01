@@ -1,5 +1,6 @@
 """Tiny stdlib HTTP client for the analytics APIs: JSON GET/POST, retries on 429/5xx (max 4 tries, exponential
-backoff), no retries on other 4xx, 401/403 -> DependencyError (CLIs exit 5). Secrets never reach logs (redact)."""
+backoff), no retries on other 4xx, 401/403 -> DependencyError (CLIs exit 5); network errors after the retries ->
+TransientError (CLIs exit 1, never a pause); 429/5xx after the retries -> ApiError (exit 1). Secrets never reach logs (redact)."""
 from __future__ import annotations
 
 import json
@@ -8,7 +9,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-from ._common import DependencyError, redact
+from ._common import DependencyError, TransientError, redact
 
 
 class ApiError(RuntimeError):
@@ -52,5 +53,5 @@ def request(method: str, url: str, params: dict | None = None, headers: dict | N
                 time.sleep(delay)
                 delay *= 2
                 continue
-            raise DependencyError(f"network: {redact(str(e))}")
-    raise DependencyError("unreachable")
+            raise TransientError(f"network: {redact(str(e))}")
+    raise TransientError("unreachable")
