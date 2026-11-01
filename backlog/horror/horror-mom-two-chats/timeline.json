@@ -1,0 +1,4179 @@
+{
+ "runtime": 193.307,
+ "beats": [
+  {
+   "key": "B1",
+   "title": "B1 HOOK: two texts from Mom, nine seconds apart",
+   "t": 0.12
+  },
+  {
+   "key": "B2",
+   "title": "B2 RULE: the fridge note (plants: the key loophole, Room 412)",
+   "t": 8.923
+  },
+  {
+   "key": "B3",
+   "title": "B3 PRESSURE: the warm Mom, the rule as a test, the near-open",
+   "t": 13.967
+  },
+  {
+   "key": "B4",
+   "title": "B4 COUNTER-VOICE: the private Mom sees the lock, then lies",
+   "t": 27.476
+  },
+  {
+   "key": "S4",
+   "title": "S4 TEST: the code word (micro loop)",
+   "t": 37.513
+  },
+  {
+   "key": "B5a",
+   "title": "B5 RUNG: the doorbell, the peephole, the light that never clicks",
+   "t": 51.438
+  },
+  {
+   "key": "B5b",
+   "title": "B5 TOP AUTHORITY: Dad, who never posts",
+   "t": 61.725
+  },
+  {
+   "key": "S7",
+   "title": "S7 PROXIMITY + TYPOGRAPHY LADDER (calm -> CAPS)",
+   "t": 70.034
+  },
+  {
+   "key": "B8",
+   "title": "B8 TURN: the voucher is in the house",
+   "t": 76.532
+  },
+  {
+   "key": "B6",
+   "title": "B6 ISOLATION: only the enemy's channel answers",
+   "t": 88.513
+  },
+  {
+   "key": "B10",
+   "title": "B10 LIFELINE: the hotel landline, under a battery clock",
+   "t": 93.161
+  },
+  {
+   "key": "B5c",
+   "title": "B5 BARRIER LADDER: hook, key, deadbolt, chain (rule spoken back)",
+   "t": 113.414
+  },
+  {
+   "key": "T3",
+   "title": "T3 RULE INVERSION: the helper's safe place is the threat",
+   "t": 128.73
+  },
+  {
+   "key": "B9",
+   "title": "B9 PEAK: the closet opens itself (the one held image)",
+   "t": 144.755
+  },
+  {
+   "key": "B10b",
+   "title": "B10 RESCUE: the planted light decides",
+   "t": 157.443
+  },
+  {
+   "key": "B11",
+   "title": "B11 TRUTH TWIST after safety: it was worse than you knew",
+   "t": 174.159
+  },
+  {
+   "key": "B12",
+   "title": "B12 VOICE SWAP + BOOKEND",
+   "t": 184.329
+  }
+ ],
+ "items": [
+  {
+   "kind": "line",
+   "id": "n1",
+   "spk": "N",
+   "text": "Mom texted:",
+   "start": 0.12,
+   "end": 0.795,
+   "dur": 0.675,
+   "words": [
+    {
+     "w": "Mom",
+     "s": 0.12,
+     "e": 0.293
+    },
+    {
+     "w": "texted:",
+     "s": 0.293,
+     "e": 0.845
+    }
+   ],
+   "beat": "B1",
+   "screen": "FRAME 0 = COVER. Lock screen 11:40, two banners already stacked and fully readable: \"Family · Mom: I'm outside. Unlock the door.\" over \"Mom: Don't open it. I'm still at work.\" Behind the phone, sharp: our front door, the red EXIT-sign strip under it broken by two feet"
+  },
+  {
+   "kind": "line",
+   "id": "f1",
+   "spk": "M",
+   "text": "I'm outside. Unlock the door.",
+   "start": 0.915,
+   "end": 2.962,
+   "dur": 2.047,
+   "words": [
+    {
+     "w": "I'm",
+     "s": 0.915,
+     "e": 0.994
+    },
+    {
+     "w": "outside.",
+     "s": 0.994,
+     "e": 1.844
+    },
+    {
+     "w": "Unlock",
+     "s": 2.019,
+     "e": 2.469
+    },
+    {
+     "w": "the",
+     "s": 2.469,
+     "e": 2.569
+    },
+    {
+     "w": "door.",
+     "s": 2.569,
+     "e": 3.012
+    }
+   ],
+   "beat": "B1",
+   "screen": "Punch-in on banner 1 (Family · Mom)"
+  },
+  {
+   "kind": "line",
+   "id": "n2",
+   "spk": "N",
+   "text": "Nine seconds later:",
+   "start": 3.262,
+   "end": 4.137,
+   "dur": 0.875,
+   "words": [
+    {
+     "w": "Nine",
+     "s": 3.262,
+     "e": 3.474
+    },
+    {
+     "w": "seconds",
+     "s": 3.474,
+     "e": 3.799
+    },
+    {
+     "w": "later:",
+     "s": 3.799,
+     "e": 4.187
+    }
+   ],
+   "beat": "B1",
+   "screen": "Punch-in on banner 2 (Mom, the private thread), timestamps 11:40 / 11:40"
+  },
+  {
+   "kind": "line",
+   "id": "p1",
+   "spk": "P",
+   "text": "Don't open it. I'm still at work.",
+   "start": 4.257,
+   "end": 6.757,
+   "dur": 2.5,
+   "words": [
+    {
+     "w": "Don't",
+     "s": 4.257,
+     "e": 4.504
+    },
+    {
+     "w": "open",
+     "s": 4.504,
+     "e": 4.904
+    },
+    {
+     "w": "it.",
+     "s": 4.904,
+     "e": 5.492
+    },
+    {
+     "w": "I'm",
+     "s": 5.667,
+     "e": 5.879
+    },
+    {
+     "w": "still",
+     "s": 5.879,
+     "e": 6.204
+    },
+    {
+     "w": "at",
+     "s": 6.204,
+     "e": 6.317
+    },
+    {
+     "w": "work.",
+     "s": 6.317,
+     "e": 6.807
+    }
+   ],
+   "beat": "B1",
+   "screen": "Banner 2 held, red edge pulse"
+  },
+  {
+   "kind": "line",
+   "id": "n3",
+   "spk": "N",
+   "text": "And one of them was right outside our door.",
+   "start": 7.057,
+   "end": 8.723,
+   "dur": 1.666,
+   "words": [
+    {
+     "w": "And",
+     "s": 7.057,
+     "e": 7.1
+    },
+    {
+     "w": "one",
+     "s": 7.1,
+     "e": 7.238
+    },
+    {
+     "w": "of",
+     "s": 7.238,
+     "e": 7.312
+    },
+    {
+     "w": "them",
+     "s": 7.312,
+     "e": 7.5
+    },
+    {
+     "w": "was",
+     "s": 7.5,
+     "e": 7.687
+    },
+    {
+     "w": "right",
+     "s": 7.687,
+     "e": 7.925
+    },
+    {
+     "w": "outside",
+     "s": 7.925,
+     "e": 8.312
+    },
+    {
+     "w": "our",
+     "s": 8.312,
+     "e": 8.437
+    },
+    {
+     "w": "door.",
+     "s": 8.437,
+     "e": 8.773
+    }
+   ],
+   "beat": "B1",
+   "screen": "Whip to the front door from inside: hall side dark, only the red EXIT glow under the door, two feet breaking it"
+  },
+  {
+   "kind": "line",
+   "id": "n4",
+   "spk": "N",
+   "text": "Mom's rule is on our fridge. After ten, the door stays locked. Even for her. She has her own key.",
+   "start": 8.923,
+   "end": 13.667,
+   "dur": 4.744,
+   "words": [
+    {
+     "w": "Mom's",
+     "s": 8.923,
+     "e": 9.164
+    },
+    {
+     "w": "rule",
+     "s": 9.164,
+     "e": 9.401
+    },
+    {
+     "w": "is",
+     "s": 9.401,
+     "e": 9.477
+    },
+    {
+     "w": "on",
+     "s": 9.477,
+     "e": 9.577
+    },
+    {
+     "w": "our",
+     "s": 9.577,
+     "e": 9.714
+    },
+    {
+     "w": "fridge.",
+     "s": 9.714,
+     "e": 10.214
+    },
+    {
+     "w": "After",
+     "s": 10.339,
+     "e": 10.614
+    },
+    {
+     "w": "ten,",
+     "s": 10.614,
+     "e": 10.864
+    },
+    {
+     "w": "the",
+     "s": 10.902,
+     "e": 10.989
+    },
+    {
+     "w": "door",
+     "s": 10.989,
+     "e": 11.214
+    },
+    {
+     "w": "stays",
+     "s": 11.214,
+     "e": 11.514
+    },
+    {
+     "w": "locked.",
+     "s": 11.514,
+     "e": 11.864
+    },
+    {
+     "w": "Even",
+     "s": 11.939,
+     "e": 12.239
+    },
+    {
+     "w": "for",
+     "s": 12.239,
+     "e": 12.364
+    },
+    {
+     "w": "her.",
+     "s": 12.364,
+     "e": 12.714
+    },
+    {
+     "w": "She",
+     "s": 12.814,
+     "e": 12.939
+    },
+    {
+     "w": "has",
+     "s": 12.939,
+     "e": 13.102
+    },
+    {
+     "w": "her",
+     "s": 13.102,
+     "e": 13.214
+    },
+    {
+     "w": "own",
+     "s": 13.214,
+     "e": 13.414
+    },
+    {
+     "w": "key.",
+     "s": 13.414,
+     "e": 13.717
+    }
+   ],
+   "beat": "B2",
+   "screen": "Yellow sticky note on the fridge: \"AFTER 10 THE DOOR STAYS LOCKED. EVEN FOR ME. I HAVE MY KEY. —M\"; smaller second line in Dad's hand: \"Dad: Lakeview Suites, Rm 412 (back Sun)\". \"EVEN FOR ME\" underlines itself in red"
+  },
+  {
+   "kind": "line",
+   "id": "f2",
+   "spk": "M",
+   "text": "Hands full, honey. Phone's on three percent. Please.",
+   "start": 13.967,
+   "end": 18.163,
+   "dur": 4.196,
+   "words": [
+    {
+     "w": "Hands",
+     "s": 13.967,
+     "e": 14.282
+    },
+    {
+     "w": "full,",
+     "s": 14.282,
+     "e": 14.545
+    },
+    {
+     "w": "honey.",
+     "s": 14.595,
+     "e": 15.27
+    },
+    {
+     "w": "Phone's",
+     "s": 15.545,
+     "e": 15.995
+    },
+    {
+     "w": "on",
+     "s": 15.995,
+     "e": 16.207
+    },
+    {
+     "w": "three",
+     "s": 16.207,
+     "e": 16.47
+    },
+    {
+     "w": "percent.",
+     "s": 16.47,
+     "e": 17.395
+    },
+    {
+     "w": "Please.",
+     "s": 17.582,
+     "e": 18.213
+    }
+   ],
+   "beat": "B3",
+   "screen": "Family thread (Mom, Dad, Nora). Mom: \"hands full honey\" / \"phone's on 3%\" / \"please\""
+  },
+  {
+   "kind": "line",
+   "id": "n5",
+   "spk": "N",
+   "text": "So I sent her the rule. Use your key.",
+   "start": 18.463,
+   "end": 19.965,
+   "dur": 1.502,
+   "words": [
+    {
+     "w": "So",
+     "s": 18.463,
+     "e": 18.514
+    },
+    {
+     "w": "I",
+     "s": 18.514,
+     "e": 18.602
+    },
+    {
+     "w": "sent",
+     "s": 18.602,
+     "e": 18.764
+    },
+    {
+     "w": "her",
+     "s": 18.764,
+     "e": 18.864
+    },
+    {
+     "w": "the",
+     "s": 18.864,
+     "e": 18.952
+    },
+    {
+     "w": "rule.",
+     "s": 18.952,
+     "e": 19.302
+    },
+    {
+     "w": "Use",
+     "s": 19.402,
+     "e": 19.59
+    },
+    {
+     "w": "your",
+     "s": 19.59,
+     "e": 19.702
+    },
+    {
+     "w": "key.",
+     "s": 19.702,
+     "e": 20.015
+    }
+   ],
+   "beat": "B3",
+   "screen": "Me (blue): \"Rule. Use your key.\""
+  },
+  {
+   "kind": "line",
+   "id": "f3",
+   "spk": "M",
+   "text": "Forgot them this morning. Check the hook.",
+   "start": 20.265,
+   "end": 22.974,
+   "dur": 2.709,
+   "words": [
+    {
+     "w": "Forgot",
+     "s": 20.265,
+     "e": 20.599
+    },
+    {
+     "w": "them",
+     "s": 20.599,
+     "e": 20.799
+    },
+    {
+     "w": "this",
+     "s": 20.799,
+     "e": 21.049
+    },
+    {
+     "w": "morning.",
+     "s": 21.049,
+     "e": 21.974
+    },
+    {
+     "w": "Check",
+     "s": 22.224,
+     "e": 22.499
+    },
+    {
+     "w": "the",
+     "s": 22.499,
+     "e": 22.599
+    },
+    {
+     "w": "hook.",
+     "s": 22.599,
+     "e": 23.024
+    }
+   ],
+   "beat": "B3",
+   "screen": "Mom: \"forgot them this morning\" / \"check the hook\""
+  },
+  {
+   "kind": "line",
+   "id": "n6",
+   "spk": "N",
+   "text": "Her keys were on the hook, on the red hospital lanyard. My hand went to the deadbolt.",
+   "start": 23.274,
+   "end": 27.176,
+   "dur": 3.902,
+   "words": [
+    {
+     "w": "Her",
+     "s": 23.274,
+     "e": 23.314
+    },
+    {
+     "w": "keys",
+     "s": 23.31,
+     "e": 23.598
+    },
+    {
+     "w": "were",
+     "s": 23.598,
+     "e": 23.698
+    },
+    {
+     "w": "on",
+     "s": 23.698,
+     "e": 23.797
+    },
+    {
+     "w": "the",
+     "s": 23.797,
+     "e": 23.885
+    },
+    {
+     "w": "hook,",
+     "s": 23.885,
+     "e": 24.185
+    },
+    {
+     "w": "on",
+     "s": 24.248,
+     "e": 24.347
+    },
+    {
+     "w": "the",
+     "s": 24.347,
+     "e": 24.435
+    },
+    {
+     "w": "red",
+     "s": 24.435,
+     "e": 24.685
+    },
+    {
+     "w": "hospital",
+     "s": 24.685,
+     "e": 25.135
+    },
+    {
+     "w": "lanyard.",
+     "s": 25.135,
+     "e": 25.76
+    },
+    {
+     "w": "My",
+     "s": 25.885,
+     "e": 26.06
+    },
+    {
+     "w": "hand",
+     "s": 26.06,
+     "e": 26.36
+    },
+    {
+     "w": "went",
+     "s": 26.36,
+     "e": 26.523
+    },
+    {
+     "w": "to",
+     "s": 26.523,
+     "e": 26.597
+    },
+    {
+     "w": "the",
+     "s": 26.597,
+     "e": 26.685
+    },
+    {
+     "w": "deadbolt.",
+     "s": 26.685,
+     "e": 27.226
+    }
+   ],
+   "beat": "B3",
+   "screen": "Key hook by the door: Mom's key ring on a plain red lanyard. Then the deadbolt thumb-turn, close; Nora's hand reaching in (near-open)"
+  },
+  {
+   "kind": "line",
+   "id": "p2",
+   "spk": "P",
+   "text": "Don't touch that lock.",
+   "start": 27.476,
+   "end": 28.856,
+   "dur": 1.38,
+   "words": [
+    {
+     "w": "Don't",
+     "s": 27.476,
+     "e": 27.724
+    },
+    {
+     "w": "touch",
+     "s": 27.724,
+     "e": 28.124
+    },
+    {
+     "w": "that",
+     "s": 28.124,
+     "e": 28.412
+    },
+    {
+     "w": "lock.",
+     "s": 28.412,
+     "e": 28.906
+    }
+   ],
+   "beat": "B4",
+   "screen": "Buzz. Private thread \"Mom\": \"Don't touch that lock.\" arrives with NO typing dots"
+  },
+  {
+   "kind": "line",
+   "id": "n7",
+   "spk": "N",
+   "text": "How did she know? I typed, your keys are right here.",
+   "start": 29.156,
+   "end": 31.232,
+   "dur": 2.076,
+   "words": [
+    {
+     "w": "How",
+     "s": 29.156,
+     "e": 29.202
+    },
+    {
+     "w": "did",
+     "s": 29.202,
+     "e": 29.34
+    },
+    {
+     "w": "she",
+     "s": 29.34,
+     "e": 29.465
+    },
+    {
+     "w": "know?",
+     "s": 29.465,
+     "e": 29.815
+    },
+    {
+     "w": "I",
+     "s": 29.94,
+     "e": 30.09
+    },
+    {
+     "w": "typed,",
+     "s": 30.09,
+     "e": 30.34
+    },
+    {
+     "w": "your",
+     "s": 30.378,
+     "e": 30.49
+    },
+    {
+     "w": "keys",
+     "s": 30.49,
+     "e": 30.702
+    },
+    {
+     "w": "are",
+     "s": 30.702,
+     "e": 30.79
+    },
+    {
+     "w": "right",
+     "s": 30.79,
+     "e": 30.99
+    },
+    {
+     "w": "here.",
+     "s": 30.99,
+     "e": 31.282
+    }
+   ],
+   "beat": "B4",
+   "screen": "Me: \"ur keys are right here on the hook??\""
+  },
+  {
+   "kind": "line",
+   "id": "p3",
+   "spk": "P",
+   "text": "No they're not. They're in my pocket.",
+   "start": 31.532,
+   "end": 34.096,
+   "dur": 2.564,
+   "words": [
+    {
+     "w": "No",
+     "s": 31.532,
+     "e": 31.761
+    },
+    {
+     "w": "they're",
+     "s": 31.761,
+     "e": 31.961
+    },
+    {
+     "w": "not.",
+     "s": 31.961,
+     "e": 32.736
+    },
+    {
+     "w": "They're",
+     "s": 32.898,
+     "e": 33.211
+    },
+    {
+     "w": "in",
+     "s": 33.211,
+     "e": 33.336
+    },
+    {
+     "w": "my",
+     "s": 33.336,
+     "e": 33.511
+    },
+    {
+     "w": "pocket.",
+     "s": 33.511,
+     "e": 34.146
+    }
+   ],
+   "beat": "B4",
+   "screen": "Instant, no dots: \"No they're not.\" / \"They're in my pocket.\""
+  },
+  {
+   "kind": "line",
+   "id": "n8",
+   "spk": "N",
+   "text": "No typing dots. One second. And I was staring at her keys.",
+   "start": 34.396,
+   "end": 37.313,
+   "dur": 2.917,
+   "words": [
+    {
+     "w": "No",
+     "s": 34.396,
+     "e": 34.471
+    },
+    {
+     "w": "typing",
+     "s": 34.471,
+     "e": 34.796
+    },
+    {
+     "w": "dots.",
+     "s": 34.796,
+     "e": 35.246
+    },
+    {
+     "w": "One",
+     "s": 35.321,
+     "e": 35.546
+    },
+    {
+     "w": "second.",
+     "s": 35.546,
+     "e": 36.021
+    },
+    {
+     "w": "And",
+     "s": 36.083,
+     "e": 36.208
+    },
+    {
+     "w": "I",
+     "s": 36.208,
+     "e": 36.284
+    },
+    {
+     "w": "was",
+     "s": 36.284,
+     "e": 36.396
+    },
+    {
+     "w": "staring",
+     "s": 36.396,
+     "e": 36.733
+    },
+    {
+     "w": "at",
+     "s": 36.733,
+     "e": 36.809
+    },
+    {
+     "w": "her",
+     "s": 36.809,
+     "e": 36.921
+    },
+    {
+     "w": "keys.",
+     "s": 36.921,
+     "e": 37.363
+    }
+   ],
+   "beat": "B4",
+   "screen": "Punch-in on the empty space where typing dots should be; cut to the keys on the hook"
+  },
+  {
+   "kind": "line",
+   "id": "n9",
+   "spk": "N",
+   "text": "So I asked both of them for our code word. Mom and I picked it at the kitchen table. We never typed it anywhere.",
+   "start": 37.513,
+   "end": 42.435,
+   "dur": 4.922,
+   "words": [
+    {
+     "w": "So",
+     "s": 37.513,
+     "e": 37.568
+    },
+    {
+     "w": "I",
+     "s": 37.568,
+     "e": 37.706
+    },
+    {
+     "w": "asked",
+     "s": 37.706,
+     "e": 38.031
+    },
+    {
+     "w": "both",
+     "s": 38.031,
+     "e": 38.219
+    },
+    {
+     "w": "of",
+     "s": 38.219,
+     "e": 38.293
+    },
+    {
+     "w": "them",
+     "s": 38.293,
+     "e": 38.481
+    },
+    {
+     "w": "for",
+     "s": 38.481,
+     "e": 38.593
+    },
+    {
+     "w": "our",
+     "s": 38.593,
+     "e": 38.731
+    },
+    {
+     "w": "code",
+     "s": 38.731,
+     "e": 39.006
+    },
+    {
+     "w": "word.",
+     "s": 39.006,
+     "e": 39.456
+    },
+    {
+     "w": "Mom",
+     "s": 39.593,
+     "e": 39.819
+    },
+    {
+     "w": "and",
+     "s": 39.819,
+     "e": 39.919
+    },
+    {
+     "w": "I",
+     "s": 39.919,
+     "e": 40.056
+    },
+    {
+     "w": "picked",
+     "s": 40.056,
+     "e": 40.294
+    },
+    {
+     "w": "it",
+     "s": 40.294,
+     "e": 40.368
+    },
+    {
+     "w": "at",
+     "s": 40.368,
+     "e": 40.444
+    },
+    {
+     "w": "the",
+     "s": 40.444,
+     "e": 40.531
+    },
+    {
+     "w": "kitchen",
+     "s": 40.531,
+     "e": 40.831
+    },
+    {
+     "w": "table.",
+     "s": 40.831,
+     "e": 41.331
+    },
+    {
+     "w": "We",
+     "s": 41.393,
+     "e": 41.506
+    },
+    {
+     "w": "never",
+     "s": 41.506,
+     "e": 41.731
+    },
+    {
+     "w": "typed",
+     "s": 41.731,
+     "e": 41.994
+    },
+    {
+     "w": "it",
+     "s": 41.994,
+     "e": 42.068
+    },
+    {
+     "w": "anywhere.",
+     "s": 42.068,
+     "e": 42.485
+    }
+   ],
+   "beat": "S4",
+   "screen": "Me, in both threads: \"what's our word?\" (two whips). Nora close-up on \"kitchen table\""
+  },
+  {
+   "kind": "line",
+   "id": "f4",
+   "spk": "M",
+   "text": "Nora, I'm not doing this in the hallway. Open up.",
+   "start": 42.735,
+   "end": 46.402,
+   "dur": 3.667,
+   "words": [
+    {
+     "w": "Nora,",
+     "s": 42.735,
+     "e": 43.061
+    },
+    {
+     "w": "I'm",
+     "s": 43.136,
+     "e": 43.311
+    },
+    {
+     "w": "not",
+     "s": 43.311,
+     "e": 43.561
+    },
+    {
+     "w": "doing",
+     "s": 43.561,
+     "e": 43.861
+    },
+    {
+     "w": "this",
+     "s": 43.861,
+     "e": 44.161
+    },
+    {
+     "w": "in",
+     "s": 44.161,
+     "e": 44.249
+    },
+    {
+     "w": "the",
+     "s": 44.249,
+     "e": 44.336
+    },
+    {
+     "w": "hallway.",
+     "s": 44.336,
+     "e": 45.361
+    },
+    {
+     "w": "Open",
+     "s": 45.724,
+     "e": 46.086
+    },
+    {
+     "w": "up.",
+     "s": 46.086,
+     "e": 46.452
+    }
+   ],
+   "beat": "S4",
+   "screen": "Family · Mom: \"Nora I'm not doing this in the hallway\" / \"open up\""
+  },
+  {
+   "kind": "line",
+   "id": "p4",
+   "spk": "P",
+   "text": "Marigold. Now put the chain on.",
+   "start": 46.702,
+   "end": 49.267,
+   "dur": 2.565,
+   "words": [
+    {
+     "w": "Marigold.",
+     "s": 46.702,
+     "e": 47.679
+    },
+    {
+     "w": "Now",
+     "s": 47.867,
+     "e": 48.204
+    },
+    {
+     "w": "put",
+     "s": 48.204,
+     "e": 48.429
+    },
+    {
+     "w": "the",
+     "s": 48.429,
+     "e": 48.541
+    },
+    {
+     "w": "chain",
+     "s": 48.541,
+     "e": 48.904
+    },
+    {
+     "w": "on.",
+     "s": 48.904,
+     "e": 49.317
+    }
+   ],
+   "beat": "S4",
+   "screen": "Private · Mom: \"Marigold.\" / \"Now put the chain on.\""
+  },
+  {
+   "kind": "line",
+   "id": "n10",
+   "spk": "N",
+   "text": "Only Mom knew that. I slid the chain on.",
+   "start": 49.567,
+   "end": 51.238,
+   "dur": 1.671,
+   "words": [
+    {
+     "w": "Only",
+     "s": 49.567,
+     "e": 49.77
+    },
+    {
+     "w": "Mom",
+     "s": 49.77,
+     "e": 49.957
+    },
+    {
+     "w": "knew",
+     "s": 49.957,
+     "e": 50.057
+    },
+    {
+     "w": "that.",
+     "s": 50.057,
+     "e": 50.345
+    },
+    {
+     "w": "I",
+     "s": 50.408,
+     "e": 50.545
+    },
+    {
+     "w": "slid",
+     "s": 50.545,
+     "e": 50.733
+    },
+    {
+     "w": "the",
+     "s": 50.733,
+     "e": 50.82
+    },
+    {
+     "w": "chain",
+     "s": 50.82,
+     "e": 51.033
+    },
+    {
+     "w": "on.",
+     "s": 51.033,
+     "e": 51.288
+    }
+   ],
+   "beat": "S4",
+   "screen": "Insert: the door chain sliding into its track"
+  },
+  {
+   "kind": "line",
+   "id": "n11",
+   "spk": "N",
+   "text": "Then the doorbell rang.",
+   "start": 51.438,
+   "end": 52.345,
+   "dur": 0.907,
+   "words": [
+    {
+     "w": "Then",
+     "s": 51.438,
+     "e": 51.516
+    },
+    {
+     "w": "the",
+     "s": 51.516,
+     "e": 51.604
+    },
+    {
+     "w": "doorbell",
+     "s": 51.604,
+     "e": 52.029
+    },
+    {
+     "w": "rang.",
+     "s": 52.029,
+     "e": 52.395
+    }
+   ],
+   "beat": "B5a",
+   "screen": "Front door, shake on the bell"
+  },
+  {
+   "kind": "line",
+   "id": "n12",
+   "spk": "N",
+   "text": "Through the peephole, blue scrubs. Head down. Too close to the lens to see a face.",
+   "start": 52.445,
+   "end": 56.284,
+   "dur": 3.839,
+   "words": [
+    {
+     "w": "Through",
+     "s": 52.445,
+     "e": 52.52
+    },
+    {
+     "w": "the",
+     "s": 52.52,
+     "e": 52.607
+    },
+    {
+     "w": "peephole,",
+     "s": 52.607,
+     "e": 53.032
+    },
+    {
+     "w": "blue",
+     "s": 53.082,
+     "e": 53.307
+    },
+    {
+     "w": "scrubs.",
+     "s": 53.307,
+     "e": 53.857
+    },
+    {
+     "w": "Head",
+     "s": 53.957,
+     "e": 54.157
+    },
+    {
+     "w": "down.",
+     "s": 54.157,
+     "e": 54.607
+    },
+    {
+     "w": "Too",
+     "s": 54.707,
+     "e": 54.882
+    },
+    {
+     "w": "close",
+     "s": 54.882,
+     "e": 55.157
+    },
+    {
+     "w": "to",
+     "s": 55.157,
+     "e": 55.244
+    },
+    {
+     "w": "the",
+     "s": 55.244,
+     "e": 55.332
+    },
+    {
+     "w": "lens",
+     "s": 55.332,
+     "e": 55.607
+    },
+    {
+     "w": "to",
+     "s": 55.607,
+     "e": 55.707
+    },
+    {
+     "w": "see",
+     "s": 55.707,
+     "e": 55.845
+    },
+    {
+     "w": "a",
+     "s": 55.845,
+     "e": 55.907
+    },
+    {
+     "w": "face.",
+     "s": 55.907,
+     "e": 56.334
+    }
+   ],
+   "beat": "B5a",
+   "screen": "Peephole POV: the corridor dark except the red EXIT sign; a blue-scrubs shoulder and a bowed head fill the bottom of the lens"
+  },
+  {
+   "kind": "line",
+   "id": "n13",
+   "spk": "N",
+   "text": "Our hall light is on a motion sensor. It clicks on for anyone, even the neighbor's cat. It never clicked on.",
+   "start": 56.484,
+   "end": 61.525,
+   "dur": 5.041,
+   "words": [
+    {
+     "w": "Our",
+     "s": 56.484,
+     "e": 56.527
+    },
+    {
+     "w": "hall",
+     "s": 56.527,
+     "e": 56.752
+    },
+    {
+     "w": "light",
+     "s": 56.752,
+     "e": 57.027
+    },
+    {
+     "w": "is",
+     "s": 57.027,
+     "e": 57.139
+    },
+    {
+     "w": "on",
+     "s": 57.139,
+     "e": 57.239
+    },
+    {
+     "w": "a",
+     "s": 57.239,
+     "e": 57.302
+    },
+    {
+     "w": "motion",
+     "s": 57.302,
+     "e": 57.627
+    },
+    {
+     "w": "sensor.",
+     "s": 57.627,
+     "e": 58.202
+    },
+    {
+     "w": "It",
+     "s": 58.302,
+     "e": 58.427
+    },
+    {
+     "w": "clicks",
+     "s": 58.427,
+     "e": 58.689
+    },
+    {
+     "w": "on",
+     "s": 58.689,
+     "e": 58.852
+    },
+    {
+     "w": "for",
+     "s": 58.852,
+     "e": 58.977
+    },
+    {
+     "w": "anyone,",
+     "s": 58.977,
+     "e": 59.427
+    },
+    {
+     "w": "even",
+     "s": 59.502,
+     "e": 59.74
+    },
+    {
+     "w": "the",
+     "s": 59.74,
+     "e": 59.827
+    },
+    {
+     "w": "neighbor's",
+     "s": 59.827,
+     "e": 60.202
+    },
+    {
+     "w": "cat.",
+     "s": 60.202,
+     "e": 60.652
+    },
+    {
+     "w": "It",
+     "s": 60.714,
+     "e": 60.827
+    },
+    {
+     "w": "never",
+     "s": 60.827,
+     "e": 61.027
+    },
+    {
+     "w": "clicked",
+     "s": 61.027,
+     "e": 61.302
+    },
+    {
+     "w": "on.",
+     "s": 61.302,
+     "e": 61.575
+    }
+   ],
+   "beat": "B5a",
+   "screen": "Hold the dark peephole; cut on \"never\" to the strip under the door: still only red"
+  },
+  {
+   "kind": "line",
+   "id": "n14",
+   "spk": "N",
+   "text": "Then Dad posted in the family chat. Dad never posts.",
+   "start": 61.725,
+   "end": 64.33,
+   "dur": 2.605,
+   "words": [
+    {
+     "w": "Then",
+     "s": 61.725,
+     "e": 61.851
+    },
+    {
+     "w": "Dad",
+     "s": 61.851,
+     "e": 62.101
+    },
+    {
+     "w": "posted",
+     "s": 62.101,
+     "e": 62.463
+    },
+    {
+     "w": "in",
+     "s": 62.463,
+     "e": 62.538
+    },
+    {
+     "w": "the",
+     "s": 62.538,
+     "e": 62.626
+    },
+    {
+     "w": "family",
+     "s": 62.626,
+     "e": 62.976
+    },
+    {
+     "w": "chat.",
+     "s": 62.976,
+     "e": 63.401
+    },
+    {
+     "w": "Dad",
+     "s": 63.501,
+     "e": 63.701
+    },
+    {
+     "w": "never",
+     "s": 63.701,
+     "e": 63.901
+    },
+    {
+     "w": "posts.",
+     "s": 63.901,
+     "e": 64.38
+    }
+   ],
+   "beat": "B5b",
+   "screen": "Family thread: Dad's avatar (D, slate) with typing dots; his last message above it, from Sep 14: \"ok\""
+  },
+  {
+   "kind": "silence",
+   "id": "q1",
+   "start": 64.43,
+   "end": 67.03,
+   "dur": 2.6,
+   "beat": "B5b",
+   "screen": "SILENT bubbles (no VO), big punch-in: Dad: \"It's really her, kiddo.\" / \"I just talked to her.\" / \"Let your mother in.\""
+  },
+  {
+   "kind": "line",
+   "id": "n15",
+   "spk": "N",
+   "text": "Dad was in Columbus till Sunday. And he has never lied to me.",
+   "start": 67.03,
+   "end": 69.734,
+   "dur": 2.704,
+   "words": [
+    {
+     "w": "Dad",
+     "s": 67.03,
+     "e": 67.184
+    },
+    {
+     "w": "was",
+     "s": 67.184,
+     "e": 67.283
+    },
+    {
+     "w": "in",
+     "s": 67.283,
+     "e": 67.371
+    },
+    {
+     "w": "Columbus",
+     "s": 67.371,
+     "e": 67.796
+    },
+    {
+     "w": "till",
+     "s": 67.796,
+     "e": 67.971
+    },
+    {
+     "w": "Sunday.",
+     "s": 67.971,
+     "e": 68.546
+    },
+    {
+     "w": "And",
+     "s": 68.633,
+     "e": 68.759
+    },
+    {
+     "w": "he",
+     "s": 68.759,
+     "e": 68.833
+    },
+    {
+     "w": "has",
+     "s": 68.833,
+     "e": 68.996
+    },
+    {
+     "w": "never",
+     "s": 68.996,
+     "e": 69.246
+    },
+    {
+     "w": "lied",
+     "s": 69.246,
+     "e": 69.471
+    },
+    {
+     "w": "to",
+     "s": 69.471,
+     "e": 69.558
+    },
+    {
+     "w": "me.",
+     "s": 69.558,
+     "e": 69.784
+    }
+   ],
+   "beat": "B5b",
+   "screen": "Nora close-up, worried. Behind her, out of focus: the hall closet door"
+  },
+  {
+   "kind": "line",
+   "id": "f5",
+   "spk": "M",
+   "text": "I can see your shadow under the door, Nora.",
+   "start": 70.034,
+   "end": 72.751,
+   "dur": 2.717,
+   "words": [
+    {
+     "w": "I",
+     "s": 70.034,
+     "e": 70.077
+    },
+    {
+     "w": "can",
+     "s": 70.077,
+     "e": 70.289
+    },
+    {
+     "w": "see",
+     "s": 70.289,
+     "e": 70.502
+    },
+    {
+     "w": "your",
+     "s": 70.502,
+     "e": 70.664
+    },
+    {
+     "w": "shadow",
+     "s": 70.664,
+     "e": 71.315
+    },
+    {
+     "w": "under",
+     "s": 71.315,
+     "e": 71.539
+    },
+    {
+     "w": "the",
+     "s": 71.539,
+     "e": 71.627
+    },
+    {
+     "w": "door,",
+     "s": 71.627,
+     "e": 72.202
+    },
+    {
+     "w": "Nora.",
+     "s": 72.352,
+     "e": 72.801
+    }
+   ],
+   "beat": "S7",
+   "screen": "Family · Mom: \"I can see your shadow under the door, Nora.\" Cut to floor level: Nora's shadow strip inside, the feet outside"
+  },
+  {
+   "kind": "line",
+   "id": "n16",
+   "spk": "N",
+   "text": "The handle tilted down. Slowly. Then up.",
+   "start": 73.051,
+   "end": 74.932,
+   "dur": 1.881,
+   "words": [
+    {
+     "w": "The",
+     "s": 73.051,
+     "e": 73.091
+    },
+    {
+     "w": "handle",
+     "s": 73.051,
+     "e": 73.347
+    },
+    {
+     "w": "tilted",
+     "s": 73.347,
+     "e": 73.672
+    },
+    {
+     "w": "down.",
+     "s": 73.672,
+     "e": 74.047
+    },
+    {
+     "w": "Slowly.",
+     "s": 74.134,
+     "e": 74.522
+    },
+    {
+     "w": "Then",
+     "s": 74.597,
+     "e": 74.735
+    },
+    {
+     "w": "up.",
+     "s": 74.735,
+     "e": 74.982
+    }
+   ],
+   "beat": "S7",
+   "screen": "Macro: the lever handle tilts down slowly, then back up"
+  },
+  {
+   "kind": "silence",
+   "id": "q2",
+   "start": 75.032,
+   "end": 76.532,
+   "dur": 1.5,
+   "beat": "S7",
+   "screen": "SILENT CAPS bubble (red alert style), phone vibrates, door knocks: \"NORA. OPEN. THE DOOR.\""
+  },
+  {
+   "kind": "line",
+   "id": "n17",
+   "spk": "N",
+   "text": "I didn't text Dad back. I called him.",
+   "start": 76.532,
+   "end": 78.19,
+   "dur": 1.658,
+   "words": [
+    {
+     "w": "I",
+     "s": 76.532,
+     "e": 76.572
+    },
+    {
+     "w": "didn't",
+     "s": 76.538,
+     "e": 76.75
+    },
+    {
+     "w": "text",
+     "s": 76.75,
+     "e": 77.037
+    },
+    {
+     "w": "Dad",
+     "s": 77.037,
+     "e": 77.275
+    },
+    {
+     "w": "back.",
+     "s": 77.275,
+     "e": 77.55
+    },
+    {
+     "w": "I",
+     "s": 77.612,
+     "e": 77.725
+    },
+    {
+     "w": "called",
+     "s": 77.725,
+     "e": 77.987
+    },
+    {
+     "w": "him.",
+     "s": 77.987,
+     "e": 78.24
+    }
+   ],
+   "beat": "B8",
+   "screen": "Outgoing call screen: \"Dad · mobile · calling…\" with one red End button"
+  },
+  {
+   "kind": "silence",
+   "id": "q3",
+   "start": 78.29,
+   "end": 79.29,
+   "dur": 1.0,
+   "beat": "B8",
+   "screen": "Ringback, faint, in the earpiece only"
+  },
+  {
+   "kind": "line",
+   "id": "n18",
+   "spk": "N",
+   "text": "Two rings and a pause. Dad's old desk-phone ringtone. Not in my ear. Behind me. In our hall closet.",
+   "start": 79.29,
+   "end": 84.413,
+   "dur": 5.123,
+   "words": [
+    {
+     "w": "Two",
+     "s": 79.29,
+     "e": 79.419
+    },
+    {
+     "w": "rings",
+     "s": 79.419,
+     "e": 79.732
+    },
+    {
+     "w": "and",
+     "s": 79.732,
+     "e": 79.831
+    },
+    {
+     "w": "a",
+     "s": 79.831,
+     "e": 79.894
+    },
+    {
+     "w": "pause.",
+     "s": 79.894,
+     "e": 80.519
+    },
+    {
+     "w": "Dad's",
+     "s": 80.619,
+     "e": 80.944
+    },
+    {
+     "w": "old",
+     "s": 80.944,
+     "e": 81.169
+    },
+    {
+     "w": "desk-phone",
+     "s": 81.169,
+     "e": 81.594
+    },
+    {
+     "w": "ringtone.",
+     "s": 81.594,
+     "e": 82.094
+    },
+    {
+     "w": "Not",
+     "s": 82.169,
+     "e": 82.332
+    },
+    {
+     "w": "in",
+     "s": 82.332,
+     "e": 82.406
+    },
+    {
+     "w": "my",
+     "s": 82.406,
+     "e": 82.544
+    },
+    {
+     "w": "ear.",
+     "s": 82.544,
+     "e": 82.869
+    },
+    {
+     "w": "Behind",
+     "s": 82.944,
+     "e": 83.307
+    },
+    {
+     "w": "me.",
+     "s": 83.307,
+     "e": 83.519
+    },
+    {
+     "w": "In",
+     "s": 83.594,
+     "e": 83.682
+    },
+    {
+     "w": "our",
+     "s": 83.682,
+     "e": 83.819
+    },
+    {
+     "w": "hall",
+     "s": 83.819,
+     "e": 84.044
+    },
+    {
+     "w": "closet.",
+     "s": 84.044,
+     "e": 84.463
+    }
+   ],
+   "beat": "B8",
+   "screen": "Nora's eyes go wide (no blink). On \"Behind me\": over-the-shoulder, past her back-view silhouette, to the hall closet door; phone glow pulses under it with each ring"
+  },
+  {
+   "kind": "silence",
+   "id": "q4",
+   "start": 84.513,
+   "end": 88.513,
+   "dur": 4.0,
+   "beat": "B8",
+   "screen": "SILENCE BEAT 4.0 s: two more full ring cycles from the closet, no VO, music out. The glow pulses, then goes dark"
+  },
+  {
+   "kind": "line",
+   "id": "n19",
+   "spk": "N",
+   "text": "The ringing stopped. And in the family chat, Dad was typing.",
+   "start": 88.513,
+   "end": 91.061,
+   "dur": 2.548,
+   "words": [
+    {
+     "w": "The",
+     "s": 88.513,
+     "e": 88.553
+    },
+    {
+     "w": "ringing",
+     "s": 88.513,
+     "e": 88.787
+    },
+    {
+     "w": "stopped.",
+     "s": 88.787,
+     "e": 89.286
+    },
+    {
+     "w": "And",
+     "s": 89.348,
+     "e": 89.473
+    },
+    {
+     "w": "in",
+     "s": 89.473,
+     "e": 89.549
+    },
+    {
+     "w": "the",
+     "s": 89.549,
+     "e": 89.637
+    },
+    {
+     "w": "family",
+     "s": 89.637,
+     "e": 89.987
+    },
+    {
+     "w": "chat,",
+     "s": 89.987,
+     "e": 90.261
+    },
+    {
+     "w": "Dad",
+     "s": 90.311,
+     "e": 90.549
+    },
+    {
+     "w": "was",
+     "s": 90.549,
+     "e": 90.661
+    },
+    {
+     "w": "typing.",
+     "s": 90.661,
+     "e": 91.111
+    }
+   ],
+   "beat": "B6",
+   "screen": "Family thread header: \"Dad is typing…\""
+  },
+  {
+   "kind": "silence",
+   "id": "q5",
+   "start": 91.161,
+   "end": 93.161,
+   "dur": 2.0,
+   "beat": "B6",
+   "screen": "SILENT calm bubbles: Dad: \"Don't turn around, kiddo.\" / \"Just open the front door.\""
+  },
+  {
+   "kind": "line",
+   "id": "n20",
+   "spk": "N",
+   "text": "I backed away from the closet and called the hotel number on the fridge. Room four twelve.",
+   "start": 93.161,
+   "end": 97.254,
+   "dur": 4.093,
+   "words": [
+    {
+     "w": "I",
+     "s": 93.161,
+     "e": 93.204
+    },
+    {
+     "w": "backed",
+     "s": 93.204,
+     "e": 93.466
+    },
+    {
+     "w": "away",
+     "s": 93.466,
+     "e": 93.679
+    },
+    {
+     "w": "from",
+     "s": 93.679,
+     "e": 93.816
+    },
+    {
+     "w": "the",
+     "s": 93.816,
+     "e": 93.904
+    },
+    {
+     "w": "closet",
+     "s": 93.904,
+     "e": 94.404
+    },
+    {
+     "w": "and",
+     "s": 94.404,
+     "e": 94.529
+    },
+    {
+     "w": "called",
+     "s": 94.529,
+     "e": 94.767
+    },
+    {
+     "w": "the",
+     "s": 94.767,
+     "e": 94.854
+    },
+    {
+     "w": "hotel",
+     "s": 94.854,
+     "e": 95.216
+    },
+    {
+     "w": "number",
+     "s": 95.216,
+     "e": 95.491
+    },
+    {
+     "w": "on",
+     "s": 95.491,
+     "e": 95.592
+    },
+    {
+     "w": "the",
+     "s": 95.592,
+     "e": 95.679
+    },
+    {
+     "w": "fridge.",
+     "s": 95.679,
+     "e": 96.204
+    },
+    {
+     "w": "Room",
+     "s": 96.366,
+     "e": 96.654
+    },
+    {
+     "w": "four",
+     "s": 96.654,
+     "e": 96.879
+    },
+    {
+     "w": "twelve.",
+     "s": 96.879,
+     "e": 97.304
+    }
+   ],
+   "beat": "B10",
+   "screen": "Walk-back: Nora toward camera, the closet behind her. Insert: the fridge note's \"Rm 412\" line. Outgoing call \"Lakeview Suites · Room 412\""
+  },
+  {
+   "kind": "line",
+   "id": "d1",
+   "spk": "D",
+   "text": "Hello? Nora? What's wrong, kiddo?",
+   "start": 97.554,
+   "end": 99.277,
+   "dur": 1.723,
+   "words": [
+    {
+     "w": "Hello?",
+     "s": 97.554,
+     "e": 97.781
+    },
+    {
+     "w": "Nora?",
+     "s": 97.831,
+     "e": 98.256
+    },
+    {
+     "w": "What's",
+     "s": 98.381,
+     "e": 98.606
+    },
+    {
+     "w": "wrong,",
+     "s": 98.606,
+     "e": 98.881
+    },
+    {
+     "w": "kiddo?",
+     "s": 98.931,
+     "e": 99.327
+    }
+   ],
+   "beat": "B10",
+   "screen": "Call connects; timer starts 00:00"
+  },
+  {
+   "kind": "line",
+   "id": "n21",
+   "spk": "N",
+   "text": "His real voice. Half asleep. Where's your phone, Dad?",
+   "start": 99.577,
+   "end": 101.703,
+   "dur": 2.126,
+   "words": [
+    {
+     "w": "His",
+     "s": 99.577,
+     "e": 99.661
+    },
+    {
+     "w": "real",
+     "s": 99.661,
+     "e": 99.911
+    },
+    {
+     "w": "voice.",
+     "s": 99.911,
+     "e": 100.261
+    },
+    {
+     "w": "Half",
+     "s": 100.311,
+     "e": 100.499
+    },
+    {
+     "w": "asleep.",
+     "s": 100.499,
+     "e": 100.861
+    },
+    {
+     "w": "Where's",
+     "s": 100.898,
+     "e": 101.049
+    },
+    {
+     "w": "your",
+     "s": 101.049,
+     "e": 101.161
+    },
+    {
+     "w": "phone,",
+     "s": 101.161,
+     "e": 101.386
+    },
+    {
+     "w": "Dad?",
+     "s": 101.423,
+     "e": 101.753
+    }
+   ],
+   "beat": "B10",
+   "screen": "Nora close-up, phone to her ear, whispering"
+  },
+  {
+   "kind": "line",
+   "id": "d2",
+   "spk": "D",
+   "text": "My cell? It's in my winter coat. In the hall closet. I forgot it.",
+   "start": 102.003,
+   "end": 105.319,
+   "dur": 3.316,
+   "words": [
+    {
+     "w": "My",
+     "s": 102.003,
+     "e": 102.147
+    },
+    {
+     "w": "cell?",
+     "s": 102.147,
+     "e": 102.447
+    },
+    {
+     "w": "It's",
+     "s": 102.485,
+     "e": 102.634
+    },
+    {
+     "w": "in",
+     "s": 102.634,
+     "e": 102.709
+    },
+    {
+     "w": "my",
+     "s": 102.709,
+     "e": 102.847
+    },
+    {
+     "w": "winter",
+     "s": 102.847,
+     "e": 103.184
+    },
+    {
+     "w": "coat.",
+     "s": 103.184,
+     "e": 103.547
+    },
+    {
+     "w": "In",
+     "s": 103.622,
+     "e": 103.709
+    },
+    {
+     "w": "the",
+     "s": 103.709,
+     "e": 103.797
+    },
+    {
+     "w": "hall",
+     "s": 103.797,
+     "e": 104.084
+    },
+    {
+     "w": "closet.",
+     "s": 104.084,
+     "e": 104.647
+    },
+    {
+     "w": "I",
+     "s": 104.722,
+     "e": 104.872
+    },
+    {
+     "w": "forgot",
+     "s": 104.872,
+     "e": 105.247
+    },
+    {
+     "w": "it.",
+     "s": 105.247,
+     "e": 105.369
+    }
+   ],
+   "beat": "B10",
+   "screen": "Call screen; cut on \"closet\" to the closet door, dark"
+  },
+  {
+   "kind": "line",
+   "id": "n22",
+   "spk": "N",
+   "text": "Then who's typing on it?",
+   "start": 105.619,
+   "end": 106.561,
+   "dur": 0.942,
+   "words": [
+    {
+     "w": "Then",
+     "s": 105.619,
+     "e": 105.76
+    },
+    {
+     "w": "who's",
+     "s": 105.76,
+     "e": 105.96
+    },
+    {
+     "w": "typing",
+     "s": 105.96,
+     "e": 106.272
+    },
+    {
+     "w": "on",
+     "s": 106.272,
+     "e": 106.41
+    },
+    {
+     "w": "it?",
+     "s": 106.41,
+     "e": 106.611
+    }
+   ],
+   "beat": "B10",
+   "screen": "Nora close-up, scared"
+  },
+  {
+   "kind": "silence",
+   "id": "q6",
+   "start": 106.661,
+   "end": 107.461,
+   "dur": 0.8,
+   "beat": "B10",
+   "screen": "Call timer runs; silence on the line"
+  },
+  {
+   "kind": "line",
+   "id": "d3",
+   "spk": "D",
+   "text": "Stay on the line. I'm having the front desk call your police.",
+   "start": 107.461,
+   "end": 110.647,
+   "dur": 3.186,
+   "words": [
+    {
+     "w": "Stay",
+     "s": 107.461,
+     "e": 107.708
+    },
+    {
+     "w": "on",
+     "s": 107.708,
+     "e": 107.808
+    },
+    {
+     "w": "the",
+     "s": 107.808,
+     "e": 107.895
+    },
+    {
+     "w": "line.",
+     "s": 107.895,
+     "e": 108.495
+    },
+    {
+     "w": "I'm",
+     "s": 108.62,
+     "e": 108.77
+    },
+    {
+     "w": "having",
+     "s": 108.77,
+     "e": 109.033
+    },
+    {
+     "w": "the",
+     "s": 109.033,
+     "e": 109.133
+    },
+    {
+     "w": "front",
+     "s": 109.133,
+     "e": 109.395
+    },
+    {
+     "w": "desk",
+     "s": 109.395,
+     "e": 109.72
+    },
+    {
+     "w": "call",
+     "s": 109.72,
+     "e": 109.97
+    },
+    {
+     "w": "your",
+     "s": 109.97,
+     "e": 110.095
+    },
+    {
+     "w": "police.",
+     "s": 110.095,
+     "e": 110.697
+    }
+   ],
+   "beat": "B10",
+   "screen": "Call screen, timer running"
+  },
+  {
+   "kind": "line",
+   "id": "n23",
+   "spk": "N",
+   "text": "Eight minutes, they said. My battery said two percent.",
+   "start": 110.947,
+   "end": 113.114,
+   "dur": 2.167,
+   "words": [
+    {
+     "w": "Eight",
+     "s": 110.947,
+     "e": 111.022
+    },
+    {
+     "w": "minutes,",
+     "s": 111.022,
+     "e": 111.284
+    },
+    {
+     "w": "they",
+     "s": 111.321,
+     "e": 111.459
+    },
+    {
+     "w": "said.",
+     "s": 111.459,
+     "e": 111.809
+    },
+    {
+     "w": "My",
+     "s": 111.909,
+     "e": 112.059
+    },
+    {
+     "w": "battery",
+     "s": 112.059,
+     "e": 112.384
+    },
+    {
+     "w": "said",
+     "s": 112.384,
+     "e": 112.534
+    },
+    {
+     "w": "two",
+     "s": 112.534,
+     "e": 112.709
+    },
+    {
+     "w": "percent.",
+     "s": 112.709,
+     "e": 113.164
+    }
+   ],
+   "beat": "B10",
+   "screen": "Battery glyph in the status bar flips red: 2%; chip \"police · 8 min\""
+  },
+  {
+   "kind": "line",
+   "id": "f6",
+   "spk": "M",
+   "text": "Who are you whispering to, honey?",
+   "start": 113.414,
+   "end": 115.034,
+   "dur": 1.62,
+   "words": [
+    {
+     "w": "Who",
+     "s": 113.414,
+     "e": 113.515
+    },
+    {
+     "w": "are",
+     "s": 113.515,
+     "e": 113.666
+    },
+    {
+     "w": "you",
+     "s": 113.666,
+     "e": 113.853
+    },
+    {
+     "w": "whispering",
+     "s": 113.853,
+     "e": 114.402
+    },
+    {
+     "w": "to,",
+     "s": 114.402,
+     "e": 114.616
+    },
+    {
+     "w": "honey?",
+     "s": 114.715,
+     "e": 115.084
+    }
+   ],
+   "beat": "B5c",
+   "screen": "Banner over the call: \"Family · Mom: who are you whispering to, honey?\""
+  },
+  {
+   "kind": "line",
+   "id": "n24",
+   "spk": "N",
+   "text": "I looked at the hook. Empty. Nobody had come in. I'd been standing right here.",
+   "start": 115.334,
+   "end": 118.803,
+   "dur": 3.469,
+   "words": [
+    {
+     "w": "I",
+     "s": 115.334,
+     "e": 115.374
+    },
+    {
+     "w": "looked",
+     "s": 115.354,
+     "e": 115.542
+    },
+    {
+     "w": "at",
+     "s": 115.542,
+     "e": 115.616
+    },
+    {
+     "w": "the",
+     "s": 115.616,
+     "e": 115.704
+    },
+    {
+     "w": "hook.",
+     "s": 115.704,
+     "e": 116.104
+    },
+    {
+     "w": "Empty.",
+     "s": 116.204,
+     "e": 116.679
+    },
+    {
+     "w": "Nobody",
+     "s": 116.779,
+     "e": 117.117
+    },
+    {
+     "w": "had",
+     "s": 117.117,
+     "e": 117.229
+    },
+    {
+     "w": "come",
+     "s": 117.229,
+     "e": 117.391
+    },
+    {
+     "w": "in.",
+     "s": 117.391,
+     "e": 117.654
+    },
+    {
+     "w": "I'd",
+     "s": 117.729,
+     "e": 117.867
+    },
+    {
+     "w": "been",
+     "s": 117.867,
+     "e": 117.979
+    },
+    {
+     "w": "standing",
+     "s": 117.979,
+     "e": 118.354
+    },
+    {
+     "w": "right",
+     "s": 118.354,
+     "e": 118.554
+    },
+    {
+     "w": "here.",
+     "s": 118.554,
+     "e": 118.853
+    }
+   ],
+   "beat": "B5c",
+   "screen": "Same framing as the key-hook insert: the hook is empty. Then Nora, looking around her own hallway"
+  },
+  {
+   "kind": "line",
+   "id": "n25",
+   "spk": "N",
+   "text": "Then a key slid into our lock, from outside.",
+   "start": 119.003,
+   "end": 120.727,
+   "dur": 1.724,
+   "words": [
+    {
+     "w": "Then",
+     "s": 119.003,
+     "e": 119.045
+    },
+    {
+     "w": "a",
+     "s": 119.045,
+     "e": 119.108
+    },
+    {
+     "w": "key",
+     "s": 119.108,
+     "e": 119.308
+    },
+    {
+     "w": "slid",
+     "s": 119.308,
+     "e": 119.495
+    },
+    {
+     "w": "into",
+     "s": 119.495,
+     "e": 119.671
+    },
+    {
+     "w": "our",
+     "s": 119.671,
+     "e": 119.795
+    },
+    {
+     "w": "lock,",
+     "s": 119.795,
+     "e": 120.083
+    },
+    {
+     "w": "from",
+     "s": 120.12,
+     "e": 120.245
+    },
+    {
+     "w": "outside.",
+     "s": 120.245,
+     "e": 120.777
+    }
+   ],
+   "beat": "B5c",
+   "screen": "Macro on the lock cylinder, the key sound only"
+  },
+  {
+   "kind": "line",
+   "id": "n26",
+   "spk": "N",
+   "text": "Even for her, the door stays locked. She has her own key.",
+   "start": 120.927,
+   "end": 123.469,
+   "dur": 2.542,
+   "words": [
+    {
+     "w": "Even",
+     "s": 120.927,
+     "e": 121.125
+    },
+    {
+     "w": "for",
+     "s": 121.125,
+     "e": 121.25
+    },
+    {
+     "w": "her,",
+     "s": 121.25,
+     "e": 121.425
+    },
+    {
+     "w": "the",
+     "s": 121.462,
+     "e": 121.55
+    },
+    {
+     "w": "door",
+     "s": 121.55,
+     "e": 121.775
+    },
+    {
+     "w": "stays",
+     "s": 121.775,
+     "e": 122.05
+    },
+    {
+     "w": "locked.",
+     "s": 122.05,
+     "e": 122.525
+    },
+    {
+     "w": "She",
+     "s": 122.625,
+     "e": 122.75
+    },
+    {
+     "w": "has",
+     "s": 122.75,
+     "e": 122.913
+    },
+    {
+     "w": "her",
+     "s": 122.913,
+     "e": 123.025
+    },
+    {
+     "w": "own",
+     "s": 123.025,
+     "e": 123.225
+    },
+    {
+     "w": "key.",
+     "s": 123.225,
+     "e": 123.519
+    }
+   ],
+   "beat": "B5c",
+   "screen": "Flash insert of the fridge note: \"I HAVE MY KEY\" turns red"
+  },
+  {
+   "kind": "line",
+   "id": "n27",
+   "spk": "N",
+   "text": "The deadbolt turned. The door slammed open against the chain. Three inches of black. Nothing came in.",
+   "start": 123.669,
+   "end": 128.43,
+   "dur": 4.761,
+   "words": [
+    {
+     "w": "The",
+     "s": 123.669,
+     "e": 123.709
+    },
+    {
+     "w": "deadbolt",
+     "s": 123.669,
+     "e": 124.093
+    },
+    {
+     "w": "turned.",
+     "s": 124.093,
+     "e": 124.643
+    },
+    {
+     "w": "The",
+     "s": 124.743,
+     "e": 124.843
+    },
+    {
+     "w": "door",
+     "s": 124.843,
+     "e": 125.068
+    },
+    {
+     "w": "slammed",
+     "s": 125.068,
+     "e": 125.418
+    },
+    {
+     "w": "open",
+     "s": 125.418,
+     "e": 125.655
+    },
+    {
+     "w": "against",
+     "s": 125.655,
+     "e": 125.905
+    },
+    {
+     "w": "the",
+     "s": 125.905,
+     "e": 125.993
+    },
+    {
+     "w": "chain.",
+     "s": 125.993,
+     "e": 126.443
+    },
+    {
+     "w": "Three",
+     "s": 126.556,
+     "e": 126.818
+    },
+    {
+     "w": "inches",
+     "s": 126.818,
+     "e": 127.081
+    },
+    {
+     "w": "of",
+     "s": 127.081,
+     "e": 127.168
+    },
+    {
+     "w": "black.",
+     "s": 127.168,
+     "e": 127.593
+    },
+    {
+     "w": "Nothing",
+     "s": 127.681,
+     "e": 128.018
+    },
+    {
+     "w": "came",
+     "s": 128.018,
+     "e": 128.23
+    },
+    {
+     "w": "in.",
+     "s": 128.23,
+     "e": 128.48
+    }
+   ],
+   "beat": "B5c",
+   "screen": "The thumb-turn rotates by itself; the door jerks open to the chain; the gap is pure black; cold air drifts in; nothing is ever visible in the gap"
+  },
+  {
+   "kind": "line",
+   "id": "p5",
+   "spk": "P",
+   "text": "Get in the hall closet. Shut the door. Don't make a sound.",
+   "start": 128.73,
+   "end": 133.311,
+   "dur": 4.581,
+   "words": [
+    {
+     "w": "Get",
+     "s": 128.73,
+     "e": 128.866
+    },
+    {
+     "w": "in",
+     "s": 128.866,
+     "e": 128.941
+    },
+    {
+     "w": "the",
+     "s": 128.941,
+     "e": 129.042
+    },
+    {
+     "w": "hall",
+     "s": 129.042,
+     "e": 129.354
+    },
+    {
+     "w": "closet.",
+     "s": 129.354,
+     "e": 130.479
+    },
+    {
+     "w": "Shut",
+     "s": 130.742,
+     "e": 131.029
+    },
+    {
+     "w": "the",
+     "s": 131.029,
+     "e": 131.129
+    },
+    {
+     "w": "door.",
+     "s": 131.129,
+     "e": 131.979
+    },
+    {
+     "w": "Don't",
+     "s": 132.191,
+     "e": 132.467
+    },
+    {
+     "w": "make",
+     "s": 132.467,
+     "e": 132.642
+    },
+    {
+     "w": "a",
+     "s": 132.642,
+     "e": 132.741
+    },
+    {
+     "w": "sound.",
+     "s": 132.741,
+     "e": 133.361
+    }
+   ],
+   "beat": "T3",
+   "screen": "Banners from the private \"Mom\": \"Get in the hall closet.\" / \"Shut the door.\" / \"Don't make a sound.\""
+  },
+  {
+   "kind": "line",
+   "id": "n28",
+   "spk": "N",
+   "text": "Mom says hide in the closet.",
+   "start": 133.611,
+   "end": 134.774,
+   "dur": 1.163,
+   "words": [
+    {
+     "w": "Mom",
+     "s": 133.611,
+     "e": 133.78
+    },
+    {
+     "w": "says",
+     "s": 133.78,
+     "e": 133.98
+    },
+    {
+     "w": "hide",
+     "s": 133.98,
+     "e": 134.242
+    },
+    {
+     "w": "in",
+     "s": 134.242,
+     "e": 134.318
+    },
+    {
+     "w": "the",
+     "s": 134.318,
+     "e": 134.405
+    },
+    {
+     "w": "closet.",
+     "s": 134.405,
+     "e": 134.824
+    }
+   ],
+   "beat": "T3",
+   "screen": "Nora whispering into the phone"
+  },
+  {
+   "kind": "line",
+   "id": "d4",
+   "spk": "D",
+   "text": "Nora, no. That's where my phone is. Whatever's typing is in there. Lock yourself in the bathroom.",
+   "start": 135.074,
+   "end": 140.118,
+   "dur": 5.044,
+   "words": [
+    {
+     "w": "Nora,",
+     "s": 135.074,
+     "e": 135.342
+    },
+    {
+     "w": "no.",
+     "s": 135.392,
+     "e": 135.667
+    },
+    {
+     "w": "That's",
+     "s": 135.742,
+     "e": 136.004
+    },
+    {
+     "w": "where",
+     "s": 136.004,
+     "e": 136.129
+    },
+    {
+     "w": "my",
+     "s": 136.129,
+     "e": 136.304
+    },
+    {
+     "w": "phone",
+     "s": 136.304,
+     "e": 136.655
+    },
+    {
+     "w": "is.",
+     "s": 136.655,
+     "e": 137.092
+    },
+    {
+     "w": "Whatever's",
+     "s": 137.192,
+     "e": 137.654
+    },
+    {
+     "w": "typing",
+     "s": 137.654,
+     "e": 138.092
+    },
+    {
+     "w": "is",
+     "s": 138.092,
+     "e": 138.254
+    },
+    {
+     "w": "in",
+     "s": 138.254,
+     "e": 138.442
+    },
+    {
+     "w": "there.",
+     "s": 138.442,
+     "e": 138.742
+    },
+    {
+     "w": "Lock",
+     "s": 138.792,
+     "e": 139.055
+    },
+    {
+     "w": "yourself",
+     "s": 139.055,
+     "e": 139.454
+    },
+    {
+     "w": "in",
+     "s": 139.454,
+     "e": 139.529
+    },
+    {
+     "w": "the",
+     "s": 139.529,
+     "e": 139.617
+    },
+    {
+     "w": "bathroom.",
+     "s": 139.617,
+     "e": 140.168
+    }
+   ],
+   "beat": "T3",
+   "screen": "Call screen; on \"in there\" a fast cut to the closet door"
+  },
+  {
+   "kind": "line",
+   "id": "n29",
+   "spk": "N",
+   "text": "I ran for the bathroom. Halfway there, my screen went black. Dead.",
+   "start": 140.418,
+   "end": 143.455,
+   "dur": 3.037,
+   "words": [
+    {
+     "w": "I",
+     "s": 140.418,
+     "e": 140.461
+    },
+    {
+     "w": "ran",
+     "s": 140.461,
+     "e": 140.711
+    },
+    {
+     "w": "for",
+     "s": 140.711,
+     "e": 140.823
+    },
+    {
+     "w": "the",
+     "s": 140.823,
+     "e": 140.899
+    },
+    {
+     "w": "bathroom.",
+     "s": 140.899,
+     "e": 141.436
+    },
+    {
+     "w": "Halfway",
+     "s": 141.536,
+     "e": 141.849
+    },
+    {
+     "w": "there,",
+     "s": 141.849,
+     "e": 141.986
+    },
+    {
+     "w": "my",
+     "s": 142.024,
+     "e": 142.161
+    },
+    {
+     "w": "screen",
+     "s": 142.161,
+     "e": 142.449
+    },
+    {
+     "w": "went",
+     "s": 142.449,
+     "e": 142.599
+    },
+    {
+     "w": "black.",
+     "s": 142.599,
+     "e": 143.061
+    },
+    {
+     "w": "Dead.",
+     "s": 143.161,
+     "e": 143.505
+    }
+   ],
+   "beat": "T3",
+   "screen": "Hall, running; the phone in her hand goes black (battery dead): the landline is gone"
+  },
+  {
+   "kind": "silence",
+   "id": "q7",
+   "start": 143.555,
+   "end": 144.755,
+   "dur": 1.2,
+   "beat": "T3",
+   "screen": "Dark hallway; her breath; the closet door beside her"
+  },
+  {
+   "kind": "line",
+   "id": "n30",
+   "spk": "N",
+   "text": "And the closet door swung open by itself.",
+   "start": 144.755,
+   "end": 146.549,
+   "dur": 1.794,
+   "words": [
+    {
+     "w": "And",
+     "s": 144.755,
+     "e": 144.795
+    },
+    {
+     "w": "the",
+     "s": 144.778,
+     "e": 144.866
+    },
+    {
+     "w": "closet",
+     "s": 144.866,
+     "e": 145.191
+    },
+    {
+     "w": "door",
+     "s": 145.191,
+     "e": 145.466
+    },
+    {
+     "w": "swung",
+     "s": 145.466,
+     "e": 145.766
+    },
+    {
+     "w": "open",
+     "s": 145.766,
+     "e": 146.041
+    },
+    {
+     "w": "by",
+     "s": 146.041,
+     "e": 146.179
+    },
+    {
+     "w": "itself.",
+     "s": 146.179,
+     "e": 146.599
+    }
+   ],
+   "beat": "B9",
+   "screen": "The hall closet door swings open on its own"
+  },
+  {
+   "kind": "line",
+   "id": "n31",
+   "spk": "N",
+   "text": "Dad's coat. Nobody in it. But the sleeve was still swinging.",
+   "start": 146.749,
+   "end": 149.281,
+   "dur": 2.532,
+   "words": [
+    {
+     "w": "Dad's",
+     "s": 146.749,
+     "e": 146.981
+    },
+    {
+     "w": "coat.",
+     "s": 146.981,
+     "e": 147.256
+    },
+    {
+     "w": "Nobody",
+     "s": 147.306,
+     "e": 147.656
+    },
+    {
+     "w": "in",
+     "s": 147.656,
+     "e": 147.756
+    },
+    {
+     "w": "it.",
+     "s": 147.756,
+     "e": 148.006
+    },
+    {
+     "w": "But",
+     "s": 148.068,
+     "e": 148.193
+    },
+    {
+     "w": "the",
+     "s": 148.193,
+     "e": 148.293
+    },
+    {
+     "w": "sleeve",
+     "s": 148.293,
+     "e": 148.543
+    },
+    {
+     "w": "was",
+     "s": 148.543,
+     "e": 148.644
+    },
+    {
+     "w": "still",
+     "s": 148.644,
+     "e": 148.881
+    },
+    {
+     "w": "swinging.",
+     "s": 148.881,
+     "e": 149.331
+    }
+   ],
+   "beat": "B9",
+   "screen": "Inside: coats on hangers; Dad's grey winter coat in the middle; its empty sleeve still swinging, slowing"
+  },
+  {
+   "kind": "line",
+   "id": "n32",
+   "spk": "N",
+   "text": "His phone was lit in the pocket, and it was typing.",
+   "start": 149.481,
+   "end": 151.518,
+   "dur": 2.037,
+   "words": [
+    {
+     "w": "His",
+     "s": 149.481,
+     "e": 149.568
+    },
+    {
+     "w": "phone",
+     "s": 149.568,
+     "e": 149.806
+    },
+    {
+     "w": "was",
+     "s": 149.806,
+     "e": 149.943
+    },
+    {
+     "w": "lit",
+     "s": 149.943,
+     "e": 150.081
+    },
+    {
+     "w": "in",
+     "s": 150.081,
+     "e": 150.156
+    },
+    {
+     "w": "the",
+     "s": 150.156,
+     "e": 150.243
+    },
+    {
+     "w": "pocket,",
+     "s": 150.243,
+     "e": 150.743
+    },
+    {
+     "w": "and",
+     "s": 150.818,
+     "e": 150.93
+    },
+    {
+     "w": "it",
+     "s": 150.93,
+     "e": 151.006
+    },
+    {
+     "w": "was",
+     "s": 151.006,
+     "e": 151.118
+    },
+    {
+     "w": "typing.",
+     "s": 151.118,
+     "e": 151.568
+    }
+   ],
+   "beat": "B9",
+   "screen": "Push in on the coat pocket: a phone screen glowing through the fabric"
+  },
+  {
+   "kind": "silence",
+   "id": "q8",
+   "start": 151.618,
+   "end": 155.618,
+   "dur": 4.0,
+   "beat": "B9",
+   "screen": "THE scariest image, held ~4 s, no music: macro on the phone half out of the pocket, Family thread, draft field typing one letter at a time: \"turn around nora\""
+  },
+  {
+   "kind": "line",
+   "id": "n33",
+   "spk": "N",
+   "text": "It typed, turn around, Nora. I didn't.",
+   "start": 155.618,
+   "end": 157.243,
+   "dur": 1.625,
+   "words": [
+    {
+     "w": "It",
+     "s": 155.618,
+     "e": 155.664
+    },
+    {
+     "w": "typed,",
+     "s": 155.664,
+     "e": 155.939
+    },
+    {
+     "w": "turn",
+     "s": 155.977,
+     "e": 156.126
+    },
+    {
+     "w": "around,",
+     "s": 156.126,
+     "e": 156.389
+    },
+    {
+     "w": "Nora.",
+     "s": 156.426,
+     "e": 156.739
+    },
+    {
+     "w": "I",
+     "s": 156.839,
+     "e": 156.951
+    },
+    {
+     "w": "didn't.",
+     "s": 156.951,
+     "e": 157.293
+    }
+   ],
+   "beat": "B9",
+   "screen": "Nora's face, eyes locked forward; behind her (out of focus) the front door, open to the chain, black gap"
+  },
+  {
+   "kind": "line",
+   "id": "n34",
+   "spk": "N",
+   "text": "Then red and blue light slid under the front door. The gap eased shut by itself.",
+   "start": 157.443,
+   "end": 161.028,
+   "dur": 3.585,
+   "words": [
+    {
+     "w": "Then",
+     "s": 157.443,
+     "e": 157.545
+    },
+    {
+     "w": "red",
+     "s": 157.545,
+     "e": 157.783
+    },
+    {
+     "w": "and",
+     "s": 157.783,
+     "e": 157.895
+    },
+    {
+     "w": "blue",
+     "s": 157.895,
+     "e": 158.12
+    },
+    {
+     "w": "light",
+     "s": 158.12,
+     "e": 158.358
+    },
+    {
+     "w": "slid",
+     "s": 158.358,
+     "e": 158.583
+    },
+    {
+     "w": "under",
+     "s": 158.583,
+     "e": 158.757
+    },
+    {
+     "w": "the",
+     "s": 158.757,
+     "e": 158.845
+    },
+    {
+     "w": "front",
+     "s": 158.845,
+     "e": 159.033
+    },
+    {
+     "w": "door.",
+     "s": 159.033,
+     "e": 159.495
+    },
+    {
+     "w": "The",
+     "s": 159.62,
+     "e": 159.72
+    },
+    {
+     "w": "gap",
+     "s": 159.72,
+     "e": 159.995
+    },
+    {
+     "w": "eased",
+     "s": 159.995,
+     "e": 160.308
+    },
+    {
+     "w": "shut",
+     "s": 160.308,
+     "e": 160.52
+    },
+    {
+     "w": "by",
+     "s": 160.52,
+     "e": 160.657
+    },
+    {
+     "w": "itself.",
+     "s": 160.657,
+     "e": 161.078
+    }
+   ],
+   "beat": "B10b",
+   "screen": "Red/blue wash pulses under the door and across the wall; the black gap narrows to nothing; the latch clicks"
+  },
+  {
+   "kind": "line",
+   "id": "n35",
+   "spk": "N",
+   "text": "A man's voice. Police. Your dad called us.",
+   "start": 161.228,
+   "end": 163.386,
+   "dur": 2.158,
+   "words": [
+    {
+     "w": "A",
+     "s": 161.228,
+     "e": 161.268
+    },
+    {
+     "w": "man's",
+     "s": 161.228,
+     "e": 161.553
+    },
+    {
+     "w": "voice.",
+     "s": 161.553,
+     "e": 161.903
+    },
+    {
+     "w": "Police.",
+     "s": 161.978,
+     "e": 162.453
+    },
+    {
+     "w": "Your",
+     "s": 162.528,
+     "e": 162.678
+    },
+    {
+     "w": "dad",
+     "s": 162.678,
+     "e": 162.928
+    },
+    {
+     "w": "called",
+     "s": 162.928,
+     "e": 163.19
+    },
+    {
+     "w": "us.",
+     "s": 163.19,
+     "e": 163.436
+    }
+   ],
+   "beat": "B10b",
+   "screen": "Front door, three knocks, red/blue light"
+  },
+  {
+   "kind": "line",
+   "id": "n36",
+   "spk": "N",
+   "text": "Voices lie. So I watched the light under the door.",
+   "start": 163.586,
+   "end": 165.536,
+   "dur": 1.95,
+   "words": [
+    {
+     "w": "Voices",
+     "s": 163.586,
+     "e": 163.837
+    },
+    {
+     "w": "lie.",
+     "s": 163.837,
+     "e": 164.187
+    },
+    {
+     "w": "So",
+     "s": 164.287,
+     "e": 164.4
+    },
+    {
+     "w": "I",
+     "s": 164.4,
+     "e": 164.487
+    },
+    {
+     "w": "watched",
+     "s": 164.487,
+     "e": 164.725
+    },
+    {
+     "w": "the",
+     "s": 164.725,
+     "e": 164.812
+    },
+    {
+     "w": "light",
+     "s": 164.812,
+     "e": 164.999
+    },
+    {
+     "w": "under",
+     "s": 164.999,
+     "e": 165.174
+    },
+    {
+     "w": "the",
+     "s": 165.174,
+     "e": 165.262
+    },
+    {
+     "w": "door.",
+     "s": 165.262,
+     "e": 165.586
+    }
+   ],
+   "beat": "B10b",
+   "screen": "Floor level: the strip under the door, red/blue only"
+  },
+  {
+   "kind": "line",
+   "id": "n37",
+   "spk": "N",
+   "text": "Click. The hall light came on for them. It had never come on for her.",
+   "start": 165.736,
+   "end": 168.427,
+   "dur": 2.691,
+   "words": [
+    {
+     "w": "Click.",
+     "s": 165.736,
+     "e": 165.936
+    },
+    {
+     "w": "The",
+     "s": 165.973,
+     "e": 166.061
+    },
+    {
+     "w": "hall",
+     "s": 166.061,
+     "e": 166.286
+    },
+    {
+     "w": "light",
+     "s": 166.286,
+     "e": 166.486
+    },
+    {
+     "w": "came",
+     "s": 166.486,
+     "e": 166.674
+    },
+    {
+     "w": "on",
+     "s": 166.674,
+     "e": 166.811
+    },
+    {
+     "w": "for",
+     "s": 166.811,
+     "e": 166.924
+    },
+    {
+     "w": "them.",
+     "s": 166.924,
+     "e": 167.286
+    },
+    {
+     "w": "It",
+     "s": 167.349,
+     "e": 167.448
+    },
+    {
+     "w": "had",
+     "s": 167.448,
+     "e": 167.561
+    },
+    {
+     "w": "never",
+     "s": 167.561,
+     "e": 167.811
+    },
+    {
+     "w": "come",
+     "s": 167.811,
+     "e": 167.948
+    },
+    {
+     "w": "on",
+     "s": 167.948,
+     "e": 168.136
+    },
+    {
+     "w": "for",
+     "s": 168.136,
+     "e": 168.249
+    },
+    {
+     "w": "her.",
+     "s": 168.249,
+     "e": 168.477
+    }
+   ],
+   "beat": "B10b",
+   "screen": "On \"Click\" the strip turns warm white: the motion light. Peephole: two officers, lit"
+  },
+  {
+   "kind": "line",
+   "id": "n38",
+   "spk": "N",
+   "text": "So I broke Mom's rule. Chain off.",
+   "start": 168.627,
+   "end": 170.242,
+   "dur": 1.615,
+   "words": [
+    {
+     "w": "So",
+     "s": 168.627,
+     "e": 168.674
+    },
+    {
+     "w": "I",
+     "s": 168.674,
+     "e": 168.749
+    },
+    {
+     "w": "broke",
+     "s": 168.749,
+     "e": 168.987
+    },
+    {
+     "w": "Mom's",
+     "s": 168.987,
+     "e": 169.262
+    },
+    {
+     "w": "rule.",
+     "s": 169.262,
+     "e": 169.612
+    },
+    {
+     "w": "Chain",
+     "s": 169.712,
+     "e": 169.937
+    },
+    {
+     "w": "off.",
+     "s": 169.937,
+     "e": 170.292
+    }
+   ],
+   "beat": "B10b",
+   "screen": "Insert: chain off"
+  },
+  {
+   "kind": "line",
+   "id": "n39",
+   "spk": "N",
+   "text": "Two officers. And Mom, running out of the elevator in her blue scrubs.",
+   "start": 170.442,
+   "end": 173.859,
+   "dur": 3.417,
+   "words": [
+    {
+     "w": "Two",
+     "s": 170.442,
+     "e": 170.57
+    },
+    {
+     "w": "officers.",
+     "s": 170.57,
+     "e": 171.245
+    },
+    {
+     "w": "And",
+     "s": 171.32,
+     "e": 171.47
+    },
+    {
+     "w": "Mom,",
+     "s": 171.47,
+     "e": 171.87
+    },
+    {
+     "w": "running",
+     "s": 171.945,
+     "e": 172.208
+    },
+    {
+     "w": "out",
+     "s": 172.208,
+     "e": 172.333
+    },
+    {
+     "w": "of",
+     "s": 172.333,
+     "e": 172.407
+    },
+    {
+     "w": "the",
+     "s": 172.407,
+     "e": 172.52
+    },
+    {
+     "w": "elevator",
+     "s": 172.52,
+     "e": 173.007
+    },
+    {
+     "w": "in",
+     "s": 173.007,
+     "e": 173.083
+    },
+    {
+     "w": "her",
+     "s": 173.083,
+     "e": 173.195
+    },
+    {
+     "w": "blue",
+     "s": 173.195,
+     "e": 173.42
+    },
+    {
+     "w": "scrubs.",
+     "s": 173.42,
+     "e": 173.909
+    }
+   ],
+   "beat": "B10b",
+   "screen": "Elevator panel arrives at 6; the lit corridor, a figure running toward us"
+  },
+  {
+   "kind": "line",
+   "id": "r1",
+   "spk": "R",
+   "text": "Baby, my phone died at nine. I never texted you.",
+   "start": 174.159,
+   "end": 176.661,
+   "dur": 2.502,
+   "words": [
+    {
+     "w": "Baby,",
+     "s": 174.159,
+     "e": 174.43
+    },
+    {
+     "w": "my",
+     "s": 174.468,
+     "e": 174.605
+    },
+    {
+     "w": "phone",
+     "s": 174.605,
+     "e": 174.88
+    },
+    {
+     "w": "died",
+     "s": 174.88,
+     "e": 175.117
+    },
+    {
+     "w": "at",
+     "s": 175.117,
+     "e": 175.205
+    },
+    {
+     "w": "nine.",
+     "s": 175.205,
+     "e": 175.605
+    },
+    {
+     "w": "I",
+     "s": 175.68,
+     "e": 175.805
+    },
+    {
+     "w": "never",
+     "s": 175.805,
+     "e": 176.005
+    },
+    {
+     "w": "texted",
+     "s": 176.005,
+     "e": 176.43
+    },
+    {
+     "w": "you.",
+     "s": 176.43,
+     "e": 176.711
+    }
+   ],
+   "beat": "B11",
+   "screen": "Insert: Mom's hand holding her phone, black, dead; it reflects the hall light"
+  },
+  {
+   "kind": "line",
+   "id": "n40",
+   "spk": "N",
+   "text": "But the private chat knew Marigold.",
+   "start": 176.961,
+   "end": 178.346,
+   "dur": 1.385,
+   "words": [
+    {
+     "w": "But",
+     "s": 176.961,
+     "e": 177.001
+    },
+    {
+     "w": "the",
+     "s": 176.996,
+     "e": 177.084
+    },
+    {
+     "w": "private",
+     "s": 177.084,
+     "e": 177.434
+    },
+    {
+     "w": "chat",
+     "s": 177.434,
+     "e": 177.659
+    },
+    {
+     "w": "knew",
+     "s": 177.659,
+     "e": 177.809
+    },
+    {
+     "w": "Marigold.",
+     "s": 177.809,
+     "e": 178.396
+    }
+   ],
+   "beat": "B11",
+   "screen": "Nora close-up, relief turning to fear"
+  },
+  {
+   "kind": "line",
+   "id": "r2",
+   "spk": "R",
+   "text": "Nobody knows Marigold. We only ever said it out loud, in our kitchen.",
+   "start": 178.646,
+   "end": 182.123,
+   "dur": 3.477,
+   "words": [
+    {
+     "w": "Nobody",
+     "s": 178.646,
+     "e": 178.941
+    },
+    {
+     "w": "knows",
+     "s": 178.941,
+     "e": 179.216
+    },
+    {
+     "w": "Marigold.",
+     "s": 179.216,
+     "e": 179.916
+    },
+    {
+     "w": "We",
+     "s": 180.016,
+     "e": 180.141
+    },
+    {
+     "w": "only",
+     "s": 180.141,
+     "e": 180.416
+    },
+    {
+     "w": "ever",
+     "s": 180.416,
+     "e": 180.641
+    },
+    {
+     "w": "said",
+     "s": 180.641,
+     "e": 180.803
+    },
+    {
+     "w": "it",
+     "s": 180.803,
+     "e": 180.891
+    },
+    {
+     "w": "out",
+     "s": 180.891,
+     "e": 181.091
+    },
+    {
+     "w": "loud,",
+     "s": 181.091,
+     "e": 181.416
+    },
+    {
+     "w": "in",
+     "s": 181.453,
+     "e": 181.529
+    },
+    {
+     "w": "our",
+     "s": 181.529,
+     "e": 181.666
+    },
+    {
+     "w": "kitchen.",
+     "s": 181.666,
+     "e": 182.173
+    }
+   ],
+   "beat": "B11",
+   "screen": "Slow push into our dark kitchen behind them, the fridge note just visible"
+  },
+  {
+   "kind": "line",
+   "id": "n41",
+   "spk": "N",
+   "text": "So whatever answered had been in our kitchen.",
+   "start": 182.423,
+   "end": 184.129,
+   "dur": 1.706,
+   "words": [
+    {
+     "w": "So",
+     "s": 182.423,
+     "e": 182.492
+    },
+    {
+     "w": "whatever",
+     "s": 182.492,
+     "e": 182.867
+    },
+    {
+     "w": "answered",
+     "s": 182.867,
+     "e": 183.267
+    },
+    {
+     "w": "had",
+     "s": 183.267,
+     "e": 183.392
+    },
+    {
+     "w": "been",
+     "s": 183.392,
+     "e": 183.592
+    },
+    {
+     "w": "in",
+     "s": 183.592,
+     "e": 183.68
+    },
+    {
+     "w": "our",
+     "s": 183.68,
+     "e": 183.817
+    },
+    {
+     "w": "kitchen.",
+     "s": 183.817,
+     "e": 184.179
+    }
+   ],
+   "beat": "B11",
+   "screen": "Nora looking back into the apartment, terrified"
+  },
+  {
+   "kind": "line",
+   "id": "n42",
+   "spk": "N",
+   "text": "Then my dead phone lit up. The private chat. Mom.",
+   "start": 184.329,
+   "end": 186.669,
+   "dur": 2.34,
+   "words": [
+    {
+     "w": "Then",
+     "s": 184.329,
+     "e": 184.369
+    },
+    {
+     "w": "my",
+     "s": 184.369,
+     "e": 184.507
+    },
+    {
+     "w": "dead",
+     "s": 184.507,
+     "e": 184.732
+    },
+    {
+     "w": "phone",
+     "s": 184.732,
+     "e": 184.957
+    },
+    {
+     "w": "lit",
+     "s": 184.957,
+     "e": 185.095
+    },
+    {
+     "w": "up.",
+     "s": 185.095,
+     "e": 185.357
+    },
+    {
+     "w": "The",
+     "s": 185.42,
+     "e": 185.507
+    },
+    {
+     "w": "private",
+     "s": 185.507,
+     "e": 185.857
+    },
+    {
+     "w": "chat.",
+     "s": 185.857,
+     "e": 186.232
+    },
+    {
+     "w": "Mom.",
+     "s": 186.32,
+     "e": 186.719
+    }
+   ],
+   "beat": "B12",
+   "screen": "Her black phone wakes by itself: lock screen, banner \"Mom\" (same avatar as frame 0)"
+  },
+  {
+   "kind": "line",
+   "id": "p6",
+   "spk": "P",
+   "text": "Now I know whose voice you trust.",
+   "start": 186.969,
+   "end": 189.231,
+   "dur": 2.262,
+   "words": [
+    {
+     "w": "Now",
+     "s": 186.969,
+     "e": 187.284
+    },
+    {
+     "w": "I",
+     "s": 187.284,
+     "e": 187.446
+    },
+    {
+     "w": "know",
+     "s": 187.446,
+     "e": 187.883
+    },
+    {
+     "w": "whose",
+     "s": 187.883,
+     "e": 188.183
+    },
+    {
+     "w": "voice",
+     "s": 188.183,
+     "e": 188.571
+    },
+    {
+     "w": "you",
+     "s": 188.571,
+     "e": 188.721
+    },
+    {
+     "w": "trust.",
+     "s": 188.721,
+     "e": 189.281
+    }
+   ],
+   "beat": "B12",
+   "screen": "Private thread: typing dots for the FIRST time (the tell breaks), then \"Now I know whose voice you trust.\""
+  },
+  {
+   "kind": "line",
+   "id": "x1",
+   "spk": "X",
+   "text": "Next time, I'll call from Room four twelve.",
+   "start": 189.531,
+   "end": 191.707,
+   "dur": 2.176,
+   "words": [
+    {
+     "w": "Next",
+     "s": 189.531,
+     "e": 189.788
+    },
+    {
+     "w": "time,",
+     "s": 189.788,
+     "e": 190.113
+    },
+    {
+     "w": "I'll",
+     "s": 190.151,
+     "e": 190.288
+    },
+    {
+     "w": "call",
+     "s": 190.288,
+     "e": 190.563
+    },
+    {
+     "w": "from",
+     "s": 190.563,
+     "e": 190.763
+    },
+    {
+     "w": "Room",
+     "s": 190.763,
+     "e": 191.075
+    },
+    {
+     "w": "four",
+     "s": 191.075,
+     "e": 191.325
+    },
+    {
+     "w": "twelve.",
+     "s": 191.325,
+     "e": 191.757
+    }
+   ],
+   "beat": "B12",
+   "screen": "Second bubble, read in DAD's landline voice: \"Next time, I'll call from Room 412.\" Bookend: phone over the front door, as in frame 0"
+  },
+  {
+   "kind": "silence",
+   "id": "q9",
+   "start": 191.807,
+   "end": 193.307,
+   "dur": 1.5,
+   "beat": "B12",
+   "screen": "Hold on the bookend frame; hard cut to black. No CTA, no part card"
+  }
+ ],
+ "stats": {
+  "runtime_s": 193.307,
+  "speech_s": 160.35,
+  "silence_s": 18.6,
+  "gaps_s": 14.36,
+  "words": 633,
+  "words_by_speaker": {
+   "N": 466,
+   "M": 45,
+   "P": 43,
+   "D": 48,
+   "R": 23,
+   "X": 8
+  },
+  "wpm_overall": 196.5,
+  "wpm_speaking": 236.9,
+  "sentences": 133,
+  "sentence_median_all": 4,
+  "sentence_mean_all": 4.76,
+  "sentence_median_narrator": 5,
+  "punch_share_all": 0.526,
+  "punch_share_narrator": 0.473,
+  "you_sentence_share": 0.068,
+  "you_per_100_words": 1.42,
+  "questions": 8,
+  "questions_per_min": 2.5,
+  "distinct_numbers": [
+   "11:40 (cover)",
+   "nine seconds",
+   "ten",
+   "three percent",
+   "Sunday",
+   "Room 412",
+   "eight minutes",
+   "two percent",
+   "three inches",
+   "nine (o'clock)",
+   "two officers",
+   "Room 412 (again, as the threat)"
+  ],
+  "numbers_per_min": 3.7,
+  "line1_words": 7,
+  "core_hook_words": 17,
+  "core_hook_s": 6.76,
+  "contradiction_s": 4.257,
+  "danger_at_door_s": 8.437,
+  "words_first_10s": 32
+ }
+}

@@ -1,0 +1,76 @@
+{
+  "episode": "horror-mom-two-chats",
+  "reviewed_at_utc": "2026-11-01T12:40Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 5},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+  "format_change": "2 parts x ~105 s -> one 193.3 s story (PLAYBOOK §1 story sweet spot 165-250 s; §5 Part 2 = 16% of Part 1). Both retention and reference critiques raised this.",
+  "score_notes": {
+    "retention": "Measured 193.3 s. Line 1 is 7 words, the contradiction lands at 4.3 s, frame 0 shows both banners plus the feet in the red EXIT strip. 76 jolts, median 2.5 s, max 7.0 s. The key logic is clean (the group Mom says check the hook, the hook confirms; 'in my pocket' is the one catchable lie). The rule is a weapon at 0:19 and is spoken back as the key turns at 2:01. The private Mom's malice is on screen ('Get in the hall closet'). The dead-phone fact is held back to the 90% twist and arrives with new information (Marigold was only ever said aloud in our kitchen). The peak is a physical wrongness (the sleeve still swinging) plus a draft that addresses her, held 4.0 s with music out. The ending targets what she trusted (the Room 412 landline), in Dad's voice. Residual risks: at 193 s it is past the 60 s chat-Short sweet spot, so it lives or dies as a story upload; narrator sentence median is 5 words (chat-heavy), below the 6-9 target.",
+    "reference": "Every alignment row now gives our % next to the reference's %, and the mis-citations are fixed: the instant reply is SIEGE 0:39 (16% vs our 14-19%); the overrule is FARM 0:39-0:52 with Nora's objection on screen; there is no FARM rescue-clock claim; the ringtone turn cites 7666044652910316833 3:47; a real T3 inversion is on the page (the helper's hiding place is the threat, real Dad says the opposite and she obeys), cited to DORM 1:28-1:37 at its true 50-55% while ours lands at 67-75%; the twist cites HOTEL-DOOR 2:28-2:34 (T8) and HEARSE-P2 1:45 (T5). Other fixes: near-open at the deadbolt (0:26); two 4.0 s silences with SFX; wpm measured (236.9 speaking, 196.5 overall); a battery clock; a typography ladder (calm, CAPS, calm entity); bookend to frame 0. Honest gaps: the B8 ringtone turn is at 43%, slightly before the 45-60% band (real Dad confirms it at 54%), and the T3 inversion sits later than DORM's.",
+    "originality": "Gate PASS over 210 source files. The highest single-source 5-gram share is 0.14%, only from the gate command line quoted in section 9. Because the gate skips markdown tables, script.md section 2b repeats every spoken line as prose, and the longest run any of those lines shares with a source is 5 words ('door, don't make a sound', a generic phrase found in the library control dqEIz_8bP-8). Fixed: the keys logic, the moth flicker (no on-screen flicker; real PIR lights hold 30 s or more), the Marigold payoff, the ringtone device citation, and deadbolt/chain continuity (the gap eases shut, then 'Chain off'). Also: 'your police' covers Columbus 911, the lanyard has no badge, '3%' is relabelled as a second lie, and a disclosure plan is in script.md section 5 and titles.md. The premise (a mimic using a family voice) is a genre trope; the rule, the code word, the hall light, the closet ringtone and the Room 412 voice swap are ours.",
+    "producibility": "storyboard.json uses only registered horror components plus core layers. Everything the locked kit lacks is drawn in build.py as SVG/core layers: the EXIT strip and feet, the peephole figure, the fridge note, the key hook, the deadbolt and lever macros, the door gap, the closet door/interior/sleeve, the closet-phone typewriter draft, the outgoing call screens and the battery chip. The setting moved to an apartment (no porch, snow or driveway). Shots needing missing rig poses were replaced. 4 SFX were synthesised on the Spark CPU (sfx_synth.py) and are cued by name. Music drops are done as music segments. Shots are anchored to measured words, not paragraphs. zod validation passes on the Spark (20 scenes, 193.30 s, 629 caption words). check_storyboards on the Spark: 0 missing components, 0 missing audio, max hold 4.0 s (only the planned peak). I rendered and reviewed 80 stills (out/stills/horror-mom-two-chats_v1a/_v1b/_v1c.jpg) and fixed what they showed: the cover phone was covering the door, the note text overflowed, call timers leaked across cuts, the closet was too dark, and the draft sat under the pocket. Not done: a full MP4 render and a loudness pass on the multi-voice mix."
+  },
+  "must_fix_status": {
+    "retention": {
+      "truth_twist_spent_early": "fixed (dead phone only at 2:54, plus new info: Marigold only said in the kitchen)",
+      "marigold_payoff": "fixed (plant 0:41 'never typed it', paid 2:58-3:02)",
+      "key_logic": "fixed ('Forgot them this morning. Check the hook.')",
+      "hook_length_and_danger": "fixed (line 1 = 7 words, contradiction 4.3 s, both banners readable in frame 0)",
+      "private_mom_malice": "fixed ('Get in the hall closet. Shut the door. Don't make a sound.' 2:08)",
+      "ownable_rule_used_and_called_back": "fixed ('Rule. Use your key.' 0:19; spoken back 2:01)",
+      "cut_tags_and_recap": "fixed (no part recap; 237 wpm speaking measured)",
+      "peak_deflation": "fixed (sleeve still swinging; draft 'turn around nora' addresses her; voiced as 'It typed, ...')"
+    },
+    "reference": {
+      "hook": "fixed",
+      "marigold": "fixed",
+      "b8_rule_inversion": "fixed (real T3 at 67-75%; ringtone turn re-cited to 7666044652910316833 3:47)",
+      "jolt_gap": "fixed (max 7.0 s over the whole story)",
+      "silences": "fixed (4.0 s ring beat, 4.0 s peak hold)",
+      "wpm": "fixed (measured 236.9 speaking)",
+      "mislabelled_rows": "fixed (SIEGE 0:39 instant reply, FARM overrule with objection, no FARM clock claim, % on both sides)",
+      "near_open": "fixed (hand to the deadbolt at 0:26 after the hook check)",
+      "ending_dorm_move": "fixed (the trusted landline voice is taken over: 'Next time, I'll call from Room 412.' in Dad's voice; bookend to frame 0)"
+    },
+    "originality": {
+      "gate": "PASS",
+      "keys_logic": "fixed",
+      "porch_light_fact": "fixed (apartment hall motion light; no on-screen flicker)",
+      "marigold_loop": "fixed",
+      "ringtone_citation": "fixed (7666044652910316833 3:47)",
+      "hook_limit": "fixed",
+      "deadbolt_continuity": "fixed (gap eases shut, latch clicks, then chain off)"
+    },
+    "producibility": {
+      "setting_vs_kit": "fixed (apartment)",
+      "peephole_figure": "fixed (SVG overlay on Peephole figure none, exposure 0.4)",
+      "shadow_vs_dark": "fixed (red EXIT sign is the fixed source; motion light never fires)",
+      "draft_typewriter": "fixed (core text typewriter on a drawn phone, no kit edit)",
+      "hall_closet": "fixed (SVG door + interior + swinging sleeve)",
+      "rig_poses": "fixed (shots replaced)",
+      "sfx_standins": "fixed (desk_bell_ring, key_scrape, siren, relay_click synthesised)",
+      "music_drops": "fixed (music segments)",
+      "shot_timing": "fixed (word-anchored scenes from measured TTS; no paragraph coupling)",
+      "holds_over_3s": "fixed except the planned peak hold",
+      "call_screen_incoming_only": "fixed (core-layer outgoing/connected call screen)",
+      "end_cards": "fixed (no card; hard cut on the bookend)"
+    }
+  },
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/horror/horror-mom-two-chats/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "sources_scanned": 210,
+    "max_shared_5gram_share": 0.0014,
+    "max_shared_5gram_source": "research/corpus/*/PLAYBOOK.md (gate command line quoted in section 9)",
+    "longest_shared_run_words_spoken_lines": 5,
+    "longest_shared_run_source": "research/library/transcripts/dqEIz_8bP-8.txt ('door don't make a sound')"
+  },
+  "measured": {
+    "runtime_s": 193.31, "speech_s": 160.35, "silence_s": 18.6, "words": 633, "wpm_speaking": 236.9, "wpm_overall": 196.5,
+    "contradiction_s": 4.26, "core_hook_words": 17, "jolts": 76, "jolt_median_s": 2.52, "jolt_max_gap_s": 7.01,
+    "turn_pct": "43 (ringtone) / 54 (real Dad confirms)", "inversion_pct": "67-75", "scariest_image_pct": "75-81 (held 4.0 s at 79%)",
+    "clock_pct": "57-74 (battery 2% -> dead)", "twist_pct": 90, "numbers_per_min": 3.7, "you_sentence_share": 0.068
+  },
+  "spark_checks": {"zod_validate": "ok (20 scenes, 193.30 s, 629 caption words)", "check_storyboards": "0 missing components, 0 missing audio, max hold 4.0 s (planned)", "stills": ["out/stills/horror-mom-two-chats_v1a.jpg", "out/stills/horror-mom-two-chats_v1b.jpg", "out/stills/horror-mom-two-chats_v1c.jpg"]},
+  "files": ["script.md", "lines.py", "tts_measure.py", "tts_durations.json", "sfx_synth.py", "build.py", "timeline.json", "storyboard.json", "titles.md", "thumbnail.md", "review.json"]
+}
