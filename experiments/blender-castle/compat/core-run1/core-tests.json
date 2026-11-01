@@ -1,0 +1,373 @@
+{
+  "source_root": "/Users/patrickliu/Documents/faceless-studio/experiments/blender-castle/vendor/cc-blender-skill",
+  "blender_version": "4.3.2",
+  "tests": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 8,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 8,
+        "modifiers": [
+          "BEVEL",
+          "SUBSURF"
+        ]
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 72,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 8,
+        "modifiers": [
+          "MIRROR"
+        ]
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 156,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "B1",
+      "status": "PASS",
+      "evidence": {
+        "nodes": [
+          "ShaderNodeBsdfPrincipled",
+          "ShaderNodeOutputMaterial"
+        ]
+      }
+    },
+    {
+      "id": "B2",
+      "status": "PASS",
+      "evidence": {
+        "nodes": [
+          "ShaderNodeBsdfPrincipled",
+          "ShaderNodeOutputMaterial"
+        ]
+      }
+    },
+    {
+      "id": "B3",
+      "status": "PASS",
+      "evidence": {
+        "nodes": [
+          "ShaderNodeBsdfPrincipled",
+          "ShaderNodeOutputMaterial"
+        ]
+      }
+    },
+    {
+      "id": "B4",
+      "status": "PASS",
+      "evidence": {
+        "nodes": [
+          "ShaderNodeBsdfPrincipled",
+          "ShaderNodeOutputMaterial"
+        ]
+      }
+    },
+    {
+      "id": "B5",
+      "status": "PASS",
+      "evidence": {
+        "nodes": [
+          "ShaderNodeBsdfPrincipled",
+          "ShaderNodeMapping",
+          "ShaderNodeMixRGB",
+          "ShaderNodeOutputMaterial",
+          "ShaderNodeTexCoord",
+          "ShaderNodeTexNoise",
+          "ShaderNodeTexWave",
+          "ShaderNodeValToRGB"
+        ]
+      }
+    },
+    {
+      "id": "C1",
+      "status": "PASS",
+      "evidence": {
+        "lights": [
+          "AREA",
+          "AREA",
+          "SPOT"
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "status": "PASS",
+      "evidence": {
+        "lights": []
+      }
+    },
+    {
+      "id": "C3",
+      "status": "PASS",
+      "evidence": {
+        "lights": [
+          "SUN"
+        ]
+      }
+    },
+    {
+      "id": "D1",
+      "status": "PASS",
+      "evidence": {
+        "lens": 85.0,
+        "objects": [
+          "CAMERA",
+          "MESH"
+        ]
+      }
+    },
+    {
+      "id": "D2",
+      "status": "PASS",
+      "evidence": {
+        "lens": 24.0,
+        "objects": [
+          "CAMERA",
+          "MESH"
+        ]
+      }
+    },
+    {
+      "id": "D3",
+      "status": "PASS",
+      "evidence": {
+        "lens": 50.0,
+        "objects": [
+          "CAMERA",
+          "EMPTY",
+          "MESH"
+        ],
+        "orbit_fcurves": 3
+      }
+    },
+    {
+      "id": "E1",
+      "status": "PASS",
+      "evidence": {
+        "engine": "CYCLES",
+        "samples": 256
+      }
+    },
+    {
+      "id": "E2",
+      "status": "PASS",
+      "evidence": {
+        "engine": "BLENDER_EEVEE_NEXT",
+        "samples": 256
+      }
+    },
+    {
+      "id": "E3",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 38237
+      }
+    },
+    {
+      "id": "F1",
+      "status": "PASS",
+      "evidence": {
+        "action": true,
+        "shape_keys": false
+      }
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "evidence": {
+        "action": true,
+        "shape_keys": false
+      }
+    },
+    {
+      "id": "F3",
+      "status": "PASS",
+      "evidence": {
+        "action": false,
+        "shape_keys": true
+      }
+    },
+    {
+      "id": "G1",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 3132
+      }
+    },
+    {
+      "id": "G2",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 18956
+      }
+    },
+    {
+      "id": "G3",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 921
+      }
+    },
+    {
+      "id": "G4",
+      "status": "PASS",
+      "evidence": {
+        "faces_before": 512,
+        "faces_after": 401,
+        "vertices_before": 482,
+        "vertices_after": 338,
+        "exported_faces_before": 960,
+        "exported_faces_after": 672
+      }
+    },
+    {
+      "id": "H1_curve_conversion",
+      "status": "PASS",
+      "evidence": {
+        "vertices": 156,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "I1_render_chain",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 38236
+      }
+    },
+    {
+      "id": "I2_animation_export_chain",
+      "status": "PASS",
+      "evidence": {
+        "bytes": 3132
+      }
+    },
+    {
+      "id": "scene_sword",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 3,
+        "vertices": 24,
+        "faces": 18,
+        "lights": 3
+      }
+    },
+    {
+      "id": "scene_bottle",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 2,
+        "vertices": 128,
+        "faces": 68,
+        "lights": 3
+      }
+    },
+    {
+      "id": "scene_chair",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 6,
+        "vertices": 48,
+        "faces": 36,
+        "lights": 3
+      }
+    },
+    {
+      "id": "scene_aviator",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 3,
+        "vertices": 520,
+        "faces": 518,
+        "lights": 3
+      }
+    },
+    {
+      "id": "scene_desk_lamp",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 3,
+        "vertices": 130,
+        "faces": 140,
+        "lights": 3
+      }
+    },
+    {
+      "id": "scene_broadcaster_avatar",
+      "status": "PASS",
+      "evidence": {
+        "meshes": 3,
+        "vertices": 130,
+        "faces": 140,
+        "lights": 3
+      }
+    }
+  ],
+  "fixtures": {
+    "sword": {
+      "meshes": 3,
+      "vertices": 24,
+      "faces": 18,
+      "lights": 3
+    },
+    "bottle": {
+      "meshes": 2,
+      "vertices": 128,
+      "faces": 68,
+      "lights": 3
+    },
+    "chair": {
+      "meshes": 6,
+      "vertices": 48,
+      "faces": 36,
+      "lights": 3
+    },
+    "aviator": {
+      "meshes": 3,
+      "vertices": 520,
+      "faces": 518,
+      "lights": 3
+    },
+    "desk_lamp": {
+      "meshes": 3,
+      "vertices": 130,
+      "faces": 140,
+      "lights": 3
+    },
+    "broadcaster_avatar": {
+      "meshes": 3,
+      "vertices": 130,
+      "faces": 140,
+      "lights": 3
+    }
+  },
+  "limitations": [
+    "Deterministic recipe execution, not natural-language skill loading.",
+    "Small representative fixtures, not reproductions of historical artist-authored validation scenes."
+  ]
+}

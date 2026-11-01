@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "blender": {
+      "command": "/Users/patrickliu/Documents/faceless-studio/experiments/blender-castle/.mcp-venv/bin/mcp-for-blender",
+      "args": ["--host", "127.0.0.1", "--port", "9911"],
+      "env": {"DISABLE_TELEMETRY": "true", "BLENDER_MCP_DISABLE_TELEMETRY": "true", "BLENDER_HOST": "127.0.0.1", "BLENDER_PORT": "9911"}
+    }
+  }
+}

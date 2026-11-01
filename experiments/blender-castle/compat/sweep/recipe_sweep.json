@@ -1,0 +1,315 @@
+{
+  "blender": "4.3.2",
+  "rows": [
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 1 \u2014 Add a primitive with a clean name",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 2 \u2014 Hard-surface stack (the \"Bevel + SubSurf\" pattern)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 3 \u2014 Edit-mode operations (extrude, inset, loop cut)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 4 \u2014 Boolean cut (drilling a hole)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 5 \u2014 Mirror modifier (only model half)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 6 \u2014 Array along curve (chains, fences, beads)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 7 \u2014 Block-out (rapid composition test)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-modeling",
+      "recipe": "Recipe 8 \u2014 Cleanup after curve\u2192mesh or boolean",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 1 \u2014 Brushed steel",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 2 \u2014 Polished gold",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 3 \u2014 Polished copper",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 4 \u2014 Mirror chrome",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 5 \u2014 Clear glass",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 6 \u2014 Frosted glass",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 6b \u2014 Coloured glass (wine bottle, tinted vials, decorative glas",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 7 \u2014 Matte plastic (red)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 8 \u2014 Lacquered plastic (car-paint look)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 9 \u2014 Skin (light tone)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 10 \u2014 Velvet / cloth with sheen",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 11 \u2014 Soft silicone",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 11b \u2014 Emission (light-emitting mesh, e.g. lamp bulb, neon sign,",
+      "status": "FAIL",
+      "error": "KeyError: 'bpy_prop_collection[key]: key \"GEO-lamp_shade\" not found'",
+      "where": [
+        "    exec(code, {'bpy': bpy, '__name__': '__recipe__', 'scene': bpy.context.scene,",
+        "  File \"<string>\", line 26, in <module>"
+      ]
+    },
+    {
+      "skill": "blender-materials",
+      "recipe": "Recipe 12 \u2014 Procedural wood (10 nodes)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 0a \u2014 Subject-CLASS-aware three-point lighting (use this for orc",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 0b \u2014 Three-point lighting **aimed at a subject** (generic, no c",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 0c \u2014 Practical lighting (scene contains its own emissive light ",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 1 \u2014 Three-point lighting (the canonical setup)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 2 \u2014 HDRI environment",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 3 \u2014 Sunny outdoor",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 4 \u2014 Indoor window light",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 5 \u2014 Dramatic single-source",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-lighting",
+      "recipe": "Recipe 7 \u2014 Soft vs hard shadow tweak",
+      "status": "FAIL",
+      "error": "KeyError: 'bpy_prop_collection[key]: key \"LGT-key\" not found'",
+      "where": [
+        "    exec(code, {'bpy': bpy, '__name__': '__recipe__', 'scene': bpy.context.scene,",
+        "  File \"<string>\", line 3, in <module>"
+      ]
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 0 \u2014 Bbox-aware hero camera (preferred for orchestrator chains)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 1 \u2014 Hero portrait camera (85mm + shallow DoF)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 2 \u2014 Wide environmental establishing shot (24mm)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 3 \u2014 Product hero (100mm + macro DoF)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 4 \u2014 Composition guides (rule-of-thirds overlay)",
+      "status": "FAIL",
+      "error": "KeyError: 'bpy_prop_collection[key]: key \"CAM-hero\" not found'",
+      "where": [
+        "    exec(code, {'bpy': bpy, '__name__': '__recipe__', 'scene': bpy.context.scene,",
+        "  File \"<string>\", line 3, in <module>"
+      ]
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 5 \u2014 Orbit camera animation (10-second 360\u00b0 turntable)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-cameras",
+      "recipe": "Recipe 6 \u2014 Push-in / dolly (camera moves forward, no zoom)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 1 \u2014 Cycles production preset (256 samples + denoise)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 2 \u2014 Cycles draft preset (faster iteration)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 3 \u2014 EEVEE preset",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 4 \u2014 Color management",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 5 \u2014 Render a single frame to PNG",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 6 \u2014 Render an animation as PNG sequence",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 7 \u2014 Performance tuning for slow renders",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-rendering",
+      "recipe": "Recipe 8 \u2014 Configure GPU compute device (one-time)",
+      "status": "FAIL",
+      "error": "TypeError: bpy_struct: item.attr = val: enum \"OPTIX\" not found in ('NONE', 'METAL')",
+      "where": [
+        "    exec(code, {'bpy': bpy, '__name__': '__recipe__', 'scene': bpy.context.scene,",
+        "  File \"<string>\", line 4, in <module>"
+      ]
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 1 \u2014 Animate object position (Bezier, natural)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 2 \u2014 Animate rotation (a 360\u00b0 spin)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 3 \u2014 Set keyframes to Linear interpolation",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 4 \u2014 Bouncy / cartoon easing on a specific keyframe",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 5 \u2014 Shape keys (morph / blendshape / viseme)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 6 \u2014 Driver (one property as expression of another)",
+      "status": "FAIL",
+      "error": "KeyError: 'bpy_prop_collection[key]: key \"GEO-leader\" not found'",
+      "where": [
+        "    exec(code, {'bpy': bpy, '__name__': '__recipe__', 'scene': bpy.context.scene,",
+        "  File \"<string>\", line 5, in <module>"
+      ]
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 7 \u2014 Push current animation to NLA strip (for reuse)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-animation",
+      "recipe": "Recipe 8 \u2014 Subtle idle animation (loopable rotation)",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-pro-workflow",
+      "recipe": "Recipe 1 \u2014 Block-out scene scaffold",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-pro-workflow",
+      "recipe": "Recipe 2 \u2014 Cheap composition test render",
+      "status": "PASS"
+    },
+    {
+      "skill": "blender-pro-workflow",
+      "recipe": "Recipe 3 \u2014 Three-point lighting on top of blockout",
+      "status": "PASS"
+    }
+  ]
+}
