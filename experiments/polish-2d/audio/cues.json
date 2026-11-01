@@ -1,0 +1,22 @@
+{
+  "_note": "Designed SFX for the first 10 s of explainer-orca, on top of the pipeline's finished mix.wav (which already has music, a whoosh at 2.91 and bubbles at 9.48). Times are global seconds (p01 starts at frame 92 = 3.067 s, p02 at frame 289 = 9.633 s). peak = target peak dBFS of the cue after pitch shift; rate = pitch/speed variant (POLISH_IDEAS 8.5). Each cue is high-passed at 90 Hz.",
+  "bed": {"cue": "underwater_rumble", "rms": -37, "fadeIn": 0.25, "fadeOut": 0.3},
+  "cues": [
+    {"at": 0.00, "cue": "whoosh_long", "rate": 0.85, "peak": -16, "why": "camera pull-back reveal from frame 0 (pre-rolled)"},
+    {"at": 1.12, "cue": "impact", "rate": 0.80, "peak": -12, "why": "'kill' (emphasised word)"},
+    {"at": 2.50, "cue": "pop", "rate": 0.60, "peak": -14, "why": "punch-in lands on 'never have' (backOut camera)"},
+    {"at": 3.17, "cue": "tick", "rate": 1.00, "peak": -16, "why": "headline NOT BECAUSE THEY CAN'T slides in"},
+    {"at": 5.10, "cue": "whoosh", "rate": 1.40, "peak": -19, "why": "scale bar draws out (zip)"},
+    {"at": 5.50, "cue": "click", "rate": 1.00, "peak": -15, "why": "~8 M label lands"},
+    {"at": 6.70, "cue": "whoosh", "rate": 0.95, "peak": -20, "why": "camera pulls out to show the cars"},
+    {"at": 7.047, "cue": "knock", "rate": 0.75, "peak": -12, "why": "car 1 lands (spring squash)"},
+    {"at": 7.167, "cue": "knock", "rate": 0.82, "peak": -13, "why": "car 2 lands"},
+    {"at": 7.287, "cue": "knock", "rate": 0.72, "peak": -13, "why": "car 3 lands"},
+    {"at": 7.407, "cue": "knock", "rate": 0.88, "peak": -12, "why": "car 4 lands (camera kick)"},
+    {"at": 7.80, "cue": "whoosh", "rate": 1.25, "peak": -20, "why": "punch-in to the fin"},
+    {"at": 7.889, "cue": "pop", "rate": 1.15, "peak": -13, "why": "YOU springs up on the orca's back"},
+    {"at": 8.089, "cue": "tick", "rate": 1.30, "peak": -17, "why": "FIN = YOU tag"},
+    {"at": 9.40, "cue": "whoosh", "rate": 1.10, "peak": -17, "why": "whip transition into p02"},
+    {"at": 9.933, "cue": "tick", "rate": 0.90, "peak": -17, "why": "TOP SPEED title"}
+  ]
+}
