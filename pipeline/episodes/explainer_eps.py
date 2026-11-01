@@ -22,8 +22,10 @@ EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
 # caption cards on phrase boundaries (pipeline/episodes/phrases.py): opt-in per episode (True = every episode), + glue
 PHRASE_PAGES = {"explainer-orca"}
-PHRASE_GLUE = {"explainer-orca": ["you're scared of", "orca mother", "fifty metres out", "brought down", "you're about",
-                                  "ramming sailboats"]}
+PHRASE_GLUE = {"explainer-orca": ["shark you're scared of", "except since", "orca mother", "fifty metres out", "brought down", "you're about the size",
+                                  "ramming sailboats", "because they can't", "adult blue whale", "surviving great whites",
+                                  "what chance", "nobody's ever proven that", "pod brought", "since twenty twenty",
+                                  "have been ramming", "you taste", "haven't decided"]}
 STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                    # build.py fails these on any visual hold > 3 s
 # 9:16 caption pages: phrase-complete 2-4 word cards (the refs show "When a horse fly"); paginate() glues numbers and
 # compounds and merges flashes shorter than 0.6 s
@@ -358,9 +360,10 @@ def t46(t, at, x="50%", y="20%", size=48, w=900, accent=CYAN, **props):
     return _lk(tag(t, at, x=x, y=y, size=max(46, size), w=w, accent=accent, **props), props)
 
 
-def you_chip(at, x, y, kf=None):
-    """YOU label: white chip, dark text (44 px)."""
-    l = {**tag("YOU", at, x=x, y=y, size=44, w=240, accent="#0b1a22", bg="#f3f6f7", color="#0b1a22", align="center"),
+def you_chip(at, x, y, kf=None, size=44):
+    """YOU label: white chip, dark text (44 px; the orca pilot uses ~32 px with a leader line to the diver)."""
+    l = {**tag("YOU", at, x=x, y=y, size=size, w=round(240 * size / 44), accent="#0b1a22", bg="#f3f6f7", color="#0b1a22",
+               align="center"),
          "depth": 1, "z": 6}
     if kf:
         l["keyframes"] = kf

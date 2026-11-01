@@ -7,11 +7,14 @@ format: 9:16
 target_s: 78
 pilot: true
 template: pipeline/templates/explainer.md (Short)
-builder: pipeline/episodes/orca_pilot.py (fix round 2)
+builder: pipeline/episodes/orca_pilot.py (fix round 2 + side-by-side fix round 1)
 voice: am_michael
 speed: 1.3
 paragraph_pause: 0.3
 music: deep_ocean
+ending: loop
+music_db: -8.5
+duck_db: -3.5
 references:
   - id: VtrcKTkhDHU, url: https://www.youtube.com/watch?v=VtrcKTkhDHU, views: 8289332, outlier_score: 318.82
   - id: fGcgWaswMns, url: https://www.youtube.com/watch?v=fGcgWaswMns, views: 2307237, outlier_score: 14.65
@@ -70,7 +73,7 @@ Not because they can't. A big male is eight metres long, as heavy as four cars, 
 
 It hits fifty-six kilometres an hour. An Olympic swimmer manages eight. You, maybe three. From fifty metres out, it reaches you in three seconds.
 
-And you'd never meet just one. Every pod has its own calls, its own menu, its own plan.
+And you'd never meet just one. A pod hunts as a team, and you'd be outnumbered.
 
 In Antarctica, a pod charges an ice floe together, and the wave washes the seal straight off. You'd go too.
 
@@ -97,10 +100,10 @@ Maybe they just haven't decided about you yet. And that matters, because...
 
 | Scene | Visual | Kit |
 |---|---|---|
-| p00 hook | frame 0 cover: orca fully in frame, diver YOU, "KILLER WHALE?"; "0 WILD HUMAN KILLS" at 1.0 s | Ocean(surface), Orca, Diver, Stat |
+| p00 hook | frame 0 cover: camera pushed in on the head (1.65 -> 1.0 by 1 s), diver YOU under the jaw, "0 HUMAN KILLS / IN THE WILD" (red 0) | Ocean(surface), Orca, Diver, Headline |
 | p01 scale | true-scale male (finScale 1.5), ~8 M bar, 4 cars, YOU standing by the fin | Orca, ScaleBar, Car, You |
 | p02 speed | speed bars, then 50 m dashed gap, orca closes on YOU, "3 SECONDS" | SpeedBars, Orca, Diver, Stat |
-| p03 pod | head-on orca rushes the camera, cut to the pod, OWN CALLS/MENU/PLAN | Orca pose head, Orca x5, Tag |
+| p03 pod | head-on orca rushes the camera, cut to the pod circling YOU, HUNTS AS A TEAM / OUTNUMBERED | Orca pose head, Orca x5, Diver, Tag |
 | p04 wave | orcas charge, a swell washes the seal off; YOU on the ice, washed off too | Ocean(surface), svg wave/ice/seal, You |
 | p05 liver | map pin Gansbaai, great white, red liver highlight on "The liver.", two orcas flip it, liver taken | Map, GreatWhite, Liver, Orca x2 |
 | p06 fled | sharks flee; YOU alone, a huge orca shadow passes | GreatWhite x3, Orca silhouette, Diver |

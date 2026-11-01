@@ -17,7 +17,7 @@
      "depth": 6,
      "skyTop": "#071620",
      "skyBottom": "#1b3b4a",
-     "surface": 0.2,
+     "surface": 0.12,
      "rays": 8,
      "snow": 60
     }
@@ -41,7 +41,7 @@
       },
       {
        "t": 3.06,
-       "x": "51%",
+       "x": "50%",
        "ease": "out"
       }
      ],
@@ -50,8 +50,8 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "76%",
-     "y": "52.5%",
+     "x": "74%",
+     "y": "42.5%",
      "width": 280.0,
      "height": 90.0,
      "props": {
@@ -68,16 +68,33 @@
      ]
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "74%",
+     "y": "44.49%",
+     "width": 10,
+     "height": 34.999999999999986,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "76%",
-     "y": "47.20%",
-     "width": 240,
-     "height": 105.6,
+     "x": "74%",
+     "y": "47.10%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 0.0,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -90,34 +107,17 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "15%",
+     "y": "12.5%",
      "width": 1000,
-     "height": 268.8,
+     "height": 352.0,
      "props": {
-      "text": "KILLER WHALE?",
+      "text": "0 HUMAN KILLS",
       "at": -0.6,
-      "size": 84,
+      "size": 110,
       "color": "white",
-      "underline": true
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
-     "name": "explainer/Stat",
-     "x": "40%",
-     "y": "59.5%",
-     "width": 900,
-     "height": 322.40000000000003,
-     "props": {
-      "value": 0,
-      "label": "wild human kills",
-      "at": 1.0,
-      "size": 124,
-      "color": "white",
-      "labelSize": 44,
-      "duration": 0.25
+      "underline": true,
+      "red": "0",
+      "sub": "IN THE WILD"
      },
      "depth": 0,
      "z": 20
@@ -127,32 +127,30 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0.0,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "t": 0,
+      "zoom": 1.65,
+      "x": "63.9%",
+      "y": "39.6%"
      },
      {
       "t": 1.0,
-      "zoom": 1.0163
-     },
-     {
-      "t": 1.22,
-      "zoom": 1.1729,
-      "ease": "out"
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "inOut"
      },
      {
       "t": 2.32,
-      "zoom": 1.1936
+      "zoom": 1.032
      },
      {
       "t": 2.54,
-      "zoom": 1.0415,
+      "zoom": 1.193,
       "ease": "out"
      },
      {
       "t": 3.06,
-      "zoom": 1.05,
+      "zoom": 1.2075,
       "x": "50%",
       "y": "50%"
      }
@@ -201,7 +199,7 @@
      "width": 1000,
      "height": 204.8,
      "props": {
-      "text": "NOT BECAUSE IT CAN'T",
+      "text": "NOT BECAUSE THEY CAN'T",
       "at": 0.1,
       "size": 64,
       "color": "white",
@@ -228,7 +226,7 @@
      "type": "component",
      "name": "explainer/Car",
      "x": 180,
-     "y": "55%",
+     "y": "59%",
      "width": 220,
      "height": 110,
      "props": {
@@ -239,7 +237,7 @@
       "type": "drop",
       "at": 3.76,
       "duration": 0.3,
-      "distance": 220
+      "distance": 60
      },
      "depth": 0.9
     },
@@ -247,7 +245,7 @@
      "type": "component",
      "name": "explainer/Car",
      "x": 420,
-     "y": "55%",
+     "y": "59%",
      "width": 220,
      "height": 110,
      "props": {
@@ -258,7 +256,7 @@
       "type": "drop",
       "at": 3.88,
       "duration": 0.3,
-      "distance": 220
+      "distance": 60
      },
      "depth": 0.9
     },
@@ -266,7 +264,7 @@
      "type": "component",
      "name": "explainer/Car",
      "x": 660,
-     "y": "55%",
+     "y": "59%",
      "width": 220,
      "height": 110,
      "props": {
@@ -277,7 +275,7 @@
       "type": "drop",
       "at": 4.0,
       "duration": 0.3,
-      "distance": 220
+      "distance": 60
      },
      "depth": 0.9
     },
@@ -285,7 +283,7 @@
      "type": "component",
      "name": "explainer/Car",
      "x": 900,
-     "y": "55%",
+     "y": "59%",
      "width": 220,
      "height": 110,
      "props": {
@@ -296,7 +294,7 @@
       "type": "drop",
       "at": 4.12,
       "duration": 0.3,
-      "distance": 220
+      "distance": 60
      },
      "depth": 0.9
     },
@@ -304,7 +302,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "62.5%",
+     "y": "13%",
      "width": 600,
      "height": 115.19999999999999,
      "props": {
@@ -312,6 +310,7 @@
       "at": 4.085,
       "size": 48,
       "align": "center",
+      "out": 4.822,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -322,8 +321,8 @@
      "name": "explainer/You",
      "x": "67%",
      "y": "28.1%",
-     "width": 140,
-     "height": 220,
+     "width": 150,
+     "height": 230,
      "props": {
       "pxPerM": 105,
       "pose": "wave"
@@ -417,7 +416,7 @@
      "type": "component",
      "name": "explainer/SpeedBars",
      "x": "50%",
-     "y": "31%",
+     "y": "23%",
      "width": 1000,
      "height": 560,
      "props": {
@@ -456,35 +455,51 @@
      "type": "component",
      "name": "explainer/Orca",
      "x": "50%",
-     "y": "52%",
-     "width": 640,
-     "height": 220,
+     "y": "50%",
+     "width": 700,
+     "height": 250,
      "props": {
       "speed": 1.8
      },
-     "z": 1,
-     "end": 5.16,
+     "z": 2,
      "keyframes": [
       {
        "t": 0,
-       "x": "-40%"
+       "x": "47%",
+       "y": "50%",
+       "scale": 1
       },
       {
-       "t": 5.16,
-       "x": "135%",
-       "ease": "linear"
+       "t": 5.11,
+       "x": "53%",
+       "y": "50%",
+       "scale": 1
+      },
+      {
+       "t": 5.61,
+       "x": "22%",
+       "y": "44%",
+       "scale": 0.6,
+       "ease": "inOut"
+      },
+      {
+       "t": 7.67,
+       "x": "60%",
+       "y": "44%",
+       "scale": 0.6,
+       "ease": "in"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "80%",
-     "y": "42%",
-     "width": 202.0,
-     "height": 75.0,
+     "x": "82%",
+     "y": "44%",
+     "width": 280.0,
+     "height": 90.0,
      "props": {
-      "pxPerM": 70,
+      "pxPerM": 100,
       "arms": "side"
      },
      "flipX": true,
@@ -503,16 +518,39 @@
      }
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "82%",
+     "y": "45.79%",
+     "width": 10,
+     "height": 27.32,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 5.16,
+     "enter": {
+      "type": "fade",
+      "at": 5.16,
+      "duration": 0.3
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "80%",
-     "y": "36.70%",
-     "width": 240,
-     "height": 105.6,
+     "x": "82%",
+     "y": "48.20%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 5.16,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -524,30 +562,29 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 600 40\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"10\" y1=\"20\" x2=\"590\" y2=\"20\" stroke=\"#f3f6f7\" stroke-width=\"7\" stroke-dasharray=\"26 18\" stroke-linecap=\"round\"/><path d=\"M 590 20 L 560 4 L 560 36 Z\" fill=\"#f3f6f7\"/></svg>",
-     "x": "50%",
-     "y": "35%",
-     "width": 560,
-     "height": 40,
-     "start": 5.3100000000000005,
+     "x": "55.5%",
+     "y": "40.5%",
+     "width": 270,
+     "height": 26,
+     "start": 5.61,
      "enter": {
       "type": "fade",
-      "at": 5.3100000000000005,
+      "at": 5.61,
       "duration": 0.2
      },
      "end": 6.734999999999999,
-     "flipX": true,
      "z": 1
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50%",
-     "y": "30%",
+     "x": "55.5%",
+     "y": "36%",
      "width": 260,
      "height": 115.19999999999999,
      "props": {
       "text": "50 M",
-      "at": 5.36,
+      "at": 5.66,
       "size": 48,
       "align": "center",
       "accent": "#6fd6e8"
@@ -558,33 +595,9 @@
     },
     {
      "type": "component",
-     "name": "explainer/Orca",
-     "x": "50%",
-     "y": "42%",
-     "width": 520,
-     "height": 180,
-     "props": {
-      "speed": 2.2
-     },
-     "z": 2,
-     "start": 5.16,
-     "keyframes": [
-      {
-       "t": 5.16,
-       "x": "-30%"
-      },
-      {
-       "t": 7.67,
-       "x": "50%",
-       "ease": "in"
-      }
-     ]
-    },
-    {
-     "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "59.5%",
+     "y": "60%",
      "width": 900,
      "height": 322.40000000000003,
      "props": {
@@ -652,7 +665,7 @@
   },
   {
    "id": "p03",
-   "duration": 4.83,
+   "duration": 4.33,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -674,7 +687,7 @@
      "props": {
       "pose": "head"
      },
-     "end": 1.865,
+     "end": 2.06,
      "z": 3,
      "keyframes": [
       {
@@ -683,13 +696,13 @@
        "opacity": 1
       },
       {
-       "t": 1.565,
+       "t": 1.76,
        "scale": 1.2,
        "opacity": 1,
        "ease": "in"
       },
       {
-       "t": 1.865,
+       "t": 2.06,
        "scale": 1.5,
        "opacity": 0,
        "ease": "in"
@@ -699,96 +712,70 @@
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "28%",
-     "y": "27%",
-     "width": 540,
-     "height": 194.4,
+     "x": "18%",
+     "y": "31%",
+     "width": 420,
+     "height": 151.2,
      "props": {
       "timeOffset": 0.0
      },
-     "start": 1.565,
+     "start": 1.76,
      "enter": {
       "type": "pop",
-      "at": 1.565,
+      "at": 1.76,
       "duration": 0.35
      },
+     "flipX": false,
      "idle": [
       {
        "type": "float",
        "amount": 10,
        "speed": 0.3
       }
+     ],
+     "keyframes": [
+      {
+       "t": 1.76,
+       "x": "18%"
+      },
+      {
+       "t": 4.33,
+       "x": "22.0%"
+      }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "70%",
-     "y": "33%",
-     "width": 620,
-     "height": 223.2,
+     "x": "82%",
+     "y": "34%",
+     "width": 400,
+     "height": 144.0,
      "props": {
       "timeOffset": 0.6
      },
-     "start": 1.685,
+     "start": 1.88,
      "enter": {
       "type": "pop",
-      "at": 1.685,
+      "at": 1.88,
       "duration": 0.35
      },
+     "flipX": true,
      "idle": [
       {
        "type": "float",
        "amount": 10,
        "speed": 0.3
       }
-     ]
-    },
-    {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "40%",
-     "y": "45%",
-     "width": 440,
-     "height": 158.4,
-     "props": {
-      "timeOffset": 1.1
-     },
-     "start": 1.805,
-     "enter": {
-      "type": "pop",
-      "at": 1.805,
-      "duration": 0.35
-     },
-     "idle": [
+     ],
+     "keyframes": [
       {
-       "type": "float",
-       "amount": 10,
-       "speed": 0.3
-      }
-     ]
-    },
-    {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "78%",
-     "y": "47%",
-     "width": 330,
-     "height": 118.8,
-     "props": {
-      "timeOffset": 0.3
-     },
-     "start": 1.9249999999999998,
-     "enter": {
-      "type": "pop",
-      "at": 1.9249999999999998,
-      "duration": 0.35
-     },
-     "idle": [
+       "t": 1.88,
+       "x": "82%"
+      },
       {
-       "type": "float",
-       "amount": 10,
-       "speed": 0.3
+       "t": 4.33,
+       "x": "78.0%"
       }
      ]
     },
@@ -796,25 +783,174 @@
      "type": "component",
      "name": "explainer/Orca",
      "x": "16%",
-     "y": "40%",
-     "width": 300,
-     "height": 108.0,
+     "y": "55%",
+     "width": 380,
+     "height": 136.79999999999998,
      "props": {
-      "timeOffset": 0.8
+      "timeOffset": 1.1
      },
-     "start": 2.045,
+     "start": 2.0,
      "enter": {
       "type": "pop",
-      "at": 2.045,
+      "at": 2.0,
       "duration": 0.35
      },
+     "flipX": false,
      "idle": [
       {
        "type": "float",
        "amount": 10,
        "speed": 0.3
       }
+     ],
+     "keyframes": [
+      {
+       "t": 2.0,
+       "x": "16%"
+      },
+      {
+       "t": 4.33,
+       "x": "20.0%"
+      }
      ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "84%",
+     "y": "57%",
+     "width": 360,
+     "height": 129.6,
+     "props": {
+      "timeOffset": 0.3
+     },
+     "start": 2.12,
+     "enter": {
+      "type": "pop",
+      "at": 2.12,
+      "duration": 0.35
+     },
+     "flipX": true,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 10,
+       "speed": 0.3
+      }
+     ],
+     "keyframes": [
+      {
+       "t": 2.12,
+       "x": "84%"
+      },
+      {
+       "t": 4.33,
+       "x": "80.0%"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "52%",
+     "y": "24%",
+     "width": 320,
+     "height": 115.19999999999999,
+     "props": {
+      "timeOffset": 0.8
+     },
+     "start": 2.24,
+     "enter": {
+      "type": "pop",
+      "at": 2.24,
+      "duration": 0.35
+     },
+     "flipX": false,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 10,
+       "speed": 0.3
+      }
+     ],
+     "keyframes": [
+      {
+       "t": 2.24,
+       "x": "52%"
+      },
+      {
+       "t": 4.33,
+       "x": "56.0%"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "50%",
+     "y": "47%",
+     "width": 306.0,
+     "height": 95.0,
+     "props": {
+      "pxPerM": 110,
+      "arms": "side"
+     },
+     "flipX": true,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 1.96,
+     "enter": {
+      "type": "pop",
+      "at": 1.96,
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "50%",
+     "y": "49.02%",
+     "width": 10,
+     "height": 33.69999999999999,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 1.96,
+     "enter": {
+      "type": "fade",
+      "at": 1.96,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "51.60%",
+     "width": 175,
+     "height": 76.8,
+     "props": {
+      "text": "YOU",
+      "at": 1.96,
+      "size": 32,
+      "bg": "#f3f6f7",
+      "color": "#0b1a22",
+      "align": "center",
+      "accent": "#0b1a22"
+     },
+     "depth": 1,
+     "z": 6
     },
     {
      "type": "component",
@@ -822,11 +958,11 @@
      "x": "50%",
      "y": "13%",
      "width": 1000,
-     "height": 224.0,
+     "height": 230.4,
      "props": {
-      "text": "FAMILY POD",
-      "at": 1.565,
-      "size": 70,
+      "text": "HUNTS AS A TEAM",
+      "at": 2.598,
+      "size": 72,
       "color": "white",
       "underline": true
      },
@@ -836,56 +972,22 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "27%",
-     "y": "57%",
-     "width": 480,
-     "height": 110.39999999999999,
-     "props": {
-      "text": "OWN CALLS",
-      "at": 2.74,
-      "size": 46,
-      "align": "center",
-      "accent": "#6fd6e8"
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "73%",
-     "y": "57%",
-     "width": 480,
-     "height": 110.39999999999999,
-     "props": {
-      "text": "OWN MENU",
-      "at": 3.54,
-      "size": 46,
-      "align": "center",
-      "accent": "#6fd6e8"
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
      "x": "50%",
-     "y": "63%",
-     "width": 480,
-     "height": 110.39999999999999,
+     "y": "40%",
+     "width": 560,
+     "height": 115.19999999999999,
      "props": {
-      "text": "OWN PLAN",
-      "at": 4.315,
-      "size": 46,
+      "text": "OUTNUMBERED",
+      "at": 3.485,
+      "size": 48,
       "align": "center",
-      "accent": "#6fd6e8"
+      "accent": "#e5483d"
      },
      "depth": 0,
      "z": 20
     }
    ],
-   "notes": "And you'd never meet just one. Every pod has its own calls, its own menu, its own plan.",
+   "notes": "And you'd never meet just one. A pod hunts as a team, and you'd be outnumbered.",
    "camera": {
     "keyframes": [
      {
@@ -895,26 +997,35 @@
       "y": "50%"
      },
      {
-      "t": 1.04,
-      "zoom": 1.0108
+      "t": 1.085,
+      "zoom": 1.0125
      },
      {
-      "t": 1.26,
-      "zoom": 1.165,
+      "t": 1.305,
+      "zoom": 1.1673,
       "ease": "out"
      },
      {
-      "t": 2.74,
-      "zoom": 1.1826
+      "t": 2.598,
+      "zoom": 1.1845
      },
      {
-      "t": 2.96,
-      "zoom": 1.0306,
+      "t": 2.818,
+      "zoom": 1.0325,
       "ease": "out"
      },
      {
-      "t": 4.83,
-      "zoom": 1.05,
+      "t": 3.485,
+      "zoom": 1.0402
+     },
+     {
+      "t": 3.705,
+      "zoom": 1.1992,
+      "ease": "out"
+     },
+     {
+      "t": 4.33,
+      "zoom": 1.2075,
       "x": "50%",
       "y": "50%"
      }
@@ -923,7 +1034,7 @@
   },
   {
    "id": "p04",
-   "duration": 5.89,
+   "duration": 5.895,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -988,7 +1099,7 @@
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "10%",
+     "x": "12%",
      "y": "44%",
      "width": 460,
      "height": 160,
@@ -997,18 +1108,22 @@
       "timeOffset": 0.0
      },
      "z": 1,
+     "opacity": 1.0,
      "keyframes": [
       {
        "t": 0,
-       "x": "-30%"
+       "x": "12%",
+       "scale": 1.0
       },
       {
        "t": 1.21,
-       "x": "-25%"
+       "x": "18.0%",
+       "scale": 1.0
       },
       {
        "t": 3.585,
        "x": "48%",
+       "scale": 1.0,
        "ease": "inOut"
       }
      ]
@@ -1016,27 +1131,31 @@
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "10%",
-     "y": "48%",
+     "x": "-4%",
+     "y": "52.6%",
      "width": 460,
      "height": 160,
      "props": {
       "speed": 1.5,
       "timeOffset": 0.3
      },
-     "z": 1,
+     "z": 0,
+     "opacity": 0.85,
      "keyframes": [
       {
        "t": 0,
-       "x": "-30%"
+       "x": "-4%",
+       "scale": 0.8
       },
       {
        "t": 1.21,
-       "x": "-25%"
+       "x": "2.0%",
+       "scale": 0.8
       },
       {
        "t": 3.585,
-       "x": "40%",
+       "x": "38%",
+       "scale": 0.8,
        "ease": "inOut"
       }
      ]
@@ -1044,27 +1163,31 @@
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "10%",
-     "y": "52%",
+     "x": "4%",
+     "y": "61%",
      "width": 460,
      "height": 160,
      "props": {
       "speed": 1.5,
       "timeOffset": 0.6
      },
-     "z": 1,
+     "z": -1,
+     "opacity": 0.85,
      "keyframes": [
       {
        "t": 0,
-       "x": "-30%"
+       "x": "4%",
+       "scale": 0.8
       },
       {
        "t": 1.21,
-       "x": "-25%"
+       "x": "10.0%",
+       "scale": 0.8
       },
       {
        "t": 3.585,
-       "x": "32%",
+       "x": "29%",
+       "scale": 0.8,
        "ease": "inOut"
       }
      ]
@@ -1105,14 +1228,14 @@
      "type": "component",
      "name": "explainer/You",
      "x": "80%",
-     "y": "29.2%",
-     "width": 110,
-     "height": 170,
+     "y": "27.5%",
+     "width": 140,
+     "height": 230,
      "props": {
-      "pxPerM": 90,
+      "pxPerM": 120,
       "pose": "panic"
      },
-     "z": 3,
+     "z": 5,
      "start": 4.71,
      "enter": {
       "type": "pop",
@@ -1123,19 +1246,19 @@
       {
        "t": 4.71,
        "x": "80%",
-       "y": "29.2%",
+       "y": "27.5%",
        "rotate": 0
       },
       {
        "t": 5.16,
        "x": "80%",
-       "y": "29.2%",
+       "y": "27.5%",
        "rotate": 0
       },
       {
-       "t": 5.89,
-       "x": "70%",
-       "y": "41%",
+       "t": 5.895,
+       "x": "72%",
+       "y": "40%",
        "rotate": -80,
        "ease": "in"
       }
@@ -1145,20 +1268,41 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "80%",
-     "y": "22.5%",
-     "width": 240,
-     "height": 105.6,
+     "y": "19%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 4.71,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
       "accent": "#0b1a22"
      },
      "depth": 1,
-     "z": 6
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 4.71,
+       "x": "80%",
+       "y": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": 5.16,
+       "x": "80%",
+       "y": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": 5.895,
+       "x": "72%",
+       "y": "31.50%",
+       "rotate": -80,
+       "ease": "in"
+      }
+     ]
     },
     {
      "type": "svg",
@@ -1169,7 +1313,7 @@
      "height": 320,
      "z": 4,
      "start": 4.96,
-     "end": 5.89,
+     "end": 5.895,
      "keyframes": [
       {
        "t": 4.96,
@@ -1185,7 +1329,7 @@
        "ease": "out"
       },
       {
-       "t": 5.89,
+       "t": 5.895,
        "scaleY": 0.6,
        "opacity": 0.5,
        "x": "66%"
@@ -1238,11 +1382,11 @@
      },
      {
       "t": 4.068,
-      "zoom": 1.0553,
+      "zoom": 1.0552,
       "ease": "out"
      },
      {
-      "t": 5.89,
+      "t": 5.895,
       "zoom": 1.08,
       "x": "50%",
       "y": "50%"
@@ -1264,15 +1408,16 @@
   },
   {
    "id": "p05",
-   "duration": 6.37,
+   "duration": 6.365,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 120,
-     "rays": 5
+     "depth": 380,
+     "bottomColor": "#06121c",
+     "rays": 4
     }
    },
    "layers": [
@@ -1292,7 +1437,7 @@
         "zoom": 4.5
        },
        {
-        "t": 0.948,
+        "t": 0.963,
         "lon": 20,
         "lat": -32,
         "zoom": 6.5
@@ -1311,7 +1456,7 @@
      },
      "depth": 0,
      "z": 30,
-     "end": 0.948
+     "end": 0.963
     },
     {
      "type": "component",
@@ -1329,7 +1474,7 @@
      },
      "depth": 0,
      "z": 31,
-     "end": 0.948
+     "end": 0.963
     },
     {
      "type": "component",
@@ -1341,30 +1486,30 @@
      "props": {
       "speed": 0.9
      },
-     "start": 0.948,
+     "start": 0.963,
      "z": 2,
      "keyframes": [
       {
-       "t": 0.948,
+       "t": 0.963,
        "scaleY": 1,
        "rotate": 0,
        "x": "50%"
       },
       {
-       "t": 4.998,
+       "t": 5.013,
        "scaleY": 1,
        "rotate": 0,
        "x": "50%"
       },
       {
-       "t": 5.598,
+       "t": 5.6129999999999995,
        "scaleY": -1,
        "rotate": 6,
        "x": "50%",
        "ease": "inOut"
       },
       {
-       "t": 6.37,
+       "t": 6.365,
        "scaleY": -1,
        "rotate": 10,
        "x": "47%"
@@ -1380,10 +1525,10 @@
      "height": 115.19999999999999,
      "props": {
       "text": "GREAT WHITE",
-      "at": 1.048,
+      "at": 1.063,
       "size": 48,
       "align": "center",
-      "out": 2.91,
+      "out": 2.925,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1397,10 +1542,10 @@
      "width": 300,
      "height": 300,
      "z": 3,
-     "start": 2.91,
+     "start": 2.925,
      "enter": {
       "type": "fade",
-      "at": 2.91,
+      "at": 2.925,
       "duration": 0.3
      },
      "idle": [
@@ -1412,15 +1557,15 @@
      ],
      "keyframes": [
       {
-       "t": 2.91,
+       "t": 2.925,
        "opacity": 0.8
       },
       {
-       "t": 5.785,
+       "t": 5.8,
        "opacity": 0.8
       },
       {
-       "t": 6.1850000000000005,
+       "t": 6.2,
        "opacity": 0
       }
      ]
@@ -1433,10 +1578,10 @@
      "width": 210,
      "height": 112,
      "props": {},
-     "start": 4.065,
+     "start": 4.08,
      "enter": {
       "type": "pop",
-      "at": 4.065,
+      "at": 4.08,
       "duration": 0.3
      },
      "z": 4,
@@ -1450,17 +1595,17 @@
      ],
      "keyframes": [
       {
-       "t": 4.065,
+       "t": 4.08,
        "x": "56%",
        "y": "43%"
       },
       {
-       "t": 5.785,
+       "t": 5.8,
        "x": "56%",
        "y": "43%"
       },
       {
-       "t": 6.37,
+       "t": 6.365,
        "x": "8%",
        "y": "33%",
        "ease": "in"
@@ -1476,7 +1621,7 @@
      "height": 120.0,
      "props": {
       "text": "LIVER: GONE",
-      "at": 4.165,
+      "at": 4.18,
       "size": 50,
       "align": "center",
       "accent": "#e5483d"
@@ -1494,20 +1639,20 @@
      "props": {
       "speed": 1.6
      },
-     "start": 4.348,
+     "start": 4.363,
      "z": 5,
      "keyframes": [
       {
-       "t": 4.348,
+       "t": 4.363,
        "x": "-30%"
       },
       {
-       "t": 5.248,
+       "t": 5.263,
        "x": "26%",
        "ease": "out"
       },
       {
-       "t": 6.37,
+       "t": 6.365,
        "x": "-5%",
        "y": "33%",
        "ease": "in"
@@ -1524,21 +1669,21 @@
      "props": {
       "speed": 1.6
      },
-     "start": 4.348,
+     "start": 4.363,
      "z": 5,
      "flipX": true,
      "keyframes": [
       {
-       "t": 4.348,
+       "t": 4.363,
        "x": "130%"
       },
       {
-       "t": 5.248,
+       "t": 5.263,
        "x": "76%",
        "ease": "out"
       },
       {
-       "t": 6.37,
+       "t": 6.365,
        "x": "70%",
        "y": "54%"
       }
@@ -1550,6 +1695,7 @@
     "type": "dipBlack",
     "duration": 0.35
    },
+   "qa_class": "diagram_anatomy",
    "camera": {
     "keyframes": [
      {
@@ -1559,34 +1705,34 @@
       "y": "50%"
      },
      {
-      "t": 0.948,
-      "zoom": 1.0074
+      "t": 0.963,
+      "zoom": 1.0076
      },
      {
-      "t": 1.168,
-      "zoom": 1.1605,
+      "t": 1.183,
+      "zoom": 1.1607,
       "ease": "out"
      },
      {
-      "t": 4.065,
-      "zoom": 1.1867
+      "t": 4.08,
+      "zoom": 1.1869
      },
      {
-      "t": 4.285,
-      "zoom": 1.0336,
+      "t": 4.3,
+      "zoom": 1.0338,
       "ease": "out"
      },
      {
-      "t": 5.248,
-      "zoom": 1.0412
+      "t": 5.263,
+      "zoom": 1.0413
      },
      {
-      "t": 5.468,
-      "zoom": 1.1994,
+      "t": 5.483,
+      "zoom": 1.1995,
       "ease": "out"
      },
      {
-      "t": 6.37,
+      "t": 6.365,
       "zoom": 1.2075,
       "x": "50%",
       "y": "50%"
@@ -1594,7 +1740,7 @@
     ],
     "shake": [
      {
-      "at": 5.348,
+      "at": 5.363,
       "duration": 0.4,
       "amplitude": 12
      }
@@ -1610,8 +1756,9 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 80,
-     "rays": 6
+     "depth": 420,
+     "bottomColor": "#06121c",
+     "rays": 4
     }
    },
    "layers": [
@@ -1767,16 +1914,39 @@
      }
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "50%",
+     "y": "48.06%",
+     "width": 10,
+     "height": 32.39999999999999,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 2.235,
+     "enter": {
+      "type": "fade",
+      "at": 2.235,
+      "duration": 0.3
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "40.70%",
-     "width": 240,
-     "height": 105.6,
+     "y": "50.60%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 2.235,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -2140,7 +2310,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "60%",
+     "y": "13%",
      "width": 800,
      "height": 124.8,
      "props": {
@@ -2148,6 +2318,7 @@
       "at": 4.885,
       "size": 52,
       "align": "center",
+      "out": 6.173,
       "accent": "#e5483d"
      },
      "depth": 0,
@@ -2156,12 +2327,12 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "82%",
-     "y": "58%",
-     "width": 108.4,
-     "height": 57.0,
+     "x": "70%",
+     "y": "58.5%",
+     "width": 254.0,
+     "height": 85.0,
      "props": {
-      "pxPerM": 34,
+      "pxPerM": 90,
       "arms": "side"
      },
      "flipX": true,
@@ -2180,16 +2351,39 @@
      }
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "70%",
+     "y": "60.10%",
+     "width": 10,
+     "height": 22.860000000000003,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 6.173,
+     "enter": {
+      "type": "fade",
+      "at": 6.173,
+      "duration": 0.3
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "82%",
-     "y": "54.60%",
-     "width": 240,
-     "height": 105.6,
+     "x": "70%",
+     "y": "62.40%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 6.173,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -2199,6 +2393,21 @@
      "z": 6
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 40 300\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"20\" y1=\"14\" x2=\"20\" y2=\"286\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-dasharray=\"18 12\"/><path d=\"M 4 26 L 20 2 L 36 26 Z\" fill=\"#f3f6f7\"/><path d=\"M 4 274 L 20 298 L 36 274 Z\" fill=\"#f3f6f7\"/></svg>",
+     "x": "70%",
+     "y": "53.6%",
+     "width": 30,
+     "height": 120,
+     "start": 6.273,
+     "enter": {
+      "type": "fade",
+      "at": 6.273,
+      "duration": 0.2
+     },
+     "z": 3
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
@@ -2206,11 +2415,28 @@
      "width": 900,
      "height": 120.0,
      "props": {
-      "text": "1,000× YOUR WEIGHT",
-      "at": 6.273,
+      "text": "×1,000 YOUR WEIGHT",
+      "at": 6.523,
       "size": 50,
       "align": "center",
       "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "58.5%",
+     "width": 520,
+     "height": 110.39999999999999,
+     "props": {
+      "text": "YOU NOT TO SCALE",
+      "at": 6.373,
+      "size": 46,
+      "align": "center",
+      "accent": "#8fa3ab"
      },
      "depth": 0,
      "z": 20
@@ -2282,7 +2508,8 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 260,
+     "depth": 500,
+     "bottomColor": "#06121c",
      "rays": 3,
      "snow": 50
     }
@@ -2335,16 +2562,33 @@
      ]
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "50%",
+     "y": "48.12%",
+     "width": 10,
+     "height": 29.799999999999986,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "40.70%",
-     "width": 240,
-     "height": 105.6,
+     "y": "50.60%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 0.0,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -2357,14 +2601,14 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "22%",
+     "y": "13%",
      "width": 1000,
-     "height": 320.0,
+     "height": 307.20000000000005,
      "props": {
       "text": "WHY NOT YOU?",
       "at": 0.115,
-      "size": 100,
-      "color": "red",
+      "size": 96,
+      "color": "white",
       "underline": true
      },
      "depth": 0,
@@ -2411,23 +2655,41 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 200,
+     "depth": 450,
+     "bottomColor": "#06121c",
      "rays": 4
     }
    },
    "layers": [
     {
      "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "13%",
+     "width": 1000,
+     "height": 307.20000000000005,
+     "props": {
+      "text": "WHY NOT YOU?",
+      "at": -1,
+      "size": 96,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
      "name": "explainer/Options",
      "x": "50%",
-     "y": "27%",
-     "width": 1000,
-     "height": 640,
+     "y": "30.5%",
+     "width": 1040,
+     "height": 520,
      "props": {
-      "title": "Why not you?",
+      "title": "",
       "items": [
        "You taste bad",
-       "Too small to bother",
+       "Too small",
        "Culture"
       ],
       "at": 0.0,
@@ -2436,7 +2698,8 @@
        2.735,
        2.735
       ],
-      "size": 56,
+      "size": 68,
+      "stamp": true,
       "hidden": [
        {
         "index": 2,
@@ -2459,34 +2722,92 @@
     },
     {
      "type": "component",
-     "name": "explainer/You",
-     "x": "30%",
-     "y": "53.5%",
-     "width": 160,
-     "height": 300,
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "46%",
+     "width": 700,
+     "height": 250,
      "props": {
-      "pxPerM": 160,
-      "pose": "stand"
+      "speed": 0.8,
+      "timeOffset": 0.4
      },
-     "start": 4.447,
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "34%"
+      },
+      {
+       "t": 6.17,
+       "x": "60%"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 260 110\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"252\" height=\"102\" rx=\"51\" fill=\"#f3f6f7\" stroke=\"#0b1a22\" stroke-width=\"6\"/><path d=\"M 40 40 Q 70 56 100 40\" stroke=\"#0b1a22\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 56 50 Q 54 92 72 92 Q 90 92 86 50 Z\" fill=\"#e5483d\"/><text x=\"176\" y=\"72\" text-anchor=\"middle\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#0b1a22\">YUCK?</text></svg>",
+     "x": "80%",
+     "y": "41%",
+     "width": 230,
+     "height": 98,
+     "start": 0.3,
      "enter": {
       "type": "pop",
-      "at": 4.447,
+      "at": 0.3,
       "duration": 0.35
      },
-     "z": 2
+     "end": 2.735,
+     "z": 4,
+     "depth": 0.6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "30%",
+     "y": "57%",
+     "width": 332.0,
+     "height": 100.0,
+     "props": {
+      "pxPerM": 120,
+      "arms": "side"
+     },
+     "flipX": true,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "30%",
+     "y": "58.86%",
+     "width": 10,
+     "height": 24.720000000000002,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ]
     },
     {
      "type": "component",
      "name": "explainer/Tag",
      "x": "30%",
-     "y": "42.6%",
-     "width": 240,
-     "height": 105.6,
+     "y": "61.20%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
-      "at": 4.447,
-      "size": 44,
+      "at": 0.0,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -2497,35 +2818,18 @@
     },
     {
      "type": "component",
-     "name": "explainer/Tag",
-     "x": "30%",
-     "y": "64%",
-     "width": 300,
-     "height": 110.39999999999999,
-     "props": {
-      "text": "1.75 M",
-      "at": 4.547,
-      "size": 46,
-      "align": "center",
-      "accent": "#6fd6e8"
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
      "name": "explainer/Seal",
-     "x": "68%",
-     "y": "59%",
-     "width": 280,
+     "x": "72%",
+     "y": "57.5%",
+     "width": 260,
      "height": 90,
      "props": {
-      "pxPerM": 160
+      "pxPerM": 120
      },
-     "start": 4.597,
+     "start": 2.735,
      "enter": {
       "type": "pop",
-      "at": 4.597,
+      "at": 2.735,
       "duration": 0.35
      },
      "z": 2
@@ -2533,13 +2837,13 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "68%",
-     "y": "52.5%",
-     "width": 520,
+     "x": "72%",
+     "y": "62%",
+     "width": 400,
      "height": 110.39999999999999,
      "props": {
-      "text": "HARBOUR SEAL",
-      "at": 4.647,
+      "text": "SEAL 1.6 M",
+      "at": 2.885,
       "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
@@ -2550,13 +2854,13 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "68%",
-     "y": "64%",
-     "width": 300,
+     "x": "30%",
+     "y": "51.5%",
+     "width": 400,
      "height": 110.39999999999999,
      "props": {
-      "text": "1.6 M",
-      "at": 4.697,
+      "text": "1.75 M",
+      "at": 4.26,
       "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
@@ -2619,23 +2923,42 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 150,
+     "depth": 450,
+     "bottomColor": "#06121c",
      "rays": 5
     }
    },
    "layers": [
     {
      "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "13%",
+     "width": 1000,
+     "height": 307.20000000000005,
+     "props": {
+      "text": "WHY NOT YOU?",
+      "at": -1,
+      "size": 96,
+      "color": "white",
+      "underline": true,
+      "out": 1.63
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
      "name": "explainer/Options",
      "x": "50%",
-     "y": "27%",
-     "width": 1000,
-     "height": 640,
+     "y": "30.5%",
+     "width": 1040,
+     "height": 520,
      "props": {
-      "title": "Why not you?",
+      "title": "",
       "items": [
        "You taste bad",
-       "Too small to bother",
+       "Too small",
        "Culture"
       ],
       "at": -1,
@@ -2644,7 +2967,8 @@
        -1,
        -1
       ],
-      "size": 56,
+      "size": 68,
+      "stamp": true,
       "hidden": [
        {
         "index": 2,
@@ -2674,7 +2998,7 @@
      "type": "component",
      "name": "explainer/Orca",
      "x": "44%",
-     "y": "38%",
+     "y": "40%",
      "width": 760,
      "height": 270,
      "props": {
@@ -2704,7 +3028,7 @@
      "type": "component",
      "name": "explainer/Orca",
      "x": "66%",
-     "y": "48%",
+     "y": "50%",
      "width": 340,
      "height": 120,
      "props": {
@@ -2756,12 +3080,12 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "78%",
+     "x": "74%",
      "y": "58%",
-     "width": 254.0,
-     "height": 85.0,
+     "width": 280.0,
+     "height": 90.0,
      "props": {
-      "pxPerM": 90,
+      "pxPerM": 100,
       "arms": "side"
      },
      "flipX": true,
@@ -2780,16 +3104,39 @@
      }
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "74%",
+     "y": "59.79%",
+     "width": 10,
+     "height": 27.32,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ],
+     "start": 3.855,
+     "enter": {
+      "type": "fade",
+      "at": 3.855,
+      "duration": 0.3
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "78%",
-     "y": "52.70%",
-     "width": 240,
-     "height": 105.6,
+     "x": "74%",
+     "y": "62.20%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 3.855,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -2800,17 +3147,18 @@
     },
     {
      "type": "component",
-     "name": "explainer/Tag",
+     "name": "explainer/Headline",
      "x": "50%",
      "y": "13%",
-     "width": 900,
-     "height": 124.8,
+     "width": 1000,
+     "height": 243.20000000000002,
      "props": {
       "text": "NOT ON THE MENU",
-      "at": 5.755,
-      "size": 52,
-      "align": "center",
-      "accent": "#6fd6e8"
+      "at": 3.855,
+      "size": 76,
+      "color": "white",
+      "underline": true,
+      "red": "MENU"
      },
      "depth": 0,
      "z": 20
@@ -2853,8 +3201,17 @@
       "ease": "out"
      },
      {
+      "t": 5.133,
+      "zoom": 1.196
+     },
+     {
+      "t": 5.353,
+      "zoom": 1.0418,
+      "ease": "out"
+     },
+     {
       "t": 6.41,
-      "zoom": 1.2075,
+      "zoom": 1.05,
       "x": "50%",
       "y": "50%"
      }
@@ -2863,7 +3220,7 @@
   },
   {
    "id": "p11",
-   "duration": 6.99,
+   "duration": 6.81,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -2902,7 +3259,7 @@
         "v": 0
        },
        {
-        "t": 6.99,
+        "t": 6.81,
         "v": 5
        }
       ]
@@ -2944,7 +3301,7 @@
        "ease": "in"
       },
       {
-       "t": 6.99,
+       "t": 6.81,
        "x": "4%",
        "y": "36%",
        "ease": "out"
@@ -3003,7 +3360,7 @@
        },
        {
         "t": 2.775,
-        "lon": -6.2,
+        "lon": -5.2,
         "lat": 39.0,
         "zoom": 15
        }
@@ -3161,16 +3518,47 @@
     },
     {
      "type": "component",
-     "name": "explainer/Orca",
-     "x": "48.3%",
-     "y": "57.4%",
-     "width": 150,
-     "height": 56,
+     "name": "explainer/Tag",
+     "x": "59.2%",
+     "y": "50.9%",
+     "width": 300,
+     "height": 115.19999999999999,
      "props": {
-      "pose": "top",
-      "speed": 1.4,
-      "timeOffset": 0.0
+      "text": "SPAIN",
+      "at": 3.175,
+      "size": 48,
+      "align": "center",
+      "accent": "#8fa3ab"
      },
+     "depth": 0,
+     "z": 31,
+     "end": 4.3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "46.7%",
+     "y": "45.3%",
+     "width": 380,
+     "height": 110.39999999999999,
+     "props": {
+      "text": "PORTUGAL",
+      "at": 3.275,
+      "size": 46,
+      "align": "center",
+      "accent": "#8fa3ab"
+     },
+     "depth": 0,
+     "z": 31,
+     "end": 4.3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"rgba(229,72,61,0.12)\" stroke=\"#e5483d\" stroke-width=\"7\"/></svg>",
+     "x": "44.2%",
+     "y": "57.4%",
+     "width": 210,
+     "height": 210,
      "z": 31,
      "start": 3.375,
      "end": 4.3,
@@ -3179,20 +3567,21 @@
       "at": 3.375,
       "duration": 0.35
      },
-     "rotate": 10
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 1.4
+      }
+     ]
     },
     {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "34.6%",
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"rgba(229,72,61,0.12)\" stroke=\"#e5483d\" stroke-width=\"7\"/></svg>",
+     "x": "30.4%",
      "y": "53.3%",
-     "width": 150,
-     "height": 56,
-     "props": {
-      "pose": "top",
-      "speed": 1.4,
-      "timeOffset": 0.4
-     },
+     "width": 210,
+     "height": 210,
      "z": 31,
      "start": 3.525,
      "end": 4.3,
@@ -3201,20 +3590,21 @@
       "at": 3.525,
       "duration": 0.35
      },
-     "rotate": -80
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 1.4
+      }
+     ]
     },
     {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "33.8%",
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"90\" fill=\"rgba(229,72,61,0.12)\" stroke=\"#e5483d\" stroke-width=\"7\"/></svg>",
+     "x": "29.6%",
      "y": "43.0%",
-     "width": 150,
-     "height": 56,
-     "props": {
-      "pose": "top",
-      "speed": 1.4,
-      "timeOffset": 0.8
-     },
+     "width": 210,
+     "height": 210,
      "z": 31,
      "start": 3.675,
      "end": 4.3,
@@ -3223,14 +3613,91 @@
       "at": 3.675,
       "duration": 0.35
      },
-     "rotate": -95
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 1.4
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "44.2%",
+     "y": "57.4%",
+     "width": 240,
+     "height": 90,
+     "props": {
+      "pose": "top",
+      "speed": 1.4,
+      "timeOffset": 0.0
+     },
+     "z": 32,
+     "start": 3.375,
+     "end": 4.3,
+     "enter": {
+      "type": "pop",
+      "at": 3.375,
+      "duration": 0.35
+     },
+     "rotate": 10,
+     "shadow": "0 0 5px #ffffff"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "30.4%",
+     "y": "53.3%",
+     "width": 240,
+     "height": 90,
+     "props": {
+      "pose": "top",
+      "speed": 1.4,
+      "timeOffset": 0.4
+     },
+     "z": 32,
+     "start": 3.525,
+     "end": 4.3,
+     "enter": {
+      "type": "pop",
+      "at": 3.525,
+      "duration": 0.35
+     },
+     "rotate": -80,
+     "shadow": "0 0 5px #ffffff"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "29.6%",
+     "y": "43.0%",
+     "width": 240,
+     "height": 90,
+     "props": {
+      "pose": "top",
+      "speed": 1.4,
+      "timeOffset": 0.8
+     },
+     "z": 32,
+     "start": 3.675,
+     "end": 4.3,
+     "enter": {
+      "type": "pop",
+      "at": 3.675,
+      "duration": 0.35
+     },
+     "rotate": -95,
+     "shadow": "0 0 5px #ffffff"
     }
    ],
    "notes": "Comforting, right? Except since twenty twenty, orcas off Spain and Portugal have been ramming sailboats and snapping off their rudders.",
    "transitionIn": {
-    "type": "dipBlack",
-    "duration": 0.35
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
    },
+   "qa_class": "stock_proof",
    "camera": {
     "keyframes": [
      {
@@ -3241,33 +3708,33 @@
      },
      {
       "t": 1.25,
-      "zoom": 1.0089
+      "zoom": 1.0092
      },
      {
       "t": 1.47,
-      "zoom": 1.1621,
+      "zoom": 1.1624,
       "ease": "out"
      },
      {
       "t": 3.175,
-      "zoom": 1.1761
+      "zoom": 1.1768
      },
      {
       "t": 3.395,
-      "zoom": 1.0243,
+      "zoom": 1.0249,
       "ease": "out"
      },
      {
       "t": 4.75,
-      "zoom": 1.034
+      "zoom": 1.0349
      },
      {
       "t": 4.97,
-      "zoom": 1.1909,
+      "zoom": 1.192,
       "ease": "out"
      },
      {
-      "t": 6.99,
+      "t": 6.81,
       "zoom": 1.2075,
       "x": "50%",
       "y": "50%"
@@ -3422,7 +3889,7 @@
   },
   {
    "id": "p13",
-   "duration": 4.78,
+   "duration": 3.98,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -3432,38 +3899,12 @@
      "depth": 6,
      "skyTop": "#071620",
      "skyBottom": "#1b3b4a",
-     "surface": 0.2,
+     "surface": 0.12,
      "rays": 8,
      "snow": 60
     }
    },
    "layers": [
-    {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "50%",
-     "y": "56%",
-     "width": 640,
-     "height": 230,
-     "props": {
-      "pxPerM": 60,
-      "speed": 1.2
-     },
-     "flipX": true,
-     "z": 0,
-     "end": 2.2,
-     "keyframes": [
-      {
-       "t": 0,
-       "x": "112%"
-      },
-      {
-       "t": 2.2,
-       "x": "-22%",
-       "ease": "linear"
-      }
-     ]
-    },
     {
      "type": "component",
      "name": "explainer/Orca",
@@ -3474,27 +3915,26 @@
      "props": {
       "speed": 1.1,
       "pxPerM": 100,
-      "timeOffset": 1.281
+      "timeOffset": 0.565
      },
      "keyframes": [
       {
-       "t": 2.2,
-       "x": "-45%"
+       "t": 0,
+       "x": "8%"
       },
       {
-       "t": 4.78,
+       "t": 3.98,
        "x": "46%",
        "ease": "out"
       }
      ],
-     "z": 2,
-     "start": 2.2
+     "z": 2
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "76%",
-     "y": "52.5%",
+     "x": "74%",
+     "y": "42.5%",
      "width": 280.0,
      "height": 90.0,
      "props": {
@@ -3511,16 +3951,33 @@
      ]
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 10 100\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><line x1=\"5\" y1=\"0\" x2=\"5\" y2=\"100\" stroke=\"#f3f6f7\" stroke-width=\"5\"/></svg>",
+     "x": "74%",
+     "y": "44.49%",
+     "width": 10,
+     "height": 34.999999999999986,
+     "depth": 1,
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "76%",
-     "y": "47.20%",
-     "width": 240,
-     "height": 105.6,
+     "x": "74%",
+     "y": "47.10%",
+     "width": 175,
+     "height": 76.8,
      "props": {
       "text": "YOU",
       "at": 0.0,
-      "size": 44,
+      "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -3533,15 +3990,17 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "15%",
+     "y": "12.5%",
      "width": 1000,
-     "height": 268.8,
+     "height": 352.0,
      "props": {
-      "text": "KILLER WHALE?",
+      "text": "0 HUMAN KILLS",
       "at": 2.872,
-      "size": 84,
+      "size": 110,
       "color": "white",
-      "underline": true
+      "underline": true,
+      "red": "0",
+      "sub": "IN THE WILD"
      },
      "depth": 0,
      "z": 20
@@ -3552,39 +4011,27 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.06,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.3,
+      "x": "63.9%",
+      "y": "39.6%"
      },
      {
-      "t": 0.997,
-      "zoom": 1.0428
+      "t": 1.393,
+      "zoom": 1.38,
+      "x": "63.9%",
+      "y": "39.6%"
      },
      {
-      "t": 1.217,
-      "zoom": 1.1949,
-      "ease": "out"
+      "t": 2.786,
+      "zoom": 1.5,
+      "x": "63.9%",
+      "y": "39.6%"
      },
      {
-      "t": 2.36,
-      "zoom": 1.1722
-     },
-     {
-      "t": 2.58,
-      "zoom": 1.0155,
-      "ease": "out"
-     },
-     {
-      "t": 3.48,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
-     },
-     {
-      "t": 4.78,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "t": 3.98,
+      "zoom": 1.65,
+      "x": "63.9%",
+      "y": "39.6%"
      }
     ]
    }
@@ -3661,8 +4108,7 @@
    {
     "text": "they",
     "start": 3.67,
-    "end": 3.82,
-    "br": true
+    "end": 3.82
    },
    {
     "text": "can't.",
@@ -3752,13 +4198,13 @@
    {
     "text": "alone",
     "start": 8.245,
-    "end": 8.645,
-    "br": true
+    "end": 8.645
    },
    {
     "text": "is",
     "start": 8.645,
-    "end": 8.77
+    "end": 8.77,
+    "br": true
    },
    {
     "text": "as",
@@ -3913,1074 +4359,1053 @@
    {
     "text": "And",
     "start": 17.55,
-    "end": 17.602,
+    "end": 17.623,
     "br": true
    },
    {
     "text": "you'd",
-    "start": 17.602,
-    "end": 17.715
+    "start": 17.623,
+    "end": 17.735
    },
    {
     "text": "never",
-    "start": 17.715,
-    "end": 17.99,
-    "br": true
+    "start": 17.735,
+    "end": 18.035
    },
    {
     "text": "meet",
-    "start": 17.99,
-    "end": 18.215
+    "start": 18.035,
+    "end": 18.26
    },
    {
     "text": "just",
-    "start": 18.215,
-    "end": 18.44,
+    "start": 18.26,
+    "end": 18.485,
     "br": true
    },
    {
     "text": "one.",
-    "start": 18.44,
-    "end": 18.94
+    "start": 18.485,
+    "end": 19.035
    },
    {
-    "text": "Every",
-    "start": 19.065,
-    "end": 19.365,
+    "text": "A",
+    "start": 19.16,
+    "end": 19.26,
     "br": true
    },
    {
     "text": "pod",
-    "start": 19.365,
-    "end": 19.64
+    "start": 19.26,
+    "end": 19.61
    },
    {
-    "text": "has",
-    "start": 19.64,
-    "end": 19.803,
+    "text": "hunts",
+    "start": 19.61,
+    "end": 19.898
+   },
+   {
+    "text": "as",
+    "start": 19.898,
+    "end": 19.998,
     "br": true
    },
    {
-    "text": "its",
-    "start": 19.803,
-    "end": 19.915
+    "text": "a",
+    "start": 19.998,
+    "end": 20.098
    },
    {
-    "text": "own",
-    "start": 19.915,
-    "end": 20.14
+    "text": "team,",
+    "start": 20.098,
+    "end": 20.56
    },
    {
-    "text": "calls,",
-    "start": 20.14,
-    "end": 20.565
-   },
-   {
-    "text": "its",
-    "start": 20.602,
-    "end": 20.715,
+    "text": "and",
+    "start": 20.635,
+    "end": 20.748,
     "br": true
    },
    {
-    "text": "own",
-    "start": 20.715,
-    "end": 20.94
+    "text": "you'd",
+    "start": 20.748,
+    "end": 20.848
    },
    {
-    "text": "menu,",
-    "start": 20.94,
-    "end": 21.29
+    "text": "be",
+    "start": 20.848,
+    "end": 20.985
    },
    {
-    "text": "its",
-    "start": 21.34,
-    "end": 21.49,
-    "br": true
-   },
-   {
-    "text": "own",
-    "start": 21.49,
-    "end": 21.715
-   },
-   {
-    "text": "plan.",
-    "start": 21.715,
-    "end": 22.08
+    "text": "outnumbered.",
+    "start": 20.985,
+    "end": 21.58
    },
    {
     "text": "In",
-    "start": 22.38,
-    "end": 22.44,
+    "start": 21.88,
+    "end": 21.94,
     "br": true
    },
    {
     "text": "Antarctica,",
-    "start": 22.44,
-    "end": 23.19
+    "start": 21.94,
+    "end": 22.69
    },
    {
     "text": "a",
-    "start": 23.29,
-    "end": 23.39,
+    "start": 22.79,
+    "end": 22.89,
     "br": true
    },
    {
     "text": "pod",
-    "start": 23.39,
-    "end": 23.74
+    "start": 22.89,
+    "end": 23.24
    },
    {
     "text": "charges",
-    "start": 23.74,
-    "end": 24.103
+    "start": 23.24,
+    "end": 23.603
    },
    {
     "text": "an",
-    "start": 24.103,
-    "end": 24.203,
+    "start": 23.603,
+    "end": 23.703,
     "br": true
    },
    {
     "text": "ice",
-    "start": 24.203,
-    "end": 24.44
+    "start": 23.703,
+    "end": 23.94
    },
    {
     "text": "floe",
-    "start": 24.44,
-    "end": 24.665
+    "start": 23.94,
+    "end": 24.165
    },
    {
     "text": "together,",
-    "start": 24.665,
-    "end": 25.04
+    "start": 24.165,
+    "end": 24.54
    },
    {
     "text": "and",
-    "start": 25.078,
-    "end": 25.178,
+    "start": 24.578,
+    "end": 24.678,
     "br": true
    },
    {
     "text": "the",
-    "start": 25.178,
-    "end": 25.265
+    "start": 24.678,
+    "end": 24.765
    },
    {
     "text": "wave",
-    "start": 25.265,
-    "end": 25.615
+    "start": 24.765,
+    "end": 25.115
    },
    {
     "text": "washes",
-    "start": 25.615,
-    "end": 25.978,
+    "start": 25.115,
+    "end": 25.478,
     "br": true
    },
    {
     "text": "the",
-    "start": 25.978,
-    "end": 26.078
+    "start": 25.478,
+    "end": 25.578
    },
    {
     "text": "seal",
-    "start": 26.078,
-    "end": 26.39
+    "start": 25.578,
+    "end": 25.89
    },
    {
     "text": "straight",
-    "start": 26.39,
-    "end": 26.69,
+    "start": 25.89,
+    "end": 26.19,
     "br": true
    },
    {
     "text": "off.",
-    "start": 26.69,
-    "end": 27.19
+    "start": 26.19,
+    "end": 26.69
    },
    {
     "text": "You'd",
-    "start": 27.29,
-    "end": 27.44,
+    "start": 26.79,
+    "end": 26.94,
     "br": true
    },
    {
     "text": "go",
-    "start": 27.44,
-    "end": 27.628
+    "start": 26.94,
+    "end": 27.128
    },
    {
     "text": "too.",
-    "start": 27.628,
-    "end": 27.97
+    "start": 27.128,
+    "end": 27.47
    },
    {
     "text": "Off",
-    "start": 28.27,
-    "end": 28.43,
+    "start": 27.775,
+    "end": 27.95,
     "br": true
    },
    {
     "text": "South",
-    "start": 28.43,
-    "end": 28.705
+    "start": 27.95,
+    "end": 28.225
    },
    {
     "text": "Africa,",
-    "start": 28.705,
-    "end": 29.13
+    "start": 28.225,
+    "end": 28.65
    },
    {
     "text": "the",
-    "start": 29.168,
-    "end": 29.293,
+    "start": 28.688,
+    "end": 28.813,
     "br": true
    },
    {
     "text": "shark",
-    "start": 29.293,
-    "end": 29.593
+    "start": 28.813,
+    "end": 29.113
    },
    {
     "text": "you're",
-    "start": 29.593,
-    "end": 29.705,
-    "br": true
+    "start": 29.113,
+    "end": 29.225
    },
    {
     "text": "scared",
-    "start": 29.705,
-    "end": 30.018
+    "start": 29.225,
+    "end": 29.538
    },
    {
     "text": "of",
-    "start": 30.018,
-    "end": 30.105
+    "start": 29.538,
+    "end": 29.625
    },
    {
     "text": "started",
-    "start": 30.105,
-    "end": 30.53,
+    "start": 29.625,
+    "end": 30.05,
     "br": true
    },
    {
     "text": "washing",
-    "start": 30.53,
-    "end": 30.843
+    "start": 30.05,
+    "end": 30.363
    },
    {
     "text": "up",
-    "start": 30.843,
-    "end": 31.03
+    "start": 30.363,
+    "end": 30.55
    },
    {
     "text": "missing",
-    "start": 31.03,
-    "end": 31.33,
+    "start": 30.55,
+    "end": 30.85,
     "br": true
    },
    {
     "text": "one",
-    "start": 31.33,
-    "end": 31.555
+    "start": 30.85,
+    "end": 31.075
    },
    {
     "text": "organ.",
-    "start": 31.555,
-    "end": 32.08
+    "start": 31.075,
+    "end": 31.6
    },
    {
     "text": "The",
-    "start": 32.18,
-    "end": 32.305,
+    "start": 31.7,
+    "end": 31.825,
     "br": true
    },
    {
     "text": "liver.",
-    "start": 32.305,
-    "end": 32.83,
+    "start": 31.825,
+    "end": 32.35,
     "emph": true
    },
    {
     "text": "Orcas",
-    "start": 32.968,
-    "end": 33.368,
+    "start": 32.488,
+    "end": 32.888,
     "br": true
    },
    {
     "text": "flipped",
-    "start": 33.368,
-    "end": 33.643
+    "start": 32.888,
+    "end": 33.163
    },
    {
     "text": "them",
-    "start": 33.643,
-    "end": 33.793
+    "start": 33.163,
+    "end": 33.312
    },
    {
     "text": "and",
-    "start": 33.793,
-    "end": 33.905,
+    "start": 33.312,
+    "end": 33.425,
     "br": true
    },
    {
     "text": "took",
-    "start": 33.905,
-    "end": 34.155
+    "start": 33.425,
+    "end": 33.675
    },
    {
     "text": "it.",
-    "start": 34.155,
-    "end": 34.34
+    "start": 33.675,
+    "end": 33.84
    },
    {
     "text": "The",
-    "start": 34.64,
-    "end": 34.675,
+    "start": 34.14,
+    "end": 34.175,
     "br": true
    },
    {
     "text": "surviving",
-    "start": 34.675,
-    "end": 35.2
+    "start": 34.175,
+    "end": 34.7
    },
    {
     "text": "great",
-    "start": 35.2,
-    "end": 35.475,
-    "br": true
+    "start": 34.7,
+    "end": 34.975
    },
    {
     "text": "whites",
-    "start": 35.475,
-    "end": 35.75
+    "start": 34.975,
+    "end": 35.25
    },
    {
     "text": "fled",
-    "start": 35.75,
-    "end": 36.025
-   },
-   {
-    "text": "for",
-    "start": 36.025,
-    "end": 36.15,
+    "start": 35.25,
+    "end": 35.525,
     "br": true
    },
    {
+    "text": "for",
+    "start": 35.525,
+    "end": 35.65
+   },
+   {
     "text": "months.",
-    "start": 36.15,
-    "end": 36.675
+    "start": 35.65,
+    "end": 36.175
    },
    {
     "text": "If",
-    "start": 36.775,
-    "end": 36.95,
+    "start": 36.275,
+    "end": 36.45,
     "br": true
    },
    {
     "text": "they",
-    "start": 36.95,
-    "end": 37.1
+    "start": 36.45,
+    "end": 36.6
    },
    {
     "text": "run,",
-    "start": 37.1,
-    "end": 37.475
+    "start": 36.6,
+    "end": 36.975
    },
    {
     "text": "what",
-    "start": 37.55,
-    "end": 37.775,
+    "start": 37.05,
+    "end": 37.275,
     "br": true
    },
    {
     "text": "chance",
-    "start": 37.775,
-    "end": 38.062
+    "start": 37.275,
+    "end": 37.562
    },
    {
     "text": "do",
-    "start": 38.062,
-    "end": 38.163,
+    "start": 37.562,
+    "end": 37.663,
     "br": true
    },
    {
     "text": "you",
-    "start": 38.163,
-    "end": 38.275
+    "start": 37.663,
+    "end": 37.775
    },
    {
     "text": "have?",
-    "start": 38.275,
-    "end": 38.59
+    "start": 37.775,
+    "end": 38.09
    },
    {
     "text": "In",
-    "start": 38.89,
-    "end": 38.975,
+    "start": 38.39,
+    "end": 38.475,
     "br": true
    },
    {
     "text": "twenty",
-    "start": 38.975,
-    "end": 39.212
+    "start": 38.475,
+    "end": 38.712
    },
    {
     "text": "nineteen,",
-    "start": 39.212,
-    "end": 39.725
+    "start": 38.712,
+    "end": 39.225
    },
    {
     "text": "off",
-    "start": 39.8,
-    "end": 40.0,
+    "start": 39.3,
+    "end": 39.5,
     "br": true
    },
    {
     "text": "Western",
-    "start": 40.0,
-    "end": 40.388
+    "start": 39.5,
+    "end": 39.888
    },
    {
     "text": "Australia,",
-    "start": 40.388,
-    "end": 40.95
+    "start": 39.888,
+    "end": 40.45
    },
    {
     "text": "a",
-    "start": 41.025,
-    "end": 41.125,
+    "start": 40.525,
+    "end": 40.625,
     "br": true
    },
    {
     "text": "pod",
-    "start": 41.125,
-    "end": 41.475
+    "start": 40.625,
+    "end": 40.975
    },
    {
     "text": "brought",
-    "start": 41.475,
-    "end": 41.7,
-    "br": true
+    "start": 40.975,
+    "end": 41.2
    },
    {
     "text": "down",
-    "start": 41.7,
-    "end": 41.938
+    "start": 41.2,
+    "end": 41.438
    },
    {
     "text": "the",
-    "start": 41.938,
-    "end": 42.025,
+    "start": 41.438,
+    "end": 41.525,
     "br": true
    },
    {
     "text": "biggest",
-    "start": 42.025,
-    "end": 42.388,
+    "start": 41.525,
+    "end": 41.888,
     "emph": true
    },
    {
     "text": "animal",
-    "start": 42.388,
-    "end": 42.788
+    "start": 41.888,
+    "end": 42.288
    },
    {
     "text": "on",
-    "start": 42.788,
-    "end": 42.925,
+    "start": 42.288,
+    "end": 42.425,
     "br": true
    },
    {
     "text": "Earth.",
-    "start": 42.925,
-    "end": 43.525
+    "start": 42.425,
+    "end": 43.025
    },
    {
     "text": "An",
-    "start": 43.625,
-    "end": 43.725,
+    "start": 43.125,
+    "end": 43.225,
     "br": true
    },
    {
     "text": "adult",
-    "start": 43.725,
-    "end": 44.1
+    "start": 43.225,
+    "end": 43.6
    },
    {
     "text": "blue",
-    "start": 44.1,
-    "end": 44.325,
-    "br": true
+    "start": 43.6,
+    "end": 43.825
    },
    {
     "text": "whale,",
-    "start": 44.325,
-    "end": 44.825
+    "start": 43.825,
+    "end": 44.325
    },
    {
     "text": "a",
-    "start": 44.9,
-    "end": 45.013,
+    "start": 44.4,
+    "end": 44.513,
     "br": true
    },
    {
     "text": "thousand",
-    "start": 45.013,
-    "end": 45.45
+    "start": 44.513,
+    "end": 44.95
    },
    {
     "text": "times",
-    "start": 45.45,
-    "end": 45.763
+    "start": 44.95,
+    "end": 45.263
    },
    {
     "text": "your",
-    "start": 45.763,
-    "end": 45.9,
+    "start": 45.263,
+    "end": 45.4,
     "br": true
    },
    {
     "text": "weight.",
-    "start": 45.9,
-    "end": 46.2
+    "start": 45.4,
+    "end": 45.7
    },
    {
     "text": "So",
-    "start": 46.5,
-    "end": 46.565,
+    "start": 46.0,
+    "end": 46.065,
     "br": true
    },
    {
     "text": "why",
-    "start": 46.565,
-    "end": 46.727
+    "start": 46.065,
+    "end": 46.227
    },
    {
     "text": "has",
-    "start": 46.727,
-    "end": 46.89,
-    "br": true
+    "start": 46.227,
+    "end": 46.39
    },
    {
     "text": "something",
-    "start": 46.89,
-    "end": 47.153
+    "start": 46.39,
+    "end": 46.653
    },
    {
     "text": "this",
-    "start": 47.153,
-    "end": 47.315,
+    "start": 46.653,
+    "end": 46.815,
     "br": true
    },
    {
     "text": "fast",
-    "start": 47.315,
-    "end": 47.903
+    "start": 46.815,
+    "end": 47.403
    },
    {
     "text": "and",
-    "start": 47.903,
-    "end": 48.028,
+    "start": 47.403,
+    "end": 47.528,
     "br": true
    },
    {
     "text": "this",
-    "start": 48.028,
-    "end": 48.165
+    "start": 47.528,
+    "end": 47.665
    },
    {
     "text": "smart",
-    "start": 48.165,
-    "end": 48.515
+    "start": 47.665,
+    "end": 48.015
    },
    {
     "text": "never",
-    "start": 48.515,
-    "end": 48.715,
+    "start": 48.015,
+    "end": 48.215,
     "br": true
    },
    {
     "text": "come",
-    "start": 48.715,
-    "end": 48.965
+    "start": 48.215,
+    "end": 48.465
    },
    {
     "text": "for",
-    "start": 48.965,
-    "end": 49.09,
+    "start": 48.465,
+    "end": 48.59,
     "br": true
    },
    {
     "text": "you?",
-    "start": 49.09,
-    "end": 49.29
+    "start": 48.59,
+    "end": 48.79
    },
    {
     "text": "Maybe",
-    "start": 49.59,
-    "end": 49.825,
+    "start": 49.09,
+    "end": 49.325,
     "br": true
    },
    {
     "text": "you",
-    "start": 49.825,
-    "end": 49.95
+    "start": 49.325,
+    "end": 49.45
    },
    {
     "text": "taste",
-    "start": 49.95,
-    "end": 50.275,
-    "br": true
+    "start": 49.45,
+    "end": 49.775
    },
    {
     "text": "bad?",
-    "start": 50.275,
-    "end": 50.75
+    "start": 49.775,
+    "end": 50.25
    },
    {
     "text": "Nobody's",
-    "start": 50.862,
-    "end": 51.3,
+    "start": 50.362,
+    "end": 50.8,
     "br": true
    },
    {
     "text": "ever",
-    "start": 51.3,
-    "end": 51.5
+    "start": 50.8,
+    "end": 51.0
    },
    {
     "text": "proven",
-    "start": 51.5,
-    "end": 51.85
+    "start": 51.0,
+    "end": 51.35
    },
    {
     "text": "that.",
-    "start": 51.85,
-    "end": 52.2,
-    "br": true
+    "start": 51.35,
+    "end": 51.7
    },
    {
     "text": "Too",
-    "start": 52.275,
-    "end": 52.45,
+    "start": 51.775,
+    "end": 51.95,
     "br": true
    },
    {
     "text": "small",
-    "start": 52.45,
-    "end": 52.775
+    "start": 51.95,
+    "end": 52.275
    },
    {
     "text": "to",
-    "start": 52.775,
-    "end": 52.875,
+    "start": 52.275,
+    "end": 52.375,
     "br": true
    },
    {
     "text": "bother",
-    "start": 52.875,
-    "end": 53.225
+    "start": 52.375,
+    "end": 52.725
    },
    {
     "text": "with?",
-    "start": 53.225,
-    "end": 53.6
+    "start": 52.725,
+    "end": 53.1
    },
    {
     "text": "You're",
-    "start": 53.7,
-    "end": 53.837,
+    "start": 53.2,
+    "end": 53.337,
     "br": true
    },
    {
     "text": "about",
-    "start": 53.837,
-    "end": 54.037
+    "start": 53.337,
+    "end": 53.537
    },
    {
     "text": "the",
-    "start": 54.037,
-    "end": 54.137
+    "start": 53.537,
+    "end": 53.637
    },
    {
     "text": "size",
-    "start": 54.137,
-    "end": 54.487
+    "start": 53.637,
+    "end": 53.987
    },
    {
     "text": "of",
-    "start": 54.487,
-    "end": 54.562,
+    "start": 53.987,
+    "end": 54.062,
     "br": true
    },
    {
     "text": "the",
-    "start": 54.562,
-    "end": 54.662
+    "start": 54.062,
+    "end": 54.162
    },
    {
     "text": "seals",
-    "start": 54.662,
-    "end": 55.025
+    "start": 54.162,
+    "end": 54.525
    },
    {
     "text": "they",
-    "start": 55.025,
-    "end": 55.188,
+    "start": 54.525,
+    "end": 54.688,
     "br": true
    },
    {
     "text": "eat.",
-    "start": 55.188,
-    "end": 55.46
+    "start": 54.688,
+    "end": 54.96
    },
    {
     "text": "The",
-    "start": 55.76,
-    "end": 55.815,
+    "start": 55.26,
+    "end": 55.315,
     "br": true
    },
    {
     "text": "best",
-    "start": 55.815,
-    "end": 56.127
+    "start": 55.315,
+    "end": 55.627
    },
    {
     "text": "answer",
-    "start": 56.127,
-    "end": 56.49
+    "start": 55.627,
+    "end": 55.99
    },
    {
     "text": "is",
-    "start": 56.49,
-    "end": 56.64,
+    "start": 55.99,
+    "end": 56.14,
     "br": true
    },
    {
     "text": "culture.",
-    "start": 56.64,
-    "end": 57.265
+    "start": 56.14,
+    "end": 56.765
    },
    {
     "text": "Orcas",
-    "start": 57.39,
-    "end": 57.74,
+    "start": 56.89,
+    "end": 57.24,
     "br": true
    },
    {
     "text": "eat",
-    "start": 57.74,
-    "end": 57.927
+    "start": 57.24,
+    "end": 57.427
    },
    {
     "text": "what",
-    "start": 57.927,
-    "end": 58.065,
+    "start": 57.427,
+    "end": 57.565,
     "br": true
    },
    {
     "text": "their",
-    "start": 58.065,
-    "end": 58.215
+    "start": 57.565,
+    "end": 57.715
    },
    {
     "text": "mothers",
-    "start": 58.215,
-    "end": 58.565
+    "start": 57.715,
+    "end": 58.065
    },
    {
     "text": "taught",
-    "start": 58.565,
-    "end": 58.84,
+    "start": 58.065,
+    "end": 58.34,
     "br": true
    },
    {
     "text": "them.",
-    "start": 58.84,
-    "end": 59.24
+    "start": 58.34,
+    "end": 58.74
    },
    {
     "text": "And",
-    "start": 59.315,
-    "end": 59.465,
+    "start": 58.815,
+    "end": 58.965,
     "br": true
    },
    {
     "text": "no",
-    "start": 59.465,
-    "end": 59.69
+    "start": 58.965,
+    "end": 59.19
    },
    {
     "text": "orca",
-    "start": 59.69,
-    "end": 59.99
+    "start": 59.19,
+    "end": 59.49
    },
    {
     "text": "mother",
-    "start": 59.99,
-    "end": 60.302
+    "start": 59.49,
+    "end": 59.802
    },
    {
     "text": "has",
-    "start": 60.302,
-    "end": 60.465,
+    "start": 59.802,
+    "end": 59.965,
     "br": true
    },
    {
     "text": "ever",
-    "start": 60.465,
-    "end": 60.69
+    "start": 59.965,
+    "end": 60.19
    },
    {
     "text": "taught",
-    "start": 60.69,
-    "end": 60.927
+    "start": 60.19,
+    "end": 60.427
    },
    {
     "text": "her",
-    "start": 60.927,
-    "end": 61.04,
+    "start": 60.427,
+    "end": 60.54,
     "br": true
    },
    {
     "text": "calf",
-    "start": 61.04,
-    "end": 61.34
+    "start": 60.54,
+    "end": 60.84
    },
    {
     "text": "to",
-    "start": 61.34,
-    "end": 61.465,
+    "start": 60.84,
+    "end": 60.965,
     "br": true
    },
    {
     "text": "eat",
-    "start": 61.465,
-    "end": 61.665
+    "start": 60.965,
+    "end": 61.165
    },
    {
     "text": "you.",
-    "start": 61.665,
-    "end": 61.87
+    "start": 61.165,
+    "end": 61.37
    },
    {
     "text": "Comforting,",
-    "start": 62.17,
-    "end": 62.645,
+    "start": 61.67,
+    "end": 62.145,
     "br": true
    },
    {
     "text": "right?",
-    "start": 62.695,
-    "end": 63.245
+    "start": 62.195,
+    "end": 62.745
    },
    {
     "text": "Except",
-    "start": 63.37,
-    "end": 63.67,
+    "start": 62.87,
+    "end": 63.17,
     "br": true
    },
    {
     "text": "since",
-    "start": 63.67,
-    "end": 63.895
+    "start": 63.17,
+    "end": 63.395
    },
    {
     "text": "twenty",
-    "start": 63.895,
-    "end": 64.195,
-    "br": true
+    "start": 63.395,
+    "end": 63.695
    },
    {
     "text": "twenty,",
-    "start": 64.195,
-    "end": 64.695
+    "start": 63.695,
+    "end": 64.195
    },
    {
     "text": "orcas",
-    "start": 64.795,
-    "end": 65.12,
+    "start": 64.295,
+    "end": 64.62,
     "br": true
    },
    {
     "text": "off",
-    "start": 65.12,
-    "end": 65.295
+    "start": 64.62,
+    "end": 64.795
    },
    {
     "text": "Spain",
-    "start": 65.295,
-    "end": 65.607
+    "start": 64.795,
+    "end": 65.107
    },
    {
     "text": "and",
-    "start": 65.607,
-    "end": 65.72,
+    "start": 65.107,
+    "end": 65.22,
     "br": true
    },
    {
     "text": "Portugal",
-    "start": 65.72,
-    "end": 66.207
+    "start": 65.22,
+    "end": 65.707
    },
    {
     "text": "have",
-    "start": 66.207,
-    "end": 66.307,
+    "start": 65.707,
+    "end": 65.807,
     "br": true
    },
    {
     "text": "been",
-    "start": 66.307,
-    "end": 66.47
+    "start": 65.807,
+    "end": 65.97
    },
    {
     "text": "ramming",
-    "start": 66.47,
-    "end": 66.857,
-    "emph": true,
-    "br": true
+    "start": 65.97,
+    "end": 66.357,
+    "emph": true
    },
    {
     "text": "sailboats",
-    "start": 66.857,
-    "end": 67.445
+    "start": 66.357,
+    "end": 66.945
    },
    {
     "text": "and",
-    "start": 67.445,
-    "end": 67.582,
+    "start": 66.945,
+    "end": 67.082,
     "br": true
    },
    {
     "text": "snapping",
-    "start": 67.582,
-    "end": 67.97
+    "start": 67.082,
+    "end": 67.47
    },
    {
     "text": "off",
-    "start": 67.97,
-    "end": 68.157,
+    "start": 67.47,
+    "end": 67.657,
     "br": true
    },
    {
     "text": "their",
-    "start": 68.157,
-    "end": 68.32
+    "start": 67.657,
+    "end": 67.82
    },
    {
     "text": "rudders.",
-    "start": 68.32,
-    "end": 68.86
+    "start": 67.82,
+    "end": 68.18
    },
    {
     "text": "About",
-    "start": 69.16,
-    "end": 69.392,
+    "start": 68.48,
+    "end": 68.712,
     "br": true
    },
    {
     "text": "seven",
-    "start": 69.392,
-    "end": 69.73
+    "start": 68.712,
+    "end": 69.05
    },
    {
     "text": "boats",
-    "start": 69.73,
-    "end": 69.967
+    "start": 69.05,
+    "end": 69.287
    },
    {
     "text": "have",
-    "start": 69.967,
-    "end": 70.117,
+    "start": 69.287,
+    "end": 69.437,
     "br": true
    },
    {
     "text": "sunk.",
-    "start": 70.117,
-    "end": 70.58,
+    "start": 69.437,
+    "end": 69.9,
     "emph": true
    },
    {
     "text": "Nobody",
-    "start": 70.692,
-    "end": 71.055,
+    "start": 70.012,
+    "end": 70.375,
     "br": true
    },
    {
     "text": "knows",
-    "start": 71.055,
-    "end": 71.33
+    "start": 70.375,
+    "end": 70.65
    },
    {
     "text": "why.",
-    "start": 71.33,
-    "end": 71.67
+    "start": 70.65,
+    "end": 70.99
    },
    {
     "text": "Maybe",
-    "start": 71.97,
-    "end": 72.205,
+    "start": 71.29,
+    "end": 71.525,
     "br": true
    },
    {
     "text": "they",
-    "start": 72.205,
-    "end": 72.355
-   },
-   {
-    "text": "just",
-    "start": 72.355,
-    "end": 72.53,
+    "start": 71.525,
+    "end": 71.675,
     "br": true
    },
    {
+    "text": "just",
+    "start": 71.675,
+    "end": 71.85
+   },
+   {
     "text": "haven't",
-    "start": 72.53,
-    "end": 72.817
+    "start": 71.85,
+    "end": 72.137
    },
    {
     "text": "decided",
-    "start": 72.817,
-    "end": 73.217
+    "start": 72.137,
+    "end": 72.537
    },
    {
     "text": "about",
-    "start": 73.217,
-    "end": 73.48,
+    "start": 72.537,
+    "end": 72.8,
     "br": true
    },
    {
     "text": "you",
-    "start": 73.48,
-    "end": 73.63
+    "start": 72.8,
+    "end": 72.95
    },
    {
     "text": "yet.",
-    "start": 73.63,
-    "end": 74.105
+    "start": 72.95,
+    "end": 73.425
    },
    {
     "text": "And",
-    "start": 74.18,
-    "end": 74.317,
+    "start": 73.5,
+    "end": 73.637,
     "br": true
    },
    {
     "text": "that",
-    "start": 74.317,
-    "end": 74.53
+    "start": 73.637,
+    "end": 73.85
    },
    {
     "text": "matters,",
-    "start": 74.53,
-    "end": 74.905
+    "start": 73.85,
+    "end": 74.225
    },
    {
     "text": "because...",
-    "start": 74.942,
-    "end": 75.6,
+    "start": 74.262,
+    "end": 74.92,
     "br": true
    }
   ],
@@ -5003,7 +5428,7 @@
     "src": "episodes/explainer-orca/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 76.6
+    "duration": 75.12
    }
   ],
   "music": [],

@@ -1,11 +1,12 @@
-"""explainer-orca (PILOT) scene builder, fix round 2 (reviewer 5/10 -> fixes 1-10).
+"""explainer-orca (PILOT) scene builder, fix round 2 (reviewer 5/10 -> fixes 1-10) + side-by-side fix round 1.
 
 One narration paragraph = one scene (14 paragraphs). Every beat is anchored to narration words (Scene.at), every
 scene gets an explicit camera with punch-ins (Cam), and build.py fails the episode on any visual hold > 3 s.
 
 Visual grammar: YOU is always the hook's diver (white YOU chip). Red is the threat accent only. Orcas appear in
-side, head-on (pose "head") and top-down (pose "top") views. Frame 0 is the Shorts cover and the last frame
-returns to it exactly (same orca x, diver, headline, zoom 1.0) so the loop replays seamlessly.
+side, head-on (pose "head") and top-down (pose "top") views. Frame 0 is the Shorts cover (camera pushed in on the
+orca's head, diver under the jaw, "0 HUMAN KILLS" claim with one red word) and the last frame returns to it exactly
+(same orca x, diver, headline, camera) so the loop replays seamlessly.
 """
 from __future__ import annotations
 
@@ -18,10 +19,13 @@ CUT = None
 FADE, WHIP, DIP = E.FADE, E.WHIP, E.DIP
 
 PPM0 = 100                         # hook / bookend: orca and diver share pxPerM (honest you-vs-it scale)
-HOOK_ORCA = ("46%", "35%")         # orca fully in frame at frame 0 (left edge ~97 px)
-HOOK_DIVER = ("76%", "52.5%")
-HOOK_CHIP = ("76%", "47.2%")
+HOOK_ORCA = ("46%", "35%")         # orca fully in frame at zoom 1.0 (left edge ~97 px)
+HOOK_DIVER = ("74%", "42.5%")      # right under the jaw (diver 260 px at zoom 1.0, ~430 px on the cover)
 HOOK_SPEED = 1.1
+# cover camera (frame 0 = last frame): pushed in on the head so the orca fills ~80 % of the width, pulls back to 1.0 by 1 s
+COVER_CAM = (1.65, "63.9%", "39.6%")
+COVER_HEAD = dict(text="0 HUMAN KILLS", red="0", sub="IN THE WILD", y="12.5%", size=110)
+CHIP = 32                          # YOU chip size (70 % of the old 44 px), always under the diver with a leader line
 ORCA_PERIOD = 1 / (0.6 * HOOK_SPEED)   # swim-wave period of the hook orca (marine.tsx orca freq 0.6 * speed)
 
 # a broad swell that rises out of the waterline (y=200 of 300) and curls over toward the right
@@ -52,7 +56,7 @@ IBERIA_ZONE = [(-5.2, 36.15), (-5.7, 35.6), (-6.6, 35.55), (-7.6, 36.2), (-8.4, 
 
 def orca(x, y, w, h, **props):
     """Side/head/top orca layer. Layer kwargs (start, end, keyframes, z, depth, flipX, idle, enter, rotate...) in props."""
-    lk = {k: props.pop(k) for k in list(props) if k in (*E.LAYER_KW, "flipX", "idle", "rotate", "scale")}
+    lk = {k: props.pop(k) for k in list(props) if k in (*E.LAYER_KW, "flipX", "idle", "rotate", "scale", "shadow")}
     return comp("explainer/Orca", x, y, w, h, props, **lk)
 
 
@@ -66,8 +70,9 @@ def S(value, label, at, y="59.5%", size=120, **props):
     return E._lk(E.stat(value, label, at, y=y, size=size, color="white", labelSize=44, **props), props)
 
 
-def diver(x, y, ppm, chip_dy=-5.3, at=0.0, kf=None, chip=True, **kw):
-    """YOU = the hook's diver, everywhere. chip_dy: chip offset in % of height."""
+def diver(x, y, ppm, at=0.0, kf=None, chip=True, chip_dy=4.6, **kw):
+    """YOU = the hook's diver, everywhere (>= 220 px of visible body at 1080 wide). The YOU chip sits under the
+    diver, tied to it by a short leader line, and never dwarfs the body. chip_dy: chip offset (% of height)."""
     d = comp("explainer/Diver", x, y, 2.6 * ppm + 20, 0.5 * ppm + 40, {"pxPerM": ppm, "arms": "side"}, flipX=True,
              idle=[{"type": "float", "amount": 6, "speed": 0.35}], **kw)
     if at > 0:
@@ -76,11 +81,20 @@ def diver(x, y, ppm, chip_dy=-5.3, at=0.0, kf=None, chip=True, **kw):
         d["keyframes"] = kf
     out = [d]
     if chip:
-        cy = f"{float(y.rstrip('%')) + chip_dy:.2f}%"
-        ck = None
+        yv = float(y.rstrip('%'))
+        top = 0.13 * ppm / H * 100 + 0.4             # just under the diver's body
+        bot = chip_dy - 1.7                           # chip top
+        ly, lh = yv + (top + bot) / 2, max(8, (bot - top) / 100 * H)
+        line = svg('<svg viewBox="0 0 10 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><line x1="5" '
+                   'y1="0" x2="5" y2="100" stroke="#f3f6f7" stroke-width="5"/></svg>', x, f"{ly:.2f}%", 10, lh, depth=1, z=6,
+                   idle=[{"type": "float", "amount": 6, "speed": 0.35}])
+        if at > 0:
+            line["start"], line["enter"] = at, {"type": "fade", "at": at, "duration": 0.3}
+        shift = lambda k, dy: {**k, **({"y": f"{float(k['y'].rstrip('%')) + dy:.2f}%"} if "y" in k else {})}
         if kf:
-            ck = [{**k, **({"y": f"{float(k['y'].rstrip('%')) + chip_dy:.2f}%"} if "y" in k else {})} for k in kf]
-        out.append(E.you_chip(at, x, cy, ck))
+            line["keyframes"] = [shift(k, ly - yv) for k in kf]
+        cy = f"{yv + chip_dy:.2f}%"
+        out += [line, E.you_chip(at, x, cy, [shift(k, chip_dy) for k in kf] if kf else None, size=CHIP)]
     return out
 
 
@@ -100,102 +114,133 @@ def hook_orca(kf, **props):
     return orca(*HOOK_ORCA, 980, 360, speed=HOOK_SPEED, pxPerM=PPM0, keyframes=kf, z=2, **props)
 
 
+def cover_headline(at):
+    h = COVER_HEAD
+    return E.headline(h["text"], at=at, y=h["y"], size=h["size"], red=h["red"], sub=h["sub"])
+
+
 def surface_bg():
-    return E.ocean(6, surface=0.2, rays=8, snow=60)
+    # surface line ~60 px from the top (no dark letterbox band on the cover)
+    return E.ocean(6, surface=0.12, rays=8, snow=60)
+
+
+def deep_bg(depth, **kw):
+    """threat / 'why not you' beats: darker navy toward #06121c at the bottom"""
+    return E.ocean(depth, bottomColor="#06121c", **kw)
+
+
+YUCK = ('<svg viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="252" height="102" rx="51" '
+        'fill="#f3f6f7" stroke="#0b1a22" stroke-width="6"/><path d="M 40 40 Q 70 56 100 40" stroke="#0b1a22" stroke-width="8" '
+        'fill="none" stroke-linecap="round"/><path d="M 56 50 Q 54 92 72 92 Q 90 92 86 50 Z" fill="#e5483d"/>'
+        '<text x="176" y="72" text-anchor="middle" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" '
+        'font-size="44" fill="#0b1a22">YUCK?</text></svg>')
+VBRACKET = ('<svg viewBox="0 0 40 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><line x1="20" y1="14" '
+            'x2="20" y2="286" stroke="#f3f6f7" stroke-width="6" stroke-dasharray="18 12"/><path d="M 4 26 L 20 2 L 36 26 Z" '
+            'fill="#f3f6f7"/><path d="M 4 274 L 20 298 L 36 274 Z" fill="#f3f6f7"/></svg>')
+RING_RED = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="rgba(229,72,61,0.12)" '
+            'stroke="#e5483d" stroke-width="7"/></svg>')
 
 
 def build(S_):
     sc = []
     at = lambda s, w, n=0, off=0.0: s.at(w, n, off=off)
 
-    # ------------------------------------------------------------ p00 hook: frame 0 = cover (orca, YOU, headline in place)
+    # ------------------------------------------------------------ p00 hook: frame 0 = cover (head close-up, YOU under the jaw, claim)
     s = S_[0]
-    kill = at(s, "kill", off=-0.12)
+    z0, cx0, cy0 = COVER_CAM
+    hook = cam(s, keys=[(0, z0, cx0, cy0), (1.0, 1.0, "50%", "50%"), (s.dur, 1.05, "50%", "50%")],
+               punches=[at(s, "never")], locked=[(0.0, 1.1)])
     sc.append(E.bw_scene(s, surface_bg(), [
-        hook_orca([{"t": 0, "x": HOOK_ORCA[0]}, {"t": s.dur, "x": "51%", "ease": "out"}]),
-        *diver(*HOOK_DIVER, PPM0, chip_dy=float(HOOK_CHIP[1].rstrip('%')) - float(HOOK_DIVER[1].rstrip('%'))),
-        E.headline("KILLER WHALE?", at=E.COVER, y="15%", size=84),
-        S(0, "wild human kills", kill, x="40%", size=124, duration=0.25),
-    ], cam(s, punches=[kill, at(s, "never")], locked=[(0.0, 0.9)])))
+        hook_orca([{"t": 0, "x": HOOK_ORCA[0]}, {"t": s.dur, "x": "50%", "ease": "out"}]),
+        *diver(*HOOK_DIVER, PPM0),
+        cover_headline(E.COVER),
+    ], hook))
+    _ease_key(sc[-1], 1.0)
 
     # ------------------------------------------------------------ p01 scale: true-scale male, ~8 M bar, 4 cars, YOU on its back by the fin
     s = S_[1]
     PPM = 105
     four = at(s, "four", off=-0.1)
     fin = at(s, "fin", off=-0.15)
-    cars = [comp("explainer/Car", 180 + i * 240, "55%", 220, 110, {"color": c}, start=four + i * 0.12,
-                 enter={"type": "drop", "at": four + i * 0.12, "duration": 0.3, "distance": 220}, depth=0.9)
+    cars = [comp("explainer/Car", 180 + i * 240, "59%", 220, 110, {"color": c}, start=four + i * 0.12,
+                 enter={"type": "drop", "at": four + i * 0.12, "duration": 0.3, "distance": 60}, depth=0.9)
             for i, c in enumerate(["#d8d8d8", "#c8453a", "#3a8fd6", "#e3b04b"])]
     sc.append(E.bw_scene(s, E.ocean(30, rays=7), [
         orca("50%", "35%", 1000, 360, pxPerM=PPM, finScale=1.5, amp=0.35, idle=[{"type": "bob", "amount": 4, "speed": 0.4}]),
-        E.headline("NOT BECAUSE IT CAN'T", at=0.1, y="12%", size=64, out=at(s, "eight", off=-0.2)),
+        E.headline("NOT BECAUSE THEY CAN'T", at=0.1, y="12%", size=64, out=at(s, "eight", off=-0.2)),
         comp("explainer/ScaleBar", "50%", "46%", 8 * PPM, 140, {"label": "~8 M", "at": at(s, "eight", off=-0.1), "labelSize": 52}),
         *cars,
-        T("≈ 6 TONNES", at(s, "cars,"), y="62.5%", size=48, w=600, align="center"),
-        comp("explainer/You", "67%", "28.1%", 140, 220, {"pxPerM": PPM, "pose": "wave"}, start=fin, enter=pop(fin), z=3),
+        T("≈ 6 TONNES", at(s, "cars,"), y="13%", size=48, w=600, align="center", out=fin),
+        comp("explainer/You", "67%", "28.1%", 150, 230, {"pxPerM": PPM, "pose": "wave"}, start=fin, enter=pop(fin), z=3),
         T("FIN = YOUR HEIGHT", fin + 0.2, y="13%", size=48, w=900, align="center"),
     ], cam(s, punches=[at(s, "eight"), four, fin])))
 
-    # ------------------------------------------------------------ p02 speed: bars, then 50 m chase -> 3 SECONDS
+    # ------------------------------------------------------------ p02 speed: bars over the orca, then 50 m chase (both in frame) -> 3 SECONDS
     s = S_[2]
     chase = at(s, "From", off=-0.1)
     reach = at(s, "reaches")
     three = at(s, "three", 1, off=-0.1)
     sc.append(E.bw_scene(s, E.ocean(20, rays=8), [
-        comp("explainer/SpeedBars", "50%", "31%", 1000, 560, {
+        comp("explainer/SpeedBars", "50%", "23%", 1000, 560, {
             "title": "Top speed", "max": 60, "at": 0.3, "stagger": 1.85, "duration": 0.6, "size": 56, "labelWidth": 330,
             "out": chase, "rows": [{"label": "Orca", "value": 56, "unit": "km/h", "color": "red"},
                                    {"label": "Olympic swimmer", "value": 8, "unit": "km/h", "color": CYAN},
                                    {"label": "You", "value": 3, "unit": "km/h", "color": "#f3f6f7"}]}, depth=0),
-        orca("50%", "52%", 640, 220, speed=1.8, z=1, end=chase,
-             keyframes=[{"t": 0, "x": "-40%"}, {"t": chase, "x": "135%", "ease": "linear"}]),
-        *diver("80%", "42%", 70, at=chase),
-        svg(DASH, "50%", "35%", 560, 40, start=chase + 0.15, enter={"type": "fade", "at": chase + 0.15, "duration": 0.2},
-            end=reach + 0.3, flipX=True, z=1),
-        T("50 M", chase + 0.2, x="50%", y="30%", size=48, w=260, align="center", end=reach + 0.3),
-        orca("50%", "42%", 520, 180, speed=2.2, z=2, start=chase,
-             keyframes=[{"t": chase, "x": "-30%"}, {"t": s.dur - 0.1, "x": "50%", "ease": "in"}]),
-        S(3, "seconds to reach you", three, size=124, duration=0.01),
+        orca("50%", "50%", 700, 250, speed=1.8, z=2,
+             keyframes=[{"t": 0, "x": "47%", "y": "50%", "scale": 1}, {"t": max(0.1, chase - 0.05), "x": "53%", "y": "50%", "scale": 1},
+                        {"t": chase + 0.45, "x": "22%", "y": "44%", "scale": 0.6, "ease": "inOut"},
+                        {"t": s.dur - 0.1, "x": "60%", "y": "44%", "scale": 0.6, "ease": "in"}]),
+        *diver("82%", "44%", 100, at=chase, chip_dy=4.2),
+        svg(DASH, "55.5%", "40.5%", 270, 26, start=chase + 0.45, enter={"type": "fade", "at": chase + 0.45, "duration": 0.2},
+            end=reach + 0.3, z=1),
+        T("50 M", chase + 0.5, x="55.5%", y="36%", size=48, w=260, align="center", end=reach + 0.3),
+        S(3, "seconds to reach you", three, y="60%", size=124, duration=0.01),
     ], cam(s, punches=[at(s, "Olympic"), at(s, "You,"), reach], ), trans=WHIP))
 
-    # ------------------------------------------------------------ p03 never just one: head-on orca, then the pod
+    # ------------------------------------------------------------ p03 never just one: head-on orca, then the pod circles YOU
     s = S_[3]
-    every = at(s, "Every", off=-0.1)
-    pod = [("28%", "27%", 540, 0.0, 0.0), ("70%", "33%", 620, 0.6, 0.12), ("40%", "45%", 440, 1.1, 0.24), ("78%", "47%", 330, 0.3, 0.36),
-           ("16%", "40%", 300, 0.8, 0.48)]
+    pod_t = at(s, "pod", off=-0.1)
+    team = at(s, "team,", off=-0.1)
+    outn = at(s, "outnumbered.", off=-0.1)
+    pod = [("18%", "31%", 420, 0.0, 0.0, False), ("82%", "34%", 400, 0.6, 0.12, True), ("16%", "55%", 380, 1.1, 0.24, False),
+           ("84%", "57%", 360, 0.3, 0.36, True), ("52%", "24%", 320, 0.8, 0.48, False)]
     sc.append(E.bw_scene(s, E.ocean(60, rays=6), [
-        orca("50%", "38%", 720, 640, pose="head", end=every + 0.3, z=3,
-             keyframes=[{"t": 0, "scale": 0.55, "opacity": 1}, {"t": every, "scale": 1.2, "opacity": 1, "ease": "in"},
-                        {"t": every + 0.3, "scale": 1.5, "opacity": 0, "ease": "in"}]),
-        *[orca(x, y, w, w * 0.36, timeOffset=to, start=every + d, enter=pop(every + d), idle=[{"type": "float", "amount": 10, "speed": 0.3}])
-          for x, y, w, to, d in pod],
-        E.headline("FAMILY POD", at=every, y="13%", size=70),
-        T("OWN CALLS", at(s, "calls,"), x="27%", y="57%", size=46, w=480, align="center"),
-        T("OWN MENU", at(s, "menu,"), x="73%", y="57%", size=46, w=480, align="center"),
-        T("OWN PLAN", at(s, "plan."), x="50%", y="63%", size=46, w=480, align="center"),
-    ], cam(s, punches=[at(s, "one."), at(s, "calls,")])))
+        orca("50%", "38%", 720, 640, pose="head", end=pod_t + 0.3, z=3,
+             keyframes=[{"t": 0, "scale": 0.55, "opacity": 1}, {"t": pod_t, "scale": 1.2, "opacity": 1, "ease": "in"},
+                        {"t": pod_t + 0.3, "scale": 1.5, "opacity": 0, "ease": "in"}]),
+        *[orca(x, y, w, w * 0.36, timeOffset=to, start=pod_t + d, enter=pop(pod_t + d), flipX=fx,
+               idle=[{"type": "float", "amount": 10, "speed": 0.3}],
+               keyframes=[{"t": pod_t + d, "x": x}, {"t": s.dur, "x": f"{float(x[:-1]) + (-4 if fx else 4)}%"}])
+          for x, y, w, to, d, fx in pod],
+        *diver("50%", "47%", 110, at=pod_t + 0.2),
+        E.headline("HUNTS AS A TEAM", at=team, y="13%", size=72),
+        T("OUTNUMBERED", outn, x="50%", y="40%", size=48, w=560, accent=RED, align="center"),
+    ], cam(s, punches=[at(s, "one."), team, outn])))
 
-    # ------------------------------------------------------------ p04 wave-washing: charge, wave, seal off; YOU on the ice, washed off too
+    # ------------------------------------------------------------ p04 wave-washing: pod in from t=0, wave, seal off; YOU on the ice, washed off too
     s = S_[4]
     ch = at(s, "charges")
     wash = at(s, "washes")
     youd = at(s, "You'd", off=-0.35)
+    pod4 = [("44%", 1.0, 1.0, "12%", "48%"), ("52.6%", 0.8, 0.85, "-4%", "38%"), ("61%", 0.8, 0.85, "4%", "29%")]
+    you_kf = [{"t": youd, "x": "80%", "y": "27.5%", "rotate": 0}, {"t": youd + 0.45, "x": "80%", "y": "27.5%", "rotate": 0},
+              {"t": s.dur, "x": "72%", "y": "40%", "rotate": -80, "ease": "in"}]
     sc.append(E.bw_scene(s, E.ocean(4, surface=0.36, rays=9, snow=40), [
         svg(E.ICE, "72%", "36%", 420, 170, z=2),
         svg(E.SEAL, "70%", "31.5%", 200, 80, z=3,
             keyframes=[{"t": 0, "x": "70%", "y": "31.5%", "rotate": 0}, {"t": wash, "x": "70%", "y": "31.5%", "rotate": 0},
                        {"t": wash + 0.7, "x": "58%", "y": "40%", "rotate": -35, "ease": "in"},
                        {"t": wash + 1.4, "x": "52%", "y": "47%", "rotate": -60, "opacity": 0}]),
-        *[orca("10%", f"{44 + i * 4}%", 460, 160, speed=1.5, timeOffset=i * 0.3, z=1,
-               keyframes=[{"t": 0, "x": "-30%"}, {"t": max(0.1, ch - 0.3), "x": "-25%"}, {"t": wash + 0.2, "x": f"{48 - i * 8}%", "ease": "inOut"}])
-          for i in range(3)],
+        *[orca(x0, y, 460, 160, speed=1.5, timeOffset=i * 0.3, z=1 - i, opacity=op,
+               keyframes=[{"t": 0, "x": x0, "scale": sc_}, {"t": max(0.1, ch - 0.3), "x": f"{float(x0[:-1]) + 6}%", "scale": sc_},
+                          {"t": wash + 0.2, "x": x1, "scale": sc_, "ease": "inOut"}])
+          for i, (y, sc_, op, x0, x1) in enumerate(pod4)],
         svg(WAVE, "52%", "30.4%", 960, 320, z=4, start=wash - 0.45, end=wash + 1.0,
             keyframes=[{"t": wash - 0.45, "scaleY": 0.2, "opacity": 0, "x": "36%"}, {"t": wash, "scaleY": 1, "opacity": 1, "x": "50%", "ease": "out"},
                        {"t": wash + 1.0, "scaleY": 0.3, "opacity": 0, "x": "64%"}]),
-        comp("explainer/You", "80%", "29.2%", 110, 170, {"pxPerM": 90, "pose": "panic"}, z=3, start=youd, enter=pop(youd),
-             keyframes=[{"t": youd, "x": "80%", "y": "29.2%", "rotate": 0}, {"t": youd + 0.45, "x": "80%", "y": "29.2%", "rotate": 0},
-                        {"t": s.dur, "x": "70%", "y": "41%", "rotate": -80, "ease": "in"}]),
-        E.you_chip(youd, "80%", "22.5%"),
+        comp("explainer/You", "80%", "27.5%", 140, 230, {"pxPerM": 120, "pose": "panic"}, z=5, start=youd, enter=pop(youd),
+             keyframes=you_kf),
+        E.you_chip(youd, "80%", "19%", [{**k, "y": f"{float(k['y'][:-1]) - 8.5:.2f}%"} for k in you_kf], size=CHIP),
         svg(WAVE, "58%", "30.4%", 960, 320, z=4, start=youd + 0.25, end=s.dur,
             keyframes=[{"t": youd + 0.25, "scaleY": 0.2, "opacity": 0, "x": "44%"}, {"t": youd + 0.7, "scaleY": 1, "opacity": 1, "x": "58%", "ease": "out"},
                        {"t": s.dur, "scaleY": 0.6, "opacity": 0.5, "x": "66%"}]),
@@ -211,7 +256,7 @@ def build(S_):
     orcas = at(s, "Orcas", off=-0.5)
     flip = at(s, "flipped")
     took = at(s, "took")
-    sc.append(E.bw_scene(s, E.ocean(120, rays=5), [
+    sc.append(E.bw_scene(s, deep_bg(380, rays=4), [
         comp("explainer/Map", "50%", "50%", 1080, 1920, {
             "views": [{"t": 0, "lon": 22, "lat": -26, "zoom": 4.5}, {"t": shark, "lon": 20, "lat": -32, "zoom": 6.5}],
             "pins": [{"lon": 19.35, "lat": -34.6, "at": 0.1, "label": "Gansbaai"}], "labelSize": 48, "pinSize": 1.4}, depth=0, z=30, end=shark),
@@ -231,13 +276,13 @@ def build(S_):
              keyframes=[{"t": orcas, "x": "-30%"}, {"t": flip, "x": "26%", "ease": "out"}, {"t": s.dur, "x": "-5%", "y": "33%", "ease": "in"}]),
         orca("50%", "51%", 520, 190, speed=1.6, start=orcas, z=5, flipX=True,
              keyframes=[{"t": orcas, "x": "130%"}, {"t": flip, "x": "76%", "ease": "out"}, {"t": s.dur, "x": "70%", "y": "54%"}]),
-    ], _with_shake(cam(s, punches=[shark, liver, flip]), [(flip + 0.1, 0.4, 12)]), trans=DIP))
+    ], _with_shake(cam(s, punches=[shark, liver, flip]), [(flip + 0.1, 0.4, 12)]), trans=DIP, qa_class="diagram_anatomy"))
 
     # ------------------------------------------------------------ p06 great whites flee; YOU alone, a shadow passes
     s = S_[6]
     fled = at(s, "fled", off=-0.1)
     if_ = at(s, "If", off=-0.1)
-    sc.append(E.bw_scene(s, E.ocean(80, rays=6), [
+    sc.append(E.bw_scene(s, deep_bg(420, rays=4), [
         *[comp("explainer/GreatWhite", x, y, w, w * 0.36, {"speed": 1.6, "timeOffset": i * 0.3}, flipX=True, end=if_,
                keyframes=[{"t": 0, "x": x}, {"t": if_, "x": f"{-30 - i * 10}%", "ease": "in"}])
           for i, (x, y, w) in enumerate([("62%", "34%", 640), ("86%", "48%", 500), ("40%", "52%", 360)])],
@@ -268,58 +313,65 @@ def build(S_):
           for i, (x0, y0, x1, y1, fx) in enumerate(targets)],
         flash(down - 0.04),
         T("2019 · WESTERN AUSTRALIA", 0.15, y="13%", size=46, w=1040, align="center", out=adult),
-        T("ADULT BLUE WHALE", adult, y="60%", size=52, w=800, accent=RED, align="center"),
-        *diver("82%", "58%", PPM2, at=thous, chip_dy=-3.4),
-        T("1,000× YOUR WEIGHT", thous + 0.1, y="13%", size=50, w=900, align="center"),
+        T("ADULT BLUE WHALE", adult, y="13%", size=52, w=800, accent=RED, align="center", out=thous),
+        # YOU below the belly, inside the frame (enlarged: true scale would be ~90 px; the label says so)
+        *diver("70%", "58.5%", 90, at=thous, chip_dy=3.9),
+        svg(VBRACKET, "70%", "53.6%", 30, 120, start=thous + 0.1, enter={"type": "fade", "at": thous + 0.1, "duration": 0.2}, z=3),
+        T("×1,000 YOUR WEIGHT", thous + 0.35, y="13%", size=50, w=900, align="center"),
+        T("YOU NOT TO SCALE", thous + 0.2, x="30%", y="58.5%", size=44, w=520, align="center", accent="#8fa3ab"),
     ], _with_shake(cam(s, p=1.22, punches=[podt + 0.6, down, adult]), [(down, 0.6, 18)]), trans=WHIP))
 
     # ------------------------------------------------------------ p08 the question: YOU, a shadow behind, WHY NOT YOU?
     s = S_[8]
-    sc.append(E.bw_scene(s, E.ocean(260, rays=3, snow=50), [
+    why_head = dict(y="13%", size=96)
+    sc.append(E.bw_scene(s, deep_bg(500, rays=3, snow=50), [
         orca("50%", "40%", 1400, 500, silhouette="#08202b", speed=0.8, z=0, depth=0.6,
              keyframes=[{"t": 0, "x": "-60%", "opacity": 0.9}, {"t": s.dur, "x": "40%", "opacity": 0.9}]),
         *diver("50%", "46%", 140),
-        E.headline("WHY NOT YOU?", at=at(s, "why", off=-0.1), y="22%", size=100, color="red"),
+        E.headline("WHY NOT YOU?", at=at(s, "why", off=-0.1), **why_head),
     ], cam(s, z1=1.08, punches=[at(s, "smart"), at(s, "never")]), trans=DIP))
 
-    # ------------------------------------------------------------ p09 options (hard cut: no ghosted title), 3. ??? until "culture"
+    # ------------------------------------------------------------ p09 options (hard cut): same WHY NOT YOU? header, orca pass + YOU vs seal shown
     s = S_[9]
-    items = ["You taste bad", "Too small to bother", "Culture"]
+    items = ["You taste bad", "Too small", "Culture"]
     too = at(s, "Too", off=-0.1)
     yr = at(s, "You're")
     size_ = at(s, "size", off=-0.25)
-    PPM3 = 160
-    sc.append(E.bw_scene(s, E.ocean(200, rays=4), [
-        comp("explainer/Options", "50%", "27%", 1000, 640, {
-            "title": "Why not you?", "items": items, "at": 0.0, "itemAt": [0.1, too, too], "size": 56,
+    nob = at(s, "Nobody's")
+    PPM3 = 120
+    sc.append(E.bw_scene(s, deep_bg(450, rays=4), [
+        E.headline("WHY NOT YOU?", at=-1, **why_head),
+        comp("explainer/Options", "50%", "30.5%", 1040, 520, {
+            "title": "", "items": items, "at": 0.0, "itemAt": [0.1, too, too], "size": 68, "stamp": True,
             "hidden": [{"index": 2, "until": 999, "text": "???"}],
-            "strikes": [{"index": 0, "at": at(s, "Nobody's")}, {"index": 1, "at": yr}]}, depth=0),
-        comp("explainer/You", "30%", "53.5%", 160, 300, {"pxPerM": PPM3, "pose": "stand"}, start=size_, enter=pop(size_), z=2),
-        E.you_chip(size_, "30%", "42.6%"),
-        T("1.75 M", size_ + 0.1, x="30%", y="64%", size=44, w=300, align="center"),
-        comp("explainer/Seal", "68%", "59%", 280, 90, {"pxPerM": PPM3}, start=size_ + 0.15, enter=pop(size_ + 0.15), z=2),
-        T("HARBOUR SEAL", size_ + 0.2, x="68%", y="52.5%", size=44, w=520, align="center"),
-        T("1.6 M", size_ + 0.25, x="68%", y="64%", size=44, w=300, align="center"),
-    ], cam(s, punches=[at(s, "Nobody's"), too, yr]), trans=CUT))
+            "strikes": [{"index": 0, "at": nob}, {"index": 1, "at": yr}]}, depth=0),
+        orca("50%", "46%", 700, 250, speed=0.8, z=1, timeOffset=0.4,
+             keyframes=[{"t": 0, "x": "34%"}, {"t": s.dur, "x": "60%"}]),
+        svg(YUCK, "80%", "41%", 230, 98, start=0.3, enter=pop(0.3), end=too, z=4, depth=0.6),
+        *diver("30%", "57%", PPM3, chip_dy=4.2),
+        comp("explainer/Seal", "72%", "57.5%", 260, 90, {"pxPerM": PPM3}, start=too, enter=pop(too), z=2),
+        T("SEAL 1.6 M", too + 0.15, x="72%", y="62%", size=44, w=400, align="center"),
+        T("1.75 M", yr, x="30%", y="51.5%", size=44, w=400, align="center"),
+    ], cam(s, punches=[nob, too, yr, size_]), trans=CUT))
 
     # ------------------------------------------------------------ p10 culture: reveal + select, then mother teaches calf; YOU not on the menu
     s = S_[10]
     cul = at(s, "culture.", off=-0.1)
     orc = at(s, "Orcas", off=-0.15)
     no = at(s, "no", off=-0.1)
-    eat = at(s, "eat", 1, off=-0.1)
-    sc.append(E.bw_scene(s, E.ocean(150, rays=5), [
-        comp("explainer/Options", "50%", "27%", 1000, 640, {
-            "title": "Why not you?", "items": items, "at": -1, "itemAt": [-1, -1, -1], "size": 56,
+    sc.append(E.bw_scene(s, deep_bg(450, rays=5), [
+        E.headline("WHY NOT YOU?", at=-1, out=orc, **why_head),
+        comp("explainer/Options", "50%", "30.5%", 1040, 520, {
+            "title": "", "items": items, "at": -1, "itemAt": [-1, -1, -1], "size": 68, "stamp": True,
             "hidden": [{"index": 2, "until": cul, "text": "???"}],
             "strikes": [{"index": 0, "at": -1}, {"index": 1, "at": -1}], "select": {"index": 2, "at": cul + 0.05}}, depth=0, end=orc),
-        orca("44%", "38%", 760, 270, timeOffset=0.2, start=orc, z=2,
+        orca("44%", "40%", 760, 270, timeOffset=0.2, start=orc, z=2,
              keyframes=[{"t": orc, "x": "36%"}, {"t": s.dur, "x": "50%"}], idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
-        orca("66%", "48%", 340, 120, timeOffset=0.9, start=orc + 0.25, enter=pop(orc + 0.25), z=2,
+        orca("66%", "50%", 340, 120, timeOffset=0.9, start=orc + 0.25, enter=pop(orc + 0.25), z=2,
              keyframes=[{"t": orc + 0.25, "x": "60%"}, {"t": s.dur, "x": "72%"}], idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
         T("MOTHER  +  CALF", orc + 0.1, y="13%", size=48, w=800, align="center", out=no),
-        *diver("78%", "58%", 90, at=no + 0.1),
-        T("NOT ON THE MENU", eat, y="13%", size=52, w=900, align="center"),
+        *diver("74%", "58%", 100, at=no + 0.1, chip_dy=4.2),
+        E.headline("NOT ON THE MENU", at=no + 0.1, y="13%", size=76, red="MENU"),
     ], cam(s, punches=[cul, at(s, "mothers"), no]), trans=CUT))
 
     # ------------------------------------------------------------ p11 twist: sailboat from below; map of the interaction zone; ram + rudder snaps
@@ -332,8 +384,10 @@ def build(S_):
     BOAT_Y = "26%"  # Ocean surface=0.3 -> waterline at H * (1.2 * 0.3 - 0.1) = 26 % (bg overscan 1.2)
     boat_props = {"hits": [hit1, snap], "snapAt": snap, "list": [{"t": 0, "v": 0}, {"t": snap, "v": 0}, {"t": s.dur, "v": 5}]}
     MZ = 15  # map zoom on Iberia: 45 px per degree, the whole peninsula + zone in frame
-    ox = lambda lon: f"{(540 + (lon + 6.2) * 3 * MZ) / 1080 * 100:.1f}%"
+    LON0 = -5.2  # view centre: the peninsula (lon -9.5..3.3) centred, the zone label still in frame on the left
+    ox = lambda lon: f"{(540 + (lon - LON0) * 3 * MZ) / 1080 * 100:.1f}%"
     oy = lambda lat: f"{(960 - (lat - 39.0) * 3 * MZ) / 1920 * 100:.1f}%"
+    tops = [(-6.6, 35.85, 10), (-9.9, 37.6, -80), (-10.1, 42.0, -95)]
     sc.append(E.bw_scene(s, E.ocean(4, surface=0.3, rays=8, snow=40), [
         comp("explainer/Sailboat", "50%", BOAT_Y, 600, 900, boat_props, depth=0.12, z=1),
         orca("16%", "33%", 340, 120, speed=1.8, z=2, depth=0.12, start=ram - 0.3,
@@ -342,14 +396,18 @@ def build(S_):
         T("RUDDER", ram, x="34%", y="40%", size=44, w=330, align="center", out=snap),
         T("SNAPPED", snap + 0.05, x="34%", y="40%", size=48, w=360, accent=RED, align="center"),
         comp("explainer/Map", "50%", "50%", 1080, 1920, {
-            "views": [{"t": exc, "lon": -10, "lat": 42, "zoom": 8}, {"t": spain - 0.4, "lon": -6.2, "lat": 39.0, "zoom": MZ}],
+            "views": [{"t": exc, "lon": -10, "lat": 42, "zoom": 8}, {"t": spain - 0.4, "lon": LON0, "lat": 39.0, "zoom": MZ}],
             "zones": [{"points": [list(p) for p in IBERIA_ZONE], "at": spain, "label": "Iberian\norcas", "labelAt": [-11.0, 39.8],
                        "labelAnchor": "end"}], "labelSize": 52}, depth=0, z=30, start=exc, end=ram),
         T("SINCE 2020", at(s, "twenty", off=-0.1), y="13%", size=50, w=600, align="center", z=31, start=exc, end=ram),
-        *[orca(ox(lon), oy(lat), 150, 56, pose="top", speed=1.4, timeOffset=i * 0.4, z=31, start=spain + 0.2 + i * 0.15,
-               end=ram, enter=pop(spain + 0.2 + i * 0.15), rotate=r)
-          for i, (lon, lat, r) in enumerate([(-6.6, 35.85, 10), (-9.9, 37.6, -80), (-10.1, 42.0, -95)])],
-    ], _with_shake(cam(s, punches=[exc, spain, hit1]), [(hit1, 0.45, 18), (snap, 0.5, 14)]), trans=DIP))
+        T("SPAIN", spain, x=ox(-3.0), y=oy(38.6), size=48, w=300, align="center", z=31, end=ram, accent="#8fa3ab"),
+        T("PORTUGAL", spain + 0.1, x=ox(-6.0), y=oy(41.0), size=40, w=380, align="center", z=31, end=ram, accent="#8fa3ab"),
+        *[svg(RING_RED, ox(lon), oy(lat), 210, 210, z=31, start=spain + 0.2 + i * 0.15, end=ram, enter=pop(spain + 0.2 + i * 0.15),
+              idle=[{"type": "pulse", "amount": 0.12, "speed": 1.4}]) for i, (lon, lat, r) in enumerate(tops)],
+        *[orca(ox(lon), oy(lat), 240, 90, pose="top", speed=1.4, timeOffset=i * 0.4, z=32, start=spain + 0.2 + i * 0.15,
+               end=ram, enter=pop(spain + 0.2 + i * 0.15), rotate=r, shadow="0 0 5px #ffffff")
+          for i, (lon, lat, r) in enumerate(tops)],
+    ], _with_shake(cam(s, punches=[exc, spain, hit1]), [(hit1, 0.45, 18), (snap, 0.5, 14)]), trans=WHIP, qa_class="stock_proof"))
 
     # ------------------------------------------------------------ p12 boat lists and sinks; ~7 BOATS SUNK in at the cut, held to the end
     s = S_[12]
@@ -361,21 +419,24 @@ def build(S_):
         S(7, "boats sunk since 2020", 0.05, y="58.5%", size=130, prefix="~", **{"from": 4}, duration=0.7),
     ], _with_shake(cam(s, punches=[at(s, "sunk."), at(s, "Nobody")]), [(0.1, 0.4, 10)]), trans=CUT))
 
-    # ------------------------------------------------------------ p13 bookend: the orca circles the same YOU and lands on frame 0
+    # ------------------------------------------------------------ p13 bookend: the orca closes on the same YOU (pushed in) and lands on frame 0
     s = S_[13]
-    turn = 2.2
     because = at(s, "because...", off=-0.25)
-    # phase-match the swim wave so the last frame's body bend equals frame 0's
-    toff = (-s.dur) % ORCA_PERIOD
+    toff = (-s.dur) % ORCA_PERIOD  # phase-match the swim wave so the last frame's body bend equals frame 0's
+    keys = [(0, 1.3, cx0, cy0), (s.dur * 0.35, 1.38, cx0, cy0), (s.dur * 0.7, 1.5, cx0, cy0), (s.dur, z0, cx0, cy0)]
     sc.append(E.bw_scene(s, surface_bg(), [
-        orca("50%", "56%", 640, 230, pxPerM=60, speed=1.2, flipX=True, z=0, end=turn,
-             keyframes=[{"t": 0, "x": "112%"}, {"t": turn, "x": "-22%", "ease": "linear"}]),
-        hook_orca([{"t": turn, "x": "-45%"}, {"t": s.dur, "x": HOOK_ORCA[0], "ease": "out"}], start=turn, timeOffset=round(toff, 3)),
-        *diver(*HOOK_DIVER, PPM0, chip_dy=float(HOOK_CHIP[1].rstrip('%')) - float(HOOK_DIVER[1].rstrip('%'))),
-        E.headline("KILLER WHALE?", at=because, y="15%", size=84),
-    ], cam(s, keys=[(0, 1.06, "50%", "50%"), (s.dur - 1.3, 1.0, "50%", "50%"), (s.dur, 1.0, "50%", "50%")],
-           punches=[at(s, "decided"), at(s, "And")], locked=[(s.dur - 1.3, s.dur)]), trans=CUT))
+        hook_orca([{"t": 0, "x": "8%"}, {"t": s.dur, "x": HOOK_ORCA[0], "ease": "out"}], timeOffset=round(toff, 3)),
+        *diver(*HOOK_DIVER, PPM0),
+        cover_headline(because),
+    ], cam(s, keys=keys, locked=[(0.0, s.dur)]), trans=CUT))
     return sc
+
+
+def _ease_key(scene, t):
+    """ease the camera key at t (the cover pull-back)"""
+    for k in scene["camera"]["keyframes"]:
+        if abs(k["t"] - t) < 1e-3:
+            k["ease"] = "inOut"
 
 
 def fade(at, d=0.4):
