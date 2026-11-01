@@ -757,7 +757,7 @@ def blue_whale(S):
 
 def blue_whale_16x9(S):
     """Landscape-native scenes for the 16:9 cut ({scene index: scene}, 1920x1080 px); pipeline/episodes/reformat.py
-    uses them instead of remapping the 9:16 scene. p01: the nose-up ruler left both sides of 16:9 empty and put the
+    uses them instead of remapping the 9:16 scene (p01, p04). p01: the nose-up ruler left both sides of 16:9 empty and put the
     30 M chip into the header, so the whale lies along a horizontal 0-30 m ruler with 2.5 buses nose to tail below."""
     W16, H16 = 1920, 1080
     s = S[1]
@@ -799,7 +799,46 @@ def blue_whale_16x9(S):
     ]
     # gentler punch-ins than 9:16 (1.07 vs 1.18): the ruler spans 81 % of the frame width
     cam = Cam(s.dur, z0=1.0, z1=1.02, p=1.07).punch(heavy, s.at("thirty"), two, nose, lying)
-    return {1: bw_scene(s, ocean(60, rays=7), layers, cam)}
+    out = {1: bw_scene(s, ocean(60, rays=7), layers, cam)}
+
+    # p04 (QA 16:9: heart + golf cart a small cluster at the top, ~55 % empty; DEEP DIVE a portrait column):
+    # heart and cart side by side at ~25-33 % of the width each filling y 20-70 %, the diver under them; then a
+    # full-bleed deep set with the big heart on the left and the ECG + 2 BPM stat on the right
+    s = S[4]
+    size, dive, two = s.at("size", off=-0.1), s.at("deep", off=-0.1), s.at("two", nth=1, off=-0.1)
+    heavy = s.at("outweighs", off=-0.1)
+    HP = 260  # px per metre: heart 1.5 m = 390 px, cart 2.4 m = 624 px, diver 2.6 m = 676 px
+    hb = [0.35, 1.35, 2.35, 3.35]
+    beat_tr = [k for b in hb for k in ({"t": b, "v": 0}, {"t": b + 0.12, "v": 1}, {"t": b + 0.4, "v": 0})]
+    ecg = [dive - 3.0 + k * 0.75 for k in range(4)] + [dive + 0.35, dive + 1.25, dive + 2.5, dive + 4.2]
+    ecg = [round(b, 3) for b in ecg if b < s.dur]
+    post = [b for b in ecg if b >= dive]
+    dw = W16 * 1.05
+    layers = [
+        comp("explainer/WhaleHeart", "27%", "45%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive),
+        comp("explainer/GolfCart", "68%", "46%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=size, end=dive,
+             enter={"type": "slideLeft", "at": size, "duration": 0.45}),
+        comp("explainer/Diver", "50%", "75%", 2.6 * HP, 70, {"pxPerM": HP, "arms": "side"}, start=heavy, end=dive,
+             enter=fade(heavy, 0.3)),
+        {**you_chip(heavy, "26%", "75%"), "end": dive},
+        t46("HEART", 0.2, x="27%", y="19%", size=46, w=320, end=dive),
+        t46("GOLF CART", size + 0.3, x="68%", y="19%", size=46, w=420, end=dive),
+        t46("180 KG ≈ 2+ OF YOU", heavy + 0.3, y="8.5%", size=50, w=1000, align="center", end=dive),
+        svg(DEEP, "50%", "50%", dw, dw * 1920 / 1080, start=dive, depth=0, z=0),
+        {"type": "particles", "preset": "snow", "count": 120, "color": "rgba(200,225,235,0.55)", "size": [2, 5],
+         "speed": 0.4, "z": 1, "depth": 0, "start": dive},
+        t46("DEEP DIVE · ~180 M", dive, y="8.5%", size=48, w=1000, align="center", accent=CYAN),
+        comp("explainer/WhaleHeart", "26%", "46%", 460, 460, {"beat": [k for b in post for k in (
+            {"t": b, "v": 0}, {"t": b + 0.12, "v": 1}, {"t": b + 0.4, "v": 0})]}, start=dive, depth=0, z=5,
+             enter=pop(dive, 0.3)),
+        comp("explainer/ECG", "64%", "38%", 1060, 260, {"beats": ecg, "at": dive, "speed": 300, "color": CYAN,
+                                                      "prefill": True}, start=dive, depth=0, z=5),
+        wstat(2, "beats a minute", dive + 0.6, x="64%", y="64%", size=110, **{"from": 10},
+              duration=max(0.6, two - dive - 0.6), pulse=2.0),
+    ]
+    cam = Cam(s.dur, z0=1.0, z1=1.03, p=1.07).punch(s.at("heart"), size, heavy, dive, s.at("slow"), two)
+    out[4] = bw_scene(s, ocean(200, rays=3, snow=40), layers, cam)
+    return out
 
 
 # =========================================================================== pressure ladder

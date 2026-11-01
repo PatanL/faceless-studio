@@ -1583,12 +1583,12 @@
     {
      "type": "component",
      "name": "explainer/WhaleHeart",
-     "x": "40.79%",
-     "y": "41.94%",
-     "width": 245.7,
-     "height": 245.7,
+     "x": "27%",
+     "y": "45%",
+     "width": 390.0,
+     "height": 390.0,
      "props": {
-      "pxPerM": 163.8,
+      "pxPerM": 260,
       "beat": [
        {
         "t": 0.35,
@@ -1645,12 +1645,12 @@
     {
      "type": "component",
      "name": "explainer/GolfCart",
-     "x": "59.65%",
-     "y": "44.02%",
-     "width": 393.12,
-     "height": 311.22,
+     "x": "68%",
+     "y": "46%",
+     "width": 624.0,
+     "height": 494.0,
      "props": {
-      "pxPerM": 163.8
+      "pxPerM": 260
      },
      "start": 0.732,
      "end": 4.007,
@@ -1663,12 +1663,12 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "50.00%",
-     "y": "68.29%",
-     "width": 425.88,
-     "height": 46.8,
+     "x": "50%",
+     "y": "75%",
+     "width": 676.0,
+     "height": 70,
      "props": {
-      "pxPerM": 163.8,
+      "pxPerM": 260,
       "arms": "side"
      },
      "start": 2.27,
@@ -1682,14 +1682,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50.00%",
-     "y": "59.97%",
-     "width": 234.0,
-     "height": 102.96,
+     "x": "26%",
+     "y": "75%",
+     "width": 240,
+     "height": 105.6,
      "props": {
       "text": "YOU",
       "at": 2.27,
-      "size": 42.9,
+      "size": 44,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
@@ -1702,14 +1702,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "40.79%",
-     "y": "23.91%",
-     "width": 312.0,
-     "height": 107.64,
+     "x": "27%",
+     "y": "19%",
+     "width": 320,
+     "height": 110.39999999999999,
      "props": {
       "text": "HEART",
       "at": 0.2,
-      "size": 44.85,
+      "size": 46,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1719,14 +1719,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "59.65%",
-     "y": "23.91%",
-     "width": 409.5,
-     "height": 107.64,
+     "x": "68%",
+     "y": "19%",
+     "width": 420,
+     "height": 110.39999999999999,
      "props": {
       "text": "GOLF CART",
       "at": 1.032,
-      "size": 44.85,
+      "size": 46,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1736,14 +1736,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50.00%",
-     "y": "8.97%",
-     "width": 975.0,
-     "height": 117.0,
+     "x": "50%",
+     "y": "8.5%",
+     "width": 1000,
+     "height": 120.0,
      "props": {
       "text": "180 KG ≈ 2+ OF YOU",
       "at": 2.57,
-      "size": 48.75,
+      "size": 50,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -1756,8 +1756,8 @@
      "markup": "<svg viewBox=\"0 0 1080 1920\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#06121c\"/><stop offset=\"1\" stop-color=\"#0f2a3a\"/></linearGradient><radialGradient id=\"dg\" cx=\"0.5\" cy=\"0.3\" r=\"0.6\"><stop offset=\"0\" stop-color=\"rgba(60,150,180,0.22)\"/><stop offset=\"1\" stop-color=\"rgba(60,150,180,0)\"/></radialGradient></defs><rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><rect width=\"1080\" height=\"1920\" fill=\"url(#dg)\"/></svg>",
      "x": "50%",
      "y": "50%",
-     "width": 2016,
-     "height": 3584,
+     "width": 2016.0,
+     "height": 3584.0,
      "start": 4.007,
      "depth": 0,
      "z": 0
@@ -1765,30 +1765,28 @@
     {
      "type": "particles",
      "preset": "snow",
-     "count": 90,
+     "count": 120,
      "color": "rgba(200,225,235,0.55)",
      "size": [
-      1.56,
-      3.9
+      2,
+      5
      ],
      "speed": 0.4,
      "z": 1,
      "depth": 0,
-     "start": 4.007,
-     "x": "50.00%",
-     "y": "59.97%"
+     "start": 4.007
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50.00%",
-     "y": "8.83%",
-     "width": 975.0,
-     "height": 112.32,
+     "x": "50%",
+     "y": "8.5%",
+     "width": 1000,
+     "height": 115.19999999999999,
      "props": {
       "text": "DEEP DIVE · ~180 M",
       "at": 4.007,
-      "size": 46.8,
+      "size": 48,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -1798,10 +1796,10 @@
     {
      "type": "component",
      "name": "explainer/WhaleHeart",
-     "x": "50.00%",
-     "y": "28.07%",
-     "width": 343.2,
-     "height": 343.2,
+     "x": "26%",
+     "y": "46%",
+     "width": 460,
+     "height": 460,
      "props": {
       "beat": [
        {
@@ -1854,10 +1852,10 @@
     {
      "type": "component",
      "name": "explainer/ECG",
-     "x": "50.00%",
-     "y": "57.19%",
-     "width": 780.0,
-     "height": 202.8,
+     "x": "64%",
+     "y": "38%",
+     "width": 1060,
+     "height": 260,
      "props": {
       "beats": [
        1.007,
@@ -1880,17 +1878,17 @@
     {
      "type": "component",
      "name": "explainer/Stat",
-     "x": "50.00%",
-     "y": "65.81%",
-     "width": 877.5,
-     "height": 304.2,
+     "x": "64%",
+     "y": "64%",
+     "width": 900,
+     "height": 286.0,
      "props": {
       "value": 2,
       "label": "beats a minute",
       "at": 4.606999999999999,
-      "size": 117.0,
+      "size": 110,
       "color": "white",
-      "labelSize": 37.05,
+      "labelSize": 38,
       "from": 10,
       "duration": 1.1750000000000003,
       "pulse": 2.0
@@ -1905,59 +1903,59 @@
      {
       "t": 0.0,
       "zoom": 1.0,
-      "x": "50.00%",
-      "y": "59.97%"
+      "x": "50%",
+      "y": "50%"
      },
      {
       "t": 0.245,
-      "zoom": 1.0022
+      "zoom": 1.0011
      },
      {
       "t": 0.465,
-      "zoom": 1.1848,
+      "zoom": 1.0722,
       "ease": "out"
      },
      {
       "t": 2.27,
-      "zoom": 1.2036
+      "zoom": 1.0807
      },
      {
       "t": 2.49,
-      "zoom": 1.022,
+      "zoom": 1.011,
       "ease": "out"
      },
      {
       "t": 4.007,
-      "zoom": 1.0354
+      "zoom": 1.0177
      },
      {
       "t": 4.227,
-      "zoom": 1.224,
+      "zoom": 1.09,
       "ease": "out"
      },
      {
       "t": 5.132,
-      "zoom": 1.2334
+      "zoom": 1.0942
      },
      {
       "t": 5.352,
-      "zoom": 1.0472,
+      "zoom": 1.0236,
       "ease": "out"
      },
      {
       "t": 5.782,
-      "zoom": 1.051
+      "zoom": 1.0255
      },
      {
       "t": 6.002,
-      "zoom": 1.2425,
+      "zoom": 1.0983,
       "ease": "out"
      },
      {
       "t": 6.8,
-      "zoom": 1.2508,
-      "x": "50.00%",
-      "y": "59.97%"
+      "zoom": 1.1021,
+      "x": "50%",
+      "y": "50%"
      }
     ]
    }
@@ -4807,6 +4805,6 @@
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
   "audio": "studio/public/episodes/explainer-blue-whale/mix.wav (Spark; rebuild with pipeline.audio.make)",
-  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16, landscape-native scenes [1]"
+  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16, landscape-native scenes [1, 4]"
  }
 }
