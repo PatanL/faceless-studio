@@ -1,0 +1,93 @@
+# Buffer GraphQL operations used by pipeline/publish (lane L3).
+#
+# Endpoint: POST https://api.buffer.com (BUFFER_API_URL), headers `Content-Type: application/json` and
+# `Authorization: Bearer $BUFFER_API_KEY`. Field names below were checked against the published reference
+# (https://developers.buffer.com/reference.md, changelog up to 2026-10-22) on 2026-11-01; see BUFFER_NOTES.md
+# for what is verified and what is assumed. Run `python -m pipeline.publish.buffer introspect` with a key to pin
+# them against the live schema (saves data/buffer_schema.json).
+#
+# buffer.py loads each operation by name; a `...Fragment` spread pulls in the fragment definition from this file.
+# Every mutation selects `... on MutationError { message }` (Buffer's catch-all for typed errors).
+
+fragment PostFields on Post {
+  id
+  status
+  dueAt
+  sentAt
+  createdAt
+  updatedAt
+  channelId
+  channelService
+  shareMode
+  schedulingType
+  isCustomScheduled
+  externalLink
+  via
+  text
+  error { message supportUrl }
+  assets {
+    type
+    mimeType
+    source
+    thumbnail
+    ... on VideoAsset {
+      video { durationMs width height isVideoProcessing isTranscodingRequired thumbnailOffset }
+    }
+  }
+  metadata {
+    __typename
+    ... on YoutubePostMetadata { title privacy madeForKids isAiGenerated }
+    ... on InstagramPostMetadata { type shouldShareToFeed isAiGenerated }
+    ... on TiktokPostMetadata { isAiGenerated }
+  }
+}
+
+query Organizations {
+  account {
+    id
+    timezone
+    organizations { id name channelCount }
+  }
+}
+
+query Channels($organizationId: OrganizationId!) {
+  channels(input: { organizationId: $organizationId }) {
+    id
+    name
+    displayName
+    service
+    type
+    descriptor
+    isDisconnected
+    isLocked
+    isQueuePaused
+    timezone
+    organizationId
+  }
+}
+
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    __typename
+    ... on PostActionSuccess { post { ...PostFields } }
+    ... on MutationError { message }
+  }
+}
+
+query Post($id: PostId!) {
+  post(input: { id: $id }) { ...PostFields }
+}
+
+# Used after an ambiguous createPost failure (timeout / 5xx) to find a post that was created anyway.
+query RecentChannelPosts($organizationId: OrganizationId!, $channelId: ChannelId!, $since: DateTime!) {
+  posts(
+    first: 10
+    input: {
+      organizationId: $organizationId
+      filter: { channelIds: [$channelId], createdAt: { start: $since } }
+      sort: [{ field: createdAt, direction: desc }]
+    }
+  ) {
+    edges { node { ...PostFields } }
+  }
+}
