@@ -757,7 +757,7 @@ def blue_whale(S):
 
 def blue_whale_16x9(S):
     """Landscape-native scenes for the 16:9 cut ({scene index: scene}, 1920x1080 px); pipeline/episodes/reformat.py
-    uses them instead of remapping the 9:16 scene (p01, p04). p01: the nose-up ruler left both sides of 16:9 empty and put the
+    uses them instead of remapping the 9:16 scene (p01, p02, p04). p01: the nose-up ruler left both sides of 16:9 empty and put the
     30 M chip into the header, so the whale lies along a horizontal 0-30 m ruler with 2.5 buses nose to tail below."""
     W16, H16 = 1920, 1080
     s = S[1]
@@ -838,6 +838,25 @@ def blue_whale_16x9(S):
     ]
     cam = Cam(s.dur, z0=1.0, z1=1.03, p=1.07).punch(s.at("heart"), size, heavy, dive, s.at("slow"), two)
     out[4] = bw_scene(s, ocean(200, rays=3, snow=40), layers, cam)
+
+    # p02 (QA 16:9: the balance whale ~20 % of the width, a low-contrast grey sauropod): head close-up filling the
+    # left two thirds with the 190 t stat beside it, then a frame-wide balance (whale ~43 % of the width), sauropod lifted
+    s = S[2]
+    hv, dino = s.at("Heavier", off=-0.1), s.at("dinosaurs", off=-0.3)
+    layers = [
+        comp("explainer/BlueWhale", "-25%", "42%", 3400, 497, {"speed": 0.7}, end=hv,
+             idle=[{"type": "bob", "amount": 5, "speed": 0.25}],
+             keyframes=[{"t": 0, "x": "-28%"}, {"t": hv, "x": "-23%"}]),
+        wstat(190, "tonnes", s.at("two", off=-0.2), x="82%", y="44%", size=130, prefix="~", duration=1.0, end=hv),
+        comp("explainer/Balance", "50%", "47%", 1760, 680, {
+            "left": {"species": "blueWhale", "w": 820, "at": hv, "pos": 0.27, "idle": True},
+            "right": {"species": "sauropod", "w": 640, "at": dino, "drop": True, "pos": 0.27, "silhouette": "#a3b1b9"},
+            "tilt": [{"t": hv, "v": -10}, {"t": dino + 0.35, "v": -10}, {"t": dino + 0.9, "v": -5, "ease": "out"}],
+        }, start=hv, depth=0.3),
+        wstat(190, "tonnes", hv, x="22%", y="11%", size=72, prefix="~", duration=0.01, rule=False, box=False, start=hv),
+        t46("BIGGER THAN ANY DINOSAUR", s.at("ever"), x="66%", y="9%", size=46, w=900, align="center"),
+    ]
+    out[2] = bw_scene(s, ocean(80, rays=6), layers, Cam(s.dur, z0=1.0, z1=1.03, p=1.07).punch(s.at("two"), dino))
     return out
 
 

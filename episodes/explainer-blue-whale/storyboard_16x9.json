@@ -488,10 +488,10 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "15.78%",
-     "y": "36.39%",
-     "width": 2028.0,
-     "height": 296.4,
+     "x": "-25%",
+     "y": "42%",
+     "width": 3400,
+     "height": 497,
      "props": {
       "speed": 0.7
      },
@@ -499,35 +499,35 @@
      "idle": [
       {
        "type": "bob",
-       "amount": 3.9,
+       "amount": 5,
        "speed": 0.25
       }
      ],
      "keyframes": [
       {
        "t": 0,
-       "x": "13.14%"
+       "x": "-28%"
       },
       {
        "t": 2.407,
-       "x": "16.65%"
+       "x": "-23%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Stat",
-     "x": "50.00%",
-     "y": "63.84%",
-     "width": 877.5,
-     "height": 354.9,
+     "x": "82%",
+     "y": "44%",
+     "width": 900,
+     "height": 338.0,
      "props": {
       "value": 190,
       "label": "tonnes",
       "at": 0.832,
-      "size": 136.5,
+      "size": 130,
       "color": "white",
-      "labelSize": 43.88,
+      "labelSize": 42,
       "prefix": "~",
       "duration": 1.0
      },
@@ -538,37 +538,38 @@
     {
      "type": "component",
      "name": "explainer/Balance",
-     "x": "50.00%",
-     "y": "53.03%",
-     "width": 811.2,
-     "height": 499.2,
+     "x": "50%",
+     "y": "47%",
+     "width": 1760,
+     "height": 680,
      "props": {
       "left": {
        "species": "blueWhale",
-       "w": 470,
+       "w": 820,
        "at": 2.407,
        "pos": 0.27,
        "idle": true
       },
       "right": {
        "species": "sauropod",
-       "w": 430,
+       "w": 640,
        "at": 3.245,
        "drop": true,
-       "pos": 0.27
+       "pos": 0.27,
+       "silhouette": "#a3b1b9"
       },
       "tilt": [
        {
         "t": 2.407,
-        "v": -14
+        "v": -10
        },
        {
         "t": 3.595,
-        "v": -14
+        "v": -10
        },
        {
         "t": 4.1450000000000005,
-        "v": -7,
+        "v": -5,
         "ease": "out"
        }
       ]
@@ -579,17 +580,17 @@
     {
      "type": "component",
      "name": "explainer/Stat",
-     "x": "50.00%",
-     "y": "18.37%",
-     "width": 877.5,
-     "height": 202.8,
+     "x": "22%",
+     "y": "11%",
+     "width": 900,
+     "height": 187.20000000000002,
      "props": {
       "value": 190,
       "label": "tonnes",
       "at": 2.407,
-      "size": 78.0,
+      "size": 72,
       "color": "white",
-      "labelSize": 37.05,
+      "labelSize": 38,
       "prefix": "~",
       "duration": 0.01,
       "rule": false,
@@ -602,14 +603,14 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50.00%",
-     "y": "74.45%",
-     "width": 975.0,
-     "height": 107.64,
+     "x": "66%",
+     "y": "9%",
+     "width": 900,
+     "height": 110.39999999999999,
      "props": {
       "text": "BIGGER THAN ANY DINOSAUR",
       "at": 4.233,
-      "size": 44.85,
+      "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -623,32 +624,32 @@
      {
       "t": 0.0,
       "zoom": 1.0,
-      "x": "50.00%",
-      "y": "59.97%"
+      "x": "50%",
+      "y": "50%"
      },
      {
       "t": 1.032,
-      "zoom": 1.0104
+      "zoom": 1.0063
      },
      {
       "t": 1.252,
-      "zoom": 1.195,
+      "zoom": 1.0781,
       "ease": "out"
      },
      {
       "t": 3.245,
-      "zoom": 1.2188
+      "zoom": 1.0911
      },
      {
       "t": 3.465,
-      "zoom": 1.0351,
+      "zoom": 1.021,
       "ease": "out"
      },
      {
       "t": 4.94,
-      "zoom": 1.05,
-      "x": "50.00%",
-      "y": "59.97%"
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%"
      }
     ]
    }
@@ -4805,6 +4806,6 @@
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
   "audio": "studio/public/episodes/explainer-blue-whale/mix.wav (Spark; rebuild with pipeline.audio.make)",
-  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16, landscape-native scenes [1, 4]"
+  "reformat": "pipeline/episodes/reformat.py k=0.78 from 9:16, landscape-native scenes [1, 2, 4]"
  }
 }
