@@ -1,0 +1,124 @@
+{
+  "episode": "whatif-calcium-gone-5-seconds",
+  "reviewed_at_utc": "2026-11-01T10:55Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "The stakes now climb the whole way. The playful phase (bendy fingers, wobbling queue) runs to 0:27.5. Then come the rule, the implication and the first real collapse in the textless break (kerb, arcade, queue fold). The ladder is bust -> kerb -> Colosseum -> concrete -> your house -> 8.2 billion hearts (human peak at 46%) -> white-out -> planet montage under one counter -> back to you for a same-unit race. The twist is a reversal, not the default: calcium returns where it vanished, so white ghost skeletons hang 1 m above the heaps. Every HUD number matches its picture. Remaining risks: calcium is a weaker premise than electrons or oxygen (PLAYBOOK 10C), and all on-screen text runs 148 wpm against the 103-131 band.",
+    "reference": "The citations were rechecked against the corpus files and every row now cites a device at the right timestamp. ELECTRONS @0:15 is a true analogue now (POV hands, harmless). NEUTRONS @0:37 is the human climax before the white-out, @0:52 is the same-unit second countdown that the return wins, and @1:09 is the returning particles doing something new that pays a plant. OXYGEN supplies the baseline-before-delta (@0:00-0:07), the mid-video meter plant (@0:28) and the ladder snapping back to the viewer (@0:35). Several rungs change mode (heart signal, ranking flip, closing distance) and carry exact computed numbers. Pacing self-report corrected.",
+    "originality": "The HUD is in house wording (CALCIUM ● ONLINE/OFFLINE/BACK ONLINE, OFFLINE IN / ONLINE IN, X-RAY TIME ×12, 1,946 YEARS · 5 SECONDS, YOUR 1.1 KG: 1 M ABOVE YOU). Slow motion is ×12 over 60 s, the runtime is 84 s, and the event, white-out, return, twist, black and end-card times sit 1-5 s off ELECTRONS. The twist rule is ours, and the false resolution avoids the references' 'returns to where it was' phrasing. The gate passes, and no caption 4-gram is shared with any of the three reference transcripts. Held at 8 because the title template is still H1 word for word with a keyword swap; titles.md ranks a 'vanished' variant second.",
+    "producibility": "All new art is listed: 8 components with props (Hud, TitleCard with fact, XrayFigure, Colosseum, Statue, ConcreteSection, House, Strata). Assets cut: cart, pigeons, isolated block, shells, Skyline with rebar. Named fonts (Source Serif 4 italic, JetBrains Mono) are installed on the Spark. Captions are whole-sentence text layers. The Map edit is specified (dots + strokeColor, flat world view). Particles stay in core limits (one dust layer of 300; grains live inside Colosseum). Every scene has its own row. The storyboard validates. Held at 7 because studio/src/kits/whatif still does not exist and XrayFigure is a heavy custom rig that must pass a 10 s gate first. TextLayer also needs an italic field, and no calm music bed exists."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Heart moved to 0:38.5 (46%) as the human peak and return-to-you dip: caption '8.2 billion hearts stop at once.' + HUD 'YOUR HEART: 3 BEATS MISSED' (70 bpm x 2.6 story-seconds); 0:17 now carries a crowd stat ('1.7 TRILLION BONES: SOFT'); the heart comes back in-story at 1:12.5 ('YOUR HEART: STILL 0 BPM') because, under the twist rule, its calcium returns 1 m above it (a restart would contradict the rule, so the false relief is the world-wide white re-glow instead)",
+      "Wonder phase kept harmless and funny to 0:27.5 (gummy-worm fingers, tube-man queue sway, slump capped at 0.15); the full fold of you and the queue happens in the 0:27.5-0:31.5 textless break alongside the Colosseum",
+      "Ladder reordered to pay the planted props and climb in scale: bust (0:20.5) -> travertine kerb under your feet (0:27.5) -> Colosseum pours (0:28.3) -> concrete -> your house -> every city in the white-out",
+      "Twist is now a reversal with a stated in-world rule: 'Every calcium atom reappears exactly where it vanished.' -> 'But you're not standing there anymore.'; white ghost skeletons hang ~1 m above the heaps, a ghost Colosseum hangs over its sand; HUD 'YOUR 1.1 KG: 1 M ABOVE YOU' pays the 0:11 plant",
+      "HUD numbers match the picture: the concrete counter runs over the concrete section and your house (31.5-38.5); Dover gets 'DOVER CLIFFS: 110 -> 0 M'; Everest, K2 and the reef get their own meters under the planet counter",
+      "Science fixes: scope line is 'IN EVERY BONE, HEARTBEAT AND LIMESTONE' (granite plinth survives on screen, consistent); 'Rome is built from it' replaced by 'The Colosseum is made of it.'",
+      "Flagged facts verified: Elhacham et al. 2020 checked (1.1 Tt total, concrete the dominant category, ~549 Gt table value; HUD shows 550); Qomolangma Formation base ~8,600 m confirmed; Yellow Band (~8,200-8,600 m, marble/calc-silicate) handled with a caveat and a half-dotted band; Everest ends below K2 either way",
+      "Second person returns mid-video: 'Your house caves in on itself.' at 0:35 plus YOUR HEART / SAND ... AWAY / YOUR 1.1 KG HUD lines"
+    ],
+    "reference": [
+      "0:08-0:20.5 harmless or slightly funny; heart stop moved to the human climax just before the white-out (0:38.5)",
+      "Human-scale climax before the white-out: '8.2 billion hearts stop at once.' at 0:38.5; city scale folded into the white-out image",
+      "After the white-out: flat world map with a planet-level counter 'LAND CAVING IN: 0 -> 15.2%' (Goldscheider et al. 2020); Dover, Everest and the reef run as a fast montage (2.5-3.5 s cuts) under it with HUD meter swaps, one caption only",
+      "Top/most human rung and return-to-you: hearts at 46%, your house at 42%, then the race cuts back to YOU at 0:55. The Moon-highlands rung was not used: anorthosite going 'dark' could not be justified physically",
+      "NEUTRONS race restored in our own form: 'SAND: 13 M AWAY' + 'REACHES YOU IN 1.100 S' against 'ONLINE IN 1.000 S' (same units), 12 s near-wordless, the return wins by 0.1 s, then the sand arrives anyway (T1) and the ghosts rain on the queue (T7)",
+      "Ladder modes varied: soft (fingers, queue), melt (bust), crumble/pour (kerb, Colosseum), binder failure (concrete), collapse (house), signal (hearts, 3 beats missed), ranking flip (Everest below K2), closing distance (sand race); each rung carries an exact number",
+      "Twist has an internal rule (calcium reappears at its old coordinates) and pays the 1.1 kg plant; the chemistry of lone calcium is flagged as left out (fact sheet row 21)",
+      "Alignment table re-cited row by row against research/corpus/whatif/*.md (e.g. OXYGEN @0:35 now on the 0:35 return-to-you rung; NEUTRONS turn/break @0:28-0:31; ELECTRONS @0:15 on the POV-hands beat)",
+      "Second-person captions down to 3/12 (25%): the bones line became a crowd line ('The whole queue starts to wobble.'), the body line is universal ('Every finger bends like a gummy worm.'); the justification now cites Shorts data and PLAYBOOK §5/§10D, not IFOLOGY",
+      "Pacing self-report corrected: five caption gaps over 6 s listed with what covers each; median 5.5 s",
+      "Teeth line removed; the bendy effect moved to finger bones (demineralised bone = collagen), which is accurate"
+    ],
+    "originality": [
+      "HUD strings rewritten in house voice: CALCIUM ● ONLINE / OFFLINE / BACK ONLINE, 'OFFLINE IN 7.000 S', 'ONLINE IN 5.000 S', 'X-RAY TIME ×12', '1,946 YEARS · 5 SECONDS', 'YOUR 1.1 KG: 1 M ABOVE YOU'",
+      "Slow-motion factor ×12 (5 s over 60 s) and runtime 84 s; the event lands at 0:07 and the end card at 1:16",
+      "HUD/visual mismatch fixed (see retention)",
+      "Everest: Yellow Band caveat added, re-hook is 'Everest is no longer the tallest mountain.' with 'K2: 8,611 M'",
+      "Twist caption rewritten: 'But you're not standing there anymore.' (6 words, unambiguous); gate rerun PASS",
+      "Teeth/enamel contradiction removed (no teeth caption; fingers use the bone-collagen fact)"
+    ],
+    "producibility": [
+      "Fonts named: @fontsource/source-serif-4 (incl. 600 italic) and @fontsource/jetbrains-mono, npm install on the Spark, added to fonts.ts waitForFonts",
+      "Captions authored as whole-sentence text layers (core captions disabled; maxWords 6 cap avoided); style pinned (serif italic 62 px, y 1400 above the 1480 safe line); TextLayer italic gap noted",
+      "Particles: no pigeons/shells; Colosseum pour = <= 500 seeded grains + mound inside the component; only core particles layer is the 300-dust white-out",
+      "Map: dots [{lon, lat, at, out, r, color}] + strokeColor (~25 lines), flat world at zoom 1, reef and carbonate regions both use dots",
+      "HUD standardised on whatif/Hud, re-instanced per scene with t0; full slot/state table with tracks; 40% opacity during the white-out; inside the safe area",
+      "XrayFigure spec: joint chain on explainer/You's layout, view hands|body, bend/sway/slump/glow/heart/ghost/offsetY/timeOffset; 10 s gate render first (shots 4+5+8)",
+      "Unlisted assets resolved: cart, pigeons, travertine block, shells and Skyline/rebar cut; bone glyph, ECG, scan line and pie wedge are inline svg/rect; House added as a listed component",
+      "Statue continuity: one whatif/Statue (generic bust on a granite plinth) beside the queue from 0:00, melt track, ghost mode in the twist",
+      "Every scene has its own shot-table row (Map and Dover are separate scenes; no 1.5 s 1->6 snap zoom)"
+    ]
+  },
+  "nice_to_have_applied": [
+    "X-ray baseline held 1.5 s before the blink-out (scan 5.5, full white 5.8-7.0) with HUD 'WHITE = CALCIUM'",
+    "Verbs escalate: bend -> wobble -> sag -> pour -> lose glue -> cave in -> stop -> collapse; only one simile left ('like a gummy worm')",
+    "End fact 14 words with 'triggers': '99% OF YOUR CALCIUM SITS IN BONES AND TEETH. THE REST TRIGGERS YOUR HEARTBEAT.'",
+    "Dated precedent 'STANDING SINCE AD 80', paid by the return stamp '1,946 YEARS · 5 SECONDS'",
+    "Post caption ends with the series harvest 'Which element should vanish next?' and matches the loop left open",
+    "Caption count 13 -> 12; caption wpm 54, VO 59",
+    "Reef counter labelled 'REEF COLLAPSED' (damage spreading)",
+    "Personal stat made relatable: 'YOU: −1.1 KG ≈ A CARTON OF MILK'",
+    "Topic evidence rerun on the Spark with yt-dlp (backlog/whatif/evidence/checks-0903/calcium-whatif-ytsearch.txt): no calcium what-if with traction",
+    "Marble is the rule line's subject (pure CaCO3, 40%); natural limestone variance noted in the fact sheet",
+    "Material physics made consistent: all carbonate stone (kerb, Colosseum, bust) crumbles or pours; limestone aggregate in concrete crumbles too",
+    "Fact row 1 cites a physiology text for the 1.0-1.2 kg total; the NIH sheet is cited only for the 99%",
+    "Clock starts at exactly 7.000 so zero lands on the flip",
+    "Cliff + Peak merged into whatif/Strata; rulers use explainer/DepthMeter; white-out from core layers; EndCard folded into TitleCard",
+    "X-ray-only drawing for ConcreteSection, House and Strata; daylight only for Colosseum, Statue and the explainer/You queue",
+    "No mid-video music silence edit (avoids the restart-from-0 problem)",
+    "Heart visible and pulsing in the X-ray scan (5.5-7.0) so its stop reads later",
+    "Pie chip = svg wedge + explainer/Stat",
+    "Render caps on grains and dots",
+    "White-out tinted pale cyan so 'pure white = calcium' holds until the return"
+  ],
+  "not_applied": [
+    "Moon-highlands cosmic rung: anorthosite is calcium-rich, but no defensible visible consequence ('goes dark') could be stated, so the top of the climb stays human (hearts) plus a planet counter",
+    "Calcium-floods-the-muscles twist (reference option b): resting cytosolic calcium is low, so a world-wide clench would be wrong science; option (a) used",
+    "Heart restart as the false relief: contradicts the chosen twist rule; the heart instead pays in-story with 'STILL 0 BPM'",
+    "All on-screen text 148 wpm (band 103-131): kept on purpose (one exact number per rung); the cut order to 140 wpm is listed in script.md",
+    "Second-person captions 25% vs corpus max 18%: one line over, kept for the house rung",
+    "Monetization check against research/R5 deferred: the R5 policy file is still empty. Current platform rules: original code-drawn SVG, no third-party footage, audio or text; vary hooks, places and twists across the four '5 seconds' Shorts (the inauthentic/repetitious-content rule targets mass-produced templates); consider TikTok's AI-generated label for the Kokoro voice"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-calcium-gone-5-seconds/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "runs": "first run FAILED on two spec-description phrases (a 10-word layout description shared with the ELECTRONS annotation, a 9-word pacing phrase shared with PLAYBOOK.md); both reworded, rerun PASS",
+    "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+    "max_shared_5gram_share": "0.12% (research/corpus/whatif/7693617402180881697.md); highest raw transcript 0.08%",
+    "caption_4grams_shared_with_reference_transcripts": 0
+  },
+  "pacing": {
+    "runtime_s": 84,
+    "captions": 12,
+    "caption_words": 76,
+    "mean_caption_words": 6.3,
+    "caption_wpm": 54.3,
+    "vo_words": 83,
+    "vo_wpm": 59.3,
+    "all_on_screen_words": 207,
+    "all_on_screen_wpm": 148,
+    "second_person_captions": "3/12 (25%)",
+    "caption_gap_median_s": 5.5,
+    "caption_gaps_over_6s": [7.0, 7.5, 10.0, 6.5, 12.5],
+    "event_s": 7.0,
+    "return_s": 67.0,
+    "master_loop_share": 0.714,
+    "loop_closes_at": 0.798,
+    "twist_caption_s": 70.5,
+    "black_s": 74.5,
+    "slow_motion_factor": 12
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-calcium-gone-5-seconds/storyboard.json",
+    "generator": "backlog/whatif/whatif-calcium-gone-5-seconds/gen_storyboard.py",
+    "validator": "studio/src/cli/validate.ts (schema.ts identical on Mac and Spark), run on the Spark with Node 22.22.0 --experimental-strip-types",
+    "result": "ok: 9:16 30fps 22 scenes 84.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/TitleCard", "whatif/XrayFigure", "whatif/Colosseum", "whatif/Statue", "whatif/ConcreteSection", "whatif/House", "whatif/Strata"],
+    "kit_edits_needed": ["explainer/Map: dots + strokeColor", "core TextLayer: italic", "core fonts.ts: Source Serif 4 + JetBrains Mono"]
+  }
+}
