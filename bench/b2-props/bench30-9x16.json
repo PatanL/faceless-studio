@@ -1,0 +1,1917 @@
+{
+ "version": 1,
+ "id": "test-9x16-bench30",
+ "title": "B2 core test (9:16)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "surface_0",
+   "duration": 2.6,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#8edbea",
+     "#2a8fb0",
+     "#0d4566",
+     "#072a40"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "y": 960
+     },
+     {
+      "t": 2.6,
+      "zoom": 1.14,
+      "y": 900
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "demo/LightRays",
+     "depth": 0.4,
+     "props": {
+      "count": 7
+     }
+    },
+    {
+     "type": "rect",
+     "id": "surfaceLine",
+     "x": "50%",
+     "y": 560,
+     "width": 1400,
+     "height": 14,
+     "fill": "rgba(220,250,255,0.6)",
+     "radius": 7,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "id": "you",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 930,
+     "width": 220,
+     "height": 352,
+     "enter": {
+      "type": "pop",
+      "at": 0.05,
+      "duration": 0.45
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.7
+      }
+     ],
+     "props": {
+      "wave": true
+     }
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 40,
+     "depth": 1.4,
+     "z": 5,
+     "seed": 3
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "You",
+     "at": 0.3,
+     "y": 690
+    },
+    {
+     "style": "stat",
+     "text": "2 MIN",
+     "sub": "breath hold",
+     "at": 1.6,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.6
+    }
+   ]
+  },
+  {
+   "id": "whale_0",
+   "duration": 2.6,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "left"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#11607f",
+     "#0a3450",
+     "#04131f"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 440,
+      "zoom": 1.05
+     },
+     {
+      "t": 2.6,
+      "x": 660,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 80,
+     "depth": 0.5,
+     "seed": 5
+    },
+    {
+     "type": "component",
+     "id": "whale",
+     "name": "demo/Whale",
+     "x": 980,
+     "y": 1000,
+     "width": 1500,
+     "height": 630,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 980
+      },
+      {
+       "t": 2.6,
+       "x": 560,
+       "ease": "linear"
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 14,
+       "speed": 0.4
+      }
+     ],
+     "props": {
+      "tail": 0.8
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": 250,
+     "y": 780,
+     "width": 90,
+     "height": 144,
+     "props": {
+      "wave": false
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 250,
+     "y": 668,
+     "fontSize": 40,
+     "weight": 800,
+     "color": "#ffffff",
+     "depth": 1
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 24,
+     "depth": 1.7,
+     "z": 5,
+     "seed": 9,
+     "size": [
+      14,
+      40
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "stat",
+     "text": "90 MIN",
+     "sub": "sperm whale",
+     "at": 1.35,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.35
+    }
+   ]
+  },
+  {
+   "id": "dive_0",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.4
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#072433",
+     "#020a10",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "y": 900,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "y": 1040,
+      "zoom": 1.1
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.05,
+      "duration": 0.55,
+      "amplitude": 24
+     }
+    ]
+   },
+   "grade": {
+    "brightness": 0.95,
+    "vignette": 0.55
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 90,
+     "depth": 0.6,
+     "seed": 11,
+     "color": "rgba(200,230,255,0.4)"
+    },
+    {
+     "type": "component",
+     "name": "demo/DepthGauge",
+     "x": 250,
+     "y": 720,
+     "width": 300,
+     "height": 620,
+     "props": {
+      "max": 3000,
+      "from": 0,
+      "to": 3000,
+      "at": 0.3,
+      "duration": 1.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": 800,
+     "y": 520,
+     "width": 620,
+     "height": 260,
+     "rotate": -35,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 840,
+       "y": 480
+      },
+      {
+       "t": 2.4,
+       "x": 680,
+       "y": 1120,
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "tail": 1.4
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "3 km straight down",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "crushed_0",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   },
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#4a0d0d",
+     "#160304",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "zoom": 1.18,
+      "y": 880
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.85,
+      "duration": 0.5,
+      "amplitude": 30,
+      "rotate": 1.2
+     }
+    ]
+   },
+   "grade": {
+    "contrast": 1.1,
+    "saturate": 1.2,
+    "vignette": 0.6,
+    "flicker": 0.35
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 50,
+     "depth": 0.5,
+     "seed": 13,
+     "color": "rgba(255,120,120,0.35)"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 150,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 120
+      },
+      {
+       "t": 0.9,
+       "x": 330,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 930,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 960
+      },
+      {
+       "t": 0.9,
+       "x": 750,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 1106,
+     "anchorY": 1,
+     "width": 220,
+     "height": 352,
+     "props": {
+      "color": "#ffd9d9",
+      "wave": false
+     },
+     "keyframes": [
+      {
+       "t": 0.85,
+       "scaleX": 1,
+       "scaleY": 1
+      },
+      {
+       "t": 1.15,
+       "scaleX": 1.35,
+       "scaleY": 0.45,
+       "ease": "backOut"
+      }
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "title",
+     "text": "Nope.",
+     "at": 1.5,
+     "y": 440,
+     "rotate": -4
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.5
+    }
+   ]
+  },
+  {
+   "id": "surface_1",
+   "duration": 2.6,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#8edbea",
+     "#2a8fb0",
+     "#0d4566",
+     "#072a40"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "y": 960
+     },
+     {
+      "t": 2.6,
+      "zoom": 1.14,
+      "y": 900
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "demo/LightRays",
+     "depth": 0.4,
+     "props": {
+      "count": 7
+     }
+    },
+    {
+     "type": "rect",
+     "id": "surfaceLine",
+     "x": "50%",
+     "y": 560,
+     "width": 1400,
+     "height": 14,
+     "fill": "rgba(220,250,255,0.6)",
+     "radius": 7,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "id": "you",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 930,
+     "width": 220,
+     "height": 352,
+     "enter": {
+      "type": "pop",
+      "at": 0.05,
+      "duration": 0.45
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.7
+      }
+     ],
+     "props": {
+      "wave": true
+     }
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 40,
+     "depth": 1.4,
+     "z": 5,
+     "seed": 3
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "You",
+     "at": 0.3,
+     "y": 690
+    },
+    {
+     "style": "stat",
+     "text": "2 MIN",
+     "sub": "breath hold",
+     "at": 1.6,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.6
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "whale_1",
+   "duration": 2.6,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "left"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#11607f",
+     "#0a3450",
+     "#04131f"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 440,
+      "zoom": 1.05
+     },
+     {
+      "t": 2.6,
+      "x": 660,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 80,
+     "depth": 0.5,
+     "seed": 5
+    },
+    {
+     "type": "component",
+     "id": "whale",
+     "name": "demo/Whale",
+     "x": 980,
+     "y": 1000,
+     "width": 1500,
+     "height": 630,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 980
+      },
+      {
+       "t": 2.6,
+       "x": 560,
+       "ease": "linear"
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 14,
+       "speed": 0.4
+      }
+     ],
+     "props": {
+      "tail": 0.8
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": 250,
+     "y": 780,
+     "width": 90,
+     "height": 144,
+     "props": {
+      "wave": false
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 250,
+     "y": 668,
+     "fontSize": 40,
+     "weight": 800,
+     "color": "#ffffff",
+     "depth": 1
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 24,
+     "depth": 1.7,
+     "z": 5,
+     "seed": 9,
+     "size": [
+      14,
+      40
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "stat",
+     "text": "90 MIN",
+     "sub": "sperm whale",
+     "at": 1.35,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.35
+    }
+   ]
+  },
+  {
+   "id": "dive_1",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.4
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#072433",
+     "#020a10",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "y": 900,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "y": 1040,
+      "zoom": 1.1
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.05,
+      "duration": 0.55,
+      "amplitude": 24
+     }
+    ]
+   },
+   "grade": {
+    "brightness": 0.95,
+    "vignette": 0.55
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 90,
+     "depth": 0.6,
+     "seed": 11,
+     "color": "rgba(200,230,255,0.4)"
+    },
+    {
+     "type": "component",
+     "name": "demo/DepthGauge",
+     "x": 250,
+     "y": 720,
+     "width": 300,
+     "height": 620,
+     "props": {
+      "max": 3000,
+      "from": 0,
+      "to": 3000,
+      "at": 0.3,
+      "duration": 1.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": 800,
+     "y": 520,
+     "width": 620,
+     "height": 260,
+     "rotate": -35,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 840,
+       "y": 480
+      },
+      {
+       "t": 2.4,
+       "x": 680,
+       "y": 1120,
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "tail": 1.4
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "3 km straight down",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "crushed_1",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   },
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#4a0d0d",
+     "#160304",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "zoom": 1.18,
+      "y": 880
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.85,
+      "duration": 0.5,
+      "amplitude": 30,
+      "rotate": 1.2
+     }
+    ]
+   },
+   "grade": {
+    "contrast": 1.1,
+    "saturate": 1.2,
+    "vignette": 0.6,
+    "flicker": 0.35
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 50,
+     "depth": 0.5,
+     "seed": 13,
+     "color": "rgba(255,120,120,0.35)"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 150,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 120
+      },
+      {
+       "t": 0.9,
+       "x": 330,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 930,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 960
+      },
+      {
+       "t": 0.9,
+       "x": 750,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 1106,
+     "anchorY": 1,
+     "width": 220,
+     "height": 352,
+     "props": {
+      "color": "#ffd9d9",
+      "wave": false
+     },
+     "keyframes": [
+      {
+       "t": 0.85,
+       "scaleX": 1,
+       "scaleY": 1
+      },
+      {
+       "t": 1.15,
+       "scaleX": 1.35,
+       "scaleY": 0.45,
+       "ease": "backOut"
+      }
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "title",
+     "text": "Nope.",
+     "at": 1.5,
+     "y": 440,
+     "rotate": -4
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.5
+    }
+   ]
+  },
+  {
+   "id": "surface_2",
+   "duration": 2.6,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#8edbea",
+     "#2a8fb0",
+     "#0d4566",
+     "#072a40"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "y": 960
+     },
+     {
+      "t": 2.6,
+      "zoom": 1.14,
+      "y": 900
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "demo/LightRays",
+     "depth": 0.4,
+     "props": {
+      "count": 7
+     }
+    },
+    {
+     "type": "rect",
+     "id": "surfaceLine",
+     "x": "50%",
+     "y": 560,
+     "width": 1400,
+     "height": 14,
+     "fill": "rgba(220,250,255,0.6)",
+     "radius": 7,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "id": "you",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 930,
+     "width": 220,
+     "height": 352,
+     "enter": {
+      "type": "pop",
+      "at": 0.05,
+      "duration": 0.45
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.7
+      }
+     ],
+     "props": {
+      "wave": true
+     }
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 40,
+     "depth": 1.4,
+     "z": 5,
+     "seed": 3
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "You",
+     "at": 0.3,
+     "y": 690
+    },
+    {
+     "style": "stat",
+     "text": "2 MIN",
+     "sub": "breath hold",
+     "at": 1.6,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.6
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "whale_2",
+   "duration": 2.6,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "left"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#11607f",
+     "#0a3450",
+     "#04131f"
+    ],
+    "depth": 0.2
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 440,
+      "zoom": 1.05
+     },
+     {
+      "t": 2.6,
+      "x": 660,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 80,
+     "depth": 0.5,
+     "seed": 5
+    },
+    {
+     "type": "component",
+     "id": "whale",
+     "name": "demo/Whale",
+     "x": 980,
+     "y": 1000,
+     "width": 1500,
+     "height": 630,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 980
+      },
+      {
+       "t": 2.6,
+       "x": 560,
+       "ease": "linear"
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 14,
+       "speed": 0.4
+      }
+     ],
+     "props": {
+      "tail": 0.8
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": 250,
+     "y": 780,
+     "width": 90,
+     "height": 144,
+     "props": {
+      "wave": false
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 250,
+     "y": 668,
+     "fontSize": 40,
+     "weight": 800,
+     "color": "#ffffff",
+     "depth": 1
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 24,
+     "depth": 1.7,
+     "z": 5,
+     "seed": 9,
+     "size": [
+      14,
+      40
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "stat",
+     "text": "90 MIN",
+     "sub": "sperm whale",
+     "at": 1.35,
+     "y": 420
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.35
+    }
+   ]
+  },
+  {
+   "id": "dive_2",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.4
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#072433",
+     "#020a10",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "y": 900,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "y": 1040,
+      "zoom": 1.1
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.05,
+      "duration": 0.55,
+      "amplitude": 24
+     }
+    ]
+   },
+   "grade": {
+    "brightness": 0.95,
+    "vignette": 0.55
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 90,
+     "depth": 0.6,
+     "seed": 11,
+     "color": "rgba(200,230,255,0.4)"
+    },
+    {
+     "type": "component",
+     "name": "demo/DepthGauge",
+     "x": 250,
+     "y": 720,
+     "width": 300,
+     "height": 620,
+     "props": {
+      "max": 3000,
+      "from": 0,
+      "to": 3000,
+      "at": 0.3,
+      "duration": 1.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": 800,
+     "y": 520,
+     "width": 620,
+     "height": 260,
+     "rotate": -35,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 840,
+       "y": 480
+      },
+      {
+       "t": 2.4,
+       "x": 680,
+       "y": 1120,
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "tail": 1.4
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "3 km straight down",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "crushed_2",
+   "duration": 2.4,
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   },
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#4a0d0d",
+     "#160304",
+     "#000000"
+    ],
+    "depth": 0.1
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1
+     },
+     {
+      "t": 2.4,
+      "zoom": 1.18,
+      "y": 880
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.85,
+      "duration": 0.5,
+      "amplitude": 30,
+      "rotate": 1.2
+     }
+    ]
+   },
+   "grade": {
+    "contrast": 1.1,
+    "saturate": 1.2,
+    "vignette": 0.6,
+    "flicker": 0.35
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 50,
+     "depth": 0.5,
+     "seed": 13,
+     "color": "rgba(255,120,120,0.35)"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 150,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 120
+      },
+      {
+       "t": 0.9,
+       "x": 330,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 60\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 18h58V0l42 30-42 30V42H0z\" fill=\"#ff4d4d\" stroke=\"#000\" stroke-width=\"4\"/></svg>",
+     "x": 930,
+     "y": 930,
+     "width": 170,
+     "height": 102,
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0.2,
+       "x": 960
+      },
+      {
+       "t": 0.9,
+       "x": 750,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": 1106,
+     "anchorY": 1,
+     "width": 220,
+     "height": 352,
+     "props": {
+      "color": "#ffd9d9",
+      "wave": false
+     },
+     "keyframes": [
+      {
+       "t": 0.85,
+       "scaleX": 1,
+       "scaleY": 1
+      },
+      {
+       "t": 1.15,
+       "scaleX": 1.35,
+       "scaleY": 0.45,
+       "ease": "backOut"
+      }
+     ]
+    }
+   ],
+   "callouts": [
+    {
+     "style": "title",
+     "text": "Nope.",
+     "at": 1.5,
+     "y": 440,
+     "rotate": -4
+    }
+   ],
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 1.5
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "You",
+    "start": 0.15,
+    "end": 0.35
+   },
+   {
+    "text": "can",
+    "start": 0.35,
+    "end": 0.5
+   },
+   {
+    "text": "hold",
+    "start": 0.5,
+    "end": 0.75
+   },
+   {
+    "text": "your",
+    "start": 0.75,
+    "end": 0.9
+   },
+   {
+    "text": "breath",
+    "start": 0.9,
+    "end": 1.25
+   },
+   {
+    "text": "for",
+    "start": 1.25,
+    "end": 1.4
+   },
+   {
+    "text": "about",
+    "start": 1.4,
+    "end": 1.65
+   },
+   {
+    "text": "two",
+    "start": 1.65,
+    "end": 1.9
+   },
+   {
+    "text": "minutes.",
+    "start": 1.9,
+    "end": 2.4
+   },
+   {
+    "text": "A",
+    "start": 2.75,
+    "end": 2.85
+   },
+   {
+    "text": "sperm",
+    "start": 2.85,
+    "end": 3.15
+   },
+   {
+    "text": "whale?",
+    "start": 3.15,
+    "end": 3.6
+   },
+   {
+    "text": "Ninety",
+    "start": 3.95,
+    "end": 4.35
+   },
+   {
+    "text": "minutes.",
+    "start": 4.35,
+    "end": 4.9
+   },
+   {
+    "text": "And",
+    "start": 5.35,
+    "end": 5.5
+   },
+   {
+    "text": "it",
+    "start": 5.5,
+    "end": 5.6
+   },
+   {
+    "text": "dives",
+    "start": 5.6,
+    "end": 5.95
+   },
+   {
+    "text": "three",
+    "start": 5.95,
+    "end": 6.25
+   },
+   {
+    "text": "kilometers",
+    "start": 6.25,
+    "end": 6.85
+   },
+   {
+    "text": "down.",
+    "start": 6.85,
+    "end": 7.35
+   },
+   {
+    "text": "Your",
+    "start": 7.7,
+    "end": 7.85
+   },
+   {
+    "text": "lungs",
+    "start": 7.85,
+    "end": 8.2
+   },
+   {
+    "text": "would",
+    "start": 8.2,
+    "end": 8.35
+   },
+   {
+    "text": "be",
+    "start": 8.35,
+    "end": 8.45
+   },
+   {
+    "text": "crushed",
+    "start": 8.45,
+    "end": 8.95
+   },
+   {
+    "text": "long",
+    "start": 8.95,
+    "end": 9.2
+   },
+   {
+    "text": "before",
+    "start": 9.2,
+    "end": 9.45
+   },
+   {
+    "text": "that.",
+    "start": 9.45,
+    "end": 9.8
+   },
+   {
+    "text": "You",
+    "start": 10.15,
+    "end": 10.35
+   },
+   {
+    "text": "can",
+    "start": 10.35,
+    "end": 10.5
+   },
+   {
+    "text": "hold",
+    "start": 10.5,
+    "end": 10.75
+   },
+   {
+    "text": "your",
+    "start": 10.75,
+    "end": 10.9
+   },
+   {
+    "text": "breath",
+    "start": 10.9,
+    "end": 11.25
+   },
+   {
+    "text": "for",
+    "start": 11.25,
+    "end": 11.4
+   },
+   {
+    "text": "about",
+    "start": 11.4,
+    "end": 11.65
+   },
+   {
+    "text": "two",
+    "start": 11.65,
+    "end": 11.9
+   },
+   {
+    "text": "minutes.",
+    "start": 11.9,
+    "end": 12.4
+   },
+   {
+    "text": "A",
+    "start": 12.75,
+    "end": 12.85
+   },
+   {
+    "text": "sperm",
+    "start": 12.85,
+    "end": 13.15
+   },
+   {
+    "text": "whale?",
+    "start": 13.15,
+    "end": 13.6
+   },
+   {
+    "text": "Ninety",
+    "start": 13.95,
+    "end": 14.35
+   },
+   {
+    "text": "minutes.",
+    "start": 14.35,
+    "end": 14.9
+   },
+   {
+    "text": "And",
+    "start": 15.35,
+    "end": 15.5
+   },
+   {
+    "text": "it",
+    "start": 15.5,
+    "end": 15.6
+   },
+   {
+    "text": "dives",
+    "start": 15.6,
+    "end": 15.95
+   },
+   {
+    "text": "three",
+    "start": 15.95,
+    "end": 16.25
+   },
+   {
+    "text": "kilometers",
+    "start": 16.25,
+    "end": 16.85
+   },
+   {
+    "text": "down.",
+    "start": 16.85,
+    "end": 17.35
+   },
+   {
+    "text": "Your",
+    "start": 17.7,
+    "end": 17.85
+   },
+   {
+    "text": "lungs",
+    "start": 17.85,
+    "end": 18.2
+   },
+   {
+    "text": "would",
+    "start": 18.2,
+    "end": 18.35
+   },
+   {
+    "text": "be",
+    "start": 18.35,
+    "end": 18.45
+   },
+   {
+    "text": "crushed",
+    "start": 18.45,
+    "end": 18.95
+   },
+   {
+    "text": "long",
+    "start": 18.95,
+    "end": 19.2
+   },
+   {
+    "text": "before",
+    "start": 19.2,
+    "end": 19.45
+   },
+   {
+    "text": "that.",
+    "start": 19.45,
+    "end": 19.8
+   },
+   {
+    "text": "You",
+    "start": 20.15,
+    "end": 20.35
+   },
+   {
+    "text": "can",
+    "start": 20.35,
+    "end": 20.5
+   },
+   {
+    "text": "hold",
+    "start": 20.5,
+    "end": 20.75
+   },
+   {
+    "text": "your",
+    "start": 20.75,
+    "end": 20.9
+   },
+   {
+    "text": "breath",
+    "start": 20.9,
+    "end": 21.25
+   },
+   {
+    "text": "for",
+    "start": 21.25,
+    "end": 21.4
+   },
+   {
+    "text": "about",
+    "start": 21.4,
+    "end": 21.65
+   },
+   {
+    "text": "two",
+    "start": 21.65,
+    "end": 21.9
+   },
+   {
+    "text": "minutes.",
+    "start": 21.9,
+    "end": 22.4
+   },
+   {
+    "text": "A",
+    "start": 22.75,
+    "end": 22.85
+   },
+   {
+    "text": "sperm",
+    "start": 22.85,
+    "end": 23.15
+   },
+   {
+    "text": "whale?",
+    "start": 23.15,
+    "end": 23.6
+   },
+   {
+    "text": "Ninety",
+    "start": 23.95,
+    "end": 24.35
+   },
+   {
+    "text": "minutes.",
+    "start": 24.35,
+    "end": 24.9
+   },
+   {
+    "text": "And",
+    "start": 25.35,
+    "end": 25.5
+   },
+   {
+    "text": "it",
+    "start": 25.5,
+    "end": 25.6
+   },
+   {
+    "text": "dives",
+    "start": 25.6,
+    "end": 25.95
+   },
+   {
+    "text": "three",
+    "start": 25.95,
+    "end": 26.25
+   },
+   {
+    "text": "kilometers",
+    "start": 26.25,
+    "end": 26.85
+   },
+   {
+    "text": "down.",
+    "start": 26.85,
+    "end": 27.35
+   },
+   {
+    "text": "Your",
+    "start": 27.7,
+    "end": 27.85
+   },
+   {
+    "text": "lungs",
+    "start": 27.85,
+    "end": 28.2
+   },
+   {
+    "text": "would",
+    "start": 28.2,
+    "end": 28.35
+   },
+   {
+    "text": "be",
+    "start": 28.35,
+    "end": 28.45
+   },
+   {
+    "text": "crushed",
+    "start": 28.45,
+    "end": 28.95
+   },
+   {
+    "text": "long",
+    "start": 28.95,
+    "end": 29.2
+   },
+   {
+    "text": "before",
+    "start": 29.2,
+    "end": 29.45
+   },
+   {
+    "text": "that.",
+    "start": 29.45,
+    "end": 29.8
+   }
+  ]
+ },
+ "audio": {
+  "music": [
+   {
+    "src": "test/music-bed.wav",
+    "volume": 0.55,
+    "duckTo": 0.18
+   }
+  ],
+  "sfx": [
+   {
+    "src": "test/whoosh.wav",
+    "at": 2.4
+   },
+   {
+    "src": "test/glitch.wav",
+    "at": 5.0,
+    "volume": 0.6
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 6.25
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 8.45,
+    "volume": 1
+   },
+   {
+    "src": "test/whoosh.wav",
+    "at": 12.4
+   },
+   {
+    "src": "test/glitch.wav",
+    "at": 15.0,
+    "volume": 0.6
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 16.25
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 18.45,
+    "volume": 1
+   },
+   {
+    "src": "test/whoosh.wav",
+    "at": 22.4
+   },
+   {
+    "src": "test/glitch.wav",
+    "at": 25.0,
+    "volume": 0.6
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 26.25
+   },
+   {
+    "src": "test/impact.wav",
+    "at": 28.45,
+    "volume": 1
+   }
+  ]
+ },
+ "overlays": {
+  "grain": 0.4,
+  "fadeIn": 0.2,
+  "fadeOut": 0.5
+ }
+}

@@ -1,0 +1,1018 @@
+{
+ "version": 1,
+ "id": "test-16x9-bench30",
+ "format": "16:9",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "wide1_0",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "wide2_0",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  },
+  {
+   "id": "wide1_1",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "wide2_1",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  },
+  {
+   "id": "wide1_2",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "wide2_2",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  },
+  {
+   "id": "wide1_3",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "wide2_3",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  },
+  {
+   "id": "wide1_4",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "wide2_4",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  },
+  {
+   "id": "wide1_5",
+   "duration": 2.5,
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#16324f",
+     "#0a1520"
+    ],
+    "angle": 160
+   },
+   "camera": {
+    "preset": "pushIn"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 120,
+     "depth": 0.3,
+     "seed": 2
+    },
+    {
+     "type": "component",
+     "name": "demo/Whale",
+     "x": "55%",
+     "y": "48%",
+     "width": 900,
+     "height": 378,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "16:9",
+     "x": "18%",
+     "y": "30%",
+     "fontSize": 160,
+     "font": "condensed",
+     "color": "#ffe14d",
+     "strokeWidth": 10,
+     "strokeColor": "#000",
+     "enter": {
+      "type": "slideRight",
+      "duration": 0.5
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "style": "lowerThird",
+     "text": "Wide format",
+     "sub": "1920 x 1080",
+     "at": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "wide2_5",
+   "duration": 2.5,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.36,
+    "direction": "up"
+   },
+   "background": {
+    "type": "gradient",
+    "colors": [
+     "#2b0f3a",
+     "#090312"
+    ],
+    "angle": 200
+   },
+   "camera": {
+    "preset": "panRight"
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "embers",
+     "count": 80,
+     "depth": 0.8,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "demo/StickFigure",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 320,
+     "enter": {
+      "type": "drop",
+      "duration": 0.7,
+      "distance": 500
+     }
+    },
+    {
+     "type": "text",
+     "text": "same schema",
+     "x": "50%",
+     "y": "20%",
+     "fontSize": 90,
+     "uppercase": true,
+     "typewriter": {
+      "at": 0.2,
+      "cps": 22
+     }
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "This",
+    "start": 0.2,
+    "end": 0.4
+   },
+   {
+    "text": "is",
+    "start": 0.4,
+    "end": 0.55
+   },
+   {
+    "text": "the",
+    "start": 0.55,
+    "end": 0.7
+   },
+   {
+    "text": "wide",
+    "start": 0.7,
+    "end": 1.0
+   },
+   {
+    "text": "format.",
+    "start": 1.0,
+    "end": 1.5
+   },
+   {
+    "text": "Same",
+    "start": 2.7,
+    "end": 2.95
+   },
+   {
+    "text": "schema,",
+    "start": 2.95,
+    "end": 3.45
+   },
+   {
+    "text": "same",
+    "start": 3.6,
+    "end": 3.85
+   },
+   {
+    "text": "renderer.",
+    "start": 3.85,
+    "end": 4.5
+   },
+   {
+    "text": "This",
+    "start": 5.2,
+    "end": 5.4
+   },
+   {
+    "text": "is",
+    "start": 5.4,
+    "end": 5.55
+   },
+   {
+    "text": "the",
+    "start": 5.55,
+    "end": 5.7
+   },
+   {
+    "text": "wide",
+    "start": 5.7,
+    "end": 6.0
+   },
+   {
+    "text": "format.",
+    "start": 6.0,
+    "end": 6.5
+   },
+   {
+    "text": "Same",
+    "start": 7.7,
+    "end": 7.95
+   },
+   {
+    "text": "schema,",
+    "start": 7.95,
+    "end": 8.45
+   },
+   {
+    "text": "same",
+    "start": 8.6,
+    "end": 8.85
+   },
+   {
+    "text": "renderer.",
+    "start": 8.85,
+    "end": 9.5
+   },
+   {
+    "text": "This",
+    "start": 10.2,
+    "end": 10.4
+   },
+   {
+    "text": "is",
+    "start": 10.4,
+    "end": 10.55
+   },
+   {
+    "text": "the",
+    "start": 10.55,
+    "end": 10.7
+   },
+   {
+    "text": "wide",
+    "start": 10.7,
+    "end": 11.0
+   },
+   {
+    "text": "format.",
+    "start": 11.0,
+    "end": 11.5
+   },
+   {
+    "text": "Same",
+    "start": 12.7,
+    "end": 12.95
+   },
+   {
+    "text": "schema,",
+    "start": 12.95,
+    "end": 13.45
+   },
+   {
+    "text": "same",
+    "start": 13.6,
+    "end": 13.85
+   },
+   {
+    "text": "renderer.",
+    "start": 13.85,
+    "end": 14.5
+   },
+   {
+    "text": "This",
+    "start": 15.2,
+    "end": 15.4
+   },
+   {
+    "text": "is",
+    "start": 15.4,
+    "end": 15.55
+   },
+   {
+    "text": "the",
+    "start": 15.55,
+    "end": 15.7
+   },
+   {
+    "text": "wide",
+    "start": 15.7,
+    "end": 16.0
+   },
+   {
+    "text": "format.",
+    "start": 16.0,
+    "end": 16.5
+   },
+   {
+    "text": "Same",
+    "start": 17.7,
+    "end": 17.95
+   },
+   {
+    "text": "schema,",
+    "start": 17.95,
+    "end": 18.45
+   },
+   {
+    "text": "same",
+    "start": 18.6,
+    "end": 18.85
+   },
+   {
+    "text": "renderer.",
+    "start": 18.85,
+    "end": 19.5
+   },
+   {
+    "text": "This",
+    "start": 20.2,
+    "end": 20.4
+   },
+   {
+    "text": "is",
+    "start": 20.4,
+    "end": 20.55
+   },
+   {
+    "text": "the",
+    "start": 20.55,
+    "end": 20.7
+   },
+   {
+    "text": "wide",
+    "start": 20.7,
+    "end": 21.0
+   },
+   {
+    "text": "format.",
+    "start": 21.0,
+    "end": 21.5
+   },
+   {
+    "text": "Same",
+    "start": 22.7,
+    "end": 22.95
+   },
+   {
+    "text": "schema,",
+    "start": 22.95,
+    "end": 23.45
+   },
+   {
+    "text": "same",
+    "start": 23.6,
+    "end": 23.85
+   },
+   {
+    "text": "renderer.",
+    "start": 23.85,
+    "end": 24.5
+   },
+   {
+    "text": "This",
+    "start": 25.2,
+    "end": 25.4
+   },
+   {
+    "text": "is",
+    "start": 25.4,
+    "end": 25.55
+   },
+   {
+    "text": "the",
+    "start": 25.55,
+    "end": 25.7
+   },
+   {
+    "text": "wide",
+    "start": 25.7,
+    "end": 26.0
+   },
+   {
+    "text": "format.",
+    "start": 26.0,
+    "end": 26.5
+   },
+   {
+    "text": "Same",
+    "start": 27.7,
+    "end": 27.95
+   },
+   {
+    "text": "schema,",
+    "start": 27.95,
+    "end": 28.45
+   },
+   {
+    "text": "same",
+    "start": 28.6,
+    "end": 28.85
+   },
+   {
+    "text": "renderer.",
+    "start": 28.85,
+    "end": 29.5
+   }
+  ],
+  "style": {
+   "highlightMode": "box"
+  }
+ },
+ "audio": {
+  "music": [
+   {
+    "src": "test/music-bed.wav",
+    "volume": 0.5
+   }
+  ],
+  "sfx": []
+ },
+ "overlays": {
+  "vignette": 0.4
+ }
+}
