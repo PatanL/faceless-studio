@@ -69,7 +69,7 @@ Example: `PROPS=episodes/ep1/storyboard.json scripts/spark_render.sh Storyboard 
 
 ## Gotchas found
 
-1. **Commit the lockfile.** B2's `studio/package-lock.json` exists only on the Spark. Pull it back to the Mac and commit it. Until then, the first `spark_sync.sh studio` sees no stamp and runs `npm ci`, which wipes and reinstalls `node_modules`, including the Chrome download. Don't trigger that mid-render of another lane. The render lock covers renders, not syncs.
+1. B2 has now committed `studio/package-lock.json` (c76a81f). The first `spark_sync.sh studio` still finds no stamp and runs `npm ci` once, which wipes and reinstalls `node_modules`, including the Chrome download. Don't trigger that while another lane is rendering: the render lock covers renders, not syncs.
 2. faster-whisper 1.2.1 fails with current PyAV when given a file path (`open() got an unexpected keyword argument 'metadata_errors'`). Pass a 16 kHz numpy array instead (`load16k()` in `pipeline/tts_sample.py`), or pin `av<15`.
 3. The first Kokoro run downloads the HF weights and spaCy `en_core_web_sm` into the venv. That is done now.
 4. `ssh host bash -s -- args` drops empty arguments, because ssh flattens argv into one string. The scripts quote arguments with `printf %q`. The Mac runs bash 3.2, so empty arrays need the `${a[@]+"${a[@]}"}` form.
