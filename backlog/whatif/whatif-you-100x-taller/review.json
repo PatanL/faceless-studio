@@ -1,0 +1,121 @@
+{
+  "episode": "whatif-you-100x-taller",
+  "reviewed_at_utc": "2026-11-01T09:40Z",
+  "scores_before": {"retention": 7, "reference": 6, "originality": 7, "producibility": 5},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "Frame 1 is the full sleeping giant with a countdown to waking, and the VO reads the title at 0.2 s. The master loop is a survival clock (YOU HAVE LASTED) with a planted endpoint (BEST CASE ~4 H) that the heat rung explains and the impact closes. The ladder now runs hours (heat) -> every breath -> seconds (bones/blood). The false resolution reassures (LEGS: INTACT, 'Fainting saves your legs.'). The twist gets 2.4 s of VO and ends 1.6 s before impact, and the silent payoff is 7.6 s before the café button. Remaining risk: a well-covered premise (PLAYBOOK 10C) and 77% second-person captions.",
+    "reference": "The alignment table now matches the beats: frame-1 answer + pre-event clock (POPSTAR 0:00, NEUTRONS/ELECTRONS 0:00), a 'But' turn (NEUTRONS 0:21), ELECTRONS 0:28-0:32 cited correctly for the textless break, a scale inversion 3 s after the previous caption (ELECTRONS 0:32/0:35), the tracker narrowing without a relocation claim, a reassuring false resolution (ELECTRONS 1:05), a planted mystery tag (POPSTAR 0:35 -> 0:59) and a ghost-of-the-opening payoff (NEUTRONS 1:05). Clocks add up on screen: every factor change is labelled.",
+    "originality": "The gate passes. The title verb changes ('woke up'). The windows image is replaced by car alarms and confused pedestrians. The tracker is a survival clock rather than a distance or return countdown. The stamp keeps the template's place/time form but the fact card wording is our own. The physics now matches the drawn pose (34 degrees -> 50 m head, 22 m brain-above-heart, x0 lying). The voice claim is reworded ('a rumble you feel'), and the dinosaur figure is hedged as an estimate.",
+    "producibility": "Times are plain seconds. The storyboard validates. Iris, dust ring, shimmer, white flash and thumb are core layers. Balance, Stat, Tag, ScaleBar, Car, You, whaleHeart and blueWhale are existing explainer parts. Captions are text layers, so there is no 6-word split. Held at 7 because the shared whatif kit still does not exist (Hud, GiantYou, ParisSkyline, EiffelTower figure, Bone, StreetFacade), Balance needs a count prop, the serif font and italic field are missing, and three SFX need synthesizing."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Twist: 'Your head falls 50 metres.' (5 words) shown 62.4-64.8. The fall plays at SLOW-MO x2, so the impact lands at 66.4, after the VO ends at about 64.6",
+      "Payoff extended to 7.6 s of silence (66.4-74.0) with dust ring, roof shake and shake decay; café cutaway at 74.0; runtime 82 s",
+      "Femur beat reframed as hypothetical: 'IF YOU STAND: x100 · BREAKS AT ~x25', dashed ghost cracks that retract; real loading only in the 45-60 climb; lying reads 'ON YOUR BACK x0'",
+      "Hook: VO reads the title at 0.2 s (92 VO words / 82 s = 67 wpm)",
+      "Frame 1 shows the full 170 m giant asleep on the lawn; the HUD counts YOU WAKE UP IN 6.9 S instead of a growing height",
+      "Master loop relabelled as a survival clock 'YOU HAVE LASTED' with the endpoint 'BEST CASE: ~4 H'; it closes as 'YOU LASTED 6 MIN 25 S · BEST CASE WAS ~4 H'",
+      "Clock speeds reconciled: TIME x10 (7.0-43.5), TIME: REAL SPEED from the white flash (BLACKOUT IN 6.0 S counts real seconds), SLOW-MO x2 for the fall; arithmetic gives 6 min 25 s, stamp '6 MINUTES LATER'",
+      "The overloaded 0:54 beat is split: caption 11 at 48.0, HUD heart/pressure line at 51.0 after it has gone, textless race 54.0-60.0",
+      "False resolution now reassures: 'Fainting saves your legs.' + green 'LEGS: INTACT'",
+      "Checks section rewritten: every on-screen number has a fact-file line, and story devices are marked; breathing rate replaced by Stahl 1967 allometry (14 -> ~0.5/min); POLICE CLEARING 1 KM replaced by 'POLICE EVACUATING THE 7TH' (no number); blackout 6 s sourced (Rossen 1943)"
+    ],
+    "reference": [
+      "Endpoint added to the master tracker (BEST CASE ~4 H) and the LEG BONE STRESS bar with a red BREAKS line drives the climb (44-60). The survival clock stays the master because it moves from the hook to the payoff and closes at 81%",
+      "Clocks reconciled (TIME x10 -> REAL SPEED at the white flash -> SLOW-MO x2); BLACKOUT 6.0 s in real time; '6 MINUTES LATER' recomputed",
+      "Stress labels: 'IF YOU STAND: x100' at 29.0; live bar starts 'ON YOUR BACK x0'",
+      "'But' turn: 'But your bones only got 10,000 times stronger.'",
+      "'Do the division.' replaced by 'That's 100 times the strain.'; textless break cited as ELECTRONS 0:28-0:32",
+      "Ladder reordered: voice/car alarms moved into the wonder section; S6 = heat (hours) -> breath (every breath) -> café plant; climb = bones/blood (seconds)",
+      "Shareable inversion 'Your heart outweighs a blue whale.' lands 3.0 s after 'You try to get up.' (heart ~300 t vs blue whale <= ~190 t)",
+      "Twist caption 5 words with a 2.4 s hold",
+      "Silent impact 7.6 s; café button after the impact as the last shot before black",
+      "Heat loop closed: BEST CASE ~4 H opens at 7.0, is explained at 32.8 and closes as BEST CASE WAS ~4 H at the impact",
+      "Numbers fixed: bus-vs-earlobe line dropped from the hook (bus-vs-hand kept out of the video); torso keyframed to 34 degrees so head = 50 m and brain = 22 m above the heart; breathing and police numbers sourced or removed",
+      "Alignment rows corrected: row 1 (frame-1 answer + pre-event clock, both true now), breathing rung mapped to NEUTRONS 0:32, midpoint row claims only a tracker narrowing (no relocation), false-resolution row now reassuring"
+    ],
+    "originality": [
+      "Twist and 0:54 VO overruns fixed (see retention)",
+      "Brain-height caption removed; HUD gives HEAD HEIGHT for the drawn pose and 'BLOOD REACHES ~1.5 M UP'; 22 m at 34 degrees in the fact file",
+      "Head drop matches the pose: torso keyframed 0 -> 22 -> 34 degrees, head 90 x sin 34 = 50 m, 110 km/h vs 11 km/h",
+      "LEG BONE STRESS units fixed: hypothetical 'IF YOU STAND: x100' at 29.0; live bar 'vs normal standing', starting at x0 on your back",
+      "The climb now loads the legs: roll onto your side, draw one knee under you, hip lifts, then push up; fact-file load model (200 f x normal standing; x25 at f ~12%)",
+      "Bus-vs-earlobe claim removed from the hook",
+      "Voice reworded: 'You groan. Car alarms wail for blocks.' + HUD 'YOUR VOICE: ~1 HZ · A RUMBLE YOU FEEL'; harmonics 5-80 Hz noted in the fact file",
+      "End-card dinosaur fact hedged: 'ABOUT 1,000 OF THE BIGGEST DINOSAURS', range 50-100 t in the fact file and the post description",
+      "Checks section no longer overclaims: story devices marked (pre-event clock, time factors, car alarms, evacuation line, stress model)"
+    ],
+    "producibility": [
+      "Twist VO fits: 5 words shown 62.4-64.8, impact 66.4",
+      "No caption over the race: caption 11 ends 50.7, HUD line 51.0, textless race 54.0-60.0",
+      "One clock rate per segment, each labelled; BLACKOUT is a real-time 6.0 s countdown 54.0-60.0 with the master clock also at real speed; stress bar value given for every segment (x0 -> x6 by 54.0 -> x24 at 60.0)",
+      "Torso keyframe 34 degrees matches 50 M / 110 KM/H",
+      "NEW whatif/GiantYou budgeted (~80 lines on the youDraw geometry: eyes, mouth, torsoDeg, roll, knee, hipLift, breathe); ear and earlobe gags dropped",
+      "Captions drawn as whole-sentence serif text layers (core captions disabled); serif font and fontStyle listed as kit gaps; upright serif until then",
+      "Vignette iris = an svg layer with scale keyframes; dust ring = three stroked circle layers with scale/opacity keyframes; POV = ParisSkyline with a lowered horizon track; heat shimmer = four sine-wave svg strokes; cracks = stroke-dashoffset inside whatif/Bone (glitch not used)",
+      "Bus removed from the 2.7-3.0 px/m wide; scale comes from the tower, dot cars and a tiny walker",
+      "Shot 1 camera is a static wide with a 3% zoom; the giant is full size from frame 1 (no grow-from-1.70 m)",
+      "All of our times are plain seconds (61.0, not 0:61)"
+    ]
+  },
+  "nice_to_have_applied": [
+    "Ladder order: voice/city -> weight -> rule; then heat -> breath -> café; then blood/bones",
+    "Heat loop acknowledged at the close (BEST CASE WAS ~4 H); fact file notes +0.13 C in 6.4 min",
+    "Pedestrians look around confused (pose shrug); no ear-covering",
+    "Body angle and head height consistent (34 degrees)",
+    "'But your bones only got 10,000 times stronger.' names strength in one spoken sentence",
+    "HUD plant reworded: 'BUILT FROM THE SAME STUFF'",
+    "Windows image replaced with car alarms block by block",
+    "End card one dated fact + one hedged comparison on two lines (about 16 words)",
+    "Post CTA is a no-wrong-answer choice from shown options: 'Legs, blood or heat: which gets you first?'; 1,000x kept as a series line",
+    "Title changed to 'What if you woke up 100 times taller?'; title options and thumbnail B lean on the twist angle",
+    "HEAD HEIGHT 0 -> 50 M is a live climbing number with no explanation until the twist",
+    "Payoff framed exactly like frame 1 (ghost of the opening shot)",
+    "Midpoint interrupt moved to 43.5 s (53%)",
+    "Clock shown as 'M MIN SS S' so it cannot read as a time of day",
+    "Cheaper equivalents: thumb from core rect/circle layers (no PovHand), café merged into StreetFacade, stress bar folded into whatif/Hud, generic whatif/Bone, existing explainer/Balance reused twice (towers; heart vs blue whale)",
+    "Missing SFX listed for synthesis on the Spark (car_alarm, siren, glass_rattle) with existing stand-ins in the storyboard",
+    "Eiffel Tower drawn at dawn/day only"
+  ],
+  "not_applied": [
+    "Second-person share stays high (10/13 captions) because this is a body premise and the climb and twist are about your own body; PLAYBOOK 10D says the viewer's position, not second-person density, separates the top hits",
+    "Premise fatigue can't be fully fixed by wording; mitigated through the title, tracker and twist angle (see titles.md notes)",
+    "Monetization check against research/R5 deferred: the R5 policy file is still empty. Advertiser-friendliness: no gore, and the impact is dust and a frozen clock. TTS voice to be recorded in the post's AI label if R5 requires it",
+    "Per-word highlight in the title is done with two text layers rather than a callout extension"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-you-100x-taller/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+    "max_shared_5gram_share": "0.34% (research/corpus/whatif/PLAYBOOK.md, beat-name phrases); highest transcript source 0.11% (b6jmbFcJZCY)"
+  },
+  "pacing": {
+    "runtime_s": 82,
+    "captions": 13,
+    "caption_words": 84,
+    "vo_words_incl_title": 92,
+    "vo_wpm": 67.3,
+    "caption_wpm": 61.5,
+    "caption_gap_mean_s": 4.6,
+    "event_s": 7.0,
+    "white_flash_s": 43.5,
+    "false_resolution_s": 60.2,
+    "twist_caption_s": 62.4,
+    "impact_master_close_s": 66.4,
+    "silent_payoff_s": 7.6,
+    "black_s": 76.0,
+    "master_loop_share": 0.72
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-you-100x-taller/storyboard.json",
+    "generator": "backlog/whatif/whatif-you-100x-taller/gen_storyboard.py (also writes vo_lines.json with TTS spellings)",
+    "validator": "studio/src/cli/validate.ts (schema.ts identical on Mac and Spark), run on the Spark with Node 22",
+    "result": "ok: 9:16 30fps 22 scenes 82.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/ParisSkyline", "whatif/EiffelTower", "whatif/GiantYou", "whatif/Bone", "whatif/StreetFacade"],
+    "kit_extensions_needed": ["explainer/Balance count + label props", "serif @fontsource font", "TextLayer fontStyle (italic)"],
+    "sfx_to_generate": ["car_alarm.wav", "siren.wav", "glass_rattle.wav"]
+  }
+}
