@@ -18,6 +18,20 @@ Rule: **one narration paragraph = one scene**; layers are anchored to spoken wor
 | horror-elevator-maintenance | horror | I Texted Elevator Maintenance At 1 A.M. (Part 1) | 79.2 s | help-line ritual |
 | horror-roommate-two-rooms | horror | My Roommate Was In Two Rooms At Once (Part 1) | 71.1 s | doppelganger |
 
+## One command (`studio-make`, lane H1)
+
+```bash
+./studio-make --niche explainer --topic "orca"                 # writes episodes/explainer-orca-v2/ (never touches a pilot)
+./studio-make --niche horror --premise "the chat has one member more than the building has flats"
+./studio-make --script backlog/explainer/<slug>/script.md       # start from a finished script (slug = its id:)
+./studio-make --slug <slug> --from storyboard                   # rerun from a step (script tts shots storyboard review render package thumbs collect)
+```
+
+No per-episode code: the storyboard comes from `episodes/<slug>/shots.json` (word-anchored scene specs, written by
+`claude -p` on the Spark from `pipeline/prompts/shots_<niche>.md`) and is built by `pipeline/episodes/auto.py`
+(anchors -> times, kit-name/hold/layout checks, zod). Outputs: `out/<slug>/` (MP4, contact sheets, thumbs, titles,
+description, MANIFEST.md); step log in `episodes/<slug>/make.log`. Findings: `research/repeatability.md`.
+
 ## Rebuild
 
 ```bash

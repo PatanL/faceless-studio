@@ -185,7 +185,10 @@ export const DepthMeter: KitComponent = ({props, time, width: W, height: H}) => 
 		);
 	});
 	const my = clamp(yOf(depth), pad, H - pad);
-	const label = `${fmtNum(Math.round(depth / num(props.round, 1)) * num(props.round, 1))}${str(props.suffix, '')} m`;
+	// suffix goes before the unit ("+" -> "1,000+ m"); a unit-like suffix (" M", "m") replaces the unit instead of doubling it
+	const sfx = str(props.suffix, '');
+	const unit = /^\s*m(etres|eters)?\s*$/i.test(sfx) ? sfx.toUpperCase() === sfx ? ' M' : ' m' : `${sfx} m`;
+	const label = `${fmtNum(Math.round(depth / num(props.round, 1)) * num(props.round, 1))}${unit}`;
 	return (
 		<svg width={W} height={H} style={{overflow: 'visible', display: 'block'}}>
 			<line x1={lx} x2={lx} y1={pad} y2={H - pad} stroke="rgba(230,245,250,0.45)" strokeWidth={3} />

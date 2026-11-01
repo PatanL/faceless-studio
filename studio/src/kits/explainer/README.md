@@ -54,11 +54,11 @@ comparison), `align: "bottom"`, `silhouette` (true or a colour: flat dark shape,
 
 | name | props |
 |---|---|
-| `DepthMeter` | `depth` (track), `max`, `step`, `window` (scrolling ruler of N m), `zones` [{from,to,label,color}], `side`, `suffix`, `size` |
+| `DepthMeter` | `depth` (track), `max`, `step`, `window` (scrolling ruler of N m), `zones` [{from,to,label,color}], `side`, `suffix` (text before the unit: "+" -> "1,000+ m"; the unit " m" is always drawn), `size` |
 | `ScaleBar` | `label` ("~16 M"), `at`, `duration`, `from` (center/left), `labelSize`, `color`. Box width = bar length (`16 * pxPerM`) |
 | `HeightChart` | `maxM`, `stepM`, `gap`, `size`, `entries` [{kind, label, heightM?, pose?, at?}] — px-per-metre fits both wall height and total width |
 | `Stat` | `value`, `from`, `prefix`, `suffix`, `decimals`, `label`, `at`, `duration` (count-up), `size`, `color`, `box` |
-| `Map` | `views` [{t, lon, lat \| place, zoom}] (log-zoom), `rings` [{place\|lon,lat, r°, at, label}], `pins` [...], `highlight` [continent keys], `grid`, `zones` [{points [[lon,lat]], at, color, label (\n ok), labelAt [lon,lat], labelAnchor}] (hatched areas drawn under the coast), rings `labelSide: "left"`. Zoom >= `detailZoom` (4) swaps in hi-res coastlines from `mapdetail.ts` (Iberia + Maghreb). Places: see `mapdata.ts` `PLACES` |
+| `Map` | `views` [{t, lon, lat \| place, zoom}] (log-zoom), `rings` [{place\|lon,lat, r°, at, label}], `pins` [...], `highlight` [continent keys], `grid`, `zones` [{points [[lon,lat]], at, color, label (\n ok), labelAt [lon,lat], labelAnchor}] (hatched areas drawn under the coast), rings `labelSide: "left"`. Zoom >= `detailZoom` (4) swaps in hi-res coastlines from `mapdetail.ts` (Iberia + Maghreb). Coarse land includes the Hawaiian islands. A place pin without coastline in `mapdata.ts` shows open ocean at high zoom: keep zoom <= 3 or add the island rings. Places: see `mapdata.ts` `PLACES` |
 | `Timer` | `from`, `to`, `at`, `rate`, `style` (box/ring), `format` (mm:ss / s), `label`, `warnBelow`, `size` |
 | `Options` | `title`, `items`, `at`, `stagger`, `itemAt` [t per item], `hidden` [{index, until, text: "???"}] (answer withheld until spoken), `strikes` [{index, at}], `select` {index, at}, `size`, `struckColor` |
 | `Sailboat` | side view across the waterline (waterline at `waterline` 0.5 of the box; use the background's layer depth so they stay locked). `snapAt` (rudder snaps off), `hits` [t], `list` (deg track), `sink` (px track), `bob` |

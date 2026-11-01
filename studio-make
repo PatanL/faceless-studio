@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# One command: topic/premise (or a script) -> script, voice, captions, storyboard, render, thumbnails, titles.
+# Orchestrates from the Mac; all heavy work runs on the Spark (CPU only). See pipeline/make.py --help.
+set -euo pipefail
+cd "$(dirname "$0")"
+exec python3 -m pipeline.make "$@"
