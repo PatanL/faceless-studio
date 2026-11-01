@@ -1,0 +1,83 @@
+[11:11:55] === studio-make explainer-giant-pacific-octopus (explainer) steps=script
+[sync] code -> dgx-spark:~/studio/app
+**This Octopus Can Learn Who You Are**: 250 spoken words. The originality check prints PASS. I counted the words by hand because the counting script needed a permission I didn't have.
+[11:15:54] script: claude -p done in 236s: **This Octopus Can Learn Who You Are**: 250 spoken words. The originality check prints PASS. I counted the words by hand because the counting script needed a permission I didn't have.
+[sync] code -> dgx-spark:~/studio/app
+PASS
+[11:15:59] script: originality PASS, 13 paragraphs, 247 words
+[11:15:59] === done in 4.1 min -> out/explainer-giant-pacific-octopus/
+[11:20:08] === studio-make explainer-giant-pacific-octopus (explainer) steps=tts,shots,storyboard,review,render,package,thumbs,collect
+[sync] code -> dgx-spark:~/studio/app
+[sync] code -> dgx-spark:~/studio/app
+WARNING: Defaulting repo_id to hexgrad/Kokoro-82M. Pass repo_id='hexgrad/Kokoro-82M' to suppress this warning.
+[tts] am_michael 86.08s audio in 56.03s, timings ['kokoro'] coverage 1.0
+[mix] -14.0 LUFS (ffmpeg), TP -1.1 dBTP, LRA 1.4, duck 3.86 dB, 12 sfx
+[make] explainer-giant-pacific-octopus: 86.48s, 247 words, 12 cues -> /home/dzliu/studio/app/studio/public/episodes/explainer-giant-pacific-octopus (61.1s)
+/home/dzliu/studio/.venv/lib/python3.12/site-packages/torch/nn/modules/rnn.py:1012: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+/home/dzliu/studio/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:145: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/home/dzliu/studio/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[11:21:14] tts: 86.5s mix in 65s
+**PASS** (no WARN lines): 13 scenes, 61 layers, in `episodes/explainer-giant-pacific-octopus/shots.json`.
+[11:26:48] shots: claude -p done in 397s: **PASS** (no WARN lines): 13 scenes, 61 layers, in `episodes/explainer-giant-pacific-octopus/shots.json`.
+[sync] code -> dgx-spark:~/studio/app
+explainer-giant-pacific-octopus: 13 scenes, 86.5s, 247 words, timing=kokoro -> episodes/explainer-giant-pacific-octopus/storyboard.json
+ok   /home/dzliu/studio/app/episodes/explainer-giant-pacific-octopus/storyboard.json: 9:16 30fps 13 scenes 86.57s captions=247 words components=explainer/Ocean,explainer/Octopus,explainer/You,explainer/Tag,explainer/Headline,explainer/Stat,explainer/Map,explainer/Options
+PASS
+[11:26:53] storyboard: PASS (0 warnings)
+[stills] explainer-giant-pacific-octopus_000.00s.jpg frame 0
+[stills] explainer-giant-pacific-octopus_001.63s.jpg frame 49
+[stills] explainer-giant-pacific-octopus_005.20s.jpg frame 156
+[stills] explainer-giant-pacific-octopus_010.32s.jpg frame 310
+[stills] explainer-giant-pacific-octopus_016.20s.jpg frame 486
+[stills] explainer-giant-pacific-octopus_022.32s.jpg frame 670
+[stills] explainer-giant-pacific-octopus_029.17s.jpg frame 875
+[stills] explainer-giant-pacific-octopus_036.36s.jpg frame 1091
+[stills] explainer-giant-pacific-octopus_044.09s.jpg frame 1323
+[stills] explainer-giant-pacific-octopus_052.19s.jpg frame 1566
+[stills] explainer-giant-pacific-octopus_060.62s.jpg frame 1819
+[stills] explainer-giant-pacific-octopus_068.53s.jpg frame 2056
+[stills] explainer-giant-pacific-octopus_077.06s.jpg frame 2312
+[stills] explainer-giant-pacific-octopus_084.20s.jpg frame 2526
+[stills] explainer-giant-pacific-octopus_086.38s.jpg frame 2591
+[stills] sheet -> /Users/patrickliu/Documents/faceless-studio/out/explainer-giant-pacific-octopus/review_r1.jpg
+[11:27:07] review 1: contact sheet out/explainer-giant-pacific-octopus/review_r1.jpg
+I made one fix, and the check prints PASS. I haven't re-rendered the stills, so the change isn't on the sheet yet.
+
+- Scene 8, 36.36s: the frame only had the "2010" tag and one small person. I added a "TWO PEOPLE" tag that appears on "two" and is replaced by "8 OCTOPUSES" on "eight". Both people now appear at the same moment instead of 0.1s apart.
+
+No other defects found: no "missing" boxes, no clipped or overlapping text, and no blank frames. Frames 0 and 1 and the last two stills share a composition, but that's the planned loop back to the opening.
+[11:27:45] review1: claude -p done in 37s: No other defects found: no "missing" boxes, no clipped or overlapping text, and no blank frames. Frames 0 and 1 and the last two stills share a composition, but that's the planned loop back to the ope
+[sync] code -> dgx-spark:~/studio/app
+explainer-giant-pacific-octopus: 13 scenes, 86.5s, 247 words, timing=kokoro -> episodes/explainer-giant-pacific-octopus/storyboard.json
+ok   /home/dzliu/studio/app/episodes/explainer-giant-pacific-octopus/storyboard.json: 9:16 30fps 13 scenes 86.57s captions=247 words components=explainer/Ocean,explainer/Octopus,explainer/You,explainer/Tag,explainer/Headline,explainer/Stat,explainer/Map,explainer/Options
+PASS
+[11:27:50] storyboard: PASS (0 warnings)
+[sync] code -> dgx-spark:~/studio/app
+[sync] node_modules up to date
+[render] waiting for render lock...
+[render] Storyboard -> ~/studio/app/studio/out/explainer-giant-pacific-octopus/explainer-giant-pacific-octopus_9x16.mp4 in 95.278143801 s (concurrency 4)
+[render] pulled -> /Users/patrickliu/Documents/faceless-studio/out/explainer-giant-pacific-octopus/explainer-giant-pacific-octopus_9x16.mp4
+[11:29:32] render: out/explainer-giant-pacific-octopus/explainer-giant-pacific-octopus_9x16.mp4 (28.3 MB) in 102s
+[sync] code -> dgx-spark:~/studio/app
+[11:34:50] === studio-make explainer-giant-pacific-octopus (explainer) steps=package,thumbs,collect
+[sync] code -> dgx-spark:~/studio/app
+**Picked title:** This Octopus Can Learn Who You Are
+[11:37:06] package: claude -p done in 133s: **Picked title:** This Octopus Can Learn Who You Are
+[sync] code -> dgx-spark:~/studio/app
+[sync] node_modules up to date
+[thumbs] explainer-giant-pacific-octopus_explainer-eye_16x9.jpg 1280x720 190 KB
+[thumbs] explainer-giant-pacific-octopus_explainer-eye_9x16.jpg 1080x1920 373 KB
+[thumbs] explainer-giant-pacific-octopus_explainer-scale_16x9.jpg 1280x720 186 KB
+[thumbs] explainer-giant-pacific-octopus_explainer-scale_9x16.jpg 1080x1920 384 KB
+[thumbs] explainer-giant-pacific-octopus-b_explainer-eye_16x9.jpg 1280x720 194 KB
+[thumbs] explainer-giant-pacific-octopus-b_explainer-eye_9x16.jpg 1080x1920 388 KB
+[thumbs] 6 stills in 5.4 s -> /home/dzliu/studio/app/studio/out/explainer-giant-pacific-octopus/thumbs
+[thumbs] sheet /home/dzliu/studio/app/studio/out/explainer-giant-pacific-octopus/thumbs/sheet_16x9.jpg (3x1)
+[thumbs] sheet /home/dzliu/studio/app/studio/out/explainer-giant-pacific-octopus/thumbs/sheet_9x16.jpg (3x1)
+[thumbs] pulled -> /Users/patrickliu/Documents/faceless-studio/out/explainer-giant-pacific-octopus/thumbs
+[11:37:20] thumbs: 8 images in out/explainer-giant-pacific-octopus/thumbs/
+[11:37:20] collect: out/explainer-giant-pacific-octopus/ (13 files)
+[11:37:20] === done in 2.5 min -> out/explainer-giant-pacific-octopus/

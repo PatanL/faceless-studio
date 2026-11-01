@@ -1,0 +1,3545 @@
+{
+ "version": 1,
+ "id": "horror-building-intercom-buzzes-3-m",
+ "title": "The Intercom Said It Was My Neighbour. She Moved Out Last Week. (Part 1)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p01",
+   "duration": 4.705,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "lock",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "lock": {
+        "time": "3:07",
+        "date": "Wednesday, 12 March",
+        "notifications": [
+         {
+          "at": -1.0,
+          "app": "Intercom",
+          "title": "Front Entrance",
+          "text": "Incoming call · 3:07 AM"
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0,
+         "duration": 0.4,
+         "amount": 1
+        },
+        {
+         "at": 1.6,
+         "duration": 0.5,
+         "amount": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 2.4,
+     "end": 4.705,
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 2.4,
+       "scale": 1.0
+      },
+      {
+       "t": 4.705,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 2.4,
+     "end": 4.705,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 0.4,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "worried"
+       },
+       {
+        "t": 3.113,
+        "e": "scared"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "At three oh seven, my intercom buzzed. The voice said it was June, from downstairs.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.6,
+      "zoom": 1.02,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.85,
+      "zoom": 1.2,
+      "x": "53%",
+      "y": "42%",
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.6,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 3.505,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 0.6,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ],
+      "phone": {
+       "mode": "chat",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "chat": {
+        "title": "Maple Row Residents",
+        "count": 24,
+        "dayLabel": "Tue",
+        "accent": "#3d5a80",
+        "clock": "3:07",
+        "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana (4D)",
+          "text": "who keeps leaving the lobby door on the latch",
+          "at": 0
+         },
+         {
+          "from": "June (3B)",
+          "text": "Anyone want my plants before the van comes? 🌿",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "Farewell to June in 3B! Moving van came today 📦",
+          "at": 0.6
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 0.6,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g2"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 2.025,
+     "end": 3.505,
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 2.025,
+       "scale": 1.0
+      },
+      {
+       "t": 3.505,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 2.025,
+     "end": 3.505,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 0.5,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "shocked"
+       },
+       {
+        "t": 2.725,
+        "e": "suspicious"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "But June moved out last Tuesday. The building chat said so.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 0.6,
+      "zoom": 1.02,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.85,
+      "zoom": 1.2,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 3.505,
+      "zoom": 1.23,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 4.615,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "call",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "call": {
+        "name": "Front Entrance",
+        "sub": "Intercom · Maple Row",
+        "label": "Intercom call",
+        "at": 0,
+        "connectedAt": 0.6
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 1.338,
+     "end": 3.475,
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.5
+     },
+     "keyframes": [
+      {
+       "t": 1.338,
+       "scale": 1.0
+      },
+      {
+       "t": 3.475,
+       "scale": 1.06,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 1.338,
+     "end": 3.475,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "ear",
+      "lookX": -0.3,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "worried"
+       },
+       {
+        "t": 2.55,
+        "e": "suspicious"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "She sounded tired. Nora, it's June. I locked myself out. Can you buzz me in?",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 3.475,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.725,
+      "zoom": 1.2,
+      "x": "53%",
+      "y": "45%",
+      "ease": "out"
+     },
+     {
+      "t": 4.615,
+      "zoom": 1.23,
+      "x": "53%",
+      "y": "45%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 7.365,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "call",
+       "screens": [
+        {
+         "t": 0,
+         "mode": "call"
+        },
+        {
+         "t": 1.175,
+         "mode": "chat"
+        }
+       ],
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "call": {
+        "name": "Front Entrance",
+        "sub": "Muted",
+        "label": "Intercom call",
+        "at": 0,
+        "connectedAt": 0
+       },
+       "chat": {
+        "title": "Maple Row Residents",
+        "count": 24,
+        "dayLabel": "Tue",
+        "accent": "#3d5a80",
+        "clock": "3:08",
+        "battery": 30,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana (4D)",
+          "text": "who keeps leaving the lobby door on the latch",
+          "at": 0
+         },
+         {
+          "from": "June (3B)",
+          "text": "Anyone want my plants before the van comes? 🌿",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "Farewell to June in 3B! Moving van came today 📦",
+          "at": 0
+         },
+         {
+          "kind": "system",
+          "text": "Today 3:08 AM",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "She's gone. I carried her sofa to the van myself.",
+          "at": 4.575
+         }
+        ],
+        "typing": [
+         {
+          "from": "Mr. Okafor (2A)",
+          "at": 2.625,
+          "until": 4.575
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 5.887,
+     "end": 7.365,
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 5.887,
+       "scale": 1.0
+      },
+      {
+       "t": 7.365,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 5.887,
+     "end": 7.365,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 0.5,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "I muted the call and opened the chat. Mr. Okafor in Two-A had written: She's gone. I carried her sofa to the van myself.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.175,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.575,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.825,
+      "zoom": 1.2,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 7.365,
+      "zoom": 1.23,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 4.7,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "chat",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "chat": {
+        "title": "Maple Row Residents",
+        "count": 24,
+        "dayLabel": "Tue",
+        "accent": "#3d5a80",
+        "clock": "3:08",
+        "battery": 30,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana (4D)",
+          "text": "who keeps leaving the lobby door on the latch",
+          "at": 0
+         },
+         {
+          "from": "June (3B)",
+          "text": "Anyone want my plants before the van comes? 🌿",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "Farewell to June in 3B! Moving van came today 📦",
+          "at": 0
+         },
+         {
+          "kind": "system",
+          "text": "Today 3:08 AM",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "She's gone. I carried her sofa to the van myself.",
+          "at": 0
+         },
+         {
+          "from": "Theo (6C)",
+          "text": "Maybe she came back for something? Go to sleep, everyone.",
+          "at": 1.7
+         }
+        ],
+        "typing": [
+         {
+          "from": "Theo (6C)",
+          "at": 0.15,
+          "until": 1.7
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 3.375,
+     "end": 4.7,
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 3.375,
+       "scale": 1.0
+      },
+      {
+       "t": 4.7,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 3.375,
+     "end": 4.7,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 0.5,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "suspicious"
+       },
+       {
+        "t": 3.937,
+        "e": "worried"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "Theo in Six-C replied: Maybe she came back for something? Go to sleep, everyone.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.7,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.95,
+      "zoom": 1.2,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 4.7,
+      "zoom": 1.23,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 6.68,
+   "background": {
+    "type": "component",
+    "name": "horror/Bedroom",
+    "depth": 0.25,
+    "props": {
+     "lamp": 0.2,
+     "phoneGlow": 0.5
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "ear",
+      "lookX": -0.3,
+      "talk": [
+       [
+        5.012,
+        6.12
+       ]
+      ],
+      "exprs": [
+       {
+        "t": 0,
+        "e": "worried"
+       },
+       {
+        "t": 0.375,
+        "e": "suspicious"
+       },
+       {
+        "t": 2.2,
+        "e": "neutral"
+       },
+       {
+        "t": 3.225,
+        "e": "worried"
+       },
+       {
+        "t": 4.337,
+        "e": "suspicious"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 45,
+     "props": {
+      "x": 0.5,
+      "y": 0.6,
+      "radius": 0.6,
+      "darkness": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "So I tested her. June used to feed my cat, and she kept my spare key. I asked the voice what my cat was called.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "55%"
+     },
+     {
+      "t": 4.337,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "55%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.587,
+      "zoom": 1.2,
+      "x": "50%",
+      "y": "62%",
+      "ease": "out"
+     },
+     {
+      "t": 6.68,
+      "zoom": 1.23,
+      "x": "50%",
+      "y": "62%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 2.575,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "call",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "call": {
+        "name": "Front Entrance",
+        "sub": "Intercom · Maple Row",
+        "label": "Intercom call",
+        "at": 0,
+        "connectedAt": -1.0
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 0.975,
+     "end": 2.575,
+     "props": {
+      "lamp": 0.1,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 0.975,
+       "scale": 1.0
+      },
+      {
+       "t": 2.575,
+       "scale": 1.06,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 0.975,
+     "end": 2.575,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "ear",
+      "lookX": -0.2,
+      "blink": false,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 2.05,
+        "e": "terrified"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "bpm": 70,
+      "bpmTo": 95,
+      "from": 0.45
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "She said Pickles. Instantly. She was right.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 0.45,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.7,
+      "zoom": 1.2,
+      "x": "53%",
+      "y": "45%",
+      "ease": "out"
+     },
+     {
+      "t": 2.575,
+      "zoom": 1.23,
+      "x": "53%",
+      "y": "45%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.45,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 5.16,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "phoneGlow": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 3.738,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ],
+      "phone": {
+       "mode": "chat",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "chat": {
+        "title": "Maple Row Residents",
+        "count": 24,
+        "dayLabel": "Tue",
+        "accent": "#3d5a80",
+        "clock": "3:10",
+        "battery": 30,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "Dana (4D)",
+          "text": "who keeps leaving the lobby door on the latch",
+          "at": 0
+         },
+         {
+          "from": "June (3B)",
+          "text": "Anyone want my plants before the van comes? 🌿",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "Farewell to June in 3B! Moving van came today 📦",
+          "at": 0
+         },
+         {
+          "kind": "system",
+          "text": "Today 3:08 AM",
+          "at": 0
+         },
+         {
+          "from": "Mr. Okafor (2A)",
+          "text": "She's gone. I carried her sofa to the van myself.",
+          "at": 0
+         },
+         {
+          "from": "Theo (6C)",
+          "text": "Maybe she came back for something? Go to sleep, everyone.",
+          "at": 0
+         },
+         {
+          "from": "Priya (5A)",
+          "text": "I'm watching the lobby camera.",
+          "at": 2.25
+         },
+         {
+          "from": "Priya (5A)",
+          "text": "Nobody is at the front door.",
+          "kind": "alert",
+          "at": 3.738
+         }
+        ],
+        "typing": [
+         {
+          "from": "Priya (5A)",
+          "at": 0.338,
+          "until": 2.25
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 3.738,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g8"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0,
+     "z": 40,
+     "start": 4.45,
+     "end": 5.16,
+     "props": {
+      "lamp": 0.1,
+      "phoneGlow": 0.8
+     },
+     "keyframes": [
+      {
+       "t": 4.45,
+       "scale": 1.0
+      },
+      {
+       "t": 5.16,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 4.45,
+     "end": 5.16,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 0.5,
+      "blink": false,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "shocked"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "Then Priya in Five-A posted. I'm watching the lobby camera. Nobody is at the front door.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.25,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.5,
+      "zoom": 1.2,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 3.738,
+      "zoom": 1.22,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.938,
+      "zoom": 1.25,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 5.16,
+      "zoom": 1.26,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.738,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 7.0,
+   "background": {
+    "type": "component",
+    "name": "horror/ElevatorPanel",
+    "depth": 0.25,
+    "props": {
+     "from": 0,
+     "to": 3,
+     "at": 3.538,
+     "perFloor": 0.55,
+     "target": 3,
+     "flicker": 0.1
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0,
+     "z": 40,
+     "start": 1.613,
+     "end": 3.538,
+     "props": {
+      "flicker": 0.2,
+      "lights": 2,
+      "endDoor": true,
+      "runner": true
+     },
+     "keyframes": [
+      {
+       "t": 1.613,
+       "scale": 1.0
+      },
+      {
+       "t": 3.538,
+       "scale": 1.08,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "fill": "#000000",
+     "opacity": 0.85,
+     "width": "100%",
+     "height": "100%",
+     "depth": 0,
+     "z": 44,
+     "start": 0,
+     "end": 1.613
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "depth": 0,
+     "z": 45,
+     "start": 0,
+     "end": 1.613,
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "call",
+       "screens": [
+        {
+         "t": 0,
+         "mode": "call"
+        },
+        {
+         "t": 0.525,
+         "mode": "lock"
+        }
+       ],
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "call": {
+        "name": "Front Entrance",
+        "sub": "Muted",
+        "label": "Intercom call",
+        "at": 0,
+        "connectedAt": -1.0
+       },
+       "lock": {
+        "time": "3:10",
+        "date": "Wednesday, 12 March",
+        "notifications": [
+         {
+          "at": 0.525,
+          "app": "Phone",
+          "title": "Call ended",
+          "text": "Front Entrance · 2:51"
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "strength": 0.3,
+      "from": 5.625,
+      "seed": "el"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "The call dropped on its own. Out in the hall, the elevator started climbing. One. Two. Three. It stopped at June's floor.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 4.038,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.538,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%",
+      "ease": "out"
+     },
+     {
+      "t": 4.838,
+      "zoom": 1.12,
+      "x": "50%",
+      "y": "50%",
+      "ease": "out"
+     },
+     {
+      "t": 5.625,
+      "zoom": 1.13,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.875,
+      "zoom": 1.2,
+      "x": "50%",
+      "y": "45%",
+      "ease": "out"
+     },
+     {
+      "t": 7.0,
+      "zoom": 1.23,
+      "x": "50%",
+      "y": "45%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 5.625,
+      "duration": 0.3,
+      "amplitude": 8
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 4.42,
+   "background": {
+    "type": "component",
+    "name": "horror/LivingRoom",
+    "depth": 0.25,
+    "props": {
+     "lamp": 0,
+     "tv": "off"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookY": 1,
+      "blink": false,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 0.638,
+        "e": "shocked"
+       },
+       {
+        "t": 3.05,
+        "e": "terrified"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 45,
+     "props": {
+      "x": 0.5,
+      "y": 0.62,
+      "radius": 0.55,
+      "darkness": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "Then I heard footsteps right under my feet. Inside the empty flat below me.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "55%"
+     },
+     {
+      "t": 2.513,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "55%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.763,
+      "zoom": 1.2,
+      "x": "50%",
+      "y": "62%",
+      "ease": "out"
+     },
+     {
+      "t": 4.42,
+      "zoom": 1.23,
+      "x": "50%",
+      "y": "62%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.638,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 5.53,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "tv": "off"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 4.525,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ],
+      "phone": {
+       "mode": "lock",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "lock": {
+        "time": "3:11",
+        "date": "Wednesday, 12 March",
+        "notifications": [
+         {
+          "at": 0.838,
+          "app": "Intercom",
+          "title": "Unit 3B",
+          "text": "Incoming call · 3:11 AM"
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.838,
+         "duration": 0.6,
+         "amount": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 70,
+     "props": {
+      "text": "UNIT 3B",
+      "at": 4.525,
+      "duration": 1.4,
+      "style": "flash",
+      "fontSize": 150,
+      "strobe": 8,
+      "y": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 4.525,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g11"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "The intercom buzzed again. This time the screen didn't say Front Entrance. It said Unit Three-B.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.275,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.525,
+      "zoom": 1.2,
+      "x": "53%",
+      "y": "42%",
+      "ease": "out"
+     },
+     {
+      "t": 4.525,
+      "zoom": 1.21,
+      "x": "53%",
+      "y": "42%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.675,
+      "zoom": 1.26,
+      "x": "53%",
+      "y": "42%",
+      "ease": "out"
+     },
+     {
+      "t": 5.53,
+      "zoom": 1.27,
+      "x": "53%",
+      "y": "42%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.838,
+      "duration": 0.4,
+      "amplitude": 14
+     },
+     {
+      "at": 4.525,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "p12",
+   "duration": 4.99,
+   "background": {
+    "type": "color",
+    "color": "#050506"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "depth": 1,
+     "props": {
+      "figure": "none",
+      "flicker": 0.25,
+      "radius": 0.52,
+      "exposure": 2.2,
+      "vignette": 0.45,
+      "surround": "#050506"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "depth": 0,
+     "z": 40,
+     "start": 2.05,
+     "end": 3.0,
+     "props": {
+      "lamp": 0,
+      "tv": "off"
+     },
+     "keyframes": [
+      {
+       "t": 2.05,
+       "scale": 1.0
+      },
+      {
+       "t": 3.0,
+       "scale": 1.05,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "depth": 0,
+     "z": 41,
+     "start": 2.05,
+     "end": 3.0,
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "pose": "cover",
+      "lookY": 0.6,
+      "blink": false,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "terrified"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "bpm": 110,
+      "intensity": 0.8
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 56,
+     "props": {
+      "strength": 0.25,
+      "seed": "pp",
+      "blackouts": [
+       {
+        "at": 4.055,
+        "duration": 0.12
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "Never mind, Nora, said the voice. I found my keys. I'm home now.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 3.05,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.3,
+      "zoom": 1.2,
+      "x": "50%",
+      "y": "48%",
+      "ease": "out"
+     },
+     {
+      "t": 4.99,
+      "zoom": 1.25,
+      "x": "50%",
+      "y": "48%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p13",
+   "duration": 11.465,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0,
+      "tv": "off"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "mode": "chat",
+       "members": {
+        "Mr. Okafor (2A)": {
+         "color": "#8f6a4a",
+         "initials": "O"
+        },
+        "Theo (6C)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Priya (5A)": {
+         "color": "#7a5c8f",
+         "initials": "P"
+        },
+        "June (3B)": {
+         "color": "#a05a4a",
+         "initials": "J"
+        },
+        "Dana (4D)": {
+         "color": "#4a628f",
+         "initials": "D"
+        }
+       },
+       "chat": {
+        "title": "June 3B",
+        "subtitle": "mobile",
+        "dayLabel": "Tue",
+        "accent": "#3d5a80",
+        "clock": "3:12",
+        "battery": 29,
+        "theme": "dark",
+        "scale": 1.25,
+        "messages": [
+         {
+          "from": "June (3B)",
+          "text": "Van's here! Thanks for everything, Nora 💛",
+          "at": 0
+         },
+         {
+          "me": true,
+          "text": "Safe travels!! Text me when you land",
+          "at": 0
+         },
+         {
+          "from": "June (3B)",
+          "text": "Nora, I'm four hundred miles away. Your spare key is still hanging on the hook inside my door.",
+          "at": 0.75
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.75,
+         "duration": 0.4,
+         "amount": 1
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 6.2,
+        "duration": 0.2,
+        "amount": 1
+       },
+       {
+        "at": 8.925,
+        "duration": 0.15,
+        "amount": 0.6
+       },
+       {
+        "at": 10.265,
+        "duration": 0.15,
+        "amount": 0.6
+       }
+      ],
+      "seed": "g13"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/EndCard",
+     "depth": 0,
+     "z": 80,
+     "start": 6.2,
+     "props": {
+      "rule": "YOUR KEY NEVER LEFT.",
+      "from": "June (3B)",
+      "sub": "real number",
+      "label": "PART 2",
+      "at": 6.2,
+      "stampAt": 7.525,
+      "stampY": 0.74
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.4
+     }
+    }
+   ],
+   "notes": "Then a text arrived from June's real number. Nora, I'm four hundred miles away. Your spare key is still hanging on the hook inside my door.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 0.75,
+      "zoom": 1.03,
+      "x": "50%",
+      "y": "50%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.0,
+      "zoom": 1.2,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 3.513,
+      "zoom": 1.21,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.713,
+      "zoom": 1.24,
+      "x": "55.6%",
+      "y": "76%",
+      "ease": "out"
+     },
+     {
+      "t": 5.1,
+      "zoom": 1.21,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 5.25,
+      "zoom": 1.22,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.45,
+      "zoom": 1.26,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "out"
+     },
+     {
+      "t": 11.465,
+      "zoom": 1.27,
+      "x": "55.6%",
+      "y": "77.7%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 7.525,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "At",
+    "start": 0.1,
+    "end": 0.25
+   },
+   {
+    "text": "three",
+    "start": 0.25,
+    "end": 0.463
+   },
+   {
+    "text": "oh",
+    "start": 0.463,
+    "end": 0.612
+   },
+   {
+    "text": "seven,",
+    "start": 0.612,
+    "end": 0.95
+   },
+   {
+    "text": "my",
+    "start": 0.987,
+    "end": 1.125
+   },
+   {
+    "text": "intercom",
+    "start": 1.125,
+    "end": 1.6
+   },
+   {
+    "text": "buzzed.",
+    "start": 1.6,
+    "end": 2.225
+   },
+   {
+    "text": "The",
+    "start": 2.35,
+    "end": 2.45
+   },
+   {
+    "text": "voice",
+    "start": 2.45,
+    "end": 2.725
+   },
+   {
+    "text": "said",
+    "start": 2.725,
+    "end": 2.863
+   },
+   {
+    "text": "it",
+    "start": 2.863,
+    "end": 2.938
+   },
+   {
+    "text": "was",
+    "start": 2.938,
+    "end": 3.113
+   },
+   {
+    "text": "June,",
+    "start": 3.113,
+    "end": 3.5
+   },
+   {
+    "text": "from",
+    "start": 3.55,
+    "end": 3.7
+   },
+   {
+    "text": "downstairs.",
+    "start": 3.7,
+    "end": 4.57
+   },
+   {
+    "text": "But",
+    "start": 4.855,
+    "end": 4.992
+   },
+   {
+    "text": "June",
+    "start": 4.992,
+    "end": 5.305
+   },
+   {
+    "text": "moved",
+    "start": 5.305,
+    "end": 5.542,
+    "emph": true
+   },
+   {
+    "text": "out",
+    "start": 5.542,
+    "end": 5.692
+   },
+   {
+    "text": "last",
+    "start": 5.692,
+    "end": 5.93
+   },
+   {
+    "text": "Tuesday.",
+    "start": 5.93,
+    "end": 6.555,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 6.68,
+    "end": 6.78
+   },
+   {
+    "text": "building",
+    "start": 6.78,
+    "end": 7.155
+   },
+   {
+    "text": "chat",
+    "start": 7.155,
+    "end": 7.43
+   },
+   {
+    "text": "said",
+    "start": 7.43,
+    "end": 7.655
+   },
+   {
+    "text": "so.",
+    "start": 7.655,
+    "end": 8.05
+   },
+   {
+    "text": "She",
+    "start": 8.36,
+    "end": 8.485
+   },
+   {
+    "text": "sounded",
+    "start": 8.485,
+    "end": 8.81
+   },
+   {
+    "text": "tired.",
+    "start": 8.81,
+    "end": 9.46
+   },
+   {
+    "text": "Nora,",
+    "start": 9.598,
+    "end": 9.91
+   },
+   {
+    "text": "it's",
+    "start": 9.96,
+    "end": 10.16
+   },
+   {
+    "text": "June.",
+    "start": 10.16,
+    "end": 10.535
+   },
+   {
+    "text": "I",
+    "start": 10.61,
+    "end": 10.76
+   },
+   {
+    "text": "locked",
+    "start": 10.76,
+    "end": 11.022
+   },
+   {
+    "text": "myself",
+    "start": 11.022,
+    "end": 11.385
+   },
+   {
+    "text": "out.",
+    "start": 11.385,
+    "end": 11.66
+   },
+   {
+    "text": "Can",
+    "start": 11.735,
+    "end": 11.872
+   },
+   {
+    "text": "you",
+    "start": 11.872,
+    "end": 11.96
+   },
+   {
+    "text": "buzz",
+    "start": 11.96,
+    "end": 12.172
+   },
+   {
+    "text": "me",
+    "start": 12.172,
+    "end": 12.31
+   },
+   {
+    "text": "in?",
+    "start": 12.31,
+    "end": 12.69
+   },
+   {
+    "text": "I",
+    "start": 12.975,
+    "end": 13.1
+   },
+   {
+    "text": "muted",
+    "start": 13.1,
+    "end": 13.412
+   },
+   {
+    "text": "the",
+    "start": 13.412,
+    "end": 13.5
+   },
+   {
+    "text": "call",
+    "start": 13.5,
+    "end": 13.875
+   },
+   {
+    "text": "and",
+    "start": 13.875,
+    "end": 14.0
+   },
+   {
+    "text": "opened",
+    "start": 14.0,
+    "end": 14.287
+   },
+   {
+    "text": "the",
+    "start": 14.287,
+    "end": 14.375
+   },
+   {
+    "text": "chat.",
+    "start": 14.375,
+    "end": 14.975
+   },
+   {
+    "text": "Mr.",
+    "start": 15.113,
+    "end": 15.45
+   },
+   {
+    "text": "Okafor",
+    "start": 15.45,
+    "end": 15.975
+   },
+   {
+    "text": "in",
+    "start": 15.975,
+    "end": 16.125
+   },
+   {
+    "text": "Two-A",
+    "start": 16.125,
+    "end": 16.5
+   },
+   {
+    "text": "had",
+    "start": 16.5,
+    "end": 16.675
+   },
+   {
+    "text": "written:",
+    "start": 16.675,
+    "end": 17.075
+   },
+   {
+    "text": "She's",
+    "start": 17.188,
+    "end": 17.4
+   },
+   {
+    "text": "gone.",
+    "start": 17.4,
+    "end": 18.0,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 18.125,
+    "end": 18.275
+   },
+   {
+    "text": "carried",
+    "start": 18.275,
+    "end": 18.587
+   },
+   {
+    "text": "her",
+    "start": 18.587,
+    "end": 18.712
+   },
+   {
+    "text": "sofa",
+    "start": 18.712,
+    "end": 19.1
+   },
+   {
+    "text": "to",
+    "start": 19.1,
+    "end": 19.188
+   },
+   {
+    "text": "the",
+    "start": 19.188,
+    "end": 19.275
+   },
+   {
+    "text": "van",
+    "start": 19.275,
+    "end": 19.512
+   },
+   {
+    "text": "myself.",
+    "start": 19.512,
+    "end": 20.03
+   },
+   {
+    "text": "Theo",
+    "start": 20.34,
+    "end": 20.615
+   },
+   {
+    "text": "in",
+    "start": 20.615,
+    "end": 20.765
+   },
+   {
+    "text": "Six-C",
+    "start": 20.765,
+    "end": 21.165
+   },
+   {
+    "text": "replied:",
+    "start": 21.165,
+    "end": 21.79
+   },
+   {
+    "text": "Maybe",
+    "start": 21.89,
+    "end": 22.165
+   },
+   {
+    "text": "she",
+    "start": 22.165,
+    "end": 22.315
+   },
+   {
+    "text": "came",
+    "start": 22.315,
+    "end": 22.515
+   },
+   {
+    "text": "back",
+    "start": 22.515,
+    "end": 22.777
+   },
+   {
+    "text": "for",
+    "start": 22.777,
+    "end": 22.89
+   },
+   {
+    "text": "something?",
+    "start": 22.89,
+    "end": 23.465
+   },
+   {
+    "text": "Go",
+    "start": 23.565,
+    "end": 23.703
+   },
+   {
+    "text": "to",
+    "start": 23.703,
+    "end": 23.828
+   },
+   {
+    "text": "sleep,",
+    "start": 23.828,
+    "end": 24.09
+   },
+   {
+    "text": "everyone.",
+    "start": 24.127,
+    "end": 24.73
+   },
+   {
+    "text": "So",
+    "start": 25.04,
+    "end": 25.127
+   },
+   {
+    "text": "I",
+    "start": 25.127,
+    "end": 25.265
+   },
+   {
+    "text": "tested",
+    "start": 25.265,
+    "end": 25.627
+   },
+   {
+    "text": "her.",
+    "start": 25.627,
+    "end": 26.015
+   },
+   {
+    "text": "June",
+    "start": 26.152,
+    "end": 26.465
+   },
+   {
+    "text": "used",
+    "start": 26.465,
+    "end": 26.652
+   },
+   {
+    "text": "to",
+    "start": 26.652,
+    "end": 26.74
+   },
+   {
+    "text": "feed",
+    "start": 26.74,
+    "end": 26.927
+   },
+   {
+    "text": "my",
+    "start": 26.927,
+    "end": 27.09
+   },
+   {
+    "text": "cat,",
+    "start": 27.09,
+    "end": 27.415
+   },
+   {
+    "text": "and",
+    "start": 27.49,
+    "end": 27.615
+   },
+   {
+    "text": "she",
+    "start": 27.615,
+    "end": 27.74
+   },
+   {
+    "text": "kept",
+    "start": 27.74,
+    "end": 27.977
+   },
+   {
+    "text": "my",
+    "start": 27.977,
+    "end": 28.115
+   },
+   {
+    "text": "spare",
+    "start": 28.115,
+    "end": 28.415
+   },
+   {
+    "text": "key.",
+    "start": 28.415,
+    "end": 28.915
+   },
+   {
+    "text": "I",
+    "start": 29.04,
+    "end": 29.227
+   },
+   {
+    "text": "asked",
+    "start": 29.227,
+    "end": 29.502
+   },
+   {
+    "text": "the",
+    "start": 29.502,
+    "end": 29.59
+   },
+   {
+    "text": "voice",
+    "start": 29.59,
+    "end": 29.902
+   },
+   {
+    "text": "what",
+    "start": 29.902,
+    "end": 30.027
+   },
+   {
+    "text": "my",
+    "start": 30.027,
+    "end": 30.165
+   },
+   {
+    "text": "cat",
+    "start": 30.165,
+    "end": 30.402
+   },
+   {
+    "text": "was",
+    "start": 30.402,
+    "end": 30.54
+   },
+   {
+    "text": "called.",
+    "start": 30.54,
+    "end": 31.01
+   },
+   {
+    "text": "She",
+    "start": 31.72,
+    "end": 31.845
+   },
+   {
+    "text": "said",
+    "start": 31.845,
+    "end": 32.02
+   },
+   {
+    "text": "Pickles.",
+    "start": 32.02,
+    "end": 32.47,
+    "emph": true
+   },
+   {
+    "text": "Instantly.",
+    "start": 32.545,
+    "end": 33.195
+   },
+   {
+    "text": "She",
+    "start": 33.332,
+    "end": 33.457
+   },
+   {
+    "text": "was",
+    "start": 33.457,
+    "end": 33.62
+   },
+   {
+    "text": "right.",
+    "start": 33.62,
+    "end": 34.01
+   },
+   {
+    "text": "Then",
+    "start": 34.295,
+    "end": 34.483
+   },
+   {
+    "text": "Priya",
+    "start": 34.483,
+    "end": 34.87
+   },
+   {
+    "text": "in",
+    "start": 34.87,
+    "end": 35.032
+   },
+   {
+    "text": "Five-A",
+    "start": 35.032,
+    "end": 35.445
+   },
+   {
+    "text": "posted.",
+    "start": 35.445,
+    "end": 36.12
+   },
+   {
+    "text": "I'm",
+    "start": 36.22,
+    "end": 36.395
+   },
+   {
+    "text": "watching",
+    "start": 36.395,
+    "end": 36.733
+   },
+   {
+    "text": "the",
+    "start": 36.733,
+    "end": 36.82
+   },
+   {
+    "text": "lobby",
+    "start": 36.82,
+    "end": 37.12
+   },
+   {
+    "text": "camera.",
+    "start": 37.12,
+    "end": 37.745
+   },
+   {
+    "text": "Nobody",
+    "start": 37.883,
+    "end": 38.295,
+    "emph": true
+   },
+   {
+    "text": "is",
+    "start": 38.295,
+    "end": 38.42
+   },
+   {
+    "text": "at",
+    "start": 38.42,
+    "end": 38.508
+   },
+   {
+    "text": "the",
+    "start": 38.508,
+    "end": 38.595
+   },
+   {
+    "text": "front",
+    "start": 38.595,
+    "end": 38.82
+   },
+   {
+    "text": "door.",
+    "start": 38.82,
+    "end": 39.17
+   },
+   {
+    "text": "The",
+    "start": 39.455,
+    "end": 39.53
+   },
+   {
+    "text": "call",
+    "start": 39.53,
+    "end": 39.83
+   },
+   {
+    "text": "dropped",
+    "start": 39.83,
+    "end": 40.118
+   },
+   {
+    "text": "on",
+    "start": 40.118,
+    "end": 40.218
+   },
+   {
+    "text": "its",
+    "start": 40.218,
+    "end": 40.355
+   },
+   {
+    "text": "own.",
+    "start": 40.355,
+    "end": 40.855
+   },
+   {
+    "text": "Out",
+    "start": 40.968,
+    "end": 41.168
+   },
+   {
+    "text": "in",
+    "start": 41.168,
+    "end": 41.243
+   },
+   {
+    "text": "the",
+    "start": 41.243,
+    "end": 41.33
+   },
+   {
+    "text": "hall,",
+    "start": 41.33,
+    "end": 41.555
+   },
+   {
+    "text": "the",
+    "start": 41.593,
+    "end": 41.705
+   },
+   {
+    "text": "elevator",
+    "start": 41.705,
+    "end": 42.155
+   },
+   {
+    "text": "started",
+    "start": 42.155,
+    "end": 42.455
+   },
+   {
+    "text": "climbing.",
+    "start": 42.455,
+    "end": 43.205
+   },
+   {
+    "text": "One.",
+    "start": 43.343,
+    "end": 43.73
+   },
+   {
+    "text": "Two.",
+    "start": 43.843,
+    "end": 44.08
+   },
+   {
+    "text": "Three.",
+    "start": 44.143,
+    "end": 44.63
+   },
+   {
+    "text": "It",
+    "start": 44.755,
+    "end": 44.93
+   },
+   {
+    "text": "stopped",
+    "start": 44.93,
+    "end": 45.243
+   },
+   {
+    "text": "at",
+    "start": 45.243,
+    "end": 45.343
+   },
+   {
+    "text": "June's",
+    "start": 45.343,
+    "end": 45.705
+   },
+   {
+    "text": "floor.",
+    "start": 45.705,
+    "end": 46.17
+   },
+   {
+    "text": "Then",
+    "start": 46.455,
+    "end": 46.568
+   },
+   {
+    "text": "I",
+    "start": 46.568,
+    "end": 46.68
+   },
+   {
+    "text": "heard",
+    "start": 46.68,
+    "end": 46.943
+   },
+   {
+    "text": "footsteps",
+    "start": 46.943,
+    "end": 47.518,
+    "emph": true
+   },
+   {
+    "text": "right",
+    "start": 47.518,
+    "end": 47.743
+   },
+   {
+    "text": "under",
+    "start": 47.743,
+    "end": 47.918
+   },
+   {
+    "text": "my",
+    "start": 47.918,
+    "end": 48.093
+   },
+   {
+    "text": "feet.",
+    "start": 48.093,
+    "end": 48.68
+   },
+   {
+    "text": "Inside",
+    "start": 48.818,
+    "end": 49.243
+   },
+   {
+    "text": "the",
+    "start": 49.243,
+    "end": 49.355
+   },
+   {
+    "text": "empty",
+    "start": 49.355,
+    "end": 49.668,
+    "emph": true
+   },
+   {
+    "text": "flat",
+    "start": 49.668,
+    "end": 49.955
+   },
+   {
+    "text": "below",
+    "start": 49.955,
+    "end": 50.268
+   },
+   {
+    "text": "me.",
+    "start": 50.268,
+    "end": 50.59
+   },
+   {
+    "text": "The",
+    "start": 50.875,
+    "end": 51.0
+   },
+   {
+    "text": "intercom",
+    "start": 51.0,
+    "end": 51.563
+   },
+   {
+    "text": "buzzed",
+    "start": 51.563,
+    "end": 51.863
+   },
+   {
+    "text": "again.",
+    "start": 51.863,
+    "end": 52.375
+   },
+   {
+    "text": "This",
+    "start": 52.475,
+    "end": 52.675
+   },
+   {
+    "text": "time",
+    "start": 52.675,
+    "end": 52.913
+   },
+   {
+    "text": "the",
+    "start": 52.913,
+    "end": 53.0
+   },
+   {
+    "text": "screen",
+    "start": 53.0,
+    "end": 53.375
+   },
+   {
+    "text": "didn't",
+    "start": 53.375,
+    "end": 53.6
+   },
+   {
+    "text": "say",
+    "start": 53.6,
+    "end": 53.838
+   },
+   {
+    "text": "Front",
+    "start": 53.838,
+    "end": 54.075
+   },
+   {
+    "text": "Entrance.",
+    "start": 54.075,
+    "end": 54.75
+   },
+   {
+    "text": "It",
+    "start": 54.85,
+    "end": 55.025
+   },
+   {
+    "text": "said",
+    "start": 55.025,
+    "end": 55.25
+   },
+   {
+    "text": "Unit",
+    "start": 55.25,
+    "end": 55.525
+   },
+   {
+    "text": "Three-B.",
+    "start": 55.525,
+    "end": 56.07,
+    "emph": true
+   },
+   {
+    "text": "Never",
+    "start": 56.405,
+    "end": 56.63
+   },
+   {
+    "text": "mind,",
+    "start": 56.63,
+    "end": 56.955
+   },
+   {
+    "text": "Nora,",
+    "start": 56.993,
+    "end": 57.23
+   },
+   {
+    "text": "said",
+    "start": 57.28,
+    "end": 57.418
+   },
+   {
+    "text": "the",
+    "start": 57.418,
+    "end": 57.505
+   },
+   {
+    "text": "voice.",
+    "start": 57.505,
+    "end": 58.105
+   },
+   {
+    "text": "I",
+    "start": 58.205,
+    "end": 58.355
+   },
+   {
+    "text": "found",
+    "start": 58.355,
+    "end": 58.568
+   },
+   {
+    "text": "my",
+    "start": 58.568,
+    "end": 58.705
+   },
+   {
+    "text": "keys.",
+    "start": 58.705,
+    "end": 59.08
+   },
+   {
+    "text": "I'm",
+    "start": 59.13,
+    "end": 59.305
+   },
+   {
+    "text": "home",
+    "start": 59.305,
+    "end": 59.543,
+    "emph": true
+   },
+   {
+    "text": "now.",
+    "start": 59.543,
+    "end": 59.91
+   },
+   {
+    "text": "Then",
+    "start": 61.395,
+    "end": 61.508
+   },
+   {
+    "text": "a",
+    "start": 61.508,
+    "end": 61.608
+   },
+   {
+    "text": "text",
+    "start": 61.608,
+    "end": 61.995
+   },
+   {
+    "text": "arrived",
+    "start": 61.995,
+    "end": 62.42
+   },
+   {
+    "text": "from",
+    "start": 62.42,
+    "end": 62.633
+   },
+   {
+    "text": "June's",
+    "start": 62.633,
+    "end": 63.02
+   },
+   {
+    "text": "real",
+    "start": 63.02,
+    "end": 63.258
+   },
+   {
+    "text": "number.",
+    "start": 63.258,
+    "end": 63.82
+   },
+   {
+    "text": "Nora,",
+    "start": 63.958,
+    "end": 64.445
+   },
+   {
+    "text": "I'm",
+    "start": 64.545,
+    "end": 64.758
+   },
+   {
+    "text": "four",
+    "start": 64.758,
+    "end": 64.995
+   },
+   {
+    "text": "hundred",
+    "start": 64.995,
+    "end": 65.32
+   },
+   {
+    "text": "miles",
+    "start": 65.32,
+    "end": 65.62
+   },
+   {
+    "text": "away.",
+    "start": 65.62,
+    "end": 66.22
+   },
+   {
+    "text": "Your",
+    "start": 66.345,
+    "end": 66.495
+   },
+   {
+    "text": "spare",
+    "start": 66.495,
+    "end": 66.795
+   },
+   {
+    "text": "key",
+    "start": 66.795,
+    "end": 67.045,
+    "emph": true
+   },
+   {
+    "text": "is",
+    "start": 67.045,
+    "end": 67.17
+   },
+   {
+    "text": "still",
+    "start": 67.17,
+    "end": 67.445
+   },
+   {
+    "text": "hanging",
+    "start": 67.445,
+    "end": 67.758
+   },
+   {
+    "text": "on",
+    "start": 67.758,
+    "end": 67.858
+   },
+   {
+    "text": "the",
+    "start": 67.858,
+    "end": 67.945
+   },
+   {
+    "text": "hook",
+    "start": 67.945,
+    "end": 68.195
+   },
+   {
+    "text": "inside",
+    "start": 68.195,
+    "end": 68.608
+   },
+   {
+    "text": "my",
+    "start": 68.608,
+    "end": 68.77
+   },
+   {
+    "text": "door.",
+    "start": 68.77,
+    "end": 69.11
+   }
+  ],
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
+  "style": {
+   "font": "display",
+   "fontSize": 58,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "none",
+   "strokeWidth": 10,
+   "uppercase": false,
+   "y": 0.12,
+   "backing": 0.85
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-building-intercom-buzzes-3-m/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 72.71
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0.25
+ },
+ "_built": {
+  "by": "pipeline/episodes/auto.py (shots.json)",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/horror-building-intercom-buzzes-3-m/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

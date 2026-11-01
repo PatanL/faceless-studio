@@ -1,0 +1,20 @@
+{
+  "id": "horror-building-intercom-buzzes-3-m",
+  "niche": "horror",
+  "room": "3B",
+  "chatTitle": "Maple Row Residents (24)",
+  "chat": [
+    {"from": "Mr. Okafor (2A)", "text": "She's gone. I carried her sofa to the van myself."},
+    {"from": "Theo (6C)", "text": "Maybe she came back for something?"},
+    {"from": "Priya (5A)", "text": "I'm watching the lobby camera. Nobody is at the front door."},
+    {"from": "Intercom · Unit 3B", "text": "I found my keys. I'm home now."}
+  ],
+  "humanArt": {"component": "horror/Protagonist", "props": {"pose": "phone", "expr": "terrified", "light": "phone"}, "time": 0.4},
+  "variants": [
+    {"template": "chat", "id": "horror-building-intercom-buzzes-3-m-a", "text": "UNIT 3B\nIS EMPTY", "accent": "EMPTY"},
+    {"template": "door", "id": "horror-building-intercom-buzzes-3-m-b", "text": "DON'T BUZZ HER IN", "accent": "DON'T",
+     "humanArt": {"component": "horror/Protagonist", "props": {"pose": "ear", "expr": "scared"}, "time": 0.4}},
+    {"template": "hallway", "id": "horror-building-intercom-buzzes-3-m-c", "text": "SHE'S HOME NOW", "accent": "HOME"}
+  ],
+  "primary": "horror-building-intercom-buzzes-3-m-a"
+}

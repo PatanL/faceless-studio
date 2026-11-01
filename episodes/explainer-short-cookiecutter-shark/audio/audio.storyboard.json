@@ -1,0 +1,99 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 87.23,
+ "captions": {
+  "src": "episodes/explainer-short-cookiecutter-shark/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-cookiecutter-shark/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 87.23
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-cookiecutter-shark/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 87.23
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/explainer-short-cookiecutter-shark/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/explainer-short-cookiecutter-shark/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "pop",
+   "at": 2.85
+  },
+  {
+   "cue": "whoosh",
+   "at": 8.585
+  },
+  {
+   "cue": "bubbles",
+   "at": 15.86
+  },
+  {
+   "cue": "underwater_rumble",
+   "at": 26.09
+  },
+  {
+   "cue": "whoosh",
+   "at": 33.31
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 39.81
+  },
+  {
+   "cue": "pop",
+   "at": 46.77
+  },
+  {
+   "cue": "heartbeat",
+   "at": 55.41
+  },
+  {
+   "cue": "impact",
+   "at": 60.25
+  },
+  {
+   "cue": "sonar_ping",
+   "at": 67.93
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 71.165
+  },
+  {
+   "cue": "whoosh",
+   "at": 81.765
+  }
+ ]
+}

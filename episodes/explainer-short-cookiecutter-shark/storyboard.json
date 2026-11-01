@@ -1,0 +1,3552 @@
+{
+ "version": 1,
+ "id": "explainer-short-cookiecutter-shark",
+ "title": "The Shark That Bites Perfect Circles Out Of You",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p01",
+   "duration": 2.85,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 20,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "55%",
+     "width": 1200,
+     "height": 600,
+     "z": 1,
+     "markup": "<svg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'><path d='M0 150 Q600 30 1200 150 L1200 600 L0 600 Z' fill='#7d8a90'/><path d='M0 260 Q600 150 1200 260 M0 360 Q600 250 1200 360 M0 460 Q600 350 1200 460' stroke='#93a0a6' stroke-width='10' fill='none'/><circle cx='230' cy='300' r='26' fill='none' stroke='#b9c3c7' stroke-width='6' opacity='0.6'/><circle cx='980' cy='330' r='22' fill='none' stroke='#b9c3c7' stroke-width='6' opacity='0.6'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 150,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1
+      },
+      {
+       "t": 1.897,
+       "scale": 1.25,
+       "ease": "backOut"
+      },
+      {
+       "t": 2.635,
+       "scale": 1
+      }
+     ],
+     "markup": "<svg viewBox='0 0 200 150' xmlns='http://www.w3.org/2000/svg'><ellipse cx='100' cy='75' rx='70' ry='50' fill='#0b1a22'/><ellipse cx='100' cy='75' rx='86' ry='64' fill='none' stroke='#f3f6f7' stroke-width='8'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "33%",
+     "width": 680,
+     "height": 120,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "50%",
+       "y": "33%"
+      },
+      {
+       "t": 0.76,
+       "x": "50%",
+       "y": "33%"
+      },
+      {
+       "t": 1.897,
+       "x": "46%",
+       "y": "34%"
+      },
+      {
+       "t": 2.8,
+       "x": "-35%",
+       "y": "31%",
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "pxPerM": 1280,
+      "glow": 0.8,
+      "mouth": "open"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 310,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "PERFECT CIRCLES",
+      "red": "CIRCLES",
+      "at": -0.6,
+      "size": 96,
+      "color": "white",
+      "underline": false
+     }
+    }
+   ],
+   "notes": "This tiny shark bites perfect circles out of you.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.448,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.8,
+      "zoom": 1.1,
+      "x": "50%",
+      "y": "48%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 5.885,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "50%",
+     "y": "25%",
+     "width": 760,
+     "height": 280,
+     "z": 2,
+     "end": 1.623,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "50%"
+      },
+      {
+       "t": 1.485,
+       "x": "50%"
+      },
+      {
+       "t": 1.623,
+       "x": "-40%",
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "speed": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "50%",
+     "y": "25%",
+     "width": 760,
+     "height": 280,
+     "z": 2,
+     "start": 1.623,
+     "end": 3.248,
+     "keyframes": [
+      {
+       "t": 1.623,
+       "x": "140%"
+      },
+      {
+       "t": 1.998,
+       "x": "50%",
+       "ease": "out"
+      },
+      {
+       "t": 3.135,
+       "x": "50%"
+      },
+      {
+       "t": 3.248,
+       "x": "-40%",
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "silhouette": "#7b8a80",
+      "speed": 1.2
+     }
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "25%",
+     "width": 540,
+     "height": 360,
+     "z": 2,
+     "start": 3.248,
+     "enter": {
+      "type": "pop",
+      "at": 3.248,
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 3.248,
+       "scale": 1
+      },
+      {
+       "t": 3.972,
+       "scale": 1.1
+      },
+      {
+       "t": 5.697,
+       "scale": 1.2
+      }
+     ],
+     "markup": "<svg viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'><path d='M0 150 Q75 135 150 150 T300 150 L300 200 L0 200 Z' fill='#4f6f7a'/><path d='M120 150 Q150 60 200 30 Q185 90 200 150 Z' fill='#9aa7ad'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "50%",
+     "width": 1000,
+     "height": 540,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "title": "FORGET",
+      "items": [
+       "GREAT WHITE",
+       "TIGER SHARK",
+       "EVERY MOVIE SHARK"
+      ],
+      "at": 0,
+      "size": 56,
+      "itemAt": [
+       0,
+       1.623,
+       3.248
+      ],
+      "strikes": [
+       {
+        "index": 0,
+        "at": 0.773
+       },
+       {
+        "index": 1,
+        "at": 2.435
+       },
+       {
+        "index": 2,
+        "at": 5.285
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "Forget great whites. Forget tiger sharks. Forget every movie shark you grew up scared of.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.623,
+      "zoom": 1.04
+     },
+     {
+      "t": 3.248,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.885,
+      "zoom": 1.06
+     },
+     {
+      "t": 5.697,
+      "zoom": 1.08
+     }
+    ]
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 7.275,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 120,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 310,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "THE ONE\nWHALES FEAR",
+      "at": 0,
+      "out": 1.638,
+      "size": 88,
+      "color": "red",
+      "underline": false
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "36%",
+     "width": 1000,
+     "height": 320,
+     "z": 1,
+     "start": 4.25,
+     "enter": {
+      "type": "fade",
+      "at": 4.25,
+      "duration": 0.4
+     },
+     "props": {
+      "pxPerM": 34,
+      "speed": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "34%",
+     "width": 40,
+     "height": 20,
+     "z": 3,
+     "start": 1.638,
+     "enter": {
+      "type": "pop",
+      "at": 1.638,
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 1.638,
+       "x": "50%",
+       "y": "34%",
+       "scale": 40
+      },
+      {
+       "t": 4.25,
+       "x": "50%",
+       "y": "34%",
+       "scale": 40
+      },
+      {
+       "t": 5.138,
+       "x": "62%",
+       "y": "37%",
+       "scale": 1,
+       "ease": "inOut"
+      }
+     ],
+     "props": {
+      "pxPerM": 34,
+      "glow": 0.8
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": "50%",
+     "y": "42%",
+     "width": 680,
+     "height": 130,
+     "z": 4,
+     "depth": 0,
+     "end": 4.25,
+     "props": {
+      "label": "~50 CM",
+      "at": 2.613,
+      "labelSize": 52
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52%",
+     "width": 600,
+     "height": 124,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "PENCIL ON A BUS",
+      "at": 5.963,
+      "size": 52,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    }
+   ],
+   "notes": "The one whales fear is the cookiecutter, half a metre long. Next to a blue whale, that's a pencil on a bus.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.638,
+      "zoom": 1.06
+     },
+     {
+      "t": 2.95,
+      "zoom": 1.1
+     },
+     {
+      "t": 4.25,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.138,
+      "zoom": 1.02
+     },
+     {
+      "t": 7.225,
+      "zoom": 1.08,
+      "x": "56%",
+      "y": "40%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 10.11,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": [
+      {
+       "t": 0,
+       "v": 40
+      },
+      {
+       "t": 1.66,
+       "v": 1000,
+       "ease": "out"
+      },
+      {
+       "t": 2.96,
+       "v": 1000
+      },
+      {
+       "t": 5.197,
+       "v": 120
+      }
+     ],
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/DepthMeter",
+     "x": "88%",
+     "y": "36%",
+     "width": 200,
+     "height": 860,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "depth": [
+       {
+        "t": 0,
+        "v": 40
+       },
+       {
+        "t": 1.66,
+        "v": 1000,
+        "ease": "out"
+       },
+       {
+        "t": 2.96,
+        "v": 1000
+       },
+       {
+        "t": 5.197,
+        "v": 120
+       }
+      ],
+      "max": 1200,
+      "window": 400,
+      "size": 40
+     }
+    },
+    {
+     "type": "svg",
+     "x": "70%",
+     "y": "36%",
+     "width": 130,
+     "height": 860,
+     "z": 1,
+     "opacity": 0.6,
+     "start": 1.06,
+     "end": 2.96,
+     "enter": {
+      "type": "fade",
+      "at": 1.06,
+      "duration": 0.4
+     },
+     "markup": "<svg viewBox='0 0 100 900' xmlns='http://www.w3.org/2000/svg'><g fill='#9aa7ad'><path d='M50 0 L56 60 L62 140 L80 220 L100 300 L72 300 Q50 250 28 300 L0 300 L20 220 L38 140 L44 60 Z'/><path transform='translate(0 300)' d='M50 0 L56 60 L62 140 L80 220 L100 300 L72 300 Q50 250 28 300 L0 300 L20 220 L38 140 L44 60 Z'/><path transform='translate(0 600)' d='M50 0 L56 60 L62 140 L80 220 L100 300 L72 300 Q50 250 28 300 L0 300 L20 220 L38 140 L44 60 Z'/></g></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "40%",
+     "y": "40%",
+     "width": 760,
+     "height": 150,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "40%",
+       "y": "30%",
+       "scale": 0.5,
+       "opacity": 0.8
+      },
+      {
+       "t": 1.66,
+       "x": "40%",
+       "y": "56%",
+       "scale": 0.5,
+       "opacity": 0.35
+      },
+      {
+       "t": 2.96,
+       "x": "40%",
+       "y": "56%",
+       "scale": 0.5,
+       "opacity": 0.35
+      },
+      {
+       "t": 4.16,
+       "x": "40%",
+       "y": "40%",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "props": {
+      "pxPerM": 1400,
+      "glow": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.423,
+        "v": 0
+       },
+       {
+        "t": 5.197,
+        "v": 1,
+        "ease": "out"
+       }
+      ]
+     }
+    },
+    {
+     "type": "svg",
+     "x": "58.8%",
+     "y": "40%",
+     "width": 140,
+     "height": 140,
+     "z": 4,
+     "start": 6.373,
+     "enter": {
+      "type": "pop",
+      "at": 6.373,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.08,
+       "speed": 1.2
+      }
+     ],
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='88' fill='none' stroke='#f3f6f7' stroke-width='8'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 330,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "THE BAIT",
+      "red": "BAIT",
+      "sub": "SCIENTISTS' BEST GUESS",
+      "at": 9.397,
+      "size": 96,
+      "color": "white",
+      "underline": false
+     }
+    }
+   ],
+   "notes": "By day it hides a kilometre below you. At night it rises, belly glowing green, except a dark collar that looks like a small fish. That's the bait.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.66,
+      "zoom": 1.04
+     },
+     {
+      "t": 2.96,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.197,
+      "zoom": 1.06
+     },
+     {
+      "t": 6.723,
+      "zoom": 1.12,
+      "x": "54%",
+      "y": "42%"
+     },
+     {
+      "t": 8.385,
+      "zoom": 1.14,
+      "x": "54%",
+      "y": "42%"
+     },
+     {
+      "t": 9.697,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "45%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 7.34,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 150,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "26%",
+     "width": 500,
+     "height": 375,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 0.9
+      },
+      {
+       "t": 1.487,
+       "scale": 0.95
+      },
+      {
+       "t": 2.9,
+       "scale": 1.05
+      },
+      {
+       "t": 5.138,
+       "scale": 1.12
+      }
+     ],
+     "markup": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'><ellipse cx='200' cy='150' rx='190' ry='140' fill='#4a3a30'/><ellipse cx='200' cy='150' rx='140' ry='100' fill='#12090a'/><path d='M130 78 L138 108 L146 80 Z M170 70 L178 104 L186 70 Z M214 70 L222 104 L230 70 Z M254 78 L262 108 L270 80 Z M90 225 L112 165 L134 225 L156 165 L178 225 L200 165 L222 225 L244 165 L266 225 L288 165 L310 225 Z' fill='#f3f6f7'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "14%",
+     "y": "26%",
+     "width": 180,
+     "height": 180,
+     "z": 3,
+     "start": 4.062,
+     "end": 5.138,
+     "enter": {
+      "type": "pop",
+      "at": 4.062,
+      "duration": 0.3
+     },
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect x='88' y='20' width='24' height='90' rx='8' fill='#f3f6f7'/><path d='M30 180 Q100 70 170 180 Z' fill='#cfd6d9'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "86%",
+     "y": "26%",
+     "width": 180,
+     "height": 200,
+     "z": 3,
+     "start": 6.562,
+     "enter": {
+      "type": "pop",
+      "at": 6.562,
+      "duration": 0.3
+     },
+     "markup": "<svg viewBox='0 0 200 220' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='#f3f6f7' stroke-width='12'><circle cx='100' cy='30' r='18'/><path d='M100 48 L100 196 M60 76 L140 76 M30 140 Q40 200 100 200 Q160 200 170 140'/></g></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "52%",
+     "width": 1000,
+     "height": 520,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "title": "3 TOOLS",
+      "items": [
+       "SUCTION LIPS",
+       "HOOK TEETH",
+       "SAW TEETH"
+      ],
+      "at": 1.487,
+      "stagger": 0.15,
+      "size": 56,
+      "select": [
+       {
+        "index": 0,
+        "at": 2.9
+       },
+       {
+        "index": 1,
+        "at": 5.138
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "Bite the fish, and you meet three tools: lips that seal like a suction cup, top teeth that hook in like anchors,",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.487,
+      "zoom": 1.04
+     },
+     {
+      "t": 2.9,
+      "zoom": 1.08
+     },
+     {
+      "t": 4.513,
+      "zoom": 1.04
+     },
+     {
+      "t": 5.138,
+      "zoom": 1.1
+     },
+     {
+      "t": 6.562,
+      "zoom": 1.06
+     }
+    ]
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 6.4,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 150,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "26%",
+     "width": 500,
+     "height": 375,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": "26%",
+       "scale": 1.12,
+       "rotate": 0
+      },
+      {
+       "t": 0.837,
+       "y": "26%",
+       "scale": 1.2,
+       "rotate": 0
+      },
+      {
+       "t": 3.688,
+       "y": "36%",
+       "scale": 1.0,
+       "rotate": 0,
+       "ease": "inOut"
+      },
+      {
+       "t": 4.087,
+       "y": "36%",
+       "rotate": 0
+      },
+      {
+       "t": 5.375,
+       "y": "36%",
+       "rotate": 360,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.625,
+       "y": "30%",
+       "rotate": 720,
+       "scale": 0.8
+      }
+     ],
+     "markup": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'><ellipse cx='200' cy='150' rx='190' ry='140' fill='#4a3a30'/><ellipse cx='200' cy='150' rx='140' ry='100' fill='#12090a'/><path d='M130 78 L138 108 L146 80 Z M170 70 L178 104 L186 70 Z M214 70 L222 104 L230 70 Z M254 78 L262 108 L270 80 Z M90 225 L112 165 L134 225 L156 165 L178 225 L200 165 L222 225 L244 165 L266 225 L288 165 L310 225 Z' fill='#f3f6f7'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "52%",
+     "width": 1000,
+     "height": 520,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "title": "3 TOOLS",
+      "items": [
+       "SUCTION LIPS",
+       "HOOK TEETH",
+       "SAW TEETH"
+      ],
+      "at": -0.6,
+      "itemAt": [
+       -0.6,
+       -0.6,
+       -0.6
+      ],
+      "size": 56,
+      "out": 3.688,
+      "select": [
+       {
+        "index": 0,
+        "at": -0.6
+       },
+       {
+        "index": 1,
+        "at": -0.6
+       },
+       {
+        "index": 2,
+        "at": 0.837
+       }
+      ]
+     }
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "53%",
+     "width": 300,
+     "height": 220,
+     "z": 3,
+     "start": 4.087,
+     "enter": {
+      "type": "pop",
+      "at": 4.087,
+      "duration": 0.3
+     },
+     "markup": "<svg viewBox='0 0 300 220' xmlns='http://www.w3.org/2000/svg'><g stroke='#0b1a22' stroke-width='6' stroke-linejoin='round'><rect x='132' y='4' width='36' height='56' fill='#6b7a80'/><path d='M50 55 L250 55 L250 175 L240 205 L230 175 L220 205 L210 175 L200 205 L190 175 L180 205 L170 175 L160 205 L150 175 L140 205 L130 175 L120 205 L110 175 L100 205 L90 175 L80 205 L70 175 L60 205 L50 175 Z' fill='#cfd6d9'/></g><rect x='53' y='95' width='194' height='34' fill='#9aa7ad'/><ellipse cx='150' cy='112' rx='22' ry='10' fill='#0b1a22'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "63%",
+     "width": 380,
+     "height": 124,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "HOLE SAW",
+      "at": 5.725,
+      "size": 52,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    }
+   ],
+   "notes": "and a row of triangle teeth locked into one saw. Then it spins its whole body like a hole saw,",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.04
+     },
+     {
+      "t": 0.837,
+      "zoom": 1.1
+     },
+     {
+      "t": 2.75,
+      "zoom": 1.14
+     },
+     {
+      "t": 3.688,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.625,
+      "zoom": 1.06
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.087,
+      "duration": 0.5,
+      "amplitude": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 6.945,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "38%",
+     "width": 1000,
+     "height": 420,
+     "z": 1,
+     "end": 5.713,
+     "markup": "<svg viewBox='0 0 1000 420' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='100' width='1000' height='320' fill='#e8dccb'/><rect x='0' y='60' width='1000' height='40' fill='#7d8a90'/><rect x='430' y='60' width='140' height='220' rx='20' fill='#0b1a22'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "35.9%",
+     "width": 140,
+     "height": 220,
+     "z": 2,
+     "end": 5.713,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": "35.9%",
+       "rotate": 0
+      },
+      {
+       "t": 0.25,
+       "y": "35.9%",
+       "rotate": 0
+      },
+      {
+       "t": 0.875,
+       "y": "24%",
+       "rotate": -8,
+       "ease": "backOut"
+      },
+      {
+       "t": 4.087,
+       "y": "24%",
+       "scale": 1.15,
+       "rotate": 0
+      }
+     ],
+     "markup": "<svg viewBox='0 0 140 220' xmlns='http://www.w3.org/2000/svg'><path d='M0 0 L140 0 L140 200 Q70 230 0 200 Z' fill='#e8dccb'/><rect x='0' y='0' width='140' height='40' fill='#7d8a90'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "55%",
+     "width": 900,
+     "height": 300,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "value": 5,
+      "suffix": " CM",
+      "label": "WIDE",
+      "at": 1.95,
+      "duration": 0.6,
+      "size": 120,
+      "labelSize": 44,
+      "color": "white",
+      "out": 5.713
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "15%",
+     "width": 600,
+     "height": 124,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "ICE-CREAM SCOOP",
+      "at": 4.087,
+      "size": 52,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "36%",
+     "width": 1000,
+     "height": 320,
+     "z": 1,
+     "start": 5.713,
+     "keyframes": [
+      {
+       "t": 5.713,
+       "x": "-50%"
+      },
+      {
+       "t": 6.895,
+       "x": "50%",
+       "ease": "out"
+      }
+     ],
+     "props": {
+      "pxPerM": 34,
+      "speed": 0.7
+     }
+    }
+   ],
+   "notes": "and rips free with a plug of whale five centimetres wide. An ice-cream scoop, and the whale keeps swimming.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.06
+     },
+     {
+      "t": 0.25,
+      "zoom": 1.1
+     },
+     {
+      "t": 1.95,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.087,
+      "zoom": 1.06
+     },
+     {
+      "t": 5.713,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.895,
+      "zoom": 1.04
+     }
+    ]
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 8.61,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 4,
+     "rays": 7,
+     "snow": 60,
+     "surface": 0.2,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "44%",
+     "y": "38%",
+     "width": 900,
+     "height": 300,
+     "z": 1,
+     "end": 4.575,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "44%"
+      },
+      {
+       "t": 3.763,
+       "x": "40%"
+      },
+      {
+       "t": 4.575,
+       "x": "-60%",
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "pxPerM": 30,
+      "speed": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "84%",
+     "y": "40%",
+     "width": 98,
+     "height": 55,
+     "z": 2,
+     "flipX": true,
+     "start": 2.025,
+     "enter": {
+      "type": "pop",
+      "at": 2.025,
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 2.025,
+       "x": "84%",
+       "y": "40%",
+       "scale": 1
+      },
+      {
+       "t": 3.763,
+       "x": "84%",
+       "y": "40%",
+       "scale": 1
+      },
+      {
+       "t": 4.575,
+       "x": "50%",
+       "y": "26%",
+       "scale": 3.2,
+       "ease": "inOut"
+      }
+     ],
+     "props": {
+      "pxPerM": 30,
+      "arms": "forward",
+      "kick": true
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "84%",
+     "y": "37%",
+     "width": 240,
+     "height": 106,
+     "z": 6,
+     "depth": 0,
+     "keyframes": [
+      {
+       "t": 2.025,
+       "x": "84%",
+       "y": "37%"
+      },
+      {
+       "t": 3.763,
+       "x": "84%",
+       "y": "37%"
+      },
+      {
+       "t": 4.575,
+       "x": "50%",
+       "y": "21%",
+       "ease": "inOut"
+      }
+     ],
+     "props": {
+      "text": "YOU",
+      "at": 2.025,
+      "size": 44,
+      "align": "center",
+      "accent": "#0b1a22",
+      "bg": "#f3f6f7",
+      "color": "#0b1a22"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 260,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "YOU HAVE LESS\nTO SPARE",
+      "red": "LESS",
+      "at": 2.025,
+      "out": 3.763,
+      "size": 80,
+      "color": "white",
+      "underline": false
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "64%",
+     "width": 40,
+     "height": 20,
+     "z": 3,
+     "start": 6.225,
+     "keyframes": [
+      {
+       "t": 6.225,
+       "x": "50%",
+       "y": "64%",
+       "rotate": -90,
+       "scale": 3.2,
+       "opacity": 0
+      },
+      {
+       "t": 6.613,
+       "x": "50%",
+       "y": "48%",
+       "rotate": -90,
+       "scale": 3.2,
+       "opacity": 1
+      },
+      {
+       "t": 8.56,
+       "x": "50%",
+       "y": "29.5%",
+       "rotate": -90,
+       "scale": 3.2,
+       "ease": "in"
+      }
+     ],
+     "props": {
+      "pxPerM": 30,
+      "glow": 1
+     }
+    }
+   ],
+   "notes": "A whale can spare a scoop. You have less to spare. You're swimming at night, far from land, when something cold presses flat on your skin.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.212,
+      "zoom": 1.03
+     },
+     {
+      "t": 2.025,
+      "zoom": 1.05
+     },
+     {
+      "t": 4.575,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.013,
+      "zoom": 1.03
+     },
+     {
+      "t": 6.613,
+      "zoom": 1.1,
+      "x": "50%",
+      "y": "40%"
+     },
+     {
+      "t": 8.56,
+      "zoom": 1.18,
+      "x": "50%",
+      "y": "32%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 7.013,
+      "duration": 0.4,
+      "amplitude": 8
+     }
+    ]
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 4.865,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "55%",
+     "width": 1200,
+     "height": 600,
+     "z": 1,
+     "markup": "<svg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'><path d='M0 150 Q600 30 1200 150 L1200 600 L0 600 Z' fill='#cdbfb6'/><path d='M0 300 Q600 190 1200 300 M0 440 Q600 330 1200 440' stroke='#b9aba2' stroke-width='8' fill='none'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 240,
+     "height": 240,
+     "z": 2,
+     "start": 3.338,
+     "enter": {
+      "type": "pop",
+      "at": 3.338,
+      "duration": 0.3
+     },
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='96' fill='#0b1a22'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 300,
+     "height": 300,
+     "z": 3,
+     "start": 1.187,
+     "keyframes": [
+      {
+       "t": 1.187,
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": 2.138,
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      },
+      {
+       "t": 4.388,
+       "scale": 1.1,
+       "opacity": 1
+      }
+     ],
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='88' fill='none' stroke='#f3f6f7' stroke-width='8'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 420,
+     "height": 315,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.4,
+       "opacity": 0
+      },
+      {
+       "t": 0.275,
+       "scale": 1.0,
+       "opacity": 1,
+       "ease": "out"
+      },
+      {
+       "t": 2.138,
+       "rotate": 0,
+       "scale": 1.0,
+       "opacity": 1
+      },
+      {
+       "t": 3.0,
+       "rotate": 360
+      },
+      {
+       "t": 3.338,
+       "rotate": 540,
+       "scale": 0.8,
+       "opacity": 0
+      }
+     ],
+     "markup": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'><ellipse cx='200' cy='150' rx='190' ry='140' fill='#4a3a30'/><ellipse cx='200' cy='150' rx='140' ry='100' fill='#12090a'/><path d='M130 78 L138 108 L146 80 Z M170 70 L178 104 L186 70 Z M214 70 L222 104 L230 70 Z M254 78 L262 108 L270 80 Z M90 225 L112 165 L134 225 L156 165 L178 225 L200 165 L222 225 L244 165 L266 225 L288 165 L310 225 Z' fill='#f3f6f7'/></svg>"
+    }
+   ],
+   "notes": "The hooks grip, the saw closes, it spins, and a round piece of you is gone.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.1
+     },
+     {
+      "t": 0.275,
+      "zoom": 1.15
+     },
+     {
+      "t": 1.187,
+      "zoom": 1.2
+     },
+     {
+      "t": 2.138,
+      "zoom": 1.25
+     },
+     {
+      "t": 4.388,
+      "zoom": 1.0
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.562,
+      "duration": 0.3,
+      "amplitude": 8
+     },
+     {
+      "at": 4.388,
+      "duration": 0.5,
+      "amplitude": 16
+     }
+    ]
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 7.65,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 200,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 300,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "NOT A WHAT-IF",
+      "at": 0,
+      "out": 1.387,
+      "size": 96,
+      "color": "red",
+      "underline": false
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "38%",
+     "width": 1080,
+     "height": 1100,
+     "z": 10,
+     "depth": 0,
+     "start": 1.387,
+     "props": {
+      "at": 1.387,
+      "views": [
+       {
+        "t": 1.387,
+        "lon": -160,
+        "lat": 28,
+        "zoom": 1.5
+       },
+       {
+        "t": 4.05,
+        "place": "hawaii",
+        "zoom": 5
+       }
+      ],
+      "pins": [
+       {
+        "place": "hawaii",
+        "at": 4.05,
+        "label": "HAWAII"
+       }
+      ],
+      "labelSize": 48,
+      "pinSize": 1.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "15%",
+     "width": 300,
+     "height": 172,
+     "z": 21,
+     "depth": 0,
+     "props": {
+      "text": "2009",
+      "at": 1.563,
+      "size": 72,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "60%",
+     "width": 720,
+     "height": 124,
+     "z": 21,
+     "depth": 0,
+     "props": {
+      "text": "FIRST LIVING VICTIM",
+      "at": 5.175,
+      "size": 52,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    }
+   ],
+   "notes": "Not a what-if. In two thousand nine, a night swimmer off Hawaii became the first living person it's known to have bitten.",
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 0.425,
+      "zoom": 1.06
+     },
+     {
+      "t": 1.387,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.05,
+      "zoom": 1.04
+     },
+     {
+      "t": 5.175,
+      "zoom": 1.06
+     },
+     {
+      "t": 7.6,
+      "zoom": 1.1
+     }
+    ]
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 3.385,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 15,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "45%",
+     "y": "40%",
+     "width": 200,
+     "height": 300,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1
+      },
+      {
+       "t": 0.292,
+       "scale": 1.04
+      },
+      {
+       "t": 1.443,
+       "scale": 1.1
+      }
+     ],
+     "props": {
+      "pxPerM": 160,
+      "pose": "stand"
+     }
+    },
+    {
+     "type": "svg",
+     "x": "45.5%",
+     "y": "37%",
+     "width": 70,
+     "height": 70,
+     "z": 3,
+     "start": 1.443,
+     "enter": {
+      "type": "pop",
+      "at": 1.443,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 1.2
+      }
+     ],
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='84' fill='none' stroke='#e5483d' stroke-width='22'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "15%",
+     "width": 440,
+     "height": 154,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "SURVIVED",
+      "at": 0.292,
+      "size": 64,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "76%",
+     "y": "36%",
+     "width": 120,
+     "height": 40,
+     "z": 3,
+     "flipX": true,
+     "start": 2.592,
+     "enter": {
+      "type": "pop",
+      "at": 2.592,
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 2.592,
+       "x": "76%",
+       "y": "36%"
+      },
+      {
+       "t": 3.335,
+       "x": "70%",
+       "y": "36%",
+       "ease": "out"
+      }
+     ],
+     "props": {
+      "pxPerM": 160,
+      "glow": 0.9
+     }
+    }
+   ],
+   "notes": "He survived. The round wound gave the shark away.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 0.292,
+      "zoom": 1.04
+     },
+     {
+      "t": 1.443,
+      "zoom": 1.1,
+      "x": "47%",
+      "y": "40%"
+     },
+     {
+      "t": 2.592,
+      "zoom": 1.08,
+      "x": "55%",
+      "y": "40%"
+     },
+     {
+      "t": 3.335,
+      "zoom": 1.06,
+      "x": "55%",
+      "y": "40%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p12",
+   "duration": 10.6,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "28%",
+     "width": 560,
+     "height": 420,
+     "z": 2,
+     "end": 5.0,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": "28%",
+       "scale": 1,
+       "opacity": 1
+      },
+      {
+       "t": 1.788,
+       "y": "28%",
+       "scale": 1.08,
+       "opacity": 1
+      },
+      {
+       "t": 4.025,
+       "y": "40%",
+       "scale": 0.5,
+       "opacity": 0,
+       "ease": "in"
+      }
+     ],
+     "markup": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'><ellipse cx='200' cy='150' rx='190' ry='140' fill='#4a3a30'/><ellipse cx='200' cy='150' rx='140' ry='100' fill='#12090a'/><path d='M130 78 L138 108 L146 80 Z M170 70 L178 104 L186 70 Z M214 70 L222 104 L230 70 Z M254 78 L262 108 L270 80 Z M90 225 L112 165 L134 225 L156 165 L178 225 L200 165 L222 225 L244 165 L266 225 L288 165 L310 225 Z' fill='#f3f6f7'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52%",
+     "width": 820,
+     "height": 124,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "SWALLOWS ITS OLD TEETH",
+      "at": 1.788,
+      "out": 5.0,
+      "size": 52,
+      "align": "center",
+      "accent": "#f3f6f7"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "47%",
+     "width": 1000,
+     "height": 620,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "title": "ALSO BITTEN",
+      "items": [
+       "DOLPHINS",
+       "TUNA",
+       "GREAT WHITES",
+       "EVEN SUBMARINES"
+      ],
+      "at": 5.0,
+      "size": 56,
+      "itemAt": [
+       5.0,
+       6.0,
+       6.638,
+       7.863
+      ],
+      "select": {
+       "index": 3,
+       "at": 9.688
+      }
+     }
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "21%",
+     "width": 700,
+     "height": 160,
+     "z": 3,
+     "start": 8.263,
+     "enter": {
+      "type": "slideLeft",
+      "at": 8.263,
+      "duration": 0.4
+     },
+     "markup": "<svg viewBox='0 0 700 160' xmlns='http://www.w3.org/2000/svg'><path d='M60 80 Q60 40 140 40 L600 40 Q690 60 690 80 Q690 100 600 120 L140 120 Q60 120 60 80 Z M300 45 L310 5 L390 5 L400 45 Z' fill='#9aa7ad'/><g fill='#0b1a22'><circle cx='640' cy='72' r='9'/><circle cx='662' cy='90' r='8'/><circle cx='622' cy='98' r='7'/></g></svg>"
+    }
+   ],
+   "notes": "When its saw wears down, it swallows the whole row of teeth and keeps going: dolphins, tuna, great whites, even the rubber noses of navy submarines.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 0.413,
+      "zoom": 1.04
+     },
+     {
+      "t": 1.788,
+      "zoom": 1.1
+     },
+     {
+      "t": 5.0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.638,
+      "zoom": 1.03
+     },
+     {
+      "t": 9.288,
+      "zoom": 1.06
+     }
+    ]
+   }
+  },
+  {
+   "id": "p13",
+   "duration": 5.315,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": [
+      {
+       "t": 0,
+       "v": 400
+      },
+      {
+       "t": 2.28,
+       "v": 400
+      },
+      {
+       "t": 2.3,
+       "v": 20
+      }
+     ],
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "58%",
+     "y": "38%",
+     "width": 1000,
+     "height": 320,
+     "z": 0,
+     "end": 2.3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "58%"
+      },
+      {
+       "t": 2.3,
+       "x": "48%"
+      }
+     ],
+     "props": {
+      "pxPerM": 34,
+      "speed": 0.6,
+      "silhouette": "#2c4a57"
+     }
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "55%",
+     "width": 1200,
+     "height": 600,
+     "z": 1,
+     "start": 2.3,
+     "markup": "<svg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'><path d='M0 150 Q600 30 1200 150 L1200 600 L0 600 Z' fill='#7d8a90'/><path d='M0 260 Q600 150 1200 260 M0 360 Q600 250 1200 360 M0 460 Q600 350 1200 460' stroke='#93a0a6' stroke-width='10' fill='none'/><circle cx='230' cy='300' r='26' fill='none' stroke='#b9c3c7' stroke-width='6' opacity='0.6'/><circle cx='980' cy='330' r='22' fill='none' stroke='#b9c3c7' stroke-width='6' opacity='0.6'/></svg>"
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 200,
+     "height": 150,
+     "z": 2,
+     "start": 2.3,
+     "keyframes": [
+      {
+       "t": 2.3,
+       "scale": 0.01
+      },
+      {
+       "t": 3.525,
+       "scale": 0.01
+      },
+      {
+       "t": 4.315,
+       "scale": 1,
+       "ease": "backOut"
+      }
+     ],
+     "markup": "<svg viewBox='0 0 200 150' xmlns='http://www.w3.org/2000/svg'><ellipse cx='100' cy='75' rx='70' ry='50' fill='#0b1a22'/><ellipse cx='100' cy='75' rx='86' ry='64' fill='none' stroke='#f3f6f7' stroke-width='8'/></svg>"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "33%",
+     "width": 40,
+     "height": 20,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "78%",
+       "y": "40%",
+       "scale": 1
+      },
+      {
+       "t": 2.28,
+       "x": "62%",
+       "y": "38%",
+       "scale": 1
+      },
+      {
+       "t": 2.3,
+       "x": "-35%",
+       "y": "31%",
+       "scale": 37.6471
+      },
+      {
+       "t": 4.315,
+       "x": "50%",
+       "y": "33%",
+       "scale": 37.6471,
+       "ease": "out"
+      }
+     ],
+     "props": {
+      "pxPerM": 34,
+      "glow": 0.8,
+      "mouth": "open"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 310,
+     "z": 20,
+     "depth": 0,
+     "props": {
+      "text": "PERFECT CIRCLES",
+      "red": "CIRCLES",
+      "at": 3.288,
+      "size": 96,
+      "color": "white",
+      "underline": false
+     }
+    }
+   ],
+   "notes": "And tonight, somewhere in the dark, a whale is getting one more circle.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.08,
+      "x": "56%",
+      "y": "40%"
+     },
+     {
+      "t": 1.425,
+      "zoom": 1.12,
+      "x": "60%",
+      "y": "39%"
+     },
+     {
+      "t": 2.3,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 4.315,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     }
+    ]
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "This",
+    "start": 0.11,
+    "end": 0.323,
+    "br": true
+   },
+   {
+    "text": "tiny",
+    "start": 0.323,
+    "end": 0.76
+   },
+   {
+    "text": "shark",
+    "start": 0.76,
+    "end": 1.11
+   },
+   {
+    "text": "bites",
+    "start": 1.11,
+    "end": 1.448,
+    "br": true
+   },
+   {
+    "text": "perfect",
+    "start": 1.448,
+    "end": 1.897
+   },
+   {
+    "text": "circles",
+    "start": 1.897,
+    "end": 2.335,
+    "emph": true,
+    "br": true
+   },
+   {
+    "text": "out",
+    "start": 2.335,
+    "end": 2.522
+   },
+   {
+    "text": "of",
+    "start": 2.522,
+    "end": 2.635,
+    "br": true
+   },
+   {
+    "text": "you.",
+    "start": 2.635,
+    "end": 2.85
+   },
+   {
+    "text": "Forget",
+    "start": 3.0,
+    "end": 3.31,
+    "br": true
+   },
+   {
+    "text": "great",
+    "start": 3.31,
+    "end": 3.623
+   },
+   {
+    "text": "whites.",
+    "start": 3.623,
+    "end": 4.335
+   },
+   {
+    "text": "Forget",
+    "start": 4.473,
+    "end": 4.848,
+    "br": true
+   },
+   {
+    "text": "tiger",
+    "start": 4.848,
+    "end": 5.285
+   },
+   {
+    "text": "sharks.",
+    "start": 5.285,
+    "end": 5.985
+   },
+   {
+    "text": "Forget",
+    "start": 6.098,
+    "end": 6.473,
+    "br": true
+   },
+   {
+    "text": "every",
+    "start": 6.473,
+    "end": 6.822
+   },
+   {
+    "text": "movie",
+    "start": 6.822,
+    "end": 7.235
+   },
+   {
+    "text": "shark",
+    "start": 7.235,
+    "end": 7.585,
+    "br": true
+   },
+   {
+    "text": "you",
+    "start": 7.585,
+    "end": 7.735
+   },
+   {
+    "text": "grew",
+    "start": 7.735,
+    "end": 7.96
+   },
+   {
+    "text": "up",
+    "start": 7.96,
+    "end": 8.135,
+    "br": true
+   },
+   {
+    "text": "scared",
+    "start": 8.135,
+    "end": 8.547
+   },
+   {
+    "text": "of.",
+    "start": 8.547,
+    "end": 8.73
+   },
+   {
+    "text": "The",
+    "start": 8.885,
+    "end": 8.96,
+    "br": true
+   },
+   {
+    "text": "one",
+    "start": 8.96,
+    "end": 9.198
+   },
+   {
+    "text": "whales",
+    "start": 9.198,
+    "end": 9.66
+   },
+   {
+    "text": "fear",
+    "start": 9.66,
+    "end": 10.085
+   },
+   {
+    "text": "is",
+    "start": 10.085,
+    "end": 10.235,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 10.235,
+    "end": 10.373
+   },
+   {
+    "text": "cookiecutter,",
+    "start": 10.373,
+    "end": 11.235,
+    "emph": true
+   },
+   {
+    "text": "half",
+    "start": 11.348,
+    "end": 11.623,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 11.623,
+    "end": 11.685
+   },
+   {
+    "text": "metre",
+    "start": 11.685,
+    "end": 12.01
+   },
+   {
+    "text": "long.",
+    "start": 12.01,
+    "end": 12.81
+   },
+   {
+    "text": "Next",
+    "start": 12.985,
+    "end": 13.31,
+    "br": true
+   },
+   {
+    "text": "to",
+    "start": 13.31,
+    "end": 13.41,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 13.41,
+    "end": 13.523
+   },
+   {
+    "text": "blue",
+    "start": 13.523,
+    "end": 13.873
+   },
+   {
+    "text": "whale,",
+    "start": 13.873,
+    "end": 14.31
+   },
+   {
+    "text": "that's",
+    "start": 14.36,
+    "end": 14.598,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 14.598,
+    "end": 14.698
+   },
+   {
+    "text": "pencil",
+    "start": 14.698,
+    "end": 15.172
+   },
+   {
+    "text": "on",
+    "start": 15.172,
+    "end": 15.297,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 15.297,
+    "end": 15.398
+   },
+   {
+    "text": "bus.",
+    "start": 15.398,
+    "end": 16.01
+   },
+   {
+    "text": "By",
+    "start": 16.16,
+    "end": 16.358,
+    "br": true
+   },
+   {
+    "text": "day",
+    "start": 16.358,
+    "end": 16.62
+   },
+   {
+    "text": "it",
+    "start": 16.62,
+    "end": 16.72,
+    "br": true
+   },
+   {
+    "text": "hides",
+    "start": 16.72,
+    "end": 16.983
+   },
+   {
+    "text": "a",
+    "start": 16.983,
+    "end": 17.07,
+    "br": true
+   },
+   {
+    "text": "kilometre",
+    "start": 17.07,
+    "end": 17.67
+   },
+   {
+    "text": "below",
+    "start": 17.67,
+    "end": 18.082,
+    "br": true
+   },
+   {
+    "text": "you.",
+    "start": 18.082,
+    "end": 18.57
+   },
+   {
+    "text": "At",
+    "start": 18.758,
+    "end": 18.97,
+    "br": true
+   },
+   {
+    "text": "night",
+    "start": 18.97,
+    "end": 19.27
+   },
+   {
+    "text": "it",
+    "start": 19.27,
+    "end": 19.433,
+    "br": true
+   },
+   {
+    "text": "rises,",
+    "start": 19.433,
+    "end": 20.17
+   },
+   {
+    "text": "belly",
+    "start": 20.282,
+    "end": 20.657,
+    "br": true
+   },
+   {
+    "text": "glowing",
+    "start": 20.657,
+    "end": 21.207
+   },
+   {
+    "text": "green,",
+    "start": 21.207,
+    "end": 21.82,
+    "br": true
+   },
+   {
+    "text": "except",
+    "start": 21.92,
+    "end": 22.282
+   },
+   {
+    "text": "a",
+    "start": 22.282,
+    "end": 22.383,
+    "br": true
+   },
+   {
+    "text": "dark",
+    "start": 22.383,
+    "end": 22.733
+   },
+   {
+    "text": "collar",
+    "start": 22.733,
+    "end": 23.195
+   },
+   {
+    "text": "that",
+    "start": 23.195,
+    "end": 23.395,
+    "br": true
+   },
+   {
+    "text": "looks",
+    "start": 23.395,
+    "end": 23.67
+   },
+   {
+    "text": "like",
+    "start": 23.67,
+    "end": 23.858
+   },
+   {
+    "text": "a",
+    "start": 23.858,
+    "end": 23.97,
+    "br": true
+   },
+   {
+    "text": "small",
+    "start": 23.97,
+    "end": 24.395
+   },
+   {
+    "text": "fish.",
+    "start": 24.395,
+    "end": 25.145
+   },
+   {
+    "text": "That's",
+    "start": 25.282,
+    "end": 25.595,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 25.595,
+    "end": 25.707
+   },
+   {
+    "text": "bait.",
+    "start": 25.707,
+    "end": 26.09,
+    "emph": true
+   },
+   {
+    "text": "Bite",
+    "start": 26.27,
+    "end": 26.495,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 26.495,
+    "end": 26.645
+   },
+   {
+    "text": "fish,",
+    "start": 26.645,
+    "end": 27.045
+   },
+   {
+    "text": "and",
+    "start": 27.095,
+    "end": 27.22,
+    "br": true
+   },
+   {
+    "text": "you",
+    "start": 27.22,
+    "end": 27.37
+   },
+   {
+    "text": "meet",
+    "start": 27.37,
+    "end": 27.607
+   },
+   {
+    "text": "three",
+    "start": 27.607,
+    "end": 27.932,
+    "br": true
+   },
+   {
+    "text": "tools:",
+    "start": 27.932,
+    "end": 28.845
+   },
+   {
+    "text": "lips",
+    "start": 29.02,
+    "end": 29.32
+   },
+   {
+    "text": "that",
+    "start": 29.32,
+    "end": 29.545,
+    "br": true
+   },
+   {
+    "text": "seal",
+    "start": 29.545,
+    "end": 29.895
+   },
+   {
+    "text": "like",
+    "start": 29.895,
+    "end": 30.082
+   },
+   {
+    "text": "a",
+    "start": 30.082,
+    "end": 30.182,
+    "br": true
+   },
+   {
+    "text": "suction",
+    "start": 30.182,
+    "end": 30.633
+   },
+   {
+    "text": "cup,",
+    "start": 30.633,
+    "end": 31.12
+   },
+   {
+    "text": "top",
+    "start": 31.258,
+    "end": 31.582,
+    "br": true
+   },
+   {
+    "text": "teeth",
+    "start": 31.582,
+    "end": 31.92
+   },
+   {
+    "text": "that",
+    "start": 31.92,
+    "end": 32.082,
+    "br": true
+   },
+   {
+    "text": "hook",
+    "start": 32.082,
+    "end": 32.332
+   },
+   {
+    "text": "in",
+    "start": 32.332,
+    "end": 32.445,
+    "br": true
+   },
+   {
+    "text": "like",
+    "start": 32.445,
+    "end": 32.682
+   },
+   {
+    "text": "anchors,",
+    "start": 32.682,
+    "end": 33.43
+   },
+   {
+    "text": "and",
+    "start": 33.61,
+    "end": 33.697,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 33.697,
+    "end": 33.797
+   },
+   {
+    "text": "row",
+    "start": 33.797,
+    "end": 34.135
+   },
+   {
+    "text": "of",
+    "start": 34.135,
+    "end": 34.297,
+    "br": true
+   },
+   {
+    "text": "triangle",
+    "start": 34.297,
+    "end": 34.972
+   },
+   {
+    "text": "teeth",
+    "start": 34.972,
+    "end": 35.398,
+    "br": true
+   },
+   {
+    "text": "locked",
+    "start": 35.398,
+    "end": 35.697
+   },
+   {
+    "text": "into",
+    "start": 35.697,
+    "end": 35.935,
+    "br": true
+   },
+   {
+    "text": "one",
+    "start": 35.935,
+    "end": 36.21
+   },
+   {
+    "text": "saw.",
+    "start": 36.21,
+    "end": 36.96,
+    "emph": true
+   },
+   {
+    "text": "Then",
+    "start": 37.148,
+    "end": 37.385,
+    "br": true
+   },
+   {
+    "text": "it",
+    "start": 37.385,
+    "end": 37.547
+   },
+   {
+    "text": "spins",
+    "start": 37.547,
+    "end": 37.947
+   },
+   {
+    "text": "its",
+    "start": 37.947,
+    "end": 38.135,
+    "br": true
+   },
+   {
+    "text": "whole",
+    "start": 38.135,
+    "end": 38.422
+   },
+   {
+    "text": "body",
+    "start": 38.422,
+    "end": 38.835
+   },
+   {
+    "text": "like",
+    "start": 38.835,
+    "end": 38.997,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 38.997,
+    "end": 39.085
+   },
+   {
+    "text": "hole",
+    "start": 39.085,
+    "end": 39.385
+   },
+   {
+    "text": "saw,",
+    "start": 39.385,
+    "end": 39.81
+   },
+   {
+    "text": "and",
+    "start": 40.01,
+    "end": 40.11,
+    "br": true
+   },
+   {
+    "text": "rips",
+    "start": 40.11,
+    "end": 40.398
+   },
+   {
+    "text": "free",
+    "start": 40.398,
+    "end": 40.735
+   },
+   {
+    "text": "with",
+    "start": 40.735,
+    "end": 40.873,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 40.873,
+    "end": 40.947
+   },
+   {
+    "text": "plug",
+    "start": 40.947,
+    "end": 41.248
+   },
+   {
+    "text": "of",
+    "start": 41.248,
+    "end": 41.373,
+    "br": true
+   },
+   {
+    "text": "whale",
+    "start": 41.373,
+    "end": 41.81
+   },
+   {
+    "text": "five",
+    "start": 41.81,
+    "end": 42.21,
+    "emph": true,
+    "br": true
+   },
+   {
+    "text": "centimetres",
+    "start": 42.21,
+    "end": 42.748
+   },
+   {
+    "text": "wide.",
+    "start": 42.748,
+    "end": 43.61
+   },
+   {
+    "text": "An",
+    "start": 43.773,
+    "end": 43.947,
+    "br": true
+   },
+   {
+    "text": "ice-cream",
+    "start": 43.947,
+    "end": 44.598
+   },
+   {
+    "text": "scoop,",
+    "start": 44.598,
+    "end": 45.26
+   },
+   {
+    "text": "and",
+    "start": 45.36,
+    "end": 45.473,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 45.473,
+    "end": 45.573
+   },
+   {
+    "text": "whale",
+    "start": 45.573,
+    "end": 45.973
+   },
+   {
+    "text": "keeps",
+    "start": 45.973,
+    "end": 46.273,
+    "br": true
+   },
+   {
+    "text": "swimming.",
+    "start": 46.273,
+    "end": 46.77
+   },
+   {
+    "text": "A",
+    "start": 46.955,
+    "end": 47.043,
+    "br": true
+   },
+   {
+    "text": "whale",
+    "start": 47.043,
+    "end": 47.43
+   },
+   {
+    "text": "can",
+    "start": 47.43,
+    "end": 47.605,
+    "br": true
+   },
+   {
+    "text": "spare",
+    "start": 47.605,
+    "end": 47.918
+   },
+   {
+    "text": "a",
+    "start": 47.918,
+    "end": 48.017,
+    "br": true
+   },
+   {
+    "text": "scoop.",
+    "start": 48.017,
+    "end": 48.705
+   },
+   {
+    "text": "You",
+    "start": 48.83,
+    "end": 48.955,
+    "br": true
+   },
+   {
+    "text": "have",
+    "start": 48.955,
+    "end": 49.18
+   },
+   {
+    "text": "less",
+    "start": 49.18,
+    "end": 49.405
+   },
+   {
+    "text": "to",
+    "start": 49.405,
+    "end": 49.543,
+    "br": true
+   },
+   {
+    "text": "spare.",
+    "start": 49.543,
+    "end": 50.43
+   },
+   {
+    "text": "You're",
+    "start": 50.568,
+    "end": 50.78,
+    "br": true
+   },
+   {
+    "text": "swimming",
+    "start": 50.78,
+    "end": 51.23
+   },
+   {
+    "text": "at",
+    "start": 51.23,
+    "end": 51.38,
+    "br": true
+   },
+   {
+    "text": "night,",
+    "start": 51.38,
+    "end": 51.73
+   },
+   {
+    "text": "far",
+    "start": 51.818,
+    "end": 52.155,
+    "br": true
+   },
+   {
+    "text": "from",
+    "start": 52.155,
+    "end": 52.355
+   },
+   {
+    "text": "land,",
+    "start": 52.355,
+    "end": 52.83
+   },
+   {
+    "text": "when",
+    "start": 52.867,
+    "end": 53.03,
+    "br": true
+   },
+   {
+    "text": "something",
+    "start": 53.03,
+    "end": 53.418
+   },
+   {
+    "text": "cold",
+    "start": 53.418,
+    "end": 53.818,
+    "br": true
+   },
+   {
+    "text": "presses",
+    "start": 53.818,
+    "end": 54.305
+   },
+   {
+    "text": "flat",
+    "start": 54.305,
+    "end": 54.668
+   },
+   {
+    "text": "on",
+    "start": 54.668,
+    "end": 54.793,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 54.793,
+    "end": 54.943
+   },
+   {
+    "text": "skin.",
+    "start": 54.943,
+    "end": 55.41
+   },
+   {
+    "text": "The",
+    "start": 55.565,
+    "end": 55.69,
+    "br": true
+   },
+   {
+    "text": "hooks",
+    "start": 55.69,
+    "end": 55.977
+   },
+   {
+    "text": "grip,",
+    "start": 55.977,
+    "end": 56.39
+   },
+   {
+    "text": "the",
+    "start": 56.465,
+    "end": 56.602,
+    "br": true
+   },
+   {
+    "text": "saw",
+    "start": 56.602,
+    "end": 56.89
+   },
+   {
+    "text": "closes,",
+    "start": 56.89,
+    "end": 57.365
+   },
+   {
+    "text": "it",
+    "start": 57.403,
+    "end": 57.553,
+    "br": true
+   },
+   {
+    "text": "spins,",
+    "start": 57.553,
+    "end": 58.415
+   },
+   {
+    "text": "and",
+    "start": 58.54,
+    "end": 58.653,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 58.653,
+    "end": 58.753
+   },
+   {
+    "text": "round",
+    "start": 58.753,
+    "end": 59.128
+   },
+   {
+    "text": "piece",
+    "start": 59.128,
+    "end": 59.403,
+    "br": true
+   },
+   {
+    "text": "of",
+    "start": 59.403,
+    "end": 59.49
+   },
+   {
+    "text": "you",
+    "start": 59.49,
+    "end": 59.64
+   },
+   {
+    "text": "is",
+    "start": 59.64,
+    "end": 59.803,
+    "br": true
+   },
+   {
+    "text": "gone.",
+    "start": 59.803,
+    "end": 60.25,
+    "emph": true
+   },
+   {
+    "text": "Not",
+    "start": 60.43,
+    "end": 60.617,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 60.617,
+    "end": 60.705
+   },
+   {
+    "text": "what-if.",
+    "start": 60.705,
+    "end": 61.53
+   },
+   {
+    "text": "In",
+    "start": 61.667,
+    "end": 61.843,
+    "br": true
+   },
+   {
+    "text": "two",
+    "start": 61.843,
+    "end": 62.067
+   },
+   {
+    "text": "thousand",
+    "start": 62.067,
+    "end": 62.53
+   },
+   {
+    "text": "nine,",
+    "start": 62.53,
+    "end": 63.08
+   },
+   {
+    "text": "a",
+    "start": 63.192,
+    "end": 63.317,
+    "br": true
+   },
+   {
+    "text": "night",
+    "start": 63.317,
+    "end": 63.655
+   },
+   {
+    "text": "swimmer",
+    "start": 63.655,
+    "end": 64.105
+   },
+   {
+    "text": "off",
+    "start": 64.105,
+    "end": 64.33,
+    "br": true
+   },
+   {
+    "text": "Hawaii",
+    "start": 64.33,
+    "end": 64.905
+   },
+   {
+    "text": "became",
+    "start": 64.905,
+    "end": 65.305
+   },
+   {
+    "text": "the",
+    "start": 65.305,
+    "end": 65.455,
+    "br": true
+   },
+   {
+    "text": "first",
+    "start": 65.455,
+    "end": 65.867
+   },
+   {
+    "text": "living",
+    "start": 65.867,
+    "end": 66.242
+   },
+   {
+    "text": "person",
+    "start": 66.242,
+    "end": 66.73,
+    "br": true
+   },
+   {
+    "text": "it's",
+    "start": 66.73,
+    "end": 66.942
+   },
+   {
+    "text": "known",
+    "start": 66.942,
+    "end": 67.305
+   },
+   {
+    "text": "to",
+    "start": 67.305,
+    "end": 67.392,
+    "br": true
+   },
+   {
+    "text": "have",
+    "start": 67.392,
+    "end": 67.567
+   },
+   {
+    "text": "bitten.",
+    "start": 67.567,
+    "end": 67.93
+   },
+   {
+    "text": "He",
+    "start": 68.08,
+    "end": 68.222,
+    "br": true
+   },
+   {
+    "text": "survived.",
+    "start": 68.222,
+    "end": 69.11
+   },
+   {
+    "text": "The",
+    "start": 69.235,
+    "end": 69.373,
+    "br": true
+   },
+   {
+    "text": "round",
+    "start": 69.373,
+    "end": 69.797
+   },
+   {
+    "text": "wound",
+    "start": 69.797,
+    "end": 70.16,
+    "br": true
+   },
+   {
+    "text": "gave",
+    "start": 70.16,
+    "end": 70.397
+   },
+   {
+    "text": "the",
+    "start": 70.397,
+    "end": 70.522,
+    "br": true
+   },
+   {
+    "text": "shark",
+    "start": 70.522,
+    "end": 70.86
+   },
+   {
+    "text": "away.",
+    "start": 70.86,
+    "end": 71.31
+   },
+   {
+    "text": "When",
+    "start": 71.465,
+    "end": 71.578,
+    "br": true
+   },
+   {
+    "text": "its",
+    "start": 71.578,
+    "end": 71.728
+   },
+   {
+    "text": "saw",
+    "start": 71.728,
+    "end": 72.053
+   },
+   {
+    "text": "wears",
+    "start": 72.053,
+    "end": 72.415,
+    "br": true
+   },
+   {
+    "text": "down,",
+    "start": 72.415,
+    "end": 72.865
+   },
+   {
+    "text": "it",
+    "start": 72.94,
+    "end": 73.103,
+    "br": true
+   },
+   {
+    "text": "swallows",
+    "start": 73.103,
+    "end": 73.665
+   },
+   {
+    "text": "the",
+    "start": 73.665,
+    "end": 73.803,
+    "br": true
+   },
+   {
+    "text": "whole",
+    "start": 73.803,
+    "end": 74.103
+   },
+   {
+    "text": "row",
+    "start": 74.103,
+    "end": 74.378
+   },
+   {
+    "text": "of",
+    "start": 74.378,
+    "end": 74.54,
+    "br": true
+   },
+   {
+    "text": "teeth",
+    "start": 74.54,
+    "end": 74.928
+   },
+   {
+    "text": "and",
+    "start": 74.928,
+    "end": 75.04,
+    "br": true
+   },
+   {
+    "text": "keeps",
+    "start": 75.04,
+    "end": 75.34
+   },
+   {
+    "text": "going:",
+    "start": 75.34,
+    "end": 76.14
+   },
+   {
+    "text": "dolphins,",
+    "start": 76.315,
+    "end": 77.165,
+    "br": true
+   },
+   {
+    "text": "tuna,",
+    "start": 77.315,
+    "end": 77.84
+   },
+   {
+    "text": "great",
+    "start": 77.953,
+    "end": 78.303,
+    "br": true
+   },
+   {
+    "text": "whites,",
+    "start": 78.303,
+    "end": 79.04
+   },
+   {
+    "text": "even",
+    "start": 79.178,
+    "end": 79.453,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 79.453,
+    "end": 79.578
+   },
+   {
+    "text": "rubber",
+    "start": 79.578,
+    "end": 79.94
+   },
+   {
+    "text": "noses",
+    "start": 79.94,
+    "end": 80.44,
+    "br": true
+   },
+   {
+    "text": "of",
+    "start": 80.44,
+    "end": 80.603
+   },
+   {
+    "text": "navy",
+    "start": 80.603,
+    "end": 81.003
+   },
+   {
+    "text": "submarines.",
+    "start": 81.003,
+    "end": 81.91,
+    "emph": true,
+    "br": true
+   },
+   {
+    "text": "And",
+    "start": 82.065,
+    "end": 82.215,
+    "br": true
+   },
+   {
+    "text": "tonight,",
+    "start": 82.215,
+    "end": 82.665
+   },
+   {
+    "text": "somewhere",
+    "start": 82.753,
+    "end": 83.178
+   },
+   {
+    "text": "in",
+    "start": 83.178,
+    "end": 83.253,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 83.253,
+    "end": 83.34
+   },
+   {
+    "text": "dark,",
+    "start": 83.34,
+    "end": 83.915
+   },
+   {
+    "text": "a",
+    "start": 84.053,
+    "end": 84.215,
+    "br": true
+   },
+   {
+    "text": "whale",
+    "start": 84.215,
+    "end": 84.665
+   },
+   {
+    "text": "is",
+    "start": 84.665,
+    "end": 84.828,
+    "br": true
+   },
+   {
+    "text": "getting",
+    "start": 84.828,
+    "end": 85.203
+   },
+   {
+    "text": "one",
+    "start": 85.203,
+    "end": 85.44,
+    "br": true
+   },
+   {
+    "text": "more",
+    "start": 85.44,
+    "end": 85.69
+   },
+   {
+    "text": "circle.",
+    "start": 85.69,
+    "end": 86.23
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 20,
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.72
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-cookiecutter-shark/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 87.23
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "pipeline/episodes/auto.py (shots.json)",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/explainer-short-cookiecutter-shark/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

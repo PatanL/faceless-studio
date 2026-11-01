@@ -1,0 +1,99 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 86.48,
+ "captions": {
+  "src": "episodes/explainer-giant-pacific-octopus/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-giant-pacific-octopus/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 86.48
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/explainer-giant-pacific-octopus/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 86.48
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/explainer-giant-pacific-octopus/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/explainer-giant-pacific-octopus/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "sonar_ping",
+   "at": 2.69
+  },
+  {
+   "cue": "whoosh",
+   "at": 6.7
+  },
+  {
+   "cue": "whoosh",
+   "at": 12.63
+  },
+  {
+   "cue": "pop",
+   "at": 18.57
+  },
+  {
+   "cue": "bubbles",
+   "at": 24.67
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 32.07
+  },
+  {
+   "cue": "riser",
+   "at": 39.22
+  },
+  {
+   "cue": "whoosh",
+   "at": 47.18
+  },
+  {
+   "cue": "impact",
+   "at": 55.4
+  },
+  {
+   "cue": "tick",
+   "at": 64.08
+  },
+  {
+   "cue": "bubbles",
+   "at": 71.5
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 80.62
+  }
+ ]
+}

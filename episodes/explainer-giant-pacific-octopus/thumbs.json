@@ -1,0 +1,44 @@
+{
+ "id": "explainer-giant-pacific-octopus",
+ "niche": "explainer",
+ "subject": "squid",
+ "art": {
+  "component": "explainer/Octopus",
+  "props": {
+   "idle": false
+  }
+ },
+ "humanArt": {
+  "component": "explainer/Diver",
+  "props": {
+   "arms": "forward",
+   "bubbles": false
+  }
+ },
+ "variants": [
+  {
+   "template": "eye",
+   "id": "explainer-giant-pacific-octopus",
+   "text": "IT REMEMBERS",
+   "accent": "REMEMBERS",
+   "humanLabel": "YOU"
+  },
+  {
+   "template": "scale",
+   "text": "TWICE YOUR HEIGHT",
+   "accent": "TWICE",
+   "label": "4 M+",
+   "humanLabel": "YOU",
+   "subjectScale": 0.86
+  },
+  {
+   "template": "eye",
+   "id": "explainer-giant-pacific-octopus-b",
+   "text": "FOOD OR STICK?",
+   "accent": "STICK?",
+   "humanLabel": "YOU",
+   "bg": "#0a2633"
+  }
+ ],
+ "primary": "explainer-giant-pacific-octopus"
+}

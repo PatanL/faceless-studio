@@ -1,0 +1,107 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 72.71,
+ "captions": {
+  "src": "episodes/horror-building-intercom-buzzes-3-m/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-building-intercom-buzzes-3-m/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 72.71
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-building-intercom-buzzes-3-m/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 72.71
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-building-intercom-buzzes-3-m/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-building-intercom-buzzes-3-m/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "phone_buzz",
+   "at": 1.6
+  },
+  {
+   "cue": "phone_buzz_long",
+   "at": 4.57
+  },
+  {
+   "cue": "stinger",
+   "at": 8.05
+  },
+  {
+   "cue": "phone_buzz",
+   "at": 11.96
+  },
+  {
+   "cue": "message_pop",
+   "at": 20.03
+  },
+  {
+   "cue": "message_pop",
+   "at": 24.73
+  },
+  {
+   "cue": "heartbeat",
+   "at": 34.01
+  },
+  {
+   "cue": "notify",
+   "at": 39.17
+  },
+  {
+   "cue": "glitch",
+   "at": 39.17
+  },
+  {
+   "cue": "ding",
+   "at": 46.17
+  },
+  {
+   "cue": "footsteps",
+   "at": 50.59
+  },
+  {
+   "cue": "phone_buzz_long",
+   "at": 56.07
+  },
+  {
+   "cue": "notify",
+   "at": 61.608
+  },
+  {
+   "cue": "stinger",
+   "at": 69.11
+  }
+ ]
+}

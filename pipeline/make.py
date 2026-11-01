@@ -298,7 +298,7 @@ class Make:
 def slugify(niche: str, text: str) -> str:
     words = re.findall(r"[a-z0-9]+", text.lower())
     stop = {"the", "a", "an", "of", "and", "to", "in", "on", "at", "is", "that", "my", "our", "your"}
-    keep = [w for w in words if w not in stop][:5] or ["untitled"]
+    keep = [w for w in words if w not in stop and len(w) > 1][:5] or ["untitled"]
     return f"{niche}-{'-'.join(keep)}"
 
 

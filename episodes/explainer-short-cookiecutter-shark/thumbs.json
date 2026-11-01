@@ -1,0 +1,44 @@
+{
+ "id": "explainer-short-cookiecutter-shark",
+ "niche": "explainer",
+ "subject": "whale",
+ "art": {
+  "component": "explainer/Cookiecutter",
+  "props": {
+   "glow": 0.9,
+   "mouth": "open",
+   "idle": false
+  }
+ },
+ "humanArt": {
+  "component": "explainer/Diver",
+  "props": {
+   "arms": "forward",
+   "bubbles": false
+  }
+ },
+ "variants": [
+  {
+   "template": "eye",
+   "id": "explainer-short-cookiecutter-shark-b",
+   "text": "IT TAKES A SCOOP",
+   "accent": "SCOOP",
+   "humanLabel": "YOU"
+  },
+  {
+   "template": "scale",
+   "text": "WHALES FEAR IT",
+   "accent": "FEAR",
+   "label": "50 CM",
+   "humanLabel": "YOU"
+  },
+  {
+   "template": "eye",
+   "text": "NOT A WHAT-IF",
+   "accent": "WHAT-IF",
+   "humanLabel": "YOU",
+   "bg": "#0a2633"
+  }
+ ],
+ "primary": "explainer-short-cookiecutter-shark-b"
+}
