@@ -11,9 +11,9 @@ from .common import load_cues, ov
 # captions: ONE line of 4-5 words (~3.4% of frame height) in a dark pill, in the band above the hand-held phone / above
 # faces (y 0.12 clamps to ~0.153 by the safe area). Chat punch-ins move them to the low band (CAP_LOW) through
 # Scene.captionYAt, so they never sit on the bubbles being read.
-CAPTIONS = {"font": "display", "fontSize": 58, "color": "#ffffff", "highlight": "#ff4b55", "highlightMode": "content",
+CAPTIONS = {"font": "display", "fontSize": 58, "color": "#ffffff", "highlight": "#ff4b55", "highlightMode": "none",
             "strokeWidth": 10, "uppercase": False, "y": 0.12, "backing": 0.85}
-CAPTION_PAGING = {"maxWords": 5, "maxChars": 18}  # + stopword/glue stretch stays inside one 860 px line
+CAPTION_PAGING = {"maxWords": 5, "maxChars": 18, "gapBreak": 0.25}  # gapBreak: every >= 0.25 s pause here is a sentence end (no "inside. Dev in Six-C"); + stopword/glue stretch stays inside one 860 px line
 CAP_TOP = 0.12
 CAP_LOW = 0.75   # clamps to the bottom safe line (~0.75): over the input bar + thumb in a chat punch-in
 OVERLAYS = {"grain": 0.5, "vignette": 0.35, "fadeIn": 0, "fadeOut": 0.25}  # frame 0 is the TikTok/Shorts cover: never black
@@ -523,7 +523,7 @@ def pinned_rules(S):
                      "keyframes": [{"t": one, "scale": 1.0}, {"t": round(one + 1.4, 3), "scale": 1.05, "ease": "linear"},
                                    {"t": card, "scale": 1.1, "ease": "linear"}]},
                     ov("horror/RedText", z=55, text="Only one", style="flash", at=one + 0.1, duration=round(card - one - 0.1, 3),
-                       fontSize=120, strobe=8, y=0.8, glow=0.3),
+                       fontSize=120, strobe=8, y=0.22, glow=0.3),  # above the hairline, under the caption pill: never on the grin/chin
                     ov("horror/Glitch", z=60, cues=[{"at": one, "duration": 0.2, "amount": 1}], seed="end"),
                     ov("horror/Flicker", strength=0.4, seed="pe"),
                     {"type": "component", "name": "horror/EndCard", "depth": 0, "z": 80, "start": card, "props": {
