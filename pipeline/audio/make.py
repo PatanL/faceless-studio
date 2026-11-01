@@ -89,7 +89,7 @@ def main(argv=None):
     tts = synthesize(sc, cfg, force_whisper=a.whisper)
     cues = sorted(tts["cues"], key=lambda c: c["at"])
     if not a.no_auto_sfx:
-        cues = sorted(cues + auto_cues(tts["words"], cfg.get("auto_sfx", {}), cues), key=lambda c: c["at"])
+        cues = sorted(cues + auto_cues(tts["words"], cfg.get("auto_sfx", {}), cues, in_speech_db=cfg.get("auto_sfx_db")), key=lambda c: c["at"])
     mx = mix(tts["audio"], cues, cfg, music, out)
     dur = mx["report"]["duration_s"]
 

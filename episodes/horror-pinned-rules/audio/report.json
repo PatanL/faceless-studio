@@ -5,9 +5,9 @@
  "tts": {
   "engine": "kokoro",
   "voice": "af_heart",
-  "speed": 1.12,
-  "synth_s": 16.42,
-  "duration_s": 85.269,
+  "speed": 1.25,
+  "synth_s": 15.81,
+  "duration_s": 62.754,
   "timing_source": [
    "kokoro"
   ],
@@ -16,26 +16,26 @@
  "mix": {
   "target_lufs": -14.0,
   "pyloudnorm_lufs": -14.01,
-  "true_peak_dbtp_4x": -1.53,
+  "true_peak_dbtp_4x": -1.52,
   "ffmpeg_ebur128": {
    "I_lufs": -14.0,
-   "LRA_lu": 3.5,
+   "LRA_lu": 2.4,
    "true_peak_dbtp": -1.5
   },
-  "duration_s": 88.269,
+  "duration_s": 65.754,
   "music": "dread",
   "sfx_placed": [
    {
     "cue": "knock3",
-    "at": 1.95,
-    "db": 0.0,
+    "at": 1.762,
+    "db": -6.0,
     "source": "auto:knocks",
     "dur": 1.324,
-    "level_db": -3.0
+    "level_db": -9.0
    },
    {
     "cue": "notify",
-    "at": 5.6,
+    "at": 4.77,
     "db": 0.0,
     "source": "marker",
     "dur": 0.988,
@@ -43,7 +43,7 @@
    },
    {
     "cue": "stinger",
-    "at": 33.675,
+    "at": 15.25,
     "db": -6.0,
     "source": "marker",
     "dur": 4.026,
@@ -51,15 +51,15 @@
    },
    {
     "cue": "knock3",
-    "at": 40.875,
-    "db": 0.0,
+    "at": 27.7,
+    "db": -6.0,
     "source": "auto:knocking.",
     "dur": 1.324,
-    "level_db": -3.0
+    "level_db": -9.0
    },
    {
     "cue": "knock3_slow",
-    "at": 63.35,
+    "at": 45.06,
     "db": 0.0,
     "source": "marker",
     "dur": 2.594,
@@ -67,7 +67,7 @@
    },
    {
     "cue": "phone_buzz",
-    "at": 74.069,
+    "at": 53.504,
     "db": 0.0,
     "source": "auto:buzzed.",
     "dur": 1.256,
@@ -75,17 +75,25 @@
    },
    {
     "cue": "stinger",
-    "at": 84.819,
+    "at": 62.304,
     "db": 0.0,
     "source": "marker",
     "dur": 4.026,
     "level_db": -5.0
+   },
+   {
+    "cue": "phone_buzz",
+    "at": 63.304,
+    "db": -2.0,
+    "source": "marker",
+    "dur": 1.256,
+    "level_db": -9.0
    }
   ],
-  "music_rms_db_under_voice": -38.19,
-  "music_rms_db_in_gaps": -31.74,
-  "measured_duck_db": -6.45
+  "music_rms_db_under_voice": -38.2,
+  "music_rms_db_in_gaps": -33.42,
+  "measured_duck_db": -4.78
  },
- "words": 228,
- "wall_s": 18.8
+ "words": 209,
+ "wall_s": 18.2
 }

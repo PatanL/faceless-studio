@@ -21,7 +21,7 @@ NICHES = {
     "horror": {
         # tense first-person narrator (UK male, B1 horror sample), a touch faster for unease
         "engine": "kokoro", "voice": "bm_george", "lang": "b", "speed": 1.02,
-        "paragraph_pause": 0.55,
+        "paragraph_pause": 0.15,  # chunks are tail-trimmed to <=0.12 s, so ~0.27 s between paragraphs
         # close-mic'd and slightly roomy
         "voice_chain": "highpass=f=80,acompressor=threshold=-22dB:ratio=3:attack=5:release=100:makeup=1,"
                        "equalizer=f=250:t=q:w=1:g=1.5,aecho=0.9:0.9:23|41:0.10|0.06",
@@ -36,6 +36,9 @@ NICHES = {
             r"\bheart(beat)?\b": "heartbeat_slow", r"\bcreak": "door_creak", r"\bding\b": "ding",
             r"\bfootsteps?\b": "footsteps", r"\btext(ed)?\b|\bmessage\b": "notify",
         },
+        # auto cues fire on the spoken word, i.e. inside speech: keep them under the key words
+        "auto_sfx_db": {"knock3": -6.0},
+        "trim_tail": True,
     },
 }
 

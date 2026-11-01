@@ -23,6 +23,23 @@ from .script import Script, Segment, split_on_pauses
 
 LEAD_IN = 0.25   # silence before the first word
 TAIL = 0.6       # silence after the last word
+TRIM_DB = -40.0  # trailing audio quieter than this (dBFS) counts as silence when trimming a chunk
+TRIM_KEEP = 0.12 # keep at most this much trailing silence per chunk (Kokoro leaves ~0.7 s)
+
+
+def trim_tail(a48, keep=TRIM_KEEP, thresh_db=TRIM_DB):
+    """Cut a chunk's trailing silence to <= keep seconds (20 ms windows below thresh_db)."""
+    win = int(0.02 * SR)
+    if len(a48) < win * 4:
+        return a48
+    th = 10 ** (thresh_db / 20)
+    n = len(a48) // win
+    rms = np.sqrt(np.mean(a48[: n * win].reshape(n, win) ** 2, axis=1))
+    loud = np.nonzero(rms > th)[0]
+    if not len(loud):
+        return a48
+    end = min(len(a48), (loud[-1] + 1) * win + int(keep * SR))
+    return a48[:end]
 
 _PIPES: dict = {}
 
@@ -185,9 +202,11 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
             else:
                 a, sr, timed = _kokoro(sub.text, voice, lang, speed)
             synth_s += time.time() - t0
-            a48 = _to48(a, sr)
+            a48 = trim_tail(_to48(a, sr)) if cfg.get("trim_tail") else _to48(a, sr)
             dur = len(a48) / SR
             times, cov = align(sub.words, timed, dur) if timed and not force_whisper else (None, 0.0)
+            if times:
+                times = [(min(s_, dur), min(e_, dur)) for s_, e_ in times]
             if times is None or cov < 0.6:
                 wt = whisper_words(a48)
                 times, cov = align(sub.words, wt, dur)
@@ -226,8 +245,10 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
     return {"audio": audio, "words": words, "cues": cues, "stats": stats}
 
 
-def auto_cues(words: list[dict], rules: dict, existing: list[dict], min_gap=1.5):
-    """Keyword-triggered SFX: fire at the word's start, never within min_gap of another cue."""
+def auto_cues(words: list[dict], rules: dict, existing: list[dict], min_gap=1.5, in_speech_db: dict | None = None):
+    """Keyword-triggered SFX: fire at the word's start, never within min_gap of another cue.
+    in_speech_db: extra dB per cue name (auto cues always land inside speech, e.g. knock3 -6 -> -9 dB under voice)."""
+    in_speech_db = in_speech_db or {}
     out = []
     taken = [c["at"] for c in existing]
     for w in words:
@@ -235,7 +256,7 @@ def auto_cues(words: list[dict], rules: dict, existing: list[dict], min_gap=1.5)
             if re.search(pat, w["text"], re.I):
                 at = w["start"]
                 if all(abs(at - x) >= min_gap for x in taken):
-                    out.append({"cue": cue, "at": round(at, 3), "db": 0.0, "source": f"auto:{w['text']}"})
+                    out.append({"cue": cue, "at": round(at, 3), "db": float(in_speech_db.get(cue, 0.0)), "source": f"auto:{w['text']}"})
                     taken.append(at)
                 break
     return out
