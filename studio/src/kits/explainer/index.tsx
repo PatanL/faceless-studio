@@ -6,6 +6,7 @@
  *               explainer/SpermWhale ColossalSquid Orca GreatWhite BlueWhale Anglerfish Octopus
  *               explainer/Crocodile Hippo Grizzly Diver You Bus Car Elephant
  *               explainer/GolfCart WhaleHeart WhaleTongue WhaleThroat Sauropod Jet Krill (anatomy.tsx)
+ *               explainer/Seal Liver Sailboat, Orca pose "top" | "head" (orca_kit.tsx)
  * infographics  explainer/DepthMeter ScaleBar HeightChart Stat Map Timer Options SpeedBars Headline Tag
  *               explainer/Balance ECG (balance.tsx)
  *
@@ -16,6 +17,7 @@ import {Creature, fixed} from './creature';
 import {DepthMeter, Ocean} from './ocean';
 import {Headline, HeightChart, MapView, Options, ScaleBar, SpeedBars, Stat, Tag, Timer} from './ui';
 import {Balance, ECG} from './balance';
+import {Sailboat} from './orca_kit';
 
 registerComponent('explainer/Ocean', Ocean);
 registerComponent('explainer/DepthMeter', DepthMeter);
@@ -44,6 +46,8 @@ const FIXED: Record<string, string> = {
 	Sauropod: 'sauropod',
 	Jet: 'jet',
 	Krill: 'krill',
+	Seal: 'seal',
+	Liver: 'liver',
 };
 for (const [name, species] of Object.entries(FIXED)) registerComponent(`explainer/${name}`, fixed(species));
 
@@ -58,3 +62,4 @@ registerComponent('explainer/Headline', Headline);
 registerComponent('explainer/Tag', Tag);
 registerComponent('explainer/Balance', Balance);
 registerComponent('explainer/ECG', ECG);
+registerComponent('explainer/Sailboat', Sailboat);

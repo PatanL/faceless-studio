@@ -40,6 +40,11 @@ Built-in idle motion (tail/fluke travelling wave, tentacle waves, fin kicks, lur
 | `Diver` | 2.6 m with fins | `torch`, `beam` (px), `arms` ("forward"/"side"), `kick`, `bubbles`, `suit`, `fins` |
 | `You` (stick figure) | 1.75 m | `pose` (stand, wave, panic, point, shrug, run), `color` |
 | `Bus` / `Car` / `Elephant` | 12 / 4.5 / 3.3 m tall | `text` (bus), `color` (car) |
+| `Seal` | 1.6 m (harbour seal) | |
+| `Liver` | organ icon | (pair with a red glow / `shadow`) |
+
+`Orca` extras (orca_kit.tsx): `pose: "top"` (top-down, flukes sway sideways), `pose: "head"` (head-on, flippers flap),
+`finScale` (dorsal fin height; 1.5 = adult male ~1.8 m).
 
 Common: `pxPerM` (draw at true scale, centred in the box; same value on two layers = honest
 comparison), `align: "bottom"`, `silhouette` (true or a colour: flat dark shape, no details),
@@ -53,9 +58,10 @@ comparison), `align: "bottom"`, `silhouette` (true or a colour: flat dark shape,
 | `ScaleBar` | `label` ("~16 M"), `at`, `duration`, `from` (center/left), `labelSize`, `color`. Box width = bar length (`16 * pxPerM`) |
 | `HeightChart` | `maxM`, `stepM`, `gap`, `size`, `entries` [{kind, label, heightM?, pose?, at?}] — px-per-metre fits both wall height and total width |
 | `Stat` | `value`, `from`, `prefix`, `suffix`, `decimals`, `label`, `at`, `duration` (count-up), `size`, `color`, `box` |
-| `Map` | `views` [{t, lon, lat \| place, zoom}] (log-zoom), `rings` [{place\|lon,lat, r°, at, label}], `pins` [...], `highlight` [continent keys], `grid`. Places: see `mapdata.ts` `PLACES` |
+| `Map` | `views` [{t, lon, lat \| place, zoom}] (log-zoom), `rings` [{place\|lon,lat, r°, at, label}], `pins` [...], `highlight` [continent keys], `grid`, `zones` [{points [[lon,lat]], at, color, label (\n ok), labelAt [lon,lat], labelAnchor}] (hatched areas drawn under the coast), rings `labelSide: "left"`. Zoom >= `detailZoom` (4) swaps in hi-res coastlines from `mapdetail.ts` (Iberia + Maghreb). Places: see `mapdata.ts` `PLACES` |
 | `Timer` | `from`, `to`, `at`, `rate`, `style` (box/ring), `format` (mm:ss / s), `label`, `warnBelow`, `size` |
-| `Options` | `title`, `items`, `at`, `stagger`, `strikes` [{index, at}], `select` {index, at}, `size` |
+| `Options` | `title`, `items`, `at`, `stagger`, `itemAt` [t per item], `hidden` [{index, until, text: "???"}] (answer withheld until spoken), `strikes` [{index, at}], `select` {index, at}, `size`, `struckColor` |
+| `Sailboat` | side view across the waterline (waterline at `waterline` 0.5 of the box; use the background's layer depth so they stay locked). `snapAt` (rudder snaps off), `hits` [t], `list` (deg track), `sink` (px track), `bob` |
 | `SpeedBars` | `title`, `rows` [{label, value, unit, color, text}], `max`, `at`, `duration`, `stagger`, `size` |
 | `Headline` | `text` (\n for lines), `sub`, `color` (white/red/...), `underline`, `size`, `align`, `at`, `out` |
 | `Tag` | `text`, `accent`, `size`, `align`, `at`, `out` |

@@ -5,9 +5,10 @@ import {LAND} from './land';
 import {MARINE} from './marine';
 import {PEOPLE} from './people';
 import {ANATOMY} from './anatomy';
+import {ORCA_KIT_FIGURES} from './orca_kit';
 import {bool, num, safeId, str} from './util';
 
-export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY};
+export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY, ...ORCA_KIT_FIGURES};
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
 const ALIASES: Record<string, string> = {
@@ -47,6 +48,10 @@ const ALIASES: Record<string, string> = {
 	whaletongue: 'whaleTongue',
 	whalethroat: 'whaleThroat',
 	dinosaur: 'sauropod',
+	seal: 'seal',
+	harbourseal: 'seal',
+	harborseal: 'seal',
+	liver: 'liver',
 };
 
 /** Resolve a species/object name (any case / spacing) and optional pose. */

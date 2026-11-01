@@ -2,9 +2,8 @@
 
 ## YouTube Shorts / TikTok (9:16)
 
-They're called killer whales, and in the wild they have never killed a single person.
-They wave-wash seals off ice, take great white livers and brought down an adult blue whale. So why not us?
-What do you think the orcas off Spain are learning? 👇
+Wild killer whales could kill you easily. They never have.
+They wash seals off the ice, take great white livers and brought down an adult blue whale. So why not you?
 
 #orca #killerwhale #ocean #animals #explained #shorts
 
@@ -16,20 +15,18 @@ There is still no confirmed case of a wild orca killing a person. The best expla
 Except, since 2020, orcas off Spain and Portugal have been ramming sailboats and snapping their rudders.
 
 In this video:
-0:00 The "killer" that never kills us
-0:07 8 metres, four cars
-0:13 56 km/h vs you
-0:20 Every pod has its own plan
-0:27 Washing seals off the ice
-0:34 Great whites with no liver
-0:45 Taking down a blue whale
-0:53 So why not us?
-1:06 The answer is culture
-1:14 The Iberian orcas
-
-Comment what you think they're learning.
+0:00 It could kill you. It never has.
+0:03 8 metres, four cars, a fin as tall as you
+0:09 56 km/h: 3 seconds to reach you
+0:17 You'd never meet just one
+0:22 Washing seals off the ice
+0:28 Great whites with no liver
+0:38 Taking down a blue whale
+0:46 So why not you?
+0:55 The answer is culture
+1:02 The Iberian orcas: about seven boats sunk
 
 ## Before publishing
 
-- Re-check every line under "Facts to verify" in `episodes/explainer-orca/script.md`, especially the on-screen "~7 boats sunk (and counting)": confirm the current count.
+- Re-check every line under "Facts to verify" in `episodes/explainer-orca/script.md`, especially the on-screen "~7 boats sunk since 2020" (seven as of Oct 2025 per most counts; sources listed in script.md): re-check on publish day.
 - The voice is local TTS (Kokoro am_michael); follow the R5 policy notes on synthetic-voice disclosure for each platform.

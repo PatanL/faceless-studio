@@ -6,6 +6,7 @@
 import React from 'react';
 import {paint, type DrawCtx, type Figure} from './figure';
 import {bool, clamp, curl, num, ribbon, rnd, swimWarp, track, warp, type Pt, type Warp} from './util';
+import {ORCA_POSES} from './orca_kit';
 
 const Grad: React.FC<{id: string; top: string; bottom: string; angle?: 'v' | 'h'}> = ({id, top, bottom, angle = 'v'}) => (
 	<linearGradient id={id} x1="0" y1="0" x2={angle === 'h' ? '1' : '0'} y2={angle === 'h' ? '0' : '1'}>
@@ -191,11 +192,16 @@ const OR_PATCH = 'M 806 182 C 828 166 878 162 904 174 C 886 192 838 198 806 182 
 const OR_SADDLE = 'M 420 152 C 470 138 540 134 600 140 C 560 162 480 166 420 152 Z';
 const OR_FLIPPER = 'M 808 258 C 800 300 772 340 732 354 C 708 360 704 338 718 312 C 732 288 752 270 770 260 Z';
 
+/** finScale: dorsal fin height multiplier about its base (an adult male's fin is ~1.8 m: finScale 1.5) */
+const orcaFin = (s: number) =>
+	s === 1 ? OR_FIN : OR_FIN.replace(/(-?[\d.]+) (-?[\d.]+)/g, (_m, x, y) => `${x} ${(145 - (145 - Number(y)) * s).toFixed(1)}`);
+
 const orca: Figure = {
 	label: 'ORCA',
 	box: [20, 2, 974, 356],
 	size: 8,
 	axis: 'w',
+	poses: ORCA_POSES,
 	draw: (c) => {
 		const f = c.idle ? swimWarp({head: 994, tail: 20, amp: 14 * c.amp, t: c.t, freq: 0.6 * c.speed}) : undefined;
 		const body = warp(OR_BODY, f);
@@ -208,7 +214,7 @@ const orca: Figure = {
 					</clipPath>
 				</defs>
 				<path d={warp(OR_FLUKE, f)} fill={paint(c, '#121518')} />
-				<path d={warp(OR_FIN, f)} fill={paint(c, '#15181b')} />
+				<path d={warp(orcaFin(num(c.p.finScale, 1)), f)} fill={paint(c, '#15181b')} />
 				<path d={body} fill={paint(c, '#191c20')} />
 				<g clipPath={`url(#${c.id}-clip)`}>
 					{c.sil ? null : <path d={warp(OR_WHITE, f)} fill="#eef2f3" />}

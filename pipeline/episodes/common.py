@@ -187,7 +187,8 @@ def storyboard(slug, meta, scenes, words, total, captions_style, overlays, notes
         "format": "9:16",
         "fps": 30,
         "scenes": scenes,
-        "captions": {"words": [{"text": w["text"], "start": w["start"], "end": w["end"], **({"emph": True} if w.get("emph") else {})}
+        "captions": {"words": [{"text": w["text"], "start": w["start"], "end": w["end"], **({"emph": True} if w.get("emph") else {}),
+                                **({"br": True} if w.get("br") else {})}
                                for w in words],
                      **paging, "style": captions_style},
         "audio": {"voice": [{"src": f"episodes/{slug}/mix.wav", "start": 0, "volume": 1, "duration": round(total, 3)}],

@@ -18,7 +18,12 @@ CAPTIONS = {"font": "display", "fontSize": 84, "color": "#ffffff", "highlight": 
 # wants a fade-out sets it in pipeline/episodes/reformat.py.
 OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
 EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
-            "explainer-orca": ["killed", "alone", "charges", "liver", "biggest", "culture", "sunk"]}   # build.py marks these caption words (Word.emph)
+            # red = threat words only, about one every 8-10 s (orca review: not "alone"/"culture")
+            "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
+# caption cards on phrase boundaries (pipeline/episodes/phrases.py): opt-in per episode (True = every episode), + glue
+PHRASE_PAGES = {"explainer-orca"}
+PHRASE_GLUE = {"explainer-orca": ["you're scared of", "orca mother", "fifty metres out", "brought down", "you're about",
+                                  "ramming sailboats"]}
 STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                    # build.py fails these on any visual hold > 3 s
 # 9:16 caption pages: phrase-complete 2-4 word cards (the refs show "When a horse fly"); paginate() glues numbers and
 # compounds and merges flashes shorter than 0.6 s
@@ -102,6 +107,12 @@ BALL = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle c
 # =========================================================================== orca (PILOT)
 
 def orca(S):
+    """Fix round 2 builder lives in orca_pilot.py (reviewer fixes 1-10); orca_v1 below is the first pilot cut."""
+    from .orca_pilot import build
+    return build(S)
+
+
+def orca_v1(S):
     sc = []
     s = S[0]
     PPM0 = 100  # orca and diver share pxPerM (<= 100 so the 1.2x push + punch never crops the head): the hook is already an honest "you vs. it" scale shot

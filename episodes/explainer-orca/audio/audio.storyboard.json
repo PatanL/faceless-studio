@@ -1,6 +1,6 @@
 {
  "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
- "duration_s": 89.46,
+ "duration_s": 76.6,
  "captions": {
   "src": "episodes/explainer-orca/captions.json"
  },
@@ -10,7 +10,7 @@
     "src": "episodes/explainer-orca/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 89.46
+    "duration": 76.6
    }
   ],
   "music": [],
@@ -23,7 +23,7 @@
     "src": "episodes/explainer-orca/voice.wav",
     "start": 0,
     "volume": 1,
-    "duration": 89.46
+    "duration": 76.6
    }
   ],
   "music": [
@@ -48,12 +48,64 @@
  },
  "cues": [
   {
+   "cue": "whoosh",
+   "at": 2.91
+  },
+  {
+   "cue": "bubbles",
+   "at": 9.48
+  },
+  {
+   "cue": "whoosh",
+   "at": 17.25
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 22.08
+  },
+  {
+   "cue": "whoosh",
+   "at": 27.97
+  },
+  {
    "cue": "impact",
-   "at": 41.55
+   "at": 32.18
+  },
+  {
+   "cue": "bubbles",
+   "at": 34.34
+  },
+  {
+   "cue": "whoosh",
+   "at": 38.59
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 46.2
+  },
+  {
+   "cue": "whoosh",
+   "at": 49.29
+  },
+  {
+   "cue": "bubbles",
+   "at": 55.46
+  },
+  {
+   "cue": "whoosh",
+   "at": 61.87
+  },
+  {
+   "cue": "impact",
+   "at": 67.582
   },
   {
    "cue": "stinger",
-   "at": 82.48
+   "at": 69.06
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 71.67
   }
  ]
 }

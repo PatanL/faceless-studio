@@ -77,7 +77,8 @@ def build(slug: str) -> str:
         if slug in getattr(mod, "STRICT_HOLDS", ()):
             raise SystemExit(msg)
         print("WARN " + msg)
-    if getattr(mod, "PHRASE_PAGES", False):  # caption cards on phrase boundaries (pipeline/episodes/phrases.py)
+    pp = getattr(mod, "PHRASE_PAGES", False)  # caption cards on phrase boundaries (pipeline/episodes/phrases.py)
+    if pp is True or (isinstance(pp, (set, list, tuple)) and slug in pp):
         from .phrases import phrase_pages
         phrase_pages(words, glue=getattr(mod, "PHRASE_GLUE", {}).get(slug, []))
     holds = check_holds(slug, built)

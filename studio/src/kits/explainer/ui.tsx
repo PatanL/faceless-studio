@@ -7,6 +7,7 @@ import React, {useId} from 'react';
 import type {KitComponent} from '../../core/registry';
 import {FigureSVG, getFigure, makeCtx, realSize} from './creature';
 import {LAND as MAP_LAND, PLACES} from './mapdata';
+import {DETAIL as MAP_DETAIL} from './mapdetail';
 import {arr, backOut, bool, C, clamp, easeInOut, easeOut, fmtNum, num, prog, safeId, smooth, str, track, type Pt} from './util';
 
 const fadeOut = (props: Record<string, unknown>, time: number) =>
@@ -18,7 +19,6 @@ const flexAlign = (a: string) => (a === 'left' ? 'flex-start' : a === 'right' ? 
 // ---------------------------------------------------------------- headline
 
 /** Big uppercase title, optional red underline that draws on. props: text, sub, color, size, underline, align, at, out */
-export const Headline: KitComponent = ({props, time}) => {
 /** Headline words listed in `red` (a word or a list, case-insensitive) are drawn in the danger red. */
 const redWords = (text: string, red: unknown): React.ReactNode => {
 	const set = new Set((Array.isArray(red) ? red : typeof red === 'string' ? [red] : []).map((w) => String(w).toUpperCase()));
@@ -34,6 +34,7 @@ const redWords = (text: string, red: unknown): React.ReactNode => {
 	);
 };
 
+export const Headline: KitComponent = ({props, time}) => {
 	const at = num(props.at, 0);
 	// at <= 0: already in place on the first frame (frame 0 is the Shorts cover), no entrance
 	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.35));
@@ -269,6 +270,10 @@ export const Options: KitComponent = ({props, time}) => {
 	const items = arr<string>(props.items);
 	const strikes = arr<{index: number; at: number}>(props.strikes);
 	const selects = Array.isArray(props.select) ? arr<{index: number; at: number}>(props.select) : props.select ? [props.select as {index: number; at: number}] : [];
+	// itemAt: per-item appear times (narration-anchored) instead of at + i * stagger
+	const itemAt = arr<number>(props.itemAt);
+	// hidden: [{index, until, text}] shows a placeholder ("???") until the answer is spoken, then flips to the item
+	const hidden = arr<{index: number; until: number; text?: string}>(props.hidden);
 	const o = easeOut(prog(time, at, 0.3)) * fadeOut(props, time);
 	if (o <= 0) return null;
 	return (
@@ -278,7 +283,11 @@ export const Options: KitComponent = ({props, time}) => {
 			</div>
 			<div style={{display: 'flex', flexDirection: 'column', gap: size * 0.42, alignItems: 'stretch'}}>
 				{items.map((it, i) => {
-					const ip = easeOut(prog(time, at + 0.15 + i * stagger, 0.3));
+					const ip = easeOut(prog(time, typeof itemAt[i] === 'number' ? itemAt[i] : at + 0.15 + i * stagger, 0.3));
+					const hd = hidden.find((h) => h.index === i);
+					const flip = hd ? prog(time, hd.until, 0.3) : 1;
+					const label = hd && flip < 0.5 ? str(hd.text, '???') : it;
+					const flipScale = hd ? 1 - 0.25 * Math.sin(Math.PI * flip) : 1;
 					const st = strikes.find((s) => s.index === i);
 					const sp = st ? easeInOut(prog(time, st.at, 0.35)) : 0;
 					const se = selects.find((s) => s.index === i);
@@ -288,12 +297,13 @@ export const Options: KitComponent = ({props, time}) => {
 							key={i}
 							style={{
 								position: 'relative',
-								opacity: ip * (1 - 0.55 * sp),
-								transform: `translateX(${(1 - ip) * -30}px)`,
+								// struck items stay readable (light grey-rose on navy, ~0.8 opacity) under the red strike
+								opacity: ip * (1 - 0.2 * sp),
+								transform: `translateX(${(1 - ip) * -30}px) scaleY(${flipScale})`,
 								fontFamily: C.font,
 								fontWeight: 900,
 								fontSize: size,
-								color: sp > 0.5 ? '#c9a5a2' : C.white,
+								color: sp > 0.5 ? str(props.struckColor, '#e3cfcc') : hd && flip < 0.5 ? str(props.hiddenColor, '#8fd3e0') : C.white,
 								letterSpacing: '0.04em',
 								textTransform: 'uppercase',
 								padding: `${size * 0.22}px ${size * 0.5}px`,
@@ -314,7 +324,7 @@ export const Options: KitComponent = ({props, time}) => {
 								/>
 							) : null}
 							<span style={{position: 'relative'}}>
-								{i + 1}. {it}
+								{i + 1}. {label}
 								{sp > 0 ? <span style={{position: 'absolute', left: -6, top: '52%', height: Math.max(4, size * 0.1), width: `calc(${sp * 100}% + 12px)`, background: C.red, borderRadius: 3}} /> : null}
 							</span>
 						</div>
@@ -499,18 +509,76 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 	const land = str(props.landColor, '#2d5a55');
 	const hl = arr<string>(props.highlight);
 	const paths: React.ReactNode[] = [];
+	// zoomed views: hi-res regional coastlines replace the coarse outlines inside each region's bbox
+	const detail = view.zoom >= num(props.detailZoom, 4) ? MAP_DETAIL : [];
+	const maskId = `${id}-coarse`;
+	const inBox = (ring: [number, number][], b: [number, number, number, number]) =>
+		ring.every(([lo, la]) => lo >= b[0] && lo <= b[2] && la >= b[1] && la <= b[3]);
 	for (const [name, rings] of Object.entries(MAP_LAND)) {
 		rings.forEach((ring, j) => {
+			if (detail.some((d) => inBox(ring, d.bbox))) return;
 			const pts = ring.map(([lo, la]) => proj(lo, la));
 			const xs = pts.map((p) => p[0]);
 			const ys = pts.map((p) => p[1]);
 			if (Math.max(...xs) < -50 || Math.min(...xs) > W + 50 || Math.max(...ys) < -50 || Math.min(...ys) > H + 50) return;
 			const isHl = hl.includes(name);
 			paths.push(
-				<path key={`${name}${j}`} d={smooth(pts, true, 0.7)} fill={isHl ? C.red : land} stroke={isHl ? '#ff8a7f' : '#4f8a80'} strokeWidth={2} strokeLinejoin="round" />,
+				<path key={`${name}${j}`} d={smooth(pts, true, 0.7)} fill={isHl ? C.red : land} stroke={isHl ? '#ff8a7f' : '#4f8a80'} strokeWidth={2} strokeLinejoin="round" mask={detail.length ? `url(#${maskId})` : undefined} />,
 			);
 		});
 	}
+	const detailBoxes = detail.map((d) => {
+		const [x0, y1] = proj(d.bbox[0], d.bbox[1]);
+		const [x1, y0] = proj(d.bbox[2], d.bbox[3]);
+		return {x: x0, y: y0, w: x1 - x0, h: y1 - y0};
+	});
+	detail.forEach((d, di) => {
+		const b = detailBoxes[di];
+		d.rings.forEach((ring, j) => {
+			const pts = ring.map(([lo, la]) => proj(lo, la));
+			paths.push(
+				<path key={`d${di}-${j}`} d={smooth(pts, true, 0.5)} fill={land} stroke="#4f8a80" strokeWidth={2} strokeLinejoin="round" clipPath={`url(#${id}-dc${di})`} />,
+			);
+		});
+		paths.push(
+			<clipPath key={`dc${di}`} id={`${id}-dc${di}`}>
+				<rect x={b.x} y={b.y} width={b.w} height={b.h} />
+			</clipPath>,
+		);
+	});
+	// zones: translucent hatched areas (e.g. where interactions happen), drawn under the land so the inner edge can
+	// overlap the coast. props.zones [{points: [[lon, lat]...], at, color, label, labelAt: [lon, lat], labelAnchor}]
+	const zones = arr<{points: [number, number][]; at?: number; color?: string; label?: string; labelAt?: [number, number]; labelAnchor?: string}>(props.zones);
+	const zoneEls = zones.map((zn, i) => {
+		const p = prog(time, zn.at ?? 0, 0.6);
+		if (p <= 0) return null;
+		const col = colorOf(zn.color, C.red);
+		const pts = zn.points.map(([lo, la]) => proj(lo, la));
+		const pulse = 0.75 + 0.25 * Math.sin((time - (zn.at ?? 0)) * Math.PI * 2 * 0.6);
+		return (
+			<g key={`z${i}`} opacity={easeOut(p)}>
+				<path d={smooth(pts, true, 0.6)} fill={col} fillOpacity={0.32 * pulse} stroke={col} strokeWidth={5} strokeDasharray="18 10" />
+				<path d={smooth(pts, true, 0.6)} fill={`url(#${id}-hatch)`} />
+			</g>
+		);
+	});
+	const zoneLabels = zones.map((zn, i) => {
+		if (!zn.label || !zn.labelAt) return null;
+		const p = prog(time, (zn.at ?? 0) + 0.3, 0.3);
+		if (p <= 0) return null;
+		const [x, y] = proj(zn.labelAt[0], zn.labelAt[1]);
+		const fs = num(props.labelSize, 46);
+		const lines = zn.label.toUpperCase().split('\n');
+		return (
+			<text key={`zl${i}`} x={x} y={y} textAnchor={(zn.labelAnchor ?? 'end') as 'end'} fill={C.white} fontFamily={C.font} fontWeight={900} fontSize={fs} letterSpacing={2} opacity={easeOut(p)} style={{filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.8))'}}>
+				{lines.map((ln, k) => (
+					<tspan key={k} x={x} dy={k === 0 ? 0 : fs * 1.08}>
+						{ln}
+					</tspan>
+				))}
+			</text>
+		);
+	});
 	const grid: React.ReactNode[] = [];
 	if (bool(props.grid, true)) {
 		const stepDeg = view.zoom > 8 ? 5 : view.zoom > 3 ? 10 : 30;
@@ -527,7 +595,7 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 		const pl = e.place ? PLACES[e.place] : undefined;
 		return proj(pl ? pl[0] : e.lon ?? 0, pl ? pl[1] : e.lat ?? 0);
 	};
-	const rings = arr<{place?: string; lon?: number; lat?: number; r?: number; at?: number; label?: string; color?: string}>(props.rings).map((r, i) => {
+	const rings = arr<{place?: string; lon?: number; lat?: number; r?: number; at?: number; label?: string; color?: string; labelSide?: string}>(props.rings).map((r, i) => {
 		const p = prog(time, r.at ?? 0, 0.5);
 		if (p <= 0) return null;
 		const [x, y] = where(r);
@@ -539,7 +607,7 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 				<circle cx={x} cy={y} r={rad} fill={col} fillOpacity={0.14} stroke={col} strokeWidth={4} />
 				<circle cx={x} cy={y} r={rad * (1 + pulse * 0.6)} fill="none" stroke={col} strokeWidth={3} opacity={(1 - pulse) * 0.6 * p} />
 				{r.label ? (
-					<text x={x + rad + 22} y={y + 16} fill={C.white} fontFamily={C.font} fontWeight={900} fontSize={num(props.labelSize, 46)} letterSpacing={2} opacity={easeOut(prog(time, (r.at ?? 0) + 0.3, 0.3))} style={{filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.7))'}}>
+					<text x={r.labelSide === 'left' ? x - rad - 22 : x + rad + 22} y={y + 16} textAnchor={r.labelSide === 'left' ? 'end' : 'start'} fill={C.white} fontFamily={C.font} fontWeight={900} fontSize={num(props.labelSize, 46)} letterSpacing={2} opacity={easeOut(prog(time, (r.at ?? 0) + 0.3, 0.3))} style={{filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.7))'}}>
 						{r.label.toUpperCase()}
 					</text>
 				) : null}
@@ -573,10 +641,23 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 					<stop offset="0" stopColor={str(props.oceanColor, '#0f3a4a')} />
 					<stop offset="1" stopColor="#04121a" />
 				</radialGradient>
+				<pattern id={`${id}-hatch`} width={22} height={22} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+					<rect width={8} height={22} fill="rgba(255,255,255,0.10)" />
+				</pattern>
+				{detail.length ? (
+					<mask id={maskId} maskUnits="userSpaceOnUse" x={-W} y={-H} width={W * 3} height={H * 3}>
+						<rect x={-W} y={-H} width={W * 3} height={H * 3} fill="#fff" />
+						{detailBoxes.map((b, i) => (
+							<rect key={i} x={b.x} y={b.y} width={b.w} height={b.h} fill="#000" />
+						))}
+					</mask>
+				) : null}
 			</defs>
 			<rect width={W} height={H} fill={`url(#${id}-sea)`} />
 			{grid}
+			{zoneEls}
 			{paths}
+			{zoneLabels}
 			{rings}
 			{pins}
 		</svg>
