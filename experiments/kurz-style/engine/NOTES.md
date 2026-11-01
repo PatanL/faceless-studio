@@ -243,3 +243,111 @@ Scripts: `scripts/orca_open_render.sh <tag>` (render, texture pass and audio mux
 - Hero construction and mark density are still short of the KB references at 2×.
 
 My own read is about 60/100 on the rubric, which is TIS tier and not yet Kurzgesagt tier.
+
+## Judge
+
+Strict pass with `../JUDGE_RUBRIC.md`, 2026-11-01. I judged by looking at frames: the full-res frames at 0, 2, 3.5, 5, 6.5, 8 and 9.6 s from both clips, 0.25 s motion strips (2.0–4.0 s and 6.75–8.75 s), a 2× crop of the hero head next to `refs/kurz-bio/stills/D_0630_dumbo-octopus.jpg`, and `D_0126_reef.jpg`, `W_0222_whale.jpg` and `W_0000_tumor-creature.jpg` as the target tier.
+- **Rebuild:** `out/kurz-engine/orca_open_v3.mp4`.
+- **Current:** `out/pilots/explainer-orca/explainer-orca_9x16.mp4`, 0–10 s.
+- **Palette and detail metrics:** P and D come from `data/frame_metrics_orca_open_v3.json`.
+- **Not run:** `judge_metrics.sh` and `motion_pair.sh` were not run on the Spark. So the M1–M5 and A1–A3 caps are unverified, and the motion score is a judgement from the strips.
+- **Loudness:** checked locally, −14.1 LUFS integrated.
+- **Cuts:** the scene-cut detector (threshold 0.3) found 0 hard cuts.
+
+### Scores
+
+| category | max | rebuild | current (0–10 s) | why (rebuild) |
+|---|---|---|---|---|
+| 2.1 illustration | 20 | **12** | 2 | The orca has the full stack: core shadow, stipple, highlight, glints, rim and marks. At 2× the construction is still simple. The head is a blunt bullet with no melon or jaw mass, and the rim reads as a cyan outline on the flipper and belly. The YOU figure is a white stick pictogram. |
+| 2.2 lighting | 12 | **8** | 3 | There is one key from the upper left, and rays and glints agree. The lit/unlit event at about 5 s can't be read at phone size, and there is no dark beat. |
+| 2.3 depth | 12 | **8** | 2 | There are 4 or more planes: far pod, mid kelp and ridges, subject, and blurred foreground. Parallax shows on every move. But 5–10 s has no foreground, and the upper 40 % of the frame is empty water. The foreground ink blobs read as smudges, not as kelp. |
+| 2.4 colour | 10 | **5** | 2 | Capped at 6 because P4 is 0.050 (0.11–0.14 on the scale frames: the olive seabed reads as grey). One teal key runs all 10 s with no colour script. The warm masses are small and dull next to the saturated families in D_0126. |
+| 2.5 detail | 10 | **6** | 2 | D1–D5 pass (190 shapes, 1834 micro, 285 specks, edge density 0.070, outline 0.042). The micro layer is stamped: every kelp leaf is the same with a ring node, every jelly has the same 3-dot bell, and the fish are identical. |
+| 2.6 motion | 14 | **8** | 4 | Present: tail wave, flutter kick, follow-through, a ticking counter, platform dip and a bubble burst. Defects: 2.25–3.0 s is a near-frozen hold, the push to the head at about 3.1 s is abrupt, and at 6.75–7.0 s the cars fall through the orca's body and flipper. |
+| 2.7 camera | 8 | **5** | 3 | The set is continuous with no hard cuts, and there are pull-back, push-in and push-up moves. Only one transition kind is used (camera moves); the transition library is not built. |
+| 2.8 type | 6 | **4** | 3 | Strong: the Anton plate, lantern tags, ring leaders, the 2.8 → 6 tonnes counter and YOU on the scale beat. Collisions: the YOU tag touches the caption at about 1 s; the platform and cars slide under the caption "AND ITS FIN ALONE" at about 7.75 s; the "8" is clipped by the platform at 6.5 s; and the YOU leader ring lands on the figure's face as a red dot. |
+| 2.9 sound | 8 | **3** | 3 | The old `mix.wav` is muxed in as is: voice plus bed, loudness on target. There is no SFX on the bubble burst, car drops, counter ticks or light event. |
+| **total** | 100 | **59** | **24** | |
+
+**Identity gate (rebuild): PASS.**
+- P1 is 1.00 and P2 is 0.
+- No borrowed designs: no birds or beans, no isometric cube floor.
+- Titles use Anton on an ink plate; no wide-tracked caps.
+- All 5 of 5 house signatures are present: stipple, teal-ink darks, plane-gap, ring motif and YOU.
+
+**Tier gaps.** Gap 2 = clearly below the target, TIS-like.
+
+| role | rebuild time | reference | tier gap |
+|---|---|---|---|
+| H | 1.0 s | W_0000 | 2 |
+| P | 6.5 s | W_0222 | 1 |
+| E | 0 s | D_0126 | 2 |
+| X | 3.5 s | D_0630 | 2 |
+
+**Tier: TIS tier (59), not Kurzgesagt. Not near tier either.** The rebuild is clearly better than the current pipeline (24, below TIS, matching the ≈25 calibration). It beats TIS on shading, palette discipline and information design. It loses to Kurzgesagt on drawing, colour and set design: side by side, Kurzgesagt reads as illustrated and ours reads as assembled.
+
+**Does code limit it? No.** None of the defects is a renderer limit. They are drawing and art-direction limits.
+
+### Top 5 remaining gaps (ranked by visual impact)
+
+1. **Hero drawing quality at 2×.** This needs better art assets.
+   - Problems: the orca head is a blunt bullet with no melon, rostrum or jaw mass; the rim reads as an outline; the YOU figure is a stick pictogram; the diver is a small pictogram.
+   - The engine's shading is not the bottleneck; the path drawing is.
+   - Fix: hand-drawn hero SVGs from an illustrator (human or commissioned/licensed vector sources in our own style), dropped into `<Shaded>`. Code renders them at full quality, but agent-authored paths have plateaued at this level.
+2. **Colour script and value range.** Closable in code.
+   - One teal key for all 10 s.
+   - The grey olive seabed fails P4.
+   - The warm masses are small and dull.
+   - Fix: re-key the seabed and lift the chroma of the reef shelf to a ≥ 4-family saturated mass. Shift the key at the scale beat, for example warmer and brighter for "proof". Give the light event a real value swing.
+3. **Repetitive, stamped set dressing and empty upper frame.** Mostly closable in code; bespoke silhouettes would benefit from art.
+   - Identical kelp leaves with a ring node on every leaf, identical jellies, identical fish.
+   - Noise-blob ridges.
+   - The upper 40 % is empty from 5 to 10 s.
+   - Fix: seeded variation in leaf shape and size, nodes on only some leaves, 3–4 jelly designs, surface light or a pod passing overhead to fill the upper frame.
+4. **Staging and acting defects.** Closable in code.
+   - A near-frozen hold at 2.25–3.0 s, and an abrupt push at about 3.1 s.
+   - Cars fall through the orca at 6.75–7.0 s.
+   - Caption collisions at about 1 s and 7.75 s, and the clipped "8" at 6.5 s.
+   - Fix: block the car drop clear of the hero, keep camera drift through the hold, ease the push, and run a collision check for text boxes against moving props.
+5. **Light events and sound.** Light is closable in code; sound needs a licensed or CC0 SFX library, not visual art.
+   - The lit/unlit beat cannot be read at phone size.
+   - There is no transition library.
+   - There are no SFX on the bubble burst, car drops, counter ticks or light event.
+
+```json
+{
+  "video": "out/kurz-engine/orca_open_v3.mp4",
+  "judge_date": "2026-11-01",
+  "metrics_file": "experiments/kurz-style/engine/data/frame_metrics_orca_open_v3.json",
+  "sheet": "out/kurz-engine/orca_open_sbs.jpg",
+  "motion_strips": [],
+  "scores": {"illustration": 12, "lighting": 8, "depth": 8, "colour": 5, "detail": 6,
+             "motion": 8, "camera": 5, "type": 4, "sound": 3},
+  "caps_applied": ["2.4 <= 6 (P4 0.050 > 0.04)", "M1-M5 / A1-A3 caps unverified (judge_metrics.sh not run)"],
+  "total": 59,
+  "current_pipeline_total": 24,
+  "pairs": [
+    {"role": "H", "ours_t": "0:01", "ref": "kurz-bio/stills/W_0000_tumor-creature.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:01", "bible": "§11", "note": "YOU tag touches caption"},
+                 {"t": "0:01", "bible": "§6", "note": "foreground ink blobs read as smudges"}]},
+    {"role": "X", "ours_t": "0:03.5", "ref": "kurz-bio/stills/D_0630_dumbo-octopus.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:03.5", "bible": "§4", "note": "bullet head, few sub-forms, rim reads as outline"},
+                 {"t": "0:02.3-0:03.0", "bible": "§9.3", "note": "near-frozen hold, then abrupt push-in"}]},
+    {"role": "E", "ours_t": "0:00", "ref": "kurz-bio/stills/D_0126_reef.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:00", "bible": "§2.5", "note": "single teal key, warm masses dull, low hue breadth"},
+                 {"t": "0:00-0:10", "bible": "§8", "note": "stamped kelp, jellies, fish"}]},
+    {"role": "P", "ours_t": "0:06.5", "ref": "kurz-bio/stills/W_0222_whale.jpg", "tier_gap": 1,
+     "defects": [{"t": "0:06.5", "bible": "§11", "note": "'8' clipped by platform; upper 40% empty"},
+                 {"t": "0:06.8-0:07.0", "bible": "§9.2", "note": "cars fall through orca body"},
+                 {"t": "0:07.75", "bible": "§11", "note": "platform and cars slide under caption"}]}
+  ],
+  "identity_gate": {"P1": 1.0, "P2": 0.0, "no_borrowed_designs": true, "type_signatures_absent": true,
+                    "house_signatures_seen": 5, "no_tracing": true, "pass": true},
+  "tier": "TIS",
+  "top_fixes": [
+    "§4: illustrator-drawn hero SVGs (orca head/jaw/melon, real YOU figure, larger diver) fed into <Shaded> - needs art assets",
+    "§2.5/P4: re-key seabed and reef to a saturated >=4-family warm mass; shift key per beat - code",
+    "§8/§6: seeded variation on kelp/jellies/fish and fill the empty upper frame; fix staging collisions - code"
+  ]
+}
+```
