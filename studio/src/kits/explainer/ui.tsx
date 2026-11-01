@@ -19,7 +19,7 @@ const flexAlign = (a: string) => (a === 'left' ? 'flex-start' : a === 'right' ? 
 // ---------------------------------------------------------------- headline
 
 /** Big uppercase title, optional red underline that draws on (always the red accent; underlineColor overrides).
- * props: text, sub, color, size, underline, underlineColor, align, at, out */
+ * props: text, sub, subColor, subOpacity (sub gets a soft shadow when subColor is set), color, size, underline, underlineColor, align, at, out */
 /** Headline words listed in `red` (a word or a list, case-insensitive) are drawn in the danger red. */
 const redWords = (text: string, red: unknown): React.ReactNode => {
 	const set = new Set((Array.isArray(red) ? red : typeof red === 'string' ? [red] : []).map((w) => String(w).toUpperCase()));
@@ -68,7 +68,7 @@ export const Headline: KitComponent = ({props, time}) => {
 				) : null}
 			</div>
 			{typeof props.sub === 'string' ? (
-				<div style={{marginTop: size * 0.4, fontFamily: C.font, fontWeight: 700, fontSize: size * 0.42, color: C.muted, letterSpacing: '0.14em', textTransform: 'uppercase'}}>{props.sub}</div>
+				<div style={{marginTop: size * 0.4, fontFamily: C.font, fontWeight: 700, fontSize: size * 0.42, color: typeof props.subColor === 'string' ? props.subColor : C.muted, opacity: num(props.subOpacity, 1), textShadow: typeof props.subColor === 'string' ? '0 2px 10px rgba(0,0,0,0.6)' : undefined, letterSpacing: '0.14em', textTransform: 'uppercase'}}>{props.sub}</div>
 			) : null}
 		</div>
 	);

@@ -114,7 +114,7 @@ export const Ocean: KitComponent = ({props, time, width: W, height: H}) => {
 				</linearGradient>
 			</defs>
 			<rect x={0} y={sy} width={W} height={H - sy} fill={`url(#${id}-bg)`} />
-			<ellipse cx={W / 2} cy={sy} rx={W * 0.7} ry={H * 0.55} fill={`url(#${id}-glow)`} opacity={Math.pow(L, 0.8)} />
+			<ellipse cx={W / 2} cy={sy} rx={W * 0.7} ry={H * 0.55} fill={`url(#${id}-glow)`} opacity={Math.pow(L, 0.8) * num(props.glow, 1)} />
 			{rays}
 			{bokeh}
 			{snow}

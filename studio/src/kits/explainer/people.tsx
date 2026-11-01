@@ -144,7 +144,9 @@ const diver: Figure = {label: 'DIVER', box: [-115, 50, 690, 120], size: 2.6, axi
 // ================================================================ stick figure YOU
 
 const youDraw = (c: DrawCtx) => {
-	const col = paint(c, str(c.p.color, '#f3f6f7'));
+	// style "diver": the hook diver's palette standing upright (black suit, light rim, mask, #d8d8d8 tank, yellow fins)
+	const dv = str(c.p.style, 'filled') === 'diver';
+	const col = paint(c, dv ? '#15181c' : str(c.p.color, '#f3f6f7'));
 	const pose = str(c.p.pose, 'stand');
 	const t = c.t * c.speed;
 	const w = c.idle ? Math.sin(t * 9) : 0;
@@ -178,9 +180,9 @@ const youDraw = (c: DrawCtx) => {
 	// filled flat-shaded silhouette (orca review: the line-stroke stick figure read as placeholder art next to the
 	// vector animals): thick capsule limbs + a torso, white fill with a ~6 px navy outline; style "stick" = old look
 	const stick = str(c.p.style, 'filled') === 'stick';
-	const line = paint(c, str(c.p.outline, '#0b1a22'));
+	const line = paint(c, str(c.p.outline, dv ? '#c9d6dc' : '#0b1a22'));
 	const limbW = stick ? sw : 26;
-	const ol = stick ? 0 : 12; // outline drawn as a wider navy pass under the white
+	const ol = stick ? 0 : dv ? 7 : 12; // outline drawn as a wider navy pass under the white (diver: thin light rim)
 	const armD = (a: [number, number]) => {
 		const e = polar(sh, a[0], 52);
 		const h = polar(e, a[1], 50);
@@ -202,6 +204,24 @@ const youDraw = (c: DrawCtx) => {
 			<circle cx={100} cy={52 + breathe} r={34 + extra / 2} fill={stroke} />
 		</g>
 	);
+	const fins = [
+		[68 - legs, -1],
+		[132 + legs, 1],
+	].map(([x, s], i) => (
+		<path key={`fin${i}`} d={`M ${x - 14} 330 L ${x + s * 4 - 18} 360 L ${x + s * 4 + 18} 360 L ${x + 14} 330 Z`} fill={paint(c, '#f5c02e')} stroke={paint(c, '#c9961c')} strokeWidth={3} strokeLinejoin="round" />
+	));
+	if (dv)
+		return (
+			<g>
+				<rect x={114} y={84} width={30} height={96} rx={13} fill={paint(c, '#d8d8d8')} stroke={line} strokeWidth={4} />
+				{pass(line, ol, 'o')}
+				{pass(col, 0, 'f')}
+				{fins}
+				<rect x={74} y={34 + breathe} width={52} height={24} rx={10} fill={paint(c, '#0a0c0e')} />
+				{c.sil ? null : <rect x={79} y={38 + breathe} width={42} height={16} rx={6} fill="#6fd6e8" />}
+				{c.sil ? null : <path d={`M 84 ${150 + breathe} L 116 ${150 + breathe}`} stroke="#2b3138" strokeWidth={5} strokeLinecap="round" />}
+			</g>
+		);
 	return (
 		<g>
 			{ol ? pass(line, ol, 'o') : null}
