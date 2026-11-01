@@ -1,0 +1,4158 @@
+{
+ "version": 1,
+ "id": "explainer-short-box-jellyfish",
+ "title": "You Have 2 Minutes After A Box Jellyfish Sting",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_hook",
+   "duration": 3.817,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 2,
+     "rays": 7,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "24%",
+     "width": 200,
+     "height": 340,
+     "props": {
+      "pose": "stand"
+     },
+     "id": "you",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 600\" overflow=\"visible\" fill=\"none\" stroke=\"#d8f6ff\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"><path d=\"M14 0 C24 150 4 300 19 450 S4 560 17 600\"/><path d=\"M22 0 C32 150 12 300 27 450 S12 560 25 600\"/><path d=\"M30 0 C40 150 20 300 35 450 S20 560 33 600\"/><path d=\"M66 0 C76 150 56 300 71 450 S56 560 69 600\"/><path d=\"M74 0 C84 150 64 300 79 450 S64 560 77 600\"/><path d=\"M82 0 C92 150 72 300 87 450 S72 560 85 600\"/><path d=\"M118 0 C128 150 108 300 123 450 S108 560 121 600\"/><path d=\"M126 0 C136 150 116 300 131 450 S116 560 129 600\"/><path d=\"M134 0 C144 150 124 300 139 450 S124 560 137 600\"/><path d=\"M170 0 C180 150 160 300 175 450 S160 560 173 600\"/><path d=\"M178 0 C188 150 168 300 183 450 S168 560 181 600\"/><path d=\"M186 0 C196 150 176 300 191 450 S176 560 189 600\"/></svg>",
+     "x": "64%",
+     "y": "33.4%",
+     "width": 200,
+     "height": 600,
+     "id": "tentacles",
+     "anchorY": 0,
+     "opacity": 0.22,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 2,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 140\" overflow=\"visible\"><path d=\"M10 128 C10 40 50 6 100 6 C150 6 190 40 190 128 C150 116 50 116 10 128 Z\" fill=\"#bff3ff\" fill-opacity=\"0.38\" stroke=\"#effdff\" stroke-width=\"5\"/><path d=\"M40 112 C44 60 70 30 100 28 C130 30 156 60 160 112\" fill=\"none\" stroke=\"#effdff\" stroke-opacity=\"0.55\" stroke-width=\"3\"/><ellipse cx=\"100\" cy=\"86\" rx=\"34\" ry=\"18\" fill=\"#e6fbff\" fill-opacity=\"0.35\"/></svg>",
+     "x": "64%",
+     "y": "30%",
+     "width": 220,
+     "height": 154,
+     "id": "bell",
+     "opacity": 0.24,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.04,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" overflow=\"visible\"><path d=\"M198 70 C150 20 90 90 2 34\" fill=\"none\" stroke=\"#f2feff\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+     "x": "57.5%",
+     "y": "31.4%",
+     "width": 180,
+     "height": 90,
+     "id": "touch",
+     "opacity": 0.85,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)"
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 14,
+     "x": "50%",
+     "y": "40%",
+     "width": 1080,
+     "height": 900,
+     "opacity": 0.5,
+     "seed": 7,
+     "depth": 0.6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 120.0,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 740,
+     "y": "23.2%",
+     "width": 380,
+     "height": 67,
+     "props": {
+      "text": "WORST CASE",
+      "at": 1.583,
+      "size": 26,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.817,
+      "zoom": 1.06,
+      "ease": "inOut"
+     }
+    ]
+   },
+   "notes": "Something brushed your leg. Worst case, you have two minutes."
+  },
+  {
+   "id": "s02_scale",
+   "duration": 7.356,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 2,
+     "rays": 7,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 140\" overflow=\"visible\"><path d=\"M10 128 C10 40 50 6 100 6 C150 6 190 40 190 128 C150 116 50 116 10 128 Z\" fill=\"#bff3ff\" fill-opacity=\"0.38\" stroke=\"#effdff\" stroke-width=\"5\"/><path d=\"M40 112 C44 60 70 30 100 28 C130 30 156 60 160 112\" fill=\"none\" stroke=\"#effdff\" stroke-opacity=\"0.55\" stroke-width=\"3\"/><ellipse cx=\"100\" cy=\"86\" rx=\"34\" ry=\"18\" fill=\"#e6fbff\" fill-opacity=\"0.35\"/></svg>",
+     "x": "30%",
+     "y": "42%",
+     "width": 330,
+     "height": 231,
+     "opacity": 0.24,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "end": 3.725,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0.24
+      },
+      {
+       "t": 0.8,
+       "opacity": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 200\"><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"#f4f1ea\" stroke=\"#c9c3b6\" stroke-width=\"4\"/><circle cx=\"100\" cy=\"100\" r=\"62\" fill=\"none\" stroke=\"#d9d3c6\" stroke-width=\"4\"/></svg>",
+     "x": "70%",
+     "y": "42%",
+     "width": 297,
+     "height": 297,
+     "end": 3.725,
+     "enter": {
+      "type": "pop",
+      "at": 2.904,
+      "duration": 0.3
+     },
+     "start": 2.904
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "53%",
+     "width": 480,
+     "height": 78,
+     "props": {
+      "text": "BELL: UP TO ~30 CM",
+      "at": 2.315,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 3.725
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": "53%",
+     "width": 480,
+     "height": 78,
+     "props": {
+      "text": "DINNER PLATE ~27 CM",
+      "at": 2.904,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 3.725
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1114,
+     "width": 900,
+     "height": 6,
+     "fill": "#ffffff",
+     "opacity": 0.7,
+     "start": 3.725
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 490,
+     "width": 900,
+     "height": 6,
+     "fill": "#e5483d",
+     "start": 3.725,
+     "enter": {
+      "type": "wipeRight",
+      "at": 6.587,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 600\" overflow=\"visible\" fill=\"none\" stroke=\"#d8f6ff\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"><path d=\"M14 0 C24 150 4 300 19 450 S4 560 17 600\"/><path d=\"M22 0 C32 150 12 300 27 450 S12 560 25 600\"/><path d=\"M30 0 C40 150 20 300 35 450 S20 560 33 600\"/><path d=\"M66 0 C76 150 56 300 71 450 S56 560 69 600\"/><path d=\"M74 0 C84 150 64 300 79 450 S64 560 77 600\"/><path d=\"M82 0 C92 150 72 300 87 450 S72 560 85 600\"/><path d=\"M118 0 C128 150 108 300 123 450 S108 560 121 600\"/><path d=\"M126 0 C136 150 116 300 131 450 S116 560 129 600\"/><path d=\"M134 0 C144 150 124 300 139 450 S124 560 137 600\"/><path d=\"M170 0 C180 150 160 300 175 450 S160 560 173 600\"/><path d=\"M178 0 C188 150 168 300 183 450 S168 560 181 600\"/><path d=\"M186 0 C196 150 176 300 191 450 S176 560 189 600\"/></svg>",
+     "x": "33%",
+     "y": 334,
+     "width": 120,
+     "height": 780,
+     "anchorY": 0,
+     "opacity": 0.6,
+     "start": 3.725,
+     "keyframes": [
+      {
+       "t": 3.725,
+       "scaleY": 0.15
+      },
+      {
+       "t": 4.451,
+       "scaleY": 0.5
+      },
+      {
+       "t": 5.446,
+       "scaleY": 1.0,
+       "ease": "out"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.5,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 140\" overflow=\"visible\"><path d=\"M10 128 C10 40 50 6 100 6 C150 6 190 40 190 128 C150 116 50 116 10 128 Z\" fill=\"#bff3ff\" fill-opacity=\"0.38\" stroke=\"#effdff\" stroke-width=\"5\"/><path d=\"M40 112 C44 60 70 30 100 28 C130 30 156 60 160 112\" fill=\"none\" stroke=\"#effdff\" stroke-opacity=\"0.55\" stroke-width=\"3\"/><ellipse cx=\"100\" cy=\"86\" rx=\"34\" ry=\"18\" fill=\"#e6fbff\" fill-opacity=\"0.35\"/></svg>",
+     "x": "33%",
+     "y": 308,
+     "width": 90,
+     "height": 63,
+     "opacity": 0.6,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "start": 3.725
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "60%",
+     "y": 887,
+     "width": 260,
+     "height": 455,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 260,
+      "align": "bottom"
+     },
+     "start": 3.725
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "33%",
+     "y": "61%",
+     "width": 520,
+     "height": 78,
+     "props": {
+      "text": "UP TO 60 TENTACLES",
+      "at": 4.451,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 5.446
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "33%",
+     "y": "61%",
+     "width": 520,
+     "height": 78,
+     "props": {
+      "text": "LONGEST: 3 M",
+      "at": 5.446,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "23.6%",
+     "width": 420,
+     "height": 72,
+     "props": {
+      "text": "2.4 M CEILING",
+      "at": 6.587,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 115.992,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "preset": "panDown",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 2.315,
+     "volume": 0.5
+    },
+    {
+     "cue": "pop",
+     "at": 6.587,
+     "volume": 0.5
+    }
+   ],
+   "notes": "You missed it because it's nearly clear: a bell up to dinner-plate size, trailing up to sixty tentacles, the longest taller than your ceiling."
+  },
+  {
+   "id": "s03_reveal",
+   "duration": 4.817,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 2,
+     "rays": 7,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "44%",
+     "width": 520,
+     "height": 900,
+     "props": {
+      "pose": "stand"
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 4,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" overflow=\"visible\"><path d=\"M198 70 C150 20 90 90 2 34\" fill=\"none\" stroke=\"#f2feff\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+     "x": "53%",
+     "y": "57%",
+     "width": 260,
+     "height": 130,
+     "opacity": 0.9,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" overflow=\"visible\"><path d=\"M198 70 C150 20 90 90 2 34\" fill=\"none\" stroke=\"#f2feff\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+     "x": "51%",
+     "y": "59.5%",
+     "width": 240,
+     "height": 120,
+     "opacity": 0.9,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "rotate": -8,
+     "flipX": true
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" overflow=\"visible\"><path d=\"M198 70 C150 20 90 90 2 34\" fill=\"none\" stroke=\"#f2feff\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+     "x": "54%",
+     "y": "62%",
+     "width": 250,
+     "height": 125,
+     "opacity": 0.9,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "rotate": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "BOX JELLYFISH",
+      "at": 0.743,
+      "size": 62,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "32%",
+     "width": 900,
+     "height": 78,
+     "props": {
+      "text": "THE SEA'S MOST VENOMOUS ANIMAL",
+      "at": 2.256,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "36%",
+     "width": 820,
+     "height": 62,
+     "props": {
+      "text": "60+ DEATHS ON RECORD IN AUSTRALIA",
+      "at": 2.936,
+      "size": 24,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 108.267,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "y": "50%"
+     },
+     {
+      "t": 3.459,
+      "zoom": 1.25,
+      "y": "56%",
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.459,
+      "duration": 0.35,
+      "amplitude": 12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 3.459,
+     "volume": 0.8
+    }
+   ],
+   "notes": "That's a box jellyfish, called the sea's most venomous animal, and it's stuck to your shin."
+  },
+  {
+   "id": "s04_mechanism",
+   "duration": 5.713,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 40,
+     "rays": 3,
+     "seed": 3,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 600\" overflow=\"visible\"><ellipse cx=\"150\" cy=\"450\" rx=\"92\" ry=\"128\" fill=\"#bff3ff\" fill-opacity=\"0.18\" stroke=\"#ffffff\" stroke-width=\"7\"/><line x1=\"150\" y1=\"322\" x2=\"182\" y2=\"232\" stroke=\"#ffe14d\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M150 340 C90 360 90 420 150 420 C210 420 210 480 150 480 C90 480 90 540 150 540 C200 540 200 500 160 500\" fill=\"none\" stroke=\"#9fe8ff\" stroke-width=\"6\"/><path d=\"M118 330 L182 330\" stroke=\"#ffffff\" stroke-width=\"8\"/></svg>",
+     "x": "50%",
+     "y": "42%",
+     "width": 360,
+     "height": 720,
+     "end": 4.563
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 600\" overflow=\"visible\"><ellipse cx=\"150\" cy=\"450\" rx=\"92\" ry=\"128\" fill=\"#bff3ff\" fill-opacity=\"0.18\" stroke=\"#ffffff\" stroke-width=\"7\"/><line x1=\"150\" y1=\"322\" x2=\"182\" y2=\"232\" stroke=\"#ffe14d\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M150 330 L150 10\" stroke=\"#9fe8ff\" stroke-width=\"6\"/><path d=\"M150 40 l-16 22 M150 40 l16 22\" stroke=\"#9fe8ff\" stroke-width=\"4\"/><path d=\"M150 90 l-16 22 M150 90 l16 22\" stroke=\"#9fe8ff\" stroke-width=\"4\"/><path d=\"M150 140 l-16 22 M150 140 l16 22\" stroke=\"#9fe8ff\" stroke-width=\"4\"/><path d=\"M150 190 l-16 22 M150 190 l16 22\" stroke=\"#9fe8ff\" stroke-width=\"4\"/><path d=\"M182 330 L214 300\" stroke=\"#ffffff\" stroke-width=\"8\"/></svg>",
+     "x": "50%",
+     "y": "42%",
+     "width": 360,
+     "height": 720,
+     "start": 4.563,
+     "enter": {
+      "type": "pop",
+      "at": 4.563,
+      "duration": 0.12
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "25%",
+     "width": 480,
+     "height": 83,
+     "props": {
+      "text": "NEMATOCYST",
+      "at": 1.468,
+      "size": 32,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "74%",
+     "y": "33%",
+     "width": 380,
+     "height": 72,
+     "props": {
+      "text": "HAIR TRIGGER",
+      "at": 2.912,
+      "size": 28,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "62%",
+     "width": 520,
+     "height": 88,
+     "props": {
+      "text": "TOUCH = FIRE",
+      "at": 4.563,
+      "size": 34,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "74%",
+     "y": "50%",
+     "width": 380,
+     "height": 72,
+     "props": {
+      "text": "x THOUSANDS",
+      "at": 4.874,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 103.209,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 4.563,
+     "volume": 0.9
+    }
+   ],
+   "notes": "Its tentacles are lined with nematocysts, coiled harpoons on hair triggers, and your skin just pulled thousands."
+  },
+  {
+   "id": "s05_speed",
+   "duration": 5.934,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 3,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "HOW FAST?",
+      "at": 0.12,
+      "size": 62,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50%",
+     "y": "41%",
+     "width": 920,
+     "height": 420,
+     "props": {
+      "title": "ACCELERATION",
+      "at": 1.106,
+      "stagger": 0.5,
+      "size": 30,
+      "rows": [
+       {
+        "label": "RIFLE BULLET",
+        "value": 100000,
+        "text": "~100,000 G"
+       },
+       {
+        "label": "HARPOON*",
+        "value": 5400000,
+        "text": "5,400,000 G",
+        "color": "#e5483d"
+       }
+      ]
+     },
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "53%",
+     "width": 760,
+     "height": 57,
+     "props": {
+      "text": "*MEASURED IN HYDRA, A RELATIVE",
+      "at": 1.5060000000000002,
+      "size": 22,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "33%",
+     "width": 600,
+     "height": 78,
+     "props": {
+      "text": "50x A RIFLE BULLET",
+      "at": 2.336,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 4.092
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "32%",
+     "y": "60%",
+     "width": 420,
+     "height": 78,
+     "props": {
+      "text": "1. VENOM IN",
+      "at": 4.403,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "68%",
+     "y": "60%",
+     "width": 420,
+     "height": 78,
+     "props": {
+      "text": "2. YOU FEEL IT",
+      "at": 5.094,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 97.21,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 1.106,
+     "volume": 0.7
+    }
+   ],
+   "notes": "How fast? In a cousin, five million g, fifty times a rifle bullet, so the venom's in before you feel it."
+  },
+  {
+   "id": "s06_pain",
+   "duration": 3.891,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 2,
+     "rays": 7,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "30%",
+     "width": 220,
+     "height": 370,
+     "props": {
+      "pose": "panic"
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "y": "30%"
+      },
+      {
+       "t": 2.256,
+       "y": "30%"
+      },
+      {
+       "t": 3.891,
+       "y": "38%",
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 30,
+     "x": "50%",
+     "y": "38%",
+     "width": 500,
+     "height": 600,
+     "start": 2.256,
+     "seed": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "50%",
+     "width": 300,
+     "height": 104,
+     "props": {
+      "text": "PAIN",
+      "at": 1.53,
+      "size": 40,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 860,
+     "height": 72,
+     "props": {
+      "text": "CAN DROP ADULTS IN SHALLOW WATER",
+      "at": 2.256,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 90.978,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.4,
+    "shake": [
+     {
+      "at": 2.256,
+      "duration": 0.4,
+      "amplitude": 16
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 2.256,
+     "volume": 0.8
+    },
+    {
+     "cue": "breath",
+     "at": 2.756,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Ninety seconds left, and the pain alone can drop you in the shallows."
+  },
+  {
+   "id": "s07_inside",
+   "duration": 5.368,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 3,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "42%",
+     "width": 420,
+     "height": 720,
+     "props": {
+      "pose": "stand",
+      "silhouette": "#7fd3e6"
+     },
+     "opacity": 0.55
+    },
+    {
+     "type": "component",
+     "name": "explainer/WhaleHeart",
+     "x": 540,
+     "y": 640,
+     "width": 110,
+     "height": 110,
+     "props": {
+      "silhouette": "#e5483d"
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.08,
+       "speed": 2.2
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 230,
+     "y": 1000,
+     "width": 120,
+     "height": 120,
+     "fill": "rgba(255,190,190,0.25)",
+     "stroke": "#ffd6d6",
+     "strokeWidth": 4,
+     "enter": {
+      "type": "pop",
+      "at": 0.2,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "circle",
+     "x": 244,
+     "y": 990,
+     "width": 26,
+     "height": 26,
+     "fill": "#0b0f14",
+     "start": 1.157,
+     "enter": {
+      "type": "pop",
+      "at": 1.157,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "circle",
+     "x": 330,
+     "y": 1110,
+     "width": 120,
+     "height": 120,
+     "fill": "rgba(255,190,190,0.25)",
+     "stroke": "#ffd6d6",
+     "strokeWidth": 4,
+     "enter": {
+      "type": "pop",
+      "at": 0.30000000000000004,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "circle",
+     "x": 344,
+     "y": 1100,
+     "width": 26,
+     "height": 26,
+     "fill": "#0b0f14",
+     "start": 1.2570000000000001,
+     "enter": {
+      "type": "pop",
+      "at": 1.2570000000000001,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "circle",
+     "x": 210,
+     "y": 1150,
+     "width": 120,
+     "height": 120,
+     "fill": "rgba(255,190,190,0.25)",
+     "stroke": "#ffd6d6",
+     "strokeWidth": 4,
+     "enter": {
+      "type": "pop",
+      "at": 0.4,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "circle",
+     "x": 224,
+     "y": 1140,
+     "width": 26,
+     "height": 26,
+     "fill": "#0b0f14",
+     "start": 1.357,
+     "enter": {
+      "type": "pop",
+      "at": 1.357,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "circle",
+     "x": 240,
+     "y": 1060,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.362,
+       "x": 240,
+       "y": 1060
+      },
+      {
+       "t": 4.668,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 290,
+     "y": 1060,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.412,
+       "x": 290,
+       "y": 1060
+      },
+      {
+       "t": 4.718,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 340,
+     "y": 1060,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.462,
+       "x": 340,
+       "y": 1060
+      },
+      {
+       "t": 4.768,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 240,
+     "y": 1100,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.512,
+       "x": 240,
+       "y": 1100
+      },
+      {
+       "t": 4.8180000000000005,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 290,
+     "y": 1100,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.5620000000000003,
+       "x": 290,
+       "y": 1100
+      },
+      {
+       "t": 4.868,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 340,
+     "y": 1100,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.612,
+       "x": 340,
+       "y": 1100
+      },
+      {
+       "t": 4.918,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 240,
+     "y": 1140,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.662,
+       "x": 240,
+       "y": 1140
+      },
+      {
+       "t": 4.968,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 290,
+     "y": 1140,
+     "width": 22,
+     "height": 22,
+     "fill": "#ffe14d",
+     "start": 3.362,
+     "keyframes": [
+      {
+       "t": 3.712,
+       "x": 290,
+       "y": 1140
+      },
+      {
+       "t": 5.018,
+       "x": 540,
+       "y": 640,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "54%",
+     "width": 480,
+     "height": 67,
+     "props": {
+      "text": "HOLES IN YOUR CELLS",
+      "at": 1.157,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": "54%",
+     "width": 460,
+     "height": 67,
+     "props": {
+      "text": "K+ FLOODS YOUR BLOOD",
+      "at": 3.362,
+      "size": 26,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "YOUR HEART",
+      "at": 4.668,
+      "size": 62,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 86.892,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.368,
+      "zoom": 1.12,
+      "y": "40%"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_fast",
+     "at": 4.668,
+     "volume": 0.8
+    }
+   ],
+   "notes": "And the venom punches holes in your cells, flooding your blood with potassium, straight to your heart."
+  },
+  {
+   "id": "s08_options",
+   "duration": 21.189,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 3,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "GOOD NEWS?",
+      "at": 1.001,
+      "size": 62,
+      "color": "white",
+      "underline": true,
+      "out": 2.066
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "37%",
+     "width": 1000,
+     "height": 640,
+     "props": {
+      "title": "YOUR OPTIONS",
+      "at": 2.066,
+      "stagger": 0.08,
+      "size": 50,
+      "stamp": true,
+      "items": [
+       "RUB IT",
+       "RINSE IT",
+       "TOUGH IT OUT",
+       "VINEGAR, 30 S"
+      ],
+      "hidden": [
+       {
+        "index": 3,
+        "until": 17.202,
+        "text": "???"
+       }
+      ],
+      "strikes": [
+       {
+        "index": 0,
+        "at": 6.284
+       },
+       {
+        "index": 1,
+        "at": 9.024
+       },
+       {
+        "index": 2,
+        "at": 16.07
+       }
+      ],
+      "select": {
+       "index": 3,
+       "at": 17.202
+      }
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "38%",
+     "y": "59%",
+     "width": 120,
+     "height": 200,
+     "props": {
+      "pose": "point"
+     },
+     "start": 2.956,
+     "end": 7.036
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 200\"><path d=\"M100 100 L180 100\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L20 100\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L100 180\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L100 20\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L156 156\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L44 44\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L156 44\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L44 156\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><circle cx=\"100\" cy=\"100\" r=\"22\" fill=\"#ffffff\"/></svg>",
+     "x": "56%",
+     "y": "59%",
+     "width": 150,
+     "height": 150,
+     "start": 4.563,
+     "end": 7.036,
+     "enter": {
+      "type": "pop",
+      "at": 4.563,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 240\"><rect x=\"38\" y=\"4\" width=\"24\" height=\"26\" rx=\"4\" fill=\"#ffffff\"/><path d=\"M30 30 L70 30 L80 70 L80 228 Q80 236 72 236 L28 236 Q20 236 20 228 L20 70 Z\" fill=\"#4aa8e8\" fill-opacity=\"0.9\" stroke=\"#ffffff\" stroke-width=\"4\"/><rect x=\"24\" y=\"110\" width=\"52\" height=\"56\" fill=\"#ffffff\" fill-opacity=\"0.92\"/><text x=\"50\" y=\"146\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"15\" fill=\"#0b0f14\">WATER</text></svg>",
+     "x": "36%",
+     "y": "59%",
+     "width": 80,
+     "height": 192,
+     "rotate": -40,
+     "start": 7.036,
+     "end": 12.293
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 100\"><ellipse cx=\"30\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"90\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"150\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"210\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"270\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"330\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/></svg>",
+     "x": "62%",
+     "y": "59%",
+     "width": 300,
+     "height": 84,
+     "start": 7.036,
+     "end": 9.024
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 200\"><path d=\"M100 100 L180 100\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L20 100\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L100 180\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L100 20\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L156 156\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L44 44\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L156 44\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M100 100 L44 156\" stroke=\"#ffe14d\" stroke-width=\"9\" stroke-linecap=\"round\"/><circle cx=\"100\" cy=\"100\" r=\"22\" fill=\"#ffffff\"/></svg>",
+     "x": "62%",
+     "y": "59%",
+     "width": 150,
+     "height": 150,
+     "start": 9.024,
+     "end": 12.293,
+     "enter": {
+      "type": "pop",
+      "at": 9.024,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "72%",
+     "y": "54.5%",
+     "width": 320,
+     "height": 72,
+     "props": {
+      "text": "PEE = MYTH",
+      "at": 10.02,
+      "size": 28,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 12.293
+     },
+     "depth": 0,
+     "z": 20,
+     "rotate": -8
+    },
+    {
+     "type": "component",
+     "name": "explainer/WhaleHeart",
+     "x": "50%",
+     "y": "59%",
+     "width": 120,
+     "height": 120,
+     "props": {
+      "silhouette": "#e5483d"
+     },
+     "start": 12.293,
+     "end": 17.202,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.1,
+       "speed": 2.4
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 300,
+     "y": 1133,
+     "width": 20,
+     "height": 20,
+     "fill": "#ffe14d",
+     "start": 13.417,
+     "end": 17.202,
+     "keyframes": [
+      {
+       "t": 13.417,
+       "x": 300
+      },
+      {
+       "t": 14.616999999999999,
+       "x": 540,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 330,
+     "y": 1133,
+     "width": 20,
+     "height": 20,
+     "fill": "#ffe14d",
+     "start": 13.417,
+     "end": 17.202,
+     "keyframes": [
+      {
+       "t": 13.477,
+       "x": 330
+      },
+      {
+       "t": 14.677,
+       "x": 540,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 360,
+     "y": 1133,
+     "width": 20,
+     "height": 20,
+     "fill": "#ffe14d",
+     "start": 13.417,
+     "end": 17.202,
+     "keyframes": [
+      {
+       "t": 13.536999999999999,
+       "x": 360
+      },
+      {
+       "t": 14.736999999999998,
+       "x": 540,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 390,
+     "y": 1133,
+     "width": 20,
+     "height": 20,
+     "fill": "#ffe14d",
+     "start": 13.417,
+     "end": 17.202,
+     "keyframes": [
+      {
+       "t": 13.597,
+       "x": 390
+      },
+      {
+       "t": 14.796999999999999,
+       "x": 540,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 240\"><rect x=\"38\" y=\"4\" width=\"24\" height=\"26\" rx=\"4\" fill=\"#ffffff\"/><path d=\"M30 30 L70 30 L80 70 L80 228 Q80 236 72 236 L28 236 Q20 236 20 228 L20 70 Z\" fill=\"#e2a63b\" fill-opacity=\"0.9\" stroke=\"#ffffff\" stroke-width=\"4\"/><rect x=\"24\" y=\"110\" width=\"52\" height=\"56\" fill=\"#ffffff\" fill-opacity=\"0.92\"/><text x=\"50\" y=\"146\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"15\" fill=\"#0b0f14\">VINEGAR</text></svg>",
+     "x": "36%",
+     "y": "59%",
+     "width": 80,
+     "height": 192,
+     "rotate": -40,
+     "start": 17.202
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 100\"><ellipse cx=\"30\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"90\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"150\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"210\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"270\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"330\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#7fe3ff\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/></svg>",
+     "x": "62%",
+     "y": "59%",
+     "width": 300,
+     "height": 84,
+     "start": 17.202,
+     "end": 20.177
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 100\"><ellipse cx=\"30\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"90\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"150\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"210\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"270\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/><ellipse cx=\"330\" cy=\"50\" rx=\"20\" ry=\"30\" fill=\"#6b7480\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"3\"/></svg>",
+     "x": "62%",
+     "y": "59%",
+     "width": 300,
+     "height": 84,
+     "start": 20.177,
+     "enter": {
+      "type": "fade",
+      "at": 20.177,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "53.5%",
+     "width": 260,
+     "height": 78,
+     "props": {
+      "text": "WORKS",
+      "at": 17.502000000000002,
+      "size": 30,
+      "accent": "#3ccf7a",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "64%",
+     "width": 700,
+     "height": 62,
+     "props": {
+      "text": "STOPS UNFIRED STINGS ONLY",
+      "at": 19.389,
+      "size": 24,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "67.5%",
+     "width": 700,
+     "height": 52,
+     "props": {
+      "text": "TROPICAL AUSTRALIAN BOX JELLYFISH",
+      "at": 17.802000000000003,
+      "size": 20,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 81.256,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "preset": "none"
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 2.066,
+     "volume": 0.7
+    },
+    {
+     "cue": "glitch",
+     "at": 6.284,
+     "volume": 0.6
+    },
+    {
+     "cue": "glitch",
+     "at": 9.024,
+     "volume": 0.6
+    },
+    {
+     "cue": "glitch",
+     "at": 16.07,
+     "volume": 0.6
+    },
+    {
+     "cue": "ding",
+     "at": 17.202,
+     "volume": 0.8
+    }
+   ],
+   "notes": "Eighty seconds. Good news, you've got options. Rub it? Every rub pulls more triggers, so you're petting a loaded gun. Rinse it? Fresh water fires any still loaded on you, and pee is fresh water with extra steps. Tough it out? That potassium's heading for your heart, and hearts can't tough anything out. Vinegar, thirty seconds. The harpoons still loaded on you, switched off."
+  },
+  {
+   "id": "s09_peak",
+   "duration": 7.128,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1,
+     "rays": 5,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.55
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "THE CATCH",
+      "at": 1.105,
+      "size": 62,
+      "color": "red",
+      "underline": true,
+      "out": 3.199
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36%",
+     "y": "60%",
+     "width": 260,
+     "height": 140,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 82,
+     "opacity": 0.9,
+     "start": 1.927,
+     "enter": {
+      "type": "drop",
+      "at": 1.927,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 12,
+     "x": "36%",
+     "y": "58%",
+     "width": 300,
+     "height": 300,
+     "start": 2.55,
+     "seed": 9
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "62%",
+     "y": "57%",
+     "width": 140,
+     "height": 240,
+     "props": {
+      "pose": "run"
+     },
+     "start": 3.199,
+     "keyframes": [
+      {
+       "t": 3.199,
+       "x": "96%"
+      },
+      {
+       "t": 4.199,
+       "x": "58%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "26%",
+     "width": 1000,
+     "height": 219,
+     "props": {
+      "text": "SOMEONE ELSE\nSTOPS THE CLOCK",
+      "at": 3.199,
+      "size": 56,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "43%",
+     "width": 1000,
+     "height": 420,
+     "props": {
+      "title": " ",
+      "at": 3.786,
+      "size": 38,
+      "items": [
+       "OUT OF THE WATER",
+       "CALL 000 / EMERGENCY",
+       "CPR IF NOT BREATHING",
+       "VINEGAR, 30 S"
+      ],
+      "itemAt": [
+       4.271,
+       5.058,
+       5.397,
+       6.427
+      ]
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 240\"><rect x=\"38\" y=\"4\" width=\"24\" height=\"26\" rx=\"4\" fill=\"#ffffff\"/><path d=\"M30 30 L70 30 L80 70 L80 228 Q80 236 72 236 L28 236 Q20 236 20 228 L20 70 Z\" fill=\"#e2a63b\" fill-opacity=\"0.9\" stroke=\"#ffffff\" stroke-width=\"4\"/><rect x=\"24\" y=\"110\" width=\"52\" height=\"56\" fill=\"#ffffff\" fill-opacity=\"0.92\"/><text x=\"50\" y=\"146\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"15\" fill=\"#0b0f14\">VINEGAR</text></svg>",
+     "x": "50%",
+     "y": "56%",
+     "width": 60,
+     "height": 144,
+     "rotate": -50,
+     "start": 5.397,
+     "enter": {
+      "type": "pop",
+      "at": 5.397,
+      "duration": 0.25
+     },
+     "keyframes": [
+      {
+       "t": 5.397,
+       "rotate": -20
+      },
+      {
+       "t": 6.427,
+       "rotate": -70,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 59.005,
+      "to": 55.65,
+      "rate": 1.0501,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30,
+     "end": 3.199
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 55.65,
+      "to": 55.65,
+      "rate": 0,
+      "at": 3.199,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": -1
+     },
+     "depth": 0,
+     "z": 30,
+     "start": 3.199
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 3.199,
+     "volume": 0.5
+    }
+   ],
+   "notes": "One minute left. Catch is, you're down in the shallows, so someone else pulls you out, calls for help, CPR if needed, then pours."
+  },
+  {
+   "id": "s10_posts",
+   "duration": 3.41,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1,
+     "rays": 5,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.62
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "42%",
+     "width": 900,
+     "height": 700,
+     "props": {
+      "at": 0.604,
+      "out": 2.004,
+      "highlight": [
+       "australia"
+      ],
+      "views": [
+       {
+        "t": 0,
+        "lon": 134,
+        "lat": -25,
+        "zoom": 7
+       }
+      ],
+      "pins": [
+       {
+        "lon": 145.8,
+        "lat": -16.9,
+        "label": "CAIRNS, N. QUEENSLAND",
+        "at": 0.804
+       }
+      ]
+     },
+     "depth": 0,
+     "end": 2.404
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1010,
+     "width": 22,
+     "height": 420,
+     "fill": "#d9d2c3",
+     "start": 1.8589999999999998
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 820,
+     "width": 200,
+     "height": 150,
+     "fill": "#e2a63b",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "radius": 10,
+     "start": 1.8589999999999998
+    },
+    {
+     "type": "text",
+     "text": "VINEGAR",
+     "x": "50%",
+     "y": 820,
+     "fontSize": 40,
+     "color": "#0b0f14",
+     "start": 1.8589999999999998
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "62%",
+     "width": 640,
+     "height": 67,
+     "props": {
+      "text": "MOST STINGS AREN'T FATAL",
+      "at": 2.159,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 55.65,
+      "to": 55.65,
+      "rate": 0,
+      "at": 0.0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": -1
+     },
+     "depth": 0,
+     "z": 30
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.2
+   },
+   "notes": "That's why Queensland beaches keep vinegar on posts."
+  },
+  {
+   "id": "s11_twist",
+   "duration": 5.853,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 2,
+     "seed": 3,
+     "snow": 40
+    }
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.5
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 600\" overflow=\"visible\" fill=\"none\" stroke=\"#d8f6ff\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"><path d=\"M14 0 C24 150 4 300 19 450 S4 560 17 600\"/><path d=\"M22 0 C32 150 12 300 27 450 S12 560 25 600\"/><path d=\"M30 0 C40 150 20 300 35 450 S20 560 33 600\"/><path d=\"M66 0 C76 150 56 300 71 450 S56 560 69 600\"/><path d=\"M74 0 C84 150 64 300 79 450 S64 560 77 600\"/><path d=\"M82 0 C92 150 72 300 87 450 S72 560 85 600\"/><path d=\"M118 0 C128 150 108 300 123 450 S108 560 121 600\"/><path d=\"M126 0 C136 150 116 300 131 450 S116 560 129 600\"/><path d=\"M134 0 C144 150 124 300 139 450 S124 560 137 600\"/><path d=\"M170 0 C180 150 160 300 175 450 S160 560 173 600\"/><path d=\"M178 0 C188 150 168 300 183 450 S168 560 181 600\"/><path d=\"M186 0 C196 150 176 300 191 450 S176 560 189 600\"/></svg>",
+     "x": "50%",
+     "y": 760,
+     "width": 520,
+     "height": 900,
+     "anchorY": 0,
+     "opacity": 0.45,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 2,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 140\" overflow=\"visible\"><path d=\"M10 128 C10 40 50 6 100 6 C150 6 190 40 190 128 C150 116 50 116 10 128 Z\" fill=\"#bff3ff\" fill-opacity=\"0.38\" stroke=\"#effdff\" stroke-width=\"5\"/><path d=\"M40 112 C44 60 70 30 100 28 C130 30 156 60 160 112\" fill=\"none\" stroke=\"#effdff\" stroke-opacity=\"0.55\" stroke-width=\"3\"/><ellipse cx=\"100\" cy=\"86\" rx=\"34\" ry=\"18\" fill=\"#e6fbff\" fill-opacity=\"0.35\"/></svg>",
+     "x": "50%",
+     "y": 680,
+     "width": 520,
+     "height": 364,
+     "opacity": 0.45,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.04,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 426,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.139,
+     "enter": {
+      "type": "pop",
+      "at": 1.139,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 440,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.179,
+     "enter": {
+      "type": "pop",
+      "at": 1.179,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 454,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.219,
+     "enter": {
+      "type": "pop",
+      "at": 1.219,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 426,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.259,
+     "enter": {
+      "type": "pop",
+      "at": 1.259,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 440,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.299,
+     "enter": {
+      "type": "pop",
+      "at": 1.299,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 454,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.339,
+     "enter": {
+      "type": "pop",
+      "at": 1.339,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 486,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.379,
+     "enter": {
+      "type": "pop",
+      "at": 1.379,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 500,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.419,
+     "enter": {
+      "type": "pop",
+      "at": 1.419,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 514,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.459,
+     "enter": {
+      "type": "pop",
+      "at": 1.459,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 486,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.499,
+     "enter": {
+      "type": "pop",
+      "at": 1.499,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 500,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.539,
+     "enter": {
+      "type": "pop",
+      "at": 1.539,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 514,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.579,
+     "enter": {
+      "type": "pop",
+      "at": 1.579,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 566,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.619,
+     "enter": {
+      "type": "pop",
+      "at": 1.619,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 580,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.659,
+     "enter": {
+      "type": "pop",
+      "at": 1.659,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 594,
+     "y": 640,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.699,
+     "enter": {
+      "type": "pop",
+      "at": 1.699,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 566,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.739,
+     "enter": {
+      "type": "pop",
+      "at": 1.739,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 580,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.779,
+     "enter": {
+      "type": "pop",
+      "at": 1.779,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 594,
+     "y": 656,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.819,
+     "enter": {
+      "type": "pop",
+      "at": 1.819,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 626,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.859,
+     "enter": {
+      "type": "pop",
+      "at": 1.859,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 640,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.899,
+     "enter": {
+      "type": "pop",
+      "at": 1.899,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 654,
+     "y": 690,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.939,
+     "enter": {
+      "type": "pop",
+      "at": 1.939,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 626,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 1.979,
+     "enter": {
+      "type": "pop",
+      "at": 1.979,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 640,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 2.019,
+     "enter": {
+      "type": "pop",
+      "at": 2.019,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "circle",
+     "x": 654,
+     "y": 706,
+     "width": 11,
+     "height": 11,
+     "fill": "#9ff7ff",
+     "shadow": "0 0 6px #9ff7ff",
+     "start": 2.059,
+     "enter": {
+      "type": "pop",
+      "at": 2.059,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "19%",
+     "width": 600,
+     "height": 220,
+     "props": {
+      "value": 24,
+      "label": "EYES  (YOU: 2)",
+      "at": 1.139,
+      "duration": 0.8,
+      "size": 96
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "29%",
+     "width": 560,
+     "height": 78,
+     "props": {
+      "text": "LOOKING AT YOU: 0",
+      "at": 1.926,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Krill",
+     "x": "74%",
+     "y": "56%",
+     "width": 140,
+     "height": 70,
+     "props": {},
+     "start": 3.154,
+     "keyframes": [
+      {
+       "t": 3.154,
+       "x": "92%"
+      },
+      {
+       "t": 4.3069999999999995,
+       "x": "66%"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "72%",
+     "y": "62%",
+     "width": 400,
+     "height": 67,
+     "props": {
+      "text": "DINNER: SHRIMP",
+      "at": 3.707,
+      "size": 26,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "26%",
+     "y": "57%",
+     "width": 70,
+     "height": 120,
+     "props": {
+      "pose": "shrug",
+      "silhouette": true
+     },
+     "start": 2.341
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "28%",
+     "y": "62%",
+     "width": 400,
+     "height": 67,
+     "props": {
+      "text": "YOU: IN THE NET",
+      "at": 5.221,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "sonar_ping",
+     "at": 1.139,
+     "volume": 0.6
+    }
+   ],
+   "notes": "The strange part? Twenty-four eyes, none on you. It was fishing for shrimp, and you swam into the net."
+  },
+  {
+   "id": "s12_stinger",
+   "duration": 4.02,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 2,
+     "rays": 7,
+     "seed": 3,
+     "snow": 40,
+     "surface": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "24%",
+     "width": 200,
+     "height": 340,
+     "props": {
+      "pose": "stand"
+     },
+     "id": "you",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 600\" overflow=\"visible\" fill=\"none\" stroke=\"#d8f6ff\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"><path d=\"M14 0 C24 150 4 300 19 450 S4 560 17 600\"/><path d=\"M22 0 C32 150 12 300 27 450 S12 560 25 600\"/><path d=\"M30 0 C40 150 20 300 35 450 S20 560 33 600\"/><path d=\"M66 0 C76 150 56 300 71 450 S56 560 69 600\"/><path d=\"M74 0 C84 150 64 300 79 450 S64 560 77 600\"/><path d=\"M82 0 C92 150 72 300 87 450 S72 560 85 600\"/><path d=\"M118 0 C128 150 108 300 123 450 S108 560 121 600\"/><path d=\"M126 0 C136 150 116 300 131 450 S116 560 129 600\"/><path d=\"M134 0 C144 150 124 300 139 450 S124 560 137 600\"/><path d=\"M170 0 C180 150 160 300 175 450 S160 560 173 600\"/><path d=\"M178 0 C188 150 168 300 183 450 S168 560 181 600\"/><path d=\"M186 0 C196 150 176 300 191 450 S176 560 189 600\"/></svg>",
+     "x": "64%",
+     "y": "33.4%",
+     "width": 200,
+     "height": 600,
+     "id": "tentacles",
+     "anchorY": 0,
+     "opacity": 0.22,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 2,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 140\" overflow=\"visible\"><path d=\"M10 128 C10 40 50 6 100 6 C150 6 190 40 190 128 C150 116 50 116 10 128 Z\" fill=\"#bff3ff\" fill-opacity=\"0.38\" stroke=\"#effdff\" stroke-width=\"5\"/><path d=\"M40 112 C44 60 70 30 100 28 C130 30 156 60 160 112\" fill=\"none\" stroke=\"#effdff\" stroke-opacity=\"0.55\" stroke-width=\"3\"/><ellipse cx=\"100\" cy=\"86\" rx=\"34\" ry=\"18\" fill=\"#e6fbff\" fill-opacity=\"0.35\"/></svg>",
+     "x": "64%",
+     "y": "30%",
+     "width": 220,
+     "height": 154,
+     "id": "bell",
+     "opacity": 0.24,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)",
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.04,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 100\" overflow=\"visible\"><path d=\"M198 70 C150 20 90 90 2 34\" fill=\"none\" stroke=\"#f2feff\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>",
+     "x": "57.5%",
+     "y": "31.4%",
+     "width": 180,
+     "height": 90,
+     "id": "touch",
+     "opacity": 0.85,
+     "shadow": "0 0 14px rgba(190,245,255,0.95)"
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 14,
+     "x": "50%",
+     "y": "40%",
+     "width": 1080,
+     "height": 900,
+     "opacity": 0.5,
+     "seed": 7,
+     "depth": 0.6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Timer",
+     "x": 740,
+     "y": "16.2%",
+     "width": 380,
+     "height": 160,
+     "props": {
+      "from": 120,
+      "to": 120,
+      "rate": 0,
+      "at": 0,
+      "style": "box",
+      "format": "mm:ss",
+      "size": 96,
+      "warnBelow": 121
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "50%",
+     "width": 460,
+     "height": 72,
+     "props": {
+      "text": "STINGER SEASON ~NOV-MAY",
+      "at": 0.413,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 2.887
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.06
+     },
+     {
+      "t": 4.02,
+      "zoom": 1.0,
+      "ease": "out"
+     }
+    ]
+   },
+   "notes": "Every wet season it swims back to where you swim. Still invisible."
+  }
+ ],
+ "captions": {
+  "maxWords": 3,
+  "maxChars": 18,
+  "glue": [
+   "box jellyfish",
+   "five million",
+   "rifle bullet",
+   "fresh water",
+   "extra steps",
+   "twenty-four eyes"
+  ],
+  "words": [
+   {
+    "text": "Something",
+    "start": 0.0,
+    "end": 0.458
+   },
+   {
+    "text": "brushed",
+    "start": 0.458,
+    "end": 0.839
+   },
+   {
+    "text": "your",
+    "start": 0.839,
+    "end": 1.106
+   },
+   {
+    "text": "leg.",
+    "start": 1.106,
+    "end": 1.335
+   },
+   {
+    "text": "Worst",
+    "start": 1.583,
+    "end": 1.889
+   },
+   {
+    "text": "case,",
+    "start": 1.889,
+    "end": 2.156
+   },
+   {
+    "text": "you",
+    "start": 2.262,
+    "end": 2.491
+   },
+   {
+    "text": "have",
+    "start": 2.491,
+    "end": 2.759
+   },
+   {
+    "text": "two",
+    "start": 2.759,
+    "end": 2.988
+   },
+   {
+    "text": "minutes.",
+    "start": 2.988,
+    "end": 3.369,
+    "emph": true
+   },
+   {
+    "text": "You",
+    "start": 3.937,
+    "end": 4.145
+   },
+   {
+    "text": "missed",
+    "start": 4.145,
+    "end": 4.456
+   },
+   {
+    "text": "it",
+    "start": 4.456,
+    "end": 4.629
+   },
+   {
+    "text": "because",
+    "start": 4.629,
+    "end": 4.974
+   },
+   {
+    "text": "it's",
+    "start": 4.974,
+    "end": 5.182
+   },
+   {
+    "text": "nearly",
+    "start": 5.182,
+    "end": 5.493
+   },
+   {
+    "text": "clear:",
+    "start": 5.493,
+    "end": 5.769
+   },
+   {
+    "text": "a",
+    "start": 5.994,
+    "end": 6.132
+   },
+   {
+    "text": "bell",
+    "start": 6.132,
+    "end": 6.374
+   },
+   {
+    "text": "up",
+    "start": 6.374,
+    "end": 6.548
+   },
+   {
+    "text": "to",
+    "start": 6.548,
+    "end": 6.721
+   },
+   {
+    "text": "dinner-plate",
+    "start": 6.721,
+    "end": 7.204
+   },
+   {
+    "text": "size,",
+    "start": 7.204,
+    "end": 7.446
+   },
+   {
+    "text": "trailing",
+    "start": 7.542,
+    "end": 7.922
+   },
+   {
+    "text": "up",
+    "start": 7.922,
+    "end": 8.095
+   },
+   {
+    "text": "to",
+    "start": 8.095,
+    "end": 8.268
+   },
+   {
+    "text": "sixty",
+    "start": 8.268,
+    "end": 8.545
+   },
+   {
+    "text": "tentacles,",
+    "start": 8.545,
+    "end": 8.959
+   },
+   {
+    "text": "the",
+    "start": 9.055,
+    "end": 9.263
+   },
+   {
+    "text": "longest",
+    "start": 9.263,
+    "end": 9.608
+   },
+   {
+    "text": "taller",
+    "start": 9.608,
+    "end": 9.919
+   },
+   {
+    "text": "than",
+    "start": 9.919,
+    "end": 10.162
+   },
+   {
+    "text": "your",
+    "start": 10.162,
+    "end": 10.404
+   },
+   {
+    "text": "ceiling.",
+    "start": 10.404,
+    "end": 10.749
+   },
+   {
+    "text": "That's",
+    "start": 11.293,
+    "end": 11.57
+   },
+   {
+    "text": "a",
+    "start": 11.57,
+    "end": 11.709
+   },
+   {
+    "text": "box",
+    "start": 11.709,
+    "end": 11.916
+   },
+   {
+    "text": "jellyfish,",
+    "start": 11.916,
+    "end": 12.331
+   },
+   {
+    "text": "called",
+    "start": 12.427,
+    "end": 12.738
+   },
+   {
+    "text": "the",
+    "start": 12.738,
+    "end": 12.945
+   },
+   {
+    "text": "sea's",
+    "start": 12.945,
+    "end": 13.187
+   },
+   {
+    "text": "most",
+    "start": 13.187,
+    "end": 13.429
+   },
+   {
+    "text": "venomous",
+    "start": 13.429,
+    "end": 13.809
+   },
+   {
+    "text": "animal,",
+    "start": 13.809,
+    "end": 14.12
+   },
+   {
+    "text": "and",
+    "start": 14.217,
+    "end": 14.424
+   },
+   {
+    "text": "it's",
+    "start": 14.424,
+    "end": 14.632
+   },
+   {
+    "text": "stuck",
+    "start": 14.632,
+    "end": 14.908
+   },
+   {
+    "text": "to",
+    "start": 14.908,
+    "end": 15.081
+   },
+   {
+    "text": "your",
+    "start": 15.081,
+    "end": 15.323
+   },
+   {
+    "text": "shin.",
+    "start": 15.323,
+    "end": 15.565
+   },
+   {
+    "text": "Its",
+    "start": 16.11,
+    "end": 16.318
+   },
+   {
+    "text": "tentacles",
+    "start": 16.318,
+    "end": 16.732
+   },
+   {
+    "text": "are",
+    "start": 16.732,
+    "end": 16.939
+   },
+   {
+    "text": "lined",
+    "start": 16.939,
+    "end": 17.216
+   },
+   {
+    "text": "with",
+    "start": 17.216,
+    "end": 17.458
+   },
+   {
+    "text": "nematocysts,",
+    "start": 17.458,
+    "end": 17.941
+   },
+   {
+    "text": "coiled",
+    "start": 18.038,
+    "end": 18.349
+   },
+   {
+    "text": "harpoons",
+    "start": 18.349,
+    "end": 18.728
+   },
+   {
+    "text": "on",
+    "start": 18.728,
+    "end": 18.902
+   },
+   {
+    "text": "hair",
+    "start": 18.902,
+    "end": 19.144
+   },
+   {
+    "text": "triggers,",
+    "start": 19.144,
+    "end": 19.524
+   },
+   {
+    "text": "and",
+    "start": 19.62,
+    "end": 19.827
+   },
+   {
+    "text": "your",
+    "start": 19.827,
+    "end": 20.069
+   },
+   {
+    "text": "skin",
+    "start": 20.069,
+    "end": 20.311
+   },
+   {
+    "text": "just",
+    "start": 20.311,
+    "end": 20.553
+   },
+   {
+    "text": "pulled",
+    "start": 20.553,
+    "end": 20.864
+   },
+   {
+    "text": "thousands.",
+    "start": 20.864,
+    "end": 21.279
+   },
+   {
+    "text": "How",
+    "start": 21.823,
+    "end": 22.031
+   },
+   {
+    "text": "fast?",
+    "start": 22.031,
+    "end": 22.273
+   },
+   {
+    "text": "In",
+    "start": 22.497,
+    "end": 22.67
+   },
+   {
+    "text": "a",
+    "start": 22.67,
+    "end": 22.809
+   },
+   {
+    "text": "cousin,",
+    "start": 22.809,
+    "end": 23.12
+   },
+   {
+    "text": "five",
+    "start": 23.216,
+    "end": 23.458
+   },
+   {
+    "text": "million",
+    "start": 23.458,
+    "end": 23.804
+   },
+   {
+    "text": "g,",
+    "start": 23.804,
+    "end": 23.942
+   },
+   {
+    "text": "fifty",
+    "start": 24.039,
+    "end": 24.315
+   },
+   {
+    "text": "times",
+    "start": 24.315,
+    "end": 24.592
+   },
+   {
+    "text": "a",
+    "start": 24.592,
+    "end": 24.73
+   },
+   {
+    "text": "rifle",
+    "start": 24.73,
+    "end": 25.007
+   },
+   {
+    "text": "bullet,",
+    "start": 25.007,
+    "end": 25.318
+   },
+   {
+    "text": "so",
+    "start": 25.414,
+    "end": 25.587
+   },
+   {
+    "text": "the",
+    "start": 25.587,
+    "end": 25.795
+   },
+   {
+    "text": "venom's",
+    "start": 25.795,
+    "end": 26.106
+   },
+   {
+    "text": "in",
+    "start": 26.106,
+    "end": 26.279
+   },
+   {
+    "text": "before",
+    "start": 26.279,
+    "end": 26.59
+   },
+   {
+    "text": "you",
+    "start": 26.59,
+    "end": 26.797
+   },
+   {
+    "text": "feel",
+    "start": 26.797,
+    "end": 27.039
+   },
+   {
+    "text": "it.",
+    "start": 27.039,
+    "end": 27.213
+   },
+   {
+    "text": "Ninety",
+    "start": 27.757,
+    "end": 28.068
+   },
+   {
+    "text": "seconds",
+    "start": 28.068,
+    "end": 28.413
+   },
+   {
+    "text": "left,",
+    "start": 28.413,
+    "end": 28.656
+   },
+   {
+    "text": "and",
+    "start": 28.752,
+    "end": 28.959
+   },
+   {
+    "text": "the",
+    "start": 28.959,
+    "end": 29.167
+   },
+   {
+    "text": "pain",
+    "start": 29.167,
+    "end": 29.409
+   },
+   {
+    "text": "alone",
+    "start": 29.409,
+    "end": 29.685
+   },
+   {
+    "text": "can",
+    "start": 29.685,
+    "end": 29.893
+   },
+   {
+    "text": "drop",
+    "start": 29.893,
+    "end": 30.135
+   },
+   {
+    "text": "you",
+    "start": 30.135,
+    "end": 30.343
+   },
+   {
+    "text": "in",
+    "start": 30.343,
+    "end": 30.516
+   },
+   {
+    "text": "the",
+    "start": 30.516,
+    "end": 30.723
+   },
+   {
+    "text": "shallows.",
+    "start": 30.723,
+    "end": 31.103,
+    "emph": true
+   },
+   {
+    "text": "And",
+    "start": 31.648,
+    "end": 31.855
+   },
+   {
+    "text": "the",
+    "start": 31.855,
+    "end": 32.063
+   },
+   {
+    "text": "venom",
+    "start": 32.063,
+    "end": 32.339
+   },
+   {
+    "text": "punches",
+    "start": 32.339,
+    "end": 32.685
+   },
+   {
+    "text": "holes",
+    "start": 32.685,
+    "end": 32.961
+   },
+   {
+    "text": "in",
+    "start": 32.961,
+    "end": 33.135
+   },
+   {
+    "text": "your",
+    "start": 33.135,
+    "end": 33.377
+   },
+   {
+    "text": "cells,",
+    "start": 33.377,
+    "end": 33.653
+   },
+   {
+    "text": "flooding",
+    "start": 33.749,
+    "end": 34.129
+   },
+   {
+    "text": "your",
+    "start": 34.129,
+    "end": 34.371
+   },
+   {
+    "text": "blood",
+    "start": 34.371,
+    "end": 34.648
+   },
+   {
+    "text": "with",
+    "start": 34.648,
+    "end": 34.89
+   },
+   {
+    "text": "potassium,",
+    "start": 34.89,
+    "end": 35.304
+   },
+   {
+    "text": "straight",
+    "start": 35.4,
+    "end": 35.78
+   },
+   {
+    "text": "to",
+    "start": 35.78,
+    "end": 35.953
+   },
+   {
+    "text": "your",
+    "start": 35.953,
+    "end": 36.196
+   },
+   {
+    "text": "heart.",
+    "start": 36.196,
+    "end": 36.472,
+    "emph": true
+   },
+   {
+    "text": "Eighty",
+    "start": 37.016,
+    "end": 37.327
+   },
+   {
+    "text": "seconds.",
+    "start": 37.327,
+    "end": 37.673
+   },
+   {
+    "text": "Good",
+    "start": 37.897,
+    "end": 38.139
+   },
+   {
+    "text": "news,",
+    "start": 38.139,
+    "end": 38.381
+   },
+   {
+    "text": "you've",
+    "start": 38.478,
+    "end": 38.754
+   },
+   {
+    "text": "got",
+    "start": 38.754,
+    "end": 38.962
+   },
+   {
+    "text": "options.",
+    "start": 38.962,
+    "end": 39.307
+   },
+   {
+    "text": "Rub",
+    "start": 39.852,
+    "end": 40.059
+   },
+   {
+    "text": "it?",
+    "start": 40.059,
+    "end": 40.232
+   },
+   {
+    "text": "Every",
+    "start": 40.457,
+    "end": 40.733
+   },
+   {
+    "text": "rub",
+    "start": 40.733,
+    "end": 40.941
+   },
+   {
+    "text": "pulls",
+    "start": 40.941,
+    "end": 41.217
+   },
+   {
+    "text": "more",
+    "start": 41.217,
+    "end": 41.459
+   },
+   {
+    "text": "triggers,",
+    "start": 41.459,
+    "end": 41.839
+   },
+   {
+    "text": "so",
+    "start": 41.936,
+    "end": 42.109
+   },
+   {
+    "text": "you're",
+    "start": 42.109,
+    "end": 42.385
+   },
+   {
+    "text": "petting",
+    "start": 42.385,
+    "end": 42.731
+   },
+   {
+    "text": "a",
+    "start": 42.731,
+    "end": 42.869
+   },
+   {
+    "text": "loaded",
+    "start": 42.869,
+    "end": 43.18
+   },
+   {
+    "text": "gun.",
+    "start": 43.18,
+    "end": 43.388
+   },
+   {
+    "text": "Rinse",
+    "start": 43.932,
+    "end": 44.209
+   },
+   {
+    "text": "it?",
+    "start": 44.209,
+    "end": 44.382
+   },
+   {
+    "text": "Fresh",
+    "start": 44.606,
+    "end": 44.883
+   },
+   {
+    "text": "water",
+    "start": 44.883,
+    "end": 45.159
+   },
+   {
+    "text": "fires",
+    "start": 45.159,
+    "end": 45.436
+   },
+   {
+    "text": "any",
+    "start": 45.436,
+    "end": 45.644
+   },
+   {
+    "text": "still",
+    "start": 45.644,
+    "end": 45.92
+   },
+   {
+    "text": "loaded",
+    "start": 45.92,
+    "end": 46.231
+   },
+   {
+    "text": "on",
+    "start": 46.231,
+    "end": 46.404
+   },
+   {
+    "text": "you,",
+    "start": 46.404,
+    "end": 46.612
+   },
+   {
+    "text": "and",
+    "start": 46.708,
+    "end": 46.916
+   },
+   {
+    "text": "pee",
+    "start": 46.916,
+    "end": 47.123
+   },
+   {
+    "text": "is",
+    "start": 47.123,
+    "end": 47.296
+   },
+   {
+    "text": "fresh",
+    "start": 47.296,
+    "end": 47.573
+   },
+   {
+    "text": "water",
+    "start": 47.573,
+    "end": 47.849
+   },
+   {
+    "text": "with",
+    "start": 47.849,
+    "end": 48.091
+   },
+   {
+    "text": "extra",
+    "start": 48.091,
+    "end": 48.368
+   },
+   {
+    "text": "steps.",
+    "start": 48.368,
+    "end": 48.644
+   },
+   {
+    "text": "Tough",
+    "start": 49.189,
+    "end": 49.465
+   },
+   {
+    "text": "it",
+    "start": 49.465,
+    "end": 49.638
+   },
+   {
+    "text": "out?",
+    "start": 49.638,
+    "end": 49.846
+   },
+   {
+    "text": "That",
+    "start": 50.07,
+    "end": 50.313
+   },
+   {
+    "text": "potassium's",
+    "start": 50.313,
+    "end": 50.761
+   },
+   {
+    "text": "heading",
+    "start": 50.761,
+    "end": 51.107
+   },
+   {
+    "text": "for",
+    "start": 51.107,
+    "end": 51.314
+   },
+   {
+    "text": "your",
+    "start": 51.314,
+    "end": 51.556
+   },
+   {
+    "text": "heart,",
+    "start": 51.556,
+    "end": 51.833,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 51.929,
+    "end": 52.137
+   },
+   {
+    "text": "hearts",
+    "start": 52.137,
+    "end": 52.448
+   },
+   {
+    "text": "can't",
+    "start": 52.448,
+    "end": 52.69
+   },
+   {
+    "text": "tough",
+    "start": 52.69,
+    "end": 52.966
+   },
+   {
+    "text": "anything",
+    "start": 52.966,
+    "end": 53.346
+   },
+   {
+    "text": "out.",
+    "start": 53.346,
+    "end": 53.554
+   },
+   {
+    "text": "Vinegar,",
+    "start": 54.098,
+    "end": 54.444,
+    "emph": true
+   },
+   {
+    "text": "thirty",
+    "start": 54.54,
+    "end": 54.851
+   },
+   {
+    "text": "seconds.",
+    "start": 54.851,
+    "end": 55.196
+   },
+   {
+    "text": "The",
+    "start": 55.421,
+    "end": 55.628
+   },
+   {
+    "text": "harpoons",
+    "start": 55.628,
+    "end": 56.008
+   },
+   {
+    "text": "still",
+    "start": 56.008,
+    "end": 56.285
+   },
+   {
+    "text": "loaded",
+    "start": 56.285,
+    "end": 56.596
+   },
+   {
+    "text": "on",
+    "start": 56.596,
+    "end": 56.769
+   },
+   {
+    "text": "you,",
+    "start": 56.769,
+    "end": 56.976
+   },
+   {
+    "text": "switched",
+    "start": 57.073,
+    "end": 57.453
+   },
+   {
+    "text": "off.",
+    "start": 57.453,
+    "end": 57.66
+   },
+   {
+    "text": "One",
+    "start": 58.205,
+    "end": 58.412
+   },
+   {
+    "text": "minute",
+    "start": 58.412,
+    "end": 58.723
+   },
+   {
+    "text": "left.",
+    "start": 58.723,
+    "end": 58.965
+   },
+   {
+    "text": "Catch",
+    "start": 59.19,
+    "end": 59.466
+   },
+   {
+    "text": "is,",
+    "start": 59.466,
+    "end": 59.639
+   },
+   {
+    "text": "you're",
+    "start": 59.735,
+    "end": 60.012
+   },
+   {
+    "text": "down",
+    "start": 60.012,
+    "end": 60.254
+   },
+   {
+    "text": "in",
+    "start": 60.254,
+    "end": 60.427
+   },
+   {
+    "text": "the",
+    "start": 60.427,
+    "end": 60.635
+   },
+   {
+    "text": "shallows,",
+    "start": 60.635,
+    "end": 61.015,
+    "emph": true
+   },
+   {
+    "text": "so",
+    "start": 61.111,
+    "end": 61.284
+   },
+   {
+    "text": "someone",
+    "start": 61.284,
+    "end": 61.629,
+    "emph": true
+   },
+   {
+    "text": "else",
+    "start": 61.629,
+    "end": 61.871
+   },
+   {
+    "text": "pulls",
+    "start": 61.871,
+    "end": 62.148
+   },
+   {
+    "text": "you",
+    "start": 62.148,
+    "end": 62.356
+   },
+   {
+    "text": "out,",
+    "start": 62.356,
+    "end": 62.563
+   },
+   {
+    "text": "calls",
+    "start": 62.659,
+    "end": 62.936
+   },
+   {
+    "text": "for",
+    "start": 62.936,
+    "end": 63.143
+   },
+   {
+    "text": "help,",
+    "start": 63.143,
+    "end": 63.386
+   },
+   {
+    "text": "CPR",
+    "start": 63.482,
+    "end": 63.689
+   },
+   {
+    "text": "if",
+    "start": 63.689,
+    "end": 63.862
+   },
+   {
+    "text": "needed,",
+    "start": 63.862,
+    "end": 64.173
+   },
+   {
+    "text": "then",
+    "start": 64.27,
+    "end": 64.512
+   },
+   {
+    "text": "pours.",
+    "start": 64.512,
+    "end": 64.788
+   },
+   {
+    "text": "That's",
+    "start": 65.333,
+    "end": 65.609
+   },
+   {
+    "text": "why",
+    "start": 65.609,
+    "end": 65.817
+   },
+   {
+    "text": "Queensland",
+    "start": 65.817,
+    "end": 66.266
+   },
+   {
+    "text": "beaches",
+    "start": 66.266,
+    "end": 66.611
+   },
+   {
+    "text": "keep",
+    "start": 66.611,
+    "end": 66.853
+   },
+   {
+    "text": "vinegar",
+    "start": 66.853,
+    "end": 67.198,
+    "emph": true
+   },
+   {
+    "text": "on",
+    "start": 67.198,
+    "end": 67.372
+   },
+   {
+    "text": "posts.",
+    "start": 67.372,
+    "end": 67.648
+   },
+   {
+    "text": "The",
+    "start": 68.743,
+    "end": 68.95
+   },
+   {
+    "text": "strange",
+    "start": 68.95,
+    "end": 69.296
+   },
+   {
+    "text": "part?",
+    "start": 69.296,
+    "end": 69.538
+   },
+   {
+    "text": "Twenty-four",
+    "start": 69.762,
+    "end": 70.211
+   },
+   {
+    "text": "eyes,",
+    "start": 70.211,
+    "end": 70.453
+   },
+   {
+    "text": "none",
+    "start": 70.549,
+    "end": 70.791
+   },
+   {
+    "text": "on",
+    "start": 70.791,
+    "end": 70.964
+   },
+   {
+    "text": "you.",
+    "start": 70.964,
+    "end": 71.172
+   },
+   {
+    "text": "It",
+    "start": 71.396,
+    "end": 71.569
+   },
+   {
+    "text": "was",
+    "start": 71.569,
+    "end": 71.777
+   },
+   {
+    "text": "fishing",
+    "start": 71.777,
+    "end": 72.123
+   },
+   {
+    "text": "for",
+    "start": 72.123,
+    "end": 72.33
+   },
+   {
+    "text": "shrimp,",
+    "start": 72.33,
+    "end": 72.641
+   },
+   {
+    "text": "and",
+    "start": 72.737,
+    "end": 72.945
+   },
+   {
+    "text": "you",
+    "start": 72.945,
+    "end": 73.152
+   },
+   {
+    "text": "swam",
+    "start": 73.152,
+    "end": 73.395
+   },
+   {
+    "text": "into",
+    "start": 73.395,
+    "end": 73.637
+   },
+   {
+    "text": "the",
+    "start": 73.637,
+    "end": 73.844
+   },
+   {
+    "text": "net.",
+    "start": 73.844,
+    "end": 74.052
+   },
+   {
+    "text": "Every",
+    "start": 74.596,
+    "end": 74.889
+   },
+   {
+    "text": "wet",
+    "start": 74.889,
+    "end": 75.109
+   },
+   {
+    "text": "season",
+    "start": 75.109,
+    "end": 75.439
+   },
+   {
+    "text": "it",
+    "start": 75.439,
+    "end": 75.623
+   },
+   {
+    "text": "swims",
+    "start": 75.623,
+    "end": 75.916
+   },
+   {
+    "text": "back",
+    "start": 75.916,
+    "end": 76.172
+   },
+   {
+    "text": "to",
+    "start": 76.172,
+    "end": 76.356
+   },
+   {
+    "text": "where",
+    "start": 76.356,
+    "end": 76.649
+   },
+   {
+    "text": "you",
+    "start": 76.649,
+    "end": 76.869
+   },
+   {
+    "text": "swim.",
+    "start": 76.869,
+    "end": 77.125
+   },
+   {
+    "text": "Still",
+    "start": 77.363,
+    "end": 77.656
+   },
+   {
+    "text": "invisible.",
+    "start": 77.656,
+    "end": 78.096,
+    "emph": true
+   }
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 88,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.7
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-box-jellyfish/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 78.496
+   }
+  ],
+  "music": [
+   {
+    "src": "music/tension_pulse.m4a",
+    "start": 0,
+    "end": 68.623,
+    "volume": 0.22,
+    "duckTo": 0.12,
+    "fadeIn": 0.2,
+    "fadeOut": 0.6
+   },
+   {
+    "src": "sfx/clock_ticking.wav",
+    "start": 2.988,
+    "end": 61.284,
+    "volume": 0.3,
+    "duckTo": 0.3,
+    "fadeIn": 0.05,
+    "fadeOut": 0.05,
+    "loop": true
+   },
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 68.623,
+    "end": 78.496,
+    "volume": 0.24,
+    "duckTo": 0.14,
+    "fadeIn": 0.4,
+    "fadeOut": 0.1
+   }
+  ],
+  "sfx": [],
+  "duckOn": "captions"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}
