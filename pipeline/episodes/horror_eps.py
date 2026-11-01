@@ -96,7 +96,7 @@ def handphone(phone, tilt=-3, tremble=1.5, taps=None, side="right", **kw):
     # thumb rests over the input bar so it never covers the newest bubble
     # cy 0.61: the status bar sits below the caption band
     p = {"phoneWidth": 0.68, "cx": 0.53, "cy": 0.61, "tilt": tilt, "tremble": tremble, "side": side, "phone": phone,
-         "thumbY": 0.9, "thumbReach": 0.16, **kw}
+         "thumbY": 0.94, "thumbReach": 0.1, **kw}
     if taps:
         p["taps"] = taps
     return {"type": "component", "name": "horror/HandPhone", "props": p}
