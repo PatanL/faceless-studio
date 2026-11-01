@@ -1,0 +1,7025 @@
+{
+ "version": 1,
+ "id": "whatif-light-walking-speed",
+ "title": "What if light walked for 5 seconds?",
+ "format": "9:16",
+ "fps": 30,
+ "theme": {
+  "fontDisplay": "Montserrat",
+  "fontBody": "Montserrat",
+  "fontCondensed": "Anton",
+  "accent": "#FFB547",
+  "ink": "#0B0D10",
+  "paper": "#FFFFFF"
+ },
+ "scenes": [
+  {
+   "id": "s01-establish",
+   "duration": 4.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 0.0,
+     "view": "wide",
+     "light": "normal",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#FFF4D6\"/><stop offset=\"0.5\" stop-color=\"#FFB547\"/><stop offset=\"1\" stop-color=\"#FFB547\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"110\" cy=\"44\" r=\"40\" fill=\"url(#g)\"/><circle cx=\"110\" cy=\"44\" r=\"12\" fill=\"#FFF4D6\"/><g fill=\"#FFB547\"><ellipse cx=\"78\" cy=\"100\" rx=\"9\" ry=\"14\" transform=\"rotate(-14 78 100)\"/><ellipse cx=\"142\" cy=\"92\" rx=\"9\" ry=\"14\" transform=\"rotate(14 142 92)\"/></g></svg>",
+     "x": "50%",
+     "y": 560,
+     "width": 220,
+     "height": 120,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if light",
+     "x": "50%",
+     "y": 690,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "walked",
+     "x": "50%",
+     "y": 805,
+     "fontSize": 140,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "for 5 seconds?",
+     "x": "50%",
+     "y": 920,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 4.5,
+     "exit": {
+      "type": "fade",
+      "at": 4.1,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 0.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Frame 1 = cover. Busy night crossing: cars streaming in the near and far lanes, crowd walking, screens scrolling, red signal wait bar, tourist raises phone at 3.0, full Moon rising. Title clears by 4.5. [screen 0.0-4.5 s; bubble R 0.00-0.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.5,
+      "x": 540,
+      "y": 975,
+      "zoom": 1.03,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 1.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 2.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 3.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 4.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "whoosh",
+     "at": 1.2,
+     "volume": 0.25
+    },
+    {
+     "cue": "whoosh",
+     "at": 3.4,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s02-place-you",
+   "duration": 2.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 4.5,
+     "view": "wide",
+     "light": "normal",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 4.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You're at Shibuya Crossing, waiting on red.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 2.5,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Friend turns and starts to wave at 6.0 (armR track); arm halfway at 7.0. [screen 4.5-7.0 s; bubble R 0.00-0.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 975,
+      "zoom": 1.03
+     },
+     {
+      "t": 2.5,
+      "x": 540,
+      "y": 1005,
+      "zoom": 1.25
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.5,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 1.5,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.3,
+     "volume": 0.6
+    },
+    {
+     "cue": "whoosh",
+     "at": 0.8,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s03-flip",
+   "duration": 3.8,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 7.0,
+     "view": "close",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night",
+     "shake": [
+      {
+       "at": 0.0,
+       "duration": 0.3,
+       "amplitude": 10
+      }
+     ],
+     "headGlowMinPx": 26
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 905,
+     "y": 905,
+     "width": 90,
+     "height": 90,
+     "flipX": true,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 3.29,
+       "opacity": 0
+      },
+      {
+       "t": 3.4499999999999997,
+       "opacity": 0.8,
+       "scale": 1.0
+      },
+      {
+       "t": 4.699999999999999,
+       "opacity": 0,
+       "scale": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 7.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "The whole city just went black.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 1.0,
+     "end": 3.6,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "World to a 6% ghost; only a sphere of light around your head (R 0 -> 0.48 m). City sound carries on. Shutter click at 10.3 from the dark right (ripple glyph), nothing lit. Shake is internal to CrossingSet. [screen 7.0-10.8 s; bubble R 0.00-0.48 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 1005,
+      "zoom": 2.4
+     },
+     {
+      "t": 3.8,
+      "x": 540,
+      "y": 1005,
+      "zoom": 2.0
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    },
+    {
+     "cue": "glitch",
+     "at": 0.0,
+     "volume": 0.3
+    },
+    {
+     "cue": "click",
+     "at": 3.3,
+     "volume": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s04a-pov-hand",
+   "duration": 5.0,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#07090C",
+     "#020304"
+    ],
+    "depth": 0.2,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 30,
+     "color": "#FF5FA2",
+     "size": [
+      18,
+      46
+     ],
+     "speed": 0.05,
+     "seed": 12,
+     "opacity": 0.06,
+     "blur": 8,
+     "depth": 0.4
+    },
+    {
+     "type": "component",
+     "name": "whatif/PovHand",
+     "props": {
+      "t0": 10.8,
+      "clock": {
+       "flipAt": 7.0,
+       "returnAt": 62.0,
+       "slowmo": 11.0,
+       "c": 1.4
+      },
+      "elbowDistM": 0.3,
+      "handDistM": 0.7,
+      "feltWiggleFrom": 13.0,
+      "seenDelayEvent": 0.5,
+      "feltStyle": "dotted",
+      "skin": "#E9B48F",
+      "sleeve": "#3A8FD6"
+     },
+     "x": 560,
+     "y": 1000,
+     "width": 900,
+     "height": 900
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 10.8,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Even your own hand is dark, until...",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 3.2,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Light edge crawls from elbow (lit 9.4) to fingertips (lit 12.5). Dotted felt hand wiggles from 13.0; the seen hand stays frozen. [screen 10.8-15.8 s; bubble R 0.48-1.12 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.0,
+      "zoom": 1.03,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 1.7,
+     "volume": 0.2
+    }
+   ]
+  },
+  {
+   "id": "s04b-pov-lag",
+   "duration": 3.7,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#07090C",
+     "#020304"
+    ],
+    "depth": 0.2,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 30,
+     "color": "#FF5FA2",
+     "size": [
+      18,
+      46
+     ],
+     "speed": 0.05,
+     "seed": 12,
+     "opacity": 0.06,
+     "blur": 8,
+     "depth": 0.4
+    },
+    {
+     "type": "component",
+     "name": "whatif/PovHand",
+     "props": {
+      "t0": 15.8,
+      "clock": {
+       "flipAt": 7.0,
+       "returnAt": 62.0,
+       "slowmo": 11.0,
+       "c": 1.4
+      },
+      "elbowDistM": 0.3,
+      "handDistM": 0.7,
+      "feltWiggleFrom": 13.0,
+      "seenDelayEvent": 0.5,
+      "feltStyle": "dotted",
+      "skin": "#E9B48F",
+      "sleeve": "#3A8FD6"
+     },
+     "x": 560,
+     "y": 1000,
+     "width": 900,
+     "height": 900
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 15.8,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "The seen hand starts following at 18.5 (0.5 event s behind the felt one). [screen 15.8-19.5 s; bubble R 1.12-1.59 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.08
+     },
+     {
+      "t": 3.7,
+      "zoom": 1.16,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s05-rule-sound",
+   "duration": 5.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 19.5,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 150,
+     "y": 640,
+     "width": 90,
+     "height": 90,
+     "flipX": false,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 0.29,
+       "opacity": 0
+      },
+      {
+       "t": 0.44999999999999996,
+       "opacity": 0.8,
+       "scale": 1.0
+      },
+      {
+       "t": 1.7,
+       "opacity": 0,
+       "scale": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 930,
+     "y": 600,
+     "width": 90,
+     "height": 90,
+     "flipX": true,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 1.09,
+       "opacity": 0
+      },
+      {
+       "t": 1.25,
+       "opacity": 0.8,
+       "scale": 1.0
+      },
+      {
+       "t": 2.5,
+       "opacity": 0,
+       "scale": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 380,
+     "y": 520,
+     "width": 90,
+     "height": 90,
+     "flipX": false,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 2.39,
+       "opacity": 0
+      },
+      {
+       "t": 2.55,
+       "opacity": 0.8,
+       "scale": 1.0
+      },
+      {
+       "t": 3.8,
+       "opacity": 0,
+       "scale": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 760,
+     "y": 700,
+     "width": 90,
+     "height": 90,
+     "flipX": true,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 3.5900000000000003,
+       "opacity": 0
+      },
+      {
+       "t": 3.75,
+       "opacity": 0.8,
+       "scale": 1.0
+      },
+      {
+       "t": 5.0,
+       "opacity": 0,
+       "scale": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 19.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Sound now travels faster than light.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 3.3,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "So does every car.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 3.5,
+     "end": 5.5,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Bubble R 1.59 -> 2.29 m; ground lights from 19.6; ring tag. Sound ripples from the dark (ding = crossing-chime stand-in). [screen 19.5-25.0 s; bubble R 1.59-2.29 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 1000,
+      "zoom": 1.35
+     },
+     {
+      "t": 5.5,
+      "x": 540,
+      "y": 990,
+      "zoom": 1.25
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.3,
+     "volume": 0.35
+    },
+    {
+     "cue": "ding",
+     "at": 0.7,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s06-car-unseen",
+   "duration": 5.6,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 25.0,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night",
+     "shake": [
+      {
+       "at": 1.4,
+       "duration": 0.6,
+       "amplitude": 5
+      }
+     ],
+     "wind": {
+      "at": 1.3,
+      "duration": 1.2
+     }
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#DDE6EE\" stroke-width=\"5\" stroke-linecap=\"round\"><path d=\"M40 40 A28 28 0 0 1 40 80\"/><path d=\"M28 26 A46 46 0 0 1 28 94\"/><path d=\"M16 12 A64 64 0 0 1 16 108\"/></g></svg>",
+     "x": 200,
+     "y": 1060,
+     "width": 120,
+     "height": 120,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 0.9,
+       "opacity": 0,
+       "x": 200
+      },
+      {
+       "t": 1.5,
+       "opacity": 0.85,
+       "x": 540
+      },
+      {
+       "t": 2.2,
+       "opacity": 0,
+       "x": 880,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 25.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "TEXTLESS. The lit road in front of you is empty; the car passes 1.0 m away at 26.5 (sound + wind only: jacket/hair whip, paper cup tumbles). Horn: synthesize car_horn on the Spark (stinger stand-in). [screen 25.0-30.6 s; bubble R 2.29-3.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 990,
+      "zoom": 1.25
+     },
+     {
+      "t": 1.3,
+      "x": 540,
+      "y": 990,
+      "zoom": 1.25
+     },
+     {
+      "t": 5.6,
+      "x": 540,
+      "y": 985,
+      "zoom": 1.3
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 1.2,
+     "volume": 0.9
+    },
+    {
+     "cue": "boom",
+     "at": 1.45,
+     "volume": 0.35
+    },
+    {
+     "cue": "stinger",
+     "at": 1.5,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s07-friend",
+   "duration": 3.7,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 30.6,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 30.6,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Your friend lights up, still mid-wave.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.4,
+     "end": 3.4,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Bubble edge reaches the friend (3.0 m) at 30.57: she lights up frozen mid-wave, then waves slowly, 2.14 s late. [screen 30.6-34.3 s; bubble R 3.00-3.47 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 985,
+      "zoom": 1.3
+     },
+     {
+      "t": 3.7,
+      "x": 500,
+      "y": 985,
+      "zoom": 1.25
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s08-car-image",
+   "duration": 7.4,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 34.3,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 34.3,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Then the car appears, driving backwards.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.2,
+     "end": 3.7,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Car image appears at 34.32 a metre in front of you and splits (heroCar.imageReversing / imageForward, metres from the closest point). Tourist (4.0 m) lights up at 38.43 with the phone raised. [screen 34.3-41.7 s; bubble R 3.47-4.42 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 500,
+      "y": 985,
+      "zoom": 1.25
+     },
+     {
+      "t": 7.4,
+      "x": 560,
+      "y": 975,
+      "zoom": 1.1
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.02,
+     "volume": 0.5
+    },
+    {
+     "cue": "riser",
+     "at": 4.7,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s09-whiteout",
+   "duration": 2.3,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 41.7,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night",
+     "castOverrides": {
+      "tourist": {
+       "phoneDownAt": 43.0
+      }
+     }
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 75,
+     "opacity": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 1.0,
+       "opacity": 1
+      },
+      {
+       "t": 1.8,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 41.7,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "The flash fired at 10.3 reaches your eyes at 41.73: full white 1.0 s (rect, z under the HUD; HUD inverts 41.7-42.9), fades to the crossing. [screen 41.7-44.0 s; bubble R 4.42-4.71 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 560,
+      "y": 975,
+      "zoom": 1.1
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 0.0,
+     "volume": 0.7
+    },
+    {
+     "cue": "whoosh",
+     "at": 0.05,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s10-phone",
+   "duration": 3.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 44.0,
+     "view": "close-tourist",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/PhoneScreen",
+     "props": {
+      "bars": 0,
+      "spinner": true,
+      "lit": true
+     },
+     "x": 600,
+     "y": 880,
+     "width": 360,
+     "height": 640,
+     "rotate": -6
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 44.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Every phone signal is stuck mid-air.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 3.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "The tourist's phone (inside your bubble, so lit): no bars, spinner. No on-screen words. [screen 44.0-47.0 s; bubble R 4.71-5.09 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.0,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "phone_buzz",
+     "at": 0.3,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s11-sky",
+   "duration": 7.0,
+   "background": {
+    "type": "color",
+    "color": "#010203",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SkyBodies",
+     "props": {
+      "moon": "full",
+      "ghost": 0.06,
+      "stars": 140,
+      "satellites": 2,
+      "seed": 3
+     },
+     "x": 540,
+     "y": 900,
+     "width": 1300,
+     "height": 2000,
+     "depth": 1
+    },
+    {
+     "type": "component",
+     "name": "whatif/CrossingSet",
+     "props": {
+      "t0": 47.0,
+      "view": "skyline",
+      "light": "slow",
+      "clock": {
+       "flipAt": 7.0,
+       "returnAt": 62.0,
+       "slowmo": 11.0,
+       "c": 1.4
+      },
+      "viewer": {
+       "x": 540,
+       "y": 1180,
+       "eyeH": 1.6,
+       "pxPerM": 100,
+       "groundScaleY": 0.55
+      },
+      "ghost": 0.06,
+      "cast": {
+       "you": {
+        "dxM": 0.0,
+        "color": "#3A8FD6",
+        "jacketFlapAt": 26.5
+       },
+       "friend": {
+        "dxM": -3.0,
+        "color": "#F07A5A",
+        "waveStart": 6.0,
+        "armRHalfAt": 7.0
+       },
+       "tourist": {
+        "dxM": 4.0,
+        "color": "#E3B04B",
+        "phoneUpAt": 3.0,
+        "flashAt": 10.3,
+        "phoneDownAt": 43.0
+       },
+       "signal": {
+        "distM": 15.0,
+        "greenAt": 51.0,
+        "waitBar": true
+       },
+       "moon": {
+        "phase": "full",
+        "x": 820,
+        "y": 300
+       },
+       "crowd": {
+        "count": 22,
+        "seed": 4,
+        "kerb": "far"
+       },
+       "traffic": {
+        "farLanes": 2,
+        "carsPerLane": 3,
+        "seed": 9
+       }
+      },
+      "heroCar": {
+       "color": "#7FA7B8",
+       "speedMps": 13.89,
+       "sideM": 1.0,
+       "laneCentreM": 1.85,
+       "passAt": 26.5,
+       "dir": "ltr",
+       "imageAppearAt": 34.317,
+       "imageReversing": [
+        {
+         "t": 34.317,
+         "xM": -0.101
+        },
+        {
+         "t": 35.0,
+         "xM": -0.539
+        },
+        {
+         "t": 36.0,
+         "xM": -0.817
+        },
+        {
+         "t": 38.0,
+         "xM": -1.234
+        },
+        {
+         "t": 40.0,
+         "xM": -1.59
+        },
+        {
+         "t": 41.7,
+         "xM": -1.873
+        },
+        {
+         "t": 44.0,
+         "xM": -2.24
+        }
+       ],
+       "imageForward": [
+        {
+         "t": 34.317,
+         "xM": -0.101
+        },
+        {
+         "t": 35.0,
+         "xM": 0.319
+        },
+        {
+         "t": 36.0,
+         "xM": 0.571
+        },
+        {
+         "t": 38.0,
+         "xM": 0.935
+        },
+        {
+         "t": 40.0,
+         "xM": 1.24
+        },
+        {
+         "t": 41.7,
+         "xM": 1.479
+        },
+        {
+         "t": 44.0,
+         "xM": 1.786
+        }
+       ]
+      },
+      "ringTag": false,
+      "palette": "neon-night"
+     },
+     "x": 540,
+     "y": 2350,
+     "width": 1400,
+     "height": 900,
+     "depth": 1
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 47.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Black sky, ghost full Moon over ghost towers, ghost stars, two satellite dots. HUD climbs MOON -> SUN -> STAR (log ladder). No captions. [screen 47.0-54.0 s; bubble R 5.09-5.98 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 2350,
+      "zoom": 1.0
+     },
+     {
+      "t": 0.35,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0,
+      "ease": "out"
+     },
+     {
+      "t": 6.0,
+      "x": 540,
+      "y": 900,
+      "zoom": 0.95,
+      "ease": "linear"
+     },
+     {
+      "t": 7.0,
+      "x": 540,
+      "y": 2350,
+      "zoom": 1.0,
+      "ease": "in"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "whoosh_long",
+     "at": 6.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s12-plant",
+   "duration": 3.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 54.0,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Inset",
+     "props": {
+      "label": "MEANWHILE",
+      "content": "neon-halo",
+      "t0": 54.0,
+      "clock": {
+       "flipAt": 7.0,
+       "returnAt": 62.0,
+       "slowmo": 11.0,
+       "c": 1.4
+      },
+      "haloRadius": "1.4*tau"
+     },
+     "x": 540,
+     "y": 760,
+     "width": 520,
+     "height": 320,
+     "depth": 0,
+     "z": 50,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 54.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "But every lamp keeps pouring out light.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 3.5,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Bubble ~6.0 m. MEANWHILE inset: a neon sign in the dark with a thick growing halo of trapped light. HUD LIGHT PILED UP live. [screen 54.0-57.5 s; bubble R 5.98-6.43 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "drone",
+     "at": 0.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s13-full-bubble",
+   "duration": 4.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 57.5,
+     "view": "wide",
+     "light": "slow",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": true,
+     "palette": "neon-night"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 57.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Bubble 6.2 -> 7.0 m, edge leaves the frame by 61; HUD clock under 0:00.100 at 61.0. [screen 57.5-62.0 s; bubble R 6.43-7.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.5,
+      "x": 540,
+      "y": 940,
+      "zoom": 0.85,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.5,
+     "volume": 0.5
+    },
+    {
+     "cue": "clock_ticking",
+     "at": 2.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s14-return",
+   "duration": 3.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 62.0,
+     "view": "wide",
+     "light": "exposure",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night",
+     "exposure": {
+      "from": 7.0,
+      "to": 62.0,
+      "samples": 12,
+      "perObjectWindow": "min(5, r/1.4) inside the bubble, 5 s outside",
+      "blend": "screen"
+     },
+     "exposureOpacity": [
+      {
+       "t": 0.4,
+       "v": 1.0
+      },
+      {
+       "t": 3.5,
+       "v": 0.55
+      }
+     ],
+     "underlay": "normal"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 75,
+     "opacity": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 0.4,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 62.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Light is back. All five seconds of it.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.5,
+     "end": 3.2,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Return: white flash 62.0-62.4 (rect), then the long-exposure afterimage (cars as streaks, crowd smears, signal red AND green, friend arm fan of 5, the car double) over the normal crossing. [screen 62.0-65.5 s; bubble R 7.00-7.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    },
+    {
+     "cue": "stinger",
+     "at": 0.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "drone",
+     "at": 0.4,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s15-twist",
+   "duration": 2.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 65.5,
+     "view": "wide",
+     "light": "exposure",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night",
+     "exposure": {
+      "from": 7.0,
+      "to": 62.0,
+      "samples": 12,
+      "perObjectWindow": "min(5, r/1.4) inside the bubble, 5 s outside",
+      "blend": "screen"
+     },
+     "exposureOpacity": [
+      {
+       "t": 0,
+       "v": 0.55
+      },
+      {
+       "t": 2.5,
+       "v": 0.15
+      }
+     ],
+     "underlay": "normal"
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 65.5,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Everything you missed hits your eyes at once.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.7)",
+     "start": 0.0,
+     "end": 2.5,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Afterimage fades. Caption 11. [screen 65.5-68.0 s; bubble R 7.00-7.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     },
+     {
+      "t": 2.5,
+      "x": 540,
+      "y": 980,
+      "zoom": 1.08,
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_slow",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s16-bookend",
+   "duration": 1.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/CrossingSet",
+    "props": {
+     "t0": 68.0,
+     "view": "wide",
+     "light": "normal",
+     "clock": {
+      "flipAt": 7.0,
+      "returnAt": 62.0,
+      "slowmo": 11.0,
+      "c": 1.4
+     },
+     "viewer": {
+      "x": 540,
+      "y": 1180,
+      "eyeH": 1.6,
+      "pxPerM": 100,
+      "groundScaleY": 0.55
+     },
+     "ghost": 0.06,
+     "cast": {
+      "you": {
+       "dxM": 0.0,
+       "color": "#3A8FD6",
+       "jacketFlapAt": 26.5
+      },
+      "friend": {
+       "dxM": -3.0,
+       "color": "#F07A5A",
+       "waveStart": 6.0,
+       "armRHalfAt": 7.0
+      },
+      "tourist": {
+       "dxM": 4.0,
+       "color": "#E3B04B",
+       "phoneUpAt": 3.0,
+       "flashAt": 10.3,
+       "phoneDownAt": 43.0
+      },
+      "signal": {
+       "distM": 15.0,
+       "greenAt": 51.0,
+       "waitBar": true
+      },
+      "moon": {
+       "phase": "full",
+       "x": 820,
+       "y": 300
+      },
+      "crowd": {
+       "count": 22,
+       "seed": 4,
+       "kerb": "far"
+      },
+      "traffic": {
+       "farLanes": 2,
+       "carsPerLane": 3,
+       "seed": 9
+      }
+     },
+     "heroCar": {
+      "color": "#7FA7B8",
+      "speedMps": 13.89,
+      "sideM": 1.0,
+      "laneCentreM": 1.85,
+      "passAt": 26.5,
+      "dir": "ltr",
+      "imageAppearAt": 34.317,
+      "imageReversing": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": -0.539
+       },
+       {
+        "t": 36.0,
+        "xM": -0.817
+       },
+       {
+        "t": 38.0,
+        "xM": -1.234
+       },
+       {
+        "t": 40.0,
+        "xM": -1.59
+       },
+       {
+        "t": 41.7,
+        "xM": -1.873
+       },
+       {
+        "t": 44.0,
+        "xM": -2.24
+       }
+      ],
+      "imageForward": [
+       {
+        "t": 34.317,
+        "xM": -0.101
+       },
+       {
+        "t": 35.0,
+        "xM": 0.319
+       },
+       {
+        "t": 36.0,
+        "xM": 0.571
+       },
+       {
+        "t": 38.0,
+        "xM": 0.935
+       },
+       {
+        "t": 40.0,
+        "xM": 1.24
+       },
+       {
+        "t": 41.7,
+        "xM": 1.479
+       },
+       {
+        "t": 44.0,
+        "xM": 1.786
+       }
+      ]
+     },
+     "ringTag": false,
+     "palette": "neon-night",
+     "castOverrides": {
+      "signal": {
+       "state": "green"
+      },
+      "crowd": {
+       "surge": true
+      }
+     }
+    },
+    "depth": 1,
+    "overscan": 1.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 68.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "LIGHT SLOWS IN"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "text": "LIGHT RETURNS IN"
+        },
+        {
+         "from": 62,
+         "to": 68.5,
+         "text": "LIGHT BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7.0,
+           "ease": "linear"
+          },
+          {
+           "t": 7,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm"
+        },
+        {
+         "from": 7,
+         "to": 62,
+         "clock": true,
+         "track": [
+          {
+           "t": 7,
+           "v": 5.0,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "format": "m:ss.mmm",
+         "formula": "v = 5 - (t - 7) / 11"
+        },
+        {
+         "from": 62,
+         "to": 62.6,
+         "clock": true,
+         "text": "0:00.000"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "299,792,458 M/S"
+        },
+        {
+         "from": 7,
+         "to": 9.5,
+         "text": "1.4 M/S = WALKING PACE"
+        },
+        {
+         "from": 9.5,
+         "to": 13,
+         "text": "TIME SLOWED 11×"
+        },
+        {
+         "from": 13,
+         "to": 19.5,
+         "text": "HAND: 0.5 S LATE"
+        },
+        {
+         "from": 19.5,
+         "to": 24,
+         "text": "SOUND: 245× FASTER"
+        },
+        {
+         "from": 24,
+         "to": 31,
+         "text": "CAR: 10× FASTER THAN LIGHT"
+        },
+        {
+         "from": 31,
+         "to": 41.7,
+         "text": "FRIEND: 2.14 S LATE"
+        },
+        {
+         "from": 41.7,
+         "to": 44,
+         "text": "FLASH: 2.86 S LATE"
+        },
+        {
+         "from": 44,
+         "to": 47.5,
+         "text": "GPS ETA: 167 DAYS"
+        },
+        {
+         "from": 47.5,
+         "to": 49.5,
+         "text": "MOONLIGHT ETA: 8.7 YEARS"
+        },
+        {
+         "from": 49.5,
+         "to": 51,
+         "text": "SUNLIGHT ETA: 3,386 YEARS"
+        },
+        {
+         "from": 51,
+         "to": 54,
+         "text": "STARLIGHT ETA: {v} YEARS",
+         "track": [
+          {
+           "t": 51,
+           "v": 3386
+          },
+          {
+           "t": 52.5,
+           "v": 909000000,
+           "ease": "in"
+          },
+          {
+           "t": 54,
+           "v": 909000000
+          }
+         ],
+         "decimals": 0,
+         "thousands": true,
+         "scale": "log"
+        },
+        {
+         "from": 54,
+         "to": 62,
+         "text": "LIGHT PILED UP: {v} S",
+         "track": [
+          {
+           "t": 54,
+           "v": 4.2727,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 5.0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 2,
+         "formula": "v = (t - 7) / 11"
+        },
+        {
+         "from": 63,
+         "to": 68.5,
+         "text": "214,137,470× BRIGHTER"
+        }
+       ]
+      },
+      "invert": [
+       [
+        41.7,
+        42.9
+       ],
+       [
+        62.0,
+        62.4
+       ]
+      ],
+      "fadeOut": [
+       68.0,
+       68.5
+      ],
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 820,
+     "height": 260,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Frame-1 framing, normal light; signal green, crowd surging, friend waving. HUD fades out 68.0-68.5. No text. [screen 68.0-69.5 s; bubble R 7.00-7.00 m]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": 540,
+      "y": 960,
+      "zoom": 1.0
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.2,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s17-black",
+   "duration": 1.0,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [],
+   "notes": "Black, music out. [screen 69.5-70.5 s; bubble R 7.00-7.00 m]",
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.3,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s18-endcard",
+   "duration": 7.5,
+   "background": {
+    "type": "color",
+    "color": "#0B0D10",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#FFF4D6\"/><stop offset=\"0.5\" stop-color=\"#FFB547\"/><stop offset=\"1\" stop-color=\"#FFB547\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"110\" cy=\"44\" r=\"40\" fill=\"url(#g)\"/><circle cx=\"110\" cy=\"44\" r=\"12\" fill=\"#FFF4D6\"/><g fill=\"#FFB547\"><ellipse cx=\"78\" cy=\"100\" rx=\"9\" ry=\"14\" transform=\"rotate(-14 78 100)\"/><ellipse cx=\"142\" cy=\"92\" rx=\"9\" ry=\"14\" transform=\"rotate(14 142 92)\"/></g></svg>",
+     "x": "50%",
+     "y": 560,
+     "width": 220,
+     "height": 120,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 7.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if light",
+     "x": "50%",
+     "y": 690,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 7.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "walked",
+     "x": "50%",
+     "y": 805,
+     "fontSize": 140,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 7.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "for 5 seconds?",
+     "x": "50%",
+     "y": 920,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.55)",
+     "start": 0.0,
+     "end": 7.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "HARVARD, 2001 · LENE HAU'S LAB STOPPED A PULSE OF LIGHT IN ULTRACOLD ATOMS, THEN LET IT GO.",
+     "x": "50%",
+     "y": 1120,
+     "fontSize": 34,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "lineHeight": 1.4,
+     "maxWidth": 860,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "End card: exact title repeat + fact (neither is read). [screen 70.5-78.0 s; bubble R 7.00-7.00 m]"
+  }
+ ],
+ "captions": {
+  "enabled": false
+ },
+ "audio": {
+  "voice": [],
+  "music": [
+   {
+    "src": "music/documentary_pulse.m4a",
+    "start": 0.0,
+    "end": 7.0,
+    "volume": 0.15,
+    "duckTo": 0.15,
+    "fadeIn": 0.3,
+    "fadeOut": 0.1
+   },
+   {
+    "src": "music/tension_pulse.m4a",
+    "start": 7.0,
+    "end": 62.0,
+    "volume": 0.2,
+    "duckTo": 0.1,
+    "fadeIn": 0.3,
+    "fadeOut": 0.1
+   },
+   {
+    "src": "sfx/drone.wav",
+    "start": 0.0,
+    "end": 69.5,
+    "volume": 0.18,
+    "duckTo": 0.18,
+    "fadeIn": 0.2,
+    "fadeOut": 0.3,
+    "loop": true
+   }
+  ],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.03,
+  "vignette": 0.1,
+  "fadeIn": 0,
+  "fadeOut": 0.4
+ }
+}

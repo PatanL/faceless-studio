@@ -1,0 +1,114 @@
+{
+  "episode": "whatif-light-walking-speed",
+  "reviewed_at_utc": "2026-11-01T09:55Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 6, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "The ladder now changes kind at each rung: darkness (wonder), your own hand dark then late (body), sound beats light (rule), a car passes 1 m away unseen and then appears driving backwards (danger), the flash you heard 31 s earlier (plant payoff), phone signals stuck mid-air (city), a black sky with a log-scale ETA counter (cosmic), every lamp's light piling up (plant). The twist lands on your eyes the moment light returns. 11 captions, 71 words, 54.6 wpm. On-screen text is ~128 wpm and numbers ~17/min. Pivots: until / So / Then / But. Remaining risk: the premise is familiar (slow-light videos exist), so it relies on the bubble image and the car rung.",
+    "reference": "Every alignment-table row cites a timestamp that exists in the corpus annotations (ELECTRONS 0:00-1:15, OXYGEN 0:00-1:02, PI=3 0:05-1:15). Only the three front-matter references are cited. There is a 3.5 s cadence peak before the white-out, a textless break that shows the implication (the car passing unseen), sky numbers only in the HUD with real 5-second consequences in the captions, a stated plant with a live meter (OXYGEN 0:28 device), and a twist closed on screen. The end fact is the 2001 halted-light result, which mirrors the premise.",
+    "originality": "The physics now holds together end to end: the world beyond the bubble is black (in-flight light is 214,137,470x dimmer), the bubble grows at 1.4 m/s from your eyes, the backlog is r/1.4 s inside 7 m and 5 s outside, and the car's double image comes from one formula. The ghost at 6% is labelled in the fact file as an artistic allowance. The Doppler beat and the relativistic formula are removed. The sunset-side twist is removed. The end fact is corrected (17 m/s = 61 km/h, city-traffic speed, now only in the description). Gate PASS.",
+    "producibility": "No scene grade and no camera shake: the darkness, exposure and shakes are CrossingSet props, so the depth-0 HUD and caption layers are untouched. Every cut while the HUD shows is a hard cut, and the whip is camera keyframes. The HUD has fixed L/T/S slots with one replacing subline and invert windows for white frames. One projection (high three-quarter, 100 px/m, ground scaleY 0.55) with explicit coordinates; your head at y 1005 sits clear of the caption band. Twist timing matches the physics (flash at 1:02.0). The storyboard validates. Held at 7 because studio/src/kits/whatif still does not exist (Hud, CrossingSet + RadialSplit, PovHand, SkyBodies, Inset, PhoneScreen), explainer/You needs arm tracks, a phone prop, a time override and a walk pose, the serif/mono fonts are not installed, and city bed, car horn and ring SFX still need synthesizing."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Escalation no longer repeats delay = distance / 1.4: rungs are darkness, hand, sound (245x), car outrunning its light (10x, seen 0.71 s after it passed, then two copies, one reversing), flash heard before seen, phone signals stuck mid-air, sky ETAs (HUD only), piled-up light",
+      "Cars pay off: seeded streaming past at 0:00, rule line 'So does every car.' at 0:23, an unseen pass a metre away with wind at 0:26.5 (textless), the image arriving at 0:34.3 ('Then the car appears, driving backwards.'), and the car as a double ghost in the afterimage. The Moon and star rungs are cut to HUD-only lines to make room",
+      "Twist lands on the viewer: the Sun pulse is dropped. The twist is the local backlog arriving at your eyes at 1:02.0 (214,137,470x brighter for <= 23 ns) and a long-exposure afterimage. Nothing depends on the Sun or the day side",
+      "One twist, 1:02.0-1:08.0 (6 s), one HUD number in 2 words (214,137,470x BRIGHTER). The second countdown and the second subline are removed",
+      "On-screen text cut to ~166 words (~128 wpm, top of the 103-131 range); numbers ~22 (~17/min). One subline at a time, 2-5 words. Removed: HAND/FRIEND/FLASH sublines that repeated captions, 'TRAVEL TIME AT 1.4 M/S', 'EVERYTHING ELSE IS A PHOTO', 'SHIBUYA, 5 SECONDS LATER', and the 299,792,458 repeat at the return",
+      "Captions: 13 -> 11; 91 -> 71 words; 70 -> 54.6 wpm",
+      "S5 no longer repeats the title: 'Sound now travels faster than light.' / 'So does every car.' opens the car loop. Pivots: 'until' (C3), 'So' (C5), 'Then' (C7), 'But' (C9); the return line turns inside itself ('Light is back. All five seconds of it.')",
+      "Hook is visibly busy before 0:07 (cars streaming, crowd walking, screens scrolling, wait bar ticking, tourist raising a phone, friend starting to wave); nothing is frozen before the flip",
+      "Outside the bubble is black: a growing bubble of light in a dark city, a 6% ghost noted as an artistic aid, caption 2 'The whole city just went black.'",
+      "Title is 7 words ('What if light walked for 5 seconds?'); 'BICYCLE SPEED' removed; the 1999 fact moved to the description as 17 m/s = 61 km/h = 38 mph, city-traffic speed"
+    ],
+    "reference": [
+      "Black world + growing bubble: hand lit at 0:12.5 (0.7 m), friend at 0:30.6, tourist at 0:38.4; the return brings the whole world back (as an afterimage, then normal at 1:08). Premise rule and fact file updated",
+      "The S5 implication is new information (cars now outrun light) and the textless break shows exactly that (an unseen pass, wind, an empty lit road); HUD CAR: 10x FASTER THAN LIGHT",
+      "Ladder scales outward and raises the stakes: body -> sound -> person -> vehicle passing 1 m from you -> flash -> city (every phone signal) -> sky -> every lamp. The car is the danger rung",
+      "Cosmic climb is HUD-only (GPS 167 days, Moon 8.7 years, Sun 3,386 years, stars 909,000,000 years). The captions there are real 5-second consequences ('Every phone signal is stuck mid-air.'); the plant is stated in a caption ('But every lamp keeps pouring out light.') with a live meter",
+      "Twist hits you, not the other side of the planet, and closes on screen (afterimage fades to the normal crossing at 1:08)",
+      "End fact: Harvard 2001 halted-light pulse (Liu, Dutton, Behroozi & Hau, Nature 409, 490-493); 1999 / 17 m/s with the corrected speed comparison in the post description",
+      "Caption wpm 54.6 (71 words)",
+      "Numeric captions: 1 of 11 ('five'); every exact number is in the HUD. Second person: 4 of 11 (36%), counted correctly in the pacing check, with the reason given",
+      "Cadence peak: 0:31.0 -> 0:34.5 (3.5 s) just before the 0:41.7 white-out",
+      "No god's-eye cheat: the 0:10.3 flash is planted by a shutter-click SFX + ripple glyph only; the only off-POV visual is the explicitly boxed MEANWHILE inset",
+      "Doppler beat removed entirely (its source was outside the bubble and the formula did not fit the premise); noted in the fact file"
+    ],
+    "originality": [
+      "Outside the bubble = black (in-flight light dimmed 214,137,470x); inside = normal brightness, delayed. The 6% ghost is labelled as artistic in the fact file",
+      "Colour beat: removed rather than moved, so no red source needs to sit inside the bubble",
+      "Twist no longer points at the day side: there is no Sun pulse",
+      "Backlog is r/1.4 s inside 7 m and 5 s outside: the afterimage gives the friend a 5-pose fan (2.14 s), full streaks only for things beyond 7 m. Caption reworded to 'Everything you missed hits your eyes at once.' Rule added to the fact file",
+      "'BICYCLE SPEED' removed; 61 km/h / 38 mph city-traffic speed in the description",
+      "The 0:10.3 phone blip is removed: the plant is the click you hear, and the flash pays off at 0:41.7"
+    ],
+    "producibility": [
+      "HUD and captions are depth-0 layers in scenes with no grade and no camera shake; transitions while the HUD shows are hard cuts; the whip is camera keyframes; HUD takes a global t0 per scene so the clock is continuous",
+      "No Grade-based sepia: the light model is inside whatif/CrossingSet (per-object time tau - r/1.4, lit/ghost) with generic whatif/RadialSplit for the ground; friend, tourist, cars, signal and Moon are props of the set (cast), not separate layers",
+      "Signal colour contradiction removed (no Doppler); the signal stays dark beyond 7 m and shows red + green only in the afterimage, green in the bookend",
+      "Sun countdown removed (no Sun twist), so the 6 s and photosphere offsets no longer apply",
+      "Twist timing matches the fact file: hard flash at 1:02.0 on the return, afterimage 1:02.4-1:08.0, captions 10 and 11 over it",
+      "explainer/You edits specified (armR/armL tracks, phone, time override, walk pose with time-driven stride); the afterimage is N copies via CrossingSet exposure; whatif/Onion dropped; the hand shot is a first-person whatif/PovHand (shared with you-100x-taller)",
+      "One projection with coordinates: high three-quarter, 100 px/m, ground scaleY 0.55, your feet at (540,1180), head ~y 1005, friend x 240, tourist x 940, car side 1.0 m ahead; the 7 m bubble is allowed to leave the frame",
+      "HUD slots L/T/S fully listed with in/out times; one subline replaces the previous one; invert windows during white frames",
+      "Fonts: Source Serif 4 italic + JetBrains Mono via @fontsource on the Spark (listed in kit gaps); core captions disabled; captions are whole-sentence serif text layers"
+    ]
+  },
+  "nice_to_have_applied": [
+    "End fact uses Hau 2001 (stopped, then let go); 1999 in the description",
+    "Flash planted audibly (shutter click SFX at 0:10.3), which also teaches sound-before-light",
+    "Small-ring readability: flip shot is pushed in to zoom 2.4 on your head with a min-radius soft glow; the hand beat is a full-frame POV",
+    "Accent on 'walked', the surprising word",
+    "Sky numbers are HUD facts, not conditional captions",
+    "No rounded/exact pair shown together (the caption carries no sky numbers)",
+    "Second person not increased (6 -> 4 captions)",
+    "Post-caption CTA keeps a pick-one from options shown on screen (hand, friend, car) and adds the series harvest 'which constant should we slow down next?'",
+    "Caption 6 imperative removed (Doppler cut)",
+    "Title clears at 4.5 s before caption 1",
+    "Tourist micro-beat at 0:38.4 when the bubble passes her",
+    "8 s hand shot split at 0:15.8 with a push-in step",
+    "Explainer Stat/Tag removed (HUD carries numbers)",
+    "Kit names aligned with whatif-friction-off-5-seconds (whatif/Hud, whatif/SerifCaption, whatif/TitleCard)",
+    "SFX use only existing cues, with stand-ins noted; city bed, car horn and ring tone listed to synthesize with ffmpeg on the Spark",
+    "Moon drawn full and rising in the east on an early evening (consistent sky)",
+    "Carve-out ('only light changes; sound and chemistry work as normal') stated in the post caption",
+    "Cover leads with the strongest original image (thumbnail concept A: the black city with one bubble of light)",
+    "Brightness-ratio-only statement in the twist; nothing about injury"
+  ],
+  "not_applied": [
+    "HUD 'BEYOND 7 M: DARK' / 'EVERYTHING ELSE NORMAL' lines: left off screen for the text budget; the ring tag shows R and the post caption states the carve-out",
+    "Second person stays at 4/11 (36%), above the 7-18% Shorts range: the premise is what you see, and the place, body, friend and twist lines need it",
+    "HUD styling distinct from @man_ia_c (format-dependence note): kept the shared house HUD from whatif-friction-off-5-seconds; vary it at the kit level for the whole series, not per episode",
+    "Monetization re-check against research/R5 deferred: the R5 policy file is still empty"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-light-walking-speed/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+    "max_shared_5gram_share": "0.12% (research/corpus/whatif/PLAYBOOK.md, beat-name phrases such as 'premise card pre event clock'); highest transcript source 0.02% (research/library/transcripts/rTwtWqOFPDA.txt, 'in front of you is')"
+  },
+  "pacing": {
+    "runtime_s": 78,
+    "captions": 11,
+    "caption_words": 71,
+    "caption_wpm": 54.6,
+    "caption_gap_median_s": 5.75,
+    "on_screen_text_wpm_est": 128,
+    "numbers_per_min_est": 17,
+    "second_person_captions": "4/11",
+    "event_s": 7.0,
+    "return_s": 62.0,
+    "twist_caption_s": 65.5,
+    "black_s": 69.5,
+    "master_loop_share": 0.705
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-light-walking-speed/storyboard.json",
+    "generator": "backlog/whatif/whatif-light-walking-speed/gen_storyboard.py",
+    "validator": "studio/src/cli/validate.ts (schema.ts md5 identical on Mac and Spark), run on the Spark with Node 22.22.0",
+    "result": "ok: 9:16 30fps 19 scenes 78.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/CrossingSet", "whatif/RadialSplit (internal to CrossingSet)", "whatif/PovHand", "whatif/SkyBodies", "whatif/Inset", "whatif/PhoneScreen"]
+  }
+}
