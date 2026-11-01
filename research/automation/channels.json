@@ -1,0 +1,453 @@
+{
+ "_note": "Channels polled daily by research/automation/daily_pull.py (yt-dlp --flat-playlist metadata only). role=reference: named in PLAN.md; role=similar: found by R1-R3/library research. bob.figures.it.out (Instagram) is not pollable by yt-dlp and is omitted. Add a channel by appending an object; set \"enabled\": false to pause one.",
+ "channels": [
+  {
+   "name": "Depth Theory",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "reference",
+   "url": "https://www.youtube.com/channel/UCskKty8VpO8S7eLX0xU_u3A",
+   "channel_id": "UCskKty8VpO8S7eLX0xU_u3A",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "PLAN.md / R1 seed"
+  },
+  {
+   "name": "Mr. Science",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCOM1gIM4Q_-OniEdhUvHEkA",
+   "channel_id": "UCOM1gIM4Q_-OniEdhUvHEkA",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library (R1 peers)"
+  },
+  {
+   "name": "ExtinctZoo",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UC0ggS8bt4v7NiZpDfGqNpZQ",
+   "channel_id": "UC0ggS8bt4v7NiZpDfGqNpZQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library (R1 peers)"
+  },
+  {
+   "name": "Dumb Doggo",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCopzq4NX3eYYPyw1VUi-8Xw",
+   "channel_id": "UCopzq4NX3eYYPyw1VUi-8Xw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "Casual Geographic",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UC5Yo88QF-chdugJbAnB2tUw",
+   "channel_id": "UC5Yo88QF-chdugJbAnB2tUw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "Zack D. Films",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCvz84_Q0BbvZThy75mbd-Dg",
+   "channel_id": "UCvz84_Q0BbvZThy75mbd-Dg",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "WILD VERSUS",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UC0wNf5tJpKvPiDW_7a1bwXw",
+   "channel_id": "UC0wNf5tJpKvPiDW_7a1bwXw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "Spinosnack",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCHpe0VGgt2dm63CxJVCPrYw",
+   "channel_id": "UCHpe0VGgt2dm63CxJVCPrYw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "BlackWater",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCKSn7bn8Kin6kNOiFob4DcQ",
+   "channel_id": "UCKSn7bn8Kin6kNOiFob4DcQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "Fossil",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCOf0CzjuS5rjLju4muJi7Gg",
+   "channel_id": "UCOf0CzjuS5rjLju4muJi7Gg",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "Occam",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCqDXDqUwIim0LdYJG1YRXuw",
+   "channel_id": "UCqDXDqUwIim0LdYJG1YRXuw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "OctoLab",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCuxBXxhBXw9LoPxIIY_APDA",
+   "channel_id": "UCuxBXxhBXw9LoPxIIY_APDA",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "BeyondTheBlue",
+   "platform": "youtube",
+   "niche": "explainer",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCy6-V0dTuvNB_uFXpE5K5uQ",
+   "channel_id": "UCy6-V0dTuvNB_uFXpE5K5uQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R1/raw/peers_summary.json"
+  },
+  {
+   "name": "mraevq",
+   "platform": "tiktok",
+   "niche": "horror",
+   "role": "reference",
+   "url": "https://www.tiktok.com/@mraevq",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "PLAN.md / R2 seed"
+  },
+  {
+   "name": "udhwkz",
+   "platform": "tiktok",
+   "niche": "horror",
+   "role": "reference",
+   "url": "https://www.tiktok.com/@udhwkz",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "PLAN.md / R2 seed"
+  },
+  {
+   "name": "lehwh7 (TikTok)",
+   "platform": "tiktok",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.tiktok.com/@lehwh7",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "melovebz",
+   "platform": "tiktok",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.tiktok.com/@melovebz",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "topscaryclips",
+   "platform": "tiktok",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.tiktok.com/@topscaryclips",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "lehwh7",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCL9e-wgDpotrqg_0Qje3Pyg",
+   "channel_id": "UCL9e-wgDpotrqg_0Qje3Pyg",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "twezed",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCFdsJhEMtQ7tz4d6DgMBGWw",
+   "channel_id": "UCFdsJhEMtQ7tz4d6DgMBGWw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "Wansee Entertainment",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCRrZWZ8p_Jvhjc8w2KW3EBg",
+   "channel_id": "UCRrZWZ8p_Jvhjc8w2KW3EBg",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "WrONG Rules",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCEWCe_2mnZtjQGmnXSwZahQ",
+   "channel_id": "UCEWCe_2mnZtjQGmnXSwZahQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "Texty Stories",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCC6qdu5JsLbMu_90pj2-uEA",
+   "channel_id": "UCC6qdu5JsLbMu_90pj2-uEA",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library"
+  },
+  {
+   "name": "Horror Shorts Party",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCsCAWoG-SagS7aFuWT1IZPw",
+   "channel_id": "UCsCAWoG-SagS7aFuWT1IZPw",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "Textify",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCeI90iCLm4RrNguS4WwNVVQ",
+   "channel_id": "UCeI90iCLm4RrNguS4WwNVVQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "Resident Guidance",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCAyyWiZWPfcFHY5-CPkLfjQ",
+   "channel_id": "UCAyyWiZWPfcFHY5-CPkLfjQ",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "It'sChineseSlop",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCD-zwI3JWuIq7AlGJcB4D8Q",
+   "channel_id": "UCD-zwI3JWuIq7AlGJcB4D8Q",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "The Story Vault",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCXOXwdDH46jWch0YHxZ0H0A",
+   "channel_id": "UCXOXwdDH46jWch0YHxZ0H0A",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "ChenJie Horror",
+   "platform": "youtube",
+   "niche": "horror",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCGiyjv5TpEHrlaIvYVvdg_A",
+   "channel_id": "UCGiyjv5TpEHrlaIvYVvdg_A",
+   "tabs": [
+    "videos"
+   ],
+   "source": "research/R2/library.json"
+  },
+  {
+   "name": "Awaken",
+   "platform": "youtube",
+   "niche": "whatif",
+   "role": "reference",
+   "url": "https://www.youtube.com/channel/UCAGRnC0u-hiBa7eUvrFtFow",
+   "channel_id": "UCAGRnC0u-hiBa7eUvrFtFow",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "PLAN.md (Part B reference)"
+  },
+  {
+   "name": "IFOLOGY",
+   "platform": "youtube",
+   "niche": "whatif",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCv4DniMRgnBTmfFaxeMTTLA",
+   "channel_id": "UCv4DniMRgnBTmfFaxeMTTLA",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library/candidates-whatif.json"
+  },
+  {
+   "name": "ConChaser",
+   "platform": "youtube",
+   "niche": "whatif",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCt-GhchW5nGSjr-ETeGab_g",
+   "channel_id": "UCt-GhchW5nGSjr-ETeGab_g",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library/candidates-whatif.json"
+  },
+  {
+   "name": "Oddly Elsewhere",
+   "platform": "youtube",
+   "niche": "whatif",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCkBWqYRvvIWm_9udfvgFWjA",
+   "channel_id": "UCkBWqYRvvIWm_9udfvgFWjA",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library/candidates-whatif.json"
+  },
+  {
+   "name": "OminiAM",
+   "platform": "youtube",
+   "niche": "whatif",
+   "role": "similar",
+   "url": "https://www.youtube.com/channel/UCdozVNia_R7aNCEgZEJzMug",
+   "channel_id": "UCdozVNia_R7aNCEgZEJzMug",
+   "tabs": [
+    "videos",
+    "shorts"
+   ],
+   "source": "research/library/candidates-whatif.json"
+  },
+  {
+   "name": "@man_ia_c (What if?)",
+   "platform": "tiktok",
+   "niche": "whatif",
+   "role": "similar",
+   "url": "https://www.tiktok.com/@man_ia_c",
+   "channel_id": null,
+   "tabs": [
+    "posts"
+   ],
+   "source": "research/library/candidates-whatif.json"
+  }
+ ]
+}

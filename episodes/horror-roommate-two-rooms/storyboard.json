@@ -17,8 +17,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.6
      }
@@ -28,7 +28,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -73,7 +74,21 @@
         "accent": "#3d5a80",
         "clock": "7:48",
         "battery": 31,
-        "subtitle": "online"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "online",
+        "typing": [
+         {
+          "from": "Jess",
+          "at": 2.062,
+          "until": 2.762
+         },
+         {
+          "from": "Jess",
+          "at": 3.0,
+          "until": 3.7
+         }
+        ]
        },
        "vibrate": [
         {
@@ -81,7 +96,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -90,19 +107,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 6.8,
-      "zoom": 1.04
+      "t": 2.729,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 2.762,
+      "ease": "linear"
+     },
+     {
+      "t": 3.012,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 3.667,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 3.7,
+      "ease": "linear"
+     },
+     {
+      "t": 3.95,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 6.767,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -116,7 +181,17 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "My roommate texted me from her bedroom. Don't come out. There's someone in the living room who looks like me."
+   "notes": "My roommate texted me from her bedroom. Don't come out. There's someone in the living room who looks like me.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 2.762,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p01",
@@ -187,8 +262,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.6
      }
@@ -198,7 +273,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -248,9 +324,13 @@
         "accent": "#3d5a80",
         "clock": "7:49",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "online"
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "taps": [
        {
         "at": 0.975,
@@ -266,7 +346,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
@@ -381,8 +461,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.5
      }
@@ -392,7 +472,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -452,6 +533,8 @@
         "accent": "#3d5a80",
         "clock": "7:51",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "online",
         "typing": [
          {
@@ -461,7 +544,9 @@
          }
         ]
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -470,19 +555,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 8.075,
-      "zoom": 1.04
+      "t": 3.042,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 3.075,
+      "ease": "linear"
+     },
+     {
+      "t": 3.325,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.267,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 5.3,
+      "ease": "linear"
+     },
+     {
+      "t": 5.55,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 8.042,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -490,7 +623,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "So I asked the Jess on my phone something only she would know. What did I break last week? She wrote back. Your blue mug. That was right."
+   "notes": "So I asked the Jess on my phone something only she would know. What did I break last week? She wrote back. Your blue mug. That was right.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 3.075,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p05",
@@ -566,8 +709,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4
      }
@@ -577,7 +720,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -606,9 +750,13 @@
         "accent": "#3d5a80",
         "clock": "7:53",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "landlord"
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "taps": [
        {
         "at": 1.475,
@@ -624,19 +772,46 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 4.6,
-      "zoom": 1.04
+      "t": 1.692,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.725,
+      "ease": "linear"
+     },
+     {
+      "t": 1.975,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 4.567,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -644,7 +819,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "So I texted our landlord. Does anyone else have a key to our flat?"
+   "notes": "So I texted our landlord. Does anyone else have a key to our flat?",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.725,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p07",
@@ -658,8 +843,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4
      }
@@ -669,7 +854,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 3,
       "side": "right",
@@ -709,7 +895,21 @@
         "accent": "#3d5a80",
         "clock": "7:53",
         "battery": 31,
-        "subtitle": "landlord"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "landlord",
+        "typing": [
+         {
+          "from": "Mr. Abbott (landlord)",
+          "at": 0.85,
+          "until": 1.55
+         },
+         {
+          "from": "Mr. Abbott (landlord)",
+          "at": 4.412,
+          "until": 5.112
+         }
+        ]
        },
        "vibrate": [
         {
@@ -718,6 +918,8 @@
         }
        ]
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 1.962,
@@ -733,7 +935,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -756,12 +958,60 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.35,
-      "zoom": 1.04
+      "t": 1.517,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.55,
+      "ease": "linear"
+     },
+     {
+      "t": 1.8,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.079,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 5.112,
+      "ease": "linear"
+     },
+     {
+      "t": 5.362,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.317,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -775,7 +1025,17 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "He replied straight away. Jess moved out yesterday. She handed in her keys this morning. Why, is someone there?"
+   "notes": "He replied straight away. Jess moved out yesterday. She handed in her keys this morning. Why, is someone there?",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.55,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p08",
@@ -900,7 +1160,7 @@
    },
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
    "notes": "Then I heard two doors open at the same time. Her bedroom door. And the living room door, right outside mine."
   },
@@ -916,8 +1176,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.1
      }
@@ -927,7 +1187,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 5,
       "side": "right",
@@ -988,7 +1249,16 @@
         "accent": "#3d5a80",
         "clock": "7:56",
         "battery": 31,
-        "subtitle": "online"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "online",
+        "typing": [
+         {
+          "from": "Jess",
+          "at": 2.525,
+          "until": 3.225
+         }
+        ]
        },
        "vibrate": [
         {
@@ -997,6 +1267,8 @@
         }
        ]
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 4.675,
@@ -1012,7 +1284,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -2071,17 +2343,19 @@
     "end": 67.199
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
   "style": {
    "font": "display",
-   "fontSize": 76,
+   "fontSize": 58,
    "color": "#ffffff",
    "highlight": "#ff4b55",
-   "highlightMode": "color",
-   "strokeWidth": 12,
+   "highlightMode": "none",
+   "strokeWidth": 10,
    "uppercase": false,
-   "y": 0.15
+   "y": 0.12,
+   "backing": 0.85
   }
  },
  "audio": {
@@ -2099,9 +2373,9 @@
  },
  "overlays": {
   "grain": 0.5,
-  "vignette": 0.0,
-  "fadeIn": 0.2,
-  "fadeOut": 0.6
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0.25
  },
  "_built": {
   "by": "pipeline/episodes/build.py",

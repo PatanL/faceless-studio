@@ -2032,14 +2032,14 @@
     "end": 83.755
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 4,
+  "maxChars": 20,
   "style": {
    "font": "display",
    "fontSize": 84,
    "color": "#ffffff",
    "highlight": "#ff5a4a",
-   "highlightMode": "color",
+   "highlightMode": "none",
    "strokeWidth": 12,
    "uppercase": true,
    "y": 0.72
@@ -2061,8 +2061,8 @@
  "overlays": {
   "grain": 0.04,
   "vignette": 0.2,
-  "fadeIn": 0.2,
-  "fadeOut": 0.5
+  "fadeIn": 0,
+  "fadeOut": 0
  },
  "_built": {
   "by": "pipeline/episodes/build.py",

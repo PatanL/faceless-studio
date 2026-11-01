@@ -5,6 +5,8 @@
 # usage: scripts/spark_sync.sh [project_dir]      (default: studio)
 #   SYNC_DELETE=1  also delete files on the Spark that no longer exist on the Mac
 #   SKIP_NPM=1     only rsync, skip the npm step
+# research/library.jsonl, library.state.json and research/daily/ are written on the Spark by the
+# daily cron (scripts/research_daily.sh) and never synced from the Mac; pull them with scripts/pull_research.sh.
 # npm ci runs only when package.json/package-lock.json changed (hash stamp in node_modules/.lockhash).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -13,7 +15,9 @@ HOST="${SPARK_HOST:-dgx-spark}"
 DEL=(); [ "${SYNC_DELETE:-0}" = 1 ] && DEL=(--delete)
 
 rsync -a ${DEL[@]+"${DEL[@]}"} --exclude node_modules --exclude out --exclude .git \
-  --exclude '*.mp4' --exclude '.DS_Store' "$ROOT/" "$HOST:~/studio/app/"
+  --exclude '*.mp4' --exclude '.DS_Store' \
+  --exclude /research/library.jsonl --exclude /research/library.state.json --exclude /research/daily/ \
+  "$ROOT/" "$HOST:~/studio/app/"
 echo "[sync] code -> $HOST:~/studio/app"
 
 [ "${SKIP_NPM:-0}" = 1 ] && exit 0

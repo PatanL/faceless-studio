@@ -82,8 +82,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "",
       "flicker": 0
@@ -94,7 +94,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -123,9 +124,13 @@
         "accent": "#3d5a80",
         "clock": "1:07",
         "battery": 18,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "+1 (555) 0143"
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "taps": [
        {
         "at": 3.187,
@@ -141,7 +146,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -160,12 +165,39 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 5.15,
-      "zoom": 1.04
+      "t": 3.454,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 3.487,
+      "ease": "linear"
+     },
+     {
+      "t": 3.737,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.117,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -173,7 +205,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "There's a sticker by the buttons. In an emergency, text Maintenance. So I did."
+   "notes": "There's a sticker by the buttons. In an emergency, text Maintenance. So I did.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 3.487,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p02",
@@ -187,8 +229,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "",
       "flicker": 0
@@ -199,7 +241,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -239,12 +282,19 @@
         "accent": "#3d5a80",
         "clock": "1:07",
         "battery": 18,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "+1 (555) 0143",
         "typing": [
          {
           "from": "Maintenance",
           "at": 0.1,
           "until": 1.438
+         },
+         {
+          "from": "Maintenance",
+          "at": 4.125,
+          "until": 4.825
          }
         ]
        },
@@ -254,7 +304,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -263,19 +315,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.675,
-      "zoom": 1.04
+      "t": 1.405,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.438,
+      "ease": "linear"
+     },
+     {
+      "t": 1.688,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 4.792,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 4.825,
+      "ease": "linear"
+     },
+     {
+      "t": 5.075,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.642,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -289,7 +389,17 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "They answered right away. Stay calm. Press four, then two, then hold the close button. Whatever you do, don't look at the mirror."
+   "notes": "They answered right away. Stay calm. Press four, then two, then hold the close button. Whatever you do, don't look at the mirror.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.438,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p03",
@@ -461,8 +571,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "",
       "flicker": 0
@@ -473,7 +583,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -523,7 +634,21 @@
         "accent": "#3d5a80",
         "clock": "1:09",
         "battery": 18,
-        "subtitle": "+1 (555) 0143"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "+1 (555) 0143",
+        "typing": [
+         {
+          "from": "Maintenance",
+          "at": 0.963,
+          "until": 1.663
+         },
+         {
+          "from": "Maintenance",
+          "at": 2.4,
+          "until": 3.1
+         }
+        ]
        },
        "vibrate": [
         {
@@ -531,7 +656,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -540,19 +667,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 6.325,
-      "zoom": 1.04
+      "t": 1.63,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.663,
+      "ease": "linear"
+     },
+     {
+      "t": 1.913,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 3.067,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 3.1,
+      "ease": "linear"
+     },
+     {
+      "t": 3.35,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 6.292,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -567,7 +742,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Maintenance texted again. Good. Keep holding close. You'll hear someone ask to get in. Say no."
+   "notes": "Maintenance texted again. Good. Keep holding close. You'll hear someone ask to get in. Say no.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.663,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p06",
@@ -581,8 +766,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "",
       "flicker": 0
@@ -593,7 +778,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -628,7 +814,21 @@
         "accent": "#3d5a80",
         "clock": "1:10",
         "battery": 17,
-        "subtitle": "Verified business"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "Verified business",
+        "typing": [
+         {
+          "from": "Brightline Lift Services",
+          "at": 2.925,
+          "until": 3.625
+         },
+         {
+          "from": "Brightline Lift Services",
+          "at": 6.35,
+          "until": 7.05
+         }
+        ]
        },
        "vibrate": [
         {
@@ -646,6 +846,8 @@
         }
        ]
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 7.1,
@@ -661,7 +863,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -684,12 +886,60 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 9.275,
-      "zoom": 1.04
+      "t": 3.592,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 3.625,
+      "ease": "linear"
+     },
+     {
+      "t": 3.875,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.017,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 7.05,
+      "ease": "linear"
+     },
+     {
+      "t": 7.3,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 9.242,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -702,9 +952,19 @@
    },
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
-   "notes": "Then a different number messaged me. It said it was building maintenance. We're closed until eight. Your elevator shows out of service. Who are you talking to?"
+   "notes": "Then a different number messaged me. It said it was building maintenance. We're closed until eight. Your elevator shows out of service. Who are you talking to?",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 3.625,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p07",
@@ -718,8 +978,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "",
       "flicker": 0
@@ -730,7 +990,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 4,
       "side": "right",
@@ -786,7 +1047,16 @@
         "accent": "#3d5a80",
         "clock": "1:11",
         "battery": 18,
-        "subtitle": "+1 (555) 0143"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "+1 (555) 0143",
+        "typing": [
+         {
+          "from": "Maintenance",
+          "at": 1.65,
+          "until": 2.35
+         }
+        ]
        },
        "vibrate": [
         {
@@ -794,7 +1064,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -803,7 +1075,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -820,12 +1092,39 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 5.675,
-      "zoom": 1.04
+      "t": 2.317,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 2.35,
+      "ease": "linear"
+     },
+     {
+      "t": 2.6,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.642,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -840,7 +1139,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Before I could answer, the first number wrote: Don't listen to them. They're the ones who want in."
+   "notes": "Before I could answer, the first number wrote: Don't listen to them. They're the ones who want in.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 2.35,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p08",
@@ -1006,8 +1315,8 @@
      "type": "component",
      "name": "horror/Hallway",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lights": 1,
       "flicker": 0.6
@@ -1018,7 +1327,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 5,
       "side": "right",
@@ -1062,7 +1372,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -1071,19 +1383,25 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 5.7,
-      "zoom": 1.04
+      "t": 5.667,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -2289,17 +2607,19 @@
     "end": 75.3
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
   "style": {
    "font": "display",
-   "fontSize": 76,
+   "fontSize": 58,
    "color": "#ffffff",
    "highlight": "#ff4b55",
-   "highlightMode": "color",
-   "strokeWidth": 12,
+   "highlightMode": "none",
+   "strokeWidth": 10,
    "uppercase": false,
-   "y": 0.15
+   "y": 0.12,
+   "backing": 0.85
   }
  },
  "audio": {
@@ -2317,9 +2637,9 @@
  },
  "overlays": {
   "grain": 0.5,
-  "vignette": 0.0,
-  "fadeIn": 0.2,
-  "fadeOut": 0.6
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0.25
  },
  "_built": {
   "by": "pipeline/episodes/build.py",

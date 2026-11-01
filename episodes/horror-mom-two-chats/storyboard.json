@@ -17,8 +17,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4,
       "tv": "glow"
@@ -29,7 +29,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -67,7 +68,16 @@
         "accent": "#3d5a80",
         "clock": "11:02",
         "battery": 31,
-        "subtitle": "Mom, Dad, Sam, you"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "Mom, Dad, Sam, you",
+        "typing": [
+         {
+          "from": "Mom",
+          "at": 2.95,
+          "until": 3.65
+         }
+        ]
        },
        "vibrate": [
         {
@@ -75,7 +85,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -84,19 +96,46 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.45,
-      "zoom": 1.04
+      "t": 3.617,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 3.65,
+      "ease": "linear"
+     },
+     {
+      "t": 3.9,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.417,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -110,7 +149,17 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "At eleven at night, my mom posted in our family group chat. I'm outside. Unlock the door, my hands are full."
+   "notes": "At eleven at night, my mom posted in our family group chat. I'm outside. Unlock the door, my hands are full.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 3.65,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p01",
@@ -124,8 +173,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4,
       "tv": "glow"
@@ -136,7 +185,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -175,7 +225,21 @@
         "accent": "#3d5a80",
         "clock": "11:02",
         "battery": 31,
-        "subtitle": "mobile"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "mobile",
+        "typing": [
+         {
+          "from": "Mom",
+          "at": 3.013,
+          "until": 3.713
+         },
+         {
+          "from": "Mom",
+          "at": 5.062,
+          "until": 5.762
+         }
+        ]
        },
        "vibrate": [
         {
@@ -192,7 +256,9 @@
          "text": "Still at the hospital with Grandpa."
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -201,19 +267,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 8.325,
-      "zoom": 1.04
+      "t": 3.68,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 3.713,
+      "ease": "linear"
+     },
+     {
+      "t": 3.963,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.729,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 5.762,
+      "ease": "linear"
+     },
+     {
+      "t": 6.012,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 8.292,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -228,7 +342,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Ten seconds later, she texted me privately. Not in the group. Still at the hospital with Grandpa. Don't open the door for anyone."
+   "notes": "Ten seconds later, she texted me privately. Not in the group. Still at the hospital with Grandpa. Don't open the door for anyone.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 3.713,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p02",
@@ -247,8 +371,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.3
      }
@@ -295,6 +419,8 @@
        "accent": "#3d5a80",
        "clock": "11:02",
        "battery": 31,
+       "theme": "dark",
+       "scale": 1.25,
        "subtitle": "Mom, Dad, Sam, you"
       }
      }
@@ -342,6 +468,8 @@
        "accent": "#3d5a80",
        "clock": "11:02",
        "battery": 31,
+       "theme": "dark",
+       "scale": 1.25,
        "subtitle": "mobile"
       }
      }
@@ -386,8 +514,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4
      }
@@ -397,7 +525,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -445,9 +574,20 @@
         "accent": "#3d5a80",
         "clock": "11:04",
         "battery": 31,
-        "subtitle": "Mom, Dad, Sam, you"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "Mom, Dad, Sam, you",
+        "typing": [
+         {
+          "from": "Mom",
+          "at": 3.962,
+          "until": 4.662
+         }
+        ]
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "taps": [
        {
         "at": 1.038,
@@ -463,19 +603,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 6.95,
-      "zoom": 1.04
+      "t": 1.205,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.238,
+      "ease": "linear"
+     },
+     {
+      "t": 1.488,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 4.629,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 4.662,
+      "ease": "linear"
+     },
+     {
+      "t": 4.912,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 6.917,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -483,7 +671,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "So I asked the group: Mom, what was our first dog called? She answered straight away. Biscuit. That was right."
+   "notes": "So I asked the group: Mom, what was our first dog called? She answered straight away. Biscuit. That was right.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.238,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p04",
@@ -497,8 +695,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.4
      }
@@ -508,7 +706,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -557,6 +756,8 @@
         "accent": "#3d5a80",
         "clock": "11:05",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "mobile",
         "typing": [
          {
@@ -566,7 +767,9 @@
          }
         ]
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -575,19 +778,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 6.8,
-      "zoom": 1.04
+      "t": 1.242,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.275,
+      "ease": "linear"
+     },
+     {
+      "t": 1.525,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 3.742,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 3.775,
+      "ease": "linear"
+     },
+     {
+      "t": 4.025,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 6.767,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -595,7 +846,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "I asked the private chat the same thing. It took a whole minute. Then: Biscuit. Lock the deadbolt. Please."
+   "notes": "I asked the private chat the same thing. It took a whole minute. Then: Biscuit. Lock the deadbolt. Please.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.275,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p05",
@@ -663,8 +924,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.3
      }
@@ -674,7 +935,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -733,7 +995,16 @@
         "accent": "#3d5a80",
         "clock": "11:07",
         "battery": 31,
-        "subtitle": "Mom, Dad, Sam, you"
+        "theme": "dark",
+        "scale": 1.25,
+        "subtitle": "Mom, Dad, Sam, you",
+        "typing": [
+         {
+          "from": "Dad",
+          "at": 2.512,
+          "until": 3.212
+         }
+        ]
        },
        "vibrate": [
         {
@@ -741,7 +1012,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -750,19 +1023,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.65,
-      "zoom": 1.04
+      "t": 0.392,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 0.425,
+      "ease": "linear"
+     },
+     {
+      "t": 0.675,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 3.179,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 3.212,
+      "ease": "linear"
+     },
+     {
+      "t": 3.462,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.617,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -777,7 +1098,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "Then Dad joined the group chat. He never uses it. He wrote: It's really her, sweetheart. Let her in. It's freezing out there."
+   "notes": "Then Dad joined the group chat. He never uses it. He wrote: It's really her, sweetheart. Let her in. It's freezing out there.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 0.425,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p07",
@@ -791,8 +1122,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.3
      }
@@ -802,7 +1133,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 3,
       "side": "right",
@@ -829,7 +1161,9 @@
         "at": 0,
         "clock": "11:07"
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -838,19 +1172,25 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 2.325,
-      "zoom": 1.04
+      "t": 2.292,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      }
     ]
    },
@@ -1057,7 +1397,7 @@
    },
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
    "notes": "Which meant whoever just typed as Dad was in that closet."
   },
@@ -1073,8 +1413,8 @@
      "type": "component",
      "name": "horror/LivingRoom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0.1
      }
@@ -1084,7 +1424,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 5,
       "side": "right",
@@ -1143,6 +1484,8 @@
         "accent": "#3d5a80",
         "clock": "11:08",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "subtitle": "Mom, Dad, Sam, you",
         "typing": [
          {
@@ -1153,6 +1496,8 @@
         ]
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 5.375,
@@ -1168,7 +1513,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -2231,17 +2576,19 @@
     "end": 71.1
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
   "style": {
    "font": "display",
-   "fontSize": 76,
+   "fontSize": 58,
    "color": "#ffffff",
    "highlight": "#ff4b55",
-   "highlightMode": "color",
-   "strokeWidth": 12,
+   "highlightMode": "none",
+   "strokeWidth": 10,
    "uppercase": false,
-   "y": 0.15
+   "y": 0.12,
+   "backing": 0.85
   }
  },
  "audio": {
@@ -2259,9 +2606,9 @@
  },
  "overlays": {
   "grain": 0.5,
-  "vignette": 0.0,
-  "fadeIn": 0.2,
-  "fadeOut": 0.6
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0.25
  },
  "_built": {
   "by": "pipeline/episodes/build.py",

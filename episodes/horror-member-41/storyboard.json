@@ -17,8 +17,8 @@
      "type": "component",
      "name": "horror/Hallway",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "flicker": 0.2,
       "lights": 2
@@ -29,7 +29,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -75,9 +76,13 @@
         "accent": "#3d5a80",
         "clock": "12:41",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "count": 41
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -86,7 +91,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -105,12 +110,18 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 5.975,
-      "zoom": 1.04
+      "t": 5.942,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      }
     ]
    },
@@ -131,8 +142,8 @@
      "type": "component",
      "name": "horror/Hallway",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "flicker": 0.2,
       "lights": 2
@@ -143,7 +154,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -189,9 +201,13 @@
         "accent": "#3d5a80",
         "clock": "12:41",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "count": 41
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -200,7 +216,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
@@ -234,8 +250,8 @@
      "type": "component",
      "name": "horror/Hallway",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "flicker": 0.3,
       "lights": 2
@@ -246,7 +262,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -292,9 +309,13 @@
         "accent": "#3d5a80",
         "clock": "12:41",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "count": 41
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -303,19 +324,25 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.15,
-      "zoom": 1.04
+      "t": 7.117,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      }
     ]
    },
@@ -336,8 +363,8 @@
      "type": "component",
      "name": "horror/Stairwell",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "floor": "2",
       "flicker": 0.3
@@ -348,7 +375,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -404,7 +432,21 @@
         "accent": "#3d5a80",
         "clock": "12:52",
         "battery": 31,
-        "count": 41
+        "theme": "dark",
+        "scale": 1.25,
+        "count": 41,
+        "typing": [
+         {
+          "from": "Priya (2D)",
+          "at": 0.762,
+          "until": 1.462
+         },
+         {
+          "from": "Night Desk",
+          "at": 5.0,
+          "until": 5.7
+         }
+        ]
        },
        "vibrate": [
         {
@@ -412,7 +454,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -421,19 +465,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 9.35,
-      "zoom": 1.04
+      "t": 1.429,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.462,
+      "ease": "linear"
+     },
+     {
+      "t": 1.712,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.667,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 5.7,
+      "ease": "linear"
+     },
+     {
+      "t": 5.95,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 9.317,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -448,7 +540,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Tonight, Priya in two D asked who was running in the stairwell. Night Desk replied in under a second. Nobody is in the stairwell. Stay in your unit."
+   "notes": "Tonight, Priya in two D asked who was running in the stairwell. Night Desk replied in under a second. Nobody is in the stairwell. Stay in your unit.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.462,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p04",
@@ -529,8 +631,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0
      }
@@ -540,7 +642,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -607,9 +710,25 @@
         "accent": "#3d5a80",
         "clock": "12:55",
         "battery": 31,
-        "count": 41
+        "theme": "dark",
+        "scale": 1.25,
+        "count": 41,
+        "typing": [
+         {
+          "from": "Leo (3C)",
+          "at": 0.612,
+          "until": 1.312
+         },
+         {
+          "from": "Admin · Tom (1A)",
+          "at": 2.75,
+          "until": 3.45
+         }
+        ]
        }
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -618,19 +737,67 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.3,
-      "zoom": 1.04
+      "t": 1.279,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.312,
+      "ease": "linear"
+     },
+     {
+      "t": 1.562,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 3.417,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 3.45,
+      "ease": "linear"
+     },
+     {
+      "t": 3.7,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.267,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ]
    },
@@ -638,7 +805,17 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "Someone asked the admin to remove Night Desk. The admin wrote: I already have. Three times. It keeps coming back."
+   "notes": "Someone asked the admin to remove Night Desk. The admin wrote: I already have. Three times. It keeps coming back.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.312,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p06",
@@ -652,8 +829,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0
      }
@@ -663,7 +840,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 1.5,
       "side": "right",
@@ -730,9 +908,13 @@
         "accent": "#3d5a80",
         "clock": "12:56",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "count": 41
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 3.775,
@@ -748,7 +930,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -811,8 +993,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0
      }
@@ -822,7 +1004,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 3,
       "side": "right",
@@ -895,7 +1078,16 @@
         "accent": "#3d5a80",
         "clock": "12:58",
         "battery": 31,
-        "count": 42
+        "theme": "dark",
+        "scale": 1.25,
+        "count": 42,
+        "typing": [
+         {
+          "from": "Night Desk",
+          "at": 0.987,
+          "until": 1.687
+         }
+        ]
        },
        "vibrate": [
         {
@@ -903,7 +1095,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -912,19 +1106,46 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 7.1,
-      "zoom": 1.04
+      "t": 1.654,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.687,
+      "ease": "linear"
+     },
+     {
+      "t": 1.937,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 7.067,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -938,7 +1159,17 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Night Desk posted again. Fourth floor residents, remain behind your doors. Someone is checking each unit."
+   "notes": "Night Desk posted again. Fourth floor residents, remain behind your doors. Someone is checking each unit.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.687,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p08",
@@ -1004,7 +1235,7 @@
    "notes": "Footsteps in the hallway. They stopped outside four A. One knock. Then four B. One knock. Then four C. One knock.",
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
    "layers": [
     {
@@ -1156,8 +1387,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0
      }
@@ -1167,7 +1398,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 5,
       "side": "right",
@@ -1241,7 +1473,16 @@
         "accent": "#3d5a80",
         "clock": "1:03",
         "battery": 31,
-        "count": 42
+        "theme": "dark",
+        "scale": 1.25,
+        "count": 42,
+        "typing": [
+         {
+          "from": "Night Desk",
+          "at": 1.012,
+          "until": 1.712
+         }
+        ]
        },
        "vibrate": [
         {
@@ -1249,7 +1490,9 @@
          "duration": 0.4
         }
        ]
-      }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
      }
     },
     {
@@ -1258,7 +1501,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -1274,12 +1517,39 @@
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.0
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 5.225,
-      "zoom": 1.04
+      "t": 1.679,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "t": 1.712,
+      "ease": "linear"
+     },
+     {
+      "t": 1.962,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "out"
+     },
+     {
+      "t": 5.192,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
      }
     ],
     "shake": [
@@ -1294,7 +1564,17 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "My phone lit up. Night Desk. At four D now. Please open, for your safety."
+   "notes": "My phone lit up. Night Desk. At four D now. Please open, for your safety.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.712,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p12",
@@ -1308,8 +1588,8 @@
      "type": "component",
      "name": "horror/Bedroom",
      "depth": 0.2,
-     "blur": 10,
-     "opacity": 0.6,
+     "blur": 4,
+     "opacity": 1.0,
      "props": {
       "lamp": 0
      }
@@ -1319,7 +1599,8 @@
      "name": "horror/HandPhone",
      "props": {
       "phoneWidth": 0.68,
-      "cy": 0.585,
+      "cx": 0.53,
+      "cy": 0.61,
       "tilt": -3,
       "tremble": 6,
       "side": "right",
@@ -1393,6 +1674,8 @@
         "accent": "#3d5a80",
         "clock": "1:03",
         "battery": 31,
+        "theme": "dark",
+        "scale": 1.25,
         "count": 42,
         "typing": [
          {
@@ -1403,6 +1686,8 @@
         ]
        }
       },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
       "glitch": [
        {
         "at": 3.35,
@@ -1418,7 +1703,7 @@
      "depth": 0,
      "z": 50,
      "props": {
-      "amount": 0.7
+      "amount": 0.4
      }
     },
     {
@@ -2519,17 +2804,19 @@
     "end": 77.9
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
   "style": {
    "font": "display",
-   "fontSize": 76,
+   "fontSize": 58,
    "color": "#ffffff",
    "highlight": "#ff4b55",
-   "highlightMode": "color",
-   "strokeWidth": 12,
+   "highlightMode": "none",
+   "strokeWidth": 10,
    "uppercase": false,
-   "y": 0.15
+   "y": 0.12,
+   "backing": 0.85
   }
  },
  "audio": {
@@ -2547,9 +2834,9 @@
  },
  "overlays": {
   "grain": 0.5,
-  "vignette": 0.0,
-  "fadeIn": 0.2,
-  "fadeOut": 0.6
+  "vignette": 0.35,
+  "fadeIn": 0,
+  "fadeOut": 0.25
  },
  "_built": {
   "by": "pipeline/episodes/build.py",
