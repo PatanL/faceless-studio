@@ -1,0 +1,127 @@
+{
+ "episode": "horror-two-emergency-alerts",
+ "reviewed_at_utc": "2026-11-01T12:30Z",
+ "scores_before": {
+  "retention": 7,
+  "reference": 6,
+  "originality": 6,
+  "producibility": 6
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 8,
+  "producibility": 8
+ },
+ "score_notes": {
+  "retention": "The hook is 18 words in 4.8 s, the rule word lands at 1.6 s and the same-channel contradiction at 6.2 s. Jolts are every 1.9 s (median), the longest gap is 6.0 s, and there are 3.0 s and 4.0 s timed silences. The twist is no longer answered early: the dispatcher's answers rise (v fake, 'good catch' → 'that one's ours' → name/unit/anyone) and the reveal is the same voice in two places. Held at 8 because peak contact starts at 50% (PLAYBOOK median ~67%), sentence median is 4 words (the bubbles count as sentences) and 124.7 s sits between the Shorts and story bands.",
+  "reference": "Every alignment row gives our % and the reference %. Mismatched citations are fixed: B9 is now SIEGE-OVERLAY 4:22-4:25 (73%), the lull is SIEGE-OVERLAY 2:38-2:44, HOTEL-DOOR is cited only as a secondary device source for silence and the barrier, and CLASSMATE 0:23 is labelled as device-only. The near-miss, barrier-under-a-clock, lone-ally and rising-answer devices are actually used. wpm over the full runtime is 242 (in the 230-270 band) and numbers are 3.9/min. Held at 8: B9 is earlier than the reference, and the 124.7 s length is a deliberate in-between choice.",
+  "originality": "The catalogue collisions are removed: new protagonist (Tess Avila), eleventh floor, no door-number ladder (the phone-before-knock rule replaces it), no spoken 'X:12 a.m.', a Tower not a Court, and no hold queue. VO 5-gram overlap with every other horror script is ≤0.2%%. The alert tone is original and stays below 853 Hz, and the alert card is stylised in-world UI. The evidence claim is restated as long-form topic demand. Held at 8: the two possible premise collisions (cF6p1IKtVJk, bvggYlFsvD8) were checked only through yt-dlp descriptions, not transcripts.",
+  "producibility": "storyboard.json validates (validate.ts on the Spark: 37 scenes, 124.53 s, 501 caption words) using registered components plus core layers only. Two still sheets were rendered on the Spark and checked: s02's absolute-time bug was fixed and the glint, bubble-ring and twist layouts nudged (re-checked in _fix2.jpg). All 60 VO clips were rendered with fx. The 3 SFX are synthesized. Front-matter voice/speed are plain values. Held at 8: there is no full MP4 render yet, the VO/SFX still have to be copied into studio/public at promotion, the hallway red-pulse positions are estimates on Hallway art, and the hand-held look on alert scenes waits on kit gap 1."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Voice tag bug: 'Alert three. Spelled right.' is narrator (n31). The alert voice reads only the banner body (a3).",
+   "Alert 3 now repeats the order from the correctly spelled sender ('Previous alerts sent in error. Admit county staff.'). That undercuts the Countv proof and states the dilemma ('Now the real sender was telling me to open.').",
+   "B11 rebuilt so the lifeline is the trap: the number comes from alert 3's footer and is the only call all night that rings. The 'dispatcher' asks 'your name, your unit, and is anyone with you?' Tess whispers 'Tess Avila. Eleven F. Just me.' 'Thank you, Tess' arrives on the phone and through the door gap. Alert 4 echoes 'One occupant.' This also pays 'Further instructions by alert only'.",
+   "Midpoint is a real flip, not a confirmation: Countv is a 3-word verdict at 22%. At 45-49% the frame flips: every door's phone screamed before its knock, so the alerts were choosing doors, and 'mine hadn't screamed yet' (the amber flash).",
+   "Kokoro timing pass run on the Spark CPU (tts_measure.py). The beat table and storyboard are re-timed from measured word times. Alert lines are 189 wpm (bf_emma 1.12). Hook core is 4.8 s, contradiction 6.2 s.",
+   "Line 1 is 8 words ('Every phone on my floor screamed at once.') and the rule starts at 1.6 s. 'NOT EVEN EMERGENCY SERVICES' is captioned in caps at ~3.1-4.8 s.",
+   "Standalone chosen: 2 loops open at the cut (does she open; who 'they' are). Dispatcher realness, the neighbours' fate (every door open, dark) and which alert is real are all closed.",
+   "Timed silences: 3.0 s after 'Then the knocking stopped' (breath + creak, music muted) and 4.0 s on the peephole lock screen (one heartbeat, music muted)."
+  ],
+  "reference": [
+   "Lifeline plot hole closed by making the connection itself suspicious (Option B): 'Only two things still worked. The floor chat, and the alerts.' (0:42) is planted, then 'All night, nothing had connected. This one rang.' (1:31).",
+   "The twist is no longer answered before it lands: no 'One, ma'am'. The first answer ('That one's fake. Good catch.') builds trust instead of giving the twist away, and 'The v was never a mistake' reframes it.",
+   "Midpoint flip moved into the hero's own space (CLASSMATE 0:41-0:45 device). Countv is a quick confirmation at 22%.",
+   "Near-miss and dilemma added: the warm door voice names her sister Josie; her hand slides the chain; the tell is that her call to Josie never went through.",
+   "The barrier is threatened and the Q&A has a clock: a key turns, the door hits the chain four inches open, chain_strain fires every ~2.3 s, and 'The screws were coming out of the frame.'",
+   "wpm is now 242 over the full runtime (was ~187-200). Micro-pauses are removed; narrator af_heart 1.36, gaps 0.10/0.22 s.",
+   "Silence beats: 3.0 s and 4.0 s (see retention).",
+   "Numbers: 3.9 per minute. No unit numbers are spoken except her own '11F' (twice), which is the cliff.",
+   "Alignment table re-cited at comparable runtime with both %s shown. B9 is SIEGE-OVERLAY 4:22-4:25, the lull is SIEGE-OVERLAY 2:38-2:44, and HOTEL-DOOR is cited for its silence and barrier devices. The door-number ladder is gone.",
+   "Loop count matches the format: single/standalone with 2 open (PLAYBOOK §4D)."
+  ],
+  "originality": [
+   "Twist reworked (see reference): alert 3 now reads as plausibly official, and the identity twist is the voice, not 'isn't ours either'.",
+   "Voice per line: lines.py tags every line N/T/A/D, and the storyboard plays per-line clips. The ```narration block that would have been read single-voice by build.py is gone, and a plain ```spoken block replaces it for the gate.",
+   "Catalogue repeats removed: protagonist Tess Avila (Nora is used 199x elsewhere); eleventh floor; no door-number ladder (phones screaming through walls instead); no spoken clock time (lock screen only); Ashby Tower, not ___ Court. Neighbour names were checked unique (Dev and Sam collided and were renamed Raf and Josie).",
+   "Alert tone/UI safety: alert_tone is synthesized and original (gliding pairs at 560-700 / 672-840 Hz, nothing at 853/960, no WEA cadence, no SAME bursts), and the script states the rule. The alert card is a stylised in-world card with a sender line, not a pixel-faithful iOS/Android WEA, and 'Lindhurst County' is readable.",
+   "Evidence restated as long-form topic demand. GregBroDudeMan is labelled a 41-min reaction compilation, and runtimes are given for each cited video. The file has no short-form alert outlier, so the format proof is CLASSMATE-PSA."
+  ],
+  "producibility": [
+   "Front matter: voice: af_heart, speed: 1.36, paragraph_pause: 0.06 as plain values. Prose moved to voices_per_line.",
+   "alert_tone (plus alert_tone_wall, chain_strain) synthesized in numpy on the Spark (gen_sfx.py) and saved in sfx/. Copy to studio/public/sfx at promotion.",
+   "Red alert card: drawn from core layers (alert_card()) on a static phone frame, so no NotifCard change is needed. Kit gap 1 is logged for the hand-held version.",
+   "4-voice script: per-line Kokoro clips (af_heart / bf_emma / am_michael), post-processed by vo_fx.sh (door, phone, whisper; d6 as two copies).",
+   "Peephole with the held phone: one svg with its own clipPath plus a held-phone svg scaled to fill the lens during the 4 s hold. The kit Peephole is not used.",
+   "Outgoing call: call_screen() from core layers (one End button, no Accept, no rings).",
+   "No per-screen prop merge needed: call fail → SMS → home screen are timed layer groups inside one scene.",
+   "Runtime is now measured (124.7 s), not estimated. knock3_slow knocks are synced to its measured transients (0.01/0.96/1.91 s).",
+   "No narration-block/table mismatch: lines.py is the single source and every cue is word-anchored in storyboard.json audio.sfx. Hard mutes are music segments ending at q1/q2/q3.",
+   "Auto-SFX not involved: storyboard carries explicit cues. The script says to use --no-auto-sfx if it is ever pushed through pipeline.audio.make.",
+   "The hold-music asset is no longer needed (the hold queue is cut). The call rings, then connects.",
+   "Letter-by-letter ECU and the ringed full stops are core-layer cards (s05, s10), with letters timed to the Kokoro letter times.",
+   "Builder exists: build.py writes timeline.json and storyboard.json, and render_script.py fills script.md tables from it."
+  ]
+ },
+ "nice_to_have_applied": [
+  "0.3 s hairline glint on the Countv v at ~9.9 s, no VO.",
+  "Ally warning silenced (Ines: 'don't open. they're not'), then her phone through the wall, then her identical post.",
+  "Door voice backed with pressure and specificity (names her sister) instead of a flat 'open up'.",
+  "Hook under 6 s (4.8 s).",
+  "'for one building' leap removed.",
+  "One tempo for the ladder: phone, knock, post, with 'a minute later' spoken once.",
+  "Originality result recorded in script.md and here.",
+  "Theo's unexplained opening removed: the viewer-proxy Ines is the ally who gets silenced, and Lorna (the defender) opens.",
+  "Peephole plausibility: the phone is pressed flat to the glass.",
+  "The official is a backlit man in a cap, not the recurring Mr. Hale puppet.",
+  "Lock clock specified per scene (2:47, 2:56, 3:07-3:10; 3:09 inside the peephole).",
+  "Premise collisions partly checked via yt-dlp metadata on the Spark."
+ ],
+ "nice_to_have_skipped": [
+  "Runtime 150-165 s or ~95 s: kept at 124.7 s to hold 242 wpm and every critique beat (reason in script.md).",
+  "Second-person slip in alert 4 ('Do not make us ask again'): the cut stays on 'Open the door.' because 'you' already lives in the dispatcher's lines.",
+  "Kit edits (NotifCard emergency variant, Peephole held slot, outgoing call, screens merge): logged as kit gaps. The horror kit is locked to the closeout lane (BRIEF 11:27)."
+ ],
+ "stats": {
+  "runtime_s": 124.662,
+  "words": 503,
+  "wpm_overall": 242.1,
+  "wpm_speaking": 279.5,
+  "wpm_alert_lines": 189.0,
+  "core_hook_words": 18,
+  "core_hook_s": 4.76,
+  "rule_word_s": 1.628,
+  "contradiction_s": 6.233,
+  "numbers_per_min": 3.9,
+  "you_sentence_share": 0.063,
+  "sentence_median_all": 4,
+  "timed_silences": [
+   {
+    "id": "q1",
+    "start": 52.895,
+    "dur": 3.0
+   },
+   {
+    "id": "q2",
+    "start": 81.156,
+    "dur": 4.0
+   },
+   {
+    "id": "q3",
+    "start": 123.762,
+    "dur": 0.9
+   }
+  ],
+  "jolt_median_s": 1.91,
+  "jolt_max_gap_s": 5.96,
+  "jolts": 59
+ },
+ "originality": "PASS: python3 scripts/originality_check.py backlog/horror/horror-two-emergency-alerts/script.md research/corpus research/library/transcripts (also PASS on a VO-only extract). VO 5-gram overlap with our other horror scripts is ≤0.2%.",
+ "validation": "ok: studio/src/cli/validate.ts (Node 22, Spark): 9:16 30fps 37 scenes 124.53s. scripts/check_storyboards.py on the Mac reports components ok, max hold 4.7 s (the intended peephole hold), and audio not on the Mac (the VO lives on the Spark until promotion).",
+ "stills": [
+  "out/stills/horror-two-emergency-alerts_storyboard.jpg",
+  "out/stills/horror-two-emergency-alerts_fix.jpg"
+ ]
+}
