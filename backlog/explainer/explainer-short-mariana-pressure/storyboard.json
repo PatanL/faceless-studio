@@ -1,0 +1,6871 @@
+{
+ "version": 1,
+ "id": "explainer-short-mariana-pressure",
+ "title": "You Wouldn't Implode In The Mariana Trench",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_hook",
+   "duration": 3.376,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 0,
+     "rays": 7,
+     "seed": 5,
+     "snow": 30,
+     "surface": 0.22
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "60%",
+     "y": 450,
+     "width": 170,
+     "height": 290,
+     "props": {
+      "pose": "stand"
+     },
+     "id": "you",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.5
+      }
+     ],
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 450,
+       "rotate": 0
+      },
+      {
+       "t": 0.946,
+       "y": 450,
+       "rotate": 0
+      },
+      {
+       "t": 1.18,
+       "y": 470,
+       "rotate": 180,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.376,
+       "y": 900,
+       "rotate": 180,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "id": "breath",
+     "x": "80%",
+     "y": 380,
+     "width": 150,
+     "height": 150,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12
+    },
+    {
+     "type": "text",
+     "id": "breathlabel",
+     "text": "YOUR AIR\n100%",
+     "x": "80%",
+     "y": 380,
+     "fontSize": 30,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 13
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 300,
+     "width": 760,
+     "height": 67,
+     "props": {
+      "text": "THOUGHT EXPERIMENT: 1 BREATH, NO GEAR",
+      "at": 0,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 12,
+     "x": "60%",
+     "y": "45%",
+     "width": 700,
+     "height": 700,
+     "opacity": 0.5,
+     "seed": 7,
+     "depth": 0.6
+    },
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 300.0,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 300.0
+      },
+      {
+       "t": 1.18,
+       "y": 300.0
+      },
+      {
+       "t": 1.831,
+       "y": 526.9,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 162,
+     "y": 413.45,
+     "width": 6,
+     "height": 226.89999999999998,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 15,
+     "start": 1.431,
+     "enter": {
+      "type": "wipeDown",
+      "at": 1.431,
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "34%",
+     "y": 406.9,
+     "width": 300,
+     "height": 78,
+     "props": {
+      "text": "JUST 10 M",
+      "at": 1.431,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\"><rect x=\"6\" y=\"6\" width=\"388\" height=\"388\" rx=\"28\" fill=\"#06202b\" stroke=\"#7fd3e6\" stroke-width=\"4\"/><circle cx=\"190\" cy=\"180\" r=\"120\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"10\"/><path d=\"M300 200 L360 200\" stroke=\"#7fd3e6\" stroke-width=\"18\" stroke-linecap=\"round\"/><path d=\"M296 186 C 330 186 330 214 296 214\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"6\"/><text x=\"200\" y=\"370\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"30\" fill=\"#7fd3e6\">X-RAY: EAR</text></svg>",
+     "x": "66%",
+     "y": 1060,
+     "width": 330,
+     "height": 330,
+     "start": 2.573,
+     "enter": {
+      "type": "pop",
+      "at": 2.573,
+      "duration": 0.25
+     },
+     "depth": 0,
+     "z": 14
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 120\"><path d=\"M30 4 C 4 40 4 80 30 116\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"8\" stroke-linecap=\"round\"/></svg>",
+     "x": "76.5%",
+     "y": 1068,
+     "width": 30,
+     "height": 90,
+     "start": 2.573,
+     "depth": 0,
+     "z": 15,
+     "keyframes": [
+      {
+       "t": 2.573,
+       "scaleX": 0.4
+      },
+      {
+       "t": 3.376,
+       "scaleX": 1.4,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "66%",
+     "y": 1260,
+     "width": 320,
+     "height": 72,
+     "props": {
+      "text": "EARS ACHE",
+      "at": 2.723,
+      "size": 28,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.376,
+      "zoom": 1.04,
+      "ease": "inOut"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "breath",
+     "at": 0.05,
+     "volume": 0.6
+    },
+    {
+     "cue": "bubbles",
+     "at": 1.18,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Hold your breath. Just ten metres down, your ears ache,"
+  },
+  {
+   "id": "s02_r10",
+   "duration": 3.617,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10,
+     "rays": 6,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 1.125,
+     "enter": {
+      "type": "pop",
+      "at": 1.125,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 1.125,
+     "enter": {
+      "type": "pop",
+      "at": 1.125,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 526.9
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "40%",
+     "y": 640,
+     "width": 150,
+     "height": 255,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 4,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": "66%",
+     "y": 600,
+     "width": 255,
+     "height": 255,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.414213562373095
+      },
+      {
+       "t": 2.8649999999999998,
+       "scale": 1.414213562373095
+      },
+      {
+       "t": 3.3649999999999998,
+       "scale": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "YOUR AIR",
+     "x": "66%",
+     "y": 800,
+     "fontSize": 30,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 13
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "62%",
+     "width": 900,
+     "height": 193,
+     "props": {
+      "text": "HALF",
+      "at": 3.065,
+      "size": 96,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "58%",
+     "y": 340,
+     "width": 720,
+     "height": 240,
+     "props": {
+      "value": 2,
+      "label": "THE PRESSURE",
+      "at": 1.125,
+      "duration": 0.8,
+      "size": 84,
+      "prefix": "x"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 1.125,
+     "volume": 0.8
+    },
+    {
+     "cue": "pop",
+     "at": 2.8649999999999998,
+     "volume": 0.6
+    }
+   ],
+   "notes": "because the pressure's doubled and squeezed your one breath to half,"
+  },
+  {
+   "id": "s03_stakes",
+   "duration": 4.433,
+   "background": {
+    "type": "color",
+    "color": "#02080c"
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 526.9
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 1040\"><defs><linearGradient id=\"w\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#2b8197\"/><stop offset=\"0.25\" stop-color=\"#10465a\"/><stop offset=\"1\" stop-color=\"#02080c\"/></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"760\" height=\"1040\" fill=\"url(#w)\"/><path d=\"M0 220 L230 240 L330 1040 L430 1040 L530 240 L760 220 L760 1040 L0 1040 Z\" fill=\"#1a1410\" stroke=\"#5c4a3a\" stroke-width=\"4\"/><path d=\"M0 3 L760 3\" stroke=\"#e8f6f8\" stroke-width=\"6\"/></svg>",
+     "x": 600,
+     "y": 760,
+     "width": 760,
+     "height": 1040,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "circle",
+     "x": 600,
+     "y": 252.0,
+     "width": 18,
+     "height": 18,
+     "fill": "#ffffff",
+     "depth": 0,
+     "z": 8,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.3,
+       "speed": 1.5
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 770,
+     "y": 280.0,
+     "width": 260,
+     "height": 62,
+     "props": {
+      "text": "YOU (10 M)",
+      "at": 0.1,
+      "size": 24,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "14%",
+     "width": 900,
+     "height": 136,
+     "props": {
+      "text": "MARIANA TRENCH",
+      "at": 1.234,
+      "size": 60,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": 600,
+     "y": 800.0,
+     "width": 720,
+     "height": 240,
+     "props": {
+      "value": 10935,
+      "label": "METRES TO THE FLOOR",
+      "at": 2.707,
+      "duration": 0.8,
+      "size": 96,
+      "suffix": " M"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 600,
+     "y": 1020.0,
+     "width": 700,
+     "height": 78,
+     "props": {
+      "text": "EVERYONE SAYS YOU'D IMPLODE...",
+      "at": 3.497,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15,
+      "y": "30%"
+     },
+     {
+      "t": 4.433,
+      "zoom": 1.0,
+      "y": "50%",
+      "ease": "out"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.05,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.707,
+     "volume": 0.5
+    }
+   ],
+   "notes": "and the floor of the Mariana Trench is still almost eleven kilometres below you."
+  },
+  {
+   "id": "s04_r30",
+   "duration": 5.129,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 4,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 0.293,
+     "enter": {
+      "type": "pop",
+      "at": 0.293,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 0.293,
+     "enter": {
+      "type": "pop",
+      "at": 0.293,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 526.9
+      },
+      {
+       "t": 0.293,
+       "y": 624.9,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "42%",
+     "y": 560,
+     "width": 150,
+     "height": 255,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 540
+      },
+      {
+       "t": 4.487,
+       "y": 600
+      },
+      {
+       "t": 5.129,
+       "y": 860,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": "70%",
+     "y": 560,
+     "width": 180,
+     "height": 180,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.4142135623730951
+      },
+      {
+       "t": 1.1609999999999998,
+       "scale": 1.4142135623730951
+      },
+      {
+       "t": 1.6609999999999998,
+       "scale": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "25%",
+     "x": "70%",
+     "y": 560,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 13,
+     "start": 1.261
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": 700,
+     "width": 320,
+     "height": 78,
+     "props": {
+      "text": "A QUARTER",
+      "at": 1.261,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/ECG",
+     "x": "58%",
+     "y": 1000,
+     "width": 760,
+     "height": 180,
+     "props": {
+      "beats": [
+       0.2,
+       0.75,
+       1.39,
+       2.12,
+       2.94,
+       3.85,
+       4.85
+      ],
+      "at": 1.545,
+      "prefill": true,
+      "color": "#e5483d"
+     },
+     "depth": 0,
+     "z": 10,
+     "start": 1.545
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 1130,
+     "width": 620,
+     "height": 67,
+     "props": {
+      "text": "HEART SLOWING (DIVE REFLEX)",
+      "at": 1.945,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 360,
+     "width": 560,
+     "height": 83,
+     "props": {
+      "text": "NOT FLOATING. FALLING.",
+      "at": 4.487,
+      "size": 32,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 18,
+     "x": "42%",
+     "y": "28%",
+     "width": 300,
+     "height": 400,
+     "start": 4.487,
+     "seed": 3,
+     "speed": 1.6
+    }
+   ],
+   "camera": {
+    "preset": "panDown",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.293,
+     "volume": 0.7
+    },
+    {
+     "cue": "heartbeat_slow",
+     "at": 1.945,
+     "volume": 0.7
+    },
+    {
+     "cue": "whoosh",
+     "at": 4.487,
+     "volume": 0.5
+    }
+   ],
+   "notes": "By thirty metres it's a quarter, your heart's slowing, and you're not floating anymore, you're falling,"
+  },
+  {
+   "id": "s05_r100",
+   "duration": 9.288,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 100,
+     "rays": 2,
+     "seed": 5,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 0.639,
+     "enter": {
+      "type": "pop",
+      "at": 0.639,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 0.639,
+     "enter": {
+      "type": "pop",
+      "at": 0.639,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 624.9
+      },
+      {
+       "t": 0.639,
+       "y": 736.7,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 400\"><path d=\"M20 400 L20 110 L60 110 L60 400 Z\" fill=\"#0b1a22\" stroke=\"#cfe8ee\" stroke-width=\"4\"/><circle cx=\"40\" cy=\"135\" r=\"15\" fill=\"#cfe8ee\"/><path d=\"M14 110 L40 30 L66 110 Z\" fill=\"#0b1a22\" stroke=\"#cfe8ee\" stroke-width=\"4\"/></svg>",
+     "x": "40%",
+     "y": 880,
+     "width": 110,
+     "height": 550,
+     "end": 3.321,
+     "opacity": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "44%",
+     "y": 1200,
+     "width": 320,
+     "height": 57,
+     "props": {
+      "text": "~96 M CLOCK TOWER",
+      "at": 0.3,
+      "size": 22,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 3.321
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "52%",
+     "y": 1080,
+     "width": 50,
+     "height": 85,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180,
+     "end": 3.321
+    },
+    {
+     "type": "circle",
+     "x": "62%",
+     "y": 520,
+     "width": 108,
+     "height": 108,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.6666666666666667
+      },
+      {
+       "t": 2.4410000000000003,
+       "scale": 1.6666666666666667
+      },
+      {
+       "t": 2.9410000000000003,
+       "scale": 1,
+       "ease": "out"
+      }
+     ],
+     "end": 3.321
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 240\"><rect x=\"38\" y=\"4\" width=\"24\" height=\"26\" rx=\"4\" fill=\"#ffffff\"/><path d=\"M30 30 L70 30 L80 70 L80 228 Q80 236 72 236 L28 236 Q20 236 20 228 L20 70 Z\" fill=\"#4aa8e8\" fill-opacity=\"0.85\" stroke=\"#ffffff\" stroke-width=\"4\"/></svg>",
+     "x": "80%",
+     "y": 520,
+     "width": 80,
+     "height": 192,
+     "start": 2.4410000000000003,
+     "end": 3.321,
+     "enter": {
+      "type": "pop",
+      "at": 2.4410000000000003,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": 680,
+     "width": 420,
+     "height": 72,
+     "props": {
+      "text": "YOUR BREATH ~0.5 L",
+      "at": 2.741,
+      "size": 28,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 3.321
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 560\"><rect x=\"6\" y=\"6\" width=\"488\" height=\"548\" rx=\"30\" fill=\"#06202b\" stroke=\"#7fd3e6\" stroke-width=\"4\"/><path d=\"M250 40 L250 470\" stroke=\"#7fd3e6\" stroke-width=\"16\" stroke-linecap=\"round\"/><path d=\"M250 90 C 130 84 100 130 140 160\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 90 C 370 84 400 130 360 160\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 140 C 100 134 70 180 110 210\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 140 C 400 134 430 180 390 210\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 190 C 85 184 55 230 95 260\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 190 C 415 184 445 230 405 260\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 240 C 80 234 50 280 90 310\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 240 C 420 234 450 280 410 310\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 290 C 85 284 55 330 95 360\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 290 C 415 284 445 330 405 360\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 340 C 100 334 70 380 110 410\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 340 C 400 334 430 380 390 410\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><text x=\"250\" y=\"530\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"30\" fill=\"#7fd3e6\">X-RAY: CHEST</text></svg>",
+     "x": 640,
+     "y": 860,
+     "width": 500,
+     "height": 560,
+     "start": 3.321,
+     "enter": {
+      "type": "zoomIn",
+      "at": 3.321,
+      "duration": 0.3
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 220\"><path d=\"M60 10 C 10 30 4 120 10 200 C 40 214 100 214 110 190 C 116 110 100 30 60 10 Z\" fill=\"#bff3ff\" fill-opacity=\"0.55\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": 570,
+     "y": 850,
+     "width": 120,
+     "height": 220,
+     "start": 3.321,
+     "depth": 0,
+     "z": 11,
+     "keyframes": [
+      {
+       "t": 3.321,
+       "scale": 0.55
+      },
+      {
+       "t": 4.992999999999999,
+       "scale": 0.32,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 220\"><path d=\"M60 10 C 10 30 4 120 10 200 C 40 214 100 214 110 190 C 116 110 100 30 60 10 Z\" fill=\"#bff3ff\" fill-opacity=\"0.55\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": 710,
+     "y": 850,
+     "width": 120,
+     "height": 220,
+     "flipX": true,
+     "start": 3.321,
+     "depth": 0,
+     "z": 11,
+     "keyframes": [
+      {
+       "t": 3.321,
+       "scale": 0.55
+      },
+      {
+       "t": 4.992999999999999,
+       "scale": 0.32,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 560\"><path d=\"M250 120 C 140 140 120 300 160 420 M250 120 C 360 140 380 300 340 420 M250 160 L250 440\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"22\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"/><ellipse cx=\"250\" cy=\"290\" rx=\"150\" ry=\"150\" fill=\"#e5483d\" fill-opacity=\"0.28\"/></svg>",
+     "x": 640,
+     "y": 860,
+     "width": 500,
+     "height": 560,
+     "start": 3.321,
+     "depth": 0,
+     "z": 12,
+     "keyframes": [
+      {
+       "t": 3.321,
+       "opacity": 0
+      },
+      {
+       "t": 5.193,
+       "opacity": 0.9
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 640,
+     "y": 530,
+     "width": 360,
+     "height": 83,
+     "props": {
+      "text": "BLOOD SHIFT",
+      "at": 4.393,
+      "size": 32,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 640,
+     "y": 1220,
+     "width": 480,
+     "height": 72,
+     "props": {
+      "text": "TRAINED FREEDIVERS",
+      "at": 6.434,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 640,
+     "y": 1290,
+     "width": 360,
+     "height": 78,
+     "props": {
+      "text": "LUNG SQUEEZE",
+      "at": 8.336,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.321,
+      "zoom": 1.05
+     },
+     {
+      "t": 9.288,
+      "zoom": 1.12,
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 8.336,
+      "duration": 0.3,
+      "amplitude": 8
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.639,
+     "volume": 0.7
+    },
+    {
+     "cue": "sonar_ping",
+     "at": 0.839,
+     "volume": 0.4
+    },
+    {
+     "cue": "pop",
+     "at": 2.741,
+     "volume": 0.5
+    },
+    {
+     "cue": "heartbeat_slow",
+     "at": 3.321,
+     "volume": 0.7
+    }
+   ],
+   "notes": "and at a hundred, your whole breath fits in a water bottle, so blood rushes into your chest to fill the space, and even trained freedivers can come up from here coughing blood,"
+  },
+  {
+   "id": "s06_r250",
+   "duration": 8.415,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 250,
+     "rays": 0,
+     "seed": 5,
+     "snow": 90
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 0.901,
+     "enter": {
+      "type": "pop",
+      "at": 0.901,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 0.901,
+     "enter": {
+      "type": "pop",
+      "at": 0.901,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 736.7
+      },
+      {
+       "t": 0.901,
+       "y": 822.8,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "58%",
+     "y": 640,
+     "width": 150,
+     "height": 255,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180,
+     "end": 6.366
+    },
+    {
+     "type": "circle",
+     "x": "76%",
+     "y": 520,
+     "width": 72,
+     "height": 72,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12
+    },
+    {
+     "type": "text",
+     "text": "4%",
+     "x": "76%",
+     "y": 470,
+     "fontSize": 30,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 13
+    },
+    {
+     "type": "rect",
+     "x": "58%",
+     "y": 900,
+     "width": 760,
+     "height": 6,
+     "fill": "#3ccf7a",
+     "depth": 0,
+     "z": 9,
+     "start": 2.671,
+     "enter": {
+      "type": "wipeRight",
+      "at": 2.671,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 960,
+     "width": 760,
+     "height": 67,
+     "props": {
+      "text": "DEEPEST BREATH-HOLD DIVE: ~253 M (2012)",
+      "at": 2.671,
+      "size": 26,
+      "accent": "#3ccf7a",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 840,
+     "width": 420,
+     "height": 72,
+     "props": {
+      "text": "HUMANS STOP HERE",
+      "at": 4.401,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "22%",
+     "width": 900,
+     "height": 225,
+     "props": {
+      "text": "PRETEND YOU\nSTILL HAVE AIR",
+      "at": 6.366,
+      "size": 58,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "58%",
+     "y": 640,
+     "width": 150,
+     "height": 255,
+     "props": {
+      "pose": "shrug"
+     },
+     "start": 6.366
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.901,
+     "volume": 0.7
+    },
+    {
+     "cue": "ding",
+     "at": 2.9709999999999996,
+     "volume": 0.5
+    }
+   ],
+   "notes": "and by two hundred and fifty metres, you're about as deep as anyone has ever gone on a single breath, so from here on, pretend you somehow still have air."
+  },
+  {
+   "id": "s07_turnstile",
+   "duration": 2.637,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 250,
+     "rays": 0,
+     "seed": 5,
+     "snow": 90
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 822.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "58%",
+     "y": 860,
+     "width": 170,
+     "height": 290,
+     "props": {
+      "pose": "shrug"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "26%",
+     "width": 900,
+     "height": 264,
+     "props": {
+      "text": "THAT WAS\nTHE EASY PART",
+      "at": 0.621,
+      "size": 70,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 1.278,
+     "volume": 0.7
+    }
+   ],
+   "notes": "Relax. That was the easy part."
+  },
+  {
+   "id": "s08_r1k",
+   "duration": 8.059,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1000,
+     "rays": 0,
+     "seed": 5,
+     "snow": 120
+    }
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.4
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 0.42,
+     "enter": {
+      "type": "pop",
+      "at": 0.42,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x101",
+     "x": 138,
+     "y": 983.7,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 0.42,
+     "enter": {
+      "type": "pop",
+      "at": 0.42,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 822.8
+      },
+      {
+       "t": 0.42,
+       "y": 953.7,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 360\"><path d=\"M60 4 L74 120 L112 356 L84 356 L60 230 L36 356 L8 356 L46 120 Z\" fill=\"#0b1a22\" stroke=\"#cfe8ee\" stroke-width=\"4\" stroke-linejoin=\"round\"/><path d=\"M38 170 L82 170\" stroke=\"#cfe8ee\" stroke-width=\"4\"/></svg>",
+     "x": "40%",
+     "y": 1180,
+     "width": 90,
+     "height": 270,
+     "end": 3.631,
+     "opacity": 0.85
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 360\"><path d=\"M60 4 L74 120 L112 356 L84 356 L60 230 L36 356 L8 356 L46 120 Z\" fill=\"#0b1a22\" stroke=\"#cfe8ee\" stroke-width=\"4\" stroke-linejoin=\"round\"/><path d=\"M38 170 L82 170\" stroke=\"#cfe8ee\" stroke-width=\"4\"/></svg>",
+     "x": "40%",
+     "y": 910,
+     "width": 90,
+     "height": 270,
+     "end": 3.631,
+     "opacity": 0.85
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 360\"><path d=\"M60 4 L74 120 L112 356 L84 356 L60 230 L36 356 L8 356 L46 120 Z\" fill=\"#0b1a22\" stroke=\"#cfe8ee\" stroke-width=\"4\" stroke-linejoin=\"round\"/><path d=\"M38 170 L82 170\" stroke=\"#cfe8ee\" stroke-width=\"4\"/></svg>",
+     "x": "40%",
+     "y": 640,
+     "width": 90,
+     "height": 270,
+     "end": 3.631,
+     "opacity": 0.85
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "42%",
+     "y": 470,
+     "width": 320,
+     "height": 57,
+     "props": {
+      "text": "~3 EIFFEL TOWERS",
+      "at": 0.3,
+      "size": 22,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 3.631
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "circle",
+     "x": "70%",
+     "y": 640,
+     "width": 36,
+     "height": 36,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 2.0
+      },
+      {
+       "t": 2.2670000000000003,
+       "scale": 2.0
+      },
+      {
+       "t": 2.7670000000000003,
+       "scale": 1,
+       "ease": "out"
+      }
+     ],
+     "end": 3.631
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 120\"><path d=\"M10 8 L90 8 L80 112 L20 112 Z\" fill=\"#bff3ff\" fill-opacity=\"0.35\" stroke=\"#ffffff\" stroke-width=\"6\" stroke-linejoin=\"round\"/><path d=\"M14 40 L86 40\" stroke=\"#ffffff\" stroke-opacity=\"0.5\" stroke-width=\"3\"/></svg>",
+     "x": "70%",
+     "y": 820,
+     "width": 100,
+     "height": 120,
+     "start": 2.367,
+     "end": 3.631,
+     "enter": {
+      "type": "pop",
+      "at": 2.367,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": 940,
+     "width": 380,
+     "height": 67,
+     "props": {
+      "text": "YOUR BREATH ~60 ML",
+      "at": 2.567,
+      "size": 26,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 3.631
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 560\"><rect x=\"6\" y=\"6\" width=\"488\" height=\"548\" rx=\"30\" fill=\"#06202b\" stroke=\"#7fd3e6\" stroke-width=\"4\"/><path d=\"M250 40 L250 470\" stroke=\"#7fd3e6\" stroke-width=\"16\" stroke-linecap=\"round\"/><path d=\"M250 90 C 130 84 100 130 140 160\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 90 C 370 84 400 130 360 160\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 140 C 100 134 70 180 110 210\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 140 C 400 134 430 180 390 210\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 190 C 85 184 55 230 95 260\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 190 C 415 184 445 230 405 260\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 240 C 80 234 50 280 90 310\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 240 C 420 234 450 280 410 310\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 290 C 85 284 55 330 95 360\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 290 C 415 284 445 330 405 360\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 340 C 100 334 70 380 110 410\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M250 340 C 400 334 430 380 390 410\" fill=\"none\" stroke=\"#7fd3e6\" stroke-width=\"9\" stroke-linecap=\"round\"/><text x=\"250\" y=\"530\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"30\" fill=\"#7fd3e6\">X-RAY: CHEST</text></svg>",
+     "x": 620,
+     "y": 900,
+     "width": 500,
+     "height": 560,
+     "start": 3.631,
+     "enter": {
+      "type": "zoomIn",
+      "at": 3.631,
+      "duration": 0.3
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 220\"><path d=\"M60 10 C 10 30 4 120 10 200 C 40 214 100 214 110 190 C 116 110 100 30 60 10 Z\" fill=\"#bff3ff\" fill-opacity=\"0.55\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": 550,
+     "y": 890,
+     "width": 120,
+     "height": 220,
+     "start": 3.631,
+     "depth": 0,
+     "z": 11,
+     "keyframes": [
+      {
+       "t": 3.631,
+       "scale": 0.3
+      },
+      {
+       "t": 5.879,
+       "scale": 0.1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 220\"><path d=\"M60 10 C 10 30 4 120 10 200 C 40 214 100 214 110 190 C 116 110 100 30 60 10 Z\" fill=\"#bff3ff\" fill-opacity=\"0.55\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": 690,
+     "y": 890,
+     "width": 120,
+     "height": 220,
+     "flipX": true,
+     "start": 3.631,
+     "depth": 0,
+     "z": 11,
+     "keyframes": [
+      {
+       "t": 3.631,
+       "scale": 0.3
+      },
+      {
+       "t": 5.879,
+       "scale": 0.1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 560\"><path d=\"M250 120 C 140 140 120 300 160 420 M250 120 C 360 140 380 300 340 420 M250 160 L250 440\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"22\" stroke-linecap=\"round\" stroke-opacity=\"0.85\"/><ellipse cx=\"250\" cy=\"290\" rx=\"150\" ry=\"150\" fill=\"#e5483d\" fill-opacity=\"0.28\"/></svg>",
+     "x": 620,
+     "y": 900,
+     "width": 500,
+     "height": 560,
+     "start": 3.631,
+     "opacity": 0.9,
+     "depth": 0,
+     "z": 12
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 80\"><path d=\"M6 40 L36 22 L52 52 L76 18 L92 46 L114 30\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"7\" stroke-linejoin=\"round\"/></svg>",
+     "x": 740,
+     "y": 840,
+     "width": 120,
+     "height": 80,
+     "start": 5.879,
+     "enter": {
+      "type": "pop",
+      "at": 5.879,
+      "duration": 0.12
+     },
+     "depth": 0,
+     "z": 13
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 620,
+     "y": 570,
+     "width": 440,
+     "height": 88,
+     "props": {
+      "text": "SOMETHING GIVES",
+      "at": 5.879,
+      "size": 34,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 620,
+     "y": 1230,
+     "width": 440,
+     "height": 78,
+     "props": {
+      "text": "STILL NOT IMPLODED",
+      "at": 7.255,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3,
+    "shake": [
+     {
+      "at": 5.879,
+      "duration": 0.35,
+      "amplitude": 14
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "boom",
+     "at": 0.42,
+     "volume": 0.7
+    },
+    {
+     "cue": "pop",
+     "at": 2.567,
+     "volume": 0.5
+    },
+    {
+     "cue": "impact",
+     "at": 5.879,
+     "volume": 0.8
+    }
+   ],
+   "notes": "One kilometre down, your breath is squeezed into a shot glass, and your ribs can't fold that small, so something gives, and you still haven't imploded."
+  },
+  {
+   "id": "s09_whale",
+   "duration": 3.034,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1000,
+     "rays": 0,
+     "seed": 5,
+     "snow": 120
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x101",
+     "x": 138,
+     "y": 983.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 953.7
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "60%",
+     "y": 640,
+     "width": 900,
+     "height": 300,
+     "props": {},
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "95%"
+      },
+      {
+       "t": 3.034,
+       "x": "50%",
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "62%",
+     "y": 980,
+     "width": 70,
+     "height": 120,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "60%",
+     "y": 820,
+     "width": 520,
+     "height": 78,
+     "props": {
+      "text": "RIBS BUILT TO FOLD  \u2713",
+      "at": 2.368,
+      "size": 30,
+      "accent": "#3ccf7a",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.5
+   },
+   "sfx": [
+    {
+     "cue": "sonar_ping",
+     "at": 0.2,
+     "volume": 0.6
+    },
+    {
+     "cue": "sonar_ping",
+     "at": 0.9,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Sperm whales hunt down here with ribs built to fold."
+  },
+  {
+   "id": "s10_peak",
+   "duration": 4.55,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10935,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "down"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x101",
+     "x": 138,
+     "y": 983.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 17,
+     "start": 2.4570000000000003,
+     "enter": {
+      "type": "pop",
+      "at": 2.4570000000000003,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "x1,072",
+     "x": 138,
+     "y": 1210.0,
+     "anchorX": 0,
+     "fontSize": 30,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 17,
+     "start": 2.4570000000000003,
+     "enter": {
+      "type": "pop",
+      "at": 2.4570000000000003,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 953.7
+      },
+      {
+       "t": 2.4570000000000003,
+       "y": 1180.0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "16%",
+     "width": 900,
+     "height": 152,
+     "props": {
+      "text": "YOURS AREN'T",
+      "at": 0.12,
+      "size": 70,
+      "color": "red",
+      "underline": true,
+      "out": 2.257
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": "58%",
+     "y": 1240,
+     "width": 900,
+     "height": 120,
+     "fill": "#1a1410",
+     "depth": 0,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "58%",
+     "y": 1090,
+     "width": 110,
+     "height": 190,
+     "props": {
+      "pose": "stand"
+     },
+     "rotate": 180,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 400
+      },
+      {
+       "t": 2.4570000000000003,
+       "y": 1090,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "58%",
+     "y": "22%",
+     "width": 720,
+     "height": 240,
+     "props": {
+      "value": 1.1,
+      "label": "TONNES ON EVERY CM\u00b2",
+      "at": 2.557,
+      "duration": 0.8,
+      "size": 84,
+      "prefix": "~",
+      "decimals": 1
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 610,
+     "width": 600,
+     "height": 67,
+     "props": {
+      "text": "x1,072 THE SURFACE PRESSURE",
+      "at": 2.757,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 100\"><ellipse cx=\"70\" cy=\"50\" rx=\"62\" ry=\"38\" fill=\"#d9e2e8\" stroke=\"#ffffff\" stroke-width=\"5\"/><ellipse cx=\"70\" cy=\"50\" rx=\"40\" ry=\"20\" fill=\"#bff3ff\" fill-opacity=\"0.8\"/><path d=\"M130 50 L292 44\" stroke=\"#d9e2e8\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg>",
+     "x": "58%",
+     "y": 800,
+     "width": 300,
+     "height": 100,
+     "start": 3.674,
+     "enter": {
+      "type": "pop",
+      "at": 3.674,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 900,
+     "width": 560,
+     "height": 78,
+     "props": {
+      "text": "YOUR WHOLE BREATH: ~5 ML",
+      "at": 3.874,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 2.4570000000000003,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.55,
+      "zoom": 1.08,
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.4570000000000003,
+      "duration": 0.4,
+      "amplitude": 16
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "glitch",
+     "at": 0.12,
+     "volume": 0.4
+    },
+    {
+     "cue": "boom",
+     "at": 2.4570000000000003,
+     "volume": 0.9
+    },
+    {
+     "cue": "pop",
+     "at": 3.874,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Yours aren't, so by the time you reach the bottom, your whole breath is one teaspoon,"
+  },
+  {
+   "id": "s11_everest",
+   "duration": 3.252,
+   "background": {
+    "type": "color",
+    "color": "#02080c"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x101",
+     "x": 138,
+     "y": 983.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x1,072",
+     "x": 138,
+     "y": 1210.0,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 1180.0
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 1040\"><defs><linearGradient id=\"w\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#2b8197\"/><stop offset=\"0.25\" stop-color=\"#10465a\"/><stop offset=\"1\" stop-color=\"#02080c\"/></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"760\" height=\"1040\" fill=\"url(#w)\"/><path d=\"M0 220 L230 240 L330 1040 L430 1040 L530 240 L760 220 L760 1040 L0 1040 Z\" fill=\"#1a1410\" stroke=\"#5c4a3a\" stroke-width=\"4\"/><path d=\"M0 3 L760 3\" stroke=\"#e8f6f8\" stroke-width=\"6\"/></svg>",
+     "x": 600,
+     "y": 760,
+     "width": 760,
+     "height": 1040,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 800\" preserveAspectRatio=\"none\"><path d=\"M0 800 L200 0 L400 800 Z\" fill=\"#6b6f76\" stroke=\"#ffffff\" stroke-width=\"5\"/><path d=\"M150 200 L200 0 L250 200 L224 180 L200 210 L176 180 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 570,
+     "y": 861.5,
+     "width": 200,
+     "height": 837,
+     "depth": 0,
+     "z": 6,
+     "start": 0.363,
+     "keyframes": [
+      {
+       "t": 0.363,
+       "y": 24.5
+      },
+      {
+       "t": 0.813,
+       "y": 861.5,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 670,
+     "y": 1266.0,
+     "width": 16,
+     "height": 16,
+     "fill": "#ffffff",
+     "depth": 0,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 740,
+     "y": 1240.0,
+     "width": 120,
+     "height": 57,
+     "props": {
+      "text": "YOU",
+      "at": 0.1,
+      "size": 22,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 740,
+     "y": 861.5,
+     "width": 320,
+     "height": 62,
+     "props": {
+      "text": "EVEREST 8,849 M",
+      "at": 0.813,
+      "size": 24,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 570,
+     "y": 341.5,
+     "width": 6,
+     "height": 191,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 7,
+     "start": 0.963,
+     "enter": {
+      "type": "wipeDown",
+      "at": 0.963,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 660,
+     "y": 341.5,
+     "width": 520,
+     "height": 62,
+     "props": {
+      "text": "~2 KM OF WATER ABOVE THE PEAK",
+      "at": 0.963,
+      "size": 24,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "none",
+    "shake": [
+     {
+      "at": 0.813,
+      "duration": 0.35,
+      "amplitude": 12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.363,
+     "volume": 0.6
+    },
+    {
+     "cue": "impact",
+     "at": 0.813,
+     "volume": 0.8
+    }
+   ],
+   "notes": "drop Everest in beside you and its peak is still underwater,"
+  },
+  {
+   "id": "s12_dead",
+   "duration": 3.839,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10935,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x2",
+     "x": 138,
+     "y": 556.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x4",
+     "x": 138,
+     "y": 654.9,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x11",
+     "x": 138,
+     "y": 766.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x26",
+     "x": 138,
+     "y": 852.8,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x101",
+     "x": 138,
+     "y": 983.7,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#e5483d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "x1,072",
+     "x": 138,
+     "y": 1210.0,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "#e5483d",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 1180.0
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": "58%",
+     "y": 1240,
+     "width": 900,
+     "height": 120,
+     "fill": "#1a1410",
+     "depth": 0,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "58%",
+     "y": 1130,
+     "width": 110,
+     "height": 190,
+     "props": {
+      "pose": "stand",
+      "silhouette": "#8a96a0",
+      "idle": false
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 180,
+       "y": 1090
+      },
+      {
+       "t": 0.846,
+       "rotate": 270,
+       "y": 1150,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 820,
+     "width": 640,
+     "height": 83,
+     "props": {
+      "text": "STATUS: EXTREMELY NOT ALIVE",
+      "at": 0.846,
+      "size": 32,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 900,
+     "width": 320,
+     "height": 67,
+     "props": {
+      "text": "(SINCE ~1 KM)",
+      "at": 2.574,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 2.574,
+     "volume": 0.5
+    }
+   ],
+   "notes": "and you've been extremely not alive since roughly the shot glass,"
+  },
+  {
+   "id": "s13_twist",
+   "duration": 1.823,
+   "background": {
+    "type": "color",
+    "color": "#04121a"
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "YOU NEVER IMPLODED",
+     "x": "50%",
+     "y": "36%",
+     "fontSize": 84,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 20,
+     "maxWidth": 820,
+     "enter": {
+      "type": "pop",
+      "at": 0.05,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "24%",
+     "width": 480,
+     "height": 88,
+     "props": {
+      "text": "'YOU'D IMPLODE'",
+      "at": 0.05,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "24%",
+     "width": 440,
+     "height": 8,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 21,
+     "start": 0.742,
+     "enter": {
+      "type": "wipeRight",
+      "at": 0.742,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "48%",
+     "width": 240,
+     "height": 104,
+     "props": {
+      "text": "MYTH",
+      "at": 1.019,
+      "size": 40,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.0,
+     "volume": 0.4
+    },
+    {
+     "cue": "glitch",
+     "at": 0.742,
+     "volume": 0.5
+    }
+   ],
+   "notes": "and yet you never imploded."
+  },
+  {
+   "id": "s14_can",
+   "duration": 3.659,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10935,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 260\"><rect x=\"20\" y=\"20\" width=\"120\" height=\"220\" rx=\"18\" fill=\"#c8d2da\" stroke=\"#ffffff\" stroke-width=\"6\"/><rect x=\"20\" y=\"90\" width=\"120\" height=\"70\" fill=\"#e5483d\"/><text x=\"80\" y=\"136\" text-anchor=\"middle\" font-family=\"Montserrat\" font-weight=\"900\" font-size=\"26\" fill=\"#ffffff\">AIR</text></svg>",
+     "x": "50%",
+     "y": 820,
+     "width": 240,
+     "height": 390,
+     "end": 3.306
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 260\"><path d=\"M14 200 L40 176 L60 196 L84 170 L104 194 L126 172 L146 200 L140 240 L20 240 Z\" fill=\"#c8d2da\" stroke=\"#ffffff\" stroke-width=\"6\" stroke-linejoin=\"round\"/><path d=\"M24 214 L136 214\" stroke=\"#e5483d\" stroke-width=\"16\"/></svg>",
+     "x": "50%",
+     "y": 820,
+     "width": 240,
+     "height": 390,
+     "start": 3.306
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 560,
+     "width": 420,
+     "height": 88,
+     "props": {
+      "text": "HOLLOW + AIR",
+      "at": 1.123,
+      "size": 34,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 1080,
+     "width": 360,
+     "height": 88,
+     "props": {
+      "text": "= IMPLODES",
+      "at": 3.3560000000000003,
+      "size": 34,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "none",
+    "shake": [
+     {
+      "at": 3.306,
+      "duration": 0.3,
+      "amplitude": 14
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 3.306,
+     "volume": 0.9
+    }
+   ],
+   "notes": "That only happens to hollow things full of air, like a sealed can,"
+  },
+  {
+   "id": "s15_flesh",
+   "duration": 5.888,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10935,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36%",
+     "y": 760,
+     "width": 170,
+     "height": 290,
+     "props": {
+      "pose": "stand",
+      "silhouette": "#8a96a0",
+      "idle": false
+     },
+     "end": 3.562
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\"><path d=\"M100 10 C 30 10 10 90 30 150 C 50 210 90 224 100 226 C 110 224 150 210 170 150 C 190 90 170 10 100 10 Z\" fill=\"#4aa8e8\" fill-opacity=\"0.75\" stroke=\"#ffffff\" stroke-width=\"6\"/><path d=\"M92 226 L108 226 L100 244 Z\" fill=\"#ffffff\"/></svg>",
+     "x": "66%",
+     "y": 760,
+     "width": 200,
+     "height": 260,
+     "start": 1.434,
+     "end": 3.562,
+     "enter": {
+      "type": "pop",
+      "at": 1.434,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 1000,
+     "width": 460,
+     "height": 78,
+     "props": {
+      "text": "= WATER BALLOON",
+      "at": 1.434,
+      "size": 30,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 3.562
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 420,
+     "width": 560,
+     "height": 78,
+     "props": {
+      "text": "WATER BARELY SQUEEZES",
+      "at": 2.083,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 300\" overflow=\"visible\"><rect x=\"-4\" y=\"-4\" width=\"308\" height=\"308\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"5\" stroke-dasharray=\"18 12\"/><rect x=\"6\" y=\"6\" width=\"288\" height=\"288\" rx=\"10\" fill=\"#f2a7a0\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": "50%",
+     "y": 800,
+     "width": 300,
+     "height": 300,
+     "start": 3.562,
+     "enter": {
+      "type": "zoomIn",
+      "at": 3.562,
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 3.562,
+       "scale": 1.0
+      },
+      {
+       "t": 5.03,
+       "scale": 0.987,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 610,
+     "width": 320,
+     "height": 72,
+     "props": {
+      "text": "YOUR FLESH",
+      "at": 3.562,
+      "size": 28,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": 1080,
+     "width": 720,
+     "height": 240,
+     "props": {
+      "value": -4,
+      "label": "SMALLER",
+      "at": 4.53,
+      "duration": 0.8,
+      "size": 96,
+      "suffix": "%"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 1.434,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 4.53,
+     "volume": 0.5
+    }
+   ],
+   "notes": "and you're basically a water balloon, and water barely squeezes, so your flesh is only about four percent smaller."
+  },
+  {
+   "id": "s16_sting_q",
+   "duration": 2.39,
+   "background": {
+    "type": "color",
+    "color": "#04121a"
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "55%",
+     "y": "20%",
+     "width": 900,
+     "height": 152,
+     "props": {
+      "text": "YOUR AIR",
+      "at": 0.05,
+      "size": 70,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 900,
+     "width": 480,
+     "height": 70,
+     "fill": "#e5483d",
+     "anchorX": 0.5,
+     "depth": 0,
+     "z": 10,
+     "enter": {
+      "type": "wipeRight",
+      "at": 0.1,
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "text",
+     "text": "LOST IN THE FIRST 10 M: 50%",
+     "x": "50%",
+     "y": 820,
+     "fontSize": 34,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 11,
+     "start": 0.1
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1100,
+     "width": 480,
+     "height": 70,
+     "fill": "#56646d",
+     "depth": 0,
+     "z": 10,
+     "start": 1.732,
+     "enter": {
+      "type": "wipeRight",
+      "at": 1.732,
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "text",
+     "text": "LOST IN THE NEXT 10,925 M: ~50%",
+     "x": "50%",
+     "y": 1020,
+     "fontSize": 34,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 11,
+     "start": 1.732
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 1220,
+     "width": 560,
+     "height": 67,
+     "props": {
+      "text": "LEFT AT THE BOTTOM: ~0.09%",
+      "at": 1.932,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "preset": "none"
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.6
+    }
+   ],
+   "notes": "And the biggest squeeze on your air?"
+  },
+  {
+   "id": "s17_sting_a",
+   "duration": 1.533,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 0,
+     "rays": 7,
+     "seed": 5,
+     "snow": 30,
+     "surface": 0.22
+    }
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.25,
+    "direction": "down"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "60%",
+     "y": 450,
+     "width": 170,
+     "height": 290,
+     "props": {
+      "pose": "stand"
+     },
+     "id": "you",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "id": "breath",
+     "x": "80%",
+     "y": 380,
+     "width": 150,
+     "height": 150,
+     "fill": "rgba(191,243,255,0.28)",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "depth": 0,
+     "z": 12
+    },
+    {
+     "type": "text",
+     "id": "breathlabel",
+     "text": "YOUR AIR\n100%",
+     "x": "80%",
+     "y": 380,
+     "fontSize": 30,
+     "color": "#ffffff",
+     "depth": 0,
+     "z": 13
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": 300,
+     "width": 760,
+     "height": 67,
+     "props": {
+      "text": "THOUGHT EXPERIMENT: 1 BREATH, NO GEAR",
+      "at": 0,
+      "size": 26,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 12,
+     "x": "60%",
+     "y": "45%",
+     "width": 700,
+     "height": 700,
+     "opacity": 0.5,
+     "seed": 7,
+     "depth": 0.6
+    },
+    {
+     "type": "rect",
+     "x": 112,
+     "y": 740.0,
+     "width": 5,
+     "height": 880,
+     "fill": "rgba(230,245,250,0.5)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "text",
+     "text": "0 M",
+     "x": 138,
+     "y": 300,
+     "anchorX": 0,
+     "fontSize": 24,
+     "color": "rgba(230,245,250,0.7)",
+     "depth": 0,
+     "z": 15
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 526.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10 M",
+     "x": 138,
+     "y": 526.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 624.9,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "30 M",
+     "x": 138,
+     "y": 624.9,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 736.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "100 M",
+     "x": 138,
+     "y": 736.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 822.8,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "250 M",
+     "x": 138,
+     "y": 822.8,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 953.7,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "1 KM",
+     "x": 138,
+     "y": 953.7,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 1180.0,
+     "width": 24,
+     "height": 24,
+     "fill": "#56646d",
+     "stroke": "#ffffff",
+     "strokeWidth": 3,
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "text",
+     "text": "10,935 M",
+     "x": 138,
+     "y": 1180.0,
+     "anchorX": 0,
+     "fontSize": 26,
+     "color": "rgba(230,245,250,0.6)",
+     "depth": 0,
+     "z": 16
+    },
+    {
+     "type": "circle",
+     "x": 112,
+     "y": 300.0,
+     "width": 40,
+     "height": 40,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 6,
+     "depth": 0,
+     "z": 18,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 300.0
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 162,
+     "y": 413.45,
+     "width": 6,
+     "height": 226.89999999999998,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 15,
+     "start": 0.34,
+     "enter": {
+      "type": "wipeDown",
+      "at": 0.34,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "44%",
+     "y": 596.9,
+     "width": 480,
+     "height": 72,
+     "props": {
+      "text": "HALF YOUR AIR GOES HERE",
+      "at": 0.34,
+      "size": 28,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.03
+     },
+     {
+      "t": 1.533,
+      "zoom": 1.0,
+      "ease": "out"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.0,
+     "volume": 0.5
+    }
+   ],
+   "notes": "The first ten metres."
+  }
+ ],
+ "captions": {
+  "maxWords": 3,
+  "maxChars": 18,
+  "glue": [
+   "ten metres",
+   "water bottle",
+   "shot glass",
+   "sperm whales",
+   "water balloon",
+   "four percent",
+   "Mariana Trench",
+   "not alive"
+  ],
+  "words": [
+   {
+    "text": "Hold",
+    "start": 0.12,
+    "end": 0.372
+   },
+   {
+    "text": "your",
+    "start": 0.372,
+    "end": 0.623
+   },
+   {
+    "text": "breath.",
+    "start": 0.623,
+    "end": 0.946
+   },
+   {
+    "text": "Just",
+    "start": 1.18,
+    "end": 1.431
+   },
+   {
+    "text": "ten",
+    "start": 1.431,
+    "end": 1.647
+   },
+   {
+    "text": "metres",
+    "start": 1.647,
+    "end": 1.97
+   },
+   {
+    "text": "down,",
+    "start": 1.97,
+    "end": 2.222
+   },
+   {
+    "text": "your",
+    "start": 2.321,
+    "end": 2.573
+   },
+   {
+    "text": "ears",
+    "start": 2.573,
+    "end": 2.825
+   },
+   {
+    "text": "ache,",
+    "start": 2.825,
+    "end": 3.076,
+    "emph": true
+   },
+   {
+    "text": "because",
+    "start": 3.496,
+    "end": 3.855
+   },
+   {
+    "text": "the",
+    "start": 3.855,
+    "end": 4.071
+   },
+   {
+    "text": "pressure's",
+    "start": 4.071,
+    "end": 4.501
+   },
+   {
+    "text": "doubled",
+    "start": 4.501,
+    "end": 4.86
+   },
+   {
+    "text": "and",
+    "start": 4.86,
+    "end": 5.076
+   },
+   {
+    "text": "squeezed",
+    "start": 5.076,
+    "end": 5.471
+   },
+   {
+    "text": "your",
+    "start": 5.471,
+    "end": 5.723
+   },
+   {
+    "text": "one",
+    "start": 5.723,
+    "end": 5.938
+   },
+   {
+    "text": "breath",
+    "start": 5.938,
+    "end": 6.261
+   },
+   {
+    "text": "to",
+    "start": 6.261,
+    "end": 6.441
+   },
+   {
+    "text": "half,",
+    "start": 6.441,
+    "end": 6.693,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 7.113,
+    "end": 7.329
+   },
+   {
+    "text": "the",
+    "start": 7.329,
+    "end": 7.544
+   },
+   {
+    "text": "floor",
+    "start": 7.544,
+    "end": 7.832
+   },
+   {
+    "text": "of",
+    "start": 7.832,
+    "end": 8.012
+   },
+   {
+    "text": "the",
+    "start": 8.012,
+    "end": 8.227
+   },
+   {
+    "text": "Mariana",
+    "start": 8.227,
+    "end": 8.586
+   },
+   {
+    "text": "Trench",
+    "start": 8.586,
+    "end": 8.909
+   },
+   {
+    "text": "is",
+    "start": 8.909,
+    "end": 9.089
+   },
+   {
+    "text": "still",
+    "start": 9.089,
+    "end": 9.377
+   },
+   {
+    "text": "almost",
+    "start": 9.377,
+    "end": 9.7
+   },
+   {
+    "text": "eleven",
+    "start": 9.7,
+    "end": 10.023
+   },
+   {
+    "text": "kilometres",
+    "start": 10.023,
+    "end": 10.49
+   },
+   {
+    "text": "below",
+    "start": 10.49,
+    "end": 10.777
+   },
+   {
+    "text": "you.",
+    "start": 10.777,
+    "end": 10.993
+   },
+   {
+    "text": "By",
+    "start": 11.546,
+    "end": 11.719
+   },
+   {
+    "text": "thirty",
+    "start": 11.719,
+    "end": 12.03
+   },
+   {
+    "text": "metres",
+    "start": 12.03,
+    "end": 12.341
+   },
+   {
+    "text": "it's",
+    "start": 12.341,
+    "end": 12.549
+   },
+   {
+    "text": "a",
+    "start": 12.549,
+    "end": 12.687
+   },
+   {
+    "text": "quarter,",
+    "start": 12.687,
+    "end": 13.033
+   },
+   {
+    "text": "your",
+    "start": 13.129,
+    "end": 13.371
+   },
+   {
+    "text": "heart's",
+    "start": 13.371,
+    "end": 13.682
+   },
+   {
+    "text": "slowing,",
+    "start": 13.682,
+    "end": 14.027
+   },
+   {
+    "text": "and",
+    "start": 14.124,
+    "end": 14.331
+   },
+   {
+    "text": "you're",
+    "start": 14.331,
+    "end": 14.608
+   },
+   {
+    "text": "not",
+    "start": 14.608,
+    "end": 14.815
+   },
+   {
+    "text": "floating",
+    "start": 14.815,
+    "end": 15.195
+   },
+   {
+    "text": "anymore,",
+    "start": 15.195,
+    "end": 15.541
+   },
+   {
+    "text": "you're",
+    "start": 15.637,
+    "end": 15.913
+   },
+   {
+    "text": "falling,",
+    "start": 15.913,
+    "end": 16.259,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 16.675,
+    "end": 16.883
+   },
+   {
+    "text": "at",
+    "start": 16.883,
+    "end": 17.056
+   },
+   {
+    "text": "a",
+    "start": 17.056,
+    "end": 17.194
+   },
+   {
+    "text": "hundred,",
+    "start": 17.194,
+    "end": 17.54
+   },
+   {
+    "text": "your",
+    "start": 17.636,
+    "end": 17.878
+   },
+   {
+    "text": "whole",
+    "start": 17.878,
+    "end": 18.155
+   },
+   {
+    "text": "breath",
+    "start": 18.155,
+    "end": 18.466
+   },
+   {
+    "text": "fits",
+    "start": 18.466,
+    "end": 18.708
+   },
+   {
+    "text": "in",
+    "start": 18.708,
+    "end": 18.881
+   },
+   {
+    "text": "a",
+    "start": 18.881,
+    "end": 19.019
+   },
+   {
+    "text": "water",
+    "start": 19.019,
+    "end": 19.296
+   },
+   {
+    "text": "bottle,",
+    "start": 19.296,
+    "end": 19.607,
+    "emph": true
+   },
+   {
+    "text": "so",
+    "start": 19.703,
+    "end": 19.876
+   },
+   {
+    "text": "blood",
+    "start": 19.876,
+    "end": 20.153,
+    "emph": true
+   },
+   {
+    "text": "rushes",
+    "start": 20.153,
+    "end": 20.464
+   },
+   {
+    "text": "into",
+    "start": 20.464,
+    "end": 20.706
+   },
+   {
+    "text": "your",
+    "start": 20.706,
+    "end": 20.948
+   },
+   {
+    "text": "chest",
+    "start": 20.948,
+    "end": 21.224
+   },
+   {
+    "text": "to",
+    "start": 21.224,
+    "end": 21.397
+   },
+   {
+    "text": "fill",
+    "start": 21.397,
+    "end": 21.64
+   },
+   {
+    "text": "the",
+    "start": 21.64,
+    "end": 21.847
+   },
+   {
+    "text": "space,",
+    "start": 21.847,
+    "end": 22.124
+   },
+   {
+    "text": "and",
+    "start": 22.54,
+    "end": 22.747
+   },
+   {
+    "text": "even",
+    "start": 22.747,
+    "end": 22.989
+   },
+   {
+    "text": "trained",
+    "start": 22.989,
+    "end": 23.335
+   },
+   {
+    "text": "freedivers",
+    "start": 23.335,
+    "end": 23.784
+   },
+   {
+    "text": "can",
+    "start": 23.784,
+    "end": 23.991,
+    "emph": true
+   },
+   {
+    "text": "come",
+    "start": 23.991,
+    "end": 24.233
+   },
+   {
+    "text": "up",
+    "start": 24.233,
+    "end": 24.407
+   },
+   {
+    "text": "from",
+    "start": 24.407,
+    "end": 24.649
+   },
+   {
+    "text": "here",
+    "start": 24.649,
+    "end": 24.891
+   },
+   {
+    "text": "coughing",
+    "start": 24.891,
+    "end": 25.271
+   },
+   {
+    "text": "blood,",
+    "start": 25.271,
+    "end": 25.547,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 25.963,
+    "end": 26.171
+   },
+   {
+    "text": "by",
+    "start": 26.171,
+    "end": 26.344
+   },
+   {
+    "text": "two",
+    "start": 26.344,
+    "end": 26.552
+   },
+   {
+    "text": "hundred",
+    "start": 26.552,
+    "end": 26.897
+   },
+   {
+    "text": "and",
+    "start": 26.897,
+    "end": 27.105
+   },
+   {
+    "text": "fifty",
+    "start": 27.105,
+    "end": 27.381
+   },
+   {
+    "text": "metres,",
+    "start": 27.381,
+    "end": 27.692
+   },
+   {
+    "text": "you're",
+    "start": 27.788,
+    "end": 28.065
+   },
+   {
+    "text": "about",
+    "start": 28.065,
+    "end": 28.341
+   },
+   {
+    "text": "as",
+    "start": 28.341,
+    "end": 28.514
+   },
+   {
+    "text": "deep",
+    "start": 28.514,
+    "end": 28.757
+   },
+   {
+    "text": "as",
+    "start": 28.757,
+    "end": 28.93
+   },
+   {
+    "text": "anyone",
+    "start": 28.93,
+    "end": 29.241
+   },
+   {
+    "text": "has",
+    "start": 29.241,
+    "end": 29.448
+   },
+   {
+    "text": "ever",
+    "start": 29.448,
+    "end": 29.69
+   },
+   {
+    "text": "gone",
+    "start": 29.69,
+    "end": 29.932
+   },
+   {
+    "text": "on",
+    "start": 29.932,
+    "end": 30.105
+   },
+   {
+    "text": "a",
+    "start": 30.105,
+    "end": 30.244
+   },
+   {
+    "text": "single",
+    "start": 30.244,
+    "end": 30.555
+   },
+   {
+    "text": "breath,",
+    "start": 30.555,
+    "end": 30.866
+   },
+   {
+    "text": "so",
+    "start": 31.282,
+    "end": 31.455
+   },
+   {
+    "text": "from",
+    "start": 31.455,
+    "end": 31.697
+   },
+   {
+    "text": "here",
+    "start": 31.697,
+    "end": 31.94
+   },
+   {
+    "text": "on,",
+    "start": 31.94,
+    "end": 32.113
+   },
+   {
+    "text": "pretend",
+    "start": 32.209,
+    "end": 32.554,
+    "emph": true
+   },
+   {
+    "text": "you",
+    "start": 32.554,
+    "end": 32.762
+   },
+   {
+    "text": "somehow",
+    "start": 32.762,
+    "end": 33.107
+   },
+   {
+    "text": "still",
+    "start": 33.107,
+    "end": 33.384
+   },
+   {
+    "text": "have",
+    "start": 33.384,
+    "end": 33.626
+   },
+   {
+    "text": "air.",
+    "start": 33.626,
+    "end": 33.833
+   },
+   {
+    "text": "Relax.",
+    "start": 34.378,
+    "end": 34.654
+   },
+   {
+    "text": "That",
+    "start": 34.879,
+    "end": 35.121
+   },
+   {
+    "text": "was",
+    "start": 35.121,
+    "end": 35.328
+   },
+   {
+    "text": "the",
+    "start": 35.328,
+    "end": 35.536
+   },
+   {
+    "text": "easy",
+    "start": 35.536,
+    "end": 35.778,
+    "emph": true
+   },
+   {
+    "text": "part.",
+    "start": 35.778,
+    "end": 36.02
+   },
+   {
+    "text": "One",
+    "start": 37.015,
+    "end": 37.222
+   },
+   {
+    "text": "kilometre",
+    "start": 37.222,
+    "end": 37.637
+   },
+   {
+    "text": "down,",
+    "start": 37.637,
+    "end": 37.879
+   },
+   {
+    "text": "your",
+    "start": 37.975,
+    "end": 38.217
+   },
+   {
+    "text": "breath",
+    "start": 38.217,
+    "end": 38.528
+   },
+   {
+    "text": "is",
+    "start": 38.528,
+    "end": 38.701
+   },
+   {
+    "text": "squeezed",
+    "start": 38.701,
+    "end": 39.081
+   },
+   {
+    "text": "into",
+    "start": 39.081,
+    "end": 39.323
+   },
+   {
+    "text": "a",
+    "start": 39.323,
+    "end": 39.462
+   },
+   {
+    "text": "shot",
+    "start": 39.462,
+    "end": 39.704,
+    "emph": true
+   },
+   {
+    "text": "glass,",
+    "start": 39.704,
+    "end": 39.98
+   },
+   {
+    "text": "and",
+    "start": 40.076,
+    "end": 40.284
+   },
+   {
+    "text": "your",
+    "start": 40.284,
+    "end": 40.526
+   },
+   {
+    "text": "ribs",
+    "start": 40.526,
+    "end": 40.768
+   },
+   {
+    "text": "can't",
+    "start": 40.768,
+    "end": 41.01
+   },
+   {
+    "text": "fold",
+    "start": 41.01,
+    "end": 41.252
+   },
+   {
+    "text": "that",
+    "start": 41.252,
+    "end": 41.494
+   },
+   {
+    "text": "small,",
+    "start": 41.494,
+    "end": 41.771
+   },
+   {
+    "text": "so",
+    "start": 42.187,
+    "end": 42.36
+   },
+   {
+    "text": "something",
+    "start": 42.36,
+    "end": 42.774
+   },
+   {
+    "text": "gives,",
+    "start": 42.774,
+    "end": 43.051,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 43.147,
+    "end": 43.355
+   },
+   {
+    "text": "you",
+    "start": 43.355,
+    "end": 43.562
+   },
+   {
+    "text": "still",
+    "start": 43.562,
+    "end": 43.839
+   },
+   {
+    "text": "haven't",
+    "start": 43.839,
+    "end": 44.15
+   },
+   {
+    "text": "imploded.",
+    "start": 44.15,
+    "end": 44.53,
+    "emph": true
+   },
+   {
+    "text": "Sperm",
+    "start": 45.074,
+    "end": 45.351
+   },
+   {
+    "text": "whales",
+    "start": 45.351,
+    "end": 45.662
+   },
+   {
+    "text": "hunt",
+    "start": 45.662,
+    "end": 45.904
+   },
+   {
+    "text": "down",
+    "start": 45.904,
+    "end": 46.146
+   },
+   {
+    "text": "here",
+    "start": 46.146,
+    "end": 46.388
+   },
+   {
+    "text": "with",
+    "start": 46.388,
+    "end": 46.63
+   },
+   {
+    "text": "ribs",
+    "start": 46.63,
+    "end": 46.872
+   },
+   {
+    "text": "built",
+    "start": 46.872,
+    "end": 47.148
+   },
+   {
+    "text": "to",
+    "start": 47.148,
+    "end": 47.322
+   },
+   {
+    "text": "fold.",
+    "start": 47.322,
+    "end": 47.564
+   },
+   {
+    "text": "Yours",
+    "start": 48.108,
+    "end": 48.385
+   },
+   {
+    "text": "aren't,",
+    "start": 48.385,
+    "end": 48.661
+   },
+   {
+    "text": "so",
+    "start": 48.757,
+    "end": 48.93
+   },
+   {
+    "text": "by",
+    "start": 48.93,
+    "end": 49.104
+   },
+   {
+    "text": "the",
+    "start": 49.104,
+    "end": 49.311
+   },
+   {
+    "text": "time",
+    "start": 49.311,
+    "end": 49.553
+   },
+   {
+    "text": "you",
+    "start": 49.553,
+    "end": 49.761
+   },
+   {
+    "text": "reach",
+    "start": 49.761,
+    "end": 50.037
+   },
+   {
+    "text": "the",
+    "start": 50.037,
+    "end": 50.245
+   },
+   {
+    "text": "bottom,",
+    "start": 50.245,
+    "end": 50.556
+   },
+   {
+    "text": "your",
+    "start": 50.652,
+    "end": 50.894
+   },
+   {
+    "text": "whole",
+    "start": 50.894,
+    "end": 51.171
+   },
+   {
+    "text": "breath",
+    "start": 51.171,
+    "end": 51.482
+   },
+   {
+    "text": "is",
+    "start": 51.482,
+    "end": 51.655
+   },
+   {
+    "text": "one",
+    "start": 51.655,
+    "end": 51.862
+   },
+   {
+    "text": "teaspoon,",
+    "start": 51.862,
+    "end": 52.242,
+    "emph": true
+   },
+   {
+    "text": "drop",
+    "start": 52.658,
+    "end": 52.901
+   },
+   {
+    "text": "Everest",
+    "start": 52.901,
+    "end": 53.246
+   },
+   {
+    "text": "in",
+    "start": 53.246,
+    "end": 53.419
+   },
+   {
+    "text": "beside",
+    "start": 53.419,
+    "end": 53.73
+   },
+   {
+    "text": "you",
+    "start": 53.73,
+    "end": 53.938
+   },
+   {
+    "text": "and",
+    "start": 53.938,
+    "end": 54.145
+   },
+   {
+    "text": "its",
+    "start": 54.145,
+    "end": 54.353
+   },
+   {
+    "text": "peak",
+    "start": 54.353,
+    "end": 54.595
+   },
+   {
+    "text": "is",
+    "start": 54.595,
+    "end": 54.768
+   },
+   {
+    "text": "still",
+    "start": 54.768,
+    "end": 55.045
+   },
+   {
+    "text": "underwater,",
+    "start": 55.045,
+    "end": 55.493,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 55.91,
+    "end": 56.117
+   },
+   {
+    "text": "you've",
+    "start": 56.117,
+    "end": 56.394
+   },
+   {
+    "text": "been",
+    "start": 56.394,
+    "end": 56.636
+   },
+   {
+    "text": "extremely",
+    "start": 56.636,
+    "end": 57.05
+   },
+   {
+    "text": "not",
+    "start": 57.05,
+    "end": 57.258
+   },
+   {
+    "text": "alive",
+    "start": 57.258,
+    "end": 57.534,
+    "emph": true
+   },
+   {
+    "text": "since",
+    "start": 57.534,
+    "end": 57.811
+   },
+   {
+    "text": "roughly",
+    "start": 57.811,
+    "end": 58.156
+   },
+   {
+    "text": "the",
+    "start": 58.156,
+    "end": 58.364
+   },
+   {
+    "text": "shot",
+    "start": 58.364,
+    "end": 58.606,
+    "emph": true
+   },
+   {
+    "text": "glass,",
+    "start": 58.606,
+    "end": 58.882
+   },
+   {
+    "text": "and",
+    "start": 59.749,
+    "end": 59.956
+   },
+   {
+    "text": "yet",
+    "start": 59.956,
+    "end": 60.164
+   },
+   {
+    "text": "you",
+    "start": 60.164,
+    "end": 60.371
+   },
+   {
+    "text": "never",
+    "start": 60.371,
+    "end": 60.648,
+    "emph": true
+   },
+   {
+    "text": "imploded.",
+    "start": 60.648,
+    "end": 61.028,
+    "emph": true
+   },
+   {
+    "text": "That",
+    "start": 61.572,
+    "end": 61.814
+   },
+   {
+    "text": "only",
+    "start": 61.814,
+    "end": 62.056
+   },
+   {
+    "text": "happens",
+    "start": 62.056,
+    "end": 62.402
+   },
+   {
+    "text": "to",
+    "start": 62.402,
+    "end": 62.575
+   },
+   {
+    "text": "hollow",
+    "start": 62.575,
+    "end": 62.886
+   },
+   {
+    "text": "things",
+    "start": 62.886,
+    "end": 63.197
+   },
+   {
+    "text": "full",
+    "start": 63.197,
+    "end": 63.439
+   },
+   {
+    "text": "of",
+    "start": 63.439,
+    "end": 63.612
+   },
+   {
+    "text": "air,",
+    "start": 63.612,
+    "end": 63.82
+   },
+   {
+    "text": "like",
+    "start": 63.916,
+    "end": 64.158
+   },
+   {
+    "text": "a",
+    "start": 64.158,
+    "end": 64.297
+   },
+   {
+    "text": "sealed",
+    "start": 64.297,
+    "end": 64.608
+   },
+   {
+    "text": "can,",
+    "start": 64.608,
+    "end": 64.815,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 65.231,
+    "end": 65.439
+   },
+   {
+    "text": "you're",
+    "start": 65.439,
+    "end": 65.715
+   },
+   {
+    "text": "basically",
+    "start": 65.715,
+    "end": 66.13
+   },
+   {
+    "text": "a",
+    "start": 66.13,
+    "end": 66.268
+   },
+   {
+    "text": "water",
+    "start": 66.268,
+    "end": 66.545
+   },
+   {
+    "text": "balloon,",
+    "start": 66.545,
+    "end": 66.89,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 66.987,
+    "end": 67.194
+   },
+   {
+    "text": "water",
+    "start": 67.194,
+    "end": 67.471
+   },
+   {
+    "text": "barely",
+    "start": 67.471,
+    "end": 67.782
+   },
+   {
+    "text": "squeezes,",
+    "start": 67.782,
+    "end": 68.162
+   },
+   {
+    "text": "so",
+    "start": 68.258,
+    "end": 68.431
+   },
+   {
+    "text": "your",
+    "start": 68.431,
+    "end": 68.673
+   },
+   {
+    "text": "flesh",
+    "start": 68.673,
+    "end": 68.949
+   },
+   {
+    "text": "is",
+    "start": 68.949,
+    "end": 69.123
+   },
+   {
+    "text": "only",
+    "start": 69.123,
+    "end": 69.365
+   },
+   {
+    "text": "about",
+    "start": 69.365,
+    "end": 69.641
+   },
+   {
+    "text": "four",
+    "start": 69.641,
+    "end": 69.883,
+    "emph": true
+   },
+   {
+    "text": "percent",
+    "start": 69.883,
+    "end": 70.229
+   },
+   {
+    "text": "smaller.",
+    "start": 70.229,
+    "end": 70.574
+   },
+   {
+    "text": "And",
+    "start": 71.119,
+    "end": 71.339
+   },
+   {
+    "text": "the",
+    "start": 71.339,
+    "end": 71.559
+   },
+   {
+    "text": "biggest",
+    "start": 71.559,
+    "end": 71.925
+   },
+   {
+    "text": "squeeze",
+    "start": 71.925,
+    "end": 72.291
+   },
+   {
+    "text": "on",
+    "start": 72.291,
+    "end": 72.475
+   },
+   {
+    "text": "your",
+    "start": 72.475,
+    "end": 72.731
+   },
+   {
+    "text": "air?",
+    "start": 72.731,
+    "end": 72.951
+   },
+   {
+    "text": "The",
+    "start": 73.509,
+    "end": 73.729
+   },
+   {
+    "text": "first",
+    "start": 73.729,
+    "end": 74.022,
+    "emph": true
+   },
+   {
+    "text": "ten",
+    "start": 74.022,
+    "end": 74.242
+   },
+   {
+    "text": "metres.",
+    "start": 74.242,
+    "end": 74.572
+   }
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 86,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.71
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-mariana-pressure/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 74.922
+   }
+  ],
+  "music": [
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 0,
+    "end": 34.458,
+    "volume": 0.24,
+    "duckTo": 0.14,
+    "fadeIn": 0.2,
+    "fadeOut": 0.15
+   },
+   {
+    "src": "sfx/underwater_rumble.wav",
+    "start": 36.895,
+    "end": 59.629,
+    "volume": 0.3,
+    "duckTo": 0.2,
+    "fadeIn": 0.3,
+    "fadeOut": 0.2,
+    "loop": true
+   },
+   {
+    "src": "music/dread.m4a",
+    "start": 36.895,
+    "end": 59.629,
+    "volume": 0.2,
+    "duckTo": 0.12,
+    "fadeIn": 0.4,
+    "fadeOut": 0.2
+   },
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 59.629,
+    "end": 74.922,
+    "volume": 0.22,
+    "duckTo": 0.13,
+    "fadeIn": 0.3,
+    "fadeOut": 0.05
+   }
+  ],
+  "sfx": [],
+  "duckOn": "captions"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}

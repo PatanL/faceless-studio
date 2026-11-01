@@ -1,0 +1,117 @@
+{
+ "episode": "explainer-short-mariana-pressure",
+ "reviewed_at_utc": "2026-11-01T09:30Z",
+ "scores_before": {
+  "retention": 6,
+  "reference": 6,
+  "originality": 6,
+  "producibility": 6
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 8,
+  "producibility": 8
+ },
+ "score_notes": {
+  "retention": "Hook is 10 words in ~3.0 s and ends on a felt word ('ears ache'). Rung 1's mechanism and x2 stamp are done by 6.7 s. There are now 6 stops (10/30/100/250/1,000/10,935 m) in 74.9 s, down from 4 stops in 85 s; the longest gap between spoken re-hooks is 6.2 s. Every rung join except the turnstile is chained (because / and / and at / and by / so by the time / and yet). The turnstile is 6 words at 46%. The peak has its own consequence about you: the breath is a teaspoon and the death is a shot-glass callback joke at 75%. There is a 'somehow' hedge. There are 7 comic deflations after 32 s. Held at 8 because stop gaps are still 10-13 s around the stakes line, the turnstile and the whale (the re-hooks inside those gaps are not new depths), and 75 s is longer than any corpus outlier Short; a ~60 s A/B cut is specified in script.md.",
+  "reference": "Every alignment row now gives our % and the reference's %. DEEP is cited truthfully: Everest at 13:02-13:07 (72%) is used at 71% as the peak scale reveal, and the 'And yet' turn at 13:21 follows 'fatal to a human', which is DEEP's own order. The false 'even life gives up' citation is removed. The sperm-whale line is cited as a you-vs-it contrast (fGcgWaswMns ESC-3 via PLAYBOOK 4), not as PRESSURE 0:18. PRESSURE's 'even [built for depth]' slot is now really used ('even trained freedivers can...'), as are its 'somehow' hedge (0:15) and its chain bridges. Plant/payoff is now true: 'squeeze' is spoken at 0:05.1, then 0:38.7, then 1:11.9. 'implode' is on screen at 0:10.5, spoken at 0:44.1 and paid at 1:00.4. Landmarks are visual only, one per stop (clock tower, 3 lattice towers, Everest). Held at 8 because rung lengths are uneven (3-11 s) and the per-word timings are an estimate until TTS runs.",
+  "originality": "Rebuilt away from episodes/explainer-pressure-ladder. The thumbnail-weight gag (motorbike/SUV), the snailfish/fish-limit beat, the spoken sky comparison, 'eleven times' at 100 m and the jets are all gone. The new spine is the breath-volume ladder (half / quarter / bottle / shot glass / teaspoon) plus the implosion myth-bust, which pressure-ladder doesn't have. VO-to-VO overlap with pressure-ladder: 0 shared 5-grams, and the only shared 4-gram is 'of the mariana trench'. Max VO 5-gram share with any corpus/library transcript is 0.42%. All four fact fixes are applied ('with ribs built to fold' with no 'because'; 'your flesh is only about four percent smaller' with the -4% on a tissue block; 'the biggest squeeze on your air'; 'even trained freedivers can'). Held at 8: the Mariana-trench-plus-your-body premise is still close to pressure-ladder's topic (the two shouldn't post in the same week), the F10 record numbers come from the reviewer and need a check on the AIDA site, and research/R5 still has no policy file to cite."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Hook rewritten: 'Hold your breath. Just ten metres down, your ears ache,' (10 words, spoken 0:00.1-0:03.1 at [speed: 1.02]). It ends on a felt symptom.",
+   "S2 is cut to one chained clause that keeps the endpoint ('and the floor of the Mariana Trench is still almost eleven kilometres below you'), placed after rung 1's mechanism. Everest moves to the peak. Rung 1 starts at 1.4 s, and its mechanism and stamp are done by 6.7 s.",
+   "Rungs added, not stretched: 30 m (a quarter, the heart slows, you stop floating and fall) and 250 m (about as deep as anyone has gone on one breath, then the hedge). Runtime is down from 85.3 s to 74.9 s, and the stop gaps average ~9.8 s (was 14-18 s).",
+   "Rung joins are chained with no full stop: hook -> R1 ('because'), R1 -> stakes ('and'), 30 m -> 100 m ('and at a hundred'), 100 m -> 250 m ('and by two hundred and fifty metres'), 1 km/whale -> peak ('Yours aren't, so by the time you reach the bottom'), peak -> twist ('...shot glass, and yet you never imploded'). 'STOP N' survives only as the meter's pin stamps.",
+   "Rung 1's mechanism is now 11 words in ~3.2 s with one fact (doubled -> half). The sky comparison and the double 'much' are gone.",
+   "The peak stat dump is removed: the bottom has two spoken images (teaspoon, Everest). '~1.1 TONNES ON EVERY CM²' and 'x1,072' are on screen only, and the jets are cut. Spoken numbers are 7.2/min (8.8 counting half/quarter), down from 13.",
+   "The peak now has a consequence about you: your whole breath is one teaspoon, and the worst outcome is said as a joke at 75% ('extremely not alive since roughly the shot glass'), with the figure greyed and lying down.",
+   "'Somehow' hedge added at 0:32.2: 'so from here on, pretend you somehow still have air', right after the real one-breath depth record.",
+   "Plant -> payoff made true: 'squeezed' is spoken at 0:05.1 (R1), 'squeezed into a shot glass' at 0:38.7 (partial) and 'biggest squeeze on your air' at 1:11.9 (total). The front matter and pacing table now give these real times."
+  ],
+  "reference": [
+   "Hook ≤10 words in ~3.0 s, keeps 'just ten metres' and chains straight into the 10 m mechanism. The ear symptom lands at 2.6 s and 'half' at 6.4 s (both before 0:08).",
+   "Everest moved to the bottom (0:52.9, 71%), matching DEEP's 72% placement. S2 is one chained clause; the biggest landmark is no longer spent at 5-14%.",
+   "Conjunction chain used for real (see the retention list). The table says where full stops remain: the turnstile, the whale punch and the stinger question.",
+   "Plant/payoff fixed: 'squeeze' is spoken in R1, partial at 1 km, total in the stinger. 'implode' is planted as the expected outcome (on-screen Tag at 0:10.5, spoken 'you still haven't imploded' at 0:44.1) and paid off at 1:00.4.",
+   "'Somehow' hedge added at the bridge past the human one-breath limit; fmZfphacPPQ 0:12-0:15 is added to the alignment table.",
+   "Spoken comparisons cut from 6 to 4 (water bottle, shot glass, teaspoon, Everest); the rest are on screen only. 'eleven times the pressure' is dropped from the VO (the meter stamps x11). The 31-word peak sentence is gone.",
+   "Rungs split: 6 stops instead of 4, including the reviewer's 15-20 m buoyancy crossover (worded at 30 m, which also removes the inaccurate 'sink' from the hook) and the ~253 m one-breath depth.",
+   "DEEP re-cited truthfully: the 'even life gives up' row is deleted (that line is gone). 'And yet' (13:21) is credited for the S6 opener, and the 13:10-13:21 'fatal to a human' -> 'And yet' order is credited for peak -> twist. The sperm-whale row is re-cited as a you-vs-it contrast (fGcgWaswMns ESC-3), not PRESSURE 0:18."
+  ],
+  "originality": [
+   "Duplicate risk vs episodes/explainer-pressure-ladder handled by rebuilding on beats that episode doesn't use. Gone: the thumbnail gag, the fish/snailfish beat, the sky line in the VO, 'eleven times' at 100 m and the jets. In their place: the breath-volume ladder, the eardrum, blood shift, the rib hedge, the implosion myth-bust and the 'half your air in the first 10 m' stinger. The title is changed to the myth-bust. pressure-ladder is now named in the premise's 'separate from' line. VO 5-gram overlap with it: 0.",
+   "Sperm-whale line is now 'Sperm whales hunt down here with ribs built to fold.' / 'Yours aren't...' with no 'because'. F12 lists the other adaptations.",
+   "-4% reworded to 'your flesh is only about four percent smaller', and the Stat sits on a tissue block, not the whole YOU outline. F17 gives the ~8% extra from lost lung gas.",
+   "Stinger reworded to 'And the biggest squeeze on your air?', and the bar card shows it is air volume (50% in the first 10 m, ~0.09% left at the bottom)."
+  ],
+  "producibility": [
+   "Depth meter: explainer/DepthMeter is linear, so storyboard.json draws a log-scale meter (y ~ log10(1+d)) from core layers, and the 6 pins are evenly spaced. The `scale: 'log'` + `pins` DepthMeter extension is logged as a kit gap in the shot list; no shared kit file was edited.",
+   "Missing whale-ribcage asset removed: SpermWhale + a green Tag 'RIBS BUILT TO FOLD ✓' against YOU's own chest x-ray card (with the crack) shown just before.",
+   "No YOU actions the figure can't do: no cheeks, no nose pinch, no profile, no palm, no X eyes. Head-down uses a layer `rotate` keyframe; death is `silhouette` grey + `idle:false` + a rotate to 270. The NEW `cheeks` / `pose: limp` props are dropped.",
+   "BodyCutaway is reduced to two flat svg cards (head with an eardrum layer whose scaleX bows; chest with ribs) plus separate lung svgs (scale keyframes), a blood overlay (opacity keyframes) and a crack svg (pop on 'gives'). Heart rate uses explainer/ECG with widening beat spacing instead of a drawn pulse.",
+   "Timing is word-anchored. gen_storyboard.py estimates per-word times (am_michael calibration). Per-paragraph [speed:] markers are supported by pipeline/audio/script.py and used in the narration block. Every layer time is A(scene, word), so rerunning on captions.json retimes the board, and the 'fixed seconds' problem is gone.",
+   "`whip` is used only as a scene transitionIn (stakes, peak, twist, stinger question, stinger answer), never as a camera move.",
+   "Audio cue fixed: music beds are declared in storyboard.json audio.music. deep_ocean is cut on the turnstile ('part.'), underwater_rumble + dread run from 1 km to the twist, and deep_ocean returns from the twist to the end."
+  ]
+ },
+ "nice_to_have_applied": [
+  "Implode myth planted early: Tag 'EVERYONE SAYS YOU'D IMPLODE...' at 0:10.5, and the title is the myth-bust.",
+  "Turnstile is 6 words: 'Relax. That was the easy part.'",
+  "Back half has a deflation every ~3-9 s: pretend, Relax, Yours aren't, still underwater, extremely not alive since the shot glass, MYTH stamp, water balloon.",
+  "Fish line removed entirely (the originality must-fix overrides the 'deepest fish' rewording), so the peak stays about you.",
+  "Stinger frame shows the claim is about air volume (bar card: 50% vs ~0.09%).",
+  "True loop: the last scene reuses frame 0's layers with no motion (surface, YOUR AIR 100%, meter at 0 M) and ends on zoom 1.0.",
+  "No Titan-submersible reference; the sealed can stands in.",
+  "~60 s A/B cut specified in script.md.",
+  "Explainer/Jet, Motorbike, Thumb and Snailfish are no longer needed. Bottle, shot glass, teaspoon, can (upright + crushed), balloon, tissue block, landmarks, trench section and Everest are all inline svgs in gen_storyboard.py. Everest is drawn at an honest 81% of the column and drops in with a layer y keyframe + shake.",
+  "Visual-only landmark at each major pin (~96 m clock tower at 100 m, 3 lattice towers ~1 km, Everest at the bottom); none is PRESSURE's Statue of Liberty or skyscraper.",
+  "Dive reflex moved to the 30 m rung; blood shift stays at 100 m.",
+  "X-ray after the 1 km number (chest card + crack). At the bottom the breath-bubble/teaspoon beat plays the x-ray's role.",
+  "'over a thousand times' is on screen only as 'x1,072'.",
+  "F9/F10 freediving records updated with the reviewer's figures, flagged for re-checking on the AIDA site before publishing.",
+  "Thought-experiment framing on screen from frame 0, and the safety metadata now states accurately that research/R5 is empty.",
+  "Old alternate title 'Could Your Body Survive The Mariana Trench?' dropped (too close to PRESSURE's title)."
+ ],
+ "not_applied": [
+  "Creating the research/R5 policy file is outside this step (script rewrite); the safety field states that R5 is empty.",
+  "DepthMeter kit extension (log scale + pins) not implemented, to avoid editing shared kit files concurrently; the core-layer fallback renders today.",
+  "Timings are not yet measured with Kokoro on the Spark; they are estimated and word-anchored."
+ ],
+ "conflicts_resolved": [
+  "Retention and reference asked to keep the SUV-on-thumbnail callback; originality asked to drop the thumbnail-weight gag as the main duplicate of episodes/explainer-pressure-ladder. Originality wins (monetization risk). The callback role moves to the breath ladder (shot glass at 1 km -> teaspoon at the bottom -> 'since roughly the shot glass' joke).",
+  "Retention nice-to-have suggested rewording the fish line; originality asked to drop the fish beat. Dropped."
+ ],
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/explainer/explainer-short-mariana-pressure/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "extra_checks": {
+   "vs_episodes_dir": "PASS (python3 scripts/originality_check.py <script> episodes)",
+   "vo_5gram_share_vs_pressure_ladder_vo": 0.0,
+   "vo_shared_4grams_vs_pressure_ladder": [
+    "of the mariana trench"
+   ],
+   "max_vo_5gram_share_vs_corpus_and_library_pct": 0.42,
+   "max_vo_5gram_share_source": "research/library/transcripts/_lu85gSD39k.txt"
+  }
+ },
+ "storyboard": {
+  "file": "storyboard.json",
+  "generator": "gen_storyboard.py",
+  "validation": "ok: studio/src/cli/validate.ts (Node 22, Spark): 9:16 30fps 17 scenes 75.00s captions=242 words",
+  "check_storyboards": "all components registered; max hold 2.4 s; only flag is the missing mix.wav (pre-TTS)",
+  "stills": "out/stills/mariana-pressure.jpg (24 stills, Spark CPU); fixes verified in out/stills/mariana-pressure-fix.jpg and out/stills/mariana-pressure-r10.jpg"
+ },
+ "measured": {
+  "vo_words": 242,
+  "runtime_s": 74.9,
+  "wpm": 194,
+  "hook_words": 10,
+  "hook_s": 3.0,
+  "turnstile_pct": 46,
+  "you_pct_sentences": 67,
+  "you_pct_words": 9.5,
+  "numbers_per_min": 7.2
+ }
+}
