@@ -177,7 +177,9 @@ def fade(at, d=0.4):
     return {"type": "fade", "at": at, "duration": d}
 
 
-def storyboard(slug, meta, scenes, words, total, captions_style, overlays, notes_source):
+def storyboard(slug, meta, scenes, words, total, captions_style, overlays, notes_source, paging=None):
+    """paging: {"maxWords", "maxChars"} for the caption pages (default 3 / 16; a builder module sets CAPTION_PAGING)."""
+    paging = {"maxWords": 3, "maxChars": 16, **(paging or {})}
     return {
         "version": 1,
         "id": slug,
@@ -187,7 +189,7 @@ def storyboard(slug, meta, scenes, words, total, captions_style, overlays, notes
         "scenes": scenes,
         "captions": {"words": [{"text": w["text"], "start": w["start"], "end": w["end"], **({"emph": True} if w.get("emph") else {})}
                                for w in words],
-                     "maxWords": 3, "maxChars": 16, "style": captions_style},
+                     **paging, "style": captions_style},
         "audio": {"voice": [{"src": f"episodes/{slug}/mix.wav", "start": 0, "volume": 1, "duration": round(total, 3)}],
                   "music": [], "sfx": [], "duckOn": "none"},
         "overlays": overlays,

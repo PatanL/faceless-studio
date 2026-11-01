@@ -18,13 +18,16 @@ Accepted input (.md or .txt):
     [pause: 0.8]             silence in seconds
     [music: dread]           choose the music bed (anywhere; last one wins)
     [music: none]            no music bed
+    [vox: -4]                voice gain (dB) for this paragraph (quiet, close passages: gives the mix dynamics)
+    [speed: 1.15]            TTS speed from this paragraph on (e.g. slow the last 20 s down)
+    [sfx: knock3_slow hush=0.5]  also pull the music bed to near silence for 0.5 s before the cue
 """
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
 
-MARK = re.compile(r"\[(sfx|pause|music)\s*:\s*([^\]]+)\]", re.I)
+MARK = re.compile(r"\[(sfx|pause|music|vox|speed)\s*:\s*([^\]]+)\]", re.I)
 
 
 @dataclass
@@ -34,6 +37,7 @@ class Marker:
     name: str = ""
     seconds: float = 0.0     # pause length or sfx offset
     db: float = 0.0          # sfx level offset
+    hush: float = 0.0        # sfx: seconds of near-silent music bed before the cue
 
 
 @dataclass
@@ -41,6 +45,8 @@ class Segment:
     text: str                # narration text with markers removed
     words: list[str]
     markers: list[Marker] = field(default_factory=list)
+    gain_db: float = 0.0     # [vox: dB]
+    speed: float | None = None  # [speed: x] (sticky: applies to later paragraphs too)
 
 
 @dataclass
@@ -95,11 +101,13 @@ def parse(src: str) -> Script:
     text = _clean(_narration(body))
     music = meta.get("music")
     segments = []
+    speed = None
     for para in re.split(r"\n\s*\n", text):
         para = " ".join(para.split())
         if not para:
             continue
         words, markers, plain = [], [], []
+        gain = 0.0
         pos = 0
         for m in MARK.finditer(para):
             chunk = para[pos:m.start()]
@@ -108,6 +116,10 @@ def parse(src: str) -> Script:
             kind, arg = m.group(1).lower(), m.group(2).strip()
             if kind == "music":
                 music = "" if arg.lower() in ("none", "off") else arg
+            elif kind == "vox":
+                gain = float(re.findall(r"[-+]?[\d.]+", arg)[0])
+            elif kind == "speed":
+                speed = float(re.findall(r"[\d.]+", arg)[0])
             elif kind == "pause":
                 markers.append(Marker("pause", len(words), seconds=float(re.findall(r"[\d.]+", arg)[0])))
             else:
@@ -121,6 +133,8 @@ def parse(src: str) -> Script:
                         mk.db = float(p[4:])
                     elif p.lower() == "wait":
                         wait = True
+                    elif p.lower().startswith("hush="):
+                        mk.hush = float(p[5:])
                 markers.append(mk)
                 if wait:  # hold the narration until the sound has played (length resolved at synth time)
                     markers.append(Marker("pause", len(words), name=parts[0], seconds=-1.0))
@@ -129,7 +143,7 @@ def parse(src: str) -> Script:
         words += para[pos:].split()
         seg_text = " ".join("".join(plain).split())
         if words or markers:
-            segments.append(Segment(seg_text, words, markers))
+            segments.append(Segment(seg_text, words, markers, gain_db=gain, speed=speed))
     return Script(meta, segments, music)
 
 
@@ -140,11 +154,11 @@ def split_on_pauses(seg: Segment) -> list[tuple[Segment, float]]:
         if mk.kind == "pause":
             sub = seg.words[start:mk.word_index]
             out.append((Segment(" ".join(sub), sub, [
-                Marker(m.kind, m.word_index - start, m.name, m.seconds, m.db) for m in cur_markers]), mk.seconds))
+                Marker(m.kind, m.word_index - start, m.name, m.seconds, m.db, m.hush) for m in cur_markers]), mk.seconds))
             start, cur_markers = mk.word_index, []
         else:
             cur_markers.append(mk)
     sub = seg.words[start:]
     out.append((Segment(" ".join(sub), sub, [
-        Marker(m.kind, m.word_index - start, m.name, m.seconds, m.db) for m in cur_markers]), 0.0))
+        Marker(m.kind, m.word_index - start, m.name, m.seconds, m.db, m.hush) for m in cur_markers]), 0.0))
     return out

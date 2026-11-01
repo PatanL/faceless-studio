@@ -41,6 +41,20 @@ def trim_tail(a48, keep=TRIM_KEEP, thresh_db=TRIM_DB):
     end = min(len(a48), (loud[-1] + 1) * win + int(keep * SR))
     return a48[:end]
 
+def trim_head(a48, keep=0.03, thresh_db=TRIM_DB):
+    """Cut a chunk's leading silence to <= keep seconds (so the voice starts right after the lead-in)."""
+    win = int(0.02 * SR)
+    if len(a48) < win * 4:
+        return a48
+    th = 10 ** (thresh_db / 20)
+    n = len(a48) // win
+    rms = np.sqrt(np.mean(a48[: n * win].reshape(n, win) ** 2, axis=1))
+    loud = np.nonzero(rms > th)[0]
+    if not len(loud):
+        return a48
+    return a48[max(0, loud[0] * win - int(keep * SR)):]
+
+
 _PIPES: dict = {}
 
 
@@ -171,8 +185,9 @@ def voice_chain(audio48: np.ndarray, chain: str) -> np.ndarray:
 def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print):
     """-> dict(audio=np 48k mono, words=[{text,start,end}], cues=[{cue,at,db,source}], stats)"""
     engine, voice, lang, speed = cfg["engine"], cfg["voice"], cfg["lang"], cfg["speed"]
-    pieces = [np.zeros(int(LEAD_IN * SR), np.float32)]
-    t = LEAD_IN
+    lead = float(cfg.get("lead_in", LEAD_IN))
+    pieces = [np.zeros(int(lead * SR), np.float32)]
+    t = lead
     words, cues, coverage, synth_s = [], [], [], 0.0
     plan = []
     def sfx_len(name):
@@ -193,16 +208,28 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
         for k, (sub, pause_after) in enumerate(subs):
             last_of_seg = k == len(subs) - 1
             gap = pause_after + (cfg["paragraph_pause"] if last_of_seg and si < len(script.segments) - 1 else 0)
-            plan.append((sub, gap))
-    for sub, gap in plan:
+            plan.append((sub, gap, seg.gain_db, seg.speed or speed))
+    gains = []  # (start sample, end sample, dB) from [vox: dB], applied after the voice chain
+    speeds = set()
+    for sub, gap, gain_db, sp in plan:
         if sub.words:
             t0 = time.time()
+            speeds.add(sp)
             if engine == "piper":
                 a, sr, timed = _piper(sub.text, voice)
             else:
-                a, sr, timed = _kokoro(sub.text, voice, lang, speed)
+                a, sr, timed = _kokoro(sub.text, voice, lang, sp)
             synth_s += time.time() - t0
             a48 = trim_tail(_to48(a, sr)) if cfg.get("trim_tail") else _to48(a, sr)
+            # first spoken chunk: cut Kokoro's lead silence (trim_head); later chunks only with trim_head_every
+            head_keep = cfg.get("trim_head") if not pieces[1:] else cfg.get("trim_head_every")
+            if head_keep is not None:
+                n0 = len(a48)
+                a48 = trim_head(a48, keep=float(head_keep))
+                cut = (n0 - len(a48)) / SR
+                if cut and timed:
+                    timed = [(w_, None if s_ is None else max(0.0, s_ - cut), None if e_ is None else max(0.0, e_ - cut))
+                             for w_, s_, e_ in timed]
             dur = len(a48) / SR
             times, cov = align(sub.words, timed, dur) if timed and not force_whisper else (None, 0.0)
             if times:
@@ -220,22 +247,32 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
                 if mk.kind != "sfx":
                     continue
                 at = t + (times[mk.word_index][0] if mk.word_index < len(times) else dur) + mk.seconds
-                cues.append({"cue": mk.name, "at": round(max(0.0, at), 3), "db": mk.db, "source": "marker"})
+                cues.append({"cue": mk.name, "at": round(max(0.0, at), 3), "db": mk.db, "source": "marker",
+                             **({"hush": mk.hush} if mk.hush else {})})
+            if gain_db:
+                gains.append((int(round(t * SR)), int(round((t + dur) * SR)), gain_db))
             pieces.append(a48)
             t += dur
         else:  # markers only (e.g. a line that is just "[sfx: knock3] [pause: 1.2]")
             for mk in sub.markers:
                 if mk.kind == "sfx":
-                    cues.append({"cue": mk.name, "at": round(t + mk.seconds, 3), "db": mk.db, "source": "marker"})
+                    cues.append({"cue": mk.name, "at": round(t + mk.seconds, 3), "db": mk.db, "source": "marker",
+                                 **({"hush": mk.hush} if mk.hush else {})})
         if gap > 0:
             pieces.append(np.zeros(int(gap * SR), np.float32))
             t += int(gap * SR) / SR
     pieces.append(np.zeros(int(TAIL * SR), np.float32))
     audio = np.concatenate(pieces)
     audio = voice_chain(audio, cfg.get("voice_chain", ""))
+    fadeN = int(0.03 * SR)
+    for i, j, db in gains:  # after the compressor, so a quiet passage stays quiet
+        g = np.full(j - i, 10 ** (db / 20), np.float32)
+        ramp = np.linspace(1, 10 ** (db / 20), min(fadeN, len(g)), dtype=np.float32)
+        g[: len(ramp)] = ramp
+        audio[i:j] *= g[: max(0, min(j, len(audio)) - i)]
     n_words = sum(c[0] for c in coverage) or 1
     stats = {
-        "engine": engine, "voice": voice, "speed": speed, "synth_s": round(synth_s, 2),
+        "engine": engine, "voice": voice, "speed": speed if len(speeds) <= 1 else sorted(speeds), "synth_s": round(synth_s, 2),
         "duration_s": round(len(audio) / SR, 3),
         "timing_source": sorted({c[2] for c in coverage}),
         "timing_coverage": round(sum(c[0] * c[1] for c in coverage) / n_words, 3),

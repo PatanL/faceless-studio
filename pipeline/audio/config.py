@@ -4,14 +4,21 @@ NICHES = {
     "explainer": {
         # calm US documentary male; slightly slower than default for gravitas
         "engine": "kokoro", "voice": "am_michael", "lang": "a", "speed": 0.96,
-        # Shorts pace: chunks are tail-trimmed to <=0.12 s, so ~0.4 s between paragraphs (no dead air)
-        "paragraph_pause": 0.28,
+        # Shorts pace: chunks are tail-trimmed to <=0.12 s, so ~0.27 s between paragraphs (no dead air)
+        "paragraph_pause": 0.15,
         "trim_tail": True,
+        "lead_in": 0.1, "trim_head": 0.03,  # first word by ~0.15 s (frame 0 is the cover; no dead air)
+        "trim_head_every": 0.05,  # Kokoro's ~0.2-0.3 s lead silence on every later chunk too (paragraph gaps ~0.3 s)
         "voice_chain": "highpass=f=70,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=1,"
                        "equalizer=f=3200:t=q:w=1.2:g=1.5",
         "music": "deep_ocean",
-        "music_db": -5.0,    # bed loudness relative to the voice, between lines (-15 left deep_ocean ~28 dB under)
-        "duck_db": -9.0,     # extra attenuation while the voice talks
+        # bed loudness (LUFS) relative to the voice, between lines. Orca review: -15 / -9 duck put the bed ~24 LU
+        # (~26 dB RMS) under the talking voice, inaudible on a phone. -13.5 / -5 = ~18.5 LU, ~20 dB RMS under the voice
+        # while it talks (report.json mix.bed_below_voice_db), and it swells back up in the gaps.
+        "music_db": -13.5,
+        "duck_db": -5.0,     # gentle duck while the voice talks (was -9)
+        # whoosh/swell on every scene cut (pipeline.audio.make.cut_cues); cuts with a marker cue keep only that cue
+        "cut_sfx": {"cues": ["whoosh", "bubbles", "whoosh", "whoosh_long"], "lead": 0.3, "db": -5.0},
         "sfx_duck_db": -4.0, # lighter duck while an SFX plays (outside speech)
         "attack": 0.10, "release": 0.55, "lookahead": 0.08,
         "music_fade_in": 1.0, "music_fade_out": 2.0,
@@ -28,11 +35,12 @@ NICHES = {
         "voice_chain": "highpass=f=80,acompressor=threshold=-22dB:ratio=3:attack=5:release=100:makeup=1,"
                        "equalizer=f=250:t=q:w=1:g=1.5,aecho=0.9:0.9:23|41:0.10|0.06",
         "music": "dread",
-        "music_db": -12.0,
+        "music_db": -7.5,    # was -12: the bed sat ~38 dB under the voice and vanished in the knock silences
+        "lead_in": 0.1, "trim_head": 0.03,  # voice starts by ~0.15 s (frame 0 is the cover; no dead air)
         "duck_db": -7.0,
         "sfx_duck_db": -5.0,
         "attack": 0.12, "release": 0.8, "lookahead": 0.10,
-        "music_fade_in": 1.5, "music_fade_out": 2.5,
+        "music_fade_in": 0.3, "music_fade_out": 2.5,
         "auto_sfx": {
             r"\bknock(s|ed|ing)?\b": "knock3", r"\bbuzz(ed|es|ing)?\b|\bvibrat": "phone_buzz",
             r"\bheart(beat)?\b": "heartbeat_slow", r"\bcreak": "door_creak", r"\bding\b": "ding",
@@ -41,6 +49,13 @@ NICHES = {
         # auto cues fire on the spoken word, i.e. inside speech: keep them under the key words
         "auto_sfx_db": {"knock3": -6.0},
         "trim_tail": True,
+        # the scare must be the loudest event: featured hits are levelled by their loudest 400 ms (momentary LUFS)
+        # relative to the voice (voice ~ -14 LUFS in the final mix -> knocks ~ -11, end stinger ~ -12)
+        "sfx_momentary": {"knock3_slow": 5.5, "stinger": 3.0},
+        "sfx_squash": {"knock3_slow": 6.0, "stinger": 3.0},  # transient pre-limit (crest 13 -> 9.5 dB on the knocks)
+        # music bed drops to near silence this long before a featured hit (a held breath), then recovers
+        "hush": {"knock3_slow": 0.6},
+        "hush_db": -32.0,
     },
 }
 

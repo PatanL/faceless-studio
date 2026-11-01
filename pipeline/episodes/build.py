@@ -38,6 +38,24 @@ def mark_emphasis(words: list[dict], tokens: list) -> None:
             raise SystemExit(f"emphasis word {tok!r} #{nth} not in narration")
         hits[nth]["emph"] = True
 
+STOPWORDS = set("a an the and as of to into onto on in its it's that's about when than with your but or for at from by "
+                "just every being is was were be said say says dot so then this that these those my his her our their "
+                "i me you he she we they it him them us what who'd who".split())
+
+
+def auto_emphasis(words: list[dict], pattern: str, every: float = 2.5) -> None:
+    """Red-highlight content words that match pattern (numbers, threat nouns, key verbs), never stopwords,
+    at most one every `every` seconds so the red stays a signal."""
+    import re
+    rx = re.compile(pattern, re.I)
+    last = -99.0
+    for w in words:
+        t = norm(w["text"])
+        if t and t not in STOPWORDS and rx.search(t) and w["start"] - last >= every:
+            w["emph"] = True
+            last = w["start"]
+
+
 BUILDERS = {**{k: (v, explainer_eps) for k, v in explainer_eps.EPISODES.items()},
             **{k: (v, horror_eps) for k, v in horror_eps.EPISODES.items()}}
 
@@ -48,14 +66,27 @@ def build(slug: str) -> str:
     built = fn(scenes)
     if len(built) != len(scenes):
         raise SystemExit(f"{slug}: builder made {len(built)} scenes for {len(scenes)} paragraphs")
-    mark_emphasis(words, getattr(mod, "EMPHASIS", {}).get(slug, []))
+    explicit = getattr(mod, "EMPHASIS", {}).get(slug)
+    if explicit:
+        mark_emphasis(words, explicit)
+    elif getattr(mod, "EMPH_AUTO", None):
+        auto_emphasis(words, mod.EMPH_AUTO)
+    stray = [w["text"] for w in words if w.get("emph") and norm(w["text"]) in STOPWORDS]
+    if stray:  # red on 'and' / 'the' reads as random: fail the strict (pilot) builds, warn on the rest
+        msg = f"{slug}: emphasis on stopwords {stray}"
+        if slug in getattr(mod, "STRICT_HOLDS", ()):
+            raise SystemExit(msg)
+        print("WARN " + msg)
     holds = check_holds(slug, built)
     if holds:
         msg = f"{slug}: visual holds over {MAX_HOLD:.0f}s: " + "; ".join(holds)
         if slug in getattr(mod, "STRICT_HOLDS", ()):
             raise SystemExit(msg)
         print("WARN " + msg)
-    sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source)
+    paging = dict(getattr(mod, "CAPTION_PAGING", None) or {})
+    if slug in getattr(mod, "CAPTION_GLUE", {}):  # phrases a caption page never splits
+        paging["glue"] = mod.CAPTION_GLUE[slug]
+    sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
     out = os.path.join(ROOT, "episodes", slug, "storyboard.json")
     with open(out, "w") as f:
         json.dump(sb, f, indent=1, ensure_ascii=False)

@@ -133,6 +133,38 @@ def ffmpeg_loudness(path: str) -> dict:
     return {"I_lufs": get("I"), "LRA_lu": get("LRA"), "true_peak_dbtp": get("Peak")}
 
 
+def max_momentary(x: np.ndarray) -> float:
+    """Loudest 400 ms window (BS.1770 momentary loudness, 100 ms hop) of a short sound."""
+    w, hop = int(0.4 * SR), int(0.1 * SR)
+    if len(x) <= w:
+        return lufs(x)
+    vals = [lufs(x[i:i + w]) for i in range(0, len(x) - w, hop)]
+    return max(vals) if vals else -70.0
+
+
+def hush_gain(cues, total, cfg):
+    """Music gain (linear, per sample) that drops the bed to near silence for `hush` s before featured cues
+    (cue["hush"] from the script marker, else cfg["hush"][cue]), holds it through the hit and recovers after."""
+    g = np.ones(total, np.float32)
+    floor = db2lin(cfg.get("hush_db", -32.0))
+    for c in cues:
+        h = float(c.get("hush", cfg.get("hush", {}).get(c["cue"], 0.0)))
+        if h <= 0:
+            continue
+        try:
+            dur = sf.info(find_asset("sfx", c["cue"])).duration
+        except Exception:
+            dur = 1.0
+        t = np.arange(total) / SR
+        a0, a1 = c["at"] - h - 0.12, c["at"] - h       # fade down
+        b0, b1 = c["at"] + 0.6 * dur, c["at"] + 0.6 * dur + 1.2  # hold through the hit, then recover
+        env = np.ones(total, np.float32)
+        env = np.where(t >= a0, 1 - (1 - floor) * np.clip((t - a0) / (a1 - a0), 0, 1), env)
+        env = np.where(t >= b0, floor + (1 - floor) * np.clip((t - b0) / (b1 - b0), 0, 1), env)
+        g = np.minimum(g, env.astype(np.float32))
+    return g
+
+
 def _sfx_bus(cues, total, log):
     """Unscaled mono sum of the SFX (only used as a sidechain key)."""
     if not cues:
@@ -192,7 +224,7 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         t = np.arange(total) / SR
         fi = np.clip(t / max(cfg.get("music_fade_in", 1.0), 1e-3), 0, 1)
         fo = np.clip((total / SR - t) / max(fade_out, 1e-3), 0, 1)
-        m = bed * (gain * fi * fo)[:, None]
+        m = bed * (gain * fi * fo * hush_gain(cues, total, cfg))[:, None]
         # measured duck depth: bed level in speech frames vs gap frames (for the report)
         sp = env_s > 0.95
         gp = (env_s < 0.05) & (env_x < 0.05)  # gaps with no voice and no SFX
@@ -200,6 +232,8 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         if sp.any() and gp.any():
             duck_stats = {"music_rms_db_under_voice": round(rms(m[sp]), 2), "music_rms_db_in_gaps": round(rms(m[gp]), 2)}
             duck_stats["measured_duck_db"] = round(duck_stats["music_rms_db_under_voice"] - duck_stats["music_rms_db_in_gaps"], 2)
+            # how far the bed sits under the narration while it talks (voice RMS vs bed RMS, same speech frames)
+            duck_stats["bed_below_voice_db"] = round(rms(v[:, 0][sp]) - duck_stats["music_rms_db_under_voice"], 2)
     # --- SFX
     s = np.zeros((total, 2), np.float32)
     placed = []
@@ -209,8 +243,16 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         except FileNotFoundError as e:
             log(f"[mix] WARNING {e}")
             continue
-        level = ref + SFX_DB.get(c["cue"], -6.0) + c.get("db", 0.0)
-        x = x * db2lin(level - active_rms_db(x))
+        sq = cfg.get("sfx_squash", {}).get(c["cue"], 0)
+        if sq:  # pre-limit the transients (dB) so a featured hit can be loud without slamming the true-peak ceiling
+            x = limiter((x / (np.abs(x).max() + 1e-9))[:, None], -float(sq))[:, 0]
+        loud = cfg.get("sfx_momentary", {})
+        if c["cue"] in loud:  # featured hit: set by its loudest 400 ms (momentary LUFS) relative to the voice
+            level = ref + loud[c["cue"]] + c.get("db", 0.0)
+            x = x * db2lin(level - max_momentary(x))
+        else:
+            level = ref + SFX_DB.get(c["cue"], -6.0) + c.get("db", 0.0)
+            x = x * db2lin(level - active_rms_db(x))
         i = int(round(c["at"] * SR))
         j = min(total, i + len(x))
         if j <= i:
@@ -243,6 +285,10 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
     if env_s is not None:
         np.save(os.path.join(out_dir, "duck_env.npy"), env_s[:: int(FRAME * SR)])
     meas = ffmpeg_loudness(paths["mix"])
+    for c in placed:  # how loud each hit lands in the final mix (vs the narration's integrated level)
+        i, j = int(c["at"] * SR), min(total, int((c["at"] + c["dur"]) * SR))
+        if j - i > int(0.4 * SR):
+            c["mix_momentary_max"] = round(max_momentary(out[i:j]), 1)
     rep = {
         "target_lufs": TARGET_LUFS, "pyloudnorm_lufs": round(lufs(out), 2), "true_peak_dbtp_4x": round(true_peak_db(out), 2),
         "ffmpeg_ebur128": meas, "duration_s": round(total / SR, 3), "music": music, "sfx_placed": placed, **duck_stats,

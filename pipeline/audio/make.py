@@ -50,6 +50,26 @@ def waveform_png(paths: dict, out_png: str, cues: list[dict], dur: float):
                     "-map", "[out]", "-frames:v", "1", out_png], check=True)
 
 
+def cut_cues(sc, words: list[dict], cfg: dict, existing: list[dict]) -> list[dict]:
+    """Transition SFX on scene cuts (one narration paragraph = one scene, cut ~0.15 s before its first word).
+    cfg["cut_sfx"] = {"cues": [names, rotated], "lead": s before the first word, "db": level offset}; a cut that
+    already has a marker cue within 0.6 s gets none (impacts/stingers carry their own cut)."""
+    spec = cfg.get("cut_sfx")
+    if not spec:
+        return []
+    names, lead, db = spec["cues"], float(spec.get("lead", 0.35)), float(spec.get("db", 0.0))
+    out, idx, k = [], 0, 0
+    for si, seg in enumerate(sc.segments):
+        n = len(seg.words)
+        if si > 0 and n and idx < len(words):
+            t = round(max(0.0, words[idx]["start"] - lead), 3)
+            if not any(abs(c["at"] - t) < 0.6 for c in existing):
+                out.append({"cue": names[k % len(names)], "at": t, "db": db, "source": "cut"})
+                k += 1
+        idx += n
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("script")
@@ -74,6 +94,8 @@ def main(argv=None):
         v = getattr(a, k) or sc.meta.get(k)
         if v:
             cfg[k] = float(v) if k == "speed" else v
+    if sc.meta.get("paragraph_pause") not in (None, ""):  # per-script override (front matter)
+        cfg["paragraph_pause"] = float(sc.meta["paragraph_pause"])
     if cfg["voice"].startswith("b") and cfg["engine"] == "kokoro":
         cfg["lang"] = "b"
     elif cfg["engine"] == "kokoro":
@@ -90,6 +112,8 @@ def main(argv=None):
     cues = sorted(tts["cues"], key=lambda c: c["at"])
     if not a.no_auto_sfx:
         cues = sorted(cues + auto_cues(tts["words"], cfg.get("auto_sfx", {}), cues, in_speech_db=cfg.get("auto_sfx_db")), key=lambda c: c["at"])
+    if not a.no_auto_sfx:
+        cues = sorted(cues + cut_cues(sc, tts["words"], cfg, cues), key=lambda c: c["at"])
     mx = mix(tts["audio"], cues, cfg, music, out)
     dur = mx["report"]["duration_s"]
 

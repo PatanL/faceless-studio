@@ -327,8 +327,30 @@ def sfx_knock3():
     return _knocks([0.0, 0.32, 0.64])
 
 
+def _heavy_knock(seed, strength=1.0):
+    """A fist on a solid door, close to the listener: knuckle crack + low door-panel thump + rattle in the frame."""
+    n = int(0.7 * SR)
+    t = np.arange(n) / SR
+    r = rng(seed)
+    crack = lp(r.standard_normal(n), 2400) * env_exp(n, 0.008, 0.0005)
+    f = 62 + 38 * np.exp(-t / 0.03)
+    thump = np.sin(2 * np.pi * np.cumsum(f) / SR) * env_exp(n, 0.16, 0.002)
+    panel = np.zeros(n)
+    for fr, d in ((96, 0.14), (151, 0.10), (233, 0.07), (372, 0.04)):
+        panel += np.sin(2 * np.pi * fr * r.uniform(0.98, 1.02) * t) * env_exp(n, d, 0.001)
+    rattle = bp(r.standard_normal(n), 1800, 4200) * env_exp(n, 0.05, 0.004) * (0.5 + 0.5 * np.sin(2 * np.pi * 37 * t))
+    y = 0.7 * crack + 1.1 * thump + 0.55 * panel + 0.12 * rattle
+    y = np.tanh(2.2 * y) / np.tanh(2.2)  # soften the crest so the hit can sit loud under the true-peak ceiling
+    return strength * y
+
+
 def sfx_knock3_slow():
-    return _knocks([0.0, 0.95, 1.9])
+    """The climactic three knocks (0 / 0.95 / 1.9 s): heavy door thumps in a small hallway."""
+    times = [0.0, 0.95, 1.9]
+    y = np.zeros(int((times[-1] + 1.0) * SR))
+    for i, at in enumerate(times):
+        place(y, _heavy_knock(60 + i, 1.0 if i != 1 else 0.94), at)
+    return reverb(y, 0.9, 0.3, predelay=0.008, damp=3000)
 
 
 def sfx_door_creak(dur=2.4, seed=50):

@@ -8,7 +8,8 @@ target_s: 68
 pilot: true
 template: pipeline/templates/horror.md (T2 Unspoken Rule Broken + T1 Locked-Door Siege)
 voice: af_heart
-speed: 1.25
+speed: 1.3
+paragraph_pause: 0.06
 music: dread
 references:
   - id: 7702661541224566049, url: https://www.tiktok.com/@udhwkz/video/7702661541224566049, views: 2200000, outlier_score: 63.13
@@ -46,15 +47,15 @@ Series potential: Part 2 = what the other six rules mean.
 ## Narration
 
 ```narration
-[music: dread] Rule four said: if someone knocks three times, you are not home. Do not answer. Do not move. [sfx: notify]
+[music: dread] Rule four said if someone knocks three times, you are not home. Do not answer. Do not move. [sfx: notify]
 
-Pinned in our building chat at one a.m. Signed, Management. Rule five: Management will never ask to come inside.
+Signed, Management. Rule five: Management will never ask to come inside.
 
-Then Dev in six C checked. Our management company shut down two years ago. [sfx: stinger @0.1 vol=-6]
+Dev in Six-C checked. Management shut down two years ago. [sfx: stinger @0.1 vol=-6]
 
 So who'd been answering our repair requests? And who pinned the rules?
 
-Everyone said it was a prank. Ben in five A said he'd leave his hallway light on and break every rule tonight, just to see what happens.
+Everyone said it was a prank. Ben in five-A said he'd leave his hallway light on and break every rule tonight, just to see what happens.
 
 At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck.
 
@@ -62,15 +63,15 @@ That was the last thing he sent. His little green dot turned grey. [pause: 0.4]
 
 Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate.
 
-I switched off my hallway light and sat with my back against the door.
+[speed: 1.12] [vox: -6] I switched off my hallway light and sat with my back against the door.
 
-Right behind my head, someone knocked. [sfx: knock3_slow wait] Three times.
+[vox: -7] Right behind my head, someone knocked. [sfx: knock3_slow wait hush=0.6] Three times.
 
-A calm voice said my name. It's Management. We just need to come in for a minute.
+[vox: -4] A calm voice said my name. It's Management. We just need to come in for a minute.
 
-My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them.
+My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them. [pause: 1.6]
 
-I looked through the peephole again. There was only one person out there. [sfx: stinger @0.15] [sfx: phone_buzz @1.15 vol=-2]
+[vox: -5] I looked through the peephole again. There was only one person out there. [sfx: stinger @0.15] [sfx: phone_buzz @2.5 vol=-2]
 ```
 
 ## Shot notes

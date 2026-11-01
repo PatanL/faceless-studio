@@ -1,66 +1,75 @@
 [
  {
   "cue": "knock3",
-  "at": 1.762,
+  "at": 0.987,
   "db": -6.0,
   "source": "auto:knocks",
   "dur": 1.324,
-  "level_db": -9.0
+  "level_db": -9.0,
+  "mix_momentary_max": -12.7
  },
  {
   "cue": "notify",
-  "at": 4.77,
+  "at": 4.13,
   "db": 0.0,
   "source": "marker",
   "dur": 0.988,
-  "level_db": -10.0
+  "level_db": -10.0,
+  "mix_momentary_max": -9.9
  },
  {
   "cue": "stinger",
-  "at": 15.25,
+  "at": 11.31,
   "db": -6.0,
   "source": "marker",
   "dur": 4.026,
-  "level_db": -11.0
+  "level_db": -4.0,
+  "mix_momentary_max": -10.4
  },
  {
   "cue": "knock3",
-  "at": 27.7,
+  "at": 23.23,
   "db": -6.0,
   "source": "auto:knocking.",
   "dur": 1.324,
-  "level_db": -9.0
+  "level_db": -9.0,
+  "mix_momentary_max": -11.3
  },
  {
   "cue": "knock3_slow",
-  "at": 45.06,
+  "at": 40.51,
   "db": 0.0,
   "source": "marker",
-  "dur": 2.594,
-  "level_db": -3.0
+  "hush": 0.6,
+  "dur": 3.106,
+  "level_db": 3.5,
+  "mix_momentary_max": -10.5
  },
  {
   "cue": "phone_buzz",
-  "at": 53.504,
+  "at": 50.086,
   "db": 0.0,
   "source": "auto:buzzed.",
   "dur": 1.256,
-  "level_db": -7.0
+  "level_db": -7.0,
+  "mix_momentary_max": -10.7
  },
  {
   "cue": "stinger",
-  "at": 62.304,
+  "at": 61.256,
   "db": 0.0,
   "source": "marker",
   "dur": 4.026,
-  "level_db": -5.0
+  "level_db": 2.0,
+  "mix_momentary_max": -11.9
  },
  {
   "cue": "phone_buzz",
-  "at": 63.304,
+  "at": 63.606,
   "db": -2.0,
   "source": "marker",
   "dur": 1.256,
-  "level_db": -9.0
+  "level_db": -9.0,
+  "mix_momentary_max": -24.1
  }
 ]

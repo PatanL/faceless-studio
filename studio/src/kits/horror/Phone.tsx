@@ -162,13 +162,13 @@ const PinnedBar: React.FC<{p: Record<string, unknown>; t: number; th: Theme; s: 
 				<div style={{fontFamily: FONT, fontWeight: 900, fontSize: fs * 0.8, color: th.pinLabel, letterSpacing: '0.04em'}}>
 					{str(p.label, 'PINNED')}{str(p.from, '') ? ` · ${str(p.from, '')}` : ''}{edited ? ' · edited' : ''}
 				</div>
-				<div style={{fontFamily: FONT, fontWeight: 800, fontSize: fs, lineHeight: 1.25, color: th.pinText, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>{text}</div>
+				<div style={{fontFamily: FONT, fontWeight: 800, fontSize: fs, lineHeight: 1.25, color: th.pinText, display: '-webkit-box', WebkitLineClamp: num(p.lines, 2), WebkitBoxOrient: 'vertical', overflow: 'hidden', whiteSpace: 'pre-line'}}>{text}</div>
 			</div>
 		</div>
 	);
 };
 
-const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; accent: string; th?: Theme; s?: number}> = ({m, members, t, accent, th = THEMES.dark, s = 1}) => {
+const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; accent: string; th?: Theme; s?: number; dm?: boolean}> = ({m, members, t, accent, th = THEMES.dark, s = 1, dm = false}) => {
 	const p = popIn(t, num(m.at, 0), 0.3);
 	const e = ease('backOut', p);
 	const me = Boolean(m.me);
@@ -192,7 +192,7 @@ const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; acce
 		>
 			{me ? null : <Avatar name={from} members={members} size={d.avatar} />}
 			<div style={{display: 'flex', flexDirection: 'column', alignItems: me ? 'flex-end' : 'flex-start', maxWidth: d.max}}>
-				{me ? null : (
+				{me || dm ? null : (
 					<div style={{fontFamily: FONT, fontWeight: 800, fontSize: d.name, color: colorFor(from, members), filter: `brightness(${th.nameBright})`, margin: '2px 0 6px 6px'}}>{from}</div>
 				)}
 				<div
@@ -237,6 +237,8 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 	const title = str(c.title, 'Building 7 Residents');
 	const groupNames = Object.keys(members).slice(0, 3);
 	const pinned = c.pinned ? obj(c.pinned) : null;
+	// 1:1 DM (chat.dm = the other person's name): one avatar in the header, no sender labels on bubbles
+	const dm = str(c.dm, '');
 	return (
 		<div style={{position: 'absolute', inset: 0, background: th.bg, display: 'flex', flexDirection: 'column'}}>
 			<div style={{background: th.header, borderBottom: `2px solid ${th.headerBorder}`, position: 'relative', zIndex: 2}}>
@@ -250,6 +252,11 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 							{unread > 99 ? '99+' : unread}
 						</div>
 					) : null}
+					{dm ? (
+						<div style={{flex: 'none', border: `3px solid ${th.header}`, borderRadius: '50%'}}>
+							<Avatar name={dm} members={members} size={60} />
+						</div>
+					) : (
 					<div style={{position: 'relative', width: 70, height: 64, flex: 'none'}}>
 						{(groupNames.length ? groupNames : ['A', 'B']).slice(0, 2).map((n, i) => (
 							<div key={n} style={{position: 'absolute', left: i * 22, top: i * 12, border: `3px solid ${th.header}`, borderRadius: '50%'}}>
@@ -257,6 +264,7 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 							</div>
 						))}
 					</div>
+					)}
 					<div style={{display: 'flex', flexDirection: 'column', minWidth: 0}}>
 						<div style={{fontFamily: FONT, fontWeight: 800, fontSize: 28, color: th.title, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 360}}>{title}</div>
 						<div style={{fontFamily: FONT, fontWeight: 700, fontSize: 20, color: typingName ? '#2e9d5c' : th.sub, marginTop: 4}}>{subtitle}</div>
@@ -270,7 +278,7 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 						<div style={{alignSelf: 'center', fontFamily: FONT, fontWeight: 700, fontSize: 19 * Math.min(sc, 1.3), color: th.dayText, background: th.dayBg, padding: '6px 16px', borderRadius: 14, marginBottom: 6}}>{str(c.dayLabel, '')}</div>
 					) : null}
 					{msgs.map((m, i) =>
-						m.kind === 'system' ? <SystemLine key={i} m={m} t={t} th={th} s={sc} /> : <Bubble key={i} m={m} members={members} t={t} accent={accent} th={th} s={sc} />,
+						m.kind === 'system' ? <SystemLine key={i} m={m} t={t} th={th} s={sc} /> : <Bubble key={i} m={m} members={members} t={t} accent={accent} th={th} s={sc} dm={Boolean(dm)} />,
 					)}
 					{typing.map((y, i) => (
 						<div key={`ty${i}`} style={{display: 'flex', gap: 14, padding: '0 22px', marginTop: 18, alignItems: 'flex-end'}}>
