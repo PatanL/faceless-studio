@@ -139,7 +139,8 @@
       "color": "white",
       "underline": false,
       "red": "EAT",
-      "out": 2.15
+      "out": 1.8499999999999999,
+      "outDur": 0.2
      },
      "depth": 0,
      "z": 20
@@ -154,7 +155,7 @@
      "rotate": -90,
      "z": 7,
      "depth": 0,
-     "end": 2.913
+     "end": 2.05
     },
     {
      "type": "component",
@@ -165,7 +166,7 @@
      "height": 345.6,
      "props": {
       "text": "NO WAY\nDOWN",
-      "at": 2.15,
+      "at": 2.25,
       "size": 108,
       "color": "white",
       "underline": false,
@@ -245,7 +246,7 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 160 1020\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"120\" y1=\"6\" x2=\"120\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"1014\" x2=\"140\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"846\" x2=\"140\" y2=\"846\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"678\" x2=\"140\" y2=\"678\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"510\" x2=\"140\" y2=\"510\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"342\" x2=\"140\" y2=\"342\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"174\" x2=\"140\" y2=\"174\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"6\" x2=\"140\" y2=\"6\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><text x=\"70\" y=\"1028\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">0</text><text x=\"70\" y=\"692\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">10</text><text x=\"70\" y=\"356\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">20</text></svg>",
-     "x": "10%",
+     "x": "13%",
      "y": "39.06%",
      "width": 160,
      "height": 1020,
@@ -261,7 +262,7 @@
      "name": "explainer/Tag",
      "x": "12%",
      "y": "9.90%",
-     "width": 240,
+     "width": 190,
      "height": 115.19999999999999,
      "props": {
       "text": "30 M",
@@ -364,7 +365,7 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "50%",
+     "x": "44%",
      "y": "51.39%",
      "width": 330,
      "height": 110.39999999999999,
@@ -381,7 +382,7 @@
     {
      "type": "component",
      "name": "explainer/Headline",
-     "x": "50%",
+     "x": "58%",
      "y": "11%",
      "width": 1000,
      "height": 211.20000000000002,
@@ -399,7 +400,7 @@
     {
      "type": "component",
      "name": "explainer/Headline",
-     "x": "45%",
+     "x": "48%",
      "y": "11%",
      "width": 1000,
      "height": 211.20000000000002,
@@ -752,7 +753,8 @@
       "at": 2.257,
       "size": 54,
       "align": "center",
-      "out": 3.67,
+      "out": 3.52,
+      "outDur": 0.15,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1523,12 +1525,12 @@
      "name": "explainer/Tag",
      "x": "76%",
      "y": "16%",
-     "width": 420,
-     "height": 129.6,
+     "width": 240,
+     "height": 144.0,
      "props": {
-      "text": "≈ 40 OF YOU",
+      "text": "×40",
       "at": 4.17,
-      "size": 54,
+      "size": 60,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -1995,8 +1997,8 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "40%",
-     "y": "45%",
+     "x": "34%",
+     "y": "43%",
      "width": 1150,
      "height": 168,
      "props": {
@@ -2014,8 +2016,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 0.6,
@@ -2039,8 +2041,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 1.15,
@@ -2064,8 +2066,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 1.7000000000000002,
@@ -2089,8 +2091,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 2.25,
@@ -2114,8 +2116,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 2.8000000000000003,
@@ -2139,8 +2141,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 3.35,
@@ -2164,8 +2166,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
+     "x": "80%",
+     "y": "43%",
      "width": 560,
      "height": 560,
      "start": 3.9000000000000004,
@@ -2190,7 +2192,7 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "56%",
+     "y": "60%",
      "width": 900,
      "height": 312.0,
      "props": {
@@ -3145,36 +3147,25 @@
        "t": 5.532,
        "x": "100%",
        "rotate": -14,
-       "ease": "inOut"
-      },
-      {
-       "t": 6.8069999999999995,
-       "x": "26%",
-       "rotate": -6,
        "opacity": 1,
        "ease": "inOut"
       },
       {
-       "t": 7.407,
-       "x": "18%",
-       "rotate": -5,
-       "opacity": 0.75
+       "t": 6.507,
+       "x": "30%",
+       "rotate": -7,
+       "opacity": 1,
+       "ease": "inOut"
       },
       {
-       "t": 8.007,
-       "x": "15%",
-       "rotate": -4,
-       "opacity": 0.6
-      },
-      {
-       "t": 8.507,
-       "x": "12%",
-       "rotate": -4,
+       "t": 6.857,
+       "x": "26%",
+       "rotate": -6,
        "opacity": 0
       },
       {
        "t": 8.975,
-       "x": "10%",
+       "x": "18%",
        "rotate": -4,
        "opacity": 0
       }
@@ -3350,19 +3341,19 @@
      "y": "55%",
      "width": 700,
      "height": 262,
-     "start": 6.757,
-     "end": 9.207,
+     "start": 6.857,
+     "end": 8.975,
      "z": 4,
      "keyframes": [
       {
-       "t": 6.757,
+       "t": 6.857,
        "x": "100%",
        "y": "56%",
        "rotate": 12,
        "opacity": 0
       },
       {
-       "t": 7.007,
+       "t": 7.107,
        "x": "90%",
        "y": "55%",
        "rotate": 10,
@@ -3370,7 +3361,7 @@
       },
       {
        "t": 8.007,
-       "x": "58%",
+       "x": "62%",
        "y": "51%",
        "rotate": -4,
        "opacity": 1,
@@ -3378,16 +3369,23 @@
       },
       {
        "t": 8.607,
-       "x": "36%",
-       "y": "47%",
-       "rotate": -10,
+       "x": "44%",
+       "y": "48%",
+       "rotate": -9,
        "opacity": 1
       },
       {
-       "t": 9.107,
-       "x": "20%",
-       "y": "46%",
-       "rotate": -14,
+       "t": 8.775,
+       "x": "38%",
+       "y": "47%",
+       "rotate": -11,
+       "opacity": 1
+      },
+      {
+       "t": 8.975,
+       "x": "35%",
+       "y": "47%",
+       "rotate": -12,
        "opacity": 0
       }
      ]
@@ -3590,25 +3588,6 @@
        "y": "35.5%"
       }
      ]
-    },
-    {
-     "type": "component",
-     "name": "explainer/Headline",
-     "x": "50%",
-     "y": "15%",
-     "width": 1000,
-     "height": 345.6,
-     "props": {
-      "text": "NONE DOWN\nITS THROAT",
-      "at": 0.1,
-      "size": 108,
-      "color": "white",
-      "underline": false,
-      "red": "THROAT",
-      "out": 3.575
-     },
-     "depth": 0,
-     "z": 20
     },
     {
      "type": "component",
@@ -4032,8 +4011,7 @@
    {
     "text": "the",
     "start": 24.185,
-    "end": 24.322,
-    "br": true
+    "end": 24.322
    },
    {
     "text": "size",
@@ -4374,8 +4352,7 @@
    {
     "text": "up",
     "start": 45.187,
-    "end": 45.375,
-    "br": true
+    "end": 45.375
    },
    {
     "text": "to",
@@ -4385,7 +4362,8 @@
    {
     "text": "40 million",
     "start": 45.537,
-    "end": 46.412
+    "end": 46.412,
+    "br": true
    },
    {
     "text": "krill",
@@ -4608,8 +4586,7 @@
    {
     "text": "7 metres",
     "start": 61.722,
-    "end": 62.522,
-    "br": true
+    "end": 62.522
    },
    {
     "text": "wide",

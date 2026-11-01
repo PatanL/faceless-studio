@@ -139,7 +139,8 @@
       "color": "white",
       "underline": false,
       "red": "EAT",
-      "out": 2.15
+      "out": 1.8499999999999999,
+      "outDur": 0.2
      },
      "depth": 0,
      "z": 20
@@ -154,7 +155,7 @@
      "rotate": -90,
      "z": 7,
      "depth": 0,
-     "end": 2.913
+     "end": 2.05
     },
     {
      "type": "component",
@@ -165,7 +166,7 @@
      "height": 336.96,
      "props": {
       "text": "NO WAY\nDOWN",
-      "at": 2.15,
+      "at": 2.25,
       "size": 105.3,
       "color": "white",
       "underline": false,
@@ -737,7 +738,8 @@
       "at": 2.257,
       "size": 52.65,
       "align": "center",
-      "out": 3.67,
+      "out": 3.52,
+      "outDur": 0.15,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1508,12 +1510,12 @@
      "name": "explainer/Tag",
      "x": "61.41%",
      "y": "12.82%",
-     "width": 409.5,
-     "height": 126.36,
+     "width": 234.0,
+     "height": 140.4,
      "props": {
-      "text": "≈ 40 OF YOU",
+      "text": "×40",
       "at": 4.17,
-      "size": 52.65,
+      "size": 58.5,
       "align": "center",
       "accent": "#6fd6e8"
      },
@@ -1978,8 +1980,8 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "45.61%",
-     "y": "53.03%",
+     "x": "42.98%",
+     "y": "50.26%",
      "width": 897.0,
      "height": 131.04,
      "props": {
@@ -1997,8 +1999,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 0.6,
@@ -2022,8 +2024,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 1.15,
@@ -2047,8 +2049,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 1.7000000000000002,
@@ -2072,8 +2074,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 2.25,
@@ -2097,8 +2099,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 2.8000000000000003,
@@ -2122,8 +2124,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 3.35,
@@ -2147,8 +2149,8 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "65.79%",
-     "y": "53.03%",
+     "x": "63.16%",
+     "y": "50.26%",
      "width": 436.8,
      "height": 436.8,
      "start": 3.9000000000000004,
@@ -3131,44 +3133,25 @@
        "t": 5.532,
        "x": "71.94%",
        "rotate": -14,
+       "opacity": 1,
        "ease": "inOut"
       },
       {
-       "t": 6.457,
-       "opacity": 1
+       "t": 6.507,
+       "x": "41.23%",
+       "rotate": -7,
+       "opacity": 1,
+       "ease": "inOut"
       },
       {
-       "t": 6.8069999999999995,
+       "t": 6.857,
        "x": "39.47%",
        "rotate": -6,
-       "opacity": 0.4,
-       "ease": "inOut"
-      },
-      {
-       "t": 7.157,
-       "opacity": 0
-      },
-      {
-       "t": 7.407,
-       "x": "35.96%",
-       "rotate": -5,
-       "opacity": 0
-      },
-      {
-       "t": 8.007,
-       "x": "34.64%",
-       "rotate": -4,
-       "opacity": 0
-      },
-      {
-       "t": 8.507,
-       "x": "33.33%",
-       "rotate": -4,
        "opacity": 0
       },
       {
        "t": 8.975,
-       "x": "32.45%",
+       "x": "35.96%",
        "rotate": -4,
        "opacity": 0
       }
@@ -3340,24 +3323,24 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 480 180\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"fk\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7397b0\"/><stop offset=\"1\" stop-color=\"#3a5a78\"/></linearGradient></defs><path d=\"M 214 180 L 220 92 L 260 92 L 266 180 Z\" fill=\"#3f6080\"/><path d=\"M 240 70 C 180 40 90 16 6 30 C 30 70 110 110 196 116 L 240 98 L 284 116 C 370 110 450 70 474 30 C 390 16 300 40 240 70 Z\" fill=\"url(#fk)\" stroke=\"#2f4c66\" stroke-width=\"4\"/></svg>",
-     "x": "110%",
+     "x": "84%",
      "y": "63%",
      "width": 950,
      "height": 356.2,
-     "start": 6.757,
-     "end": 9.207,
+     "start": 6.857,
+     "end": 8.975,
      "z": 4,
      "keyframes": [
       {
-       "t": 6.757,
-       "x": "112%",
+       "t": 6.857,
+       "x": "86%",
        "y": "64%",
        "rotate": 12,
        "opacity": 0
       },
       {
-       "t": 7.007,
-       "x": "96%",
+       "t": 7.107,
+       "x": "80%",
        "y": "63%",
        "rotate": 10,
        "opacity": 1
@@ -3372,16 +3355,23 @@
       },
       {
        "t": 8.607,
-       "x": "40%",
+       "x": "46%",
        "y": "61%",
-       "rotate": -10,
+       "rotate": -9,
        "opacity": 1
       },
       {
-       "t": 9.107,
-       "x": "26%",
+       "t": 8.775,
+       "x": "40%",
        "y": "60%",
-       "rotate": -14,
+       "rotate": -11,
+       "opacity": 1
+      },
+      {
+       "t": 8.975,
+       "x": "37%",
+       "y": "60%",
+       "rotate": -12,
        "opacity": 0
       }
      ]
@@ -3589,25 +3579,6 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50.00%",
-     "y": "16.23%",
-     "width": 975.0,
-     "height": 336.96,
-     "props": {
-      "text": "NONE DOWN\nITS THROAT",
-      "at": 0.1,
-      "size": 105.3,
-      "color": "white",
-      "underline": false,
-      "red": "THROAT",
-      "out": 3.575
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
-     "name": "explainer/Headline",
-     "x": "50.00%",
      "y": "17.02%",
      "width": 975.0,
      "height": 361.92,
@@ -3758,8 +3729,7 @@
    {
     "text": "ever",
     "start": 5.305,
-    "end": 5.605,
-    "br": true
+    "end": 5.605
    },
    {
     "text": "measured.",
@@ -3870,8 +3840,7 @@
    {
     "text": "close",
     "start": 14.527,
-    "end": 14.865,
-    "br": true
+    "end": 14.865
    },
    {
     "text": "to",
@@ -3912,8 +3881,7 @@
    {
     "text": "ever",
     "start": 18.203,
-    "end": 18.527,
-    "br": true
+    "end": 18.527
    },
    {
     "text": "found.",
@@ -4361,8 +4329,7 @@
    {
     "text": "a",
     "start": 46.75,
-    "end": 46.862,
-    "br": true
+    "end": 46.862
    },
    {
     "text": "day,",
@@ -4372,7 +4339,8 @@
    {
     "text": "and",
     "start": 47.525,
-    "end": 47.662
+    "end": 47.662,
+    "br": true
    },
    {
     "text": "every",
@@ -4540,8 +4508,7 @@
    {
     "text": "decides",
     "start": 59.535,
-    "end": 60.085,
-    "br": true
+    "end": 60.085
    },
    {
     "text": "to",
@@ -4583,8 +4550,7 @@
    {
     "text": "sweeps",
     "start": 62.897,
-    "end": 63.272,
-    "br": true
+    "end": 63.272
    },
    {
     "text": "past.",
