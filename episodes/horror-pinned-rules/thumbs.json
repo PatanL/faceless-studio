@@ -1,0 +1,17 @@
+{
+  "id": "horror-pinned-rules",
+  "niche": "horror",
+  "room": "5A",
+  "chatTitle": "Willow Court Residents (38)",
+  "chat": [
+    {"from": "Management", "text": "RULE 4: If someone knocks three times, you are not home."},
+    {"from": "Ben (5A)", "text": "someone's knocking. 3 times. i'm opening it"},
+    {"from": "Dev (6C)", "text": "Management shut down two years ago."},
+    {"from": "Ben (5A)", "text": "it's fine, open up. i'm standing right behind them"}
+  ],
+  "humanArt": {"component": "horror/Protagonist", "props": {"pose": "phone", "expr": "terrified", "light": "phone"}, "time": 0.4},
+  "variants": [
+    {"template": "chat", "text": "RULE 4: DON'T ANSWER THE DOOR", "accent": "DON'T"},
+    {"template": "door", "id": "horror-pinned-rules-door", "text": "WHO WROTE RULE 4?", "accent": "RULE 4"}
+  ]
+}

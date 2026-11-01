@@ -46,7 +46,7 @@ export const FrontDoor: React.FC<KitComponentProps> = ({props, time: t, width, h
 	const chain = str(props.chain, 'on') === 'on';
 	const uid = useUid('door');
 	return (
-		<Stage width={width} height={height}>
+		<Stage width={width} height={height} look={props}>
 			<defs>
 				<linearGradient id={`${uid}w`} x1="0" y1="0" x2="1" y2="0">
 					<stop offset="0" stopColor="#2c3443" />
@@ -245,7 +245,7 @@ export const Hallway: React.FC<KitComponentProps> = ({props, time: t, width, hei
 	const uid = useUid('hall');
 	return (
 		<GlitchWrap amount={glitchAt(props, t)} t={t} seed="hall">
-			<Stage width={width} height={height}>
+			<Stage width={width} height={height} look={props}>
 				<HallArt
 					uid={uid}
 					t={t}
@@ -267,6 +267,7 @@ export const Hallway: React.FC<KitComponentProps> = ({props, time: t, width, hei
 /**
  * View through the door peephole: fisheye circle of the hallway with a visitor.
  * props: figure ('neighbour' | 'silhouette' | 'none'), expr / exprs (neighbour face), talk, lookX, lookY,
+ *        surround (colour around the lens, default near-black; e.g. the door's grey for a brighter frame), exposure (1.5),
  *        lean (0..1 how close the visitor presses to the lens, 0.4), flicker (0.3), radius (fraction, 0.46)
  */
 export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, height, fps, frame, sceneDuration}) => {
@@ -281,7 +282,7 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 	const fw = r * (1.25 + lean * 0.9) * breathe;
 	const fh = fw * (760 / 500);
 	return (
-		<div style={{width, height, position: 'relative', background: '#050506', overflow: 'hidden'}}>
+		<div style={{width, height, position: 'relative', background: str(props.surround, '#050506'), overflow: 'hidden'}}>
 			<div
 				style={{
 					position: 'absolute',
@@ -291,7 +292,7 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 					height: r * 2,
 					borderRadius: '50%',
 					overflow: 'hidden',
-					filter: `brightness(${0.55 + 0.45 * fl}) saturate(0.8) blur(0.6px)`,
+					filter: `brightness(${(0.55 + 0.45 * fl) * num(props.exposure, 1.5)}) saturate(0.8) blur(0.6px)`,
 				}}
 			>
 				<svg width={r * 2} height={r * 2} viewBox="190 330 700 700" preserveAspectRatio="xMidYMid slice" style={{position: 'absolute', inset: 0, transform: 'scale(1.18)'}}>
@@ -307,7 +308,7 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 				<div style={{position: 'absolute', left: r * 0.35, top: r * 0.22, width: r * 0.5, height: r * 0.24, borderRadius: '50%', background: 'rgba(255,255,255,0.08)', transform: 'rotate(-25deg)'}} />
 			</div>
 			{/* lens rim */}
-			<div style={{position: 'absolute', left: cx - r - 14, top: cy - r - 14, width: (r + 14) * 2, height: (r + 14) * 2, borderRadius: '50%', boxShadow: '0 0 0 18px #0c0b0d, 0 0 60px 30px rgba(0,0,0,0.9) inset'}} />
+			<div style={{position: 'absolute', left: cx - r - 14, top: cy - r - 14, width: (r + 14) * 2, height: (r + 14) * 2, borderRadius: '50%', boxShadow: `0 0 0 18px #0c0b0d, 0 0 0 ${r * 0.18}px rgba(0,0,0,0.55), 0 0 60px 30px rgba(0,0,0,0.9) inset`}} />
 		</div>
 	);
 };
@@ -342,7 +343,7 @@ export const ElevatorPanel: React.FC<KitComponentProps> = ({props, time: t, widt
 	const uid = useUid('elev');
 	const rows = Math.ceil(floors / 2);
 	return (
-		<Stage width={width} height={height}>
+		<Stage width={width} height={height} look={props}>
 			<defs>
 				<linearGradient id={`${uid}m`} x1="0" y1="0" x2="1" y2="0">
 					<stop offset="0" stopColor="#4c535c" />
@@ -440,7 +441,7 @@ export const Bedroom: React.FC<KitComponentProps> = ({props, time: t, width, hei
 	const wo = clamp01(num(props.wardrobeOpen, 0.15));
 	const glow = num(props.phoneGlow, 0);
 	return (
-		<Stage width={width} height={height}>
+		<Stage width={width} height={height} look={props}>
 			<defs>
 				<linearGradient id={`${uid}w`} x1="0" y1="0" x2="0" y2="1">
 					<stop offset="0" stopColor="#1a2130" />
@@ -521,7 +522,7 @@ export const LivingRoom: React.FC<KitComponentProps> = ({props, time: t, width, 
 	const lamp = num(props.lamp, 0.6) * lightLevel('livlamp', t, num(props.flicker, 0));
 	const tv = str(props.tv, 'off');
 	return (
-		<Stage width={width} height={height}>
+		<Stage width={width} height={height} look={props}>
 			<defs>
 				<radialGradient id={`${uid}lamp`} cx="0.5" cy="0.5" r="0.5">
 					<stop offset="0" stopColor="#efbd72" stopOpacity={0.45 * lamp} />
@@ -590,7 +591,7 @@ export const Stairwell: React.FC<KitComponentProps> = ({props, time: t, width, h
 	const L = lightLevel('stair', t, num(props.flicker, 0.5));
 	const steps = 9;
 	return (
-		<Stage width={width} height={height}>
+		<Stage width={width} height={height} look={props}>
 			<defs>
 				<linearGradient id={`${uid}w`} x1="0" y1="0" x2="0" y2="1">
 					<stop offset="0" stopColor="#2f3833" />

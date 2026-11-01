@@ -13,6 +13,7 @@ import {arr, clamp01, cueLevel, ease, jitter, num, obj, P, str} from './util';
  *   cx, cy (0.5, 0.47)  phone centre as fractions of the box
  *   tilt (-3)           degrees
  *   side ('right')      which hand: 'right' (thumb on the right) or 'left'
+ *   thumbReach (0.12), thumbY (0.93)  resting thumb tip (default rests over the input bar, clear of the newest bubble): reach in from the near edge (phone widths) and height (phone heights)
  *   taps [{at, x, y}]   thumb taps; x/y = target on the screen as fractions (default 0.5, 0.85)
  *   tremble (0)         px of hand shake (fear); trembleCues [{at, duration, amount}] multiplies it
  *   skin, outline       colours
@@ -29,8 +30,10 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 	const T = cy - ph / 2;
 	const B = cy + ph / 2;
 	const u = pw;
-	const skin = str(props.skin, P.handSkin);
-	const shade = str(props.shade, '#a8988a');
+	// cool, desaturated night skin so the hand sits in the scene's palette
+	const skin = str(props.skin, '#b9aca8');
+	const shade = str(props.shade, '#8b7d7e');
+	const nail = str(props.nail, '#d6cdcb');
 	const outline = str(props.outline, P.line);
 	const ow = Math.max(4, u * 0.012);
 	const right = str(props.side, 'right') !== 'left';
@@ -43,8 +46,8 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 	const sway = Math.sin(t * 1.3) * u * 0.006;
 
 	// thumb tip, moving to tap targets
-	let tipX = R - num(props.thumbReach, 0.2) * u;
-	let tipY = T + ph * 0.72;
+	let tipX = R - num(props.thumbReach, 0.12) * u;
+	let tipY = T + ph * num(props.thumbY, 0.93);
 	let press = 0;
 	for (const tap of arr<{at?: number; x?: number; y?: number}>(props.taps)) {
 		const at = num(tap.at, 0);
@@ -57,37 +60,83 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 			press = Math.max(press, clamp01(1 - Math.abs(t - at) / 0.08));
 		}
 	}
-	const baseX = R + 0.05 * u;
-	const baseY = B - 0.04 * u;
+	// thumb: one tapered filled shape from the heel of the hand (off the bottom-right corner) to the tip
+	const baseX = R + 0.13 * u;
+	const baseY = B + 0.1 * u;
 	const ctrlX = (baseX + tipX) / 2 + 0.1 * u;
-	const ctrlY = (baseY + tipY) / 2 + 0.06 * u;
-	const thumbW = 0.17 * u * (1 - press * 0.06);
-
-	// thumb direction for the nail
-	const ang = Math.atan2(tipY - ctrlY, tipX - ctrlX);
-	const nailX = tipX - Math.cos(ang) * thumbW * 0.28;
-	const nailY = tipY - Math.sin(ang) * thumbW * 0.28;
+	const ctrlY = (baseY + tipY) / 2 + 0.07 * u;
+	const thumbW = 0.15 * u * (1 - press * 0.06);
+	const qp = (k: number): [number, number] => {
+		const a = 1 - k;
+		return [a * a * baseX + 2 * a * k * ctrlX + k * k * tipX, a * a * baseY + 2 * a * k * ctrlY + k * k * tipY];
+	};
+	const qd = (k: number): [number, number] => {
+		const dx = 2 * (1 - k) * (ctrlX - baseX) + 2 * k * (tipX - ctrlX);
+		const dy = 2 * (1 - k) * (ctrlY - baseY) + 2 * k * (tipY - ctrlY);
+		const l = Math.hypot(dx, dy) || 1;
+		return [dx / l, dy / l];
+	};
+	const halfW = (k: number) => (thumbW * (1.3 - 0.38 * k)) / 2;
+	const sideA: string[] = [];
+	const sideB: string[] = [];
+	const NS = 14;
+	for (let i = 0; i <= NS; i++) {
+		const k = i / NS;
+		const [x, y] = qp(k);
+		const [dx, dy] = qd(k);
+		const w = halfW(k);
+		sideA.push(`${x - dy * w} ${y + dx * w}`);
+		sideB.unshift(`${x + dy * w} ${y - dx * w}`);
+	}
+	const [tdx, tdy] = qd(1);
+	const wTip = halfW(1);
+	const capA = sideA[NS].split(' ').map(Number);
+	const capB = sideB[0].split(' ').map(Number);
+	const thumbPath =
+		`M ${sideA.join(' L ')} C ${capA[0] + tdx * wTip * 1.35} ${capA[1] + tdy * wTip * 1.35} ${capB[0] + tdx * wTip * 1.35} ${capB[1] + tdy * wTip * 1.35} ` +
+		`${capB[0]} ${capB[1]} L ${sideB.join(' L ')} Z`;
+	const ang = Math.atan2(tdy, tdx);
+	const nailX = tipX + tdx * wTip * 0.15;
+	const nailY = tipY + tdy * wTip * 0.15;
+	const [jx, jy] = qp(0.62);
+	const [jdx, jdy] = qd(0.62);
+	const jw = halfW(0.62) * 0.7;
+	const crease = `M ${jx - jdy * jw} ${jy + jdx * jw} Q ${jx - jdx * jw * 0.3} ${jy - jdy * jw * 0.3} ${jx + jdy * jw} ${jy - jdx * jw}`;
 
 	const mirror = right ? undefined : `translate(${2 * cx} 0) scale(-1 1)`;
-	const limb = (d: string, w: number, key: string, fill = skin) => (
+	// one silhouette: outline pass (fat stroke) under a fill pass, so overlapping parts merge into one hand
+	const solid = (ds: string[], key: string) => (
 		<g key={key}>
-			<path d={d} stroke={outline} strokeWidth={w + ow * 2} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-			<path d={d} stroke={fill} strokeWidth={w} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+			{ds.map((d, i) => <path key={`o${i}`} d={d} fill={outline} stroke={outline} strokeWidth={ow * 2} strokeLinejoin="round" />)}
+			{ds.map((d, i) => <path key={`f${i}`} d={d} fill={skin} />)}
 		</g>
 	);
-	const fingerYs = [0.46, 0.58, 0.7, 0.82];
-	const fingerW = 0.13 * u;
+	// back of the hand: the palm cups the phone's lower edge and wraps round the far (left) side
+	const backHand =
+		`M ${L + 0.12 * u} ${T + ph * 0.5} C ${L - 0.15 * u} ${T + ph * 0.52} ${L - 0.19 * u} ${B - 0.08 * u} ${L + 0.02 * u} ${B + 0.1 * u} ` +
+		`C ${L + 0.25 * u} ${B + 0.28 * u} ${R - 0.1 * u} ${B + 0.3 * u} ${R + 0.12 * u} ${B + 0.08 * u} L ${R + 0.5 * u} ${H + 0.6 * u} L ${L + 0.3 * u} ${H + 0.6 * u} Z`;
+	const thenar = `M ${R - 0.12 * u} ${B + 0.02 * u} C ${R - 0.08 * u} ${B - 0.14 * u} ${R + 0.12 * u} ${B - 0.2 * u} ${R + 0.22 * u} ${B - 0.02 * u} L ${R + 0.3 * u} ${H + 0.5 * u} L ${R - 0.1 * u} ${H + 0.5 * u} Z`;
+	// three fingertips curl round the far edge onto the bezel
+	const tips = [
+		{fy: 0.6, w: 0.115},
+		{fy: 0.715, w: 0.11},
+		{fy: 0.825, w: 0.1},
+	];
+	const fingerPaths = tips.map(({fy, w}, i) => {
+		const y = T + ph * fy + Math.sin(t * 1.1 + i) * 1.5;
+		const hw = (w * u) / 2;
+		const x0 = L - 0.14 * u;
+		const x1 = L + 0.055 * u;
+		return {y, hw, x0, x1, d: `M ${x0} ${y - hw} L ${x1 - hw} ${y - hw * 0.92} A ${hw} ${hw * 0.95} 0 0 1 ${x1 - hw} ${y + hw * 0.92} L ${x0} ${y + hw} Z`};
+	});
 
 	const body = (
 		<div style={{position: 'absolute', inset: 0, transform: `translate(${tx}px, ${ty + sway}px) rotate(${tilt}deg)`, transformOrigin: `${cx}px ${B}px`}}>
-			{/* back: forearm + palm */}
+			{/* back: palm wrapping the lower edge and the far side */}
 			<svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
 				<g transform={mirror}>
-					{limb(`M ${R - 0.12 * u} ${B} Q ${R + 0.12 * u} ${B + 0.35 * u} ${R + 0.3 * u} ${H + 0.4 * u}`, 0.5 * u, 'arm')}
-					<ellipse cx={L + 0.6 * u} cy={B - 0.02 * u} rx={0.52 * u} ry={0.34 * u} fill={skin} stroke={outline} strokeWidth={ow} />
-					<path d={`M ${L + 0.2 * u} ${B + 0.18 * u} Q ${L + 0.55 * u} ${B + 0.34 * u} ${R - 0.05 * u} ${B + 0.2 * u}`} stroke={shade} strokeWidth={u * 0.03} fill="none" strokeLinecap="round" opacity={0.7} />
-					{/* back of the fingers, wrapped behind the phone's far edge */}
-					<rect x={L - 0.13 * u} y={T + ph * 0.4} width={0.5 * u} height={ph * 0.62} rx={0.12 * u} fill={skin} stroke={outline} strokeWidth={ow} />
+					{solid([backHand], 'back')}
+					<path d={`M ${L - 0.1 * u} ${T + ph * 0.66} Q ${L - 0.13 * u} ${T + ph * 0.78} ${L - 0.08 * u} ${T + ph * 0.9}`} stroke={shade} strokeWidth={ow} fill="none" strokeLinecap="round" />
 				</g>
 			</svg>
 			{/* phone */}
@@ -96,35 +145,30 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 					<PhoneDevice p={phone} t={t} />
 				</div>
 			</div>
-			{/* front: fingertips over the far edge, thumb over the screen */}
+			{/* front: fingertips over the far edge, heel + thumb over the screen */}
 			<svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
 				<g transform={mirror}>
-					{fingerYs.map((fy, i) => {
-						const y = T + ph * fy + Math.sin(t * 1.1 + i) * 1.5;
-						const fw2 = fingerW * (i === 3 ? 0.85 : 1);
-						// finger reaches round the far edge: knuckle outside the phone, tip resting on the bezel
-						const x0 = L - 0.16 * u;
-						const x1 = L + 0.045 * u;
-						return (
-							<g key={`ft${i}`} transform={`rotate(${6 + i * 3} ${x1} ${y})`}>
-								<rect x={x0} y={y - fw2 / 2} width={x1 - x0} height={fw2} rx={fw2 / 2} fill={skin} stroke={outline} strokeWidth={ow} />
-								<path d={`M ${x1 - 0.05 * u} ${y - fw2 * 0.3} q ${0.025 * u} ${fw2 * 0.3} 0 ${fw2 * 0.6}`} stroke={shade} strokeWidth={ow * 0.8} fill="none" strokeLinecap="round" />
-								<path d={`M ${x0 + 0.05 * u} ${y - fw2 * 0.32} l 0 ${fw2 * 0.64}`} stroke={shade} strokeWidth={ow * 0.7} strokeLinecap="round" />
-							</g>
-						);
-					})}
-					{limb(`M ${baseX} ${baseY} Q ${ctrlX} ${ctrlY} ${tipX} ${tipY}`, thumbW, 'thumb')}
+					{fingerPaths.map((f, i) => (
+						<g key={`ft${i}`}>
+							<path d={f.d} fill={skin} stroke={outline} strokeWidth={ow} strokeLinejoin="round" />
+							{/* knuckle crease where the finger bends round the edge, and a tip pad line */}
+							<path d={`M ${L - 0.045 * u} ${f.y - f.hw * 0.62} q ${0.018 * u} ${f.hw * 0.62} 0 ${f.hw * 1.24}`} stroke={shade} strokeWidth={ow * 0.75} fill="none" strokeLinecap="round" />
+							<path d={`M ${L - 0.075 * u} ${f.y - f.hw * 0.5} q ${0.012 * u} ${f.hw * 0.5} 0 ${f.hw}`} stroke={shade} strokeWidth={ow * 0.6} fill="none" strokeLinecap="round" opacity={0.8} />
+						</g>
+					))}
+					{solid([thenar, thumbPath], 'thumb')}
+					<path d={crease} stroke={shade} strokeWidth={ow * 0.8} fill="none" strokeLinecap="round" />
+					<path d={`M ${R - 0.06 * u} ${B - 0.06 * u} q ${0.06 * u} ${-0.05 * u} ${0.14 * u} ${-0.03 * u}`} stroke={shade} strokeWidth={ow * 0.8} fill="none" strokeLinecap="round" opacity={0.7} />
 					<ellipse
 						cx={nailX}
 						cy={nailY}
-						rx={thumbW * 0.26}
-						ry={thumbW * 0.2}
+						rx={wTip * 0.72}
+						ry={wTip * 0.6}
 						transform={`rotate(${(ang * 180) / Math.PI} ${nailX} ${nailY})`}
-						fill="#ddd2c6"
-						stroke={shade}
+						fill={nail}
+						stroke={outline}
 						strokeWidth={ow * 0.6}
 					/>
-					<path d={`M ${baseX - 0.02 * u} ${baseY - 0.08 * u} q ${-0.05 * u} ${0.02 * u} ${-0.07 * u} ${0.07 * u}`} stroke={shade} strokeWidth={ow} fill="none" strokeLinecap="round" />
 				</g>
 			</svg>
 		</div>

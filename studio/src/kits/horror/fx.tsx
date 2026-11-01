@@ -230,8 +230,8 @@ export const GlitchOverlay: React.FC<KitComponentProps> = ({props, time, width, 
 
 /**
  * Red text flash, burned into the picture (not the caption track).
- * props: text, at (0), duration (until scene end), style 'flash' | 'neon' | 'scrawl',
- *        fontSize (130), color (P.red), strobe (Hz of white/red alternation, 0 = off),
+ * props: text, at (0), duration (until scene end), style 'flash' | 'neon' | 'scrawl' | 'stamp' (rubber-stamp card, e.g. PART 2),
+ *        y (vertical centre as a fraction of the box, default 0.5), fontSize (130), color (P.red), strobe (Hz of white/red alternation, 0 = off),
  *        cps (typewriter chars/sec, 0 = all at once), shake (px jitter, 6), maxWidth (0.86 of box)
  */
 export const RedText: React.FC<KitComponentProps> = ({props, time, width, height, sceneDuration}) => {
@@ -262,11 +262,29 @@ export const RedText: React.FC<KitComponentProps> = ({props, time, width, height
 		letterSpacing: '0.02em',
 		maxWidth: width * num(props.maxWidth, 0.86),
 		color: white ? '#fff' : color,
-		transform: `translate(${jx}px, ${jy}px) scale(${0.6 + 0.4 * pop}) rotate(${style === 'scrawl' ? -4 : 0}deg)`,
+		transform: `translate(${jx}px, ${jy}px) scale(${style === 'stamp' ? 1.9 - 0.9 * ease('out', clamp01(local / 0.16)) : 0.6 + 0.4 * pop}) rotate(${style === 'scrawl' ? -4 : style === 'stamp' ? -7 : 0}deg)`,
 		opacity: fade,
 	};
 	let body: React.ReactNode;
-	if (style === 'neon') {
+	if (style === 'stamp') {
+		body = (
+			<div
+				style={{
+					...base,
+					opacity: fade * clamp01(local / 0.06),
+					padding: `${fs * 0.08}px ${fs * 0.32}px`,
+					border: `${Math.max(6, fs * 0.08)}px solid ${color}`,
+					borderRadius: fs * 0.1,
+					background: 'rgba(10,4,6,0.78)',
+					boxShadow: `0 0 ${fs * 0.35}px rgba(0,0,0,0.8), 0 0 ${fs * 0.2}px ${P.redGlow}`,
+					textShadow: `0 0 ${fs * 0.15}px ${P.redGlow}`,
+					letterSpacing: '0.06em',
+				}}
+			>
+				{text}
+			</div>
+		);
+	} else if (style === 'neon') {
 		body = (
 			<div
 				style={{
@@ -301,11 +319,13 @@ export const RedText: React.FC<KitComponentProps> = ({props, time, width, height
 		);
 	}
 	return (
-		<div style={{width, height, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative'}}>
+		<div style={{width, height, position: 'relative'}}>
 			{style === 'flash' && flashIn > 0 ? (
 				<div style={{position: 'absolute', inset: 0, background: color, opacity: 0.35 * flashIn}} />
 			) : null}
-			{body}
+			<div style={{position: 'absolute', left: 0, right: 0, top: height * num(props.y, 0.5), transform: 'translateY(-50%)', display: 'flex', justifyContent: 'center'}}>
+				{body}
+			</div>
 		</div>
 	);
 };

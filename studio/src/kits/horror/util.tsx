@@ -82,13 +82,25 @@ export const popIn = (t: number, at: number, dur = 0.28) => clamp01((t - at) / d
 export const jitter = (seed: string, t: number, step = 1 / 15) => random(`${seed}-${Math.floor(t / step)}`) * 2 - 1;
 
 /** Full-box SVG for backgrounds: 1080x1920 art that crops (slice) to any box. */
-export const Stage: React.FC<{width: number; height: number; children: React.ReactNode; vb?: string}> = ({
+/**
+ * Set exposure (all horror sets): the raw art is drawn very dark; by default it is lifted to readable
+ * night midtones (cool grey-blue walls ~L 45-55%). Per-set props: exposure (brightness, default 1.3),
+ * lift (0..1 screen-blend of liftColor over the art, default 0.3), liftColor ('#6a7a94'). exposure 1 + lift 0 = raw art.
+ */
+export const Stage: React.FC<{width: number; height: number; children: React.ReactNode; vb?: string; look?: Record<string, unknown>}> = ({
 	width,
 	height,
 	children,
 	vb = '0 0 1080 1920',
-}) => (
-	<svg width={width} height={height} viewBox={vb} preserveAspectRatio="xMidYMid slice" style={{display: 'block'}}>
-		{children}
-	</svg>
-);
+	look = {},
+}) => {
+	const exposure = num(look.exposure, 1.3);
+	const lift = clamp01(num(look.lift, 0.3));
+	const [vx, vy, vw, vh] = vb.split(/[ ,]+/).map(Number);
+	return (
+		<svg width={width} height={height} viewBox={vb} preserveAspectRatio="xMidYMid slice" style={{display: 'block', filter: exposure !== 1 ? `brightness(${exposure})` : undefined}}>
+			{children}
+			{lift > 0 ? <rect x={vx - vw} y={vy - vh} width={vw * 3} height={vh * 3} fill={str(look.liftColor, '#6a7a94')} opacity={lift} style={{mixBlendMode: 'screen'}} /> : null}
+		</svg>
+	);
+};

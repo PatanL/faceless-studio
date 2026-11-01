@@ -95,6 +95,12 @@ def load(slug: str):
     return meta, scenes, words, total, source
 
 
+def load_cues(slug: str) -> list:
+    """SFX cues the audio mix placed (episodes/<slug>/audio/cues.json): [{cue, at (global s), dur, ...}]."""
+    path = os.path.join(ROOT, "episodes", slug, "audio", "cues.json")
+    return json.load(open(path)) if os.path.exists(path) else []
+
+
 def visual_events(scene: dict) -> list[float]:
     """Scene-local times where the picture changes (besides idle motion and captions)."""
     ev = [0.0, scene["duration"]]

@@ -25,6 +25,7 @@ type Face = {
 	blush?: number;
 	lines?: boolean; // shock lines over the head
 	shake?: boolean; // trembling pupils
+	stare?: boolean; // fixed, unblinking, pupils locked dead centre (ignores lookX/lookY)
 };
 
 /** Expression library. Protagonist set: the first 8; neighbour set: neutral, smile, grin, blank, angry, sad, surprised, sly. */
@@ -38,7 +39,7 @@ export const EXPRESSIONS: Record<string, Face> = {
 	relieved: {eye: 0.9, pupil: 1, lid: 0.4, lidTilt: -4, brow: -10, browY: -2, mouth: 'smile', blush: 0.4},
 	angry: {eye: 0.95, pupil: 0.8, lid: 0.32, lidTilt: 16, brow: 24, browY: 8, mouth: 'tight', blush: 0.25},
 	smile: {eye: 0.92, pupil: 0.9, lid: 0.28, lidTilt: -2, brow: -4, browY: -2, mouth: 'smile'},
-	grin: {eye: 1.15, pupil: 0.45, lid: 0, lidTilt: 0, brow: 8, browY: -4, mouth: 'grin', shadow: 0.6},
+	grin: {eye: 1.25, pupil: 0.26, lid: 0, lidTilt: -3, brow: 16, browY: -2, mouth: 'grin', mouthW: 86, shadow: 0.95, pale: 0.3, stare: true},
 	blank: {eye: 1.08, pupil: 0.3, lid: 0.05, lidTilt: 0, brow: 0, browY: 0, mouth: 'flat', shadow: 0.75, pale: 0.35},
 	sad: {eye: 0.92, pupil: 0.9, lid: 0.32, lidTilt: -12, brow: -20, browY: -4, mouth: 'frown'},
 	surprised: {eye: 1.3, pupil: 0.8, lid: 0, lidTilt: 0, brow: -4, browY: -20, mouth: 'o'},
@@ -148,15 +149,18 @@ function mouthPath(m: Mouth, cx: number, cy: number, w: number): React.ReactNode
 				</g>
 			);
 		case 'grin': {
+			// too wide, corners hiked up past the cheeks, a dark gum line and too many teeth
 			const gw = 74 * s;
-			const teeth = Array.from({length: 9}, (_, i) => -gw + ((i + 1) * 2 * gw) / 10);
+			const up = 26 * s;
+			const teeth = Array.from({length: 13}, (_, i) => -gw + ((i + 1) * 2 * gw) / 14);
 			return (
 				<g>
-					<path d={`M ${cx - gw} ${cy - 14} Q ${cx} ${cy + 58 * s} ${cx + gw} ${cy - 14} Q ${cx} ${cy + 8} ${cx - gw} ${cy - 14} Z`} fill="#efe8d8" stroke={L} strokeWidth={5} strokeLinejoin="round" />
+					<path d={`M ${cx - gw} ${cy - up} Q ${cx} ${cy + 62 * s} ${cx + gw} ${cy - up} Q ${cx} ${cy + 6 * s} ${cx - gw} ${cy - up} Z`} fill="#3a1218" stroke={L} strokeWidth={5} strokeLinejoin="round" />
+					<path d={`M ${cx - gw * 0.92} ${cy - up * 0.82} Q ${cx} ${cy + 52 * s} ${cx + gw * 0.92} ${cy - up * 0.82} Q ${cx} ${cy + 12 * s} ${cx - gw * 0.92} ${cy - up * 0.82} Z`} fill="#efe8d8" />
 					{teeth.map((dx, i) => (
-						<line key={i} x1={cx + dx} x2={cx + dx * 0.92} y1={cy - 6 + Math.abs(dx) * 0.05} y2={cy + 26 * s - Math.abs(dx) * 0.35} stroke={L} strokeWidth={2.5} />
+						<line key={i} x1={cx + dx} x2={cx + dx * 0.94} y1={cy + 10 * s - (Math.abs(dx) / gw) * up * 0.9} y2={cy + 40 * s - (Math.abs(dx) / gw) * up * 1.6} stroke={L} strokeWidth={2.5} />
 					))}
-					<path d={`M ${cx - gw * 0.9} ${cy - 6} Q ${cx} ${cy + 24 * s} ${cx + gw * 0.9} ${cy - 6}`} stroke={L} strokeWidth={2.5} fill="none" />
+					<path d={`M ${cx - gw * 0.9} ${cy - up * 0.6} Q ${cx} ${cy + 30 * s} ${cx + gw * 0.9} ${cy - up * 0.6}`} stroke={L} strokeWidth={2.5} fill="none" />
 				</g>
 			);
 		}
@@ -327,8 +331,8 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 	const swapPop = ex.since < 0.14 ? 1 + 0.035 * (1 - ex.since / 0.14) : 1;
 	const pose = str(props.pose, 'idle');
 	const glow = str(props.glow, '#a9c6ff');
-	const look: [number, number] = [num(props.lookX, 0), num(props.lookY, 0)];
-	const open = props.blink === false ? 1 : blinkOpen(t + num(props.blinkOffset, 0), `${spec.key}-${str(props.seed, '')}`);
+	const look: [number, number] = f.stare ? [0, 0] : [num(props.lookX, 0), num(props.lookY, 0)];
+	const open = props.blink === false || f.stare ? 1 : blinkOpen(t + num(props.blinkOffset, 0), `${spec.key}-${str(props.seed, '')}`);
 	const tk = talkOpen(props.talk, t, spec.key);
 	const breathe = 1 + Math.sin(t * 2.1) * 0.008;
 	const tilt = num(props.tilt, 0) + Math.sin(t * 0.9) * 0.8;
@@ -418,6 +422,9 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 			{light === 'phone' ? (
 				<ellipse cx={250} cy={headCy + headRy * 0.8} rx={headRx * 1.1} ry={headRy * 0.9} fill={`url(#${uid}-glow)`} style={{mixBlendMode: 'screen'}} />
 			) : null}
+			{light === 'red' ? (
+				<ellipse cx={250} cy={headCy + headRy * 0.95} rx={headRx * 1.25} ry={headRy * 0.85} fill={`url(#${uid}-under)`} style={{mixBlendMode: 'screen'}} />
+			) : null}
 		</g>
 	);
 
@@ -427,6 +434,10 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 				<radialGradient id={`${uid}-glow`} cx="50%" cy="80%" r="60%">
 					<stop offset="0" stopColor={glow} stopOpacity={0.55} />
 					<stop offset="1" stopColor={glow} stopOpacity={0} />
+				</radialGradient>
+				<radialGradient id={`${uid}-under`} cx="50%" cy="95%" r="65%">
+					<stop offset="0" stopColor="#ff2a2a" stopOpacity={0.75} />
+					<stop offset="1" stopColor="#ff2a2a" stopOpacity={0} />
 				</radialGradient>
 				<filter id={`${uid}-red`} colorInterpolationFilters="sRGB">
 					<feColorMatrix type="matrix" values="0.92 0.1 0.04 0 0.03  0.05 0.66 0.05 0 0  0.05 0.05 0.66 0 0  0 0 0 1 0" />
@@ -444,7 +455,7 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 				<g>
 					<circle cx={250 - eyeDX} cy={eyeY} r={9} fill="#f2f2ea" />
 					<circle cx={250 + eyeDX} cy={eyeY} r={9} fill="#f2f2ea" />
-					{f.mouth === 'grin' ? mouthPath('grin', 250, mouthY, 60) : null}
+					{f.mouth === 'grin' ? mouthPath('grin', 250, mouthY, f.mouthW ?? 60) : null}
 				</g>
 			) : null}
 		</svg>

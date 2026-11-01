@@ -1,4 +1,4 @@
-// Smartphone with a dark group-chat app, lock screen and incoming-call screen.
+// Smartphone with a group-chat app (chat.theme dark|light, chat.scale, chat.pinned), lock screen and incoming-call screen.
 // The device is drawn at a native 600x1240 and scaled to fit its layer box.
 // Original UI (generic dark messenger), not a copy of any real app.
 import React from 'react';
@@ -80,29 +80,102 @@ const StatusBar: React.FC<{clock: string; battery: number; light?: boolean}> = (
 const MSG_FS = 30;
 const BUBBLE_MAX = 380;
 
-function estimateHeight(m: Msg): number {
-	const text = str(m.text, '');
-	const charsPerLine = Math.max(8, Math.floor((BUBBLE_MAX - 44) / (MSG_FS * 0.56)));
-	const lines = text.split('\n').reduce((n, l) => n + Math.max(1, Math.ceil(l.length / charsPerLine)), 0);
-	return lines * MSG_FS * 1.3 + 32 + (m.me ? 0 : 32) + 18;
+/** Chat colour themes. 'light' is a bright grey messenger (reads at a glance, glows in a dark room). */
+type Theme = {
+	bg: string; header: string; headerBorder: string; title: string; sub: string; back: string; status: boolean;
+	bubble: string; text: string; alertBg: string; alertText: string; alertBorder: string; nameBright: number;
+	dayBg: string; dayText: string; inputBg: string; inputText: string; icon: string; dots: string;
+	pinBg: string; pinText: string; pinLabel: string; meText: string;
+};
+const THEMES: Record<string, Theme> = {
+	dark: {
+		bg: '#14171d', header: '#1b1f27', headerBorder: '#232833', title: '#eef0f3', sub: '#8a93a2', back: '#8fb0d8', status: true,
+		bubble: '#262b34', text: '#eef0f3', alertBg: '#5a1d24', alertText: '#ffd9db', alertBorder: '#e0313a', nameBright: 1.6,
+		dayBg: '#1e232c', dayText: '#7c8594', inputBg: '#262b34', inputText: '#6c7586', icon: '#5d6778', dots: '#9aa3b0',
+		pinBg: '#20252e', pinText: '#dfe3ea', pinLabel: '#e0313a', meText: '#eef0f3',
+	},
+	light: {
+		bg: '#dfe0e4', header: '#f4f4f6', headerBorder: '#c9cad0', title: '#14161b', sub: '#666c78', back: '#2f5b94', status: false,
+		bubble: '#ffffff', text: '#15171c', alertBg: '#ffe3e5', alertText: '#7d0c16', alertBorder: '#d8232f', nameBright: 0.8,
+		dayBg: '#c8c9cf', dayText: '#4c525e', inputBg: '#ffffff', inputText: '#9aa0aa', icon: '#7d838e', dots: '#80868f',
+		pinBg: '#fbf3d9', pinText: '#2a2410', pinLabel: '#c0202b', meText: '#ffffff',
+	},
+};
+const themeOf = (c: Record<string, unknown>) => THEMES[str(c.theme, 'dark')] ?? THEMES.dark;
+
+/** Size of the chat at a given text scale (chat.scale): bigger text, fewer bubbles on screen. */
+function dims(s: number) {
+	const fs = MSG_FS * s;
+	const avatar = Math.round(58 * Math.min(s, 1.25));
+	return {fs, avatar, name: 21 * Math.min(s, 1.3), max: Math.min(BUBBLE_MAX * s, SW - 44 - avatar - 14 - 8)};
 }
 
-const TypingDots: React.FC<{t: number}> = ({t}) => (
-	<div style={{display: 'flex', gap: 9, padding: '20px 26px', background: '#262b34', borderRadius: 30, borderTopLeftRadius: 8}}>
+function estimateHeight(m: Msg, s = 1): number {
+	const d = dims(s);
+	if (m.kind === 'system') return d.fs * 0.7 * 1.3 + 20 + 18;
+	const text = str(m.text, '');
+	const charsPerLine = Math.max(8, Math.floor((d.max - 44) / (d.fs * 0.56)));
+	const lines = text.split('\n').reduce((n, l) => n + Math.max(1, Math.ceil(l.length / charsPerLine)), 0);
+	return lines * d.fs * 1.3 + 32 + (m.me ? 0 : d.name + 11) + 18;
+}
+
+const TypingDots: React.FC<{t: number; th?: Theme}> = ({t, th = THEMES.dark}) => (
+	<div style={{display: 'flex', gap: 9, padding: '20px 26px', background: th.bubble, borderRadius: 30, borderTopLeftRadius: 8}}>
 		{[0, 1, 2].map((i) => {
 			const ph = (t * 2.4 - i * 0.18) % 1;
 			const up = ph < 0.4 ? Math.sin((ph / 0.4) * Math.PI) : 0;
-			return <div key={i} style={{width: 14, height: 14, borderRadius: 7, background: '#9aa3b0', opacity: 0.45 + 0.55 * up, transform: `translateY(${-up * 8}px)`}} />;
+			return <div key={i} style={{width: 14, height: 14, borderRadius: 7, background: th.dots, opacity: 0.45 + 0.55 * up, transform: `translateY(${-up * 8}px)`}} />;
 		})}
 	</div>
 );
 
-const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; accent: string}> = ({m, members, t, accent}) => {
+/** A centred grey line inside the chat ("Management pinned a message", "Ben (5A) left the group"). */
+const SystemLine: React.FC<{m: Msg; t: number; th: Theme; s: number}> = ({m, t, th, s}) => {
+	const p = popIn(t, num(m.at, 0), 0.3);
+	return (
+		<div style={{alignSelf: 'center', marginTop: 18, opacity: clamp01(p * 2.5), maxWidth: SW - 80, textAlign: 'center', fontFamily: FONT, fontWeight: 700, fontSize: MSG_FS * 0.7 * s, lineHeight: 1.3, color: th.dayText, background: th.dayBg, padding: '8px 18px', borderRadius: 16}}>
+			{str(m.text, '')}
+		</div>
+	);
+};
+
+/**
+ * Pinned-message bar under the chat header. pinned: {text, at, label ('Pinned'), from,
+ * editAt, editText}: at editAt the text is replaced by editText with a red flash and an "edited" tag.
+ */
+const PinnedBar: React.FC<{p: Record<string, unknown>; t: number; th: Theme; s: number}> = ({p, t, th, s}) => {
+	const at = num(p.at, 0);
+	if (t < at) return null;
+	const editAt = num(p.editAt, 1e9);
+	const edited = t >= editAt && p.editText !== undefined;
+	const text = edited ? str(p.editText, '') : str(p.text, '');
+	const flash = edited ? clamp01(1 - (t - editAt) / 0.9) : 0;
+	const e = ease('out', popIn(t, at, 0.3));
+	const fs = 24 * Math.min(s, 1.3);
+	return (
+		<div style={{display: 'flex', alignItems: 'center', gap: 14, padding: '12px 22px', background: th.pinBg, borderBottom: `2px solid ${th.headerBorder}`, boxShadow: flash ? `inset 0 0 0 ${4 * flash}px ${th.alertBorder}` : undefined, opacity: e, position: 'relative'}}>
+			{flash > 0 ? <div style={{position: 'absolute', inset: 0, background: th.alertBorder, opacity: 0.35 * flash}} /> : null}
+			<svg width={fs * 1.2} height={fs * 1.2} viewBox="0 0 24 24" style={{flex: 'none'}}>
+				<path d="M15 3 l6 6 -2 1 -4 4 1 5 -2 1 -4 -4 -5 5 -1 -1 5 -5 -4 -4 1 -2 5 1 4 -4z" fill={th.pinLabel} />
+			</svg>
+			<div style={{minWidth: 0, flex: 1, position: 'relative'}}>
+				<div style={{fontFamily: FONT, fontWeight: 900, fontSize: fs * 0.8, color: th.pinLabel, letterSpacing: '0.04em'}}>
+					{str(p.label, 'PINNED')}{str(p.from, '') ? ` · ${str(p.from, '')}` : ''}{edited ? ' · edited' : ''}
+				</div>
+				<div style={{fontFamily: FONT, fontWeight: 800, fontSize: fs, lineHeight: 1.25, color: th.pinText, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>{text}</div>
+			</div>
+		</div>
+	);
+};
+
+const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; accent: string; th?: Theme; s?: number}> = ({m, members, t, accent, th = THEMES.dark, s = 1}) => {
 	const p = popIn(t, num(m.at, 0), 0.3);
 	const e = ease('backOut', p);
 	const me = Boolean(m.me);
 	const from = str(m.from, 'Unknown');
-	const red = m.kind === 'alert';
+	const card = m.kind === 'card'; // solid red warning card (reads as a red block in a thumbnail)
+	const red = m.kind === 'alert' || card;
+	const d = dims(s);
 	return (
 		<div
 			style={{
@@ -117,20 +190,21 @@ const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; acce
 				transformOrigin: me ? '100% 100%' : '0% 100%',
 			}}
 		>
-			{me ? null : <Avatar name={from} members={members} size={58} />}
-			<div style={{display: 'flex', flexDirection: 'column', alignItems: me ? 'flex-end' : 'flex-start', maxWidth: BUBBLE_MAX}}>
+			{me ? null : <Avatar name={from} members={members} size={d.avatar} />}
+			<div style={{display: 'flex', flexDirection: 'column', alignItems: me ? 'flex-end' : 'flex-start', maxWidth: d.max}}>
 				{me ? null : (
-					<div style={{fontFamily: FONT, fontWeight: 800, fontSize: 21, color: colorFor(from, members), filter: 'brightness(1.6)', margin: '2px 0 6px 6px'}}>{from}</div>
+					<div style={{fontFamily: FONT, fontWeight: 800, fontSize: d.name, color: colorFor(from, members), filter: `brightness(${th.nameBright})`, margin: '2px 0 6px 6px'}}>{from}</div>
 				)}
 				<div
 					style={{
 						fontFamily: FONT,
-						fontWeight: 700,
-						fontSize: MSG_FS,
+						fontWeight: card ? 900 : 700,
+						fontSize: d.fs,
 						lineHeight: 1.3,
-						color: red ? '#ffd9db' : '#eef0f3',
-						background: me ? accent : red ? '#5a1d24' : '#262b34',
-						border: red ? '2px solid #e0313a' : undefined,
+						color: me ? th.meText : card ? '#ffffff' : red ? th.alertText : th.text,
+						background: me ? accent : card ? th.alertBorder : red ? th.alertBg : th.bubble,
+						border: red ? `${Math.round(2 * s)}px solid ${th.alertBorder}` : undefined,
+						boxShadow: th === THEMES.light && !me ? '0 2px 0 rgba(0,0,0,0.08)' : undefined,
 						padding: '16px 22px',
 						borderRadius: 28,
 						borderTopLeftRadius: me ? 28 : 8,
@@ -148,24 +222,28 @@ const Bubble: React.FC<{m: Msg; members: Record<string, Member>; t: number; acce
 
 const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) => {
 	const members = obj(c.members) as Record<string, Member>;
+	const th = themeOf(c);
+	const sc = num(c.scale, 1);
+	const d = dims(sc);
 	const msgs = arr<Msg>(c.messages).filter((m) => num(m.at, 0) <= t);
 	const typing = arr<Typing>(c.typing).filter((y) => t >= num(y.at, 0) && t < num(y.until, num(y.at, 0) + 1.2));
 	const accent = str(c.accent, '#3d5a80');
 	const last = msgs[msgs.length - 1];
 	// shove the list up smoothly as the newest bubble arrives
-	const shove = last ? (1 - ease('out', popIn(t, num(last.at, 0), 0.25))) * estimateHeight(last) : 0;
-	const unread = Math.round(num(c.unread, 0) + msgs.filter((m) => !m.me && num(m.at, 0) > num(c.unreadFrom, 1e9)).length);
+	const shove = last ? (1 - ease('out', popIn(t, num(last.at, 0), 0.25))) * estimateHeight(last, sc) : 0;
+	const unread = Math.round(num(c.unread, 0) + msgs.filter((m) => !m.me && m.kind !== 'system' && num(m.at, 0) > num(c.unreadFrom, 1e9)).length);
 	const typingName = typing.length ? str(typing[0].from, '') : '';
 	const subtitle = typingName ? `${typingName} is typing…` : str(c.subtitle, `${num(c.count, 48)} members`);
 	const title = str(c.title, 'Building 7 Residents');
 	const groupNames = Object.keys(members).slice(0, 3);
+	const pinned = c.pinned ? obj(c.pinned) : null;
 	return (
-		<div style={{position: 'absolute', inset: 0, background: '#14171d', display: 'flex', flexDirection: 'column'}}>
-			<div style={{background: '#1b1f27', borderBottom: '2px solid #232833'}}>
-				<StatusBar clock={str(c.clock, '2:14')} battery={num(c.battery, 23)} />
+		<div style={{position: 'absolute', inset: 0, background: th.bg, display: 'flex', flexDirection: 'column'}}>
+			<div style={{background: th.header, borderBottom: `2px solid ${th.headerBorder}`, position: 'relative', zIndex: 2}}>
+				<StatusBar clock={str(c.clock, '2:14')} battery={num(c.battery, 23)} light={th.status} />
 				<div style={{height: 104, display: 'flex', alignItems: 'center', padding: '0 20px', gap: 14}}>
 					<svg width={26} height={40} viewBox="0 0 26 40">
-						<path d="M20 4 L6 20 L20 36" stroke="#8fb0d8" strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+						<path d="M20 4 L6 20 L20 36" stroke={th.back} strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" />
 					</svg>
 					{unread > 0 ? (
 						<div style={{minWidth: 42, height: 42, borderRadius: 21, background: '#e0313a', color: '#fff', fontFamily: FONT, fontWeight: 900, fontSize: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 10px'}}>
@@ -174,41 +252,42 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 					) : null}
 					<div style={{position: 'relative', width: 70, height: 64, flex: 'none'}}>
 						{(groupNames.length ? groupNames : ['A', 'B']).slice(0, 2).map((n, i) => (
-							<div key={n} style={{position: 'absolute', left: i * 22, top: i * 12, border: '3px solid #1b1f27', borderRadius: '50%'}}>
+							<div key={n} style={{position: 'absolute', left: i * 22, top: i * 12, border: `3px solid ${th.header}`, borderRadius: '50%'}}>
 								<Avatar name={n} members={members} size={44} />
 							</div>
 						))}
 					</div>
 					<div style={{display: 'flex', flexDirection: 'column', minWidth: 0}}>
-						<div style={{fontFamily: FONT, fontWeight: 800, fontSize: 28, color: '#eef0f3', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 360}}>{title}</div>
-						<div style={{fontFamily: FONT, fontWeight: 700, fontSize: 20, color: typingName ? '#7fd1a0' : '#8a93a2', marginTop: 4}}>{subtitle}</div>
+						<div style={{fontFamily: FONT, fontWeight: 800, fontSize: 28, color: th.title, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 360}}>{title}</div>
+						<div style={{fontFamily: FONT, fontWeight: 700, fontSize: 20, color: typingName ? '#2e9d5c' : th.sub, marginTop: 4}}>{subtitle}</div>
 					</div>
 				</div>
+				{pinned ? <PinnedBar p={pinned} t={t} th={th} s={sc} /> : null}
 			</div>
 			<div style={{flex: 1, position: 'relative', overflow: 'hidden'}}>
 				<div style={{position: 'absolute', left: 0, right: 0, bottom: 16, display: 'flex', flexDirection: 'column', transform: `translateY(${shove}px)`}}>
 					{str(c.dayLabel, '') ? (
-						<div style={{alignSelf: 'center', fontFamily: FONT, fontWeight: 700, fontSize: 19, color: '#7c8594', background: '#1e232c', padding: '6px 16px', borderRadius: 14, marginBottom: 6}}>{str(c.dayLabel, '')}</div>
+						<div style={{alignSelf: 'center', fontFamily: FONT, fontWeight: 700, fontSize: 19 * Math.min(sc, 1.3), color: th.dayText, background: th.dayBg, padding: '6px 16px', borderRadius: 14, marginBottom: 6}}>{str(c.dayLabel, '')}</div>
 					) : null}
-					{msgs.map((m, i) => (
-						<Bubble key={i} m={m} members={members} t={t} accent={accent} />
-					))}
+					{msgs.map((m, i) =>
+						m.kind === 'system' ? <SystemLine key={i} m={m} t={t} th={th} s={sc} /> : <Bubble key={i} m={m} members={members} t={t} accent={accent} th={th} s={sc} />,
+					)}
 					{typing.map((y, i) => (
 						<div key={`ty${i}`} style={{display: 'flex', gap: 14, padding: '0 22px', marginTop: 18, alignItems: 'flex-end'}}>
-							<Avatar name={str(y.from, '?')} members={members} size={58} />
-							<TypingDots t={t} />
+							<Avatar name={str(y.from, '?')} members={members} size={d.avatar} />
+							<TypingDots t={t} th={th} />
 						</div>
 					))}
 				</div>
 			</div>
-			<div style={{height: 108, background: '#1b1f27', display: 'flex', alignItems: 'center', gap: 16, padding: '0 22px 14px'}}>
-				<div style={{width: 46, height: 46, borderRadius: 23, border: '3px solid #5d6778', color: '#5d6778', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 30}}>+</div>
-				<div style={{flex: 1, height: 58, borderRadius: 29, background: '#262b34', fontFamily: FONT, fontWeight: 700, fontSize: 24, color: '#6c7586', display: 'flex', alignItems: 'center', padding: '0 24px'}}>
+			<div style={{height: 108, background: th.header, borderTop: `2px solid ${th.headerBorder}`, display: 'flex', alignItems: 'center', gap: 16, padding: '0 22px 14px'}}>
+				<div style={{width: 46, height: 46, borderRadius: 23, border: `3px solid ${th.icon}`, color: th.icon, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 30}}>+</div>
+				<div style={{flex: 1, height: 58, borderRadius: 29, background: th.inputBg, fontFamily: FONT, fontWeight: 700, fontSize: 24, color: th.inputText, display: 'flex', alignItems: 'center', padding: '0 24px'}}>
 					{str(c.draft, 'Message')}
 				</div>
 				<svg width={40} height={40} viewBox="0 0 40 40">
-					<rect x={13} y={4} width={14} height={22} rx={7} fill="#5d6778" />
-					<path d="M8 20 a12 12 0 0 0 24 0 M20 32 v6" stroke="#5d6778" strokeWidth={3.5} fill="none" strokeLinecap="round" />
+					<rect x={13} y={4} width={14} height={22} rx={7} fill={th.icon} />
+					<path d="M8 20 a12 12 0 0 0 24 0 M20 32 v6" stroke={th.icon} strokeWidth={3.5} fill="none" strokeLinecap="round" />
 				</svg>
 			</div>
 		</div>
