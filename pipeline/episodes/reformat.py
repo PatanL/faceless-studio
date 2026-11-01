@@ -40,7 +40,9 @@ CAPTION_GAP = 40             # clear px between any text box and the top of the 
 CAPTION_MAX_CHARS, CAPTION_MAX_WORDS = 28, 5   # 16:9 bottom band has room: longer one-line pages keep whole clauses
 # per-episode extra camera zoom for remapped (non-native) 16:9 scenes whose subject sits small in the centre column
 # (text layers are screen-locked at depth 0 and keep their size); {slug: {scene index: factor}}
-ZOOM16 = {"explainer-orca": {2: 1.15, 3: 1.15, 6: 1.15, 8: 1.15, 13: 1.0}}
+# (QA round 1, orca 16:9: outer thirds empty water -> 1.3 on the centred single-subject scenes; the cover p00/p13, p01 and
+# the pod p03 stay lower: at 1.35 they cropped the tail, the fin chip and the top orca at the frame edges)
+ZOOM16 = {"explainer-orca": {2: 1.3, 3: 1.15, 5: 1.3, 6: 1.15, 8: 1.3, 9: 1.3, 10: 1.3, 13: 1.0}}
 
 
 class Map:

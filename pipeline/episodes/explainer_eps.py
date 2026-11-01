@@ -43,7 +43,12 @@ CAPTION_JOIN = {"explainer-orca": ["fifty-six kilometres", "scared of", ("twenty
                         "only opens", "back out.", "kilometres away.", "it charges", "of krill", "of that cloud?",
                         "40 of you.")]}
 # extra joins for the 16:9 cut only (longer one-line pages there; pipeline/episodes/reformat.py)
-CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres"]}
+CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres",
+                                             ("a blue whale's mouth.", "a\u00a0blue\u00a0whale's\u00a0mouth.")],
+                     # orca 16:9: no orphan last word when a page wraps ("... MISSING ONE / ORGAN.")
+                     "explainer-orca": [(r, r.replace(" ", "\u00a0")) for r in (
+                         "one organ.", "mothers taught them.", "the seal straight off.", "of the seals they eat.", "an hour.", "to eat you.", "never come for you?", "on Earth.",
+                         "your weight.", "together,", "their rudders.")]}
 # explicit caption pages (build.py mark_pages -> Word.br; the shared core pager stays untouched because horror uses it):
 # whole phrases, never ending on an open word (up / close / never / size / comparatives), number + unit together.
 # "|" separates pages. 9:16 pages wrap to two lines; 16:9 pages keep a whole sentence when it fits one ~34-char line.
@@ -79,13 +84,13 @@ CAPTION_PAGES_16X9 = {"explainer-blue-whale": _P(
     "as heavy as four cars, | and its fin alone is as tall as you. | It hits fifty-six kilometres an hour. | "
     "An Olympic swimmer manages eight. | You, maybe three. | From fifty metres out, | it reaches you in three seconds. | "
     "And you'd never meet just one. | A pod hunts as a team, | and you'd be outnumbered. | In Antarctica, | "
-    "a pod charges an ice floe together, | and the wave | washes the seal straight off. | You'd go too. | Off South Africa, | "
+    "a pod charges an ice floe together, | and the wave washes the seal straight off. | You'd go too. | Off South Africa, | "
     "the shark you're scared of | started washing up missing one organ. | The liver. | Orcas flipped them and took it. | "
     "The surviving great whites | fled for months. | If they run, | what chance do you have? | In 2019, off Western Australia, | "
     "a pod brought down | the biggest animal on Earth. | An adult blue whale, | a thousand times your weight. | "
     "So why has something this fast | and this smart never come for you? | Maybe you taste bad? | Nobody's ever proven that. | "
-    "Too small to bother with? | You're about | the size of the seals they eat. | The best answer is culture. | Orcas eat | "
-    "what their mothers taught them. | And no orca mother | has ever taught her calf to eat you. | Comforting, right? | "
+    "Too small to bother with? | You're about the size of the seals they eat. | The best answer is culture. | "
+    "Orcas eat what their mothers taught them. | And no orca mother | has ever taught her calf to eat you. | Comforting, right? | "
     "Except since 2020, | orcas off Spain and Portugal | have been ramming sailboats | and snapping off their rudders. | "
     "About seven boats have sunk. | Nobody knows why. | Maybe they just haven't decided | about you yet. | And that matters, because...")}
 STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                  # build.py fails these on any visual hold > 3 s
@@ -963,16 +968,44 @@ def blue_whale_16x9_patch(sb):
         t0 = f["keyframes"][0]["t"]               # = sweeps - 0.95
         sw = t0 + 0.95
         f["width"], f["height"] = 950, round(950 * 180 / 480, 1)
-        f["x"], f["y"] = "110%", "56%"
-        f["keyframes"] = [{"t": t0, "x": "112%", "y": "57%", "rotate": 12, "opacity": 0},
-                          {"t": sw - 0.7, "x": "96%", "y": "56%", "rotate": 10, "opacity": 1},
-                          {"t": sw + 0.3, "x": "62%", "y": "55%", "rotate": -4, "opacity": 1, "ease": "inOut"},
-                          {"t": sw + 0.9, "x": "40%", "y": "53%", "rotate": -10, "opacity": 1},
-                          {"t": sw + 1.4, "x": "26%", "y": "52%", "rotate": -14, "opacity": 0}]
+        f["x"], f["y"] = "110%", "63%"
+        f["keyframes"] = [{"t": t0, "x": "112%", "y": "64%", "rotate": 12, "opacity": 0},
+                          {"t": sw - 0.7, "x": "96%", "y": "63%", "rotate": 10, "opacity": 1},
+                          {"t": sw + 0.3, "x": "62%", "y": "62%", "rotate": -4, "opacity": 1, "ease": "inOut"},
+                          {"t": sw + 0.9, "x": "40%", "y": "61%", "rotate": -10, "opacity": 1},
+                          {"t": sw + 1.4, "x": "26%", "y": "60%", "rotate": -14, "opacity": 0}]
     return sb
 
 
-PATCH_16X9 = {"explainer-blue-whale": blue_whale_16x9_patch}
+def orca_16x9_patch(sb):
+    """Post-remap text fixes for the orca 16:9 cut (QA round 1): no header repeating the caption (p01 NOT BECAUSE
+    THEY CAN'T), p03 OUTNUMBERED beside the diver instead of over it, p07 one 'YOU (NOT TO SCALE)' chip and a
+    '~150 T' tag instead of the caption's ADULT BLUE WHALE."""
+    sc = sb["scenes"]
+    tagged = lambda i, text: [l for l in sc[i]["layers"] if l.get("props", {}).get("text") == text]
+    sc[1]["layers"] = [l for l in sc[1]["layers"] if l.get("props", {}).get("text") != "NOT BECAUSE THEY CAN'T"]
+    for d in [l for l in sc[3]["layers"] if l.get("name") == "explainer/Diver"]:
+        for t in tagged(3, "OUTNUMBERED"):
+            t["x"] = f"{_pct(d['x']) + (d['width'] / 2 + t['width'] / 2 + 30) / 19.2:.2f}%"
+            t["y"] = d["y"]
+    for t in tagged(7, "ADULT BLUE WHALE"):
+        t["props"]["text"] = "~150 T"
+        t["width"] = 400
+    for t in tagged(7, "YOU"):
+        t["props"]["text"] = "YOU (NOT TO SCALE)"
+        t["width"] = 520
+    sc[7]["layers"] = [l for l in sc[7]["layers"] if l.get("props", {}).get("text") != "YOU NOT TO SCALE"]
+    # p09: diver + YOU · 1.75 M / SEAL 1.6 M chips 65 px up, clear of the two-line "YOU'RE ABOUT THE SIZE" page
+    for l in sc[9]["layers"]:
+        if (l.get("name") in ("explainer/Diver", "explainer/Tag") or l["type"] == "svg") and not l.get("keyframes") \
+                and _pct(l.get("y", 0)) > 65:
+            l["y"] = f"{_pct(l['y']) - 6:.2f}%"
+        if l.get("name") == "explainer/Seal":   # the seal sits above its SEAL 1.6 M tag, not behind it
+            l["y"] = "60%"
+    return sb
+
+
+PATCH_16X9 = {"explainer-blue-whale": blue_whale_16x9_patch, "explainer-orca": orca_16x9_patch}
 
 # =========================================================================== pressure ladder
 

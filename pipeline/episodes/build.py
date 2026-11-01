@@ -64,18 +64,23 @@ def join_words(words: list[dict], joins: list) -> None:
     """Merge listed word runs into one caption token so no page can split them: "scared of" (a stranded preposition
     the pager would treat as dangling), "fifty-six kilometres" (number + unit); (src, text) also swaps the shown text,
     e.g. ("twenty twenty,", "2020,"). Match is case-insensitive and includes punctuation. Timings span the run."""
-    key = lambda w: w["text"].lower().replace("\u2019", "'")
+    # sub-words (an earlier join "mothers taught" still matches inside "mothers taught them.")
+    key = lambda w: w["text"].lower().replace("\u2019", "'").split()
     for j in joins:
         src, rep = (j, None) if isinstance(j, str) else j
-        toks = src.lower().split()
+        toks = src.lower().replace("\u2019", "'").split()
         i = 0
-        while i <= len(words) - len(toks):
-            run = words[i:i + len(toks)]
-            if [key(w) for w in run] == toks:
+        while i < len(words):
+            n, got = 0, []
+            while i + n < len(words) and len(got) < len(toks):
+                got += key(words[i + n])
+                n += 1
+            if got == toks:
+                run = words[i:i + n]
                 m = {**run[0], "text": rep or " ".join(w["text"] for w in run), "end": run[-1]["end"]}
                 if any(w.get("emph") for w in run):
                     m["emph"] = True
-                words[i:i + len(toks)] = [m]
+                words[i:i + n] = [m]
             i += 1
 
 
