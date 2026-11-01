@@ -19,6 +19,21 @@ const flexAlign = (a: string) => (a === 'left' ? 'flex-start' : a === 'right' ? 
 
 /** Big uppercase title, optional red underline that draws on. props: text, sub, color, size, underline, align, at, out */
 export const Headline: KitComponent = ({props, time}) => {
+/** Headline words listed in `red` (a word or a list, case-insensitive) are drawn in the danger red. */
+const redWords = (text: string, red: unknown): React.ReactNode => {
+	const set = new Set((Array.isArray(red) ? red : typeof red === 'string' ? [red] : []).map((w) => String(w).toUpperCase()));
+	if (!set.size) return text;
+	return text.split(/(\s+)/).map((tok, i) =>
+		set.has(tok.toUpperCase().replace(/[^A-Z0-9']/g, '')) ? (
+			<span key={i} style={{color: C.red}}>
+				{tok}
+			</span>
+		) : (
+			tok
+		),
+	);
+};
+
 	const at = num(props.at, 0);
 	// at <= 0: already in place on the first frame (frame 0 is the Shorts cover), no entrance
 	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.35));
@@ -45,7 +60,7 @@ export const Headline: KitComponent = ({props, time}) => {
 					whiteSpace: 'pre-line',
 				}}
 			>
-				{str(props.text, '')}
+				{redWords(str(props.text, ''), props.red)}
 				{bool(props.underline, false) ? (
 					<div style={{position: 'absolute', left: 0, bottom: -size * 0.16, height: Math.max(3, size * 0.07), width: `${u * 100}%`, background: color, borderRadius: 2}} />
 				) : null}

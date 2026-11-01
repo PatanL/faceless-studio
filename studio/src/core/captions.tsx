@@ -85,9 +85,12 @@ export function paginate(
 		const chars = cur.reduce((n, x) => n + x.text.length + 1, 0) + w.text.length;
 		const gap = !!prev && w.start - prev.end > c.gapBreak;
 		const full = cur.length >= c.maxWords || chars > c.maxChars;
+		// ... unless the word after w ends the sentence and could not join too: break earlier so that word is not orphaned
+		const nx = sorted[i + 1];
+		const orphanNext = !!nx && SENTENCE_END.test(nx.text.trim()) && cur.length + 2 > c.maxWords + 1;
 		// page would end on a stopword: let it take one more word (up to maxWords+1 / maxChars+4) ...
 		const stretch =
-			(cur.length > 0 && isStop(cur[cur.length - 1]) && cur.length <= c.maxWords && chars <= c.maxChars + 4) ||
+			(cur.length > 0 && isStop(cur[cur.length - 1]) && cur.length <= c.maxWords && chars <= c.maxChars + 4 && !orphanNext) ||
 			(glues(w, prev) && cur.length <= c.maxWords + 1 && chars <= c.maxChars + 6) ||
 			(binds(w, prev, pairs) && cur.length <= c.maxWords && chars <= c.maxChars + 6) ||
 			// look-ahead: a phrase-final word ("cart.", "body.") joins this page instead of sitting alone on the next

@@ -7,7 +7,7 @@
  "scenes": [
   {
    "id": "p00",
-   "duration": 4.61,
+   "duration": 3.63,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -33,11 +33,11 @@
         "v": 0.85
        },
        {
-        "t": 3.413,
+        "t": 2.913,
         "v": 0.85
        },
        {
-        "t": 3.913,
+        "t": 3.413,
         "v": 0.55,
         "ease": "inOut"
        }
@@ -74,13 +74,13 @@
        "rotate": -25
       },
       {
-       "t": 3.413,
+       "t": 2.913,
        "x": "55.5%",
        "y": "43.6%",
        "rotate": -25
       },
       {
-       "t": 4.213,
+       "t": 3.713,
        "x": "18%",
        "y": "50%",
        "rotate": -60,
@@ -113,12 +113,12 @@
        "y": "35.5%"
       },
       {
-       "t": 3.413,
+       "t": 2.913,
        "x": "52%",
        "y": "35.5%"
       },
       {
-       "t": 4.213,
+       "t": 3.713,
        "x": "18%",
        "y": "43%",
        "ease": "out"
@@ -129,33 +129,47 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "14%",
+     "y": "15%",
      "width": 1000,
-     "height": 249.60000000000002,
+     "height": 371.20000000000005,
      "props": {
-      "text": "FITS IN ITS MOUTH",
+      "text": "YOU'RE TOO\nBIG TO EAT",
       "at": 0,
-      "size": 78,
+      "size": 116,
       "color": "white",
-      "underline": true,
-      "out": 2.65
+      "underline": false,
+      "red": "EAT",
+      "out": 2.15
      },
      "depth": 0,
      "z": 20
     },
     {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 260 180\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 236 160 C 190 120 120 70 62 44\" stroke=\"#e5483d\" stroke-width=\"16\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 30 26 L 96 30 L 62 84 Z\" fill=\"#e5483d\"/></svg>",
+     "x": "68%",
+     "y": "27%",
+     "width": 260,
+     "height": 180,
+     "rotate": -90,
+     "z": 7,
+     "depth": 0,
+     "end": 2.913
+    },
+    {
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "14%",
+     "y": "15%",
      "width": 1000,
-     "height": 249.60000000000002,
+     "height": 345.6,
      "props": {
-      "text": "CAN'T SWALLOW YOU",
-      "at": 2.65,
-      "size": 78,
-      "color": "red",
-      "underline": true
+      "text": "CAN'T\nSWALLOW YOU",
+      "at": 2.15,
+      "size": 108,
+      "color": "white",
+      "underline": false,
+      "red": "YOU"
      },
      "depth": 0,
      "z": 20
@@ -171,16 +185,16 @@
       "y": "46%"
      },
      {
-      "t": 2.075,
-      "zoom": 0.9448
+      "t": 1.575,
+      "zoom": 0.944
      },
      {
-      "t": 2.295,
-      "zoom": 1.118,
+      "t": 1.795,
+      "zoom": 1.1178,
       "ease": "out"
      },
      {
-      "t": 4.61,
+      "t": 3.63,
       "zoom": 1.1507,
       "x": "48%",
       "y": "46%"
@@ -190,7 +204,7 @@
   },
   {
    "id": "p01",
-   "duration": 8.13,
+   "duration": 10.34,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -206,7 +220,7 @@
      "type": "component",
      "name": "explainer/BlueWhale",
      "x": "34%",
-     "y": "44.27%",
+     "y": "40.62%",
      "width": 1020,
      "height": 160,
      "props": {
@@ -221,22 +235,22 @@
       },
       {
        "t": 1.1,
-       "y": "44.27%",
+       "y": "40.62%",
        "ease": "out"
       }
      ]
     },
     {
      "type": "svg",
-     "markup": "<svg viewBox=\"0 0 160 1020\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"120\" y1=\"6\" x2=\"120\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"1014\" x2=\"140\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"846\" x2=\"140\" y2=\"846\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"678\" x2=\"140\" y2=\"678\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"510\" x2=\"140\" y2=\"510\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"342\" x2=\"140\" y2=\"342\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"174\" x2=\"140\" y2=\"174\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"6\" x2=\"140\" y2=\"6\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><text x=\"70\" y=\"1028\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">0</text><text x=\"70\" y=\"692\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">10</text><text x=\"70\" y=\"356\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">20</text><text x=\"70\" y=\"20\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">30</text></svg>",
+     "markup": "<svg viewBox=\"0 0 160 1020\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"120\" y1=\"6\" x2=\"120\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"1014\" x2=\"140\" y2=\"1014\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"846\" x2=\"140\" y2=\"846\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"678\" x2=\"140\" y2=\"678\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"510\" x2=\"140\" y2=\"510\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"342\" x2=\"140\" y2=\"342\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"96\" y1=\"174\" x2=\"140\" y2=\"174\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><line x1=\"84\" y1=\"6\" x2=\"140\" y2=\"6\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-linecap=\"round\"/><text x=\"70\" y=\"1028\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">0</text><text x=\"70\" y=\"692\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">10</text><text x=\"70\" y=\"356\" text-anchor=\"end\" font-family=\"Montserrat, Arial Black, sans-serif\" font-weight=\"900\" font-size=\"44\" fill=\"#f3f6f7\">20</text></svg>",
      "x": "10%",
-     "y": "44.27%",
+     "y": "40.62%",
      "width": 160,
      "height": 1020,
-     "start": 3.088,
+     "start": 1.062,
      "enter": {
       "type": "fade",
-      "at": 3.088,
+      "at": 1.062,
       "duration": 0.3
      }
     },
@@ -244,12 +258,12 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "12%",
-     "y": "15.10%",
+     "y": "11.46%",
      "width": 240,
      "height": 115.19999999999999,
      "props": {
       "text": "30 M",
-      "at": 3.913,
+      "at": 3.888,
       "size": 48,
       "accent": "#6fd6e8"
      },
@@ -260,17 +274,17 @@
      "type": "component",
      "name": "explainer/Bus",
      "x": "72%",
-     "y": "60.21%",
+     "y": "56.56%",
      "width": 408,
      "height": 110,
      "props": {
       "pxPerM": 34
      },
      "rotate": -90,
-     "start": 4.962,
+     "start": 4.888,
      "enter": {
       "type": "slideUp",
-      "at": 4.962,
+      "at": 4.888,
       "duration": 0.35
      }
     },
@@ -278,17 +292,17 @@
      "type": "component",
      "name": "explainer/Bus",
      "x": "72%",
-     "y": "38.96%",
+     "y": "35.31%",
      "width": 408,
      "height": 110,
      "props": {
       "pxPerM": 34
      },
      "rotate": -90,
-     "start": 5.225,
+     "start": 5.15,
      "enter": {
       "type": "slideUp",
-      "at": 5.225,
+      "at": 5.15,
       "duration": 0.35
      }
     },
@@ -296,14 +310,14 @@
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 600 312\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"20\" width=\"620\" height=\"250\" rx=\"30\" fill=\"#f2b632\"/><rect x=\"0\" y=\"196\" width=\"600\" height=\"30\" fill=\"#d9961c\"/><rect x=\"0\" y=\"20\" width=\"600\" height=\"22\" rx=\"11\" fill=\"#f7c95a\"/><rect x=\"30\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"138\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"246\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"354\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><rect x=\"462\" y=\"60\" width=\"92\" height=\"92\" rx=\"10\" fill=\"#1d2a33\"/><circle cx=\"230\" cy=\"282\" r=\"50\" fill=\"#15191d\"/><circle cx=\"230\" cy=\"282\" r=\"24\" fill=\"#9aa3a9\"/><line x1=\"598\" y1=\"24\" x2=\"598\" y2=\"270\" stroke=\"#f3f6f7\" stroke-width=\"8\" stroke-dasharray=\"22 16\"/></svg>",
      "x": "72%",
-     "y": "23.02%",
+     "y": "19.38%",
      "width": 204,
      "height": 106.08,
      "rotate": -90,
-     "start": 6.775,
+     "start": 6.625,
      "enter": {
       "type": "slideUp",
-      "at": 6.775,
+      "at": 6.625,
       "duration": 0.35
      }
     },
@@ -311,7 +325,7 @@
      "type": "component",
      "name": "explainer/Diver",
      "x": "53%",
-     "y": "59.90%",
+     "y": "64.89%",
      "width": 88.4,
      "height": 30,
      "props": {
@@ -319,10 +333,10 @@
       "arms": "side"
      },
      "rotate": -90,
-     "start": 3.913,
+     "start": 0.662,
      "enter": {
       "type": "pop",
-      "at": 3.913,
+      "at": 0.662,
       "duration": 0.35
      }
     },
@@ -330,12 +344,12 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "53%",
-     "y": "54.69%",
+     "y": "59.98%",
      "width": 240,
      "height": 105.6,
      "props": {
       "text": "YOU",
-      "at": 3.913,
+      "at": 0.662,
       "size": 44,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
@@ -344,6 +358,23 @@
      },
      "depth": 1,
      "z": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52.95%",
+     "width": 330,
+     "height": 110.39999999999999,
+     "props": {
+      "text": "YOU ≈ 1/16",
+      "at": 7.975,
+      "size": 46,
+      "align": "center",
+      "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20
     },
     {
      "type": "component",
@@ -358,7 +389,7 @@
       "size": 66,
       "color": "white",
       "underline": true,
-      "out": 4.962
+      "out": 4.888
      },
      "depth": 0,
      "z": 20
@@ -372,7 +403,7 @@
      "height": 211.20000000000002,
      "props": {
       "text": "≈ 2.5 CITY BUSES",
-      "at": 6.425,
+      "at": 6.275,
       "size": 66,
       "color": "white",
       "underline": true
@@ -381,7 +412,7 @@
      "z": 20
     }
    ],
-   "notes": "This is the heaviest animal ever measured. Up to thirty metres long. That's two and a half city buses, parked nose to tail.",
+   "notes": "This is the heaviest animal ever measured. Up to thirty metres long. That's two and a half city buses, parked nose to tail. Lying beside it, you'd cover a sixteenth.",
    "camera": {
     "keyframes": [
      {
@@ -392,43 +423,52 @@
      },
      {
       "t": 0.662,
-      "zoom": 1.0033
+      "zoom": 1.0026
      },
      {
       "t": 0.882,
-      "zoom": 1.1851,
+      "zoom": 1.184,
       "ease": "out"
      },
      {
-      "t": 3.188,
-      "zoom": 1.1985
+      "t": 3.162,
+      "zoom": 1.1944
      },
      {
-      "t": 3.408,
-      "zoom": 1.0168,
+      "t": 3.382,
+      "zoom": 1.0131,
       "ease": "out"
      },
      {
-      "t": 4.962,
-      "zoom": 1.0244
+      "t": 4.888,
+      "zoom": 1.0189
      },
      {
-      "t": 5.182,
-      "zoom": 1.2101,
+      "t": 5.108,
+      "zoom": 1.2033,
       "ease": "out"
      },
      {
-      "t": 6.775,
-      "zoom": 1.2193
+      "t": 6.625,
+      "zoom": 1.2102
      },
      {
-      "t": 6.995,
-      "zoom": 1.0344,
+      "t": 6.845,
+      "zoom": 1.0265,
       "ease": "out"
      },
      {
-      "t": 8.13,
-      "zoom": 1.04,
+      "t": 7.975,
+      "zoom": 1.0309
+     },
+     {
+      "t": 8.195,
+      "zoom": 1.2174,
+      "ease": "out"
+     },
+     {
+      "t": 10.34,
+      "zoom": 1.2272,
       "x": "50%",
       "y": "50%"
      }
@@ -437,7 +477,7 @@
   },
   {
    "id": "p02",
-   "duration": 5.78,
+   "duration": 4.94,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -459,7 +499,7 @@
      "props": {
       "speed": 0.7
      },
-     "end": 2.463,
+     "end": 2.407,
      "idle": [
       {
        "type": "bob",
@@ -473,7 +513,7 @@
        "x": "-34%"
       },
       {
-       "t": 2.463,
+       "t": 2.407,
        "x": "-26%"
       }
      ]
@@ -488,7 +528,7 @@
      "props": {
       "value": 190,
       "label": "tonnes",
-      "at": 0.863,
+      "at": 0.832,
       "size": 140,
       "color": "white",
       "labelSize": 45,
@@ -497,7 +537,7 @@
      },
      "depth": 0,
      "z": 20,
-     "end": 2.463
+     "end": 2.407
     },
     {
      "type": "component",
@@ -510,34 +550,34 @@
       "left": {
        "species": "blueWhale",
        "w": 470,
-       "at": 2.463,
+       "at": 2.407,
        "pos": 0.27,
        "idle": true
       },
       "right": {
        "species": "sauropod",
        "w": 430,
-       "at": 3.3,
+       "at": 3.245,
        "drop": true,
        "pos": 0.27
       },
       "tilt": [
        {
-        "t": 2.463,
+        "t": 2.407,
         "v": -14
        },
        {
-        "t": 3.65,
+        "t": 3.595,
         "v": -14
        },
        {
-        "t": 4.2,
+        "t": 4.1450000000000005,
         "v": -7,
         "ease": "out"
        }
       ]
      },
-     "start": 2.463,
+     "start": 2.407,
      "depth": 0.3
     },
     {
@@ -550,7 +590,7 @@
      "props": {
       "value": 190,
       "label": "tonnes",
-      "at": 2.463,
+      "at": 2.407,
       "size": 80,
       "color": "white",
       "labelSize": 38,
@@ -561,7 +601,7 @@
      },
      "depth": 0,
      "z": 20,
-     "start": 2.463
+     "start": 2.407
     },
     {
      "type": "component",
@@ -572,7 +612,7 @@
      "height": 110.39999999999999,
      "props": {
       "text": "BIGGER THAN ANY DINOSAUR",
-      "at": 4.3,
+      "at": 4.233,
       "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
@@ -581,7 +621,7 @@
      "z": 20
     }
    ],
-   "notes": "It can weigh close to two hundred tonnes. Heavier than the biggest dinosaurs we've ever dug up.",
+   "notes": "It can weigh close to two hundred tonnes. Heavier than the biggest dinosaurs ever found.",
    "camera": {
     "keyframes": [
      {
@@ -591,25 +631,25 @@
       "y": "50%"
      },
      {
-      "t": 1.063,
-      "zoom": 1.0092
+      "t": 1.032,
+      "zoom": 1.0104
      },
      {
-      "t": 1.283,
-      "zoom": 1.1931,
+      "t": 1.252,
+      "zoom": 1.195,
       "ease": "out"
      },
      {
-      "t": 3.3,
-      "zoom": 1.2137
+      "t": 3.245,
+      "zoom": 1.2188
      },
      {
-      "t": 3.52,
-      "zoom": 1.0304,
+      "t": 3.465,
+      "zoom": 1.0351,
       "ease": "out"
      },
      {
-      "t": 5.78,
+      "t": 4.94,
       "zoom": 1.05,
       "x": "50%",
       "y": "50%"
@@ -619,7 +659,7 @@
   },
   {
    "id": "p03",
-   "duration": 3.605,
+   "duration": 4.58,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -642,13 +682,13 @@
       "left": {
        "species": "whaleTongue",
        "w": 300,
-       "at": 0.288,
+       "at": 0.158,
        "pos": 0.29
       },
       "right": {
        "species": "elephant",
        "w": 440,
-       "at": 2.213,
+       "at": 1.857,
        "drop": true,
        "pos": 0.25,
        "idle": true
@@ -659,11 +699,11 @@
         "v": -13
        },
        {
-        "t": 2.613,
+        "t": 2.257,
         "v": -13
        },
        {
-        "t": 3.113,
+        "t": 2.757,
         "v": 0,
         "ease": "out"
        }
@@ -680,7 +720,7 @@
      "height": 110.39999999999999,
      "props": {
       "text": "TONGUE",
-      "at": 0.288,
+      "at": 0.158,
       "size": 46,
       "accent": "#6fd6e8"
      },
@@ -696,7 +736,785 @@
      "height": 129.6,
      "props": {
       "text": "≈ 2.7 TONNES EACH",
-      "at": 2.613,
+      "at": 2.257,
+      "size": 54,
+      "align": "center",
+      "out": 3.67,
+      "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "8.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.67,
+     "enter": {
+      "type": "pop",
+      "at": 3.67,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "12.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.6879999999999997,
+     "enter": {
+      "type": "pop",
+      "at": 3.6879999999999997,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "16.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.706,
+     "enter": {
+      "type": "pop",
+      "at": 3.706,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "20.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.7239999999999998,
+     "enter": {
+      "type": "pop",
+      "at": 3.7239999999999998,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.742,
+     "enter": {
+      "type": "pop",
+      "at": 3.742,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.76,
+     "enter": {
+      "type": "pop",
+      "at": 3.76,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "32.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.778,
+     "enter": {
+      "type": "pop",
+      "at": 3.778,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36.0%",
+     "y": "10.0%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.796,
+     "enter": {
+      "type": "pop",
+      "at": 3.796,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "8.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.814,
+     "enter": {
+      "type": "pop",
+      "at": 3.814,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "12.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.832,
+     "enter": {
+      "type": "pop",
+      "at": 3.832,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "16.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.85,
+     "enter": {
+      "type": "pop",
+      "at": 3.85,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "20.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.868,
+     "enter": {
+      "type": "pop",
+      "at": 3.868,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.886,
+     "enter": {
+      "type": "pop",
+      "at": 3.886,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.904,
+     "enter": {
+      "type": "pop",
+      "at": 3.904,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "32.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.9219999999999997,
+     "enter": {
+      "type": "pop",
+      "at": 3.9219999999999997,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36.0%",
+     "y": "13.6%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.94,
+     "enter": {
+      "type": "pop",
+      "at": 3.94,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "8.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.9579999999999997,
+     "enter": {
+      "type": "pop",
+      "at": 3.9579999999999997,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "12.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.976,
+     "enter": {
+      "type": "pop",
+      "at": 3.976,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "16.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 3.9939999999999998,
+     "enter": {
+      "type": "pop",
+      "at": 3.9939999999999998,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "20.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.012,
+     "enter": {
+      "type": "pop",
+      "at": 4.012,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.03,
+     "enter": {
+      "type": "pop",
+      "at": 4.03,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.048,
+     "enter": {
+      "type": "pop",
+      "at": 4.048,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "32.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.066,
+     "enter": {
+      "type": "pop",
+      "at": 4.066,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36.0%",
+     "y": "17.2%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.084,
+     "enter": {
+      "type": "pop",
+      "at": 4.084,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "8.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.102,
+     "enter": {
+      "type": "pop",
+      "at": 4.102,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "12.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.12,
+     "enter": {
+      "type": "pop",
+      "at": 4.12,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "16.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.138,
+     "enter": {
+      "type": "pop",
+      "at": 4.138,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "20.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.156,
+     "enter": {
+      "type": "pop",
+      "at": 4.156,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.1739999999999995,
+     "enter": {
+      "type": "pop",
+      "at": 4.1739999999999995,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.192,
+     "enter": {
+      "type": "pop",
+      "at": 4.192,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "32.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.21,
+     "enter": {
+      "type": "pop",
+      "at": 4.21,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36.0%",
+     "y": "20.8%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.228,
+     "enter": {
+      "type": "pop",
+      "at": 4.228,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "8.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.2459999999999996,
+     "enter": {
+      "type": "pop",
+      "at": 4.2459999999999996,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "12.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.264,
+     "enter": {
+      "type": "pop",
+      "at": 4.264,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "16.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.282,
+     "enter": {
+      "type": "pop",
+      "at": 4.282,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "20.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.3,
+     "enter": {
+      "type": "pop",
+      "at": 4.3,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.318,
+     "enter": {
+      "type": "pop",
+      "at": 4.318,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.336,
+     "enter": {
+      "type": "pop",
+      "at": 4.336,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "32.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.354,
+     "enter": {
+      "type": "pop",
+      "at": 4.354,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "36.0%",
+     "y": "24.4%",
+     "width": 36,
+     "height": 60,
+     "props": {
+      "pose": "stand"
+     },
+     "start": 4.372,
+     "enter": {
+      "type": "pop",
+      "at": 4.372,
+      "duration": 0.2
+     },
+     "depth": 0.2,
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "76%",
+     "y": "16%",
+     "width": 420,
+     "height": 129.6,
+     "props": {
+      "text": "≈ 40 OF YOU",
+      "at": 4.17,
       "size": 54,
       "align": "center",
       "accent": "#6fd6e8"
@@ -705,7 +1523,7 @@
      "z": 20
     }
    ],
-   "notes": "Its tongue alone weighs about as much as an elephant.",
+   "notes": "The tongue alone weighs about as much as an elephant. That's about forty of you.",
    "camera": {
     "keyframes": [
      {
@@ -715,26 +1533,35 @@
       "y": "50%"
      },
      {
-      "t": 0.288,
-      "zoom": 1.0048
+      "t": 0.158,
+      "zoom": 1.0021
      },
      {
-      "t": 0.508,
-      "zoom": 1.19,
+      "t": 0.378,
+      "zoom": 1.1858,
       "ease": "out"
      },
      {
-      "t": 2.613,
-      "zoom": 1.2313
+      "t": 2.257,
+      "zoom": 1.2149
      },
      {
-      "t": 2.833,
-      "zoom": 1.0472,
+      "t": 2.477,
+      "zoom": 1.0324,
       "ease": "out"
      },
      {
-      "t": 3.605,
-      "zoom": 1.06,
+      "t": 3.67,
+      "zoom": 1.0481
+     },
+     {
+      "t": 3.89,
+      "zoom": 1.2401,
+      "ease": "out"
+     },
+     {
+      "t": 4.58,
+      "zoom": 1.2508,
       "x": "50%",
       "y": "50%"
      }
@@ -743,7 +1570,7 @@
   },
   {
    "id": "p04",
-   "duration": 7.08,
+   "duration": 6.8,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -801,10 +1628,22 @@
        {
         "t": 2.75,
         "v": 0
+       },
+       {
+        "t": 3.35,
+        "v": 0
+       },
+       {
+        "t": 3.47,
+        "v": 1
+       },
+       {
+        "t": 3.75,
+        "v": 0
        }
       ]
      },
-     "end": 2.863
+     "end": 4.007
     },
     {
      "type": "component",
@@ -816,11 +1655,11 @@
      "props": {
       "pxPerM": 210
      },
-     "start": 1.438,
-     "end": 2.863,
+     "start": 0.732,
+     "end": 4.007,
      "enter": {
       "type": "slideLeft",
-      "at": 1.438,
+      "at": 0.732,
       "duration": 0.45
      }
     },
@@ -835,11 +1674,11 @@
       "pxPerM": 210,
       "arms": "side"
      },
-     "start": 0.95,
-     "end": 2.863,
+     "start": 2.27,
+     "end": 4.007,
      "enter": {
       "type": "fade",
-      "at": 0.95,
+      "at": 2.27,
       "duration": 0.3
      }
     },
@@ -852,7 +1691,7 @@
      "height": 105.6,
      "props": {
       "text": "YOU",
-      "at": 0.95,
+      "at": 2.27,
       "size": 44,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
@@ -861,7 +1700,7 @@
      },
      "depth": 1,
      "z": 6,
-     "end": 2.863
+     "end": 4.007
     },
     {
      "type": "component",
@@ -878,7 +1717,7 @@
      },
      "depth": 0,
      "z": 20,
-     "end": 2.863
+     "end": 4.007
     },
     {
      "type": "component",
@@ -889,94 +1728,153 @@
      "height": 110.39999999999999,
      "props": {
       "text": "GOLF CART",
-      "at": 1.738,
+      "at": 1.032,
       "size": 46,
       "accent": "#6fd6e8"
      },
      "depth": 0,
      "z": 20,
-     "end": 2.863
+     "end": 4.007
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "13%",
+     "width": 1000,
+     "height": 120.0,
+     "props": {
+      "text": "180 KG ≈ 2+ OF YOU",
+      "at": 2.57,
+      "size": 50,
+      "align": "center",
+      "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20,
+     "end": 4.007
     },
     {
      "type": "svg",
-     "markup": "<svg viewBox=\"0 0 1080 1920\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0d3344\"/><stop offset=\"1\" stop-color=\"#02080c\"/></linearGradient></defs><rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/></svg>",
+     "markup": "<svg viewBox=\"0 0 1080 1920\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#06121c\"/><stop offset=\"1\" stop-color=\"#0f2a3a\"/></linearGradient><radialGradient id=\"dg\" cx=\"0.5\" cy=\"0.3\" r=\"0.6\"><stop offset=\"0\" stop-color=\"rgba(60,150,180,0.22)\"/><stop offset=\"1\" stop-color=\"rgba(60,150,180,0)\"/></radialGradient></defs><rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><rect width=\"1080\" height=\"1920\" fill=\"url(#dg)\"/></svg>",
      "x": "50%",
      "y": "50%",
      "width": 1080,
      "height": 1920,
-     "start": 2.863,
+     "start": 4.007,
      "depth": 0,
      "z": 0
     },
     {
-     "type": "component",
-     "name": "explainer/ECG",
-     "x": "50%",
-     "y": "36%",
-     "width": 1000,
-     "height": 300,
-     "props": {
-      "beats": [
-       3.163,
-       3.763,
-       4.563
-      ],
-      "at": 2.863,
-      "speed": 300,
-      "color": "#6fd6e8"
-     },
-     "start": 2.863,
+     "type": "particles",
+     "preset": "snow",
+     "count": 90,
+     "color": "rgba(200,225,235,0.55)",
+     "size": [
+      2,
+      5
+     ],
+     "speed": 0.4,
+     "z": 1,
      "depth": 0,
-     "z": 5
+     "start": 4.007
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "8.5%",
+     "width": 1000,
+     "height": 115.19999999999999,
+     "props": {
+      "text": "DEEP DIVE · ~180 M",
+      "at": 4.007,
+      "size": 48,
+      "align": "center",
+      "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20
     },
     {
      "type": "component",
      "name": "explainer/WhaleHeart",
      "x": "50%",
-     "y": "20%",
-     "width": 220,
-     "height": 220,
+     "y": "27%",
+     "width": 440,
+     "height": 440,
      "props": {
       "beat": [
        {
-        "t": 3.163,
+        "t": 4.357,
         "v": 0
        },
        {
-        "t": 3.283,
+        "t": 4.477,
         "v": 1
        },
        {
-        "t": 3.5629999999999997,
+        "t": 4.757000000000001,
         "v": 0
        },
        {
-        "t": 3.763,
+        "t": 5.257,
         "v": 0
        },
        {
-        "t": 3.883,
+        "t": 5.377,
         "v": 1
        },
        {
-        "t": 4.163,
+        "t": 5.657,
         "v": 0
        },
        {
-        "t": 4.563,
+        "t": 6.507,
         "v": 0
        },
        {
-        "t": 4.683,
+        "t": 6.627,
         "v": 1
        },
        {
-        "t": 4.963,
+        "t": 6.907,
         "v": 0
        }
       ]
      },
-     "start": 2.863,
+     "start": 4.007,
+     "depth": 0,
+     "z": 5,
+     "enter": {
+      "type": "pop",
+      "at": 4.007,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/ECG",
+     "x": "50%",
+     "y": "48%",
+     "width": 1000,
+     "height": 260,
+     "props": {
+      "beats": [
+       1.007,
+       1.757,
+       2.507,
+       3.257,
+       4.357,
+       5.257,
+       6.507
+      ],
+      "at": 4.007,
+      "speed": 300,
+      "color": "#6fd6e8",
+      "prefill": true
+     },
+     "start": 4.007,
      "depth": 0,
      "z": 5
     },
@@ -984,24 +1882,25 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "56%",
+     "y": "61%",
      "width": 900,
-     "height": 364.0,
+     "height": 312.0,
      "props": {
       "value": 2,
       "label": "beats a minute",
-      "at": 5.563,
-      "size": 140,
+      "at": 4.606999999999999,
+      "size": 120,
       "color": "white",
-      "labelSize": 45,
-      "duration": 0.3,
+      "labelSize": 38,
+      "from": 10,
+      "duration": 1.1750000000000003,
       "pulse": 2.0
      },
      "depth": 0,
      "z": 20
     }
    ],
-   "notes": "Its heart is the size of a golf cart. And on a deep dive, that heart can slow down to just two beats a minute.",
+   "notes": "The heart is the size of a golf cart, and outweighs two of you. On a deep dive, it can slow to just two beats a minute.",
    "camera": {
     "keyframes": [
      {
@@ -1011,52 +1910,52 @@
       "y": "50%"
      },
      {
-      "t": 0.35,
-      "zoom": 1.003
+      "t": 0.245,
+      "zoom": 1.0022
      },
      {
-      "t": 0.57,
-      "zoom": 1.1857,
+      "t": 0.465,
+      "zoom": 1.1848,
       "ease": "out"
      },
      {
-      "t": 1.438,
-      "zoom": 1.1944
+      "t": 2.27,
+      "zoom": 1.2036
      },
      {
-      "t": 1.658,
-      "zoom": 1.0141,
+      "t": 2.49,
+      "zoom": 1.022,
       "ease": "out"
      },
      {
-      "t": 2.863,
-      "zoom": 1.0243
+      "t": 4.007,
+      "zoom": 1.0354
      },
      {
-      "t": 3.083,
-      "zoom": 1.2108,
+      "t": 4.227,
+      "zoom": 1.224,
       "ease": "out"
      },
      {
-      "t": 4.638,
-      "zoom": 1.2264
+      "t": 5.132,
+      "zoom": 1.2334
      },
      {
-      "t": 4.858,
-      "zoom": 1.0412,
+      "t": 5.352,
+      "zoom": 1.0472,
       "ease": "out"
      },
      {
-      "t": 5.563,
-      "zoom": 1.0471
+      "t": 5.782,
+      "zoom": 1.051
      },
      {
-      "t": 5.783,
-      "zoom": 1.2378,
+      "t": 6.002,
+      "zoom": 1.2425,
       "ease": "out"
      },
      {
-      "t": 7.08,
+      "t": 6.8,
       "zoom": 1.2508,
       "x": "50%",
       "y": "50%"
@@ -1066,7 +1965,7 @@
   },
   {
    "id": "p05",
-   "duration": 5.575,
+   "duration": 5.17,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -1273,31 +2172,6 @@
      ]
     },
     {
-     "type": "svg",
-     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(225,240,245,0.75)\" stroke-width=\"5\"/></svg>",
-     "x": "86%",
-     "y": "45%",
-     "width": 560,
-     "height": 560,
-     "start": 4.45,
-     "end": 6.15,
-     "z": 3,
-     "depth": 0.6,
-     "keyframes": [
-      {
-       "t": 4.45,
-       "scale": 0.2,
-       "opacity": 0.95
-      },
-      {
-       "t": 6.15,
-       "scale": 2.4,
-       "opacity": 0,
-       "ease": "out"
-      }
-     ]
-    },
-    {
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
@@ -1307,7 +2181,7 @@
      "props": {
       "value": 188,
       "label": "decibels",
-      "at": 0.95,
+      "at": 0.925,
       "size": 120,
       "color": "white",
       "labelSize": 38,
@@ -1325,11 +2199,11 @@
      "width": 520,
      "height": 140,
      "props": {},
-     "start": 1.538,
+     "start": 1.512,
      "depth": 0.2,
      "enter": {
       "type": "slideLeft",
-      "at": 1.538,
+      "at": 1.512,
       "duration": 0.4
      }
     },
@@ -1342,10 +2216,10 @@
      "height": 110.39999999999999,
      "props": {
       "text": "JET ENGINE",
-      "at": 1.888,
+      "at": 1.862,
       "size": 46,
       "align": "center",
-      "out": 3.013,
+      "out": 3.0,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -1360,16 +2234,85 @@
      "height": 110.39999999999999,
      "props": {
       "text": "HEARD 100s OF KM AWAY",
-      "at": 3.688,
+      "at": 3.512,
       "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
      },
      "depth": 0,
      "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "9%",
+     "y": "62%",
+     "width": 110,
+     "height": 26,
+     "props": {
+      "arms": "side"
+     },
+     "z": 3,
+     "start": 3.25,
+     "enter": {
+      "type": "pop",
+      "at": 3.25,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "9%",
+     "y": "58.5%",
+     "width": 240,
+     "height": 105.6,
+     "props": {
+      "text": "YOU",
+      "at": 3.25,
+      "size": 44,
+      "bg": "#f3f6f7",
+      "color": "#0b1a22",
+      "align": "center",
+      "accent": "#0b1a22"
+     },
+     "depth": 1,
+     "z": 6
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(111,214,232,0.9)\" stroke-width=\"5\"/></svg>",
+     "x": "9%",
+     "y": "62%",
+     "width": 300,
+     "height": 300,
+     "start": 3.5,
+     "end": 4.4,
+     "z": 3,
+     "depth": 0.6,
+     "keyframes": [
+      {
+       "t": 3.5,
+       "scale": 0.1,
+       "opacity": 0.95
+      },
+      {
+       "t": 4.4,
+       "scale": 0.7,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
     }
    ],
-   "notes": "Its call is louder than a jet engine, and it can carry for hundreds of kilometres.",
+   "notes": "Its call is louder than a jet engine, and it could reach you hundreds of kilometres away.",
    "camera": {
     "keyframes": [
      {
@@ -1379,28 +2322,28 @@
       "y": "50%"
      },
      {
-      "t": 0.95,
-      "zoom": 1.0126
+      "t": 0.925,
+      "zoom": 1.0123
      },
      {
-      "t": 1.17,
-      "zoom": 1.1983,
+      "t": 1.145,
+      "zoom": 1.198,
       "ease": "out"
      },
      {
-      "t": 3.013,
+      "t": 3.0,
       "zoom": 1.04,
       "x": "55%",
       "y": "48%"
      },
      {
-      "t": 4.213,
+      "t": 4.2,
       "zoom": 0.8,
       "x": "50%",
       "y": "48%"
      },
      {
-      "t": 5.575,
+      "t": 5.17,
       "zoom": 0.78,
       "x": "50%",
       "y": "48%"
@@ -1410,7 +2353,7 @@
   },
   {
    "id": "p06",
-   "duration": 6.23,
+   "duration": 5.79,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -1533,7 +2476,7 @@
         "v": 0
        },
        {
-        "t": 3.938,
+        "t": 3.9370000000000003,
         "v": 1,
         "ease": "out"
        }
@@ -1543,14 +2486,14 @@
      "keyframes": [
       {
        "t": 0,
-       "x": "-148%"
+       "x": "-111%"
       },
       {
        "t": 1.375,
-       "x": "-130%"
+       "x": "-96%"
       },
       {
-       "t": 3.638,
+       "t": 3.637,
        "x": "-65.7%",
        "ease": "out"
       }
@@ -1565,7 +2508,7 @@
      "height": 115.19999999999999,
      "props": {
       "text": "KRILL",
-      "at": 2.013,
+      "at": 2.012,
       "size": 48,
       "accent": "#6fd6e8"
      },
@@ -1600,25 +2543,25 @@
       "y": "44%"
      },
      {
-      "t": 0.838,
-      "zoom": 1.0108
+      "t": 0.787,
+      "zoom": 1.0109
      },
      {
-      "t": 1.058,
-      "zoom": 1.196,
+      "t": 1.007,
+      "zoom": 1.1964,
       "ease": "out"
      },
      {
-      "t": 3.638,
-      "zoom": 1.2351
+      "t": 3.637,
+      "zoom": 1.2393
      },
      {
-      "t": 3.858,
-      "zoom": 1.0495,
+      "t": 3.857,
+      "zoom": 1.0533,
       "ease": "out"
      },
      {
-      "t": 6.23,
+      "t": 5.79,
       "zoom": 1.08,
       "x": "52%",
       "y": "44%"
@@ -1628,7 +2571,7 @@
   },
   {
    "id": "p07",
-   "duration": 3.935,
+   "duration": 3.48,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -1655,26 +2598,37 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "120%",
-     "y": "40%",
-     "width": 2600,
-     "height": 380,
+     "x": "170%",
+     "y": "60%",
+     "width": 1800,
+     "height": 263,
      "props": {
-      "silhouette": "#06141b",
-      "speed": 0.6
+      "speed": 0.6,
+      "gape": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.48,
+        "v": 0.6,
+        "ease": "inOut"
+       }
+      ]
      },
      "flipX": true,
      "z": 0,
-     "opacity": 0.75,
-     "start": 1.388,
+     "opacity": 0.5,
+     "blur": 3,
+     "start": 0.0,
      "keyframes": [
       {
-       "t": 1.388,
-       "x": "160%"
+       "t": 0,
+       "x": "170%"
       },
       {
-       "t": 3.935,
-       "x": "112%",
+       "t": 3.48,
+       "x": "118%",
        "ease": "out"
       }
      ]
@@ -1726,7 +2680,7 @@
      "height": 352.0,
      "props": {
       "text": "AND YOU?",
-      "at": 0.913,
+      "at": 0.912,
       "size": 110,
       "color": "white",
       "underline": true
@@ -1745,25 +2699,25 @@
       "y": "44%"
      },
      {
-      "t": 1.588,
-      "zoom": 1.0484
+      "t": 1.587,
+      "zoom": 1.0547
      },
      {
-      "t": 1.808,
-      "zoom": 1.2451,
+      "t": 1.807,
+      "zoom": 1.2535,
       "ease": "out"
      },
      {
       "t": 2.475,
-      "zoom": 1.2691
+      "zoom": 1.2807
      },
      {
       "t": 2.695,
-      "zoom": 1.0822,
+      "zoom": 1.0929,
       "ease": "out"
      },
      {
-      "t": 3.935,
+      "t": 3.48,
       "zoom": 1.12,
       "x": "50%",
       "y": "44%"
@@ -1773,7 +2727,7 @@
   },
   {
    "id": "p08",
-   "duration": 12.36,
+   "duration": 10.36,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -1796,18 +2750,18 @@
      "props": {
       "speed": 0.8
      },
-     "end": 5.963,
+     "end": 4.382,
      "keyframes": [
       {
        "t": 0,
        "scale": 1
       },
       {
-       "t": 4.863,
+       "t": 3.282,
        "scale": 1
       },
       {
-       "t": 5.213,
+       "t": 3.632,
        "scale": 0.22,
        "ease": "inOut"
       }
@@ -1829,7 +2783,7 @@
      },
      "depth": 0,
      "z": 20,
-     "end": 5.963
+     "end": 4.382
     },
     {
      "type": "component",
@@ -1841,7 +2795,7 @@
      "props": {
       "value": 40000000,
       "label": "krill a day",
-      "at": 2.45,
+      "at": 0.707,
       "size": 100,
       "color": "white",
       "labelSize": 38,
@@ -1849,7 +2803,7 @@
      },
      "depth": 0,
      "z": 20,
-     "end": 5.963
+     "end": 4.382
     },
     {
      "type": "particles",
@@ -1862,17 +2816,17 @@
      ],
      "speed": 0.4,
      "z": 1,
-     "start": 5.063000000000001,
-     "end": 5.963
+     "start": 3.482,
+     "end": 4.382
     },
     {
      "type": "svg",
-     "markup": "<svg viewBox=\"0 0 1080 1920\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"m\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#2c3b4a\"/><stop offset=\"0.12\" stop-color=\"#2c3b4a\"/><stop offset=\"0.5\" stop-color=\"#5a2a36\"/><stop offset=\"0.75\" stop-color=\"#93525d\"/></linearGradient></defs><rect width=\"1080\" height=\"1920\" fill=\"url(#m)\"/></svg>",
+     "markup": "<svg viewBox=\"0 0 2376 3072\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"mw\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a2430\"/><stop offset=\"0.375\" stop-color=\"#4f2531\"/><stop offset=\"0.53\" stop-color=\"#5a2a36\"/><stop offset=\"0.625\" stop-color=\"#93525d\"/><stop offset=\"1\" stop-color=\"#93525d\"/></linearGradient></defs><rect width=\"2376\" height=\"3072\" fill=\"url(#mw)\"/></svg>",
      "x": "50%",
      "y": "50%",
-     "width": 1080,
-     "height": 1920,
-     "start": 5.963,
+     "width": 2376.0,
+     "height": 3072.0,
+     "start": 4.382,
      "depth": 0,
      "z": 1
     },
@@ -1886,23 +2840,23 @@
      "props": {
       "glow": [
        {
-        "t": 8.363,
+        "t": 6.857,
         "v": 0
        },
        {
-        "t": 8.763,
+        "t": 7.257000000000001,
         "v": 1
        }
       ]
      },
-     "start": 5.963,
+     "start": 4.382,
      "depth": 0.5,
      "z": 2
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "137.25%",
+     "x": "111.33%",
      "y": "37.97%",
      "width": 1126.6666666666667,
      "height": 200,
@@ -1911,30 +2865,30 @@
       "arms": "forward"
      },
      "flipX": true,
-     "start": 5.963,
+     "start": 4.382,
      "z": 4,
      "depth": 0.5,
      "keyframes": [
       {
-       "t": 5.963,
-       "x": "137.25%"
-      },
-      {
-       "t": 7.088,
+       "t": 4.382,
        "x": "111.33%"
       },
       {
-       "t": 8.763,
+       "t": 5.532,
+       "x": "100.22%"
+      },
+      {
+       "t": 7.257000000000001,
        "x": "72.44%",
        "ease": "out"
       },
       {
-       "t": 10.925,
+       "t": 9.395,
        "x": "72.44%",
        "rotate": 0
       },
       {
-       "t": 11.625,
+       "t": 10.094999999999999,
        "x": "96.51%",
        "rotate": 8,
        "ease": "out"
@@ -1945,17 +2899,73 @@
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"#f3f6f7\"/><path d=\"M100 4 A96 96 0 0 1 196 100 L100 100 Z\" fill=\"#e5483d\"/><path d=\"M100 196 A96 96 0 0 1 4 100 L100 100 Z\" fill=\"#3a8fd6\"/><circle cx=\"100\" cy=\"100\" r=\"14\" fill=\"#fff\"/></svg>",
      "x": "17.50%",
-     "y": "22.34%",
-     "width": 150,
-     "height": 150,
-     "start": 8.363,
-     "enter": {
-      "type": "pop",
-      "at": 8.363,
-      "duration": 0.35
-     },
+     "y": "19.22%",
+     "width": 140,
+     "height": 140,
+     "start": 6.857,
+     "end": 7.957000000000001,
      "z": 5,
-     "depth": 0.5
+     "depth": 0.5,
+     "keyframes": [
+      {
+       "t": 6.857,
+       "y": "19.22%",
+       "scale": 1.4,
+       "opacity": 1
+      },
+      {
+       "t": 7.307,
+       "y": "37.97%",
+       "scale": 1.0,
+       "opacity": 0.95,
+       "ease": "out"
+      },
+      {
+       "t": 7.657,
+       "y": "37.97%",
+       "scale": 1.0,
+       "opacity": 0.9
+      },
+      {
+       "t": 7.957000000000001,
+       "y": "37.97%",
+       "scale": 1.0,
+       "opacity": 0
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"#f3f6f7\" stroke-width=\"7\" stroke-dasharray=\"22 14\"/></svg>",
+     "x": "17.50%",
+     "y": "37.97%",
+     "width": 140,
+     "height": 140,
+     "start": 7.657,
+     "z": 5,
+     "depth": 0.5,
+     "enter": {
+      "type": "fade",
+      "at": 7.657,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "13%",
+     "width": 1000,
+     "height": 110.39999999999999,
+     "props": {
+      "text": "THROAT ≈ BEACH BALL",
+      "at": 6.857,
+      "size": 46,
+      "align": "center",
+      "accent": "#6fd6e8"
+     },
+     "depth": 0,
+     "z": 20
     },
     {
      "type": "component",
@@ -1966,13 +2976,14 @@
      "height": 110.39999999999999,
      "props": {
       "text": "THROAT",
-      "at": 6.6129999999999995,
+      "at": 5.032,
       "size": 46,
+      "out": 6.857,
       "accent": "#6fd6e8"
      },
      "depth": 0,
      "z": 20,
-     "start": 5.963
+     "start": 4.382
     },
     {
      "type": "svg",
@@ -1981,17 +2992,17 @@
      "y": "33.80%",
      "width": 130,
      "height": 130,
-     "start": 9.588,
+     "start": 8.107,
      "enter": {
       "type": "pop",
-      "at": 9.588,
+      "at": 8.107,
       "duration": 0.25
      },
      "z": 6,
      "depth": 0.5
     }
    ],
-   "notes": "Here's the surprising part. It eats up to forty million krill a day, and every one is tiny. Its throat only opens about as wide as a beach ball. Anything bigger just gets pushed back out.",
+   "notes": "It eats up to forty million krill a day, and every one is tiny. Its throat only opens about as wide as a beach ball. Anything bigger just gets pushed back out.",
    "camera": {
     "keyframes": [
      {
@@ -2001,55 +3012,67 @@
       "y": "44%"
      },
      {
-      "t": 2.55,
+      "t": 0.807,
       "zoom": 1.0
      },
      {
-      "t": 2.77,
+      "t": 1.027,
       "zoom": 1.18,
       "ease": "out"
      },
      {
-      "t": 4.863,
+      "t": 3.282,
       "zoom": 1.18
      },
      {
-      "t": 5.083,
+      "t": 3.502,
       "zoom": 1.0,
       "ease": "out"
      },
      {
-      "t": 5.963,
+      "t": 4.382,
       "zoom": 1.0,
       "x": "50%",
       "y": "44%"
      },
      {
-      "t": 5.973,
+      "t": 4.392,
       "zoom": 1.0,
       "x": "50%",
       "y": "40%"
      },
      {
-      "t": 8.363,
+      "t": 6.857,
       "zoom": 1.08,
       "x": "40%",
       "y": "40%"
      },
      {
-      "t": 9.588,
+      "t": 8.107,
       "zoom": 1.28,
       "x": "30%",
       "y": "37.97%"
      },
      {
-      "t": 11.525,
+      "t": 9.395,
+      "zoom": 1.28,
+      "x": "30%",
+      "y": "37.97%"
+     },
+     {
+      "t": 9.575,
+      "zoom": 1.4,
+      "x": "31%",
+      "y": "37.97%"
+     },
+     {
+      "t": 9.995,
       "zoom": 1.15,
       "x": "36%",
       "y": "40%"
      },
      {
-      "t": 12.36,
+      "t": 10.36,
       "zoom": 1.12,
       "x": "38%",
       "y": "40%"
@@ -2059,7 +3082,7 @@
   },
   {
    "id": "p09",
-   "duration": 9.31,
+   "duration": 8.825,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -2074,7 +3097,7 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "190%",
+     "x": "140%",
      "y": "47%",
      "width": 1900,
      "height": 277,
@@ -2086,33 +3109,33 @@
      "keyframes": [
       {
        "t": 0,
-       "x": "190%"
+       "x": "140%"
       },
       {
-       "t": 2.7,
-       "x": "152%",
+       "t": 2.695,
+       "x": "128%",
        "rotate": 0
       },
       {
-       "t": 4.738,
-       "x": "128%",
+       "t": 4.732,
+       "x": "118%",
        "rotate": 0,
        "ease": "inOut"
       },
       {
-       "t": 5.538,
-       "x": "104%",
+       "t": 5.532,
+       "x": "100%",
        "rotate": -14,
        "ease": "inOut"
       },
       {
-       "t": 8.113,
+       "t": 8.107,
        "x": "-30%",
        "rotate": -4,
        "ease": "inOut"
       },
       {
-       "t": 9.31,
+       "t": 8.825,
        "x": "-62%",
        "rotate": 0
       }
@@ -2123,8 +3146,8 @@
      "name": "explainer/Diver",
      "x": "50%",
      "y": "36%",
-     "width": 180,
-     "height": 40,
+     "width": 260,
+     "height": 58,
      "props": {
       "arms": "side"
      },
@@ -2137,26 +3160,26 @@
        "rotate": 0
       },
       {
-       "t": 5.038,
+       "t": 5.032,
        "x": "50%",
        "y": "36%",
        "rotate": 0
       },
       {
-       "t": 6.038,
+       "t": 6.032,
        "x": "30%",
        "y": "26%",
        "rotate": -230,
        "ease": "out"
       },
       {
-       "t": 7.713,
+       "t": 7.707,
        "x": "30%",
        "y": "27%",
        "rotate": -250
       },
       {
-       "t": 8.713000000000001,
+       "t": 8.707,
        "x": "16%",
        "y": "35%",
        "rotate": -420,
@@ -2189,23 +3212,23 @@
        "y": "31.5%"
       },
       {
-       "t": 5.038,
+       "t": 5.032,
        "x": "50%",
        "y": "31.5%"
       },
       {
-       "t": 6.038,
+       "t": 6.032,
        "x": "30%",
        "y": "21.5%",
        "ease": "out"
       },
       {
-       "t": 7.713,
+       "t": 7.707,
        "x": "30%",
        "y": "22.5%"
       },
       {
-       "t": 8.713000000000001,
+       "t": 8.707,
        "x": "16%",
        "y": "30.5%",
        "ease": "out"
@@ -2225,7 +3248,7 @@
       "size": 70,
       "color": "white",
       "underline": true,
-      "out": 2.7
+      "out": 2.695
      },
      "depth": 0,
      "z": 20
@@ -2237,11 +3260,11 @@
      "y": "41%",
      "width": 260,
      "height": 180,
-     "start": 2.7,
-     "end": 5.038,
+     "start": 2.695,
+     "end": 5.032,
      "enter": {
       "type": "pop",
-      "at": 2.7,
+      "at": 2.695,
       "duration": 0.25
      },
      "z": 5
@@ -2255,10 +3278,10 @@
      "height": 115.19999999999999,
      "props": {
       "text": "WRONG PLACE, WRONG TIME",
-      "at": 4.738,
+      "at": 4.732,
       "size": 48,
       "align": "center",
-      "out": 7.163,
+      "out": 7.157,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -2273,13 +3296,54 @@
      "height": 120.0,
      "props": {
       "text": "7 M TAIL",
-      "at": 7.713,
+      "at": 7.707,
       "size": 50,
       "align": "center",
       "accent": "#6fd6e8"
      },
      "depth": 0,
      "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 480 180\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"fk\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7397b0\"/><stop offset=\"1\" stop-color=\"#3a5a78\"/></linearGradient></defs><path d=\"M 214 180 L 220 92 L 260 92 L 266 180 Z\" fill=\"#3f6080\"/><path d=\"M 240 70 C 180 40 90 16 6 30 C 30 70 110 110 196 116 L 240 98 L 284 116 C 370 110 450 70 474 30 C 390 16 300 40 240 70 Z\" fill=\"url(#fk)\" stroke=\"#2f4c66\" stroke-width=\"4\"/></svg>",
+     "x": "62%",
+     "y": "78%",
+     "width": 700,
+     "height": 262,
+     "start": 7.357,
+     "end": 8.707,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 7.357,
+       "x": "70%",
+       "y": "80%",
+       "rotate": 24,
+       "opacity": 0
+      },
+      {
+       "t": 7.5569999999999995,
+       "x": "60%",
+       "y": "62%",
+       "rotate": 16,
+       "opacity": 1
+      },
+      {
+       "t": 8.007,
+       "x": "36%",
+       "y": "30%",
+       "rotate": -6,
+       "ease": "inOut"
+      },
+      {
+       "t": 8.707,
+       "x": "4%",
+       "y": "-14%",
+       "rotate": -28,
+       "ease": "in"
+      }
+     ]
     }
    ],
    "notes": "The real danger isn't being eaten. It's being in the way when two hundred tonnes decides to turn, and a tail seven metres wide sweeps past.",
@@ -2292,43 +3356,43 @@
       "y": "44%"
      },
      {
-      "t": 0.538,
-      "zoom": 1.0029
+      "t": 0.532,
+      "zoom": 1.003
      },
      {
-      "t": 0.758,
-      "zoom": 1.1848,
+      "t": 0.752,
+      "zoom": 1.185,
       "ease": "out"
      },
      {
-      "t": 2.7,
-      "zoom": 1.1971
+      "t": 2.695,
+      "zoom": 1.198
      },
      {
-      "t": 2.92,
-      "zoom": 1.0157,
+      "t": 2.915,
+      "zoom": 1.0165,
       "ease": "out"
      },
      {
-      "t": 4.063,
-      "zoom": 1.0218
+      "t": 4.057,
+      "zoom": 1.023
      },
      {
-      "t": 4.283,
-      "zoom": 1.2071,
+      "t": 4.277,
+      "zoom": 1.2086,
       "ease": "out"
      },
      {
-      "t": 6.113,
-      "zoom": 1.2187
+      "t": 6.107,
+      "zoom": 1.2208
      },
      {
-      "t": 6.333,
-      "zoom": 1.034,
+      "t": 6.327,
+      "zoom": 1.0358,
       "ease": "out"
      },
      {
-      "t": 9.31,
+      "t": 8.825,
       "zoom": 1.05,
       "x": "50%",
       "y": "44%"
@@ -2336,12 +3400,12 @@
     ],
     "shake": [
      {
-      "at": 5.038,
+      "at": 5.032,
       "duration": 0.8,
       "amplitude": 22
      },
      {
-      "at": 7.713,
+      "at": 7.707,
       "duration": 0.7,
       "amplitude": 16
      }
@@ -2350,7 +3414,7 @@
   },
   {
    "id": "p10",
-   "duration": 6.335,
+   "duration": 6.155,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -2376,11 +3440,11 @@
         "v": 0.6
        },
        {
-        "t": 1.713,
+        "t": 1.737,
         "v": 0.6
        },
        {
-        "t": 3.738,
+        "t": 3.725,
         "v": 0.85,
         "ease": "inOut"
        }
@@ -2416,21 +3480,21 @@
        "rotate": -40
       },
       {
-       "t": 1.713,
+       "t": 1.737,
        "x": "44%",
        "y": "45%",
        "rotate": -30,
        "ease": "inOut"
       },
       {
-       "t": 3.738,
+       "t": 3.725,
        "x": "55.5%",
        "y": "43.6%",
        "rotate": -25,
        "ease": "inOut"
       },
       {
-       "t": 6.335,
+       "t": 6.155,
        "x": "55.5%",
        "y": "43.6%",
        "rotate": -25
@@ -2462,19 +3526,19 @@
        "y": "39%"
       },
       {
-       "t": 1.713,
+       "t": 1.737,
        "x": "42%",
        "y": "37%",
        "ease": "inOut"
       },
       {
-       "t": 3.738,
+       "t": 3.725,
        "x": "52%",
        "y": "35.5%",
        "ease": "inOut"
       },
       {
-       "t": 6.335,
+       "t": 6.155,
        "x": "52%",
        "y": "35.5%"
       }
@@ -2484,16 +3548,17 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "14%",
+     "y": "15%",
      "width": 1000,
-     "height": 224.0,
+     "height": 345.6,
      "props": {
-      "text": "NONE DOWN ITS THROAT",
+      "text": "NONE DOWN\nITS THROAT",
       "at": 0.1,
-      "size": 70,
+      "size": 108,
       "color": "white",
-      "underline": true,
-      "out": 3.738
+      "underline": false,
+      "red": "THROAT",
+      "out": 3.725
      },
      "depth": 0,
      "z": 20
@@ -2502,21 +3567,39 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "14%",
+     "y": "15%",
      "width": 1000,
-     "height": 249.60000000000002,
+     "height": 371.20000000000005,
      "props": {
-      "text": "FITS IN ITS MOUTH",
-      "at": 4.038,
-      "size": 78,
+      "text": "YOU'RE TOO\nBIG TO EAT",
+      "at": 4.025,
+      "size": 116,
       "color": "white",
-      "underline": true
+      "underline": false,
+      "red": "EAT"
      },
      "depth": 0,
      "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 260 180\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 236 160 C 190 120 120 70 62 44\" stroke=\"#e5483d\" stroke-width=\"16\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 30 26 L 96 30 L 62 84 Z\" fill=\"#e5483d\"/></svg>",
+     "x": "68%",
+     "y": "27%",
+     "width": 260,
+     "height": 180,
+     "rotate": -90,
+     "z": 7,
+     "depth": 0,
+     "start": 4.175,
+     "enter": {
+      "type": "pop",
+      "at": 4.175,
+      "duration": 0.3
+     }
     }
    ],
-   "notes": "Room for you in its mouth. No room down its throat. And it would barely notice you were there.",
+   "notes": "Room for you in its mouth. No room down its throat. And it would never even notice you.",
    "camera": {
     "keyframes": [
      {
@@ -2526,28 +3609,28 @@
       "y": "45%"
      },
      {
-      "t": 1.713,
-      "zoom": 1.2567
+      "t": 1.737,
+      "zoom": 1.2573
      },
      {
-      "t": 1.933,
-      "zoom": 1.4884,
+      "t": 1.957,
+      "zoom": 1.4892,
       "ease": "out"
      },
      {
-      "t": 3.738,
+      "t": 3.725,
       "zoom": 1.3,
       "x": "46%",
       "y": "45%"
      },
      {
-      "t": 5.038,
+      "t": 5.025,
       "zoom": 0.92,
       "x": "50%",
       "y": "46%"
      },
      {
-      "t": 6.335,
+      "t": 6.155,
       "zoom": 0.92,
       "x": "50%",
       "y": "46%"
@@ -2560,1094 +3643,1144 @@
   "words": [
    {
     "text": "You'd",
-    "start": 0.575,
-    "end": 0.738
+    "start": 0.1,
+    "end": 0.238
    },
    {
     "text": "fit",
-    "start": 0.738,
-    "end": 0.925
+    "start": 0.238,
+    "end": 0.425
    },
    {
     "text": "inside",
-    "start": 0.925,
-    "end": 1.363
+    "start": 0.425,
+    "end": 0.863
    },
    {
     "text": "a",
-    "start": 1.363,
-    "end": 1.438
+    "start": 0.863,
+    "end": 0.938
    },
    {
     "text": "blue",
-    "start": 1.438,
-    "end": 1.725
+    "start": 0.938,
+    "end": 1.225
    },
    {
     "text": "whale's",
-    "start": 1.725,
-    "end": 2.075
+    "start": 1.225,
+    "end": 1.575
    },
    {
     "text": "mouth.",
-    "start": 2.075,
-    "end": 2.65
+    "start": 1.575,
+    "end": 2.15
    },
    {
     "text": "It",
-    "start": 2.75,
-    "end": 2.9
+    "start": 2.25,
+    "end": 2.4
    },
    {
     "text": "still",
-    "start": 2.9,
-    "end": 3.175
+    "start": 2.4,
+    "end": 2.675
    },
    {
     "text": "couldn't",
-    "start": 3.175,
-    "end": 3.413
+    "start": 2.675,
+    "end": 2.913
    },
    {
     "text": "swallow",
-    "start": 3.413,
-    "end": 3.913
+    "start": 2.913,
+    "end": 3.413
    },
    {
     "text": "you.",
-    "start": 3.913,
-    "end": 4.13
+    "start": 3.413,
+    "end": 3.63
    },
    {
     "text": "This",
-    "start": 4.76,
-    "end": 4.985
+    "start": 3.78,
+    "end": 4.005
    },
    {
     "text": "is",
-    "start": 4.985,
-    "end": 5.135
+    "start": 4.005,
+    "end": 4.155
    },
    {
     "text": "the",
-    "start": 5.135,
-    "end": 5.272
+    "start": 4.155,
+    "end": 4.292
    },
    {
     "text": "heaviest",
-    "start": 5.272,
-    "end": 5.81
+    "start": 4.292,
+    "end": 4.83
    },
    {
     "text": "animal",
-    "start": 5.81,
-    "end": 6.285
+    "start": 4.83,
+    "end": 5.305
    },
    {
     "text": "ever",
-    "start": 6.285,
-    "end": 6.585
+    "start": 5.305,
+    "end": 5.605
    },
    {
     "text": "measured.",
-    "start": 6.585,
-    "end": 7.36
+    "start": 5.605,
+    "end": 6.355
    },
    {
     "text": "Up",
-    "start": 7.46,
-    "end": 7.66
+    "start": 6.455,
+    "end": 6.655
    },
    {
     "text": "to",
-    "start": 7.66,
-    "end": 7.798
+    "start": 6.655,
+    "end": 6.792
    },
    {
     "text": "thirty",
-    "start": 7.798,
-    "end": 8.135
+    "start": 6.792,
+    "end": 7.13
    },
    {
     "text": "metres",
-    "start": 8.135,
-    "end": 8.523
+    "start": 7.13,
+    "end": 7.518
    },
    {
     "text": "long.",
-    "start": 8.523,
-    "end": 9.16
+    "start": 7.518,
+    "end": 8.13
    },
    {
     "text": "That's",
-    "start": 9.273,
-    "end": 9.572
+    "start": 8.23,
+    "end": 8.518
    },
    {
     "text": "two",
-    "start": 9.572,
-    "end": 9.773
+    "start": 8.518,
+    "end": 8.717
    },
    {
     "text": "and",
-    "start": 9.773,
-    "end": 9.873
+    "start": 8.717,
+    "end": 8.818
    },
    {
     "text": "a",
-    "start": 9.873,
-    "end": 9.935
+    "start": 8.818,
+    "end": 8.88
    },
    {
     "text": "half",
-    "start": 9.935,
-    "end": 10.197
+    "start": 8.88,
+    "end": 9.143
    },
    {
     "text": "city",
-    "start": 10.197,
-    "end": 10.435
+    "start": 9.143,
+    "end": 9.38
    },
    {
     "text": "buses,",
-    "start": 10.435,
-    "end": 10.96
+    "start": 9.38,
+    "end": 9.83
    },
    {
     "text": "parked",
-    "start": 11.035,
-    "end": 11.385
+    "start": 9.905,
+    "end": 10.255
    },
    {
     "text": "nose",
-    "start": 11.385,
-    "end": 11.76
+    "start": 10.255,
+    "end": 10.63
    },
    {
     "text": "to",
-    "start": 11.76,
-    "end": 11.885
+    "start": 10.63,
+    "end": 10.768
    },
    {
     "text": "tail.",
-    "start": 11.885,
-    "end": 12.31
+    "start": 10.768,
+    "end": 11.53
+   },
+   {
+    "text": "Lying",
+    "start": 11.705,
+    "end": 12.105
+   },
+   {
+    "text": "beside",
+    "start": 12.105,
+    "end": 12.555
+   },
+   {
+    "text": "it,",
+    "start": 12.555,
+    "end": 12.68
+   },
+   {
+    "text": "you'd",
+    "start": 12.73,
+    "end": 12.905
+   },
+   {
+    "text": "cover",
+    "start": 12.905,
+    "end": 13.205
+   },
+   {
+    "text": "a",
+    "start": 13.205,
+    "end": 13.317
+   },
+   {
+    "text": "sixteenth.",
+    "start": 13.317,
+    "end": 13.97
    },
    {
     "text": "It",
-    "start": 12.89,
-    "end": 13.002
+    "start": 14.12,
+    "end": 14.202
    },
    {
     "text": "can",
-    "start": 13.002,
-    "end": 13.115
+    "start": 14.202,
+    "end": 14.315
    },
    {
     "text": "weigh",
-    "start": 13.115,
-    "end": 13.328
+    "start": 14.315,
+    "end": 14.527
    },
    {
     "text": "close",
-    "start": 13.328,
-    "end": 13.665
+    "start": 14.527,
+    "end": 14.865
    },
    {
     "text": "to",
-    "start": 13.665,
-    "end": 13.803
+    "start": 14.865,
+    "end": 15.002
    },
    {
     "text": "two",
-    "start": 13.803,
-    "end": 14.015
+    "start": 15.002,
+    "end": 15.215
    },
    {
     "text": "hundred",
-    "start": 14.015,
-    "end": 14.402
+    "start": 15.215,
+    "end": 15.602
    },
    {
     "text": "tonnes.",
-    "start": 14.402,
-    "end": 15.165
-   },
-   {
-    "text": "Heavier",
-    "start": 15.303,
-    "end": 15.74
-   },
-   {
-    "text": "than",
-    "start": 15.74,
-    "end": 15.852
-   },
-   {
-    "text": "the",
-    "start": 15.852,
-    "end": 15.977
-   },
-   {
-    "text": "biggest",
-    "start": 15.977,
+    "start": 15.602,
     "end": 16.34
    },
    {
-    "text": "dinosaurs",
-    "start": 16.34,
-    "end": 17.04
+    "text": "Heavier",
+    "start": 16.477,
+    "end": 16.915
    },
    {
-    "text": "we've",
-    "start": 17.04,
-    "end": 17.252
+    "text": "than",
+    "start": 16.915,
+    "end": 17.027
+   },
+   {
+    "text": "the",
+    "start": 17.027,
+    "end": 17.152
+   },
+   {
+    "text": "biggest",
+    "start": 17.152,
+    "end": 17.515
+   },
+   {
+    "text": "dinosaurs",
+    "start": 17.515,
+    "end": 18.203
    },
    {
     "text": "ever",
-    "start": 17.252,
-    "end": 17.578
+    "start": 18.203,
+    "end": 18.527
    },
    {
-    "text": "dug",
-    "start": 17.578,
-    "end": 17.865
+    "text": "found.",
+    "start": 18.527,
+    "end": 18.91
    },
    {
-    "text": "up.",
-    "start": 17.865,
-    "end": 18.09
-   },
-   {
-    "text": "Its",
-    "start": 18.67,
-    "end": 18.908
+    "text": "The",
+    "start": 19.06,
+    "end": 19.168
    },
    {
     "text": "tongue",
-    "start": 18.908,
-    "end": 19.17
+    "start": 19.168,
+    "end": 19.455
    },
    {
     "text": "alone",
-    "start": 19.17,
-    "end": 19.808
+    "start": 19.455,
+    "end": 19.942
    },
    {
     "text": "weighs",
-    "start": 19.808,
-    "end": 20.22
+    "start": 19.942,
+    "end": 20.305
    },
    {
     "text": "about",
-    "start": 20.22,
-    "end": 20.52
+    "start": 20.305,
+    "end": 20.605
    },
    {
     "text": "as",
-    "start": 20.52,
-    "end": 20.683
+    "start": 20.605,
+    "end": 20.767
    },
    {
     "text": "much",
-    "start": 20.683,
-    "end": 20.945
+    "start": 20.767,
+    "end": 20.992
    },
    {
     "text": "as",
-    "start": 20.945,
-    "end": 21.058
+    "start": 20.992,
+    "end": 21.092
    },
    {
     "text": "an",
-    "start": 21.058,
-    "end": 21.183
+    "start": 21.092,
+    "end": 21.217
    },
    {
     "text": "elephant.",
-    "start": 21.183,
-    "end": 21.67
+    "start": 21.217,
+    "end": 21.98
    },
    {
-    "text": "Its",
-    "start": 22.275,
-    "end": 22.475
+    "text": "That's",
+    "start": 22.117,
+    "end": 22.417
    },
    {
-    "text": "heart",
-    "start": 22.475,
-    "end": 22.775
-   },
-   {
-    "text": "is",
-    "start": 22.775,
-    "end": 22.925
-   },
-   {
-    "text": "the",
-    "start": 22.925,
-    "end": 23.075
-   },
-   {
-    "text": "size",
-    "start": 23.075,
-    "end": 23.488
-   },
-   {
-    "text": "of",
-    "start": 23.488,
-    "end": 23.563
-   },
-   {
-    "text": "a",
-    "start": 23.563,
-    "end": 23.663
-   },
-   {
-    "text": "golf",
-    "start": 23.663,
-    "end": 24.0
-   },
-   {
-    "text": "cart.",
-    "start": 24.0,
-    "end": 24.625
-   },
-   {
-    "text": "And",
-    "start": 24.725,
-    "end": 24.863
-   },
-   {
-    "text": "on",
-    "start": 24.863,
-    "end": 24.988
-   },
-   {
-    "text": "a",
-    "start": 24.988,
-    "end": 25.088
-   },
-   {
-    "text": "deep",
-    "start": 25.088,
-    "end": 25.388
-   },
-   {
-    "text": "dive,",
-    "start": 25.388,
-    "end": 26.0
-   },
-   {
-    "text": "that",
-    "start": 26.1,
-    "end": 26.325
-   },
-   {
-    "text": "heart",
-    "start": 26.325,
-    "end": 26.6
-   },
-   {
-    "text": "can",
-    "start": 26.6,
-    "end": 26.763
-   },
-   {
-    "text": "slow",
-    "start": 26.763,
-    "end": 27.1
-   },
-   {
-    "text": "down",
-    "start": 27.1,
-    "end": 27.45
-   },
-   {
-    "text": "to",
-    "start": 27.45,
-    "end": 27.55
-   },
-   {
-    "text": "just",
-    "start": 27.55,
-    "end": 27.788
-   },
-   {
-    "text": "two",
-    "start": 27.788,
-    "end": 28.038
-   },
-   {
-    "text": "beats",
-    "start": 28.038,
-    "end": 28.313
-   },
-   {
-    "text": "a",
-    "start": 28.313,
-    "end": 28.4
-   },
-   {
-    "text": "minute.",
-    "start": 28.4,
-    "end": 28.75
-   },
-   {
-    "text": "Its",
-    "start": 29.355,
-    "end": 29.593
-   },
-   {
-    "text": "call",
-    "start": 29.593,
-    "end": 29.98
-   },
-   {
-    "text": "is",
-    "start": 29.98,
-    "end": 30.155
-   },
-   {
-    "text": "louder",
-    "start": 30.155,
-    "end": 30.605
-   },
-   {
-    "text": "than",
-    "start": 30.605,
-    "end": 30.73
-   },
-   {
-    "text": "a",
-    "start": 30.73,
-    "end": 30.843
-   },
-   {
-    "text": "jet",
-    "start": 30.843,
-    "end": 31.118
-   },
-   {
-    "text": "engine,",
-    "start": 31.118,
-    "end": 31.83
-   },
-   {
-    "text": "and",
-    "start": 31.93,
-    "end": 32.043
-   },
-   {
-    "text": "it",
-    "start": 32.043,
-    "end": 32.13
-   },
-   {
-    "text": "can",
-    "start": 32.13,
-    "end": 32.318
-   },
-   {
-    "text": "carry",
-    "start": 32.318,
-    "end": 32.73
-   },
-   {
-    "text": "for",
-    "start": 32.73,
-    "end": 32.893
-   },
-   {
-    "text": "hundreds",
-    "start": 32.893,
-    "end": 33.368
-   },
-   {
-    "text": "of",
-    "start": 33.368,
-    "end": 33.48
-   },
-   {
-    "text": "kilometres.",
-    "start": 33.48,
-    "end": 34.35
-   },
-   {
-    "text": "To",
-    "start": 34.93,
-    "end": 35.068
-   },
-   {
-    "text": "eat,",
-    "start": 35.068,
-    "end": 35.405
-   },
-   {
-    "text": "it",
-    "start": 35.48,
-    "end": 35.618
-   },
-   {
-    "text": "charges",
-    "start": 35.618,
-    "end": 36.018
-   },
-   {
-    "text": "into",
-    "start": 36.018,
-    "end": 36.255
-   },
-   {
-    "text": "a",
-    "start": 36.255,
-    "end": 36.355
-   },
-   {
-    "text": "cloud",
-    "start": 36.355,
-    "end": 36.668
-   },
-   {
-    "text": "of",
-    "start": 36.668,
-    "end": 36.793
-   },
-   {
-    "text": "krill",
-    "start": 36.793,
-    "end": 37.605
-   },
-   {
-    "text": "and",
-    "start": 37.605,
-    "end": 37.755
-   },
-   {
-    "text": "takes",
-    "start": 37.755,
-    "end": 38.093
-   },
-   {
-    "text": "one",
-    "start": 38.093,
-    "end": 38.418
-   },
-   {
-    "text": "gulp",
-    "start": 38.418,
-    "end": 38.718
-   },
-   {
-    "text": "of",
-    "start": 38.718,
-    "end": 38.843
-   },
-   {
-    "text": "water",
-    "start": 38.843,
-    "end": 39.255
-   },
-   {
-    "text": "bigger",
-    "start": 39.255,
-    "end": 39.63
-   },
-   {
-    "text": "than",
-    "start": 39.63,
-    "end": 39.743
-   },
-   {
-    "text": "its",
-    "start": 39.743,
-    "end": 39.905
-   },
-   {
-    "text": "own",
-    "start": 39.905,
-    "end": 40.155
-   },
-   {
-    "text": "body.",
-    "start": 40.155,
-    "end": 40.53
-   },
-   {
-    "text": "So",
-    "start": 41.16,
-    "end": 41.335
-   },
-   {
-    "text": "what",
-    "start": 41.335,
-    "end": 41.485
-   },
-   {
-    "text": "happens",
-    "start": 41.485,
-    "end": 41.885
-   },
-   {
-    "text": "to",
-    "start": 41.885,
-    "end": 42.023
-   },
-   {
-    "text": "you,",
-    "start": 42.023,
-    "end": 42.435
-   },
-   {
-    "text": "floating",
-    "start": 42.598,
-    "end": 42.998
-   },
-   {
-    "text": "right",
-    "start": 42.998,
-    "end": 43.31
-   },
-   {
-    "text": "in",
-    "start": 43.31,
-    "end": 43.398
-   },
-   {
-    "text": "the",
-    "start": 43.398,
-    "end": 43.485
-   },
-   {
-    "text": "middle",
-    "start": 43.485,
-    "end": 43.723
-   },
-   {
-    "text": "of",
-    "start": 43.723,
-    "end": 43.81
-   },
-   {
-    "text": "that",
-    "start": 43.81,
-    "end": 44.06
-   },
-   {
-    "text": "cloud?",
-    "start": 44.06,
-    "end": 44.49
-   },
-   {
-    "text": "Here's",
-    "start": 45.095,
-    "end": 45.37
-   },
-   {
-    "text": "the",
-    "start": 45.37,
-    "end": 45.47
-   },
-   {
-    "text": "surprising",
-    "start": 45.47,
-    "end": 46.095
-   },
-   {
-    "text": "part.",
-    "start": 46.095,
-    "end": 46.695
-   },
-   {
-    "text": "It",
-    "start": 46.795,
-    "end": 46.945
-   },
-   {
-    "text": "eats",
-    "start": 46.945,
-    "end": 47.158
-   },
-   {
-    "text": "up",
-    "start": 47.158,
-    "end": 47.345
-   },
-   {
-    "text": "to",
-    "start": 47.345,
-    "end": 47.495
+    "text": "about",
+    "start": 22.417,
+    "end": 22.73
    },
    {
     "text": "forty",
-    "start": 47.495,
-    "end": 47.883
+    "start": 22.73,
+    "end": 23.155
    },
    {
-    "text": "million",
-    "start": 47.883,
-    "end": 48.283
+    "text": "of",
+    "start": 23.155,
+    "end": 23.305
    },
    {
-    "text": "krill",
-    "start": 48.283,
-    "end": 48.62
+    "text": "you.",
+    "start": 23.305,
+    "end": 23.49
    },
    {
-    "text": "a",
-    "start": 48.62,
-    "end": 48.72
+    "text": "The",
+    "start": 23.64,
+    "end": 23.735
    },
    {
-    "text": "day,",
-    "start": 48.72,
-    "end": 49.195
-   },
-   {
-    "text": "and",
-    "start": 49.295,
-    "end": 49.458
-   },
-   {
-    "text": "every",
-    "start": 49.458,
-    "end": 49.795
-   },
-   {
-    "text": "one",
-    "start": 49.795,
-    "end": 49.945
+    "text": "heart",
+    "start": 23.735,
+    "end": 24.035
    },
    {
     "text": "is",
-    "start": 49.945,
-    "end": 50.108
+    "start": 24.035,
+    "end": 24.185
    },
    {
-    "text": "tiny.",
-    "start": 50.108,
-    "end": 50.87
+    "text": "the",
+    "start": 24.185,
+    "end": 24.322
+   },
+   {
+    "text": "size",
+    "start": 24.322,
+    "end": 24.722
+   },
+   {
+    "text": "of",
+    "start": 24.722,
+    "end": 24.797
+   },
+   {
+    "text": "a",
+    "start": 24.797,
+    "end": 24.897
+   },
+   {
+    "text": "golf",
+    "start": 24.897,
+    "end": 25.235
+   },
+   {
+    "text": "cart,",
+    "start": 25.235,
+    "end": 25.66
+   },
+   {
+    "text": "and",
+    "start": 25.735,
+    "end": 25.86
+   },
+   {
+    "text": "outweighs",
+    "start": 25.86,
+    "end": 26.372
+   },
+   {
+    "text": "two",
+    "start": 26.372,
+    "end": 26.585
+   },
+   {
+    "text": "of",
+    "start": 26.585,
+    "end": 26.735
+   },
+   {
+    "text": "you.",
+    "start": 26.735,
+    "end": 27.21
+   },
+   {
+    "text": "On",
+    "start": 27.36,
+    "end": 27.497
+   },
+   {
+    "text": "a",
+    "start": 27.497,
+    "end": 27.597
+   },
+   {
+    "text": "deep",
+    "start": 27.597,
+    "end": 27.86
+   },
+   {
+    "text": "dive,",
+    "start": 27.86,
+    "end": 28.285
+   },
+   {
+    "text": "it",
+    "start": 28.335,
+    "end": 28.435
+   },
+   {
+    "text": "can",
+    "start": 28.435,
+    "end": 28.622
+   },
+   {
+    "text": "slow",
+    "start": 28.622,
+    "end": 28.985
+   },
+   {
+    "text": "to",
+    "start": 28.985,
+    "end": 29.11
+   },
+   {
+    "text": "just",
+    "start": 29.11,
+    "end": 29.372
+   },
+   {
+    "text": "two",
+    "start": 29.372,
+    "end": 29.622
+   },
+   {
+    "text": "beats",
+    "start": 29.622,
+    "end": 29.897
+   },
+   {
+    "text": "a",
+    "start": 29.897,
+    "end": 29.96
+   },
+   {
+    "text": "minute.",
+    "start": 29.96,
+    "end": 30.29
    },
    {
     "text": "Its",
-    "start": 50.995,
-    "end": 51.258
+    "start": 30.44,
+    "end": 30.652
+   },
+   {
+    "text": "call",
+    "start": 30.652,
+    "end": 31.04
+   },
+   {
+    "text": "is",
+    "start": 31.04,
+    "end": 31.215
+   },
+   {
+    "text": "louder",
+    "start": 31.215,
+    "end": 31.665
+   },
+   {
+    "text": "than",
+    "start": 31.665,
+    "end": 31.79
+   },
+   {
+    "text": "a",
+    "start": 31.79,
+    "end": 31.902
+   },
+   {
+    "text": "jet",
+    "start": 31.902,
+    "end": 32.177
+   },
+   {
+    "text": "engine,",
+    "start": 32.177,
+    "end": 32.915
+   },
+   {
+    "text": "and",
+    "start": 33.015,
+    "end": 33.127
+   },
+   {
+    "text": "it",
+    "start": 33.127,
+    "end": 33.215
+   },
+   {
+    "text": "could",
+    "start": 33.215,
+    "end": 33.39
+   },
+   {
+    "text": "reach",
+    "start": 33.39,
+    "end": 33.64
+   },
+   {
+    "text": "you",
+    "start": 33.64,
+    "end": 33.802
+   },
+   {
+    "text": "hundreds",
+    "start": 33.802,
+    "end": 34.277
+   },
+   {
+    "text": "of",
+    "start": 34.277,
+    "end": 34.39
+   },
+   {
+    "text": "kilometres",
+    "start": 34.39,
+    "end": 35.04
+   },
+   {
+    "text": "away.",
+    "start": 35.04,
+    "end": 35.45
+   },
+   {
+    "text": "To",
+    "start": 35.61,
+    "end": 35.747
+   },
+   {
+    "text": "eat,",
+    "start": 35.747,
+    "end": 36.085
+   },
+   {
+    "text": "it",
+    "start": 36.16,
+    "end": 36.297
+   },
+   {
+    "text": "charges",
+    "start": 36.297,
+    "end": 36.697
+   },
+   {
+    "text": "into",
+    "start": 36.697,
+    "end": 36.935
+   },
+   {
+    "text": "a",
+    "start": 36.935,
+    "end": 37.035
+   },
+   {
+    "text": "cloud",
+    "start": 37.035,
+    "end": 37.347
+   },
+   {
+    "text": "of",
+    "start": 37.347,
+    "end": 37.472
+   },
+   {
+    "text": "krill",
+    "start": 37.472,
+    "end": 38.285
+   },
+   {
+    "text": "and",
+    "start": 38.285,
+    "end": 38.435
+   },
+   {
+    "text": "takes",
+    "start": 38.435,
+    "end": 38.772
+   },
+   {
+    "text": "one",
+    "start": 38.772,
+    "end": 39.097
+   },
+   {
+    "text": "gulp",
+    "start": 39.097,
+    "end": 39.397
+   },
+   {
+    "text": "of",
+    "start": 39.397,
+    "end": 39.522
+   },
+   {
+    "text": "water",
+    "start": 39.522,
+    "end": 39.935
+   },
+   {
+    "text": "bigger",
+    "start": 39.935,
+    "end": 40.31
+   },
+   {
+    "text": "than",
+    "start": 40.31,
+    "end": 40.422
+   },
+   {
+    "text": "its",
+    "start": 40.422,
+    "end": 40.585
+   },
+   {
+    "text": "own",
+    "start": 40.585,
+    "end": 40.835
+   },
+   {
+    "text": "body.",
+    "start": 40.835,
+    "end": 41.21
+   },
+   {
+    "text": "So",
+    "start": 41.4,
+    "end": 41.575
+   },
+   {
+    "text": "what",
+    "start": 41.575,
+    "end": 41.725
+   },
+   {
+    "text": "happens",
+    "start": 41.725,
+    "end": 42.125
+   },
+   {
+    "text": "to",
+    "start": 42.125,
+    "end": 42.262
+   },
+   {
+    "text": "you,",
+    "start": 42.262,
+    "end": 42.675
+   },
+   {
+    "text": "floating",
+    "start": 42.837,
+    "end": 43.237
+   },
+   {
+    "text": "right",
+    "start": 43.237,
+    "end": 43.55
+   },
+   {
+    "text": "in",
+    "start": 43.55,
+    "end": 43.637
+   },
+   {
+    "text": "the",
+    "start": 43.637,
+    "end": 43.725
+   },
+   {
+    "text": "middle",
+    "start": 43.725,
+    "end": 43.962
+   },
+   {
+    "text": "of",
+    "start": 43.962,
+    "end": 44.05
+   },
+   {
+    "text": "that",
+    "start": 44.05,
+    "end": 44.3
+   },
+   {
+    "text": "cloud?",
+    "start": 44.3,
+    "end": 44.73
+   },
+   {
+    "text": "It",
+    "start": 44.88,
+    "end": 44.975
+   },
+   {
+    "text": "eats",
+    "start": 44.975,
+    "end": 45.187
+   },
+   {
+    "text": "up",
+    "start": 45.187,
+    "end": 45.375
+   },
+   {
+    "text": "to",
+    "start": 45.375,
+    "end": 45.537
+   },
+   {
+    "text": "forty",
+    "start": 45.537,
+    "end": 45.987
+   },
+   {
+    "text": "million",
+    "start": 45.987,
+    "end": 46.412
+   },
+   {
+    "text": "krill",
+    "start": 46.412,
+    "end": 46.75
+   },
+   {
+    "text": "a",
+    "start": 46.75,
+    "end": 46.862
+   },
+   {
+    "text": "day,",
+    "start": 46.862,
+    "end": 47.425
+   },
+   {
+    "text": "and",
+    "start": 47.525,
+    "end": 47.662
+   },
+   {
+    "text": "every",
+    "start": 47.662,
+    "end": 48.0
+   },
+   {
+    "text": "one",
+    "start": 48.0,
+    "end": 48.15
+   },
+   {
+    "text": "is",
+    "start": 48.15,
+    "end": 48.312
+   },
+   {
+    "text": "tiny.",
+    "start": 48.312,
+    "end": 49.075
+   },
+   {
+    "text": "Its",
+    "start": 49.2,
+    "end": 49.462
    },
    {
     "text": "throat",
-    "start": 51.258,
-    "end": 51.683,
+    "start": 49.462,
+    "end": 49.887,
     "emph": true
    },
    {
     "text": "only",
-    "start": 51.683,
-    "end": 52.033
+    "start": 49.887,
+    "end": 50.262
    },
    {
     "text": "opens",
-    "start": 52.033,
-    "end": 52.495
+    "start": 50.262,
+    "end": 50.725
    },
    {
     "text": "about",
-    "start": 52.495,
-    "end": 52.77
+    "start": 50.725,
+    "end": 51.025
    },
    {
     "text": "as",
-    "start": 52.77,
-    "end": 52.945
+    "start": 51.025,
+    "end": 51.2
    },
    {
     "text": "wide",
-    "start": 52.945,
-    "end": 53.308
+    "start": 51.2,
+    "end": 51.575
    },
    {
     "text": "as",
-    "start": 53.308,
-    "end": 53.408
+    "start": 51.575,
+    "end": 51.687
    },
    {
     "text": "a",
-    "start": 53.408,
-    "end": 53.508
+    "start": 51.687,
+    "end": 51.787
    },
    {
     "text": "beach",
-    "start": 53.508,
-    "end": 53.833
+    "start": 51.787,
+    "end": 52.137
    },
    {
     "text": "ball.",
-    "start": 53.833,
-    "end": 54.495
+    "start": 52.137,
+    "end": 52.8
    },
    {
     "text": "Anything",
-    "start": 54.633,
-    "end": 55.133
+    "start": 52.937,
+    "end": 53.437
    },
    {
     "text": "bigger",
-    "start": 55.133,
-    "end": 55.47
+    "start": 53.437,
+    "end": 53.775
    },
    {
     "text": "just",
-    "start": 55.47,
-    "end": 55.72
+    "start": 53.775,
+    "end": 53.975
    },
    {
     "text": "gets",
-    "start": 55.72,
-    "end": 55.97
+    "start": 53.975,
+    "end": 54.225
    },
    {
     "text": "pushed",
-    "start": 55.97,
-    "end": 56.27
+    "start": 54.225,
+    "end": 54.525
    },
    {
     "text": "back",
-    "start": 56.27,
-    "end": 56.57
+    "start": 54.525,
+    "end": 54.825
    },
    {
     "text": "out.",
-    "start": 56.57,
-    "end": 56.85
+    "start": 54.825,
+    "end": 55.09
    },
    {
     "text": "The",
-    "start": 57.455,
-    "end": 57.555
+    "start": 55.24,
+    "end": 55.335
    },
    {
     "text": "real",
-    "start": 57.555,
-    "end": 57.843
+    "start": 55.335,
+    "end": 55.622
    },
    {
     "text": "danger",
-    "start": 57.843,
-    "end": 58.28
+    "start": 55.622,
+    "end": 56.06
    },
    {
     "text": "isn't",
-    "start": 58.28,
-    "end": 58.53
+    "start": 56.06,
+    "end": 56.31
    },
    {
     "text": "being",
-    "start": 58.53,
-    "end": 58.843
+    "start": 56.31,
+    "end": 56.622
    },
    {
     "text": "eaten.",
-    "start": 58.843,
-    "end": 59.53
+    "start": 56.622,
+    "end": 57.31
    },
    {
     "text": "It's",
-    "start": 59.655,
-    "end": 59.88
+    "start": 57.435,
+    "end": 57.66
    },
    {
     "text": "being",
-    "start": 59.88,
-    "end": 60.143
+    "start": 57.66,
+    "end": 57.922
    },
    {
     "text": "in",
-    "start": 60.143,
-    "end": 60.218
+    "start": 57.922,
+    "end": 57.997
    },
    {
     "text": "the",
-    "start": 60.218,
-    "end": 60.305
+    "start": 57.997,
+    "end": 58.085
    },
    {
     "text": "way",
-    "start": 60.305,
-    "end": 60.605
+    "start": 58.085,
+    "end": 58.385
    },
    {
     "text": "when",
-    "start": 60.605,
-    "end": 60.793
+    "start": 58.385,
+    "end": 58.572
    },
    {
     "text": "two",
-    "start": 60.793,
-    "end": 61.005
+    "start": 58.572,
+    "end": 58.785
    },
    {
     "text": "hundred",
-    "start": 61.005,
-    "end": 61.368
+    "start": 58.785,
+    "end": 59.147
    },
    {
     "text": "tonnes",
-    "start": 61.368,
-    "end": 61.755
+    "start": 59.147,
+    "end": 59.535
    },
    {
     "text": "decides",
-    "start": 61.755,
-    "end": 62.305
+    "start": 59.535,
+    "end": 60.085
    },
    {
     "text": "to",
-    "start": 62.305,
-    "end": 62.443
+    "start": 60.085,
+    "end": 60.222
    },
    {
     "text": "turn,",
-    "start": 62.443,
-    "end": 63.13,
+    "start": 60.222,
+    "end": 60.91,
     "emph": true
    },
    {
     "text": "and",
-    "start": 63.23,
-    "end": 63.343
+    "start": 61.01,
+    "end": 61.122
    },
    {
     "text": "a",
-    "start": 63.343,
-    "end": 63.418
+    "start": 61.122,
+    "end": 61.197
    },
    {
     "text": "tail",
-    "start": 63.418,
-    "end": 63.943
+    "start": 61.197,
+    "end": 61.722
    },
    {
     "text": "seven",
-    "start": 63.943,
-    "end": 64.33
+    "start": 61.722,
+    "end": 62.11
    },
    {
     "text": "metres",
-    "start": 64.33,
-    "end": 64.743
+    "start": 62.11,
+    "end": 62.522
    },
    {
     "text": "wide",
-    "start": 64.743,
-    "end": 65.118
+    "start": 62.522,
+    "end": 62.897
    },
    {
     "text": "sweeps",
-    "start": 65.118,
-    "end": 65.493
+    "start": 62.897,
+    "end": 63.272
    },
    {
     "text": "past.",
-    "start": 65.493,
-    "end": 66.11
+    "start": 63.272,
+    "end": 63.89
    },
    {
     "text": "Room",
-    "start": 66.765,
-    "end": 67.04
+    "start": 64.065,
+    "end": 64.34
    },
    {
     "text": "for",
-    "start": 67.04,
-    "end": 67.178
+    "start": 64.34,
+    "end": 64.477
    },
    {
     "text": "you",
-    "start": 67.178,
-    "end": 67.39
+    "start": 64.477,
+    "end": 64.69
    },
    {
     "text": "in",
-    "start": 67.39,
-    "end": 67.478
+    "start": 64.69,
+    "end": 64.777
    },
    {
     "text": "its",
-    "start": 67.478,
-    "end": 67.678
+    "start": 64.777,
+    "end": 64.977
    },
    {
     "text": "mouth.",
-    "start": 67.678,
-    "end": 68.29
+    "start": 64.977,
+    "end": 65.615
    },
    {
     "text": "No",
-    "start": 68.428,
-    "end": 68.703
+    "start": 65.752,
+    "end": 66.027
    },
    {
     "text": "room",
-    "start": 68.703,
-    "end": 69.04
+    "start": 66.027,
+    "end": 66.365
    },
    {
     "text": "down",
-    "start": 69.04,
-    "end": 69.278
+    "start": 66.365,
+    "end": 66.602
    },
    {
     "text": "its",
-    "start": 69.278,
-    "end": 69.478
+    "start": 66.602,
+    "end": 66.802
    },
    {
     "text": "throat.",
-    "start": 69.478,
-    "end": 70.115
+    "start": 66.802,
+    "end": 67.415
    },
    {
     "text": "And",
-    "start": 70.19,
-    "end": 70.328
+    "start": 67.49,
+    "end": 67.627
    },
    {
     "text": "it",
-    "start": 70.328,
-    "end": 70.403
+    "start": 67.627,
+    "end": 67.702
    },
    {
     "text": "would",
-    "start": 70.403,
-    "end": 70.553
+    "start": 67.702,
+    "end": 67.84
    },
    {
-    "text": "barely",
-    "start": 70.553,
-    "end": 70.94
+    "text": "never",
+    "start": 67.84,
+    "end": 68.14
+   },
+   {
+    "text": "even",
+    "start": 68.14,
+    "end": 68.44
    },
    {
     "text": "notice",
-    "start": 70.94,
-    "end": 71.315
+    "start": 68.44,
+    "end": 68.852
    },
    {
-    "text": "you",
-    "start": 71.315,
-    "end": 71.465
-   },
-   {
-    "text": "were",
-    "start": 71.465,
-    "end": 71.615
-   },
-   {
-    "text": "there.",
-    "start": 71.615,
-    "end": 71.95
+    "text": "you.",
+    "start": 68.852,
+    "end": 69.07
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 4,
+  "maxChars": 20,
+  "glue": [
+   "golf cart",
+   "beach ball",
+   "jet engine",
+   "deep dive",
+   "own body",
+   "city buses",
+   "two hundred tonnes",
+   "forty million"
+  ],
   "style": {
    "font": "display",
    "fontSize": 84,
@@ -3665,7 +4798,7 @@
     "src": "episodes/explainer-blue-whale/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 72.95
+    "duration": 70.07
    }
   ],
   "music": [],

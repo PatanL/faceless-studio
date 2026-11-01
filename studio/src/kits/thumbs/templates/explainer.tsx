@@ -203,7 +203,7 @@ export const ScaleTemplate: React.FC<TplProps> = (p) => {
 		);
 	}
 	// 9:16: the animal dives head-down through the whole frame
-	const s = subject === 'whale' ? 1.62 * k : 1.0 * k;
+	const s = (subject === 'whale' ? 1.62 * k : 1.0 * k) * (spec.subjectScale ?? 1);
 	const eye: Pt = [W * 0.47, H * 0.74];
 	const diver: Pt = [W * 0.76, H * 0.74];
 	const lay = layoutHeadline(spec.text, spec.accent, {x: W * 0.06, y: H * 0.04, w: W * 0.88, h: H * 0.19, align: 'center', maxLines: 2});

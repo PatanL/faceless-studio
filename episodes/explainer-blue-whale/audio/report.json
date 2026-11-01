@@ -6,8 +6,8 @@
   "engine": "kokoro",
   "voice": "am_michael",
   "speed": 1.1,
-  "synth_s": 26.64,
-  "duration_s": 72.55,
+  "synth_s": 17.9,
+  "duration_s": 69.67,
   "timing_source": [
    "kokoro"
   ],
@@ -15,37 +15,39 @@
  },
  "mix": {
   "target_lufs": -14.0,
-  "pyloudnorm_lufs": -14.03,
-  "true_peak_dbtp_4x": -1.1,
+  "pyloudnorm_lufs": -14.09,
+  "true_peak_dbtp_4x": -1.09,
   "ffmpeg_ebur128": {
-   "I_lufs": -14.0,
-   "LRA_lu": 1.8,
+   "I_lufs": -14.1,
+   "LRA_lu": 1.5,
    "true_peak_dbtp": -1.1
   },
-  "duration_s": 72.95,
+  "duration_s": 70.07,
   "music": "deep_ocean",
   "sfx_placed": [
    {
     "cue": "heartbeat_slow",
-    "at": 28.95,
+    "at": 30.49,
     "db": 0.0,
     "source": "marker",
     "dur": 4.389,
-    "level_db": -4.0
+    "level_db": -4.0,
+    "mix_momentary_max": -10.6
    },
    {
     "cue": "whoosh_long",
-    "at": 66.11,
+    "at": 63.89,
     "db": 0.0,
     "source": "marker",
     "dur": 1.802,
-    "level_db": -10.0
+    "level_db": -10.0,
+    "mix_momentary_max": -12.8
    }
   ],
-  "music_rms_db_under_voice": -35.62,
-  "music_rms_db_in_gaps": -29.43,
-  "measured_duck_db": -6.19
+  "music_rms_db_under_voice": -35.7,
+  "music_rms_db_in_gaps": -42.11,
+  "measured_duck_db": 6.41
  },
- "words": 217,
- "wall_s": 29.6
+ "words": 225,
+ "wall_s": 19.9
 }

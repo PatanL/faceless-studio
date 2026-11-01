@@ -61,6 +61,8 @@ export type ThumbSpec = {
 	bg?: string;
 	/** Hide the red pointer arrow (explainer). */
 	noArrow?: boolean;
+	/** Scale the subject about its anchor (scale 9:16: < 1 pulls the tail down, clear of the headline). Default 1. */
+	subjectScale?: number;
 };
 
 export const RED = '#ff1f1f';

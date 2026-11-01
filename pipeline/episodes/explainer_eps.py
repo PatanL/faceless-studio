@@ -20,6 +20,11 @@ OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
 EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             "explainer-orca": ["killed", "alone", "charges", "liver", "biggest", "culture", "sunk"]}   # build.py marks these caption words (Word.emph)
 STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                    # build.py fails these on any visual hold > 3 s
+# 9:16 caption pages: phrase-complete 2-4 word cards (the refs show "When a horse fly"); paginate() glues numbers and
+# compounds and merges flashes shorter than 0.6 s
+CAPTION_PAGING = {"maxWords": 4, "maxChars": 20}
+CAPTION_GLUE = {"explainer-blue-whale": ["golf cart", "beach ball", "jet engine", "deep dive", "own body", "city buses",
+                                         "two hundred tonnes", "forty million"]}
 
 
 def ocean(depth, **props):
@@ -368,7 +373,7 @@ RULER = ('<svg viewBox="0 0 160 1020" xmlns="http://www.w3.org/2000/svg">'
          + "".join(f'<line x1="{96 if k % 2 else 84}" y1="{1014 - k * 168}" x2="140" y2="{1014 - k * 168}" stroke="#f3f6f7" '
                    f'stroke-width="6" stroke-linecap="round"/>' for k in range(7))
          + "".join(f'<text x="70" y="{1014 - k * 336 + 14}" text-anchor="end" font-family="Montserrat, Arial Black, sans-serif" '
-                   f'font-weight="900" font-size="44" fill="#f3f6f7">{k * 10}</text>' for k in range(4))
+                   f'font-weight="900" font-size="44" fill="#f3f6f7">{k * 10}</text>' for k in range(3))  # 30 = the "30 M" chip
          + '</svg>')
 HALF_BUS = ('<svg viewBox="0 0 600 312" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="20" width="620" height="250" rx="30" '
             'fill="#f2b632"/><rect x="0" y="196" width="600" height="30" fill="#d9961c"/><rect x="0" y="20" width="600" '
@@ -377,12 +382,31 @@ HALF_BUS = ('<svg viewBox="0 0 600 312" xmlns="http://www.w3.org/2000/svg"><rect
             + '<circle cx="230" cy="282" r="50" fill="#15191d"/><circle cx="230" cy="282" r="24" fill="#9aa3a9"/>'
             '<line x1="598" y1="24" x2="598" y2="270" stroke="#f3f6f7" stroke-width="8" stroke-dasharray="22 16"/></svg>')
 DEEP = ('<svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="d" x1="0" y1="0" x2="0" '
-        'y2="1"><stop offset="0" stop-color="#0d3344"/><stop offset="1" stop-color="#02080c"/></linearGradient></defs>'
-        '<rect width="1080" height="1920" fill="url(#d)"/></svg>')
+        'y2="1"><stop offset="0" stop-color="#06121c"/><stop offset="1" stop-color="#0f2a3a"/></linearGradient>'
+        '<radialGradient id="dg" cx="0.5" cy="0.3" r="0.6"><stop offset="0" stop-color="rgba(60,150,180,0.22)"/>'
+        '<stop offset="1" stop-color="rgba(60,150,180,0)"/></radialGradient></defs>'
+        '<rect width="1080" height="1920" fill="url(#d)"/><rect width="1080" height="1920" fill="url(#dg)"/></svg>')
+# full-bleed mouth interior behind the WhaleThroat art: palate red at the top, tongue pink at the bottom, so the art's
+# edges never show as seams when the camera pans
 MOUTH_BG = ('<svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="m" x1="0" y1="0" '
-            'x2="0" y2="1"><stop offset="0" stop-color="#2c3b4a"/><stop offset="0.12" stop-color="#2c3b4a"/><stop offset="0.5" '
-            'stop-color="#5a2a36"/><stop offset="0.75" stop-color="#93525d"/></linearGradient></defs>'
-            '<rect width="1080" height="1920" fill="url(#m)"/></svg>')
+            'x2="0" y2="1"><stop offset="0" stop-color="#4a2430"/><stop offset="0.3" stop-color="#4f2531"/><stop offset="0.6" '
+            'stop-color="#5a2a36"/><stop offset="0.75" stop-color="#93525d"/><stop offset="1" stop-color="#93525d"/>'
+            '</linearGradient></defs><rect width="1080" height="1920" fill="url(#m)"/></svg>')
+# the same set at 2.2 x 1.6 frames (camera pans never reach its edge); stops placed for screen y 30 / 55 / 70 %
+MOUTH_BG_WIDE = ('<svg viewBox="0 0 2376 3072" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mw" x1="0" y1="0" '
+                 'x2="0" y2="1"><stop offset="0" stop-color="#4a2430"/><stop offset="0.375" stop-color="#4f2531"/>'
+                 '<stop offset="0.53" stop-color="#5a2a36"/><stop offset="0.625" stop-color="#93525d"/>'
+                 '<stop offset="1" stop-color="#93525d"/></linearGradient></defs>'
+                 '<rect width="2376" height="3072" fill="url(#mw)"/></svg>')
+# a beach ball drawn as a dashed outline: the throat opening's size
+BALL_RING = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="92" fill="none" '
+             'stroke="#f3f6f7" stroke-width="7" stroke-dasharray="22 14"/></svg>')
+# 7 m fluke seen from above: two swept lobes, centre notch, the tail stock pointing down to the body
+FLUKE = ('<svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fk" x1="0" y1="0" x2="0" '
+         'y2="1"><stop offset="0" stop-color="#7397b0"/><stop offset="1" stop-color="#3a5a78"/></linearGradient></defs>'
+         '<path d="M 214 180 L 220 92 L 260 92 L 266 180 Z" fill="#3f6080"/>'
+         '<path d="M 240 70 C 180 40 90 16 6 30 C 30 70 110 110 196 116 L 240 98 L 284 116 C 370 110 450 70 474 30 '
+         'C 390 16 300 40 240 70 Z" fill="url(#fk)" stroke="#2f4c66" stroke-width="4"/></svg>')
 ARROW = ('<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg"><path d="M 236 160 C 190 120 120 70 62 44" '
          'stroke="#e5483d" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M 30 26 L 96 30 L 62 84 Z" '
          'fill="#e5483d"/></svg>')
@@ -397,6 +421,19 @@ GAPE0 = 0.85
 DIVER_IN = {"x": "55.5%", "y": "43.6%", "rotate": -25}
 CHIP_IN = {"x": "52%", "y": "35.5%"}
 CAM0 = (0.92, "50%", "46%")
+# frame-0 cover headline (two heavy lines, one red word that adds a claim) + red arrow at YOU; p10 ends on the same
+COVER_HEAD = dict(text="YOU'RE TOO\nBIG TO EAT", red="EAT", y="15%", size=116)
+COVER_ARROW = dict(x="68%", y="27%", w=260, h=180, rotate=-90)
+
+
+def _cover_headline(at, **kw):
+    h = COVER_HEAD
+    return headline(h["text"], at=at, y=h["y"], size=h["size"], red=h["red"], underline=False, **kw)
+
+
+def _cover_arrow(**kw):
+    a = COVER_ARROW
+    return svg(ARROW, a["x"], a["y"], a["w"], a["h"], rotate=a["rotate"], z=7, depth=0, **kw)
 
 
 def _hook_whale(gape):
@@ -420,23 +457,25 @@ def blue_whale(S):
         comp("explainer/Diver", DIVER_IN["x"], DIVER_IN["y"], 280, 60, {"arms": "side"}, z=3, rotate=DIVER_IN["rotate"],
              keyframes=dkf),
         you_chip(0, CHIP_IN["x"], CHIP_IN["y"], ckf),
-        headline("FITS IN ITS MOUTH", at=0, y="14%", size=78, out=nope),
-        headline("CAN'T SWALLOW YOU", at=nope, y="14%", size=78, color="red"),
+        _cover_headline(0, out=nope),
+        _cover_arrow(end=out),
+        headline("CAN'T\nSWALLOW YOU", at=nope, y="15%", size=108, red="YOU", underline=False),
     ], cam))
 
     # ---------------------------------------------------------------- p01 length: nose-up whale vs 2.5 stacked buses
     s = S[1]
     PPM = 34
     L = 30 * PPM                     # 1020 px for 30 m
-    yc = 850
-    top, bot = yc - L // 2, yc + L // 2          # whale spans y 380-1400 (nose up, tail behind the caption band)
+    yc = 780
+    top, bot = yc - L // 2, yc + L // 2          # whale spans y 270-1290 (nose up, base clear of the caption band)
     yb = lambda px: f"{px / H * 100:.2f}%"
     two, half, nose = s.at("two"), s.at("half", off=-0.1), s.at("nose")
+    heavy, lying = s.at("heaviest"), s.at("Lying", off=-0.1)
     bus_x = "72%"
     sc.append(bw_scene(s, ocean(60, rays=7), [
         comp("explainer/BlueWhale", "34%", yb(yc), L, 160, {"pxPerM": PPM * 30 / 28, "speed": 0.8}, rotate=-90,
              keyframes=[{"t": 0, "y": "130%"}, {"t": 1.1, "y": yb(yc), "ease": "out"}]),
-        svg(RULER, "10%", yb(yc), 160, L, start=s.at("thirty", off=-0.1), enter=fade(s.at("thirty", off=-0.1), 0.3)),
+        svg(RULER, "10%", yb(yc), 160, L, start=heavy + 0.4, enter=fade(heavy + 0.4, 0.3)),
         t46("30 M", s.at("long"), x="12%", y=yb(top - 50), size=48, w=240),
         {**comp("explainer/Bus", bus_x, yb(bot - 6 * PPM), 12 * PPM, 110, {"pxPerM": PPM}, rotate=-90, start=two,
                 enter={"type": "slideUp", "at": two, "duration": 0.35})},
@@ -444,12 +483,13 @@ def blue_whale(S):
                 enter={"type": "slideUp", "at": half, "duration": 0.35})},
         svg(HALF_BUS, bus_x, yb(bot - 27 * PPM), 6 * PPM, 6 * PPM * 312 / 600, rotate=-90, start=nose,
             enter={"type": "slideUp", "at": nose, "duration": 0.35}),
-        comp("explainer/Diver", "53%", yb(1150), 2.6 * PPM, 30, {"pxPerM": PPM, "arms": "side"}, rotate=-90,
-             start=s.at("long"), enter=pop(s.at("long"))),
-        you_chip(s.at("long"), "53%", yb(1050)),
+        comp("explainer/Diver", "53%", yb(bot - 1.3 * PPM), 2.6 * PPM, 30, {"pxPerM": PPM, "arms": "side"}, rotate=-90,
+             start=heavy, enter=pop(heavy)),
+        you_chip(heavy, "53%", yb(bot - 2.6 * PPM - 50)),
+        t46("YOU ≈ 1/16", lying, x="50%", y=yb(bot - 2.6 * PPM - 185), size=46, w=330, align="center"),
         headline("HOW BIG IS IT?", at=0, y="11%", size=66, out=two),
         headline("≈ 2.5 CITY BUSES", at=s.at("parked"), y="11%", size=66),
-    ], Cam(s.dur, z0=1.0, z1=1.04).punch(s.at("heaviest"), s.at("thirty"), two, nose)))
+    ], Cam(s.dur, z0=1.0, z1=1.04).punch(heavy, s.at("thirty"), two, nose, lying)))
 
     # ---------------------------------------------------------------- p02 weight: head close-up + 190 t, then balance vs dinosaur
     s = S[2]
@@ -465,13 +505,17 @@ def blue_whale(S):
             "tilt": [{"t": hv, "v": -14}, {"t": dino + 0.35, "v": -14}, {"t": dino + 0.9, "v": -7, "ease": "out"}],
         }, start=hv, depth=0.3),
         wstat(190, "tonnes", hv, y="20%", size=80, prefix="~", duration=0.01, rule=False, box=False, start=hv),
-        t46("BIGGER THAN ANY DINOSAUR", s.at("we've"), y="64%", size=46, w=1000, align="center"),
+        t46("BIGGER THAN ANY DINOSAUR", s.at("ever"), y="64%", size=46, w=1000, align="center"),
     ], Cam(s.dur, z0=1.0, z1=1.05).punch(s.at("two"), dino)))
 
     # ---------------------------------------------------------------- p03 tongue vs elephant on a balance (level)
     s = S[3]
     tg, el = s.at("tongue", off=-0.1), s.at("elephant", off=-0.45)
     land = el + 0.4
+    forty = s.at("forty", off=-0.15)
+    # "about forty of you": 40 true-to-each-other YOU figures fill in over the tongue pan (8 x 5 grid)
+    crowd = [comp("explainer/You", f"{8 + (k % 8) * 4.0:.1f}%", f"{10 + (k // 8) * 3.6:.1f}%", 36, 60, {"pose": "stand"},
+                  start=forty + k * 0.018, enter=pop(forty + k * 0.018, 0.2), depth=0.2, z=8) for k in range(40)]
     sc.append(bw_scene(s, ocean(50, rays=7), [
         comp("explainer/Balance", "50%", "42%", 1040, 760, {
             "left": {"species": "whaleTongue", "w": 300, "at": tg, "pos": 0.29},
@@ -479,37 +523,50 @@ def blue_whale(S):
             "tilt": [{"t": 0, "v": -13}, {"t": land, "v": -13}, {"t": land + 0.5, "v": 0, "ease": "out"}],
         }, depth=0.3),
         t46("TONGUE", tg, x="25%", y="45%", size=46, w=360),
-        t46("≈ 2.7 TONNES EACH", land, y="62%", size=54, w=1000, align="center"),
-    ], Cam(s.dur, z0=1.0, z1=1.06).punch(tg, land)))
+        t46("≈ 2.7 TONNES EACH", land, y="62%", size=54, w=1000, align="center", out=forty),
+        *crowd,
+        t46("≈ 40 OF YOU", forty + 0.5, x="76%", y="16%", size=54, w=420, align="center"),
+    ], Cam(s.dur, z0=1.0, z1=1.06).punch(tg, land, forty)))
 
     # ---------------------------------------------------------------- p04 heart vs golf cart, then ECG slowing to 2 bpm
     s = S[4]
-    golf, dive, two = s.at("golf", off=-0.1), s.at("deep", off=-0.1), s.at("two", off=-0.1)
+    size, dive, two = s.at("size", off=-0.1), s.at("deep", off=-0.1), s.at("two", nth=1, off=-0.1)
+    heavy = s.at("outweighs", off=-0.1)
     HP = 210  # px per metre: heart 1.5 m = 315 px, cart 2.4 m = 504 px, diver 2.6 m = 546 px
-    hb = [0.35, 1.35, 2.35]
+    hb = [0.35, 1.35, 2.35, 3.35]
     beat_tr = [k for b in hb for k in ({"t": b, "v": 0}, {"t": b + 0.12, "v": 1}, {"t": b + 0.4, "v": 0})]
-    ecg = [dive + 0.3, dive + 0.9, dive + 1.7, dive + 2.7]
-    ecg = [b for b in ecg if b < two - 0.2]
+    # trace history (resting beats before the dive) is already drawn at the cut, then the beats space out
+    ecg = [dive - 3.0 + k * 0.75 for k in range(4)] + [dive + 0.35, dive + 1.25, dive + 2.5, dive + 4.2]
+    ecg = [round(b, 3) for b in ecg if b < s.dur]
+    post = [b for b in ecg if b >= dive]
     sc.append(bw_scene(s, ocean(200, rays=3, snow=40), [
         comp("explainer/WhaleHeart", "29%", "37%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive),
-        comp("explainer/GolfCart", "72%", "38.5%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=golf, end=dive,
-             enter={"type": "slideLeft", "at": golf, "duration": 0.45}),
-        comp("explainer/Diver", "50%", "56%", 2.6 * HP, 60, {"pxPerM": HP, "arms": "side"}, start=s.at("size"), end=dive,
-             enter=fade(s.at("size"), 0.3)),
-        {**you_chip(s.at("size"), "50%", "50%"), "end": dive},
+        comp("explainer/GolfCart", "72%", "38.5%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=size, end=dive,
+             enter={"type": "slideLeft", "at": size, "duration": 0.45}),
+        comp("explainer/Diver", "50%", "56%", 2.6 * HP, 60, {"pxPerM": HP, "arms": "side"}, start=heavy, end=dive,
+             enter=fade(heavy, 0.3)),
+        {**you_chip(heavy, "50%", "50%"), "end": dive},
         t46("HEART", 0.2, x="29%", y="24%", size=46, w=320, end=dive),
-        t46("GOLF CART", golf + 0.3, x="72%", y="24%", size=46, w=420, end=dive),
+        t46("GOLF CART", size + 0.3, x="72%", y="24%", size=46, w=420, end=dive),
+        t46("180 KG ≈ 2+ OF YOU", heavy + 0.3, y="13%", size=50, w=1000, align="center", end=dive),
+        # deep dive: navy-to-teal depth set (never flat black), marine snow, big beating heart over a full ECG
         svg(DEEP, "50%", "50%", W, H, start=dive, depth=0, z=0),
-        comp("explainer/ECG", "50%", "36%", 1000, 300, {"beats": ecg, "at": dive, "speed": 300, "color": CYAN}, start=dive,
-             depth=0, z=5),
-        comp("explainer/WhaleHeart", "50%", "20%", 220, 220, {"beat": [k for b in ecg for k in (
-            {"t": b, "v": 0}, {"t": b + 0.12, "v": 1}, {"t": b + 0.4, "v": 0})]}, start=dive, depth=0, z=5),
-        wstat(2, "beats a minute", two, y="56%", size=140, duration=0.3, pulse=2.0),
-    ], Cam(s.dur, z0=1.0, z1=1.06).punch(s.at("heart"), golf, dive, s.at("slow"), two)))
+        {"type": "particles", "preset": "snow", "count": 90, "color": "rgba(200,225,235,0.55)", "size": [2, 5],
+         "speed": 0.4, "z": 1, "depth": 0, "start": dive},
+        t46("DEEP DIVE · ~180 M", dive, y="8.5%", size=48, w=1000, align="center", accent=CYAN),
+        comp("explainer/WhaleHeart", "50%", "27%", 440, 440, {"beat": [k for b in post for k in (
+            {"t": b, "v": 0}, {"t": b + 0.12, "v": 1}, {"t": b + 0.4, "v": 0})]}, start=dive, depth=0, z=5,
+             enter=pop(dive, 0.3)),
+        comp("explainer/ECG", "50%", "48%", 1000, 260, {"beats": ecg, "at": dive, "speed": 300, "color": CYAN,
+                                                      "prefill": True}, start=dive, depth=0, z=5),
+        wstat(2, "beats a minute", dive + 0.6, y="61%", size=120, **{"from": 10}, duration=max(0.6, two - dive - 0.6),
+              pulse=2.0),
+    ], Cam(s.dur, z0=1.0, z1=1.06).punch(s.at("heart"), size, heavy, dive, s.at("slow"), two)))
 
     # ---------------------------------------------------------------- p05 call: louder than a jet engine
     s = S[5]
-    jet, carry = s.at("jet", off=-0.1), s.at("carry", off=-0.1)
+    jet, carry = s.at("jet", off=-0.1), s.at("reach", off=-0.1)
+    far = s.at("you", off=-0.1)
     hx, hy = "86%", "45%"
     rings = [ring(hx, hy, 0.6 + k * 0.55, life=1.7, size=560) for k in range(int((s.dur - 0.8) / 0.55))]
     cam = Cam(s.dur, keys=[(0.0, 1.0, "50%", "50%"), (carry, 1.04, "55%", "48%"), (carry + 1.2, 0.8, "50%", "48%"),
@@ -523,6 +580,11 @@ def blue_whale(S):
              enter={"type": "slideLeft", "at": jet, "duration": 0.4}),
         t46("JET ENGINE", jet + 0.35, x="50%", y="13%", size=46, w=1000, align="center", out=carry),
         t46("HEARD 100s OF KM AWAY", s.at("hundreds"), x="50%", y="13%", size=46, w=1000, align="center"),
+        # "...could reach you": a tiny YOU far out on the left edge as the camera pulls out; the rings reach it
+        comp("explainer/Diver", "9%", "62%", 110, 26, {"arms": "side"}, z=3, start=far, enter=pop(far, 0.3),
+             idle=[{"type": "float", "amount": 6, "speed": 0.4}]),
+        you_chip(far, "9%", "58.5%"),
+        ring("9%", "62%", far + 0.25, d0=0.1, d1=0.7, life=0.9, size=300, color="rgba(111,214,232,0.9)"),
     ], cam))
 
     # ---------------------------------------------------------------- p06 gulp: head enters the krill swarm, pouch balloons
@@ -536,18 +598,20 @@ def blue_whale(S):
           for i, (x, y) in enumerate([("70%", "28%"), ("84%", "47%"), ("62%", "56%"), ("90%", "33%")])],
         comp("explainer/BlueWhale", "-148%", "34%", 3000, 437,
              {"speed": 1.3, "gape": [{"t": s.at("takes", off=-0.2), "v": 0}, {"t": gulp + 0.6, "v": 1, "ease": "out"}]},
-             z=3, keyframes=[{"t": 0, "x": "-148%"}, {"t": cloud, "x": "-130%"}, {"t": gulp + 0.3, "x": "-65.7%", "ease": "out"}]),
+             z=3, keyframes=[{"t": 0, "x": "-111%"}, {"t": cloud, "x": "-96%"}, {"t": gulp + 0.3, "x": "-65.7%", "ease": "out"}]),
         t46("KRILL", s.at("krill"), x="78%", y="18%", size=48, w=320),
         t46("ONE GULP > ITS OWN BODY", s.at("bigger"), y="12%", size=48, w=1000, align="center"),
-    ], Cam(s.dur, z0=1.0, z1=1.08, x="52%", y="44%").punch(s.at("charges"), cloud, gulp + 0.3)))
+    ], Cam(s.dur, z0=1.0, z1=1.08, x="52%", y="44%").punch(s.at("charges", off=-0.05), cloud, gulp + 0.3)))
 
     # ---------------------------------------------------------------- p07 turnstile: you, alone in the cloud
     s = S[7]
     sc.append(bw_scene(s, ocean(25, rays=8), [
         {"type": "particles", "preset": "dust", "count": 600, "color": "rgba(255,140,105,0.85)", "size": [4, 9], "speed": 0.5, "z": 1},
-        comp("explainer/BlueWhale", "120%", "40%", 2600, 380, {"silhouette": "#06141b", "speed": 0.6}, flipX=True, z=0,
-             opacity=0.75, start=s.at("floating", off=-0.2),
-             keyframes=[{"t": s.at("floating", off=-0.2), "x": "160%"}, {"t": s.dur, "x": "112%", "ease": "out"}]),
+        # the whale looms below YOU: head and open mouth in frame, dimmed and softened by depth (not a black slab)
+        comp("explainer/BlueWhale", "170%", "60%", 1800, 263,
+             {"speed": 0.6, "gape": [{"t": 0, "v": 0}, {"t": s.dur, "v": 0.6, "ease": "inOut"}]}, flipX=True, z=0,
+             opacity=0.5, blur=3, start=0.0,
+             keyframes=[{"t": 0, "x": "170%"}, {"t": s.dur, "x": "118%", "ease": "out"}]),
         comp("explainer/Diver", "50%", "44%", 600, 130, {"arms": "side"}, z=3, idle=[{"type": "float", "amount": 10, "speed": 0.4}]),
         you_chip(0.0, "50%", "38%"),
         headline("AND YOU?", at=s.at("you", off=-0.1), y="16%", size=110),
@@ -562,13 +626,15 @@ def blue_whale(S):
     ring_y = 768 - 650 + 470 * 1.3
     head_off = 345 * (2.6 * TP / 690)         # diver box centre -> head tip (px)
     stop_x = ring_x + 30 + head_off           # head tip on the ring, the body (bigger than the opening) stuck outside
+    RING_D = 140                              # throat opening on screen (~0.35 m at TP), = the beach ball's diameter
     px = lambda v, n: f"{v / n * 100:.2f}%"
     opens, beach, anything, pushed = s.at("opens"), s.at("beach", off=-0.2), s.at("Anything", off=-0.1), s.at("pushed", off=-0.1)
-    dkf = [{"t": cut, "x": px(stop_x + 700, W)}, {"t": opens, "x": px(stop_x + 420, W)},
+    dkf = [{"t": cut, "x": px(stop_x + 420, W)}, {"t": opens, "x": px(stop_x + 300, W)},
            {"t": beach + 0.4, "x": px(stop_x, W), "ease": "out"}, {"t": pushed, "x": px(stop_x, W), "rotate": 0},
            {"t": pushed + 0.7, "x": px(stop_x + 260, W), "rotate": 8, "ease": "out"}]
     cam = Cam(s.dur, keys=[(0.0, 1.0, "50%", "44%"), (cut, 1.0, "50%", "44%"), (cut + 0.01, 1.0, "50%", "40%"),
                            (beach, 1.08, "40%", "40%"), (anything, 1.28, "30%", px(ring_y, H)),
+                           (pushed, 1.28, "30%", px(ring_y, H)), (pushed + 0.18, 1.4, "31%", px(ring_y, H)),  # punch on "pushed"
                            (pushed + 0.6, 1.15, "36%", "40%"), (s.dur, 1.12, "38%", "40%")]).punch(s.at("forty"), tiny)
     cam.locked.append((beach - 0.3, s.dur))
     sc.append(bw_scene(s, ocean(60, rays=4, snow=30), [
@@ -578,13 +644,24 @@ def blue_whale(S):
         wstat(40000000, "krill a day", s.at("forty", off=-0.1), y="22%", size=100, duration=1.4, end=cut),
         {"type": "particles", "preset": "dust", "count": 300, "color": "rgba(255,140,105,0.85)", "size": [4, 8], "speed": 0.4,
          "z": 1, "start": tiny + 0.2, "end": cut},
-        svg(MOUTH_BG, "50%", "50%", W, H, start=cut, depth=0, z=1),
+        # oversized so the camera's pan to the ring (x 30 %, zoom 1.4) never shows the ocean past its edge
+        svg(MOUTH_BG_WIDE, "50%", "50%", W * 2.2, H * 1.6, start=cut, depth=0, z=1),
         comp("explainer/WhaleThroat", "50%", "40%", 1300, 1300, {"glow": [{"t": beach, "v": 0}, {"t": beach + 0.4, "v": 1}]},
              start=cut, depth=0.5, z=2),
-        comp("explainer/Diver", px(stop_x + 700, W), px(ring_y, H), 2.6 * TP, 200, {"pxPerM": TP, "arms": "forward"},
+        comp("explainer/Diver", px(stop_x + 420, W), px(ring_y, H), 2.6 * TP, 200, {"pxPerM": TP, "arms": "forward"},
              flipX=True, start=cut, z=4, depth=0.5, keyframes=dkf),
-        svg(BALL, px(ring_x, W), px(ring_y - 300, H), 150, 150, start=beach, enter=pop(beach), z=5, depth=0.5),
-        t46("THROAT", s.at("throat") + 0.3, x=px(ring_x + 330, W), y=px(ring_y - 190, H), size=46, w=380, start=cut),
+        # the beach ball drops onto the throat ring at the ring's own diameter (a size match), then stays as a dashed
+        # outline the diver's head bumps into
+        svg(BALL, px(ring_x, W), px(ring_y - 360, H), RING_D, RING_D, start=beach, end=beach + 1.1, z=5, depth=0.5,
+            keyframes=[{"t": beach, "y": px(ring_y - 360, H), "scale": 1.4, "opacity": 1},
+                       {"t": beach + 0.45, "y": px(ring_y, H), "scale": 1.0, "opacity": 0.95, "ease": "out"},
+                       {"t": beach + 0.8, "y": px(ring_y, H), "scale": 1.0, "opacity": 0.9},
+                       {"t": beach + 1.1, "y": px(ring_y, H), "scale": 1.0, "opacity": 0}]),
+        svg(BALL_RING, px(ring_x, W), px(ring_y, H), RING_D, RING_D, start=beach + 0.8, z=5, depth=0.5,
+            enter=fade(beach + 0.8, 0.3)),
+        t46("THROAT ≈ BEACH BALL", beach, y="13%", size=46, w=1000, align="center"),
+        t46("THROAT", s.at("throat") + 0.3, x=px(ring_x + 330, W), y=px(ring_y - 190, H), size=46, w=380, start=cut,
+            out=beach),
         svg(X_MARK, px(ring_x + 40, W), px(ring_y - 80, H), 130, 130, start=anything, enter=pop(anything, 0.25), z=6,
             depth=0.5),
     ], cam))
@@ -595,12 +672,13 @@ def blue_whale(S):
     cam = Cam(s.dur, z0=1.0, z1=1.05, y="44%").punch(s.at("danger"), way, s.at("tonnes"), tail)
     cam.shake = [{"at": turn + 0.3, "duration": 0.8, "amplitude": 22}, {"at": sweeps, "duration": 0.7, "amplitude": 16}]
     sc.append(bw_scene(s, ocean(30, rays=8), [
-        comp("explainer/BlueWhale", "190%", "47%", 1900, 277, {"speed": 1.1}, z=1, flipX=True,
-             keyframes=[{"t": 0, "x": "190%"}, {"t": way, "x": "152%", "rotate": 0},
-                        {"t": turn, "x": "128%", "rotate": 0, "ease": "inOut"},
-                        {"t": turn + 0.8, "x": "104%", "rotate": -14, "ease": "inOut"},
+        # head, eye and flipper fill the right edge from the cut
+        comp("explainer/BlueWhale", "140%", "47%", 1900, 277, {"speed": 1.1}, z=1, flipX=True,
+             keyframes=[{"t": 0, "x": "140%"}, {"t": way, "x": "128%", "rotate": 0},
+                        {"t": turn, "x": "118%", "rotate": 0, "ease": "inOut"},
+                        {"t": turn + 0.8, "x": "100%", "rotate": -14, "ease": "inOut"},
                         {"t": sweeps + 0.4, "x": "-30%", "rotate": -4, "ease": "inOut"}, {"t": s.dur, "x": "-62%", "rotate": 0}]),
-        comp("explainer/Diver", "50%", "36%", 180, 40, {"arms": "side"}, z=3,
+        comp("explainer/Diver", "50%", "36%", 260, 58, {"arms": "side"}, z=3,
              keyframes=[{"t": 0, "x": "50%", "y": "36%", "rotate": 0}, {"t": turn + 0.3, "x": "50%", "y": "36%", "rotate": 0},
                         {"t": turn + 1.3, "x": "30%", "y": "26%", "rotate": -230, "ease": "out"},
                         {"t": sweeps, "x": "30%", "y": "27%", "rotate": -250},
@@ -613,11 +691,18 @@ def blue_whale(S):
         svg(ARROW, "64%", "41%", 260, 180, start=way, end=turn + 0.3, enter=pop(way, 0.25), z=5),
         t46("WRONG PLACE, WRONG TIME", turn, y="13%", size=48, w=1000, align="center", out=sweeps - 0.55),
         t46("7 M TAIL", sweeps, y="13%", size=50, w=500, align="center"),
+        # the 7 m fluke at true scale against the 2.6 m diver (260 px => 100 px/m => 700 px), seen from above, sweeping
+        # up past YOU on "sweeps"
+        svg(FLUKE, "62%", "78%", 700, 262, start=sweeps - 0.35, end=sweeps + 1.0, z=4,
+            keyframes=[{"t": sweeps - 0.35, "x": "70%", "y": "80%", "rotate": 24, "opacity": 0},
+                       {"t": sweeps - 0.15, "x": "60%", "y": "62%", "rotate": 16, "opacity": 1},
+                       {"t": sweeps + 0.3, "x": "36%", "y": "30%", "rotate": -6, "ease": "inOut"},
+                       {"t": sweeps + 1.0, "x": "4%", "y": "-14%", "rotate": -28, "ease": "in"}]),
     ], cam))
 
     # ---------------------------------------------------------------- p10 bookend: back to the frame-0 state (seamless loop)
     s = S[10]
-    no, barely = s.at("No", off=-0.1), s.at("barely", off=-0.2)
+    no, barely = s.at("No", off=-0.1), s.at("never", off=-0.2)
     settle = min(s.dur - 0.5, barely + 1.3)
     dkf = [{"t": 0, "x": "30%", "y": "47%", "rotate": -40}, {"t": no, "x": "44%", "y": "45%", "rotate": -30, "ease": "inOut"},
            {"t": barely, **DIVER_IN, "ease": "inOut"}, {"t": s.dur, **DIVER_IN}]
@@ -629,8 +714,9 @@ def blue_whale(S):
         _hook_whale([{"t": 0, "v": 0.6}, {"t": no, "v": 0.6}, {"t": barely, "v": GAPE0, "ease": "inOut"}]),
         comp("explainer/Diver", "30%", "47%", 280, 60, {"arms": "side"}, z=3, keyframes=dkf),
         you_chip(0, "30%", "39%", ckf),
-        headline("NONE DOWN ITS THROAT", at=0.1, y="14%", size=70, out=barely),
-        headline("FITS IN ITS MOUTH", at=barely + 0.3, y="14%", size=78),
+        headline("NONE DOWN\nITS THROAT", at=0.1, y="15%", size=108, red="THROAT", underline=False, out=barely),
+        _cover_headline(barely + 0.3),   # the last frame = frame 0 (cover headline + arrow): exact loop
+        _cover_arrow(start=barely + 0.45, enter=pop(barely + 0.45, 0.3)),
     ], cam))
     return sc
 

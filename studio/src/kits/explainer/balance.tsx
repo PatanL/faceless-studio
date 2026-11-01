@@ -51,7 +51,8 @@ export const Balance: KitComponent = ({props, time, width: W, height: H}) => {
 
 /**
  * explainer/ECG: scrolling heartbeat trace. props: beats (scene-local beat times, s), speed (px/s, default 260),
- * color, thickness, at (trace appears), stopAt (flat line after this time, optional).
+ * color, thickness, at (trace appears), stopAt (flat line after this time, optional), prefill (true: the trace is
+ * already drawn across the full width at `at`, with beats before `at` as history, so it is never half-drawn).
  */
 export const ECG: KitComponent = ({props, time, width: W, height: H}) => {
 	const at = num(props.at, 0);
@@ -60,7 +61,7 @@ export const ECG: KitComponent = ({props, time, width: W, height: H}) => {
 	const beats = arr<number>(props.beats).filter((b) => typeof b === 'number') as unknown as number[];
 	const y0 = H / 2;
 	const amp = H * 0.42;
-	const t0 = Math.max(at, time - W / sp);
+	const t0 = props.prefill === true ? time - W / sp : Math.max(at, time - W / sp);
 	const pts: string[] = [];
 	const xOf = (tt: number) => W - (time - tt) * sp;
 	pts.push(`M ${xOf(t0).toFixed(1)} ${y0}`);

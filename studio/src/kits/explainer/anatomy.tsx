@@ -108,7 +108,12 @@ const whaleThroat: Figure = {
 						<stop offset="0.25" stopColor={paint(c, '#3a1822')} />
 						<stop offset="1" stopColor={paint(c, '#5a2a36')} />
 					</radialGradient>
-					<Lin id={`${c.id}-mo`} a="rgba(80,150,180,0)" b="rgba(80,150,180,0.55)" h />
+					{/* daylight from the open mouth: peaks inside the art and fades out at the edge (no seam on a full-bleed set) */}
+					<linearGradient id={`${c.id}-mo`} x1="0" y1="0" x2="1" y2="0">
+						<stop offset="0" stopColor="rgba(80,150,180,0)" />
+						<stop offset="0.6" stopColor="rgba(80,150,180,0.16)" />
+						<stop offset="1" stopColor="rgba(80,150,180,0)" />
+					</linearGradient>
 					<Lin id={`${c.id}-tg`} a={paint(c, '#c47f88')} b={paint(c, '#93525d')} />
 				</defs>
 				<rect x={0} y={0} width={1000} height={1000} fill={`url(#${c.id}-cv)`} />
@@ -124,7 +129,7 @@ const whaleThroat: Figure = {
 							[600, 1000],
 					  ].map(([ex, ey], i) => <path key={i} d={`M ${x} ${y} Q ${(x + ex) / 2 + 40} ${(y + ey) / 2} ${ex} ${ey}`} stroke="#6e3542" strokeWidth={14} fill="none" opacity={0.35} />)}
 				{/* palate + baleen fringe across the top */}
-				<path d="M 0 0 L 1000 0 L 1000 170 C 760 150 420 170 0 210 Z" fill={paint(c, '#2c3b4a')} />
+				<path d="M 0 0 L 1000 0 L 1000 170 C 760 150 420 170 0 210 Z" fill={paint(c, '#4a2430')} />
 				{c.sil
 					? null
 					: Array.from({length: 46}, (_, i) => {
@@ -136,8 +141,8 @@ const whaleThroat: Figure = {
 				{/* tongue floor */}
 				<path d="M 0 760 C 200 700 420 690 640 700 C 820 708 940 730 1000 760 L 1000 1000 L 0 1000 Z" fill={`url(#${c.id}-tg)`} />
 				{speckle(c, 'thf', 30, 20, 730, 960, 250, '#e9b2b8', 0.28)}
-				{/* daylight from the open mouth on the right */}
-				<rect x={760} y={0} width={240} height={1000} fill={`url(#${c.id}-mo)`} />
+				{/* daylight from the open mouth on the right (prop daylight: 0..1, default 0; a band reads as a seam full-bleed) */}
+				{num(c.p.daylight, 0) > 0 ? <rect x={440} y={0} width={560} height={1000} fill={`url(#${c.id}-mo)`} opacity={num(c.p.daylight, 0)} /> : null}
 				{/* the throat opening */}
 				<ellipse cx={x} cy={y} rx={rx + 26} ry={ry + 30} fill={paint(c, '#7b3d4a')} opacity={0.9} />
 				<ellipse cx={x} cy={y} rx={rx} ry={ry} fill={paint(c, '#050203')} />
