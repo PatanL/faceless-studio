@@ -1,7 +1,7 @@
 // Explainer (Depth Theory-style) thumbnails: black, scratchboard creature, tiny diver,
 // 2-4 word headline with one red word that continues as a hand-drawn red pointer.
 import React from 'react';
-import {Grain, Headline, RedArrow, Sonar, Vignette, layoutHeadline, type Pt} from '../fx';
+import {Grain, Headline, RedArrow, Sonar, Vignette, layoutHeadline, textWidthEm, type Pt} from '../fx';
 import {ANGLER_EYE, ANGLER_LURE, ANGLER_VB, Anglerfish, ColossalSquid, SQUID_EYE, SQUID_VB, SpermWhale, WHALE_EYE, WHALE_VB} from '../art/creatures';
 import {Diver} from '../art/people';
 import {KitArt, hasKit} from '../art/KitArt';
@@ -104,6 +104,15 @@ const arrowFrom = (lay: ReturnType<typeof layoutHeadline>, toward: Pt): Pt => {
 	// leave from the bottom/top only when no other headline line is in the way
 	if (below && onLast) return [Math.max(b.x + b.w * 0.15, Math.min(b.x + b.w * 0.85, toward[0])), b.y + b.h + lay.size * 0.2];
 	if (above && onFirst) return [Math.max(b.x + b.w * 0.15, Math.min(b.x + b.w * 0.85, toward[0])), b.y - lay.size * 0.15];
+	// target below a multi-line block: leave from under the end of the last line, never across other words
+	// (orca review: the arrow from '0' on line 1 ran through HUMAN)
+	if (below) {
+		const last = lay.rows[lay.rows.length - 1];
+		const lw = last.spans.reduce((k, sp) => k + textWidthEm(sp.text.trimEnd()) * lay.size, 0) + (last.spans.length - 1) * textWidthEm(' ') * lay.size;
+		const endX = last.x + lw;
+		const x = toward[0] >= last.x + lw / 2 ? endX - lay.size * 0.3 : last.x + lay.size * 0.3;
+		return [x, lay.bottom + lay.size * 0.2];
+	}
 	// otherwise from the word's side facing the target, clear of the text block
 	const leftSide = toward[0] < b.x + b.w / 2;
 	return [leftSide ? b.x - lay.size * 0.15 : b.x + b.w + lay.size * 0.15, b.y + b.h * 0.5];
