@@ -1,0 +1,13 @@
+variant	seconds_60f	load1	note
+none	16.6	10.69	v1 (before mask-box fix)
+gap	11.5	12.44	plane-gap drop-shadows off
+blur	14.5	14.69	foreground blur off
+stipple	18.3	18.31	noise (load rose)
+shade	10.2	18.56	all shading layers off
+caustics	17.8	17.81	noise
+screen	15.8	16.09	screen blend off
+none	16.1	15.36	v1 repeat
+gap,blur,stipple,caustics	8.9	15.78	
+none	9.3	10.07	v2 (tight mask boxes, gap shadow on subject plane only, overscan 160)
+shade	7.2	11.19	v2
+none	9.0	11.22	v2 repeat
