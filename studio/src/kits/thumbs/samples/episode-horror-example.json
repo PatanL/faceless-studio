@@ -1,0 +1,17 @@
+{
+  "id": "night-shift-knock",
+  "niche": "horror",
+  "room": "614",
+  "chatTitle": "Maple Court Tenants (41)",
+  "chat": [
+    {"from": "Priya (6C)", "text": "Building manager says do NOT answer the door after 1am"},
+    {"from": "Tom (6A)", "text": "why? what happens after 1"},
+    {"me": true, "text": "someone is knocking on 614 right now"},
+    {"from": "Building Manager", "text": "I never sent that message."}
+  ],
+  "variants": [
+    {"template": "door", "text": "IT KNOWS YOUR NAME", "accent": "NAME"},
+    {"template": "chat", "text": "NEVER ANSWER AFTER 1AM", "accent": "1AM"},
+    {"template": "hallway", "text": "614 IS EMPTY", "accent": "EMPTY"}
+  ]
+}
