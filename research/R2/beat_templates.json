@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "source": "R2 analysis of mraevq/udhwkz refs + 7 outliers (see research/R2/library.json, transcripts/)",
+  "global": {
+    "narration_wpm": 240,
+    "caption_unit": "one sentence per card, split >12 words; white sans, sentence case, top band above picture",
+    "caption_card_s": [1.4, 2.0],
+    "beat_every_s": [8, 15],
+    "phone_insert_every_s_max": 25,
+    "voice": "single first-person narrator reads narration AND dialogue; radio/phone lines band-passed 300-3000 Hz",
+    "music": "low tension drone; switch to sad piano for false-relief beats; 0.3-0.6 s silence before the reveal",
+    "frame": "9:16 black canvas, picture panel ~1:1 centred at y 29-71%, captions above, bottom third empty",
+    "hook_rules": [
+      "line 1 <= 12 words, first person past tense, names a concrete place/object",
+      "contradiction from a trusted source by second 8-10",
+      "never open on atmosphere alone"
+    ],
+    "cliffhanger_rules": [
+      "end on a new imperative from the only trustworthy channel OR a reveal that reframes an authority",
+      "exactly one open question at the cut",
+      "last caption is a full sentence; no jump-scare-only endings",
+      "no 'part 2' card needed; caption text may say 'Part 2 is pinned' / put part 1 on top of profile by posting part 2 first"
+    ]
+  },
+  "templates": [
+    {
+      "id": "T1_locked_door_siege",
+      "name": "Locked-Door Siege (group chat + fake authority)",
+      "derived_from": "both references (structure only)",
+      "best_length_s": [150, 210],
+      "pilot_length_s": [60, 80],
+      "beats": [
+        {"id": "threat", "pct": [0, 3], "pilot_s": [0, 2], "shot": "establishing building exterior or hallway", "line_pattern": "A [threat] got into my [building].", "sfx": ["drone_in"]},
+        {"id": "false_all_clear", "pct": [3, 6], "pilot_s": [2, 5], "shot": "phone: group chat official notice", "chat": [{"from": "admin", "kind": "notice", "text_pattern": "[threat] handled, everyone relax / cooperate"}], "sfx": ["msg_pop"]},
+        {"id": "knock", "pct": [6, 8], "pilot_s": [5, 7], "shot": "door interior, shake", "sfx": ["knock_soft"]},
+        {"id": "contradiction", "pct": [8, 12], "pilot_s": [7, 11], "shot": "warning channel appears (note / unknown text / overlay)", "line_pattern": "Then [warning channel] said: [the authority is the threat].", "sfx": ["system_ding", "heartbeat"]},
+        {"id": "wrong_detail", "pct": [12, 18], "pilot_s": [11, 16], "shot": "peephole fisheye on authority; push-in on wrong detail", "line_pattern": "Shouldn't [authority] always [norm]? And why [wrong detail]?"},
+        {"id": "chorus_pressure", "pct": [18, 30], "pilot_s": [16, 26], "shot": "phone: burst of 3 agreeing neighbours, then 2 doubters ignored", "chat": [{"from": "neighbour_a", "kind": "agree"}, {"from": "neighbour_b", "kind": "agree"}, {"from": "neighbour_c", "kind": "agree"}, {"from": "neighbour_d", "kind": "doubt"}], "clue": "count of agreeing accounts == count tied to the wrong detail"},
+        {"id": "escalation", "pct": [30, 36], "pilot_s": [26, 32], "shot": "authority pounds door / radios backup", "line_pattern": "[Unit] is uncooperative. Requesting backup.", "sfx": ["knock_pound", "radio_squelch"]},
+        {"id": "mention_pressure", "pct": [36, 42], "pilot_s": [32, 37], "shot": "phone: @hero messages from admin + neighbour", "chat": [{"from": "admin", "kind": "mention_threat"}, {"from": "neighbour_a", "kind": "mention_shame"}]},
+        {"id": "comms_cut", "pct": [42, 48], "pilot_s": [37, 42], "shot": "status bar 'No Service', failed red (!) message; but group chat still works", "line_pattern": "Only the group chat still worked. Why?", "sfx": ["power_cut"]},
+        {"id": "brave_warning_censored", "pct": [48, 56], "pilot_s": [42, 50], "shot": "phone: brave neighbour warning -> 'message recalled by admin' -> 'admin muted all'", "chat": [{"from": "brave_neighbour", "kind": "warning_with_physical_clue"}, {"from": "system", "kind": "recalled"}, {"from": "system", "kind": "mute_all"}, {"from": "admin", "kind": "notice"}]},
+        {"id": "deduction", "pct": [56, 64], "pilot_s": [50, 56], "shot": "hero thinking, flashback insert", "line_pattern": "Everything was a setup. [backstory clue]."},
+        {"id": "lifeline", "pct": [64, 80], "pilot_s": [56, 68], "shot": "hidden old device; countdown battery; degraded call", "line_pattern": "[Device] had [N] seconds left. I called [real authority].", "sfx": ["phone_buzz", "radio_squelch"]},
+        {"id": "reframe_reveal", "pct": [80, 92], "pilot_s": [68, 75], "shot": "close-up shock; silence 0.4 s", "line_pattern": "It's not one [threat]. It's [bigger]. And your [authority] isn't [name].", "sfx": ["silence", "sting"]},
+        {"id": "cliff_order", "pct": [92, 100], "pilot_s": [75, 80], "shot": "device dies; last notification", "line_pattern": "Before it died, one message came in: [imperative].", "sfx": ["drone_cut"]}
+      ]
+    },
+    {
+      "id": "T2_broken_rule",
+      "name": "Unspoken Rule Broken (folk/professional taboo)",
+      "derived_from": "udhwkz 2.2M funeral-procession + 695K trucker rules",
+      "best_length_s": [150, 210],
+      "pilot_length_s": [60, 80],
+      "beats": [
+        {"id": "rule_statement", "pct": [0, 6], "line_pattern": "Every [profession/resident] knows you never [rule]."},
+        {"id": "why_rule", "pct": [6, 12], "line_pattern": "People say it's [polite reason]. Honestly, everyone's just scared of [real reason]."},
+        {"id": "tonight", "pct": [12, 16], "line_pattern": "Tonight, [situation that tempts breaking it]."},
+        {"id": "companion_pushes", "pct": [16, 26], "line_pattern": "[Companion]: Why are we [obeying]? Just [break it].", "note": "companion = audience surrogate"},
+        {"id": "mentor_voice", "pct": [26, 32], "line_pattern": "My mentor drilled one thing into me: [rule detail]."},
+        {"id": "first_sign", "pct": [32, 44], "shot": "strange figure/ritual seen through windshield/peephole"},
+        {"id": "rule_broken", "pct": [44, 56], "line_pattern": "But [companion/hero] [broke it]."},
+        {"id": "consequence_small", "pct": [56, 70], "shot": "subtle wrongness in companion (seatbelt slipped, face turned away)"},
+        {"id": "realisation", "pct": [70, 90], "line_pattern": "I only realised when I saw [detail tying companion to the dead]."},
+        {"id": "cliff", "pct": [90, 100], "line_pattern": "[Companion] said: [line that proves they are not themselves]."}
+      ]
+    },
+    {
+      "id": "T3_online_stranger",
+      "name": "2 A.M. Sound + Online Stranger Who Knows",
+      "derived_from": "lehwh7 1.9M teeth-grinding, melovebz 134K roommate",
+      "best_length_s": [180, 600],
+      "pilot_length_s": [60, 90],
+      "beats": [
+        {"id": "sound", "pct": [0, 5], "line_pattern": "At [time], I was woken by [specific sound] [location]."},
+        {"id": "repeat", "pct": [5, 9], "line_pattern": "Every time I checked, it stopped. It had been [N] nights."},
+        {"id": "post_online", "pct": [9, 12], "shot": "phone: forum post UI"},
+        {"id": "stranger_dm", "pct": [12, 20], "shot": "phone: DM from user with odd handle", "line_pattern": "A user named [handle] messaged me: That's [named entity]. [rule to survive]."},
+        {"id": "disbelief", "pct": [20, 26], "line_pattern": "Quit making stuff up. / I'm telling you the truth. Check [evidence]."},
+        {"id": "evidence_confirms", "pct": [26, 40]},
+        {"id": "rule_follow", "pct": [40, 60], "note": "follow the stranger's rule; it half-works"},
+        {"id": "stranger_suspect", "pct": [60, 80], "note": "the stranger knows too much / is the entity / is from the future"},
+        {"id": "cliff", "pct": [80, 100]}
+      ]
+    },
+    {
+      "id": "T4_observer_overlay",
+      "name": "Watched: Floating Comments / Overlay Layer",
+      "derived_from": "mraevq danmaku layer (mechanic only; design our own overlay)",
+      "use_as": "modifier on T1/T2/T3, not standalone",
+      "rules": [
+        "overlay appears at the first decision point and at every subsequent one",
+        "overlay voices: 1 helpful, 1 cynical, 1 comic bettor (sets up a callback payoff)",
+        "mid-story reveal: the overlay is an audience watching the hero as entertainment",
+        "payoff: hero outsmarts both the threat and the cynical overlay voice; callback line lands",
+        "overlay is never fully reliable: one helpful comment is planted by the villains"
+      ]
+    }
+  ]
+}

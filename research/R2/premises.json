@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "note": "15 ORIGINAL premises for S1. They reuse only mechanics (fake authority, chat chorus, cut comms, last-resort channel, rule broken). No characters, places, plots or lines from the reference videos. Set names/units are placeholders.",
+  "premises": [
+    {
+      "id": "P01", "title": "The Seventh Rule", "template": "T1_locked_door_siege",
+      "hook": "Our building posted six rules for the night shift. Tonight there were seven.",
+      "warning_channel": "photo of the laminated lobby rule sheet a neighbour posted last month (6 rules)",
+      "fake_authority": "night concierge account in the residents' chat",
+      "wrong_detail": "rule 7 'Always open for the concierge' is in a different font; the concierge's name tag is upside down",
+      "chat_beats": ["concierge: package for 1104, please come down", "3 neighbours: 'just got mine, all fine'", "old photo of rules resurfaces in search: only 6", "member list: the 3 'fine' accounts all joined today"],
+      "part1_cliff": "Rule 6 on the old sheet: 'If there is a seventh rule, leave by the stairs. Do not take the elevator.' The elevator dings on my floor.",
+      "part2_sketch": "Stairwell descent; real concierge found locked in the parcel room; the new rules were written by whoever is in the lift.",
+      "sets": ["lobby", "apartment door", "stairwell", "elevator panel"], "props": ["laminated sheet", "parcel"]
+    },
+    {
+      "id": "P02", "title": "Water Off 1 to 5", "template": "T1_locked_door_siege",
+      "hook": "Management texted: water off from one to five. Do not run your taps.",
+      "warning_channel": "tap starts running by itself; a note taped inside the sink cabinet from the previous tenant",
+      "fake_authority": "plumber in uniform at the door asking to 'check for leaks'",
+      "wrong_detail": "his boots are bone dry though he says he came from the flooded basement",
+      "chat_beats": ["management: plumbers are going door to door, let them in", "neighbour: 'mine took 2 minutes, very polite'", "neighbour from 9F posts a photo of the roof tank lid open", "management deletes the photo"],
+      "part1_cliff": "Cabinet note: 'When the taps run on their own, someone is in the pipes. Do NOT let them check the bathroom.' He asks for the bathroom.",
+      "part2_sketch": "Hero floods the hallway to see footprints; the 'plumbers' leave no wet prints.",
+      "sets": ["kitchen sink", "apartment door", "peephole", "bathroom"], "props": ["note", "wrench"]
+    },
+    {
+      "id": "P03", "title": "Fire Drill at 3:12", "template": "T1_locked_door_siege",
+      "hook": "The fire alarm rang at 3:12 a.m. The group chat said: it's only a drill, go to the stairwell.",
+      "warning_channel": "building's printed evacuation card: 'Drills are never held at night'",
+      "fake_authority": "fire warden vest-wearer doing a headcount in the stairwell",
+      "wrong_detail": "his clipboard lists 41 residents; the building has 40",
+      "chat_beats": ["warden: everyone to stairwell B, count in progress", "neighbours posting selfies from the stairwell", "one neighbour: 'who is the man in 4C? nobody lives in 4C'", "chat renamed by admin to 'Drill complete'"],
+      "part1_cliff": "My name is the 41st on the list. Next to it someone has written: 'still inside'.",
+      "part2_sketch": "Hero stays in; realises the 40 people in the stairwell are being counted out, not counted in.",
+      "sets": ["bedroom", "door", "stairwell"], "props": ["alarm", "clipboard", "evacuation card"]
+    },
+    {
+      "id": "P04", "title": "Shared Trip", "template": "T1_locked_door_siege",
+      "hook": "My sister shared her ride home with me. The car on the map was driving to my building.",
+      "warning_channel": "live trip-share map vs her texts",
+      "fake_authority": "rideshare 'safety team' calling to say the trip is normal",
+      "wrong_detail": "the safety agent knows my apartment number; I never gave it",
+      "chat_beats": ["sister: 'home now, going to sleep'", "map: car 2 minutes from me", "safety team text: 'driver is on a scheduled pickup, no action needed'", "sister's message read receipts stop"],
+      "part1_cliff": "The car stopped outside. Sister's account: 'I'm downstairs. Let me in.'",
+      "part2_sketch": "Who is in the car vs who is at home; resolution via a phone call to a landline only she knows.",
+      "sets": ["bedroom", "window street view", "phone map"], "props": ["phone map UI"]
+    },
+    {
+      "id": "P05", "title": "Firmware Update", "template": "T1_locked_door_siege",
+      "hook": "The HOA forced a smart-lock update at midnight. At 12:07, my app said: unlocked by owner.",
+      "warning_channel": "lock app activity log",
+      "fake_authority": "HOA tech support chat bot / 'technician on site'",
+      "wrong_detail": "the 'owner' entries come from a phone model nobody in the house owns",
+      "chat_beats": ["HOA: 'update in progress, ignore lock activity'", "neighbours: 'same here, nothing to worry about'", "log: unlocked 1C, 1D, 1E... in order down the hall", "HOA disables comments"],
+      "part1_cliff": "Log line 12:09: 'Unlocked by owner: 2B.' I am in 2B. My door is still shut.",
+      "part2_sketch": "Manual deadbolt vs electronic lock; the update is a key-copying tool.",
+      "sets": ["hallway", "door with smart lock", "bedroom"], "props": ["lock app UI", "deadbolt"]
+    },
+    {
+      "id": "P06", "title": "The Intercom Rings Twice", "template": "T3_online_stranger",
+      "hook": "The old tenant left me one tip: never answer the intercom when it rings twice.",
+      "warning_channel": "texts from the previous tenant's number",
+      "fake_authority": "building manager on the intercom",
+      "wrong_detail": "manager says 'it's me, Mr. Hale' but the manager is a woman in every chat photo",
+      "chat_beats": ["previous tenant: 'did it ring twice? don't answer'", "manager in chat: 'intercom maintenance tonight, please answer when it rings'", "previous tenant: 'I'm the reason you got this flat cheap'"],
+      "part1_cliff": "The intercom rang once. Then a text from the old tenant: 'One ring means it's already inside.'",
+      "part2_sketch": "Old tenant never left: is in the walls / is the thing; trust inversion.",
+      "sets": ["apartment entry", "intercom panel", "living room"], "props": ["intercom"]
+    },
+    {
+      "id": "P07", "title": "Grandma Sent a Voice Note", "template": "T2_broken_rule",
+      "hook": "Grandma died last spring. Last night she sent a voice note to the family chat.",
+      "warning_channel": "voice note: 'Don't let your father bring the dog home tonight.'",
+      "fake_authority": "Dad, calm and reasonable, insisting it's a hacked account",
+      "wrong_detail": "the 'dog' Dad brings home doesn't cast a shadow under the porch light",
+      "chat_beats": ["family chat: grandma's voice bubble 0:07", "uncle: 'delete that, it's a scam'", "aunt: 'that's her house rule from the village'", "dad: 'I'm bringing Lucky home, see you soon'"],
+      "part1_cliff": "Second voice note, 0:03: 'It isn't your father driving.'",
+      "part2_sketch": "Folk rule from grandma's village about not letting animals in on certain nights.",
+      "sets": ["living room", "porch", "family chat UI"], "props": ["voice-note bubble"]
+    },
+    {
+      "id": "P08", "title": "Lights-Out in Dorm 3", "template": "T1_locked_door_siege",
+      "hook": "Our RA posted the dorm rules at 11. Her account had been deleted a week ago.",
+      "warning_channel": "screenshot of RA's deactivated profile",
+      "fake_authority": "RA account in the floor chat doing 'room checks'",
+      "wrong_detail": "knock pattern is three, the real RA always knocked twice and said her name",
+      "chat_beats": ["RA: 'room checks now, open when I knock'", "4 rooms reply 'done'", "roommate: 'those 4 rooms moved out in September'"],
+      "part1_cliff": "Knock knock knock. My roommate whispers from the top bunk: 'Don't answer. I'm not in the bed.'",
+      "part2_sketch": "Who is in the bunk; the dorm rules are a feeding schedule.",
+      "sets": ["dorm room", "dorm corridor", "bunk bed"], "props": ["rules sheet"]
+    },
+    {
+      "id": "P09", "title": "Last Bus Group", "template": "T2_broken_rule",
+      "hook": "Night-bus regulars have one rule: never sit in the back row after the tunnel.",
+      "warning_channel": "commuters' group chat for the 1:40 bus",
+      "fake_authority": "new driver who announces 'all passengers to the back please, weight balance'",
+      "wrong_detail": "the bus number on his shirt is from a route that closed in 2009",
+      "chat_beats": ["regular: 'new driver tonight?'", "regular: 'he's asking everyone to move back'", "regular: 'I'm already back here, it's fine' (sent from a seat in the back)", "messages from the back row stop"],
+      "part1_cliff": "The tunnel ends. I count the passengers in the mirror. There are more in the reflection than on the bus.",
+      "part2_sketch": "Getting off at a stop that isn't on the map.",
+      "sets": ["bus interior", "tunnel window", "mirror"], "props": ["bus mirror", "ticket"]
+    },
+    {
+      "id": "P10", "title": "Nanny Cam", "template": "T1_locked_door_siege",
+      "hook": "The babysitter texted: kids are asleep, I'm in their room. The nanny cam showed her on the couch.",
+      "warning_channel": "camera app feed vs texts",
+      "fake_authority": "babysitting agency 'safety line' telling parents to stay calm",
+      "wrong_detail": "the couch-sitter on camera hasn't moved in 40 minutes; the clock on the wall behind her is frozen",
+      "chat_beats": ["sitter: 'all quiet'", "camera motion alert: kids' room", "agency: 'camera glitches are common, do not call the police, it upsets the children'"],
+      "part1_cliff": "Sitter: 'Who's the woman on the couch?'",
+      "part2_sketch": "Parents racing home, guiding the sitter via camera; which feed is looped.",
+      "sets": ["car interior", "living room cam view", "kids' room"], "props": ["camera UI with timestamp"]
+    },
+    {
+      "id": "P11", "title": "Neighbourhood Poll", "template": "T1_locked_door_siege",
+      "hook": "The street app opened a poll at midnight: Should we let the man in the yellow raincoat in?",
+      "warning_channel": "poll results update live; voters listed",
+      "fake_authority": "street-watch coordinator account pushing 'yes'",
+      "wrong_detail": "votes come from houses that have been empty for years",
+      "chat_beats": ["coordinator: 'he's a stranded traveler, vote yes'", "Yes 11 / No 3", "voter list includes the house that burned down", "poll closes: 'Welcome inside, neighbour!'"],
+      "part1_cliff": "Notification: 'He chose your house.'",
+      "part2_sketch": "Hero's 'No' vote is the only one from an occupied house; the poll is how it gets permission.",
+      "sets": ["bedroom window", "street at night", "app UI"], "props": ["poll UI"]
+    },
+    {
+      "id": "P12", "title": "Room 1209 Wi-Fi", "template": "T3_online_stranger",
+      "hook": "The hotel Wi-Fi login page had house rules. Rule 3: if the front desk calls after 2, hang up.",
+      "warning_channel": "captive-portal page with rules that change each reconnect",
+      "fake_authority": "front desk calling about a 'room upgrade'",
+      "wrong_detail": "the hotel has no 13th floor, the upgrade is to 1309",
+      "chat_beats": ["portal rules v1", "front desk call", "portal rules v2: 'You answered. Now: do not open for housekeeping.'", "knock: 'Housekeeping.'"],
+      "part1_cliff": "Portal refresh: 'Rule 1: you are not the guest in 1209.'",
+      "part2_sketch": "The portal is written by the previous guest still trapped in the building's loop.",
+      "sets": ["hotel room", "hotel corridor", "laptop portal"], "props": ["hotel phone", "keycard"]
+    },
+    {
+      "id": "P13", "title": "Wrong Floor", "template": "T1_locked_door_siege",
+      "hook": "Our tower has 30 floors. Tonight, the elevator offered 31.",
+      "warning_channel": "residents' chat + maintenance logbook photo",
+      "fake_authority": "elevator technician in the lift inviting residents to 'test' 31",
+      "wrong_detail": "his ID badge photo is of the hero's neighbour",
+      "chat_beats": ["neighbour: 'anyone else see 31?'", "technician account: 'new floor opening, testers welcome'", "3 neighbours: 'went up, it's lovely'", "those 3 phones now show location: 'Floor 31'"],
+      "part1_cliff": "My neighbour knocked. 'Come up to 31. Everyone's there.' Her voice came from inside the elevator shaft.",
+      "part2_sketch": "Getting the residents back before the button disappears.",
+      "sets": ["elevator interior", "elevator panel", "corridor", "door"], "props": ["logbook"]
+    },
+    {
+      "id": "P14", "title": "Courier Voice Notes", "template": "T3_online_stranger",
+      "hook": "My food courier sent a voice note: don't take the left elevator. I never told him my building.",
+      "warning_channel": "voice notes from the courier, each sent before the event happens",
+      "fake_authority": "security guard in the lobby waving residents to the left elevator",
+      "wrong_detail": "the guard's reflection in the lobby glass is facing the other way",
+      "chat_beats": ["courier: 'take the stairs to 8, wait'", "app: delivery marked 'delivered' 20 min ago", "courier: 'I died on this delivery last year. Please listen.'"],
+      "part1_cliff": "Courier: 'Look at the guard's reflection.' The reflection waves at me.",
+      "part2_sketch": "Completing his delivery path to break the loop.",
+      "sets": ["lobby", "elevators", "stairwell"], "props": ["food bag", "delivery app UI"]
+    },
+    {
+      "id": "P15", "title": "Outage Countdown", "template": "T1_locked_door_siege",
+      "hook": "The power company texted: outage in your area, power back at 4. Every other message started deleting itself.",
+      "warning_channel": "messages that self-delete after being read; one neighbour sends them as photos of paper notes",
+      "fake_authority": "utility 'field crew' knocking to 'reset breakers' in each unit",
+      "wrong_detail": "their van in the street has no logo, only a hand-drawn copy of one",
+      "chat_beats": ["utility text: 'crews will visit each unit'", "neighbour: photo of handwritten note 'they reset more than breakers'", "group chat: everyone else's messages vanish", "phone battery 9%"],
+      "part1_cliff": "Paper note slid under my door, neighbour's handwriting: 'At 4 the power comes back. Make sure you are not the only one awake.'",
+      "part2_sketch": "Pretending to sleep; the crew counts breathing.",
+      "sets": ["dark apartment", "candle", "door", "street from window"], "props": ["paper note", "phone battery UI"]
+    }
+  ]
+}
