@@ -49,6 +49,7 @@ BeyondTheBlue 2.7M), it is not a Depth Theory topic, and every beat maps to an e
 - Great white carcasses with livers removed near Gansbaai, South Africa from 2017; sharks left the area — Towner et al. 2022, Ecology.
 - First documented kill of an adult blue whale, March 2019, off Bremer Bay, Western Australia — Totterdell et al. 2022, Marine Mammal Science.
 - Iberian orca–boat interactions since 2020 off Spain/Portugal, rudders damaged, several sailboats sank — Atlantic Orca Working Group / CA2 reports.
+- On-screen stat says "~7 boats sunk (and counting)": confirm the current count before publishing (6-7 sinkings reported through 2025).
 
 ## Narration
 

@@ -15,6 +15,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.42,
      "rays": 8
     }
@@ -174,9 +176,9 @@
      "type": "component",
      "name": "explainer/Map",
      "x": "50%",
-     "y": "40%",
+     "y": "50%",
      "width": 1080,
-     "height": 1300,
+     "height": 1920,
      "props": {
       "views": [
        {
@@ -246,6 +248,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 8,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.25,
      "rays": 7
     }
@@ -507,7 +511,7 @@
       ],
       "at": 0.0,
       "stagger": 0.12,
-      "size": 54,
+      "size": 46,
       "strikes": [
        {
         "index": 0,
@@ -555,7 +559,7 @@
       ],
       "at": -1,
       "stagger": 0,
-      "size": 54,
+      "size": 46,
       "strikes": [
        {
         "index": 0,
@@ -603,7 +607,7 @@
       ],
       "at": -1,
       "stagger": 0,
-      "size": 54,
+      "size": 46,
       "strikes": [
        {
         "index": 0,
@@ -655,7 +659,7 @@
       ],
       "at": -1,
       "stagger": 0,
-      "size": 54,
+      "size": 46,
       "strikes": [
        {
         "index": 0,
@@ -690,6 +694,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 3,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.4,
      "rays": 7
     }
@@ -772,6 +778,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.42,
      "rays": 8
     }

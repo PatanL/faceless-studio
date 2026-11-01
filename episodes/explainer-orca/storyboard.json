@@ -15,6 +15,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 6,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.2,
      "rays": 8,
      "snow": 60
@@ -70,7 +72,7 @@
      "props": {
       "value": 0,
       "label": "wild human kills",
-      "at": 4.95,
+      "at": 4.187,
       "size": 130,
       "duration": 0.3,
       "color": "#e5483d"
@@ -464,6 +466,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 4,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.36,
      "rays": 9,
      "snow": 40
@@ -1165,9 +1169,9 @@
      "type": "component",
      "name": "explainer/Map",
      "x": "50%",
-     "y": "40%",
+     "y": "50%",
      "width": 1080,
-     "height": 1300,
+     "height": 1920,
      "props": {
       "views": [
        {
@@ -1260,6 +1264,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 4,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
      "surface": 0.3,
      "rays": 8,
      "snow": 50

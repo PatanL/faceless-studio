@@ -16,6 +16,8 @@ OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0.5}  # fram
 
 
 def ocean(depth, **props):
+    if "surface" in props:  # keep the sky dark navy (kit default is a pale sky)
+        props = {"skyTop": "#071620", "skyBottom": "#1b3b4a", **props}
     return {"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2, "props": {"depth": depth, **props}}
 
 
@@ -93,7 +95,7 @@ def orca(S):
         comp("explainer/Orca", "50%", "44%", 980, 340, {"speed": 1.1},
              keyframes=[{"t": 0, "x": "-40%"}, {"t": s.dur * 0.7, "x": "50%", "ease": "out"}]),
         headline("KILLER WHALE?", at=0.25, y="17%", size=84, color="white"),
-        stat(0, "wild human kills", at=s.at("single", off=-0.2), y="60%", size=130, duration=0.3, color=RED),
+        stat(0, "wild human kills", at=s.at("never", off=-0.1), y="60%", size=130, duration=0.3, color=RED),
     ], camera=push(0.5)))
     s = S[1]
     PPM = 105
@@ -189,7 +191,7 @@ def orca(S):
     s = S[11]
     gib = {"lon": -6.0, "lat": 36.6}
     sc.append(scene(s, {"type": "color", "color": "#04121a"}, [
-        comp("explainer/Map", "50%", "40%", 1080, 1300, {
+        comp("explainer/Map", "50%", "50%", 1080, 1920, {
             "views": [{"t": 0, "lon": -20, "lat": 40, "zoom": 1.6}, {"t": s.at("Spain"), "lon": -20, "lat": 40, "zoom": 1.6},
                       {"t": s.at("Spain", off=1.4), **gib, "zoom": 9}],
             "rings": [{**gib, "r": 1.2, "at": s.at("Spain", off=1.2), "label": "Iberian orcas"}]}, depth=0),
@@ -398,7 +400,7 @@ def pressure(S):
     ], rays=0))
     s = S[8]
     sc.append(scene(s, {"type": "color", "color": "#04121a"}, [
-        comp("explainer/Map", "50%", "40%", 1080, 1300, {
+        comp("explainer/Map", "50%", "50%", 1080, 1920, {
             "views": [{"t": 0, "lon": 150, "lat": 15, "zoom": 1.4}, {"t": min(s.dur - 0.5, 2.0), "place": "marianaTrench", "zoom": 10}],
             "rings": [{"place": "marianaTrench", "r": 0.8, "at": 1.6, "label": "Challenger Deep"}]}, depth=0),
         stat(10900, "metres down", 0.3, y="14%", size=90, duration=1.4),
@@ -448,7 +450,7 @@ def croc(S):
     ], camera=push(0.4), trans=FADE))
     s = S[2]
     sc.append(scene(s, {"type": "color", "color": "#04121a"}, [
-        comp("explainer/Map", "50%", "40%", 1080, 1300, {
+        comp("explainer/Map", "50%", "50%", 1080, 1920, {
             "views": [{"t": 0, "lon": 140, "lat": -12, "zoom": 3.0}, {"t": s.dur, "lon": 145, "lat": -10, "zoom": 3.6}],
             "pins": [{"lon": 131, "lat": -12.4, "label": "N. Australia", "at": 0.3},
                      {"lon": 160, "lat": -9.4, "label": "Solomon Is.", "at": s.at("islands", off=-0.6)}],
@@ -478,7 +480,7 @@ def croc(S):
     opts = ["Swim for the shore", "Run zigzag", "Play dead", "Stay off the water's edge"]
 
     def opt_scene(s, strikes, select=None, title_at=0.0, trans=FADE):
-        p = {"title": "Your options", "items": opts, "at": title_at, "stagger": 0.12 if title_at >= 0 else 0, "size": 54,
+        p = {"title": "Your options", "items": opts, "at": title_at, "stagger": 0.12 if title_at >= 0 else 0, "size": 46,
              "strikes": strikes}
         if select:
             p["select"] = select
@@ -516,7 +518,7 @@ def anglerfish(S):
     sc = []
     s = S[0]
     sc.append(scene(s, ocean(1000, rays=0, snow=60), [
-        comp("explainer/Diver", "30%", "44%", 560, 110, {"arms": "forward"}, idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
+        comp("explainer/Diver", "42%", "44%", 480, 95, {"arms": "forward"}, idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
         svg(GLOW, "74%", "36%", 120, 120, idle=[{"type": "pulse", "amount": 0.25, "speed": 0.6}]),
         headline("DON'T.", at=s.at("don't", off=-0.1), y="16%", size=120, color="red"),
     ], camera={"keyframes": [{"t": 0, "zoom": 1.0, "x": "45%"}, {"t": s.dur, "zoom": 1.1, "x": "58%"}]}))
@@ -535,11 +537,11 @@ def anglerfish(S):
     ], camera=push(0.5), trans=FADE))
     s = S[3]
     sc.append(scene(s, ocean(1100, rays=0, snow=40), [
-        comp("explainer/Anglerfish", "60%", "52%", 1500, 980, {}),
+        comp("explainer/Anglerfish", "30%", "60%", 1200, 780, {}),
         {"type": "particles", "preset": "dust", "count": 90, "color": "rgba(120,255,220,0.9)", "size": [3, 6], "speed": 0.4,
-         "x": "40%", "y": "34%", "width": 360, "height": 360, "z": 4},
-        tag("BACTERIA", s.at("bacteria", off=-0.1), x="40%", y="16%", size=44, w=420, accent=RED),
-    ], camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.2, "x": "45%", "y": "40%"}]}, trans=WHIP))
+         "x": "84%", "y": "40%", "width": 300, "height": 300, "z": 4},
+        tag("BACTERIA", s.at("bacteria", off=-0.1), x="60%", y="18%", size=44, w=420, accent=RED),
+    ], camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.2, "x": "62%", "y": "44%"}]}, trans=WHIP))
     s = S[4]
     up = s.at("scale", off=0)
     sc.append(scene(s, ocean(1100, rays=0, snow=50), [

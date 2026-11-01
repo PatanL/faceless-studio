@@ -155,7 +155,7 @@ def pinned_rules(S):
     s = S[4]
     th.add(s, s.at("screenshot", off=-0.1), "Looked up Hartwell Property Group. DISSOLVED two years ago.", "Dev (6C)", kind="alert")
     out.append(phone_scene(s, M, th.chat(s), glitch=[s.at("shut", off=0)], heartbeat=None, trans=None,
-                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.1, "y": "52%"}]}))
+                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.06, "y": "48%"}]}))
     s = S[5]
     out.append(set_scene(s, "LivingRoom", {"lamp": 0.25, "tv": "off"}, [
         nora([(0, "suspicious"), (s.at("pinned", off=-0.2), "scared")], pose="phone", look=(0, 0.6)),
@@ -168,7 +168,7 @@ def pinned_rules(S):
     s = S[7]
     out.append(phone_scene(s, M, th.chat(s, clock="2:21", subtitle="Ben (5A) · last seen 2:14"), tremble=3,
                            heartbeat={"bpm": 80, "bpmTo": 110}, trans=None,
-                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.12, "y": "54%"}]}))
+                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.06, "y": "48%"}]}))
     s = S[8]
     th.add(s, s.at("Rule", off=-0.1), "PINNED · RULE 5 (edited): Management may need to come inside. Please cooperate.", "Management", kind="alert")
     out.append(phone_scene(s, M, th.chat(s, clock="2:23"), glitch=[s.at("Rule", off=-0.1)], tremble=3, trans=GLITCH))
@@ -266,7 +266,7 @@ def mom_two_chats(S):
     out.append(phone_scene(s, M, fam.chat(s, clock="11:07"), set_="LivingRoom", set_props={"lamp": 0.3},
                            vibrate=[s.at("It's", off=-0.05)], trans=DIP))
     s = S[7]
-    out.append(phone_scene(s, M, mode="call", call={"name": "Dad", "sub": "mobile", "label": "calling…", "at": 0},
+    out.append(phone_scene(s, M, mode="call", call={"name": "Dad", "sub": "mobile", "label": "calling…", "at": 0, "clock": "11:07"},
                            set_="LivingRoom", set_props={"lamp": 0.3}, tremble=3, trans=FADE))
     s = S[8]
     out.append(set_scene(s, "LivingRoom", {"lamp": 0.3, "tv": "off"}, [
@@ -290,7 +290,7 @@ def mom_two_chats(S):
     out.append(phone_scene(s, M, fam.chat(s, clock="11:08", typing=[("Dad", s.at("dots", off=-0.4), s.dur + 1)]),
                            set_="LivingRoom", set_props={"lamp": 0.1}, tremble=5, glitch=[s.at("typing", off=0.4)],
                            heartbeat={"bpm": 130, "bpmTo": 170}, trans=FADE,
-                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.14, "y": "56%"}]}))
+                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.06, "y": "48%"}]}))
     return out
 
 
@@ -529,7 +529,7 @@ def roommate(S):
     out.append(phone_scene(s, M, dm.chat(s, clock="7:56"), set_="Bedroom", set_props={"lamp": 0.1},
                            vibrate=[s.at("buzzed", off=-0.1)], tremble=5, glitch=[s.at("in", off=0.2)],
                            heartbeat={"bpm": 150}, trans=FADE,
-                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.15, "y": "52%"}]}))
+                           camera={"keyframes": [{"t": 0, "zoom": 1.0}, {"t": s.dur, "zoom": 1.06, "y": "48%"}]}))
     return out
 
 
