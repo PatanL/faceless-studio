@@ -18,6 +18,9 @@ export type Look = {
 	head: 'helmet' | 'cap';
 	hairFringe?: boolean;
 	skin?: string;
+	/** body build: w = torso/shoulder width factor, belly = 0..1 paunch, leg = trouser width factor */
+	build?: {w?: number; belly?: number; leg?: number};
+	brow?: string;
 };
 export type Brows = 'neutral' | 'angry' | 'worried' | 'happy' | 'raised';
 export type Hand = [number, number] | 'grip' | 'fore' | 'side' | 'hidden';
@@ -57,7 +60,7 @@ export const LOOKS: Record<string, Look> = {
 	F: {hair: '#6B4A2A', beard: 'moustache', beardColor: '#4A2A1A', eye: P.eyeBlue, patch: 'ua', camo: 'ru', head: 'helmet', hairFringe: true},
 	G: {hair: '#4A2E1A', beard: 'full', beardColor: '#4A2A18', eye: P.eyeBlue, patch: 'ua', camo: 'ua', head: 'helmet'},
 	Blond: {hair: '#E8B85A', beard: 'none', eye: P.eyeBlue, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
-	Off: {hair: '#4A3020', beard: 'goatee', beardColor: '#5A3420', eye: P.eyeGreen, patch: 'ru', camo: 'off', head: 'cap'},
+	Off: {hair: '#4A3020', beard: 'goatee', beardColor: '#5A3420', eye: P.eyeGreen, patch: 'ru', camo: 'off', head: 'cap', build: {w: 1.22, belly: 1, leg: 1.12}},
 	H: {hair: '#2A1C14', beard: 'stubble', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
 };
 
@@ -99,8 +102,8 @@ export const Flag: React.FC<{kind: 'ru' | 'ua'; x: number; y: number; w: number;
 	);
 };
 
-const Boot: React.FC<{x: number; y: number; rot?: number}> = ({x, y, rot = 0}) => (
-	<g transform={`translate(${x} ${y}) rotate(${rot})`}>
+const Boot: React.FC<{x: number; y: number; rot?: number; s?: number}> = ({x, y, rot = 0, s = 1}) => (
+	<g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
 		<rect x={-31} y={-16} width={62} height={44} rx={8} fill={P.boot} />
 		<path d="M-36,16 L36,16 Q70,18 72,42 L72,50 Q72,56 64,56 L-36,56 Q-42,56 -42,48 L-42,24 Q-42,16 -36,16 Z" fill={P.boot} />
 		<path d="M10,18 L36,17 Q60,19 66,32 Q44,28 10,26 Z" fill={P.bootTop} opacity={0.9} />
@@ -138,8 +141,11 @@ const Eye: React.FC<{x: number; y: number; c: string; lx: number; ly: number; st
 	);
 };
 
-const Brow: React.FC<{x: number; y: number; rot: number; c: string}> = ({x, y, rot, c}) => (
-	<rect x={x - 13} y={y - 4.5} width={26} height={9} rx={4.5} fill={c} transform={`rotate(${rot} ${x} ${y})`} />
+/** Tapered brow: thick at the inner end, thin at the outer end (side = -1 left brow, +1 right brow). */
+const Brow: React.FC<{x: number; y: number; rot: number; c: string; side: number}> = ({x, y, rot, c, side}) => (
+	<g transform={`translate(${x} ${y}) rotate(${rot}) scale(${side} 1)`}>
+		<path d="M-17,1 Q-14,-6 -2,-7 Q10,-7.5 15,-4 Q17,1 13,4 Q2,3 -14,5 Q-18,4 -17,1 Z" fill={c} />
+	</g>
 );
 
 const MouthShape: React.FC<{m: Mouth; x: number; y: number; onBeard: boolean}> = ({m, x, y, onBeard}) => {
@@ -223,10 +229,14 @@ export const Head: React.FC<{look: Look; pose: Pose}> = ({look, pose}) => {
 	const pulse = pose.heartPulse ?? 1;
 	return (
 		<g>
-			{/* ear (back side) */}
-			<ellipse cx={-42} cy={-62} rx={13} ry={19} fill={skin} />
-			<ellipse cx={-42} cy={-61} rx={6.5} ry={10} fill={P.skinDeep} opacity={0.7} />
-			{/* face */}
+			{/* ear (back side), bigger and lower, with an inner fold */}
+			<ellipse cx={-50} cy={-62} rx={17} ry={24} fill={skin} />
+			<ellipse cx={-50} cy={-62} rx={17} ry={24} fill={P.skinShade} opacity={0.5} />
+			<path d="M-56,-74 Q-46,-84 -44,-66 Q-44,-52 -54,-50" fill="none" stroke={P.skinDeep} strokeWidth={5} strokeLinecap="round" />
+			{/* hair tufts escaping under the helmet at the back */}
+			<path d={`M-62,-104 L-56,-82 L-50,-96 L-44,-78 L-38,-94 L-34,-74 L-28,-100 Z`} fill={look.hair} />
+			{/* face (widened 16% about its centre line) */}
+			<g transform="translate(6 0) scale(1.16 1) translate(-6 0)">
 			<clipPath id={`face${id}`}>
 				<rect x={-40} y={-134} width={92} height={136} rx={30} />
 			</clipPath>
@@ -254,8 +264,8 @@ export const Head: React.FC<{look: Look; pose: Pose}> = ({look, pose}) => {
 			{/* eyes + brows */}
 			<Eye x={6} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
 			<Eye x={38} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
-			<Brow x={5} y={-93 + bdy} rot={br1} c={look.head === 'cap' ? '#3A2618' : '#211912'} />
-			<Brow x={39} y={-93 + bdy} rot={br2} c={look.head === 'cap' ? '#3A2618' : '#211912'} />
+			<Brow x={5} y={-93 + bdy} rot={br1} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={-1} />
+			<Brow x={39} y={-93 + bdy} rot={br2} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={1} />
 			{/* facial hair + mouth */}
 			{beard === 'full' && (
 				<g>
@@ -275,6 +285,7 @@ export const Head: React.FC<{look: Look; pose: Pose}> = ({look, pose}) => {
 				<path d="M0,-38 Q22,-46 46,-38 L48,-26 Q44,-24 40,-30 Q22,-34 6,-30 Q2,-24 -2,-26 Z" fill={bc} />
 			)}
 			<MouthShape m={mouth} x={mx + 1} y={beard === 'moustache' ? -16 : my} onBeard={beard === 'full' || beard === 'goatee'} />
+			</g>
 			{pose.sweat && <path d="M58,-104 Q66,-90 64,-84 Q60,-78 55,-84 Q53,-90 58,-104 Z" fill="#BFE6FF" />}
 			{/* headgear */}
 			{look.head === 'helmet' ? <Helmet /> : <FieldCap />}
@@ -318,6 +329,9 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 	const legsKind = pose.legs ?? 'stand';
 	const camo = camoFill(look);
 	const kneel = legsKind === 'kneel';
+	const bw = look.build?.w ?? 1.12; // torso width factor (v2: bulkier than v1's 1.0)
+	const belly = look.build?.belly ?? 0;
+	const legW = 82 * (look.build?.leg ?? 1);
 	const hipY = -250 + bob + crouch * 40 + (kneel ? 105 : 0);
 	const torsoDY = hipY + 250; // torso offset
 	// --- legs
@@ -326,40 +340,49 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 	const ph = pose.legPhase ?? 0;
 	const legDefs: {hip: [number, number]; foot: [number, number]; bootRot: number; far: boolean}[] = [];
 	if (kneel) {
-		legDefs.push({hip: [24, hipY], foot: [118, -48], bootRot: 0, far: true});
-		legDefs.push({hip: [-22, hipY], foot: [-150, -40], bootRot: 42, far: false});
+		legDefs.push({hip: [26, hipY], foot: [122, -48], bootRot: 0, far: true});
+		legDefs.push({hip: [-24, hipY], foot: [-150, -40], bootRot: 42, far: false});
 	} else {
 		const sw = legsKind === 'march' ? 1 : 0;
 		const liftF = Math.max(0, Math.sin(ph * Math.PI * 2)) * 34 * sw;
 		const liftN = Math.max(0, -Math.sin(ph * Math.PI * 2)) * 34 * sw;
 		const spread = crouch * 26;
-		legDefs.push({hip: [28, hipY], foot: [40 + spread + liftF * 0.5, -50 - liftF], bootRot: -liftF * 0.2, far: true});
-		legDefs.push({hip: [-28, hipY], foot: [-36 - spread + liftN * 0.5, -50 - liftN], bootRot: -liftN * 0.2, far: false});
+		legDefs.push({hip: [32, hipY], foot: [44 + spread + liftF * 0.5, -58 - liftF], bootRot: -liftF * 0.2, far: true});
+		legDefs.push({hip: [-32, hipY], foot: [-40 - spread + liftN * 0.5, -58 - liftN], bootRot: -liftN * 0.2, far: false});
 	}
 	if (legsKind !== 'none')
 		for (const L of legDefs) {
-			const kneeBend = kneel && !L.far ? -1 : -1;
-			const k = ik(L.hip, L.foot, 104, 104, kneeBend);
+			const k = ik(L.hip, L.foot, 100, 100, -1);
 			const d = `M${L.hip[0]},${L.hip[1]} L${k[0]},${k[1]} L${L.foot[0]},${L.foot[1]}`;
+			// cargo pocket on the thigh, oriented along the thigh
+			const ta = deg(Math.atan2(k[1] - L.hip[1], k[0] - L.hip[0]));
+			const tm: [number, number] = [L.hip[0] + (k[0] - L.hip[0]) * 0.55, L.hip[1] + (k[1] - L.hip[1]) * 0.55];
 			legs.push(
 				<g key={`l${L.far}`}>
-					<path d={d} fill="none" stroke={camo} strokeWidth={70} strokeLinecap="round" strokeLinejoin="round" />
-					{L.far && <path d={d} fill="none" stroke="#000" strokeOpacity={0.14} strokeWidth={70} strokeLinecap="round" strokeLinejoin="round" />}
-					<path d={`M${L.foot[0] - 30},${L.foot[1] - 8} L${L.foot[0] + 30},${L.foot[1] - 8}`} stroke="#000" strokeOpacity={0.18} strokeWidth={8} strokeLinecap="round" />
+					<path d={d} fill="none" stroke={camo} strokeWidth={legW} strokeLinecap="round" strokeLinejoin="round" />
+					{L.far && <path d={d} fill="none" stroke="#000" strokeOpacity={0.16} strokeWidth={legW} strokeLinecap="round" strokeLinejoin="round" />}
+					{!L.far && (
+						<g transform={`translate(${tm[0]} ${tm[1]}) rotate(${ta - 90})`}>
+							<rect x={-30} y={-26} width={44} height={52} rx={9} fill={camoDark(look)} />
+							<rect x={-30} y={-26} width={44} height={14} rx={6} fill="#000" opacity={0.18} />
+						</g>
+					)}
+					{/* trouser cuff bunching over the boot */}
+					<path d={`M${L.foot[0] - 38},${L.foot[1] - 12} Q${L.foot[0]},${L.foot[1] - 2} ${L.foot[0] + 38},${L.foot[1] - 12}`} stroke="#000" strokeOpacity={0.2} strokeWidth={10} strokeLinecap="round" fill="none" />
 				</g>,
 			);
-			boots.push(<Boot key={`b${L.far}`} x={L.foot[0]} y={L.foot[1]} rot={L.bootRot} />);
+			boots.push(<Boot key={`b${L.far}`} x={L.foot[0]} y={L.foot[1]} rot={L.bootRot} s={1.18} />);
 		}
 	// --- arms (torso frame)
-	const shN: [number, number] = [-64, -428];
-	const shF: [number, number] = [62, -428];
+	const shN: [number, number] = [-66 * bw, -430];
+	const shF: [number, number] = [64 * bw, -430];
 	const g = pose.gun ?? null;
 	const resolve = (h: Hand | undefined, sh: [number, number], dir: number): [number, number] | null => {
 		if (h === 'hidden') return null;
 		if (h === 'grip' && g) return gunPt(g, 'grip');
 		if (h === 'fore' && g) return gunPt(g, 'fore');
 		if (Array.isArray(h)) return h;
-		return [sh[0] + dir * 8, -262 + Math.sin(breathe * 6.28) * 2];
+		return [sh[0] + dir * 10, -262 + Math.sin(breathe * 6.28) * 2];
 	};
 	const hN = resolve(pose.handN, shN, -1);
 	const hF = resolve(pose.handF, shF, 1);
@@ -367,15 +390,22 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 		const bend = h[1] > sh[1] + 60 && Math.abs(h[0] - sh[0]) < 90 ? (near ? 1 : -1) : near ? -1 : 1;
 		const e = ik(sh, h, 112, 104, bend);
 		const ang = deg(Math.atan2(e[1] - sh[1], e[0] - sh[0]));
-		const pm: [number, number] = [sh[0] + (e[0] - sh[0]) * 0.42, sh[1] + (e[1] - sh[1]) * 0.42];
+		const pm: [number, number] = [sh[0] + (e[0] - sh[0]) * 0.34, sh[1] + (e[1] - sh[1]) * 0.34];
+		// the patch is sewn on the sleeve but kept near-upright so the stripes always read horizontal
+		let pr = ang - 90;
+		while (pr > 180) pr -= 360;
+		while (pr < -180) pr += 360;
+		pr = Math.max(-24, Math.min(24, pr));
 		const d = `M${sh[0]},${sh[1]} L${e[0]},${e[1]} L${h[0]},${h[1]}`;
 		return (
 			<g>
-				<path d={d} fill="none" stroke={camo} strokeWidth={56} strokeLinecap="round" strokeLinejoin="round" />
-				<path d={`M${e[0]},${e[1]} L${h[0]},${h[1]}`} fill="none" stroke="#000" strokeOpacity={near ? 0.06 : 0.16} strokeWidth={56} strokeLinecap="round" />
+				<path d={d} fill="none" stroke={camo} strokeWidth={62} strokeLinecap="round" strokeLinejoin="round" />
+				<path d={`M${e[0]},${e[1]} L${h[0]},${h[1]}`} fill="none" stroke="#000" strokeOpacity={near ? 0.06 : 0.16} strokeWidth={62} strokeLinecap="round" />
+				{/* sleeve cuff */}
+				<circle cx={h[0] + (e[0] - h[0]) * 0.22} cy={h[1] + (e[1] - h[1]) * 0.22} r={27} fill="#000" opacity={0.12} />
 				{near && look.patch !== 'none' && (
-					<g transform={`translate(${pm[0]} ${pm[1]}) rotate(${ang - 90}) scale(${f})`}>
-						<Flag kind={look.patch} x={-21} y={-15} w={42} h={29} r={4} />
+					<g transform={`translate(${pm[0]} ${pm[1]}) rotate(${pr}) scale(${f} 1)`}>
+						<Flag kind={look.patch} x={-20} y={-14} w={40} h={27} r={4} />
 					</g>
 				)}
 			</g>
@@ -385,21 +415,22 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 		<g transform={`translate(${h[0]} ${h[1]})`}>
 			{point && (
 				<g>
-					<rect x={18} y={-14} width={50} height={20} rx={10} fill={P.hand} />
-					<rect x={18} y={-2} width={50} height={8} rx={4} fill={P.handShade} opacity={0.6} />
-					<rect x={-4} y={8} width={30} height={22} rx={11} fill={P.handShade} />
+					<rect x={14} y={-12} width={46} height={18} rx={9} fill={P.hand} />
+					<rect x={14} y={-1} width={46} height={7} rx={3.5} fill={P.handShade} opacity={0.6} />
+					<rect x={-2} y={6} width={26} height={20} rx={10} fill={P.handShade} />
 				</g>
 			)}
-			<circle r={37} fill={P.hand} />
-			<path d="M-34,10 Q-10,40 30,18 Q24,34 0,37 Q-26,36 -34,10 Z" fill={P.handShade} opacity={near ? 0.55 : 0.85} />
-			<ellipse cx={-12} cy={-18} rx={11} ry={7} fill="#FFF0E2" opacity={0.35} />
+			<circle r={29} fill={P.hand} />
+			<path d="M-27,8 Q-8,32 24,14 Q19,27 0,29 Q-21,28 -27,8 Z" fill={P.handShade} opacity={near ? 0.55 : 0.85} />
+			<ellipse cx={-9} cy={-14} rx={9} ry={5.5} fill="#FFF0E2" opacity={0.35} />
 		</g>
 	);
 	const carrier = pose.carrier !== false;
 	const isOff = look.camo === 'off';
+	const holding = !!g;
 	return (
 		<g transform={`translate(${x} ${y}) scale(${s * f} ${s})`}>
-			{shadow && <ellipse cx={8} cy={4} rx={kneel ? 190 : 140} ry={18} fill="url(#softShadow)" />}
+			{shadow && <ellipse cx={8} cy={4} rx={kneel ? 200 : 150} ry={19} fill="url(#softShadow)" />}
 			{legs}
 			{boots}
 			<g transform={`rotate(${lean} 0 ${hipY}) translate(0 ${torsoDY})`}>
@@ -407,63 +438,86 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 					{/* far arm behind the body when it hangs */}
 					{hF && pose.handF === undefined && arm(shF, hF, false)}
 					{hF && pose.handF === undefined && handShape(hF, false, false)}
-					{/* pelvis + belt */}
-					<rect x={-72} y={-300} width={144} height={92} rx={30} fill={camo} />
-					<rect x={-74} y={-300} width={148} height={22} rx={8} fill="#3B3A2A" />
-					<rect x={-12} y={-299} width={22} height={20} rx={4} fill="none" stroke={P.buckle} strokeWidth={4} />
-					{/* torso */}
-					<path d="M-82,-286 L-82,-424 Q-82,-470 -36,-470 L36,-470 Q82,-470 82,-424 L82,-286 Z" fill={camo} />
-					<path d="M50,-466 Q82,-460 82,-424 L82,-286 L58,-286 Z" fill="#000" opacity={0.13} />
-					<path d="M-70,-458 Q-50,-470 -10,-470 Q-50,-462 -66,-440 Z" fill="#FFFDE8" opacity={0.16} />
+					<g transform={`scale(${bw} 1)`}>
+						{/* pelvis + belt */}
+						<rect x={-74} y={-302} width={148} height={96} rx={30} fill={camo} />
+						<rect x={-76} y={-302} width={152} height={24} rx={8} fill="#3B3A2A" />
+						<rect x={-76} y={-302} width={152} height={5} rx={2.5} fill="#56553F" />
+						<rect x={-12} y={-301} width={22} height={21} rx={4} fill="none" stroke={P.buckle} strokeWidth={4} />
+						{/* torso: wide shoulders tapering slightly to the belt */}
+						<path d="M-80,-286 L-86,-418 Q-88,-474 -36,-474 L36,-474 Q88,-474 86,-418 L80,-286 Z" fill={camo} />
+						<path d="M52,-470 Q88,-464 86,-418 L80,-286 L58,-286 Z" fill="#000" opacity={0.13} />
+						<path d="M-74,-462 Q-52,-474 -10,-474 Q-52,-466 -70,-444 Z" fill="#FFFDE8" opacity={0.16} />
+						{belly > 0 && (
+							<g>
+								<path d={`M-40,-380 Q${70 + 26 * belly},-372 ${84 + 24 * belly},-330 Q${88 + 22 * belly},-292 50,-284 L-40,-284 Z`} fill={camo} />
+								<path d={`M40,-372 Q${70 + 26 * belly},-366 ${84 + 24 * belly},-330 Q${88 + 22 * belly},-292 50,-284 L40,-284 Z`} fill="#000" opacity={0.14} />
+							</g>
+						)}
+					</g>
 					{/* neck */}
-					<rect x={-22} y={-486} width={50} height={30} rx={10} fill={P.skinShade} />
-					{carrier && !isOff && (
-						<g>
-							<rect x={-66} y={-452} width={134} height={160} rx={16} fill={camoDark(look)} />
-							<rect x={-66} y={-452} width={134} height={10} rx={5} fill="#FFFDE8" opacity={0.1} />
-							<rect x={44} y={-452} width={24} height={160} rx={10} fill="#000" opacity={0.14} />
-							<rect x={-60} y={-484} width={28} height={50} rx={8} fill={camoDark(look)} />
-							<rect x={34} y={-484} width={28} height={50} rx={8} fill={camoDark(look)} />
-							<rect x={-60} y={-446} width={28} height={20} rx={5} fill="none" stroke={P.buckle} strokeWidth={5} />
-							<rect x={34} y={-446} width={28} height={20} rx={5} fill="none" stroke={P.buckle} strokeWidth={5} />
-							<rect x={-26} y={-436} width={54} height={38} rx={7} fill="#3E3D29" />
-							<rect x={-20} y={-430} width={42} height={10} rx={4} fill="#57553C" />
-							{[-58, -14, 30].map((px) => (
-								<g key={px}>
-									<rect x={px} y={-362} width={40} height={64} rx={9} fill="#4E4B33" />
-									<rect x={px} y={-362} width={40} height={20} rx={7} fill="#3A3926" />
-									<rect x={px + 14} y={-350} width={12} height={10} rx={3} fill="#2B2A1C" />
-									<rect x={px + 32} y={-356} width={8} height={56} rx={4} fill="#000" opacity={0.15} />
-								</g>
-							))}
-						</g>
-					)}
-					{isOff && (
-						<g>
-							{/* officer: shirt pockets, shoulder boards, ribbons */}
-							<rect x={-60} y={-430} width={42} height={36} rx={6} fill="#5E5940" />
-							<rect x={20} y={-430} width={42} height={36} rx={6} fill="#5E5940" />
-							<rect x={-74} y={-470} width={46} height={18} rx={6} fill="#3E4A2E" />
-							<rect x={30} y={-470} width={46} height={18} rx={6} fill="#3E4A2E" />
-							{[-62, -48, 42, 56].map((sx) => (
-								<path key={sx} transform={`translate(${sx} -461) scale(0.55)`} d="M0,-9 L2.6,-3 L9,-3 L4,1 L6,8 L0,4 L-6,8 L-4,1 L-9,-3 L-2.6,-3 Z" fill="#E8C34A" />
-							))}
-							<rect x={-60} y={-446} width={38} height={12} rx={2} fill="#2F6BC2" />
-							<rect x={-60} y={-446} width={12} height={12} fill="#D9433A" />
-							<rect x={-36} y={-446} width={12} height={12} fill="#F2C94C" />
-							<rect x={22} y={-446} width={40} height={10} rx={2} fill="#E8E2D0" />
-							<rect x={-5} y={-470} width={10} height={170} fill="#000" opacity={0.12} />
-						</g>
-					)}
+					<rect x={-26} y={-490} width={58} height={34} rx={11} fill={P.skinShade} />
+					<g transform={`scale(${bw} 1)`}>
+						{carrier && !isOff && (
+							<g>
+								<rect x={-70} y={-456} width={142} height={166} rx={16} fill={camoDark(look)} />
+								<rect x={-70} y={-456} width={142} height={10} rx={5} fill="#FFFDE8" opacity={0.1} />
+								<rect x={48} y={-456} width={24} height={166} rx={10} fill="#000" opacity={0.14} />
+								<rect x={-64} y={-488} width={30} height={52} rx={8} fill={camoDark(look)} />
+								<rect x={36} y={-488} width={30} height={52} rx={8} fill={camoDark(look)} />
+								<rect x={-64} y={-450} width={30} height={20} rx={5} fill="none" stroke={P.buckle} strokeWidth={5} />
+								<rect x={36} y={-450} width={30} height={20} rx={5} fill="none" stroke={P.buckle} strokeWidth={5} />
+								<rect x={-28} y={-440} width={58} height={40} rx={7} fill="#3E3D29" />
+								<rect x={-22} y={-434} width={46} height={10} rx={4} fill="#57553C" />
+								{/* MOLLE webbing rows */}
+								{[-392, -380].map((wy) => (
+									<rect key={wy} x={-62} y={wy} width={126} height={4} rx={2} fill="#000" opacity={0.16} />
+								))}
+								{[-62, -16, 30].map((px) => (
+									<g key={px}>
+										<rect x={px} y={-364} width={42} height={68} rx={9} fill="#4E4B33" />
+										<rect x={px} y={-364} width={42} height={21} rx={7} fill="#3A3926" />
+										<rect x={px + 15} y={-352} width={12} height={10} rx={3} fill="#2B2A1C" />
+										<rect x={px + 34} y={-358} width={8} height={60} rx={4} fill="#000" opacity={0.15} />
+										<rect x={px + 3} y={-363} width={30} height={3} rx={1.5} fill="#6A684C" />
+									</g>
+								))}
+							</g>
+						)}
+						{isOff && (
+							<g>
+								{/* officer: shirt pockets, shoulder boards, ribbons */}
+								<rect x={-62} y={-434} width={44} height={38} rx={6} fill="#5E5940" />
+								<rect x={20} y={-434} width={44} height={38} rx={6} fill="#5E5940" />
+								<rect x={-62} y={-434} width={44} height={10} rx={4} fill="#4E4A33" />
+								<rect x={20} y={-434} width={44} height={10} rx={4} fill="#4E4A33" />
+								<rect x={-78} y={-474} width={48} height={18} rx={6} fill="#3E4A2E" />
+								<rect x={32} y={-474} width={48} height={18} rx={6} fill="#3E4A2E" />
+								{[-64, -50, 44, 58].map((sx) => (
+									<path key={sx} transform={`translate(${sx} -465) scale(0.55)`} d="M0,-9 L2.6,-3 L9,-3 L4,1 L6,8 L0,4 L-6,8 L-4,1 L-9,-3 L-2.6,-3 Z" fill="#E8C34A" />
+								))}
+								<rect x={-60} y={-450} width={38} height={12} rx={2} fill="#2F6BC2" />
+								<rect x={-60} y={-450} width={12} height={12} fill="#D9433A" />
+								<rect x={-36} y={-450} width={12} height={12} fill="#F2C94C" />
+								<rect x={22} y={-450} width={40} height={10} rx={2} fill="#E8E2D0" />
+								<rect x={-5} y={-474} width={10} height={174} fill="#000" opacity={0.12} />
+								{[-420, -380, -340].map((by) => (
+									<circle key={by} cx={0} cy={by} r={5} fill="#3A3726" />
+								))}
+							</g>
+						)}
+					</g>
 					{/* head */}
-					<g transform={`translate(${4 + (pose.headX ?? 0)} ${-470 + (pose.headY ?? 0)}) rotate(${pose.headRot ?? 0})`}>
+					<g transform={`translate(${4 + (pose.headX ?? 0)} ${-474 + (pose.headY ?? 0)}) rotate(${pose.headRot ?? 0})`}>
 						<Head look={look} pose={pose} />
 					</g>
-					{/* arms, gun, hands */}
+					{/* arms, gun, hands. With a gun, the support (far) hand sits behind the rifle and the
+					    near hand wraps the pistol grip below the receiver, so the gun's silhouette stays readable. */}
 					{hF && pose.handF !== undefined && arm(shF, hF, false)}
+					{hF && pose.handF !== undefined && holding && handShape(hF, !!pose.pointF, false)}
 					{hN && arm(shN, hN, true)}
 					{g && <Gun g={g} />}
-					{hF && pose.handF !== undefined && handShape(hF, !!pose.pointF, false)}
+					{hF && pose.handF !== undefined && !holding && handShape(hF, !!pose.pointF, false)}
 					{hN && handShape(hN, !!pose.pointN, true)}
 				</g>
 			</g>

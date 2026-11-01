@@ -1,6 +1,6 @@
 import React from 'react';
-import {Cam, E, blinking, camAt, camT, clamp, kf, look, talkMouth} from '../lib/anim';
-import {GunPose} from '../art/guns';
+import {Cam, E, blinking, camAt, camT, clamp, kf, look, seg, talkMouth} from '../lib/anim';
+import {GunPose, gunPt} from '../art/guns';
 import {LOOKS, Soldier} from '../art/soldier';
 import {Calendar, Clipboard, CloudBand, LatticeTower, PoleFlag, Quonset, Sparkle, Streaks, streakSet} from '../art/props';
 import {P} from '../art/defs';
@@ -29,8 +29,11 @@ function aGun(t: number): GunPose {
 		return {kind: 'ak47', x: 8, y: -352 + Math.sin(t * 2.1) * 3, rot: -42 + sway};
 	}
 	if (t < 7.6) {
-		const u = E.inOutCubic(clamp((t - 6.9) / 0.7));
-		return {kind: 'ak47', x: 8 + u * 10, y: -352 - u * 70, rot: -42 - u * 38};
+		// anticipation dip, then a raise that overshoots and settles (v2 gesture polish)
+		const v = clamp((t - 6.9) / 0.7);
+		const dip = Math.sin(clamp(v / 0.25) * Math.PI) * (v < 0.25 ? 1 : 0);
+		const u = E.outBack(clamp((v - 0.15) / 0.85));
+		return {kind: 'ak47', x: 8 + u * 10, y: -352 + dip * 18 - u * 70, rot: -42 + dip * 4 - u * 38};
 	}
 	if (t < 8.3) {
 		const u = E.inCubic(clamp((t - 7.6) / 0.7));
@@ -42,43 +45,56 @@ function aGun(t: number): GunPose {
 		return {kind: 'ak12', x: -230 + u * 236, y: -1240 + u * 880, rot: -90 + u * 40};
 	}
 	if (t < 10.75) {
+		// lands with a small overshoot, then a slow presenting tilt
+		const land = E.outBack(clamp((t - 8.85) / 0.4));
 		const u = clamp((t - 9.0) / 1.75);
-		return {kind: 'ak12', x: 6 + u * 6, y: -360 - u * 14, rot: -50 + u * 5};
+		return {kind: 'ak12', x: 6 + u * 6, y: -360 - u * 14 - (1 - land) * 30, rot: -50 + u * 5 + (1 - land) * 8, lod: 2};
 	}
 	const u = E.inCubic(clamp((t - 10.75) / 0.55));
 	return {kind: 'ak12', x: 12 - u * 240, y: -374 - u * 760, rot: -45 - u * 20};
 }
 
 function cam(t: number): Cam {
-	const aFace: [number, number] = [AX - 10, FY - 537];
-	const aChest: [number, number] = [AX - 10, FY - 360];
-	const bFace: [number, number] = [BX + 10, FY - 537];
+	const aFace: [number, number] = [AX - 10, FY - 541];
+	const aMid: [number, number] = [AX - 10, FY - 450];
+	const gunC: [number, number] = [AX - 14, FY - 352];
+	const bFace: [number, number] = [BX + 10, FY - 541];
 	return camAt(t, [
 		[2.87, look(aFace, [760, 640], 2.7, 18)],
 		[4.5, look(aFace, [760, 640], 2.8, 17), E.linear],
 		[5.6, {x: 540, y: 960, s: 1, r: 2}, E.inOutCubic],
 		[8.1, {x: 545, y: 955, s: 1.02, r: 2}, E.linear],
-		[9.0, look([aChest[0], aChest[1] + 60], [560, 780], 3.9, 17), E.inOutCubic],
-		[11.3, look([aChest[0] + 25, aChest[1] + 90], [520, 720], 4.1, 19), E.linear],
-		[11.5, look([aChest[0] + 25, aChest[1] + 90], [520, 720], 4.1, 19), E.linear],
-		[11.9, look(bFace, [70, 700], 3.3, 6), E.inOutCubic],
-		[14.3, look(bFace, [70, 700], 3.43, 6), E.linear],
+		// S05: a push that keeps A's face and the incoming rifle in frame
+		[8.95, look([aMid[0] + 30, aMid[1] + 10], [600, 820], 1.95, 7), E.inOutSine],
+		// S06: the AK-12 itself is the subject, centred and diagonal
+		[9.25, look([gunC[0] + 6, gunC[1] - 4], [560, 900], 4.5, -3), E.inOutCubic],
+		[11.3, look([gunC[0] + 10, gunC[1] - 10], [560, 900], 4.7, -4), E.linear],
+		[11.5, look([gunC[0] + 10, gunC[1] - 10], [560, 900], 4.7, -4), E.linear],
+		// S07: B's face at the left, larger, the clipboard beside it
+		[11.9, look(bFace, [170, 720], 3.6, 6), E.inOutCubic],
+		[14.3, look(bFace, [170, 720], 3.72, 6), E.linear],
 	]);
 }
 
 export const Base: React.FC<{t: number}> = ({t}) => {
 	const c = cam(t);
 	const g = aGun(t);
+	// during the off-frame swap A lets go (hands stay raised near the helmet) instead of stretching
+	// his arms after the rifle; he re-grips the AK-12 as it drops back in
+	const rel = Math.min(seg(t, 7.62, 7.82, E.inOutSine), 1 - seg(t, 8.45, 8.68, E.inOutSine));
+	const mix = (a: [number, number], b: [number, number]): [number, number] => [a[0] + (b[0] - a[0]) * rel, a[1] + (b[1] - a[1]) * rel];
+	const aHandN = rel > 0 ? mix(gunPt(g, 'grip'), [-20, -600]) : 'grip';
+	const aHandF = rel > 0 ? mix(gunPt(g, 'fore'), [70, -640]) : 'fore';
 	const aTalk = t < 5.6 || (t > 9 && t < 11.3);
 	const aMouth = aTalk ? talkMouth(t, 1) : 'closed';
 	const bTalking = t > 5.6 && t < 8.1;
 	// B points with two stabs (5.9-6.3, 6.4-6.8)
 	const stab = kf(t, [
 		[5.7, 0],
-		[5.95, 1],
+		[5.95, 1, E.outBack],
 		[6.15, 0.55],
-		[6.4, 1],
-		[6.6, 0.6],
+		[6.4, 1, E.outBack],
+		[6.75, 0.6, E.outCubic],
 	]);
 	const bPoint: [number, number] = [70 + stab * 40, -400 - stab * 18];
 	const tick = [12.25, 12.75, 13.25];
@@ -132,8 +148,8 @@ export const Base: React.FC<{t: number}> = ({t}) => {
 					pose={{
 						facing: -1,
 						gun: g,
-						handN: 'grip',
-						handF: 'fore',
+						handN: aHandN,
+						handF: aHandF,
 						mouth: aMouth,
 						brows: 'angry',
 						eyes: blinking(t, 5) ? 'closed' : 'open',
@@ -145,9 +161,10 @@ export const Base: React.FC<{t: number}> = ({t}) => {
 				/>
 			</g>
 			{/* FX in screen space (S06 sparkles on the receiver) */}
-			<Sparkle t={t} t0={9.25} x={560} y={640} size={300} />
-			<Sparkle t={t} t0={9.5} x={430} y={520} size={450} dur={0.55} />
-			<Sparkle t={t} t0={9.62} x={600} y={720} size={120} />
+			<Sparkle t={t} t0={9.25} x={620} y={760} size={320} />
+			<Sparkle t={t} t0={9.5} x={460} y={620} size={470} dur={0.55} />
+			<Sparkle t={t} t0={9.62} x={700} y={900} size={140} />
+			<Sparkle t={t} t0={10.15} x={300} y={420} size={220} spin={-30} />
 			{/* UI: calendar pinned to the screen 7.25-14.25 */}
 			{t >= 7.25 && <CalendarUI t={t} />}
 			{/* UI: clipboard 11.35+ */}

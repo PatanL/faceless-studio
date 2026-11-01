@@ -103,11 +103,12 @@ export const MuzzleFlash: React.FC<{frame: number; size?: number; seed?: number;
 	);
 };
 
-export const Explosion: React.FC<{size: number; rot?: number}> = ({size, rot = 0}) => {
+export const Explosion: React.FC<{size: number; rot?: number; core?: number}> = ({size, rot = 0, core = 0}) => {
 	const R = size / 2;
 	return (
 		<g transform={`rotate(${rot})`}>
 			<circle r={R * 0.8} fill="url(#glowOrange)" opacity={0.8} />
+			{core > 0 && <circle r={R * 0.68} fill="#EF6A26" opacity={core} />}
 			<path d={starPath(8, R, R * 0.28, 0.12, 4)} fill="#E8542A" />
 			<path d={starPath(8, R * 0.82, R * 0.24, 0.12, 6)} fill="#F7931E" />
 			<path d={starPath(8, R * 0.52, R * 0.17, 0.1, 8)} fill="#FFD34D" />
@@ -235,32 +236,56 @@ export function streakSet(seed: number, n: number, x0: number, x1: number, y0: n
 	return out;
 }
 
-export const Target: React.FC<{holes: [number, number, number][]; t: number}> = ({holes, t}) => (
-	<g>
-		{/* tripod */}
-		<path d="M-40,150 L-150,560" stroke="#6E4B3A" strokeWidth={22} strokeLinecap="round" />
-		<path d="M40,150 L150,560" stroke="#6E4B3A" strokeWidth={22} strokeLinecap="round" />
-		<path d="M0,160 L10,600" stroke="#5A3B2C" strokeWidth={20} strokeLinecap="round" />
-		<path d="M-40,150 L-150,560" stroke="#8A6450" strokeWidth={6} strokeLinecap="round" transform="translate(-6 0)" />
-		{/* face */}
-		<circle r={262} fill="#1F2830" />
-		<circle cx={-8} r={252} fill="#2F3B45" />
-		<circle cx={-8} r={214} fill="#FFFFFF" />
-		<circle cx={-8} r={164} fill="#5DADE2" />
-		<circle cx={-8} r={116} fill="#E74C3C" />
-		<circle cx={-8} r={66} fill="#F7C548" />
-		<path d="M-8,-252 A252,252 0 0 1 244,0 L206,0 A214,214 0 0 0 -8,-214 Z" fill="#000" opacity={0.07} />
-		<circle cx={-8} r={24} fill="#E8A52E" />
-		{holes.map(([hx, hy, t0], i) =>
-			t >= t0 ? (
-				<g key={i} transform={`translate(${hx} ${hy})`}>
-					<path d={starHole(i)} fill="#9AA0A6" opacity={0.7} />
-					<circle r={9} fill="#151515" />
-				</g>
-			) : null,
-		)}
-	</g>
-);
+/** Target board in 3/4 view: a squashed face ellipse, a visible dark rim thickness on the left,
+ *  and bullet holes with crack stars (holes appear at their t0). */
+export const Target: React.FC<{holes: [number, number, number][]; t: number}> = ({holes, t}) => {
+	const R = 262;
+	const sq = 0.8; // 3/4 squash of the face
+	const th = 34; // rim thickness seen on the left side
+	return (
+		<g>
+			{/* tripod */}
+			<path d="M-40,150 L-150,560" stroke="#6E4B3A" strokeWidth={22} strokeLinecap="round" />
+			<path d="M40,150 L150,560" stroke="#6E4B3A" strokeWidth={22} strokeLinecap="round" />
+			<path d="M0,160 L10,600" stroke="#5A3B2C" strokeWidth={20} strokeLinecap="round" />
+			<path d="M-40,150 L-150,560" stroke="#8A6450" strokeWidth={6} strokeLinecap="round" transform="translate(-6 0)" />
+			<path d="M-96,360 L96,360" stroke="#5A3B2C" strokeWidth={12} strokeLinecap="round" />
+			{/* rim thickness: back face + the band joining it to the front face */}
+			<ellipse cx={-th} cy={0} rx={R * sq} ry={R} fill="#141B21" />
+			<rect x={-th} y={-R} width={th} height={2 * R} fill="#1A232A" />
+			<path d={`M${-th},${-R} A${R * sq},${R} 0 0 0 ${-th},${R} L0,${R} A${R * sq},${R} 0 0 1 0,${-R} Z`} fill="#1E2830" />
+			<path d={`M${-th + 4},${-R + 40} A${R * sq - 10},${R - 40} 0 0 0 ${-th + 4},${R - 40}`} stroke="#3A4852" strokeWidth={4} fill="none" opacity={0.7} />
+			<g transform={`scale(${sq} 1)`}>
+				<circle r={R} fill="#2F3B45" />
+				<circle r={R - 6} fill="#26313A" />
+				<circle r={214} fill="#FFFFFF" />
+				<circle r={164} fill="#5DADE2" />
+				<circle r={116} fill="#E74C3C" />
+				<circle r={66} fill="#F7C548" />
+				<circle r={24} fill="#E8A52E" />
+				{/* light falloff to the right + a lit upper-left rim */}
+				<path d={`M0,-${R - 6} A${R - 6},${R - 6} 0 0 1 ${R - 6},0 L214,0 A214,214 0 0 0 0,-214 Z`} fill="#000" opacity={0.07} />
+				<path d={`M${-R + 14},-40 A${R - 14},${R - 14} 0 0 1 -40,${-R + 14}`} stroke="#4B5B67" strokeWidth={6} fill="none" strokeLinecap="round" />
+				{holes.map(([hx, hy, t0], i) => {
+					if (t < t0) return null;
+					const pop = t0 > 0 ? E.outBack(clamp((t - t0) / 0.12)) : 1;
+					return (
+						<g key={i} transform={`translate(${hx / sq} ${hy}) scale(${pop})`}>
+							<path d={starHole(i)} fill="#C9CED3" opacity={0.75} />
+							{[0, 1, 2, 3, 4].map((k) => {
+								const a = k * 1.3 + i;
+								const L = 26 + hash(i * 7 + k) * 22;
+								return <path key={k} d={`M0,0 L${Math.cos(a) * L},${Math.sin(a) * L}`} stroke="#222" strokeWidth={2.4} strokeLinecap="round" opacity={0.75} />;
+							})}
+							<circle r={10} fill="#151515" />
+							<circle cx={-2} cy={-2} r={3} fill="#4A4A4A" />
+						</g>
+					);
+				})}
+			</g>
+		</g>
+	);
+};
 function starHole(i: number) {
 	const pts: string[] = [];
 	for (let k = 0; k < 10; k++) {
@@ -309,17 +334,44 @@ export const Wire: React.FC<{x0: number; x1: number; y: number; sag?: number; se
 	);
 };
 
-export const Crate: React.FC<{x: number; y: number; w: number; h: number; c?: string; dk?: string; hi?: string}> = ({x, y, w, h, c = '#6D7142', dk = '#4E5338', hi = '#7F8452'}) => (
-	<g transform={`translate(${x} ${y})`}>
-		<rect x={0} y={0} width={w} height={h} rx={14} fill={c} />
-		<rect x={0} y={0} width={w} height={10} rx={5} fill={hi} />
-		<rect x={0} y={h * 0.22} width={w} height={8} fill={dk} />
-		<rect x={w * 0.08} y={h * 0.34} width={w * 0.84} height={h * 0.56} rx={10} fill={dk} opacity={0.55} />
-		<rect x={w - 18} y={0} width={18} height={h} rx={9} fill="#000" opacity={0.12} />
-		{/* handle */}
-		<path d={`M${w * 0.38},${h * 0.48} L${w * 0.38},${h * 0.62} Q${w * 0.38},${h * 0.7} ${w * 0.46},${h * 0.7} L${w * 0.54},${h * 0.7} Q${w * 0.62},${h * 0.7} ${w * 0.62},${h * 0.62} L${w * 0.62},${h * 0.48}`} fill="none" stroke={dk} strokeWidth={10} strokeLinecap="round" />
-		{/* latches */}
-		<rect x={w * 0.14} y={h * 0.12} width={16} height={26} rx={4} fill={dk} />
-		<rect x={w * 0.82} y={h * 0.12} width={16} height={26} rx={4} fill={dk} />
-	</g>
-);
+/** Ammo/equipment crate: lid seam, inset panel with bevels, corner protectors, latches with lit edges,
+ *  a handle and a stencil strip. */
+export const Crate: React.FC<{x: number; y: number; w: number; h: number; c?: string; dk?: string; hi?: string}> = ({x, y, w, h, c = '#6D7142', dk = '#4E5338', hi = '#7F8452'}) => {
+	const latch = (lx: number) => (
+		<g transform={`translate(${lx} ${h * 0.13})`}>
+			<rect x={-10} y={-4} width={20} height={34} rx={4} fill="#3A3D2C" />
+			<rect x={-10} y={-4} width={20} height={5} rx={2} fill="#9A9C86" />
+			<rect x={-6} y={8} width={12} height={16} rx={3} fill="#2A2C20" />
+			<circle cx={0} cy={26} r={3} fill="#B8B9A6" />
+		</g>
+	);
+	const corner = (cx: number, cy: number, sx: number, sy: number) => (
+		<path key={`${cx}${cy}`} transform={`translate(${cx} ${cy}) scale(${sx} ${sy})`} d="M0,0 L34,0 L34,10 L10,10 L10,34 L0,34 Z" fill={dk} />
+	);
+	return (
+		<g transform={`translate(${x} ${y})`}>
+			<rect x={0} y={0} width={w} height={h} rx={12} fill={c} />
+			<rect x={0} y={0} width={w} height={10} rx={5} fill={hi} />
+			{/* lid seam */}
+			<rect x={0} y={h * 0.22} width={w} height={8} fill={dk} />
+			<rect x={0} y={h * 0.22 + 8} width={w} height={3} fill={hi} opacity={0.6} />
+			{/* inset panel: dark top/left bevel, lit bottom/right bevel */}
+			<rect x={w * 0.08} y={h * 0.34} width={w * 0.84} height={h * 0.56} rx={8} fill={dk} opacity={0.45} />
+			<rect x={w * 0.08 + 6} y={h * 0.34 + 6} width={w * 0.84 - 6} height={h * 0.56 - 6} rx={6} fill={c} />
+			<rect x={w * 0.08 + 6} y={h * 0.9 - 4} width={w * 0.84 - 6} height={4} rx={2} fill={hi} opacity={0.7} />
+			{/* stencil strip */}
+			<rect x={w * 0.16} y={h * 0.42} width={w * 0.28} height={9} rx={2} fill="#C9C59A" opacity={0.55} />
+			<rect x={w * 0.16} y={h * 0.42 + 14} width={w * 0.18} height={7} rx={2} fill="#C9C59A" opacity={0.45} />
+			{/* handle */}
+			<path d={`M${w * 0.4},${h * 0.56} L${w * 0.4},${h * 0.68} Q${w * 0.4},${h * 0.75} ${w * 0.47},${h * 0.75} L${w * 0.6},${h * 0.75} Q${w * 0.67},${h * 0.75} ${w * 0.67},${h * 0.68} L${w * 0.67},${h * 0.56}`} fill="none" stroke={dk} strokeWidth={10} strokeLinecap="round" />
+			{/* corners */}
+			{corner(0, 0, 1, 1)}
+			{corner(w, 0, -1, 1)}
+			{corner(0, h, 1, -1)}
+			{corner(w, h, -1, -1)}
+			{latch(w * 0.18)}
+			{latch(w * 0.82)}
+			<rect x={w - 18} y={0} width={18} height={h} rx={9} fill="#000" opacity={0.12} />
+		</g>
+	);
+};

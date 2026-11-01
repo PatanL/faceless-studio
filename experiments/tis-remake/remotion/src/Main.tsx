@@ -17,8 +17,8 @@ import {loadFonts} from './fonts';
 
 type SceneFC = React.FC<{t: number}>;
 const SCENES: {id: string; C: SceneFC; t0: number; t1: number}[] = [
-	{id: 'hook', C: Hook, t0: 0, t1: 3.2},
-	{id: 'base', C: Base, t0: 3.2, t1: 14.25},
+	{id: 'hook', C: Hook, t0: 0, t1: 3.27},
+	{id: 'base', C: Base, t0: 3.27, t1: 14.25},
 	{id: 'range', C: Range, t0: 14.25, t1: 22.3},
 	{id: 'office', C: Office, t0: 22.3, t1: 26.33},
 	{id: 'ruins', C: Ruins, t0: 26.33, t1: 32.8},
@@ -30,7 +30,7 @@ const SCENES: {id: string; C: SceneFC; t0: number; t1: number}[] = [
 
 type Kind = 'sil1' | 'sil2' | 'slash' | 'iris' | 'blob' | 'blob2' | 'splat';
 const TRANS: {t0: number; t1: number; from: string; to: string; kind: Kind}[] = [
-	{t0: 2.87, t1: 3.2, from: 'hook', to: 'base', kind: 'sil1'},
+	{t0: 2.97, t1: 3.27, from: 'hook', to: 'base', kind: 'sil1'},
 	{t0: 13.95, t1: 14.25, from: 'base', to: 'range', kind: 'sil2'},
 	{t0: 21.97, t1: 22.3, from: 'range', to: 'office', kind: 'slash'},
 	{t0: 25.97, t1: 26.33, from: 'office', to: 'ruins', kind: 'iris'},

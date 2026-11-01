@@ -18,20 +18,21 @@ const GRASS = streakSet(52, 18, -500, 1700, 900, 2000, 140, 420, 26);
 
 const GX = 640;
 const GY = 1180;
-const GS = 0.62;
+const GS = 0.74;
 
 export const Camp: React.FC<{t: number}> = ({t}) => {
-	const pop = E.outBack(clamp((t - 51.5) / 0.5));
-	const gFace: [number, number] = [GX + 10 * GS, GY - 537 * GS - 120 * (1 - 1) ];
+	const pop = E.outBack(clamp((t - 51.2) / 0.5));
+	const gFace: [number, number] = [GX - 8 * GS, GY - 541 * GS];
 	const c = camAt(t, [
 		[49.7, {x: 540, y: 960, s: 1, r: 0}],
 		[52.4, {x: 545, y: 958, s: 1.05, r: 0}, E.linear],
-		[53.8, look(gFace, [600, 640], 3.0, -15), E.inOutCubic],
-		[54.0, look(gFace, [600, 640], 3.02, -15), E.linear],
-		[56.1, look([gFace[0] - 6, gFace[1] - 6], [640, 620], 3.2, -16), E.linear],
+		// S25 push + rotate, then S26: a tight CU, big bearded face at right, the M4 raised across the frame
+		[53.8, look(gFace, [790, 700], 4.5, -8), E.inOutCubic],
+		[54.0, look(gFace, [790, 700], 4.52, -8), E.linear],
+		[56.1, look([gFace[0] - 4, gFace[1] - 4], [795, 690], 4.75, -9), E.linear],
 	]);
 	const cFront = para(c, 1.3, 545, 958);
-	const lift = E.outCubic(clamp((t - 54.1) / 0.6));
+	const lift = E.outBack(clamp((t - 53.9) / 0.55));
 	const gy = GY + (1 - pop) * 220;
 	return (
 		<g>
@@ -66,7 +67,7 @@ export const Camp: React.FC<{t: number}> = ({t}) => {
 					s={GS}
 					pose={{
 						facing: -1,
-						gun: {kind: 'm4', x: 40 - lift * 10, y: -380 - lift * 30 + Math.sin(t * 2) * 4, rot: -60 - lift * 10},
+						gun: {kind: 'm4', x: 40 + lift * 70, y: -380 - lift * 90 + Math.sin(t * 2) * 4, rot: -60 - lift * 18, lod: 2},
 						handN: 'grip',
 						handF: 'fore',
 						mouth: t > 51.6 ? (t > 54 ? (t % 0.8 < 0.5 ? 'grin' : 'smile') : talkMouth(t, 11, 'grin')) : 'closed',
@@ -87,10 +88,10 @@ export const Camp: React.FC<{t: number}> = ({t}) => {
 				<Crate x={340} y={1060} w={360} h={250} />
 				<Crate x={700} y={1100} w={420} h={300} c="#666B3E" />
 			</g>
-			<Sparkle t={t} t0={54.4} x={330} y={290} size={500} />
-			<Sparkle t={t} t0={54.75} x={560} y={700} size={260} spin={-30} />
-			<Sparkle t={t} t0={55.1} x={380} y={520} size={340} />
-			<Sparkle t={t} t0={55.3} x={600} y={820} size={80} />
+			<Sparkle t={t} t0={54.4} x={330} y={420} size={520} />
+			<Sparkle t={t} t0={54.75} x={480} y={780} size={280} spin={-30} />
+			<Sparkle t={t} t0={55.1} x={380} y={580} size={360} />
+			<Sparkle t={t} t0={55.3} x={560} y={900} size={110} />
 		</g>
 	);
 };

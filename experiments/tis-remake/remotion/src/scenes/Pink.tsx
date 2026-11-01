@@ -76,11 +76,58 @@ const FrontLine: React.FC<{t: number}> = ({t}) => (
 		<rect x={-1000} y={1180} width={4000} height={1500} fill="#7A4F49" />
 		<SmallShooter x={660} y={1010} t={t} seed={2} look="F" />
 		<SmallShooter x={760} y={1030} t={t + 0.1} seed={5} look="H" />
-		<path d="M560,1060 Q600,960 700,990 Q780,940 860,990 Q950,960 1010,1060 Z" fill="#7A504A" />
-		<path d="M600,1060 L640,1000 L700,1030 L760,990 L800,1040 Z" fill="#2A1B17" />
-		<path d="M880,980 L960,930 M900,1000 L1000,960" stroke="#2A1B17" strokeWidth={10} strokeLinecap="round" />
+		<Wreck x={500} y={1062} />
 	</g>
 );
+
+/** Rubble barricade with a burnt-out car, slabs, rebar and coiled wire (S17 background). */
+const Wreck: React.FC<{x: number; y: number}> = ({x, y}) => {
+	const R = rng(77);
+	const bars = Array.from({length: 9}, (_, i) => {
+		const bx = 20 + R() * 500;
+		const a = -150 + R() * 120;
+		const L = 50 + R() * 70;
+		const by = -40 - R() * 50;
+		return [bx, by, bx + Math.cos((a * Math.PI) / 180) * L, by + Math.sin((a * Math.PI) / 180) * L, i] as const;
+	});
+	return (
+		<g transform={`translate(${x} ${y})`}>
+			{/* rubble heap */}
+			<path d="M0,0 Q30,-70 110,-80 Q170,-120 260,-96 Q330,-130 420,-92 Q490,-84 540,0 Z" fill="#6E4440" />
+			<path d="M0,0 Q30,-70 110,-80 Q90,-50 80,0 Z" fill="#5A3532" />
+			{/* burnt-out car: crumpled body, empty windows, wheel arches */}
+			<g transform="translate(150 -92) rotate(-6)">
+				<path d="M0,40 L8,0 L60,-6 L96,-46 L210,-48 L246,-8 L300,0 L306,40 Z" fill="#4A2525" />
+				<path d="M100,-40 L150,-42 L150,-10 L80,-8 Z M160,-42 L206,-42 L232,-10 L160,-10 Z" fill="#2A1513" />
+				<path d="M8,0 L60,-6 L96,-46 L210,-48 L214,-42 L100,-40 L64,0 Z" fill="#7A3E38" opacity={0.7} />
+				<circle cx={64} cy={42} r={28} fill="#1E1110" />
+				<circle cx={64} cy={42} r={12} fill="#3A2522" />
+				<circle cx={246} cy={42} r={28} fill="#1E1110" />
+				<circle cx={246} cy={42} r={12} fill="#3A2522" />
+				<path d="M120,-20 L132,6 M180,-26 L172,4" stroke="#1E1110" strokeWidth={4} strokeLinecap="round" />
+			</g>
+			{/* broken slabs */}
+			<path d="M330,-60 L420,-110 L450,-80 L360,-30 Z" fill="#9A6A62" />
+			<path d="M330,-60 L420,-110 L424,-102 L336,-54 Z" fill="#C0897E" />
+			<path d="M30,-40 L120,-70 L130,-46 L40,-20 Z" fill="#8A5C55" />
+			{/* rebar sticking out */}
+			{bars.map(([x1, y1, x2, y2, i]) => (
+				<g key={i}>
+					<line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#2A1B17" strokeWidth={6} strokeLinecap="round" />
+					<line x1={x1} y1={y1 - 2} x2={x2} y2={y2 - 2} stroke="#7A4F49" strokeWidth={2} strokeLinecap="round" />
+				</g>
+			))}
+			{/* coiled wire along the top */}
+			{Array.from({length: 14}, (_, i) => (
+				<ellipse key={i} cx={20 + i * 36} cy={-96 + Math.sin(i * 1.3) * 10} rx={22} ry={16} fill="none" stroke="#2A1B17" strokeWidth={3} />
+			))}
+			{/* debris chunks at the foot */}
+			{[30, 120, 210, 300, 400, 480].map((dx, i) => (
+				<rect key={dx} x={dx} y={-14 - (i % 2) * 6} width={26 + (i % 3) * 8} height={14} rx={3} fill={i % 2 ? '#5A3532' : '#8A5C55'} transform={`rotate(${(i % 3) * 12 - 10} ${dx} 0)`} />
+			))}
+		</g>
+	);
+};
 
 /** Prone soldier drawn lying left (head on the left), elbow-crawling. */
 const Prone: React.FC<{t: number; x: number; y: number}> = ({t, x, y}) => {
@@ -91,20 +138,20 @@ const Prone: React.FC<{t: number; x: number; y: number}> = ({t, x, y}) => {
 	const g: GunPose = {kind: 'ak12', x: -230, y: -60, rot: 180};
 	return (
 		<g transform={`translate(${x + slide} ${y})`}>
-			<ellipse cx={20} cy={20} rx={330} ry={22} fill="url(#softShadow)" />
+			<ellipse cx={0} cy={20} rx={290} ry={22} fill="url(#softShadow)" />
 			{/* legs */}
-			<path d={`M60,-40 L220,${-30 + l1} L330,${-34 + l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={62} strokeLinecap="round" strokeLinejoin="round" />
-			<path d={`M60,-30 L220,${-10 - l1} L330,${-6 - l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={62} strokeLinecap="round" strokeLinejoin="round" />
-			<path d={`M60,-30 L220,${-10 - l1} L330,${-6 - l1}`} fill="none" stroke="#000" strokeOpacity={0.12} strokeWidth={62} strokeLinecap="round" />
-			<g transform={`translate(360 ${-30 + l1}) rotate(-90)`}>
+			<path d={`M60,-44 L180,${-34 + l1} L262,${-38 + l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={72} strokeLinecap="round" strokeLinejoin="round" />
+			<path d={`M60,-30 L180,${-10 - l1} L262,${-6 - l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={72} strokeLinecap="round" strokeLinejoin="round" />
+			<path d={`M60,-30 L180,${-10 - l1} L262,${-6 - l1}`} fill="none" stroke="#000" strokeOpacity={0.12} strokeWidth={72} strokeLinecap="round" />
+			<g transform={`translate(292 ${-34 + l1}) rotate(-90)`}>
 				<rect x={-30} y={-20} width={60} height={70} rx={14} fill={P.boot} />
 			</g>
-			<g transform={`translate(360 ${-2 - l1}) rotate(-90)`}>
+			<g transform={`translate(292 ${-2 - l1}) rotate(-90)`}>
 				<rect x={-30} y={-20} width={60} height={70} rx={14} fill={P.boot} />
 				<rect x={-30} y={40} width={60} height={12} rx={5} fill="#0E0D0B" />
 			</g>
 			{/* torso lying */}
-			<rect x={-160} y={-110} width={250} height={110} rx={46} fill="url(#camoRU)" />
+			<rect x={-160} y={-124} width={240} height={124} rx={50} fill="url(#camoRU)" />
 			<rect x={-140} y={-112} width={190} height={84} rx={16} fill="url(#camoRUdk)" />
 			{[-120, -70, -20].map((px) => (
 				<rect key={px} x={px} y={-106} width={40} height={30} rx={8} fill="#3A3926" />
@@ -118,7 +165,7 @@ const Prone: React.FC<{t: number; x: number; y: number}> = ({t, x, y}) => {
 			<Gun g={g} />
 			<circle cx={-200} cy={-40} r={33} fill={P.hand} />
 			<circle cx={-322} cy={-62} r={33} fill={P.hand} />
-			<g transform={`translate(${-230 - 200} -62)`}>{f % 50 < 12 && <MuzzleFlash frame={f} size={70} seed={9} />}</g>
+			<g transform={`translate(${-230 - 200} -62)`}>{f % 24 < 14 && <MuzzleFlash frame={f} size={90} seed={9} />}</g>
 		</g>
 	);
 };
@@ -142,12 +189,12 @@ const Barricade: React.FC<{t: number}> = ({t}) => {
 			<rect x={-600} y={1050} width={2600} height={1600} fill="#7A4F49" />
 			<Streaks items={streakSet(31, 16, -500, 1800, 1100, 1900, 140, 420, 26)} c="#86594F" />
 			{/* standing shooter behind the wire */}
-			<Soldier look={LOOKS.H} x={690} y={980} s={0.62} pose={{facing: -1, gun: standG, handN: 'grip', handF: 'fore', brows: 'angry', mouth: 'flat', lean: 5, headX: 10, eyes: blinking(t, 44) ? 'closed' : 'open', lookX: 2}} />
-			<g transform={`translate(${690 - 0.62 * (standG.x + 214) - 26} ${980 - 0.62 * 445})`}>
-				<MuzzleFlash frame={f} size={70} seed={3} />
+			<Soldier look={LOOKS.H} x={690} y={980} s={0.7} pose={{facing: -1, gun: standG, handN: 'grip', handF: 'fore', brows: 'angry', mouth: 'flat', lean: 5, headX: 10, eyes: blinking(t, 44) ? 'closed' : 'open', lookX: 2}} />
+			<g transform={`translate(${690 - 0.7 * (standG.x + 222) - 30} ${980 - 0.7 * 445})`}>
+				<MuzzleFlash frame={f} size={95} seed={3} />
 			</g>
-			<Hedgehog x={130} y={890} />
-			<Hedgehog x={920} y={890} />
+			<Hedgehog x={230} y={890} />
+			<Hedgehog x={850} y={890} />
 			{[800, 845, 895, 945, 995].map((y, i) => (
 				<Wire key={y} x0={-300} x1={1500} y={y} sag={6 + i} seed={i * 13} />
 			))}
@@ -159,28 +206,31 @@ const Barricade: React.FC<{t: number}> = ({t}) => {
 
 export const Pink: React.FC<{t: number}> = ({t}) => {
 	if (t < 35.1) {
+		// S17 holds on F, then a fast whip right (F is out of frame by 34.75) under the explosion cover
 		const c = camAt(t, [
 			[32.43, {x: 540, y: 960, s: 1, r: 0}],
-			[34.5, {x: 545, y: 955, s: 1.05, r: 0}, E.linear],
-			[35.1, {x: 545 + 900, y: 955, s: 1.05, r: 0}, E.inCubic],
+			[34.38, {x: 545, y: 955, s: 1.05, r: 0}, E.linear],
+			[34.78, {x: 545 + 700, y: 955, s: 1.05, r: 0}, E.inOutCubic],
+			[35.1, {x: 545 + 820, y: 955, s: 1.05, r: 0}, E.outCubic],
 		]);
 		const cF = para(c, 1.5, 545, 955);
 		const yell = t > 32.5;
-		const ex = clamp((t - 34.9) / 0.37);
+		const ex = clamp((t - EX0) / EXD);
 		return (
 			<g>
 				<g transform={camT(c)}>
 					<FrontLine t={t} />
 				</g>
 				<g transform={camT(cF)}>
+					{/* S17: F as a huge left-half close-up (head ~600 px tall), the AK-47 across the bottom */}
 					<Soldier
 						look={LOOKS.F}
-						x={321}
-						y={1965}
-						s={2.43}
+						x={128}
+						y={2330}
+						s={3.3}
 						pose={{
 							facing: 1,
-							gun: {kind: 'ak47', x: 70, y: -270, rot: -4},
+							gun: {kind: 'ak47', x: 90, y: -262, rot: -6, lod: 2},
 							handN: 'grip',
 							handF: 'fore',
 							mouth: yell ? (t % 0.5 < 0.36 ? 'yell' : 'open') : 'flat',
@@ -203,7 +253,7 @@ export const Pink: React.FC<{t: number}> = ({t}) => {
 		[35.25, {x: 545, y: 960, s: 1.06, r: 0}, E.linear],
 		[38.95, {x: 745, y: 960, s: 1.06, r: 0}, E.linear],
 	]);
-	const ex = clamp((t - 34.9) / 0.37);
+	const ex = clamp((t - EX0) / EXD);
 	return (
 		<g>
 			<g transform={camT(c)}>
@@ -214,25 +264,38 @@ export const Pink: React.FC<{t: number}> = ({t}) => {
 	);
 };
 
+// Explosion cover: enters from the lower right at 34.55, fills the whole frame from ~34.78 to ~35.12
+// (the S18->S19 cut at 35.10 happens under it), then shrinks away to the lower left.
+const EX0 = 34.55;
+const EXD = 0.8;
 const ExplosionCover: React.FC<{u: number}> = ({u}) => {
 	const x = kf(u, [
-		[0, 1250],
-		[0.5, 560, E.outCubic],
-		[1, -250, E.inCubic],
+		[0, 1150],
+		[0.3, 560, E.outCubic],
+		[0.7, 520],
+		[1, -300, E.inCubic],
 	]);
 	const y = kf(u, [
-		[0, 1750],
-		[0.5, 980, E.outCubic],
-		[1, 1750, E.inCubic],
+		[0, 1700],
+		[0.3, 960, E.outCubic],
+		[0.7, 980],
+		[1, 1800, E.inCubic],
 	]);
 	const s = kf(u, [
-		[0, 300],
-		[0.5, 950],
-		[1, 500],
+		[0, 260],
+		[0.3, 3500, E.outCubic],
+		[0.7, 3700],
+		[1, 400, E.inCubic],
+	]);
+	const core = kf(u, [
+		[0, 0],
+		[0.25, 1],
+		[0.72, 1],
+		[0.85, 0],
 	]);
 	return (
 		<g transform={`translate(${x} ${y})`}>
-			<Explosion size={s} rot={lerp(-40, 80, u)} />
+			<Explosion size={s} rot={lerp(-40, 80, u)} core={core} />
 		</g>
 	);
 };

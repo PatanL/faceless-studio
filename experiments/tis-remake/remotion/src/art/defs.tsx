@@ -46,6 +46,8 @@ export const P = {
 type Blob = {x: number; y: number; w: number; h: number; c: string; r: number};
 
 function camoBlobs(seed: number, tile: number, colors: string[], n: number): Blob[] {
+	// v2: smaller capsules (about 60% of v1's), no H glyphs, a few short vertical "drips" like the
+	// reference's pattern, at lower contrast (see the palettes in Defs).
 	const R = rng(seed);
 	const out: Blob[] = [];
 	for (let i = 0; i < n; i++) {
@@ -53,16 +55,12 @@ function camoBlobs(seed: number, tile: number, colors: string[], n: number): Blo
 		const x = R() * tile;
 		const y = R() * tile;
 		const kind = R();
-		if (kind < 0.22) {
-			// "H" shape: two vertical capsules + bridge (the reference's signature camo glyph)
-			const h = 26 + R() * 10;
-			out.push({x, y, w: 10, h, c, r: 0});
-			out.push({x: x + 18, y, w: 10, h, c, r: 0});
-			out.push({x, y: y + h / 2 - 5, w: 28, h: 10, c, r: 0});
+		if (kind < 0.18) {
+			out.push({x, y, w: 8 + R() * 3, h: 16 + R() * 10, c, r: 0});
 		} else {
-			const w = 22 + R() * 34;
-			const h = 11 + R() * 8;
-			out.push({x, y, w, h, c, r: R() < 0.15 ? 90 : 0});
+			const w = 14 + R() * 20;
+			const h = 8 + R() * 5;
+			out.push({x, y, w, h, c, r: R() < 0.12 ? 90 : 0});
 		}
 	}
 	return out;
@@ -102,12 +100,12 @@ function CamoPattern({id, tile, base, colors, seed, n}: {id: string; tile: numbe
 /** Shared <defs>: camo fabrics, textures and gradients. Mounted once per SVG. */
 export const Defs: React.FC = () => (
 	<defs>
-		<CamoPattern id="camoRU" tile={200} base={P.camoBase} colors={[P.camoA, P.camoB, P.camoC, P.camoD, P.camoC]} seed={7} n={34} />
-		<CamoPattern id="camoRUdk" tile={180} base={'#55523A'} colors={[P.camoA, '#3E3D29', '#6B6A50', '#47462F']} seed={11} n={26} />
-		<CamoPattern id="camoHelm" tile={160} base={'#757052'} colors={[P.camoA, '#5A573D', P.camoC, '#9EA57A']} seed={19} n={22} />
-		<CamoPattern id="camoUA" tile={200} base={'#A0A06A'} colors={['#6D7142', '#C9BE90', '#7A6646', '#585C38', '#B8B47E']} seed={23} n={36} />
-		<CamoPattern id="camoUAdk" tile={180} base={'#7E7F52'} colors={['#5E6239', '#9C9868', '#6A5A40']} seed={29} n={24} />
-		<CamoPattern id="camoOff" tile={200} base={'#77714F'} colors={[P.camoA, '#5C583D', P.camoC, '#A3A97C']} seed={31} n={30} />
+		<CamoPattern id="camoRU" tile={200} base={P.camoBase} colors={['#57553B', '#4C4A33', '#7E7E62', '#8E9470', '#7E7E62']} seed={7} n={64} />
+		<CamoPattern id="camoRUdk" tile={180} base={'#55523A'} colors={['#4A482F', '#45432D', '#625F47', '#4D4B33']} seed={11} n={46} />
+		<CamoPattern id="camoHelm" tile={160} base={'#757052'} colors={['#5F5C40', '#66634A', '#86866A', '#8F9472']} seed={19} n={40} />
+		<CamoPattern id="camoUA" tile={200} base={'#A0A06A'} colors={['#83865A', '#B9B184', '#8C7B58', '#787C50', '#B0AC7A']} seed={23} n={64} />
+		<CamoPattern id="camoUAdk" tile={180} base={'#7E7F52'} colors={['#6C7046', '#918E62', '#74664A']} seed={29} n={44} />
+		<CamoPattern id="camoOff" tile={200} base={'#77714F'} colors={['#615D42', '#686449', '#8A8A6C', '#969B78']} seed={31} n={56} />
 		<pattern id="hatch" patternUnits="userSpaceOnUse" width={8.5} height={8.5} patternTransform="rotate(45)">
 			<rect width={8.5} height={8.5} fill="rgba(0,0,0,0)" />
 			<rect width={2.2} height={8.5} fill="rgba(120,20,0,0.07)" />

@@ -25,7 +25,7 @@ function shooterGun(t: number): GunPose {
 	const k = Math.floor(f / 2.5);
 	const firing = k % 4 !== 3;
 	const kick = firing ? (f % 3 === 0 ? 9 : 4) : 0;
-	return {kind: 'ak12', x: 176 - kick, y: -448, rot: -2 + (kick ? -1.2 : 0)};
+	return {kind: 'ak12', x: 176 - kick, y: -448, rot: -2 + (kick ? -1.2 : 0), lod: 2};
 }
 
 /** Soldier C kneeling and firing, in local coords (feet at 0,0, unit scale). Also used as the S07->S08 matte. */
@@ -59,7 +59,7 @@ export const SHOOTER: React.FC<{t: number; silhouette?: boolean}> = ({t, silhoue
 				}}
 			/>
 			<g transform={`translate(${m[0] + 34} ${m[1] + torsoDY - 4})`}>
-				<MuzzleFlash frame={f} size={150} seed={1} />
+				<MuzzleFlash frame={f} size={205} seed={1} />
 			</g>
 			{!silhouette &&
 				[0, 1, 2].map((i) => {
@@ -148,8 +148,8 @@ function cam(t: number): Cam {
 		[17.05, {x: 1950, y: 960, s: 1, r: 0}, E.inOutCubic],
 		[17.4, {x: 1940, y: 960, s: 1, r: 0}, E.inOutSine],
 		[19.9, {x: 1952, y: 960, s: 1.02, r: 0}, E.linear],
-		[21.1, look(dFace, [620, 600], 2.6, 12), E.inOutCubic],
-		[22.4, look([dFace[0] + 8, dFace[1] + 6], [620, 600], 2.66, 12.5), E.linear],
+		[21.1, look(dFace, [600, 640], 2.3, 8), E.inOutCubic],
+		[22.4, look([dFace[0] + 8, dFace[1] + 6], [600, 640], 2.36, 8.5), E.linear],
 	]);
 }
 
@@ -170,9 +170,9 @@ export const Range: React.FC<{t: number}> = ({t}) => {
 	];
 	// D grows from a dot 18.23-18.60, raises rifle from 19.25, hugs from 20.3
 	const dk = E.outCubic(clamp((t - 18.23) / 0.37));
-	const raise = E.inOutCubic(clamp((t - 19.25) / 0.4));
-	const hug = E.inOutCubic(clamp((t - 20.3) / 0.6));
-	const dGun: GunPose = {kind: 'ak12acc', x: 70 + raise * 6 - hug * 40, y: -300 - raise * 90 - hug * 20, rot: -4 - raise * 22 - hug * 30};
+	const raise = E.outBack(clamp((t - 19.25) / 0.45));
+	const hug = E.outBack(clamp((t - 20.3) / 0.6));
+	const dGun: GunPose = {kind: 'ak12acc', x: 70 + raise * 6 - hug * 40, y: -300 - raise * 90 - hug * 20, rot: -4 - raise * 22 - hug * 30, lod: 2};
 	const hearts = t >= 20.25;
 	return (
 		<g>

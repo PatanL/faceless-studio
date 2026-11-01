@@ -60,12 +60,13 @@ const FY = 1185;
 const SS = 1.04;
 
 export const Armoury: React.FC<{t: number}> = ({t}) => {
-	const bFace: [number, number] = [532 + 10 * SS, FY - 537 * SS];
+	const bFace: [number, number] = [532 + 10 * SS, FY - 541 * SS];
+	// S21: a clean MCU of B (A's face is pushed out of frame left, the officer is only a shoulder at right)
 	const c = camAt(t, [
 		[38.55, {x: 540, y: 960, s: 1, r: 0}],
 		[40.5, {x: 548, y: 958, s: 1.03, r: 0}, E.linear],
-		[41.8, look(bFace, [390, 560], 2.5, 12), E.inOutCubic],
-		[44.9, look([bFace[0] + 10, bFace[1] + 10], [390, 560], 2.6, 13), E.linear],
+		[41.8, look(bFace, [360, 600], 2.85, 6), E.inOutCubic],
+		[44.9, look([bFace[0] + 8, bFace[1] + 8], [360, 600], 2.95, 7), E.linear],
 	]);
 	// the rifle: slides across the table, lifted, then B holds it (S21)
 	const slide = E.inOutCubic(clamp((t - 39.3) / 0.7));
@@ -79,7 +80,9 @@ export const Armoury: React.FC<{t: number}> = ({t}) => {
 	// officer local gun (officer faces -1, leans over)
 	const oGun: GunPose | null = t < 41.0 ? {kind: 'ak12', x: (OX - gx) / SS, y: (gy - FY) / SS, rot: 180 + lift * 10} : null;
 	const bHas = t >= 41.0;
-	const bGun: GunPose = {kind: 'ak12', x: 30, y: -390 + Math.sin(t * 2) * 4, rot: -78};
+	// B takes the rifle low and swings it up to a clear diagonal with an overshoot-and-settle
+	const up = E.outBack(clamp((t - 41.0) / 0.6));
+	const bGun: GunPose = {kind: 'ak12', x: 40 + (1 - up) * 30, y: -350 + (1 - up) * 40 + Math.sin(t * 2) * 4, rot: -18 - up * 40, lod: 2};
 	const scratch = Math.sin(t * Math.PI * 2 * 1.4);
 	return (
 		<g>

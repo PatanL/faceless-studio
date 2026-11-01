@@ -1,5 +1,5 @@
 import React from 'react';
-import {E, blinking, camAt, camT, clamp, kf} from '../lib/anim';
+import {E, blinking, camAt, camT, kf, look} from '../lib/anim';
 import {Gun} from '../art/guns';
 import {ik} from '../art/soldier';
 import {P} from '../art/defs';
@@ -62,7 +62,7 @@ const Official: React.FC<{t: number}> = ({t}) => {
 	const blink = blinking(t, 21) || blinking(t + 1.3, 22);
 	const headTilt = Math.sin(t * 1.3) * 2 + (scratching ? -4 : 0);
 	return (
-		<g transform="translate(540 600)">
+		<g transform="translate(540 610) scale(1.14)">
 			{/* body */}
 			<path d="M-230,500 L-210,120 Q-200,40 -110,30 L110,30 Q200,40 210,120 L230,500 Z" fill="#27303D" />
 			<path d="M120,30 Q200,40 210,120 L230,500 L150,500 Z" fill="#171F2C" />
@@ -126,10 +126,10 @@ const Official: React.FC<{t: number}> = ({t}) => {
 };
 
 export const Office: React.FC<{t: number}> = ({t}) => {
-	const u = clamp((t - 22.0) / 4.33);
+	// S13: a steady creep from a mid shot to a close shot of the official (no stops)
 	const c = camAt(t, [
-		[22.0, {x: 540, y: 960, s: 1, r: 0}],
-		[26.4, {x: 540, y: 920, s: 1.12, r: 0}, E.linear],
+		[22.0, look([540, 860], [540, 960], 1.04, 0)],
+		[26.4, look([548, 560], [540, 780], 1.62, 0), E.inOutSine],
 	]);
 	return (
 		<g>
@@ -143,6 +143,13 @@ export const Office: React.FC<{t: number}> = ({t}) => {
 				<Panel x={970} w={170} top={300} c="#643827" />
 				<rect x={-300} y={1150} width={1680} height={60} fill="#351815" />
 				<Emblem />
+				{/* high-backed leather chair */}
+				<path d="M300,1000 L300,420 Q300,330 400,320 L680,320 Q780,330 780,420 L780,1000 Z" fill="#2B1410" />
+				<path d="M700,330 Q780,340 780,420 L780,1000 L720,1000 Z" fill="#000" opacity={0.25} />
+				<path d="M320,430 Q322,350 400,342 L520,340 Q400,360 340,440 Z" fill="#5A2C22" opacity={0.7} />
+				{[400, 540, 680].map((bx) => (
+					<circle key={bx} cx={bx} cy={470} r={7} fill="#1A0B08" />
+				))}
 				<Official t={t} />
 				{/* papers + folders on the left of the desk */}
 				<g transform="translate(-20 760)">
@@ -154,7 +161,22 @@ export const Office: React.FC<{t: number}> = ({t}) => {
 					<rect x={10} y={30} width={210} height={20} rx={4} fill="#E1655A" opacity={0.85} />
 				</g>
 				{/* AK-12 lying across the desk, hand rests on it after the scratch */}
-				<Gun g={{kind: 'ak12', x: 560, y: 880, rot: -12, s: 2.05}} />
+				{/* second paper pile, in-tray and pen cup (desk-top clutter on the left) */}
+				<g transform="translate(150 905)">
+					<rect x={0} y={60} width={200} height={34} rx={4} fill="#5B3A22" />
+					<rect x={0} y={60} width={200} height={8} rx={4} fill="#7A5232" />
+					{[0, 1, 2, 3, 4, 5].map((i) => (
+						<rect key={i} x={8 + (i % 3) * 4} y={46 - i * 11} width={184} height={12} rx={2} fill={i % 2 ? '#EDE7DA' : '#FFFFFF'} transform={`rotate(${(i % 2 ? -1 : 1) * 1.5} 100 ${52 - i * 11})`} />
+					))}
+					<rect x={20} y={-26} width={120} height={14} rx={3} fill="#E9C46A" transform="rotate(-4 80 -20)" />
+				</g>
+				<g transform="translate(360 950)">
+					<rect x={0} y={0} width={44} height={56} rx={6} fill="#3A2A22" />
+					<rect x={0} y={0} width={44} height={8} rx={4} fill="#5A443A" />
+					<rect x={8} y={-40} width={6} height={46} rx={3} fill="#2F6BC2" transform="rotate(-10 11 0)" />
+					<rect x={22} y={-34} width={6} height={40} rx={3} fill="#C0392B" transform="rotate(8 25 0)" />
+				</g>
+				<Gun g={{kind: 'ak12', x: 560, y: 860, rot: -9, s: 2.05, lod: 2}} />
 				{/* desk */}
 				<rect x={-80} y={1000} width={1240} height={70} rx={10} fill="#85402E" />
 				<rect x={-80} y={1000} width={1240} height={14} rx={7} fill="#A65A44" />

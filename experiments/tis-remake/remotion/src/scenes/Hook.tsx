@@ -1,6 +1,6 @@
 import React from 'react';
 import {E, clamp} from '../lib/anim';
-import {GunArt} from '../art/guns';
+import {G, GunArt} from '../art/guns';
 import {Sparkle} from '../art/props';
 
 // S01 (0.00-2.90): AK-12 hero on a swirl sunburst + two title pills.
@@ -44,14 +44,26 @@ export const Hook: React.FC<{t: number}> = ({t}) => {
 	const p2 = E.outExpo(clamp((t - 0.95) / 0.35));
 	const gx = 520;
 	const gy = 935 + bob;
-	const gs = 2.05;
+	const gs = 2.0;
+	const gsy = 1.78; // slimmer than uniform: the reference rifle reads long and lean
 	// receiver / mag points for sparkles (gun-local -> screen)
 	const pt = (lx: number, ly: number): [number, number] => {
 		const a = ((-25 + wob) * Math.PI) / 180;
-		return [gx + gs * (lx * Math.cos(a) - ly * Math.sin(a)), gy + gs * (lx * Math.sin(a) + ly * Math.cos(a))];
+		return [gx + gs * lx * Math.cos(a) - gsy * ly * Math.sin(a), gy + gs * lx * Math.sin(a) + gsy * ly * Math.cos(a)];
 	};
-	const sp1 = pt(-10, -14);
-	const sp2 = pt(40, 70);
+	// v2: more and bigger glints, travelling along the rifle (receiver, muzzle, stock, magazine)
+	const SPARKS: [number, number, number, number, number][] = [
+		[0.3, -10, -14, 250, 30],
+		[0.62, 150, -20, 170, -30],
+		[0.95, -150, 10, 210, 30],
+		[1.2, 40, 70, 270, -30],
+		[1.55, 100, -24, 200, 30],
+		[1.9, -60, -20, 240, -30],
+		[2.25, 180, -10, 180, 30],
+		[2.5, 30, 60, 220, -30],
+	];
+	// title pills clear out to the left just before the S02 matte arrives (2.97)
+	const out = E.inCubic(clamp((t - 2.84) / 0.16)) * -1150;
 	return (
 		<g>
 			<rect x={0} y={0} width={1080} height={1920} fill="#F66D00" />
@@ -67,22 +79,28 @@ export const Hook: React.FC<{t: number}> = ({t}) => {
 			</g>
 			<rect x={0} y={0} width={1080} height={1920} fill="url(#hatch)" />
 			<rect x={0} y={0} width={1080} height={1920} fill="url(#hookVignette)" />
-			<g transform={`translate(${gx} ${gy}) rotate(${-25 + wob}) scale(${gs})`}>
-				<GunArt kind="ak12" />
+			<g transform={`translate(${gx} ${gy}) rotate(${-25 + wob}) scale(${gs} ${gsy})`}>
 				{/* under-barrel launcher, as on the hero rifle */}
-				<rect x={56} y={16} width={104} height={26} rx={12} fill="#2B2F30" />
-				<rect x={56} y={16} width={104} height={6} rx={3} fill="#4C4E48" />
-				<rect x={30} y={18} width={30} height={22} rx={6} fill="#1F2224" />
+				<rect x={28} y={16} width={36} height={24} rx={6} fill={G.g0} />
+				<rect x={56} y={15} width={110} height={30} rx={13} fill={G.g2} />
+				<rect x={56} y={15} width={110} height={9} rx={4.5} fill={G.g3} />
+				<rect x={62} y={15} width={98} height={2.4} rx={1.2} fill={G.g4} />
+				<rect x={156} y={18} width={14} height={24} rx={4} fill={G.g1} />
+				<rect x={80} y={30} width={40} height={5} rx={2.5} fill={G.g0} />
+				<path d="M40,40 L52,40 L50,58 Q46,62 42,58 Z" fill={G.g1} />
+				<GunArt kind="ak12" lod={2} />
 			</g>
-			<Sparkle t={t} t0={0.5} x={sp1[0]} y={sp1[1]} size={170} />
-			<Sparkle t={t} t0={1.25} x={sp2[0]} y={sp2[1]} size={110} spin={-30} />
+			{SPARKS.map(([t0, lx, ly, size, spin], i) => {
+				const [sx, sy] = pt(lx, ly);
+				return <Sparkle key={i} t={t} t0={t0} x={sx} y={sy} size={size} spin={spin} dur={0.55} />;
+			})}
 			{t >= 0.13 && (
-				<g transform={`translate(${(1 - p1) * 1080} 0)`}>
+				<g transform={`translate(${(1 - p1) * 1080 + out} 0)`}>
 					<Pill x={22} y={180} w={1036} h={148} fill="#EBD10D" edge="#EDD722" shadow="#63511B" text="WHY DID RUSSIA SWITCH" color="#2E2A12" size={84} tw={940} />
 				</g>
 			)}
 			{t >= 0.95 && (
-				<g transform={`translate(${(1 - p2) * 1080} 0)`}>
+				<g transform={`translate(${(1 - p2) * 1080 + out * 1.1} 0)`}>
 					<Pill x={93} y={352} w={890} h={146} fill="#E23536" edge="#E8504F" shadow="#AA2D23" text="TO THE AK-12 RIFLE?" color="#FCEDE6" size={78} tw={804} />
 				</g>
 			)}

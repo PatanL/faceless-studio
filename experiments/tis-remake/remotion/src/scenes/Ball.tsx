@@ -38,16 +38,21 @@ const Foot: React.FC<{x: number; y: number}> = ({x, y}) => (
 );
 
 export const Ball: React.FC<{t: number}> = ({t}) => {
+	// S23: an aggressive push that ends with the ball overflowing the frame
 	const c = camAt(t, [
 		[44.43, {x: 540, y: 960, s: 1, r: 0}],
-		[47.2, {x: 540, y: 960, s: 1, r: 0}],
-		[49.3, look([540, 690], [540, 780], 2.8, 0), E.inCubic],
-		[50.2, look([540, 690], [540, 780], 2.95, 0), E.linear],
+		[47.2, {x: 540, y: 960, s: 1.02, r: 0}, E.linear],
+		[48.35, look([540, 760], [540, 800], 3.3, 0), E.inOutCubic],
+		[50.2, look([540, 760], [540, 800], 3.55, 0), E.linear],
 	]);
-	const bounce = Math.sin(t * Math.PI * 2 * 2) * 8;
-	const cx = 540;
-	const cy = 700 + bounce;
-	const lift = (k: number) => Math.max(0, Math.sin(t * Math.PI * 2 * 4 + k * Math.PI)) * 26;
+	// S22: a crouched, nervous side-shuffle: knees bent out, the body leaning into each step
+	const sh = Math.sin(t * Math.PI * 2 * 0.9);
+	const sx = sh * 38;
+	const leanDeg = Math.sin(t * Math.PI * 2 * 0.9 + 0.6) * 9;
+	const bounce = Math.abs(Math.sin(t * Math.PI * 2 * 1.8)) * -14;
+	const cx = 540 + sx;
+	const cy = 780 + bounce;
+	const lift = (k: number) => Math.max(0, Math.sin(t * Math.PI * 2 * 1.8 + k * Math.PI)) * 30;
 	const wave = (k: number) => Math.sin(t * Math.PI * 2 * 1.3 + k) * 10;
 	const dart = t > 47.2 ? Math.sign(Math.sin(t * Math.PI * 2 * 1.2)) * 10 : Math.sin(t * 2) * 4;
 	const worry = t > 47.2 ? 1 : 0.5;
@@ -56,12 +61,12 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 	const armL = (() => {
 		const a = (wave(0) * Math.PI) / 180;
 		const h: [number, number] = [cx - 250 + Math.sin(a) * 30, cy - 30 - Math.cos(a) * 20];
-		return {pts: [[cx - 120, cy + 30], [cx - 190, cy + 70], [cx - 260, cy + 40], h] as [number, number][], h, rot: -100 + wave(0)};
+		return {pts: [[cx - 120, cy + 30], [cx - 190, cy + 70], [cx - 260, cy + 40], h] as [number, number][], h, rot: -105 + 32 * Math.sin(t * Math.PI * 2 * 0.7)};
 	})();
 	const armR = (() => {
 		const a = (wave(2) * Math.PI) / 180;
 		const h: [number, number] = [cx + 250 + Math.sin(a) * 30, cy - 30 - Math.cos(a) * 20];
-		return {pts: [[cx + 120, cy + 30], [cx + 190, cy + 70], [cx + 260, cy + 40], h] as [number, number][], h, rot: -78 + wave(2)};
+		return {pts: [[cx + 120, cy + 30], [cx + 190, cy + 70], [cx + 260, cy + 40], h] as [number, number][], h, rot: -70 + 28 * Math.sin(t * Math.PI * 2 * 0.95 + 1.2)};
 	})();
 	return (
 		<g>
@@ -78,12 +83,13 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 						<circle key={`d${i}`} cx={-400 + hash(i + 200) * 2000} cy={-400 + hash(i + 300) * 2800} r={10 + hash(i + 400) * 14} fill="#6541D5" />
 					))}
 				</g>
-				<ellipse cx={540} cy={1170} rx={220} ry={20} fill="#000" opacity={0.18} />
-				{/* legs */}
-				<Chain pts={[[cx - 50, cy + 110], [cx - 90, cy + 260 - lift(0) * 0.5], [cx - 70, cy + 430 - lift(0)]]} w={40} />
-				<Chain pts={[[cx + 50, cy + 110], [cx + 90, cy + 260 - lift(1) * 0.5], [cx + 70, cy + 430 - lift(1)]]} w={40} />
-				<Foot x={cx - 80} y={1150 - lift(0)} />
-				<Foot x={cx + 80} y={1150 - lift(1)} />
+				<ellipse cx={540 + sx * 0.8} cy={1170} rx={240} ry={20} fill="#000" opacity={0.18} />
+				{/* legs: bent knees splayed outward (crouch) */}
+				<Chain pts={[[cx - 50, cy + 110], [cx - 150 - lift(0) * 0.3, cy + 230 - lift(0) * 0.6], [cx - 96, 1120 - lift(0)]]} w={40} />
+				<Chain pts={[[cx + 50, cy + 110], [cx + 150 + lift(1) * 0.3, cy + 230 - lift(1) * 0.6], [cx + 96, 1120 - lift(1)]]} w={40} />
+				<Foot x={cx - 100} y={1150 - lift(0)} />
+				<Foot x={cx + 100} y={1150 - lift(1)} />
+				<g transform={`rotate(${leanDeg} ${cx} ${cy + 120})`}>
 				{/* arms behind the guns' hands */}
 				<Chain pts={armL.pts} w={32} />
 				<Chain pts={armR.pts} w={32} />
@@ -121,6 +127,7 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 				<circle cx={armL.h[0] - 6} cy={armL.h[1] - 6} r={9} fill={HI} />
 				<circle cx={armR.h[0]} cy={armR.h[1]} r={30} fill={DARK} />
 				<circle cx={armR.h[0] - 6} cy={armR.h[1] - 6} r={9} fill={HI} />
+				</g>
 			</g>
 		</g>
 	);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cam, E, blinking, camAt, camT, look, rng, talkMouth} from '../lib/anim';
+import {Cam, E, blinking, camAt, camT, look, rng} from '../lib/anim';
 import {GunPose, gunPt} from '../art/guns';
 import {Look, LOOKS, Soldier} from '../art/soldier';
 import {CloudBand, Streaks, streakSet} from '../art/props';
@@ -24,15 +24,14 @@ const SS = 0.91;
 const EI = 2;
 
 function squadGun(i: number, t: number, bob: number): GunPose {
-	return {kind: 'ak12', x: 70, y: -300 + bob * 0.3, rot: 4 + Math.sin(t * 4 + i) * 1.5};
+	return {kind: 'ak12', x: 70, y: -300 + bob * 0.3, rot: 4 + Math.sin(t * 4 + i) * 1.5, lod: i === EI ? 2 : 1};
 }
 const march = (t: number, i: number) => t * 1.6 - i * 0.1;
 
-/** World position of E's near hand (the one that fumbles the selector). */
-function eHand(t: number): [number, number] {
+/** World position of E's receiver centre (the S15 ECU subject). */
+function eRecv(t: number): [number, number] {
 	const g = squadGun(EI, t, 0);
-	const p = gunPt(g, 'grip');
-	return [SQUAD[EI].x + SS * p[0], SY + SS * (p[1] + 24)];
+	return [SQUAD[EI].x + SS * (g.x - 4), SY + SS * (g.y + 26)];
 }
 
 const Tower: React.FC = () => {
@@ -94,16 +93,18 @@ const Rebar: React.FC = () => (
 );
 
 function cam(t: number): Cam {
-	const h = eHand(t);
-	const eFace: [number, number] = [SQUAD[EI].x + 10 * SS, SY - (470 + 67) * SS];
+	const h = eRecv(t);
+	const eFace: [number, number] = [SQUAD[EI].x + 10 * SS, SY - (474 + 67) * SS];
 	return camAt(t, [
 		[25.97, {x: 540, y: 960, s: 1, r: 0}],
 		[26.6, {x: 545, y: 960, s: 1.04, r: 0}, E.linear],
 		[28.0, look(h, [560, 900], 1.9, 1), E.inCubic],
-		[28.8, look(h, [560, 960], 5.6, 2), E.outCubic],
-		[30.4, look([h[0] - 10, h[1] + 10], [600, 1010], 5.7, 2), E.linear],
-		[31.2, look(eFace, [380, 640], 3.3, -6), E.inOutCubic],
-		[32.9, look(eFace, [380, 640], 3.4, -7), E.linear],
+		// S15: the grey receiver fills the frame, the selector lever under the fumbling hand
+		[28.8, look(h, [560, 960], 4.7, 2), E.outCubic],
+		[30.4, look([h[0] - 6, h[1] + 4], [580, 980], 4.85, 2), E.linear],
+		// S16: tilt up to a big E, grimacing, the rifle crossing the foreground
+		[31.2, look(eFace, [430, 720], 4.2, -6), E.inOutCubic],
+		[32.9, look(eFace, [430, 720], 4.32, -7), E.linear],
 	]);
 }
 
@@ -127,12 +128,16 @@ export const Ruins: React.FC<{t: number}> = ({t}) => {
 					const hN: [number, number] | 'grip' =
 						isE && fumble
 							? (() => {
+									// thumb hunts for the selector lever: grip -> lever -> slips back, repeated
 									const p = gunPt(g, 'grip');
+									const q = gunPt(g, 'sel');
+									const v = 0.5 + 0.5 * Math.sin((t - 28.6) * Math.PI * 2 * 0.9 - Math.PI / 2);
 									const k = Math.floor(t * 5);
-									return [p[0] + Math.sin(t * 9) * 10, p[1] - 8 + (k % 2 ? 6 : -4)] as [number, number];
+									return [p[0] + (q[0] + 18 - p[0]) * v + Math.sin(t * 9) * 5, p[1] + (q[1] + 30 - p[1]) * v + (k % 2 ? 3 : -2)] as [number, number];
 								})()
 							: 'grip';
 					const talking = isE && t > 30.6;
+					const grimace = talking ? (t % 0.42 < 0.28 ? 'yell' : 'grin') : null;
 					return (
 						<Soldier
 							key={i}
@@ -150,8 +155,8 @@ export const Ruins: React.FC<{t: number}> = ({t}) => {
 								gun: g,
 								handN: hN,
 								handF: 'fore',
-								mouth: talking ? talkMouth(t, 6, 'O') : i === 3 ? 'flat' : 'closed',
-								brows: talking ? 'worried' : i === 1 ? 'angry' : 'neutral',
+								mouth: grimace ?? (i === 3 ? 'flat' : 'closed'),
+								brows: talking ? 'angry' : i === 1 ? 'angry' : 'neutral',
 								eyes: blinking(t, 30 + i) ? 'closed' : 'open',
 								headRot: Math.sin(t * 1.3 + i * 2) * 6,
 								lookX: Math.sin(t * 0.9 + i) * 2.5,
