@@ -967,6 +967,15 @@ def blue_whale_16x9_patch(sb):
     for f in [l for l in sc[9]["layers"] if l["type"] == "svg" and l.get("width", 0) > 500]:
         t0 = f["keyframes"][0]["t"]               # = sweeps - 0.95
         sw = t0 + 0.95
+        # the landscape frame shows the passing body's own tail (9:16 keeps it past the edge): the body is gone
+        # by sweeps - 0.55, as the fluke comes in from off-frame right (no two tails)
+        for b in [l for l in sc[9]["layers"] if l.get("name") == "explainer/BlueWhale"]:
+            for k in b["keyframes"]:
+                if k["t"] >= sw - 1.0:
+                    k["opacity"] = 0.4 if k["t"] < sw - 0.6 else 0
+            b["keyframes"].append({"t": round(sw - 0.55, 3), "opacity": 0})
+            b["keyframes"].append({"t": round(sw - 1.25, 3), "opacity": 1})   # fully drawn until the fade starts
+            b["keyframes"].sort(key=lambda k: k["t"])
         f["width"], f["height"] = 950, round(950 * 180 / 480, 1)
         f["x"], f["y"] = "110%", "63%"
         f["keyframes"] = [{"t": t0, "x": "112%", "y": "64%", "rotate": 12, "opacity": 0},
@@ -1002,6 +1011,16 @@ def orca_16x9_patch(sb):
             l["y"] = f"{_pct(l['y']) - 6:.2f}%"
         if l.get("name") == "explainer/Seal":   # the seal sits above its SEAL 1.6 M tag, not behind it
             l["y"] = "60%"
+    # p03: the top pod orca below the HUNTS AS A TEAM header band (its fin ran through the underline)
+    for l in sc[3]["layers"]:
+        if l.get("name") == "explainer/Orca" and _pct(l["y"]) < 26:
+            l["y"] = "35%"
+    # p10: diver and YOU chip fade in together (a chip with no diver ghosted in at 59.0 s)
+    for l in sc[10]["layers"]:
+        if l.get("name") == "explainer/Diver" and (l.get("enter") or {}).get("type") == "pop":
+            l["enter"] = {"type": "fade", "at": l["enter"]["at"] + 0.15, "duration": 0.3}
+        if l.get("name") == "explainer/Tag" and l["props"].get("text") == "YOU":
+            l["props"]["at"] = round(l["props"]["at"] + 0.15, 3)
     return sb
 
 

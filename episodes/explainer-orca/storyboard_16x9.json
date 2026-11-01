@@ -838,7 +838,7 @@
      "type": "component",
      "name": "explainer/Orca",
      "x": "50.88%",
-     "y": "23.91%",
+     "y": "35%",
      "width": 249.6,
      "height": 89.86,
      "props": {
@@ -3085,9 +3085,9 @@
      ],
      "start": 3.855,
      "enter": {
-      "type": "pop",
-      "at": 3.855,
-      "duration": 0.35
+      "type": "fade",
+      "at": 4.005,
+      "duration": 0.3
      }
     },
     {
@@ -3122,7 +3122,7 @@
      "height": 74.88,
      "props": {
       "text": "YOU",
-      "at": 3.855,
+      "at": 4.005,
       "size": 31.2,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
