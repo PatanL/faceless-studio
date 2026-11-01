@@ -130,8 +130,8 @@ clauses); 75 s is longer than any Short outlier in the corpus (28-59 s). Sheet c
 
 | File | Status |
 |---|---|
-| `explainer-orca_9x16.mp4` | final, 75.1 s, 1080x1920 (round 2 PASS cut) |
-| `explainer-orca_16x9.mp4` | re-rendered 2026-11-01 ~11:45 UTC on the Spark CPU (commit 200bc5e), 75.1 s, 1920x1080, md5 355d0d72…: frame-0 "0 HUMAN KILLS" header now fully in frame (reformat clamps text below the top edge). The 11:31 cut is `explainer-orca_16x9-prev.mp4`. |
+| `explainer-orca_9x16.mp4` | re-rendered 2026-11-01 ~12:11 UTC on the Spark CPU (commit f7031ad), 75.1 s, 1080x1920, md5 8702a89c…: 2nd explainer fix pass (seal on the floe 21.7-25.5 s and washed off, lit menace silhouettes p06/p08, sequential header/tag swaps at 43 s and 57 s, ~7 BOATS card at y 50 %, cleaner Iberia map, diver-style YOU, short low impact flash, least-cost caption pages with number/unit joins). The round 2 PASS cut is `-prev.mp4`. |
+| `explainer-orca_16x9.mp4` | re-rendered 2026-11-01 ~12:12 UTC on the Spark CPU (commit f7031ad), 75.1 s, 1920x1080, md5 3ac1cbad…: same fixes as the 9:16 plus text 40 px clear of the caption band, Map registered with its rings/chips, 1.15x zoom on p02/p03/p06/p08, YOU · 1.75 M chip in p09, longer one-line caption pages. The 11:45 cut is `-prev.mp4`. |
 | `thumbs/` | 3 thumbnails x 2 ratios: `explainer-orca_explainer-scale_*` (0 HUMAN KILLS), `explainer-orca_explainer-eye_*` (IT CHOSE NOT TO), `explainer-orca-b_explainer-scale_*` (WHY NOT YOU?) |
 | `titles.md` | 5 titles mapped to reference patterns; pick #2 for Shorts/TikTok, #1 for 16:9 |
 | `description.md` | Shorts + 16:9 copy, chapters re-timed to the 75.1 s cut, fact re-check list, disclosure steps |
@@ -427,8 +427,8 @@ pages run 5-6 words; (6) script: turnstile at 59% (target 45-55%), only 39% of s
 
 | File | Status |
 |---|---|
-| `explainer-blue-whale_9x16.mp4` | re-rendered 2026-11-01 ~11:45 UTC on the Spark CPU (commit 200bc5e), 70.08 s, 1080x1920, md5 c1c5647a…: round 3 PASS cut + two-tails fix (the whale body fades out before the FLUKE close-up at ~62.5 s); captions use the committed pager (1360749), so a few pages differ from round 3. Round 3 cut = `-prev.mp4`, the older cut = `-prev2.mp4`. |
-| `explainer-blue-whale_16x9.mp4` | re-rendered 2026-11-01 ~11:45 UTC on the Spark CPU (commit 200bc5e), 70.08 s, 1920x1080, md5 6847ebca…: landscape-native p01 (whale along a horizontal 0-30 m ruler, 2.5 buses nose to tail, 30 M chip at the ruler end, clear of the header), no two tails, cover/DEEP DIVE text kept inside the top edge. The 11:33 cut is `-prev.mp4`. |
+| `explainer-blue-whale_9x16.mp4` | re-rendered 2026-11-01 ~12:15 UTC on the Spark CPU (commit f7031ad), 70.08 s, 1080x1920, md5 491cdd4c…: 2nd fix pass (NO WAY DOWN 2 s header, crowd at y 30-46 %, 188 dB card leaves before the far YOU, fluke sweeps mid-frame 62.5-63.9 s with the body fading over 0.6 s, YOU chip clear of the header chip, caption joins). The 11:45 cut is `-prev.mp4`, the round 3 PASS cut `-prev2.mp4`. |
+| `explainer-blue-whale_16x9.mp4` | re-rendered 2026-11-01 ~12:14 UTC on the Spark CPU (commit f7031ad), 70.08 s, 1920x1080, md5 08093d1a…: full-bleed throat set (49-54.5 s, no portrait panel), landscape-native p01/p02/p04 (ruler; head close-up + frame-wide balance; heart and golf cart side by side, full-bleed deep set), crowd in frame at 22-23.5 s, text 40 px clear of the caption band, TOP_SAFE 5 %, 16:9-only caption joins. The 11:45 cut is `-prev.mp4`. |
 | `thumbs/` | 3 thumbnails x 2 ratios: `explainer-blue-whale_explainer-eye_*` (ROOM TO SPARE, primary), `explainer-blue-whale-b_explainer-eye_*` (IT CAN'T SWALLOW YOU), `explainer-blue-whale_explainer-scale_*` (TOO BIG TO EAT) |
 | `titles.md` | 7 titles mapped to reference patterns; pick #1 for Shorts/TikTok, #2 for 16:9 |
 | `description.md` | Shorts + 16:9 copy, chapters re-timed to the 70.1 s cut, sources, pinned-comment CTA, disclosure steps |
