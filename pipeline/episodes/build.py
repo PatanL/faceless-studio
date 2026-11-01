@@ -79,6 +79,32 @@ def join_words(words: list[dict], joins: list) -> None:
             i += 1
 
 
+def mark_pages(words: list[dict], pages: list[str], slug: str = "") -> None:
+    """Explicit caption pages (explainer only; the core least-cost pager is shared with the locked horror pilot):
+    `pages` is the narration split into whole readable pages, in order. Clears every word's `br`, then sets
+    `br` on the word that starts each page (core paginate() breaks only there). Joined tokens ("two and a half")
+    count as their sub-words; a page must start on a token start, and the pages must cover every word."""
+    key = lambda s: [t for t in (x.lower().replace("’", "'").strip(".,!?;:\"") for x in s.split()) if t]
+    toks = [(i, t) for i, w in enumerate(words) for t in key(w["text"])]
+    starts, k = set(), 0
+    for w in words:
+        w.pop("br", None)
+    for p in pages:
+        want = key(p)
+        got = [t for _, t in toks[k:k + len(want)]]
+        if got != want:
+            raise SystemExit(f"{slug}: caption page {p!r} does not match the words at {k}: {' '.join(got)!r}")
+        wi = toks[k][0]
+        if k and toks[k - 1][0] == wi:
+            raise SystemExit(f"{slug}: caption page {p!r} starts inside the joined token {words[wi]['text']!r}")
+        starts.add(wi)
+        k += len(want)
+    if k != len(toks):
+        raise SystemExit(f"{slug}: caption pages stop at word {k} of {len(toks)}")
+    for i in starts:
+        words[i]["br"] = True
+
+
 def build(slug: str) -> str:
     fn, mod = BUILDERS[slug]
     meta, scenes, words, total, source = load(slug)
@@ -102,6 +128,9 @@ def build(slug: str) -> str:
         from .phrases import phrase_pages
         mc = (getattr(mod, "CAPTION_PAGING", None) or {}).get("maxChars", 16)
         phrase_pages(words, max_chars=mc, glue=getattr(mod, "PHRASE_GLUE", {}).get(slug, []))
+    pages = getattr(mod, "CAPTION_PAGES", {}).get(slug)
+    if pages:  # hand-checked whole-phrase pages (Word.br) win over the pager
+        mark_pages(words, pages, slug)
     holds = check_holds(slug, built)
     if holds:
         msg = f"{slug}: visual holds over {MAX_HOLD:.0f}s: " + "; ".join(holds)

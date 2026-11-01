@@ -31,10 +31,58 @@ PHRASE_GLUE = {"explainer-orca": ["shark you're scared of", "except since", "orc
 # or strand (number | unit, verb | object, "scared | of"); (src, shown text) swaps the text
 CAPTION_JOIN = {"explainer-orca": ["fifty-six kilometres", "scared of", ("twenty twenty,", "2020,"), ("twenty nineteen,", "2019,"),
                                    "it reaches", "eight metres long,", "mothers taught", "haven't decided"],
-                "explainer-blue-whale": ["two and a half", "even notice"]}
+                # numerals keep the 9:16 pages to two lines ("CLOSE TO 200 TONNES.", not a 3-line "TWO HUNDRED")
+                "explainer-blue-whale": ["two and a half", "even notice", ("two hundred tonnes.", "200 tonnes."),
+                                         ("two hundred tonnes", "200 tonnes"), ("forty million", "40 million"),
+                                         ("forty", "40"), ("thirty metres", "30 metres"), ("seven metres", "7 metres"),
+                                         ("two beats", "2 beats")]}
 # extra joins for the 16:9 cut only (longer one-line pages there; pipeline/episodes/reformat.py)
 CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres"]}
-STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                    # build.py fails these on any visual hold > 3 s
+# explicit caption pages (build.py mark_pages -> Word.br; the shared core pager stays untouched because horror uses it):
+# whole phrases, never ending on an open word (up / close / never / size / comparatives), number + unit together.
+# "|" separates pages. 9:16 pages wrap to two lines; 16:9 pages keep a whole sentence when it fits one ~34-char line.
+_P = lambda s: [p.strip() for p in s.split("|")]
+CAPTION_PAGES = {"explainer-blue-whale": _P(
+    "You'd fit inside | a blue whale's mouth. | It still | couldn't swallow you. | This is the heaviest animal | ever measured. | "
+    "Up to 30 metres long. | That's two and a half | city buses, | parked nose to tail. | Lying beside it, | you'd cover a sixteenth. | "
+    "It can weigh | close to 200 tonnes. | Heavier than | the biggest dinosaurs | ever found. | "
+    "The tongue alone weighs | about as much as an elephant. | That's about 40 of you. | "
+    "The heart is | the size of a golf cart, | and outweighs two of you. | On a deep dive, | it can slow | to just 2 beats a minute. | "
+    "Its call is | louder than a jet engine, | and it could reach you | hundreds of kilometres away. | "
+    "To eat, it charges | into a cloud of krill | and takes one gulp of water | bigger than its own body. | "
+    "So what happens to you, | floating right | in the middle of that cloud? | "
+    "It eats | up to 40 million krill a day, | and every one is tiny. | Its throat only opens | about as wide as a beach ball. | "
+    "Anything bigger | just gets pushed back out. | The real danger | isn't being eaten. | It's being in the way | "
+    "when 200 tonnes | decides to turn, | and a tail | 7 metres wide | sweeps past. | Room for you in its mouth. | "
+    "No room down its throat. | And it would | never even notice you.")}
+CAPTION_PAGES_16X9 = {"explainer-blue-whale": _P(
+    "You'd fit inside a blue whale's mouth. | It still couldn't swallow you. | This is the heaviest animal | ever measured. | "
+    "Up to 30 metres long. | That's two and a half city buses, | parked nose to tail. | Lying beside it, | you'd cover a sixteenth. | "
+    "It can weigh | close to 200 tonnes. | Heavier than the biggest dinosaurs | ever found. | "
+    "The tongue alone | weighs about as much as an elephant. | That's about 40 of you. | "
+    "The heart is the size of a golf cart, | and outweighs two of you. | On a deep dive, | it can slow to just 2 beats a minute. | "
+    "Its call is louder than a jet engine, | and it could reach you | hundreds of kilometres away. | "
+    "To eat, it charges | into a cloud of krill | and takes one gulp of water | bigger than its own body. | "
+    "So what happens to you, | floating right | in the middle of that cloud? | "
+    "It eats up to 40 million krill | a day, and every one is tiny. | Its throat only opens | about as wide as a beach ball. | "
+    "Anything bigger | just gets pushed back out. | The real danger isn't being eaten. | It's being in the way | "
+    "when 200 tonnes | decides to turn, | and a tail 7 metres wide | sweeps past. | Room for you in its mouth. | "
+    "No room down its throat. | And it would never even notice you."),
+    "explainer-orca": _P(
+    "Wild killer whales | could kill you easily. | They never have. | Not because they can't. | A big male is eight metres long, | "
+    "as heavy as four cars, | and its fin alone is as tall as you. | It hits fifty-six kilometres an hour. | "
+    "An Olympic swimmer manages eight. | You, maybe three. | From fifty metres out, | it reaches you in three seconds. | "
+    "And you'd never meet just one. | A pod hunts as a team, | and you'd be outnumbered. | In Antarctica, | "
+    "a pod charges an ice floe together, | and the wave | washes the seal straight off. | You'd go too. | Off South Africa, | "
+    "the shark you're scared of | started washing up missing one organ. | The liver. | Orcas flipped them and took it. | "
+    "The surviving great whites | fled for months. | If they run, | what chance do you have? | In 2019, off Western Australia, | "
+    "a pod brought down | the biggest animal on Earth. | An adult blue whale, | a thousand times your weight. | "
+    "So why has something this fast | and this smart never come for you? | Maybe you taste bad? | Nobody's ever proven that. | "
+    "Too small to bother with? | You're about | the size of the seals they eat. | The best answer is culture. | Orcas eat | "
+    "what their mothers taught them. | And no orca mother | has ever taught her calf to eat you. | Comforting, right? | "
+    "Except since 2020, | orcas off Spain and Portugal | have been ramming sailboats | and snapping off their rudders. | "
+    "About seven boats have sunk. | Nobody knows why. | Maybe they just haven't decided | about you yet. | And that matters, because...")}
+STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                  # build.py fails these on any visual hold > 3 s
 # 9:16 caption pages: phrase-complete 2-4 word cards (the refs show "When a horse fly"); paginate() glues numbers and
 # compounds and merges flashes shorter than 0.6 s
 CAPTION_PAGING = {"maxWords": 4, "maxChars": 20}
@@ -469,7 +517,18 @@ def _hook_whale(gape):
                 flipX=True, z=1, idle=[{"type": "bob", "amount": 6, "speed": 0.2}])
 
 
+def _bw_snap(S):
+    """p09 -> p10 cut on p10's first word ("Room"), not LEAD before it: the last p09 caption page ("SWEEPS PAST.") ends
+    exactly at the cut instead of showing over the mouth close-up (QA: 63.9-64.1 s). Both cuts call it (equal durations)."""
+    s9, s10 = S[9], S[10]
+    d = round(s10.words[0]["start"] - s10.start, 3)
+    if d > 0:
+        s9.dur, s10.start, s10.dur = round(s9.dur + d, 3), round(s10.start + d, 3), round(s10.dur - d, 3)
+    return S
+
+
 def blue_whale(S):
+    _bw_snap(S)
     sc = []
     # ---------------------------------------------------------------- p00 hook (frame 0 = Shorts cover)
     s = S[0]
@@ -494,7 +553,7 @@ def blue_whale(S):
     s = S[1]
     PPM = 34
     L = 30 * PPM                     # 1020 px for 30 m
-    yc = 780
+    yc = 750
     top, bot = yc - L // 2, yc + L // 2          # whale spans y 270-1290 (nose up, base clear of the caption band)
     yb = lambda px: f"{px / H * 100:.2f}%"
     two, half, nose = s.at("two"), s.at("half", off=-0.1), s.at("nose")
@@ -502,8 +561,8 @@ def blue_whale(S):
     bus_x = "72%"
     sc.append(bw_scene(s, ocean(60, rays=7), [
         comp("explainer/BlueWhale", "34%", yb(yc), L, 160, {"pxPerM": PPM * 30 / 28, "speed": 0.8}, rotate=-90,
-             keyframes=[{"t": 0, "y": "130%"}, {"t": 1.1, "y": yb(yc), "ease": "out"}]),
-        svg(RULER, "10%", yb(yc), 160, L, start=heavy + 0.4, enter=fade(heavy + 0.4, 0.3)),
+             keyframes=[{"t": 0, "y": yb(yc - 160), "opacity": 0}, {"t": 0.5, "y": yb(yc), "opacity": 1, "ease": "out"}]),
+        svg(RULER, "10%", yb(yc), 160, L, start=0.1, enter=fade(0.1, 0.3)),
         t46("30 M", s.at("long"), x="12%", y=yb(top - 50), size=48, w=240),
         {**comp("explainer/Bus", bus_x, yb(bot - 6 * PPM), 12 * PPM, 110, {"pxPerM": PPM}, rotate=-90, start=two,
                 enter={"type": "slideUp", "at": two, "duration": 0.35})},
@@ -516,8 +575,8 @@ def blue_whale(S):
         you_chip(heavy, "53%", yb(bot - 2.6 * PPM - 50)),
         t46("YOU ≈ 1/16", lying, x="50%", y=yb(bot - 2.6 * PPM - 185), size=46, w=330, align="center"),
         headline("HOW BIG IS IT?", at=0, y="11%", size=66, out=two),
-        headline("≈ 2.5 CITY BUSES", at=s.at("parked"), y="11%", size=66),
-    ], Cam(s.dur, z0=1.0, z1=1.04).punch(heavy, s.at("thirty"), two, nose, lying)))
+        {**headline("≈ 2.5 BUSES", at=s.at("parked"), y="11%", size=66), "x": "45%"},  # ends left of the bus stack
+    ], Cam(s.dur, z0=1.0, z1=1.04).punch(heavy, s.at("thirty"), two, nose, lying), captionY=0.8))
 
     # ---------------------------------------------------------------- p02 weight: head close-up + 190 t, then balance vs dinosaur
     s = S[2]
@@ -552,10 +611,10 @@ def blue_whale(S):
             "tilt": [{"t": 0, "v": -13}, {"t": land, "v": -13}, {"t": land + 0.5, "v": 0, "ease": "out"}],
         }, depth=0.3),
         t46("TONGUE", tg, x="25%", y="45%", size=46, w=360, out=forty),  # clears the way for the crowd
-        t46("≈ 2.7 TONNES EACH", land, y="62%", size=54, w=1000, align="center", out=forty),
+        t46("≈ 2.7 TONNES EACH", land, y="60%", size=54, w=1000, align="center", out=forty),
         *crowd,
         t46("≈ 40 OF YOU", forty + 0.5, x="76%", y="16%", size=54, w=420, align="center"),
-    ], Cam(s.dur, z0=1.0, z1=1.06).punch(tg, land, forty)))
+    ], Cam(s.dur, z0=1.0, z1=1.06).punch(tg, land, forty), captionY=0.8))
 
     # ---------------------------------------------------------------- p04 heart vs golf cart, then ECG slowing to 2 bpm
     s = S[4]
@@ -569,14 +628,14 @@ def blue_whale(S):
     ecg = [round(b, 3) for b in ecg if b < s.dur]
     post = [b for b in ecg if b >= dive]
     sc.append(bw_scene(s, ocean(200, rays=3, snow=40), [
-        comp("explainer/WhaleHeart", "29%", "37%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive),
-        comp("explainer/GolfCart", "72%", "38.5%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=size, end=dive,
-             enter={"type": "slideLeft", "at": size, "duration": 0.45}),
+        comp("explainer/WhaleHeart", "25%", "37%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive),
+        comp("explainer/GolfCart", "65%", "38.5%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=size, end=dive,
+             enter=pop(size, 0.35)),
         comp("explainer/Diver", "50%", "56%", 2.6 * HP, 60, {"pxPerM": HP, "arms": "side"}, start=heavy, end=dive,
              enter=fade(heavy, 0.3)),
         {**you_chip(heavy, "50%", "50%"), "end": dive},
-        t46("HEART", 0.2, x="29%", y="24%", size=46, w=320, end=dive),
-        t46("GOLF CART", size + 0.3, x="72%", y="24%", size=46, w=420, end=dive),
+        t46("HEART", 0.2, x="25%", y="21%", size=46, w=320, end=dive),
+        t46("GOLF CART", size + 0.3, x="65%", y="21%", size=46, w=420, end=dive),
         t46("180 KG ≈ 2+ OF YOU", heavy + 0.3, y="13%", size=50, w=1000, align="center", end=dive),
         # deep dive: navy-to-teal depth set (never flat black), marine snow, big beating heart over a full ECG
         svg(DEEP, "50%", "50%", W, H, start=dive, depth=0, z=0),
@@ -588,9 +647,9 @@ def blue_whale(S):
              enter=pop(dive, 0.3)),
         comp("explainer/ECG", "50%", "48%", 1000, 260, {"beats": ecg, "at": dive, "speed": 300, "color": CYAN,
                                                       "prefill": True}, start=dive, depth=0, z=5),
-        wstat(2, "beats a minute", dive + 0.6, y="61%", size=120, **{"from": 10}, duration=max(0.6, two - dive - 0.6),
+        wstat(2, "beats a minute", dive + 0.6, y="58%", size=120, **{"from": 10}, duration=max(0.6, two - dive - 0.6),
               pulse=2.0),
-    ], Cam(s.dur, z0=1.0, z1=1.06).punch(s.at("heart"), size, heavy, dive, s.at("slow"), two)))
+    ], Cam(s.dur, z0=1.0, z1=1.06).punch(s.at("heart"), size, heavy, dive, s.at("slow"), two), captionY=0.8))
 
     # ---------------------------------------------------------------- p05 call: louder than a jet engine
     s = S[5]
@@ -604,17 +663,17 @@ def blue_whale(S):
     sc.append(bw_scene(s, ocean(40, rays=6), [
         comp("explainer/BlueWhale", "40%", "45%", 1150, 168, {"speed": 0.8}, z=2, idle=[{"type": "bob", "amount": 5, "speed": 0.3}]),
         *rings,
-        wstat(188, "decibels", s.at("louder"), y="60%", size=120, suffix=" dB", duration=0.8, out=far - 0.25),
+        wstat(188, "decibels", s.at("louder"), y="56%", size=120, suffix=" dB", duration=0.8, out=far - 0.25),
         comp("explainer/Jet", "68%", "22%", 520, 140, {}, start=jet, depth=0.2,
              enter={"type": "slideLeft", "at": jet, "duration": 0.4}),
         t46("JET ENGINE", jet + 0.35, x="50%", y="13%", size=46, w=1000, align="center", out=carry),
         t46("HEARD 100s OF KM AWAY", s.at("hundreds"), x="50%", y="13%", size=46, w=1000, align="center"),
         # "...could reach you": a tiny YOU far out on the left edge as the camera pulls out; the rings reach it
-        comp("explainer/Diver", "9%", "62%", 110, 26, {"arms": "side"}, z=3, start=far, enter=pop(far, 0.3),
+        comp("explainer/Diver", "12%", "62%", 180, 42, {"arms": "side"}, z=3, start=far, enter=pop(far, 0.3),
              idle=[{"type": "float", "amount": 6, "speed": 0.4}]),
-        you_chip(far, "9%", "58.5%"),
-        ring("9%", "62%", far + 0.25, d0=0.1, d1=0.7, life=0.9, size=300, color="rgba(111,214,232,0.9)"),
-    ], cam))
+        you_chip(far, "12%", "57.5%"),
+        ring("12%", "62%", far + 0.25, d0=0.1, d1=0.7, life=0.9, size=300, color="rgba(111,214,232,0.9)"),
+    ], cam, captionY=0.8))
 
     # ---------------------------------------------------------------- p06 gulp: head enters the krill swarm, pouch balloons
     s = S[6]
@@ -628,16 +687,16 @@ def blue_whale(S):
         comp("explainer/BlueWhale", "-148%", "34%", 3000, 437,
              {"speed": 1.3, "gape": [{"t": s.at("takes", off=-0.2), "v": 0}, {"t": gulp + 0.6, "v": 1, "ease": "out"}]},
              z=3, keyframes=[{"t": 0, "x": "-111%"}, {"t": cloud, "x": "-96%"}, {"t": gulp + 0.3, "x": "-65.7%", "ease": "out"}]),
-        t46("KRILL", s.at("krill"), x="78%", y="18%", size=48, w=320),
+        t46("KRILL", s.at("krill"), x="78%", y="18%", size=48, w=320, out=s.at("bigger", off=-0.45)),
         t46("ONE GULP > ITS OWN BODY", s.at("bigger"), y="12%", size=48, w=1000, align="center"),
-    ], Cam(s.dur, z0=1.0, z1=1.08, x="52%", y="44%").punch(s.at("charges", off=-0.05), cloud, gulp + 0.3)))
+    ], Cam(s.dur, z0=1.0, z1=1.08, x="52%", y="44%").punch(s.at("charges", off=-0.05), cloud, gulp + 0.3), captionY=0.8))
 
     # ---------------------------------------------------------------- p07 turnstile: you, alone in the cloud
     s = S[7]
     sc.append(bw_scene(s, ocean(25, rays=8), [
         {"type": "particles", "preset": "dust", "count": 600, "color": "rgba(255,140,105,0.85)", "size": [4, 9], "speed": 0.5, "z": 1},
         # the whale looms below YOU: head and open mouth in frame, dimmed and softened by depth (not a black slab)
-        comp("explainer/BlueWhale", "170%", "60%", 1800, 263,
+        comp("explainer/BlueWhale", "170%", "54%", 1800, 263,
              {"speed": 0.6, "gape": [{"t": 0, "v": 0}, {"t": s.dur, "v": 0.6, "ease": "inOut"}]}, flipX=True, z=0,
              opacity=0.5, blur=3, start=0.0,
              keyframes=[{"t": 0, "x": "170%"}, {"t": s.dur, "x": "118%", "ease": "out"}]),
@@ -669,7 +728,7 @@ def blue_whale(S):
     sc.append(bw_scene(s, ocean(60, rays=4, snow=30), [
         comp("explainer/Krill", "50%", "46%", 640, 280, {"speed": 0.8}, end=cut,
              keyframes=[{"t": 0, "scale": 1}, {"t": tiny, "scale": 1}, {"t": tiny + 0.35, "scale": 0.22, "ease": "inOut"}]),
-        t46("≈ 6 CM LONG", 0.9, y="62%", size=48, w=1000, align="center", end=cut),
+        t46("≈ 6 CM LONG", 0.9, y="58.5%", size=48, w=1000, align="center", end=cut),
         wstat(40000000, "krill a day", s.at("forty", off=-0.1), y="22%", size=100, duration=1.4, end=cut),
         {"type": "particles", "preset": "dust", "count": 300, "color": "rgba(255,140,105,0.85)", "size": [4, 8], "speed": 0.4,
          "z": 1, "start": tiny + 0.2, "end": cut},
@@ -708,9 +767,13 @@ def blue_whale(S):
                         {"t": turn, "x": "118%", "rotate": 0, "ease": "inOut"},
                         {"t": turn + 0.8, "x": "100%", "rotate": -14, "ease": "inOut"},
                         {"t": sweeps - 0.9, "x": "26%", "rotate": -6, "opacity": 1, "ease": "inOut"},
-                        {"t": sweeps - 0.3, "x": "18%", "rotate": -5, "opacity": 0},
+                        # QA round 1: the body held >= 60 % until the fluke is in (no empty half-second at 62.2 s, the
+                        # fluke never reads as a separate fish); its own tail stays past the right edge
+                        {"t": sweeps - 0.3, "x": "18%", "rotate": -5, "opacity": 0.75},
+                        {"t": sweeps + 0.3, "x": "15%", "rotate": -4, "opacity": 0.6},
+                        {"t": sweeps + 0.8, "x": "12%", "rotate": -4, "opacity": 0},
                         {"t": s.dur, "x": "10%", "rotate": -4, "opacity": 0}]),
-        comp("explainer/Diver", "50%", "36%", 260, 58, {"arms": "side"}, z=3,
+        comp("explainer/Diver", "50%", "36%", 260, 58, {"arms": "side"}, z=6,
              keyframes=[{"t": 0, "x": "50%", "y": "36%", "rotate": 0}, {"t": turn + 0.3, "x": "50%", "y": "36%", "rotate": 0},
                         {"t": turn + 1.3, "x": "30%", "y": "31%", "rotate": -230, "ease": "out"},
                         {"t": sweeps, "x": "30%", "y": "32%", "rotate": -250},
@@ -726,12 +789,14 @@ def blue_whale(S):
         # the 7 m fluke at true scale against the 2.6 m diver (260 px => 100 px/m => 700 px), seen from above, sweeping
         # up past YOU on "sweeps"
         # (QA: it crossed in < 1 s and left through the top edge) sweeps across the middle of the frame, fades on the left
-        svg(FLUKE, "62%", "78%", 700, 262, start=sweeps - 0.35, end=sweeps + 1.5, z=4,
-            keyframes=[{"t": sweeps - 0.35, "x": "70%", "y": "80%", "rotate": 24, "opacity": 0},
-                       {"t": sweeps - 0.15, "x": "60%", "y": "62%", "rotate": 16, "opacity": 1},
-                       {"t": sweeps + 0.3, "x": "40%", "y": "40%", "rotate": -6, "opacity": 1, "ease": "inOut"},
-                       {"t": sweeps + 0.9, "x": "22%", "y": "34%", "rotate": -14, "opacity": 1},
-                       {"t": sweeps + 1.4, "x": "10%", "y": "30%", "rotate": -20, "opacity": 0}]),
+        # QA round 1: in from the right edge (where the body's own tail stock leaves the frame) from 62.2 s, the path at
+        # y 0.46-0.56 (clear of the 0.72 caption), passing BELOW the diver (diver/YOU drawn above it, z 6)
+        svg(FLUKE, "96%", "55%", 700, 262, start=sweeps - 0.95, end=sweeps + 1.5, z=4,
+            keyframes=[{"t": sweeps - 0.95, "x": "100%", "y": "56%", "rotate": 12, "opacity": 0},
+                       {"t": sweeps - 0.7, "x": "90%", "y": "55%", "rotate": 10, "opacity": 1},
+                       {"t": sweeps + 0.3, "x": "58%", "y": "51%", "rotate": -4, "opacity": 1, "ease": "inOut"},
+                       {"t": sweeps + 0.9, "x": "36%", "y": "47%", "rotate": -10, "opacity": 1},
+                       {"t": sweeps + 1.4, "x": "20%", "y": "46%", "rotate": -14, "opacity": 0}]),
     ], cam))
 
     # ---------------------------------------------------------------- p10 bookend: back to the frame-0 state (seamless loop)
@@ -760,6 +825,7 @@ def blue_whale_16x9(S):
     uses them instead of remapping the 9:16 scene (p01, p02, p04). p01: the nose-up ruler left both sides of 16:9 empty and put the
     30 M chip into the header, so the whale lies along a horizontal 0-30 m ruler with 2.5 buses nose to tail below."""
     W16, H16 = 1920, 1080
+    _bw_snap(S)
     s = S[1]
     PPM = 52
     L = 30 * PPM                                  # 1560 px for 30 m

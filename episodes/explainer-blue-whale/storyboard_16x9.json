@@ -729,7 +729,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50.00%",
-     "y": "73.90%",
+     "y": "73.83%",
      "width": 975.0,
      "height": 126.36,
      "props": {
@@ -2244,10 +2244,10 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "32.01%",
+     "x": "33.33%",
      "y": "76.61%",
-     "width": 85.8,
-     "height": 20.28,
+     "width": 140.4,
+     "height": 32.76,
      "props": {
       "arms": "side"
      },
@@ -2269,8 +2269,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "32.01%",
-     "y": "71.75%",
+     "x": "33.33%",
+     "y": "70.37%",
      "width": 234.0,
      "height": 102.96,
      "props": {
@@ -2288,7 +2288,7 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(111,214,232,0.9)\" stroke-width=\"5\"/></svg>",
-     "x": "32.01%",
+     "x": "33.33%",
      "y": "76.61%",
      "width": 234.0,
      "height": 234.0,
@@ -2509,6 +2509,7 @@
       "text": "KRILL",
       "at": 2.012,
       "size": 46.8,
+      "out": 4.025,
       "accent": "#6fd6e8"
      },
      "depth": 0,
@@ -2600,7 +2601,7 @@
      "type": "component",
      "name": "explainer/BlueWhale",
      "x": "102.65%",
-     "y": "73.83%",
+     "y": "65.51%",
      "width": 1404.0,
      "height": 205.14,
      "props": {
@@ -2772,7 +2773,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50.00%",
-     "y": "74.32%",
+     "y": "71.75%",
      "width": 975.0,
      "height": 112.32,
      "props": {
@@ -3085,7 +3086,7 @@
   },
   {
    "id": "p09",
-   "duration": 8.825,
+   "duration": 8.975,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -3142,10 +3143,22 @@
        "t": 7.407,
        "x": "35.96%",
        "rotate": -5,
+       "opacity": 0.75
+      },
+      {
+       "t": 8.007,
+       "x": "34.64%",
+       "rotate": -4,
+       "opacity": 0.6
+      },
+      {
+       "t": 8.507,
+       "x": "33.33%",
+       "rotate": -4,
        "opacity": 0
       },
       {
-       "t": 8.825,
+       "t": 8.975,
        "x": "32.45%",
        "rotate": -4,
        "opacity": 0
@@ -3162,7 +3175,7 @@
      "props": {
       "arms": "side"
      },
-     "z": 3,
+     "z": 6,
      "keyframes": [
       {
        "t": 0,
@@ -3318,48 +3331,48 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 480 180\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"fk\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7397b0\"/><stop offset=\"1\" stop-color=\"#3a5a78\"/></linearGradient></defs><path d=\"M 214 180 L 220 92 L 260 92 L 266 180 Z\" fill=\"#3f6080\"/><path d=\"M 240 70 C 180 40 90 16 6 30 C 30 70 110 110 196 116 L 240 98 L 284 116 C 370 110 450 70 474 30 C 390 16 300 40 240 70 Z\" fill=\"url(#fk)\" stroke=\"#2f4c66\" stroke-width=\"4\"/></svg>",
-     "x": "55.27%",
-     "y": "98.79%",
+     "x": "70.18%",
+     "y": "66.90%",
      "width": 546.0,
      "height": 204.36,
-     "start": 7.357,
+     "start": 6.757,
      "end": 9.207,
      "z": 4,
      "keyframes": [
       {
-       "t": 7.357,
-       "x": "58.77%",
-       "y": "101.57%",
-       "rotate": 24,
+       "t": 6.757,
+       "x": "71.94%",
+       "y": "68.29%",
+       "rotate": 12,
        "opacity": 0
       },
       {
-       "t": 7.5569999999999995,
-       "x": "54.39%",
-       "y": "76.61%",
-       "rotate": 16,
+       "t": 7.007,
+       "x": "67.55%",
+       "y": "66.90%",
+       "rotate": 10,
        "opacity": 1
       },
       {
        "t": 8.007,
-       "x": "45.61%",
-       "y": "46.10%",
-       "rotate": -6,
+       "x": "53.51%",
+       "y": "61.35%",
+       "rotate": -4,
        "opacity": 1,
        "ease": "inOut"
       },
       {
        "t": 8.607,
-       "x": "37.71%",
-       "y": "37.78%",
-       "rotate": -14,
+       "x": "43.86%",
+       "y": "55.81%",
+       "rotate": -10,
        "opacity": 1
       },
       {
        "t": 9.107,
-       "x": "32.45%",
-       "y": "32.23%",
-       "rotate": -20,
+       "x": "36.84%",
+       "y": "54.42%",
+       "rotate": -14,
        "opacity": 0
       }
      ]
@@ -3380,38 +3393,38 @@
      },
      {
       "t": 0.752,
-      "zoom": 1.185,
+      "zoom": 1.1849,
       "ease": "out"
      },
      {
       "t": 2.695,
-      "zoom": 1.198
+      "zoom": 1.1977
      },
      {
       "t": 2.915,
-      "zoom": 1.0165,
+      "zoom": 1.0162,
       "ease": "out"
      },
      {
       "t": 4.057,
-      "zoom": 1.023
+      "zoom": 1.0226
      },
      {
       "t": 4.277,
-      "zoom": 1.2086,
+      "zoom": 1.2081,
       "ease": "out"
      },
      {
       "t": 6.107,
-      "zoom": 1.2208
+      "zoom": 1.2201
      },
      {
       "t": 6.327,
-      "zoom": 1.0358,
+      "zoom": 1.0352,
       "ease": "out"
      },
      {
-      "t": 8.825,
+      "t": 8.975,
       "zoom": 1.05,
       "x": "50.00%",
       "y": "51.65%"
@@ -3433,7 +3446,7 @@
   },
   {
    "id": "p10",
-   "duration": 6.155,
+   "duration": 6.005,
    "background": {
     "type": "component",
     "name": "explainer/Ocean",
@@ -3459,11 +3472,11 @@
         "v": 0.6
        },
        {
-        "t": 1.737,
+        "t": 1.587,
         "v": 0.6
        },
        {
-        "t": 3.725,
+        "t": 3.575,
         "v": 0.85,
         "ease": "inOut"
        }
@@ -3499,21 +3512,21 @@
        "rotate": -40
       },
       {
-       "t": 1.737,
+       "t": 1.587,
        "x": "47.37%",
        "y": "53.03%",
        "rotate": -30,
        "ease": "inOut"
       },
       {
-       "t": 3.725,
+       "t": 3.575,
        "x": "52.41%",
        "y": "51.09%",
        "rotate": -25,
        "ease": "inOut"
       },
       {
-       "t": 6.155,
+       "t": 6.005,
        "x": "52.41%",
        "y": "51.09%",
        "rotate": -25
@@ -3545,19 +3558,19 @@
        "y": "44.71%"
       },
       {
-       "t": 1.737,
+       "t": 1.587,
        "x": "46.49%",
        "y": "41.94%",
        "ease": "inOut"
       },
       {
-       "t": 3.725,
+       "t": 3.575,
        "x": "50.88%",
        "y": "39.86%",
        "ease": "inOut"
       },
       {
-       "t": 6.155,
+       "t": 6.005,
        "x": "50.88%",
        "y": "39.86%"
       }
@@ -3577,7 +3590,7 @@
       "color": "white",
       "underline": false,
       "red": "THROAT",
-      "out": 3.725
+      "out": 3.575
      },
      "depth": 0,
      "z": 20
@@ -3591,7 +3604,7 @@
      "height": 361.92,
      "props": {
       "text": "YOU'RE TOO\nBIG TO EAT",
-      "at": 4.025,
+      "at": 3.875,
       "size": 113.1,
       "color": "white",
       "underline": false,
@@ -3610,10 +3623,10 @@
      "rotate": -90,
      "z": 7,
      "depth": 0,
-     "start": 4.175,
+     "start": 4.025,
      "enter": {
       "type": "pop",
-      "at": 4.175,
+      "at": 4.025,
       "duration": 0.3
      }
     }
@@ -3628,28 +3641,28 @@
       "y": "53.03%"
      },
      {
-      "t": 1.737,
-      "zoom": 1.2573
+      "t": 1.587,
+      "zoom": 1.2555
      },
      {
-      "t": 1.957,
-      "zoom": 1.4892,
+      "t": 1.807,
+      "zoom": 1.4873,
       "ease": "out"
      },
      {
-      "t": 3.725,
+      "t": 3.575,
       "zoom": 1.3,
       "x": "48.24%",
       "y": "53.03%"
      },
      {
-      "t": 5.025,
+      "t": 4.875,
       "zoom": 0.92,
       "x": "50.00%",
       "y": "54.42%"
      },
      {
-      "t": 6.155,
+      "t": 6.005,
       "zoom": 0.92,
       "x": "50.00%",
       "y": "54.42%"
@@ -3663,7 +3676,8 @@
    {
     "text": "You'd",
     "start": 0.1,
-    "end": 0.238
+    "end": 0.238,
+    "br": true
    },
    {
     "text": "fit",
@@ -3698,7 +3712,8 @@
    {
     "text": "It",
     "start": 2.25,
-    "end": 2.4
+    "end": 2.4,
+    "br": true
    },
    {
     "text": "still",
@@ -3723,7 +3738,8 @@
    {
     "text": "This",
     "start": 3.78,
-    "end": 4.005
+    "end": 4.005,
+    "br": true
    },
    {
     "text": "is",
@@ -3748,7 +3764,8 @@
    {
     "text": "ever",
     "start": 5.305,
-    "end": 5.605
+    "end": 5.605,
+    "br": true
    },
    {
     "text": "measured.",
@@ -3758,7 +3775,8 @@
    {
     "text": "Up",
     "start": 6.455,
-    "end": 6.655
+    "end": 6.655,
+    "br": true
    },
    {
     "text": "to",
@@ -3766,13 +3784,8 @@
     "end": 6.792
    },
    {
-    "text": "thirty",
+    "text": "30 metres",
     "start": 6.792,
-    "end": 7.13
-   },
-   {
-    "text": "metres",
-    "start": 7.13,
     "end": 7.518
    },
    {
@@ -3783,7 +3796,8 @@
    {
     "text": "That's",
     "start": 8.23,
-    "end": 8.518
+    "end": 8.518,
+    "br": true
    },
    {
     "text": "two and a half",
@@ -3803,7 +3817,8 @@
    {
     "text": "parked",
     "start": 9.905,
-    "end": 10.255
+    "end": 10.255,
+    "br": true
    },
    {
     "text": "nose",
@@ -3823,7 +3838,8 @@
    {
     "text": "Lying",
     "start": 11.705,
-    "end": 12.105
+    "end": 12.105,
+    "br": true
    },
    {
     "text": "beside",
@@ -3838,7 +3854,8 @@
    {
     "text": "you'd",
     "start": 12.73,
-    "end": 12.905
+    "end": 12.905,
+    "br": true
    },
    {
     "text": "cover",
@@ -3858,7 +3875,8 @@
    {
     "text": "It",
     "start": 14.12,
-    "end": 14.202
+    "end": 14.202,
+    "br": true
    },
    {
     "text": "can",
@@ -3873,7 +3891,8 @@
    {
     "text": "close",
     "start": 14.527,
-    "end": 14.865
+    "end": 14.865,
+    "br": true
    },
    {
     "text": "to",
@@ -3881,24 +3900,15 @@
     "end": 15.002
    },
    {
-    "text": "two",
+    "text": "200 tonnes.",
     "start": 15.002,
-    "end": 15.215
-   },
-   {
-    "text": "hundred",
-    "start": 15.215,
-    "end": 15.602
-   },
-   {
-    "text": "tonnes.",
-    "start": 15.602,
     "end": 16.34
    },
    {
     "text": "Heavier",
     "start": 16.477,
-    "end": 16.915
+    "end": 16.915,
+    "br": true
    },
    {
     "text": "than",
@@ -3923,7 +3933,8 @@
    {
     "text": "ever",
     "start": 18.203,
-    "end": 18.527
+    "end": 18.527,
+    "br": true
    },
    {
     "text": "found.",
@@ -3933,7 +3944,8 @@
    {
     "text": "The",
     "start": 19.06,
-    "end": 19.168
+    "end": 19.168,
+    "br": true
    },
    {
     "text": "tongue",
@@ -3948,7 +3960,8 @@
    {
     "text": "weighs",
     "start": 19.942,
-    "end": 20.305
+    "end": 20.305,
+    "br": true
    },
    {
     "text": "about",
@@ -3983,7 +3996,8 @@
    {
     "text": "That's",
     "start": 22.117,
-    "end": 22.417
+    "end": 22.417,
+    "br": true
    },
    {
     "text": "about",
@@ -3991,7 +4005,7 @@
     "end": 22.73
    },
    {
-    "text": "forty",
+    "text": "40",
     "start": 22.73,
     "end": 23.155
    },
@@ -4008,7 +4022,8 @@
    {
     "text": "The",
     "start": 23.64,
-    "end": 23.735
+    "end": 23.735,
+    "br": true
    },
    {
     "text": "heart",
@@ -4053,7 +4068,8 @@
    {
     "text": "and",
     "start": 25.735,
-    "end": 25.86
+    "end": 25.86,
+    "br": true
    },
    {
     "text": "outweighs",
@@ -4078,7 +4094,8 @@
    {
     "text": "On",
     "start": 27.36,
-    "end": 27.497
+    "end": 27.497,
+    "br": true
    },
    {
     "text": "a",
@@ -4098,7 +4115,8 @@
    {
     "text": "it",
     "start": 28.335,
-    "end": 28.435
+    "end": 28.435,
+    "br": true
    },
    {
     "text": "can",
@@ -4121,13 +4139,8 @@
     "end": 29.372
    },
    {
-    "text": "two",
+    "text": "2 beats",
     "start": 29.372,
-    "end": 29.622
-   },
-   {
-    "text": "beats",
-    "start": 29.622,
     "end": 29.897
    },
    {
@@ -4143,7 +4156,8 @@
    {
     "text": "Its",
     "start": 30.44,
-    "end": 30.652
+    "end": 30.652,
+    "br": true
    },
    {
     "text": "call",
@@ -4183,7 +4197,8 @@
    {
     "text": "and",
     "start": 33.015,
-    "end": 33.127
+    "end": 33.127,
+    "br": true
    },
    {
     "text": "it",
@@ -4203,7 +4218,8 @@
    {
     "text": "hundreds of kilometres",
     "start": 33.802,
-    "end": 35.04
+    "end": 35.04,
+    "br": true
    },
    {
     "text": "away.",
@@ -4213,7 +4229,8 @@
    {
     "text": "To",
     "start": 35.61,
-    "end": 35.747
+    "end": 35.747,
+    "br": true
    },
    {
     "text": "eat,",
@@ -4233,7 +4250,8 @@
    {
     "text": "into",
     "start": 36.697,
-    "end": 36.935
+    "end": 36.935,
+    "br": true
    },
    {
     "text": "a",
@@ -4258,7 +4276,8 @@
    {
     "text": "and",
     "start": 38.285,
-    "end": 38.435
+    "end": 38.435,
+    "br": true
    },
    {
     "text": "takes",
@@ -4288,7 +4307,8 @@
    {
     "text": "bigger",
     "start": 39.935,
-    "end": 40.31
+    "end": 40.31,
+    "br": true
    },
    {
     "text": "than",
@@ -4313,7 +4333,8 @@
    {
     "text": "So",
     "start": 41.4,
-    "end": 41.575
+    "end": 41.575,
+    "br": true
    },
    {
     "text": "what",
@@ -4338,7 +4359,8 @@
    {
     "text": "floating",
     "start": 42.837,
-    "end": 43.237
+    "end": 43.237,
+    "br": true
    },
    {
     "text": "right",
@@ -4348,7 +4370,8 @@
    {
     "text": "in",
     "start": 43.55,
-    "end": 43.637
+    "end": 43.637,
+    "br": true
    },
    {
     "text": "the",
@@ -4378,7 +4401,8 @@
    {
     "text": "It",
     "start": 44.88,
-    "end": 44.975
+    "end": 44.975,
+    "br": true
    },
    {
     "text": "eats",
@@ -4396,13 +4420,8 @@
     "end": 45.537
    },
    {
-    "text": "forty",
+    "text": "40 million",
     "start": 45.537,
-    "end": 45.987
-   },
-   {
-    "text": "million",
-    "start": 45.987,
     "end": 46.412
    },
    {
@@ -4413,7 +4432,8 @@
    {
     "text": "a",
     "start": 46.75,
-    "end": 46.862
+    "end": 46.862,
+    "br": true
    },
    {
     "text": "day,",
@@ -4448,7 +4468,8 @@
    {
     "text": "Its",
     "start": 49.2,
-    "end": 49.462
+    "end": 49.462,
+    "br": true
    },
    {
     "text": "throat",
@@ -4469,7 +4490,8 @@
    {
     "text": "about",
     "start": 50.725,
-    "end": 51.025
+    "end": 51.025,
+    "br": true
    },
    {
     "text": "as",
@@ -4504,7 +4526,8 @@
    {
     "text": "Anything",
     "start": 52.937,
-    "end": 53.437
+    "end": 53.437,
+    "br": true
    },
    {
     "text": "bigger",
@@ -4514,7 +4537,8 @@
    {
     "text": "just",
     "start": 53.775,
-    "end": 53.975
+    "end": 53.975,
+    "br": true
    },
    {
     "text": "gets",
@@ -4539,7 +4563,8 @@
    {
     "text": "The",
     "start": 55.24,
-    "end": 55.335
+    "end": 55.335,
+    "br": true
    },
    {
     "text": "real",
@@ -4569,7 +4594,8 @@
    {
     "text": "It's",
     "start": 57.435,
-    "end": 57.66
+    "end": 57.66,
+    "br": true
    },
    {
     "text": "being",
@@ -4594,27 +4620,19 @@
    {
     "text": "when",
     "start": 58.385,
-    "end": 58.572
+    "end": 58.572,
+    "br": true
    },
    {
-    "text": "two",
+    "text": "200 tonnes",
     "start": 58.572,
-    "end": 58.785
-   },
-   {
-    "text": "hundred",
-    "start": 58.785,
-    "end": 59.147
-   },
-   {
-    "text": "tonnes",
-    "start": 59.147,
     "end": 59.535
    },
    {
     "text": "decides",
     "start": 59.535,
-    "end": 60.085
+    "end": 60.085,
+    "br": true
    },
    {
     "text": "to",
@@ -4630,7 +4648,8 @@
    {
     "text": "and",
     "start": 61.01,
-    "end": 61.122
+    "end": 61.122,
+    "br": true
    },
    {
     "text": "a",
@@ -4643,13 +4662,8 @@
     "end": 61.722
    },
    {
-    "text": "seven",
+    "text": "7 metres",
     "start": 61.722,
-    "end": 62.11
-   },
-   {
-    "text": "metres",
-    "start": 62.11,
     "end": 62.522
    },
    {
@@ -4660,7 +4674,8 @@
    {
     "text": "sweeps",
     "start": 62.897,
-    "end": 63.272
+    "end": 63.272,
+    "br": true
    },
    {
     "text": "past.",
@@ -4670,7 +4685,8 @@
    {
     "text": "Room",
     "start": 64.065,
-    "end": 64.34
+    "end": 64.34,
+    "br": true
    },
    {
     "text": "for",
@@ -4700,7 +4716,8 @@
    {
     "text": "No",
     "start": 65.752,
-    "end": 66.027
+    "end": 66.027,
+    "br": true
    },
    {
     "text": "room",
@@ -4725,7 +4742,8 @@
    {
     "text": "And",
     "start": 67.49,
-    "end": 67.627
+    "end": 67.627,
+    "br": true
    },
    {
     "text": "it",

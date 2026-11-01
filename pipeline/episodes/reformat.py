@@ -217,6 +217,8 @@ def reformat(sb: dict, k: float = 0.78, native: dict | None = None, zoom: dict |
             out["scenes"][i] = nat
             continue
         sc["layers"] = [layer16(l, m, cap_font) for l in sc["layers"]]
+        sc.pop("captionY", None)  # 9:16 per-scene caption drops (clear of low stat cards) mean nothing in the 16:9 band
+        sc.pop("captionYAt", None)
         if "camera" in sc:
             sc["camera"] = camera16(sc["camera"], m)
             for kf in sc["camera"].get("keyframes", []):
@@ -248,6 +250,14 @@ def main():
     joins = getattr(explainer_eps, "CAPTION_JOIN_16X9", {}).get(a.slug)
     if joins and sb16.get("captions"):
         join_words(sb16["captions"]["words"], joins)
+    pages = getattr(explainer_eps, "CAPTION_PAGES_16X9", {}).get(a.slug)
+    if sb16.get("captions"):
+        from .build import mark_pages
+        if pages:  # 16:9 whole-sentence pages (the 9:16 br pages are cut for a narrower frame)
+            mark_pages(sb16["captions"]["words"], pages, a.slug)
+        else:
+            for w in sb16["captions"]["words"]:
+                w.pop("br", None)
     with open(out, "w") as f:
         json.dump(sb16, f, indent=1, ensure_ascii=False)
     print(f"{a.slug}: 16:9 cut (k={a.k}) -> {os.path.relpath(out, ROOT)}")
