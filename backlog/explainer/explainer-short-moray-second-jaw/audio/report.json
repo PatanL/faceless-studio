@@ -1,0 +1,35 @@
+{
+ "id": "moray-pilot",
+ "niche": "explainer",
+ "script": "backlog/explainer/explainer-short-moray-second-jaw/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 0.96,
+  "synth_s": 32.41,
+  "duration_s": 72.05,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.07,
+  "true_peak_dbtp_4x": -1.06,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.0,
+   "LRA_lu": 1.5,
+   "true_peak_dbtp": -1.1
+  },
+  "duration_s": 71.65,
+  "music": "deep_ocean",
+  "sfx_placed": [],
+  "music_rms_db_under_voice": -40.13,
+  "music_rms_db_in_gaps": -48.86,
+  "measured_duck_db": 8.73,
+  "bed_below_voice_db": 20.3
+ },
+ "words": 221,
+ "wall_s": 34.6
+}

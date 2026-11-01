@@ -1,0 +1,158 @@
+{
+ "episode": "explainer-short-moray-second-jaw",
+ "reviewed_at_utc": "2026-11-01T11:56Z",
+ "scores_before": {
+  "retention": 6,
+  "reference": 6,
+  "originality": 7,
+  "producibility": 5
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 8,
+  "producibility": 7
+ },
+ "score_notes": {
+  "retention": "The human stake now climbs: hooked teeth (plant), then it bites a hand in its home, then 'the worst thing you can do' RQ, then 'Pull.' and the hooks pay off. A handshake joke closes the graphic beat, followed by a 7-word turnstile at 51% whose reason holds (defending, not feeding). The viewer then becomes the fish and meets mouth two: spectacle peak 56-75%. The twist breaks the turnstile's rule (the friendly, hand-fed ones), and the stinger reverses it, ending on 'fingers', which loops into line 1 ('Your fingers...'). The hook is 9 words / 2.6 s measured. You-words run 16.7/min with no stretch without 'you'. Held at 8 because the longest explicit re-hook gap is 16 s (38.6 -> 54.6, carried by launch/ratchet action) and the cutaway reads small at phone size.",
+  "reference": "The alignment table was rebuilt against 6mRR91AbxjQ.md, XFFjxTllpoA.md and jw6bS-WL4F4.md with corrected timestamps: the PUFFER mechanism aside cites 0:17-0:21, the twist cites PUFFER 0:43-0:47, the misdirect is now JELLY's comic list. The title is now in the formula (6mRR91AbxjQ 'How Horseflies Bite You'). The RQ re-hook is honestly flagged as long-form-derived. The mechanism aside is 12 words / 3.2 s. Every paragraph is 2.0-5.4 s. The spine closes at 75% (corpus 64-100%). Held at 8 because the stinger type is a purpose reveal (6mRR91AbxjQ 0:24.9), not the recurrence/finality fact the critique asked for (see not_applied), and the RQ device has no Shorts exemplar.",
+  "originality": "The rival same-topic video CQXRzLX6aXk (Zack D. Films, 9.93M) transcript was fetched on the Spark (en-orig subs via the android_vr client after a 429) and saved to research/library/transcripts/CQXRzLX6aXk.txt, so the gate now checks against it: 0 shared 5-grams. The hook, turnstile and stinger no longer imply that the second mouth threatens your hand. The finger-loss joke is gone. The 'narrow head' explanation the rival uses is dropped for the paper's mechanism (weak suction). Policy pages are cited directly while R5 is empty, and the description discloses the synthetic voice. Held at 8 because the structural borrowing from a Zack D. Films Short (counted mouthparts) on a Zack D. Films topic is still visible, though the POV, ladder, twist and loop differ.",
+  "producibility": "The minimum asset set is 7 static SVG drawings (12 states). Every motion is transform/opacity. Occlusion is done by stacking (an evenodd wall hole, an evenodd cutaway shell), never masks. Ticks and crosses are SVG primitives. There are no pitch SFX and no rope/counting-hands/front-facing moray/rock. The music drop is two music entries. All layer timing is word-anchored to MEASURED Kokoro timings. storyboard.json is zod-valid and render-ready (check_storyboards: ready, max hold 2.5 s, mix present on the Spark), and a 21- then 14-frame stills sheet was rendered on the Spark and looked at. Held at 7 because the moray is a rigid SVG (no body undulation) until an explainer/Moray kit species exists, the twist wide has a hard-edged wall block, and the cutaway is legible but small."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Stinger rewritten: 'This time, it really is trying to eat your fingers.' (10 words). It pays off the twist by reversing the turnstile, has no advice or CTA, and no 'second mouth' threat. It ends on 'fingers', which loops into line 1 'Your fingers...'",
+   "Turnstile logic fixed: 'Relax, it's not trying to eat you.' The reassurance is the motive itself (a wild moray in its hole bites to defend). Measured at 36.5 s = 51%",
+   "No 'you' dead zone: every middle paragraph has you/your. The ratchet is cut to one clause ('hand over hand'). The mechanism is re-voiced with the viewer as the would-be prey ('If you were a fish, you'd meet mouth two'). A micro loop opens at 23.9 s ('the worst thing you can do next...') and pays at 27.6 s ('Pull.')",
+   "Rung 1 plants only the shape ('teeth curved backwards like fish hooks'). The consequence comes at 27.6-33.0 s by callback ('Those hooks point inward, so yanking back drags your hand across every one')",
+   "Hook trimmed to 9 words ('Your fingers just brushed a hole with two mouths.'). Read at the config speed of 0.96 (no faster hook). The timing model was replaced by a measured Kokoro pilot: hook 2.6 s, total 71.65 s",
+   "Hook contract fixed: it promises a hole with two mouths (true). Mouth two is met only 'if you were a fish'. The stinger never mentions the second mouth",
+   "No heavy peak sentence remains: the longest sentence is 17 words, average 12.3. The worst beat is the 1-word punch 'Pull.' plus a 13-word chained line",
+   "Fact gate resolved: the 'counting to nine' joke is removed (no primary report of finger loss; secondary mentions only, see F9). 'Tears more than the bite did' is replaced with mechanism-only wording backed by Healthline/DAN/wetwebmedia"
+  ],
+  "reference": [
+   "Stinger is now 10 words and ends on a strong loop word. It is a purpose reveal tied to the twist (6mRR91AbxjQ 0:24.9 device) and no longer contradicts the honesty note (see not_applied for the recurrence-fact request)",
+   "'You' density is 16.7/min (target 12-20) and 83% of sentences contain 'you'. The 26-55% window is now hand-bite rungs plus 'you as the fish', not third-person fish feeding",
+   "Ladder restructured (Option A shape): hooks plant -> bite in its home -> RQ -> pull (most graphic, ~39-46%) -> handshake joke -> turnstile at 51% right after the graphic beat (JELLY 0:31 placement) -> throat-jaw spectacle peak 56-75% -> hand-feeding twist. The spine closes at 75%, not 35%",
+   "Turnstile is 7 words with a reason that holds, and the background changes on the next word (dark card -> teal 'If'). The twist explicitly breaks the turnstile's rule, so the peak and the twist no longer disagree about why it bites (defence in the wild, food conditioning at feeding sites)",
+   "Rungs added, not padded: 17 paragraphs of 2.0-5.4 s speech each. Explicit re-hooks at 6.9, 13.8, 23.9, 36.5, 38.6, 54.6 and 64.5 s, with worse/stranger teases at ~33% (RQ) and ~54% (you as fish)",
+   "Mechanism aside cut to 12 words / 3.2 s ('Its throat can't suck you in, so a second jaw does it.'), paid off at 'launches' 2.6 s later. Its citation is corrected to XFFjxTllpoA 0:17-0:21",
+   "Misdirect is now a comic list with an absurd last item ('one suspicious crab'), JELLY 0:03-0:08, pivoting on 'never the crack you're touching'",
+   "Hook stats corrected and measured (9 words, 'Your' = word 1, 2.6 s). Read at body speed; no fast hook",
+   "Title moved into the series formula: 'How A Moray Eel Bites You' (6mRR91AbxjQ). Line 1 acts it out (your fingers at the hole)",
+   "Fact wording softened: 'can't slide back out' removed. Scale is 'the biggest reach three metres, longer than you're tall', tagged GIANT MORAY: UP TO ~3 M. The counting joke is removed"
+  ],
+  "originality": [
+   "CQXRzLX6aXk transcript fetched on the Spark (~/.local/bin/yt-dlp, en-orig auto-subs, android_vr client after the web client hit a 429) and saved to research/library/transcripts/CQXRzLX6aXk.txt. Gate rerun: PASS, 0 shared 5-grams with it",
+   "Hook and stinger no longer imply that the second mouth threatens your hand ('a hole with two mouths'; mouth two met only as a fish; the stinger is about your fingers as food)",
+   "Finger-loss joke removed. The bite outcomes are mechanism-only (hooks + pulling)",
+   "R5 is still empty, so section 6 cites the policy pages directly (TikTok Creator Rewards >1 min; YouTube altered/synthetic content disclosure, answer 14328491; YPP inauthentic content, answer 1311392). The description template discloses 'Narration: synthetic voice (Kokoro TTS)'"
+  ],
+  "producibility": [
+   "Asset set cut to 7 unique static SVGs (12 states): wall+hole, moray head closed/open + body, hand, 5-layer cutaway, fish (+ghost), hook row, primitives",
+   "No internal SVG animation: the lunge is a scale/translate of a second head layer in front of the wall; the blink is a scaleY keyframe; the ratchet is keyframes on the lower jaw, throat jaw and fish",
+   "No coil-back and no gap-less shots. The scale card uses You and the moray body at the same 300 px/m side by side on a floor line (not a HeightChart)",
+   "Rope/hands shot cut ('hand over hand' is a Tag over the real ratchet)",
+   "Counting-hand shot cut. No pitch-shifted SFX: plain pop/click cues only",
+   "No continuous pullOut between different hand drawings: a camera snap at 'never' swaps the wide layers for the close-up",
+   "No front-view moray or extra rock: the side head is reused via crops and positions, and the twist reuses the wall hole",
+   "Every in-scene split is anchored to a word with A(scene, word), using measured Kokoro timings (e.g. 'crack' 7.2 s, 'bitten' 21.7 s, 'yanking' 30.3 s)",
+   "No HIDDEN/TAME desaturated split. The only grade is scene-level (s06 saturate 0.8), and it applies to the whole scene by design",
+   "Pause rule and music made consistent: [pause: 0.2] before 'Relax.' (0.4 s measured gap). The music drop is two music entries (end at s09 start fadeOut 0.25, restart at s10 start fadeIn 0.3)",
+   "No \u2713/\u2717 glyphs anywhere: SVG_TICK and SVG_CROSS primitives, with ticks drawn beside the Options rows",
+   "Cutaway built as 5 stacked layers (cavity < fish < throat jaw < evenodd shell < oral jaws). The fish disappears behind the opaque shell",
+   "Self-check numbers corrected and measured (hook 9 words, 221 words, 71.65 s; chip slot 2 lights on the spoken 'two'; the loop seam is the s01 layers deep-copied into s17)"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Visual hook: a yellow x-ray of the throat jaw glows inside the gap from 0 to 0.75 s (shown, not named)",
+  "Line 2 is 14 words and comic ('one suspicious crab')",
+  "No meta label 'And here's the twist'. The twist is chained and uses 2P ('If you've ever fed one by hand...')",
+  "'MOUTH OPEN-SHUT = BREATHING' tag cut (fact kept in F11, no shot)",
+  "Pause rule restated to match the measured gaps",
+  "Title and last line point the same way (how it bites you: defending, then feeding)",
+  "Comedy in the back half: as-a-fish, monster-movie mouth, which-part-is-the-fish, plus the handshake and questions-later gags",
+  "Generic 'monster-movie mouth' analogy shown as a tag over the launch, with no film IP",
+  "Fewer full stops: 18 sentences, 'First, the front jaw.' fragment gone",
+  "Scale citation moved: JELLY 0:10 named next to a scale prop (the FLY 0:00.9 reverse-scale citation is dropped)",
+  "Twist re-cited to XFFjxTllpoA 0:43-0:47, with the safety rule stated first (the turnstile) and then broken",
+  "Shot cadence: 17 scenes plus word-anchored layer changes; max visual hold 2.5 s (check_storyboards)",
+  "Shaky wordings 1-3 fixed (suction mechanism, 'swap grips' instead of 'bite further along', 'biggest reach three metres')",
+  "Shot 22 tiled-wall blink and pan L/R cues dropped; underwater_rumble at volume 0.13 (\u2248 -18 dB); s17 copies the s01 layers and ends at zoom 1.00"
+ ],
+ "not_applied": [
+  "Reference must_fix #1 asked for a recurrence or finality FACT stinger (e.g. 'feeding-site bites keep happening every season'). No source gives a rate or trend for moray feeding bites: the 'increasing number' claim exists only in Wikipedia text with no traceable primary study. So the stinger uses the PLAYBOOK \u00a76 purpose-reveal type (6mRR91AbxjQ 0:24.9) built on verified facts F9/F10. It meets the other constraints (10 words, strong loop word, tied to the twist, no CTA)",
+  "Retention nice-to-have: one more sourced number with a you-comparison in the mechanism section. No trustworthy throat-jaw speed or gape figure was found, so numbers stay at 5.0/min (cardinal) / ~8.4/min (stats.py method)",
+  "Reference nice-to-have: rotational feeding / knotting rung. Not verified for morays this pass",
+  "Producibility must_fix (moray as a real kit species with warp undulation): recommended in script.md section 7, but not built here. Kit files are shared and edited concurrently, and this lane's scope is the script package. The storyboard uses static SVG within the renderer's limits instead"
+ ],
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/explainer/explainer-short-moray-second-jaw/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "exit_code": 0,
+  "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+  "max_shared_5gram_share": "0.0% with every file in research/corpus and research/library/transcripts, including the new CQXRzLX6aXk.txt",
+  "rival_transcript_added": "research/library/transcripts/CQXRzLX6aXk.txt"
+ },
+ "pacing": {
+  "timing_source": "measured: Kokoro am_michael speed 0.96 on the Spark CPU (TTS_THREADS=2, nice 10), audio/captions.json coverage 1.0",
+  "runtime_s": 71.65,
+  "words": 221,
+  "wpm_speech": 186,
+  "wpm_overall": 185,
+  "hook_words": 9,
+  "hook_s": 2.6,
+  "sentences": 18,
+  "avg_sentence_words": 12.3,
+  "you_words": 20,
+  "you_per_min": 16.7,
+  "you_sentence_share": 0.83,
+  "numbers_cardinal_per_min": 5.0,
+  "named_s": 8.7,
+  "first_counted_rung_s": 13.8,
+  "rq_rehook_s": 23.9,
+  "pull_s": 27.6,
+  "turnstile_s": 36.5,
+  "turnstile_pct": 0.51,
+  "mouth_two_s": 40.3,
+  "launch_s": 46.7,
+  "spine_close_s": 53.9,
+  "spine_close_pct": 0.75,
+  "twist_s": 54.6,
+  "twist_pct": 0.76,
+  "stinger_s": 68.4,
+  "stinger_pct": 0.955,
+  "stinger_last_word": "fingers",
+  "mix": {
+   "lufs": -14.0,
+   "true_peak_dbtp": -1.1
+  }
+ },
+ "facts_checked_this_pass": [
+  "Hand-feeding bites and feeding bans: Wikipedia 'Moray eel' (hand-feeding bites; banned in some places), oceanearthtravels.com (fed morays approach divers), Healthline (digit loss rare; infection most common). Used as 'plenty of bites', not 'most' or 'increasing'",
+  "Rival transcript reviewed for overlap: its mechanism lines ('narrow head', 'not enough suction') are not used"
+ ],
+ "storyboard": {
+  "file": "backlog/explainer/explainer-short-moray-second-jaw/storyboard.json",
+  "generator": "backlog/explainer/explainer-short-moray-second-jaw/gen_storyboard.py (reads audio/captions.json when present; --estimate for the calibrated pre-TTS model)",
+  "validator": "studio/src/cli/validate.ts (npm run validate) on the Spark; schema.ts md5 5e02b4bb identical on Mac and Spark",
+  "result": "ok: 9:16 30fps 17 scenes 71.67s captions=221 words",
+  "render_readiness": "scripts/check_storyboards.py on the Spark: ready (components registered, mix.wav present at studio/public/episodes/explainer-short-moray-second-jaw/mix.wav, max hold 2.5 s)",
+  "stills": "out/stills/explainer-short-moray-second-jaw_storyboard.jpg (Spark render). The first pass found red headlines on pink coral, a floating YOU on the scale card, clipped CU heads and misplaced ticks; all were fixed and re-rendered",
+  "components": [
+   "explainer/Ocean",
+   "explainer/Headline",
+   "explainer/GreatWhite",
+   "explainer/Diver",
+   "explainer/Options",
+   "explainer/Tag",
+   "explainer/ScaleBar",
+   "explainer/You"
+  ],
+  "kit_gaps": [
+   "explainer: Moray species (jaw + swimWarp) to replace SVG_HEAD_*/SVG_MORAY_BODY",
+   "explainer: CoralWall with holes",
+   "thumbs: moray subject (concepts B/C use storyboard stills until then)"
+  ]
+ }
+}

@@ -1,0 +1,5382 @@
+{
+ "version": 1,
+ "id": "explainer-short-moray-second-jaw",
+ "title": "How A Moray Eel Bites You",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_hook",
+   "duration": 2.75,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><circle cx=\"40\" cy=\"30\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"42\" cy=\"31\" r=\"5\" fill=\"#0b0f14\"/><circle cx=\"112\" cy=\"27\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"114\" cy=\"28\" r=\"5\" fill=\"#0b0f14\"/><path d=\"M58 58 Q78 46 96 58\" fill=\"none\" stroke=\"#6f7d2e\" stroke-width=\"8\" stroke-linecap=\"round\" opacity=\"0.8\"/></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 160,
+     "height": 70,
+     "z": 2,
+     "id": "eyes",
+     "keyframes": [
+      {
+       "t": 1.4,
+       "scaleY": 1
+      },
+      {
+       "t": 1.48,
+       "scaleY": 0.1
+      },
+      {
+       "t": 1.5799999999999998,
+       "scaleY": 1
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 3,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 990,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 4,
+       "speed": 0.5
+      }
+     ],
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 990
+      },
+      {
+       "t": 1.8,
+       "x": 975
+      },
+      {
+       "t": 2.6,
+       "x": 990
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 193,
+     "props": {
+      "text": "2 MOUTHS",
+      "at": 0.0,
+      "size": 96,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 120\"><path d=\"M10 20 C70 6 150 6 210 18 L210 40 C150 34 70 36 10 46 Z\" fill=\"#ffe14d\"/><path d=\"M10 100 C70 114 150 114 210 102 L210 80 C150 86 70 84 10 74 Z\" fill=\"#ffe14d\"/><path d=\"M24 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M24 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M64 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M64 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M104 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M104 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M144 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M144 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 570,
+     "y": 752,
+     "width": 150,
+     "height": 82,
+     "z": 1.5,
+     "end": 0.75,
+     "opacity": 0.9,
+     "shadow": "0 0 14px #ffe14d",
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 2.75,
+      "zoom": 1.05,
+      "ease": "inOut"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "underwater_rumble",
+     "at": 0.0,
+     "volume": 0.13
+    },
+    {
+     "cue": "bubbles",
+     "at": 0.6,
+     "volume": 0.3
+    }
+   ],
+   "notes": "Your fingers just brushed a hole with two mouths."
+  },
+  {
+   "id": "s02_misdirect",
+   "duration": 5.57,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 8,
+     "rays": 6,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "78%",
+     "y": "30%",
+     "width": 300,
+     "height": 120,
+     "props": {
+      "silhouette": "#5c7d8c"
+     },
+     "end": 4.112,
+     "opacity": 0.7,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "86%"
+      },
+      {
+       "t": 4.112,
+       "x": "70%"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "24%",
+     "y": "52%",
+     "width": 420,
+     "height": 200,
+     "props": {
+      "arms": "side",
+      "kick": true,
+      "bubbles": true
+     },
+     "end": 4.112,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50%",
+     "y": "33%",
+     "width": 900,
+     "height": 520,
+     "props": {
+      "title": "CHECKED FOR",
+      "items": [
+       "SHARKS",
+       "JELLYFISH",
+       "SUSPICIOUS CRAB"
+      ],
+      "at": 0.462,
+      "itemAt": [
+       0.762,
+       1.562,
+       3.237
+      ],
+      "size": 52
+     },
+     "depth": 0,
+     "z": 10,
+     "end": 4.112
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M14 54 L40 78 L88 22\" fill=\"none\" stroke=\"#3ccf7a\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+     "x": 900,
+     "y": 578,
+     "width": 70,
+     "height": 70,
+     "z": 12,
+     "depth": 0,
+     "start": 0.762,
+     "end": 4.112,
+     "enter": {
+      "type": "pop",
+      "at": 0.762,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M14 54 L40 78 L88 22\" fill=\"none\" stroke=\"#3ccf7a\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+     "x": 900,
+     "y": 686,
+     "width": 70,
+     "height": 70,
+     "z": 12,
+     "depth": 0,
+     "start": 1.562,
+     "end": 4.112,
+     "enter": {
+      "type": "pop",
+      "at": 1.562,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M14 54 L40 78 L88 22\" fill=\"none\" stroke=\"#3ccf7a\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+     "x": 900,
+     "y": 794,
+     "width": 70,
+     "height": 70,
+     "z": 12,
+     "depth": 0,
+     "start": 3.237,
+     "end": 4.112,
+     "enter": {
+      "type": "pop",
+      "at": 3.237,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole",
+     "start": 4.112
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><circle cx=\"40\" cy=\"30\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"42\" cy=\"31\" r=\"5\" fill=\"#0b0f14\"/><circle cx=\"112\" cy=\"27\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"114\" cy=\"28\" r=\"5\" fill=\"#0b0f14\"/><path d=\"M58 58 Q78 46 96 58\" fill=\"none\" stroke=\"#6f7d2e\" stroke-width=\"8\" stroke-linecap=\"round\" opacity=\"0.8\"/></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 160,
+     "height": 70,
+     "z": 2,
+     "id": "eyes",
+     "keyframes": [
+      {
+       "t": 4.712,
+       "scaleY": 1
+      },
+      {
+       "t": 4.792,
+       "scaleY": 0.1
+      },
+      {
+       "t": 4.8919999999999995,
+       "scaleY": 1
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 3,
+       "speed": 0.4
+      }
+     ],
+     "start": 4.112
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall",
+     "start": 4.112
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 990,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand",
+     "start": 4.112
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 260\"><ellipse cx=\"200\" cy=\"130\" rx=\"190\" ry=\"120\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"12\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 420,
+     "height": 270,
+     "z": 9,
+     "start": 4.463,
+     "enter": {
+      "type": "pop",
+      "at": 4.463,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52%",
+     "width": 640,
+     "height": 104,
+     "props": {
+      "text": "NOT ON THE LIST",
+      "at": 4.463,
+      "size": 40,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30,
+     "start": 4.112
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31,
+     "start": 4.112
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30,
+     "start": 4.112
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31,
+     "start": 4.112
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.062,
+      "zoom": 0.94
+     },
+     {
+      "t": 4.112,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.57,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.762,
+     "volume": 0.5
+    },
+    {
+     "cue": "pop",
+     "at": 1.562,
+     "volume": 0.5
+    },
+    {
+     "cue": "pop",
+     "at": 3.237,
+     "volume": 0.5
+    },
+    {
+     "cue": "whoosh",
+     "at": 3.962,
+     "volume": 0.7
+    },
+    {
+     "cue": "sonar_ping",
+     "at": 4.963,
+     "volume": 0.4
+    }
+   ],
+   "notes": "You checked for sharks, jellyfish and one suspicious crab, never the crack you're touching."
+  },
+  {
+   "id": "s03_reveal",
+   "duration": 5.375,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole",
+     "end": 2.247
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall",
+     "end": 2.247
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M30 182 C120 200 260 210 420 215 L700 250 L700 300 C540 290 380 270 240 250 C150 238 80 214 30 182 Z\" fill=\"#4a5520\"/><path d=\"M34 182 L330 214\" stroke=\"#2c3312\" stroke-width=\"5\"/></svg>",
+     "x": 690,
+     "y": 750,
+     "width": 420,
+     "height": 216,
+     "z": 2,
+     "end": 2.247,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 800,
+       "scale": 0.7
+      },
+      {
+       "t": 0.372,
+       "x": 630,
+       "scale": 0.9,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 990,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand",
+     "end": 2.247,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 990
+      },
+      {
+       "t": 0.372,
+       "x": 1040,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 142,
+     "props": {
+      "text": "MORAY EEL",
+      "at": 0.372,
+      "size": 64,
+      "color": "white",
+      "underline": true,
+      "out": 2.247
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1050,
+     "width": 1000,
+     "height": 6,
+     "fill": "#ffffff",
+     "opacity": 0.6,
+     "start": 2.247
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 220\"><path d=\"M20 110 C60 70 130 60 200 80 C320 115 420 40 560 70 C700 100 780 170 900 140 C950 128 980 110 1000 104 C980 124 950 150 900 166 C770 200 690 130 560 108 C430 86 330 160 200 128 C140 114 70 130 20 110 Z\" fill=\"#6f7d2e\"/><circle cx=\"150\" cy=\"92\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"260\" cy=\"104\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"380\" cy=\"86\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"470\" cy=\"80\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"600\" cy=\"92\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"700\" cy=\"128\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"820\" cy=\"150\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"900\" cy=\"148\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"60\" cy=\"92\" r=\"7\" fill=\"#e8f0d8\"/><circle cx=\"58\" cy=\"92\" r=\"3.5\" fill=\"#0b0f14\"/><path d=\"M22 110 L110 116\" stroke=\"#2c3312\" stroke-width=\"3\"/></svg>",
+     "x": 500,
+     "y": 930,
+     "width": 900.0,
+     "height": 198.0,
+     "start": 2.247,
+     "enter": {
+      "type": "slideRight",
+      "at": 2.247,
+      "duration": 0.4
+     },
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.2,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": 500,
+     "y": 1090,
+     "width": 900.0,
+     "height": 60,
+     "props": {
+      "label": "GIANT MORAY: UP TO ~3 M",
+      "at": 2.922,
+      "from": "left",
+      "color": "#e5483d"
+     },
+     "start": 2.247,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 880,
+     "y": 788,
+     "width": 220,
+     "height": 525,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 300,
+      "align": "bottom"
+     },
+     "start": 3.997,
+     "enter": {
+      "type": "pop",
+      "at": 3.997,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 880,
+     "y": "37%",
+     "width": 320,
+     "height": 78,
+     "props": {
+      "text": "YOU: 1.75 M",
+      "at": 3.997,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.172,
+     "volume": 0.6
+    },
+    {
+     "cue": "ding",
+     "at": 3.997,
+     "volume": 0.6
+    }
+   ],
+   "notes": "It's a moray eel's home, and the biggest reach three metres, longer than you're tall."
+  },
+  {
+   "id": "s04_rung1",
+   "duration": 4.865,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 2,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M40 186 L330 205 L330 236 L60 300 Z\" fill=\"#7a2b33\"/><path d=\"M70 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M100 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M130 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M160 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M190 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M220 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M60 300 C140 290 250 262 330 236 L700 250 L700 320 C520 330 300 330 160 318 C110 314 80 308 60 300 Z\" fill=\"#4a5520\"/><g transform=\"rotate(-14 330 236)\"><path d=\"M80 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M110 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M140 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M170 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M200 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M230 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/></g></svg>",
+     "x": "52%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 2,
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.01,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M60 186 L330 205\" stroke=\"#ffe14d\" stroke-width=\"34\" stroke-linecap=\"round\" opacity=\"0.55\"/><path d=\"M70 296 L320 240\" stroke=\"#ffe14d\" stroke-width=\"30\" stroke-linecap=\"round\" opacity=\"0.45\"/></svg>",
+     "x": "52%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 3,
+     "start": 2.363,
+     "enter": {
+      "type": "fade",
+      "at": 2.363,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.05,
+       "speed": 1.2
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\" fill=\"none\" stroke=\"#cfd6dc\" stroke-width=\"7\" stroke-linecap=\"round\"><path d=\"M72 182 L72 206 Q72 222 86 220 Q96 214 90 202\"/><path d=\"M90 202 l-9 4\"/><path d=\"M106 182 L106 206 Q106 222 120 220 Q130 214 124 202\"/><path d=\"M124 202 l-9 4\"/><path d=\"M140 182 L140 206 Q140 222 154 220 Q164 214 158 202\"/><path d=\"M158 202 l-9 4\"/><path d=\"M174 182 L174 206 Q174 222 188 220 Q198 214 192 202\"/><path d=\"M192 202 l-9 4\"/><path d=\"M208 182 L208 206 Q208 222 222 220 Q232 214 226 202\"/><path d=\"M226 202 l-9 4\"/><path d=\"M242 182 L242 206 Q242 222 256 220 Q266 214 260 202\"/><path d=\"M260 202 l-9 4\"/></svg>",
+     "x": "52%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 4,
+     "start": 4.275,
+     "end": 5.375,
+     "enter": {
+      "type": "fade",
+      "at": 4.275,
+      "duration": 0.15
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 1000,
+     "y": "47%",
+     "width": 520,
+     "height": 225,
+     "z": 5,
+     "id": "hand",
+     "opacity": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "54%",
+     "width": 700,
+     "height": 93,
+     "props": {
+      "text": "TEETH CURVE BACKWARD",
+      "at": 2.738,
+      "size": 36,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0.375,
+     "enter": {
+      "type": "pop",
+      "at": 0.375,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0.375
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.865,
+      "zoom": 1.08
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.375,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 4.275,
+     "volume": 0.6
+    }
+   ],
+   "notes": "Mouth one is right by your hand, its teeth curved backwards like fish hooks."
+  },
+  {
+   "id": "s05_rung2",
+   "duration": 5.225,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><circle cx=\"40\" cy=\"30\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"42\" cy=\"31\" r=\"5\" fill=\"#0b0f14\"/><circle cx=\"112\" cy=\"27\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"114\" cy=\"28\" r=\"5\" fill=\"#0b0f14\"/><path d=\"M58 58 Q78 46 96 58\" fill=\"none\" stroke=\"#6f7d2e\" stroke-width=\"8\" stroke-linecap=\"round\" opacity=\"0.8\"/></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 160,
+     "height": 70,
+     "z": 2,
+     "id": "eyes",
+     "keyframes": [],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 3,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><rect x=\"0\" y=\"0\" width=\"160\" height=\"70\" rx=\"30\" fill=\"#8a949c\" opacity=\"0.75\"/></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 170,
+     "height": 76,
+     "z": 3,
+     "start": 0.4,
+     "enter": {
+      "type": "fade",
+      "at": 0.4,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 520,
+     "height": 88,
+     "props": {
+      "text": "EYESIGHT: POOR",
+      "at": 0.4,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 3.175
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 990,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 990
+      },
+      {
+       "t": 1.987,
+       "x": 990
+      },
+      {
+       "t": 2.487,
+       "x": 900,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M40 186 L330 205 L330 236 L60 300 Z\" fill=\"#7a2b33\"/><path d=\"M70 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M100 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M130 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M160 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M190 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M220 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M60 300 C140 290 250 262 330 236 L700 250 L700 320 C520 330 300 330 160 318 C110 314 80 308 60 300 Z\" fill=\"#4a5520\"/><g transform=\"rotate(-14 330 236)\"><path d=\"M80 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M110 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M140 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M170 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M200 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M230 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/></g></svg>",
+     "x": 480,
+     "y": 740,
+     "width": 560,
+     "height": 288,
+     "z": 6,
+     "start": 3.175,
+     "keyframes": [
+      {
+       "t": 3.175,
+       "scale": 0.35,
+       "x": 580
+      },
+      {
+       "t": 3.355,
+       "scale": 1.0,
+       "x": 670,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 132,
+     "props": {
+      "text": "DEFENDING ITS HOME",
+      "at": 3.175,
+      "size": 58,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "55%",
+     "width": 460,
+     "height": 78,
+     "props": {
+      "text": "QUESTIONS: LATER",
+      "at": 4.15,
+      "size": 30,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.175,
+      "zoom": 1.06
+     },
+     {
+      "t": 3.3249999999999997,
+      "zoom": 1.12,
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.175,
+      "duration": 0.35,
+      "amplitude": 16
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 3.175,
+     "volume": 0.8
+    },
+    {
+     "cue": "stinger",
+     "at": 3.175,
+     "volume": 0.5
+    }
+   ],
+   "notes": "It can barely see you, so a hand in its home gets bitten first, questions later."
+  },
+  {
+   "id": "s06_rq",
+   "duration": 3.7,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 900,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M40 186 L330 205 L330 236 L60 300 Z\" fill=\"#7a2b33\"/><path d=\"M70 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M100 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M130 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M160 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M190 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M220 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M60 300 C140 290 250 262 330 236 L700 250 L700 320 C520 330 300 330 160 318 C110 314 80 308 60 300 Z\" fill=\"#4a5520\"/><g transform=\"rotate(-14 330 236)\"><path d=\"M80 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M110 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M140 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M170 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M200 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M230 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/></g></svg>",
+     "x": 670,
+     "y": 740,
+     "width": 560,
+     "height": 288,
+     "z": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 142,
+     "props": {
+      "text": "WORST MOVE?",
+      "at": 0.312,
+      "size": 64,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "55%",
+     "width": 560,
+     "height": 88,
+     "props": {
+      "text": "= FIRST INSTINCT",
+      "at": 2.475,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.12
+     },
+     {
+      "t": 3.7,
+      "zoom": 1.17,
+      "ease": "inOut"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_slow",
+     "at": 2.475,
+     "volume": 0.5
+    }
+   ],
+   "grade": {
+    "saturate": 0.8,
+    "vignette": 0.3
+   },
+   "notes": "And the worst thing you can do next is the first thing you'll do."
+  },
+  {
+   "id": "s07_pull",
+   "duration": 5.575,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 2,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 216,
+     "props": {
+      "text": "PULL",
+      "at": 0.05,
+      "size": 110,
+      "color": "red",
+      "underline": true,
+      "out": 0.762
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M18 18 L82 82 M82 18 L18 82\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg>",
+     "x": 790,
+     "y": "19%",
+     "width": 120,
+     "height": 120,
+     "z": 21,
+     "depth": 0,
+     "start": 0.25,
+     "end": 0.762,
+     "enter": {
+      "type": "pop",
+      "at": 0.25,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M40 186 L330 205 L330 236 L60 300 Z\" fill=\"#7a2b33\"/><path d=\"M70 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M100 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M130 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M160 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M190 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M220 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M60 300 C140 290 250 262 330 236 L700 250 L700 320 C520 330 300 330 160 318 C110 314 80 308 60 300 Z\" fill=\"#4a5520\"/><g transform=\"rotate(-14 330 236)\"><path d=\"M80 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M110 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M140 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M170 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M200 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M230 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/></g></svg>",
+     "x": "48%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\" fill=\"none\" stroke=\"#cfd6dc\" stroke-width=\"7\" stroke-linecap=\"round\"><path d=\"M72 182 L72 206 Q72 222 86 220 Q96 214 90 202\"/><path d=\"M90 202 l-9 4\"/><path d=\"M106 182 L106 206 Q106 222 120 220 Q130 214 124 202\"/><path d=\"M124 202 l-9 4\"/><path d=\"M140 182 L140 206 Q140 222 154 220 Q164 214 158 202\"/><path d=\"M158 202 l-9 4\"/><path d=\"M174 182 L174 206 Q174 222 188 220 Q198 214 192 202\"/><path d=\"M192 202 l-9 4\"/><path d=\"M208 182 L208 206 Q208 222 222 220 Q232 214 226 202\"/><path d=\"M226 202 l-9 4\"/><path d=\"M242 182 L242 206 Q242 222 256 220 Q266 214 260 202\"/><path d=\"M260 202 l-9 4\"/></svg>",
+     "x": "48%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 4,
+     "start": 1.05,
+     "end": 1.9500000000000002,
+     "enter": {
+      "type": "fade",
+      "at": 1.05,
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M60 186 L330 205\" stroke=\"#e5483d\" stroke-width=\"34\" stroke-linecap=\"round\" opacity=\"0.55\"/><path d=\"M70 296 L320 240\" stroke=\"#e5483d\" stroke-width=\"30\" stroke-linecap=\"round\" opacity=\"0.45\"/></svg>",
+     "x": "48%",
+     "y": "38%",
+     "width": 920,
+     "height": 473,
+     "z": 3,
+     "start": 2.775,
+     "enter": {
+      "type": "fade",
+      "at": 2.775,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 820,
+     "y": "41%",
+     "width": 520,
+     "height": 225,
+     "z": 5,
+     "id": "hand",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 820
+      },
+      {
+       "t": 2.775,
+       "x": 820
+      },
+      {
+       "t": 3.025,
+       "x": 860,
+       "ease": "out"
+      },
+      {
+       "t": 3.225,
+       "x": 835
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 120\"><path d=\"M10 60 L330 60\" stroke=\"#e5483d\" stroke-width=\"22\" stroke-linecap=\"round\"/><path d=\"M300 14 L392 60 L300 106 Z\" fill=\"#e5483d\"/></svg>",
+     "x": 840,
+     "y": "50%",
+     "width": 300,
+     "height": 90,
+     "z": 6,
+     "start": 2.775,
+     "enter": {
+      "type": "wipeRight",
+      "at": 2.775,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 520,
+     "height": 88,
+     "props": {
+      "text": "POINT INWARD",
+      "at": 1.687,
+      "size": 34,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "55%",
+     "width": 520,
+     "height": 114,
+     "props": {
+      "text": "DON'T PULL",
+      "at": 2.775,
+      "size": 44,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4,
+    "shake": [
+     {
+      "at": 2.975,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.05,
+     "volume": 0.6
+    },
+    {
+     "cue": "click",
+     "at": 1.05,
+     "volume": 0.6
+    },
+    {
+     "cue": "glitch",
+     "at": 2.775,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Pull. Those hooks point inward, so yanking back drags your hand across every one."
+  },
+  {
+   "id": "s08_handshake",
+   "duration": 3.33,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 900,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M40 186 L330 205 L330 236 L60 300 Z\" fill=\"#7a2b33\"/><path d=\"M70 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M100 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M130 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M160 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M190 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M220 190 q8 22 22 20 q-10 -6 -10 -20 Z\" fill=\"#f5f2e8\"/><path d=\"M60 300 C140 290 250 262 330 236 L700 250 L700 320 C520 330 300 330 160 318 C110 314 80 308 60 300 Z\" fill=\"#4a5520\"/><g transform=\"rotate(-14 330 236)\"><path d=\"M80 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M110 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M140 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M170 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M200 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/><path d=\"M230 236 q8 -22 22 -20 q-10 6 -10 20 Z\" fill=\"#f5f2e8\"/></g></svg>",
+     "x": 670,
+     "y": 740,
+     "width": 560,
+     "height": 288,
+     "z": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "24%",
+     "width": 560,
+     "height": 104,
+     "props": {
+      "text": "THE HANDSHAKE",
+      "at": 0.717,
+      "size": 40,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "55%",
+     "width": 600,
+     "height": 93,
+     "props": {
+      "text": "YOU LET GO SECOND",
+      "at": 2.692,
+      "size": 36,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.1
+     },
+     {
+      "t": 3.33,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.717,
+      "duration": 0.6,
+      "amplitude": 6,
+      "frequency": 6
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 2.692,
+     "volume": 0.5
+    }
+   ],
+   "notes": "It's the one handshake on the reef you don't get to end."
+  },
+  {
+   "id": "s09_turnstile",
+   "duration": 2.115,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "34%",
+     "width": 1000,
+     "height": 276,
+     "props": {
+      "text": "IT'S NOT TRYING\nTO EAT YOU",
+      "at": 0.85,
+      "size": 74,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M14 54 L40 78 L88 22\" fill=\"none\" stroke=\"#3ccf7a\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 150,
+     "height": 150,
+     "depth": 0,
+     "z": 21,
+     "start": 1.487,
+     "enter": {
+      "type": "pop",
+      "at": 1.487,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    }
+   ],
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 1.487,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Relax, it's not trying to eat you."
+  },
+  {
+   "id": "s10_fish",
+   "duration": 2.26,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 2,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50%",
+     "y": "38%",
+     "width": 240,
+     "height": 420,
+     "props": {
+      "pose": "shrug"
+     },
+     "end": 0.8500000000000001,
+     "exit": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": "50%",
+     "y": "38%",
+     "width": 420,
+     "height": 226,
+     "start": 0.55,
+     "enter": {
+      "type": "pop",
+      "at": 0.55,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 8,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "50%",
+     "width": 520,
+     "height": 88,
+     "props": {
+      "text": "YOU (AS A FISH)",
+      "at": 0.75,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 184,
+     "props": {
+      "text": "MOUTH 2",
+      "at": 1.475,
+      "size": 90,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 1.813,
+     "enter": {
+      "type": "pop",
+      "at": 1.813,
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 1.813
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.55,
+     "volume": 0.5
+    },
+    {
+     "cue": "riser",
+     "at": 1.25,
+     "volume": 0.5
+    }
+   ],
+   "notes": "If you were a fish, you'd meet mouth two."
+  },
+  {
+   "id": "s11_suction",
+   "duration": 3.36,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M120 250 C260 200 420 210 560 228 L1000 236 L1000 268 L560 276 C420 292 260 300 120 250 Z\" fill=\"#a8454f\"/><path d=\"M560 228 L1000 236 L1000 268 L560 276 Z\" fill=\"#7a2b33\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 230,
+     "height": 124,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": -20
+      },
+      {
+       "t": 0.987,
+       "x": 70
+      },
+      {
+       "t": 1.987,
+       "x": 85
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 120\"><path d=\"M10 20 C70 6 150 6 210 18 L210 40 C150 34 70 36 10 46 Z\" fill=\"#ffe14d\"/><path d=\"M10 100 C70 114 150 114 210 102 L210 80 C150 86 70 84 10 74 Z\" fill=\"#ffe14d\"/><path d=\"M24 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M24 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M64 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M64 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M104 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M104 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M144 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M144 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 745,
+     "y": 760,
+     "width": 200,
+     "height": 110,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 745
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path fill-rule=\"evenodd\" fill=\"#6f7d2e\" d=\"M1000 120 C800 100 520 110 330 150 C230 170 150 200 90 240 C150 290 230 330 330 350 C520 390 800 400 1000 380 Z M130 250 C260 196 430 204 640 222 L640 282 C430 300 260 304 130 250 Z\"/><path d=\"M640 222 L640 282\" stroke=\"#f5f2e8\" stroke-width=\"4\" stroke-dasharray=\"10 8\" opacity=\"0.6\"/><circle cx=\"240\" cy=\"190\" r=\"18\" fill=\"#e8f0d8\"/><circle cx=\"236\" cy=\"191\" r=\"9\" fill=\"#0b0f14\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M90 240 C160 214 260 200 360 206 L360 222 C260 220 170 232 110 250 Z\" fill=\"#4a5520\"/><path d=\"M120 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M154 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M188 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M222 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M256 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M290 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M324 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M110 254 C170 276 260 290 360 292 L360 278 C260 276 170 268 120 250 Z\" fill=\"#4a5520\"/><path d=\"M130 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M164 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M198 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M232 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M266 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M300 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M334 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5,
+     "anchorX": 0.36,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 14
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 200\" fill=\"none\" stroke=\"#bfefff\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-dasharray=\"18 14\"><path d=\"M0 60 C120 60 220 90 400 100\"/><path d=\"M0 100 C140 100 260 100 400 100\"/><path d=\"M0 140 C120 140 220 110 400 100\"/></svg>",
+     "x": 210,
+     "y": 760,
+     "width": 320,
+     "height": 160,
+     "z": 3,
+     "start": 0.987,
+     "end": 2.188,
+     "opacity": 0.8,
+     "keyframes": [
+      {
+       "t": 0.987,
+       "x": 160,
+       "opacity": 0.9
+      },
+      {
+       "t": 1.887,
+       "x": 190,
+       "opacity": 0.25
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><path d=\"M18 18 L82 82 M82 18 L18 82\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg>",
+     "x": 210,
+     "y": 610,
+     "width": 110,
+     "height": 110,
+     "z": 8,
+     "start": 0.65,
+     "end": 2.188,
+     "enter": {
+      "type": "pop",
+      "at": 0.65,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 480,
+     "height": 88,
+     "props": {
+      "text": "WEAK SUCTION",
+      "at": 0.987,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 2.188
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 120\"><path d=\"M10 20 C70 6 150 6 210 18 L210 40 C150 34 70 36 10 46 Z\" fill=\"#ffe14d\"/><path d=\"M10 100 C70 114 150 114 210 102 L210 80 C150 86 70 84 10 74 Z\" fill=\"#ffe14d\"/><path d=\"M24 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M24 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M64 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M64 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M104 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M104 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M144 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M144 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 745,
+     "y": 760,
+     "width": 230,
+     "height": 126,
+     "z": 6,
+     "opacity": 0.6,
+     "start": 2.188,
+     "enter": {
+      "type": "fade",
+      "at": 2.188,
+      "duration": 0.3
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.08,
+       "speed": 1.5
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "72%",
+     "y": "48%",
+     "width": 460,
+     "height": 78,
+     "props": {
+      "text": "PHARYNGEAL JAW",
+      "at": 2.563,
+      "size": 30,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.987,
+     "volume": 0.4
+    }
+   ],
+   "notes": "Its throat can't suck you in, so a second jaw does it."
+  },
+  {
+   "id": "s12_launch",
+   "duration": 5.42,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M120 250 C260 200 420 210 560 228 L1000 236 L1000 268 L560 276 C420 292 260 300 120 250 Z\" fill=\"#a8454f\"/><path d=\"M560 228 L1000 236 L1000 268 L560 276 Z\" fill=\"#7a2b33\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 230,
+     "height": 124,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 85
+      },
+      {
+       "t": 0.837,
+       "x": 270
+      },
+      {
+       "t": 5.365,
+       "x": 270
+      },
+      {
+       "t": 5.665,
+       "x": 340
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 120\"><path d=\"M10 20 C70 6 150 6 210 18 L210 40 C150 34 70 36 10 46 Z\" fill=\"#ffe14d\"/><path d=\"M10 100 C70 114 150 114 210 102 L210 80 C150 86 70 84 10 74 Z\" fill=\"#ffe14d\"/><path d=\"M24 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M24 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M64 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M64 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M104 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M104 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M144 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M144 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 745,
+     "y": 760,
+     "width": 200,
+     "height": 110,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 745
+      },
+      {
+       "t": 2.563,
+       "x": 745
+      },
+      {
+       "t": 2.9130000000000003,
+       "x": 508,
+       "ease": "out"
+      },
+      {
+       "t": 5.665,
+       "x": 578
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path fill-rule=\"evenodd\" fill=\"#6f7d2e\" d=\"M1000 120 C800 100 520 110 330 150 C230 170 150 200 90 240 C150 290 230 330 330 350 C520 390 800 400 1000 380 Z M130 250 C260 196 430 204 640 222 L640 282 C430 300 260 304 130 250 Z\"/><path d=\"M640 222 L640 282\" stroke=\"#f5f2e8\" stroke-width=\"4\" stroke-dasharray=\"10 8\" opacity=\"0.6\"/><circle cx=\"240\" cy=\"190\" r=\"18\" fill=\"#e8f0d8\"/><circle cx=\"236\" cy=\"191\" r=\"9\" fill=\"#0b0f14\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M90 240 C160 214 260 200 360 206 L360 222 C260 220 170 232 110 250 Z\" fill=\"#4a5520\"/><path d=\"M120 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M154 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M188 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M222 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M256 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M290 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M324 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M110 254 C170 276 260 290 360 292 L360 278 C260 276 170 268 120 250 Z\" fill=\"#4a5520\"/><path d=\"M130 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M164 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M198 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M232 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M266 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M300 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M334 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5,
+     "anchorX": 0.36,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 14
+      },
+      {
+       "t": 0.837,
+       "rotate": 14
+      },
+      {
+       "t": 0.987,
+       "rotate": 0,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 640,
+     "height": 98,
+     "props": {
+      "text": "MOUTH 2: THROAT JAW",
+      "at": 2.563,
+      "size": 38,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 640,
+     "height": 88,
+     "props": {
+      "text": "A MOUTH INSIDE A MOUTH",
+      "at": 4.187,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 2.563,
+     "end": 3.063
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 2.563,
+      "zoom": 1.05
+     },
+     {
+      "t": 2.863,
+      "zoom": 1.15,
+      "x": "56%",
+      "ease": "out"
+     }
+    ],
+    "shake": []
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.837,
+     "volume": 0.7
+    },
+    {
+     "cue": "whoosh",
+     "at": 2.463,
+     "volume": 0.8
+    },
+    {
+     "cue": "riser",
+     "at": 4.765000000000001,
+     "volume": 0.4
+    }
+   ],
+   "notes": "The front teeth catch you, then that jaw launches out of its throat like a monster-movie mouth."
+  },
+  {
+   "id": "s13_ratchet",
+   "duration": 4.975,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 300,
+     "rays": 0,
+     "seed": 5,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M120 250 C260 200 420 210 560 228 L1000 236 L1000 268 L560 276 C420 292 260 300 120 250 Z\" fill=\"#a8454f\"/><path d=\"M560 228 L1000 236 L1000 268 L560 276 Z\" fill=\"#7a2b33\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 230,
+     "height": 124,
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 340
+      },
+      {
+       "t": 1.145,
+       "x": 340
+      },
+      {
+       "t": 1.4249999999999998,
+       "x": 460,
+       "ease": "out"
+      },
+      {
+       "t": 1.9667500000000002,
+       "x": 460
+      },
+      {
+       "t": 2.24675,
+       "x": 580,
+       "ease": "out"
+      },
+      {
+       "t": 2.7885,
+       "x": 580
+      },
+      {
+       "t": 3.0685,
+       "x": 700,
+       "ease": "out"
+      },
+      {
+       "t": 3.61025,
+       "x": 700
+      },
+      {
+       "t": 3.89025,
+       "x": 820,
+       "ease": "out"
+      }
+     ],
+     "end": 4.662
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 120\"><path d=\"M10 20 C70 6 150 6 210 18 L210 40 C150 34 70 36 10 46 Z\" fill=\"#ffe14d\"/><path d=\"M10 100 C70 114 150 114 210 102 L210 80 C150 86 70 84 10 74 Z\" fill=\"#ffe14d\"/><path d=\"M24 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M24 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M64 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M64 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M104 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M104 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/><path d=\"M144 44 l10 18 l6 -20 Z\" fill=\"#ffffff\"/><path d=\"M144 76 l10 -18 l6 20 Z\" fill=\"#ffffff\"/></svg>",
+     "x": 745,
+     "y": 760,
+     "width": 200,
+     "height": 110,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 578
+      },
+      {
+       "t": 1.145,
+       "x": 578
+      },
+      {
+       "t": 1.4249999999999998,
+       "x": 698,
+       "ease": "out"
+      },
+      {
+       "t": 1.9667500000000002,
+       "x": 698
+      },
+      {
+       "t": 2.24675,
+       "x": 818,
+       "ease": "out"
+      },
+      {
+       "t": 2.7885,
+       "x": 818
+      },
+      {
+       "t": 3.0685,
+       "x": 938,
+       "ease": "out"
+      },
+      {
+       "t": 3.61025,
+       "x": 938
+      },
+      {
+       "t": 3.89025,
+       "x": 1058,
+       "ease": "out"
+      },
+      {
+       "t": 4.612,
+       "x": 745
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path fill-rule=\"evenodd\" fill=\"#6f7d2e\" d=\"M1000 120 C800 100 520 110 330 150 C230 170 150 200 90 240 C150 290 230 330 330 350 C520 390 800 400 1000 380 Z M130 250 C260 196 430 204 640 222 L640 282 C430 300 260 304 130 250 Z\"/><path d=\"M640 222 L640 282\" stroke=\"#f5f2e8\" stroke-width=\"4\" stroke-dasharray=\"10 8\" opacity=\"0.6\"/><circle cx=\"240\" cy=\"190\" r=\"18\" fill=\"#e8f0d8\"/><circle cx=\"236\" cy=\"191\" r=\"9\" fill=\"#0b0f14\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M90 240 C160 214 260 200 360 206 L360 222 C260 220 170 232 110 250 Z\" fill=\"#4a5520\"/><path d=\"M120 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M154 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M188 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M222 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M256 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M290 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/><path d=\"M324 222 q8 20 20 18 q-9 -5 -9 -18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M110 254 C170 276 260 290 360 292 L360 278 C260 276 170 268 120 250 Z\" fill=\"#4a5520\"/><path d=\"M130 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M164 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M198 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M232 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M266 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M300 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/><path d=\"M334 278 q8 -20 20 -18 q-9 5 -9 18 Z\" fill=\"#f5f2e8\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 1080,
+     "height": 540,
+     "z": 5,
+     "anchorX": 0.36,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      },
+      {
+       "t": 1.025,
+       "rotate": 0
+      },
+      {
+       "t": 1.145,
+       "rotate": 10
+      },
+      {
+       "t": 1.4749999999999999,
+       "rotate": 0
+      },
+      {
+       "t": 1.8467500000000001,
+       "rotate": 0
+      },
+      {
+       "t": 1.9667500000000002,
+       "rotate": 10
+      },
+      {
+       "t": 2.2967500000000003,
+       "rotate": 0
+      },
+      {
+       "t": 2.6685,
+       "rotate": 0
+      },
+      {
+       "t": 2.7885,
+       "rotate": 10
+      },
+      {
+       "t": 3.1185,
+       "rotate": 0
+      },
+      {
+       "t": 3.49025,
+       "rotate": 0
+      },
+      {
+       "t": 3.61025,
+       "rotate": 10
+      },
+      {
+       "t": 3.9402500000000003,
+       "rotate": 0
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 560,
+     "height": 98,
+     "props": {
+      "text": "HAND OVER HAND",
+      "at": 2.862,
+      "size": 38,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 200,
+     "height": 104,
+     "props": {
+      "text": "1",
+      "at": 1.125,
+      "size": 40,
+      "accent": "#ffe14d",
+      "align": "center",
+      "out": 1.4749999999999999
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 200,
+     "height": 104,
+     "props": {
+      "text": "2",
+      "at": 1.9467500000000002,
+      "size": 40,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 2.2967500000000003
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 200,
+     "height": 104,
+     "props": {
+      "text": "1",
+      "at": 2.7685,
+      "size": 40,
+      "accent": "#ffe14d",
+      "align": "center",
+      "out": 3.1185
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 200,
+     "height": 104,
+     "props": {
+      "text": "2",
+      "at": 3.59025,
+      "size": 40,
+      "accent": "#e5483d",
+      "align": "center",
+      "out": 3.9402500000000003
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15,
+      "x": "56%"
+     },
+     {
+      "t": 4.975,
+      "zoom": 1.05,
+      "x": "54%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.225,
+      "duration": 0.3,
+      "amplitude": 12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.225,
+     "volume": 0.6
+    },
+    {
+     "cue": "click",
+     "at": 1.145,
+     "volume": 0.55
+    },
+    {
+     "cue": "click",
+     "at": 1.9667500000000002,
+     "volume": 0.55
+    },
+    {
+     "cue": "click",
+     "at": 2.7885,
+     "volume": 0.55
+    },
+    {
+     "cue": "click",
+     "at": 3.61025,
+     "volume": 0.55
+    },
+    {
+     "cue": "whoosh_long",
+     "at": 4.112,
+     "volume": 0.5
+    }
+   ],
+   "notes": "It grabs you, and the jaws swap grips, hand over hand, until you're gone."
+  },
+  {
+   "id": "s14_twist",
+   "duration": 5.065,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "seed": 5,
+     "snow": 30
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "18%",
+     "y": 900,
+     "width": 900,
+     "height": 1083,
+     "z": 1,
+     "opacity": 1.0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 220\"><path d=\"M20 110 C60 70 130 60 200 80 C320 115 420 40 560 70 C700 100 780 170 900 140 C950 128 980 110 1000 104 C980 124 950 150 900 166 C770 200 690 130 560 108 C430 86 330 160 200 128 C140 114 70 130 20 110 Z\" fill=\"#6f7d2e\"/><circle cx=\"150\" cy=\"92\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"260\" cy=\"104\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"380\" cy=\"86\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"470\" cy=\"80\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"600\" cy=\"92\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"700\" cy=\"128\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"820\" cy=\"150\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"900\" cy=\"148\" r=\"5\" fill=\"#d9c64a\"/><circle cx=\"60\" cy=\"92\" r=\"7\" fill=\"#e8f0d8\"/><circle cx=\"58\" cy=\"92\" r=\"3.5\" fill=\"#0b0f14\"/><path d=\"M22 110 L110 116\" stroke=\"#2c3312\" stroke-width=\"3\"/></svg>",
+     "x": 494,
+     "y": 900,
+     "width": 600,
+     "height": 132,
+     "z": 2,
+     "flipX": true,
+     "start": 1.413,
+     "keyframes": [
+      {
+       "t": 1.413,
+       "x": 300,
+       "opacity": 0
+      },
+      {
+       "t": 2.213,
+       "x": 494,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.5,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "80%",
+     "y": "46%",
+     "width": 460,
+     "height": 220,
+     "props": {
+      "arms": "forward",
+      "bubbles": true
+     },
+     "flipX": true,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 730,
+     "y": 880,
+     "width": 110,
+     "height": 60,
+     "z": 6,
+     "start": 4.025,
+     "enter": {
+      "type": "pop",
+      "at": 4.025,
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 139,
+     "props": {
+      "text": "THE FRIENDLY ONES",
+      "at": 1.613,
+      "size": 62,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "27%",
+     "width": 460,
+     "height": 88,
+     "props": {
+      "text": "FEEDING SITES",
+      "at": 4.025,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    }
+   ],
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "sonar_ping",
+     "at": 1.613,
+     "volume": 0.4
+    }
+   ],
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "But plenty of bites come from the friendly ones, the morays people feed by hand."
+  },
+  {
+   "id": "s15_taught",
+   "duration": 4.8,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M30 182 C120 200 260 210 420 215 L700 250 L700 300 C540 290 380 270 240 250 C150 238 80 214 30 182 Z\" fill=\"#4a5520\"/><path d=\"M34 182 L330 214\" stroke=\"#2c3312\" stroke-width=\"5\"/></svg>",
+     "x": 300,
+     "y": "38%",
+     "width": 640,
+     "height": 330,
+     "z": 2,
+     "flipX": true,
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.015,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 830,
+     "y": "39%",
+     "width": 520,
+     "height": 225,
+     "z": 5,
+     "id": "hand"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 600,
+     "y": "38%",
+     "width": 190,
+     "height": 102,
+     "z": 6,
+     "id": "fed_fish"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 160\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"7\" stroke-linecap=\"round\" opacity=\"0.9\"><path d=\"M500 40 C440 10 400 70 340 40 S240 10 180 40 S80 70 0 40\"/><path d=\"M500 90 C440 60 400 120 340 90 S240 60 180 90 S80 120 0 90\"/><path d=\"M500 135 C440 105 400 160 340 135 S240 105 180 135\"/></svg>",
+     "x": 470,
+     "y": "33%",
+     "width": 420,
+     "height": 134,
+     "z": 7,
+     "start": 3.525,
+     "opacity": 0.9,
+     "keyframes": [
+      {
+       "t": 3.525,
+       "x": 640,
+       "opacity": 0
+      },
+      {
+       "t": 4.325,
+       "x": 470,
+       "opacity": 0.9
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "24%",
+     "width": 520,
+     "height": 93,
+     "props": {
+      "text": "YOU TAUGHT IT",
+      "at": 2.462,
+      "size": 36,
+      "accent": "#ffffff",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52%",
+     "width": 640,
+     "height": 93,
+     "props": {
+      "text": "FINGERS = FISH SMELL",
+      "at": 3.525,
+      "size": 36,
+      "accent": "#ffe14d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    }
+   ],
+   "camera": {
+    "preset": "drift",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.762,
+     "volume": 0.3
+    }
+   ],
+   "notes": "If you've ever fed one by hand, you taught it that fingers smell like fish."
+  },
+  {
+   "id": "s16_cantsee",
+   "duration": 3.945,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 360\"><path d=\"M700 90 C560 60 380 70 230 110 C150 130 80 150 30 180 L250 200 C400 205 560 230 700 250 Z\" fill=\"#6f7d2e\"/><circle cx=\"300\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"360\" cy=\"170\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"430\" cy=\"110\" r=\"8\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"480\" cy=\"200\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"540\" cy=\"140\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"600\" cy=\"210\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"640\" cy=\"120\" r=\"7\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"250\" cy=\"190\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"520\" cy=\"250\" r=\"6\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"660\" cy=\"260\" r=\"5\" fill=\"#d9c64a\" opacity=\"0.8\"/><circle cx=\"190\" cy=\"140\" r=\"16\" fill=\"#e8f0d8\"/><circle cx=\"186\" cy=\"141\" r=\"8\" fill=\"#0b0f14\"/><path d=\"M48 168 l-18 -26 l14 -4 l14 22 Z\" fill=\"#4a5520\"/><path d=\"M30 182 C120 200 260 210 420 215 L700 250 L700 300 C540 290 380 270 240 250 C150 238 80 214 30 182 Z\" fill=\"#4a5520\"/><path d=\"M34 182 L330 214\" stroke=\"#2c3312\" stroke-width=\"5\"/></svg>",
+     "x": 300,
+     "y": "38%",
+     "width": 640,
+     "height": 330,
+     "z": 2,
+     "flipX": true,
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.015,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 830,
+     "y": "39%",
+     "width": 520,
+     "height": 225,
+     "z": 5,
+     "id": "hand"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"#9aa7b0\" stroke=\"#5f6b73\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#5f6b73\" stroke-width=\"4\"/></svg>",
+     "x": 600,
+     "y": "38%",
+     "width": 190,
+     "height": 102,
+     "z": 6,
+     "end": 2.425,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 260 140\"><path d=\"M20 70 C60 20 160 18 200 60 L250 22 L240 70 L250 118 L200 80 C160 122 60 120 20 70 Z\" fill=\"none\" stroke=\"#bfefff\" stroke-width=\"5\"/><circle cx=\"62\" cy=\"62\" r=\"9\" fill=\"#0b0f14\"/><path d=\"M110 40 L120 100\" stroke=\"#bfefff\" stroke-width=\"4\"/></svg>",
+     "x": 640,
+     "y": "38%",
+     "width": 220,
+     "height": 118,
+     "z": 6,
+     "start": 2.425,
+     "enter": {
+      "type": "fade",
+      "at": 2.425,
+      "duration": 0.25
+     },
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.06,
+       "speed": 1.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><rect x=\"0\" y=\"0\" width=\"160\" height=\"70\" rx=\"30\" fill=\"#8a949c\" opacity=\"0.75\"/></svg>",
+     "x": 446,
+     "y": 693,
+     "width": 60,
+     "height": 30,
+     "z": 3,
+     "start": 0.5,
+     "enter": {
+      "type": "fade",
+      "at": 0.5,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "24%",
+     "width": 480,
+     "height": 88,
+     "props": {
+      "text": "EYESIGHT: POOR",
+      "at": 0.5,
+      "size": 34,
+      "accent": "#ffffff",
+      "align": "center",
+      "out": 2.425
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "52%",
+     "width": 720,
+     "height": 93,
+     "props": {
+      "text": "WHICH PART IS THE FISH?",
+      "at": 2.425,
+      "size": 36,
+      "accent": "#e5483d",
+      "align": "center"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#ffe14d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "#e5483d",
+     "depth": 0,
+     "z": 32,
+     "start": 0
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#0b0f14",
+     "depth": 0,
+     "z": 33,
+     "start": 0
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.945,
+      "zoom": 1.1,
+      "x": "58%"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 2.425,
+     "volume": 0.5
+    }
+   ],
+   "notes": "And it can barely see, so it can't tell which part is the fish."
+  },
+  {
+   "id": "s17_stinger",
+   "duration": 3.32,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 12,
+     "rays": 5,
+     "seed": 5,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 190\"><ellipse cx=\"150\" cy=\"95\" rx=\"150\" ry=\"95\" fill=\"#05080a\"/></svg>",
+     "x": 540,
+     "y": 730,
+     "width": 300,
+     "height": 190,
+     "z": 1,
+     "id": "hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 70\"><circle cx=\"40\" cy=\"30\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"42\" cy=\"31\" r=\"5\" fill=\"#0b0f14\"/><circle cx=\"112\" cy=\"27\" r=\"11\" fill=\"#e8f0d8\"/><circle cx=\"114\" cy=\"28\" r=\"5\" fill=\"#0b0f14\"/><path d=\"M58 58 Q78 46 96 58\" fill=\"none\" stroke=\"#6f7d2e\" stroke-width=\"8\" stroke-linecap=\"round\" opacity=\"0.8\"/></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 160,
+     "height": 70,
+     "z": 2,
+     "id": "eyes",
+     "keyframes": [
+      {
+       "t": 1.4,
+       "scaleY": 1
+      },
+      {
+       "t": 1.48,
+       "scaleY": 0.1
+      },
+      {
+       "t": 1.5799999999999998,
+       "scaleY": 1
+      }
+     ],
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 3,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1300\"><g><circle cx=\"110\" cy=\"470\" r=\"70\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"450\" r=\"55\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"820\" cy=\"455\" r=\"75\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"1010\" cy=\"480\" r=\"60\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"600\" cy=\"452\" r=\"40\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"180\" cy=\"980\" r=\"140\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"520\" cy=\"1150\" r=\"130\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"900\" cy=\"1010\" r=\"150\" fill=\"#c89a52\" opacity=\"0.9\"/><circle cx=\"980\" cy=\"760\" r=\"80\" fill=\"#c9727a\" opacity=\"0.9\"/><circle cx=\"300\" cy=\"560\" r=\"50\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"760\" cy=\"540\" r=\"45\" fill=\"#d98c6a\" opacity=\"0.9\"/><circle cx=\"330\" cy=\"850\" r=\"70\" fill=\"#b9665f\" opacity=\"0.9\"/></g><path fill-rule=\"evenodd\" fill=\"#c9727a\" d=\"M0 470 Q270 430 540 460 T1080 470 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><path fill-rule=\"evenodd\" fill=\"#c89a52\" opacity=\"0.55\" d=\"M0 520 Q300 470 540 520 T1080 500 V1300 H0 Z M390 650 A150 95 0 1 0 690 650 A150 95 0 1 0 390 650 Z\"/><ellipse cx=\"540\" cy=\"650\" rx=\"154\" ry=\"99\" fill=\"none\" stroke=\"#7a3d3a\" stroke-width=\"10\"/><circle cx=\"140\" cy=\"520\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"230\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"650\" cy=\"500\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"880\" cy=\"600\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"420\" cy=\"930\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"700\" cy=\"900\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"950\" cy=\"540\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"110\" cy=\"760\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"560\" cy=\"420\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"800\" cy=\"1180\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"300\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/><circle cx=\"1020\" cy=\"1100\" r=\"7\" fill=\"#f2d3c4\" opacity=\"0.7\"/></svg>",
+     "x": "50%",
+     "y": 730,
+     "width": 1080,
+     "height": 1300,
+     "z": 4,
+     "id": "wall"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\"><path d=\"M330 70 L600 50 L600 230 L330 210 Z\" fill=\"#1f5fae\"/><rect x=\"318\" y=\"66\" width=\"26\" height=\"148\" rx=\"8\" fill=\"#163f73\"/><path d=\"M330 80 C280 70 220 82 190 96 L70 92 C40 92 40 122 70 124 L180 128 L60 140 C30 142 30 172 60 172 L185 166 L80 188 C52 194 58 222 86 218 L200 196 C230 214 290 214 330 200 Z\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/><path d=\"M210 96 C190 70 150 52 120 50 C96 50 98 76 120 80 L200 104\" fill=\"#e9b48f\" stroke=\"#b9805e\" stroke-width=\"5\"/></svg>",
+     "x": 990,
+     "y": 760,
+     "width": 520,
+     "height": 225,
+     "z": 8,
+     "id": "hand",
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 4,
+       "speed": 0.5
+      }
+     ],
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 990
+      },
+      {
+       "t": 1.8,
+       "x": 975
+      },
+      {
+       "t": 2.6,
+       "x": 990
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 170,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 1",
+     "x": 170,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": "12.5%",
+     "width": 230,
+     "height": 70,
+     "radius": 35,
+     "fill": "rgba(10,16,20,0.75)",
+     "stroke": "#5b6770",
+     "strokeWidth": 4,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "text",
+     "text": "MOUTH 2",
+     "x": 420,
+     "y": "12.5%",
+     "fontSize": 34,
+     "color": "#6f7a82",
+     "depth": 0,
+     "z": 31
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "19%",
+     "width": 1000,
+     "height": 193,
+     "props": {
+      "text": "2 MOUTHS",
+      "at": 0.0,
+      "size": 96,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 260\"><ellipse cx=\"200\" cy=\"130\" rx=\"190\" ry=\"120\" fill=\"none\" stroke=\"#e5483d\" stroke-width=\"12\"/></svg>",
+     "x": 770,
+     "y": 760,
+     "width": 220,
+     "height": 143,
+     "z": 9,
+     "start": 2.388,
+     "enter": {
+      "type": "pop",
+      "at": 2.388,
+      "duration": 0.2
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.05
+     },
+     {
+      "t": 3.32,
+      "zoom": 1.0,
+      "ease": "out"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_slow",
+     "at": 2.388,
+     "volume": 0.6
+    }
+   ],
+   "notes": "This time, it really is trying to eat your fingers."
+  }
+ ],
+ "captions": {
+  "maxWords": 3,
+  "maxChars": 18,
+  "glue": [
+   "moray eel",
+   "fish hooks",
+   "mouth one",
+   "mouth two",
+   "three metres",
+   "second jaw",
+   "hand over hand",
+   "questions later"
+  ],
+  "words": [
+   {
+    "text": "Your",
+    "start": 0.105,
+    "end": 0.267
+   },
+   {
+    "text": "fingers",
+    "start": 0.267,
+    "end": 0.73,
+    "emph": true
+   },
+   {
+    "text": "just",
+    "start": 0.73,
+    "end": 0.992
+   },
+   {
+    "text": "brushed",
+    "start": 0.992,
+    "end": 1.292
+   },
+   {
+    "text": "a",
+    "start": 1.292,
+    "end": 1.38
+   },
+   {
+    "text": "hole",
+    "start": 1.38,
+    "end": 1.667
+   },
+   {
+    "text": "with",
+    "start": 1.667,
+    "end": 1.842
+   },
+   {
+    "text": "two",
+    "start": 1.842,
+    "end": 2.055,
+    "emph": true
+   },
+   {
+    "text": "mouths.",
+    "start": 2.055,
+    "end": 2.67,
+    "emph": true
+   },
+   {
+    "text": "You",
+    "start": 2.85,
+    "end": 3.0
+   },
+   {
+    "text": "checked",
+    "start": 3.0,
+    "end": 3.325
+   },
+   {
+    "text": "for",
+    "start": 3.325,
+    "end": 3.512
+   },
+   {
+    "text": "sharks,",
+    "start": 3.512,
+    "end": 4.175
+   },
+   {
+    "text": "jellyfish",
+    "start": 4.312,
+    "end": 4.975
+   },
+   {
+    "text": "and",
+    "start": 4.975,
+    "end": 5.112
+   },
+   {
+    "text": "one",
+    "start": 5.112,
+    "end": 5.375
+   },
+   {
+    "text": "suspicious",
+    "start": 5.375,
+    "end": 5.987
+   },
+   {
+    "text": "crab,",
+    "start": 5.987,
+    "end": 6.725
+   },
+   {
+    "text": "never",
+    "start": 6.862,
+    "end": 7.112
+   },
+   {
+    "text": "the",
+    "start": 7.112,
+    "end": 7.213
+   },
+   {
+    "text": "crack",
+    "start": 7.213,
+    "end": 7.55
+   },
+   {
+    "text": "you're",
+    "start": 7.55,
+    "end": 7.713
+   },
+   {
+    "text": "touching.",
+    "start": 7.713,
+    "end": 8.27
+   },
+   {
+    "text": "It's",
+    "start": 8.42,
+    "end": 8.592
+   },
+   {
+    "text": "a",
+    "start": 8.592,
+    "end": 8.692
+   },
+   {
+    "text": "moray",
+    "start": 8.692,
+    "end": 9.268
+   },
+   {
+    "text": "eel's",
+    "start": 9.268,
+    "end": 9.643
+   },
+   {
+    "text": "home,",
+    "start": 9.643,
+    "end": 10.255
+   },
+   {
+    "text": "and",
+    "start": 10.355,
+    "end": 10.467
+   },
+   {
+    "text": "the",
+    "start": 10.467,
+    "end": 10.567
+   },
+   {
+    "text": "biggest",
+    "start": 10.567,
+    "end": 10.955
+   },
+   {
+    "text": "reach",
+    "start": 10.955,
+    "end": 11.242
+   },
+   {
+    "text": "three",
+    "start": 11.242,
+    "end": 11.505
+   },
+   {
+    "text": "metres,",
+    "start": 11.505,
+    "end": 12.18
+   },
+   {
+    "text": "longer",
+    "start": 12.317,
+    "end": 12.805
+   },
+   {
+    "text": "than",
+    "start": 12.805,
+    "end": 12.955
+   },
+   {
+    "text": "you're",
+    "start": 12.955,
+    "end": 13.143
+   },
+   {
+    "text": "tall.",
+    "start": 13.143,
+    "end": 13.59
+   },
+   {
+    "text": "Mouth",
+    "start": 13.795,
+    "end": 14.07
+   },
+   {
+    "text": "one",
+    "start": 14.07,
+    "end": 14.22
+   },
+   {
+    "text": "is",
+    "start": 14.22,
+    "end": 14.37
+   },
+   {
+    "text": "right",
+    "start": 14.37,
+    "end": 14.645
+   },
+   {
+    "text": "by",
+    "start": 14.645,
+    "end": 14.82
+   },
+   {
+    "text": "your",
+    "start": 14.82,
+    "end": 14.995
+   },
+   {
+    "text": "hand,",
+    "start": 14.995,
+    "end": 15.695
+   },
+   {
+    "text": "its",
+    "start": 15.832,
+    "end": 16.058
+   },
+   {
+    "text": "teeth",
+    "start": 16.058,
+    "end": 16.433
+   },
+   {
+    "text": "curved",
+    "start": 16.433,
+    "end": 16.858
+   },
+   {
+    "text": "backwards",
+    "start": 16.858,
+    "end": 17.47
+   },
+   {
+    "text": "like",
+    "start": 17.47,
+    "end": 17.707
+   },
+   {
+    "text": "fish",
+    "start": 17.707,
+    "end": 17.97
+   },
+   {
+    "text": "hooks.",
+    "start": 17.97,
+    "end": 18.51,
+    "emph": true
+   },
+   {
+    "text": "It",
+    "start": 18.66,
+    "end": 18.785
+   },
+   {
+    "text": "can",
+    "start": 18.785,
+    "end": 18.96
+   },
+   {
+    "text": "barely",
+    "start": 18.96,
+    "end": 19.385
+   },
+   {
+    "text": "see",
+    "start": 19.385,
+    "end": 19.672
+   },
+   {
+    "text": "you,",
+    "start": 19.672,
+    "end": 20.11
+   },
+   {
+    "text": "so",
+    "start": 20.272,
+    "end": 20.435
+   },
+   {
+    "text": "a",
+    "start": 20.435,
+    "end": 20.547
+   },
+   {
+    "text": "hand",
+    "start": 20.547,
+    "end": 20.897
+   },
+   {
+    "text": "in",
+    "start": 20.897,
+    "end": 20.972
+   },
+   {
+    "text": "its",
+    "start": 20.972,
+    "end": 21.135
+   },
+   {
+    "text": "home",
+    "start": 21.135,
+    "end": 21.485
+   },
+   {
+    "text": "gets",
+    "start": 21.485,
+    "end": 21.735
+   },
+   {
+    "text": "bitten",
+    "start": 21.735,
+    "end": 22.06,
+    "emph": true
+   },
+   {
+    "text": "first,",
+    "start": 22.06,
+    "end": 22.61
+   },
+   {
+    "text": "questions",
+    "start": 22.71,
+    "end": 23.247
+   },
+   {
+    "text": "later.",
+    "start": 23.247,
+    "end": 23.71
+   },
+   {
+    "text": "And",
+    "start": 23.885,
+    "end": 23.997
+   },
+   {
+    "text": "the",
+    "start": 23.997,
+    "end": 24.097
+   },
+   {
+    "text": "worst",
+    "start": 24.097,
+    "end": 24.435
+   },
+   {
+    "text": "thing",
+    "start": 24.435,
+    "end": 24.66
+   },
+   {
+    "text": "you",
+    "start": 24.66,
+    "end": 24.81
+   },
+   {
+    "text": "can",
+    "start": 24.81,
+    "end": 25.01
+   },
+   {
+    "text": "do",
+    "start": 25.01,
+    "end": 25.197
+   },
+   {
+    "text": "next",
+    "start": 25.197,
+    "end": 25.935
+   },
+   {
+    "text": "is",
+    "start": 25.935,
+    "end": 26.11
+   },
+   {
+    "text": "the",
+    "start": 26.11,
+    "end": 26.26
+   },
+   {
+    "text": "first",
+    "start": 26.26,
+    "end": 26.635
+   },
+   {
+    "text": "thing",
+    "start": 26.635,
+    "end": 26.86
+   },
+   {
+    "text": "you'll",
+    "start": 26.86,
+    "end": 27.072
+   },
+   {
+    "text": "do.",
+    "start": 27.072,
+    "end": 27.41
+   },
+   {
+    "text": "Pull.",
+    "start": 27.585,
+    "end": 28.135,
+    "emph": true
+   },
+   {
+    "text": "Those",
+    "start": 28.247,
+    "end": 28.535
+   },
+   {
+    "text": "hooks",
+    "start": 28.535,
+    "end": 28.822,
+    "emph": true
+   },
+   {
+    "text": "point",
+    "start": 28.822,
+    "end": 29.172
+   },
+   {
+    "text": "inward,",
+    "start": 29.172,
+    "end": 29.91
+   },
+   {
+    "text": "so",
+    "start": 30.047,
+    "end": 30.26
+   },
+   {
+    "text": "yanking",
+    "start": 30.26,
+    "end": 30.735
+   },
+   {
+    "text": "back",
+    "start": 30.735,
+    "end": 31.047
+   },
+   {
+    "text": "drags",
+    "start": 31.047,
+    "end": 31.497
+   },
+   {
+    "text": "your",
+    "start": 31.497,
+    "end": 31.61
+   },
+   {
+    "text": "hand",
+    "start": 31.61,
+    "end": 31.947
+   },
+   {
+    "text": "across",
+    "start": 31.947,
+    "end": 32.372
+   },
+   {
+    "text": "every",
+    "start": 32.372,
+    "end": 32.71
+   },
+   {
+    "text": "one.",
+    "start": 32.71,
+    "end": 33.01
+   },
+   {
+    "text": "It's",
+    "start": 33.16,
+    "end": 33.365
+   },
+   {
+    "text": "the",
+    "start": 33.365,
+    "end": 33.49
+   },
+   {
+    "text": "one",
+    "start": 33.49,
+    "end": 33.777
+   },
+   {
+    "text": "handshake",
+    "start": 33.777,
+    "end": 34.427
+   },
+   {
+    "text": "on",
+    "start": 34.427,
+    "end": 34.552
+   },
+   {
+    "text": "the",
+    "start": 34.552,
+    "end": 34.677
+   },
+   {
+    "text": "reef",
+    "start": 34.677,
+    "end": 35.115
+   },
+   {
+    "text": "you",
+    "start": 35.115,
+    "end": 35.24
+   },
+   {
+    "text": "don't",
+    "start": 35.24,
+    "end": 35.44
+   },
+   {
+    "text": "get",
+    "start": 35.44,
+    "end": 35.615
+   },
+   {
+    "text": "to",
+    "start": 35.615,
+    "end": 35.752
+   },
+   {
+    "text": "end.",
+    "start": 35.752,
+    "end": 36.11
+   },
+   {
+    "text": "Relax,",
+    "start": 36.49,
+    "end": 36.99
+   },
+   {
+    "text": "it's",
+    "start": 37.04,
+    "end": 37.24
+   },
+   {
+    "text": "not",
+    "start": 37.24,
+    "end": 37.465
+   },
+   {
+    "text": "trying",
+    "start": 37.465,
+    "end": 37.752
+   },
+   {
+    "text": "to",
+    "start": 37.752,
+    "end": 37.877
+   },
+   {
+    "text": "eat",
+    "start": 37.877,
+    "end": 38.153
+   },
+   {
+    "text": "you.",
+    "start": 38.153,
+    "end": 38.45
+   },
+   {
+    "text": "If",
+    "start": 38.605,
+    "end": 38.755
+   },
+   {
+    "text": "you",
+    "start": 38.755,
+    "end": 38.843
+   },
+   {
+    "text": "were",
+    "start": 38.843,
+    "end": 38.943
+   },
+   {
+    "text": "a",
+    "start": 38.943,
+    "end": 39.055
+   },
+   {
+    "text": "fish,",
+    "start": 39.055,
+    "end": 39.505
+   },
+   {
+    "text": "you'd",
+    "start": 39.58,
+    "end": 39.755
+   },
+   {
+    "text": "meet",
+    "start": 39.755,
+    "end": 39.98
+   },
+   {
+    "text": "mouth",
+    "start": 39.98,
+    "end": 40.318
+   },
+   {
+    "text": "two.",
+    "start": 40.318,
+    "end": 40.71,
+    "emph": true
+   },
+   {
+    "text": "Its",
+    "start": 40.865,
+    "end": 41.09
+   },
+   {
+    "text": "throat",
+    "start": 41.09,
+    "end": 41.415
+   },
+   {
+    "text": "can't",
+    "start": 41.415,
+    "end": 41.752
+   },
+   {
+    "text": "suck",
+    "start": 41.752,
+    "end": 42.015
+   },
+   {
+    "text": "you",
+    "start": 42.015,
+    "end": 42.165
+   },
+   {
+    "text": "in,",
+    "start": 42.165,
+    "end": 42.59
+   },
+   {
+    "text": "so",
+    "start": 42.715,
+    "end": 42.852
+   },
+   {
+    "text": "a",
+    "start": 42.852,
+    "end": 42.953
+   },
+   {
+    "text": "second",
+    "start": 42.953,
+    "end": 43.328,
+    "emph": true
+   },
+   {
+    "text": "jaw",
+    "start": 43.328,
+    "end": 43.64
+   },
+   {
+    "text": "does",
+    "start": 43.64,
+    "end": 43.865
+   },
+   {
+    "text": "it.",
+    "start": 43.865,
+    "end": 44.07
+   },
+   {
+    "text": "The",
+    "start": 44.225,
+    "end": 44.337
+   },
+   {
+    "text": "front",
+    "start": 44.337,
+    "end": 44.637
+   },
+   {
+    "text": "teeth",
+    "start": 44.637,
+    "end": 44.962
+   },
+   {
+    "text": "catch",
+    "start": 44.962,
+    "end": 45.288
+   },
+   {
+    "text": "you,",
+    "start": 45.288,
+    "end": 45.825
+   },
+   {
+    "text": "then",
+    "start": 46.0,
+    "end": 46.175
+   },
+   {
+    "text": "that",
+    "start": 46.175,
+    "end": 46.387
+   },
+   {
+    "text": "jaw",
+    "start": 46.387,
+    "end": 46.688
+   },
+   {
+    "text": "launches",
+    "start": 46.688,
+    "end": 47.175
+   },
+   {
+    "text": "out",
+    "start": 47.175,
+    "end": 47.337
+   },
+   {
+    "text": "of",
+    "start": 47.337,
+    "end": 47.413
+   },
+   {
+    "text": "its",
+    "start": 47.413,
+    "end": 47.612
+   },
+   {
+    "text": "throat",
+    "start": 47.612,
+    "end": 48.025
+   },
+   {
+    "text": "like",
+    "start": 48.025,
+    "end": 48.212
+   },
+   {
+    "text": "a",
+    "start": 48.212,
+    "end": 48.312
+   },
+   {
+    "text": "monster-movie",
+    "start": 48.312,
+    "end": 49.137
+   },
+   {
+    "text": "mouth.",
+    "start": 49.137,
+    "end": 49.49
+   },
+   {
+    "text": "It",
+    "start": 49.645,
+    "end": 49.77
+   },
+   {
+    "text": "grabs",
+    "start": 49.77,
+    "end": 50.245
+   },
+   {
+    "text": "you,",
+    "start": 50.245,
+    "end": 50.495
+   },
+   {
+    "text": "and",
+    "start": 50.57,
+    "end": 50.682
+   },
+   {
+    "text": "the",
+    "start": 50.682,
+    "end": 50.807
+   },
+   {
+    "text": "jaws",
+    "start": 50.807,
+    "end": 51.232
+   },
+   {
+    "text": "swap",
+    "start": 51.232,
+    "end": 51.607
+   },
+   {
+    "text": "grips,",
+    "start": 51.607,
+    "end": 52.295
+   },
+   {
+    "text": "hand",
+    "start": 52.407,
+    "end": 52.707
+   },
+   {
+    "text": "over",
+    "start": 52.707,
+    "end": 52.957
+   },
+   {
+    "text": "hand,",
+    "start": 52.957,
+    "end": 53.345
+   },
+   {
+    "text": "until",
+    "start": 53.382,
+    "end": 53.695
+   },
+   {
+    "text": "you're",
+    "start": 53.695,
+    "end": 53.857
+   },
+   {
+    "text": "gone.",
+    "start": 53.857,
+    "end": 54.27,
+    "emph": true
+   },
+   {
+    "text": "But",
+    "start": 54.62,
+    "end": 54.758
+   },
+   {
+    "text": "plenty",
+    "start": 54.758,
+    "end": 55.133
+   },
+   {
+    "text": "of",
+    "start": 55.133,
+    "end": 55.258
+   },
+   {
+    "text": "bites",
+    "start": 55.258,
+    "end": 55.645
+   },
+   {
+    "text": "come",
+    "start": 55.645,
+    "end": 55.895
+   },
+   {
+    "text": "from",
+    "start": 55.895,
+    "end": 56.032
+   },
+   {
+    "text": "the",
+    "start": 56.032,
+    "end": 56.133
+   },
+   {
+    "text": "friendly",
+    "start": 56.133,
+    "end": 56.57,
+    "emph": true
+   },
+   {
+    "text": "ones,",
+    "start": 56.57,
+    "end": 57.295
+   },
+   {
+    "text": "the",
+    "start": 57.42,
+    "end": 57.557
+   },
+   {
+    "text": "morays",
+    "start": 57.557,
+    "end": 58.145
+   },
+   {
+    "text": "people",
+    "start": 58.145,
+    "end": 58.545
+   },
+   {
+    "text": "feed",
+    "start": 58.545,
+    "end": 58.895
+   },
+   {
+    "text": "by",
+    "start": 58.895,
+    "end": 59.108
+   },
+   {
+    "text": "hand.",
+    "start": 59.108,
+    "end": 59.53
+   },
+   {
+    "text": "If",
+    "start": 59.685,
+    "end": 59.835
+   },
+   {
+    "text": "you've",
+    "start": 59.835,
+    "end": 60.047
+   },
+   {
+    "text": "ever",
+    "start": 60.047,
+    "end": 60.347
+   },
+   {
+    "text": "fed",
+    "start": 60.347,
+    "end": 60.635
+   },
+   {
+    "text": "one",
+    "start": 60.635,
+    "end": 60.835
+   },
+   {
+    "text": "by",
+    "start": 60.835,
+    "end": 61.047
+   },
+   {
+    "text": "hand,",
+    "start": 61.047,
+    "end": 61.76
+   },
+   {
+    "text": "you",
+    "start": 61.885,
+    "end": 62.047
+   },
+   {
+    "text": "taught",
+    "start": 62.047,
+    "end": 62.31
+   },
+   {
+    "text": "it",
+    "start": 62.31,
+    "end": 62.435
+   },
+   {
+    "text": "that",
+    "start": 62.435,
+    "end": 62.648
+   },
+   {
+    "text": "fingers",
+    "start": 62.648,
+    "end": 63.11,
+    "emph": true
+   },
+   {
+    "text": "smell",
+    "start": 63.11,
+    "end": 63.51
+   },
+   {
+    "text": "like",
+    "start": 63.51,
+    "end": 63.76
+   },
+   {
+    "text": "fish.",
+    "start": 63.76,
+    "end": 64.33
+   },
+   {
+    "text": "And",
+    "start": 64.485,
+    "end": 64.623
+   },
+   {
+    "text": "it",
+    "start": 64.623,
+    "end": 64.71
+   },
+   {
+    "text": "can",
+    "start": 64.71,
+    "end": 64.885
+   },
+   {
+    "text": "barely",
+    "start": 64.885,
+    "end": 65.335
+   },
+   {
+    "text": "see,",
+    "start": 65.335,
+    "end": 65.835
+   },
+   {
+    "text": "so",
+    "start": 65.998,
+    "end": 66.148
+   },
+   {
+    "text": "it",
+    "start": 66.148,
+    "end": 66.235
+   },
+   {
+    "text": "can't",
+    "start": 66.235,
+    "end": 66.523
+   },
+   {
+    "text": "tell",
+    "start": 66.523,
+    "end": 66.81
+   },
+   {
+    "text": "which",
+    "start": 66.81,
+    "end": 67.047
+   },
+   {
+    "text": "part",
+    "start": 67.047,
+    "end": 67.385
+   },
+   {
+    "text": "is",
+    "start": 67.385,
+    "end": 67.535
+   },
+   {
+    "text": "the",
+    "start": 67.535,
+    "end": 67.685
+   },
+   {
+    "text": "fish.",
+    "start": 67.685,
+    "end": 68.25
+   },
+   {
+    "text": "This",
+    "start": 68.43,
+    "end": 68.693
+   },
+   {
+    "text": "time,",
+    "start": 68.693,
+    "end": 69.205
+   },
+   {
+    "text": "it",
+    "start": 69.293,
+    "end": 69.468
+   },
+   {
+    "text": "really",
+    "start": 69.468,
+    "end": 69.755
+   },
+   {
+    "text": "is",
+    "start": 69.755,
+    "end": 69.905
+   },
+   {
+    "text": "trying",
+    "start": 69.905,
+    "end": 70.205
+   },
+   {
+    "text": "to",
+    "start": 70.205,
+    "end": 70.343
+   },
+   {
+    "text": "eat",
+    "start": 70.343,
+    "end": 70.555
+   },
+   {
+    "text": "your",
+    "start": 70.555,
+    "end": 70.718
+   },
+   {
+    "text": "fingers.",
+    "start": 70.718,
+    "end": 71.45,
+    "emph": true
+   }
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 88,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.7
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-moray-second-jaw/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 71.65
+   }
+  ],
+  "music": [
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 0,
+    "end": 36.39,
+    "volume": 0.24,
+    "duckTo": 0.14,
+    "fadeIn": 0.2,
+    "fadeOut": 0.25
+   },
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 38.505,
+    "end": 71.65,
+    "volume": 0.24,
+    "duckTo": 0.14,
+    "fadeIn": 0.3,
+    "fadeOut": 0.05
+   }
+  ],
+  "sfx": [],
+  "duckOn": "captions"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}
