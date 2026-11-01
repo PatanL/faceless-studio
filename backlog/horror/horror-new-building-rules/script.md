@@ -1,328 +1,457 @@
 ---
 id: horror-new-building-rules
 niche: horror
-series: 2 parts, post Part 2 first, then Part 1 a few seconds later so Part 1 sits on top of the grid
-title_p1: Our Building Got 7 New Rules Overnight (Part 1/2)
-title_p2: Rule 4 Said I Wasn't Home. It Kept Knocking. (Part 2/2)
-alt_titles: Management Dissolved 2 Years Ago. It Still Posts Rules. | Rule 5 Said They'd Never Ask For My Unit Number
+series: 2 parts. Post Part 2 first, then Part 1 a few seconds later so Part 1 sits on top of the grid (PLAYBOOK §5). Each part hooks cold viewers on its own.
+title_p1: Never Give Anyone Your Unit Number (Part 1/2)
+title_p2: Someone Else Lives In My Apartment (Part 2/2)
+alt_titles: The Building Office Wanted Our Unit Numbers. We Don't Have One. | If Someone You Know Asks Your Unit, It Isn't Them | 7C Was In Our Building Chat Twice
 format: 9:16
-template: pipeline/templates/horror.md (T1 Locked-Door Siege + T2 Unspoken Rule Broken; rules-note modifier)
-target_runtime_s: {p1: 92, p2: 92}
-target_words: {p1: 291, p2: 292}
-target_wpm_spoken: 222 (narrated-story band 230-270 is PLAYBOOK §7; we sit just under it because the rule read-outs need air, same reason MOM-NOTE runs slow)
-target_wpm_overall: 190-195 including timed silences
-hook: core hook 22 words / 6.4 s; first contradiction of the authority lands at 6.4-14.5 s
-jolt_target: median 4-6 s, never > 8 s; last third 2-4 s
-voice: af_heart (June), Kokoro speed 1.2
-music: dread, drops out at P1 1:25 and P2 1:26
-cast: June (narrator, unit 7C), Odette (3B, contracts paralegal), Dale (8A, joker), Mrs. Kowal (7A); account "Management"
-building: Harrow Court, floor 7 has units 7A-7E; company: Fenwick & Rowe Residential (invented)
+template: pipeline/templates/horror.md (T1 Locked-Door Siege + rules-note modifier); PLAYBOOK §1D engines "Locked-door siege" x "Two rival authorities" x "Rules note"
+target_runtime_s: {p1: 78.8, p2: 82.7}
+target_words: {p1: 274, p2: 287}
+wpm_spoken_measured: {p1: 247, p2: 244}   # PLAYBOOK §7 narrated band 230-270
+wpm_overall_measured: {p1: 209, p2: 208}
+timing_source: Kokoro-82M af_heart on the Spark CPU (tts_durations.json); every time below is measured, and build.py regenerates this file, both storyboards and the pacing numbers from it
+voice: af_heart (June narrates every chat line and the voice at the door)
+speed: 1.3 (pilot speed); 1.0-1.2 on the knock and whisper lines, with vox -3 to -6 dB in place of a whisper (Kokoro has none)
+music: dread, out before the knocks in both parts
+cast: June (narrator, 7C, moved in recently); Odette (3B, downstairs neighbor); Dale (8A, the joker); Mrs. Kowal (7A); Priya (7B), Sam (7D), Tess (7E); D. Rowe (the last tenant of 7C, wrote the note); the "Building Office" chat account
+building: Harrow Court. Floor 7 = 7A, 7B, 7C (June, end of the corridor), 7D, 7E, plus the stairwell door and a trash room. The super lives in 1A; there is no building office.
+mechanic: "Typing it marks you. Saying it opens." Giving your unit number in the chat puts out the light over your door; saying it aloud from inside lets the thing in. Only the resident of a unit can give it.
 references:
   - id: 7659677578365537569
     url: https://www.tiktok.com/@udhwkz/video/7659677578365537569
     views: 376200
     outlier_score: 10.79
-    why: closest engine. A residents' group chat run by a fake authority; the hero proves the lie with a count match (4 = 4) and chat read-outs in `[Name] from [unit]` rhythm; the hero's unit becomes a target label; cut on an unknown-sender imperative. We borrow the count match, read-out rhythm, leaked-private-data rung, unit-as-target and three-channel structure.
+    short: SIEGE-CHAT
+    why: Closest engine. A residents' chat run by a fake authority, `[Name] from [unit]` read-outs, instant compliant replies as a tell, leaked private data, the hero's unit as the target label, dead neighbours' accounts pressuring the hero, a lifeline under a clock and a cut on a new imperative. We borrow the chat engine, the casualty-proof-plus-peer-pressure rung and the clock lifeline. No killer, no fake cop, no muting, no burner phone, no box.
   - id: cVUJmsVkUW4
     url: https://www.youtube.com/watch?v=cVUJmsVkUW4
     views: 290919
     outlier_score: 30.95
-    why: closest format for the rules list itself. Numbered imperatives as re-hooks every 3-4 s, black title cards, planted contradictions between rules, a "safe" place that is watched, episode-count stakes. Same channel family as the cited evidence (WrONG Rules "New Household Rules (Pt3?)" BciSW_2VMZg, 104K, 11x).
-  - id: 7702661471641128224
-    url: https://www.tiktok.com/@udhwkz/video/7702661471641128224
-    views: 343100
-    outlier_score: 9.85
-    why: the sequel mechanics for Part 2. Pay a Part 1 plant by ~45%, falsify a companion's story with an outside check, name the truth in the last 2% and cut. We also fix its known weakness (hard hook at 0:20, 16% of P1 views) by putting Part 2's hard hook in the first 3 s.
+    short: MOM-NOTE
+    why: The rules-note format. An absent guardian's written list is the rulebook; numbered imperatives, one if/then branch with a strange condition, a rule that the plot later contradicts, and a forbidden or withheld piece of the document as the series hook. Our note is the last tenant's, taped under the sink; its torn-off end is the twist. We do not reuse its doll, closet, colour rules or parent voice.
+  - id: 7670495663624408352
+    url: https://www.tiktok.com/@mraevq/video/7670495663624408352
+    views: 193600
+    outlier_score: 18.01
+    short: DORM-RULES
+    why: Two rival authorities. One authority's rule (the office: reply with your unit) and another's (the note: never give it) cannot both be safe; the midpoint jolt is an authority quoting words it should not know; the turn is a repeated unit number that turns out to be "our" room. We borrow the rival-authority spine, the "how did it know what I was told" midpoint and the number-callback turn.
 secondary_devices:
-  - id: T42u5xhrq-0 (TEXT-FIGURE, 869K, 25.5x) voice swap, the ally's own account answers in the wrong register (P1 1:12)
-  - id: 7654526047005723937 (SIEGE-OVERLAY, 717K, 66.7x) knock at the barrier right after the authority's message (P1 end, P2 open)
-demand_evidence: WrONG Rules "New Household Rules (Pt3?)" 103K (11x); Mr. Creeps apartment rules 873K; Lighthouse apartment rules 340K; lehwh7 strange-rules complex 26K
-distinct_from: episodes/horror-pinned-rules (the pilot used this premise as a 68 s one-off with a rule-breaker who goes grey, an edited rule five and a one-person peephole sting) and episodes/horror-member-41 (extra chat member, door-to-door single knocks). Here the mechanic is new: the thing can only come in once a resident says their unit number, so the "confirm your unit" post is the trap, floor-seven hall lights go out in reply order, and the rules turn out to be written by the man hiding in June's closet.
+  - 7702661471641128224 (HEARSE-P2, 343K, 9.9x) sequel mechanics for Part 2: cold open, a Part 1 plant paid early, an outside check that falsifies a companion. We fix its known weakness (hard hook only at 0:20) with a frame-0 knock and the forbidden question at ~3 s.
+  - T42u5xhrq-0 (TEXT-FIGURE, 869K, 25.5x) typography voice swap: a lowercase account answers in calm sentence case (P1 Mrs. Kowal).
+  - 7702661541224566049 (HEARSE-P1, 2.2M, 63.1x) one held horror image late; the last shot bookends the first.
+  - 7654526047005723937 (SIEGE-OVERLAY, 717K, 66.7x) the contradiction inside the first 7 s.
+  - 7694996216505060641 (FLOOR-PHRASE, 613K, 17.6x) reactor-closeness ladder (neighbour, neighbour, super, mother) for the borrowed voices.
+  - Qz-TrB6W2SM (HOTEL-DOOR, 1.52M, 9.0x) retro-reveal after safety: relief at sunrise, then worse than we knew.
+demand_evidence: WrONG Rules "New Household Rules (Pt3?)" BciSW_2VMZg 104K (11.0x); Mr. Creeps "The Apartment Complex I Live In Has Scary Rules The Tenants Must Follow" 33J0uRRRu_8 873K; Lighthouse Horror "The Apartment Building I live in has 5 SCARY Rules" bwLuZt6qvC8 340K; Textify "Don't Answer Your Mom's Voice" 2k3w_XHRd1s 2.74M (borrowed-voice demand)
+distinct_from: |
+  episodes/horror-pinned-rules (pilot): this rewrite drops every beat it shared with the pilot. No "Management" pinning 7 rules, no "knocks three times, you are not home" rule, no dissolved company, no "Management will never..." rule, no back-against-the-door line, no one-person peephole sting. Here the authority asks for unit numbers in the hook and a paper note from the last tenant forbids it (two rival authorities, not one fake one); the debunk is "we don't have a building office"; the cost is countable (lamps out in reply order); the hidden space is a locked spare room, not a closet.
+  episodes/horror-member-41 (extra chat member) and episodes/horror-building-intercom-buzzes-3-m (voice at the intercom): no extra member count, no intercom, no cat-name test.
+  backlog/horror/horror-babysitter-parent-rules (fridge note, 5 rules, password): our note has 4 readable rules and a torn-off end; no password, no call.
+  The gate below was also run against episodes/ and backlog/ (originality lens, must-fix 1).
 ---
 
-# Our Building Got 7 New Rules Overnight (2 parts)
+# Never Give Anyone Your Unit Number (2 parts)
 
-**Premise.** At 3:12 a.m. a pinned post signed Management lists seven rules in the Harrow Court residents' chat. Rule four: if someone knocks three times, you are not home. Odette in 3B finds the company was dissolved two years ago. At 3:40 a second post asks everyone to confirm their unit number, which rule five said Management would never do. Each neighbor who answers loses the light over their door. When every other unit on floor seven has replied, the knocking reaches June's door. Part 2: the knocker borrows neighbors' voices, it needs June to say her unit out loud, sunrise is nine minutes away, and the hidden rule one shows who wrote the rules: the company's last officer, who never left 7C. He is in her hall closet.
+**Premise.** At 5:12 a.m. the "Building Office" asks the Harrow Court residents' chat to reply with their unit numbers. June has a note from the last tenant of 7C, taped under her sink: rule one says never give anyone your unit number, not even the building. Odette, downstairs, says the building has no office. Dale goes to look for it by the stairs, which rule two forbids, and the office tells him the stairs are fine. Then it says the note under the sink is out of date, and nobody else has a note. Four neighbours on floor seven reply anyway; each reply puts out the light over that door, and the knocking walks one door closer each time. Their accounts start posting in tidy sentence case, asking June to reply. Then a private message: every unit has replied except one. Behind her, under the locked spare room door, a light comes on. Three knocks.
 
-**Mechanic (one sentence the viewer can track).** It cannot enter until someone inside says their unit number.
+Part 2: the voice at her door is Odette's, asking which unit this is. Rule four says someone you know who asks is not them, and the real Odette texts from her bathtub on floor three: typing it marks you, saying it opens. Dale's voice, then his stair photos: floor six, three times. The member list shows 7C twice: June, and D. Rowe, the name on the note, online. Something crouches against the door, listening. Sunrise is nine minutes away. The voices climb from neighbours to her mother, then just her unit, as a question. D. Rowe answers her DM instantly: don't answer it, not even to me. At 6:04 the knocking stops, Mrs. Kowal's light comes back, the other three stay dark, and the torn-off end of the note slides out under the spare room door: I never left 7C. Whatever knocks, it isn't me. Then three knocks from inside the spare room.
+
+**Mechanic (one line the viewer can track).** Typing it marks you. Saying it opens. Only the resident of a unit can give its number: the thing has to make June say "7C" herself, so it borrows voices she trusts.
+
+**Two authorities, told apart.** The note (D. Rowe, the last tenant, the protector) and the "Building Office" chat account (the thing). Every message that asks for a unit, threatens Dale's lease or pushes him to the stairs is the Building Office. The note's rules keep June alive until sunrise. The final knocks are the open question the line "Whatever knocks, it isn't me" sets up: either he is lying, or something else is in the spare room with him.
 
 **Plants and payoffs.**
 
-- Rule one is cut off (P1 0:16), paid as the twist (P2 1:19).
-- Rule two, no stairs (P1 0:19), paid by Dale stuck on floor six (P2 0:26).
-- Rule three, lights until sunrise (P1 0:21), paid by the lights coming back at 6:04 (P2 1:15).
-- Rule five, never asks for units (P1 0:23), broken by the second post (P1 0:53) and turned into the rule of the whole story (P2 0:15).
-- Rule six, no neighbors after three (P1 0:26), paid by the borrowed voices (P2 0:00-1:05).
-- Four amber lights (P1 0:47), paid as four replies, four lights out (P1 1:09).
-- Odette's lowercase "3b" (P1 1:12), paid by her work-phone text (P2 0:15).
-- The closet phone (P2 0:37), paid by the closet knocks (P2 1:28).
+- Rule one, never give your unit (P1 0:06.6), is the whole story; the office breaks it in the hook and June keeps it to the end (P2 1:01.6).
+- Rule two, no stairs (P1 0:13.5), plus Dale's on-screen "taking the stairs" (P1 0:21.4) and the office's "the stairs are fine" (P1 0:25.9); paid by Dale's floor-six photos (P2 0:21.3).
+- Rule three, if your hall light goes out stay inside until sunrise (P1 0:14.9); the lights go out in reply order (P1 0:45.3-0:50.7); the one that comes back at sunrise is Mrs. Kowal's (P2 1:05.7).
+- Rule four, someone you know who asks isn't them (P1 0:17.9); paid by Odette's voice asking "Which unit is this?" (P2 0:02.5).
+- The torn-off end (P1 0:20.2); paid as the twist at sunrise (P2 1:09.6).
+- The note's header "For whoever lives in 7C next. - D. Rowe" (on screen, P1 0:03.9); paid by 7C twice in the member list (P2 0:32.6).
+- Four amber lamps (P1 0:31.8); paid as the cost ladder, four replies, four lights out (P1 0:50.7), and the dark doors through the peephole (P2 0:08.8).
+- The spare-room light (P1 1:08.3); paid by the slip under that door and the knocks from inside (P2 1:09.6, 1:16.7).
 
-**Loops open at the P1 cut (5):** who wrote the rules, what rule one says, what answered as Odette, what happened to the four units, is Dale safe. **Open at the P2 cut (3):** who or what is in the closet, Dale on the stairs, the four dark units.
+**Loops open at the P1 cut (5):** who runs the Building Office; what the torn-off end says; what happened to the four dark units (7A's door is open); who is in the locked spare room; what knocks at June's door. **Open at the P2 cut (3, by design for a 2-part story):** who or what knocks inside the spare room; whether D. Rowe is the protector or a liar; 7B, 7D and 7E still dark (Mrs. Kowal's light came back). Closed in P2: who wrote the note, what the torn rule says, is the voice Odette, did Dale get down, does June survive the night.
 
 ## Beat alignment
 
-| # | Our beat | Our timestamp | Reference id + timestamp | Device borrowed | How we adapt it |
+| # | Our beat | Our time | Reference id + timestamp | Device borrowed | How we adapt it |
 |---|---|---|---|---|---|
-| P1-1 | B1 Hook: authority posts rules, rule 4 stated | P1 0:00-0:06 | 7659677578365537569 0:00-0:06 (threat at home + omen rule); cVUJmsVkUW4 0:00-0:10 (trusted voice, then stakes) | Place everyone lives + a rule as common law, said in line 2; threat visible in frame 0 | Our rule is the hook itself, on the phone in frame 0; no killer, no song, no warm parent |
-| P1-2 | B4 Contradiction from a second channel | P1 0:06-0:16 | 7659677578365537569 0:08-0:11 (official all-clear undercut in 3 s) | The authority is undercut inside 11 s | A neighbor's records screenshot instead of a knock; a 5-word verdict line + one viewer-proxy question |
-| P1-3 | B2 Rules laid down, read as a list | P1 0:16-0:32 | cVUJmsVkUW4 0:10-0:46 (ordinal imperatives, title cards, one item withheld behind "only then") | A new rule every ~3 s, each a re-hook and a Chekhov gun | Rules read out of order, rule one withheld as truncated; black rule cards in the kit's RedText-free card style |
-| P1-4 | Rule broken socially, chat chorus | P1 0:32-0:38 | 7659677578365537569 0:31-0:52 (`[Name] from [unit]` then message, 1.5-3 s each) | Read-out rhythm turns the cast into a map | One joker breaks rule seven in public; the chat is the rule-breaker, not a person opening a door |
-| P1-5 | Authority knows too much | P1 0:38-0:47 | 7659677578365537569 1:43-1:49 (admin tags the hero, leaked landlord number) | Leaked private data as a rung | Lease renewal date from a dead company, then a verdict line; it knows names, not doors |
-| P1-6 | Countable plant | P1 0:47-0:51 | 7659677578365537569 0:19-0:21 (odd count planted on the visitor) | Plant a number that pays 20 s later | Four amber door lights seen through the peephole |
-| P1-7 | B8 Midpoint: authority breaks its own rule | P1 0:51-0:59 | cVUJmsVkUW4 1:13-1:19 (a rule reverses an earlier rule); 7659677578365537569 0:33-0:37 ("please cooperate" command) | Planted contradiction + compliance command | "Reply with your unit number" vs rule five; ally says don't |
-| P1-8 | B5 Roll-call ladder + count match | P1 0:59-1:12 | 7659677578365537569 0:39-0:52 (3 instant replies), 0:28 (count match 4 = 4) | Fast replies as a tell; the count closes the plant | Each reply = a door light out; four replies, four lights; knocking below "always three" |
-| P1-9 | B6 Ally silenced via voice swap | P1 1:12-1:16 | 7659677578365537569 2:21 (ally silenced); T42u5xhrq-0 0:56 (victim's thread answers calmly) | The trusted voice is replaced | Odette's account sends "3b", lowercase, no punctuation; the typography is the scare |
-| P1-10 | B11 Target narrowed by elimination | P1 1:16-1:21 | 7659677578365537569 1:20-1:33 (hero's unit named as the target) | Unit as target label | Private DM: every unit on seven replied except one; the viewer does the math |
-| P1-11 | B12 Cliff on three knocks | P1 1:21-1:31 | 7659677578365537569 4:02-4:08 (cut at peak need); 7654526047005723937 0:05 (knock right after the authority message) | Hard cut, no spoken CTA, part card | Narrator counts the knocks; the third knock is the cut to black + PART 2 card; bookend on the pinned rule 4 |
-| P2-1 | Cold open with a hard hook in 3 s | P2 0:00-0:08 | 7702661471641128224 0:00-0:20 (cold open, no recap; hard hook only at 0:20) | Continue mid-scene | Fix its weakness: knock + borrowed voice + one-line premise restated for cold viewers inside 8 s |
-| P2-2 | Outside check on a private channel | P2 0:08-0:20 | 7702661471641128224 1:36-1:58 (a call to family falsifies the story); 7659677578365537569 3:19-3:41 (third channel tells the truth) | Outside check kills the impostor's claim | A text to Odette's work phone; her reply states the mechanic (don't say your unit) |
-| P2-3 | Voice ladder + Part 1 plant paid | P2 0:20-0:33 | 7702661471641128224 1:21-1:35 (Part 1 plate callback); 7659677578365537569 1:15-1:24 (escalation at the door) | Pay a P1 plant early; escalate at the barrier | The voice swaps to Dale; his stair posts loop "floor six"; rule two paid |
-| P2-4 | B7 Lull + plant (11 s) | P2 0:33-0:44 | 7702661471641128224 1:02-1:07 (false calm, doubt); cVUJmsVkUW4 1:25-1:30 (lull with one odd edge) | Short quiet stretch carrying one plant | A phone buzzing in the hall closet; the last tenant left in a hurry |
-| P2-5 | B8 Turn: records tie it to my unit | P2 0:44-0:49 | 7702661471641128224 1:59-2:05 (reframe twist) | Personal link to the threat | The company's last officer lived in 7C; 3-word verdict |
-| P2-6 | B9 Peak image, held | P2 0:49-0:58 | cVUJmsVkUW4 1:43-1:51 (peek through a gap, watcher inside, strongest effect) | One scariest image, held ~4 s | Peephole: no one standing; a crouched shape with its ear to the door; 2 s of silence |
-| P2-7 | B10 Lifeline under a clock | P2 0:58-1:19 | 7659677578365537569 3:17-4:02 (battery countdown, every line costs time) | Visible countdown, rising pressure | Sunrise (rule three) as the clock; voices ladder Kowal, super, mother, then just "7C?" |
-| P2-8 | B11 Truth twist | P2 1:19-1:26 | 7659677578365537569 3:58-4:01 (the manager never existed); 7702661471641128224 3:09 (truth named in the last 2%) | Reframe of the authority | Rule one loads: the rule writer never left 7C |
-| P2-9 | B12 Bookend cliff | P2 1:26-1:31 | cVUJmsVkUW4 2:01-2:15 (forbidden next thing, soft card); 7702661541224566049 end (bookend shot) | Motif returns one step worse | Three knocks again, from inside the closet; end card, no CTA |
+| P1-1 | B1 hook: an official channel asks for the one thing a rule forbids | P1 0:00.1-0:09.6 | 7654526047005723937 0:00-0:07 (official chat line, then a contradicting source by 7 s); 7659677578365537569 0:06-0:08 (group-chat authority line that will be undercut) | Place everyone lives + an official instruction + a contradicting source, all in the first 10 s; threat visible in frame 0 | The instruction is on the phone in frame 0 with a feet shadow under the blurred door; the contradiction is a paper note, not an overlay |
+| P1-2 | B4 second channel: the authority does not exist | P1 0:09.8-0:13.2 | 7659677578365537569 0:55-0:59 (counter-voices: real neighbours doubt the authority) | A neighbour in the same chat undercuts the official account | One line from Odette plus a 3-word viewer-proxy question |
+| P1-3 | B2 rules note, read fast | P1 0:13.5-0:21.1 | cVUJmsVkUW4 0:10-0:46 (ordinal imperatives on cards), 0:35 (first if/then branch), 2:01-2:04 (a withheld next part of the document as the series hook) | Numbered rules, one if/then with a strange condition, one part withheld | Rules 2-4 in under 7 s as paper close-ups; rule 4 is the if/then; the bottom is torn off |
+| P1-4 | Minor rule broken in public | P1 0:21.4 | 7702661541224566049 0:16-0:17 (the companion proposes breaking the rule), 0:31 (a minor rule broken before the major one) | The joker says he will break a rule on screen | Dale announces the stairs, so rule two pays honestly in Part 2 |
+| P1-5 | Authority knows too much, and contradicts a rule | P1 0:24.2-0:31.6 | 7659677578365537569 1:43-1:49 (top authority tags the hero, leaked private data); cVUJmsVkUW4 1:13 (a later line contradicts an earlier rule) | Leaked data as a rung; a contradiction the viewer can catch | Lease date from an office that doesn't exist, and "the stairs are fine" against rule two |
+| P1-6 | Countable plant | P1 0:31.8 | 7702661541224566049 0:47 (hyper-specific plant: a plate number) | Plant a count that pays as a cost later | Four amber lamps on four doors; the far pair is EXIT and TRASH so the count reads |
+| P1-7 | B8 midpoint: the authority quotes what it should not know | P1 0:35.0-0:42.1 | 7670495663624408352 1:34 (the rival knows the supervisor's private words); T42u5xhrq-0 0:31-0:33 (the threat crosses into "my" space at ~50%) | Private knowledge as the turn, aimed at the hero | "The note under the sink is out of date"; nobody else has a note |
+| P1-8 | B5 roll-call ladder + proximity ladder | P1 0:42.3-0:52.7 | 7659677578365537569 0:39-0:52 (instant replies with unit labels); T42u5xhrq-0 0:44-0:47 (distance shrinks rung by rung) | Replies as a tell; a second ladder that moves the threat closer | Each reply = one lamp out, on the spoken unit; the knocking moves one door closer per reply |
+| P1-9 | B6 voice swap + casualty proof + peer pressure | P1 0:53.6-0:59.4 | T42u5xhrq-0 0:51 then 0:56 (lowercase panic, then calm third-person register from the victim's account); 7659677578365537569 1:35-1:51 (@-tags and shill pressure), 1:54-1:58 (dead accounts used) | The trusted account speaks in the wrong register and pushes the hero | Mrs. Kowal (who typed "sorry i like rules") now writes in capitals and full stops: "June, please reply." 7B repeats it word for word |
+| P1-10 | B9 peak image, held | P1 0:59.7-1:03.6 | 7702661541224566049 2:37-2:46 (one horror image, held) | One scariest image, held ~4 s at ~75% | 7A's door open a crack, black inside; every lamp dark |
+| P1-11 | B11 target by elimination, then the inside threat | P1 1:03.6-1:10.9 | 7659677578365537569 1:20-1:33 (hero's unit named as the target); T42u5xhrq-0 0:31-0:33 (something in my room) | The unit as a target label; the threat on both sides of the barrier | "Every unit on seven has replied except one"; then the spare-room light behind her |
+| P1-12 | B12 cliff on three knocks, bookend card | P1 1:11.2-end | 7659677578365537569 4:05-4:08 (cut at peak need, an imperative from the authority); 7702661541224566049 3:16-3:21.9 (bookend shot, part label) | Hard cut, no spoken CTA, part card | Cut on the third knock; the end card repeats frame 0's request ("Reply with your unit number.") with PART 2 |
+| P2-1 | Cold open: trusted voice + forbidden question by 3 s | P2 0:00.1-0:03.8 | 7702661471641128224 0:00-0:20 (cold open, hard hook only at 0:20: the weakness we fix); BciSW_2VMZg (PLAYBOOK §5: the urgent-hook Pt3 got 11x, the mid-list Pt2 1.0x) | Continue mid-scene, but hook cold viewers in 3 s | Knock on frame 0, "my neighbor Odette", then "Which unit is this?" |
+| P2-2 | Outside check falsifies the voice, mechanic stated | P2 0:04.0-0:08.6 | 7702661471641128224 1:36-1:47 (a short question to an outside party falsifies the companion's story); 7659677578365537569 3:41-3:42 (real authority gives the rule, contradicting the lie) | Outside check kills the impostor; the real source states the rule | A text to the real Odette, answered in 2 lines; the second is the 7-word mechanic |
+| P2-3 | Premise restated for cold viewers | P2 0:08.8-0:16.1 | PLAYBOOK §5 (each part must stand alone); cVUJmsVkUW4 1:11-1:12 (a rule repeated as a callback) | Restate the rule the viewer needs | The four dark doors through the peephole + rule four on the note |
+| P2-4 | Fast physical ladder, Part 1 plant paid | P2 0:16.3-0:26.6 | 7702661471641128224 0:20-0:45 (fast ladder), 1:29 (the Part 1 plate number pays) | Escalate at the barrier; pay a planted specific by ~45% | Dale's voice; his three floor-six photos; rule two |
+| P2-5 | B7 lull + plant | P2 0:26.9-0:32.4 | 7702661541224566049 1:31-1:41 (lull, the companion's face hidden) | Short quiet stretch with one odd detail | The lit gap under the locked spare room |
+| P2-6 | B8 turn: planted identifier pays | P2 0:32.6-0:39.2 | 7670495663624408352 2:16 (the dead girl's room number is "our" room) | A repeated number makes the threat personal | 7C twice in the member list; D. Rowe, online |
+| P2-7 | B10 clock + reactor-closeness ladder + lifeline | P2 0:39.5-0:50.5 | 7659677578365537569 3:17-3:41 (countdown; the real party on a thin line gives the imperative); 7694996216505060641 0:27-2:41 (reactors grow closer: strangers to mother); Qz-TrB6W2SM 1:25-1:41 (door ladder: polite, silence, command) | Visible clock; voices climb from neighbour to family; a lifeline that answers | Sunrise as the clock; Kowal, the super, her mother; D. Rowe answers instantly: don't answer it |
+| P2-8 | B9 peak image, held | P2 0:50.7-0:57.7 | 7702661541224566049 2:37-2:46 (one horror image, held); cVUJmsVkUW4 1:43-1:45 (peek through a gap, the strongest effect) | One image, held ~4 s, silence, at 60-80% | A head pressed ear-first to the door, low in the lens; 2 s with heartbeat only |
+| P2-9 | Last rung, then false relief at sunrise | P2 0:57.7-1:09.3 | Qz-TrB6W2SM 1:25-1:41 (the volume ladder ends on the bare command); 7702661471641128224 1:02-1:07 (false calm, then doubt) | The demand stripped to one word; relief that is only partial | Just "7C?" twice; at 6:04 the knocking stops and only 7A's light returns |
+| P2-10 | B11 truth twist after safety | P2 1:09.6-1:15.9 | Qz-TrB6W2SM 2:28-2:39 (retro-reveal after safety); 7659677578365537569 4:00-4:01 (identity reversal of the authority) | Relief, then worse than we knew; an authority reframed | The torn-off end slides out under the spare-room door at 6:04: the note's writer never left |
+| P2-11 | B12 bookend cliff | P2 1:16.7-end | 7702661541224566049 3:16-3:21.9 (bookend shot); 7659677578365537569 4:05-4:08 (last-second message, no resolution) | Motif returns one step worse; hard cut | Three knocks, now from inside her own apartment; end card with D. Rowe's line |
 
 ## Script: Part 1
 
-**Hook.** First line: "At 3:12, Management pinned seven rules in our building chat." First visual (frame 0, also the cover): HandPhone full frame, chat "Harrow Court Residents · 38", a red pinned alert bubble "RULE 4: If someone knocks three times, you are not home." Behind the phone, a blurred FrontDoor with the hall light glowing under it.
+**Hook.** Line 1 (13 words): "At 5:12, the building office asked everyone to reply with their unit number." Frame 0 (also the cover): HandPhone full frame on the residents' chat, a red Building Office alert bubble "Night check. Please reply with your unit number so we know you're home." Behind the phone, the blurred front door with the hall light under it and **a feet shadow breaking the light** (the threat is literally in the cover). The note contradicts the office by 0:05.9 ("never"), Odette by 0:11.2.
 
-Caption style for both parts: top band, y 0.15, sentence case, maxWords 3, red highlight `#ff4b55` on the bracketed word. Chat text appears on the phone word for word as it is read.
+Captions: pilot style (top band y 0.12, sentence case, a dark backing pill, up to 6 words a page, red on the emphasis words). Phone text appears word for word as it is read. Spoken numbers are spelled out for Kokoro (TTS column); the captions and the phone keep digits.
 
-- `0:00.0-0:03.2` **[B1 HOOK]** VO: At 3:12, Management pinned seven rules in our building chat. ON-SCREEN: caption highlight [Management]; chat header pin icon, dayLabel 3:12 AM.
-- `0:03.2-0:06.4` **[B1 HOOK, rule]** VO: Rule four. If someone knocks three times, you are not home. ON-SCREEN: red alert bubble RULE 4 (already up from frame 0, pulses); caption highlight [not home].
-- `0:06.4-0:10.2` **[B4 CONTRADICTION]** VO: Then Odette from 3B, who checks contracts for a living, posted a screenshot. ON-SCREEN: bubble from "Odette 3B" with an image card.
-- `0:10.2-0:12.9` **[B4]** VO: Fenwick and Rowe Residential. Status: dissolved. Two years ago. ON-SCREEN: image card text "FENWICK & ROWE RESIDENTIAL LLC · STATUS: DISSOLVED · 03/09/2024", glitch hit on "dissolved".
-- `0:12.9-0:14.5` **[B4 verdict]** VO: Our management company doesn't exist. ON-SCREEN: caption highlight [doesn't exist].
-- `0:14.5-0:15.8` **[re-hook question]** VO: So who wrote these? ON-SCREEN: June's face, phone light, suspicious.
-- `0:15.8-0:19.0` **[B2 RULES, withheld item]** VO: Rule one was cut off. Just a number and a dash. ON-SCREEN: close on the pinned post, first line "1. —" then "Read more" greyed out.
-- `0:19.0-0:20.9` **[B2]** VO: Rule two. No stairs after midnight. ON-SCREEN: black rule card "2 · NO STAIRS AFTER MIDNIGHT".
-- `0:20.9-0:23.3` **[B2]** VO: Rule three. Hallway lights stay on until sunrise. ON-SCREEN: rule card "3 · HALL LIGHTS ON UNTIL SUNRISE".
-- `0:23.3-0:26.3` **[B2]** VO: Rule five. Management will never ask for your unit number. ON-SCREEN: rule card "5 · WE WILL NEVER ASK YOUR UNIT NUMBER".
-- `0:26.3-0:29.5` **[B2]** VO: Rule six. After three, do not open your door for neighbors. ON-SCREEN: rule card "6 · AFTER 3 AM, NO NEIGHBORS".
-- `0:29.5-0:32.5` **[B2]** VO: Rule seven. Do not discuss these rules in this chat. ON-SCREEN: rule card "7 · DO NOT DISCUSS THESE RULES HERE".
-- `0:32.5-0:34.9` **[rule broken, chorus]** VO: Forty messages later, nobody was discussing anything else. ON-SCREEN: chat scrolls fast, unread badge counts 0 to 40.
-- `0:34.9-0:38.4` **[chorus]** VO: Dale from 8A wrote: rule seven already broken. what's the penalty lol ON-SCREEN: bubble "Dale 8A: rule 7 already broken. what's the penalty lol".
-- `0:38.4-0:40.2` **[JOLT]** VO: Management answered him in four seconds. ON-SCREEN: "Management is typing…" in the header for 1 s.
-- `0:40.2-0:43.5` **[JOLT, leaked data]** VO: Dale. Your lease renews in eleven days. Please follow the rules. ON-SCREEN: Management bubble, word for word.
-- `0:43.5-0:46.7` **[verdict]** VO: A company that died two years ago knew his lease date. ON-SCREEN: June close-up, worried.
-- `0:47.0-0:51.0` **[PLANT, count]** VO: I checked the peephole. Four other doors on my floor. Four little amber lights. ON-SCREEN: caption highlight [Four]; hall view through the peephole ring.
-- `0:51.0-0:53.2` **[B8 MIDPOINT]** VO: At 3:40, a second pinned message. ON-SCREEN: notification banner "Management · New pinned message", clock 3:40.
-- `0:53.2-0:56.4` **[B8]** VO: To confirm you've read the rules, reply with your unit number. ON-SCREEN: Management bubble word for word.
-- `0:56.4-0:58.5` **[B8 contradiction]** VO: Rule five said they would never ask. ON-SCREEN: rule card 5 flashes back for 0.6 s with an RGB tear.
-- `0:58.5-0:59.9` **[ally]** VO: Odette: Nobody answer that. ON-SCREEN: bubble "Odette 3B: Nobody answer that."
-- `0:59.9-1:03.1` **[B5 LADDER rung 1]** VO: Mrs. Kowal from 7A answered anyway. 7A. Sorry. I like rules. ON-SCREEN: bubble "Mrs. Kowal: 7A. sorry. i like rules".
-- `1:03.1-1:05.8` **[B5 rung 1 cost]** VO: In the hall, the light over 7A went out. ON-SCREEN: hallway, nearest door lamp dies with a click.
-- `1:05.8-1:09.0` **[B5 rungs 2-4]** VO: Then 7B. 7D. 7E. One after another, like a roll call. ON-SCREEN: three bubbles pop at 0.8 s spacing: "7B", "7D", "7E".
-- `1:09.0-1:10.6` **[count match]** VO: Four doors. Four lights out. ON-SCREEN: caption highlight [Four]; hall now dark except a strip under June's own door.
-- `1:10.6-1:12.5` **[B5 sound]** VO: Somewhere below me, knocking. Always three. ON-SCREEN: black frame, three muffled knocks under the line.
-- `1:12.5-1:15.7` **[B6 VOICE SWAP]** VO: Odette stopped typing. Then her account replied. 3b. Lowercase. No punctuation. ON-SCREEN: typing dots for Odette start, stop; bubble "3b".
-- `1:15.7-1:18.1` **[B11 target]** VO: My phone buzzed. A private message from Management. ON-SCREEN: lock-screen banner "Management (private)".
-- `1:18.1-1:20.8` **[B11 target]** VO: Every unit on floor seven has replied except one. ON-SCREEN: DM bubble word for word; caption highlight [except one].
-- `1:20.8-1:24.5` **[B12 setup]** VO: I turned my phone face down and pressed my back to the door. ON-SCREEN: June slides down the door, phone glow on the floor.
-- `1:24.5-1:25.3` **[silence 0.8 s]** music out, only room tone.
-- `1:25.3-1:27.2` **[B12]** VO (whisper): Rule four. I am not home. ON-SCREEN: caption highlight [not home].
-- `1:27.6` knock 1. `1:27.8-1:28.3` VO: One.
-- `1:29.0` knock 2. `1:29.2-1:29.7` VO: Two.
-- `1:30.6` knock 3, hard cut to black on the knock. `1:30.7-1:33.0` end card: the face-down phone's edge glow, the pinned RULE 4 bubble visible upside down (bookend of frame 0) and the label "PART 2". No VO.
+
+**[B1 HOOK: the authority asks, the note forbids]**
+
+- `0:00.1-0:03.8` VO: At 5:12, the building office asked everyone to reply with their unit number. (TTS: "At five twelve, the building office asked everyone to reply with their unit number.")
+- `0:03.9-0:06.5` VO: The last tenant's note, taped under my sink, said never do that.
+- `0:06.6-0:09.6` VO: Rule one. Never give anyone your unit number. Not even the building.
+
+**[B4 SECOND CHANNEL: there is no office]**
+
+- `0:09.8-0:12.3` VO: My neighbor Odette, 3B: we don't have a building office. (TTS: "My neighbor Odette, three-B: we don't have a building office.")
+- `0:12.5-0:13.2` VO: So who's asking?
+
+**[B2 THE NOTE: three more rules, the bottom torn off]**
+
+- `0:13.5-0:14.8` VO: Two. No stairs after midnight.
+- `0:14.9-0:17.8` VO: Three. If your hall light goes out, stay inside until sunrise.
+- `0:17.9-0:20.1` VO: Four. If someone you know asks your unit, it isn't them.
+- `0:20.2-0:21.1` VO: The rest was torn off.
+
+**[CHORUS + LEAK: the joker heads for the stairs]**
+
+- `0:21.4-0:24.1` VO: Dale from 8A said he'd take the stairs and find this office. (TTS: "Dale from eight-A said he'd take the stairs and find this office.")
+- `0:24.2-0:25.7` VO: The office answered in four seconds.
+- `0:25.9-0:28.6` VO: Dale. Your lease renews in eleven days. The stairs are fine.
+- `0:28.7-0:31.6` VO: An office we don't have knew his lease date. And wanted him on the stairs.
+
+**[COUNTABLE PLANT: four lamps]**
+
+- `0:31.8-0:34.8` VO: Through my peephole, four doors down the hall. Four little amber lights.
+
+**[B8 MIDPOINT: it knows about the note]**
+
+- `0:35.0-0:37.1` VO: At 5:25, the office posted again. (TTS: "At five twenty-five, the office posted again.")
+- `0:37.2-0:39.3` VO: Reminder. The note under the sink is out of date.
+- `0:39.4-0:40.8` VO: Nobody else had a note. It meant me.
+- `0:41.0-0:42.1` VO: Odette: nobody answer it.
+
+**[B5 ROLL-CALL LADDER: each reply costs a light, the knocking walks closer]**
+
+- `0:42.3-0:45.2` VO: Mrs. Kowal answered anyway. 7A. Sorry. I like rules. (TTS: "Mrs. Kowal answered anyway. Seven-A. Sorry. I like rules.")
+- `0:45.3-0:47.0` VO: In the hall, the light over her door went out.
+- `0:47.3-0:49.3` VO: Then 7B. 7D. 7E. Like a roll call. (TTS: "Then seven-B. Seven-D. Seven-E. Like a roll call.")
+- `0:49.5-0:50.7` VO: Four replies. Four lights out.
+- `0:50.9-0:52.7` VO: Each time, the knocking moved one door closer.
+
+**[B6 VOICE SWAP + CASUALTY PROOF: the dark units post calmly]**
+
+- `0:53.6-0:56.6` VO: Then Mrs. Kowal posted again. Capital letters. Full stops.
+- `0:56.8-0:58.1` VO: June, please reply. It's fine.
+- `0:58.3-0:59.4` VO: 7B, word for word. (TTS: "Seven-B, word for word.")
+
+**[B9 PEAK IMAGE (P1): the open door]**
+
+- `0:59.7-1:02.2` VO: Mrs. Kowal's door stood open a crack. Dark inside.
+- `1:02.3-1:03.6` silence (1.30 s): heartbeat_slow.
+
+**[B11 TARGET BY ELIMINATION + THE INSIDE THREAT]**
+
+- `1:03.6-1:05.8` VO: My phone buzzed. A private message from the office.
+- `1:05.9-1:08.0` VO: Every unit on seven has replied except one.
+- `1:08.3-1:10.9` VO: Behind me, under the locked spare room door, a light came on.
+
+**[B12 CLIFF: three knocks, cut on the third]**
+
+- `1:11.2-1:13.3` VO: I put my phone face down and held the chain.
+- `1:13.4-1:14.1` silence (0.75 s): room tone. Music out.
+- `1:14.1-1:14.6` silence (0.45 s): knock.
+- `1:14.6-1:14.9` VO: One.
+- `1:15.0-1:15.5` silence (0.45 s): knock.
+- `1:15.5-1:15.9` VO: Two.
+- `1:15.9-1:16.5` silence (0.62 s): knock. HARD CUT at the end.
 
 ```narration
-[music: dread] At 3:12, Management pinned seven rules in our building chat. Rule four. If someone knocks three times, you are not home. [sfx: notify]
+[music: dread] [sfx: notify vol=-4] At five twelve, the building office asked everyone to reply with their unit number. The last tenant's note, taped under my sink, said never do that. [sfx: stinger @0.05 vol=-10] Rule one. Never give anyone your unit number. Not even the building.
 
-Then Odette from 3B, who checks contracts for a living, posted a screenshot. Fenwick and Rowe Residential. Status: dissolved. Two years ago. [sfx: glitch]
+[sfx: message_pop @0.2 vol=-2] My neighbor Odette, three-B: we don't have a building office. [sfx: glitch vol=-6] So who's asking?
 
-Our management company doesn't exist. So who wrote these?
+[sfx: tick vol=-6] Two. No stairs after midnight. [sfx: tick vol=-6] Three. If your hall light goes out, stay inside until sunrise. [sfx: tick vol=-6] Four. If someone you know asks your unit, it isn't them. [sfx: click vol=-8] The rest was torn off.
 
-Rule one was cut off. Just a number and a dash. Rule two. No stairs after midnight. Rule three. Hallway lights stay on until sunrise.
+[sfx: message_pop vol=-2] Dale from eight-A said he'd take the stairs and find this office. [sfx: typing vol=-8] The office answered in four seconds. [sfx: message_pop] [sfx: stinger @0.1 vol=-8] Dale. Your lease renews in eleven days. The stairs are fine. An office we don't have knew his lease date. And wanted him on the stairs.
 
-Rule five. Management will never ask for your unit number. Rule six. After three, do not open your door for neighbors. Rule seven. Do not discuss these rules in this chat.
+Through my peephole, four doors down the hall. Four little amber lights.
 
-Forty messages later, nobody was discussing anything else. Dale from 8A wrote: rule seven already broken. what's the penalty lol
+[sfx: notify vol=-4] At five twenty-five, the office posted again. [sfx: message_pop vol=-2] Reminder. The note under the sink is out of date. Nobody else had a note. It meant me. [sfx: stinger vol=-6]
 
-Management answered him in four seconds. Dale. Your lease renews in eleven days. Please follow the rules. [sfx: stinger @0.1 vol=-8]
+[sfx: message_pop vol=-2] Odette: nobody answer it. [sfx: message_pop @0.9 vol=-2] Mrs. Kowal answered anyway. Seven-A. Sorry. I like rules. In the hall, the light over her door went out. [sfx: click]
 
-A company that died two years ago knew his lease date.
+Then seven-B. Seven-D. Seven-E. Like a roll call. Four replies. Four lights out. Each time, the knocking moved one door closer. [sfx: knock3_slow vol=-10]
 
-[pause: 0.3] I checked the peephole. Four other doors on my floor. Four little amber lights.
+[sfx: message_pop vol=-2] Then Mrs. Kowal posted again. Capital letters. Full stops.
 
-At 3:40, a second pinned message. To confirm you've read the rules, reply with your unit number. [sfx: notify]
+[vox: -2] June, please reply. It's fine.
 
-Rule five said they would never ask. Odette: Nobody answer that.
+[sfx: message_pop vol=-2] Seven-B, word for word.
 
-Mrs. Kowal from 7A answered anyway. 7A. Sorry. I like rules. In the hall, the light over 7A went out. [sfx: click]
+[sfx: door_creak @0.2 vol=-10] Mrs. Kowal's door stood open a crack. Dark inside. [sfx: heartbeat_slow vol=-8] [pause: 1.30] [sfx: phone_buzz] My phone buzzed. A private message from the office. Every unit on seven has replied except one.
 
-Then 7B. 7D. 7E. One after another, like a roll call. Four doors. Four lights out.
+Behind me, under the locked spare room door, a light came on. [sfx: click vol=-6]
 
-Somewhere below me, knocking. Always three. [sfx: knock3_slow vol=-14]
+[speed: 1.15] [vox: -4] I put my phone face down and held the chain.
 
-Odette stopped typing. Then her account replied. 3b. Lowercase. No punctuation. [sfx: glitch]
+[music: stop] [pause: 0.75] [sfx: knock wait]
 
-My phone buzzed. A private message from Management. Every unit on floor seven has replied except one. [sfx: phone_buzz]
+[speed: 1.0] [vox: -6] One.
 
-I turned my phone face down and pressed my back to the door. [music: stop] [pause: 0.8]
+[sfx: knock wait]
 
-Rule four. I am not home. [sfx: knock] One. [sfx: knock] Two. [sfx: knock wait] [cut]
+[vox: -6] Two.
+
+[sfx: knock vol=2 wait] [cut]
 ```
 
 ## Script: Part 2
 
-**Hook.** First line: "Three knocks. Then my neighbor's voice through the door." First visual (frame 0, cover): FrontDoor, hall light out, a shadow of feet under the door, impact marks from the third knock still settling; small chat inset at top right showing the pinned RULE 4 bubble.
+**Hook.** Line 1: "Three knocks. Then my neighbor Odette's voice through the door." Frame 0 (cover): the front door on the tail of the third knock, impact marks still settling, hall light on under it, a feet shadow. "Which unit is this?" lands at 0:02.5; the real Odette's "That's not me." at 0:05.2.
 
-- `0:00.0-0:04.0` **[P2 COLD HOOK]** VO: Three knocks. Then my neighbor's voice through the door. June? Which unit is this? ON-SCREEN: caption highlight [Which unit]; door rattles on frame 0.
-- `0:04.0-0:08.6` **[premise restated for cold viewers]** VO: It was Odette's voice. And our building's new rules say no neighbors after 3 a.m. ON-SCREEN: black rule card "6 · AFTER 3 AM, NO NEIGHBORS".
-- `0:08.6-0:12.1` **[outside check]** VO: I didn't answer it. I texted Odette's work number. Not the chat. ON-SCREEN: new SMS thread "Odette (work)".
-- `0:12.1-0:13.7` VO: Are you outside my door? ON-SCREEN: sent bubble, word for word.
-- `0:13.7-0:15.6` **[held beat]** VO: Her reply took a full minute. ON-SCREEN: clock jumps 4:02 to 4:03; typing dots.
-- `0:15.6-0:19.6` **[mechanic stated]** VO: Bathtub. Floor 3. It has my other phone. Don't say your unit out loud. ON-SCREEN: reply bubble word for word; caption highlight [out loud].
-- `0:19.9-0:22.9` **[ladder rung, voice 2]** VO: Outside, the voice changed. Dale's voice now. Same three knocks. ON-SCREEN: door, three knocks.
-- `0:22.9-0:26.4` VO: June, it's Dale. The stairs don't go down anymore. Let me in. ON-SCREEN: caption highlight [don't go down].
-- `0:26.4-0:31.2` **[P1 plant paid]** VO: Dale had posted from the stairwell twenty minutes ago. Floor six. Then floor six. Then floor six. ON-SCREEN: chat scrolls up to three Dale photos, each a stairwell landing marked 6.
-- `0:31.2-0:33.1` **[verdict]** VO: Rule two. No stairs after midnight. ON-SCREEN: rule card 2.
-- `0:33.5-0:37.2` **[B7 LULL]** VO: Then the hall went quiet. Quiet enough to hear the buzzing behind me. ON-SCREEN: June turns her head.
-- `0:37.2-0:39.4` **[plant]** VO: A phone. Vibrating. Inside my hall closet. ON-SCREEN: closet door, a thin line of screen light at the bottom gap.
-- `0:39.4-0:44.2` **[plant]** VO: The closet full of the last tenant's boxes. The leasing agent said he left in a hurry. ON-SCREEN: caption highlight [last tenant's].
-- `0:44.2-0:48.3` **[B8 TURN]** VO: Then Odette again. Found their final filing. One officer left. Home address, unit 7C. ON-SCREEN: image card "FINAL FILING · OFFICER: D. ROWE · ADDRESS: HARROW COURT, UNIT 7C".
-- `0:48.3-0:49.3` **[verdict]** VO: That's my apartment. ON-SCREEN: June shocked.
-- `0:49.3-0:52.3` **[B9 PEAK setup]** VO: I looked through the peephole. Nobody was standing out there. ON-SCREEN: peephole ring, empty hall.
-- `0:52.3-0:55.8` **[B9 PEAK]** VO: Something was crouched low against my door. Ear to the wood. Listening. ON-SCREEN: the shape rises into the bottom of the peephole ring; caption highlight [Listening].
-- `0:55.8-0:57.8` **[silence 2.0 s, image held]** no VO, heartbeat only.
-- `0:57.8-1:02.1` **[B10 CLOCK]** VO: Sunrise was 6:04. My phone said 5:55. Nine minutes of not being home. ON-SCREEN: lock screen 5:55, caption highlight [Nine minutes].
-- `1:02.1-1:05.3` **[ladder]** VO: It tried Mrs. Kowal's voice. Then the super's. Then my mother's. ON-SCREEN: door, three knocks per voice, quick cuts.
-- `1:05.3-1:10.1` **[ladder top]** VO: At 6:01 it stopped doing voices. It just said my unit, like a question. 7C? 7C? ON-SCREEN: caption highlight [7C?] twice.
-- `1:10.1-1:12.3` VO: I bit my sleeve and said nothing. ON-SCREEN: June, hand over mouth.
-- `1:12.3-1:15.2` **[clock]** VO: Three minutes. Then two. Then my phone said 6:04. ON-SCREEN: lock screen 6:02, 6:03, 6:04.
-- `1:15.2-1:18.5` **[false relief]** VO: Every hall light on seven came back on. The knocking stopped. ON-SCREEN: warm light floods under the door.
-- `1:18.9-1:22.1` **[B11 TWIST]** VO: Then the pinned post finally loaded all the way. Rule one. ON-SCREEN: the pinned post, "1. —" fills in letter by letter.
-- `1:22.1-1:25.8` **[B11 TWIST]** VO: I never moved out of 7C. Whatever you hear, keep the closet shut. ON-SCREEN: rule 1 text word for word; RedText (the episode's one) "KEEP THE CLOSET SHUT".
-- `1:25.8-1:26.5` **[silence 0.7 s]** music out.
-- `1:26.5-1:27.9` **[B12]** VO: The closet door shook. ON-SCREEN: closet door rattles.
-- `1:27.9-1:29.5` **[B12]** VO: Three knocks. From the inside. ON-SCREEN: knocks at 1:29.6, 1:30.2, 1:30.8, cut to black on the third.
-- `1:30.9-1:33.0` end card: pinned post with all seven rules, rule one highlighted (bookend of P1 frame 0), label "PART 2/2". No VO.
+
+**[P2 COLD HOOK: a trusted voice asks the forbidden question]**
+
+- `0:00.1-0:02.4` VO: Three knocks. Then my neighbor Odette's voice through the door.
+- `0:02.5-0:03.8` VO: June? Which unit is this?
+- `0:04.0-0:04.7` VO: I texted her.
+- `0:05.2-0:06.8` VO: Bathtub. Floor 3. That's not me. (TTS: "Bathtub. Floor three. That's not me.")
+- `0:06.9-0:08.6` VO: Typing it marks you. Saying it opens.
+
+**[PREMISE FOR COLD VIEWERS: the mechanic and rule four]**
+
+- `0:08.8-0:12.5` VO: Four neighbors gave the building office their unit tonight. All four hall lights went out.
+- `0:12.7-0:16.1` VO: And the note under my sink says, if someone you know asks for your unit, it isn't them.
+
+**[FAST LADDER + PART 1 PLANT PAID: Dale and the stairs]**
+
+- `0:16.3-0:18.0` VO: Then the voice changed. Dale, from 8A. (TTS: "Then the voice changed. Dale, from eight-A.")
+- `0:18.1-0:21.1` VO: June, it's Dale. The stairs don't go down anymore. Let me in.
+- `0:21.3-0:24.8` VO: Dale had posted from the stairwell. Floor six. Floor six. Floor six.
+- `0:25.0-0:26.6` VO: Rule two. No stairs after midnight.
+
+**[B7 LULL + PLANT: the locked spare room]**
+
+- `0:26.9-0:29.8` VO: Then the hall went quiet. Behind me, the spare room light was on.
+- `0:29.9-0:32.4` VO: The agent said that room stays locked. Owner's storage.
+
+**[B8 TURN: the planted unit number pays off]**
+
+- `0:32.6-0:35.3` VO: I opened our chat's member list. 7C was in it twice. (TTS: "I opened our chat's member list. Seven-C was in it twice.")
+- `0:35.5-0:37.5` VO: Me. And D. Rowe, the name on the note. Online. (TTS: "Me. And Dee Rowe, the name on the note. Online.")
+- `0:37.7-0:39.2` VO: Someone else still lives in my apartment.
+
+**[B10 CLOCK + LIFELINE: sunrise, the voices, the man in the spare room]**
+
+- `0:39.5-0:43.1` VO: Sunrise was 6:04. My phone said 5:55. Nine minutes. (TTS: "Sunrise was six oh four. My phone said five fifty-five. Nine minutes.")
+- `0:43.2-0:45.8` VO: It tried Mrs. Kowal's voice. The super's. My mother's.
+- `0:46.0-0:47.9` VO: I messaged D. Rowe. Are you in my spare room? (TTS: "I messaged Dee Rowe. Are you in my spare room?")
+- `0:48.1-0:50.5` VO: He answered instantly. Don't answer it. Not even to me.
+
+**[B9 PEAK IMAGE, HELD (after the lifeline, ~63%)]**
+
+- `0:50.7-0:52.7` VO: I looked through the peephole. Nobody at eye level.
+- `0:52.9-0:55.6` VO: Lower down, something was crouched against my door. Ear to the wood.
+- `0:55.7-0:57.7` silence (2.00 s): heartbeat_slow.
+
+**[B10 CLOCK, LAST RUNG: just the unit, as a question]**
+
+- `0:57.7-1:01.4` VO: At 6:01, the voices stopped. It just said my unit. 7C? 7C? (TTS: "At six oh one, the voices stopped. It just said my unit. Seven-C? Seven-C?")
+- `1:01.6-1:02.8` VO: I bit my sleeve and said nothing.
+- `1:03.0-1:05.6` VO: Three minutes. Then two. Then my phone said 6:04. (TTS: "Three minutes. Then two. Then my phone said six oh four.")
+- `1:05.7-1:09.3` VO: The knocking stopped. Mrs. Kowal's light came back on. The other three stayed dark.
+
+**[B11 TWIST: the torn-off end of the note, at sunrise]**
+
+- `1:09.6-1:13.3` VO: Then a slip of paper slid out under the spare room door. The torn-off end of the note.
+- `1:13.5-1:15.9` VO: I never left 7C. Whatever knocks, it isn't me. (TTS: "I never left Seven-C. Whatever knocks, it isn't me.")
+- `1:16.0-1:16.7` silence (0.70 s): room tone. Music out.
+
+**[B12 BOOKEND CLIFF: knocks from the inside]**
+
+- `1:16.7-1:19.0` VO: Then, from inside the spare room. Three knocks.
+- `1:19.1-1:20.4` silence (1.35 s): knock, knock, knock. HARD CUT at the end.
 
 ```narration
-[music: dread] Three knocks. Then my neighbor's voice through the door. June? Which unit is this?
+[music: dread] [sfx: knock] Three knocks. Then my neighbor Odette's voice through the door.
 
-It was Odette's voice. And our building's new rules say no neighbors after 3 a.m.
+[speed: 1.15] June? Which unit is this?
 
-I didn't answer it. I texted Odette's work number. Not the chat. Are you outside my door?
+[speed: 1.3] I texted her. [sfx: message_send vol=-2]
 
-Her reply took a full minute. Bathtub. Floor 3. It has my other phone. Don't say your unit out loud. [sfx: message_pop]
+[sfx: message_pop] Bathtub. Floor three. That's not me. Typing it marks you. Saying it opens.
 
-[pause: 0.3] Outside, the voice changed. Dale's voice now. Same three knocks. [sfx: knock3] June, it's Dale. The stairs don't go down anymore. Let me in.
+Four neighbors gave the building office their unit tonight. All four hall lights went out. And the note under my sink says, if someone you know asks for your unit, it isn't them.
 
-Dale had posted from the stairwell twenty minutes ago. Floor six. Then floor six. Then floor six. Rule two. No stairs after midnight.
+[sfx: knock3 vol=-2] Then the voice changed. Dale, from eight-A.
 
-[pause: 0.4] Then the hall went quiet. Quiet enough to hear the buzzing behind me. A phone. Vibrating. Inside my hall closet. [sfx: phone_buzz_long vol=-12]
+[speed: 1.2] June, it's Dale. The stairs don't go down anymore. Let me in.
 
-The closet full of the last tenant's boxes. The leasing agent said he left in a hurry.
+[speed: 1.3] [sfx: message_pop vol=-4] Dale had posted from the stairwell. Floor six. Floor six. Floor six. [sfx: tick vol=-6] Rule two. No stairs after midnight.
 
-Then Odette again. Found their final filing. One officer left. Home address, unit 7C. That's my apartment. [sfx: stinger @0.1]
+Then the hall went quiet. Behind me, the spare room light was on. The agent said that room stays locked. Owner's storage.
 
-I looked through the peephole. Nobody was standing out there. Something was crouched low against my door. Ear to the wood. Listening. [sfx: heartbeat_slow] [pause: 2.0]
+I opened our chat's member list. Seven-C was in it twice. Me. And Dee Rowe, the name on the note. Online. [sfx: stinger @0.05 vol=-6] Someone else still lives in my apartment.
 
-Sunrise was 6:04. My phone said 5:55. Nine minutes of not being home. [sfx: clock_ticking vol=-16]
+[sfx: clock_ticking vol=-14] Sunrise was six oh four. My phone said five fifty-five. Nine minutes. [sfx: knock3 vol=-6] It tried Mrs. Kowal's voice. [sfx: knock3 vol=-4] The super's. [sfx: knock3 vol=-2] My mother's. I messaged Dee Rowe. Are you in my spare room? [sfx: message_send vol=-2] [sfx: message_pop] He answered instantly. Don't answer it. Not even to me.
 
-It tried Mrs. Kowal's voice. Then the super's. Then my mother's. [sfx: knock3]
+I looked through the peephole. Nobody at eye level.
 
-At 6:01 it stopped doing voices. It just said my unit, like a question. 7C? 7C? I bit my sleeve and said nothing.
+[vox: -3] Lower down, something was crouched against my door. Ear to the wood.
 
-Three minutes. Then two. Then my phone said 6:04. Every hall light on seven came back on. The knocking stopped.
+[sfx: heartbeat_slow vol=-6] [pause: 2.00] At six oh one, the voices stopped. It just said my unit. Seven-C? Seven-C?
 
-[pause: 0.4] Then the pinned post finally loaded all the way. Rule one. I never moved out of 7C. Whatever you hear, keep the closet shut. [music: stop] [pause: 0.7]
+[vox: -3] I bit my sleeve and said nothing.
 
-The closet door shook. Three knocks. From the inside. [sfx: knock3 wait] [cut]
+[sfx: tick vol=-6] Three minutes. Then two. Then my phone said six oh four. The knocking stopped. Mrs. Kowal's light came back on. The other three stayed dark.
+
+[sfx: whoosh @0.4 vol=-10] Then a slip of paper slid out under the spare room door. The torn-off end of the note.
+
+[speed: 1.15] I never left Seven-C. Whatever knocks, it isn't me. [sfx: stinger vol=-4]
+
+[music: stop] [pause: 0.70]
+
+[vox: -3] Then, from inside the spare room. Three knocks.
+
+[sfx: knock] [sfx: knock @0.45 vol=1] [sfx: knock @0.9 vol=3] [pause: 1.35] [cut]
 ```
 
 ## Shot list: Part 1
 
-Kit names are `horror/<Name>`. Phone scenes use HandPhone full frame (cy 0.585, phoneWidth 0.68) over a blurred set (blur 10, opacity 0.6) with Vignette on top. Camera moves use the core camera (push = slow scale-in, shake = core shake).
+Generated from `build.py` (storyboard.json = Part 1, storyboard_p2.json = Part 2). In phone scenes the HandPhone fills the frame (cy 0.61, width 0.68), the set behind it is blurred 5 px and a Vignette sits on top. Shot starts sit 0.1 s before the word that names them. Every scene carries a slow push with keyframes so no hold exceeds 2.8 s without a visual event (check_storyboards rule); the two held peak images keep that push imperceptible.
 
-| t_start | t_end | shot type | visual description (kit vocabulary) | camera move | SFX |
-|---|---|---|---|---|---|
-| 0.0 | 3.2 | phone insert (cover frame) | HandPhone, Phone mode chat, title "Harrow Court Residents", count 38, dayLabel "3:12 AM", messages: Management alert bubble (kind alert) "RULE 4: If someone knocks three times, you are not home." Behind: FrontDoor blurred, hallLight on | push 1.00 to 1.04 | notify at 0.2, drone bed |
-| 3.2 | 6.4 | phone close | same thread, crop to the RULE 4 bubble; bubble pulse | punch-in 1.04 to 1.15 at 3.2 | none |
-| 6.4 | 10.2 | phone insert | message from "Odette 3B" with an image card; typing dots for Odette 6.4-7.4 | static, tremble 2 px | message_pop at 7.5 |
-| 10.2 | 12.9 | phone close | image card text "FENWICK & ROWE RESIDENTIAL LLC · STATUS: DISSOLVED · 03/09/2024"; Glitch cue at 11.4 (amount 0.5, 0.25 s) | push 1.0 to 1.08 | glitch at 11.4 |
-| 12.9 | 15.8 | character | Protagonist (June) pose phone, light phone, exprs suspicious then worried at 14.5; LivingRoom lamp 0.2 | slow push | breath at 14.6 |
-| 15.8 | 19.0 | phone close | pinned post top: "1. —" then a greyed "Read more" link; tap at 17.6 does nothing (taps prop) | static | click at 17.6 |
-| 19.0 | 20.9 | title card | black card, white hand-lettered "2 · NO STAIRS AFTER MIDNIGHT"; Stairwell floor "7" at opacity 0.15 behind | none, hard cut | tick |
-| 20.9 | 23.3 | title card | black card "3 · HALL LIGHTS ON UNTIL SUNRISE"; Hallway lights 3 at opacity 0.15 behind | none | tick |
-| 23.3 | 26.3 | title card | black card "5 · WE WILL NEVER ASK YOUR UNIT NUMBER" | none | tick |
-| 26.3 | 29.5 | title card | black card "6 · AFTER 3 AM, NO NEIGHBORS"; Peephole figure none, opacity 0.15 | none | tick |
-| 29.5 | 32.5 | title card | black card "7 · DO NOT DISCUSS THESE RULES HERE" | none | tick |
-| 32.5 | 34.9 | phone insert | chat scrolls: 6 short resident bubbles pop at 0.35 s spacing (emoji, "??", "prank", "who is this"); unread badge counts up to 40 | whip-in transition | message_pop x6 (vol -10) |
-| 34.9 | 38.4 | phone insert | bubble "Dale 8A: rule 7 already broken. what's the penalty lol" | static | message_pop |
-| 38.4 | 40.2 | phone close | header shows "Management is typing…" (typing from Management 38.6-40.0) | slow push | typing |
-| 40.2 | 43.5 | phone close | Management bubble "Dale. Your lease renews in 11 days. Please follow the rules." | punch-in on bubble at 40.3 | stinger at 40.3 (vol -8) |
-| 43.5 | 47.0 | character | Protagonist exprs worried, lookX 0.4 toward the door; Bedroom lamp 0.1 blurred | slow push | heartbeat_slow starts (vol -18) |
-| 47.0 | 51.0 | POV | Peephole (figure none, radius 0.42) over Hallway lights 3, endDoor on; four amber lamps over doors (see kit note) | slight lens drift | room tone |
-| 51.0 | 53.2 | lock screen | Phone mode lock, time 3:40, notification "Management · New pinned message" | static, vibrate 0.4 s | notify |
-| 53.2 | 56.4 | phone insert | Management alert bubble "To confirm you've read the rules, reply with your unit number." | push 1.0 to 1.06 | none |
-| 56.4 | 58.5 | flash card | black card "5 · WE WILL NEVER ASK YOUR UNIT NUMBER" for 0.6 s with Glitch (amount 0.7), back to the chat | glitch transition | glitch |
-| 58.5 | 59.9 | phone insert | bubble "Odette 3B: Nobody answer that." | static | message_pop |
-| 59.9 | 63.1 | phone insert | bubble "Mrs. Kowal: 7A. sorry. i like rules" | static | message_pop |
-| 63.1 | 65.8 | POV | Peephole over Hallway; nearest left lamp goes dark at 64.4 (Hallway lights 3 to 2, Darkness pool shifts) | camera shake 0.15 s, amplitude 6 | click at 64.4 |
-| 65.8 | 69.0 | split | upper: chat bubbles "7B" (66.3), "7D" (67.1), "7E" (67.9); lower: Hallway lamps cut 2 to 1 to 0 on the same beats | static | message_pop + click on each |
-| 69.0 | 70.6 | POV | Peephole, hall fully dark (Darkness darkness 0.9), only a thin warm strip at the bottom edge (June's own light); caption "Four lights out" | slow push | drone swells |
-| 70.6 | 72.5 | black | full black, Flicker blackouts; caption only | none | knock3_slow (vol -14, low-pass, "from below") |
-| 72.5 | 75.7 | phone close | Odette typing dots 72.6-73.8 stop; bubble "3b" at 74.6 in plain lowercase; Glitch on the bubble | punch-in on bubble | glitch at 74.6 |
-| 75.7 | 78.1 | lock screen | lock time 3:51, notification "Management (private message)"; vibrate | static | phone_buzz |
-| 78.1 | 80.8 | phone close | DM thread, one Management bubble "Every unit on floor 7 has replied except one." | slow push 1.0 to 1.1 | heartbeat speeds (bpm 70 to 110) |
-| 80.8 | 84.5 | wide | FrontDoor (chain on, hallLight off), Protagonist exprs scared, slides down the door; phone face down on the floor glowing at the edge | slow tilt down | breath, music out at 84.5 |
-| 84.5 | 87.2 | close | Protagonist terrified, pose cover, Darkness radius 0.25 around her face; caption "not home" | static | silence, room tone |
-| 87.2 | 88.5 | close door | FrontDoor knocks [0.4], feet shadow on; door rattles | camera shake 0.12 s, amplitude 10 | knock at 87.6 |
-| 88.5 | 90.0 | close face | Protagonist terrified, blink false | static | knock at 89.0 |
-| 90.0 | 90.7 | close door | FrontDoor knocks [0.6], handle jiggle 0.2 s | shake amplitude 16 | knock at 90.6, hard cut on it |
-| 90.7 | 93.0 | end card | black; the face-down phone's edge glow; pinned RULE 4 bubble upside down; label "PART 2" | none | stinger tail |
+| # | t_start | t_end | shot | visual (kit vocabulary) | camera | SFX in window |
+|---|---|---|---|---|---|---|
+| 1 | 0.00 | 3.80 | chat (jolt) | COVER. Residents chat, red Building Office alert 'Night check. Please reply with your unit number...'; blurred front door with a feet shadow under it [HandPhone chat over a blurred set] | zoom 1.00->1.05 | notify 0.1 |
+| 2 | 3.80 | 6.50 | note (jolt) | The last tenant's note taped under the sink in the phone torch: header 'For whoever lives in 7C next. - D. Rowe', rules 1-4, torn bottom; rule 1 in red [inline SVG note (kit gap) under a torch pool] | zoom 1.00->1.03 | - |
+| 3 | 6.50 | 9.72 | rule (jolt) | Close-up strip: '1. Never give anyone your unit number. Not even the building.' [note close-up strip (inline SVG)] | zoom 1.08->1.05 | stinger 6.7 |
+| 4 | 9.72 | 12.40 | chat (jolt) | Odette 3B: 'We don't have a building office. The super lives in 1A.' Glitch on the line end [HandPhone chat over a blurred set] | zoom 1.00->1.03 | message_pop 10.0, glitch 12.3 |
+| 5 | 12.40 | 13.36 | char (jolt) | June on the sofa, phone light, suspicious [Protagonist (June) over a set] | zoom 1.00->1.01 | - |
+| 6 | 13.36 | 14.79 | rule (jolt) | Strip: '2. No stairs after midnight.' (stairwell ghosted behind) [note close-up strip (inline SVG)] | zoom 1.08->1.02 | tick 13.5 |
+| 7 | 14.79 | 17.77 | rule (jolt) | Strip: '3. If your hall light goes out, stay inside until sunrise.' [note close-up strip (inline SVG)] | zoom 1.08->1.04 | tick 14.9 |
+| 8 | 17.77 | 20.11 | rule (jolt) | Strip: '4. If someone you know asks your unit, it isn't them.' [note close-up strip (inline SVG)] | zoom 1.08->1.04 | tick 17.9 |
+| 9 | 20.11 | 21.26 | rule (jolt) | Strip: the ragged torn bottom edge, the top of a '5. If' just visible [note close-up strip (inline SVG)] | zoom 1.08->1.02 | click 20.2 |
+| 10 | 21.26 | 24.12 | chat (jolt) | Dale 8A: 'taking the stairs down to find this "office" lol', then 3 quick reactions (😂 / prank?? / who even is this) [HandPhone chat over a blurred set] | zoom 1.00->1.03 | message_pop 21.4 |
+| 11 | 24.12 | 25.77 | chat | Header: 'Building Office is typing…' [HandPhone chat over a blurred set] | zoom 1.00->1.02 | typing 24.2 |
+| 12 | 25.77 | 28.63 | chat (jolt) | Building Office: 'Dale. Your lease renews in 11 days. The stairs are fine.' [HandPhone chat over a blurred set] | zoom 1.00->1.03 | message_pop 25.9, stinger 26.0 |
+| 13 | 28.63 | 31.73 | char (jolt) | June, worried, eyes toward the door [Protagonist (June) over a set] | zoom 1.00->1.04 | - |
+| 14 | 31.73 | 34.93 | peep (jolt) | Peephole: corridor, four apartment doors (7A 7B 7D 7E) each with a lit amber lamp; far pair = EXIT stairwell + TRASH, no lamps [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.04 | - |
+| 15 | 34.93 | 37.14 | lock (jolt) | Lock screen 5:25, banner 'Building Office · New message' [HandPhone lock screen] | zoom 1.00->1.03 | notify 35.0 |
+| 16 | 37.14 | 39.34 | chat (jolt) | Building Office alert: 'Reminder: the note under the sink is out of date. Please reply.' [HandPhone chat over a blurred set] | zoom 1.00->1.03 | message_pop 37.2 |
+| 17 | 39.34 | 40.92 | char (jolt) | June: scared, then shocked on 'me' (glitch) [Protagonist (June) over a set] | zoom 1.00->1.02 | stinger 40.8 |
+| 18 | 40.92 | 42.19 | chat (jolt) | Odette 3B: 'Nobody answer it.' [HandPhone chat over a blurred set] | zoom 1.00->1.02 | message_pop 41.0 |
+| 19 | 42.19 | 45.22 | chat (jolt) | Mrs. Kowal 7A: '7A. sorry i like rules' (lowercase) [HandPhone chat over a blurred set] | zoom 1.00->1.04 | message_pop 43.2 |
+| 20 | 45.22 | 47.17 | peep (jolt) | Peephole: the lamp over 7A (nearest left) clicks out on 'out' [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.02 | click 47.0 |
+| 21 | 47.17 | 50.78 | peep (jolt) | Peephole: lamps 7B, 7D, 7E die on each spoken unit; a reply chip pops for each [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.04 | - |
+| 22 | 50.78 | 53.51 | hall_dark (jolt) | Dark hall, one flickering ceiling light; knocking (three at a time) from the far end [Hallway, lights 1, Darkness] | zoom 1.00->1.03 | knock3_slow 52.7 |
+| 23 | 53.51 | 58.16 | chat (jolt) | Mrs. Kowal 7A, now in sentence case: 'June, please reply. It's fine.' [HandPhone chat over a blurred set] | zoom 1.00->1.06 | message_pop 53.6 |
+| 24 | 58.16 | 59.56 | chat (jolt) | Priya 7B: 'June, please reply. It's fine.' word for word [HandPhone chat over a blurred set] | zoom 1.00->1.02 | message_pop 58.3 |
+| 25 | 59.56 | 63.48 | peep (jolt) | P1 PEAK (held ~4 s, slow push into the lens): every lamp dark; 7A's door stands open a crack, black inside [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.63 | door_creak 59.9, heartbeat_slow 62.3 |
+| 26 | 63.48 | 65.81 | lock (jolt) | Lock screen 5:38, private message banner, buzz [HandPhone lock screen] | zoom 1.00->1.03 | phone_buzz 63.6 |
+| 27 | 65.81 | 68.24 | chat (jolt) | DM from Building Office: 'Every unit on floor 7 has replied except one.' [HandPhone chat over a blurred set] | zoom 1.00->1.03 | - |
+| 28 | 68.24 | 71.08 | spare (jolt) | Behind her: the locked spare-room door; the gap under it lights up on 'light' [spare-room door (inline SVG, kit gap)] | zoom 1.00->1.03 | click 70.9 |
+| 29 | 71.08 | 74.01 | door (jolt) | June on the floor at the front door, chain on, hands on the chain [FrontDoor] | zoom 1.00->1.04 | - |
+| 30 | 74.01 | 74.95 | door (jolt) | Close door: knock 1, feet shadow, rattle [FrontDoor] | shake x1, zoom 1.00->1.01 | knock 74.1 |
+| 31 | 74.95 | 75.76 | char (jolt) | June, hands over mouth [Protagonist (June) over a set] | zoom 1.00->1.01 | knock 75.0 |
+| 32 | 75.76 | 76.48 | door (jolt) | Knock 3, handle jiggle; HARD CUT on the knock [FrontDoor] | shake x1, zoom 1.00->1.01 | knock 75.9 |
+| 33 | 76.48 | 78.78 | end (jolt) | End card (bookend of frame 0): Building Office bubble 'REPLY.' + 'is typing…', stamp PART 2 [EndCard (bookend)] | zoom 1.00->1.03 | - |
 
 ## Shot list: Part 2
 
-| t_start | t_end | shot type | visual description (kit vocabulary) | camera move | SFX |
-|---|---|---|---|---|---|
-| 0.0 | 4.0 | wide (cover frame) | FrontDoor knocks [0.05], hallLight off, feet true, chain on; small HandPhone inset top right with the RULE 4 bubble | shake at 0.05, amplitude 14, then push | knock (tail of knock 3), drone |
-| 4.0 | 8.6 | title card | black card "6 · AFTER 3 AM, NO NEIGHBORS", RGB tear at 5.0 | hard cut | tick |
-| 8.6 | 12.1 | phone insert | HandPhone, new chat title "Odette (work)", count none, empty thread; draft field types out | static, tremble 3 px | typing |
-| 12.1 | 13.7 | phone insert | sent bubble (me) "Are you outside my door?" | static | message_send |
-| 13.7 | 15.6 | phone close | clock 4:02 to 4:03; typing dots from Odette 14.2-15.5 | slow push | tick |
-| 15.6 | 19.9 | phone insert | reply bubble "Bathtub. Floor 3. It has my other phone. Don't say your unit out loud." | punch-in on the last sentence | message_pop |
-| 19.9 | 22.9 | close door | FrontDoor knocks [20.6, 21.0, 21.4], handle jiggle | shake on each knock | knock3 |
-| 22.9 | 26.4 | character | Protagonist exprs scared, lookX 0.6 to the door, pose idle | slow push | none (voice line is narrated) |
-| 26.4 | 31.2 | phone insert | building chat scrolled up: three Dale bubbles with image cards, each a Stairwell landing marked "6", posted 3:31, 3:34, 3:38 | scroll up | message_pop x3 |
-| 31.2 | 33.1 | title card | black card "2 · NO STAIRS AFTER MIDNIGHT" | hard cut | tick |
-| 33.1 | 37.2 | wide | LivingRoom lamp 0.15, tv off; June on the floor by the door, head turning back | slow pan left | room tone, then phone_buzz_long (vol -12) |
-| 37.2 | 39.4 | prop close | Bedroom wardrobeOpen 0 (used as the hall closet), lamp 0, phoneGlow at the bottom gap | push 1.0 to 1.12 | phone_buzz_long continues |
-| 39.4 | 44.2 | prop wide | same closet, Darkness pool on its doors; caption "last tenant's" | slow push | drone |
-| 44.2 | 48.3 | phone close | Odette (work) bubble with image card "FINAL FILING · OFFICER: D. ROWE · ADDRESS: HARROW COURT, UNIT 7C" | punch-in on "UNIT 7C" | message_pop, stinger at 47.5 |
-| 48.3 | 49.3 | close | Protagonist shocked | snap zoom 1.0 to 1.15 | whoosh |
-| 49.3 | 52.3 | POV | Peephole figure none, Hallway lights 0, Darkness 0.85 | static | heartbeat_slow |
-| 52.3 | 57.8 | POV (peak image, held) | Peephole figure silhouette, lean low at the bottom of the ring, eye glints, head tilted as if listening; held still 52.8-57.0 | none (held still) | heartbeat_slow; silence 55.8-57.8 |
-| 57.8 | 62.1 | lock screen | Phone lock time 5:55, date line, no notifications; caption "Nine minutes" | static | clock_ticking (vol -16) |
-| 62.1 | 65.3 | quick cuts | FrontDoor knocks in three bursts at 62.5, 63.6, 64.7, each with a different hallLight flicker; Protagonist exprs terrified inserted between | shake per burst | knock3 x3 (vol stepping up) |
-| 65.3 | 70.1 | close door | FrontDoor feet shadow, handle still; caption "7C?" at 68.6 and 69.6 | slow push into the door gap | room tone only, breath |
-| 70.1 | 72.3 | close | Protagonist pose cover, exprs terrified | static | heartbeat_fast |
-| 72.3 | 75.2 | lock screen | lock time 6:02, 6:03, 6:04 (screens cues at 72.6, 73.6, 74.6) | static | tick on each |
-| 75.2 | 78.5 | wide door | FrontDoor hallLight on (warm strip under the door), feet false | slow pull back | heartbeat stops, music lifts |
-| 78.5 | 82.1 | phone insert | building chat, pinned post; line "1. —" fills in letter by letter from 80.0 | push on the pinned post | typing |
-| 82.1 | 85.8 | phone close | pinned rule 1 bubble "1. I never moved out of 7C. Whatever you hear, keep the closet shut."; RedText style scrawl "KEEP THE CLOSET SHUT" at 84.2 for 1.4 s | punch-in | stinger at 84.2 |
-| 85.8 | 86.5 | black | silence | none | music out |
-| 86.5 | 91.0 | prop close | Bedroom wardrobeOpen 0 (closet), rattles on knocks at 89.6, 90.2, 90.8; phoneGlow at the gap goes dark at 90.8 | shake per knock, hard cut on the third | knock3 (dry, close) |
-| 91.0 | 93.0 | end card | pinned post with all seven rules, rule 1 highlighted red; label "PART 2/2" | none | stinger tail |
+| # | t_start | t_end | shot | visual (kit vocabulary) | camera | SFX in window |
+|---|---|---|---|---|---|---|
+| 1 | 0.00 | 2.36 | door (jolt) | COVER. Front door, hall light on, a feet shadow, impact marks of the third knock still settling [FrontDoor] | shake x1, zoom 1.00->1.03 | knock 0.1 |
+| 2 | 2.36 | 3.89 | door (jolt) | Closer on the door; the lever jiggles on 'Which unit' [FrontDoor] | zoom 1.00->1.02 | - |
+| 3 | 3.89 | 5.08 | chat (jolt) | Texts to Odette (not the chat): 'Are you outside my door?' then typing dots 0.5 s [HandPhone chat over a blurred set] | zoom 1.00->1.01 | message_send 4.7 |
+| 4 | 5.08 | 8.71 | chat (jolt) | Odette: 'Bathtub. Floor 3. That's not me.' then 'Typing it marks you. Saying it opens.' [HandPhone chat over a blurred set] | zoom 1.00->1.04 | message_pop 5.2 |
+| 5 | 8.71 | 12.56 | peep (jolt) | Peephole: the four dark lamps (7A 7B 7D 7E) [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.05 | - |
+| 6 | 12.56 | 16.23 | rule (jolt) | Strip: '4. If someone you know asks your unit, it isn't them.' [note close-up strip (inline SVG)] | zoom 1.08->1.05 | - |
+| 7 | 16.23 | 18.04 | door (jolt) | Three knocks, the voice changes [FrontDoor] | shake x3, zoom 1.00->1.02 | knock3 16.3 |
+| 8 | 18.04 | 21.21 | char (jolt) | June on the floor, staring at the door [Protagonist (June) over a set] | zoom 1.00->1.04 | - |
+| 9 | 21.21 | 23.45 | stairs (jolt) | Dale's photo 1: stairwell landing '6' [Stairwell floor 6 inside a photo frame] | zoom 1.00->1.03 | message_pop 21.3 |
+| 10 | 23.45 | 24.15 | stairs (jolt) | Photo 2: the same landing '6' [Stairwell floor 6 inside a photo frame] | zoom 1.00->1.01 | - |
+| 11 | 24.15 | 24.91 | stairs (jolt) | Photo 3: the same landing '6' [Stairwell floor 6 inside a photo frame] | zoom 1.00->1.01 | - |
+| 12 | 24.91 | 26.81 | rule (jolt) | Strip: '2. No stairs after midnight.' [note close-up strip (inline SVG)] | zoom 1.08->1.03 | tick 25.0 |
+| 13 | 26.81 | 29.83 | spare (jolt) | The spare-room door behind her, light on underneath; slow push [spare-room door (inline SVG, kit gap)] | zoom 1.00->1.04 | - |
+| 14 | 29.83 | 32.51 | spare | Closer on the keyed knob: locked, owner's storage [spare-room door (inline SVG, kit gap)] | zoom 1.00->1.35 | - |
+| 15 | 32.51 | 37.60 | members (jolt) | Chat member list: two rows read 7C, both ringed red: 'June (you)' and 'D. Rowe · online' [member list (inline SVG panel)] | zoom 1.00->1.06 | - |
+| 16 | 37.60 | 39.41 | char (jolt) | June, shocked [Protagonist (June) over a set] | zoom 1.00->1.02 | stinger 37.7 |
+| 17 | 39.41 | 43.11 | lock (jolt) | Lock screen 5:55, no notifications [HandPhone lock screen] | zoom 1.00->1.04 | clock_ticking 39.5 |
+| 18 | 43.11 | 45.90 | door (jolt) | Three bursts of three knocks: Kowal's voice, the super's, my mother's [FrontDoor] | shake x9, zoom 1.00->1.03 | knock3 43.2, knock3 44.7, knock3 45.2 |
+| 19 | 45.90 | 47.95 | chat (jolt) | DM to D. Rowe: 'Are you in my spare room?' [HandPhone chat over a blurred set] | zoom 1.00->1.02 | message_send 47.9 |
+| 20 | 47.95 | 50.59 | chat (jolt) | D. Rowe, instantly: 'Don't answer it. Not even to me.' [HandPhone chat over a blurred set] | zoom 1.00->1.03 | message_pop 48.1 |
+| 21 | 50.59 | 52.81 | peep (jolt) | Peephole: the dark hall, nobody standing [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.03 | - |
+| 22 | 52.81 | 57.64 | peep (jolt) | P2 PEAK (held ~4.8 s): low in the lens, a head pressed ear-first to the door; heartbeat, no VO for 2 s [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.06 | heartbeat_slow 55.7 |
+| 23 | 57.64 | 61.51 | door (jolt) | Front door, handle still, feet shadow; captions '7C? 7C?' [FrontDoor] | zoom 1.00->1.05 | - |
+| 24 | 61.51 | 62.95 | char (jolt) | June biting her sleeve, hands over mouth [Protagonist (June) over a set] | zoom 1.00->1.02 | - |
+| 25 | 62.95 | 63.64 | lock (jolt) | Lock 6:01 [HandPhone lock screen] | zoom 1.00->1.01 | tick 63.0 |
+| 26 | 63.64 | 64.87 | lock | Lock 6:02 [HandPhone lock screen] | zoom 1.00->1.01 | - |
+| 27 | 64.87 | 65.65 | lock (jolt) | Lock 6:04 [HandPhone lock screen] | zoom 1.00->1.01 | - |
+| 28 | 65.65 | 66.57 | door (jolt) | Front door: warm light under it, the shadow gone [FrontDoor] | zoom 1.00->1.01 | - |
+| 29 | 66.57 | 69.47 | peep (jolt) | Peephole: 7A's lamp back on (door still ajar), 7B 7D 7E dark [fake peephole: kit Hallway + inline lamp overlays + ring mask] | zoom 1.00->1.43 | - |
+| 30 | 69.47 | 73.35 | spare (jolt) | Spare-room door: a slip of paper slides out from the lit gap on 'slid' [spare-room door (inline SVG, kit gap)] | zoom 1.00->1.05 | whoosh 70.0 |
+| 31 | 73.35 | 75.89 | slip (jolt) | The slip: 'I never left 7C.' / 'Whatever knocks, it isn't me.' typed on; RedText 'IT ISN'T ME' (the episode's one red scrawl) [slip close-up (inline SVG + text typewriter) + RedText] | zoom 1.08->1.04 | - |
+| 32 | 75.89 | 76.59 | black | Black, 0.7 s silence [black] | zoom 1.00->1.01 | stinger 75.9 |
+| 33 | 76.59 | 80.43 | spare (jolt) | Spare-room door from her side: three knocks from inside, the gap goes dark on the third; HARD CUT [spare-room door (inline SVG, kit gap)] | shake x3, zoom 1.00->1.05 | knock 79.1, knock 79.5, knock 80.0 |
+| 34 | 80.43 | 82.73 | end (jolt) | End card (bookend of the cold open's question): Building Office bubble '7C?' + 'is typing…', stamp 2/2 [EndCard (bookend)] | zoom 1.00->1.03 | - |
 
-## Kit needs (for the builder)
+## Kit notes (the horror kit is locked until the closeout lane passes QA)
 
-- **Per-door hall lamps that switch off on cues.** Today `horror/Hallway` takes `lights` 1-3 and `flicker`; this episode needs 4 door lamps going off at 64.4, 66.3, 67.1, 67.9 s. Cheapest path: add `doorLamps [{at, off}]` to Hallway, or fake it with `lights` stepping 3 to 0 plus a moving Darkness pool.
-- **Image-card bubble** (screenshot inside a chat message) for the registry and filing cards. Fallback: a kind alert bubble with the same text.
-- **Closet set.** Use `horror/Bedroom` with `wardrobeOpen` 0 and `phoneGlow` as the hall closet until a hall-closet set exists.
-- Black rule cards: reuse the title-card style used in the pilot storyboard; one RedText per episode (P2 1:22 only).
+Everything in both storyboards (storyboard.json, storyboard_p2.json) uses registered kit components or core layers. Three critique-flagged gaps are handled in the storyboard itself (inline SVG, tier S), so nothing waits on a kit edit:
 
-## Pacing check
+- **Door lamps that go out in reply order.** The kit Peephole hardcodes its hall (`HallArt lights={2}`), so the peephole shots are a fake peephole: kit `horror/Hallway` at scale 1.28, inline SVG lamps drawn on the kit's own door geometry (copied from `HallArt`) at the same scale, a ring mask on top. The kit hall has three pairs of side doors; the near pair falls outside the lens ring, so the four visible doors are 7A/7D (middle pair) and 7B/7E (far pair), and the end door carries a green EXIT sign (the stairwell). Four lamps = four apartment doors on screen. Each lamp is an on layer and an off layer swapped at the measured word. After the lock lifts, the clean version is `doorLamps [{door, side, offAt, onAt}]` on HallArt, passed through Peephole.
+- **The note, rule strips and the slip.** Paper SVG with Montserrat ink (no hand-lettered font is installed). The slip's two lines use the core text layer's `typewriter`.
+- **The spare-room door.** An interior-door SVG (no peephole, chain or deadbolt) with a light gap that switches at the measured word, and core camera shakes on the knocks. After the lock lifts: a `variant: 'interior'` on FrontDoor with `glowColor`, so the knocks also get its rattle and impact marks.
+- **No image bubbles.** The registry screenshot and filing card are gone with the rewrite. Dale's photos are three hard 1.1-1.5 s full-frame Stairwell (floor 6) shots inside a white photo border with a timestamp.
+- **Clocks.** `lock.time` and `chat.clock` are fixed strings, so the 6:01 / 6:02 / 6:04 lock screens are three scenes cut on the words "Three", "two." and "6:04"; chat scenes carry their own clock (5:12 ... 5:38, 5:45, 5:57).
+- **End cards.** Kit `horror/EndCard` (bubble + stamp), repeating each part's frame-0 sender. pipeline/templates/horror.md row 7 says "no part 2 card, exactly one open question"; that row is for standalones. This is a 2-part series, so it follows PLAYBOOK §5 (part label, 3-6 loops open at the P1 cut). Flagged for the template owner, not changed here.
+- **Voice track.** `build.py --voice` (Spark) lays the measured line wavs on this timeline into `studio/public/episodes/horror-new-building-rules/p{1,2}_voice.wav`; music and SFX are storyboard audio tracks (dread bed out before the knocks, every SFX cue on a measured word). For the house mix with ducking and loudness, feed `narration_p1.md` / `narration_p2.md` to pipeline/audio instead (it reads one narration block per file).
 
-- Spoken rate about 222 wpm (291 and 292 words); 190-195 wpm including silences. Each part runs about 93 s including the end card, over the 61 s Creator Rewards floor.
-- Hook: P1 core hook is 22 words in 6.4 s with the threat in frame 0. The authority is undercut from 6.4 s. P2 has a knock on frame 0 and its premise restated by 8.6 s.
-- Jolts, P1: 3.2, 6.4, 10.2, 12.9, 14.5, 15.8, 19.0, 20.9, 23.3, 26.3, 29.5, 34.9, 38.4, 40.2, 43.5, 47.0, 51.0, 53.2, 56.4, 58.5, 59.9, 63.1, 65.8, 69.0, 70.6, 72.5, 75.7, 78.1, 84.5, 87.6, 89.0, 90.6. Median gap about 2.6 s, longest 4.4 s.
-- Jolts, P2: 0.0, 4.0, 8.6, 12.1, 15.6, 19.9, 22.9, 26.4, 31.2, 33.5, 37.2, 44.2, 48.3, 52.3, 57.8, 62.1, 65.3, 68.6, 72.3, 75.2, 78.9, 82.1, 86.5, 89.6. Median gap about 3.3 s, longest 7.0 s (the closet lull).
-- P1 midpoint turn at 53 s (58%). Scariest image at 69-71 s (76%, the dark hall). The target narrows at 78-81 s (86%), and the cut comes at 98%.
-- P2 has its Part 1 plant paid by 26 s (29%) and the turn at 44 s (48%). The scariest image is held at 52-58 s (60%). The clock runs 58-75 s, the twist lands at 82 s (88%) and the cut at 98%.
-- Silences: P1 0.8 s before the whisper and the knock gaps; P2 2.0 s on the peak image and 0.7 s before the closet knocks.
-- Numbers per minute: P1 about 12, P2 about 10 (clock times, units, counts). Both are well above the 3.6 median, as the unit-number mechanic needs.
+## Pacing check (measured)
+
+**Part 1**
+
+- 274 words; 66.5 s of speech -> 247 wpm spoken (PLAYBOOK narrated band 230-270); 209 wpm over the full 78.8 s including timed silences and the 2.3 s end card. Kokoro af_heart speed 1.3 (1.0-1.2 on the knock lines), measured on the Spark CPU, not estimated.
+- Runtime 78.8 s (cut at 76.5 s): above the 61 s Creator Rewards floor and inside the PLAYBOOK Shorts band (50-100 s).
+- Hook: line 1 is 13 words / 3.6 s with the threat in frame 0 (Building Office alert + feet shadow under the door). The trusted source is contradicted by the note at 5.9 s ('never') and again by Odette at 11.2 s (PLAYBOOK cap 11 s).
+- Words in the first 10 s: 39 (PLAYBOOK median 43.5).
+- Rules list: 13.5-21.1 s = 7.7 s (10% of runtime; target <= 10 s). Rule 1 is already stated in the hook.
+- Midpoint turn ('It meant me.') at 39.4 s (50%). Peak image (7A ajar, held 3.9 s) at 59.7 s (76%). Target narrowed at 65.9 s (84%); the inside threat (spare-room light) at 68.3 s; hard cut at 76.5 s (97%).
+- Jolts (shot changes that carry a new anomaly, rule, number or notification): 32; median gap 2.7 s, longest 4.6 s (Shorts target 2.5-3.5 s, never > 8 s). 33 shots.
+- Numbers per minute: 6.9 (clock times and unit codes; above the 3-5 target, which the unit-number mechanic needs; spoken times are spelled out for Kokoro).
+
+**Part 2**
+
+- 287 words; 70.7 s of speech -> 244 wpm spoken (PLAYBOOK narrated band 230-270); 208 wpm over the full 82.7 s including timed silences and the 2.3 s end card. Kokoro af_heart speed 1.3 (1.0-1.2 on the knock lines), measured on the Spark CPU, not estimated.
+- Runtime 82.7 s (cut at 80.4 s): above the 61 s Creator Rewards floor and inside the PLAYBOOK Shorts band (50-100 s).
+- Cold hook: a knock on frame 0, Odette's voice by 1.3 s, the forbidden question 'Which unit is this?' at 2.5 s. Her own text falsifies the voice at 5.2 s ('Bathtub. Floor 3. That's not me.'). The mechanic is stated in 7 words by 8.6 s, and the premise for cold viewers (four units gave the number, four lights out; rule four) by 16.1 s.
+- Words in the first 10 s: 37.
+- Part 1 plant paid (Dale on the stairs, rule two) at 21.3 s (26%). Turn (7C twice in the member list) at 32.6 s (39%). Peak image held 4.8 s from 52.9 s (64%). Clock 39.5-65.6 s. Twist (the torn-off end slides out at sunrise) at 69.6 s (84%); cut at 80.4 s (97%).
+- Jolts (shot changes that carry a new anomaly, rule, number or notification): 31; median gap 2.5 s, longest 5.7 s (Shorts target 2.5-3.5 s, never > 8 s). 34 shots.
+- Numbers per minute: 7.3 (clock times and unit codes; above the 3-5 target, which the unit-number mechanic needs; spoken times are spelled out for Kokoro).
+
+- Silences: P1 0.9 s after the knocking walks closer, 1.3 s on the open door, 0.75 s before the knocks, then the knock gaps; P2 2.0 s on the peak image and 0.7 s before the spare-room knocks.
+- Combined runtime is about 2:50, inside the PLAYBOOK story sweet spot (165-250 s). If the posting plan allows, also cut a single combined version to A/B against the two-part post (retention lens, nice-to-have); build.py can emit it by concatenating the two timelines.
+
+## Policy notes (R5)
+
+- research/R5/report.md and research/R5/horror-pinned-rules-DISCLOSURE.md cover the platform rules (checked 2026-11-01). Each part is over 1 minute (TikTok Creator Rewards) and under 3 minutes (YouTube Shorts).
+- Inauthentic / repetitive content: this rewrite removes every beat shared with the pilot (see `distinct_from`), and the originality gate is run against episodes/ and backlog/ as well as the corpus. Keep the two parts distinct from the pilot's thumbnail too (thumbnail.md).
+- AI voice: set YouTube "AI use / altered content" = yes and TikTok "AI-generated content" on, and reuse the standard caption disclosure line from research/R5/horror-pinned-rules-DISCLOSURE.md.
+- Fenwick & Rowe is gone; "Harrow Court" and "D. Rowe" are generic and no real property company is named. No dates are hard-coded on screen (the lock screen says "Sunday").

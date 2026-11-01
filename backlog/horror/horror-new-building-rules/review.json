@@ -1,0 +1,77 @@
+{
+ "episode": "horror-new-building-rules",
+ "reviewed_at_utc": "2026-11-01T12:17Z",
+ "scores_before": {
+  "retention": 7,
+  "reference": 6,
+  "originality": 6,
+  "producibility": 6
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 8,
+  "producibility": 8
+ },
+ "score_notes": {
+  "retention": "Rules list cut from 17 s (18%) to 7.7 s (10%), with rule 1 moved into the hook. P1 is contradicted at 5.9 s by the note and at 11.2 s by Odette. P2 sets up its cold hook by 3.8 s ('Which unit is this?', rule 4 makes the question itself the tell), and Odette's real text lands at 5.2 s. The clock is continuous: 5:12 to 5:38 in P1 and 5:45 to 6:04 in P2, with no unmarked jump. Rule three now reads 'if your hall light goes out, stay inside until sunrise', and the lights die in reply order. 'After 3 a.m.' and 'always three' are gone, as are 'lol', the 7A stutter and the whisper direction (now speed 1.0 with vox -6). The P2 peak moved after the lifeline (64%). Measured jolt median is 2.7 s (P1) and 2.5 s (P2); the longest gaps are 4.6 and 5.7 s. Remaining risks: the P2 turn at 39% is early, there are 7 numbers/min, and P1 has 39 words in its first 10 s (median 43.5).",
+  "reference": "Primary refs are now SIEGE-CHAT, MOM-NOTE and DORM-RULES, with HEARSE-P2 kept for sequel mechanics. Every alignment row cites a timestamp checked against the annotated corpus file. The miscitations are fixed: SIEGE-CHAT 2:21 censorship is no longer used for the voice swap, the bookend now cites HEARSE-P1 3:16-3:21.9 and SIEGE-CHAT 4:05-4:08, and the 'only then' misread is replaced by MOM-NOTE 2:01-2:04 for the withheld document. Added: a real casualty proof plus peer pressure (dark accounts in sentence case tag June), a typography voice swap the right way round (lowercase Kowal, then calm capitals), a proximity ladder beside the cost ladder, a held P1 peak image with a push-in, and an outside check moved to the hook with the mechanic in 7 words. Not done: Odette's lifeline was not moved into the clock window. D. Rowe's DM plays that role instead.",
+  "originality": "Gate PASS on research/corpus + research/library/transcripts: the longest shared run with any source transcript is 5 words, and the highest source 5-gram share is 0.02% (7666044652910316833 / 7654526047005723937); the PLAYBOOK itself shares a 7-word run. The gate also passes against our own episodes/ and every other backlog/ folder. Against the pilot, the overlap went from a 12-word run and 2.1% 5-grams to a 5-word run and 0.07%. The premise was rebuilt (option b): no Management, no pinned 7 rules, no 'knocks three times / not home', no dissolved company, no 'never ask' rule five, no closet, no back-against-the-door line, no one-person peephole sting. New pieces: the authority asks for unit numbers in the hook, a paper note from the last tenant forbids it, the debunk is 'we don't have a building office', the hidden space is a locked spare room, and the twist is the torn-off end of the note at sunrise. Titles avoid the pilot's words. Residual closeness: the genre conventions (residents' chat, knocks, peephole) and a written-rules note, which the babysitter backlog episode also has (a fridge note with a password rule).",
+  "producibility": "Both storyboards validate on the Spark (zod, Node 22): P1 has 33 scenes and runs 78.8 s; P2 has 34 scenes and runs 82.7 s. check_storyboards.py reports 'ready' for both (every component registered, audio present on the Spark, max hold 2.7 s). The timeline is measured with Kokoro af_heart at 1.3 on the Spark CPU, and every cue sits on a word timestamp. Voice tracks are built on the Spark (studio/public/episodes/horror-new-building-rules/p{1,2}_voice.wav). Spoken numbers are spelled out, and the phonemes for seven-A/B/C/D/E, eight-A and three-B were checked. No kit edits were needed while the kit is locked: door lamps, the note and rule strips, the slip, the spare-room door and the member list are inline SVG on the kit's own hall geometry, and the clock changes are scene splits. Stills render correctly (out/stills/horror-new-building-rules_storyboard.jpg, hnbr_p1b/p1c/p2/p2c.jpg); the note wrap, the lamp positions and the end-card stamp were fixed after the first look. Three thumbnails are rendered (out/thumbs/horror-new-building-rules/). Not done: full MP4 render and loudness mix (the pipeline/audio house mix is not run; storyboard music and SFX tracks stand in)."
+ },
+ "must_fix_status": {
+  "retention": {
+   "P2 clock hole 4:03 -> 5:55": "fixed: whole night moved later; P1 5:12-5:38, P2 5:45-6:04 continuous",
+   "rule three wording vs payoff": "fixed: 'If your hall light goes out, stay inside until sunrise'; lights die in reply order; 7A's comes back at 6:04",
+   "core mechanic stated two ways": "fixed: 'Typing it marks you. Saying it opens.' (Odette, 7 words, P2 0:06.9); only the resident can give it",
+   "P2 cold hook / cold viewers": "fixed: 'my neighbor Odette' at 0:00; 'Which unit is this?' at 2.5 s; dead minute line cut; typing dots 0.5 s; 'That's not me' at 5.2 s; premise + rule 4 restated by 16 s",
+   "P1 rules dump 17 s": "fixed: 7.7 s (rules 2-4 + torn end), rule 1 in the hook, paper close-ups instead of five black cards",
+   "rule six 'after three' + 'always three'": "fixed: rule removed; knocking line is 'moved one door closer'",
+   "TTS hazards": "fixed: no 'lol' in VO, single '7A', no whisper direction (speed 1.0 + vox -6), numbers spelled out"
+  },
+  "reference": {
+   "premise duplicates pilot": "fixed by option (b): hook rule, debunk device and rule-five setup replaced; unit-number mechanic kept",
+   "closet on the do-not-reuse list": "fixed: locked spare room (owner's storage); no phone in a box; knocks-from-inside bookend kept",
+   "mechanic contradicts itself / '3b'": "fixed: entity never posts a unit for someone; only residents' own replies cost a light; spoken from inside opens"
+  },
+  "originality": {
+   "self-repetition with pilot": "fixed (see score note); gate run against episodes/ and backlog/ too",
+   "P2 title near-copy": "fixed: 'Someone Else Lives In My Apartment (Part 2/2)'",
+   "mechanic inconsistent": "fixed",
+   "two authors under one Management name": "fixed: the note (D. Rowe, protector) vs the 'Building Office' account (the thing); every threat comes from the account",
+   "Dale payoff unplanted + clock math": "fixed: Dale posts 'taking the stairs' at P1 0:21 and the office pushes him to them; photos stamped 5:16/5:19/5:23",
+   "unmarked time jump": "fixed",
+   "R5 policy": "research/R5 now exists; disclosure and inauthentic-content notes are in script.md 'Policy notes'"
+  },
+  "producibility": {
+   "door lamps in reply order": "done without kit edits: fake peephole (kit Hallway + inline SVG lamps on HallArt geometry + ring mask); doors assigned so four lamps = four visible doors",
+   "count mismatch with 6 doors": "fixed: near pair is outside the lens; end door is EXIT",
+   "no image bubble": "removed the need: no registry/filing cards; Dale's photos are full-frame Stairwell shots in a photo border",
+   "closet set": "replaced by an inline-SVG spare-room door with a switchable light gap and camera-shake knocks",
+   "timeline drift vs real TTS": "fixed: every time measured with Kokoro on the Spark; cues on word timestamps",
+   "numbers in narration": "fixed: spelled out; phonemes checked",
+   "peak 'rises' not supported": "held static silhouette (inline SVG), no rise",
+   "fixed-text clocks": "scene splits at 6:01/6:02/6:04 on the measured words",
+   "rule 1 typewriter / pinned bar": "replaced: the twist is a paper slip with core text typewriter + one RedText"
+  }
+ },
+ "originality_check": {
+  "command": "python3 scripts/originality_check.py backlog/horror/horror-new-building-rules/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "own_catalogue_command": "python3 scripts/originality_check.py <script.md> episodes <every other backlog/horror/*/> backlog/explainer backlog/whatif",
+  "own_catalogue_result": "PASS",
+  "max_shared_run_words": {"corpus_sources": 5, "playbook": 7, "pilot_horror-pinned-rules": 5, "own_backlog": 6},
+  "max_5gram_share": {"corpus_sources": 0.0002, "pilot_horror-pinned-rules": 0.0007, "own_backlog": 0.0022}
+ },
+ "measured": {
+  "p1": {"words": 274, "runtime_s": 78.8, "cut_s": 76.5, "wpm_spoken": 247, "wpm_overall": 209, "jolt_median_s": 2.7, "jolt_max_s": 4.6, "scenes": 33},
+  "p2": {"words": 287, "runtime_s": 82.7, "cut_s": 80.4, "wpm_spoken": 244, "wpm_overall": 208, "jolt_median_s": 2.5, "jolt_max_s": 5.7, "scenes": 34}
+ },
+ "open_items": [
+  "Render both parts to MP4 on the Spark and run the side-by-side QA before posting.",
+  "Optional house mix: feed narration_p1.md / narration_p2.md to pipeline/audio (that lane is locked until horror QA passes).",
+  "Kit follow-ups after the horror lock lifts: HallArt doorLamps + Peephole pass-through; FrontDoor variant 'interior' with glowColor.",
+  "pipeline/templates/horror.md row 7 says no part card for standalones; this 2-part episode follows PLAYBOOK §5. Flagged for the template owner.",
+  "Consider a single ~2:45 combined cut to A/B against the 2-part post."
+ ]
+}
