@@ -1,0 +1,35 @@
+{
+  "series": "horror-babysitter-parent-rules",
+  "reviewer": "horror series editor (writing-only lane)",
+  "reviewed_utc": "2026-11-01T13:05Z",
+  "scale": "1-5 (5 = ready to build)",
+  "files_changed": ["BIBLE.md", "part2/script.md"],
+  "originality_check": {"part2/script.md": {"before": "PASS", "after": "PASS"}, "BIBLE.md": {"after": "PASS"}},
+  "scores": {
+    "cliffhanger_escalation": {"before": 3, "after": 4.5,
+      "cut_strength_before": {"P1": 3, "P2": 3.5, "P3": 3, "P4": 4, "P5": 4.5},
+      "cut_strength_after":  {"P1": 3, "P2": 3.5, "P3": 4, "P4": 4.5, "P5": 4.5},
+      "notes": "P3 cut (door swings open on its own) was weaker than P2 and broke the bible's own 'can't open a door' rule. Now: a loop of receiver cord still on Theo's wrist runs back to his bedroom door, held an inch open on it (P1 chain-gap rhyme), and pulls taut. P4 cut gains dramatic irony: the real mother just texted 'Take the STAIRS', the lift says 'Get in, honey' in her voice."},
+    "rule_system_consistency": {"before": 2.5, "after": 4.5,
+      "fixed": [
+        "Fair-play mechanics rewritten as four checkable facts (BIBLE §4): one ear (Mister Under) many mouths (the Caller); only voices that reached Theo's room; shuts any door, never opens one; it learns Ivy's tests",
+        "'Pell' on ext. 3412 used a voice that never reached Theo's room: now Mr. Doyle's voice slowed (matches the existing am_michael voice note)",
+        "'Pell' not knowing the password is explained (it heard Theo tell Ivy about 'the word' outside his door)",
+        "Trust counter: P4 '2 (chain is gone; keys)' counted a removed rule; now 5? -> 3 -> 3 (one lying) -> 1 -> 0, strictly falling",
+        "P4 Mrs. Doyle text 'Don't open for anyone' contradicted her P2 'Get Theo. Get out.': now 'In a cab. 15 min. Take the STAIRS.'",
+        "P3 twist pre-spent P4's password inversion: now a retro-reveal on P1 (she buzzed the lobby door because of that word); P4 keeps the inversion",
+        "P4 'He's out' needed an open bedroom door: the cord-held gap supplies it; P4 opens with the cord cut",
+        "Plant ledger: KEY text is planted in P5 (outline 38-49%), not P4; P4 pinned comment now matches the sign ('till the 12th')"
+      ]},
+    "part2_rehook_3s": {"before": 3.5, "after": 4.5,
+      "notes": "Before: narration first, the count 'One.' only at 4.2 s. After: the door's 'One.' is the first sound (0.2 s), paying Part 1's last line ('I'll count to five, Ivy') inside a second; door + voice + barrier by ~2.9 s; rule-3 contradiction unchanged at 4.9 s. Runtime and word count unchanged (~79 s, 255 words). Refs: HEARSE-P2 7702661471641128224 (hook at 0:20 -> 16% of P1), PLAYBOOK §5, WrONG Rules xKgepVHATm4 1.0x vs BciSW_2VMZg 11.0x."},
+    "originality_vs_corpus": {"before": 4.5, "after": 4.5,
+      "notes": "originality_check PASS before and after; structure borrowed from HEARSE-P2, SIEGE-CHAT 7659677578365537569, TEXT-FIGURE T42u5xhrq-0, MOM-NOTE cVUJmsVkUW4 (devices only). Cord-through-the-door cut and keys-vs-knocks proof are not in the horror corpus."},
+    "overall": {"before": 3.4, "after": 4.5}
+  },
+  "remaining_risks": [
+    "Only Part 2 is scripted; Parts 1, 3-5 must each pass originality_check when written",
+    "All timings are estimates; re-measure with tts_measure.py before any build (horror paths locked until QA PASS)",
+    "Sequel-decay gate (Pt2 < 15% of Pt1 at 48 h -> fold Pts 3-5 into the full-story compile) still applies"
+  ]
+}
