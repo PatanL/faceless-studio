@@ -1,0 +1,70 @@
+# Explainer kit ("you vs. X", ocean/animal style)
+
+Flat 2D vector kit for Depth Theory–style explainers: dark teal ocean, light rays, marine snow,
+grey/red creature silhouettes, bold white uppercase labels with red accents. All artwork is
+original code-drawn SVG (no traced frames). Works in 16:9 and 9:16; every piece fills its layer box.
+
+Showcase: `python3 studio/scripts/gen_explainer_showcase.py` writes
+`storyboards/explainer-showcase.json` (20 s, 16:9) and `storyboards/explainer-9x16.json` (6 s).
+Render on the Spark: `PROPS=studio/storyboards/explainer-showcase.json scripts/spark_render.sh Storyboard explainer/showcase.mp4`.
+
+> Always set `"captions": {"enabled": false}` and `"audio": {...}` explicitly in a storyboard that has
+> none: Remotion merges `--props` over the composition's default props, so missing keys pick up the
+> test storyboard's captions/music.
+
+Time props (`at`, `out`, track keys) are scene-local seconds. Tracks are `[{"t": 0, "v": 15}, {"t": 2, "v": 140, "ease": "out"}]`.
+
+## Background
+
+| name | props |
+|---|---|
+| `explainer/Ocean` (use as `background`) | `depth` (m, number or track; darkens gradient, fades rays), `falloff` (260), `rays` (7), `rayStrength`, `snow` (70 particles), `drift`, `surface` (true or 0..1 y: sky + waterline), `skyTop`/`skyBottom`, `vignette`, `seed`, `topColor`/`midColor`/`bottomColor` |
+
+## Figures
+
+`explainer/Creature` with `species`, or the fixed names below. All face right (use layer `flipX`).
+Built-in idle motion (tail/fluke travelling wave, tentacle waves, fin kicks, lure glow, ear flicks).
+
+| name | real size | extra props |
+|---|---|---|
+| `SpermWhale` | 16 m | `teeth`, `jaw` (deg open) |
+| `ColossalSquid` | 9 m | `hooks` (true) |
+| `Orca` | 8 m | |
+| `GreatWhite` | 6 m | |
+| `BlueWhale` | 28 m | |
+| `Anglerfish` | 0.2 m | (lure glow pulses) |
+| `Octopus` | 6 m span | |
+| `Crocodile` | 6 m | `jaw` |
+| `Hippo` | 4.5 m | `yawn` (0..1) |
+| `Grizzly` | 2.4 m long / `pose: "standing"` 2.7 m | |
+| `Diver` | 2.6 m with fins | `torch`, `beam` (px), `arms` ("forward"/"side"), `kick`, `bubbles`, `suit`, `fins` |
+| `You` (stick figure) | 1.75 m | `pose` (stand, wave, panic, point, shrug, run), `color` |
+| `Bus` / `Car` / `Elephant` | 12 / 4.5 / 3.3 m tall | `text` (bus), `color` (car) |
+
+Common: `pxPerM` (draw at true scale, centred in the box; same value on two layers = honest
+comparison), `align: "bottom"`, `silhouette` (true or a colour: flat dark shape, no details),
+`idle` (false freezes), `speed`, `amp`, `timeOffset` (desync identical creatures).
+
+## Infographics
+
+| name | props |
+|---|---|
+| `DepthMeter` | `depth` (track), `max`, `step`, `window` (scrolling ruler of N m), `zones` [{from,to,label,color}], `side`, `suffix`, `size` |
+| `ScaleBar` | `label` ("~16 M"), `at`, `duration`, `from` (center/left), `labelSize`, `color`. Box width = bar length (`16 * pxPerM`) |
+| `HeightChart` | `maxM`, `stepM`, `gap`, `size`, `entries` [{kind, label, heightM?, pose?, at?}] — px-per-metre fits both wall height and total width |
+| `Stat` | `value`, `from`, `prefix`, `suffix`, `decimals`, `label`, `at`, `duration` (count-up), `size`, `color`, `box` |
+| `Map` | `views` [{t, lon, lat \| place, zoom}] (log-zoom), `rings` [{place\|lon,lat, r°, at, label}], `pins` [...], `highlight` [continent keys], `grid`. Places: see `mapdata.ts` `PLACES` |
+| `Timer` | `from`, `to`, `at`, `rate`, `style` (box/ring), `format` (mm:ss / s), `label`, `warnBelow`, `size` |
+| `Options` | `title`, `items`, `at`, `stagger`, `strikes` [{index, at}], `select` {index, at}, `size` |
+| `SpeedBars` | `title`, `rows` [{label, value, unit, color, text}], `max`, `at`, `duration`, `stagger`, `size` |
+| `Headline` | `text` (\n for lines), `sub`, `color` (white/red/...), `underline`, `size`, `align`, `at`, `out` |
+| `Tag` | `text`, `accent`, `size`, `align`, `at`, `out` |
+
+Colours: `red`, `yellow`, `green` keywords or any CSS colour. Palette in `util.ts` (`C`).
+
+## Files
+
+`util.ts` helpers (tracks, easing, path warp, splines) · `figure.ts` figure contract ·
+`marine.tsx` `land.tsx` `people.tsx` drawings · `creature.tsx` figure registry + `explainer/Creature` ·
+`ocean.tsx` background + depth meter · `ui.tsx` infographics · `mapdata.ts` simplified landmasses ·
+`index.tsx` registrations.
