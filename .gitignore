@@ -1,3 +1,8 @@
 # B5 audio: runtime outputs live on the Spark; beds are committed as .m4a only
 studio/public/episodes/
 studio/public/music/*.wav
+
+# TIS remake benchmark (internal): renders and reference media stay out of git
+experiments/tis-remake/out/
+experiments/tis-remake/ref/
+experiments/tis-remake/**/*.mp4
