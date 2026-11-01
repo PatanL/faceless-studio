@@ -55,7 +55,8 @@ distinct_from: |
 
 **Plants and payoffs in this part.**
 - Paid from Part 1: rule four (P1 0:17.9) by the first voice (0:03.9); rule two and Dale's "taking the stairs" (P1 0:13.5, 0:21.4) by his photos, stamped 5:16 / 5:19 / 5:23 (0:26.3, 32% here, inside the "pay one Part 1 plant by ~45%" window); the spare-room light (P1 1:08) stays on (0:31.9); the four dark doors (P1 0:45-0:51) restated (0:17.7).
-- Planted for Parts 3-5 (unpaid at the cut): the bolt is on June's side (0:36.2, pays P4); "the last tenant told her that" (0:16.0, Odette knew D. Rowe: P3, and Alt ending B); the voice at Odette's door is June's (0:11.1, pays P5 / Alt B); 9% battery (0:42.3, the phone dies in P3); "only she calls me that" (0:51.0, Alt B's knowledge slip); "it stopped on Seven" (the P3 cold open).
+- Planted for Parts 3-5 (unpaid at the cut): the bolt is on June's side (0:36.2, pays P4); "the last tenant told her that" (0:16.0, Odette knew D. Rowe: P3, and Alt ending B); the voice at Odette's door is June's (0:11.1, pays P5 / Alt B); 9% battery (0:42.3, the phone dies in P3); "only she calls me that" (0:51.0: the door knew the pet name *before* the call, so it was not learned from the call; BIBLE §5A law 2a: it hears anything said aloud inside a unit, and June has had two weeks of calls with her mother in 7C. Pays P3 (D. Rowe: "it has been listening since you moved in") and Alt B's knowledge slip); "it stopped on Seven" (the P3 cold open).
+- Rule consistency (editor pass 13:10): every borrowed voice asks for the number, never to be let in (Dale "which door is yours?", Walt "your unit for the log", her mother "what number are you?"), because only the number matters (BIBLE §5A law 3); this is the FLOOR-PHRASE 7694996216505060641 device as the reference uses it: one forbidden question repeated by closer and closer people.
 - Loops open at the cut (4): will June finish the sentence; what is in the spare room; is Odette still Odette; does the real mother know.
 
 ---
@@ -64,7 +65,7 @@ distinct_from: |
 
 | # | Our beat | Our time | Reference id + timestamp | Device borrowed | How we adapt it |
 |---|---|---|---|---|---|
-| P2-1 | B1 / P2 cold open: frame-0 knock, the forbidden question by 3.6 s | 0:00.1-0:03.6 | 7702661471641128224 0:00-0:20 (continues mid-scene, no recap; the hard hook only lands at 0:20, its weakness); BciSW_2VMZg vs xKgepVHATm4 (PLAYBOOK §5, urgent Pt3 11.0x vs mid-list Pt2 1.0x) | Continue mid-scene without a recap, but hook a cold viewer in 3 s | The knock is the first sound, the door is frame 0, and a trusted voice asks the one forbidden thing |
+| P2-1 | B1 / P2 cold open: frame-0 knock, the forbidden question as the first spoken words (~1.6 s), rule 1 on screen from frame 0 | 0:00.1-0:03.2 | 7702661471641128224 0:00-0:20 (continues mid-scene, no recap; the hard hook only lands at 0:20, its weakness); BciSW_2VMZg vs xKgepVHATm4 (PLAYBOOK §5, urgent Pt3 11.0x vs mid-list Pt2 1.0x) | Continue mid-scene without a recap, but hook a cold viewer in 3 s | The knock is the first sound, the door is frame 0, and a trusted voice asks the one forbidden thing |
 | P2-2 | B2 rule restated as the contradiction | 0:03.9-0:08.2 | cVUJmsVkUW4 1:11-1:12 (a rule repeated as a callback); 7654526047005723937 0:00-0:07 (a trusted line contradicted within 7 s) | The rulebook itself contradicts the trusted voice inside 8 s | Rule four on the paper strip, read in full for viewers who missed Part 1 |
 | P2-3 | B4 outside check | 0:08.3-0:14.1 | 7702661471641128224 1:36-1:47 (a short question to an outside party falsifies the companion); 7659677578365537569 0:56-0:59 (an independent witness in the chat contradicts the official line) | One short text to the real person; the answer falsifies the voice | June asks "where are you?"; Odette answers from floor three, and the answer opens a worse loop (it is using June's voice) |
 | P2-4 | Series mechanic + a plant | 0:14.2-0:17.4 | 7659677578365537569 3:41 (the real party states the rule); TOPICS.md writer notes (the reveal comes from a second, more trustworthy channel) | The trustworthy channel states the rule in a few words | The 7-word series line, plus one clause that links Odette to the last tenant |
@@ -82,13 +83,13 @@ distinct_from: |
 
 ## Script: Part 2
 
-**Hook.** Frame 0 (also the cover): FrontDoor from inside 7C, chain on, hall light under the door with **a feet shadow** in it, the third knock landing (door rattle + camera shake). A red-free night grade. First caption "Third knock." Line 1 is 14 words; the forbidden question is complete at 3.6 s; the rulebook contradicts the voice by 8.2 s; the outside check lands at 11.1 s.
+**Hook.** Frame 0 (also the cover): FrontDoor from inside 7C, chain on, hall light under the door with **a feet shadow** in it, the third knock landing (door rattle + camera shake). A red-free night grade. A fixed top band from frame 0 to 3.2 s, never spoken: **"RULE 1: Never give anyone your unit number."** (the series line on screen, so a cold viewer has rule + threat + forbidden question inside 3 s: PLAYBOOK §1B S1 (two lines inside 3 s) and hook formula H11 (rule stated up front, 7664930759395888416)). First caption "June? What's your unit again?" The door voice speaks first (5 words); the forbidden question is complete at ~1.6 s; the speaker is named by 3.2 s; the rulebook contradicts the voice by ~7.8 s; the outside check lands at ~10.7 s. (Editor fix 13:10 UTC: was "Third knock." first, question at 3.6 s.)
 
 Captions: Part 1 style (top band, sentence case, dark backing pill, up to 6 words a page, red on the emphasis words). Phone text appears word for word as read; living people's bubbles are lowercase without full stops (BIBLE §4 speech registers). Spoken numbers are spelled out for Kokoro (TTS column); captions and the phone keep digits.
 
 **[B1 COLD OPEN: the third knock, a trusted voice, the forbidden question]**
 
-- `0:00.1-0:03.6` VO: Third knock. Then Odette's voice, right outside my door. June, what's your unit again? (door voice part at speed 1.15, vox -3) [sfx: knock3 @0.0] [sfx: knock @0.0 vol=2]
+- `0:00.1-0:03.2` VO (door voice first, speed 1.15, vox -3): June? What's your unit again? (back at 1.3) Odette's voice. Right outside my door. [sfx: knock3 @0.0] [sfx: knock @0.0 vol=2]   <!-- editor fix 13:10: the forbidden question is now the first spoken words (done at ~1.6 s, was 3.6 s); "Third knock." was a recap a cold viewer can't parse (PLAYBOOK §1B S1 0-3 s; §5; HEARSE-P2 7702661471641128224 0:00-0:20 is the failure we avoid) -->
 
 **[B2 THE RULE, read back]**
 
@@ -106,7 +107,7 @@ Captions: Part 1 style (top band, sentence case, dark backing pill, up to 6 word
 
 **[B5 RUNG 1: Dale, and the Part 1 plant pays]**
 
-- `0:21.6-0:26.1` VO: Next it was Dale, from 8A. June, let me in. The stairs don't stop. Every landing says six. (TTS: "Next it was Dale, from eight-A." Door voice part at 1.15, vox -3) [sfx: knock3 @0.0 vol=-2]
+- `0:21.6-0:26.3` VO: Next it was Dale, from 8A. June, which door is yours? The stairs don't stop. Every landing says six. (TTS: "Next it was Dale, from eight-A." Door voice part at 1.15, vox -3) [sfx: knock3 @0.0 vol=-2]
 - `0:26.3-0:31.6` VO: Dale had posted three photos. 5:16. 5:19. 5:23. Floor six, every time. Rule two. No stairs after midnight. (TTS: "Five sixteen. Five nineteen. Five twenty-three.") [sfx: message_pop @0.2] [sfx: tick @1.3 vol=-8] [sfx: tick @2.0 vol=-8] [sfx: tick @2.9 vol=-8] [sfx: stinger @4.5 vol=-10]
 
 **[B7 LULL + PLANT: the spare room]**
@@ -115,7 +116,7 @@ Captions: Part 1 style (top band, sentence case, dark backing pill, up to 6 word
 
 **[B8 TURN: one voice, two floors]**
 
-- `0:38.5-0:42.0` VO: Then Odette. It knocked again. Mine and yours. Same second. One voice. Two floors. [sfx: message_pop @0.5] [sfx: knock3 @1.3 vol=-4] [sfx: glitch @2.6 vol=-6]
+- `0:38.5-0:42.3` VO: Then Odette texted again. It knocked again. Mine and yours. Same second. One voice. Two floors. [sfx: message_pop @0.5] [sfx: knock3 @1.3 vol=-4] [sfx: glitch @2.6 vol=-6]
 
 **[CLOCK]**
 
@@ -126,11 +127,11 @@ Captions: Part 1 style (top band, sentence case, dark backing pill, up to 6 word
 - `0:45.8-0:46.2` [sfx: knock3 vol=-2] (lead-in, no VO)
 - `0:46.4-0:50.1` VO: Walt, the super. June, gas leak on seven. I need your unit for the log. (door voice at 1.15, vox -3)
 - `0:50.3-0:50.8` [sfx: knock3 vol=0] (lead-in, no VO)
-- `0:51.0-0:54.0` VO: Then my mother. Junie, honey, open up. Only she calls me that. (door voice at 1.15, vox -3; "Only she calls me that" back at 1.3)
+- `0:51.0-0:54.4` VO: Then my mother. Junie, honey, what number are you? Only she calls me that. (door voice at 1.15, vox -3; "Only she calls me that" back at 1.3)
 
 **[B10 LIFELINE: the real mother, echoed through the door]**
 
-- `0:54.2-0:59.5` VO: Mom lives six hundred miles away. I called her. She picked up on the first ring. Junie? Why are you whispering? [sfx: dial @1.3 vol=-8] [sfx: phone_pickup @2.6 vol=-6] (mother's words through a phone-band EQ if the house mix runs; otherwise vox -4)
+- `0:54.6-0:59.5` VO: Mom lives across the country. I called her. She picked up on the first ring. Junie? Why are you whispering? [sfx: dial @1.3 vol=-8] [sfx: phone_pickup @2.6 vol=-6] (mother's words through a phone-band EQ if the house mix runs; otherwise vox -4)
 - `0:59.7-1:04.5` VO: Through the door, half a second later, the same words. Junie? Why are you whispering? Then my call dropped. [sfx: call_drop @4.3 vol=-4] [pause: 0.6 after] [music: stop @4.7]
 
 **[B9 PEAK IMAGE: the peephole]**
@@ -147,9 +148,9 @@ Captions: Part 1 style (top band, sentence case, dark backing pill, up to 6 word
 ### Narration block (pipeline/audio input; for the build lane, not run here)
 
 ```narration
-[music: dread] [sfx: knock3] [sfx: knock vol=2] Third knock. Then Odette's voice, right outside my door. [speed: 1.15] [vox: -3] June, what's your unit again?
+[music: dread] [sfx: knock3] [sfx: knock vol=2] [speed: 1.15] [vox: -3] June? What's your unit again?
 
-[speed: 1.3] [sfx: tick @0.6 vol=-6] The note under my sink. Rule four. If someone you know asks your unit, it isn't them.
+[speed: 1.3] [vox: 0] Odette's voice. Right outside my door. [sfx: tick @0.6 vol=-6] The note under my sink. Rule four. If someone you know asks your unit, it isn't them.
 
 Odette lives on three. I texted her. Where are you? [sfx: message_send vol=-2]
 
@@ -159,21 +160,21 @@ Odette lives on three. I texted her. Where are you? [sfx: message_send vol=-2]
 
 Four neighbors typed their unit tonight. Four hall lights went out. Mine was still on. [sfx: click vol=-8]
 
-[sfx: knock3 vol=-2] Next it was Dale, from eight-A. [speed: 1.15] [vox: -3] June, let me in. The stairs don't stop. Every landing says six.
+[sfx: knock3 vol=-2] Next it was Dale, from eight-A. [speed: 1.15] [vox: -3] June, which door is yours? The stairs don't stop. Every landing says six.
 
 [speed: 1.3] [sfx: message_pop] Dale had posted three photos. [sfx: tick vol=-8] Five sixteen. [sfx: tick vol=-8] Five nineteen. [sfx: tick vol=-8] Five twenty-three. Floor six, every time. Rule two. No stairs after midnight. [sfx: stinger vol=-10]
 
 [music: duck -6] Then nothing. Over my shoulder, light still leaked under the spare room door. The agent called it owner's storage. The bolt is on my side. [pause: 0.40]
 
-[sfx: message_pop] Then Odette. It knocked again. Mine and yours. Same second. [sfx: knock3 vol=-4] One voice. Two floors. [sfx: glitch vol=-6]
+[sfx: message_pop] Then Odette texted again. It knocked again. Mine and yours. Same second. [sfx: knock3 vol=-4] One voice. Two floors. [sfx: glitch vol=-6]
 
 [sfx: clock_ticking vol=-16] Sunrise, six oh four. My phone, five forty-one. Twenty-three minutes. Nine percent battery.
 
 [sfx: knock3 vol=-2] Walt, the super. [speed: 1.15] [vox: -3] June, gas leak on seven. I need your unit for the log.
 
-[speed: 1.3] [sfx: knock3] Then my mother. [speed: 1.15] [vox: -3] Junie, honey, open up. [speed: 1.3] Only she calls me that.
+[speed: 1.3] [sfx: knock3] Then my mother. [speed: 1.15] [vox: -3] Junie, honey, what number are you? [speed: 1.3] Only she calls me that.
 
-Mom lives six hundred miles away. I called her. [sfx: dial vol=-8] She picked up on the first ring. [vox: -4] Junie? Why are you whispering?
+Mom lives across the country. I called her. [sfx: dial vol=-8] She picked up on the first ring. [vox: -4] Junie? Why are you whispering?
 
 [vox: 0] Through the door, half a second later, the same words. [vox: -3] Junie? Why are you whispering? [vox: 0] Then my call dropped. [sfx: call_drop vol=-4] [music: stop] [pause: 0.60]
 
@@ -196,12 +197,12 @@ Phone scenes: HandPhone full frame (cy 0.61, width 0.68) over a blurred set (blu
 
 | # | t_start | t_end | shot | visual (kit vocabulary) | camera | SFX in window |
 |---|---|---|---|---|---|---|
-| 1 | 0.00 | 1.30 | door (jolt) | COVER. `horror/FrontDoor` from inside 7C: `chain` on, `hallLight` on, `feet` [0, 3.6], `knocks` [0.0]; dark hall | shake @0.0 (0.2 s, amp 18); zoom 1.00->1.03 | knock3, knock |
-| 2 | 1.30 | 3.80 | voice (jolt) | `horror/Peephole` ring, `figure: silhouette`, `lean` 0.2, tilted head; caption "June, what's your unit again?" | zoom 1.04->1.08 | - |
+| 1 | 0.00 | 1.70 | door (jolt) | COVER. `horror/FrontDoor` from inside 7C: `chain` on, `hallLight` on, `feet` [0, 3.2], `knocks` [0.0]; dark hall; top band (inline SVG text, Part 1 note-strip style) "RULE 1: Never give anyone your unit number." 0.0-3.2; caption "June? What's your unit again?" | shake @0.0 (0.2 s, amp 18); zoom 1.00->1.03 | knock3, knock |
+| 2 | 1.70 | 3.80 | voice (jolt) | `horror/Peephole` ring, `figure: silhouette`, `lean` 0.2, tilted head; caption "Odette's voice. Right outside my door." | zoom 1.04->1.08 | - |
 | 3 | 3.80 | 8.25 | rule (jolt) | Note close-up strip (inline SVG, Part 1 style): "4. If someone you know asks your unit, it isn't them." "isn't them" in red; torch pool `horror/Darkness` | zoom 1.08->1.04 | tick 4.5 |
 | 4 | 8.25 | 11.00 | char -> chat (jolt) | `horror/Protagonist` June, `pose phone`, `light phone`, `expr suspicious` (0.0-1.4) then cut to HandPhone DM thread "odette 3B", June's sent bubble "where are you" | zoom 1.00->1.03 | message_send 10.2 |
 | 5 | 11.00 | 14.15 | chat (jolt) | Odette: "under my bed" / "its at my door too" / "its using YOUR voice" (three pops) ; `horror/Glitch` cue at 13.6 (0.2 s) | zoom 1.00->1.04 | message_pop 11.1, 12.1; glitch 13.6 |
-| 6 | 14.15 | 17.60 | chat (jolt) | Odette: "typing it marks you. saying it opens" + "rowe told me that when i moved in" (the plant is on screen; the VO says "the last tenant") | zoom 1.02->1.05 | message_pop 14.2; stinger 15.8 |
+| 6 | 14.15 | 17.60 | chat (jolt) | Odette, two bubbles, no full stops (a full stop from a living account is a casualty proof, BIBLE §4): "typing it marks you" / "saying it opens" + "rowe told me that when i moved in" (the plant is on screen; the VO says "the last tenant") | zoom 1.02->1.05 | message_pop 14.2; stinger 15.8 |
 | 7 | 17.60 | 21.50 | hall (jolt) | fake-peephole composite (Part 1 build: `horror/Hallway` + inline SVG lamps + ring mask): 7A, 7B, 7D, 7E lamps dark, 7C's lamp lit above the lens edge | zoom 1.00->1.03 | click 19.6 |
 | 8 | 21.50 | 26.20 | door + face (jolt) | `horror/FrontDoor` `knocks` [21.6, 21.9, 22.2], `handle` [{at 24.0, duration 0.8}]; insert at 23.2 `horror/Protagonist` `expr scared`, `pose cover` | shake @21.6 (0.15 s) | knock3 21.6 |
 | 9 | 26.20 | 29.10 | chat (jolt) | Residents chat, Dale 8A's three photo bubbles in sequence, each a `horror/Stairwell` `floor "6"`, `flicker` in a photo border with a timestamp chip 5:16 / 5:19 / 5:23 (inline SVG frame over the kit set; no image-bubble kit change) | zoom 1.00->1.04 per photo | message_pop 26.4; tick 27.6, 28.3, 29.2 |
@@ -236,12 +237,12 @@ Visual rhythm: 23 shots in 82.8 s (a cut every 3.6 s; inserts and swaps inside s
 | Runtime | 82.8 s (cut 81.6) | 60-90 s per part (bible), ≥ 61 s for Creator Rewards | — |
 | Words | 290 | ~240-290 for 60-90 s | at the top of the band |
 | wpm spoken / overall | ~240 / 210 | 230-270 narrated (§7) | Part 1 measured 247 / 209 |
-| Core hook | 14 words / 3.5 s; forbidden question complete at 3.6 s | ≤ 30 words, ≤ 6 s; ≤ 3 s cold hook for a later part (§5) | the knock itself is at 0.0 |
+| Core hook | 11 words / 3.1 s; forbidden question complete at ~1.6 s (first spoken words); rule 1 on screen from frame 0 | ≤ 30 words, ≤ 6 s; ≤ 3 s cold hook for a later part (§5) | the knock itself is at 0.0; was 14 words / question at 3.6 s before the 13:10 edit |
 | First contradiction of a trusted source | 3.9-8.2 s (rule four vs Odette's voice); outside check 11.1 s | ≤ 11 s (§6, strongest signal) | two contradictions inside 11.1 s |
 | Words in the first 10 s | ~38 | median 42.5 (8-80) | slightly under median; the knock SFX carries the first second |
 | Jolts | 23 events (every knock, pop, number, rule, verdict) | median 2.5-3.5 s for ≤ 100 s (§3 Shorts row); stories 6.5 s | est. median ~3.2 s; longest gap 5.4 s (the lull, 31.9-38.1) |
 | Longest dry stretch | ~5.4 s (lull) | ≤ 25 s once; Shorts ≤ 5-6.5 s | the bolt line closes it |
-| Numbers per minute | 12 numbers (four, eight-A, three photos, six, two, six oh four, five forty-one, twenty-three, nine, seven, six hundred) ≈ 8.6/min | 3-5 narrated | high on purpose (countable clock); Part 1 ran ~7/min. Risk accepted, flagged |
+| Numbers per minute | 11 numbers (four, eight-A, three photos, six, two, six oh four, five forty-one, twenty-three, nine, seven) ≈ 8.0/min ("six hundred miles" cut 13:10) | 3-5 narrated | high on purpose (countable clock); Part 1 ran ~7/min. Risk accepted, flagged |
 | Open loops at the cut | 4 | 3-6 for a series | listed in "Plants and payoffs" |
 | Midpoint turn | 47% (38.5 s) | 45-60% | — |
 | Peak image | 80-91% (1:05.0 approach, 1:09.1 reveal, held 2 s) | 60-80% stories; S9 88-92% in Shorts | later than the story band, in the Shorts band; the image *is* the twist here, as in TEXT-FIGURE's 0:54 photo |
@@ -252,7 +253,7 @@ Visual rhythm: 23 shots in 82.8 s (a cut every 3.6 s; inserts and swaps inside s
 
 ## Originality
 
-`python3 scripts/originality_check.py backlog/series/horror-new-building-rules/part2/script.md research/corpus research/library/transcripts` → **PASS** (run 2026-11-01 13:02 UTC, after the rewrite below).
+`python3 scripts/originality_check.py backlog/series/horror-new-building-rules/part2/script.md research/corpus research/library/transcripts` → **PASS** (run 2026-11-01 13:02 UTC, after the rewrite below; rerun 13:07 UTC after the editor pass: first rerun FAILED on a 9-word PLAYBOOK phrase quoted in the hook note, paraphrased, then PASS).
 
 - Run 1 (12:59 UTC) also printed PASS against the corpus. A check against our own catalogue (`backlog/horror episodes`) then showed 9-14-word runs shared with the superseded `narration_p2.md` ("the voice changed, Dale from eight-A", "the hall went quiet, behind me the spare room light", "sunrise was six oh four, my phone said"). Those three lines were rewritten; the corpus gate was rerun and passes.
 - Remaining overlaps with our own Part 1 `script.md` are intentional canon (rule four's wording, 10 words) and production boilerplate in the caption and shot-list notes, not narration.

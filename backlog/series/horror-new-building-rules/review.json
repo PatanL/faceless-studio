@@ -1,0 +1,57 @@
+{
+  "series": "horror-new-building-rules",
+  "reviewer": "horror series editor pass (writing only)",
+  "reviewed_at_utc": "2026-11-01T13:10Z",
+  "files": ["BIBLE.md", "part2/script.md"],
+  "grounding": "research/corpus/horror/PLAYBOOK.md sections 1B, 1D, 4C, 5; refs 7702661471641128224 (HEARSE-P2), 7694996216505060641 (FLOOR-PHRASE), 7670495663624408352 (DORM-RULES), Qz-TrB6W2SM (HOTEL-DOOR), gDNMSoGSZgQ (DOG-RULE), 7659677578365537569 (SIEGE-CHAT), 7664930759395888416 (H11), shTJ7_kRNJ8 (NIGHT-BUS)",
+  "scores_before": {
+    "cliffhanger_escalation": 6,
+    "rule_consistency": 6,
+    "p2_rehook_3s": 6,
+    "originality": 8,
+    "overall": 6.5
+  },
+  "scores_after_self_assessed": {
+    "cliffhanger_escalation": 8,
+    "rule_consistency": 8,
+    "p2_rehook_3s": 8,
+    "originality": 8,
+    "overall": 8
+  },
+  "cliff_strength_per_cut": {
+    "before": {"P1": 7.0, "P2": 8.0, "P3": 6.5, "P4": 7.5},
+    "after": {"P1": 7.0, "P2": 8.0, "P3": 8.4, "P4": 8.8},
+    "note": "Before, the ladder dipped at P3: it ended on three knocks from inside the spare room, the same image as its own cold open. P4 then ended on the bolt sliding by itself. After: P3 ends at 6:04 on Mrs. Kowal (taken) tapping and saying 'The sun is up. Rule three is over.' The protection runs out on the clock and the threat quotes the note back (HOTEL-DOOR Qz-TrB6W2SM 2:28-2:39 retro-reveal after safety; DORM-RULES 7670495663624408352 rule inversion). P4 ends with D. Rowe's lowercase DM asking June to open the bolt that his own note says to keep shut (two rival authorities, PLAYBOOK 1D; DOG-RULE gDNMSoGSZgQ 0:41.1, the protector's voice as the lure)."
+  },
+  "fixes": {
+    "cliffhanger": [
+      "P3 cut rebuilt (BIBLE section 6 and the Part 3 outline at 66-85 s). P4 cold open now reads 'She was only the first...'. P4's casserole visitor changed from Kowal to Sam (7D) so Kowal is not reused.",
+      "P4 cut rebuilt: June's hand is on the bolt, the slip's rule 5 is beside it, and Rowe's DM asks her to open it. P5 frame 0 shows the bolt already drawn.",
+      "Added a cliff strength ladder to BIBLE section 6, plus a fallback rule: never end two consecutive parts on a knock."
+    ],
+    "rule_consistency": [
+      "The bolt sliding by itself broke law 2, because only a resident can open anything. Added law 8: nothing acts outside the laws on screen.",
+      "'Junie' contradiction: the door used the pet name before June called her mother, but the plant table said the Office learned it from the call. Added law 2a: it hears anything said aloud inside a unit it has asked. It learned the name from two weeks of June's calls. Rowe's P3 DM 'it has been listening since you moved in' pays this.",
+      "Borrowed voices asked to be let in ('let me in', 'open up'), but only the number matters (law 3). Dale now asks 'which door is yours?' and her mother 'what number are you?'. This is how FLOOR-PHRASE 7694996216505060641 runs the device: one forbidden question asked by closer and closer people.",
+      "Ending A said that saying the number opens the unit and occupies the speaker, yet June survives. Fixed by having her say it inside the unnumbered room, which is how Rowe survived two years ago (law 7 backstory).",
+      "Odette's bubble 'typing it marks you. saying it opens' had a full stop, and a full stop from a living account is the casualty proof (BIBLE section 4 registers). Split into two bubbles with no full stops.",
+      "The clock was off: the bible said P2 runs 5:38-5:47, but the script ends at 5:44. The bible now says P2 5:38-5:44 and P3 5:44-6:04.",
+      "The D. Rowe 'never lit before 85%' rule contradicted Ending A's exit at 76-87%. Changed to 75%.",
+      "Torn-end back rule 5 was 'paid' by the bolt sliding on its own. It is now paid by the P4 cliff and P5 frame 0."
+    ],
+    "p2_rehook_3s": [
+      "Before, the first words were 'Third knock.', a recap a cold viewer can't parse, and the forbidden question finished at 3.6 s. This repeated HEARSE-P2's late-hook failure (7702661471641128224 0:00-0:20).",
+      "After, the door voice speaks first: 'June? What's your unit again?' The question finishes at ~1.6 s and the speaker is named by 3.2 s. 'RULE 1: Never give anyone your unit number.' is on screen from frame 0 to 3.2 s (PLAYBOOK 1B S1; H11 7664930759395888416). The hook is now 11 words instead of 14.",
+      "'Then Odette.' became 'Then Odette texted again.' so the turn isn't misread as her voice at the door. 'Six hundred miles' became 'across the country', so the number load drops from 8.6 to 8.0 per minute."
+    ]
+  },
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/series/horror-new-building-rules/part2/script.md research/corpus research/library/transcripts",
+    "result": "PASS (13:07 UTC). The first rerun failed on a 9-word phrase quoted from the PLAYBOOK in the hook note; it was paraphrased and the rerun passed. BIBLE.md also PASSes (13:08 UTC). Story-level check against the horror corpus: no copied plot. The borrowed-voice ladder and the double are genre devices adapted from FLOOR-PHRASE and TWO-WINDOWS kJCVK8xTkPk. The unit-number law, the unnumbered room and the two rulebooks are our own."
+  },
+  "not_done": [
+    "No TTS re-timing (writing-only lane). Timings after the hook are estimates, within about ±0.4 s of the listed times.",
+    "Parts 3-5 are still outlines in BIBLE.md, not scripts.",
+    "Not checked: whether the 'RULE 1' top band can be built from the existing Part 1 note-strip SVG without a kit edit (expected yes; the kit is locked)."
+  ]
+}
