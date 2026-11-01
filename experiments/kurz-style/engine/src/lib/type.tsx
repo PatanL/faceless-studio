@@ -50,7 +50,7 @@ export const LanternTag: React.FC<{
 				<circle r={5} fill={c(ring)} />
 			</g>
 			<g transform={`translate(${x} ${y}) scale(${Math.max(0, s)})`}>
-				<rect x={-w / 2} y={-h / 2 + 6} width={w} height={h} rx={h / 2} fill={rgba(c('ink-0'), 0.35)} />
+				<rect x={-w / 2} y={-h / 2 + 6} width={w} height={h} rx={h / 2} fill={rgba(c('ink-0'), 0.18)} />
 				<rect x={-w / 2} y={-h / 2} width={w} height={h} rx={h / 2} fill={c('bone-2')} />
 				<text
 					x={sub ? -w / 2 + size * 0.65 : 0}

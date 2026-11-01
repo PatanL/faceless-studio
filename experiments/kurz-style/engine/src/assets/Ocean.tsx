@@ -121,7 +121,7 @@ export const Rock: React.FC<{id: string; x: number; y: number; rx: number; ry: n
 	);
 };
 
-export const Seabed: React.FC<{y: number; t: number; seed?: string}> = ({y, t, seed = 'bed'}) => {
+export const Seabed: React.FC<{y: number; t: number; seed?: string; deep?: string}> = ({y, t, seed = 'bed', deep}) => {
 	const tint = useTint();
 	const pts: string[] = [];
 	for (let i = 0; i <= 24; i++) {
@@ -154,7 +154,7 @@ export const Seabed: React.FC<{y: number; t: number; seed?: string}> = ({y, t, s
 				<linearGradient id={`${seed}-g`} x1="0" y1="0" x2="0" y2="1">
 					<stop offset="0" stopColor={tint('ochre-3')} />
 					<stop offset="0.35" stopColor={tint('ochre-2')} />
-					<stop offset="1" stopColor={tint(mixOk(c('ochre-1'), c('ink-2'), 0.5))} />
+					<stop offset="1" stopColor={tint(deep ?? mixOk(c('ochre-1'), c('ink-2'), 0.5))} />
 				</linearGradient>
 			</defs>
 			<path d={`M -300 ${y + 700} L ${pts.join(' L ')} L 1380 ${y + 700} Z`} fill={`url(#${seed}-g)`} />
@@ -304,7 +304,7 @@ export const FishSchool: React.FC<{t: number; seed: string; n: number; cx: numbe
 
 // ---------------------------------------------------------------- jelly (translucent recipe, bible §4.6)
 
-export const Jelly: React.FC<{id: string; x: number; y: number; s: number; t: number}> = ({id, x, y, s, t}) => {
+export const Jelly: React.FC<{id: string; x: number; y: number; s: number; t: number; base?: string; glow?: string}> = ({id, x, y, s, t, base = 'tide-3', glow = 'tide-5'}) => {
 	const tint = useTint();
 	const pump = Math.sin(2 * Math.PI * 0.6 * t + rand(id, 0) * 6);
 	const bw = s * (1 + 0.08 * pump);
@@ -328,8 +328,8 @@ export const Jelly: React.FC<{id: string; x: number; y: number; s: number; t: nu
 				core={0.3}
 				lod="support"
 				layers={{stipple: false, innerGlow: true}}
-				parts={[{d: bell, base: 'tide-3', opacity: 0.55}]}
-				innerGlow={{color: 'tide-5', width: s * 0.16, opacity: 0.9}}
+				parts={[{d: bell, base, opacity: 0.6}]}
+				innerGlow={{color: glow, width: s * 0.16, opacity: 0.9}}
 				over={<path d={`M ${x - bw * 0.7} ${yy - bh * 0.55} Q ${x - bw * 0.2} ${yy - bh * 1.05} ${x + bw * 0.35} ${yy - bh * 0.85}`} stroke={c('bone-2')} strokeWidth={s * 0.08} fill="none" strokeLinecap="round" opacity={0.3} />}
 			/>
 			{[0.3, 0.55, 0.8].map((k, i) => (

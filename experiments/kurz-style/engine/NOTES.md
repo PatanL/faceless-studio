@@ -219,3 +219,27 @@ ssh dgx-spark 'cd ~/studio/app/experiments/kurz-style/engine && bash scripts/fra
 - **Planes:** map onto `core/layers.tsx` depth.
 - **Ease tokens:** move into `core/anim.ts`, as bible §9.2 already suggests.
 - **Texture pass:** add it as a pipeline post step after the render.
+
+## Orca pilot 0–9.73 s rebuild (`src/scenes/OrcaOpen.tsx`, composition `OrcaOpen`)
+
+The first two storyboard scenes (p00 and p01), timed to the episode's word timings. The episode's own `mix.wav` is muxed in, trimmed to 9.733 s. It is one continuous set with no hard cuts: there is a pull-back reveal, a push-in on the head where the jaw opens on teeth and the diver flinches with a bubble burst, a lit/unlit light event leading into the scale board (8 m bar with a ticking counter, four cars dropping onto a platform that dips under each one, a "≈ 6 tonnes" counter), then a push up to the dorsal fin, where the YOU figure stands next to it with equal-height guides.
+
+New assets: `assets/Reef.tsx` (brain, tube, table, staghorn and fan corals, spires, shelf), `assets/Car.tsx`, `assets/YouFigure.tsx`, the orca jaw rig with teeth and its secondary forms (`detail`), `lib/titles.tsx` (title plate, counters, captions, unlit pass), and per-part shadow targets in `Shaded` (`ambient`).
+
+Scripts: `scripts/orca_open_render.sh <tag>` (render, texture pass and audio mux), `scripts/orca_open_stills.sh`, and `scripts/orca_open_sheet.py` (side-by-side sheet).
+
+**Iterations** (metrics: `data/frame_metrics_orca_open_v*.json`; timing: `data/orca_open_bench.tsv`)
+
+| | P4 grey | P5 hue families | D5 outline | render on the Spark CPU |
+|---|---|---|---|---|
+| v1 | 0.037 | **2 (fail)** | **0.084 (fail)** | 38.5 s |
+| v2: higher-key water ramp, the light event lifts instead of sinking to ink, reef raised, tighter B/C framing, no ink under-strokes, slimmer rim, redundant B title plate dropped | **0.054** | **2** | 0.043 | 41.6 s |
+| v3: mid-plane haze no longer greys the warm masses, lantern-warm belly with tide shadows, warm jellies in the upper frame | **0.050** | 3 | 0.042 | 41.9 s |
+
+**Known gaps in v3.**
+- P4 is 0.11–0.14 on the scale-board frames (5–7.5 s). The olive seabed sits under the ink pass and reads as grey.
+- The YOU tag touches the caption at about 1 s (J9).
+- Above the scale board the upper half of the frame is still mostly empty water.
+- Hero construction and mark density are still short of the KB references at 2×.
+
+My own read is about 60/100 on the rubric, which is TIS tier and not yet Kurzgesagt tier.

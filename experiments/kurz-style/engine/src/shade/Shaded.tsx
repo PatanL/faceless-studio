@@ -58,6 +58,8 @@ export type Part = {
 	marks?: MarkSpec[];
 	/** no shading at all (lights, eyes) */
 	flat?: boolean;
+	/** shadow target for this part (default: the scene ambient). A saturated tide shadow keeps white patches off grey (P4). */
+	ambient?: string;
 	opacity?: number;
 };
 
@@ -189,7 +191,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 	const dot = p.dot ?? 1;
 	const ambient = L.ambient;
 
-	const shaded = p.parts.map((q, i) => ({q, i, base: tint(q.base)}));
+	const shaded = p.parts.map((q, i) => ({q, i, base: tint(q.base), amb: tint(q.ambient ?? ambient)}));
 
 	// stipple dot tile (seeded jittered grid, shared positions, 3 radii)
 	const T = 48;
@@ -246,7 +248,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 						{shifted(k[0] * (core + ((j + 1) * band) / 3), k[1] * (core + ((j + 1) * band) / 3), 'black')}
 					</mask>
 				))}
-				{shaded.map(({q, i, base}) => (
+				{shaded.map(({q, i, base, amb}) => (
 					<React.Fragment key={i}>
 						<radialGradient
 							id={`${id}-f${i}`}
@@ -257,14 +259,14 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 							gradientTransform={`translate(${cx + k[0] * 0.25 * (bw / 2)} ${cy + k[1] * 0.25 * (bh / 2)}) scale(${bw / 2} ${bh / 2})`}
 						>
 							<stop offset="0" stopColor={mixOk(base, tint(L.keyColor), 0.06)} />
-							<stop offset="1" stopColor={shadowOf(base, tint(ambient), 0.08)} />
+							<stop offset="1" stopColor={shadowOf(base, amb, 0.08)} />
 						</radialGradient>
 						{q.stipple === false || q.flat
 							? null
 							: radii.map((rad, j) => (
 									<pattern key={j} id={`${id}-d${i}-${j}`} patternUnits="userSpaceOnUse" width={T} height={T}>
 										{dots.map(([x, y], m) => (
-											<circle key={m} cx={x} cy={y} r={rad} fill={shadowOf(base, tint(ambient), q.shade ?? p.core ?? 0.38)} />
+											<circle key={m} cx={x} cy={y} r={rad} fill={shadowOf(base, amb, q.shade ?? p.core ?? 0.38)} />
 										))}
 									</pattern>
 								))}
@@ -298,7 +300,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 					})()
 				: null}
 
-			{shaded.map(({q, i, base}) => {
+			{shaded.map(({q, i, base, amb}) => {
 				const hiAmt = q.hi ?? p.hi ?? 0.22;
 				const body = (
 					<g opacity={q.opacity}>
@@ -307,7 +309,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 						{q.flat ? null : (
 							<>
 								{/* L1 core shadow */}
-								{on.core ? <g mask={`url(#${id}-core)`}>{drawPart(q, shadowOf(base, tint(ambient), q.shade ?? p.core ?? 0.38))}</g> : null}
+								{on.core ? <g mask={`url(#${id}-core)`}>{drawPart(q, shadowOf(base, amb, q.shade ?? p.core ?? 0.38))}</g> : null}
 								{/* L2 stipple terminator */}
 								{on.stipple && on.core && q.stipple !== false ? (
 									<g mask={`url(#${id}-pm${i})`}>
@@ -317,7 +319,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 									</g>
 								) : null}
 								{/* L3 deep occlusion */}
-								{on.deep ? <g mask={`url(#${id}-deep)`}>{drawPart(q, shadowOf(base, tint(ambient), Math.min(0.6, (q.shade ?? 0.38) * 1.6)))}</g> : null}
+								{on.deep ? <g mask={`url(#${id}-deep)`}>{drawPart(q, shadowOf(base, amb, Math.min(0.6, (q.shade ?? 0.38) * 1.6)))}</g> : null}
 								{/* L4 bounce */}
 								{on.bounce ? (
 									<g mask={`url(#${id}-bnc)`} opacity={0.16}>
@@ -330,7 +332,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 								{on.marks && q.marks ? (
 									<g mask={`url(#${id}-pm${i})`}>
 										{q.marks.map((m, mi) => (
-											<Marks key={mi} spec={m} part={q} base={base} shadow={shadowOf(base, tint(ambient), p.core ?? 0.38)} k={k} cx={cx} cy={cy} R={R} seed={`${id}-${i}-${mi}`} />
+											<Marks key={mi} spec={m} part={q} base={base} shadow={shadowOf(base, amb, p.core ?? 0.38)} k={k} cx={cx} cy={cy} R={R} seed={`${id}-${i}-${mi}`} />
 										))}
 									</g>
 								) : null}
