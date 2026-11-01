@@ -93,6 +93,36 @@ def _kokoro(text: str, voice: str, lang: str, speed: float):
     return audio, 24000, [(w["t"], w["s"], w["e"]) for w in words if _norm(w["t"])]
 
 
+_SENT_END = re.compile(r"(?<=[.!?…])[\"”’)]*\s+")
+
+
+def _kokoro_sentences(text: str, voice: str, lang: str, speed: float, gap: float):
+    """Natural-pause mode: one Kokoro call per sentence, each trimmed, joined by `gap` s of silence.
+    Whole-paragraph calls run sentences together and sound read-out (owner's blind test, 2026-11-01).
+    -> (audio float32 @48k, [(word_text, start, end)])"""
+    parts = [p.strip() for p in _SENT_END.split(text.strip()) if p.strip()]
+    if len(parts) <= 1:
+        a, sr, timed = _kokoro(text, voice, lang, speed)
+        return _to48(a, sr), SR, timed
+    pieces, timed_all, cur = [], [], 0.0
+    for i, part in enumerate(parts):
+        a, sr, timed = _kokoro(part, voice, lang, speed)
+        a48 = _to48(a, sr)
+        n0 = len(a48)
+        a48 = trim_head(a48, keep=0.03)
+        cut = (n0 - len(a48)) / SR
+        a48 = trim_tail(a48)
+        for w_, s_, e_ in timed:
+            timed_all.append((w_, None if s_ is None else cur + max(0.0, s_ - cut),
+                              None if e_ is None else cur + max(0.0, e_ - cut)))
+        pieces.append(a48)
+        cur += len(a48) / SR
+        if i < len(parts) - 1:
+            pieces.append(np.zeros(int(gap * SR), np.float32))
+            cur += int(gap * SR) / SR
+    return np.concatenate(pieces), SR, timed_all
+
+
 def _piper(text: str, voice: str):
     from piper import PiperVoice
     path = voice if voice.endswith(".onnx") else os.path.join(
@@ -217,6 +247,8 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
             speeds.add(sp)
             if engine == "piper":
                 a, sr, timed = _piper(sub.text, voice)
+            elif cfg.get("sentence_mode"):
+                a, sr, timed = _kokoro_sentences(sub.text, voice, lang, sp, float(cfg.get("sentence_gap", 0.26)) / sp)
             else:
                 a, sr, timed = _kokoro(sub.text, voice, lang, sp)
             synth_s += time.time() - t0

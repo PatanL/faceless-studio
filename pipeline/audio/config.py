@@ -7,15 +7,18 @@ MUSIC_BEDS = ("deep_ocean", "documentary_pulse", "dread", "tension_pulse")
 
 NICHES = {
     "explainer": {
-        # calm US documentary male; slightly slower than default for gravitas
-        "engine": "kokoro", "voice": "am_michael", "lang": "a", "speed": 0.96,
+        # calm US documentary male. Owner's blind test (2026-11-01, out/voices/lab/matched-male #7): am_michael read one
+        # sentence at a time at speed 1.1 with no EQ/compressor chain sounded least robotic. Paragraph-at-once synthesis
+        # plus the chain was the robotic part, not the voice.
+        "engine": "kokoro", "voice": "am_michael", "lang": "a", "speed": 1.1,
+        "sentence_mode": True, "sentence_gap": 0.26,  # gap between sentences, divided by speed
         # Shorts pace: chunks are tail-trimmed to <=0.12 s, so ~0.27 s between paragraphs (no dead air)
         "paragraph_pause": 0.15,
         "trim_tail": True,
         "lead_in": 0.1, "trim_head": 0.03,  # first word by ~0.15 s (frame 0 is the cover; no dead air)
         "trim_head_every": 0.05,  # Kokoro's ~0.2-0.3 s lead silence on every later chunk too (paragraph gaps ~0.3 s)
-        "voice_chain": "highpass=f=70,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=1,"
-                       "equalizer=f=3200:t=q:w=1.2:g=1.5",
+        # no EQ/compressor chain: it cost ~0.1 UTMOS and the owner preferred the clean read (lab INDEX.md)
+        "voice_chain": "",
         "music": "deep_ocean",
         # bed loudness (LUFS) relative to the voice, between lines. Orca review: -15 / -9 duck put the bed ~24 LU
         # (~26 dB RMS) under the talking voice, inaudible on a phone. -13.5 / -5 = ~18.5 LU, ~20 dB RMS under the voice
