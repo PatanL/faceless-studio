@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Make a 16:9 cut of a 9:16 episode storyboard (same audio, captions and timing).
 
-usage: python3 -m pipeline.episodes.reformat <slug> [--k 0.78]
+usage: python3 -m pipeline.episodes.reformat <slug> [--k 0.78]   (use a smaller k, e.g. 0.74, when
+  stat boxes sit low in the 9:16 picture zone: text is pushed above the captions, and a smaller k needs less push)
   -> episodes/<slug>/storyboard_16x9.json, render with
      PROPS=episodes/<slug>/storyboard_16x9.json scripts/spark_render.sh Storyboard <slug>_16x9.mp4
 
@@ -30,6 +31,9 @@ SCALE_PROPS = ("size", "labelSize", "pxPerM")
 # (box and font), everything else keeps k so scale comparisons stay exact.
 TEXT_COMPONENTS = ("explainer/Headline", "explainer/Tag", "explainer/Stat")
 TEXT_BOOST = 1.25
+CAPTION_Y = 0.86             # 16:9 caption centre (fraction of DH); core/captions clamps lower values to the safe band anyway
+CAPTION_SCALE = 0.8          # 16:9 caption font vs 9:16
+TEXT_VISIBLE = 0.32          # visible half-height of a text component as a fraction of its box height
 
 
 class Map:
@@ -62,7 +66,29 @@ def _pos(d: dict, m: Map, w_key="width", h_key="height"):
             d[k] = m.s(d[k])
 
 
-def layer16(layer: dict, m: Map) -> dict:
+def _full_frame(layer: dict) -> bool:
+    """A layer that covers the whole 9:16 frame (e.g. a full-bleed Map) fills the whole 16:9 frame instead."""
+    w, h = layer.get("width"), layer.get("height")
+    return (isinstance(w, (int, float)) and isinstance(h, (int, float)) and w >= SW and h >= SH * 0.95
+            and layer.get("x", "50%") == "50%" and layer.get("y", "50%") == "50%" and not layer.get("keyframes"))
+
+
+def _clear_captions(l: dict, cap_font: float):
+    """Keep a text component's visible box above the 16:9 caption line."""
+    if not (isinstance(l.get("y"), str) and isinstance(l.get("height"), (int, float))):
+        return
+    cy = float(l["y"][:-1]) / 100 * DH
+    limit = CAPTION_Y * DH - cap_font * 0.75 - 10
+    over = cy + l["height"] * TEXT_VISIBLE - limit
+    if over > 0:
+        l["y"] = f"{(cy - over) / DH * 100:.2f}%"
+
+
+def layer16(layer: dict, m: Map, cap_font: float = 67) -> dict:
+    if _full_frame(layer):
+        l = copy.deepcopy(layer)
+        l["width"], l["height"] = DW, DH
+        return l
     if layer.get("name") in TEXT_COMPONENTS:
         m = Map(m.k, text_k=min(1.0, m.k * TEXT_BOOST))
     l = copy.deepcopy(layer)
@@ -84,6 +110,8 @@ def layer16(layer: dict, m: Map) -> dict:
         for k in SCALE_PROPS:
             if k in props:
                 props[k] = m.s(props[k])
+    if layer.get("name") in TEXT_COMPONENTS:
+        _clear_captions(l, cap_font)
     return l
 
 
@@ -105,15 +133,16 @@ def reformat(sb: dict, k: float = 0.78) -> dict:
     out = copy.deepcopy(sb)
     out["format"] = "16:9"
     out["id"] = f"{sb['id']}-16x9"
+    cap_font = round((sb.get("captions") or {}).get("style", {}).get("fontSize", 84) * CAPTION_SCALE)
     for sc in out["scenes"]:
-        sc["layers"] = [layer16(l, m) for l in sc["layers"]]
+        sc["layers"] = [layer16(l, m, cap_font) for l in sc["layers"]]
         if "camera" in sc:
             sc["camera"] = camera16(sc["camera"], m)
     cap = out.get("captions")
     if cap:
         st = cap.setdefault("style", {})
-        st["fontSize"] = round(st.get("fontSize", 84) * 0.8)
-        st["y"] = 0.87
+        st["fontSize"] = cap_font
+        st["y"] = CAPTION_Y
         cap["maxChars"] = max(cap.get("maxChars", 16), 22)
         cap["maxWords"] = max(cap.get("maxWords", 3), 4)
     out["_built"] = {**sb.get("_built", {}), "reformat": f"pipeline/episodes/reformat.py k={k} from 9:16"}

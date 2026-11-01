@@ -178,25 +178,28 @@ const colossalSquid: Figure = {
 };
 
 // ================================================================ orca
+// Blunt rounded melon, tall straight dorsal, big paddle flippers, white chin/belly with the
+// flank lobe that sweeps up behind the dorsal, eye patch above-behind the eye, grey saddle.
 
 const OR_BODY =
-	'M 120 200 C 200 180 330 150 480 140 C 620 132 760 140 860 165 C 920 180 975 200 988 216 C 972 234 920 248 850 255 C 700 268 520 270 380 255 C 260 242 180 222 120 212 Z';
-const OR_FIN = 'M 600 142 C 560 112 520 64 500 14 C 488 60 478 104 452 148 Z';
-const OR_FLUKE = 'M 138 200 C 100 190 60 160 14 150 C 40 175 50 195 56 206 C 50 216 40 236 14 262 C 60 252 100 226 138 214 Z';
+	'M 150 200 C 240 180 360 150 500 140 C 640 130 780 134 878 160 C 948 178 994 202 994 224 C 994 246 962 260 904 268 C 764 286 562 286 402 266 C 292 252 212 228 150 214 Z';
+const OR_FIN = 'M 648 142 C 624 104 604 52 596 2 C 570 52 532 102 500 148 Z';
+const OR_FLUKE = 'M 166 200 C 124 188 74 170 20 160 C 44 182 54 197 58 207 C 54 217 44 234 20 256 C 74 244 124 226 166 214 Z';
 const OR_WHITE =
-	'M 988 216 C 955 236 900 250 820 256 C 720 262 600 266 520 262 C 470 258 430 250 402 234 C 440 240 474 232 500 222 C 528 240 600 248 700 246 C 800 244 900 236 988 216 Z';
-const OR_PATCH = 'M 742 184 C 762 170 806 168 830 178 C 808 192 772 196 742 184 Z';
-const OR_SADDLE = 'M 380 152 C 420 140 470 138 520 142 C 490 160 430 166 380 152 Z';
-const OR_FLIPPER = 'M 770 252 C 752 290 712 322 664 332 C 690 302 712 272 724 254 Z';
+	'M 1000 230 C 962 242 908 250 836 252 C 736 254 640 254 574 250 C 530 247 498 232 468 212 C 446 198 424 198 412 210 C 398 228 378 246 330 260 L 330 330 L 1000 330 Z';
+const OR_PATCH = 'M 806 182 C 828 166 878 162 904 174 C 886 192 838 198 806 182 Z';
+const OR_SADDLE = 'M 420 152 C 470 138 540 134 600 140 C 560 162 480 166 420 152 Z';
+const OR_FLIPPER = 'M 808 258 C 800 300 772 340 732 354 C 708 360 704 338 718 312 C 732 288 752 270 770 260 Z';
 
 const orca: Figure = {
 	label: 'ORCA',
-	box: [14, 14, 974, 318],
+	box: [20, 2, 974, 356],
 	size: 8,
 	axis: 'w',
 	draw: (c) => {
-		const f = c.idle ? swimWarp({head: 988, tail: 14, amp: 14 * c.amp, t: c.t, freq: 0.6 * c.speed}) : undefined;
+		const f = c.idle ? swimWarp({head: 994, tail: 20, amp: 14 * c.amp, t: c.t, freq: 0.6 * c.speed}) : undefined;
 		const body = warp(OR_BODY, f);
+		const [ex, ey] = wp(f, 916, 206);
 		return (
 			<g>
 				<defs>
@@ -210,12 +213,12 @@ const orca: Figure = {
 				<g clipPath={`url(#${c.id}-clip)`}>
 					{c.sil ? null : <path d={warp(OR_WHITE, f)} fill="#eef2f3" />}
 					{c.sil ? null : <path d={warp(OR_SADDLE, f)} fill="#8b9399" opacity={0.55} />}
-					{c.sil ? null : <path d={warp('M 130 196 C 300 160 600 136 900 170 L 900 150 C 600 120 300 140 130 180 Z', f)} fill="#2a2f35" opacity={0.5} />}
+					{c.sil ? null : <path d={warp('M 150 196 C 320 160 620 134 940 176 L 940 156 C 620 116 320 138 150 180 Z', f)} fill="#2a2f35" opacity={0.5} />}
 				</g>
 				{c.sil ? null : <path d={warp(OR_PATCH, f)} fill="#eef2f3" />}
-				{c.sil ? null : <path d={warp('M 988 216 C 955 220 925 220 896 214', f)} stroke="#000" strokeWidth={3} fill="none" opacity={0.6} />}
+				{c.sil ? null : <path d={warp('M 994 228 C 962 234 934 232 912 224', f)} stroke="#000" strokeWidth={3} fill="none" opacity={0.55} strokeLinecap="round" />}
 				<path d={warp(OR_FLIPPER, f)} fill={paint(c, '#101316')} />
-				<Eye c={c} x={wp(f, 850, 199)[0]} y={wp(f, 850, 199)[1]} r={5} iris="#000" />
+				<Eye c={c} x={ex} y={ey} r={5} iris="#000" />
 			</g>
 		);
 	},

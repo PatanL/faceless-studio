@@ -1,0 +1,42 @@
+{
+ "id": "explainer-orca",
+ "niche": "explainer",
+ "subject": "whale",
+ "art": {
+  "component": "explainer/Orca",
+  "props": {
+   "idle": false
+  }
+ },
+ "humanArt": {
+  "component": "explainer/Diver",
+  "props": {
+   "arms": "side",
+   "bubbles": false
+  }
+ },
+ "variants": [
+  {
+   "template": "eye",
+   "text": "IT CHOSE NOT TO",
+   "accent": "NOT",
+   "humanLabel": "YOU"
+  },
+  {
+   "template": "scale",
+   "text": "0 HUMAN KILLS",
+   "accent": "0",
+   "label": "8 M",
+   "humanLabel": "YOU"
+  },
+  {
+   "template": "scale",
+   "id": "explainer-orca-b",
+   "text": "WHY NOT YOU?",
+   "accent": "YOU?",
+   "label": "8 M",
+   "humanLabel": "YOU",
+   "bg": "#0a2633"
+  }
+ ]
+}

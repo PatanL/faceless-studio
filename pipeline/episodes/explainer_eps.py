@@ -63,6 +63,7 @@ def push(a=0.6):
     return {"preset": "pushIn", "amount": a}
 
 
+COVER = -0.6  # "at" for hook text that must be fully in on frame 0 (Headline/Tag intros take ~0.6 s)
 FADE = {"type": "fade", "duration": 0.3}
 WHIP = {"type": "whip", "duration": 0.3, "direction": "left"}
 DIP = {"type": "dipBlack", "duration": 0.35}
@@ -98,11 +99,16 @@ BALL = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle c
 def orca(S):
     sc = []
     s = S[0]
+    PPM0 = 100  # orca and diver share pxPerM (<= 100 so the 1.2x push + punch never crops the head): the hook is already an honest "you vs. it" scale shot
     sc.append(scene(s, ocean(6, surface=0.2, rays=8, snow=60), [
-        comp("explainer/Orca", "50%", "44%", 980, 340, {"speed": 1.1},
-             keyframes=[{"t": 0, "x": "-40%"}, {"t": s.dur * 0.7, "x": "50%", "ease": "out"}]),
-        headline("KILLER WHALE?", at=0.25, y="17%", size=84, color="white"),
-        stat(0, "wild human kills", at=s.at("never", off=-0.1), y="60%", size=130, duration=0.3, color=RED),
+        # frame 0 is the Shorts cover: orca, diver and headline are all on screen from t=0
+        comp("explainer/Orca", "50%", "35%", 980, 360, {"speed": 1.1, "pxPerM": PPM0},
+             keyframes=[{"t": 0, "x": "36%"}, {"t": s.dur * 0.75, "x": "52%", "ease": "out"}]),
+        comp("explainer/Diver", "76%", "52.5%", 2.6 * PPM0 + 20, 90, {"pxPerM": PPM0, "arms": "side"}, flipX=True,
+             idle=[{"type": "float", "amount": 6, "speed": 0.35}]),
+        tag("YOU", COVER, x="76%", y="48.5%", size=28, w=200),
+        headline("KILLER WHALE?", at=COVER, y="15%", size=84, color="white"),
+        stat(0, "wild human kills", at=s.at("never", off=-0.1), y="61%", size=130, duration=0.3, color=RED),
     ], camera=push(0.5)))
     s = S[1]
     PPM = 105
@@ -113,12 +119,12 @@ def orca(S):
         comp("explainer/Orca", "50%", "35%", 1000, 360, {"pxPerM": PPM}, idle=[{"type": "bob", "amount": 6, "speed": 0.4}]),
         comp("explainer/ScaleBar", "50%", "46%", 8 * PPM, 140, {"label": "~8 M", "at": s.at("eight", off=-0.1), "labelSize": 48}),
         *cars,
-        tag("≈ 6 TONNES", s.at("four", off=0.6), y="69%", size=36),
+        tag("≈ 6 TONNES", s.at("four", off=0.6), y="65%", size=36),
     ], camera=push(0.4), trans=FADE))
     s = S[2]
     sc.append(scene(s, ocean(20, rays=8), [
         comp("explainer/SpeedBars", "50%", "30%", 1000, 520, {
-            "title": "Top speed", "max": 60, "at": 0.1, "stagger": 0.25, "duration": 0.7, "size": 44,
+            "title": "Top speed", "max": 60, "at": 0.1, "stagger": 0.25, "duration": 0.7, "size": 54, "labelWidth": 310,
             "rows": [{"label": "Orca", "value": 56, "unit": "km/h", "color": "red"},
                      {"label": "Olympic swimmer", "value": 8, "unit": "km/h", "color": "#6fd6e8"},
                      {"label": "You", "value": 3, "unit": "km/h", "color": "#f3f6f7"}]}, depth=0),
@@ -129,11 +135,11 @@ def orca(S):
     sc.append(scene(s, ocean(60, rays=6), [
         comp("explainer/Orca", "30%", "30%", 520, 180, {"timeOffset": 0.0}, idle=[{"type": "float", "amount": 10, "speed": 0.3}]),
         comp("explainer/Orca", "68%", "41%", 600, 210, {"timeOffset": 0.6}, idle=[{"type": "float", "amount": 12, "speed": 0.25}]),
-        comp("explainer/Orca", "38%", "52%", 440, 150, {"timeOffset": 1.1}, idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
+        comp("explainer/Orca", "36%", "49%", 440, 150, {"timeOffset": 1.1}, idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
         headline("FAMILY POD", at=0.2, y="14%", size=70),
-        tag("OWN CALLS", s.at("calls"), x="28%", y="63%", size=34, w=440),
-        tag("OWN MENU", s.at("menu"), x="72%", y="63%", size=34, w=440),
-        tag("OWN PLAN", s.at("plan"), x="50%", y="68%", size=34, w=440, accent=RED),
+        tag("OWN CALLS", s.at("calls"), x="28%", y="57%", size=34, w=440),
+        tag("OWN MENU", s.at("menu"), x="72%", y="57%", size=34, w=440),
+        tag("OWN PLAN", s.at("plan"), x="50%", y="62.5%", size=34, w=440, accent=RED),
     ], camera={"preset": "drift"}, trans=FADE))
     s = S[4]
     ch = s.at("charges")
@@ -199,7 +205,7 @@ def orca(S):
     gib = {"lon": -6.0, "lat": 36.6}
     sc.append(scene(s, {"type": "color", "color": "#04121a"}, [
         comp("explainer/Map", "50%", "50%", 1080, 1920, {
-            "views": [{"t": 0, "lon": -20, "lat": 40, "zoom": 1.6}, {"t": s.at("Spain"), "lon": -20, "lat": 40, "zoom": 1.6},
+            "views": [{"t": 0, "lon": -12, "lat": 42, "zoom": 3.2}, {"t": s.at("Spain"), "lon": -12, "lat": 42, "zoom": 3.4},
                       {"t": s.at("Spain", off=1.4), **gib, "zoom": 9}],
             "rings": [{**gib, "r": 1.2, "at": s.at("Spain", off=1.2), "label": "Iberian orcas"}]}, depth=0),
         tag("SINCE 2020", s.at("twenty*", off=0.2), x="50%", y="13%", size=40),
@@ -213,7 +219,31 @@ def orca(S):
                         {"t": s.dur, "x": "-20%", "y": "52%"}], flipX=True),
         tag("WHAT ARE THEY LEARNING?", s.at("What", off=-0.1), y="13%", size=40, accent=RED),
     ], camera=push(0.5), trans=FADE))
+    # cadence: word-anchored punch-ins, then Cam.fill closes any remaining visual hold > BEAT (README: no hold > 3-4 s)
+    punch_words = {0: ["killer"], 2: ["Olympic", "You,"], 3: ["alone."], 5: ["organ"], 7: ["biggest"], 8: ["smart."],
+                   10: ["mothers"], 12: ["decided"]}
+    for i, scd in enumerate(sc):
+        ts = [S[i].at(w.rstrip(",.")) for w in punch_words.get(i, [])]
+        scd["camera"] = cadence_cam(scd, ts)
     return sc
+
+
+def cadence_cam(scd: dict, punches=(), p=1.12) -> dict:
+    """Turn a scene's preset/keyframe camera into a Cam path with punch-ins (keeps shakes); fills holds > BEAT."""
+    dur, cam = scd["duration"], scd.get("camera") or {}
+    if cam.get("preset") == "pushIn":
+        c = Cam(dur, 1.0, 1 + 0.18 * cam.get("amount", 1), p=p)
+    elif cam.get("preset") == "drift":
+        c = Cam(dur, 1.04, 1.1, p=p)
+    elif cam.get("keyframes"):
+        ks = cam["keyframes"]
+        c = Cam(dur, p=p, keys=[(k["t"], k.get("zoom", 1.0), k.get("x", "50%"), k.get("y", "50%")) for k in ks])
+    else:
+        c = Cam(dur, 1.0, 1.05, p=p)
+    c.shake = list(cam.get("shake", []))
+    c.punch(*punches)
+    c.fill(visual_events({"duration": dur, "layers": scd["layers"]}) + [sh["at"] for sh in c.shake])
+    return c.build()
 
 
 # =========================================================================== blue whale

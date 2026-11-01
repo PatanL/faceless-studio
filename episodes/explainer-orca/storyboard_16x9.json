@@ -1,0 +1,3003 @@
+{
+ "version": 1,
+ "id": "explainer-orca-16x9",
+ "title": "Why You'd Never Want To Meet An Orca",
+ "format": "16:9",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p00",
+   "duration": 7.03,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
+     "surface": 0.2,
+     "rays": 8,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "37.39%",
+     "width": 725.2,
+     "height": 266.4,
+     "props": {
+      "speed": 1.1,
+      "pxPerM": 74.0
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "44.17%"
+      },
+      {
+       "t": 5.2725,
+       "x": "50.83%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "60.82%",
+     "y": "60.41%",
+     "width": 207.2,
+     "height": 66.6,
+     "props": {
+      "pxPerM": 74.0,
+      "arms": "side"
+     },
+     "flipX": true,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 4.44,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "60.82%",
+     "y": "55.15%",
+     "width": 185.0,
+     "height": 62.16,
+     "props": {
+      "text": "YOU",
+      "at": -0.6,
+      "size": 25.9
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50.00%",
+     "y": "11.08%",
+     "width": 925.0,
+     "height": 248.64,
+     "props": {
+      "text": "KILLER WHALE?",
+      "at": -0.6,
+      "size": 77.7,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50.00%",
+     "y": "71.16%",
+     "width": 832.5,
+     "height": 312.65,
+     "props": {
+      "value": 0,
+      "label": "wild human kills",
+      "at": 4.187,
+      "size": 120.25,
+      "duration": 0.3,
+      "color": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "There's an animal people call the killer whale. And in the wild, it has never killed a single person.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 2.075,
+      "zoom": 1.0266
+     },
+     {
+      "t": 2.295,
+      "zoom": 1.1529,
+      "ease": "out"
+     },
+     {
+      "t": 7.03,
+      "zoom": 1.2208,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p01",
+   "duration": 6.23,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 7
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "37.39%",
+     "width": 740.0,
+     "height": 266.4,
+     "props": {
+      "pxPerM": 77.7
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 4.44,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": "50.00%",
+     "y": "51.86%",
+     "width": 621.6,
+     "height": 103.6,
+     "props": {
+      "label": "~8 M",
+      "at": 2.487,
+      "labelSize": 35.52
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "x": "36.12%",
+     "y": "70.28%",
+     "width": 162.8,
+     "height": 81.4,
+     "props": {
+      "color": "#d8d8d8"
+     },
+     "start": 4.537,
+     "enter": {
+      "type": "drop",
+      "at": 4.537,
+      "duration": 0.35,
+      "distance": 148.0
+     },
+     "depth": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "x": "45.38%",
+     "y": "70.28%",
+     "width": 162.8,
+     "height": 81.4,
+     "props": {
+      "color": "#c8453a"
+     },
+     "start": 4.687,
+     "enter": {
+      "type": "drop",
+      "at": 4.687,
+      "duration": 0.35,
+      "distance": 148.0
+     },
+     "depth": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "x": "54.62%",
+     "y": "70.28%",
+     "width": 162.8,
+     "height": 81.4,
+     "props": {
+      "color": "#3a8fd6"
+     },
+     "start": 4.837,
+     "enter": {
+      "type": "drop",
+      "at": 4.837,
+      "duration": 0.35,
+      "distance": 148.0
+     },
+     "depth": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "x": "63.88%",
+     "y": "70.28%",
+     "width": 162.8,
+     "height": 81.4,
+     "props": {
+      "color": "#e3b04b"
+     },
+     "start": 4.987,
+     "enter": {
+      "type": "drop",
+      "at": 4.987,
+      "duration": 0.35,
+      "distance": 148.0
+     },
+     "depth": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "76.86%",
+     "width": 832.5,
+     "height": 79.92,
+     "props": {
+      "text": "≈ 6 TONNES",
+      "at": 5.137,
+      "size": 33.3
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "That's not because it can't. A grown male is eight metres long and weighs as much as four cars.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 6.23,
+      "zoom": 1.072,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 6.705,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 20,
+     "rays": 8
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50.00%",
+     "y": "30.81%",
+     "width": 740.0,
+     "height": 384.8,
+     "props": {
+      "title": "Top speed",
+      "max": 60,
+      "at": 0.1,
+      "stagger": 0.25,
+      "duration": 0.7,
+      "size": 39.96,
+      "labelWidth": 310,
+      "rows": [
+       {
+        "label": "Orca",
+        "value": 56,
+        "unit": "km/h",
+        "color": "red"
+       },
+       {
+        "label": "Olympic swimmer",
+        "value": 8,
+        "unit": "km/h",
+        "color": "#6fd6e8"
+       },
+       {
+        "label": "You",
+        "value": 3,
+        "unit": "km/h",
+        "color": "#f3f6f7"
+       }
+      ]
+     },
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "65.02%",
+     "width": 518.0,
+     "height": 177.6,
+     "props": {
+      "speed": 1.8
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "12.54%"
+      },
+      {
+       "t": 6.705,
+       "x": "87.46%",
+       "ease": "linear"
+      }
+     ]
+    }
+   ],
+   "notes": "It can hit fifty-six kilometres an hour. An Olympic swimmer manages about eight. You, maybe three.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 1.375,
+      "zoom": 1.0103
+     },
+     {
+      "t": 1.595,
+      "zoom": 1.1333,
+      "ease": "out"
+     },
+     {
+      "t": 2.65,
+      "zoom": 1.1421
+     },
+     {
+      "t": 2.87,
+      "zoom": 1.0214,
+      "ease": "out"
+     },
+     {
+      "t": 4.675,
+      "zoom": 1.0349
+     },
+     {
+      "t": 4.895,
+      "zoom": 1.1609,
+      "ease": "out"
+     },
+     {
+      "t": 6.705,
+      "zoom": 1.176,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 6.705,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 6
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "41.68%",
+     "y": "30.81%",
+     "width": 384.8,
+     "height": 133.2,
+     "props": {
+      "timeOffset": 0.0
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 7.4,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "57.49%",
+     "y": "45.28%",
+     "width": 444.0,
+     "height": 155.4,
+     "props": {
+      "timeOffset": 0.6
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 8.88,
+       "speed": 0.25
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "44.17%",
+     "y": "55.81%",
+     "width": 325.6,
+     "height": 111.0,
+     "props": {
+      "timeOffset": 1.1
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 5.92,
+       "speed": 0.35
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50.00%",
+     "y": "9.76%",
+     "width": 925.0,
+     "height": 207.2,
+     "props": {
+      "text": "FAMILY POD",
+      "at": 0.2,
+      "size": 64.75,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40.84%",
+     "y": "66.33%",
+     "width": 407.0,
+     "height": 75.48,
+     "props": {
+      "text": "OWN CALLS",
+      "at": 3.325,
+      "size": 31.45
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "59.16%",
+     "y": "66.33%",
+     "width": 407.0,
+     "height": 75.48,
+     "props": {
+      "text": "OWN MENU",
+      "at": 4.3,
+      "size": 31.45
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "73.57%",
+     "width": 407.0,
+     "height": 75.48,
+     "props": {
+      "text": "OWN PLAN",
+      "at": 5.25,
+      "size": 31.45,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "And it never hunts alone. Every family pod has its own calls, its own menu, and its own plan.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.04,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 0.975,
+      "zoom": 1.0487
+     },
+     {
+      "t": 1.195,
+      "zoom": 1.1768,
+      "ease": "out"
+     },
+     {
+      "t": 6.705,
+      "zoom": 1.232,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 7.48,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 4,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
+     "surface": 0.36,
+     "rays": 9,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 160\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 70 L60 30 L170 22 L260 34 L390 60 L360 92 L40 96 Z\" fill=\"#e8f3f6\"/><path d=\"M40 96 L360 92 L330 150 L70 150 Z\" fill=\"#9fc6d1\" opacity=\"0.55\"/></svg>",
+     "x": "59.16%",
+     "y": "38.70%",
+     "width": 310.8,
+     "height": 125.8,
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 80\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 60 Q40 20 110 26 Q160 30 186 44 Q196 52 184 58 Q150 70 90 66 Q40 70 10 60 Z\" fill=\"#6f7f86\"/><circle cx=\"170\" cy=\"44\" r=\"4\" fill=\"#111\"/><path d=\"M60 64 L40 78 L70 70 Z\" fill=\"#5c6b71\"/></svg>",
+     "x": "59.99%",
+     "y": "32.78%",
+     "width": 148.0,
+     "height": 59.2,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "59.99%",
+       "y": "32.78%",
+       "rotate": 0
+      },
+      {
+       "t": 4.637,
+       "x": "59.99%",
+       "y": "32.78%",
+       "rotate": 0
+      },
+      {
+       "t": 5.436999999999999,
+       "x": "55.00%",
+       "y": "43.97%",
+       "rotate": -35,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "33.35%",
+     "y": "49.23%",
+     "width": 340.4,
+     "height": 118.4,
+     "props": {
+      "speed": 1.5,
+      "timeOffset": 0.0
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16.70%"
+      },
+      {
+       "t": 1.9749999999999999,
+       "x": "18.78%"
+      },
+      {
+       "t": 4.837,
+       "x": "49.17%",
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "33.35%",
+     "y": "54.49%",
+     "width": 340.4,
+     "height": 118.4,
+     "props": {
+      "speed": 1.5,
+      "timeOffset": 0.3
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16.70%"
+      },
+      {
+       "t": 1.9749999999999999,
+       "x": "18.78%"
+      },
+      {
+       "t": 4.837,
+       "x": "45.84%",
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "33.35%",
+     "y": "59.75%",
+     "width": 340.4,
+     "height": 118.4,
+     "props": {
+      "speed": 1.5,
+      "timeOffset": 0.6
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16.70%"
+      },
+      {
+       "t": 1.9749999999999999,
+       "x": "18.78%"
+      },
+      {
+       "t": 4.837,
+       "x": "42.51%",
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "41.68%",
+     "y": "7.13%",
+     "width": 462.5,
+     "height": 75.48,
+     "props": {
+      "text": "ANTARCTICA",
+      "at": 0.2,
+      "size": 31.45
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "In Antarctica, a pod lines up and charges an ice floe together. The wave washes the seal straight into the water.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 3.306,
+      "zoom": 1.0354
+     },
+     {
+      "t": 3.526,
+      "zoom": 1.1622,
+      "ease": "out"
+     },
+     {
+      "t": 7.48,
+      "zoom": 1.2096,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.637,
+      "duration": 0.6,
+      "amplitude": 11.84
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 7.805,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 120,
+     "rays": 5
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "50.00%",
+     "y": "43.97%",
+     "width": 666.0,
+     "height": 236.8,
+     "props": {},
+     "idle": [
+      {
+       "type": "float",
+       "amount": 5.92,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "42.51%",
+     "y": "7.13%",
+     "width": 481.0,
+     "height": 75.48,
+     "props": {
+      "text": "SOUTH AFRICA",
+      "at": 0.2,
+      "size": 31.45
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "67.65%",
+     "width": 832.5,
+     "height": 102.12,
+     "props": {
+      "text": "LIVER: MISSING",
+      "at": 4.225,
+      "size": 42.55,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Off South Africa, great whites started washing up with one organ missing. The liver. The orcas took it and left the rest.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 1.631,
+      "zoom": 1.0226
+     },
+     {
+      "t": 1.851,
+      "zoom": 1.1487,
+      "ease": "out"
+     },
+     {
+      "t": 3.062,
+      "zoom": 1.1675
+     },
+     {
+      "t": 3.282,
+      "zoom": 1.0454,
+      "ease": "out"
+     },
+     {
+      "t": 6.015,
+      "zoom": 1.0832
+     },
+     {
+      "t": 6.235,
+      "zoom": 1.2166,
+      "ease": "out"
+     },
+     {
+      "t": 7.805,
+      "zoom": 1.241,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 3.53,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 80,
+     "rays": 6
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "54.16%",
+     "y": "38.70%",
+     "width": 473.6,
+     "height": 170.2,
+     "props": {
+      "speed": 1.4
+     },
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "54.16%"
+      },
+      {
+       "t": 3.53,
+       "x": "12.54%",
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": "64.57%",
+     "y": "57.12%",
+     "width": 384.8,
+     "height": 140.6,
+     "props": {
+      "speed": 1.5,
+      "timeOffset": 0.4
+     },
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "64.57%"
+      },
+      {
+       "t": 3.53,
+       "x": "16.70%",
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50.00%",
+     "y": "12.39%",
+     "width": 925.0,
+     "height": 207.2,
+     "props": {
+      "text": "GONE FOR MONTHS",
+      "at": 1.263,
+      "size": 64.75,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "The surviving great whites fled the area for months.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 3.53,
+      "zoom": 1.05,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 7.78,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 40,
+     "rays": 7
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50.00%",
+     "y": "46.60%",
+     "width": 740.0,
+     "height": 222.0,
+     "props": {
+      "pxPerM": 25.16
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 3.7,
+       "speed": 0.2
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "57.12%",
+     "width": 222.0,
+     "height": 81.4,
+     "props": {
+      "pxPerM": 25.16,
+      "speed": 1.4,
+      "timeOffset": 0.0
+     },
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "20.86%",
+       "y": "30.81%"
+      },
+      {
+       "t": 7.78,
+       "x": "58.32%",
+       "y": "36.07%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "57.12%",
+     "width": 222.0,
+     "height": 81.4,
+     "props": {
+      "pxPerM": 25.16,
+      "speed": 1.4,
+      "timeOffset": 0.5
+     },
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "14.62%",
+       "y": "41.34%"
+      },
+      {
+       "t": 7.78,
+       "x": "50.83%",
+       "y": "47.91%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "57.12%",
+     "width": 222.0,
+     "height": 81.4,
+     "props": {
+      "pxPerM": 25.16,
+      "speed": 1.4,
+      "timeOffset": 1.0
+     },
+     "z": 2,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "8.37%",
+       "y": "51.86%"
+      },
+      {
+       "t": 7.78,
+       "x": "43.34%",
+       "y": "59.75%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "8.45%",
+     "width": 832.5,
+     "height": 75.48,
+     "props": {
+      "text": "2019 · WESTERN AUSTRALIA",
+      "at": 1.425,
+      "size": 31.45
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "70.28%",
+     "width": 832.5,
+     "height": 88.8,
+     "props": {
+      "text": "ADULT BLUE WHALE",
+      "at": 5.988,
+      "size": 37.0,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "And in twenty nineteen, off Western Australia, a pod brought down the biggest animal on the planet. An adult blue whale.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 3.75,
+      "zoom": 1.0434
+     },
+     {
+      "t": 3.97,
+      "zoom": 1.1714,
+      "ease": "out"
+     },
+     {
+      "t": 7.78,
+      "zoom": 1.2208,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 5.655,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 260,
+     "rays": 3,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50.00%",
+     "y": "51.86%",
+     "width": 124.32,
+     "height": 207.2,
+     "props": {
+      "pose": "shrug"
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 5.92,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50.00%",
+     "y": "20.29%",
+     "width": 925.0,
+     "height": 284.16,
+     "props": {
+      "text": "WHY NOT US?",
+      "at": 3.175,
+      "size": 88.8,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "So here's the question. Something this fast and this smart. Why has it never come for us?",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 1.282,
+      "zoom": 1.0326
+     },
+     {
+      "t": 1.502,
+      "zoom": 1.1628,
+      "ease": "out"
+     },
+     {
+      "t": 2.563,
+      "zoom": 1.1931
+     },
+     {
+      "t": 2.783,
+      "zoom": 1.0709,
+      "ease": "out"
+     },
+     {
+      "t": 5.655,
+      "zoom": 1.144,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 6.78,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 200,
+     "rays": 4
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50.00%",
+     "y": "41.34%",
+     "width": 740.0,
+     "height": 518.0,
+     "props": {
+      "title": "Why not us?",
+      "items": [
+       "We taste bad",
+       "Too small to bother",
+       "Culture"
+      ],
+      "at": 0.0,
+      "stagger": 0.12,
+      "size": 41.44,
+      "strikes": [
+       {
+        "index": 0,
+        "at": 1.438
+       },
+       {
+        "index": 1,
+        "at": 4.4
+       }
+      ]
+     },
+     "depth": 0
+    }
+   ],
+   "notes": "Maybe we taste bad? Nobody's ever proven that. Too small to bother with? They hunt seals smaller than you.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 2.919,
+      "zoom": 1.0215
+     },
+     {
+      "t": 3.139,
+      "zoom": 1.1459,
+      "ease": "out"
+     },
+     {
+      "t": 6.78,
+      "zoom": 1.176,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 7.98,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 150,
+     "rays": 5
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": "50.00%",
+     "y": "26.86%",
+     "width": 740.0,
+     "height": 473.6,
+     "props": {
+      "title": "Why not us?",
+      "items": [
+       "We taste bad",
+       "Too small to bother",
+       "Culture"
+      ],
+      "at": -1,
+      "stagger": 0,
+      "size": 41.44,
+      "strikes": [
+       {
+        "index": 0,
+        "at": -1
+       },
+       {
+        "index": 1,
+        "at": -1
+       }
+      ],
+      "select": {
+       "index": 2,
+       "at": 1.0
+      }
+     },
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "47.50%",
+     "y": "62.38%",
+     "width": 414.4,
+     "height": 148.0,
+     "props": {
+      "timeOffset": 0.2
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 5.92,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "56.66%",
+     "y": "67.65%",
+     "width": 207.2,
+     "height": 74.0,
+     "props": {
+      "timeOffset": 0.9
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 5.92,
+       "speed": 0.3
+      }
+     ],
+     "start": 5.6,
+     "enter": {
+      "type": "pop",
+      "at": 5.6,
+      "duration": 0.35
+     }
+    }
+   ],
+   "notes": "The best answer is culture. Orcas eat what their mothers taught them. And no orca mother has ever taught her calf to eat a human.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 2.875,
+      "zoom": 1.018
+     },
+     {
+      "t": 3.095,
+      "zoom": 1.1417,
+      "ease": "out"
+     },
+     {
+      "t": 4.237,
+      "zoom": 1.1497
+     },
+     {
+      "t": 4.457,
+      "zoom": 1.0279,
+      "ease": "out"
+     },
+     {
+      "t": 7.98,
+      "zoom": 1.05,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 9.155,
+   "background": {
+    "type": "color",
+    "color": "#04121a"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "50%",
+     "width": 1920,
+     "height": 1080,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": -12,
+        "lat": 42,
+        "zoom": 3.2
+       },
+       {
+        "t": 3.3,
+        "lon": -12,
+        "lat": 42,
+        "zoom": 3.4
+       },
+       {
+        "t": 4.7,
+        "lon": -6.0,
+        "lat": 36.6,
+        "zoom": 9
+       }
+      ],
+      "rings": [
+       {
+        "lon": -6.0,
+        "lat": 36.6,
+        "r": 1.2,
+        "at": 4.5,
+        "label": "Iberian orcas"
+       }
+      ]
+     },
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "8.45%",
+     "width": 832.5,
+     "height": 88.8,
+     "props": {
+      "text": "SINCE 2020",
+      "at": 2.075,
+      "size": 37.0
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50.00%",
+     "y": "72.58%",
+     "width": 832.5,
+     "height": 264.55,
+     "props": {
+      "value": 7,
+      "label": "boats sunk (and counting)",
+      "at": 7.562,
+      "size": 101.75,
+      "prefix": "~",
+      "color": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Comforting, right? Except since twenty twenty, orcas off Spain and Portugal have been ramming sailboats and snapping their rudders. Several have sunk.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 6.131,
+      "zoom": 1.0335
+     },
+     {
+      "t": 6.351,
+      "zoom": 1.1588,
+      "ease": "out"
+     },
+     {
+      "t": 9.155,
+      "zoom": 1.176,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 7.762,
+      "duration": 0.5,
+      "amplitude": 10.36
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  },
+  {
+   "id": "p12",
+   "duration": 6.625,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 4,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a",
+     "surface": 0.3,
+     "rays": 8,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "50.00%",
+     "y": "32.13%",
+     "width": 88.8,
+     "height": 148.0,
+     "props": {
+      "pose": "wave"
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50.00%",
+     "y": "57.12%",
+     "width": 458.8,
+     "height": 155.4,
+     "props": {
+      "speed": 0.8
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "79.14%",
+       "y": "59.75%"
+      },
+      {
+       "t": 3.3125,
+       "x": "50.00%",
+       "y": "51.86%"
+      },
+      {
+       "t": 6.625,
+       "x": "20.86%",
+       "y": "59.75%"
+      }
+     ],
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50.00%",
+     "y": "8.45%",
+     "width": 832.5,
+     "height": 88.8,
+     "props": {
+      "text": "WHAT ARE THEY LEARNING?",
+      "at": 3.9,
+      "size": 37.0,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Nobody knows why. So maybe they just haven't decided about us yet. What do you think they're learning?",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "57.12%"
+     },
+     {
+      "t": 1.288,
+      "zoom": 1.0175
+     },
+     {
+      "t": 1.508,
+      "zoom": 1.1429,
+      "ease": "out"
+     },
+     {
+      "t": 2.575,
+      "zoom": 1.1592
+     },
+     {
+      "t": 2.795,
+      "zoom": 1.038,
+      "ease": "out"
+     },
+     {
+      "t": 5.263,
+      "zoom": 1.0715
+     },
+     {
+      "t": 5.483,
+      "zoom": 1.2034,
+      "ease": "out"
+     },
+     {
+      "t": 6.625,
+      "zoom": 1.2208,
+      "x": "50.00%",
+      "y": "57.12%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "There's",
+    "start": 0.55,
+    "end": 0.762
+   },
+   {
+    "text": "an",
+    "start": 0.762,
+    "end": 0.925
+   },
+   {
+    "text": "animal",
+    "start": 0.925,
+    "end": 1.375
+   },
+   {
+    "text": "people",
+    "start": 1.375,
+    "end": 1.75
+   },
+   {
+    "text": "call",
+    "start": 1.75,
+    "end": 1.988
+   },
+   {
+    "text": "the",
+    "start": 1.988,
+    "end": 2.075
+   },
+   {
+    "text": "killer",
+    "start": 2.075,
+    "end": 2.425
+   },
+   {
+    "text": "whale.",
+    "start": 2.425,
+    "end": 3.05
+   },
+   {
+    "text": "And",
+    "start": 3.15,
+    "end": 3.288
+   },
+   {
+    "text": "in",
+    "start": 3.288,
+    "end": 3.362
+   },
+   {
+    "text": "the",
+    "start": 3.362,
+    "end": 3.45
+   },
+   {
+    "text": "wild,",
+    "start": 3.45,
+    "end": 3.95
+   },
+   {
+    "text": "it",
+    "start": 4.025,
+    "end": 4.112
+   },
+   {
+    "text": "has",
+    "start": 4.112,
+    "end": 4.287
+   },
+   {
+    "text": "never",
+    "start": 4.287,
+    "end": 4.612
+   },
+   {
+    "text": "killed",
+    "start": 4.612,
+    "end": 5.025,
+    "emph": true
+   },
+   {
+    "text": "a",
+    "start": 5.025,
+    "end": 5.15
+   },
+   {
+    "text": "single",
+    "start": 5.15,
+    "end": 5.55
+   },
+   {
+    "text": "person.",
+    "start": 5.55,
+    "end": 6.275
+   },
+   {
+    "text": "That's",
+    "start": 7.18,
+    "end": 7.43
+   },
+   {
+    "text": "not",
+    "start": 7.43,
+    "end": 7.618
+   },
+   {
+    "text": "because",
+    "start": 7.618,
+    "end": 7.893
+   },
+   {
+    "text": "it",
+    "start": 7.893,
+    "end": 7.98
+   },
+   {
+    "text": "can't.",
+    "start": 7.98,
+    "end": 8.58
+   },
+   {
+    "text": "A",
+    "start": 8.68,
+    "end": 8.78
+   },
+   {
+    "text": "grown",
+    "start": 8.78,
+    "end": 9.13
+   },
+   {
+    "text": "male",
+    "start": 9.13,
+    "end": 9.455
+   },
+   {
+    "text": "is",
+    "start": 9.455,
+    "end": 9.617
+   },
+   {
+    "text": "eight",
+    "start": 9.617,
+    "end": 9.83
+   },
+   {
+    "text": "metres",
+    "start": 9.83,
+    "end": 10.205
+   },
+   {
+    "text": "long",
+    "start": 10.205,
+    "end": 10.555
+   },
+   {
+    "text": "and",
+    "start": 10.555,
+    "end": 10.68
+   },
+   {
+    "text": "weighs",
+    "start": 10.68,
+    "end": 11.055
+   },
+   {
+    "text": "as",
+    "start": 11.055,
+    "end": 11.205
+   },
+   {
+    "text": "much",
+    "start": 11.205,
+    "end": 11.418
+   },
+   {
+    "text": "as",
+    "start": 11.418,
+    "end": 11.567
+   },
+   {
+    "text": "four",
+    "start": 11.567,
+    "end": 11.805
+   },
+   {
+    "text": "cars.",
+    "start": 11.805,
+    "end": 12.505
+   },
+   {
+    "text": "It",
+    "start": 13.41,
+    "end": 13.522
+   },
+   {
+    "text": "can",
+    "start": 13.522,
+    "end": 13.635
+   },
+   {
+    "text": "hit",
+    "start": 13.635,
+    "end": 13.873
+   },
+   {
+    "text": "fifty-six",
+    "start": 13.873,
+    "end": 14.435
+   },
+   {
+    "text": "kilometres",
+    "start": 14.435,
+    "end": 15.022
+   },
+   {
+    "text": "an",
+    "start": 15.022,
+    "end": 15.148
+   },
+   {
+    "text": "hour.",
+    "start": 15.148,
+    "end": 15.71
+   },
+   {
+    "text": "An",
+    "start": 15.81,
+    "end": 15.91
+   },
+   {
+    "text": "Olympic",
+    "start": 15.91,
+    "end": 16.31
+   },
+   {
+    "text": "swimmer",
+    "start": 16.31,
+    "end": 16.66
+   },
+   {
+    "text": "manages",
+    "start": 16.66,
+    "end": 17.11
+   },
+   {
+    "text": "about",
+    "start": 17.11,
+    "end": 17.385
+   },
+   {
+    "text": "eight.",
+    "start": 17.385,
+    "end": 17.81
+   },
+   {
+    "text": "You,",
+    "start": 17.935,
+    "end": 18.235
+   },
+   {
+    "text": "maybe",
+    "start": 18.31,
+    "end": 18.598
+   },
+   {
+    "text": "three.",
+    "start": 18.598,
+    "end": 19.21
+   },
+   {
+    "text": "And",
+    "start": 20.115,
+    "end": 20.253
+   },
+   {
+    "text": "it",
+    "start": 20.253,
+    "end": 20.34
+   },
+   {
+    "text": "never",
+    "start": 20.34,
+    "end": 20.64
+   },
+   {
+    "text": "hunts",
+    "start": 20.64,
+    "end": 20.94
+   },
+   {
+    "text": "alone.",
+    "start": 20.94,
+    "end": 21.64,
+    "emph": true
+   },
+   {
+    "text": "Every",
+    "start": 21.765,
+    "end": 22.078
+   },
+   {
+    "text": "family",
+    "start": 22.078,
+    "end": 22.465
+   },
+   {
+    "text": "pod",
+    "start": 22.465,
+    "end": 22.765
+   },
+   {
+    "text": "has",
+    "start": 22.765,
+    "end": 22.927
+   },
+   {
+    "text": "its",
+    "start": 22.927,
+    "end": 23.04
+   },
+   {
+    "text": "own",
+    "start": 23.04,
+    "end": 23.29
+   },
+   {
+    "text": "calls,",
+    "start": 23.29,
+    "end": 23.765
+   },
+   {
+    "text": "its",
+    "start": 23.815,
+    "end": 24.015
+   },
+   {
+    "text": "own",
+    "start": 24.015,
+    "end": 24.265
+   },
+   {
+    "text": "menu,",
+    "start": 24.265,
+    "end": 24.64
+   },
+   {
+    "text": "and",
+    "start": 24.715,
+    "end": 24.828
+   },
+   {
+    "text": "its",
+    "start": 24.828,
+    "end": 24.965
+   },
+   {
+    "text": "own",
+    "start": 24.965,
+    "end": 25.215
+   },
+   {
+    "text": "plan.",
+    "start": 25.215,
+    "end": 25.89
+   },
+   {
+    "text": "In",
+    "start": 26.82,
+    "end": 26.92
+   },
+   {
+    "text": "Antarctica,",
+    "start": 26.92,
+    "end": 27.72
+   },
+   {
+    "text": "a",
+    "start": 27.845,
+    "end": 27.957
+   },
+   {
+    "text": "pod",
+    "start": 27.957,
+    "end": 28.32
+   },
+   {
+    "text": "lines",
+    "start": 28.32,
+    "end": 28.633
+   },
+   {
+    "text": "up",
+    "start": 28.633,
+    "end": 28.832
+   },
+   {
+    "text": "and",
+    "start": 28.832,
+    "end": 28.945
+   },
+   {
+    "text": "charges",
+    "start": 28.945,
+    "end": 29.308,
+    "emph": true
+   },
+   {
+    "text": "an",
+    "start": 29.308,
+    "end": 29.433
+   },
+   {
+    "text": "ice",
+    "start": 29.433,
+    "end": 29.72
+   },
+   {
+    "text": "floe",
+    "start": 29.72,
+    "end": 29.995
+   },
+   {
+    "text": "together.",
+    "start": 29.995,
+    "end": 30.695
+   },
+   {
+    "text": "The",
+    "start": 30.82,
+    "end": 30.945
+   },
+   {
+    "text": "wave",
+    "start": 30.945,
+    "end": 31.307
+   },
+   {
+    "text": "washes",
+    "start": 31.307,
+    "end": 31.72
+   },
+   {
+    "text": "the",
+    "start": 31.72,
+    "end": 31.858
+   },
+   {
+    "text": "seal",
+    "start": 31.858,
+    "end": 32.182
+   },
+   {
+    "text": "straight",
+    "start": 32.182,
+    "end": 32.483
+   },
+   {
+    "text": "into",
+    "start": 32.483,
+    "end": 32.657
+   },
+   {
+    "text": "the",
+    "start": 32.657,
+    "end": 32.745
+   },
+   {
+    "text": "water.",
+    "start": 32.745,
+    "end": 33.37
+   },
+   {
+    "text": "Off",
+    "start": 34.3,
+    "end": 34.5
+   },
+   {
+    "text": "South",
+    "start": 34.5,
+    "end": 34.788
+   },
+   {
+    "text": "Africa,",
+    "start": 34.788,
+    "end": 35.225
+   },
+   {
+    "text": "great",
+    "start": 35.3,
+    "end": 35.575
+   },
+   {
+    "text": "whites",
+    "start": 35.575,
+    "end": 35.85
+   },
+   {
+    "text": "started",
+    "start": 35.85,
+    "end": 36.225
+   },
+   {
+    "text": "washing",
+    "start": 36.225,
+    "end": 36.612
+   },
+   {
+    "text": "up",
+    "start": 36.612,
+    "end": 36.788
+   },
+   {
+    "text": "with",
+    "start": 36.788,
+    "end": 36.95
+   },
+   {
+    "text": "one",
+    "start": 36.95,
+    "end": 37.212
+   },
+   {
+    "text": "organ",
+    "start": 37.212,
+    "end": 37.575
+   },
+   {
+    "text": "missing.",
+    "start": 37.575,
+    "end": 38.25
+   },
+   {
+    "text": "The",
+    "start": 38.35,
+    "end": 38.475
+   },
+   {
+    "text": "liver.",
+    "start": 38.475,
+    "end": 39.05,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 39.15,
+    "end": 39.312
+   },
+   {
+    "text": "orcas",
+    "start": 39.312,
+    "end": 39.75
+   },
+   {
+    "text": "took",
+    "start": 39.75,
+    "end": 40.0
+   },
+   {
+    "text": "it",
+    "start": 40.0,
+    "end": 40.125
+   },
+   {
+    "text": "and",
+    "start": 40.125,
+    "end": 40.25
+   },
+   {
+    "text": "left",
+    "start": 40.25,
+    "end": 40.487
+   },
+   {
+    "text": "the",
+    "start": 40.487,
+    "end": 40.575
+   },
+   {
+    "text": "rest.",
+    "start": 40.575,
+    "end": 41.2
+   },
+   {
+    "text": "The",
+    "start": 42.105,
+    "end": 42.18
+   },
+   {
+    "text": "surviving",
+    "start": 42.18,
+    "end": 42.68
+   },
+   {
+    "text": "great",
+    "start": 42.68,
+    "end": 42.955
+   },
+   {
+    "text": "whites",
+    "start": 42.955,
+    "end": 43.318
+   },
+   {
+    "text": "fled",
+    "start": 43.318,
+    "end": 43.543
+   },
+   {
+    "text": "the",
+    "start": 43.543,
+    "end": 43.655
+   },
+   {
+    "text": "area",
+    "start": 43.655,
+    "end": 43.955
+   },
+   {
+    "text": "for",
+    "start": 43.955,
+    "end": 44.105
+   },
+   {
+    "text": "months.",
+    "start": 44.105,
+    "end": 44.73
+   },
+   {
+    "text": "And",
+    "start": 45.635,
+    "end": 45.748
+   },
+   {
+    "text": "in",
+    "start": 45.748,
+    "end": 45.835
+   },
+   {
+    "text": "twenty",
+    "start": 45.835,
+    "end": 46.135
+   },
+   {
+    "text": "nineteen,",
+    "start": 46.135,
+    "end": 46.71
+   },
+   {
+    "text": "off",
+    "start": 46.785,
+    "end": 47.01
+   },
+   {
+    "text": "Western",
+    "start": 47.01,
+    "end": 47.448
+   },
+   {
+    "text": "Australia,",
+    "start": 47.448,
+    "end": 48.085
+   },
+   {
+    "text": "a",
+    "start": 48.16,
+    "end": 48.273
+   },
+   {
+    "text": "pod",
+    "start": 48.273,
+    "end": 48.66
+   },
+   {
+    "text": "brought",
+    "start": 48.66,
+    "end": 48.91
+   },
+   {
+    "text": "down",
+    "start": 48.91,
+    "end": 49.148
+   },
+   {
+    "text": "the",
+    "start": 49.148,
+    "end": 49.235
+   },
+   {
+    "text": "biggest",
+    "start": 49.235,
+    "end": 49.598,
+    "emph": true
+   },
+   {
+    "text": "animal",
+    "start": 49.598,
+    "end": 50.023
+   },
+   {
+    "text": "on",
+    "start": 50.023,
+    "end": 50.123
+   },
+   {
+    "text": "the",
+    "start": 50.123,
+    "end": 50.21
+   },
+   {
+    "text": "planet.",
+    "start": 50.21,
+    "end": 50.91
+   },
+   {
+    "text": "An",
+    "start": 51.048,
+    "end": 51.16
+   },
+   {
+    "text": "adult",
+    "start": 51.16,
+    "end": 51.573
+   },
+   {
+    "text": "blue",
+    "start": 51.573,
+    "end": 51.835
+   },
+   {
+    "text": "whale.",
+    "start": 51.835,
+    "end": 52.51
+   },
+   {
+    "text": "So",
+    "start": 53.415,
+    "end": 53.59
+   },
+   {
+    "text": "here's",
+    "start": 53.59,
+    "end": 53.853
+   },
+   {
+    "text": "the",
+    "start": 53.853,
+    "end": 53.94
+   },
+   {
+    "text": "question.",
+    "start": 53.94,
+    "end": 54.54
+   },
+   {
+    "text": "Something",
+    "start": 54.653,
+    "end": 54.965
+   },
+   {
+    "text": "this",
+    "start": 54.965,
+    "end": 55.178
+   },
+   {
+    "text": "fast",
+    "start": 55.178,
+    "end": 55.578
+   },
+   {
+    "text": "and",
+    "start": 55.578,
+    "end": 55.678
+   },
+   {
+    "text": "this",
+    "start": 55.678,
+    "end": 55.828
+   },
+   {
+    "text": "smart.",
+    "start": 55.828,
+    "end": 56.44
+   },
+   {
+    "text": "Why",
+    "start": 56.54,
+    "end": 56.765
+   },
+   {
+    "text": "has",
+    "start": 56.765,
+    "end": 56.928
+   },
+   {
+    "text": "it",
+    "start": 56.928,
+    "end": 57.015
+   },
+   {
+    "text": "never",
+    "start": 57.015,
+    "end": 57.24
+   },
+   {
+    "text": "come",
+    "start": 57.24,
+    "end": 57.49
+   },
+   {
+    "text": "for",
+    "start": 57.49,
+    "end": 57.653
+   },
+   {
+    "text": "us?",
+    "start": 57.653,
+    "end": 58.14
+   },
+   {
+    "text": "Maybe",
+    "start": 59.07,
+    "end": 59.32
+   },
+   {
+    "text": "we",
+    "start": 59.32,
+    "end": 59.445
+   },
+   {
+    "text": "taste",
+    "start": 59.445,
+    "end": 59.77
+   },
+   {
+    "text": "bad?",
+    "start": 59.77,
+    "end": 60.245
+   },
+   {
+    "text": "Nobody's",
+    "start": 60.358,
+    "end": 60.77
+   },
+   {
+    "text": "ever",
+    "start": 60.77,
+    "end": 60.97
+   },
+   {
+    "text": "proven",
+    "start": 60.97,
+    "end": 61.32
+   },
+   {
+    "text": "that.",
+    "start": 61.32,
+    "end": 61.595
+   },
+   {
+    "text": "Too",
+    "start": 61.67,
+    "end": 61.845
+   },
+   {
+    "text": "small",
+    "start": 61.845,
+    "end": 62.17
+   },
+   {
+    "text": "to",
+    "start": 62.17,
+    "end": 62.295
+   },
+   {
+    "text": "bother",
+    "start": 62.295,
+    "end": 62.62
+   },
+   {
+    "text": "with?",
+    "start": 62.62,
+    "end": 63.02
+   },
+   {
+    "text": "They",
+    "start": 63.12,
+    "end": 63.27
+   },
+   {
+    "text": "hunt",
+    "start": 63.27,
+    "end": 63.508
+   },
+   {
+    "text": "seals",
+    "start": 63.508,
+    "end": 63.858
+   },
+   {
+    "text": "smaller",
+    "start": 63.858,
+    "end": 64.32
+   },
+   {
+    "text": "than",
+    "start": 64.32,
+    "end": 64.495
+   },
+   {
+    "text": "you.",
+    "start": 64.495,
+    "end": 64.945
+   },
+   {
+    "text": "The",
+    "start": 65.85,
+    "end": 65.925
+   },
+   {
+    "text": "best",
+    "start": 65.925,
+    "end": 66.237
+   },
+   {
+    "text": "answer",
+    "start": 66.237,
+    "end": 66.65
+   },
+   {
+    "text": "is",
+    "start": 66.65,
+    "end": 66.8
+   },
+   {
+    "text": "culture.",
+    "start": 66.8,
+    "end": 67.5,
+    "emph": true
+   },
+   {
+    "text": "Orcas",
+    "start": 67.638,
+    "end": 68.038
+   },
+   {
+    "text": "eat",
+    "start": 68.038,
+    "end": 68.25
+   },
+   {
+    "text": "what",
+    "start": 68.25,
+    "end": 68.4
+   },
+   {
+    "text": "their",
+    "start": 68.4,
+    "end": 68.575
+   },
+   {
+    "text": "mothers",
+    "start": 68.575,
+    "end": 68.95
+   },
+   {
+    "text": "taught",
+    "start": 68.95,
+    "end": 69.225
+   },
+   {
+    "text": "them.",
+    "start": 69.225,
+    "end": 69.675
+   },
+   {
+    "text": "And",
+    "start": 69.75,
+    "end": 69.9
+   },
+   {
+    "text": "no",
+    "start": 69.9,
+    "end": 70.138
+   },
+   {
+    "text": "orca",
+    "start": 70.138,
+    "end": 70.45
+   },
+   {
+    "text": "mother",
+    "start": 70.45,
+    "end": 70.775
+   },
+   {
+    "text": "has",
+    "start": 70.775,
+    "end": 70.963
+   },
+   {
+    "text": "ever",
+    "start": 70.963,
+    "end": 71.225
+   },
+   {
+    "text": "taught",
+    "start": 71.225,
+    "end": 71.463
+   },
+   {
+    "text": "her",
+    "start": 71.463,
+    "end": 71.6
+   },
+   {
+    "text": "calf",
+    "start": 71.6,
+    "end": 71.9
+   },
+   {
+    "text": "to",
+    "start": 71.9,
+    "end": 72.025
+   },
+   {
+    "text": "eat",
+    "start": 72.025,
+    "end": 72.188
+   },
+   {
+    "text": "a",
+    "start": 72.188,
+    "end": 72.25
+   },
+   {
+    "text": "human.",
+    "start": 72.25,
+    "end": 72.925
+   },
+   {
+    "text": "Comforting,",
+    "start": 73.83,
+    "end": 74.28
+   },
+   {
+    "text": "right?",
+    "start": 74.33,
+    "end": 74.88
+   },
+   {
+    "text": "Except",
+    "start": 75.017,
+    "end": 75.33
+   },
+   {
+    "text": "since",
+    "start": 75.33,
+    "end": 75.555
+   },
+   {
+    "text": "twenty",
+    "start": 75.555,
+    "end": 75.855
+   },
+   {
+    "text": "twenty,",
+    "start": 75.855,
+    "end": 76.33
+   },
+   {
+    "text": "orcas",
+    "start": 76.43,
+    "end": 76.78
+   },
+   {
+    "text": "off",
+    "start": 76.78,
+    "end": 76.98
+   },
+   {
+    "text": "Spain",
+    "start": 76.98,
+    "end": 77.342
+   },
+   {
+    "text": "and",
+    "start": 77.342,
+    "end": 77.455
+   },
+   {
+    "text": "Portugal",
+    "start": 77.455,
+    "end": 77.967
+   },
+   {
+    "text": "have",
+    "start": 77.967,
+    "end": 78.08
+   },
+   {
+    "text": "been",
+    "start": 78.08,
+    "end": 78.292
+   },
+   {
+    "text": "ramming",
+    "start": 78.292,
+    "end": 78.717
+   },
+   {
+    "text": "sailboats",
+    "start": 78.717,
+    "end": 79.305
+   },
+   {
+    "text": "and",
+    "start": 79.305,
+    "end": 79.442
+   },
+   {
+    "text": "snapping",
+    "start": 79.442,
+    "end": 79.88
+   },
+   {
+    "text": "their",
+    "start": 79.88,
+    "end": 80.055
+   },
+   {
+    "text": "rudders.",
+    "start": 80.055,
+    "end": 80.73
+   },
+   {
+    "text": "Several",
+    "start": 80.88,
+    "end": 81.255
+   },
+   {
+    "text": "have",
+    "start": 81.255,
+    "end": 81.442
+   },
+   {
+    "text": "sunk.",
+    "start": 81.442,
+    "end": 82.03,
+    "emph": true
+   },
+   {
+    "text": "Nobody",
+    "start": 82.985,
+    "end": 83.36
+   },
+   {
+    "text": "knows",
+    "start": 83.36,
+    "end": 83.71
+   },
+   {
+    "text": "why.",
+    "start": 83.71,
+    "end": 84.21
+   },
+   {
+    "text": "So",
+    "start": 84.347,
+    "end": 84.51
+   },
+   {
+    "text": "maybe",
+    "start": 84.51,
+    "end": 84.785
+   },
+   {
+    "text": "they",
+    "start": 84.785,
+    "end": 84.935
+   },
+   {
+    "text": "just",
+    "start": 84.935,
+    "end": 85.11
+   },
+   {
+    "text": "haven't",
+    "start": 85.11,
+    "end": 85.41
+   },
+   {
+    "text": "decided",
+    "start": 85.41,
+    "end": 85.847
+   },
+   {
+    "text": "about",
+    "start": 85.847,
+    "end": 86.072
+   },
+   {
+    "text": "us",
+    "start": 86.072,
+    "end": 86.235
+   },
+   {
+    "text": "yet.",
+    "start": 86.235,
+    "end": 86.735
+   },
+   {
+    "text": "What",
+    "start": 86.835,
+    "end": 86.972
+   },
+   {
+    "text": "do",
+    "start": 86.972,
+    "end": 87.072
+   },
+   {
+    "text": "you",
+    "start": 87.072,
+    "end": 87.172
+   },
+   {
+    "text": "think",
+    "start": 87.172,
+    "end": 87.385
+   },
+   {
+    "text": "they're",
+    "start": 87.385,
+    "end": 87.56
+   },
+   {
+    "text": "learning?",
+    "start": 87.56,
+    "end": 88.235
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 22,
+  "style": {
+   "font": "display",
+   "fontSize": 67,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.86
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-orca/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 89.46
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "pipeline/episodes/build.py",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/explainer-orca/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "reformat": "pipeline/episodes/reformat.py k=0.74 from 9:16"
+ }
+}
