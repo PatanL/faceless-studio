@@ -324,6 +324,23 @@ def act_on_killrule(st: dict, kr: dict) -> None:
         journal(f"kill rule: {v.upper()} ({nums})")
 
 
+def mark_sources_rejected(ids: list[str], reason: str, slug: str | None = None) -> None:
+    """Record rejected sources in L1's data/sources.jsonl via its CLI (L1 is that ledger's only writer).
+    state.rejected_sources stays the operator's own exclude list either way."""
+    import importlib.util
+    import subprocess
+    if not ids or importlib.util.find_spec("pipeline.sources") is None:
+        return
+    for sid in ids:
+        cmd = [sys.executable, "-m", "pipeline.sources", "mark", sid, "rejected", "--reason", reason]
+        if slug:
+            cmd += ["--slug", slug]
+        try:
+            subprocess.run(cmd, cwd=paths.ROOT, timeout=120, capture_output=True)
+        except (OSError, subprocess.TimeoutExpired):
+            journal(f"could not mark source {sid} rejected in data/sources.jsonl")
+
+
 def heartbeat(st: dict, resume: bool = False) -> None:
     st["session"]["heartbeat_at"] = timeutil.iso()
     if resume:
@@ -411,6 +428,8 @@ def main(argv: list[str] | None = None) -> int:
         jobs = due_mod.due_from_disk(cfg, st, now)
         print(watchdog_action(cfg, st, bool(a.tmux_alive), jobs, now, stopped=os.path.exists(paths.stopped_flag())))
         return 0
+    rejected: list[str] = []
+    slug = None
     with updating() as st:
         if a.cmd == "heartbeat":
             heartbeat(st, resume=a.resume)
@@ -432,9 +451,12 @@ def main(argv: list[str] | None = None) -> int:
                                              "attempts": st["jobs"][a.job_id].get("attempts", 0) + 1})
             else:
                 res = json.loads(a.result) if a.result else None
+                before = list(st["rejected_sources"])
                 new = finish_job(st, cfg, a.job_id, a.status, a.exit, a.verdict, res, a.note)
                 for n in new:
                     print(f"registered {n}")
+                rejected = [x for x in st["rejected_sources"] if x not in before]
+                slug = (st["jobs"][a.job_id].get("result") or {}).get("slug") or st["jobs"][a.job_id].get("slug")
         elif a.cmd == "pause":
             _pause(st, "operator", a.reason)
         elif a.cmd == "unpause":
@@ -442,6 +464,8 @@ def main(argv: list[str] | None = None) -> int:
             st["pause_reason"] = None
             st["counters"]["consecutive_failed_slots"] = 0
             st["budget"]["stop_until"] = None
+    if rejected:  # outside the state lock: L1's CLI is a separate process
+        mark_sources_rejected(rejected, f"{a.job_id}: {a.verdict or a.status}", slug=slug)
     return 0
 
 

@@ -288,9 +288,9 @@ that reads images or long files, read log tails, never cat whole JSONL ledgers (
 
 ## 12. Interface requests (for the integrator; from L5)
 
-- L1: `python -m pipeline.sources reject <source_id> --reason R` so a rejected source lands in `data/sources.jsonl`
-  (today run.py keeps `state.rejected_sources` and passes them to `pick --exclude`). `pick --json` should print
-  `{"source_id": ...}` on its last stdout line.
+- L1: rejected sources are recorded with `python -m pipeline.sources mark <id> rejected --reason R --slug S`
+  (called by pipeline/ops after a slot's source fails) and are also kept in `state.rejected_sources`, which run.py
+  passes to `pick --exclude`. run.py reads the pick from `{"pick": {"source_id": ...}}` on the last stdout line.
 - L3: `post.py` should also refuse `--mode auto` unless `data/operator/config.json` says auto + disclosure for that
   platform and `data/operator/approval_mode` is `auto` (defence in depth; run.py already decides the mode), and
   `status` should mark drafts unapproved 6 h after the slot as `missed`.

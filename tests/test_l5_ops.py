@@ -354,8 +354,8 @@ class TestRunHandlers(Tmp):
             calls.append(argv)
             if key == "pipeline.analytics.experiments":
                 return 0, json.dumps({"experiment_id": "EXP-001", "arm": "treatment", "variables": {"hook.type": "H6"}})
-            if key == "pipeline.sources":
-                return 0, json.dumps({"source_id": "fGcgWaswMns"})
+            if key == "pipeline.sources":  # L1's real shape: {"pick": {...}, "slot": ..., "slug": ...}
+                return 0, json.dumps({"pick": {"source_id": "fGcgWaswMns", "score": 7.4}, "slug": "op-x"})
             if key == "studio-make":
                 d = argv[argv.index("--date") + 1].replace("-", "")
                 slot = argv[argv.index("--slot") + 1]
@@ -380,7 +380,7 @@ class TestRunHandlers(Tmp):
         self.assertEqual(code, 0)
         flat = [" ".join(c) for c in calls]
         self.assertIn("experiments assign --date " + date + " --slot a", flat[0])
-        self.assertIn("pipeline.sources pick --niche explainer --json --exclude OLD1", flat[1])
+        self.assertIn(f"pipeline.sources pick --niche explainer --json --date {date} --slot a --exclude OLD1", flat[1])
         self.assertTrue(flat[2].startswith("./studio-make --source fGcgWaswMns --niche explainer --slot a --date " + date))
         self.assertIn("--experiment EXP-001:treatment", flat[2])
         self.assertIn("--budget-tokens 2500000", flat[2])

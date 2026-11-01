@@ -160,9 +160,11 @@ def h_make(r: Runner, st: dict):
     else:
         r.say("L4 experiments not installed: making without an experiment arm")
     excl = ",".join(st.get("rejected_sources") or [])
-    pick_cmd = [PY, "-m", "pipeline.sources", "pick", "--niche", niche, "--json"] + (["--exclude", excl] if excl else [])
+    pick_cmd = [PY, "-m", "pipeline.sources", "pick", "--niche", niche, "--json", "--date", job["date"],
+                "--slot", job["slot"]] + (["--exclude", excl] if excl else [])
     pick = r.json_out(pick_cmd, ok=(0,))
-    src = pick.get("source_id") or pick.get("id") or ("DRYRUN_SOURCE" if r.dry else None)
+    src = (pick.get("source_id") or (pick.get("pick") or {}).get("source_id") or pick.get("id")
+           or ("DRYRUN_SOURCE" if r.dry else None))
     if not src:
         raise StepFailed(4, "no source candidate")
     r.result.update({"source_id": src, "experiment_id": exp.get("experiment_id"), "arm": exp.get("arm")})
@@ -317,8 +319,12 @@ def execute(job_id: str, dry: bool = False, fake=None, log=None) -> int:
         with S.updating() as st2:
             # handler-side HUMAN.md dedupe keys were added to the stale copy `st`; carry them over
             st2["notified"] = list(dict.fromkeys(st2["notified"] + st["notified"]))[-500:]
+            before = list(st2["rejected_sources"])
             new = S.finish_job(st2, cfg, job_id, status, code, result=r.result, note=note)
             S.journal(f"{job_id}: {status} (exit {code}){' -> ' + ', '.join(new) if new else ''}{' - ' + note[:200] if note else ''}")
+            rejected = [x for x in st2["rejected_sources"] if x not in before]
+        if fake is None:
+            S.mark_sources_rejected(rejected, f"{job_id}: {note or status}"[:200], slug=r.result.get("slug"))
     if own_log:
         log.close()
     return code
