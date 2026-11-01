@@ -4,7 +4,8 @@ usage: python -m pipeline.qa.fingerprint <slug> [--root DIR] [--no-video]
 
 Fields of 5.7 plus (L2-internal, additive): narration_shingles (crc32 of word 5-grams, so the text itself
 is not copied around), frame_dhashes (10 frames at 5 %, 15 % ... 95 %), subject (main kit creature),
-mp4_sha256, duration_s, partial (true when built without the video).
+mp4_sha256, duration_s, partial (true when built without the video), title_alt (other package title strings: the
+fingerprint `title` is the string captions.py posts, yt_title when package.json has one).
 """
 from __future__ import annotations
 
@@ -119,16 +120,24 @@ def _titles_md_pick(path) -> tuple[str | None, str | None]:
     return None, None
 
 
+def package_titles(r, slug: str) -> list[str]:
+    """Every title string package.json would put on a platform: yt_title (what captions.py posts on YouTube) first,
+    then titles[title_pick] (the picked title, which package.md allows to differ by a keyword)."""
+    pkg = read_json(r / "episodes" / slug / "package.json") or {}
+    titles = pkg.get("titles") or []
+    i = pkg.get("title_pick", 0) or 0
+    picked = titles[i] if isinstance(i, int) and 0 <= i < len(titles) else None
+    return [t for t in dict.fromkeys([pkg.get("yt_title") or "", picked or ""]) if t]
+
+
 def title_and_thumb(r, slug: str) -> tuple[str, str | None, str]:
-    """(title, thumbnail path or None, where the title came from)."""
+    """(title, thumbnail path or None, where the title came from). The title is the string that is posted."""
     pkg = read_json(r / "episodes" / slug / "package.json") or {}
     thumb = pkg.get("thumb_pick")
     thumb = str(r / thumb) if thumb and not str(thumb).startswith("/") else thumb
     if pkg.get("titles") or pkg.get("yt_title"):
-        titles = pkg.get("titles") or []
-        i = pkg.get("title_pick", 0) or 0
-        t = titles[i] if 0 <= i < len(titles) else pkg.get("yt_title")
-        return t or pkg.get("yt_title") or "", thumb, "package.json"
+        ts = package_titles(r, slug)
+        return (ts[0] if ts else ""), thumb, "package.json"
     title, pair = None, None
     tm = episode_file(r, slug, "titles.md")
     if tm:
@@ -179,6 +188,7 @@ def build(slug: str, r=None, samples=None, duration_s: float | None = None, vide
     mix = shot_mix(sb)
     fp = {
         "v": 1, "slug": slug, "at": now_iso(), "title": title, "title_from": title_from,
+        "title_alt": [t for t in package_titles(r, slug) if t != title],
         "hook": hook_text(paras), "topic": fm.get("topic") or src.get("topic") or slug_topic(slug),
         "niche": fm.get("niche") or (slug.split("-")[0] if not slug.startswith("op-") else "explainer"),
         "beat_seq": beats_from_beatmap(bm) if bm else beats_from_script(text),

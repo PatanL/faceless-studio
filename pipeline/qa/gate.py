@@ -18,17 +18,19 @@ import traceback
 
 from . import fingerprint as fpmod
 from . import frames, sameness, textsim
-from .util import (REPO, be_nice, episode_file, find_mp4, front_matter, hook_text, narration_paragraphs, now_iso,
+from .util import (REPO, be_nice, find_mp4, front_matter, hook_text, narration_paragraphs, now_iso,
                    originality_module, probe_duration, qa_dir, read_json, refs_dir, rel, root, rules, run, sha256,
                    tool, write_json)
 
 # ---- thresholds (rules.json may override hook.max_words and visual.max_hold_s) -----------------------------
-DUR_MIN, DUR_WARN = 61.0, 90.0
+DUR_MIN, DUR_WARN, DUR_FAIL = 61.0, 90.0, 180.0  # > 180 s is no longer a Short (it would post as a regular video)
 LUFS_TARGET, LUFS_TOL, TP_FAIL, TP_WARN = -14.0, 1.5, -0.5, -1.0
 BLACK_D, BLACK_PIX, BLACK_FAIL_S = 0.25, 0.10, 0.5
 FREEZE_N = 0.003
 MAGENTA_FAIL = 0.002
 SRC_SHARE_FAIL, SRC_RUN_FAIL = 0.01, 6
+SRC_TITLE_RUN = 5            # our title/hook may not share a 5-word run (with a subject word) with the source title
+TRANSCRIPT_MIN_BYTES = 200   # same rule as pipeline.sources.transcript_file
 FIRST_SPEECH_FAIL = 1.0
 SAFE_FAIL, SAFE_WARN, EDGE = 0.80, 0.66, 0.05
 VARIANT_TOL = 0.20
@@ -38,7 +40,6 @@ STOPWORDS = set("a an the and or but so to of in on at by for with from as is ar
 TEXT_LAYER = re.compile(r"/(Headline|Tag|Stat|Options|Timer|RedText|EndCard|SpeedBars|HeightChart|Balance)$")
 CREATURE_SKIP = re.compile(r"/(Ocean|Headline|Tag|Stat|Options|Timer|Map|DepthMeter|ScaleBar|HeightChart|SpeedBars|"
                            r"Balance|ECG|Vignette|Flicker|Darkness|Glitch|RedText|EndCard|Heartbeat)$")
-DISCLOSURE = re.compile(r"(synthetic|ai)[- ]?(generated )?voice|text[- ]to[- ]speech|\btts\b", re.I)
 
 
 def chk(status, value=None, threshold=None, detail=""):
@@ -281,7 +282,7 @@ def source_transcript(r, slug: str, src: dict, fm: dict, niche: str):
                   r / "research/corpus" / niche / "auto" / f"{sid}.md",
                   r / "research/corpus" / niche / f"{sid}.md"]
     for c in cands:
-        if c.is_file():
+        if c.is_file() and c.stat().st_size > TRANSCRIPT_MIN_BYTES:
             return sid, c
     return sid, None
 
@@ -321,6 +322,12 @@ def check_originality(r, slug: str, script, src: dict, fm: dict, niche: str) -> 
         if sshare >= SRC_SHARE_FAIL or srun >= SRC_RUN_FAIL:
             st = "FAIL"
             detail.append(f"vs source {sid}: {sshare:.1%} 5-grams, run {srun} words")
+    elif src.get("source_id"):
+        # a --source make: the strict checks against the source are the point, so no transcript = FAIL
+        st = "FAIL"
+        detail.append(f"source transcript for {sid} not found (> {TRANSCRIPT_MIN_BYTES} bytes under "
+                      f"research/library/transcripts or research/corpus/{niche}): cannot check the script against "
+                      f"its source (rerun the make's source step)")
     else:
         if st == "PASS":
             st = "WARN"
@@ -344,17 +351,75 @@ def speech_words(r, slug: str, sb: dict) -> list[dict]:
 
 
 def check_disclosure(r, slug: str) -> dict:
-    pkg = read_json(r / "episodes" / slug / "package.json") or {}
-    texts = [("package.json", " ".join(str(pkg.get(k, "")) for k in ("yt_description", "short_caption")))]
-    dm = episode_file(r, slug, "description.md")
-    if dm:
-        texts.append((rel(r, dm), dm.read_text(encoding="utf-8")))
-    for where, t in texts:
-        m = DISCLOSURE.search(t)
-        if m:
-            return chk("PASS", where, detail=f"AI-voice line found ({m.group(0)!r})")
-    return chk("FAIL", None, "AI-voice disclosure line in package.json or description.md",
-               "missing: add 'Narration: synthetic AI voice (Kokoro TTS)...'")
+    """Build the captions exactly as pipeline.publish.post will (captions.build) and require the AI-voice line in
+    every platform's final text: YouTube description, TikTok and Instagram."""
+    from pipeline.publish import captions as C
+    from pipeline.publish import paths as P
+    old = P.ROOT
+    try:
+        P.ROOT = r
+        cap = C.build(slug)
+    except (OSError, ValueError) as e:
+        return chk("FAIL", None, "AI-voice disclosure in every platform's caption", f"captions do not build: {e}")
+    finally:
+        P.ROOT = old
+    texts = {"youtube": cap["youtube"]["description"], "tiktok": cap["tiktok"]["text"],
+             "instagram": cap["instagram"]["text"]}
+    missing = [p for p, t in texts.items() if not C.AI_VOICE_RX.search(t)]
+    if missing:
+        return chk("FAIL", {"missing": missing}, "AI-voice disclosure in every platform's caption",
+                   f"no AI-voice line in {', '.join(missing)} (disclosure_line must say e.g. 'synthetic AI voice')")
+    return chk("PASS", {"line": cap["disclosure_line"]}, "AI-voice disclosure in every platform's caption",
+               "AI-voice line in youtube, tiktok and instagram captions")
+
+
+def check_source_title(src: dict, titles: list[str], hook: str) -> dict:
+    """Our posted title(s) and hook vs the viral source's title. Borrowing its template on another subject is
+    allowed (WARN); its subject wording, or a 5-word run with a subject word in it, is a FAIL (package.md: never the
+    source video's title)."""
+    st_title = (src or {}).get("title")
+    if not st_title:
+        return chk("PASS", None, detail="no source title (not a --source episode)")
+    hits, worst = [], {}
+    sw = textsim.words(st_title)
+    for what, t in [*(("title", x) for x in titles if x), ("hook", hook)]:
+        c = textsim.title_compare(t, st_title)
+        run_n = _longest_run(textsim.words(t), sw, SRC_TITLE_RUN)
+        shared_content = 0
+        if run_n:
+            ws = textsim.words(t)
+            for i in range(len(ws) - run_n + 1):
+                seg = ws[i:i + run_n]
+                if " " + " ".join(seg) + " " in " " + " ".join(sw) + " ":
+                    shared_content = len(textsim.content_words(" ".join(seg)))
+                    break
+        worst[what] = {**c, "run": run_n}
+        if c["level"] == "FAIL" and what == "title":
+            hits.append(("FAIL", f"{what} {t!r} ~ source title (trigram {c['full']}, subject words {c['content']})"))
+        elif run_n >= SRC_TITLE_RUN and shared_content >= 1:
+            hits.append(("FAIL", f"{what} shares a {run_n}-word run with the source title"))
+        elif c["level"] == "WARN" and what == "title":
+            hits.append(("WARN", f"{what} uses the source title's template (trigram {c['full']}, different subject)"))
+    st = "FAIL" if any(h[0] == "FAIL" for h in hits) else "WARN" if hits else "PASS"
+    return chk(st, worst, f"title trigram >= 0.6 with the same subject words, or a {SRC_TITLE_RUN}-word run with a "
+               "subject word, vs the source title = FAIL; same template on another subject = WARN",
+               "; ".join(h[1] for h in hits) or f"vs source title {st_title!r}")
+
+
+def check_music(r, slug: str) -> dict:
+    """The mix may use only an in-house synth bed (pipeline/audio/config.MUSIC_BEDS)."""
+    from pipeline.audio.config import MUSIC_BEDS
+    rep = read_json(r / "episodes" / slug / "audio" / "report.json")
+    if rep is None:
+        return chk("WARN", None, f"one of {list(MUSIC_BEDS)} or none", "no episodes/<slug>/audio/report.json")
+    m = (rep.get("mix") or {}).get("music") if isinstance(rep.get("mix"), dict) else None
+    m = m if m is not None else rep.get("music")
+    name = re.sub(r"\.(wav|m4a|ogg|mp3)$", "", str(m).rsplit("/", 1)[-1]) if m else None
+    if not name or name.lower() in ("none", "off"):
+        return chk("PASS", None, detail="no music bed")
+    ok = name in MUSIC_BEDS and not str(m).startswith("/")
+    return chk("PASS" if ok else "FAIL", m, f"one of {list(MUSIC_BEDS)} or none",
+               "in-house synth bed" if ok else "not an in-house bed: third-party music can be claimed on Shorts > 60 s")
 
 
 def check_variant(r, slug: str, var: dict, fp: dict, hook_words: int, wpm: float | None, hold: float | None,
@@ -427,8 +492,8 @@ def gate(slug: str, r, last_n=None, against=None, mp4=None, sheets=True, source_
     checks = {}
 
     dur = probe_duration(mp4)
-    checks["duration"] = chk("FAIL" if dur < DUR_MIN else "WARN" if dur > DUR_WARN else "PASS", round(dur, 2),
-                             f">= {DUR_MIN} (WARN > {DUR_WARN})")
+    checks["duration"] = chk("FAIL" if dur < DUR_MIN or dur > DUR_FAIL else "WARN" if dur > DUR_WARN else "PASS",
+                             round(dur, 2), f">= {DUR_MIN} and <= {DUR_FAIL} (WARN > {DUR_WARN})")
     log(f"duration {dur:.2f} s")
 
     audio = has_audio_stream(mp4)
@@ -485,6 +550,9 @@ def gate(slug: str, r, last_n=None, against=None, mp4=None, sheets=True, source_
     fp = fpmod.build(slug, r, samples=samples, duration_s=round(dur, 2))
     fpmod.save(r, fp)
     checks["sameness"] = sameness.run(r, slug, fp, last_n, against)
+    checks["source_title"] = check_source_title(src, [fp.get("title") or "", *(fp.get("title_alt") or [])],
+                                                fp.get("hook") or "")
+    checks["music"] = check_music(r, slug)
 
     checks["captions"] = check_captions(sb, bm)
     checks["safe_area"] = check_safe_area(sb)

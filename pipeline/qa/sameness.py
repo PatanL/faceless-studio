@@ -3,10 +3,15 @@
 usage: python -m pipeline.qa.sameness <slug> [--root DIR] [--last-n 10] [--against slug,slug]
 
 History = the last N distinct slugs in data/posts.jsonl whose latest row per post_key has status
-published / scheduled / draft / sending (manual posts included), newest first, excluding <slug>;
-or the explicit --against list. Their fingerprints come from out/<s>/qa/fingerprint.json (built if missing).
+published / scheduled / draft / sending (manual posts included), newest first, excluding <slug>, plus every
+operator episode (episodes/op-*) whose out/<s>/qa/gate.json says PASS and was written in the last 48 h and whose
+review is not REJECT (the other slot of the same day, or one waiting for review/publish); or the explicit --against
+list. Their fingerprints come from out/<s>/qa/fingerprint.json (built if missing). The result records which history
+was used (`history_mode` default | against | last_n, and `history`): pipeline.publish.post refuses a gate.json made
+with a non-default history and re-runs this check from fingerprint.json at post time.
 
-FAIL (any one): title char-trigram cosine >= 0.6; hook (first sentence) cosine >= 0.6; same topic
+FAIL (any one): title char-trigram cosine >= 0.6 on the subject words too (textsim.title_compare: the same title
+template on a different subject is only a WARN); hook (first sentence) cosine >= 0.6; same topic
 (aliases: orca = killer whale); thumbnail dHash Hamming <= 8; narration 5-gram containment >= 0.15
 (the same script re-voiced); median frame dHash Hamming <= 10 at 10 fixed positions (the same cut re-uploaded).
 WARN: beat sequence normalised edit distance <= 0.1 vs 3+ of the history (templated storyline);
@@ -18,21 +23,44 @@ import argparse
 import json
 import statistics
 import sys
+import time
 
 from . import fingerprint as fpmod
 from . import textsim
-from .util import find_mp4, last_n_default, read_jsonl, root
+from .util import find_mp4, last_n_default, read_json, read_jsonl, root
 
 THRESH = {
     "title": 0.6, "hook": 0.6, "thumb_hamming": 8, "script": 0.15, "frames_hamming": 10,
     "beats_ned": 0.1, "beats_min_count": 3, "shot_mix": 0.95, "cover_hamming": 8,
 }
 LIVE = {"published", "scheduled", "draft", "sending"}
+RECENT_GATED_H = 48
 
 
-def history_slugs(r, slug: str, last_n: int) -> list[str]:
+def recent_gated(r, slug: str, hours: float = RECENT_GATED_H, now: float | None = None) -> list[str]:
+    """op-* episodes with a gate PASS written in the last `hours` and no REJECT review, newest first (not <slug>)."""
+    now = now or time.time()
+    out = []
+    for g in (r / "out").glob("op-*/qa/gate.json"):
+        s = g.parent.parent.name
+        if s == slug:
+            continue
+        try:
+            age_h = (now - g.stat().st_mtime) / 3600
+        except OSError:
+            continue
+        if age_h > hours:
+            continue
+        gate = read_json(g) or {}
+        review = read_json(g.parent / "review.json") or {}
+        if gate.get("verdict") == "PASS" and review.get("verdict") != "REJECT":
+            out.append((g.stat().st_mtime, s))
+    return [s for _, s in sorted(out, reverse=True)]
+
+
+def history_slugs(r, slug: str, last_n: int, posts_path=None, gated: bool = True) -> list[str]:
     latest: dict[str, dict] = {}
-    for row in read_jsonl(r / "data" / "posts.jsonl"):
+    for row in read_jsonl(posts_path or (r / "data" / "posts.jsonl")):
         if row.get("post_key"):
             latest[row["post_key"]] = row
     when: dict[str, str] = {}
@@ -42,14 +70,17 @@ def history_slugs(r, slug: str, last_n: int) -> list[str]:
             continue
         t = row.get("published_at") or row.get("scheduled_at") or row.get("at") or ""
         when[s] = max(when.get(s, ""), t)
-    return [s for s, _ in sorted(when.items(), key=lambda kv: (kv[1], kv[0]), reverse=True)][:last_n]
+    out = [s for s, _ in sorted(when.items(), key=lambda kv: (kv[1], kv[0]), reverse=True)][:last_n]
+    if gated:
+        out += [s for s in recent_gated(r, slug) if s not in out]
+    return out
 
 
-def load_history(r, slugs: list[str]) -> list[dict]:
+def load_history(r, slugs: list[str], build_missing: bool = True) -> list[dict]:
     out = []
     for s in slugs:
         fp = fpmod.load(r, s)
-        if fp is None and ((r / "episodes" / s / "script.md").is_file() or find_mp4(r, s)):
+        if fp is None and build_missing and ((r / "episodes" / s / "script.md").is_file() or find_mp4(r, s)):
             fp = fpmod.build(s, r, video=find_mp4(r, s) is not None)
             fpmod.save(r, fp)
         if fp is not None:
@@ -63,13 +94,31 @@ def _frames_hamming(a: list, b: list) -> int | None:
     return int(statistics.median(ds)) if len(ds) >= 5 else None
 
 
+def titles_of(fp: dict) -> list[str]:
+    """The posted title plus the other title strings the fingerprint carries (title_alt)."""
+    return [t for t in dict.fromkeys([fp.get("title") or "", *(fp.get("title_alt") or [])]) if t] or [""]
+
+
+def title_pair(a: dict, b: dict) -> dict:
+    """Worst textsim.title_compare over every title string of a and b."""
+    order = {"FAIL": 2, "WARN": 1, "PASS": 0}
+    best = None
+    for x in titles_of(a):
+        for y in titles_of(b):
+            c = textsim.title_compare(x, y, THRESH["title"])
+            if best is None or (order[c["level"]], c["full"]) > (order[best["level"]], best["full"]):
+                best = c
+    return best
+
+
 def pair(fp: dict, old: dict) -> dict:
     """All measures between this fingerprint and one past fingerprint."""
     ned = (textsim.norm_edit_distance(fp.get("beat_seq") or [], old.get("beat_seq") or [])
            if fp.get("beat_seq") and old.get("beat_seq") else None)
+    tp = title_pair(fp, old)
     return {
         "slug": old.get("slug"),
-        "title": round(textsim.trigram_cosine(fp.get("title", ""), old.get("title", "")), 3),
+        "title": tp["full"], "title_content": tp["content"], "title_level": tp["level"],
         "hook": round(textsim.trigram_cosine(fp.get("hook", ""), old.get("hook", "")), 3),
         "topic": textsim.same_topic(fp.get("topic", ""), old.get("topic", "")),
         "thumb_hamming": textsim.hamming_hex(fp.get("thumb_dhash"), old.get("thumb_dhash")),
@@ -92,8 +141,11 @@ def check(fp: dict, hist: list[dict]) -> dict:
     hits = []
     for p in pairs:
         s = p["slug"]
-        if p["title"] >= THRESH["title"]:
-            hits.append(("FAIL", s, "title", p["title"], f">= {THRESH['title']}"))
+        if p["title_level"] == "FAIL":
+            hits.append(("FAIL", s, "title", p["title"], f">= {THRESH['title']} (subject words {p['title_content']})"))
+        elif p["title_level"] == "WARN":
+            hits.append(("WARN", s, "title_template", p["title"],
+                         f">= {THRESH['title']} but a different subject (subject words {p['title_content']})"))
         if p["hook"] >= THRESH["hook"]:
             hits.append(("FAIL", s, "hook", p["hook"], f">= {THRESH['hook']}"))
         if p["topic"]:
@@ -143,14 +195,27 @@ def _maxes(pairs: list[dict]) -> dict:
 
 def _thr_text() -> str:
     t = THRESH
-    return (f"FAIL: title>={t['title']}, hook>={t['hook']}, same topic, thumb_hamming<={t['thumb_hamming']}, "
+    return (f"FAIL: title>={t['title']} (and subject words >={t['title']}; template only = WARN), hook>={t['hook']}, same topic, thumb_hamming<={t['thumb_hamming']}, "
             f"script>={t['script']}, frames_hamming<={t['frames_hamming']}; WARN: beats_ned<={t['beats_ned']} "
             f"vs {t['beats_min_count']}+, shot_mix>={t['shot_mix']}, cover_hamming<={t['cover_hamming']}, same subject/source")
 
 
-def run(r, slug: str, fp: dict, last_n: int | None = None, against: list[str] | None = None) -> dict:
-    slugs = [s for s in against if s != slug] if against is not None else history_slugs(r, slug, last_n or last_n_default(r))
-    return check(fp, load_history(r, slugs))
+def history_mode(last_n: int | None, against: list[str] | None, r=None) -> str:
+    if against is not None:
+        return "against"
+    if last_n is not None and r is not None and last_n != last_n_default(r):
+        return "last_n"
+    return "default"
+
+
+def run(r, slug: str, fp: dict, last_n: int | None = None, against: list[str] | None = None,
+        posts_path=None, build_missing: bool = True) -> dict:
+    slugs = ([s for s in against if s and s != slug] if against is not None
+             else history_slugs(r, slug, last_n or last_n_default(r), posts_path))
+    res = check(fp, load_history(r, slugs, build_missing))
+    res["history_mode"] = history_mode(last_n, against, r)
+    res["history"] = slugs
+    return res
 
 
 def main(argv=None) -> int:

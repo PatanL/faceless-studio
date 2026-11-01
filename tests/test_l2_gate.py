@@ -50,6 +50,9 @@ def make_episode(r: pathlib.Path, slug: str, narration: str) -> None:
     (ep / "storyboard.json").write_text(json.dumps({"fps": 30, "format": "9:16", "scenes": []}))
     (ep / "audio" / "captions.json").write_text(json.dumps({"words": [{"text": "You", "start": 0.1, "end": 0.3}]}))
     (ep / "description.md").write_text("Narration: synthetic AI voice (Kokoro TTS). Animation: original 2D vector art.\n")
+    (ep / "package.json").write_text(json.dumps({  # the gate checks the captions post.py would build from this
+        "v": 1, "titles": [f"Test {slug}"], "title_pick": 0, "short_caption": "A test caption.",
+        "hashtags": ["#ocean"], "yt_description": None}))
     tr = r / "research" / "library" / "transcripts"
     tr.mkdir(parents=True, exist_ok=True)
     (tr / "SRC1.txt").write_text(SOURCE_TXT)

@@ -15,7 +15,7 @@ import soundfile as sf
 from scipy.ndimage import minimum_filter1d, uniform_filter1d
 from scipy.signal import resample_poly
 
-from .config import SFX_DB, SR, TARGET_LUFS, TRUE_PEAK_DB
+from .config import MUSIC_BEDS, SFX_DB, SR, TARGET_LUFS, TRUE_PEAK_DB
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PUBLIC = os.path.join(ROOT, "studio", "public")
@@ -58,8 +58,24 @@ def load(path: str) -> np.ndarray:
     return x
 
 
+def music_name(name: str) -> str:
+    """'deep_ocean', 'music/deep_ocean.m4a' -> 'deep_ocean' (the bed's allowlist key)."""
+    return os.path.splitext(os.path.basename(str(name).strip()))[0]
+
+
 def find_asset(kind: str, name: str) -> str:
-    """kind = music | sfx. A name, a path under studio/public, or an absolute path."""
+    """kind = music | sfx. sfx: a name, a path under studio/public, or an absolute path. music: only an in-house
+    bed from config.MUSIC_BEDS (by name), looked up under studio/public/music/."""
+    if kind == "music":
+        bed = music_name(name)
+        if bed not in MUSIC_BEDS or os.path.isabs(str(name)) or ".." in str(name):
+            raise FileNotFoundError(f"music {name!r} is not an in-house bed {MUSIC_BEDS} (no third-party or absolute-path "
+                                    f"music: it can be Content ID claimed on Shorts over 60 s)")
+        for ext in (".wav", ".m4a", ".ogg", ".mp3"):
+            cand = os.path.join(PUBLIC, "music", bed + ext)
+            if os.path.exists(cand):
+                return cand
+        raise FileNotFoundError(f"music '{bed}' not found under {PUBLIC}/music/ (run python -m pipeline.audio.synth)")
     if os.path.isabs(name) and os.path.exists(name):
         return name
     for cand in (os.path.join(PUBLIC, name), *(os.path.join(PUBLIC, kind, name + ext) for ext in (".wav", ".m4a", ".ogg", ".mp3"))):

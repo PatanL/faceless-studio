@@ -396,8 +396,26 @@ def recent_topics(n: int = 10) -> list[dict]:
 
 
 def _jaccard(a: str, b: str) -> float:
-    A, B = set(slugify(a, 99).split("-")), set(slugify(b, 99).split("-"))
+    """Overlap of the titles' subject words (template words such as what/happens/fall/into removed), so two titles
+    built on the same viral template ('What Happens If You Fall Into ...') are not 'too close' by template alone."""
+    from pipeline.qa.textsim import content_words
+    A, B = set(content_words(a)), set(content_words(b))
+    if not A or not B:
+        A, B = set(slugify(a, 99).split("-")), set(slugify(b, 99).split("-"))
     return len(A & B) / max(1, len(A | B))
+
+
+def _topic_key(t: str) -> str:
+    from pipeline.qa.textsim import topic_key
+    return topic_key(t)
+
+
+def fallback_topic(c: dict) -> str:
+    """Topic for a candidate no kit rule matched: the subject words of the title (template words removed), else of
+    the annotation's premise, else the old slug of the title."""
+    from pipeline.qa.textsim import topic_from_title
+    return (topic_from_title(c.get("title") or "") or topic_from_title(c.get("premise") or "")
+            or slugify(c.get("title") or "", 3).replace("-", " "))
 
 
 def score(c: dict, rules: dict) -> dict:
@@ -424,7 +442,7 @@ def score(c: dict, rules: dict) -> dict:
         reasons.append("transcript")
     if has_co:
         reasons.append("corpus")
-    topic = fit["topic"] or slugify(c.get("title") or "", 3).replace("-", " ")
+    topic = fit["topic"] or fallback_topic(c)
     return {**c, "score": round(s, 3), "reasons": reasons, "kit_component": fit["component"], "topic": topic,
             "has_transcript": bool(has_tr), "has_corpus": bool(has_co)}
 
@@ -451,7 +469,7 @@ def rank(niche: str = "explainer", exclude=(), only_id: str | None = None) -> tu
                 for r in recent:
                     if r.get("source_id") == sid:
                         why = f"source used by {r['slug']}"
-                    elif r.get("topic") and c["topic"] and r["topic"] == c["topic"]:
+                    elif r.get("topic") and c["topic"] and _topic_key(r["topic"]) == _topic_key(c["topic"]):
                         why = f"same topic as {r['slug']}"
                     elif r.get("title") and _jaccard(r["title"], c["title"]) >= 0.5:
                         why = f"title too close to {r['slug']}"

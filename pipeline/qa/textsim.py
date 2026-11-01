@@ -84,17 +84,28 @@ ALIASES = {
     "sperm whales": "sperm whale", "blue whales": "blue whale", "anglerfish": "anglerfish", "angler fish": "anglerfish",
 }
 _TOPIC_STOP = {"the", "a", "an", "of", "short", "why", "how", "you", "your", "vs", "and"}
+_ALIAS_VALUES = set(ALIASES.values())
+# singular words that end in s: never strip it (octopus -> octopu would miss the alias table)
+_KEEP_S = ("us", "ss", "is", "os")
+
+
+def _singular(t: str) -> str:
+    if t.endswith("s") and not t.endswith(_KEEP_S) and len(t) > 4:
+        return t[:-1]
+    return t
 
 
 def topic_key(t: str) -> str:
     t = " ".join(w for w in words(t) if w not in _TOPIC_STOP)
     if t in ALIASES:
         return ALIASES[t]
+    if t in _ALIAS_VALUES:
+        return t
     if t.endswith("s") and not t.endswith("ss") and t[:-1] in ALIASES:
         return ALIASES[t[:-1]]
-    if t.endswith("s") and not t.endswith("ss") and len(t) > 4:
-        t = t[:-1]
-    return ALIASES.get(t, t)
+    if t.endswith("s") and not t.endswith("ss") and t[:-1] in _ALIAS_VALUES:
+        return t[:-1]
+    return ALIASES.get(_singular(t), _singular(t))
 
 
 def same_topic(a: str, b: str) -> bool:
@@ -106,3 +117,46 @@ def same_topic(a: str, b: str) -> bool:
         return True
     wa, wb = set(ka.split()), set(kb.split())
     return bool(wa) and bool(wb) and (wa <= wb or wb <= wa)
+
+
+# ---------------------------------------------------------------------------------------------- title templates
+# Packaging words of viral explainer titles ("What Happens If You Fall Into ...", "Why ... Are Terrifying"). Borrowing
+# a source's title template on a different subject is the point of the loop, so title similarity is judged on what is
+# left after these are removed (the subject words).
+TEMPLATE_WORDS = set("""
+a an the and or but of to in on at by for with from into onto inside outside under over through without as is are
+was were be been being am it its it's this that these those there here what what's whats why how when where which who
+whom whose if would could should will can can't cannot do does did don't doesn't you you're your yours i me my we us
+our they them their he she his her happens happen happened happening fall falls fell falling really actually ever
+never just only even still so very most more less much many every all any some no not get gets got make makes made
+work works working look looks like real truth secret secrets explained explain explains facts fact things thing ways
+way reason reasons why's terrifying scary insane crazy weird strange creepy deadly dangerous wild unbelievable
+shocking amazing incredible biggest largest smallest strongest fastest worst best top new one two three five ten
+times time day days year years life
+""".split())
+
+
+def content_words(s: str) -> list[str]:
+    """Subject words of a title: words() minus TEMPLATE_WORDS, singularised."""
+    return [_singular(w) for w in words(s) if w not in TEMPLATE_WORDS]
+
+
+def title_compare(a: str, b: str, thresh: float = 0.6) -> dict:
+    """{full, content, level}: full = char-trigram cosine of the whole titles; content = the same on the subject
+    words only. level FAIL = similar titles about the same subject (or one title's subject is empty, i.e. the titles
+    differ only in template words); WARN = the same template on a different subject; PASS otherwise."""
+    full = trigram_cosine(a, b)
+    ca, cb = content_words(a), content_words(b)
+    content = trigram_cosine(" ".join(ca), " ".join(cb)) if ca and cb else (1.0 if norm(a) == norm(b) or not (ca or cb) else 0.0)
+    if full >= thresh and (content >= thresh or not ca or not cb):
+        level = "FAIL"
+    elif full >= thresh:
+        level = "WARN"
+    else:
+        level = "PASS"
+    return {"full": round(full, 3), "content": round(content, 3), "level": level}
+
+
+def topic_from_title(title: str, max_words: int = 3) -> str:
+    """Fallback topic for a title no kit rule matched: its first subject words."""
+    return " ".join(content_words(title)[:max_words])

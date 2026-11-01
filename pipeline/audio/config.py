@@ -1,5 +1,10 @@
 """Per-niche voice and mix settings. Voices were picked from B1's samples (out/voices/)."""
 
+# Music beds a video may use: only the in-house beds that pipeline/audio/synth.py generates (CC0, LICENSES.md), so
+# nothing can draw a Content ID claim on a Short over 60 s. mix.find_asset("music", ...) refuses anything else and the
+# QA gate FAILs a mix whose report.json names another bed. Keep in sync with synth.BEDS.
+MUSIC_BEDS = ("deep_ocean", "documentary_pulse", "dread", "tension_pulse")
+
 NICHES = {
     "explainer": {
         # calm US documentary male; slightly slower than default for gravitas
