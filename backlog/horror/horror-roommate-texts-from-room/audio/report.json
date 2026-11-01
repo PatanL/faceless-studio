@@ -1,0 +1,66 @@
+{
+ "episode": "horror-roommate-texts-from-room",
+ "built_utc": "2026-11-01T11:57Z",
+ "voices": {
+  "NARR": {
+   "voice": "af_heart",
+   "speed": 1.4,
+   "chain": "highpass=f=80,acompressor=threshold=-22dB:ratio=3:attack=5:release=100:makeup=1,equalizer=f=250:t=q:w=1:g=1.5,aecho=0.9:0.9:23|41:0.10|0.06",
+   "gain_db": 0.0
+  },
+  "ME": {
+   "voice": "af_heart",
+   "speed": 1.4,
+   "chain": "highpass=f=80,acompressor=threshold=-22dB:ratio=3:attack=5:release=100:makeup=1,equalizer=f=250:t=q:w=1:g=1.5,aecho=0.9:0.9:23|41:0.10|0.06",
+   "gain_db": -1.0
+  },
+  "TXT": {
+   "voice": "af_sky",
+   "speed": 1.32,
+   "chain": "highpass=f=120,equalizer=f=3000:t=q:w=1:g=1.5",
+   "gain_db": -2.5
+  },
+  "CALM": {
+   "voice": "af_sky",
+   "speed": 1.0,
+   "chain": "highpass=f=120,equalizer=f=3000:t=q:w=1:g=1.5",
+   "gain_db": -2.0
+  },
+  "KITCHEN": {
+   "voice": "af_sky",
+   "speed": 1.08,
+   "chain": "highpass=f=220,lowpass=f=1800,aecho=0.8:0.55:38|61:0.16|0.08",
+   "gain_db": -4.5
+  },
+  "DOOR": {
+   "voice": "af_sky",
+   "speed": 1.04,
+   "chain": "highpass=f=90,equalizer=f=220:t=q:w=1:g=2.5,acompressor=threshold=-24dB:ratio=3:attack=5:release=90",
+   "gain_db": -1.0
+  },
+  "MOM": {
+   "voice": "af_nicole",
+   "speed": 1.35,
+   "chain": "highpass=f=120",
+   "gain_db": -2.0
+  }
+ },
+ "duration_s": 82.16,
+ "voice_end_s": 81.41,
+ "words": 295,
+ "speech_s": 65.78,
+ "wpm_speech": 269.1,
+ "wpm_overall": 217.4,
+ "min_coverage": 1.0,
+ "mix": {
+  "pyloudnorm_lufs": -14.02,
+  "true_peak_dbtp_4x": -1.28,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.0,
+   "LRA_lu": 4.0,
+   "true_peak_dbtp": -1.3
+  },
+  "music": "tension_pulse"
+ },
+ "wall_s": 26.5
+}

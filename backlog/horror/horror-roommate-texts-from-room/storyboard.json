@@ -1,0 +1,4839 @@
+{
+ "version": 1,
+ "id": "horror-roommate-texts-from-room",
+ "title": "My Roommate Texted Me: Don't Come Out",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01",
+   "duration": 3.49,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 9,
+     "opacity": 0.8,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1.0,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "lock",
+       "lock": {
+        "time": "11:40",
+        "date": "Thursday",
+        "notifications": [
+         {
+          "at": -0.6,
+          "app": "Messages",
+          "title": "Dani",
+          "text": "don't come out of your room"
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.05,
+         "duration": 0.4
+        }
+       ]
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, lock screen (cover): HandPhone lock 11:40, banner \"Dani: don't come out of your room\" already on screen at frame 0; behind it, my bedroom door blurred with the warm strip under it",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   }
+  },
+  {
+   "id": "s02",
+   "duration": 3.21,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookX": 0.8,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "worried"
+       },
+       {
+        "t": 1.86,
+        "e": "scared"
+       }
+      ]
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1150,
+     "height": 1748
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Medium, Maya in bed: Bedroom lamp 0.15; Maya pose phone, light phone, looks toward the door (frame right); neutral -> scared on \"Dani's voice\"",
+   "camera": {
+    "preset": "drift",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s03",
+   "duration": 3.42,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -6.58,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": 0.06,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": 1.21,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": 11.945,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": 15.33,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": 17.71,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": 21.5,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": 22.65,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": 28.1,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 34.41,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 34.96,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 59.65,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 60.5,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 61.9,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -0.49,
+          "until": 0.06
+         },
+         {
+          "from": "Dani",
+          "at": 10.945,
+          "until": 11.945
+         },
+         {
+          "from": "Dani",
+          "at": 14.83,
+          "until": 15.33
+         },
+         {
+          "from": "Dani",
+          "at": 22.2,
+          "until": 22.65
+         },
+         {
+          "from": "Dani",
+          "at": 27.2,
+          "until": 28.1
+         },
+         {
+          "from": "Dani",
+          "at": 61.3,
+          "until": 61.9
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, DM \"Dani\": chat dm \"Dani\": the warning, then \"that one isn't me\" and \"i've been in bed since nine. she has my face\"; typing dots first",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.42,
+      "zoom": 1.06,
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "duration": 3.272,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "props": {
+      "lights": 1,
+      "endDoor": true,
+      "runner": true
+     },
+     "depth": 0.4
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Wide, the flat's corridor: Hallway (lights 1, endDoor) as the flat's corridor; label \"HOME 10 PM\" on \"home\", then \"6 STEPS\" between the two bedroom doors",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   },
+   "callouts": [
+    {
+     "style": "label",
+     "text": "AWAY ALL WEEK",
+     "at": 0.15,
+     "duration": 1.768,
+     "y": "30%"
+    },
+    {
+     "style": "label",
+     "text": "HOME 10 PM",
+     "at": 1.918,
+     "duration": 0.505,
+     "y": "30%"
+    },
+    {
+     "style": "banner",
+     "text": "6 STEPS",
+     "at": 2.423,
+     "y": "62%",
+     "color": "#ffffff",
+     "accent": "#ff4b55"
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "duration": 3.058,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#1f2430\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4f5a6e\"/><stop offset=\"1\" stop-color=\"#2c3342\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.21\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.35\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 1.308,
+       "rotate": 0
+      },
+      {
+       "t": 1.398,
+       "rotate": -14,
+       "ease": "out"
+      },
+      {
+       "t": 1.608,
+       "rotate": 0,
+       "ease": "backOut"
+      },
+      {
+       "t": 1.778,
+       "rotate": -14,
+       "ease": "out"
+      },
+      {
+       "t": 1.988,
+       "rotate": 0,
+       "ease": "backOut"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.62,
+      "y": 0.52,
+      "radius": 0.5,
+      "darkness": 0.55
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Dani's door: her door (cooler colours), its lever dips twice exactly on the two latch clicks; \"CLICK\" \"CLICK\" labels; then still and dark on \"hadn't clicked once\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15,
+      "x": 640,
+      "y": 1000
+     },
+     {
+      "t": 3.058,
+      "zoom": 1.35,
+      "x": 700,
+      "y": 1010,
+      "ease": "linear"
+     }
+    ]
+   },
+   "callouts": [
+    {
+     "style": "label",
+     "text": "CLICK",
+     "at": 1.308,
+     "duration": 0.35,
+     "x": "74%",
+     "y": "44%",
+     "rotate": -6
+    },
+    {
+     "style": "label",
+     "text": "CLICK",
+     "at": 1.688,
+     "duration": 0.4,
+     "x": "78%",
+     "y": "50%",
+     "rotate": 5
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "duration": 1.13,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.15,
+      "phoneGlow": 0.8
+     },
+     "depth": 0.2,
+     "blur": 3
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookX": 0.3,
+      "expr": "suspicious"
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1350,
+     "height": 2052
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Maya: Bedroom lamp 0.15; Maya suspicious, half a smirk: \"I figured it was a prank.\"",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   }
+  },
+  {
+   "id": "s07",
+   "duration": 3.08,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -17.46,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -10.82,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -9.67,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": 1.065,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": 4.45,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": 6.83,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": 10.62,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": 11.77,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": 17.22,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 23.53,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 24.08,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 48.77,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 49.62,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 51.02,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -11.37,
+          "until": -10.82
+         },
+         {
+          "from": "Dani",
+          "at": 0.065,
+          "until": 1.065
+         },
+         {
+          "from": "Dani",
+          "at": 3.95,
+          "until": 4.45
+         },
+         {
+          "from": "Dani",
+          "at": 11.32,
+          "until": 11.77
+         },
+         {
+          "from": "Dani",
+          "at": 16.32,
+          "until": 17.22
+         },
+         {
+          "from": "Dani",
+          "at": 50.42,
+          "until": 51.02
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, DM \"Dani\": Dani typing dots run WHILE the kitchen voice is mid-sentence; \"she's lying to you\" pops on \"Hurry\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 1.065,
+      "zoom": 1.04,
+      "ease": "linear"
+     },
+     {
+      "t": 1.095,
+      "zoom": 1.2,
+      "x": "55%",
+      "y": "66%",
+      "ease": "step"
+     },
+     {
+      "t": 3.08,
+      "zoom": 1.24,
+      "x": "55%",
+      "y": "66%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.065,
+      "duration": 0.25,
+      "amplitude": 8
+     }
+    ]
+   }
+  },
+  {
+   "id": "s08",
+   "duration": 1.27,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs>\n<radialGradient id=\"l\" cx=\".5\" cy=\".42\" r=\".7\"><stop offset=\"0\" stop-color=\"#e3a65c\" stop-opacity=\".55\"/><stop offset=\"1\" stop-color=\"#e3a65c\" stop-opacity=\"0\"/></radialGradient>\n<linearGradient id=\"t\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#5a3c28\"/><stop offset=\"1\" stop-color=\"#2d1f16\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"#120f12\"/><rect y=\"560\" width=\"1080\" height=\"1360\" fill=\"url(#t)\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"640\" y2=\"670\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"790\" y2=\"820\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"940\" y2=\"970\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1090\" y2=\"1120\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1240\" y2=\"1270\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1390\" y2=\"1420\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1540\" y2=\"1570\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1690\" y2=\"1720\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1870\" stroke=\"#3a281c\" stroke-width=\"5\" opacity=\".6\"/>\n<ellipse cx=\"330\" cy=\"914\" rx=\"150\" ry=\"62\" fill=\"#000\" opacity=\".35\"/><ellipse cx=\"330\" cy=\"900\" rx=\"150\" ry=\"62\" fill=\"#efece4\" stroke=\"#0b0c10\" stroke-width=\"7\"/><ellipse cx=\"330\" cy=\"900\" rx=\"98\" ry=\"38\" fill=\"none\" stroke=\"#cfc9bb\" stroke-width=\"6\"/><rect x=\"500\" y=\"848\" width=\"14\" height=\"110\" rx=\"6\" fill=\"#b9b5ab\" stroke=\"#0b0c10\" stroke-width=\"4\"/><ellipse cx=\"740\" cy=\"1074\" rx=\"150\" ry=\"62\" fill=\"#000\" opacity=\".35\"/><ellipse cx=\"740\" cy=\"1060\" rx=\"150\" ry=\"62\" fill=\"#efece4\" stroke=\"#0b0c10\" stroke-width=\"7\"/><ellipse cx=\"740\" cy=\"1060\" rx=\"98\" ry=\"38\" fill=\"none\" stroke=\"#cfc9bb\" stroke-width=\"6\"/><rect x=\"910\" y=\"1008\" width=\"14\" height=\"110\" rx=\"6\" fill=\"#b9b5ab\" stroke=\"#0b0c10\" stroke-width=\"4\"/><ellipse cx=\"380\" cy=\"1314\" rx=\"150\" ry=\"62\" fill=\"#000\" opacity=\".35\"/><ellipse cx=\"380\" cy=\"1300\" rx=\"150\" ry=\"62\" fill=\"#efece4\" stroke=\"#0b0c10\" stroke-width=\"7\"/><ellipse cx=\"380\" cy=\"1300\" rx=\"98\" ry=\"38\" fill=\"none\" stroke=\"#cfc9bb\" stroke-width=\"6\"/><rect x=\"550\" y=\"1248\" width=\"14\" height=\"110\" rx=\"6\" fill=\"#b9b5ab\" stroke=\"#0b0c10\" stroke-width=\"4\"/>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#l)\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Top-down insert, the table: three plates set out under warm kitchen light; \"3 PLATES\" then \"2 OF US\" in red",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "3 PLATES",
+     "at": 0.05,
+     "duration": 0.417,
+     "y": "30%"
+    },
+    {
+     "style": "banner",
+     "text": "2 OF US",
+     "at": 0.467,
+     "y": "30%",
+     "background": "#ff4b55"
+    }
+   ]
+  },
+  {
+   "id": "s09",
+   "duration": 1.43,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -21.81,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -15.17,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -14.02,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -3.285,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": 0.1,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": 2.48,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": 6.27,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": 7.42,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": 12.87,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 19.18,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 19.73,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 44.42,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 45.27,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 46.67,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -15.72,
+          "until": -15.17
+         },
+         {
+          "from": "Dani",
+          "at": -4.285,
+          "until": -3.285
+         },
+         {
+          "from": "Dani",
+          "at": -0.4,
+          "until": 0.1
+         },
+         {
+          "from": "Dani",
+          "at": 6.97,
+          "until": 7.42
+         },
+         {
+          "from": "Dani",
+          "at": 11.97,
+          "until": 12.87
+         },
+         {
+          "from": "Dani",
+          "at": 46.07,
+          "until": 46.67
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "RULE 1",
+      "at": 0.05,
+      "duration": 1.38,
+      "style": "neon",
+      "fontSize": 96
+     },
+     "x": "76%",
+     "y": "22%",
+     "width": 420,
+     "height": 200,
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, rule one: bubble \"rule one. don't answer her.\" + neon card \"RULE 1\""
+  },
+  {
+   "id": "s10",
+   "duration": 0.97,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Medium, my door: my bedroom door from inside: a plain lever, no lock of any kind; label \"NO LOCK\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "x": 640,
+      "y": 1000
+     },
+     {
+      "t": 0.97,
+      "zoom": 1.32,
+      "x": 660,
+      "y": 1000,
+      "ease": "linear"
+     }
+    ]
+   },
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "NO LOCK",
+     "at": 0.1,
+     "y": "32%",
+     "background": "#ff4b55"
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "duration": 7.15,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 2,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -24.21,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -17.57,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -16.42,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -5.685,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": -2.3,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": 0.08,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": 3.87,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": 5.02,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": 10.47,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 16.78,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 17.33,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 42.02,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 42.87,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 44.27,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -18.12,
+          "until": -17.57
+         },
+         {
+          "from": "Dani",
+          "at": -6.685,
+          "until": -5.685
+         },
+         {
+          "from": "Dani",
+          "at": -2.8,
+          "until": -2.3
+         },
+         {
+          "from": "Dani",
+          "at": 4.57,
+          "until": 5.02
+         },
+         {
+          "from": "Dani",
+          "at": 9.57,
+          "until": 10.47
+         },
+         {
+          "from": "Dani",
+          "at": 43.67,
+          "until": 44.27
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "RULE 2",
+      "at": 0.05,
+      "duration": 1.412,
+      "style": "neon",
+      "fontSize": 96
+     },
+     "x": "76%",
+     "y": "22%",
+     "width": 420,
+     "height": 200,
+     "depth": 0,
+     "z": 40
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#352a22\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><path d=\"M 0 140 C 300 158 700 118 1080 146\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 260 C 300 278 700 238 1080 266\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 380 C 300 398 700 358 1080 386\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 500 C 300 518 700 478 1080 506\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 620 C 300 638 700 598 1080 626\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 740 C 300 758 700 718 1080 746\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 860 C 300 878 700 838 1080 866\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 980 C 300 998 700 958 1080 986\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1100 C 300 1118 700 1078 1080 1106\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1220 C 300 1238 700 1198 1080 1226\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1340 C 300 1358 700 1318 1080 1346\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1460 C 300 1478 700 1438 1080 1466\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1580 C 300 1598 700 1558 1080 1586\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1700 C 300 1718 700 1678 1080 1706\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1820 C 300 1838 700 1798 1080 1826\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/>\n<rect x=\"990\" y=\"0\" width=\"90\" height=\"1920\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"770\" y=\"700\" width=\"150\" height=\"420\" rx=\"40\" fill=\"#9f9b92\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<circle cx=\"845\" cy=\"1060\" r=\"22\" fill=\"#2a2a2e\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 45,
+     "start": 1.462,
+     "end": 2.312
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 520\">\n<rect x=\"10\" y=\"110\" width=\"680\" height=\"84\" rx=\"40\" fill=\"#c8c4ba\" stroke=\"#0b0c10\" stroke-width=\"9\"/>\n<rect x=\"30\" y=\"122\" width=\"600\" height=\"18\" rx=\"9\" fill=\"#e6e2d8\" opacity=\".7\"/>\n\n<circle cx=\"660\" cy=\"150\" r=\"70\" fill=\"#aaa69d\" stroke=\"#0b0c10\" stroke-width=\"9\"/></svg>",
+     "x": 845,
+     "y": 905,
+     "width": 760,
+     "height": 520,
+     "anchorX": 0.868421052631579,
+     "anchorY": 0.28846153846153844,
+     "depth": 0,
+     "z": 46,
+     "start": 1.462,
+     "end": 2.312,
+     "keyframes": [
+      {
+       "t": 1.462,
+       "rotate": 0
+      },
+      {
+       "t": 1.762,
+       "rotate": 6,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 300\"><path d=\"M 100 10 L 180 120 L 130 120 L 130 290 L 70 290 L 70 120 L 20 120 Z\" fill=\"#fff\" stroke=\"#0b0c10\" stroke-width=\"10\"/></svg>",
+     "x": "40%",
+     "y": "38%",
+     "width": 200,
+     "height": 300,
+     "depth": 0,
+     "z": 47,
+     "start": 1.562,
+     "end": 2.312,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, rule two + my question: bubble rule two + \"RULE 2\" card; 0.85 s insert of my lever with a white UP arrow on \"hold it up\"; my blue bubble \"how do I know you're the real one?\"; Dani: \"because she wants you out there. i want you alive.\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.87,
+      "zoom": 1.03,
+      "ease": "linear"
+     },
+     {
+      "t": 3.9,
+      "zoom": 1.2,
+      "x": "55%",
+      "y": "70%",
+      "ease": "step"
+     },
+     {
+      "t": 7.15,
+      "zoom": 1.24,
+      "x": "55%",
+      "y": "70%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12",
+   "duration": 2.01,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.75,
+      "radius": 0.6,
+      "darkness": 0.45
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Medium, my door: my door from inside, the warm strip under it; the kitchen sound cuts dead; a small \"clink\" label on the plate sound",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "callouts": [
+    {
+     "style": "label",
+     "text": "clink",
+     "at": 1.315,
+     "duration": 0.6,
+     "x": "30%",
+     "y": "80%",
+     "rotate": -4
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "duration": 1.25,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.1,
+      "phoneGlow": 1.0
+     },
+     "depth": 0.2,
+     "blur": 4
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "light": "phone",
+      "lookX": 0.0,
+      "lookY": 0.4,
+      "expr": "scared"
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1350,
+     "height": 2052
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Maya dialing: Maya, phone lit under her face, thumb on the keypad; big red \"911\" label (no call screen: the kit only draws an incoming call)",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "callouts": [
+    {
+     "style": "banner",
+     "text": "9 1 1",
+     "at": 0.588,
+     "x": "72%",
+     "y": "58%",
+     "background": "#ff4b55"
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "duration": 1.85,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -34.62,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -27.98,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -26.83,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -16.095,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": -12.71,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": -10.33,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": -6.54,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": -5.39,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": 0.06,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 6.37,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 6.92,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 31.61,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 32.46,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 33.86,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -28.53,
+          "until": -27.98
+         },
+         {
+          "from": "Dani",
+          "at": -17.095,
+          "until": -16.095
+         },
+         {
+          "from": "Dani",
+          "at": -13.21,
+          "until": -12.71
+         },
+         {
+          "from": "Dani",
+          "at": -5.84,
+          "until": -5.39
+         },
+         {
+          "from": "Dani",
+          "at": -0.84,
+          "until": 0.06
+         },
+         {
+          "from": "Dani",
+          "at": 33.26,
+          "until": 33.86
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, DM \"Dani\": Dani was already typing as I dialed; \"don't. she's outside your door.\" lands BEFORE any sound from the hall",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.2,
+      "x": "55%",
+      "y": "70%"
+     },
+     {
+      "t": 1.85,
+      "zoom": 1.26,
+      "x": "55%",
+      "y": "70%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s15",
+   "duration": 1.36,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"398\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 400 1700 L 460 1700 L 490 1900 L 370 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"558\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 560 1700 L 620 1700 L 650 1900 L 530 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "opacity": 0
+      },
+      {
+       "t": 0.25,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.8,
+      "radius": 0.55,
+      "darkness": 0.55
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Medium, my door: the floor creaks; two foot shadows step into the strip under my door and stop",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s16",
+   "duration": 2.07,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"398\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 400 1700 L 460 1700 L 490 1900 L 370 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"558\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 560 1700 L 620 1700 L 650 1900 L 530 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1,
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 0.08,
+        "duration": 0.25,
+        "amount": 0.8
+       }
+      ]
+     },
+     "depth": 0,
+     "z": 70
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.95,
+      "color": "190,20,30"
+     },
+     "depth": 0,
+     "z": 65,
+     "start": 0.08,
+     "end": 0.48
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.7,
+      "radius": 0.5,
+      "darkness": 0.6
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, my door (the turn): \"Is she texting you, Maya?\" right behind the door: the only full-frame red flash (Glitch + red Vignette 0.4 s), shake on the impact",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15,
+      "x": 540,
+      "y": 1150
+     },
+     {
+      "t": 2.07,
+      "zoom": 1.35,
+      "x": 540,
+      "y": 1150,
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.08,
+      "duration": 0.3,
+      "amplitude": 16
+     }
+    ]
+   }
+  },
+  {
+   "id": "s17",
+   "duration": 1.03,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#352a22\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><path d=\"M 0 140 C 300 158 700 118 1080 146\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 260 C 300 278 700 238 1080 266\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 380 C 300 398 700 358 1080 386\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 500 C 300 518 700 478 1080 506\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 620 C 300 638 700 598 1080 626\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 740 C 300 758 700 718 1080 746\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 860 C 300 878 700 838 1080 866\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 980 C 300 998 700 958 1080 986\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1100 C 300 1118 700 1078 1080 1106\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1220 C 300 1238 700 1198 1080 1226\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1340 C 300 1358 700 1318 1080 1346\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1460 C 300 1478 700 1438 1080 1466\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1580 C 300 1598 700 1558 1080 1586\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1700 C 300 1718 700 1678 1080 1706\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1820 C 300 1838 700 1798 1080 1826\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/>\n<rect x=\"990\" y=\"0\" width=\"90\" height=\"1920\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"770\" y=\"700\" width=\"150\" height=\"420\" rx=\"40\" fill=\"#9f9b92\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<circle cx=\"845\" cy=\"1060\" r=\"22\" fill=\"#2a2a2e\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 520\">\n<rect x=\"10\" y=\"110\" width=\"680\" height=\"84\" rx=\"40\" fill=\"#c8c4ba\" stroke=\"#0b0c10\" stroke-width=\"9\"/>\n<rect x=\"30\" y=\"122\" width=\"600\" height=\"18\" rx=\"9\" fill=\"#e6e2d8\" opacity=\".7\"/>\n\n<circle cx=\"660\" cy=\"150\" r=\"70\" fill=\"#aaa69d\" stroke=\"#0b0c10\" stroke-width=\"9\"/></svg>",
+     "x": 845,
+     "y": 905,
+     "width": 760,
+     "height": 520,
+     "anchorX": 0.868421052631579,
+     "anchorY": 0.28846153846153844,
+     "keyframes": [
+      {
+       "t": 0.13,
+       "rotate": 0
+      },
+      {
+       "t": 0.48,
+       "rotate": -16,
+       "ease": "out"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Extreme close, my lever: my lever tips down on its own (the handle test)",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4,
+    "shake": [
+     {
+      "at": 0.13,
+      "duration": 0.25,
+      "amplitude": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "s18",
+   "duration": 1.13,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 8,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -40.93,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -34.29,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -33.14,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -22.405,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": -19.02,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": -16.64,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": -12.85,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": -11.7,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": -6.25,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": 0.06,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": 0.61,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 25.3,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 26.15,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 27.55,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -34.84,
+          "until": -34.29
+         },
+         {
+          "from": "Dani",
+          "at": -23.405,
+          "until": -22.405
+         },
+         {
+          "from": "Dani",
+          "at": -19.52,
+          "until": -19.02
+         },
+         {
+          "from": "Dani",
+          "at": -12.15,
+          "until": -11.7
+         },
+         {
+          "from": "Dani",
+          "at": -7.15,
+          "until": -6.25
+         },
+         {
+          "from": "Dani",
+          "at": 26.95,
+          "until": 27.55
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       },
+       "vibrate": [
+        {
+         "at": 0.0,
+         "duration": 0.9,
+         "amount": 1
+        }
+       ]
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 96,
+      "bpmTo": 120,
+      "intensity": 0.6
+     },
+     "depth": 0,
+     "z": 58
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, CAPS: CAPS bubbles \"HOLD IT UP\", \"MAYA HOLD IT\"; phone vibrates and trembles; heartbeat edges start",
+   "camera": {
+    "preset": "none",
+    "shake": [
+     {
+      "at": 0.02,
+      "duration": 0.2,
+      "amplitude": 8
+     },
+     {
+      "at": 0.57,
+      "duration": 0.2,
+      "amplitude": 8
+     }
+    ]
+   }
+  },
+  {
+   "id": "s19",
+   "duration": 2.61,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#352a22\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><path d=\"M 0 140 C 300 158 700 118 1080 146\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 260 C 300 278 700 238 1080 266\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 380 C 300 398 700 358 1080 386\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 500 C 300 518 700 478 1080 506\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 620 C 300 638 700 598 1080 626\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 740 C 300 758 700 718 1080 746\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 860 C 300 878 700 838 1080 866\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 980 C 300 998 700 958 1080 986\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1100 C 300 1118 700 1078 1080 1106\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1220 C 300 1238 700 1198 1080 1226\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1340 C 300 1358 700 1318 1080 1346\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1460 C 300 1478 700 1438 1080 1466\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1580 C 300 1598 700 1558 1080 1586\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1700 C 300 1718 700 1678 1080 1706\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1820 C 300 1838 700 1798 1080 1826\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/>\n<rect x=\"990\" y=\"0\" width=\"90\" height=\"1920\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"770\" y=\"700\" width=\"150\" height=\"420\" rx=\"40\" fill=\"#9f9b92\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<circle cx=\"845\" cy=\"1060\" r=\"22\" fill=\"#2a2a2e\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 520\">\n<rect x=\"10\" y=\"110\" width=\"680\" height=\"84\" rx=\"40\" fill=\"#c8c4ba\" stroke=\"#0b0c10\" stroke-width=\"9\"/>\n<rect x=\"30\" y=\"122\" width=\"600\" height=\"18\" rx=\"9\" fill=\"#e6e2d8\" opacity=\".7\"/>\n<path d=\"M 110 520 L 116 230 Q 120 160 180 160 Q 240 160 244 230 L 250 520 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><path d=\"M 98 132 Q 98 100 134 100 L 230 100 Q 264 100 264 134 L 264 196 Q 264 228 230 228 L 134 228 Q 98 228 98 196 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><line x1=\"140\" x2=\"140\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"176\" x2=\"176\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"212\" x2=\"212\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><path d=\"M 360 520 L 366 230 Q 370 160 430 160 Q 490 160 494 230 L 500 520 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><path d=\"M 348 132 Q 348 100 384 100 L 480 100 Q 514 100 514 134 L 514 196 Q 514 228 480 228 L 384 228 Q 348 228 348 196 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><line x1=\"390\" x2=\"390\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"426\" x2=\"426\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"462\" x2=\"462\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/>\n<circle cx=\"660\" cy=\"150\" r=\"70\" fill=\"#aaa69d\" stroke=\"#0b0c10\" stroke-width=\"9\"/></svg>",
+     "x": 845,
+     "y": 905,
+     "width": 760,
+     "height": 520,
+     "anchorX": 0.868421052631579,
+     "anchorY": 0.28846153846153844,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": -16
+      },
+      {
+       "t": 0.3,
+       "rotate": 0,
+       "ease": "out"
+      },
+      {
+       "t": 1.66,
+       "rotate": 0
+      },
+      {
+       "t": 1.75,
+       "rotate": -10,
+       "ease": "out"
+      },
+      {
+       "t": 1.96,
+       "rotate": 0,
+       "ease": "backOut"
+      },
+      {
+       "t": 2.06,
+       "rotate": 0
+      },
+      {
+       "t": 2.15,
+       "rotate": -12,
+       "ease": "out"
+      },
+      {
+       "t": 2.36,
+       "rotate": 0,
+       "ease": "backOut"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 110,
+      "bpmTo": 130,
+      "intensity": 0.6
+     },
+     "depth": 0,
+     "z": 58
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Extreme close, both hands on the lever: both my hands hold the lever up; it is forced down against them on \"Once.\" and \"Twice.\"",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3,
+    "shake": [
+     {
+      "at": 1.66,
+      "duration": 0.22,
+      "amplitude": 12
+     },
+     {
+      "at": 2.06,
+      "duration": 0.22,
+      "amplitude": 14
+     }
+    ]
+   }
+  },
+  {
+   "id": "s20",
+   "duration": 2.41,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"398\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 400 1700 L 460 1700 L 490 1900 L 370 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"558\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 560 1700 L 620 1700 L 650 1900 L 530 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1,
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 120,
+      "intensity": 0.5
+     },
+     "depth": 0,
+     "z": 58
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.75,
+      "radius": 0.55,
+      "darkness": 0.55
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Low medium, my door: the door, feet in the strip; her voice pleads: \"It's me. The one in my room is the copy.\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.1,
+      "x": 540,
+      "y": 1300
+     },
+     {
+      "t": 2.41,
+      "zoom": 1.22,
+      "x": 540,
+      "y": 1350,
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s21",
+   "duration": 2.63,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "idle",
+      "lookX": -0.5,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "terrified"
+       },
+       {
+        "t": 1.485,
+        "e": "suspicious"
+       }
+      ]
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1350,
+     "height": 2052
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.5,
+      "darkness": 0.5
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 124,
+      "intensity": 0.5
+     },
+     "depth": 0,
+     "z": 58
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Maya against the door: Maya (pose idle, holding on, frame-edge hands implied) terrified -> suspicious on \"so you can't leave\" (the rule inverted)",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   }
+  },
+  {
+   "id": "s22",
+   "duration": 1.31,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".9\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\".55\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#5e4a3a\"/><stop offset=\"1\" stop-color=\"#3a2d24\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"#0f0e12\"/><rect width=\"1080\" height=\"1060\" fill=\"url(#d)\"/>\n<rect x=\"0\" y=\"980\" width=\"1080\" height=\"80\" fill=\"#2a2119\"/>\n<rect x=\"0\" y=\"1060\" width=\"1080\" height=\"34\" fill=\"#ffd38e\"/>\n<rect x=\"250\" y=\"1060\" width=\"150\" height=\"34\" fill=\"#07070a\"/><rect x=\"640\" y=\"1060\" width=\"150\" height=\"34\" fill=\"#07070a\"/>\n<rect y=\"1094\" width=\"1080\" height=\"826\" fill=\"#17151a\"/><ellipse cx=\"540\" cy=\"1100\" rx=\"700\" ry=\"420\" fill=\"url(#g)\"/>\n<path d=\"M 250 1094 L 400 1094 L 330 1920 L 60 1920 Z\" fill=\"#07070a\" opacity=\".5\"/><path d=\"M 640 1094 L 790 1094 L 1020 1920 L 760 1920 Z\" fill=\"#07070a\" opacity=\".5\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 300\"><path d=\"M 12 30 L 400 8 L 412 270 L 20 292 Z\" fill=\"#f4f1ea\" stroke=\"#0b0c10\" stroke-width=\"6\"/>\n<path d=\"M 16 160 L 406 140\" stroke=\"#d8d3c8\" stroke-width=\"5\"/><path d=\"M 210 20 L 216 282\" stroke=\"#e3dfd6\" stroke-width=\"4\"/></svg>",
+     "x": "50%",
+     "y": 1080,
+     "width": 420,
+     "height": 300,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 1060,
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": 0.432,
+       "y": 1070,
+       "scale": 0.6,
+       "opacity": 1,
+       "ease": "step"
+      },
+      {
+       "t": 1.032,
+       "y": 1300,
+       "scale": 1.25,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Low close, the gap under my door: a white napkin slides out from under the door between her two foot shadows",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   }
+  },
+  {
+   "id": "s23",
+   "duration": 2.05,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect width=\"1080\" height=\"1920\" fill=\"#17151a\"/>\n<ellipse cx=\"540\" cy=\"900\" rx=\"700\" ry=\"600\" fill=\"#f4c47c\" opacity=\".16\"/>\n<path d=\"M 90 520 L 1000 470 L 1020 1420 L 110 1470 Z\" fill=\"#f4f1ea\" stroke=\"#0b0c10\" stroke-width=\"10\"/>\n<path d=\"M 100 990 L 1010 950\" stroke=\"#d6d0c4\" stroke-width=\"8\"/><path d=\"M 555 490 L 566 1445\" stroke=\"#e3dfd6\" stroke-width=\"6\"/>\n<circle cx=\"840\" cy=\"1290\" r=\"70\" fill=\"#e8b46a\" opacity=\".22\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "still sorry about your cactus",
+      "at": 0.05,
+      "style": "scrawl",
+      "fontSize": 84,
+      "color": "#2b2b3a",
+      "shake": 0,
+      "cps": 26,
+      "maxWidth": 0.8
+     },
+     "x": "52%",
+     "y": "50%",
+     "width": 1000,
+     "height": 800,
+     "depth": 1,
+     "z": 5,
+     "rotate": -3
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Insert, the napkin: the napkin up close; her handwriting appears: \"still sorry about your cactus\"",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   }
+  },
+  {
+   "id": "s24",
+   "duration": 3.94,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani's Mom",
+        "dm": "Dani's Mom",
+        "messages": [
+         {
+          "text": "thank you for the birthday flowers maya!! xx",
+          "at": -953.19,
+          "from": "Dani's Mom"
+         },
+         {
+          "text": "is Dani with you?",
+          "at": 4.0,
+          "me": true
+         },
+         {
+          "text": "Maya? Dani's been home with us since Sunday.",
+          "at": 5.54,
+          "from": "Dani's Mom"
+         },
+         {
+          "text": "She's asleep down the hall. I just checked.",
+          "at": 7.75,
+          "from": "Dani's Mom"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani's Mom",
+          "at": 4.79,
+          "until": 5.54
+         },
+         {
+          "from": "Dani's Mom",
+          "at": 7.68,
+          "until": 7.75
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#352a22\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><path d=\"M 0 140 C 300 158 700 118 1080 146\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 260 C 300 278 700 238 1080 266\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 380 C 300 398 700 358 1080 386\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 500 C 300 518 700 478 1080 506\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 620 C 300 638 700 598 1080 626\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 740 C 300 758 700 718 1080 746\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 860 C 300 878 700 838 1080 866\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 980 C 300 998 700 958 1080 986\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1100 C 300 1118 700 1078 1080 1106\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1220 C 300 1238 700 1198 1080 1226\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1340 C 300 1358 700 1318 1080 1346\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1460 C 300 1478 700 1438 1080 1466\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1580 C 300 1598 700 1558 1080 1586\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1700 C 300 1718 700 1678 1080 1706\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1820 C 300 1838 700 1798 1080 1826\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/>\n<rect x=\"990\" y=\"0\" width=\"90\" height=\"1920\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"770\" y=\"700\" width=\"150\" height=\"420\" rx=\"40\" fill=\"#9f9b92\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<circle cx=\"845\" cy=\"1060\" r=\"22\" fill=\"#2a2a2e\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 45,
+     "start": 2.0,
+     "end": 2.85
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 520\">\n<rect x=\"10\" y=\"110\" width=\"680\" height=\"84\" rx=\"40\" fill=\"#c8c4ba\" stroke=\"#0b0c10\" stroke-width=\"9\"/>\n<rect x=\"30\" y=\"122\" width=\"600\" height=\"18\" rx=\"9\" fill=\"#e6e2d8\" opacity=\".7\"/>\n<path d=\"M 230 520 L 236 230 Q 240 160 300 160 Q 360 160 364 230 L 370 520 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><path d=\"M 218 132 Q 218 100 254 100 L 350 100 Q 384 100 384 134 L 384 196 Q 384 228 350 228 L 254 228 Q 218 228 218 196 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><line x1=\"260\" x2=\"260\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"296\" x2=\"296\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"332\" x2=\"332\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/>\n<circle cx=\"660\" cy=\"150\" r=\"70\" fill=\"#aaa69d\" stroke=\"#0b0c10\" stroke-width=\"9\"/></svg>",
+     "x": 845,
+     "y": 905,
+     "width": 760,
+     "height": 520,
+     "anchorX": 0.868421052631579,
+     "anchorY": 0.28846153846153844,
+     "depth": 0,
+     "z": 46,
+     "start": 2.0,
+     "end": 2.85,
+     "keyframes": [
+      {
+       "t": 2.0,
+       "rotate": 0
+      },
+      {
+       "t": 2.2,
+       "rotate": -18,
+       "ease": "out"
+      },
+      {
+       "t": 2.65,
+       "rotate": 0,
+       "ease": "backOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, \"Dani's Mom\" thread: the thread with Dani's mom (one old, harmless message from her); a 0.7 s insert of my lever dipping the instant I let go, then my left hand shoving it back up",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.94,
+      "zoom": 1.05,
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.1,
+      "duration": 0.25,
+      "amplitude": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "s25",
+   "duration": 6.29,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 10,
+     "opacity": 0.6,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani's Mom",
+        "dm": "Dani's Mom",
+        "messages": [
+         {
+          "text": "thank you for the birthday flowers maya!! xx",
+          "at": -957.13,
+          "from": "Dani's Mom"
+         },
+         {
+          "text": "is Dani with you?",
+          "at": 0.06,
+          "me": true
+         },
+         {
+          "text": "Maya? Dani's been home with us since Sunday.",
+          "at": 1.6,
+          "from": "Dani's Mom"
+         },
+         {
+          "text": "She's asleep down the hall. I just checked.",
+          "at": 3.81,
+          "from": "Dani's Mom"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani's Mom",
+          "at": 0.85,
+          "until": 1.6
+         },
+         {
+          "from": "Dani's Mom",
+          "at": 3.74,
+          "until": 3.81
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 6.14,
+        "duration": 0.3,
+        "amount": 0.6
+       }
+      ]
+     },
+     "depth": 0,
+     "z": 70
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, the outside check: my bubble \"is Dani with you?\" sends; typing; Mom: \"Maya? Dani's been home with us since Sunday.\" / \"She's asleep down the hall. I just checked.\"; glitch on the last bubble",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.2,
+      "x": "55%",
+      "y": "70%"
+     },
+     {
+      "t": 1.6,
+      "zoom": 1.22,
+      "x": "55%",
+      "y": "70%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.63,
+      "zoom": 1.3,
+      "x": "55%",
+      "y": "70%",
+      "ease": "step"
+     },
+     {
+      "t": 6.29,
+      "zoom": 1.36,
+      "x": "55%",
+      "y": "70%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s26",
+   "duration": 1.89,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.05
+     },
+     "depth": 0.2,
+     "blur": 4
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "cover",
+      "expr": "terrified",
+      "blink": false
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1350,
+     "height": 2052
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.35,
+      "darkness": 0.9
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Maya: Maya pose cover, terrified, no blinking; \"The handle went slack. Outside, nothing.\"",
+   "camera": {
+    "preset": "none"
+   }
+  },
+  {
+   "id": "s27",
+   "duration": 3.26,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 1,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -65.19,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -58.55,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -57.4,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -46.665,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": -43.28,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": -40.9,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": -37.11,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": -35.96,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": -30.51,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": -24.2,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": -23.65,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": 1.04,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": 1.89,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 3.29,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -59.1,
+          "until": -58.55
+         },
+         {
+          "from": "Dani",
+          "at": -47.665,
+          "until": -46.665
+         },
+         {
+          "from": "Dani",
+          "at": -43.78,
+          "until": -43.28
+         },
+         {
+          "from": "Dani",
+          "at": -36.41,
+          "until": -35.96
+         },
+         {
+          "from": "Dani",
+          "at": -31.41,
+          "until": -30.51
+         },
+         {
+          "from": "Dani",
+          "at": 2.69,
+          "until": 3.29
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.53,
+      "y": 0.55,
+      "radius": 0.6,
+      "darkness": 0.5
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, DM \"Dani\" (silence): 3.3 s with no voice: my bubbles \"where are you\", then \"WHO ARE YOU\", then Dani's typing dots",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.2,
+      "x": "55%",
+      "y": "70%"
+     },
+     {
+      "t": 3.26,
+      "zoom": 1.28,
+      "x": "55%",
+      "y": "70%",
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s28",
+   "duration": 3.85,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 0,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Dani",
+        "dm": "Dani",
+        "messages": [
+         {
+          "text": "don't come out of your room",
+          "at": -68.45,
+          "from": "Dani"
+         },
+         {
+          "text": "that one isn't me",
+          "at": -61.81,
+          "from": "Dani"
+         },
+         {
+          "text": "i've been in bed since nine. she has my face",
+          "at": -60.66,
+          "from": "Dani"
+         },
+         {
+          "text": "she's lying to you",
+          "at": -49.925,
+          "from": "Dani"
+         },
+         {
+          "text": "rule one. don't answer her.",
+          "at": -46.54,
+          "from": "Dani"
+         },
+         {
+          "text": "rule two. if she tries your handle, hold it up. she can't open a door you're holding.",
+          "at": -44.16,
+          "from": "Dani"
+         },
+         {
+          "text": "how do I know you're the real one?",
+          "at": -40.37,
+          "me": true
+         },
+         {
+          "text": "because she wants you out there. i want you alive.",
+          "at": -39.22,
+          "from": "Dani"
+         },
+         {
+          "text": "don't. she's outside your door.",
+          "at": -33.77,
+          "from": "Dani"
+         },
+         {
+          "text": "HOLD IT UP",
+          "at": -27.46,
+          "from": "Dani"
+         },
+         {
+          "text": "MAYA HOLD IT",
+          "at": -26.91,
+          "from": "Dani"
+         },
+         {
+          "text": "where are you",
+          "at": -2.22,
+          "me": true
+         },
+         {
+          "text": "WHO ARE YOU",
+          "at": -1.37,
+          "me": true
+         },
+         {
+          "text": "[Photo]",
+          "at": 0.03,
+          "from": "Dani"
+         }
+        ],
+        "typing": [
+         {
+          "from": "Dani",
+          "at": -62.36,
+          "until": -61.81
+         },
+         {
+          "from": "Dani",
+          "at": -50.925,
+          "until": -49.925
+         },
+         {
+          "from": "Dani",
+          "at": -47.04,
+          "until": -46.54
+         },
+         {
+          "from": "Dani",
+          "at": -39.67,
+          "until": -39.22
+         },
+         {
+          "from": "Dani",
+          "at": -34.67,
+          "until": -33.77
+         },
+         {
+          "from": "Dani",
+          "at": -0.57,
+          "until": 0.03
+         }
+        ],
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "11:43",
+        "battery": 64,
+        "accent": "#3d5a80",
+        "dayLabel": "Today 11:40 PM",
+        "subtitle": "iMessage"
+       }
+      }
+     },
+     "z": 10,
+     "opacity": 0.5,
+     "blur": 8
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 900 1200\"><defs>\n<linearGradient id=\"h\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#2b2b2b\"/><stop offset=\"1\" stop-color=\"#121212\"/></linearGradient>\n<radialGradient id=\"s\" cx=\".5\" cy=\"1\" r=\".6\"><stop offset=\"0\" stop-color=\"#d9d9d9\" stop-opacity=\".7\"/><stop offset=\"1\" stop-color=\"#d9d9d9\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"900\" height=\"1200\" fill=\"#f2f2f0\"/>\n<g transform=\"translate(28 28)\"><rect width=\"844\" height=\"1100\" fill=\"url(#h)\"/>\n<path d=\"M 0 1100 L 300 690 L 544 690 L 844 1100 Z\" fill=\"#1d1d1d\"/>\n<rect x=\"300\" y=\"200\" width=\"244\" height=\"490\" fill=\"#262626\"/>\n<rect x=\"330\" y=\"236\" width=\"184\" height=\"452\" fill=\"#3d3d3d\" stroke=\"#0a0a0a\" stroke-width=\"5\"/>\n<rect x=\"332\" y=\"682\" width=\"180\" height=\"8\" fill=\"#e6e6e6\"/>\n<ellipse cx=\"422\" cy=\"700\" rx=\"230\" ry=\"60\" fill=\"url(#s)\"/>\n<path d=\"M 380 690 L 382 470 Q 384 420 422 412 Q 462 420 464 470 L 466 690 Z\" fill=\"#050505\"/>\n<circle cx=\"422\" cy=\"380\" r=\"40\" fill=\"#050505\"/>\n<path d=\"M 380 690 L 340 1100 L 360 1100 L 400 690 Z M 446 690 L 500 1100 L 520 1100 L 466 690 Z\" fill=\"#050505\" opacity=\".6\"/>\n<rect x=\"0\" y=\"0\" width=\"120\" height=\"1100\" fill=\"#070707\"/><rect x=\"724\" y=\"0\" width=\"120\" height=\"1100\" fill=\"#070707\"/>\n<path d=\"M 724 0 L 640 60 L 640 1040 L 724 1100 Z\" fill=\"#141414\"/>\n<rect x=\"0\" y=\"0\" width=\"844\" height=\"70\" fill=\"#070707\"/>\n<text x=\"820\" y=\"1080\" text-anchor=\"end\" font-family=\"Montserrat, sans-serif\" font-size=\"30\" font-weight=\"700\" fill=\"#9a9a9a\">11:51 PM</text></g></svg>",
+     "x": "50%",
+     "y": "47%",
+     "width": 900,
+     "height": 1200,
+     "rotate": 2,
+     "depth": 0,
+     "z": 30,
+     "enter": {
+      "type": "pop",
+      "duration": 0.25
+     },
+     "shadow": "0 30px 60px rgba(0,0,0,.6)"
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Photo insert (the only image), held still: greyscale photo card (white border, 2 deg tilt) over the blurred thread: taken from inside Dani's dark room, through her doorway, across the flat to MY door; someone stands at it, backlit by the strip",
+   "camera": {
+    "preset": "none"
+   }
+  },
+  {
+   "id": "s29",
+   "duration": 1.18,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.05
+     },
+     "depth": 0.2,
+     "blur": 4
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "cover",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "terrified"
+       },
+       {
+        "t": 0.05,
+        "e": "shocked"
+       }
+      ],
+      "lookX": -0.9,
+      "blink": false
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1350,
+     "height": 2052
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.45,
+      "radius": 0.35,
+      "darkness": 0.9
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Close, Maya: no narration: the two latch clicks (the plant's exact sample) into silence; Maya's eyes snap toward the sound",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 0.06,
+      "zoom": 1.12,
+      "ease": "step"
+     },
+     {
+      "t": 1.18,
+      "zoom": 1.15,
+      "ease": "linear"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s30",
+   "duration": 2.38,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.51\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.85\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 48\"><rect x=\"4\" y=\"12\" width=\"128\" height=\"24\" rx=\"11\" fill=\"#c2beb4\" stroke=\"#0b0c10\" stroke-width=\"5\"/><circle cx=\"126\" cy=\"24\" r=\"14\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/></svg>",
+     "x": 735,
+     "y": 1010,
+     "width": 150,
+     "height": 48,
+     "anchorX": 0.84,
+     "anchorY": 0.5,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"398\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 400 1700 L 460 1700 L 490 1900 L 370 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"558\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 560 1700 L 620 1700 L 650 1900 L 530 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 2.15,
+       "opacity": 1
+      },
+      {
+       "t": 2.35,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"313\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 315 1700 L 375 1700 L 405 1900 L 285 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"423\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 425 1700 L 485 1700 L 515 1900 L 395 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"593\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 595 1700 L 655 1700 L 685 1900 L 565 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"703\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 705 1700 L 765 1700 L 795 1900 L 675 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1,
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 2.15,
+       "opacity": 0
+      },
+      {
+       "t": 2.35,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.5,
+      "y": 0.75,
+      "radius": 0.5,
+      "darkness": 0.6
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Medium, my door (six steps): six footsteps cross the flat; a second pair of foot shadows joins the first in the strip on the last step; \"Six steps.\"",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": 540,
+      "y": 1250
+     },
+     {
+      "t": 0.05,
+      "zoom": 1.04,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     },
+     {
+      "t": 0.47,
+      "zoom": 1.08,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     },
+     {
+      "t": 0.89,
+      "zoom": 1.12,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     },
+     {
+      "t": 1.31,
+      "zoom": 1.16,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     },
+     {
+      "t": 1.73,
+      "zoom": 1.2,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     },
+     {
+      "t": 2.15,
+      "zoom": 1.24,
+      "x": 540,
+      "y": 1250,
+      "ease": "out"
+     }
+    ]
+   },
+   "callouts": [
+    {
+     "style": "label",
+     "text": "1",
+     "at": 0.05,
+     "duration": 0.32,
+     "x": "20%",
+     "y": "22%"
+    },
+    {
+     "style": "label",
+     "text": "2",
+     "at": 0.47,
+     "duration": 0.32,
+     "x": "32%",
+     "y": "22%"
+    },
+    {
+     "style": "label",
+     "text": "3",
+     "at": 0.89,
+     "duration": 0.32,
+     "x": "44%",
+     "y": "22%"
+    },
+    {
+     "style": "label",
+     "text": "4",
+     "at": 1.31,
+     "duration": 0.32,
+     "x": "56%",
+     "y": "22%"
+    },
+    {
+     "style": "label",
+     "text": "5",
+     "at": 1.73,
+     "duration": 0.32,
+     "x": "68%",
+     "y": "22%"
+    },
+    {
+     "style": "label",
+     "text": "6",
+     "at": 2.15,
+     "duration": 0.32,
+     "x": "80%",
+     "y": "22%"
+    }
+   ]
+  },
+  {
+   "id": "s31",
+   "duration": 1.91,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><defs><linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#352a22\"/></linearGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#d)\"/><path d=\"M 0 140 C 300 158 700 118 1080 146\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 260 C 300 278 700 238 1080 266\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 380 C 300 398 700 358 1080 386\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 500 C 300 518 700 478 1080 506\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 620 C 300 638 700 598 1080 626\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 740 C 300 758 700 718 1080 746\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 860 C 300 878 700 838 1080 866\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 980 C 300 998 700 958 1080 986\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1100 C 300 1118 700 1078 1080 1106\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1220 C 300 1238 700 1198 1080 1226\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1340 C 300 1358 700 1318 1080 1346\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1460 C 300 1478 700 1438 1080 1466\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1580 C 300 1598 700 1558 1080 1586\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1700 C 300 1718 700 1678 1080 1706\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/><path d=\"M 0 1820 C 300 1838 700 1798 1080 1826\" stroke=\"#4d3b2f\" stroke-width=\"5\" fill=\"none\" opacity=\".45\"/>\n<rect x=\"990\" y=\"0\" width=\"90\" height=\"1920\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"770\" y=\"700\" width=\"150\" height=\"420\" rx=\"40\" fill=\"#9f9b92\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<circle cx=\"845\" cy=\"1060\" r=\"22\" fill=\"#2a2a2e\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 520\">\n<rect x=\"10\" y=\"110\" width=\"680\" height=\"84\" rx=\"40\" fill=\"#c8c4ba\" stroke=\"#0b0c10\" stroke-width=\"9\"/>\n<rect x=\"30\" y=\"122\" width=\"600\" height=\"18\" rx=\"9\" fill=\"#e6e2d8\" opacity=\".7\"/>\n<path d=\"M 230 520 L 236 230 Q 240 160 300 160 Q 360 160 364 230 L 370 520 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><path d=\"M 218 132 Q 218 100 254 100 L 350 100 Q 384 100 384 134 L 384 196 Q 384 228 350 228 L 254 228 Q 218 228 218 196 Z\" fill=\"#e8b897\" stroke=\"#0b0c10\" stroke-width=\"7\"/><line x1=\"260\" x2=\"260\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"296\" x2=\"296\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/><line x1=\"332\" x2=\"332\" y1=\"104\" y2=\"150\" stroke=\"#c9906d\" stroke-width=\"6\"/>\n<circle cx=\"660\" cy=\"150\" r=\"70\" fill=\"#aaa69d\" stroke=\"#0b0c10\" stroke-width=\"9\"/></svg>",
+     "x": 845,
+     "y": 905,
+     "width": 760,
+     "height": 520,
+     "anchorX": 0.868421052631579,
+     "anchorY": 0.28846153846153844,
+     "keyframes": [
+      {
+       "t": 0,
+       "rotate": 0
+      },
+      {
+       "t": 0.0,
+       "rotate": 0
+      },
+      {
+       "t": 1.25,
+       "rotate": -24,
+       "ease": "inOut"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Extreme close, my hand on the lever: my one hand holding it up; the lever turns slowly down under it anyway, then stops dead halfway",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   }
+  },
+  {
+   "id": "s32",
+   "duration": 3.87,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\">\n<defs><linearGradient id=\"w\" x1=\"0\" x2=\"1\"><stop offset=\"0\" stop-color=\"#232a36\"/><stop offset=\".55\" stop-color=\"#1d222d\"/><stop offset=\"1\" stop-color=\"#14171f\"/></linearGradient>\n<linearGradient id=\"d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#6a5442\"/><stop offset=\"1\" stop-color=\"#3e3128\"/></linearGradient>\n<radialGradient id=\"g\" cx=\".5\" cy=\"0\" r=\".8\"><stop offset=\"0\" stop-color=\"#f4c47c\" stop-opacity=\"0.54\"/><stop offset=\"1\" stop-color=\"#f4c47c\" stop-opacity=\"0\"/></radialGradient></defs>\n<rect width=\"1080\" height=\"1920\" fill=\"url(#w)\"/>\n<rect x=\"120\" y=\"980\" width=\"70\" height=\"110\" rx=\"10\" fill=\"#cfc9bb\" stroke=\"#0b0c10\" stroke-width=\"4\" opacity=\".55\"/>\n<rect x=\"0\" y=\"1700\" width=\"1080\" height=\"220\" fill=\"#16141a\"/>\n<line x1=\"0\" x2=\"1080\" y1=\"1760\" y2=\"1760\" stroke=\"#100f13\" stroke-width=\"4\"/><line x1=\"0\" x2=\"1080\" y1=\"1840\" y2=\"1840\" stroke=\"#100f13\" stroke-width=\"4\"/>\n<ellipse cx=\"540\" cy=\"1702\" rx=\"470\" ry=\"150\" fill=\"url(#g)\"/>\n<rect x=\"250\" y=\"300\" width=\"580\" height=\"1404\" fill=\"#2e3441\" stroke=\"#0b0c10\" stroke-width=\"8\"/>\n<rect x=\"290\" y=\"340\" width=\"500\" height=\"1346\" fill=\"url(#d)\" stroke=\"#0b0c10\" stroke-width=\"7\"/>\n<rect x=\"340\" y=\"400\" width=\"400\" height=\"520\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"340\" y=\"990\" width=\"400\" height=\"630\" rx=\"6\" fill=\"none\" stroke=\"#2a211b\" stroke-width=\"10\" opacity=\".7\"/>\n<rect x=\"292\" y=\"1686\" width=\"496\" height=\"13\" fill=\"#ffd38e\" opacity=\"0.90\"/>\n<circle cx=\"735\" cy=\"1010\" r=\"26\" fill=\"#a9a59c\" stroke=\"#0b0c10\" stroke-width=\"5\"/>\n</svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 9,
+     "opacity": 0.85,
+     "depth": 0.3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1080 1920\"><rect x=\"313\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 315 1700 L 375 1700 L 405 1900 L 285 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"423\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 425 1700 L 485 1700 L 515 1900 L 395 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"593\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 595 1700 L 655 1700 L 685 1900 L 565 1900 Z\" fill=\"#07070a\" opacity=\".55\"/><rect x=\"703\" y=\"1684\" width=\"64\" height=\"17\" rx=\"4\" fill=\"#07070a\"/><path d=\"M 705 1700 L 765 1700 L 795 1900 L 675 1900 Z\" fill=\"#07070a\" opacity=\".55\"/></svg>",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "blur": 9,
+     "opacity": 0.85,
+     "depth": 0.3
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.61,
+      "tilt": -3,
+      "tremble": 0.5,
+      "side": "right",
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "phone": {
+       "members": {
+        "Dani": {
+         "color": "#8f4a5a",
+         "initials": "D"
+        },
+        "Dani's Mom": {
+         "color": "#5a6f8f",
+         "initials": "M"
+        },
+        "Maya": {
+         "color": "#3d5a80",
+         "initials": "M"
+        }
+       },
+       "mode": "lock",
+       "lock": {
+        "time": "11:52",
+        "date": "Thursday",
+        "notifications": [
+         {
+          "at": 0.08,
+          "app": "Messages",
+          "title": "Dani",
+          "text": "Rule three, Maya."
+         },
+         {
+          "at": 1.51,
+          "app": "Messages",
+          "title": "Dani",
+          "text": "Dinner is for three. Come out."
+         }
+        ]
+       }
+      }
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Phone POV, lock screen (bookend of s01): lock screen again, 11:52; calm banners \"Rule three, Maya.\" / \"Dinner is for three. Come out.\"; behind the phone my door, now with FOUR foot shadows in the strip; hard cut to black",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "My",
+    "start": 1.37,
+    "end": 1.465
+   },
+   {
+    "text": "roommate",
+    "start": 1.465,
+    "end": 1.728
+   },
+   {
+    "text": "sent",
+    "start": 1.728,
+    "end": 1.878
+   },
+   {
+    "text": "that",
+    "start": 1.878,
+    "end": 2.003
+   },
+   {
+    "text": "from",
+    "start": 2.003,
+    "end": 2.128
+   },
+   {
+    "text": "her",
+    "start": 2.128,
+    "end": 2.228
+   },
+   {
+    "text": "bedroom",
+    "start": 2.228,
+    "end": 2.703
+   },
+   {
+    "text": "at",
+    "start": 2.703,
+    "end": 2.803
+   },
+   {
+    "text": "11:40",
+    "start": 2.803,
+    "end": 3.42
+   },
+   {
+    "text": "Maya!",
+    "start": 3.565,
+    "end": 3.94
+   },
+   {
+    "text": "Dinner's",
+    "start": 4.015,
+    "end": 4.34
+   },
+   {
+    "text": "ready,",
+    "start": 4.34,
+    "end": 4.565
+   },
+   {
+    "text": "come",
+    "start": 4.615,
+    "end": 4.79
+   },
+   {
+    "text": "eat!",
+    "start": 4.79,
+    "end": 5.23
+   },
+   {
+    "text": "Dani's",
+    "start": 5.35,
+    "end": 5.553
+   },
+   {
+    "text": "voice.",
+    "start": 5.553,
+    "end": 5.84
+   },
+   {
+    "text": "From",
+    "start": 5.903,
+    "end": 6.053
+   },
+   {
+    "text": "the",
+    "start": 6.053,
+    "end": 6.128
+   },
+   {
+    "text": "kitchen.",
+    "start": 6.128,
+    "end": 6.58,
+    "emph": true
+   },
+   {
+    "text": "I'd",
+    "start": 10.18,
+    "end": 10.238
+   },
+   {
+    "text": "been",
+    "start": 10.238,
+    "end": 10.338
+   },
+   {
+    "text": "away",
+    "start": 10.338,
+    "end": 10.6,
+    "emph": true
+   },
+   {
+    "text": "all",
+    "start": 10.6,
+    "end": 10.763
+   },
+   {
+    "text": "week.",
+    "start": 10.763,
+    "end": 11.1
+   },
+   {
+    "text": "Her",
+    "start": 11.163,
+    "end": 11.288
+   },
+   {
+    "text": "door",
+    "start": 11.288,
+    "end": 11.438
+   },
+   {
+    "text": "was",
+    "start": 11.438,
+    "end": 11.55
+   },
+   {
+    "text": "shut",
+    "start": 11.55,
+    "end": 11.713
+   },
+   {
+    "text": "when",
+    "start": 11.713,
+    "end": 11.838
+   },
+   {
+    "text": "I",
+    "start": 11.838,
+    "end": 11.913
+   },
+   {
+    "text": "got",
+    "start": 11.913,
+    "end": 12.038
+   },
+   {
+    "text": "home.",
+    "start": 12.038,
+    "end": 12.39
+   },
+   {
+    "text": "It's",
+    "start": 12.51,
+    "end": 12.543
+   },
+   {
+    "text": "six",
+    "start": 12.543,
+    "end": 12.692,
+    "emph": true
+   },
+   {
+    "text": "steps",
+    "start": 12.692,
+    "end": 12.867
+   },
+   {
+    "text": "from",
+    "start": 12.867,
+    "end": 12.992
+   },
+   {
+    "text": "mine.",
+    "start": 12.992,
+    "end": 13.38
+   },
+   {
+    "text": "It",
+    "start": 13.442,
+    "end": 13.543
+   },
+   {
+    "text": "clicks",
+    "start": 13.543,
+    "end": 13.717
+   },
+   {
+    "text": "twice",
+    "start": 13.717,
+    "end": 13.942,
+    "emph": true
+   },
+   {
+    "text": "when",
+    "start": 13.942,
+    "end": 14.067
+   },
+   {
+    "text": "it",
+    "start": 14.067,
+    "end": 14.143
+   },
+   {
+    "text": "opens.",
+    "start": 14.143,
+    "end": 14.62
+   },
+   {
+    "text": "It",
+    "start": 15.3,
+    "end": 15.347
+   },
+   {
+    "text": "hadn't",
+    "start": 15.347,
+    "end": 15.547
+   },
+   {
+    "text": "clicked",
+    "start": 15.547,
+    "end": 15.722
+   },
+   {
+    "text": "once",
+    "start": 15.722,
+    "end": 15.897,
+    "emph": true
+   },
+   {
+    "text": "tonight.",
+    "start": 15.897,
+    "end": 16.335
+   },
+   {
+    "text": "I",
+    "start": 16.53,
+    "end": 16.607
+   },
+   {
+    "text": "figured",
+    "start": 16.607,
+    "end": 16.857
+   },
+   {
+    "text": "it",
+    "start": 16.857,
+    "end": 16.932
+   },
+   {
+    "text": "was",
+    "start": 16.932,
+    "end": 17.032
+   },
+   {
+    "text": "a",
+    "start": 17.032,
+    "end": 17.082
+   },
+   {
+    "text": "prank.",
+    "start": 17.082,
+    "end": 17.495,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 17.62,
+    "end": 17.72
+   },
+   {
+    "text": "set",
+    "start": 17.72,
+    "end": 17.97
+   },
+   {
+    "text": "three",
+    "start": 17.97,
+    "end": 18.195,
+    "emph": true
+   },
+   {
+    "text": "plates!",
+    "start": 18.195,
+    "end": 18.545,
+    "emph": true
+   },
+   {
+    "text": "Hurry",
+    "start": 18.595,
+    "end": 18.87
+   },
+   {
+    "text": "up!",
+    "start": 18.87,
+    "end": 19.17
+   },
+   {
+    "text": "She",
+    "start": 19.29,
+    "end": 19.367
+   },
+   {
+    "text": "was",
+    "start": 19.367,
+    "end": 19.48
+   },
+   {
+    "text": "mid-sentence",
+    "start": 19.48,
+    "end": 19.942
+   },
+   {
+    "text": "when",
+    "start": 19.942,
+    "end": 20.067
+   },
+   {
+    "text": "that",
+    "start": 20.067,
+    "end": 20.217
+   },
+   {
+    "text": "landed.",
+    "start": 20.217,
+    "end": 20.6
+   },
+   {
+    "text": "Three",
+    "start": 20.72,
+    "end": 20.802
+   },
+   {
+    "text": "plates.",
+    "start": 20.802,
+    "end": 21.09,
+    "emph": true
+   },
+   {
+    "text": "There's",
+    "start": 21.127,
+    "end": 21.29
+   },
+   {
+    "text": "two",
+    "start": 21.29,
+    "end": 21.402,
+    "emph": true
+   },
+   {
+    "text": "of",
+    "start": 21.402,
+    "end": 21.477
+   },
+   {
+    "text": "us.",
+    "start": 21.477,
+    "end": 21.84
+   },
+   {
+    "text": "My",
+    "start": 23.42,
+    "end": 23.522
+   },
+   {
+    "text": "door",
+    "start": 23.522,
+    "end": 23.672
+   },
+   {
+    "text": "doesn't",
+    "start": 23.672,
+    "end": 23.872,
+    "emph": true
+   },
+   {
+    "text": "lock.",
+    "start": 23.872,
+    "end": 24.285,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 31.58,
+    "end": 31.62
+   },
+   {
+    "text": "sizzling",
+    "start": 31.62,
+    "end": 31.87
+   },
+   {
+    "text": "stopped.",
+    "start": 31.87,
+    "end": 32.295,
+    "emph": true
+   },
+   {
+    "text": "A",
+    "start": 32.37,
+    "end": 32.445
+   },
+   {
+    "text": "plate",
+    "start": 32.445,
+    "end": 32.695
+   },
+   {
+    "text": "clinked",
+    "start": 32.695,
+    "end": 32.907
+   },
+   {
+    "text": "in",
+    "start": 32.907,
+    "end": 32.983
+   },
+   {
+    "text": "the",
+    "start": 32.983,
+    "end": 33.058
+   },
+   {
+    "text": "hall.",
+    "start": 33.058,
+    "end": 33.43
+   },
+   {
+    "text": "I",
+    "start": 33.55,
+    "end": 33.602
+   },
+   {
+    "text": "started",
+    "start": 33.602,
+    "end": 33.828
+   },
+   {
+    "text": "dialing",
+    "start": 33.828,
+    "end": 34.078
+   },
+   {
+    "text": "911",
+    "start": 34.078,
+    "end": 34.68,
+    "emph": true
+   },
+   {
+    "text": "Then",
+    "start": 37.12,
+    "end": 37.203
+   },
+   {
+    "text": "the",
+    "start": 37.203,
+    "end": 37.29
+   },
+   {
+    "text": "floor",
+    "start": 37.29,
+    "end": 37.465
+   },
+   {
+    "text": "creaked.",
+    "start": 37.465,
+    "end": 37.89,
+    "emph": true
+   },
+   {
+    "text": "Is",
+    "start": 38.03,
+    "end": 38.205
+   },
+   {
+    "text": "she",
+    "start": 38.205,
+    "end": 38.367
+   },
+   {
+    "text": "texting",
+    "start": 38.367,
+    "end": 38.855,
+    "emph": true
+   },
+   {
+    "text": "you,",
+    "start": 38.855,
+    "end": 38.98
+   },
+   {
+    "text": "Maya?",
+    "start": 39.03,
+    "end": 39.6
+   },
+   {
+    "text": "My",
+    "start": 40.1,
+    "end": 40.152
+   },
+   {
+    "text": "handle",
+    "start": 40.152,
+    "end": 40.377
+   },
+   {
+    "text": "tipped",
+    "start": 40.377,
+    "end": 40.527
+   },
+   {
+    "text": "down.",
+    "start": 40.527,
+    "end": 40.99
+   },
+   {
+    "text": "I",
+    "start": 42.24,
+    "end": 42.24
+   },
+   {
+    "text": "grabbed",
+    "start": 42.24,
+    "end": 42.402
+   },
+   {
+    "text": "it",
+    "start": 42.402,
+    "end": 42.477
+   },
+   {
+    "text": "with",
+    "start": 42.477,
+    "end": 42.577
+   },
+   {
+    "text": "both",
+    "start": 42.577,
+    "end": 42.752
+   },
+   {
+    "text": "hands.",
+    "start": 42.752,
+    "end": 43.14
+   },
+   {
+    "text": "It",
+    "start": 43.202,
+    "end": 43.302
+   },
+   {
+    "text": "pushed",
+    "start": 43.302,
+    "end": 43.452
+   },
+   {
+    "text": "down.",
+    "start": 43.452,
+    "end": 43.765
+   },
+   {
+    "text": "Once.",
+    "start": 43.84,
+    "end": 44.165,
+    "emph": true
+   },
+   {
+    "text": "Twice.",
+    "start": 44.24,
+    "end": 44.74,
+    "emph": true
+   },
+   {
+    "text": "It's",
+    "start": 44.87,
+    "end": 45.075
+   },
+   {
+    "text": "me.",
+    "start": 45.075,
+    "end": 45.4
+   },
+   {
+    "text": "The",
+    "start": 45.5,
+    "end": 45.625
+   },
+   {
+    "text": "one",
+    "start": 45.625,
+    "end": 45.787
+   },
+   {
+    "text": "in",
+    "start": 45.787,
+    "end": 45.862
+   },
+   {
+    "text": "my",
+    "start": 45.862,
+    "end": 46.05
+   },
+   {
+    "text": "room",
+    "start": 46.05,
+    "end": 46.325
+   },
+   {
+    "text": "is",
+    "start": 46.325,
+    "end": 46.462
+   },
+   {
+    "text": "the",
+    "start": 46.462,
+    "end": 46.55
+   },
+   {
+    "text": "copy.",
+    "start": 46.55,
+    "end": 47.16,
+    "emph": true
+   },
+   {
+    "text": "She",
+    "start": 47.285,
+    "end": 47.41
+   },
+   {
+    "text": "wants",
+    "start": 47.41,
+    "end": 47.635
+   },
+   {
+    "text": "you",
+    "start": 47.635,
+    "end": 47.76
+   },
+   {
+    "text": "holding",
+    "start": 47.76,
+    "end": 48.135
+   },
+   {
+    "text": "that",
+    "start": 48.135,
+    "end": 48.385
+   },
+   {
+    "text": "door",
+    "start": 48.385,
+    "end": 48.685
+   },
+   {
+    "text": "so",
+    "start": 48.685,
+    "end": 48.835
+   },
+   {
+    "text": "you",
+    "start": 48.835,
+    "end": 48.96
+   },
+   {
+    "text": "can't",
+    "start": 48.96,
+    "end": 49.235,
+    "emph": true
+   },
+   {
+    "text": "leave.",
+    "start": 49.235,
+    "end": 49.69,
+    "emph": true
+   },
+   {
+    "text": "A",
+    "start": 49.91,
+    "end": 49.912
+   },
+   {
+    "text": "napkin",
+    "start": 49.912,
+    "end": 50.262
+   },
+   {
+    "text": "slid",
+    "start": 50.262,
+    "end": 50.462
+   },
+   {
+    "text": "under",
+    "start": 50.462,
+    "end": 50.637
+   },
+   {
+    "text": "my",
+    "start": 50.637,
+    "end": 50.762
+   },
+   {
+    "text": "door.",
+    "start": 50.762,
+    "end": 51.1
+   },
+   {
+    "text": "Still",
+    "start": 51.22,
+    "end": 51.335
+   },
+   {
+    "text": "sorry",
+    "start": 51.335,
+    "end": 51.547
+   },
+   {
+    "text": "about",
+    "start": 51.547,
+    "end": 51.697
+   },
+   {
+    "text": "your",
+    "start": 51.697,
+    "end": 51.797
+   },
+   {
+    "text": "cactus.",
+    "start": 51.797,
+    "end": 52.285,
+    "emph": true
+   },
+   {
+    "text": "Only",
+    "start": 52.385,
+    "end": 52.572
+   },
+   {
+    "text": "Dani",
+    "start": 52.572,
+    "end": 52.747,
+    "emph": true
+   },
+   {
+    "text": "knew",
+    "start": 52.747,
+    "end": 52.847
+   },
+   {
+    "text": "that.",
+    "start": 52.847,
+    "end": 53.15
+   },
+   {
+    "text": "Her",
+    "start": 53.27,
+    "end": 53.332
+   },
+   {
+    "text": "mom",
+    "start": 53.332,
+    "end": 53.507
+   },
+   {
+    "text": "would",
+    "start": 53.507,
+    "end": 53.607
+   },
+   {
+    "text": "know.",
+    "start": 53.607,
+    "end": 53.98
+   },
+   {
+    "text": "I",
+    "start": 54.1,
+    "end": 54.127
+   },
+   {
+    "text": "let",
+    "start": 54.127,
+    "end": 54.252
+   },
+   {
+    "text": "go",
+    "start": 54.252,
+    "end": 54.352
+   },
+   {
+    "text": "to",
+    "start": 54.352,
+    "end": 54.427
+   },
+   {
+    "text": "text",
+    "start": 54.427,
+    "end": 54.602
+   },
+   {
+    "text": "her,",
+    "start": 54.602,
+    "end": 54.815
+   },
+   {
+    "text": "and",
+    "start": 54.877,
+    "end": 54.977
+   },
+   {
+    "text": "the",
+    "start": 54.977,
+    "end": 55.052
+   },
+   {
+    "text": "handle",
+    "start": 55.052,
+    "end": 55.29
+   },
+   {
+    "text": "dipped.",
+    "start": 55.29,
+    "end": 55.74,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 55.84,
+    "end": 55.965
+   },
+   {
+    "text": "shoved",
+    "start": 55.965,
+    "end": 56.127
+   },
+   {
+    "text": "it",
+    "start": 56.127,
+    "end": 56.202
+   },
+   {
+    "text": "back",
+    "start": 56.202,
+    "end": 56.352
+   },
+   {
+    "text": "up,",
+    "start": 56.352,
+    "end": 56.515
+   },
+   {
+    "text": "one-handed.",
+    "start": 56.552,
+    "end": 57.07
+   },
+   {
+    "text": "The",
+    "start": 63.52,
+    "end": 63.547
+   },
+   {
+    "text": "handle",
+    "start": 63.547,
+    "end": 63.772
+   },
+   {
+    "text": "went",
+    "start": 63.772,
+    "end": 63.922
+   },
+   {
+    "text": "slack.",
+    "start": 63.922,
+    "end": 64.285,
+    "emph": true
+   },
+   {
+    "text": "Outside,",
+    "start": 64.385,
+    "end": 64.76
+   },
+   {
+    "text": "nothing.",
+    "start": 64.797,
+    "end": 65.23,
+    "emph": true
+   },
+   {
+    "text": "She",
+    "start": 68.6,
+    "end": 68.685
+   },
+   {
+    "text": "sent",
+    "start": 68.685,
+    "end": 68.847
+   },
+   {
+    "text": "a",
+    "start": 68.847,
+    "end": 68.897
+   },
+   {
+    "text": "photo.",
+    "start": 68.897,
+    "end": 69.31,
+    "emph": true
+   },
+   {
+    "text": "From",
+    "start": 69.41,
+    "end": 69.572
+   },
+   {
+    "text": "her",
+    "start": 69.572,
+    "end": 69.672
+   },
+   {
+    "text": "room,",
+    "start": 69.672,
+    "end": 69.885
+   },
+   {
+    "text": "of",
+    "start": 69.922,
+    "end": 69.997
+   },
+   {
+    "text": "my",
+    "start": 69.997,
+    "end": 70.122
+   },
+   {
+    "text": "door.",
+    "start": 70.122,
+    "end": 70.45
+   },
+   {
+    "text": "Someone",
+    "start": 70.57,
+    "end": 70.772,
+    "emph": true
+   },
+   {
+    "text": "was",
+    "start": 70.772,
+    "end": 70.872
+   },
+   {
+    "text": "standing",
+    "start": 70.872,
+    "end": 71.122
+   },
+   {
+    "text": "outside",
+    "start": 71.122,
+    "end": 71.422
+   },
+   {
+    "text": "it.",
+    "start": 71.422,
+    "end": 71.64
+   },
+   {
+    "text": "Six",
+    "start": 75.24,
+    "end": 75.357,
+    "emph": true
+   },
+   {
+    "text": "steps.",
+    "start": 75.357,
+    "end": 75.82
+   },
+   {
+    "text": "Under",
+    "start": 76.08,
+    "end": 76.207
+   },
+   {
+    "text": "my",
+    "start": 76.207,
+    "end": 76.332
+   },
+   {
+    "text": "hand,",
+    "start": 76.332,
+    "end": 76.67
+   },
+   {
+    "text": "it",
+    "start": 76.745,
+    "end": 76.832
+   },
+   {
+    "text": "began",
+    "start": 76.832,
+    "end": 77.032
+   },
+   {
+    "text": "to",
+    "start": 77.032,
+    "end": 77.107
+   },
+   {
+    "text": "turn.",
+    "start": 77.107,
+    "end": 77.47,
+    "emph": true
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 18,
+  "gapBreak": 0.3,
+  "glue": [
+   "three plates",
+   "two of us",
+   "six steps",
+   "both hands"
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 62,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "none",
+   "strokeWidth": 10,
+   "uppercase": false,
+   "y": 0.12,
+   "backing": 0.85
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-roommate-texts-from-room/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 82.16
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.3,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "backlog/horror/horror-roommate-texts-from-room/gen_storyboard.py",
+  "timing": "audio/lines.json (gen_audio.py, Kokoro on the Spark CPU)",
+  "audio": "studio/public/episodes/horror-roommate-texts-from-room/mix.wav (Spark only; rebuild with gen_audio.py)"
+ }
+}
