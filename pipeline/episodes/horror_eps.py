@@ -13,10 +13,10 @@ from .common import load_cues, ov
 # Scene.captionYAt, so they never sit on the bubbles being read.
 CAPTIONS = {"font": "display", "fontSize": 58, "color": "#ffffff", "highlight": "#ff4b55", "highlightMode": "none",
             "strokeWidth": 10, "uppercase": False, "y": 0.12, "backing": 0.85}
-CAPTION_PAGING = {"maxWords": 5, "maxChars": 18, "gapBreak": 0.25}  # gapBreak: every >= 0.25 s pause here is a sentence end (no "inside. Dev in Six-C"); + stopword/glue stretch stays inside one 860 px line
+CAPTION_PAGING = {"maxWords": 6, "maxChars": 20, "gapBreak": 0.25}  # gapBreak: every >= 0.25 s pause here is a sentence end (no "inside. Dev in Six-C"); + stopword/glue stretch stays inside one 860 px line
 CAP_TOP = 0.12
 CAP_LOW = 0.75   # clamps to the bottom safe line (~0.75): over the input bar + thumb in a chat punch-in
-OVERLAYS = {"grain": 0.5, "vignette": 0.35, "fadeIn": 0, "fadeOut": 0.25}  # frame 0 is the TikTok/Shorts cover: never black
+OVERLAYS = {"grain": 0.5, "vignette": 0.35, "fadeIn": 0, "fadeOut": 0}  # frame 0 is the TikTok/Shorts cover: never black; hard cut out on the cliffhanger card
 VIG = 0.4      # default vignette (0.7-0.8 crushed the picture far below the references' exposure)
 DARK = 0.3     # default Darkness overlay strength (was 0.55-0.65)
 # Chat look shared by every horror episode: dark messenger with big text (review: the light theme lit the whole
@@ -137,8 +137,10 @@ def shot(t, zoom=1.0, y=None, x=None, how="cut", drift=0.03, cap=None, free=Fals
 
 
 def bub(t, how="cut", drift=0.02, at=0.6):
-    """Chat punch-in on the newest bubble (screen y `at`), whole bubble width in frame, caption in the low band."""
-    return shot(t, PUNCH_Z, y=BUBBLE_Y - (at - 0.5) / PUNCH_Z, x=PUNCH_X, how=how, drift=drift, cap=CAP_LOW, free=True)
+    """Chat punch-in on the newest bubble (screen y `at`), whole bubble width in frame. The caption stays in the top
+    band, over horror/TopFade (phone_scene adds it for every punch-in), so it never meets the thumb in the low band and
+    the text row cut by the frame's top edge falls into shadow instead of reading as a cropping error."""
+    return shot(t, PUNCH_Z, y=BUBBLE_Y - (at - 0.5) / PUNCH_Z, x=PUNCH_X, how=how, drift=drift, cap=CAP_TOP, free=True)
 
 
 def pin_shot(t, how="cut", drift=0.02):
@@ -224,6 +226,19 @@ def phone_scene(sc, members, chat=None, mode="chat", set_="Bedroom", set_props=N
         layers.append(ov("horror/Glitch", z=60, cues=[{"at": a, "duration": 0.25, "amount": 1} for a in glitch], seed=f"g{sc.i}"))
     layers += extra or []
     shots = shots or (None if camera else bubble_shots(chat, sc.dur))
+    if shots:
+        ss = sorted(shots, key=lambda q: q["t"])
+        wins = []
+        for k, q in enumerate(ss):
+            if q["zoom"] <= 1.05:
+                continue
+            until = ss[k + 1]["t"] if k + 1 < len(ss) else sc.dur + 1
+            if wins and abs(wins[-1]["until"] - q["t"]) < 1e-6:
+                wins[-1]["until"] = until  # back-to-back punch-ins: one window, no dip at the cut
+            else:
+                wins.append({"at": q["t"], "until": until})
+        if wins:
+            layers.append(ov("horror/TopFade", z=30, windows=wins, height=0.3))
     cam = camera or shots_cam(shots, sc.dur, shake=shake)
     if vibrate and "shake" not in cam:
         cam = {**cam, "shake": [{"at": a, "duration": 0.3, "amplitude": 10} for a in vibrate]}
@@ -274,24 +289,25 @@ def knocks_cam(times, amp=20):
     return [{"at": a, "duration": 0.16, "amplitude": amp} for a in times]
 
 
-def cutaway(t0, t1, bg_name, bg_props, layers=(), z=40, push=(1.0, 1.05)):
+def cutaway(t0, t1, bg_name, bg_props, layers=(), z=40, push=(1.0, 1.05), depth=0):
     """A reaction/insert shot inside a phone scene: a full-frame set plus layers shown from t0 to t1 (scene time),
     fixed to the screen (depth 0) so the phone scene's camera move does not touch it. Breaks up long chat runs the
     way the reference series cuts phone -> face -> phone. push: slow scale on the set over the shot."""
     t0, t1 = round(t0, 3), round(t1, 3)
-    bg = {"type": "component", "name": f"horror/{bg_name}", "depth": 0, "z": z, "start": t0, "end": t1, "props": bg_props,
+    bg = {"type": "component", "name": f"horror/{bg_name}", "depth": depth, "z": z, "start": t0, "end": t1, "props": bg_props,
           "id": f"cut:{t0}:{t1}"}
     if push and push[0] != push[1]:
         bg["keyframes"] = [{"t": t0, "scale": push[0]}, {"t": t1, "scale": push[1], "ease": "linear"}]
     out = [bg]
     for k, l in enumerate(layers):
-        out.append({**l, "depth": 0, "z": z + 1 + k, "start": t0, "end": t1})
+        out.append({**l, "depth": depth, "z": z + 1 + k, "start": t0, "end": t1})
     return out
 
 
-def nora_cu(expr_track, w=1150, look=(0, 0.4), **kw):
-    """Reaction close-up: Nora lit by her phone, face in the middle third of the frame."""
-    return nora(expr_track, pose="phone", light="phone", x="50%", w=w, look=look, **kw)
+def nora_cu(expr_track, w=1150, look=(0, 0.4), x="50%", **kw):
+    """Reaction close-up: Nora lit by her phone, face in the middle third of the frame (vary w / x / flip / rotate so
+    repeated reactions are not the same couch medium shot)."""
+    return nora(expr_track, pose="phone", light="phone", x=x, w=w, look=look, **kw)
 
 
 def phone_insert(t0, t1, phone, z=45, **hp):
@@ -356,6 +372,10 @@ def pinned_rules(S):
                                              duration=c1 + 0.3, fontSize=112, shake=0, y=0.255)]
                            + cutaway(cu, s.dur, "LivingRoom", LIV_CU, [
                                nora_cu([(0, "scared"), (s.at("move.", off=-0.1), "terrified")], blink=False)])))
+    # the cover's RULE 4 plate owns the top band: the caption sits low (over the figure's dark body) until the cut
+    out[-1]["captionYAt"] = [{"at": 0.0, "y": CAP_LOW}] + [c for c in out[-1].get("captionYAt", []) if c["at"] >= c1] \
+        + ([] if any(c["at"] == round(c1, 3) for c in out[-1].get("captionYAt", [])) else [{"at": round(c1, 3), "y": CAP_TOP}])
+    out[-1]["captionYAt"].sort(key=lambda c: c["at"])
     # 1 signed + rule five: full -> punch on the post -> 0.7 s face on "Management." -> insert on rule 5
     s = S[1]
     b1 = s.at("Signed", off=-0.05)
@@ -364,7 +384,8 @@ def pinned_rules(S):
     th.add(s, b2, "RULE 5: Management will never ask to come inside.", "Management")
     out.append(phone_scene(s, M, th.chat(s, unread=6, unreadFrom=-99), vibrate=[0.1], trans=None, **ROOM,
                            shots=[shot(0, 1.0), bub(b1, how="punch"), bub(b2)],
-                           extra=cutaway(s.at("Management.", off=0.05), b2, "LivingRoom", LIV_CU, [nora_cu([(0, "suspicious")], look=(0.1, 0.5))])))
+                           extra=cutaway(s.at("Management.", off=0.05), b2, "LivingRoom", LIV_CU,  # tight, off-centre
+                                         [nora_cu([(0, "suspicious")], look=(-0.3, 0.5), w=1450, x="40%", flip=True)])))
     # 2 the company is gone (contradiction by ~9.5 s): full -> insert on Dev's DISSOLVED alert -> Nora on "shut down"
     s = S[2]
     b = s.at("checked", off=-0.05)
@@ -372,8 +393,8 @@ def pinned_rules(S):
     th.add(s, b, "Looked up Hartwell Property Group. DISSOLVED. Closed two years ago.", "Dev (6C)", kind="alert")
     out.append(phone_scene(s, M, th.chat(s), glitch=[shut], tremble=2.5, trans=None, **ROOM,
                            shots=[shot(0, 1.0), bub(b, how="punch")],
-                           extra=cutaway(shut + 0.15, s.dur, "LivingRoom", LIV, [
-                               nora_cu([(0, "shocked"), (shut + 0.6, "scared")], blink=False)])))
+                           extra=cutaway(shut + 0.15, s.dur, "LivingRoom", LIV, [  # wide: small on the couch, the room around her
+                               nora_cu([(0, "shocked"), (shut + 0.6, "scared")], blink=False, w=760, x="60%")], push=(1.0, 1.08))))
     # 3 reaction: medium, then a hard cut closer on "And who pinned the rules?"
     s = S[3]
     out.append(set_scene(s, "LivingRoom", LIV, [
@@ -396,10 +417,11 @@ def pinned_rules(S):
                 "props": {"exprs": [{"t": 0, "e": "sly"}], "lookX": 0.5}}
     plate5a = {"type": "text", "text": "5A", "x": "50%", "y": "43%", "fontSize": 58, "color": "#e8d9a8", "font": "display"}
     lamp = {"type": "circle", "x": "50%", "y": "36%", "width": 340, "height": 340, "fill": "#ffe9b0", "opacity": 0.3, "blur": 40}
+    nora_door = nora([(0, "suspicious")], x="80%", w=560, look=(-0.7, 0), flip=True)  # two-shot: her across the hall
     out.append(phone_scene(s, M, th.chat(s, clock="1:09"), trans=FADE, **ROOM,
                            shots=[shot(0, 1.0), bub(pr - 0.4, how="punch"), bub(h1), shot(s.at("just", off=-0.05), 1.0)],
-                           extra=cutaway(pr + 0.05, h0, "LivingRoom", LIV_CU, [nora_cu([(0, "suspicious")], look=(0.2, 0.5))])
-                           + cutaway(h0, h1, "Hallway", {"flicker": 0.1, "lights": 3, "endDoor": True}, [lamp, plate5a, ben_hall],
+                           extra=cutaway(pr + 0.05, h0, "LivingRoom", LIV_CU, [nora_cu([(0, "suspicious")], look=(0.4, 0.4), w=1000, x="36%")])
+                           + cutaway(h0, h1, "Hallway", {"flicker": 0.1, "lights": 3, "endDoor": True}, [lamp, plate5a, ben_hall, nora_door],
                                      push=(1.0, 1.08))))
     # 5 2:14, Ben at his door: insert on "someone's knocking", then Ben's door, back for "wish me luck"
     s = S[5]
@@ -424,7 +446,7 @@ def pinned_rules(S):
     out.append(phone_scene(s, M, th.chat(s, clock="2:21"), tremble=3, heartbeat={"bpm": 80, "bpmTo": 110}, trans=None, **ROOM,
                            shots=[shot(0, 1.0), bub(s.at("His", off=-0.05)), bub(g, how="punch")],
                            extra=cutaway(g + 0.35, s.dur, "LivingRoom", LIV_LOW, [
-                               nora_cu([(0, "scared")], blink=False, look=(0, 0.6))])))
+                               nora_cu([(0, "scared")], blink=False, look=(-0.4, 0.6), w=1300, x="58%")])))
     # 7 rule five is edited: pinned bar flashes -> <= 1.5 s insert on the edited rule -> dot-pupil terror close-up
     s = S[7]
     e = s.at("changed.", off=-0.1)
@@ -435,26 +457,22 @@ def pinned_rules(S):
     face = min(ra + 1.4, s.at("Please", off=-0.1))
     out.append(phone_scene(s, M, th.chat(s, clock="2:23"), glitch=[e], tremble=3, trans=GLITCH, **ROOM,
                            shots=[shot(0, 1.0), pin_shot(e), bub(ra)],
-                           extra=cutaway(face, s.dur, "LivingRoom", LIV_LOW, [
-                               nora_cu([(0, "scared"), (s.at("Please", off=-0.1), "terrified")], blink=False, look=(0, 0.6))])))
+                           extra=cutaway(face, s.dur, "LivingRoom", LIV_LOW, [  # canted close-up
+                               nora_cu([(0, "scared"), (s.at("Please", off=-0.1), "terrified")], blink=False, look=(0, 0.6), w=1400,
+                                       rotate=-8)])))
     # 8 light-switch insert (flips on "off", the strip under the door dies) -> wide: Nora sits with her back to the door
     s = S[8]
     off_t = s.at("off")
     sat = s.at("sat", off=-0.05)
-    wall = {"type": "rect", "fill": "#3b3e48", "width": "100%", "height": "100%", "depth": 0, "z": 80, "start": 0, "end": sat}
-    sw_plate = {"type": "rect", "x": "50%", "y": "50%", "width": 360, "height": 560, "fill": "#d9d2c2", "radius": 36,
-                "stroke": "#14151a", "strokeWidth": 10, "depth": 0, "z": 81, "start": 0, "end": sat}
-    sw_on = {"type": "rect", "x": "50%", "y": "44%", "width": 130, "height": 210, "fill": "#f1ece0", "radius": 20,
-             "stroke": "#14151a", "strokeWidth": 8, "depth": 0, "z": 82, "start": 0, "end": min(off_t, sat)}
-    sw_off = {"type": "rect", "x": "50%", "y": "56%", "width": 130, "height": 210, "fill": "#b9b2a3", "radius": 20,
-              "stroke": "#14151a", "strokeWidth": 8, "depth": 0, "z": 82, "start": min(off_t, sat), "end": sat}
-    dim = {"type": "rect", "fill": "#000000", "opacity": 0.4, "width": "100%", "height": "100%", "depth": 0, "z": 83,
-           "start": min(off_t, sat), "end": sat}
+    # close-up insert: her hand flicks the switch down on "off" and the lamp-lit wall drops to blue-black
+    switch = {"type": "component", "name": "horror/LightSwitch", "depth": 0, "z": 80, "start": 0, "end": sat,
+              "props": {"at": round(off_t, 3), "reach": 0.4, "withdraw": 0.5},
+              "keyframes": [{"t": 0, "scale": 1.0}, {"t": sat, "scale": 1.06, "ease": "linear"}]}
     door_t = s.at("door.", off=-0.05)
     sw_door = {"hallLight": [{"t": 0, "v": 0.5}, {"t": door_t, "v": 0.5}, {"t": door_t + 0.25, "v": 0.35}],
                "dark": [{"t": 0, "v": 0}, {"t": off_t, "v": 0}, {"t": off_t + 0.25, "v": 0.45}], "chain": "on"}
     out.append(set_scene(s, "FrontDoor", sw_door, [
-        wall, sw_plate, sw_on, sw_off, dim,
+        switch,
         nora([(0, "scared"), (s.dur * 0.7, "terrified")], pose="sit", x="50%", w=1000, look=(0.5, 0)),
         ov("horror/Darkness", x=0.5, y=0.5, radius=0.6, darkness=DARK),
         ov("horror/Flicker", strength=0, blackouts=[{"at": off_t, "duration": 0.12}], seed="sw"),
@@ -471,12 +489,16 @@ def pinned_rules(S):
     ecu = nora([(0, "scared")], x="50%", w=2300, y="171%", look=(0.7, 0), blink=False)  # eyes at screen y ~0.42
     out.append(set_scene(s, "FrontDoor", DK, [
         nora([(0, "scared")], pose="sit", x="50%", w=1000, look=(0.5, 0)),
-        *cutaway(some, k0 + 0.9, "FrontDoor", DK, [ecu], push=(1.0, 1.04)),
-        *cutaway(k0 + 0.9, three, "FrontDoor", DK, [], push=(1.15, 1.3)),  # the door itself takes the knocks
+        *cutaway(some, k0 + 0.9, "FrontDoor", DK, [ecu], push=(1.0, 1.04), depth=1),
+        *cutaway(k0 + 0.9, three, "FrontDoor", DK, [], push=(1.15, 1.3), depth=1),  # the door itself takes the knocks
+        # the silent knock stretch (no voice) gets a visible beat per knock: camera jolt + KNOCK on screen
+        *[ov("horror/RedText", z=70, text="KNOCK", style="flash", at=round(k, 3), duration=0.62, fontSize=150, strobe=0,
+             shake=10, y=0.27, glow=0.4) for k in ks],
         *cutaway(three, s.dur, "FrontDoor", DK, [
             nora([(0, "terrified")], pose="sit", x="50%", w=1150, look=(0.8, 0.1), blink=False)], push=(1.02, 1.08)),
         ov("horror/Vignette", amount=VIG)],
-        camera=shots_cam([shot(0, 1.1, y=0.5, drift=0.03)], s.dur, shake=knocks_cam(ks)), trans=None))
+        camera=shots_cam([shot(0, 1.1, y=0.5, drift=0.03)], s.dur, shake=[{"at": k, "duration": 0.3, "amplitude": 26} for k in ks]),
+        trans=None))
     # 10 the voice: peephole, hard cut closer when it says "It's Management"
     s = S[10]
     out.append({"id": f"p{s.i:02d}", "duration": s.dur, "background": {"type": "color", "color": "#050506"},
@@ -522,8 +544,7 @@ def pinned_rules(S):
                         "glitch": [{"at": one, "duration": 0.2, "amount": 1}]},
                      "keyframes": [{"t": one, "scale": 1.0}, {"t": round(one + 1.4, 3), "scale": 1.05, "ease": "linear"},
                                    {"t": card, "scale": 1.1, "ease": "linear"}]},
-                    ov("horror/RedText", z=55, text="Only one", style="flash", at=one + 0.1, duration=round(card - one - 0.1, 3),
-                       fontSize=120, strobe=8, y=0.22, glow=0.3),  # above the hairline, under the caption pill: never on the grin/chin
+                    # no text over the scare face (the refs never put any on it): the grin carries the payoff alone
                     ov("horror/Glitch", z=60, cues=[{"at": one, "duration": 0.2, "amount": 1}], seed="end"),
                     ov("horror/Flicker", strength=0.4, seed="pe"),
                     {"type": "component", "name": "horror/EndCard", "depth": 0, "z": 80, "start": card, "props": {
@@ -874,6 +895,7 @@ def roommate(S):
 # explicit red words (content words only; build.py rejects stopwords). An episode listed here gets ONLY these in red.
 EMPHASIS = {"horror-pinned-rules": ["four", "three", "home", "Management", "inside", "shut", "two", "prank", "Ben", "knocking",
                                     "grey", "changed", ("inside", 1), "knocked", ("Management", 4), "one"]}
+CAPTION_GLUE = {"horror-pinned-rules": ["hallway light", "little green dot", "pinned post", "repair requests"]}  # never split
 STRICT_HOLDS = ("horror-pinned-rules",)  # pilot: fail the build on any >3 s visual hold
 
 EPISODES = {

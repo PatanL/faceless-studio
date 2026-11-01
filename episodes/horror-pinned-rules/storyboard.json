@@ -240,6 +240,21 @@
      "z": 41,
      "start": 3.42,
      "end": 4.265
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 2.675,
+        "until": 5.265
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -302,14 +317,10 @@
    "captionYAt": [
     {
      "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 2.675,
      "y": 0.75
     },
     {
-     "at": 3.42,
+     "at": 1.813,
      "y": 0.12
     }
    ]
@@ -477,11 +488,11 @@
     {
      "type": "component",
      "name": "horror/Protagonist",
-     "x": "50%",
+     "x": "40%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
+     "width": 1450,
+     "height": 2204,
      "props": {
       "pose": "phone",
       "exprs": [
@@ -490,15 +501,30 @@
         "e": "suspicious"
        }
       ],
-      "lookX": 0.1,
+      "lookX": -0.3,
       "lookY": 0.5,
       "light": "phone"
      },
-     "flipX": false,
+     "flipX": true,
      "depth": 0,
      "z": 41,
      "start": 0.487,
      "end": 1.112
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 0.1,
+        "until": 4.8
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -564,25 +590,7 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Signed, Management. Rule five: Management will never ask to come inside.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 0.1,
-     "y": 0.75
-    },
-    {
-     "at": 0.487,
-     "y": 0.12
-    },
-    {
-     "at": 1.112,
-     "y": 0.75
-    }
-   ]
+   "notes": "Signed, Management. Rule five: Management will never ask to come inside."
   },
   {
    "id": "p02",
@@ -755,7 +763,7 @@
       },
       {
        "t": 3.255,
-       "scale": 1.05,
+       "scale": 1.08,
        "ease": "linear"
       }
      ]
@@ -763,11 +771,11 @@
     {
      "type": "component",
      "name": "horror/Protagonist",
-     "x": "50%",
+     "x": "60%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
+     "width": 760,
+     "height": 1155,
      "props": {
       "pose": "phone",
       "exprs": [
@@ -790,6 +798,21 @@
      "z": 41,
      "start": 2.15,
      "end": 3.255
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 0.925,
+        "until": 4.255
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -834,21 +857,7 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Dev in Six-C checked. Management shut down two years ago.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 0.925,
-     "y": 0.75
-    },
-    {
-     "at": 2.15,
-     "y": 0.12
-    }
-   ]
+   "notes": "Dev in Six-C checked. Management shut down two years ago."
   },
   {
    "id": "p03",
@@ -1117,11 +1126,11 @@
     {
      "type": "component",
      "name": "horror/Protagonist",
-     "x": "50%",
+     "x": "36%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
+     "width": 1000,
+     "height": 1520,
      "props": {
       "pose": "phone",
       "exprs": [
@@ -1130,8 +1139,8 @@
         "e": "suspicious"
        }
       ],
-      "lookX": 0.2,
-      "lookY": 0.5,
+      "lookX": 0.4,
+      "lookY": 0.4,
       "light": "phone"
      },
      "flipX": false,
@@ -1213,6 +1222,46 @@
      "z": 43,
      "start": 1.712,
      "end": 4.225
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "80%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 560,
+     "height": 851,
+     "props": {
+      "pose": "idle",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "suspicious"
+       }
+      ],
+      "lookX": -0.7,
+      "lookY": 0
+     },
+     "flipX": true,
+     "depth": 0,
+     "z": 44,
+     "start": 1.712,
+     "end": 4.225
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 0.6,
+        "until": 5.425
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -1286,29 +1335,7 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Everyone said it was a prank. Ben in five-A said he'd leave his hallway light on and break every rule tonight, just to see what happens.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 0.6,
-     "y": 0.75
-    },
-    {
-     "at": 1.05,
-     "y": 0.12
-    },
-    {
-     "at": 4.225,
-     "y": 0.75
-    },
-    {
-     "at": 5.425,
-     "y": 0.12
-    }
-   ]
+   "notes": "Everyone said it was a prank. Ben in five-A said he'd leave his hallway light on and break every rule tonight, just to see what happens."
   },
   {
    "id": "p05",
@@ -1518,6 +1545,21 @@
      "z": 42,
      "start": 2.225,
      "end": 3.92
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 1.575,
+        "until": 5.665
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -1577,25 +1619,7 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 1.575,
-     "y": 0.75
-    },
-    {
-     "at": 2.225,
-     "y": 0.12
-    },
-    {
-     "at": 3.92,
-     "y": 0.75
-    }
-   ]
+   "notes": "At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck."
   },
   {
    "id": "p06",
@@ -1754,11 +1778,11 @@
     {
      "type": "component",
      "name": "horror/Protagonist",
-     "x": "50%",
+     "x": "58%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
+     "width": 1300,
+     "height": 1976,
      "props": {
       "pose": "phone",
       "exprs": [
@@ -1767,7 +1791,7 @@
         "e": "scared"
        }
       ],
-      "lookX": 0,
+      "lookX": -0.4,
       "lookY": 0.6,
       "blink": false,
       "light": "phone"
@@ -1777,6 +1801,21 @@
      "z": 41,
      "start": 2.95,
      "end": 3.56
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 1.475,
+        "until": 4.5600000000000005
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -1835,21 +1874,7 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "That was the last thing he sent. His little green dot turned grey.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 1.475,
-     "y": 0.75
-    },
-    {
-     "at": 2.95,
-     "y": 0.12
-    }
-   ]
+   "notes": "That was the last thing he sent. His little green dot turned grey."
   },
   {
    "id": "p07",
@@ -2034,8 +2059,8 @@
      "x": "50%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
+     "width": 1400,
+     "height": 2128,
      "props": {
       "pose": "phone",
       "exprs": [
@@ -2054,10 +2079,26 @@
       "light": "phone"
      },
      "flipX": false,
+     "rotate": -8,
      "depth": 0,
      "z": 41,
      "start": 2.963,
      "end": 5.385
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 0.8,
+        "until": 6.385
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -2110,21 +2151,7 @@
     "type": "glitch",
     "duration": 0.2
    },
-   "notes": "Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 1.563,
-     "y": 0.75
-    },
-    {
-     "at": 2.963,
-     "y": 0.12
-    }
-   ]
+   "notes": "Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate."
   },
   {
    "id": "p08",
@@ -2167,70 +2194,28 @@
    },
    "layers": [
     {
-     "type": "rect",
-     "fill": "#3b3e48",
-     "width": "100%",
-     "height": "100%",
+     "type": "component",
+     "name": "horror/LightSwitch",
      "depth": 0,
      "z": 80,
      "start": 0,
-     "end": 1.913
-    },
-    {
-     "type": "rect",
-     "x": "50%",
-     "y": "50%",
-     "width": 360,
-     "height": 560,
-     "fill": "#d9d2c2",
-     "radius": 36,
-     "stroke": "#14151a",
-     "strokeWidth": 10,
-     "depth": 0,
-     "z": 81,
-     "start": 0,
-     "end": 1.913
-    },
-    {
-     "type": "rect",
-     "x": "50%",
-     "y": "44%",
-     "width": 130,
-     "height": 210,
-     "fill": "#f1ece0",
-     "radius": 20,
-     "stroke": "#14151a",
-     "strokeWidth": 8,
-     "depth": 0,
-     "z": 82,
-     "start": 0,
-     "end": 0.563
-    },
-    {
-     "type": "rect",
-     "x": "50%",
-     "y": "56%",
-     "width": 130,
-     "height": 210,
-     "fill": "#b9b2a3",
-     "radius": 20,
-     "stroke": "#14151a",
-     "strokeWidth": 8,
-     "depth": 0,
-     "z": 82,
-     "start": 0.563,
-     "end": 1.913
-    },
-    {
-     "type": "rect",
-     "fill": "#000000",
-     "opacity": 0.4,
-     "width": "100%",
-     "height": "100%",
-     "depth": 0,
-     "z": 83,
-     "start": 0.563,
-     "end": 1.913
+     "end": 1.913,
+     "props": {
+      "at": 0.563,
+      "reach": 0.4,
+      "withdraw": 0.5
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": 1.913,
+       "scale": 1.06,
+       "ease": "linear"
+      }
+     ]
     },
     {
      "type": "component",
@@ -2381,7 +2366,7 @@
     {
      "type": "component",
      "name": "horror/FrontDoor",
-     "depth": 0,
+     "depth": 1,
      "z": 40,
      "start": 1.125,
      "end": 2.855,
@@ -2434,7 +2419,7 @@
       "blink": false
      },
      "flipX": false,
-     "depth": 0,
+     "depth": 1,
      "z": 41,
      "start": 1.125,
      "end": 2.855
@@ -2442,7 +2427,7 @@
     {
      "type": "component",
      "name": "horror/FrontDoor",
-     "depth": 0,
+     "depth": 1,
      "z": 40,
      "start": 2.855,
      "end": 5.486,
@@ -2473,6 +2458,57 @@
        "ease": "linear"
       }
      ]
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 70,
+     "props": {
+      "text": "KNOCK",
+      "style": "flash",
+      "at": 1.955,
+      "duration": 0.62,
+      "fontSize": 150,
+      "strobe": 0,
+      "shake": 10,
+      "y": 0.27,
+      "glow": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 70,
+     "props": {
+      "text": "KNOCK",
+      "style": "flash",
+      "at": 2.905,
+      "duration": 0.62,
+      "fontSize": 150,
+      "strobe": 0,
+      "shake": 10,
+      "y": 0.27,
+      "glow": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 70,
+     "props": {
+      "text": "KNOCK",
+      "style": "flash",
+      "at": 3.855,
+      "duration": 0.62,
+      "fontSize": 150,
+      "strobe": 0,
+      "shake": 10,
+      "y": 0.27,
+      "glow": 0.4
+     }
     },
     {
      "type": "component",
@@ -2565,18 +2601,18 @@
     "shake": [
      {
       "at": 1.955,
-      "duration": 0.16,
-      "amplitude": 20
+      "duration": 0.3,
+      "amplitude": 26
      },
      {
       "at": 2.9050000000000002,
-      "duration": 0.16,
-      "amplitude": 20
+      "duration": 0.3,
+      "amplitude": 26
      },
      {
       "at": 3.855,
-      "duration": 0.16,
-      "amplitude": 20
+      "duration": 0.3,
+      "amplitude": 26
      }
     ]
    },
@@ -2837,6 +2873,21 @@
       "surround": "#050506"
      },
      "id": "cut:3.875:4.175"
+    },
+    {
+     "type": "component",
+     "name": "horror/TopFade",
+     "depth": 0,
+     "z": 30,
+     "props": {
+      "windows": [
+       {
+        "at": 2.325,
+        "until": 9.12
+       }
+      ],
+      "height": 0.3
+     }
     }
    ],
    "camera": {
@@ -2937,25 +2988,7 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them.",
-   "captionYAt": [
-    {
-     "at": 0.0,
-     "y": 0.12
-    },
-    {
-     "at": 2.325,
-     "y": 0.75
-    },
-    {
-     "at": 3.875,
-     "y": 0.12
-    },
-    {
-     "at": 4.175,
-     "y": 0.75
-    }
-   ]
+   "notes": "My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them."
   },
   {
    "id": "p12",
@@ -3033,22 +3066,6 @@
        "ease": "linear"
       }
      ]
-    },
-    {
-     "type": "component",
-     "name": "horror/RedText",
-     "depth": 0,
-     "z": 55,
-     "props": {
-      "text": "Only one",
-      "style": "flash",
-      "at": 2.438,
-      "duration": 3.087,
-      "fontSize": 120,
-      "strobe": 8,
-      "y": 0.22,
-      "glow": 0.3
-     }
     },
     {
      "type": "component",
@@ -4150,9 +4167,15 @@
     "end": 61.086
    }
   ],
-  "maxWords": 5,
-  "maxChars": 18,
+  "maxWords": 6,
+  "maxChars": 20,
   "gapBreak": 0.25,
+  "glue": [
+   "hallway light",
+   "little green dot",
+   "pinned post",
+   "repair requests"
+  ],
   "style": {
    "font": "display",
    "fontSize": 58,
@@ -4182,7 +4205,7 @@
   "grain": 0.5,
   "vignette": 0.35,
   "fadeIn": 0,
-  "fadeOut": 0.25
+  "fadeOut": 0
  },
  "_built": {
   "by": "pipeline/episodes/build.py",
