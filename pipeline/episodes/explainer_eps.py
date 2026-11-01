@@ -268,7 +268,9 @@ class Cam:
                 pts.append(t)
         R = 0.22
 
-        def mult(t):  # punch-in state after all ramps that finished by t
+        def mult(t):  # punch-in state after all ramps that finished by t (none inside locked windows)
+            if any(x0 <= t <= x1 for x0, x1 in self.locked):
+                return 1.0
             n = sum(1 for p in pts if p + R <= t + 1e-6)
             return self.p if n % 2 else 1.0
 
@@ -459,8 +461,7 @@ def blue_whale(S):
     ecg = [dive + 0.3, dive + 0.9, dive + 1.7, dive + 2.7]
     ecg = [b for b in ecg if b < two - 0.2]
     sc.append(bw_scene(s, ocean(200, rays=3, snow=40), [
-        comp("explainer/WhaleHeart", "29%", "37%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive,
-             enter=pop(0.1, 0.35)),
+        comp("explainer/WhaleHeart", "29%", "37%", 1.5 * HP, 1.5 * HP, {"pxPerM": HP, "beat": beat_tr}, end=dive),
         comp("explainer/GolfCart", "72%", "38.5%", 2.4 * HP, 1.9 * HP, {"pxPerM": HP}, start=golf, end=dive,
              enter={"type": "slideLeft", "at": golf, "duration": 0.45}),
         comp("explainer/Diver", "50%", "56%", 2.6 * HP, 60, {"pxPerM": HP, "arms": "side"}, start=s.at("size"), end=dive,
@@ -541,7 +542,7 @@ def blue_whale(S):
                            (pushed + 0.6, 1.15, "36%", "40%"), (s.dur, 1.12, "38%", "40%")]).punch(s.at("forty"), tiny)
     cam.locked.append((beach - 0.3, s.dur))
     sc.append(bw_scene(s, ocean(60, rays=4, snow=30), [
-        comp("explainer/Krill", "50%", "46%", 640, 280, {"speed": 0.8}, end=cut, enter=pop(0.1),
+        comp("explainer/Krill", "50%", "46%", 640, 280, {"speed": 0.8}, end=cut,
              keyframes=[{"t": 0, "scale": 1}, {"t": tiny, "scale": 1}, {"t": tiny + 0.35, "scale": 0.22, "ease": "inOut"}]),
         t46("≈ 6 CM LONG", 0.9, y="62%", size=48, w=1000, align="center", end=cut),
         wstat(40000000, "krill a day", s.at("forty", off=-0.1), y="22%", size=100, duration=1.4, end=cut),
