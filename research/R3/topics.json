@@ -1,0 +1,579 @@
+{
+ "lane": "R3",
+ "generated_utc": "2026-11-01T09:00Z",
+ "scoring": "score = 0.4*demand + 0.3*2D feasibility + 0.3*originality (1-5 each); list order is the final editorial rank, which also weighs kit reuse and fit with the explainer pilot",
+ "formats": {
+  "short_9x16_70-80s": "vertical TikTok/Shorts, man_ia_c 'N seconds' template: title card, countdown HUD, serif italic captions, 5-8 beats, end card with a real fact + 'which next?' CTA",
+  "long_16x9_8-12min": "16:9 YouTube, Awaken/IFOLOGY template: 'you' cold open (0:00-0:30), 'here's how it works' science, escalating timeline or stakes, options/verdict, payoff; 9:16 60-90s cut-down from the cold open"
+ },
+ "originality_rule": "Topics and scripts are original. Reference videos are used only for format and title patterns, never footage, characters, audio or text.",
+ "topics": [
+  {
+   "rank": 1,
+   "score": 4.7,
+   "title": "What if friction disappeared for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "You're crossing a street in Chicago when friction switches off. Your shoes stop gripping. So does everything else.",
+   "beats": [
+    "0-3s title card + countdown HUD 'FRICTION RETURNS IN 0:05.000'",
+    "knots untie, shoelaces slide out, a parked car drifts downhill",
+    "nails and screws slide out of wood, a bookshelf comes apart",
+    "woven clothes unravel (threads only stay together by friction)",
+    "you can't stand: every step is ice, everyone slides to the lowest point",
+    "countdown hits 0: everything stops at once, wherever it ended up",
+    "real-fact card + 'Which force next?' CTA"
+   ],
+   "evidence": "man_ia_c 'X disappeared for N seconds' formula: electrons 18.2M (29x median), oxygen 13.4M (21x), neutrons 5.1M (8x), pi=3 3.9M (6x), iron 2.7M (4x). Friction is not one of their topics.",
+   "risk": "Keep it playful, PG: no injuries shown in close-up.",
+   "scores": {
+    "demand": 5,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "new: side-view flat city street, sliding physics with easing; countdown HUD + serif caption are shared across all 'N seconds' shorts",
+   "facts_to_verify": [
+    "fabric yarns are held together by friction between fibres",
+    "nails hold by friction"
+   ]
+  },
+  {
+   "rank": 2,
+   "score": 5.0,
+   "title": "What if calcium disappeared for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "Every skeleton on Earth just went soft. Including yours.",
+   "beats": [
+    "title + countdown",
+    "X-ray view of you: bones turn rubbery (the vinegar chicken-bone trick, but everywhere)",
+    "you fold to the ground like a puppet",
+    "marble statues, limestone pyramids and chalk cliffs crumble to sand",
+    "concrete loses its binder: sidewalks turn to gravel",
+    "seashells and coral reefs dissolve in the sea",
+    "calcium returns: real-fact card (99% of your calcium is in bones and teeth)"
+   ],
+   "evidence": "same formula as #1; man_ia_c's 'body' beats (blood turns grey in iron, 'you weigh as much as a 5-year-old' in neutrons) are their highest-share moments",
+   "risk": "Body-horror tone: keep stylised, not gory.",
+   "scores": {
+    "demand": 5,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "X-ray stick figure (new), ocean kit coral/shells (B3 reuse), simple building silhouettes",
+   "facts_to_verify": [
+    "~99% of body calcium is in bones and teeth",
+    "limestone/chalk/marble are calcium carbonate",
+    "cement is mostly calcium silicates"
+   ]
+  },
+  {
+   "rank": 3,
+   "score": 4.7,
+   "title": "What if you could breathe underwater?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU could...' power + science",
+   "hook": "You fall off a ferry in the middle of the Pacific, take a panicked breath... and nothing happens. You're fine.",
+   "beats": [
+    "cold open: fall, gasp, calm",
+    "'here's how it works': water holds ~1/30 of the oxygen air does, so you need gills the size of a duvet",
+    "real science: liquid-breathing mice (1966)",
+    "dive ladder with depth meter: 10 m, 40 m, 100 m: pressure is the next problem",
+    "meet the neighbours: whale, squid, anglerfish (scale bars)",
+    "the cold, the dark, the bends you no longer get",
+    "your options list: where would you live?",
+    "payoff: the trench floor; 'next: what if you could see every colour?'"
+   ],
+   "evidence": "IFOLOGY's classic power titles average 2-10x median (10x Faster 868K, Stop Time 636K, Shapeshift 436K); Depth Theory ocean explainer 2.28M on 6K subs (PLAN.md). Combines both proven demands.",
+   "risk": "None; good 9:16 cut-down.",
+   "scores": {
+    "demand": 5,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "Direct reuse of B3 explainer kit: depth gradient, creatures, depth meter, scale bar, YOU figure, options list",
+   "facts_to_verify": [
+    "seawater dissolved O2 roughly 1/30 to 1/40 of air by volume",
+    "Leland Clark 1966 liquid-breathing mouse experiments"
+   ]
+  },
+  {
+   "rank": 4,
+   "score": 4.6,
+   "title": "What if light slowed to walking speed for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "Light now moves as fast as you walk. Everything you see is already in the past.",
+   "beats": [
+    "title + countdown",
+    "your friend waving 10 m away: you see her 7 seconds late",
+    "walk toward a stop sign and it turns blue, walk away and it turns red",
+    "your phone screen is 'still loading' because the light is",
+    "the Sun keeps shining: the light already on its way is now crawling",
+    "light speed returns: 5 seconds of backlog hits your eyes at once",
+    "real fact: in 1999 a lab slowed light to 17 m/s"
+   ],
+   "evidence": "formula as #1; 'pi was exactly 3' (3.9M) shows abstract physics-constant changes work, not just elements",
+   "risk": "Physics is hand-wavy; label it a thought experiment.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "flat 2D park scene, colour-shift filter, delayed 'ghost' copies of characters (pure code)",
+   "facts_to_verify": [
+    "Lene Hau 1999: light slowed to ~17 m/s in a Bose-Einstein condensate"
+   ]
+  },
+  {
+   "rank": 5,
+   "score": 4.6,
+   "title": "What if everyone on Earth was born on the same day?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "8 billion babies. One birthday. The hospitals have about nine months to get ready.",
+   "beats": [
+    "cold open: every maternity ward, one morning",
+    "year 5: the world needs a billion school desks at once",
+    "year 18: everyone graduates, every job has 8 billion applicants",
+    "the population pyramid becomes a stick: chart animates",
+    "year 40: the midlife crisis, all at once",
+    "year 65: everyone retires, nobody is left to work",
+    "year 90: the long goodbye; who has kids, and when?",
+    "payoff: why age spread keeps a species alive"
+   ],
+   "evidence": "Awaken's humanity-scale 'Can 2 People Really Restart Humanity?' 4.2M (23x median) is mostly flat 2D: chalkboard, population trees, timeline stamps ('YEAR 20', '+50 YEARS'). Same data-driven arc, original premise.",
+   "risk": "None.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "explainer kit charts + new: timeline stamp, population pyramid, crowd of stick figures (instanced SVG)",
+   "facts_to_verify": [
+    "global births ~130-135M per year (UN WPP)"
+   ]
+  },
+  {
+   "rank": 6,
+   "score": 4.6,
+   "title": "What if air became as thick as water for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "You take one step outside... and start floating.",
+   "beats": [
+    "title + countdown",
+    "you're neutrally buoyant: people drift off the sidewalk like divers",
+    "a 20 km/h breeze now hits like a flood current",
+    "birds swim, planes float like balloons",
+    "shouting sounds different: sound moves 4x faster",
+    "you can't breathe it in fast enough: lungs pumping syrup",
+    "air returns: everyone drops 2 metres"
+   ],
+   "evidence": "formula as #1; gravity-off (540-642K, ~1x) shows 'things float' alone is average, so lead with the body beat",
+   "risk": "None.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "ocean kit particles/light rays reused as 'thick air', flat city scene",
+   "facts_to_verify": [
+    "human body density ~1.01 g/cm3",
+    "sound in water ~4.3x faster than in air"
+   ]
+  },
+  {
+   "rank": 7,
+   "score": 4.3,
+   "title": "What if you woke up at the bottom of the Mariana Trench?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU...' survival + science",
+   "hook": "You open your eyes. It's pitch black, it's 2 degrees, and 11 kilometres of water is sitting on top of you.",
+   "beats": [
+    "cold open in darkness, one bioluminescent flash",
+    "the pressure: ~1,100 bar, an elephant on your thumbnail",
+    "depth meter ascent: each zone and who lives there",
+    "the deepest fish ever filmed (8,336 m)",
+    "how fast can you rise without dying?",
+    "your options list",
+    "payoff at the surface"
+   ],
+   "evidence": "Depth Theory 2.28M (ocean 'you vs. X'); IFOLOGY's 'You Woke Up in the Backrooms' style cold open; Awaken's 'you wake up and something is wrong' hook (4.2M video).",
+   "risk": "Overlaps R1 Depth Theory niche; coordinate titles with S1.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "Full B3 explainer kit reuse (depth gradient, creatures, depth meter, YOU)",
+   "facts_to_verify": [
+    "Challenger Deep ~10,935 m",
+    "deepest fish filmed 8,336 m (2022, Izu-Ogasawara Trench)"
+   ]
+  },
+  {
+   "rank": 8,
+   "score": 4.0,
+   "title": "What if everyone on Earth got $1 million tomorrow?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "Your phone buzzes. So does everyone else's. You now have a million dollars. So does everyone.",
+   "beats": [
+    "cold open: the notification (horror-kit phone component)",
+    "day 1: quitting spree, shops sell out",
+    "week 1: prices start climbing; the bread chart",
+    "why: money is a claim on stuff, and the stuff didn't change",
+    "real hyperinflations as reference points",
+    "month 6: who is actually richer?",
+    "payoff: what would actually make everyone richer"
+   ],
+   "evidence": "Awaken '8 billion in one city' opens with the same 'phone buzzes, so does everyone's' hook; evergreen economics topic with high search demand",
+   "risk": "Saturated topic on YouTube: needs a fresh angle in the title/thumbnail.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 3
+   },
+   "reuse_and_assets": "phone UI from B4 horror kit, explainer charts, shop scene",
+   "facts_to_verify": [
+    "global household wealth ~$450-500T (UBS Global Wealth Report)"
+   ]
+  },
+  {
+   "rank": 9,
+   "score": 4.2,
+   "title": "What if you could see every colour?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU could...' power + science",
+   "hook": "You blink, and the sky turns a colour that doesn't have a name.",
+   "beats": [
+    "cold open: the new colour",
+    "how you see now: three cone types",
+    "bees: UV landing strips on flowers",
+    "snakes: infrared heat pits, you see warm bodies through the dark",
+    "mantis shrimp: 12+ receptor types (ocean kit)",
+    "what goes wrong: overload, headaches, nobody believes you",
+    "payoff: some people have a 4th cone"
+   ],
+   "evidence": "IFOLOGY X-Ray Vision and See Everyone's Secret are vision powers (members-only/low data); classic power framing averages 2-5x median",
+   "risk": "None.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "colour filters and duotone shaders in code, mantis shrimp from ocean kit, flower/garden flat scene",
+   "facts_to_verify": [
+    "mantis shrimp have 12-16 photoreceptor types",
+    "some women are functional tetrachromats (rare)"
+   ]
+  },
+  {
+   "rank": 10,
+   "score": 4.3,
+   "title": "What if you never needed to sleep again?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU could...' power + science",
+   "hook": "It's 3 a.m. Everyone you know is asleep. You've been awake for 11 days and you feel great.",
+   "beats": [
+    "cold open: night city, only you awake",
+    "you just gained ~2,900 hours a year",
+    "the record: Randy Gardner, 11 days (1964), and what it did to him",
+    "what sleep actually does (memory, cleanup)",
+    "your new life: night shifts, night school, loneliness",
+    "what the world would look like if everyone stopped",
+    "payoff: would you trade it back?"
+   ],
+   "evidence": "IFOLOGY's everyday-power titles with a 'you' cold open; superpower cluster median 2.4x",
+   "risk": "None.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "night-city flat scene, clock/timeline components, stick-figure YOU",
+   "facts_to_verify": [
+    "Randy Gardner stayed awake ~264 hours in 1964"
+   ]
+  },
+  {
+   "rank": 11,
+   "score": 3.9,
+   "title": "What if the Sun disappeared for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "The Sun just vanished. And for the next 8 minutes, nothing happens.",
+   "beats": [
+    "title + countdown",
+    "nothing happens: light already on its way keeps arriving",
+    "gravity also travels at light speed: Earth keeps orbiting nothing",
+    "8 min 20 s later: 5 seconds of total darkness",
+    "stars appear at noon, temperature drop is tiny",
+    "the Sun is back. Real fact: 2017 neutron-star merger proved gravity moves at light speed"
+   ],
+   "evidence": "man_ia_c 'Earth left the universe' (429K) and 'black hole' (650K) show space-scale topics are average; the anti-climax twist is the hook",
+   "risk": "Anti-climax could tank retention; test as a short only.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "flat sky/space scene, orbit diagram, countdown HUD",
+   "facts_to_verify": [
+    "sunlight takes ~8 min 20 s to reach Earth",
+    "GW170817 (2017) constrained gravity speed ~= c"
+   ]
+  },
+  {
+   "rank": 12,
+   "score": 4.3,
+   "title": "What if every ant on Earth attacked at once?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "There are about 2.5 million ants for every human. Today they all decide they've had enough.",
+   "beats": [
+    "cold open: one ant on your picnic table, then the horizon moves",
+    "the count: ~20 quadrillion ants",
+    "biomass comparison bar: ants vs. wild birds and mammals",
+    "army ants, fire ants, bullet ants: the roster card",
+    "what humans have that ants don't (and the reverse)",
+    "who wins, city by city",
+    "payoff: what ants already do for us"
+   ],
+   "evidence": "man_ia_c's 'fire ant bite' pop-star sequel (2.1M) shows animal-scale hooks; Depth Theory 'you vs. X' animal framing (2.28M)",
+   "risk": "None.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "instanced SVG swarm (code-native), scale bars, map pins from explainer kit",
+   "facts_to_verify": [
+    "~20 quadrillion ants (Schultheiss et al., PNAS 2022)",
+    "ants' biomass ~20% of human biomass"
+   ]
+  },
+  {
+   "rank": 13,
+   "score": 4.0,
+   "title": "What if the internet went down for a whole year?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "You reach for your phone. No bars. No Wi-Fi. Not for you, not for anyone, for 365 days.",
+   "beats": [
+    "cold open: phone UI 'No connection'",
+    "hour 1: card payments fail",
+    "day 3: supermarkets, logistics, flights",
+    "week 2: cash, radio, paper maps come back",
+    "month 6: what people do with the free time",
+    "month 12: the reconnect",
+    "payoff: the one thing we'd keep"
+   ],
+   "evidence": "man_ia_c 'What if TikTok didn't exist for 5 seconds' (741K, 1.2x) shows 'tech vanishes' works; Awaken phone-notification opener",
+   "risk": "Common topic: strong cold-open needed.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 3
+   },
+   "reuse_and_assets": "phone UI from B4 horror kit, city flat scenes, timeline stamps",
+   "facts_to_verify": [
+    "~5.5B internet users (ITU 2024)"
+   ]
+  },
+  {
+   "rank": 14,
+   "score": 4.2,
+   "title": "What if the whole world used one time zone?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "It's 12:00 everywhere on Earth. In New York the sun is up. In Sydney it's the middle of the night. Same clock.",
+   "beats": [
+    "cold open: world clock wall snapping to one time",
+    "map animation: sunrise at 'noon' in one place, 'midnight' in another",
+    "China already does this: one zone across ~5 geographic ones",
+    "school at 2 a.m. local sun-time",
+    "what gets easier (flights, meetings), what gets weird",
+    "payoff: why we invented time zones (railways, 1883)"
+   ],
+   "evidence": "no direct reference outlier; map + clock topics are pure code and cheap to make",
+   "risk": "Lower emotional stakes than other topics.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "map/pin components from explainer kit, clock component, day/night terminator shader",
+   "facts_to_verify": [
+    "China uses a single time zone (UTC+8)",
+    "US/Canada railways standard time 1883"
+   ]
+  },
+  {
+   "rank": 15,
+   "score": 4.0,
+   "title": "What if you lived for 1,000 years?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU...' power + science",
+   "hook": "Your 100th birthday is just the start. You have 900 more to go.",
+   "beats": [
+    "cold open: birthday cake with 1,000 candles",
+    "year 100: friends are gone, you're still 30 inside",
+    "compound interest: $1,000 at 5% for 1,000 years (huge number)",
+    "history as one long day: what 1,000 years ago looked like",
+    "the risks: accidents add up; odds you survive",
+    "real immortals: the Greenland shark (~400 years), the immortal jellyfish",
+    "payoff: would you take it?"
+   ],
+   "evidence": "IFOLOGY 'Indestructible' 251K (3x); longevity is a broad evergreen search topic",
+   "risk": "None.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 5,
+    "originality": 3
+   },
+   "reuse_and_assets": "timeline stamps, chart components, ocean kit for shark/jellyfish",
+   "facts_to_verify": [
+    "Greenland shark lifespan estimated ~270-500 years",
+    "Turritopsis dohrnii can revert to polyp stage"
+   ]
+  },
+  {
+   "rank": 16,
+   "score": 4.2,
+   "title": "What if humans could photosynthesise?",
+   "format": "long_16x9_8-12min",
+   "cluster": "'What if YOU could...' power + science",
+   "hook": "You turn green overnight. Breakfast is now standing in the sun for 20 minutes. Or is it?",
+   "beats": [
+    "cold open: green skin in the mirror",
+    "the maths: how much energy sunlight gives a body",
+    "you'd need skin the size of a small apartment",
+    "the sea slug that steals chloroplasts (real)",
+    "your new life: summer feasts, winter starvation",
+    "how the world changes: farms, cities, fashion",
+    "payoff: you'd still need lunch"
+   ],
+   "evidence": "IFOLOGY body-power framing; science-twist payoffs ('you'd be blind' in Stop Time) drive comments",
+   "risk": "Maths needs a careful fact-check pass.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 5
+   },
+   "reuse_and_assets": "stick-figure YOU with colour change, sun ray particles, energy bar component",
+   "facts_to_verify": [
+    "Elysia chlorotica retains algal chloroplasts",
+    "photosynthesis efficiency ~1-2% in crops"
+   ]
+  },
+  {
+   "rank": 17,
+   "score": 3.9,
+   "title": "What if all metal turned to rubber for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "Every bridge, every car, every fork on Earth just turned bendy.",
+   "beats": [
+    "title + countdown",
+    "the fork in your hand droops",
+    "cars sag onto their wheels, wheels go oval",
+    "the bridge you're standing on starts to bounce",
+    "skyscraper frames sway like jelly",
+    "metal returns: everything snaps back in the wrong shape"
+   ],
+   "evidence": "formula as #1 (iron 2.7M is the closest analogue); playful, cartoon-friendly",
+   "risk": "Pure fantasy: lower 'real science' payoff than #1/#2.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "SVG path morph / squash-and-stretch on flat city props: very code-native",
+   "facts_to_verify": []
+  },
+  {
+   "rank": 18,
+   "score": 3.9,
+   "title": "What if Earth's magnetic field switched off?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "Every compass on Earth starts spinning. That's the least of our problems.",
+   "beats": [
+    "cold open: spinning compass",
+    "what the field does: invisible shield, solar wind diagram",
+    "first days: auroras far from the poles, satellites glitch",
+    "birds, turtles and whales lose their map (ocean kit)",
+    "years: more radiation in orbit",
+    "millions of years: the Mars warning",
+    "payoff: it has nearly happened (Laschamp, ~41,000 years ago)"
+   ],
+   "evidence": "space/earth-science topics run ~1x on man_ia_c; long-form needs the animal-navigation angle to stand out",
+   "risk": "Slower burn; better as long-form than short.",
+   "scores": {
+    "demand": 3,
+    "feasibility_2d": 5,
+    "originality": 4
+   },
+   "reuse_and_assets": "diagram components, globe, ocean kit creatures",
+   "facts_to_verify": [
+    "Laschamp excursion ~41,000 years ago, field fell to a small fraction of today"
+   ]
+  },
+  {
+   "rank": 19,
+   "score": 3.7,
+   "title": "What if carbon disappeared for 5 seconds?",
+   "format": "short_9x16_70-80s",
+   "cluster": "element/force vanishes for N seconds",
+   "hook": "18% of you just vanished.",
+   "beats": [
+    "title + countdown",
+    "every living thing loses its frame: trees, grass, people",
+    "pencils, diamonds, plastic and fuel vanish",
+    "steel loses its carbon and goes soft",
+    "the air: CO2 turns into pure oxygen",
+    "carbon returns into a world rebuilt wrong"
+   ],
+   "evidence": "formula as #1; closest to man_ia_c's top element videos",
+   "risk": "Very dark and close to man_ia_c's element series; ranked lower for originality.",
+   "scores": {
+    "demand": 4,
+    "feasibility_2d": 4,
+    "originality": 3
+   },
+   "reuse_and_assets": "flat city + X-ray figure from #2",
+   "facts_to_verify": [
+    "carbon ~18% of human body mass"
+   ]
+  },
+  {
+   "rank": 20,
+   "score": 4.1,
+   "title": "Could 100 strangers on an island rebuild civilisation?",
+   "format": "long_16x9_8-12min",
+   "cluster": "humanity-scale thought experiment",
+   "hook": "A plane lands on an island nobody can find. 100 strangers walk off. Nobody is coming.",
+   "beats": [
+    "cold open: the island",
+    "the 50/500 rule for minimum population",
+    "jobs: who knows how to make fire, glass, steel?",
+    "Pitcairn: the Bounty mutineers as a real case",
+    "year 1, year 10, year 100 stamps",
+    "payoff: what civilisation actually needs"
+   ],
+   "evidence": "Awaken 'Can 2 People Really Restart Humanity?' 4.2M (23x median): proven demand",
+   "risk": "Closest to a reference video's premise: only make it with a clearly different angle (skills/tech tree, not genetics).",
+   "scores": {
+    "demand": 5,
+    "feasibility_2d": 5,
+    "originality": 2
+   },
+   "reuse_and_assets": "island flat scene, timeline stamps, stick-figure crowd",
+   "facts_to_verify": [
+    "Pitcairn Islands settled 1790 by Bounty mutineers and Tahitians"
+   ]
+  }
+ ]
+}
