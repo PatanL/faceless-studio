@@ -1,0 +1,72 @@
+{
+ "id": "blender-castle",
+ "niche": "explainer",
+ "script": "experiments/blender-castle/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 1.1,
+  "synth_s": 8.54,
+  "duration_s": 10.95,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.06,
+  "true_peak_dbtp_4x": -1.21,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.0,
+   "LRA_lu": 0.9,
+   "true_peak_dbtp": -1.2
+  },
+  "duration_s": 10.55,
+  "music": "documentary_pulse",
+  "sfx_placed": [
+   {
+    "cue": "impact",
+    "at": 0.1,
+    "db": -3.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -7.0,
+    "mix_momentary_max": -11.6
+   },
+   {
+    "cue": "impact",
+    "at": 1.425,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -4.0,
+    "mix_momentary_max": -11.1
+   },
+   {
+    "cue": "boom",
+    "at": 4.487,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 3.5,
+    "level_db": -4.0,
+    "mix_momentary_max": -11.1
+   },
+   {
+    "cue": "riser",
+    "at": 9.075,
+    "db": -6.0,
+    "source": "marker",
+    "dur": 2.6,
+    "level_db": -15.0,
+    "mix_momentary_max": -13.9
+   }
+  ],
+  "music_rms_db_under_voice": -40.19,
+  "music_rms_db_in_gaps": -53.23,
+  "measured_duck_db": 13.04,
+  "bed_below_voice_db": 20.57
+ },
+ "words": 30,
+ "wall_s": 9.0
+}
