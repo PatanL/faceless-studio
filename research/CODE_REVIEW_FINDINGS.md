@@ -1,5 +1,7 @@
 # Code review findings: pipeline, scripts, studio core
 
+> **Update 13:35 UTC:** F22, F23, F24 are FIXED in `scripts/originality_check.py` (normalized sources: no timestamps/markers/pipes, JSON string values only, NFKC + quote mapping; narration-only via `pipeline.audio.script.parse`). Their tests now pass without xfail. The corrected gate was re-run on all 47 scripts (episodes/, backlog/, series part 2): **47/47 PASS**.
+
 Reviewed 2026-11-01 (read-only on all existing files). 29 confirmed bugs: 5 high, 18 med, 6 low.
 Each one has a test in `tests/` that fails today and is marked as an expected failure (xfail) with the id below.
 See `tests/README.md` for how to run them.

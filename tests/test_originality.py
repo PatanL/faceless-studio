@@ -37,7 +37,6 @@ class Originality(unittest.TestCase):
                       {"a.txt": "https://x 1000 3.0\n[00:05] " + sentence + " and more\n"})
         self.assertEqual(rc, 1, out)
 
-    @unittest.expectedFailure
     def test_F22_timestamp_between_lines_hides_copied_run(self):
         """F22: '[00:09]' between transcript lines splits a 12-word copy into runs of <= 6 words -> false PASS."""
         src = ("https://x 1000 3.0\n[00:05] It drains your blood of oxygen,\n"
@@ -46,7 +45,6 @@ class Originality(unittest.TestCase):
         rc, out = run(script, {"a.txt": src})
         self.assertEqual(rc, 1, out)
 
-    @unittest.expectedFailure
     def test_F23_curly_apostrophe_hides_copied_run(self):
         """F23: "don’t" (U+2019) vs "don't" tokenizes differently -> a 15-word copy PASSes."""
         sent = "sugar seems innocent at first and you {} know it but it can be lethal"
@@ -54,7 +52,6 @@ class Originality(unittest.TestCase):
         rc, out = run(script, {"a.txt": "[00:01] " + sent.format("don't") + "\n"})
         self.assertEqual(rc, 1, out)
 
-    @unittest.expectedFailure
     def test_F24_producer_notes_dilute_ngram_share(self):
         """F24: only narration should count. 3 shared 5-grams in ~96 narration 5-grams (3.1%) is a FAIL,
         but 200 words of notes outside the narration block push it under 2%."""
