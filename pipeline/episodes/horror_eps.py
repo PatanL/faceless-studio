@@ -505,12 +505,14 @@ def pinned_rules(S):
                            extra=cutaway(pk, pk + 0.3, "Peephole", {"figure": "neighbour", "exprs": [{"t": 0, "e": "stare"}], "lean": 0.5, "flicker": 0.5, "radius": 0.52, "exposure": 1.2, "surround": "#050506"}, push=None)))
     # 12 only one person: hard cut closer on "one" (stare -> grin, red under-light, "Only one") -> full-frame
     #   horror/EndCard (RULE 6 typing + PART 2 stamp) held for the last >= 1.6 s, the phone buzz landing inside it.
-    #   Runs to the end of the mix (the stinger tail rings out).
+    #   Runs to the end of the mix (the stinger tail rings out), longer if the stamp would hold < 1.7 s.
     s = S[12]
     one = s.at("one")
     dur = s.dur
     buzz = _sfx_at(s, "phone_buzz", dur - 0.6)
     card = round(min(buzz - 0.1, dur - 1.6), 3)
+    stamp = round(card + 0.35, 3)
+    dur = round(max(dur, stamp + 1.7), 3)  # PART 2 stamp held >= 1.7 s: runs a short silent tail past the mix if needed
     peep = {"radius": 0.52, "exposure": 1.2, "surround": "#050506", "lean": 0.55, "flicker": 0.5, "lookX": 0, "lookY": 0.1, "figure": "neighbour"}
     out.append({"id": f"p{s.i:02d}", "duration": dur, "background": {"type": "color", "color": "#050506"},
                 "layers": [{"type": "component", "name": "horror/Peephole", "depth": 1, "end": one, "props": {
@@ -525,7 +527,7 @@ def pinned_rules(S):
                     ov("horror/Glitch", z=60, cues=[{"at": one, "duration": 0.2, "amount": 1}], seed="end"),
                     ov("horror/Flicker", strength=0.4, seed="pe"),
                     {"type": "component", "name": "horror/EndCard", "depth": 0, "z": 80, "start": card, "props": {
-                        "rule": "RULE 6:", "from": "Management", "label": "PART 2", "at": card, "stampAt": round(card + 0.6, 3)}}],
+                        "rule": "RULE 6:", "from": "Management", "label": "PART 2", "at": card, "stampAt": stamp}}],
                 "camera": shots_cam([shot(0, 1.0, drift=0.06), shot(one, 1.3, y=0.42), shot(card, 1.0, drift=0)], dur,
                                     shake=[{"at": one, "duration": 0.4, "amplitude": 18}]),
                 "transitionIn": GLITCH, "notes": s.text})
