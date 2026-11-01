@@ -1,0 +1,424 @@
+{
+ "version": 1,
+ "id": "b5-audio-demo",
+ "title": "B5 audio test",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s0",
+   "duration": 6.0,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#1b1f2b",
+     "#0b0d12"
+    ]
+   },
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": []
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "SFX: phone_buzz",
+     "at": 0.45,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    },
+    {
+     "style": "label",
+     "text": "SFX: notify",
+     "at": 2.938,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    }
+   ],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s1",
+   "duration": 3.75,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#2a1418",
+     "#120b0d"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": []
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s2",
+   "duration": 4.875,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#14261f",
+     "#0b1210"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": []
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s3",
+   "duration": 4.594,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#221a30",
+     "#0d0b12"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": [
+     {
+      "at": 1.875,
+      "duration": 0.35,
+      "amplitude": 14
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "SFX: knock3_slow",
+     "at": 1.875,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    }
+   ],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s4",
+   "duration": 3.475,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#1b1f2b",
+     "#0b0d12"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": [
+     {
+      "at": 2.25,
+      "duration": 0.6,
+      "amplitude": 14
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "SFX: heartbeat_slow",
+     "at": 2.25,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    }
+   ],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s5",
+   "duration": 3.5,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#2a1418",
+     "#120b0d"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": []
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "SFX: phone_buzz",
+     "at": 1.025,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    }
+   ],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  },
+  {
+   "id": "s6",
+   "duration": 7.025,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#14261f",
+     "#0b1210"
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6,
+    "shake": [
+     {
+      "at": 3.575,
+      "duration": 0.6,
+      "amplitude": 14
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "B5 AUDIO TEST",
+     "y": "17%",
+     "fontSize": 54,
+     "color": "#8a93a6",
+     "letterSpacing": 0.12,
+     "depth": 0
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 40,
+     "color": "rgba(220,220,255,0.35)"
+    }
+   ],
+   "callouts": [
+    {
+     "style": "label",
+     "text": "SFX: stinger",
+     "at": 3.575,
+     "duration": 1.0,
+     "x": "50%",
+     "y": "30%",
+     "background": "#ff3b5c",
+     "color": "#ffffff",
+     "fontSize": 40
+    }
+   ],
+   "grade": {
+    "vignette": 0.5,
+    "flicker": 0.08
+   }
+  }
+ ],
+ "captions": {
+  "src": "episodes/b5-horror-30s/captions.json",
+  "style": {
+   "highlight": "#ff3b5c"
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/b5-horror-30s/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 33.219
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.06,
+  "vignette": 0.3,
+  "fadeIn": 0.2,
+  "fadeOut": 0.6
+ }
+}
