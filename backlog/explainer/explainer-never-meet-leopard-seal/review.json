@@ -1,0 +1,140 @@
+{
+  "episode": "explainer-never-meet-leopard-seal",
+  "reviewed_at_utc": "2026-11-01T11:50Z",
+  "scores_before": {"retention": 7, "reference": 6, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "Setup is now 9.7% of runtime, with rung 1 at 0:55 (was 1:22). The hook is 77 words in 29.6 s: the rule lands at 7.8 s, the turn at 11.6 s, and the creature is named at 26.7 s. Frame 1 shows the silhouette under the keel. Loop B (airborne penguin) closes explicitly at 2:54 (30%) and loop A (trill) at 4:02 (43%). Every timestamp comes from measured Kokoro durations, so no two lines share a timestamp. Effective rate is 167 wpm, and 'you' is 3.05% of words and 27% of sentences. Remaining risks: rung 1 at 55 s is still 10 s over the PLAYBOOK 45 s target, which is as tight as an immersion-hook mode allows. The 92 s joke gap through the 1985 / 2003 / hypothetical-opening stretch is deliberate.",
+    "reference": "The danger checklist is now in the hook, as in SPERM 0:04-0:11, and L2 is only the 3-credential stack. The bookend restates the safety rule and concedes it before the three callbacks (SPERM 9:29-9:44). Credential 3 is the 1916 Orde-Lees chase (the counterpart of SPERM's Essex), and 2003 is told only inside R6. The JELLY turnstile now exists at 3:15, with a background change on the next word, and the two penguin rungs are adjacent. The ORCA citations were re-checked against VtrcKTkhDHU.md: the quiet qualifier (0:21) is planted at 0:45 and paid at 7:11; the stark number (20:32); the silent plant (2:54) is the anonymous gape at 1:26, paid by 'And his head.'; the dated, named story is cited as 18:14-19:33; the inner verdict (22:14) is voiced as four declaratives. The 13:19 and 23:10 citations were removed. Climax options now use R3 (doorway, tubes planted 3.8 min earlier), R6 (Wood, Orde-Lees), R5 (whiskers read your wake) and R4 (the game). The living-room gag, the 'WHAT DOES IT EAT?' kicker, the 'Yes. More than once.' entry and the 'honest answer' signpost are all replaced. 'Not the only one' is now backed by a second real case (Gareth Wood 1985). Held at 8 because setup is at the top of the 8-10% band.",
+    "originality": "Gate PASS against research/corpus and research/library/transcripts. Four same-topic competitor transcripts were pulled on the Spark and added to the library first (Em9NEjsNN9g Animalogic, QyLYAB5zk7E Casual Geographic, AVcP2-RF0Aw Storified, Zxa6P73Awcg Nat Geo Nicklen). Longest shared run is under 8 words against every source. The highest 5-gram share is 0.06% (SPERM), and the highest competitor share is 0.02%. Facts fixed: size is consistent (3.5 m in R1, 'around three and a half metres by his estimate' plus ScaleBar ~3.5 M in the payoff). Krill are 'often' the food, not 'mostly', and are called krill, not shrimp. The credential is narrowed to 'the only seal in Antarctica'. Song purpose is hedged everywhere, with no territory claim. The restraint claim rests on decades of in-water research diving (Muir, Barnes & Reid 2006), not on tourist counts, and VO and Stat agree on 'over a hundred thousand'. 'Only known' death; '2013 study'; Orde-Lees under-ice tracking; 'offer to cooperate'.",
+    "producibility": "The asset gap is scoped in the shot list: 5 new components (LeopardSeal, Penguin, IceFloe, RIB, CaseFile) plus figure options (You kneel/lying/camera, Diver camera). The existing Seal, Krill, Grizzly (white silhouette), Map pan and Stat with a DAY prefix replace the GenericSeal, globe, polar bear and Timer. The loop diagram and 8 other props are inline SVG already drawn in shots.py. The LeopardSeal rig is one profile body, with the jaw capped at 75 degrees and a carry prop; upside-down is a layer rotate. All shots are side views (no front face, no top-down). CaseFile has a per-scene state and appears as 2.6 s inserts with 7 slots. Every SFX cue maps to an existing file except one NEW seal_trill, whose stand-in is underwater_rumble. There are 49 shots, about 5 per minute. storyboard.json is generated and validates. Held at 7 because the 5 new components, the seal_trill cue and the mapdata additions are still unbuilt."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Setup cut from 82 s to 55 s: the misdirect list is merged into the hook (orcas / polar bears wrong pole / the cold rule), credential 2 is one clause, the promise lands at 0:41, slot 7 at 0:48, rung 1 at 0:55",
+      "Frame 1 threat: a spotted LeopardSeal silhouette slides under the ice keel in shot 1, which the viewer sees and YOU does not, with ice creak + trill stand-in; line 1 is 8 words; the rule line starts at 0:07.8",
+      "Hook trimmed to 77 words / 29.6 s; turn at 0:11.6, name at 0:26.7; 'shakes off' and 'spotted, grey' are gone from the VO and moved into the visual",
+      "Restraint twist rebuilt on in-water exposure: 'Scientists have dived near leopard seals for decades' plus 'one known death, in decades of people working in its water' (F18 Muir, Barnes & Reid 2006); tourists are context only; VO 'over a hundred thousand visitors a season' = Stat '100,000+ VISITORS A SEASON'",
+      "Payoff not spoiled: the 1:26 plant is anonymous ('Wide enough to close over something you'd never expect. We'll get to that.') with a grey '?' and no camera; paid at 8:02-8:08 by 'over his camera. / And his head.', then straight to the gifts",
+      "Second person raised to 3.05% of words / 27% of sentences: R3 doorway is 'the only way out of the water for you' and 'including yours'; R4 ends on 'you're the new thing in its water'; climax option 2 now pays the R3 exit",
+      "Loop B closed explicitly in R3 at 2:54 (30%): 'That's why the penguin by your boot came out flying', with a ghost replay",
+      "Real death to game: 5 s silent pivot before the 2003 case, a 3 s black card after it, then 'Now, a hypothetical, and only that.' with a different scenario (your floe tips); the 1:05 2003 teaser is removed entirely (credential 3 is now 1916)"
+    ],
+    "reference": [
+      "Checklist merged into the hook (SPERM 0:04-0:11 shape) and L2 reduced to the 3-credential stack (SPERM 0:45-0:58); promise at 0:41, rung 1 at 0:55; the pacing table now quotes the real PLAYBOOK target (<=45 s, corpus median 46 s)",
+      "Bookend restates the hook rule and concedes it ('Fair enough: the cold is still far more likely to kill you') before the three callbacks (trill, flying penguin, smile)",
+      "2003 is no longer a teaser: credential 3 is the 1916 Orde-Lees chase; R6 order is Orde-Lees -> joke -> Gareth Wood 1985 -> 5 s silent pivot -> Brown -> 3 s black -> bridge line; the last joke ends 21 s before the case starts",
+      "JELLY turnstile added at 3:15 right after the most graphic beat and its myth correction ('And that still isn't the strangest thing it does to penguins.'), with a hard cut to a new background; R4 (the game) now directly follows R3",
+      "ORCA citations fixed: quiet qualifier planted at 0:45 ('why most people who do still climb out fine') and paid at 7:11 (ORCA 0:21 / 20:19-20:32); payoff cites 18:14-19:33 and uses the 22:14 inner-verdict device ('Clumsy thing. Big eye. Can't hunt. Needs feeding.'); 13:19 and 23:10 citations removed; the 1:26 plant is now silent and anonymous (ORCA 2:54)",
+      "Climax uses facts as weapons: option 1 = speed + boat tubes planted at 2:32 (3.8 min earlier); option 2 = doorway (R3) + Wood standing on ice (R6) + Orde-Lees tracked from underneath; option 3 = whiskers read your wake (R5, hedged 'probably'); option 4 = the game (R4)",
+      "Copied devices replaced: 'living room' gag -> 'hide-and-seek while ringing a bell'; kicker 'WHAT DOES IT EAT?' -> 'ON THE MENU'; RQ->'Yes' entry -> 'Which brings the case file to people.'; verdict signpost -> 'Which closes the case.'",
+      "'More than once' backed by a second verified case: Gareth Wood 1985, bitten twice on the leg, companions kicked the seal off with crampons (F16, Wikipedia + Swissinfo/PBS); the overclaiming 'Yes. More than once.' line is gone",
+      "Twist denominator fixed: in-water research diving over decades is the base; VO and Stat match; F18/F19 cite Muir, Barnes & Reid 2006 and IAATO"
+    ],
+    "originality": [
+      "Competitor leopard-seal transcripts pulled on the Spark (yt-dlp auto-subs) and added to research/library/transcripts (Em9NEjsNN9g, QyLYAB5zk7E, AVcP2-RF0Aw, Zxa6P73Awcg; v8TqC_tGRKE had no subs); gate rerun on the whole script, payoff included: PASS, competitor 5-gram share max 0.02%",
+      "Size contradiction removed: R1 'about three and a half metres'; payoff 'around three and a half metres by his estimate'; ScaleBar ~3.5 M in both places",
+      "Front-matter safety rule now holds: last joke ('most Shackleton ending possible') ends at 5:17, Brown case starts 5:38 after Wood and a 5 s silence; 3 s black after; the climax is a non-mirroring hypothetical (you slip off a floe)",
+      "'MOSTLY eat? Shrimp.' replaced by 'So what fills a mouth like that? / Often? Krill. / Shrimp-like animals about as long as your little finger.'; on-screen 'KRILL.'; F5 cites the 2020 BMC Ecology Cape Shirreff shares",
+      "Credential narrowed to 'the only seal in Antarctica that hunts other seals' (F8)",
+      "Song purpose hedged throughout ('Probably to claim space or call in females. Nobody's certain.'); 'You're in it' and 'sings to claim the water' replaced by 'there's a big male somewhere below you' and 'sings under your feet'",
+      "Restraint statistic rebuilt on in-water research diving (see retention); the icon grid is replaced by a season timeline with one grey tick, so no false 1-in-400 ratio"
+    ],
+    "producibility": [
+      "Asset scope written into the shot list: 5 NEW components + figure options; existing Seal / Krill / Grizzly / Map / Stat reused; 9 small props drawn as inline SVG in shots.py; LeopardSeal named as the first build (about 30 of 49 shots)",
+      "LeopardSeal rig cut to one side-profile body: pose cruise|surface|lunge, jaw, highlight skull|mouth|whiskers, carry, spots; upside-down = layer rotate 180 + flipX; lounging = cruise idle:false + rotate; tooth sieve and fang are svg",
+      "Jaw capped at 75 degrees everywhere (r1i and payoff), or a BlueWhale-style gape 0..1",
+      "No front or top-down views: the face at 0:22 is a side-profile head over the floe edge; the climax opener is a surface-split side view",
+      "Hook figure is You + NEW kneel pose + camera prop (every floe shot: 1, 3-5, 8, 21, 26, 28, 29, 48); Diver + NEW camera only for the Nicklen scenes; shrug uses You",
+      "CaseFile state model: per-scene `state` {stamped, stampAt (scene-local), slot7, label}, 2.6 s right-third inserts, never docked",
+      "Slots spec'd as `slots: 7` with slot 7 grey from 0:48, pulsing at 7:47, yellow at 8:5x",
+      "5:57 misalignment gone: R6 is one sepia shot (s30) covering the whole 1916 story, and shots start 0.15 s before their anchor line from measured TTS",
+      "No duplicate VO timestamps: every line start comes from per-line Kokoro durations (Spark CPU) + fixed gaps; timestamps printed to 0.1 s",
+      "On-screen number matches VO ('over a hundred thousand' / '100,000+')",
+      "DAY counter is `Stat` with prefix 'DAY ' (from 1, value 4, decimals 0), not Timer",
+      "Globe replaced by a Map `views` whip from Antarctica to the Arctic + white Grizzly silhouette + Tag 'WRONG POLE'",
+      "Map data gap documented (PLACES antarcticPeninsula, rothera, southGeorgia; ~20-point Peninsula with Adelaide Island; ~12-point South Georgia); storyboard pins by lon/lat until then",
+      "Every SFX cue mapped to an existing file (door_creak, knock, click, stinger, ding, tick, heartbeat_slow, impact, boom, whoosh, bubbles, footsteps, typing, pop, underwater_rumble); colony chatter / rubber squeak / wind cut; seal_trill flagged as the one NEW cue, to be approved before the hook is built"
+    ]
+  },
+  "nice_to_have_applied": [
+    "Back-third comedy: cat-inspecting-a-box analogy (7:40), deadpan 1 s hold after 'Then dead.', 'Honestly? Fair review.' aside after her verdict (8:36), 'lunch is on her' button",
+    "Pace: effective 167 wpm incl. pauses (target 160-170); body read at Kokoro speed 0.94",
+    "Timestamps retimed from actual Kokoro durations; punch lines get a 0.5 s gap, 'Then dead.' 1.0 s",
+    "177 dB tied to the body: 'loud enough to reach you through the ice' (pays the hook's trill under your knees)",
+    "'mostly eat' replaced by 'Often? Krill.'",
+    "R4 opener is a callback ('Remember that catch-and-release?') that escalates credential 2",
+    "'Or is it just a seal that's already full, killing time?'",
+    "Bookend tightened: 'isn't friendly. It's curious.' then 'If you're very lucky, lunch is on her.'; the unsupported 'not hungry yet' line is cut",
+    "CTA is a two-way choice ('Walrus or elephant seal: who should we put you in the water with next?'), 6 s",
+    "'Only true seal' narrowing applied as 'only seal in Antarctica'",
+    "Rung punches: R1 ends on 'Puppy face. Crocodile job.', R5 on 'And you can't see him.'",
+    "Sympathy seed before the twist: 'Shackleton's crew were stranded on drifting sea ice, eating whatever seals they could catch'",
+    "Hidden plants added: big females (0:55 -> 7:50), whiskers (3:52 -> 6:39), boat tubes (2:32 -> 6:23); the unsourced 'young seals do it more' line cut",
+    "Re-immersion at 48% (target ~47%)",
+    "'In a 2013 study' wording; R2 no longer cites a nonexistent SPERM dated study (shape cited from SPERM 4:26)",
+    "Premise made concrete early: 'It lasted four days, and nobody got bitten.' at 0:48 + Tag '4 DAYS · 0 BITES'",
+    "Monetization: description line 'Narration uses a synthetic voice. All animation is original and code-drawn.' added to front matter",
+    "Brand proximity: on-screen title changed to our own variant 'Why You Should Never Swim With A Leopard Seal'; the Depth Theory wording kept as the A/B alternative in titles.md",
+    "F15 inquest note corrected (coroner for British Antarctic Territory, Stanley), BAS/Nat Geo cited, 'only known' wording",
+    "Orde-Lees told as the usual account (on skis, seal tracked his shadow under the ice, surfaced ahead, Wild shot it); date kept as '1916' only",
+    "Payoff wording 'an offer to cooperate' (Krause, Rogers et al. 2019)",
+    "Cut rate lowered from 56 to 49 shots by merging same-setup shots",
+    "Penguin cut to one species with 4 poses; grab beat is lunge -> hard cut to splash rings + feather-puff particles; carry prop instead of parenting",
+    "1916 sepia shot keeps the seal's head and foreparts behind a floe ridge (no swimming-on-snow lunge)",
+    "Shot 0:10 empty-frame risk gone: every shot has a base visual in storyboard.json"
+  ],
+  "not_applied": [
+    "Rung 1 at 0:55 rather than <=0:45: a 70-90 word immersion hook takes ~30 s on its own; setup is 9.7% (inside the 8-10% macro norm) and rung 1 beats the retention critique's ~0:58 target",
+    "Runtime 571 s rather than the previous 595 s target: still inside 540-600, with effective wpm in the 160-170 band; no padding added",
+    "Bookend is 25 s rather than SPERM's 18 s: the rule restatement + concession (a reference must-fix) costs ~7 s",
+    "Comic gap 5:14 -> 6:45 (92 s) left joke-free on purpose: it spans the 1985 case, the 5 s pivot, the 2003 case, the black card and the hypothetical opening",
+    "Kit work not done in this task: the 5 NEW components, You/Diver options, the seal_trill cue and the mapdata.ts additions are specified (shot list, KIT_GAPS in shots.py), not built; mapdata.ts is a shared kit file",
+    "Rogers et al. primary source for 153-177 dB not opened; flagged in F14 to confirm before posting",
+    "Monetization check against research/R5 deferred: research/R5 is still empty; general rules applied (original code-drawn visuals, voluntary synthetic-voice line, distinct structure and jokes per episode)"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/explainer/explainer-never-meet-leopard-seal/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "longest_shared_run_words": "< 8 with every source (no 8-word run)",
+    "max_shared_5gram_share": "0.06% (fGcgWaswMns transcript / annotation); competitor leopard-seal transcripts max 0.02% (QyLYAB5zk7E)",
+    "competitor_transcripts_added": ["research/library/transcripts/Em9NEjsNN9g.txt", "research/library/transcripts/QyLYAB5zk7E.txt", "research/library/transcripts/AVcP2-RF0Aw.txt", "research/library/transcripts/Zxa6P73Awcg.txt"]
+  },
+  "pacing": {
+    "runtime_s": 571.29,
+    "vo_words": 1576,
+    "effective_wpm": 167.0,
+    "speech_wpm": 181.5,
+    "hook_words": 77,
+    "hook_s": 29.6,
+    "rule_s": 7.8,
+    "turn_s": 11.6,
+    "name_s": 26.7,
+    "promise_s": 41.6,
+    "first_rung_s": 55.3,
+    "setup_pct": 9.7,
+    "you_pct_words": 3.05,
+    "you_pct_sentences": 27.0,
+    "numbers_per_min": 4.9,
+    "rehook_median_gap_s": 13.3,
+    "loop_closes_pct": {"B_airborne": 30, "A_trill": 43, "D_1916": 51, "title_verdict": 74, "qualifier": 76, "E_gift": 93, "rule_bookend": 94, "C_smile": 97},
+    "reimmersion_pct": 48
+  },
+  "tts_check": {
+    "engine": "Kokoro-82M am_michael on the Spark CPU (torch 4 threads, nice 10, CUDA_VISIBLE_DEVICES empty)",
+    "speeds": {"hook": 0.82, "body": 0.94},
+    "lines": 133,
+    "synth_s": 164.1,
+    "file": "backlog/explainer/explainer-never-meet-leopard-seal/tts_durations.json",
+    "script": "backlog/explainer/explainer-never-meet-leopard-seal/tts_measure.py"
+  },
+  "storyboard": {
+    "file": "backlog/explainer/explainer-never-meet-leopard-seal/storyboard.json",
+    "generator": "backlog/explainer/explainer-never-meet-leopard-seal/gen.py (vo.py lines + shots.py shots + doc.py prose -> script.md, storyboard.json, timeline.json)",
+    "validator": "studio/src/cli/validate.ts with the working-tree schema.ts, run on the Spark with Node 22.22",
+    "result": "ok: 16:9 30fps 49 scenes 571.30s captions=1576 words",
+    "unbuilt_components": ["explainer/CaseFile", "explainer/IceFloe", "explainer/LeopardSeal", "explainer/Penguin", "explainer/RIB"],
+    "needs_new_props_on_existing": ["explainer/You pose kneel|lying + camera", "explainer/Diver camera"]
+  }
+}
