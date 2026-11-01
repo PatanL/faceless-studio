@@ -1,0 +1,122 @@
+{
+  "episode": "explainer-short-mantis-shrimp-punch",
+  "reviewed_at_utc": "2026-11-01T11:29Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "The point of view is fixed: a human-size shrimp squares up to YOU in frame 1 and you stay the target until the twist moves it into your home tank. The hook is 9 words, sets the 'twice' teaser and keeps the force answer back. The misdirect is cut, the real size lands at 0:05.5 and the felt first number (double a pro boxer) at 0:07.7. Explicit re-hooks come every ~8 s (max 13 s). The turnstile sits at 51%. The peak goes measured -> lazy-math scale -> 200 tons -> whale, with two gallows jokes. The twist adds a real danger (hitchhikers in home tanks), then a dated reported event, and the stinger ends on 'Tyson', paying off the 0:07 'pro boxer' plant. Held at 8: the mechanism aside is ~7.5 s (longer than the 3-4 s ideal), and the back fifth (twist + stinger, 20 s) is long for a Short.",
+    "reference": "Every alignment-table row was rechecked against XFFjxTllpoA.md, fmZfphacPPQ.md and jw6bS-WL4F4.md, and the overclaims are gone. There is no 'ESC 1-5 chain' claim, the hedge now sits on the scaling (the fmZfphacPPQ 0:15 'somehow' analogue), and the gallows jokes are now about harm to you (XFFjxTllpoA 0:33-0:41). The 'safe if... broken' rule is declared as not borrowed. The title is in a corpus formula (6mRR91AbxjQ 'How X Bite You'). The 'your size' promise starts at 0:10.8 (13%), not 56%. Re-hook gaps are within the Shorts range. Joins are conjunction bridges or 0.1 s gaps, and the only 0.3 s gap is the tone break. Held at 8 because the 20 s twist runs longer than XFFjxTllpoA's 9 s.",
+    "originality": "The gate passes. The narration shares no 5-gram with any file in research/corpus or research/library/transcripts (checked separately: longest shared run < 5 words, 0% 5-gram overlap). Science holes are fixed. 'Supersonic' / 'faster than sound' are removed, since sound in seawater travels ~1,500 m/s. Peaks carry 'can' / 'up to'. ITS muscles are the subject of the mechanism line. 'Usually the weaker hit' matches the Patek & Caldwell 2005 average. The Tyson citation is corrected to Great Yarmouth Sea Life Centre, April 1998 (Mirror report), with 'reportedly' on air and REPORTED on screen. Held at 8 because research/R5 is still empty (policy not checked against our own research), and the beat sheet is shared with other explainer Shorts (series sameness risk).",
+    "producibility": "One new kit figure (explainer/MantisShrimp, props lengthM/pxPerM/align/club track/pose side|display/silhouette, eye-stalk idle) replaces every impossible inline-svg prop. Art is cut to 7 static svgs plus circle/rect layers, all written out in gen_storyboard.py. HeightChart, Timer, the Ocean vignette track, the whip, the chalk equation, the jet seat, the eye and the spearer variant are gone. Every event is anchored to a word index, so the whale never shows before 'blue whale' and Stats land on their numbers. The storyboard validates (25 scenes, 81.5 s), every sfx cue exists, and the max visual hold is 3.0 s. Held at 7: MantisShrimp is unbuilt and needs a 10 s gate render (shots 1-2) before the build, and the timing is a 182 wpm estimate until Kokoro runs."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Misdirect line and the shark/orca shot cut; the hook goes straight to the real-size reveal (0:03.1) and the first felt number (0:07.7)",
+      "First number reframed around the wow: a finger-length club 'can hit at double a pro boxer's punch speed, underwater'. The raw 80 km/h / 50 mph is a silent tag; the car comparison is gone",
+      "One POV: the human-size shrimp squares up to YOU (frame 1, shots 5-7, 12-14, 17-19); no 'your fist' / 'every jab you throw' lines remain",
+      "Peak paragraph rebuilt: the 'seventeen' repeat is gone, and the whip and 'supersonic' are gone because sound in water is ~1,500 m/s. The spine now closes on the force peak plus two jokes about you, and the speed rung ends on its felt image ('before your eyelids even start to close')",
+      "The back third now climbs. After the whale peak comes a tone break ('Okay, relax, giant shrimp are made up'), then a real danger in your home (live-rock hitchhikers, found by snaps at night), then a specific reported event (Great Yarmouth 1998), not a mild fact",
+      "Stinger is on the smasher itself: 'Staff moved him to a tougher tank and named him Tyson.' The last word is Tyson, paying off the 'pro boxer' plant. Hard cut 0.35 s after; the last frame is a tiny shrimp, cracked glass and a giant YOU, the contrast with frame 1. The story was checked: it is Great Yarmouth 1998, not Portsmouth 2007 as the brief assumed",
+      "Number density 5.1/min cardinal (6.6/min with the two ordinal 'second's). 'Fifty times' cut. The g-force pair, 3 ms and 150 ms are shown on screen, not said",
+      "Re-hook gap closed: 'Now that club' (15.8), 'And no muscle is that fast' (23.8), and the micro-hook 'Then it hits you again' (31.5) states the strange outcome first, then the bubble explains it",
+      "Force line reordered: measured figure -> 'Scale that to you with the same lazy math' -> about two hundred tons -> blue whale. The hedge is never on the measured number"
+    ],
+    "reference": [
+      "POV fixed with the viewer as target hook to stinger. The title is in the corpus 'How [creature] [hurts] you' formula (6mRR91AbxjQ); every rung after the scale-up is a consequence for your body, said through euphemism and jokes",
+      "Title promise starts at 0:10.8 (13%): the scale-up moved right after the reveal, and the rungs (speed at your face, too fast to blink, second hit, force) run at human scale on you",
+      "Hook no longer gives the peak away. 'At your size, this shrimp would hit you twice.' teases the second-hit mechanism (paid at 39-51%), and the force answer is held for the peak",
+      "Broken misdirect cut (option b): the 2 s goes to the real-size reveal and the felt boxer number",
+      "Verbal re-hooks at 10.8, 15.8, 23.8, 31.5, 41.8, 53.9, 56.0, 61.3 and 72.2; max gap 13 s",
+      "Joins: P2->P3 is one sentence ('..., so stretch it'). Rungs open with Now / And / Then / And. Gaps are 0.1 s everywhere except the 0.3 s tone break, and there is no [pause]",
+      "Alignment table corrected. The XFFjxTllpoA 0:07-0:23 chain claim is removed and that chain is declared not borrowed. The hedge moved to the speed scaling (fmZfphacPPQ 0:15). The gallows-joke rows now cite jokes about you (XFFjxTllpoA 0:33-0:41). The XFFjxTllpoA 0:43-0:52 'safe if' rule is declared not borrowed, since our twist states no rule",
+      "Twist escalates into real life with you in it: hitchhikers in home fish tanks, then one dated, reported real event. The tone-break self-correction opener replaces 'And this part you can actually go and see'",
+      "Spoken numbers trimmed: 'fifty times', the second 'seventeen', g-force, 80 km/h and the ms values are cut. '2,500x' stays spoken, because the retention lens required the real -> scale order and the scale needs a base; it is also on screen. The freed words went to re-hooks and jokes",
+      "Stinger stays on the smasher. The callback is the jw6bS-WL4F4 0:54 device: an early planted frame ('pro boxer', 0:07) comes back as a nickname. 11 words, ends on 'Tyson'. The finger -> thumb plant and the spearer cousin are gone",
+      "Mechanism line made about the shrimp: 'And no muscle is that fast. A latch holds the club while a saddle-shaped spring loads, like a crossbow, until it lets go.'"
+    ],
+    "originality": [
+      "Gate rerun: PASS (exit 0)",
+      "Supersonic hole fixed by removing every sound-barrier claim (hook, peak, SOUND 343 m/s bar, FASTER THAN SOUND headline, whip); the speed ladder ends on bullet speed",
+      "Tyson citation corrected to Sea Life Centre, Great Yarmouth (Norfolk), April 1998, ~10 cm, quarter-inch glass, moved to a tougher tank (1998 Mirror report). On air it is 'reportedly cracked', milder than the press's 'smashed'; the forum dispute is noted in the fact table",
+      "P9 overclaims removed: no 'you can go and see', no 'big ones'. The line is 'One in an English aquarium, no bigger than your finger, reportedly cracked its own glass', which also pays off the finger plant",
+      "Mechanism logic is about the shrimp's own muscles ('no muscle is that fast' -> latch + spring)",
+      "Peak values carry 'can' / 'up to' (speed, 2,500x, on-screen 80 km/h and 10,000 g); 'over twice as fast' became 'double', which is conservative at 23 vs ~9 m/s",
+      "Force hedge sits on the scaling ('the same lazy math'), never on the measured number",
+      "R5 policy check NOT done: research/R5 is still empty. Do not publish until R5 exists and this Short is checked against it (reused/inauthentic content, AI-voice disclosure, TikTok Creator Rewards > 60 s)"
+    ],
+    "producibility": [
+      "explainer/MantisShrimp specified as one kit Figure (marine.tsx + FIXED registration) with lengthM, pxPerM, align, club track, pose side|display, silhouette and an eye-stalk idle. It is used in every shrimp shot, so scale is honest with You and BlueWhale",
+      "HeightChart dropped. The scale-up is You and the shrimp on the same pxPerM, with layer scale keyframes 1/17.5 -> 1 plus a Stat x17",
+      "Timer dropped. Timing is SpeedBars 'YOUR BLINK 150 ms' vs 'THE STRIKE 3 ms'",
+      "Blackout/vignette no longer depends on the Ocean prop. The g-force is a silent Stat in its own scene; the jet seat is gone",
+      "Shots re-cut to the words: the Stat 400 lands on 'four hundred', the bullet is a 1.15 s insert on 'handgun', the 200 TONS Stat lands on \"it's about\", and the whale enters only on 'a blue whale'",
+      "Runtime fixed against the measured 182 wpm: 243 words, an estimated 81.6 s at 182 wpm (about 78 s at 190 wpm)",
+      "Stinger frame made consistent: the tiny shrimp, crack and giant YOU stay visible under 'TYSON', with a 0.35 s tail and then a hard cut",
+      "Asset list stated in script.md: 1 kit figure plus 7 static svgs (finger, spring, latch, bullet, crack reused, rock, blackout spare); everything else is circle/rect/kit components",
+      "The heartbeat (single) cue is gone; every cue used (whoosh, whoosh_long, impact, pop, tick, click, bubbles, riser, underwater_rumble, ding, footsteps, stinger) exists in studio/public/sfx"
+    ]
+  },
+  "nice_to_have_applied": [
+    "[pause: 0.2] before the turnstile dropped; the riser carries the beat",
+    "Comedy added after the midpoint: 'ignore the screaming physicists', 'the same lazy math', 'You'd get hit twice and remember neither', 'No referee would bother counting you out', 'Okay, relax, giant shrimp are made up'",
+    "Mechanism said in physical order (latch holds, spring loads, release) and cut to one real term plus the crossbow gloss",
+    "Fact flags settled: 'acrylic' cut, 'hardest hitter' superlative cut, 'fifty times' cut, blue whale never called 'the biggest'",
+    "Saturation: titles.md leads with 'twice' (option 1) and keeps the Tyson story as option 6 and thumbnail C",
+    "Alignment table, timing table and shot list fully re-cut (25 shots, generated from the same word anchors as the storyboard)",
+    "US voice -> US units and spelling: math, meters, tons; captions show MPH beside metric",
+    "Authority-style felt comparison without a number: 'before your eyelids even start to close'. The 20k fps camera line was not used, to keep the number count in band",
+    "Deictic-style on-screen pointers: YOU tags with red arrows in shots 1, 17 and 18 (60 px YOU beside the whale)",
+    "Ladder axis made one quantity for speed (boxer -> club -> bullet); force is the second axis after the turnstile",
+    "Front-matter stats recomputed from the final text: 16 sentences, 10 with you (63%), 15 you-words (6.2%)",
+    "Motion smear and shock-cone flicker in frame 1 dropped; the strike reads as a club rotation plus flash rings",
+    "Fact table adds the 14-23 m/s range, the 390-480 microsecond gap between the two peaks, and the 50% / up-to-280% cavitation ratio",
+    "Shot 1 pose changed from 'standing on its tail' to the real meral-spread threat display"
+  ],
+  "not_applied": [
+    "Spoken g-force pair (retention preferred it over 'fifty times'): moved on screen instead (shot 11), because saying it pushed the turnstile to 53-56% and the number count over band",
+    "'Breaks the sound barrier' hook option: physically wrong underwater; replaced by the 'twice' hook",
+    "'Thumb splitters' / spearer content: removed with the stinger rewrite, so the nickname dispute no longer matters",
+    "Ultra-high-speed-camera authority line (Patek 2004): no room under the number budget",
+    "Air/dry stage for the scaled punch: not needed once 'supersonic' is gone; everything stays underwater, on-brand for the ocean kit",
+    "R5 policy confirmation: blocked, research/R5/ is empty"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/explainer/explainer-short-mantis-shrimp-punch/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "runs": "first run of the rewrite: PASS",
+    "narration_only_check": "0 shared 5-grams with any corpus or library transcript file; longest shared run < 5 words"
+  },
+  "pacing": {
+    "runtime_s_est": 81.56,
+    "wpm_assumed": 182,
+    "words": 243,
+    "sentences": 16,
+    "you_sentences": "10/16 (63%)",
+    "you_words_pct": 6.2,
+    "hook_words": 9,
+    "hook_s": 2.97,
+    "first_number_s": 7.67,
+    "turnstile_s": 41.81,
+    "turnstile_pct": 51.3,
+    "spine_close_s": [53.85, 61.03],
+    "spoken_numbers_per_min": {"cardinal": 5.1, "with_ordinals": 6.6},
+    "explicit_rehooks_s": [3.1, 10.8, 15.8, 23.8, 31.5, 41.8, 53.9, 56.0, 61.3, 72.2, 77.6],
+    "max_visual_hold_s": 3.0,
+    "stinger_words": 11,
+    "tail_after_last_word_s": 0.35
+  },
+  "facts_checked_this_pass": [
+    "Tyson: April 1998, Sea Life Centre Great Yarmouth, ~10 cm, quarter-inch glass, moved to a tougher tank (1998 Mirror report reproduced at keyapa.com/mantis/sighting/report1.htm; also retold in Jackie Higgins, Sentient; disputed on reefcentral.com)",
+    "Patek & Caldwell 2005 abstract: impact peaks 400-1,501 N; cavitation peaks up to 504 N, average 50% of impact, can exceed impact by up to 280%"
+  ],
+  "storyboard": {
+    "file": "backlog/explainer/explainer-short-mantis-shrimp-punch/storyboard.json",
+    "generator": "backlog/explainer/explainer-short-mantis-shrimp-punch/gen_storyboard.py",
+    "validator": "studio/src/cli/validate.ts, run on the Spark with Node 22.22.0 --experimental-strip-types (schema.ts md5 identical on Mac and Spark)",
+    "result": "ok: 9:16 30fps 25 scenes 81.50s captions=243 words",
+    "check_storyboards": "MISSING 1 component (explainer/MantisShrimp, specified, unbuilt); max hold 3.0 s",
+    "unbuilt_components": ["explainer/MantisShrimp"],
+    "builder_todo": ["re-time scenes and captions from Kokoro word timings (anchors are word indices in gen_storyboard.py)", "add the voice mix to audio.voice", "10 s gate render of shots 1-2 once MantisShrimp exists"]
+  }
+}

@@ -1,0 +1,4032 @@
+{
+ "version": 1,
+ "id": "explainer-short-mantis-shrimp-punch",
+ "title": "How A Mantis Shrimp Would Hit You Twice",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_hook",
+   "duration": 2.321,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "64%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "display",
+      "club": -40
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "24%",
+     "y": "36%",
+     "width": 220,
+     "height": 110,
+     "props": {
+      "text": "YOU",
+      "at": 0,
+      "size": 40,
+      "accent": "#0b1a22"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "AT YOUR\nSIZE",
+      "at": 0,
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "SIZE"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.0,
+     "volume": 0.7
+    }
+   ],
+   "notes": "Frame 1 is the thumbnail: meral-spread threat pose (real display behaviour), club cocked, YOU tagged.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s02_hit_twice",
+   "duration": 0.746,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "64%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "display",
+      "club": [
+       {
+        "t": 0,
+        "v": -40
+       },
+       {
+        "t": 0.25,
+        "v": 60,
+        "ease": "in"
+       }
+      ]
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "24%"
+      },
+      {
+       "t": 0.3,
+       "x": "17%",
+       "rotate": -12,
+       "ease": "out"
+      },
+      {
+       "t": 0.75,
+       "x": "11%",
+       "rotate": -24,
+       "ease": "out"
+      }
+     ],
+     "z": 4
+    },
+    {
+     "type": "circle",
+     "x": "36%",
+     "y": "50%",
+     "width": 120,
+     "height": 120,
+     "fill": "#ffffff",
+     "keyframes": [
+      {
+       "t": 0.25,
+       "scale": 0.2,
+       "opacity": 1
+      },
+      {
+       "t": 0.45,
+       "scale": 3,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ],
+     "z": 8
+    },
+    {
+     "type": "circle",
+     "x": "30%",
+     "y": "50%",
+     "width": 120,
+     "height": 120,
+     "fill": "#fff6c8",
+     "keyframes": [
+      {
+       "t": 0.65,
+       "scale": 0.2,
+       "opacity": 1
+      },
+      {
+       "t": 0.85,
+       "scale": 2.4,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ],
+     "z": 8
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "HITS YOU\nTWICE",
+      "at": 0.25,
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "TWICE"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.25,
+     "volume": 0.9
+    },
+    {
+     "cue": "pop",
+     "at": 0.65,
+     "volume": 0.8
+    }
+   ],
+   "notes": "Two hits 0.4 s apart: the hook plants \"twice\"; the second ring is warm-tinted (the bubble flash) for the 0:33 payoff.",
+   "camera": {
+    "shake": [
+     {
+      "at": 0.25,
+      "duration": 0.3,
+      "amplitude": 16
+     },
+     {
+      "at": 0.65,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "s03_reveal",
+   "duration": 2.834,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 4,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 300 700\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M60 700 L60 170 Q60 40 150 40 Q240 40 240 170 L240 700 Z\" fill=\"#e8b48f\"/><path d=\"M95 120 Q150 70 205 120 L205 200 Q150 225 95 200 Z\" fill=\"#f6d5bd\"/><path d=\"M80 330 Q150 350 220 330 M80 470 Q150 490 220 470\" stroke=\"#c48d6a\" stroke-width=\"8\" fill=\"none\"/></svg>",
+     "x": "72%",
+     "y": "58%",
+     "width": 300,
+     "height": 700,
+     "z": 3,
+     "rotate": -8
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "40%",
+     "y": "52%",
+     "width": 480,
+     "height": 330,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 3600,
+      "align": "bottom",
+      "pose": "side",
+      "club": -30
+     },
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": "40%",
+     "y": "64%",
+     "width": 360,
+     "height": 80,
+     "props": {
+      "label": "~10 CM",
+      "at": 0.2,
+      "from": "left"
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "30%",
+     "width": 360,
+     "height": 110,
+     "props": {
+      "text": "REAL SIZE",
+      "at": 0.1,
+      "size": 44,
+      "accent": "#0b1a22"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.2,
+     "volume": 0.6
+    }
+   ],
+   "notes": "Hard cut to macro: real shrimp beside a fingertip. \"finger\" is planted here and paid at 1:12.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   }
+  },
+  {
+   "id": "s04_boxer",
+   "duration": 4.848,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 4,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50%",
+     "y": "36%",
+     "width": 960,
+     "height": 520,
+     "props": {
+      "title": "PUNCH SPEED",
+      "rows": [
+       {
+        "label": "PRO BOXER",
+        "value": 9,
+        "unit": "m/s",
+        "color": "#8a9aa3"
+       },
+       {
+        "label": "MANTIS SHRIMP (10 CM)",
+        "value": 23,
+        "unit": "m/s",
+        "color": "#e5483d"
+       }
+      ],
+      "max": 25,
+      "at": 0.1,
+      "duration": 0.7,
+      "stagger": 0.5
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "84%",
+     "y": "22%",
+     "width": 200,
+     "height": 110,
+     "props": {
+      "text": "2x",
+      "at": 1.7640000000000002,
+      "size": 72,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "58%",
+     "width": 900,
+     "height": 110,
+     "props": {
+      "text": "UP TO 80 KM/H · 50 MPH · UNDERWATER",
+      "at": 3.9000000000000004,
+      "size": 38,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.1,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 0.6,
+     "volume": 0.6
+    },
+    {
+     "cue": "whoosh",
+     "at": 3.9,
+     "volume": 0.5
+    }
+   ],
+   "notes": "The felt number is the boxer; the raw speed is a silent tag."
+  },
+  {
+   "id": "s05_scale_up",
+   "duration": 3.15,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "62%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": -30
+     },
+     "flipX": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 0.05714285714285714
+      },
+      {
+       "t": 1.4,
+       "scale": 1.0,
+       "ease": "out"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "22%",
+     "width": 900,
+     "height": 320,
+     "props": {
+      "value": 17,
+      "suffix": "",
+      "at": 0.3,
+      "duration": 0.6,
+      "size": 170,
+      "color": "#e5483d",
+      "decimals": 0,
+      "prefix": "x"
+     },
+     "depth": 0,
+     "z": 19
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.7
+    }
+   ],
+   "notes": "Same pxPerM for both; the shrimp layer scales 1/17.5 -> 1 so the sizes stay honest.",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.5
+   }
+  },
+  {
+   "id": "s06_physicists",
+   "duration": 1.896,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "28%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "62%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": -30
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "86%",
+     "y": "70%",
+     "width": 160,
+     "height": 240,
+     "props": {
+      "pose": "panic",
+      "color": "#ffe14d",
+      "pxPerM": 120,
+      "align": "bottom"
+     },
+     "z": 7,
+     "idle": [
+      {
+       "type": "jitter",
+       "amount": 6,
+       "speed": 8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "86%",
+     "y": "58%",
+     "width": 280,
+     "height": 110,
+     "props": {
+      "text": "PHYSICIST",
+      "at": 0,
+      "size": 34,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "24%",
+     "width": 900,
+     "height": 110,
+     "props": {
+      "text": "LAZY MATH: SAME TIMING, 17x SIZE",
+      "at": 0.1,
+      "size": 38,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.1,
+     "volume": 0.6
+    }
+   ],
+   "notes": "The hedge sits on the scaling itself (fmZfphacPPQ \"somehow\" analogue)."
+  },
+  {
+   "id": "s07_bullet_speed",
+   "duration": 4.412,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "22%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "62%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": [
+       {
+        "t": 0,
+        "v": -40
+       },
+       {
+        "t": 0.9,
+        "v": -40
+       },
+       {
+        "t": 1.0,
+        "v": 55,
+        "ease": "in"
+       }
+      ]
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "22%",
+     "width": 900,
+     "height": 320,
+     "props": {
+      "value": 400,
+      "suffix": " M/S",
+      "at": 0.4,
+      "duration": 0.6,
+      "size": 150,
+      "color": "#e5483d",
+      "decimals": 0,
+      "label": "≈ 900 MPH"
+     },
+     "depth": 0,
+     "z": 19
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "36%",
+     "width": 420,
+     "height": 110,
+     "props": {
+      "text": "AT YOUR FACE",
+      "at": 3.798,
+      "size": 40,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.9,
+     "volume": 0.8
+    }
+   ],
+   "notes": "Count-up lands on \"four hundred\".",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   }
+  },
+  {
+   "id": "s08_handgun",
+   "duration": 1.156,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 20 L250 20 Q390 20 400 60 Q390 100 250 100 L0 100 Z\" fill=\"#c9a24a\"/><rect x=\"0\" y=\"20\" width=\"60\" height=\"80\" fill=\"#8c6d2c\"/><path d=\"M-400 60 L-10 60\" stroke=\"#f3f6f7\" stroke-width=\"6\" stroke-dasharray=\"30 18\" opacity=\".6\"/></svg>",
+     "x": "50%",
+     "y": "36%",
+     "width": 520,
+     "height": 156,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "110%"
+      },
+      {
+       "t": 0.9,
+       "x": "-10%",
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "26%",
+     "width": 700,
+     "height": 110,
+     "props": {
+      "text": "HANDGUN BULLET ~370 M/S",
+      "at": 0.05,
+      "size": 44,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "48%",
+     "width": 700,
+     "height": 110,
+     "props": {
+      "text": "SCALED CLUB ~400 M/S",
+      "at": 0.3,
+      "size": 44,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.05,
+     "volume": 0.8
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "preset": "panLeft",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s09_blink",
+   "duration": 2.444,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50%",
+     "y": "36%",
+     "width": 960,
+     "height": 520,
+     "props": {
+      "title": "HOW LONG IT TAKES",
+      "rows": [
+       {
+        "label": "YOUR BLINK",
+        "value": 150,
+        "unit": "ms",
+        "color": "#8a9aa3"
+       },
+       {
+        "label": "THE STRIKE",
+        "value": 3,
+        "unit": "ms",
+        "color": "#e5483d"
+       }
+      ],
+      "max": 160,
+      "at": 0.1,
+      "duration": 0.6,
+      "stagger": 0.4
+     },
+     "depth": 0,
+     "z": 10
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.1,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 0.5,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Felt timing without a spoken number (the old \"fifty times\" line is cut)."
+  },
+  {
+   "id": "s10_mechanism",
+   "duration": 6.371,
+   "background": {
+    "type": "color",
+    "color": "#05090c"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "46%",
+     "y": "44%",
+     "width": 820,
+     "height": 560,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 7000,
+      "align": "bottom",
+      "pose": "side",
+      "club": -45
+     },
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 300 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 60 Q75 0 150 60 Q225 120 290 60\" stroke=\"#ffe14d\" stroke-width=\"22\" fill=\"none\" stroke-linecap=\"round\"/></svg>",
+     "x": "40%",
+     "y": "40%",
+     "width": 300,
+     "height": 120,
+     "z": 7,
+     "start": 2.4510000000000027,
+     "keyframes": [
+      {
+       "t": 0,
+       "scaleX": 1.0
+      },
+      {
+       "t": 1.2,
+       "scaleX": 0.72,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 110 L10 30 L70 30 L110 70 L70 70 L70 110 Z\" fill=\"#f3f6f7\"/></svg>",
+     "x": "52%",
+     "y": "47%",
+     "width": 90,
+     "height": 90,
+     "z": 7,
+     "start": 1.8510000000000026
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "64%",
+     "y": "54%",
+     "width": 240,
+     "height": 110,
+     "props": {
+      "text": "LATCH",
+      "at": 1.9510000000000027,
+      "size": 38,
+      "accent": "#f3f6f7"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "32%",
+     "width": 380,
+     "height": 110,
+     "props": {
+      "text": "SADDLE SPRING",
+      "at": 2.551000000000003,
+      "size": 38,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "NOT\nMUSCLE",
+      "at": 0,
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "MUSCLE",
+      "out": 1.8510000000000026
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "LIKE A\nCROSSBOW",
+      "at": 5.337,
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "CROSSBOW"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 2.001,
+     "volume": 0.8
+    }
+   ],
+   "notes": "Physical order: latch holds the club, muscles load the spring, latch releases (Patek et al. 2004).",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "s11_release",
+   "duration": 1.311,
+   "background": {
+    "type": "color",
+    "color": "#05090c"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "46%",
+     "y": "44%",
+     "width": 820,
+     "height": 560,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 7000,
+      "align": "bottom",
+      "pose": "side",
+      "club": [
+       {
+        "t": 0,
+        "v": -45
+       },
+       {
+        "t": 0.25,
+        "v": 60,
+        "ease": "in"
+       }
+      ]
+     },
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "20%",
+     "width": 900,
+     "height": 320,
+     "props": {
+      "value": 10000,
+      "suffix": " G",
+      "at": 0.35,
+      "duration": 0.6,
+      "size": 130,
+      "color": "#e5483d",
+      "decimals": 0,
+      "label": "YOU BLACK OUT AT ~5 G"
+     },
+     "depth": 0,
+     "z": 19
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.25,
+     "volume": 0.8
+    }
+   ],
+   "notes": "Silent landmark (fmZfphacPPQ grammar): the g-force pair is shown, not said, to keep the spoken number count in band.",
+   "camera": {
+    "shake": [
+     {
+      "at": 0.25,
+      "duration": 0.25,
+      "amplitude": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12_hits_again",
+   "duration": 1.66,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "26%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "rotate": -10,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "60%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": 60
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "HIT #2",
+      "at": 0,
+      "size": 112,
+      "color": "red",
+      "underline": false
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ],
+   "notes": "Micro re-hook states the strange outcome first.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   }
+  },
+  {
+   "id": "s13_bubble",
+   "duration": 2.752,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "26%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "rotate": -10,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "60%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": 60
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "circle",
+     "x": "40%",
+     "y": "50%",
+     "width": 220,
+     "height": 220,
+     "fill": "rgba(220,240,255,0.35)",
+     "keyframes": [
+      {
+       "t": 0.2,
+       "scale": 0.05
+      },
+      {
+       "t": 1.4,
+       "scale": 1.0,
+       "ease": "out"
+      }
+     ],
+     "z": 8,
+     "stroke": "#e9f6ff",
+     "strokeWidth": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "36%",
+     "width": 520,
+     "height": 110,
+     "props": {
+      "text": "CAVITATION BUBBLE",
+      "at": 0.6,
+      "size": 44,
+      "accent": "#7fe3ff"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.2,
+     "volume": 0.6
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   }
+  },
+  {
+   "id": "s14_collapse",
+   "duration": 5.908,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 6,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "26%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "26%",
+       "rotate": -10
+      },
+      {
+       "t": 1.7479999999999989,
+       "x": "26%",
+       "rotate": -10
+      },
+      {
+       "t": 2.047999999999999,
+       "x": "18%",
+       "rotate": -28,
+       "ease": "out"
+      }
+     ],
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "60%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "side",
+      "club": 60
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "circle",
+     "x": "40%",
+     "y": "50%",
+     "width": 220,
+     "height": 220,
+     "fill": "rgba(220,240,255,0.35)",
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": 1.7479999999999989,
+       "scale": 1.0
+      },
+      {
+       "t": 1.847999999999999,
+       "scale": 0.02,
+       "ease": "in"
+      }
+     ],
+     "z": 8,
+     "stroke": "#e9f6ff",
+     "strokeWidth": 6,
+     "end": 1.847999999999999
+    },
+    {
+     "type": "circle",
+     "x": "40%",
+     "y": "50%",
+     "width": 160,
+     "height": 160,
+     "fill": "#fff3b0",
+     "keyframes": [
+      {
+       "t": 3.5449999999999946,
+       "scale": 0.3,
+       "opacity": 1
+      },
+      {
+       "t": 4.044999999999995,
+       "scale": 3.2,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ],
+     "z": 9,
+     "start": 3.5449999999999946,
+     "blend": "screen"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "HIT #2",
+      "at": 1.847999999999999,
+      "size": 112,
+      "color": "red",
+      "underline": false
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "28%",
+     "width": 640,
+     "height": 110,
+     "props": {
+      "text": "FLASH OF LIGHT + HEAT",
+      "at": 3.5449999999999946,
+      "size": 44,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 1.848,
+     "volume": 0.9
+    },
+    {
+     "cue": "impact",
+     "at": 3.545,
+     "volume": 0.5
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "shake": [
+     {
+      "at": 1.847999999999999,
+      "duration": 0.3,
+      "amplitude": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "s15_turnstile",
+   "duration": 2.078,
+   "background": {
+    "type": "color",
+    "color": "#05090c"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50%",
+     "y": "40%",
+     "width": 960,
+     "height": 520,
+     "props": {
+      "title": "FORCE",
+      "rows": [
+       {
+        "label": "HIT #2  BUBBLE",
+        "value": 50,
+        "unit": "%",
+        "color": "#8a9aa3"
+       },
+       {
+        "label": "HIT #1  CLUB",
+        "value": 100,
+        "unit": "%",
+        "color": "#e5483d",
+        "text": "???"
+       }
+      ],
+      "max": 100,
+      "at": 0.05,
+      "duration": 0.5,
+      "stagger": 0.6
+     },
+     "depth": 0,
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "64%",
+     "width": 320,
+     "height": 110,
+     "props": {
+      "text": "USUALLY",
+      "at": 0.6360000000000028,
+      "size": 40,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.0,
+     "volume": 0.7
+    }
+   ],
+   "notes": "False reassurance; \"usually\" keeps it true (cavitation peaks average ~50% of impact, Patek & Caldwell 2005).",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s16_real_force",
+   "duration": 5.104,
+   "background": {
+    "type": "color",
+    "color": "#05090c"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "50%",
+     "y": "56%",
+     "width": 560,
+     "height": 380,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 4200,
+      "align": "bottom",
+      "pose": "side",
+      "club": [
+       {
+        "t": 0,
+        "v": -40
+       },
+       {
+        "t": 0.8,
+        "v": -40
+       },
+       {
+        "t": 0.9,
+        "v": 60,
+        "ease": "in"
+       }
+      ]
+     },
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "72%",
+     "width": 640,
+     "height": 110,
+     "props": {
+      "text": "MEASURED: UP TO 1,500 N",
+      "at": 0.9,
+      "size": 38,
+      "accent": "#f3f6f7"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "26%",
+     "width": 900,
+     "height": 320,
+     "props": {
+      "value": 2500,
+      "suffix": "x",
+      "at": 2.1400000000000006,
+      "duration": 0.6,
+      "size": 150,
+      "color": "#e5483d",
+      "decimals": 0,
+      "label": "ITS BODY WEIGHT"
+     },
+     "depth": 0,
+     "z": 19
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.9,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.14,
+     "volume": 0.6
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "shake": [
+     {
+      "at": 0.9,
+      "duration": 0.2,
+      "amplitude": 6
+     }
+    ]
+   }
+  },
+  {
+   "id": "s17_scaled_force",
+   "duration": 4.859,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 8,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "26%",
+     "y": "60%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "62%",
+     "y": "62%",
+     "width": 844,
+     "height": 565,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 400,
+      "align": "bottom",
+      "pose": "display",
+      "club": -40
+     },
+     "flipX": true,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "26%",
+     "y": "36%",
+     "width": 220,
+     "height": 110,
+     "props": {
+      "text": "YOU",
+      "at": 0.0,
+      "size": 40,
+      "accent": "#0b1a22"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "36%",
+     "width": 480,
+     "height": 110,
+     "props": {
+      "text": "SAME LAZY MATH",
+      "at": 1.8200000000000003,
+      "size": 38,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "22%",
+     "width": 900,
+     "height": 320,
+     "props": {
+      "value": 200,
+      "suffix": " TONS",
+      "at": 3.1069999999999993,
+      "duration": 0.6,
+      "size": 150,
+      "color": "#e5483d",
+      "decimals": 0,
+      "label": "≈ 190 TONNES"
+     },
+     "depth": 0,
+     "z": 19
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "underwater_rumble",
+     "at": 0.2,
+     "volume": 0.6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "s18_blue_whale",
+   "duration": 2.179,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "48%",
+     "width": 1000,
+     "height": 220,
+     "props": {
+      "pxPerM": 33,
+      "align": "center"
+     },
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "130%"
+      },
+      {
+       "t": 0.7,
+       "x": "50%",
+       "ease": "out"
+      },
+      {
+       "t": 1.5,
+       "x": "50%",
+       "scale": 1
+      },
+      {
+       "t": 1.9,
+       "x": "72%",
+       "scale": 0.08,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": "52%",
+     "width": 60,
+     "height": 80,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 33,
+      "align": "bottom"
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "24%",
+     "y": "45%",
+     "width": 140,
+     "height": 110,
+     "props": {
+      "text": "YOU",
+      "at": 0,
+      "size": 30,
+      "accent": "#0b1a22"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "16%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "ONE PUNCH",
+      "at": 0.1,
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "PUNCH"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "impact",
+     "at": 1.9,
+     "volume": 0.9
+    }
+   ],
+   "notes": "The whale never appears before \"blue whale\" is spoken; it shrinks into the club at \"your chin\".",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   }
+  },
+  {
+   "id": "s19_remember_neither",
+   "duration": 2.5,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 8,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "40%",
+     "y": "74%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "rotate": -90,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "50%",
+     "width": 120,
+     "height": 110,
+     "props": {
+      "text": "1",
+      "at": 0.2,
+      "size": 60,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "50%",
+     "width": 120,
+     "height": 110,
+     "props": {
+      "text": "2",
+      "at": 0.55,
+      "size": 60,
+      "accent": "#ffe14d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "40%",
+     "width": 120,
+     "height": 110,
+     "props": {
+      "text": "?",
+      "at": 1.0,
+      "size": 60,
+      "accent": "#f3f6f7"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.2,
+     "volume": 0.4
+    },
+    {
+     "cue": "ding",
+     "at": 0.55,
+     "volume": 0.4
+    }
+   ],
+   "notes": "Gallows joke 1 (euphemism: knocked out, never said)."
+  },
+  {
+   "id": "s20_referee",
+   "duration": 2.801,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 8,
+     "rays": 7,
+     "snow": 70
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "87%",
+     "width": 1400,
+     "height": 520,
+     "fill": "#1d3a40",
+     "depth": 1,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "40%",
+     "y": "74%",
+     "width": 360,
+     "height": 740,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 400,
+      "align": "bottom"
+     },
+     "rotate": -90,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "76%",
+     "y": "62%",
+     "width": 300,
+     "height": 560,
+     "props": {
+      "pose": "shrug",
+      "color": "#ffe14d",
+      "pxPerM": 300,
+      "align": "bottom"
+     },
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "76%"
+      },
+      {
+       "t": 1.0,
+       "x": "76%"
+      },
+      {
+       "t": 1.6,
+       "x": "115%",
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "76%",
+     "y": "42%",
+     "width": 260,
+     "height": 110,
+     "props": {
+      "text": "REFEREE",
+      "at": 0,
+      "size": 34,
+      "accent": "#ffe14d",
+      "out": 1.0
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "footsteps",
+     "at": 1.0,
+     "volume": 0.5
+    }
+   ],
+   "notes": "Gallows joke 2 pays the boxing frame planted at 0:05 (\"pro boxer\") ahead of \"Tyson\"."
+  },
+  {
+   "id": "s21_tone_break",
+   "duration": 2.368,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#2a2f36",
+     "#15181d"
+    ]
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "50%",
+     "y": "52%",
+     "width": 643,
+     "height": 433,
+     "props": {
+      "lengthM": 1.75,
+      "pxPerM": 300,
+      "align": "bottom",
+      "pose": "display",
+      "club": -30
+     },
+     "silhouette": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1
+      },
+      {
+       "t": 0.6,
+       "scale": 1
+      },
+      {
+       "t": 0.8,
+       "scale": 0.02,
+       "ease": "backIn"
+      }
+     ],
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "30%",
+     "width": 420,
+     "height": 110,
+     "props": {
+      "text": "MADE UP",
+      "at": 0.2,
+      "size": 56,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18,
+     "rotate": -8
+    }
+   ],
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.8,
+     "volume": 0.7
+    }
+   ],
+   "notes": "Self-correcting tone break (PUFFER 0:43 analogue, no profanity)."
+  },
+  {
+   "id": "s22_live_rock",
+   "duration": 5.112,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#2a2f36",
+     "#15181d"
+    ]
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "46%",
+     "width": 900,
+     "height": 620,
+     "fill": "rgba(90,170,200,0.28)",
+     "stroke": "#cfe6ee",
+     "strokeWidth": 10,
+     "radius": 8,
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 700 360\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 360 Q0 230 90 180 Q120 60 250 80 Q330 10 430 70 Q560 40 610 160 Q700 220 680 360 Z\" fill=\"#6f5a4c\"/><g fill=\"#4b3a30\"><circle cx=\"190\" cy=\"230\" r=\"34\"/><circle cx=\"330\" cy=\"160\" r=\"22\"/><circle cx=\"480\" cy=\"250\" r=\"40\"/><circle cx=\"560\" cy=\"170\" r=\"18\"/></g><ellipse cx=\"480\" cy=\"250\" rx=\"30\" ry=\"22\" fill=\"#05090c\"/></svg>",
+     "x": "50%",
+     "y": "58%",
+     "width": 700,
+     "height": 360,
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "69%",
+     "y": "60%",
+     "width": 140,
+     "height": 100,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 900,
+      "align": "bottom",
+      "pose": "side",
+      "club": -30
+     },
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 1.0,
+       "opacity": 1
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "26%",
+     "width": 720,
+     "height": 110,
+     "props": {
+      "text": "HITCHHIKES IN LIVE ROCK",
+      "at": 0.4,
+      "size": 44,
+      "accent": "#7fe3ff",
+      "out": 3.4540000000000006
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "26%",
+     "width": 720,
+     "height": 110,
+     "props": {
+      "text": "INTO HOME FISH TANKS",
+      "at": 3.4540000000000006,
+      "size": 44,
+      "accent": "#7fe3ff"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.0,
+     "volume": 0.4
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "s23_snaps",
+   "duration": 3.383,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#0a0f1a",
+     "#04060a"
+    ]
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "46%",
+     "width": 900,
+     "height": 620,
+     "fill": "rgba(40,80,110,0.25)",
+     "stroke": "#5d7a88",
+     "strokeWidth": 10,
+     "radius": 8,
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 700 360\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 360 Q0 230 90 180 Q120 60 250 80 Q330 10 430 70 Q560 40 610 160 Q700 220 680 360 Z\" fill=\"#6f5a4c\"/><g fill=\"#4b3a30\"><circle cx=\"190\" cy=\"230\" r=\"34\"/><circle cx=\"330\" cy=\"160\" r=\"22\"/><circle cx=\"480\" cy=\"250\" r=\"40\"/><circle cx=\"560\" cy=\"170\" r=\"18\"/></g><ellipse cx=\"480\" cy=\"250\" rx=\"30\" ry=\"22\" fill=\"#05090c\"/></svg>",
+     "x": "50%",
+     "y": "58%",
+     "width": 700,
+     "height": 360,
+     "z": 3,
+     "opacity": 0.6
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "18%",
+     "y": "70%",
+     "width": 200,
+     "height": 380,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 200,
+      "align": "bottom"
+     },
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "66%",
+     "y": "50%",
+     "width": 200,
+     "height": 110,
+     "props": {
+      "text": "SNAP",
+      "at": 0.5,
+      "size": 48,
+      "accent": "#f3f6f7",
+      "out": 0.9
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "58%",
+     "y": "42%",
+     "width": 200,
+     "height": 110,
+     "props": {
+      "text": "SNAP",
+      "at": 1.3,
+      "size": 48,
+      "accent": "#f3f6f7",
+      "out": 1.7
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "click",
+     "at": 0.5,
+     "volume": 0.9
+    },
+    {
+     "cue": "click",
+     "at": 1.3,
+     "volume": 0.9
+    }
+   ],
+   "notes": "",
+   "grade": {
+    "brightness": 0.8,
+    "vignette": 0.5
+   }
+  },
+  {
+   "id": "s24_cracked_glass",
+   "duration": 5.391,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#2a2f36",
+     "#15181d"
+    ]
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "46%",
+     "width": 900,
+     "height": 620,
+     "fill": "rgba(90,170,200,0.28)",
+     "stroke": "#cfe6ee",
+     "strokeWidth": 10,
+     "radius": 8,
+     "z": 2
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "46%",
+     "y": "56%",
+     "width": 200,
+     "height": 140,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 1400,
+      "align": "bottom",
+      "pose": "side",
+      "club": [
+       {
+        "t": 0,
+        "v": -40
+       },
+       {
+        "t": 3.8140000000000014,
+        "v": -40
+       },
+       {
+        "t": 3.9140000000000015,
+        "v": 60,
+        "ease": "in"
+       }
+      ]
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "72%",
+     "width": 760,
+     "height": 110,
+     "props": {
+      "text": "NO BIGGER THAN YOUR FINGER",
+      "at": 1.6929999999999978,
+      "size": 38,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 600 600\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#e9f6ff\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"><path d=\"M300 300 L210 170 L170 40\"/><path d=\"M300 300 L420 220 L560 190\"/><path d=\"M300 300 L330 450 L300 590\"/><path d=\"M300 300 L160 360 L30 420\"/><path d=\"M300 300 L440 400 L520 540\"/><circle cx=\"300\" cy=\"300\" r=\"26\"/><circle cx=\"300\" cy=\"300\" r=\"60\" stroke-width=\"3\"/></g></svg>",
+     "x": "56%",
+     "y": "50%",
+     "width": 420,
+     "height": 420,
+     "z": 6,
+     "start": 3.9140000000000015,
+     "enter": {
+      "type": "zoomIn",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "22%",
+     "width": 940,
+     "height": 110,
+     "props": {
+      "text": "GREAT YARMOUTH, ENGLAND · 1998 (REPORTED)",
+      "at": 0.2,
+      "size": 34,
+      "accent": "#f3f6f7"
+     },
+     "depth": 0,
+     "z": 18
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 3.914,
+     "volume": 0.8
+    }
+   ],
+   "notes": "",
+   "camera": {
+    "shake": [
+     {
+      "at": 3.9140000000000015,
+      "duration": 0.2,
+      "amplitude": 6
+     }
+    ]
+   }
+  },
+  {
+   "id": "s25_tyson",
+   "duration": 3.976,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#2a2f36",
+     "#15181d"
+    ]
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "46%",
+     "width": 900,
+     "height": 620,
+     "fill": "rgba(90,170,200,0.28)",
+     "stroke": "#cfe6ee",
+     "strokeWidth": 10,
+     "radius": 8,
+     "z": 2
+    },
+    {
+     "type": "component",
+     "name": "explainer/MantisShrimp",
+     "x": "46%",
+     "y": "56%",
+     "width": 200,
+     "height": 140,
+     "props": {
+      "lengthM": 0.1,
+      "pxPerM": 1400,
+      "align": "bottom",
+      "pose": "side",
+      "club": -30
+     },
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 600 600\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#e9f6ff\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"><path d=\"M300 300 L210 170 L170 40\"/><path d=\"M300 300 L420 220 L560 190\"/><path d=\"M300 300 L330 450 L300 590\"/><path d=\"M300 300 L160 360 L30 420\"/><path d=\"M300 300 L440 400 L520 540\"/><circle cx=\"300\" cy=\"300\" r=\"26\"/><circle cx=\"300\" cy=\"300\" r=\"60\" stroke-width=\"3\"/></g></svg>",
+     "x": "56%",
+     "y": "50%",
+     "width": 420,
+     "height": 420,
+     "z": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "84%",
+     "y": "64%",
+     "width": 360,
+     "height": 900,
+     "props": {
+      "pose": "point",
+      "pxPerM": 480,
+      "align": "bottom"
+     },
+     "z": 7,
+     "opacity": 0.95
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "74%",
+     "width": 720,
+     "height": 110,
+     "props": {
+      "text": "MOVED TO A TOUGHER TANK",
+      "at": 1.5,
+      "size": 36,
+      "accent": "#f3f6f7",
+      "out": 3.219999999999999
+     },
+     "depth": 0,
+     "z": 18
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "18%",
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "TYSON",
+      "at": 3.219999999999999,
+      "size": 150,
+      "color": "red",
+      "underline": false
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 3.22,
+     "volume": 0.9
+    }
+   ],
+   "notes": "Hard cut 0.35 s after \"Tyson\". The loop restarts on the human-size shrimp of frame 1."
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "words": [
+   {
+    "text": "At",
+    "start": 0.0,
+    "end": 0.25,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 0.25,
+    "end": 0.571
+   },
+   {
+    "text": "size,",
+    "start": 0.571,
+    "end": 0.931
+   },
+   {
+    "text": "this",
+    "start": 0.931,
+    "end": 1.252
+   },
+   {
+    "text": "shrimp",
+    "start": 1.252,
+    "end": 1.644
+   },
+   {
+    "text": "would",
+    "start": 1.644,
+    "end": 2.001
+   },
+   {
+    "text": "hit",
+    "start": 2.001,
+    "end": 2.286
+   },
+   {
+    "text": "you",
+    "start": 2.286,
+    "end": 2.571
+   },
+   {
+    "text": "twice.",
+    "start": 2.571,
+    "end": 2.967
+   },
+   {
+    "text": "The",
+    "start": 3.067,
+    "end": 3.361,
+    "br": true
+   },
+   {
+    "text": "real",
+    "start": 3.361,
+    "end": 3.692
+   },
+   {
+    "text": "one",
+    "start": 3.692,
+    "end": 3.986
+   },
+   {
+    "text": "is",
+    "start": 3.986,
+    "end": 4.243
+   },
+   {
+    "text": "the",
+    "start": 4.243,
+    "end": 4.537
+   },
+   {
+    "text": "size",
+    "start": 4.537,
+    "end": 4.868
+   },
+   {
+    "text": "of",
+    "start": 4.868,
+    "end": 5.126
+   },
+   {
+    "text": "your",
+    "start": 5.126,
+    "end": 5.456
+   },
+   {
+    "text": "finger,",
+    "start": 5.456,
+    "end": 5.901
+   },
+   {
+    "text": "yet",
+    "start": 5.901,
+    "end": 6.195
+   },
+   {
+    "text": "its",
+    "start": 6.195,
+    "end": 6.489
+   },
+   {
+    "text": "club",
+    "start": 6.489,
+    "end": 6.82
+   },
+   {
+    "text": "can",
+    "start": 6.82,
+    "end": 7.114
+   },
+   {
+    "text": "hit",
+    "start": 7.114,
+    "end": 7.408
+   },
+   {
+    "text": "at",
+    "start": 7.408,
+    "end": 7.665
+   },
+   {
+    "text": "double",
+    "start": 7.665,
+    "end": 8.07
+   },
+   {
+    "text": "a",
+    "start": 8.07,
+    "end": 8.29
+   },
+   {
+    "text": "pro",
+    "start": 8.29,
+    "end": 8.584
+   },
+   {
+    "text": "boxer's",
+    "start": 8.584,
+    "end": 9.025
+   },
+   {
+    "text": "punch",
+    "start": 9.025,
+    "end": 9.393
+   },
+   {
+    "text": "speed,",
+    "start": 9.393,
+    "end": 9.801
+   },
+   {
+    "text": "underwater,",
+    "start": 9.801,
+    "end": 10.392
+   },
+   {
+    "text": "so",
+    "start": 10.392,
+    "end": 10.649
+   },
+   {
+    "text": "stretch",
+    "start": 10.749,
+    "end": 11.127,
+    "br": true
+   },
+   {
+    "text": "it",
+    "start": 11.127,
+    "end": 11.347
+   },
+   {
+    "text": "seventeen",
+    "start": 11.347,
+    "end": 11.787
+   },
+   {
+    "text": "times",
+    "start": 11.787,
+    "end": 12.101
+   },
+   {
+    "text": "to",
+    "start": 12.101,
+    "end": 12.322
+   },
+   {
+    "text": "your",
+    "start": 12.322,
+    "end": 12.605
+   },
+   {
+    "text": "height,",
+    "start": 12.605,
+    "end": 12.985
+   },
+   {
+    "text": "keep",
+    "start": 12.985,
+    "end": 13.268
+   },
+   {
+    "text": "the",
+    "start": 13.268,
+    "end": 13.519
+   },
+   {
+    "text": "timing,",
+    "start": 13.519,
+    "end": 13.899
+   },
+   {
+    "text": "and",
+    "start": 13.899,
+    "end": 14.151
+   },
+   {
+    "text": "ignore",
+    "start": 14.151,
+    "end": 14.497
+   },
+   {
+    "text": "the",
+    "start": 14.497,
+    "end": 14.748
+   },
+   {
+    "text": "screaming",
+    "start": 14.748,
+    "end": 15.189
+   },
+   {
+    "text": "physicists.",
+    "start": 15.189,
+    "end": 15.695
+   },
+   {
+    "text": "Now",
+    "start": 15.795,
+    "end": 16.066,
+    "br": true
+   },
+   {
+    "text": "that",
+    "start": 16.066,
+    "end": 16.371
+   },
+   {
+    "text": "club",
+    "start": 16.371,
+    "end": 16.676
+   },
+   {
+    "text": "crosses",
+    "start": 16.676,
+    "end": 17.083
+   },
+   {
+    "text": "to",
+    "start": 17.083,
+    "end": 17.321
+   },
+   {
+    "text": "your",
+    "start": 17.321,
+    "end": 17.626
+   },
+   {
+    "text": "face",
+    "start": 17.626,
+    "end": 17.931
+   },
+   {
+    "text": "at",
+    "start": 17.931,
+    "end": 18.169
+   },
+   {
+    "text": "about",
+    "start": 18.169,
+    "end": 18.508
+   },
+   {
+    "text": "four",
+    "start": 18.508,
+    "end": 18.813
+   },
+   {
+    "text": "hundred",
+    "start": 18.813,
+    "end": 19.22
+   },
+   {
+    "text": "meters",
+    "start": 19.22,
+    "end": 19.593
+   },
+   {
+    "text": "a",
+    "start": 19.593,
+    "end": 19.797
+   },
+   {
+    "text": "second,",
+    "start": 19.797,
+    "end": 20.207
+   },
+   {
+    "text": "handgun",
+    "start": 20.207,
+    "end": 20.614
+   },
+   {
+    "text": "bullet",
+    "start": 20.614,
+    "end": 20.987
+   },
+   {
+    "text": "speed,",
+    "start": 20.987,
+    "end": 21.363
+   },
+   {
+    "text": "before",
+    "start": 21.363,
+    "end": 21.736
+   },
+   {
+    "text": "your",
+    "start": 21.736,
+    "end": 22.042
+   },
+   {
+    "text": "eyelids",
+    "start": 22.042,
+    "end": 22.449
+   },
+   {
+    "text": "even",
+    "start": 22.449,
+    "end": 22.754
+   },
+   {
+    "text": "start",
+    "start": 22.754,
+    "end": 23.093
+   },
+   {
+    "text": "to",
+    "start": 23.093,
+    "end": 23.33
+   },
+   {
+    "text": "close.",
+    "start": 23.33,
+    "end": 23.707
+   },
+   {
+    "text": "And",
+    "start": 23.807,
+    "end": 24.091,
+    "br": true
+   },
+   {
+    "text": "no",
+    "start": 24.091,
+    "end": 24.34
+   },
+   {
+    "text": "muscle",
+    "start": 24.34,
+    "end": 24.731
+   },
+   {
+    "text": "is",
+    "start": 24.731,
+    "end": 24.979
+   },
+   {
+    "text": "that",
+    "start": 24.979,
+    "end": 25.299
+   },
+   {
+    "text": "fast.",
+    "start": 25.299,
+    "end": 25.658
+   },
+   {
+    "text": "A",
+    "start": 25.658,
+    "end": 25.871
+   },
+   {
+    "text": "latch",
+    "start": 25.871,
+    "end": 26.226
+   },
+   {
+    "text": "holds",
+    "start": 26.226,
+    "end": 26.582
+   },
+   {
+    "text": "the",
+    "start": 26.582,
+    "end": 26.866
+   },
+   {
+    "text": "club",
+    "start": 26.866,
+    "end": 27.186
+   },
+   {
+    "text": "while",
+    "start": 27.186,
+    "end": 27.541
+   },
+   {
+    "text": "a",
+    "start": 27.541,
+    "end": 27.754
+   },
+   {
+    "text": "saddle-shaped",
+    "start": 27.754,
+    "end": 28.359
+   },
+   {
+    "text": "spring",
+    "start": 28.359,
+    "end": 28.75
+   },
+   {
+    "text": "loads,",
+    "start": 28.75,
+    "end": 29.144
+   },
+   {
+    "text": "like",
+    "start": 29.144,
+    "end": 29.464
+   },
+   {
+    "text": "a",
+    "start": 29.464,
+    "end": 29.677
+   },
+   {
+    "text": "crossbow,",
+    "start": 29.677,
+    "end": 30.178
+   },
+   {
+    "text": "until",
+    "start": 30.178,
+    "end": 30.533
+   },
+   {
+    "text": "it",
+    "start": 30.533,
+    "end": 30.782
+   },
+   {
+    "text": "lets",
+    "start": 30.782,
+    "end": 31.101
+   },
+   {
+    "text": "go.",
+    "start": 31.101,
+    "end": 31.389
+   },
+   {
+    "text": "Then",
+    "start": 31.489,
+    "end": 31.828,
+    "br": true
+   },
+   {
+    "text": "it",
+    "start": 31.828,
+    "end": 32.091
+   },
+   {
+    "text": "hits",
+    "start": 32.091,
+    "end": 32.43
+   },
+   {
+    "text": "you",
+    "start": 32.43,
+    "end": 32.731
+   },
+   {
+    "text": "again.",
+    "start": 32.731,
+    "end": 33.149
+   },
+   {
+    "text": "The",
+    "start": 33.149,
+    "end": 33.45
+   },
+   {
+    "text": "swing",
+    "start": 33.45,
+    "end": 33.827
+   },
+   {
+    "text": "tears",
+    "start": 33.827,
+    "end": 34.203
+   },
+   {
+    "text": "the",
+    "start": 34.203,
+    "end": 34.504
+   },
+   {
+    "text": "water",
+    "start": 34.504,
+    "end": 34.881
+   },
+   {
+    "text": "into",
+    "start": 34.881,
+    "end": 35.22
+   },
+   {
+    "text": "a",
+    "start": 35.22,
+    "end": 35.445
+   },
+   {
+    "text": "bubble,",
+    "start": 35.445,
+    "end": 35.901
+   },
+   {
+    "text": "and",
+    "start": 35.901,
+    "end": 36.202
+   },
+   {
+    "text": "when",
+    "start": 36.202,
+    "end": 36.541
+   },
+   {
+    "text": "it",
+    "start": 36.541,
+    "end": 36.804
+   },
+   {
+    "text": "caves",
+    "start": 36.804,
+    "end": 37.181
+   },
+   {
+    "text": "in,",
+    "start": 37.181,
+    "end": 37.485
+   },
+   {
+    "text": "it",
+    "start": 37.485,
+    "end": 37.749
+   },
+   {
+    "text": "slams",
+    "start": 37.749,
+    "end": 38.125
+   },
+   {
+    "text": "you",
+    "start": 38.125,
+    "end": 38.427
+   },
+   {
+    "text": "a",
+    "start": 38.427,
+    "end": 38.652
+   },
+   {
+    "text": "second",
+    "start": 38.652,
+    "end": 39.067
+   },
+   {
+    "text": "time,",
+    "start": 39.067,
+    "end": 39.446
+   },
+   {
+    "text": "with",
+    "start": 39.446,
+    "end": 39.785
+   },
+   {
+    "text": "a",
+    "start": 39.785,
+    "end": 40.011
+   },
+   {
+    "text": "flash",
+    "start": 40.011,
+    "end": 40.388
+   },
+   {
+    "text": "of",
+    "start": 40.388,
+    "end": 40.651
+   },
+   {
+    "text": "light",
+    "start": 40.651,
+    "end": 41.028
+   },
+   {
+    "text": "and",
+    "start": 41.028,
+    "end": 41.329
+   },
+   {
+    "text": "heat.",
+    "start": 41.329,
+    "end": 41.709
+   },
+   {
+    "text": "And",
+    "start": 41.809,
+    "end": 42.077,
+    "br": true
+   },
+   {
+    "text": "that's",
+    "start": 42.077,
+    "end": 42.445
+   },
+   {
+    "text": "usually",
+    "start": 42.445,
+    "end": 42.846
+   },
+   {
+    "text": "the",
+    "start": 42.846,
+    "end": 43.114
+   },
+   {
+    "text": "weaker",
+    "start": 43.114,
+    "end": 43.483
+   },
+   {
+    "text": "hit.",
+    "start": 43.483,
+    "end": 43.787
+   },
+   {
+    "text": "Its",
+    "start": 43.887,
+    "end": 44.172,
+    "br": true
+   },
+   {
+    "text": "real",
+    "start": 44.172,
+    "end": 44.493
+   },
+   {
+    "text": "punch",
+    "start": 44.493,
+    "end": 44.85
+   },
+   {
+    "text": "lands",
+    "start": 44.85,
+    "end": 45.207
+   },
+   {
+    "text": "with",
+    "start": 45.207,
+    "end": 45.528
+   },
+   {
+    "text": "up",
+    "start": 45.528,
+    "end": 45.778
+   },
+   {
+    "text": "to",
+    "start": 45.778,
+    "end": 46.027
+   },
+   {
+    "text": "two",
+    "start": 46.027,
+    "end": 46.313
+   },
+   {
+    "text": "and",
+    "start": 46.313,
+    "end": 46.598
+   },
+   {
+    "text": "a",
+    "start": 46.598,
+    "end": 46.812
+   },
+   {
+    "text": "half",
+    "start": 46.812,
+    "end": 47.133
+   },
+   {
+    "text": "thousand",
+    "start": 47.133,
+    "end": 47.597
+   },
+   {
+    "text": "times",
+    "start": 47.597,
+    "end": 47.954
+   },
+   {
+    "text": "its",
+    "start": 47.954,
+    "end": 48.239
+   },
+   {
+    "text": "body",
+    "start": 48.239,
+    "end": 48.56
+   },
+   {
+    "text": "weight.",
+    "start": 48.56,
+    "end": 48.991
+   },
+   {
+    "text": "Scale",
+    "start": 48.991,
+    "end": 49.348
+   },
+   {
+    "text": "that",
+    "start": 49.348,
+    "end": 49.669
+   },
+   {
+    "text": "to",
+    "start": 49.669,
+    "end": 49.919
+   },
+   {
+    "text": "you",
+    "start": 49.919,
+    "end": 50.204
+   },
+   {
+    "text": "with",
+    "start": 50.204,
+    "end": 50.525
+   },
+   {
+    "text": "the",
+    "start": 50.525,
+    "end": 50.811
+   },
+   {
+    "text": "same",
+    "start": 50.811,
+    "end": 51.132
+   },
+   {
+    "text": "lazy",
+    "start": 51.132,
+    "end": 51.453
+   },
+   {
+    "text": "math,",
+    "start": 51.453,
+    "end": 51.813
+   },
+   {
+    "text": "and",
+    "start": 51.813,
+    "end": 52.098
+   },
+   {
+    "text": "it's",
+    "start": 52.098,
+    "end": 52.419
+   },
+   {
+    "text": "about",
+    "start": 52.419,
+    "end": 52.776
+   },
+   {
+    "text": "two",
+    "start": 52.776,
+    "end": 53.061
+   },
+   {
+    "text": "hundred",
+    "start": 53.061,
+    "end": 53.49
+   },
+   {
+    "text": "tons,",
+    "start": 53.49,
+    "end": 53.85
+   },
+   {
+    "text": "a",
+    "start": 53.85,
+    "end": 54.064
+   },
+   {
+    "text": "blue",
+    "start": 54.064,
+    "end": 54.385
+   },
+   {
+    "text": "whale",
+    "start": 54.385,
+    "end": 54.741
+   },
+   {
+    "text": "swung",
+    "start": 54.741,
+    "end": 55.098
+   },
+   {
+    "text": "at",
+    "start": 55.098,
+    "end": 55.348
+   },
+   {
+    "text": "your",
+    "start": 55.348,
+    "end": 55.669
+   },
+   {
+    "text": "chin.",
+    "start": 55.669,
+    "end": 56.029
+   },
+   {
+    "text": "You'd",
+    "start": 56.029,
+    "end": 56.386
+   },
+   {
+    "text": "get",
+    "start": 56.386,
+    "end": 56.671
+   },
+   {
+    "text": "hit",
+    "start": 56.671,
+    "end": 56.956
+   },
+   {
+    "text": "twice",
+    "start": 56.956,
+    "end": 57.313
+   },
+   {
+    "text": "and",
+    "start": 57.313,
+    "end": 57.599
+   },
+   {
+    "text": "remember",
+    "start": 57.599,
+    "end": 58.062
+   },
+   {
+    "text": "neither.",
+    "start": 58.062,
+    "end": 58.529
+   },
+   {
+    "text": "No",
+    "start": 58.529,
+    "end": 58.779
+   },
+   {
+    "text": "referee",
+    "start": 58.779,
+    "end": 59.207
+   },
+   {
+    "text": "would",
+    "start": 59.207,
+    "end": 59.564
+   },
+   {
+    "text": "bother",
+    "start": 59.564,
+    "end": 59.956
+   },
+   {
+    "text": "counting",
+    "start": 59.956,
+    "end": 60.42
+   },
+   {
+    "text": "you",
+    "start": 60.42,
+    "end": 60.705
+   },
+   {
+    "text": "out.",
+    "start": 60.705,
+    "end": 61.03
+   },
+   {
+    "text": "Okay,",
+    "start": 61.33,
+    "end": 61.685,
+    "br": true
+   },
+   {
+    "text": "relax,",
+    "start": 61.685,
+    "end": 62.075
+   },
+   {
+    "text": "giant",
+    "start": 62.075,
+    "end": 62.428
+   },
+   {
+    "text": "shrimp",
+    "start": 62.428,
+    "end": 62.815
+   },
+   {
+    "text": "are",
+    "start": 62.815,
+    "end": 63.096
+   },
+   {
+    "text": "made",
+    "start": 63.096,
+    "end": 63.413
+   },
+   {
+    "text": "up.",
+    "start": 63.413,
+    "end": 63.698
+   },
+   {
+    "text": "The",
+    "start": 63.698,
+    "end": 63.98
+   },
+   {
+    "text": "small",
+    "start": 63.98,
+    "end": 64.332
+   },
+   {
+    "text": "ones",
+    "start": 64.332,
+    "end": 64.649
+   },
+   {
+    "text": "aren't,",
+    "start": 64.649,
+    "end": 65.074
+   },
+   {
+    "text": "and",
+    "start": 65.074,
+    "end": 65.356
+   },
+   {
+    "text": "they",
+    "start": 65.356,
+    "end": 65.673
+   },
+   {
+    "text": "hide",
+    "start": 65.673,
+    "end": 65.99
+   },
+   {
+    "text": "in",
+    "start": 65.99,
+    "end": 66.236
+   },
+   {
+    "text": "live",
+    "start": 66.236,
+    "end": 66.553
+   },
+   {
+    "text": "rock",
+    "start": 66.553,
+    "end": 66.87
+   },
+   {
+    "text": "and",
+    "start": 66.87,
+    "end": 67.152
+   },
+   {
+    "text": "ride",
+    "start": 67.152,
+    "end": 67.469
+   },
+   {
+    "text": "into",
+    "start": 67.469,
+    "end": 67.785
+   },
+   {
+    "text": "home",
+    "start": 67.785,
+    "end": 68.102
+   },
+   {
+    "text": "fish",
+    "start": 68.102,
+    "end": 68.419
+   },
+   {
+    "text": "tanks,",
+    "start": 68.419,
+    "end": 68.81
+   },
+   {
+    "text": "so",
+    "start": 68.81,
+    "end": 69.056
+   },
+   {
+    "text": "you",
+    "start": 69.056,
+    "end": 69.338
+   },
+   {
+    "text": "might",
+    "start": 69.338,
+    "end": 69.69
+   },
+   {
+    "text": "only",
+    "start": 69.69,
+    "end": 70.007
+   },
+   {
+    "text": "find",
+    "start": 70.007,
+    "end": 70.324
+   },
+   {
+    "text": "yours",
+    "start": 70.324,
+    "end": 70.676
+   },
+   {
+    "text": "by",
+    "start": 70.676,
+    "end": 70.922
+   },
+   {
+    "text": "the",
+    "start": 70.922,
+    "end": 71.204
+   },
+   {
+    "text": "snaps",
+    "start": 71.204,
+    "end": 71.556
+   },
+   {
+    "text": "at",
+    "start": 71.556,
+    "end": 71.802
+   },
+   {
+    "text": "night.",
+    "start": 71.802,
+    "end": 72.193
+   },
+   {
+    "text": "One",
+    "start": 72.193,
+    "end": 72.474
+   },
+   {
+    "text": "in",
+    "start": 72.474,
+    "end": 72.721
+   },
+   {
+    "text": "an",
+    "start": 72.721,
+    "end": 72.967
+   },
+   {
+    "text": "English",
+    "start": 72.967,
+    "end": 73.39
+   },
+   {
+    "text": "aquarium,",
+    "start": 73.39,
+    "end": 73.886
+   },
+   {
+    "text": "no",
+    "start": 73.886,
+    "end": 74.132
+   },
+   {
+    "text": "bigger",
+    "start": 74.132,
+    "end": 74.52
+   },
+   {
+    "text": "than",
+    "start": 74.52,
+    "end": 74.837
+   },
+   {
+    "text": "your",
+    "start": 74.837,
+    "end": 75.153
+   },
+   {
+    "text": "finger,",
+    "start": 75.153,
+    "end": 75.579
+   },
+   {
+    "text": "reportedly",
+    "start": 75.579,
+    "end": 76.107
+   },
+   {
+    "text": "cracked",
+    "start": 76.107,
+    "end": 76.53
+   },
+   {
+    "text": "its",
+    "start": 76.53,
+    "end": 76.811
+   },
+   {
+    "text": "own",
+    "start": 76.811,
+    "end": 77.093
+   },
+   {
+    "text": "glass.",
+    "start": 77.093,
+    "end": 77.484
+   },
+   {
+    "text": "Staff",
+    "start": 77.584,
+    "end": 77.949,
+    "br": true
+   },
+   {
+    "text": "moved",
+    "start": 77.949,
+    "end": 78.315
+   },
+   {
+    "text": "him",
+    "start": 78.315,
+    "end": 78.608
+   },
+   {
+    "text": "to",
+    "start": 78.608,
+    "end": 78.864
+   },
+   {
+    "text": "a",
+    "start": 78.864,
+    "end": 79.084
+   },
+   {
+    "text": "tougher",
+    "start": 79.084,
+    "end": 79.523
+   },
+   {
+    "text": "tank",
+    "start": 79.523,
+    "end": 79.852
+   },
+   {
+    "text": "and",
+    "start": 79.852,
+    "end": 80.145
+   },
+   {
+    "text": "named",
+    "start": 80.145,
+    "end": 80.511
+   },
+   {
+    "text": "him",
+    "start": 80.511,
+    "end": 80.804
+   },
+   {
+    "text": "Tyson.",
+    "start": 80.804,
+    "end": 81.21
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 18,
+  "glue": [
+   "pro boxer",
+   "blue whale",
+   "live rock",
+   "fish tanks",
+   "four hundred",
+   "two hundred tons",
+   "saddle-shaped spring",
+   "handgun bullet"
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.7
+  }
+ },
+ "audio": {
+  "voice": [],
+  "music": [
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 0,
+    "volume": 0.3,
+    "duckTo": 0.1,
+    "fadeIn": 0.2,
+    "fadeOut": 0.2
+   }
+  ],
+  "sfx": [],
+  "sfxDir": "sfx",
+  "duckOn": "captions"
+ },
+ "overlays": {
+  "grain": 0,
+  "vignette": 0.15,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}
