@@ -1,0 +1,8011 @@
+{
+ "version": 1,
+ "id": "whatif-sun-gone-5-seconds",
+ "title": "What if the Sun vanished for 5 seconds?",
+ "format": "9:16",
+ "fps": 30,
+ "theme": {
+  "fontDisplay": "Montserrat",
+  "fontBody": "Montserrat",
+  "fontCondensed": "Anton",
+  "accent": "#FFB547",
+  "ink": "#0B0D10",
+  "paper": "#FFFFFF"
+ },
+ "scenes": [
+  {
+   "id": "s01-split-hook",
+   "duration": 7.0,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "clip": true,
+      "mode": "sunClose",
+      "sunScale": 1,
+      "stars": 18
+     },
+     "id": "solarmap-top",
+     "x": 540,
+     "y": 384,
+     "width": 1080,
+     "height": 768,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "whatif/BeachNoon",
+     "props": {
+      "mode": "day",
+      "clip": true,
+      "ghostSun": {
+       "x": 0.82,
+       "y": 0.12,
+       "r": 46
+      },
+      "zoom": [
+       {
+        "t": 0,
+        "v": 1.0
+       },
+       {
+        "t": 7,
+        "v": 1.03,
+        "ease": "linear"
+       }
+      ]
+     },
+     "id": "beach-bottom",
+     "x": 540,
+     "y": 1344,
+     "width": 1080,
+     "height": 1152,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "shadow": "6px 4px 0 rgba(0,0,0,.35)"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 768,
+     "width": 1080,
+     "height": 4,
+     "fill": "#FFFFFF",
+     "opacity": 0.55,
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "SUN · 149.6 MILLION KM AWAY",
+     "x": 540,
+     "y": 720,
+     "fontSize": 28,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)",
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if",
+     "x": "50%",
+     "y": 990,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "start": 0.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "exit": {
+      "type": "fade",
+      "at": 4.7,
+      "duration": 0.2999999999999998
+     }
+    },
+    {
+     "type": "text",
+     "text": "the Sun",
+     "x": "50%",
+     "y": 1100,
+     "fontSize": 132,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "start": 0.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "exit": {
+      "type": "fade",
+      "at": 4.7,
+      "duration": 0.2999999999999998
+     }
+    },
+    {
+     "type": "text",
+     "text": "vanished for 5 seconds?",
+     "x": "50%",
+     "y": 1210,
+     "fontSize": 80,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "start": 0.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "exit": {
+      "type": "fade",
+      "at": 4.7,
+      "duration": 0.2999999999999998
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 0.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You're on Copacabana beach at noon.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 5.1,
+     "end": 7.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Frame 0 = cover. Two vantages: the Sun close up (top 40%) and Copacabana at noon (bottom 60%) with a small Sun in its sky. Title in the beach sky, clear of the seam; clears at 5.0 before caption 1. [screen 0.000-7.000 s]",
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 4.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 5.0,
+     "volume": 0.55
+    },
+    {
+     "cue": "tick",
+     "at": 6.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s02-event",
+   "duration": 5.0,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "clip": true,
+      "mode": "sunClose",
+      "sunScale": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 0.067,
+        "v": 0,
+        "ease": "in"
+       }
+      ],
+      "stars": 18,
+      "emptyMarker": true
+     },
+     "id": "solarmap-top",
+     "x": 540,
+     "y": 384,
+     "width": 1080,
+     "height": 768,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "circle",
+     "x": 540,
+     "y": 384,
+     "width": 300,
+     "height": 300,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#FFFFFF",
+     "strokeWidth": 10,
+     "depth": 0,
+     "z": 8,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 0.6,
+       "opacity": 1
+      },
+      {
+       "t": 0.5,
+       "scale": 2.2,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/BeachNoon",
+     "props": {
+      "mode": "day",
+      "clip": true,
+      "ghostSun": {
+       "x": 0.82,
+       "y": 0.12,
+       "r": 46
+      },
+      "zoom": 1.03
+     },
+     "id": "beach-bottom",
+     "x": 540,
+     "y": 1344,
+     "width": 1080,
+     "height": 1152,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "end": 1.0
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "shrug",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "start": 1.0
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hand",
+     "props": {
+      "look": "warm",
+      "over": "sand",
+      "shimmer": true
+     },
+     "x": 850,
+     "y": 1640,
+     "width": 300,
+     "height": 300,
+     "depth": 0,
+     "z": 40,
+     "start": 3.5,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     },
+     "shadow": "0 6px 20px rgba(0,0,0,.4)"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 768,
+     "width": 1080,
+     "height": 4,
+     "fill": "#FFFFFF",
+     "opacity": 0.55,
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "AT THE SUN",
+     "x": 540,
+     "y": 720,
+     "fontSize": 30,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)"
+    },
+    {
+     "type": "text",
+     "text": "COPACABANA · YOUR VIEW",
+     "x": 540,
+     "y": 810,
+     "fontSize": 30,
+     "font": "display",
+     "weight": 700,
+     "color": "#FFFFFF",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)"
+    },
+    {
+     "type": "text",
+     "text": "STILL SHINING. STILL PULLING.",
+     "x": 760,
+     "y": 1000,
+     "fontSize": 30,
+     "font": "display",
+     "weight": 700,
+     "color": "#FFB547",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)",
+     "start": 1.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 7.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Nothing happens. Yet.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 1.0,
+     "end": 2.9,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "Your skin still feels warm.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 3.5,
+     "end": 5.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Only the AT THE SUN panel changes: white ring + disc gone in 2 frames (no shake: core shake moves the whole frame). The beach is untouched; ghost Sun labelled at 8.5. POV hand inset 10.5-12.0. [screen 7.000-12.000 s]",
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s03-sun-back",
+   "duration": 10.0,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "clip": true,
+      "mode": "sunClose",
+      "sunScale": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.3,
+        "v": 1,
+        "ease": "backOut"
+       }
+      ],
+      "stars": 18,
+      "zoom": [
+       {
+        "t": 0,
+        "v": 1.0
+       },
+       {
+        "t": 1.0,
+        "v": 1.0
+       },
+       {
+        "t": 10,
+        "v": 0.35,
+        "ease": "inOut"
+       }
+      ],
+      "orbits": [
+       "mercury",
+       "venus"
+      ],
+      "band": {
+       "storyT0": 5.0,
+       "storyT1": 15.0
+      }
+     },
+     "id": "solarmap-top",
+     "x": 540,
+     "y": 384,
+     "width": 1080,
+     "height": 768,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "whatif/BeachNoon",
+     "props": {
+      "mode": "day",
+      "clip": true,
+      "ghostSun": {
+       "x": 0.82,
+       "y": 0.12,
+       "r": 46
+      },
+      "zoom": 1.03
+     },
+     "id": "beach-bottom",
+     "x": 540,
+     "y": 1344,
+     "width": 1080,
+     "height": 1152,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 768,
+     "width": 1080,
+     "height": 4,
+     "fill": "#FFFFFF",
+     "opacity": 0.55,
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "text",
+     "text": "AT THE SUN: BACK",
+     "x": 540,
+     "y": 720,
+     "fontSize": 30,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "text",
+     "text": "COPACABANA · YOUR VIEW",
+     "x": 540,
+     "y": 810,
+     "fontSize": 30,
+     "font": "display",
+     "weight": 700,
+     "color": "#FFFFFF",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 55,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)"
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 12.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Your skin still feels warm.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 0.6,
+     "depth": 0,
+     "z": 70,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "Its light needs 8 minutes 19 seconds.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 4.3,
+     "end": 7.4,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "So does its gravity.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 8.6,
+     "end": 10.0,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Sun pops back at the source (T = 5 s). The top panel pulls out (its own zoom track) to show the dark ring leaving the Sun. HUD S1 becomes SHADOW: N MILLION KM AWAY on the same frame. [screen 12.000-22.000 s]",
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s04-shell-ladder",
+   "duration": 16.133333,
+   "background": {
+    "type": "color",
+    "color": "#05070D",
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "mode": "inner",
+      "clip": true,
+      "wash": {
+       "color": "#FFD58A",
+       "opacity": 0.22
+      },
+      "storyT": [
+       {
+        "t": 0,
+        "v": 15
+       },
+       {
+        "t": 16.133333333333333,
+        "v": 499,
+        "ease": "linear"
+       }
+      ],
+      "band": {
+       "thicknessLs": 5,
+       "exaggerate": 12,
+       "edgeColor": "#FFFFFF",
+       "edgeWidth": 3
+      },
+      "planets": [
+       {
+        "name": "mercury",
+        "greyAt": 5.94
+       },
+       {
+        "name": "venus",
+        "greyAt": 11.53
+       },
+       {
+        "name": "earth",
+        "pin": "YOU"
+       }
+      ],
+      "zoom": [
+       {
+        "t": 0,
+        "v": 0.35
+       },
+       {
+        "t": 11.0,
+        "v": 0.12,
+        "ease": "inOut"
+       },
+       {
+        "t": 14.0,
+        "v": 0.12
+       },
+       {
+        "t": 16.133333333333333,
+        "v": 0.5,
+        "ease": "in"
+       }
+      ],
+      "focus": [
+       {
+        "t": 14.0,
+        "v": "sun"
+       },
+       {
+        "t": 16.133333333333333,
+        "v": "earth"
+       }
+      ]
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 140,
+     "color": "#FFFFFF",
+     "size": [
+      1,
+      3
+     ],
+     "speed": 0.2,
+     "seed": 4,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "props": {
+      "at": 0.0,
+      "duration": 0.6,
+      "label": "1.5 MILLION KM",
+      "color": "#FFFFFF",
+      "from": "left",
+      "labelSize": 34
+     },
+     "x": 560,
+     "y": 1180,
+     "width": 420,
+     "height": 120,
+     "start": 9.5,
+     "end": 14.0,
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "rect",
+     "x": 455,
+     "y": 1180,
+     "width": 4,
+     "height": 26,
+     "fill": "#FFFFFF",
+     "start": 9.9,
+     "end": 14.0,
+     "depth": 0,
+     "z": 31,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 560,
+     "y": 1180,
+     "width": 4,
+     "height": 26,
+     "fill": "#FFFFFF",
+     "start": 9.9,
+     "end": 14.0,
+     "depth": 0,
+     "z": 31,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 665,
+     "y": 1180,
+     "width": 4,
+     "height": 26,
+     "fill": "#FFFFFF",
+     "start": 9.9,
+     "end": 14.0,
+     "depth": 0,
+     "z": 31,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 770,
+     "y": 1180,
+     "width": 4,
+     "height": 26,
+     "fill": "#FFFFFF",
+     "start": 9.9,
+     "end": 14.0,
+     "depth": 0,
+     "z": 31,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "text",
+     "text": "4 MOON-DISTANCES",
+     "x": 560,
+     "y": 1230,
+     "fontSize": 26,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 31,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)",
+     "start": 10.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     },
+     "end": 14.0
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 90,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 16.0333,
+       "opacity": 0
+      },
+      {
+       "t": 16.0666,
+       "opacity": 0.85,
+       "ease": "step"
+      },
+      {
+       "t": 16.133333333333333,
+       "opacity": 0.85
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 22.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "So does its gravity.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 0.3,
+     "depth": 0,
+     "z": 70,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "Mercury loses its sunlight first.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 3.8,
+     "end": 6.6,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "The shadow is four Moon-distances thick.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 9.5,
+     "end": 12.4,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Sunlight is a pale amber wash; the 5-light-second gap is a dark band with bright edges, so it reads on black. Mercury greys at 27.94, Venus at 33.53; YOU pin on Earth. Last 2 frames: white rim flash, then cut to black. [screen 22.000-38.133 s]",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.0,
+     "volume": 0.55
+    },
+    {
+     "cue": "ding",
+     "at": 5.94,
+     "volume": 0.35
+    },
+    {
+     "cue": "ding",
+     "at": 11.53,
+     "volume": 0.35
+    },
+    {
+     "cue": "riser",
+     "at": 13.5,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s05-interrupt",
+   "duration": 0.5,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [],
+   "notes": "0.5 s pure black, HUD hidden, 0.4 s hard silence. [screen 38.133-38.633 s]"
+  },
+  {
+   "id": "s06-beach-dark",
+   "duration": 5.366667,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/BeachNoon",
+     "props": {
+      "mode": "day",
+      "clip": true,
+      "ghostSun": null,
+      "zoom": 1.0,
+      "fullFrame": true
+     },
+     "id": "beach-bottom",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "rect",
+     "id": "night",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#0B1A3A",
+     "blend": "multiply",
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "rect",
+     "x": 70,
+     "y": 930,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 130,
+     "y": 905,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 205,
+     "y": 940,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 300,
+     "y": 915,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 365,
+     "y": 950,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 470,
+     "y": 925,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 560,
+     "y": 900,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 650,
+     "y": 945,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 720,
+     "y": 915,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 830,
+     "y": 935,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 905,
+     "y": 905,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 990,
+     "y": 940,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1
+    },
+    {
+     "type": "rect",
+     "x": 90,
+     "y": 1330,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 227,
+     "y": 1419,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 364,
+     "y": 1508,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.3,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 501,
+     "y": 1597,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.45,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 638,
+     "y": 1686,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.6,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 775,
+     "y": 1355,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 912,
+     "y": 1444,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.9,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 149,
+     "y": 1533,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.05,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 286,
+     "y": 1622,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.2,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 423,
+     "y": 1711,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.35,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 560,
+     "y": 1380,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 697,
+     "y": 1469,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.65,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 834,
+     "y": 1558,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.8,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 971,
+     "y": 1647,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.95,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 208,
+     "y": 1736,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.1,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 345,
+     "y": 1405,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.25,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 482,
+     "y": 1494,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.4,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 619,
+     "y": 1583,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.55,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 756,
+     "y": 1672,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.7,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 893,
+     "y": 1341,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.85,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 130,
+     "y": 1430,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 3.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 267,
+     "y": 1519,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 3.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 404,
+     "y": 1608,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.1,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 541,
+     "y": 1697,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.25,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 678,
+     "y": 1366,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.4,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 815,
+     "y": 1455,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.55,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 952,
+     "y": 1544,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.7,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 189,
+     "y": 1633,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.85,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 326,
+     "y": 1722,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "rect",
+     "x": 463,
+     "y": 1391,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "circle",
+     "x": 166,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 194,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 406,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 434,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 626,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 654,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 866,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "circle",
+     "x": 894,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "panic",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "z": 32,
+     "shadow": "0 0 0 rgba(0,0,0,0)"
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 38.6333,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "The beach goes black at noon.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.6667,
+     "end": 2.9667,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Navy multiply rect over the day art (no scene grade, so lights above it stay at full strength). Lit: sparse office windows, phone screens on the sand, headlights. No stars: eyes cannot dark-adapt in 5 s. [screen 38.633-44.000 s]",
+   "camera": {
+    "preset": "drift",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_slow",
+     "at": 1.5,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s07-hand",
+   "duration": 4.0,
+   "background": {
+    "type": "color",
+    "color": "#04060C",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hand",
+     "props": {
+      "look": "dashed"
+     },
+     "x": 540,
+     "y": 1050,
+     "width": 700,
+     "height": 760,
+     "opacity": 0.15,
+     "z": 10
+    },
+    {
+     "type": "circle",
+     "x": 600,
+     "y": 820,
+     "width": 380,
+     "height": 300,
+     "fill": "#8FE3B0",
+     "blur": 60,
+     "z": 12,
+     "blend": "screen",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 600,
+       "y": 820,
+       "opacity": 0.75
+      },
+      {
+       "t": 4,
+       "x": 520,
+       "y": 880,
+       "opacity": 0.2,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": 640,
+     "y": 800,
+     "width": 200,
+     "height": 160,
+     "fill": "#E07AD8",
+     "blur": 40,
+     "z": 13,
+     "blend": "screen",
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0.6
+      },
+      {
+       "t": 4,
+       "opacity": 0.1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 44.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You can't see your own hand.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.4,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "POV: you cannot see your hand; a faint dashed outline marks where it is, and an afterimage of the bright beach drifts and fades. [screen 44.000-48.000 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "heartbeat_slow",
+     "at": 0.2,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "id": "s08-tangent",
+   "duration": 8.0,
+   "background": {
+    "type": "color",
+    "color": "#05070D",
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 220,
+     "color": "#FFFFFF",
+     "size": [
+      1,
+      3
+     ],
+     "speed": 0.15,
+     "seed": 9,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "mode": "earthClose",
+      "clip": true,
+      "orbitArc": {
+       "color": "#FFB547",
+       "dashed": true
+      },
+      "tangent": {
+       "color": "#FFFFFF",
+       "glow": true
+      },
+      "moon": true,
+      "bandTrailingEdge": {
+       "from": 0.0,
+       "to": 1.0
+      },
+      "label": "NO PULL",
+      "labelAt": 1.0
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 48.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Earth stops curving and flies straight.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 1.0,
+     "end": 3.8,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Bright diagram after the dark beach: Earth carries straight on along its tangent while the orbit arc curves away; the band trailing edge closes in from the Sun side. [screen 48.000-56.000 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 1.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s09-palm",
+   "duration": 7.133333,
+   "background": {
+    "type": "gradient",
+    "kind": "linear",
+    "angle": 180,
+    "colors": [
+     "#0B1A3A",
+     "#10264F"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hand",
+     "props": {
+      "look": "bright",
+      "palmWidthPx": 648.0
+     },
+     "x": 540,
+     "y": 820,
+     "width": 760,
+     "height": 820,
+     "z": 10
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1000 10\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"0\" y1=\"5\" x2=\"1000\" y2=\"5\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-dasharray=\"24 16\"/></svg>",
+     "x": 540,
+     "y": 1300,
+     "width": 1000,
+     "height": 10,
+     "z": 20
+    },
+    {
+     "type": "text",
+     "text": "OLD ORBIT",
+     "x": 180,
+     "y": 1335,
+     "fontSize": 26,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 21,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1300,
+     "width": 1000,
+     "height": 6,
+     "fill": "#4FB3FF",
+     "z": 22,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 993.3,
+       "ease": "linear"
+      },
+      {
+       "t": 0.5,
+       "y": 975.9,
+       "ease": "linear"
+      },
+      {
+       "t": 1.0,
+       "y": 958.1,
+       "ease": "linear"
+      },
+      {
+       "t": 1.5,
+       "y": 939.7,
+       "ease": "linear"
+      },
+      {
+       "t": 2.0,
+       "y": 920.8,
+       "ease": "linear"
+      },
+      {
+       "t": 2.5,
+       "y": 901.5,
+       "ease": "linear"
+      },
+      {
+       "t": 3.0,
+       "y": 881.7,
+       "ease": "linear"
+      },
+      {
+       "t": 3.5,
+       "y": 861.4,
+       "ease": "linear"
+      },
+      {
+       "t": 4.0,
+       "y": 840.7,
+       "ease": "linear"
+      },
+      {
+       "t": 4.5,
+       "y": 819.4,
+       "ease": "linear"
+      },
+      {
+       "t": 5.0,
+       "y": 797.7,
+       "ease": "linear"
+      },
+      {
+       "t": 5.5,
+       "y": 775.5,
+       "ease": "linear"
+      },
+      {
+       "t": 6.0,
+       "y": 752.8,
+       "ease": "linear"
+      },
+      {
+       "t": 6.5,
+       "y": 729.6,
+       "ease": "linear"
+      },
+      {
+       "t": 7.0,
+       "y": 706.0,
+       "ease": "linear"
+      },
+      {
+       "t": 7.1333,
+       "y": 699.6,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "EARTH",
+     "x": 180,
+     "y": 1200,
+     "fontSize": 26,
+     "font": "display",
+     "weight": 700,
+     "color": "#4FB3FF",
+     "letterSpacing": 0.08,
+     "depth": 0,
+     "z": 21,
+     "shadow": "0 2px 8px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 958.3,
+       "ease": "linear"
+      },
+      {
+       "t": 0.5,
+       "y": 940.9,
+       "ease": "linear"
+      },
+      {
+       "t": 1.0,
+       "y": 923.1,
+       "ease": "linear"
+      },
+      {
+       "t": 1.5,
+       "y": 904.7,
+       "ease": "linear"
+      },
+      {
+       "t": 2.0,
+       "y": 885.8,
+       "ease": "linear"
+      },
+      {
+       "t": 2.5,
+       "y": 866.5,
+       "ease": "linear"
+      },
+      {
+       "t": 3.0,
+       "y": 846.7,
+       "ease": "linear"
+      },
+      {
+       "t": 3.5,
+       "y": 826.4,
+       "ease": "linear"
+      },
+      {
+       "t": 4.0,
+       "y": 805.7,
+       "ease": "linear"
+      },
+      {
+       "t": 4.5,
+       "y": 784.4,
+       "ease": "linear"
+      },
+      {
+       "t": 5.0,
+       "y": 762.7,
+       "ease": "linear"
+      },
+      {
+       "t": 5.5,
+       "y": 740.5,
+       "ease": "linear"
+      },
+      {
+       "t": 6.0,
+       "y": 717.8,
+       "ease": "linear"
+      },
+      {
+       "t": 6.5,
+       "y": 694.6,
+       "ease": "linear"
+      },
+      {
+       "t": 7.0,
+       "y": 671.0,
+       "ease": "linear"
+      },
+      {
+       "t": 7.1333,
+       "y": 664.6,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 240,
+     "y": 1480,
+     "anchorX": 0,
+     "width": 600.2,
+     "height": 22,
+     "fill": "#FFB547",
+     "radius": 4,
+     "z": 25,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "scaleX": 0.5109,
+       "ease": "linear"
+      },
+      {
+       "t": 0.5,
+       "scaleX": 0.5399,
+       "ease": "linear"
+      },
+      {
+       "t": 1.0,
+       "scaleX": 0.5697,
+       "ease": "linear"
+      },
+      {
+       "t": 1.5,
+       "scaleX": 0.6003,
+       "ease": "linear"
+      },
+      {
+       "t": 2.0,
+       "scaleX": 0.6317,
+       "ease": "linear"
+      },
+      {
+       "t": 2.5,
+       "scaleX": 0.6639,
+       "ease": "linear"
+      },
+      {
+       "t": 3.0,
+       "scaleX": 0.6969,
+       "ease": "linear"
+      },
+      {
+       "t": 3.5,
+       "scaleX": 0.7307,
+       "ease": "linear"
+      },
+      {
+       "t": 4.0,
+       "scaleX": 0.7653,
+       "ease": "linear"
+      },
+      {
+       "t": 4.5,
+       "scaleX": 0.8007,
+       "ease": "linear"
+      },
+      {
+       "t": 5.0,
+       "scaleX": 0.8369,
+       "ease": "linear"
+      },
+      {
+       "t": 5.5,
+       "scaleX": 0.8739,
+       "ease": "linear"
+      },
+      {
+       "t": 6.0,
+       "scaleX": 0.9117,
+       "ease": "linear"
+      },
+      {
+       "t": 6.5,
+       "scaleX": 0.9503,
+       "ease": "linear"
+      },
+      {
+       "t": 7.0,
+       "scaleX": 0.9897,
+       "ease": "linear"
+      },
+      {
+       "t": 7.1333,
+       "scaleX": 1.0003,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 56.0,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "It slips a palm's width off course.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.8,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Drift bar and orbit-line gap follow the HUD formula 0.2965*tau^2 (3.79 cm at 56.0 -> 7.41 cm at 63.13); ticks at 4/5/6/7 cm. [screen 56.000-63.133 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.5,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 2.67,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 4.63,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 6.43,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s10-return",
+   "duration": 2.766667,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/BeachNoon",
+     "props": {
+      "mode": "day",
+      "clip": true,
+      "ghostSun": {
+       "x": 0.82,
+       "y": 0.12,
+       "r": 46
+      },
+      "zoom": 1.0,
+      "fullFrame": true
+     },
+     "id": "beach-bottom",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 5
+    },
+    {
+     "type": "rect",
+     "id": "night",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#0B1A3A",
+     "blend": "multiply",
+     "depth": 0,
+     "z": 20,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "50%"
+      },
+      {
+       "t": 0.3,
+       "x": "150%",
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 70,
+     "y": 930,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 130,
+     "y": 905,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 205,
+     "y": 940,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 300,
+     "y": 915,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 365,
+     "y": 950,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 470,
+     "y": 925,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 560,
+     "y": 900,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 650,
+     "y": 945,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 720,
+     "y": 915,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 830,
+     "y": 935,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 905,
+     "y": 905,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 990,
+     "y": 940,
+     "width": 22,
+     "height": 30,
+     "fill": "#FFB547",
+     "opacity": 0.95,
+     "z": 30,
+     "blur": 1,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 90,
+     "y": 1330,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 227,
+     "y": 1419,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 364,
+     "y": 1508,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.3,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 501,
+     "y": 1597,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.45,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 638,
+     "y": 1686,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.6,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 775,
+     "y": 1355,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 912,
+     "y": 1444,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.9,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 149,
+     "y": 1533,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.05,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 286,
+     "y": 1622,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.2,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 423,
+     "y": 1711,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.35,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 560,
+     "y": 1380,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.5,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 697,
+     "y": 1469,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.65,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 834,
+     "y": 1558,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.8,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 971,
+     "y": 1647,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.95,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 208,
+     "y": 1736,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.1,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 345,
+     "y": 1405,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.25,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 482,
+     "y": 1494,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.4,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 619,
+     "y": 1583,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.55,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 756,
+     "y": 1672,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.7,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 893,
+     "y": 1341,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 2.85,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 130,
+     "y": 1430,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 3.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 267,
+     "y": 1519,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 3.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 404,
+     "y": 1608,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.1,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 541,
+     "y": 1697,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.25,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 678,
+     "y": 1366,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.4,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 815,
+     "y": 1455,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.55,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 952,
+     "y": 1544,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.7,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 189,
+     "y": 1633,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 0.85,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 326,
+     "y": 1722,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": 463,
+     "y": 1391,
+     "width": 14,
+     "height": 24,
+     "fill": "#CFE3FF",
+     "radius": 3,
+     "z": 31,
+     "blur": 1.5,
+     "start": 1.15,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 166,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 194,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 406,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 434,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 626,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 654,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 866,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "circle",
+     "x": 894,
+     "y": 1065,
+     "width": 16,
+     "height": 16,
+     "fill": "#FFF6D8",
+     "z": 31,
+     "blur": 3,
+     "exit": {
+      "type": "fade",
+      "at": 0.2,
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "panic",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "z": 32,
+     "end": 0.4
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "wave",
+      "color": "#3A8FD6"
+     },
+     "x": 300,
+     "y": 1560,
+     "width": 200,
+     "height": 330,
+     "z": 32,
+     "start": 0.4
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 63.1333,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Light and gravity return.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.2667,
+     "end": 2.2667,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Light sweeps back: the navy rect slides off to the right in 0.3 s. SUN BACK / COPACABANA, 8 MIN 24 S LATER. Caption 12 at 63.4. [screen 63.133-65.900 s]",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s11-orbit-twist",
+   "duration": 5.1,
+   "background": {
+    "type": "color",
+    "color": "#05070D",
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "stars",
+     "count": 160,
+     "color": "#FFFFFF",
+     "size": [
+      1,
+      3
+     ],
+     "speed": 0.1,
+     "seed": 12,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "whatif/SolarMap",
+     "props": {
+      "mode": "fullOrbit",
+      "clip": true,
+      "oldOrbit": {
+       "color": "#FFFFFF",
+       "dashed": true
+      },
+      "newOrbit": {
+       "color": "#FFB547"
+      },
+      "offsetExaggerate": 3000,
+      "offsetLabel": "UP TO 149 KM",
+      "offsetLabelAt": 0.8,
+      "planets": [
+       {
+        "name": "earth",
+        "pin": "YOU"
+       }
+      ]
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "props": {
+      "text": "+47 µS / YEAR",
+      "color": "#FFB547"
+     },
+     "x": 760,
+     "y": 1150,
+     "width": 360,
+     "height": 90,
+     "start": 2.4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     },
+     "z": 30
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 65.9,
+      "lines": {
+       "L": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "SUN VANISHES IN"
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "SINCE THE SUN VANISHED"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "SUN BACK"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "{v}",
+         "clock": true,
+         "track": [
+          {
+           "t": 0,
+           "v": 7
+          },
+          {
+           "t": 7,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3
+        },
+        {
+         "from": 7,
+         "to": 63.13333333333333,
+         "text": "T+{v}",
+         "suffix": "/ 8:24",
+         "clock": true,
+         "formula": "story_T(t)",
+         "track": [
+          {
+           "t": 7,
+           "v": 0
+          },
+          {
+           "t": 22.0,
+           "v": 15,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 499,
+           "ease": "linear"
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 504,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 3,
+         "msBlurAbove": 10
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "T+8:24.000",
+         "suffix": "/ 8:24"
+        }
+       ],
+       "C": [
+        {
+         "from": 7,
+         "to": 22.0,
+         "text": "1×"
+        },
+        {
+         "from": 22.0,
+         "to": 38.13333333333333,
+         "text": "▶▶ 30×"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SLOW-MO 5×"
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 71,
+         "text": "1×"
+        }
+       ],
+       "S1": [
+        {
+         "from": 0,
+         "to": 7,
+         "text": "ONE YEAR: 365.256 DAYS"
+        },
+        {
+         "from": 7,
+         "to": 12,
+         "text": "AT THE SUN: BACK IN {v} S",
+         "track": [
+          {
+           "t": 7,
+           "v": 5
+          },
+          {
+           "t": 12,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 12,
+         "to": 37.97,
+         "text": "SHADOW: {v} MILLION KM AWAY",
+         "formula": "0.299792 * (499 - story_T(t))",
+         "track": [
+          {
+           "t": 12,
+           "v": 148.097
+          },
+          {
+           "t": 22.0,
+           "v": 145.1,
+           "ease": "linear"
+          },
+          {
+           "t": 38.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 37.97,
+         "to": 38.13333333333333,
+         "text": "SHADOW: HERE"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 63.13333333333333,
+         "text": "SHADOW HERE · LIGHT BACK IN {v} S",
+         "formula": "5 - tau",
+         "track": [
+          {
+           "t": 38.63333333333333,
+           "v": 4.9
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 0,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 68.3,
+         "text": "COPACABANA, 8 MIN 24 S LATER"
+        },
+        {
+         "from": 68.3,
+         "to": 71,
+         "text": "YOUR YEAR NOW: 365.256 DAYS + 47 µS. FOREVER.",
+         "accent": true
+        }
+       ],
+       "S2": [
+        {
+         "from": 2,
+         "to": 7,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M²"
+        },
+        {
+         "from": 7,
+         "to": 10.3,
+         "text": "SUNLIGHT ON YOU: 1,000 W/M² · STILL ARRIVING"
+        },
+        {
+         "from": 10.3,
+         "to": 22.0,
+         "text": "THE LIGHT ON YOUR SKIN: 8 MIN OLD"
+        },
+        {
+         "from": 27.94,
+         "to": 33.53,
+         "text": "MERCURY: DARK AT T+3:13"
+        },
+        {
+         "from": 33.53,
+         "to": 38.13333333333333,
+         "text": "VENUS: DARK AT T+6:01"
+        },
+        {
+         "from": 38.63333333333333,
+         "to": 41,
+         "text": "SUNLIGHT ON YOU: 0 W/M² · SOLAR: 0",
+         "accent": true
+        },
+        {
+         "from": 41,
+         "to": 63.13333333333333,
+         "text": "MISSED SUNLIGHT: {v} HRS OF ALL HUMAN ENERGY",
+         "formula": "2.453 * tau",
+         "track": [
+          {
+           "t": 41,
+           "v": 1.406
+          },
+          {
+           "t": 63.13333333333333,
+           "v": 12.27,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "MISSED: 12 HOURS OF ALL HUMAN ENERGY"
+        }
+       ],
+       "S3": [
+        {
+         "from": 49,
+         "to": 63.13333333333333,
+         "text": "OFF ORBIT BY {v} CM",
+         "formula": "0.2965 * tau^2",
+         "track": [
+          {
+           "t": 49.0,
+           "v": 1.4,
+           "ease": "linear"
+          },
+          {
+           "t": 49.5,
+           "v": 1.532,
+           "ease": "linear"
+          },
+          {
+           "t": 50.0,
+           "v": 1.67,
+           "ease": "linear"
+          },
+          {
+           "t": 50.5,
+           "v": 1.814,
+           "ease": "linear"
+          },
+          {
+           "t": 51.0,
+           "v": 1.963,
+           "ease": "linear"
+          },
+          {
+           "t": 51.5,
+           "v": 2.119,
+           "ease": "linear"
+          },
+          {
+           "t": 52.0,
+           "v": 2.28,
+           "ease": "linear"
+          },
+          {
+           "t": 52.5,
+           "v": 2.448,
+           "ease": "linear"
+          },
+          {
+           "t": 53.0,
+           "v": 2.621,
+           "ease": "linear"
+          },
+          {
+           "t": 53.5,
+           "v": 2.801,
+           "ease": "linear"
+          },
+          {
+           "t": 54.0,
+           "v": 2.986,
+           "ease": "linear"
+          },
+          {
+           "t": 54.5,
+           "v": 3.177,
+           "ease": "linear"
+          },
+          {
+           "t": 55.0,
+           "v": 3.374,
+           "ease": "linear"
+          },
+          {
+           "t": 55.5,
+           "v": 3.577,
+           "ease": "linear"
+          },
+          {
+           "t": 56.0,
+           "v": 3.786,
+           "ease": "linear"
+          },
+          {
+           "t": 56.5,
+           "v": 4.001,
+           "ease": "linear"
+          },
+          {
+           "t": 57.0,
+           "v": 4.222,
+           "ease": "linear"
+          },
+          {
+           "t": 57.5,
+           "v": 4.448,
+           "ease": "linear"
+          },
+          {
+           "t": 58.0,
+           "v": 4.681,
+           "ease": "linear"
+          },
+          {
+           "t": 58.5,
+           "v": 4.92,
+           "ease": "linear"
+          },
+          {
+           "t": 59.0,
+           "v": 5.164,
+           "ease": "linear"
+          },
+          {
+           "t": 59.5,
+           "v": 5.414,
+           "ease": "linear"
+          },
+          {
+           "t": 60.0,
+           "v": 5.671,
+           "ease": "linear"
+          },
+          {
+           "t": 60.5,
+           "v": 5.933,
+           "ease": "linear"
+          },
+          {
+           "t": 61.0,
+           "v": 6.201,
+           "ease": "linear"
+          },
+          {
+           "t": 61.5,
+           "v": 6.476,
+           "ease": "linear"
+          },
+          {
+           "t": 62.0,
+           "v": 6.756,
+           "ease": "linear"
+          },
+          {
+           "t": 62.5,
+           "v": 7.042,
+           "ease": "linear"
+          },
+          {
+           "t": 63.0,
+           "v": 7.334,
+           "ease": "linear"
+          },
+          {
+           "t": 63.133,
+           "v": 7.412,
+           "ease": "linear"
+          }
+         ],
+         "decimals": 1
+        },
+        {
+         "from": 63.13333333333333,
+         "to": 66.7,
+         "text": "OFF ORBIT BY 7.4 CM"
+        },
+        {
+         "from": 66.7,
+         "to": 71,
+         "text": "THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS",
+         "accent": true
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#FFB547",
+      "chipLine": "C"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 250,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 900,
+     "height": 360,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "But Earth's orbit stays shifted.",
+     "x": "50%",
+     "y": 1400,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.6,
+     "depth": 0,
+     "z": 70,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Twist: old orbit dashed white, new orbit amber, offset exaggerated. HUD: THAT 7.4 CM BECOMES 149 KM IN 3 MONTHS (66.7), YOUR YEAR NOW: 365.256 DAYS + 47 uS. FOREVER. (68.3). [screen 65.900-71.000 s]",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 0.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s12-black",
+   "duration": 1.5,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [],
+   "notes": "Black, music tail, HUD hidden. [screen 71.000-72.500 s]"
+  },
+  {
+   "id": "s13-endcard",
+   "duration": 7.5,
+   "background": {
+    "type": "color",
+    "color": "#0B0D10",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "text",
+     "text": "What if",
+     "x": "50%",
+     "y": 990,
+     "fontSize": 92,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "start": 0.0,
+     "end": 7.5,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "the Sun",
+     "x": "50%",
+     "y": 1100,
+     "fontSize": 132,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#FFB547",
+     "start": 0.0,
+     "end": 7.5,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "vanished for 5 seconds?",
+     "x": "50%",
+     "y": 1210,
+     "fontSize": 80,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "start": 0.0,
+     "end": 7.5,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.5)",
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "IN 2017, LIGHT AND GRAVITY CROSSED 130 MILLION LIGHT-YEARS\nAND ARRIVED 1.7 S APART. SAME SPEED.",
+     "x": "50%",
+     "y": 1360,
+     "fontSize": 34,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "lineHeight": 1.4,
+     "maxWidth": 900,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Exact title repeat in the frame-0 position (loop) + GW170817 fact held 6.5 s. Silent. [screen 72.500-80.000 s]",
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.2
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": false
+ },
+ "audio": {
+  "voice": [],
+  "music": [
+   {
+    "src": "music/documentary_pulse.m4a",
+    "start": 0.0,
+    "end": 38.1333,
+    "volume": 0.3,
+    "duckTo": 0.12,
+    "fadeIn": 0.2,
+    "fadeOut": 0.03
+   },
+   {
+    "src": "sfx/clock_ticking.wav",
+    "start": 13.0,
+    "end": 22.0,
+    "volume": 0.3,
+    "duckTo": 0.2,
+    "fadeIn": 0.2,
+    "fadeOut": 0.1,
+    "loop": true
+   },
+   {
+    "src": "sfx/drone.wav",
+    "start": 38.5333,
+    "end": 63.1333,
+    "volume": 0.3,
+    "duckTo": 0.22,
+    "fadeIn": 0.3,
+    "fadeOut": 0.1,
+    "loop": true
+   },
+   {
+    "src": "music/documentary_pulse.m4a",
+    "start": 63.1333,
+    "end": 72.5,
+    "volume": 0.3,
+    "duckTo": 0.12,
+    "fadeIn": 0.3,
+    "fadeOut": 1.5
+   }
+  ],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.03,
+  "vignette": 0.1,
+  "fadeIn": 0,
+  "fadeOut": 0.4
+ }
+}
