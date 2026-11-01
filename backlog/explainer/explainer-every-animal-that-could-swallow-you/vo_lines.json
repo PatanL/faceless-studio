@@ -1,0 +1,683 @@
+{
+ "_doc": "VO source of truth for explainer-shoulder-test. One entry per spoken line. pause = silence after the line in seconds (0.15 line, 0.35 question micro-loop, 0.55 punch line, 0.75 verdict stamp / beat end). screen = kicker text (Headline/Tag). Timings come from Kokoro am_michael 0.96 measured on the Spark CPU (durations.json) via timing.py.",
+ "voice": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "lang": "a",
+  "speed": 0.96
+ },
+ "lines": [
+  {
+   "id": "H1",
+   "beat": "L1 HOOK",
+   "text": "You're about to be fed to six ocean giants.",
+   "screen": "SIX GIANTS. ONE OF YOU.",
+   "pause": 0.15
+  },
+  {
+   "id": "H2",
+   "beat": "L1 HOOK",
+   "text": "There's one test your shoulders have to pass: will they fit down the throat?",
+   "screen": "DO YOUR SHOULDERS FIT?",
+   "pause": 0.35
+  },
+  {
+   "id": "T1",
+   "beat": "L1 TEASERS",
+   "text": "On the way: a fish dated by nuclear bombs, a whale that has held people in its mouth, a fish that inhales sharks, and one throat nobody has measured.",
+   "screen": "BOMB-DATED · PEOPLE IN ITS MOUTH · INHALES SHARKS · NEVER MEASURED",
+   "pause": 0.4
+  },
+  {
+   "id": "R1",
+   "beat": "L2 RULES",
+   "text": "Teeth don't count.",
+   "screen": "GREAT WHITE ✕  ORCA ✕",
+   "pause": 0.3
+  },
+  {
+   "id": "R2",
+   "beat": "L2 RULES",
+   "text": "The rules: just you, nothing in your hands or pockets, no gear.",
+   "screen": "JUST YOU · NO GEAR",
+   "pause": 0.15
+  },
+  {
+   "id": "R3",
+   "beat": "L2 GAUGE",
+   "text": "Across the muscle, your shoulders are about forty-five centimetres: a party-size pizza box.",
+   "screen": "~45 CM ≈ PARTY-SIZE PIZZA BOX",
+   "pause": 0.15
+  },
+  {
+   "id": "R4",
+   "beat": "L2 GAUGE",
+   "text": "Smaller adults are closer to forty. Hold on to that.",
+   "screen": "SMALLER ADULTS ~40 CM",
+   "pause": 0.2
+  },
+  {
+   "id": "R5",
+   "beat": "L3 BOARD",
+   "text": "To pass, a throat must open wider than this red ring, and every giant gets the most generous estimate we could find.",
+   "screen": "PASS = WIDER THAN THE RING · THE SHOULDER GAUGE",
+   "pause": 0.4
+  },
+  {
+   "id": "B1",
+   "beat": "R6 BLUE WHALE",
+   "text": "Number six: the biggest animal known to have ever lived. The blue whale.",
+   "screen": "#6 BLUE WHALE",
+   "pause": 0.15
+  },
+  {
+   "id": "B2",
+   "beat": "R6 BLUE WHALE",
+   "text": "Around thirty metres. That's two and a half school buses, nose to tail.",
+   "screen": "~30 M ≈ 2.5 BUSES",
+   "pause": 0.15
+  },
+  {
+   "id": "B3",
+   "beat": "R6 BLUE WHALE",
+   "text": "One lunge can take in more water than the whale itself weighs, and you'd be one small part of it.",
+   "screen": "1 GULP > ITS OWN WEIGHT",
+   "pause": 0.15
+  },
+  {
+   "id": "B4",
+   "beat": "R6 BLUE WHALE",
+   "text": "So you're floating at the surface. A shadow rises under you, the jaw drops, and you go in with the water.",
+   "screen": "",
+   "pause": 0.3
+  },
+  {
+   "id": "B5",
+   "beat": "R6 GAUGE",
+   "text": "So what stops you?",
+   "screen": "WHAT STOPS YOU?",
+   "pause": 0.35
+  },
+  {
+   "id": "B6",
+   "beat": "R6 GAUGE",
+   "text": "The throat.",
+   "screen": "THE THROAT",
+   "pause": 0.5
+  },
+  {
+   "id": "B7",
+   "beat": "R6 GAUGE",
+   "text": "Most estimates put it somewhere between a grapefruit and a dinner plate.",
+   "screen": "GRAPEFRUIT → DINNER PLATE",
+   "pause": 0.15
+  },
+  {
+   "id": "B8",
+   "beat": "R6 GAUGE",
+   "text": "The widest claim out there is a small beach ball, about thirty-five centimetres. We'll take it.",
+   "screen": "WIDEST CLAIM: ~35 CM",
+   "pause": 0.15
+  },
+  {
+   "id": "B9",
+   "beat": "R6 GAUGE",
+   "text": "Your shoulders still win by more than a hand's width.",
+   "screen": "35 vs 45",
+   "pause": 0.5
+  },
+  {
+   "id": "B10",
+   "beat": "R6 MECHANISM",
+   "text": "The whale pushes the water out through its baleen and keeps the krill, and you are a very large, very confusing krill.",
+   "screen": "BALEEN",
+   "pause": 0.55
+  },
+  {
+   "id": "B11",
+   "beat": "R6 MECHANISM",
+   "text": "Out you go with the seawater. Wet, alive and deeply offended.",
+   "screen": "",
+   "pause": 0.55
+  },
+  {
+   "id": "B12",
+   "beat": "R6 APPETITE",
+   "text": "And it won't miss you. In feeding season it eats about sixteen tonnes of krill a day, ten cars' worth.",
+   "screen": "~16 T / DAY ≈ 10 CARS",
+   "pause": 0.15
+  },
+  {
+   "id": "B13",
+   "beat": "R6 VERDICT",
+   "text": "Biggest animal ever, and it tops out at thirty-five. Size isn't your problem.",
+   "screen": "BLUE WHALE · ~35 CM AT MOST",
+   "pause": 0.65
+  },
+  {
+   "id": "W1",
+   "beat": "R5 WHALE SHARK",
+   "text": "Number five comes with a strange birth certificate.",
+   "screen": "#5 ???",
+   "pause": 0.3
+  },
+  {
+   "id": "W2",
+   "beat": "R5 BOMB CARBON",
+   "text": "For decades nobody could tell how old these fish get.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "W3",
+   "beat": "R5 BOMB CARBON",
+   "text": "Then, in 2020, researchers dated the rings in their spines using carbon that Cold War bomb tests left in the sea.",
+   "screen": "2020 · BOMB CARBON",
+   "pause": 0.15
+  },
+  {
+   "id": "W4",
+   "beat": "R5 BOMB CARBON",
+   "text": "One of them had been alive for about fifty years.",
+   "screen": "~50 YEARS",
+   "pause": 0.3
+  },
+  {
+   "id": "W5",
+   "beat": "R5 WHALE SHARK",
+   "text": "Meet the whale shark. No fish alive is bigger: it grows to about eighteen metres, with a mouth a metre and a half wide, almost your height.",
+   "screen": "#5 WHALE SHARK · MOUTH ~1.5 M",
+   "pause": 0.15
+  },
+  {
+   "id": "W6",
+   "beat": "R5 SCENARIO",
+   "text": "It's night. You're floating under a boat's lights, where the plankton gathers, and the shark rises into the glow, mouth open. Then the glow goes dark.",
+   "screen": "",
+   "pause": 0.3
+  },
+  {
+   "id": "W7",
+   "beat": "R5 GAUGE",
+   "text": "From inside, the view is a sieve: spongy filter pads in front of the gills, and somewhere behind them, the throat.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "W8",
+   "beat": "R5 GAUGE",
+   "text": "Estimates for it run from a quarter to a cereal bowl, fifteen centimetres at the very most.",
+   "screen": "THROAT ≤ ~15 CM ≈ A CEREAL BOWL",
+   "pause": 0.15
+  },
+  {
+   "id": "W9",
+   "beat": "R5 GAUGE",
+   "text": "A cereal bowl against a pizza box. That's not a contest, it's a misunderstanding.",
+   "screen": "",
+   "pause": 0.55
+  },
+  {
+   "id": "W10",
+   "beat": "R5 EXIT",
+   "text": "The water leaves through the gills, and you leave the way you came in.",
+   "screen": "",
+   "pause": 0.3
+  },
+  {
+   "id": "W11",
+   "beat": "R5 VERDICT",
+   "text": "Fifteen centimetres, nowhere near you. It drops in under the blue whale.",
+   "screen": "WHALE SHARK · ≤15 CM",
+   "pause": 0.65
+  },
+  {
+   "id": "K1",
+   "beat": "R4 BASKING SHARK",
+   "text": "Number four looks like the worst idea yet. The basking shark.",
+   "screen": "#4 BASKING SHARK",
+   "pause": 0.15
+  },
+  {
+   "id": "K2",
+   "beat": "R4 BASKING SHARK",
+   "text": "The second-biggest fish in the sea cruises for hours with its mouth open a metre wide, wide enough for you to swim into.",
+   "screen": "MOUTH ~1 M",
+   "pause": 0.15
+  },
+  {
+   "id": "K3",
+   "beat": "R4 BASKING SHARK",
+   "text": "It strains about two million litres of water an hour, most of an Olympic pool.",
+   "screen": "~2,000,000 L / HOUR",
+   "pause": 0.3
+  },
+  {
+   "id": "K4",
+   "beat": "R4 RQ",
+   "text": "So why don't you end up inside?",
+   "screen": "SO WHY NOT YOU?",
+   "pause": 0.35
+  },
+  {
+   "id": "K5",
+   "beat": "R4 MECHANISM",
+   "text": "It doesn't gulp or suck. It swims with the door open, and the door is a comb of gill rakers.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "K6",
+   "beat": "R4 MECHANISM",
+   "text": "Drift in and you're not food. You're a speed bump.",
+   "screen": "SPEED BUMP",
+   "pause": 0.55
+  },
+  {
+   "id": "K8",
+   "beat": "R4 GROSS-OUT",
+   "text": "Here's how little sits behind that face. In 1977 a Japanese trawler hauled up a rotting carcass off New Zealand: long neck, four flippers. The papers called it a sea monster.",
+   "screen": "1977 · SEA MONSTER?",
+   "pause": 0.15
+  },
+  {
+   "id": "K9",
+   "beat": "R4 GROSS-OUT",
+   "text": "Tissue tests said basking shark. As one rots, the jaws and gills drop away first, leaving something that looks like a dinosaur.",
+   "screen": "IT WAS A SHARK",
+   "pause": 0.15
+  },
+  {
+   "id": "K10",
+   "beat": "R4 GAUGE",
+   "text": "Take away that mouth and there isn't much throat. One old museum account puts it at about ten centimetres, with a sharp bend.",
+   "screen": "THROAT ~10 CM + A BEND",
+   "pause": 0.15
+  },
+  {
+   "id": "K11",
+   "beat": "R4 VERDICT",
+   "text": "The scariest mouth on the list, and it ends up at the very bottom, below even the whale shark.",
+   "screen": "BASKING SHARK · ~10 CM",
+   "pause": 0.65
+  },
+  {
+   "id": "X1",
+   "beat": "RE-IMMERSION",
+   "text": "Now picture the opening again: just you, and six shadows.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "X2",
+   "beat": "RE-IMMERSION",
+   "text": "Three have already passed over you. The three still circling are different.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "X3",
+   "beat": "RE-IMMERSION",
+   "text": "The next one has had people in its mouth. The one after that inhales. And the last one has teeth.",
+   "screen": "",
+   "pause": 0.6
+  },
+  {
+   "id": "U1",
+   "beat": "R3 HUMPBACK",
+   "text": "Number three. The humpback.",
+   "screen": "#3 HUMPBACK",
+   "pause": 0.15
+  },
+  {
+   "id": "U2",
+   "beat": "R3 GAUGE",
+   "text": "Run the gauge first. A humpback's throat is normally about the size of your fist.",
+   "screen": "THROAT ≈ YOUR FIST",
+   "pause": 0.15
+  },
+  {
+   "id": "U3",
+   "beat": "R3 GAUGE",
+   "text": "Stretched for a big meal, the widest figure published is about thirty-eight centimetres.",
+   "screen": "STRETCHED: ~38 CM",
+   "pause": 0.15
+  },
+  {
+   "id": "U4",
+   "beat": "R3 GAUGE",
+   "text": "The widest throat yet, and still most of a hand short. Even a smaller adult, at forty, doesn't go down.",
+   "screen": "NEW RECORD · STILL SHORT",
+   "pause": 0.5
+  },
+  {
+   "id": "U5",
+   "beat": "R3 REAL CASES",
+   "text": "Which is why both people known to have been inside one lived to tell you about it.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "U6",
+   "beat": "R3 REAL CASES",
+   "text": "A diver hunting lobster off Cape Cod in 2021, and a kayaker in the Strait of Magellan in 2025. Each was back in open water within a minute.",
+   "screen": "2021 · CAPE COD  /  2025 · CHILE",
+   "pause": 0.15
+  },
+  {
+   "id": "U7",
+   "beat": "R3 MECHANISM",
+   "text": "Humpbacks lunge through schools of fish with their mouths wide open, and now and then, you're one of the fish.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "U8",
+   "beat": "R3 MECHANISM",
+   "text": "Biologists call that engulfed, not swallowed. It's the whale version of biting a sandwich and finding a sock.",
+   "screen": "ENGULFED ≠ SWALLOWED",
+   "pause": 0.3
+  },
+  {
+   "id": "U10",
+   "beat": "R3 VERDICT",
+   "text": "Thirty-eight centimetres, the record so far. A lifeguard with a very large mouth.",
+   "screen": "HUMPBACK · ~38 CM · RECORD",
+   "pause": 0.65
+  },
+  {
+   "id": "G1",
+   "beat": "R2 GROUPER",
+   "text": "Number two is smaller than anything yet. The goliath grouper.",
+   "screen": "#2 GOLIATH GROUPER",
+   "pause": 0.15
+  },
+  {
+   "id": "G2",
+   "beat": "R2 GROUPER",
+   "text": "Up to about two and a half metres and around three hundred and sixty kilos. A grand piano with fins.",
+   "screen": "~360 KG ≈ A GRAND PIANO",
+   "pause": 0.55
+  },
+  {
+   "id": "G3",
+   "beat": "R2 MECHANISM",
+   "text": "Every giant so far was a strainer. This is the first one that inhales, and you're right in front of it.",
+   "screen": "IT INHALES",
+   "pause": 0.15
+  },
+  {
+   "id": "G4",
+   "beat": "R2 MECHANISM",
+   "text": "It flares its mouth so fast that the water rushes in, and so does whatever is in front of it: lobsters, fish, turtles, sharks.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "G5",
+   "beat": "R2 PROOF",
+   "text": "Off southwest Florida, an angler filmed one take a hooked blacktip shark more than a metre long in a single gulp.",
+   "screen": "SHARK ~1.2 M · ONE GULP",
+   "pause": 0.3
+  },
+  {
+   "id": "G6",
+   "beat": "R2 SCENARIO",
+   "text": "So you're drifting over a wreck. Something the size of a sofa slides out from under the hull.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "G8",
+   "beat": "R2 RQ",
+   "text": "So how wide does that mouth open?",
+   "screen": "HOW WIDE?",
+   "pause": 0.35
+  },
+  {
+   "id": "G9",
+   "beat": "R2 RQ",
+   "text": "Nobody knows.",
+   "screen": "NO PUBLISHED NUMBER",
+   "pause": 0.5
+  },
+  {
+   "id": "G10",
+   "beat": "R2 GAUGE",
+   "text": "No one has published a gape for a giant one. Scale up a smaller grouper and you get about forty centimetres, and that's a guess.",
+   "screen": "~40 CM (ROUGH ESTIMATE)",
+   "pause": 0.15
+  },
+  {
+   "id": "G11",
+   "beat": "R2 GAUGE",
+   "text": "Forty. Remember the number you were holding on to?",
+   "screen": "",
+   "pause": 0.35
+  },
+  {
+   "id": "G12",
+   "beat": "R2 GAUGE",
+   "text": "At forty-five, you go in head first until your shoulders hit the corners of the jaw, and everything stops. At forty, on paper, it's too close to call.",
+   "screen": "45: STUCK · 40: TOO CLOSE TO CALL",
+   "pause": 0.3
+  },
+  {
+   "id": "G13",
+   "beat": "R2 FOLKLORE",
+   "text": "Dive boats are full of stories about groupers swallowing people like you. We couldn't find a single one that holds up.",
+   "screen": "STORIES THAT HOLD UP: 0",
+   "pause": 0.15
+  },
+  {
+   "id": "G14",
+   "beat": "R2 SEAM",
+   "text": "Their real problem is us. They were fished so hard that the United States banned harvesting them in 1990.",
+   "screen": "1990 · HARVEST BAN",
+   "pause": 0.15
+  },
+  {
+   "id": "G15",
+   "beat": "R2 VERDICT",
+   "text": "Forty, give or take a lot. It edges past the humpback, with an asterisk.",
+   "screen": "GROUPER · ~40 CM*",
+   "pause": 0.65
+  },
+  {
+   "id": "S1",
+   "beat": "R1 SPERM WHALE",
+   "text": "Number one. The one you've been waiting for. The sperm whale.",
+   "screen": "#1 SPERM WHALE",
+   "pause": 0.15
+  },
+  {
+   "id": "S2",
+   "beat": "R1 SPERM WHALE",
+   "text": "Up to about sixteen metres and forty tonnes, three school buses' worth.",
+   "screen": "~16 M · ~40 T ≈ 3 BUSES",
+   "pause": 0.15
+  },
+  {
+   "id": "S3",
+   "beat": "R1 PREY",
+   "text": "And unlike everything so far, it hunts things bigger than you. Giant squid.",
+   "screen": "PREY BIGGER THAN YOU",
+   "pause": 0.3
+  },
+  {
+   "id": "S4",
+   "beat": "R1 PREY",
+   "text": "In 1955, whalers off the Azores found a giant squid inside one, nearly whole, about ten metres long with its tentacles.",
+   "screen": "1955 · AZORES · ~10 M SQUID",
+   "pause": 0.15
+  },
+  {
+   "id": "S5",
+   "beat": "R1 PREY",
+   "text": "Its weight was reported at around a hundred and eighty kilos. More than two of you.",
+   "screen": "~180 KG (REPORTED) ≈ 2+ OF YOU",
+   "pause": 0.4
+  },
+  {
+   "id": "S6",
+   "beat": "R1 GAUGE",
+   "text": "So, what does the ring say?",
+   "screen": "",
+   "pause": 0.35
+  },
+  {
+   "id": "S7",
+   "beat": "R1 GAUGE",
+   "text": "Nothing.",
+   "screen": "NO MEASUREMENT",
+   "pause": 0.5
+  },
+  {
+   "id": "S8",
+   "beat": "R1 GAUGE",
+   "text": "Nobody has measured it. The closest we have is the anatomist Joy Reidenberg, who says a very big adult bull could swallow a person.",
+   "screen": "",
+   "pause": 0.15
+  },
+  {
+   "id": "S9",
+   "beat": "R1 GAUGE",
+   "text": "But she means one of eighteen metres or more, bigger than most bulls anyone sees.",
+   "screen": "BIG BULLS ONLY · ~18 M+",
+   "pause": 0.3
+  },
+  {
+   "id": "S10",
+   "beat": "R1 HEDGE",
+   "text": "And here's the honest part: nobody has ever watched one feed, so even 'it swallows prey whole' is an educated guess.",
+   "screen": "NEVER SEEN FEEDING",
+   "pause": 0.3
+  },
+  {
+   "id": "S11",
+   "beat": "R1 GAUGE RETIRED",
+   "text": "So you put the ring down. This is the one throat the gauge can't measure.",
+   "screen": "",
+   "pause": 0.4
+  },
+  {
+   "id": "S12",
+   "beat": "R1 VERDICT",
+   "text": "Could the biggest bulls fit you? Possibly. Has one ever? Two centuries of whaling records hold no reliable case.",
+   "screen": "COULD: BIG BULLS  ·  HAS: NEVER",
+   "pause": 0.3
+  },
+  {
+   "id": "S13",
+   "beat": "R1 VERDICT",
+   "text": "Top of the board, with a question mark.",
+   "screen": "SPERM WHALE · ?",
+   "pause": 0.6
+  },
+  {
+   "id": "F1",
+   "beat": "REASSURANCE FLIP",
+   "text": "And it wouldn't even be trying. You're not on its menu. You're barely in its way.",
+   "screen": "YOU: NOT ON THE MENU",
+   "pause": 0.65
+  },
+  {
+   "id": "V1",
+   "beat": "TWIST",
+   "text": "That should be the end, and you should be swimming home. But the board still has one empty space, above the line.",
+   "screen": "",
+   "pause": 0.3
+  },
+  {
+   "id": "V2",
+   "beat": "TWIST",
+   "text": "So has a sperm whale ever swallowed something heavier than you?",
+   "screen": "",
+   "pause": 0.4
+  },
+  {
+   "id": "V3",
+   "beat": "TWIST",
+   "text": "Yes.",
+   "screen": "YES.",
+   "pause": 0.6
+  },
+  {
+   "id": "V4",
+   "beat": "TWIST EVIDENCE",
+   "text": "In 2019, one stranded on the Isle of Harris in Scotland with about a hundred kilos of rope, netting and bags in its stomach. More than you weigh.",
+   "screen": "2019 · SCOTLAND · ~100 KG",
+   "pause": 0.15
+  },
+  {
+   "id": "V5",
+   "beat": "TWIST EVIDENCE",
+   "text": "It built up over time, not in one gulp. But all of it went down that throat.",
+   "screen": "",
+   "pause": 0.3
+  },
+  {
+   "id": "V6",
+   "beat": "TWIST EVIDENCE",
+   "text": "A year earlier, one in Indonesia held a hundred and fifteen plastic cups, twenty-five bags and two flip-flops. About six kilos, a bowling ball's worth.",
+   "screen": "115 CUPS · 25 BAGS · 2 FLIP-FLOPS",
+   "pause": 0.3
+  },
+  {
+   "id": "V7",
+   "beat": "RULE CALLBACK",
+   "text": "Remember the rules? You went in with nothing in your hands and nothing in your pockets. No net, no rope, not even flip-flops.",
+   "screen": "THE RULES: NO GEAR",
+   "pause": 0.3
+  },
+  {
+   "id": "V8",
+   "beat": "RULE CALLBACK",
+   "text": "The only gear in this whole video ended up inside the whale.",
+   "screen": "ALL THE GEAR → INSIDE THE WHALE",
+   "pause": 0.65
+  },
+  {
+   "id": "V9",
+   "beat": "VILLAIN SWAP",
+   "text": "Nothing in the ocean is swallowing people whole. But it is swallowing what people leave behind, one flip-flop at a time.",
+   "screen": "",
+   "pause": 0.65
+  },
+  {
+   "id": "E1",
+   "beat": "BOOKEND",
+   "text": "So, the final board.",
+   "screen": "FINAL BOARD",
+   "pause": 0.2
+  },
+  {
+   "id": "E2",
+   "beat": "BOOKEND",
+   "text": "Basking shark, ten centimetres. Whale shark, a cereal bowl. Blue whale, a beach ball at best. Humpback, the record. Grouper, the record with an asterisk. Sperm whale, a question mark. And above the line, our rubbish.",
+   "screen": "",
+   "pause": 0.4
+  },
+  {
+   "id": "E3",
+   "beat": "BOOKEND",
+   "text": "Six giants, one pizza box of shoulders, and you get to swim home.",
+   "screen": "",
+   "pause": 0.6
+  },
+  {
+   "id": "C1",
+   "beat": "CTA",
+   "text": "Which giant should we hold the ring up to next? Tell us in the comments.",
+   "screen": "NEXT GIANT? ↓",
+   "pause": 0.3
+  },
+  {
+   "id": "C2",
+   "beat": "CTA",
+   "text": "Just don't say the blue whale. It's still looking for that very confusing krill.",
+   "screen": "",
+   "pause": 0.5
+  }
+ ]
+}

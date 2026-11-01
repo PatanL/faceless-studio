@@ -1,0 +1,22 @@
+# Title options: explainer-shoulder-test
+
+Ranked best first. Patterns come from the corpus titles in `research/corpus/explainer/INDEX.json` and the title rules in PLAYBOOK §2/§7 and `research/library/index_notes/explainer.md`. Constraints for this episode:
+- **Don't clone SWALLOW** (JkAcCdqYJN0, "Every Animal That Could Swallow You (Only One Actually Can)"). Avoid the "Every … That Could Swallow You" frame, and don't put an "only one can" claim in a parenthetical. Our answer is "no, but…", so a question fits better than a promise.
+- **Don't repeat pilot 3** ("You Could Fit In Its Mouth. You'd Never Fit Down Its Throat."), which is already on the channel.
+- The title must survive the honest ending. Nothing living passes the test, the sperm whale is a `?`, and the "has" answer is our rubbish. So no title may claim that a giant *can* swallow you.
+
+| Rank | Title | Words | Pattern (reference id, views, outlier) | Why this rank |
+|---|---|---|---|---|
+| 1 | Could Any Ocean Giant Actually Swallow You? (The Shoulder Test) | 10 | "Could you …?" survival question: fmZfphacPPQ PRESSURE "Could You Survive Extreme Ocean Pressure?" (14.7M, 1.84x). The parenthetical names our device, the same slot SWALLOW uses for its twist (JkAcCdqYJN0, 0.33M, 15.82x) | A question fits the honest "no, but…" answer (the retention critique asked for this option). "Ocean giant" + "swallow you" carries the search intent, and "(The Shoulder Test)" is ours and promises a measurable test. Used for the on-screen title and the storyboard |
+| 2 | Only One Throat in the Ocean Might Fit You (Nobody's Measured It) | 12 | Paradox with a qualifier: VtrcKTkhDHU ORCA "Why The Ocean's Deadliest Predator Refuses To Kill Us" (8.29M, 318.82x), plus a parenthetical qualifier (SWALLOW) | Biggest curiosity gap, and every word is true (the sperm whale's throat is unmeasured, 7:28). It ranks 2 because it hints at the climax and is longer than the 7-10 word band |
+| 3 | We Held a Ring the Width of Your Shoulders Up to Six Ocean Giants | 14 | Second-person process title, the format promise of nAWpLtG-kNs ERAS "How Long You'd Last in Every Prehistoric Era" (12.2M, 113.57x): a fixed test applied to a set | Very concrete and picturable, and it matches thumbnail A. But at 14 words it is too long for the mobile shelf, so use it on the community post or a re-title test |
+| 4 | Which Ocean Giant Could Actually Swallow You? We Ranked Their Throats | 11 | Ranking + "you": ERAS (ranked board, "you"), PLAYBOOK §9.5 (a visible progress device sells the format) | Promises the board, which is comment bait. "Could actually" plus "ranked" over-promises a winner, so it sits below 1 and 2 |
+| 5 | The Biggest Mouths in the Ocean Have the Tiniest Throats | 10 | Myth-bust / "worse than you think": jw6bS-WL4F4 JELLY "Why This Tiny Jellyfish Is Much Worse Than You Think" (6.72M, 1.43x); PLAYBOOK §5 myth-bust on the famous one | A true, surprising claim (1.5 m mouth vs a cereal-bowl throat) with no clone risk. No "you" (PLAYBOOK §9.1 says "you" outperforms), and it describes only the first half of the video |
+| 6 | Why No Ocean Giant Can Swallow You (Except Maybe One) | 10 | "Why [creature] [paradox] us": ORCA (8.29M, 318.82x); SPERM fGcgWaswMns "Why You'd Never Want To Meet A Sperm Whale" (2.31M, 14.65x) | Strong and searchable, but "(Except Maybe One)" is the SWALLOW parenthetical turned upside down. Keep it only as a fallback A/B variant |
+| 7 | What a Sperm Whale Has Actually Swallowed (It Isn't You) | 10 | "What it's like to …" experiential: QxM2Hu70tVk PLANT "What It's Like To Be Eaten By A Carnivorous Plant" (16.18M, 2.82x), plus a twist qualifier | Gives away the twist (8:28) and narrows the video to one animal. Better as a Shorts title for a 60 s cut-down of the twist |
+| 8 | How Close Every Ocean Giant Gets to Swallowing You | 9 | ERAS "How Long You'd Last in Every …" (12.2M, 113.57x) | The proven "every + you" shape, but it reads like a reskin of SWALLOW's title, which the originality critique flagged. Do not use for the main upload |
+
+Notes
+- Hook match: the hook restates option 1 as a test on you ("You're about to be fed to six ocean giants. There's one test your shoulders have to pass…"). If option 2 or 3 is used, the hook still works because it names the shoulders and the throat.
+- Description line (optional, reduces copycat backlash per the originality critique): "Structure inspired by the 'could it swallow you' genre; every figure is sourced in the pinned comment."
+- Post-caption CTA: "Which ocean giant should we hold the ring up to next?"
