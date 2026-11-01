@@ -375,7 +375,8 @@ const blueWhale: Figure = {
 				{c.sil || gape > 0.001 ? null : <path d={warp('M 993 116 C 960 114 910 112 868 109', f)} stroke="#203547" strokeWidth={2.5} fill="none" />}
 				{bwMouth(c, f, gape)}
 				<path d={warp(BW_FLIPPER, f)} fill={paint(c, '#3f6080')} />
-				<Eye c={c} x={wp(f, 872, 112)[0]} y={wp(f, 872, 112)[1]} r={4} />
+				{/* eye just above and behind the mouth corner (hinge 806,127), not over the snout */}
+				<Eye c={c} x={wp(f, 786, 117)[0]} y={wp(f, 786, 117)[1]} r={4.5} />
 			</g>
 		);
 	},

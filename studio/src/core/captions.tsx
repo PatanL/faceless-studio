@@ -7,6 +7,11 @@ import {SAFE_AREA, type Captions, type Format, type Theme, type Word} from './sc
 export type CaptionPage = {words: Word[]; start: number; end: number};
 
 const PUNCT_END = /[.!?…,;:]["')\]]?$/;
+// a caption card never ends on one of these: it is carried to the next card, or the card stretches by one word
+const STOPWORDS = new Set(
+	"a an the and as of to into onto on in its it's that's about when than with your but or for at from by just every being is".split(' '),
+);
+const isStop = (w: Word) => STOPWORDS.has(w.text.toLowerCase().replace(/[’]/g, "'").replace(/[^a-z']/g, ''));
 
 /**
  * Group words into short pages (1-3 words): break on maxWords, maxChars, a pause longer
@@ -17,15 +22,25 @@ export function paginate(words: Word[], c: Pick<Captions, 'maxWords' | 'maxChars
 	const sorted = [...words].filter((w) => w.text.trim()).sort((a, b) => a.start - b.start);
 	const pages: {words: Word[]}[] = [];
 	let cur: Word[] = [];
-	const flush = () => {
-		if (cur.length) pages.push({words: cur});
-		cur = [];
+	const flush = (carry = false) => {
+		let keep = cur;
+		const moved: Word[] = [];
+		while (carry && keep.length > 1 && isStop(keep[keep.length - 1])) {
+			moved.unshift(keep[keep.length - 1]);
+			keep = keep.slice(0, -1);
+		}
+		if (keep.length) pages.push({words: keep});
+		cur = moved;
 	};
 	sorted.forEach((w, i) => {
 		const prev = sorted[i - 1];
 		const chars = cur.reduce((n, x) => n + x.text.length + 1, 0) + w.text.length;
-		if (cur.length && (cur.length >= c.maxWords || chars > c.maxChars || (prev && w.start - prev.end > c.gapBreak))) {
-			flush();
+		const gap = !!prev && w.start - prev.end > c.gapBreak;
+		const full = cur.length >= c.maxWords || chars > c.maxChars;
+		// page would end on a stopword: let it take one more word (up to maxWords+1 / maxChars+4) ...
+		const stretch = cur.length > 0 && isStop(cur[cur.length - 1]) && cur.length <= c.maxWords && chars <= c.maxChars + 4;
+		if (cur.length && (gap || (full && !stretch))) {
+			flush(!gap); // ... or carry the trailing stopword(s) to the next page
 		}
 		cur.push(w);
 		if (PUNCT_END.test(w.text.trim())) flush();
@@ -73,7 +88,11 @@ export const CaptionTrack: React.FC<{captions: Captions; format: Format; theme: 
 				position: 'absolute',
 				left: cx,
 				top: cy,
-				width: maxWidth,
+				width: st.backing > 0 ? 'fit-content' : maxWidth,
+				maxWidth,
+				...(st.backing > 0
+					? {background: `rgba(0,0,0,${st.backing})`, borderRadius: fontSize * 0.34, padding: `${fontSize * 0.1}px ${fontSize * 0.3}px`}
+					: {}),
 				transform: `translate(-50%, -50%) translateY(${lift}px) scale(${scale})`,
 				display: 'flex',
 				flexWrap: 'wrap',
@@ -96,7 +115,8 @@ export const CaptionTrack: React.FC<{captions: Captions; format: Format; theme: 
 				const wf = Math.round((t - w.start) * fps);
 				const wPop = active ? spring({frame: wf, fps, config: {damping: 12, stiffness: 300, mass: 0.5}}) : 1;
 				const hl = active && st.highlightMode !== 'none';
-				const color = hl && st.highlightMode === 'color' ? st.highlight : st.color;
+				// explicit per-word emphasis (Word.emph) is the only highlight when highlightMode is 'none'
+				const color = w.emph || (hl && st.highlightMode === 'color') ? st.highlight : st.color;
 				const text = st.uppercase ? w.text.toUpperCase() : w.text;
 				return (
 					<span

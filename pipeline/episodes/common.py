@@ -95,6 +95,49 @@ def load(slug: str):
     return meta, scenes, words, total, source
 
 
+def visual_events(scene: dict) -> list[float]:
+    """Scene-local times where the picture changes (besides idle motion and captions)."""
+    ev = [0.0, scene["duration"]]
+    for l in scene.get("layers", []):
+        for k in ("start", "end"):
+            if isinstance(l.get(k), (int, float)):
+                ev.append(l[k])
+        for k in ("enter", "exit"):
+            if isinstance(l.get(k), dict) and isinstance(l[k].get("at"), (int, float)):
+                ev.append(l[k]["at"])
+        ev += [k["t"] for k in l.get("keyframes", []) if isinstance(k.get("t"), (int, float))]
+        p = l.get("props") or {}
+        for k in ("at", "out"):
+            if isinstance(p.get(k), (int, float)) and p[k] > 0:
+                ev.append(p[k])
+        for v in p.values():  # value tracks ([{t, v}]) and nested side props with "at"
+            if isinstance(v, list):
+                ev += [k["t"] for k in v if isinstance(k, dict) and isinstance(k.get("t"), (int, float))]
+                ev += [k for k in v if isinstance(k, (int, float)) and k > 0] if p.get("beats") is v else []
+            if isinstance(v, dict) and isinstance(v.get("at"), (int, float)):
+                ev.append(v["at"])
+        ev += _nested_cues(p)  # cue lists ({at}) and nested phone chats: bubbles, typing, banners, vibrate, glitches
+    cam = scene.get("camera") or {}
+    ev += [k["t"] for k in cam.get("keyframes", [])]
+    ev += [s["at"] for s in cam.get("shake", [])]
+    return sorted(t for t in ev if 0 <= t <= scene["duration"])
+
+
+def _nested_cues(obj) -> list[float]:
+    """Every positive at/editAt/connectedAt inside a nested props object (a phone's chat, banners, vibrate...)."""
+    out = []
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k in ("at", "editAt", "connectedAt") and isinstance(v, (int, float)) and v > 0:
+                out.append(v)
+            elif isinstance(v, (dict, list)):
+                out += _nested_cues(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            out += _nested_cues(v)
+    return out
+
+
 # ------------------------------------------------------------------ generic layer helpers
 
 def comp(name, x, y, w, h, props=None, **kw):
@@ -136,7 +179,8 @@ def storyboard(slug, meta, scenes, words, total, captions_style, overlays, notes
         "format": "9:16",
         "fps": 30,
         "scenes": scenes,
-        "captions": {"words": [{"text": w["text"], "start": w["start"], "end": w["end"]} for w in words],
+        "captions": {"words": [{"text": w["text"], "start": w["start"], "end": w["end"], **({"emph": True} if w.get("emph") else {})}
+                               for w in words],
                      "maxWords": 3, "maxChars": 16, "style": captions_style},
         "audio": {"voice": [{"src": f"episodes/{slug}/mix.wav", "start": 0, "volume": 1, "duration": round(total, 3)}],
                   "music": [], "sfx": [], "duckOn": "none"},

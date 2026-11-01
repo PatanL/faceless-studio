@@ -347,6 +347,7 @@ export const Word = z.object({
 	text: z.string(),
 	start: Seconds,
 	end: Seconds,
+	emph: z.boolean().optional().describe('Draw this word in style.highlight (explicit emphasis, any highlightMode)'),
 });
 export type Word = z.infer<typeof Word>;
 
@@ -365,6 +366,7 @@ export const CaptionStyle = z.object({
 	y: z.number().min(0).max(1).optional().describe('Vertical centre as a fraction of height (default 0.64 / 0.82)'),
 	maxWidth: z.number().optional().describe('px (default 82% of width)'),
 	pop: z.boolean().default(true),
+	backing: z.number().min(0).max(1).default(0).describe('Opacity of a dark rounded pill behind the caption block (0 = none); keeps it legible over busy UI'),
 });
 
 export const Captions = z.object({

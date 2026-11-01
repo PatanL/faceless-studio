@@ -4,9 +4,10 @@ import {mPerUnit, type DrawCtx, type Figure} from './figure';
 import {LAND} from './land';
 import {MARINE} from './marine';
 import {PEOPLE} from './people';
+import {ANATOMY} from './anatomy';
 import {bool, num, safeId, str} from './util';
 
-export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE};
+export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY};
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
 const ALIASES: Record<string, string> = {
@@ -41,6 +42,11 @@ const ALIASES: Record<string, string> = {
 	citybus: 'bus',
 	car: 'car',
 	elephant: 'elephant',
+	golfcart: 'golfCart',
+	whaleheart: 'whaleHeart',
+	whaletongue: 'whaleTongue',
+	whalethroat: 'whaleThroat',
+	dinosaur: 'sauropod',
 };
 
 /** Resolve a species/object name (any case / spacing) and optional pose. */

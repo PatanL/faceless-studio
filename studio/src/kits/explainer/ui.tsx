@@ -20,8 +20,9 @@ const flexAlign = (a: string) => (a === 'left' ? 'flex-start' : a === 'right' ? 
 /** Big uppercase title, optional red underline that draws on. props: text, sub, color, size, underline, align, at, out */
 export const Headline: KitComponent = ({props, time}) => {
 	const at = num(props.at, 0);
-	const p = easeOut(prog(time, at, 0.35));
-	const u = easeOut(prog(time, at + 0.15, 0.45));
+	// at <= 0: already in place on the first frame (frame 0 is the Shorts cover), no entrance
+	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.35));
+	const u = at <= 0 ? 1 : easeOut(prog(time, at + 0.15, 0.45));
 	const size = num(props.size, 56);
 	const color = colorOf(props.color, C.white);
 	const align = str(props.align, 'center');
@@ -58,10 +59,10 @@ export const Headline: KitComponent = ({props, time}) => {
 
 // ---------------------------------------------------------------- tag
 
-/** Dark fact tag that slides in. props: text, size, color, at, out, align */
+/** Dark fact tag that slides in (at <= 0: in place on frame 0). props: text, size, color, bg, at, out, align */
 export const Tag: KitComponent = ({props, time}) => {
 	const at = num(props.at, 0);
-	const p = easeOut(prog(time, at, 0.3));
+	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.3));
 	const o = p * fadeOut(props, time);
 	if (o <= 0) return null;
 	const size = num(props.size, 28);
@@ -72,7 +73,7 @@ export const Tag: KitComponent = ({props, time}) => {
 				style={{
 					opacity: o,
 					transform: `translateX(${(1 - p) * -28}px)`,
-					background: C.panel,
+					background: str(props.bg, C.panel),
 					border: `1.5px solid ${C.panelLine}`,
 					borderLeft: `${Math.max(4, size * 0.2)}px solid ${accent}`,
 					borderRadius: 6,
@@ -95,7 +96,11 @@ export const Tag: KitComponent = ({props, time}) => {
 
 // ---------------------------------------------------------------- stat
 
-/** Counting stat callout: "~6,500 / CODAS ANALYSED". props: value, from, prefix, suffix, decimals, label, size, color, box, at, duration, align */
+/**
+ * Counting stat callout: "~6,500 / CODAS ANALYSED". props: value, from, prefix, suffix, decimals, label, labelSize,
+ * size, color (value; default white), rule (red underline under the value, default true), pulse (seconds between
+ * slow red ring pulses, off by default), box, at, duration, align
+ */
 export const Stat: KitComponent = ({props, time}) => {
 	const at = num(props.at, 0);
 	const dur = num(props.duration, 1.2);
@@ -105,12 +110,16 @@ export const Stat: KitComponent = ({props, time}) => {
 	const v = num(props.from, 0) + (num(props.value, 0) - num(props.from, 0)) * easeOut(prog(time, at, dur));
 	const size = num(props.size, 96);
 	const box = bool(props.box, true);
-	const color = colorOf(props.color, C.red);
+	const color = colorOf(props.color, C.white);
 	const align = str(props.align, 'center');
+	const rule = bool(props.rule, true);
+	const pulse = num(props.pulse, 0);
+	const ph = pulse > 0 && time >= at ? ((time - at) % pulse) / pulse : -1;
 	return (
 		<div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: flexAlign(align)}}>
 			<div
 				style={{
+					position: 'relative',
 					opacity: o,
 					transform: `scale(${0.85 + 0.15 * backOut(prog(time, at, 0.4))})`,
 					background: box ? C.panel : undefined,
@@ -126,8 +135,12 @@ export const Stat: KitComponent = ({props, time}) => {
 					{fmtNum(v, num(props.decimals, 0))}
 					{str(props.suffix, '')}
 				</div>
+				{rule ? <div style={{height: Math.max(4, size * 0.06), width: `${easeOut(prog(time, at + 0.1, 0.45)) * 70}%`, margin: `${size * 0.1}px auto 0`, background: C.red, borderRadius: 3}} /> : null}
 				{typeof props.label === 'string' ? (
-					<div style={{marginTop: size * 0.16, fontFamily: C.font, fontWeight: 800, fontSize: Math.max(16, size * 0.24), color: C.white, letterSpacing: '0.14em', textTransform: 'uppercase'}}>{props.label}</div>
+					<div style={{marginTop: size * 0.16, fontFamily: C.font, fontWeight: 800, fontSize: num(props.labelSize, Math.max(16, size * 0.24)), color: C.white, letterSpacing: '0.14em', textTransform: 'uppercase'}}>{props.label}</div>
+				) : null}
+				{ph >= 0 ? (
+					<div style={{position: 'absolute', inset: -size * 0.12, border: `${Math.max(4, size * 0.05)}px solid ${C.red}`, borderRadius: 18, opacity: 0.8 * (1 - ph), transform: `scale(${1 + 0.18 * easeOut(ph)})`}} />
 				) : null}
 			</div>
 		</div>

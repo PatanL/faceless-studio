@@ -5,7 +5,9 @@
  * figures       explainer/Creature         any figure by `species` (+ fixed-name wrappers below)
  *               explainer/SpermWhale ColossalSquid Orca GreatWhite BlueWhale Anglerfish Octopus
  *               explainer/Crocodile Hippo Grizzly Diver You Bus Car Elephant
+ *               explainer/GolfCart WhaleHeart WhaleTongue WhaleThroat Sauropod Jet Krill (anatomy.tsx)
  * infographics  explainer/DepthMeter ScaleBar HeightChart Stat Map Timer Options SpeedBars Headline Tag
+ *               explainer/Balance ECG (balance.tsx)
  *
  * See README.md in this folder for props.
  */
@@ -13,6 +15,7 @@ import {registerComponent} from '../../core/registry';
 import {Creature, fixed} from './creature';
 import {DepthMeter, Ocean} from './ocean';
 import {Headline, HeightChart, MapView, Options, ScaleBar, SpeedBars, Stat, Tag, Timer} from './ui';
+import {Balance, ECG} from './balance';
 
 registerComponent('explainer/Ocean', Ocean);
 registerComponent('explainer/DepthMeter', DepthMeter);
@@ -34,6 +37,13 @@ const FIXED: Record<string, string> = {
 	Bus: 'bus',
 	Car: 'car',
 	Elephant: 'elephant',
+	GolfCart: 'golfCart',
+	WhaleHeart: 'whaleHeart',
+	WhaleTongue: 'whaleTongue',
+	WhaleThroat: 'whaleThroat',
+	Sauropod: 'sauropod',
+	Jet: 'jet',
+	Krill: 'krill',
 };
 for (const [name, species] of Object.entries(FIXED)) registerComponent(`explainer/${name}`, fixed(species));
 
@@ -46,3 +56,5 @@ registerComponent('explainer/Options', Options);
 registerComponent('explainer/SpeedBars', SpeedBars);
 registerComponent('explainer/Headline', Headline);
 registerComponent('explainer/Tag', Tag);
+registerComponent('explainer/Balance', Balance);
+registerComponent('explainer/ECG', ECG);

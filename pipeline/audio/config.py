@@ -4,11 +4,13 @@ NICHES = {
     "explainer": {
         # calm US documentary male; slightly slower than default for gravitas
         "engine": "kokoro", "voice": "am_michael", "lang": "a", "speed": 0.96,
-        "paragraph_pause": 0.38,
+        # Shorts pace: chunks are tail-trimmed to <=0.12 s, so ~0.4 s between paragraphs (no dead air)
+        "paragraph_pause": 0.28,
+        "trim_tail": True,
         "voice_chain": "highpass=f=70,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=1,"
                        "equalizer=f=3200:t=q:w=1.2:g=1.5",
         "music": "deep_ocean",
-        "music_db": -15.0,   # bed loudness relative to the voice, between lines
+        "music_db": -5.0,    # bed loudness relative to the voice, between lines (-15 left deep_ocean ~28 dB under)
         "duck_db": -9.0,     # extra attenuation while the voice talks
         "sfx_duck_db": -4.0, # lighter duck while an SFX plays (outside speech)
         "attack": 0.10, "release": 0.55, "lookahead": 0.08,
