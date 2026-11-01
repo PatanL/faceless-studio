@@ -1,0 +1,89 @@
+{
+ "episode": "horror-babysitter-parent-rules",
+ "reviewed_at_utc": "2026-11-01T12:40Z",
+ "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 5},
+ "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/horror/horror-babysitter-parent-rules/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "sibling_check": "Against every other horror script in backlog/ and episodes/, the only 8-word runs are the required front-matter reference rows (id/url/views/outlier_score, shared with horror-delivery-photo-inside); narration overlap is 0.4% of 5-grams. Names changed: narrator Ivy (not Nora), family Doyle (Varga was also used by horror-night-doorman-rules)."
+ },
+ "measured": {
+  "engine": "Kokoro-82M on the Spark CPU (lines.py -> tts_measure.py -> tts_durations.json), 7 voices",
+  "runtime_s": 100.51, "words": 317, "wpm_speech": 230.4, "wpm_overall": 189.2,
+  "contradiction_at_s": 6.44, "words_first_10s": 34, "scenes": 44, "silences_s": 6.5,
+  "storyboard_validate": "ok (Spark, Node 22, src/cli/validate.ts): 9:16 30fps 44 scenes 100.57 s, 314 caption words, all components registered",
+  "check_storyboards": "components ok; NO AUDIO (mix.wav not built); max hold 4.3 s (the peak image, deliberate)",
+  "stills": ["out/stills/babysitter_v1.jpg", "out/stills/babysitter_v2.jpg", "out/stills/babysitter_cover.jpg"]
+ },
+ "score_notes": {
+  "retention": "Hook: 'I was babysitting on the thirty-fourth floor' + rule five + the call; 'What password' at 6.4 s (was 10.4 s planned, ~11.3 s at the real rate). Frame 0 shows the threat: the ringing 'INCOMING · DOYLE' handset next to 'Still at dinner!' on Ivy's lock screen, and the note in two hands. The password now acts: Ivy buzzes them up (her mistake brings the elevator), the chain slides an inch at the door, and rule four is obeyed as an action when the monitor says 'Ivy?'. The twist is new information (the mother wrote three rules; the two pencil rules about Theo are forged), checkable in frame 0, at 84-90%. Ending: her own voice out of the handset, then an end card that re-opens a loop (the handset dialling 'DOYLE MOBILE'). Risks: 100.5 s sits on the top edge of the Shorts band; the lifeline clock runs at 55-69%, earlier than the 70-90% slot.",
+  "reference": "Alignment table rebuilt from the measured cut, with our % and the reference's %, and 'device only' wherever the positions are not comparable. Citations fixed: the elevator is now B5 proximity (T42u5xhrq-0 0:44-0:47), the midpoint is a real rule inversion (DORM-RULES 1:29-1:31, MOM-NOTE 1:13 contradiction), the near-unlock (SIEGE-CHAT 0:16) is now the dangerous act (the chain), the door ladder (HOTEL-DOOR 1:28-1:39) is used, the lifeline has a clock (the door's count), and the twist pays MOM-NOTE's 'can the note be trusted' loop. Two secondary sources added (FLOOR-PHRASE for the phrase ladder, DORM-RULES for the inverted rule). All timestamps re-checked against research/corpus/horror/*.md.",
+  "originality": "Corpus gate PASS. The forged-rulebook twist and the four-voice password ladder are ours. Sameness with our own catalog reduced: narrator renamed (Ivy, recoloured puppet), surname changed (Doyle), and a publish_spacing rule in the front matter vs horror-mom-two-chats (chain + identity word) and night-doorman-rules. The lobby/keys logic is now the first tell ('So why buzz?'), the password is causal, and rule four no longer makes the parents 'know and not know' (they never wrote it).",
+  "producibility": "Front matter fixed (voice: af_heart / speed: 1.25 / music: dread on separate lines); the narration block parses (12 segments, one music bed, hush cues 1.6/3.0/1.2 s, no [cut]). Timing is measured and every cue is word-anchored and scene-local; storyboard.json validates. Kit gaps closed without touching the locked kit: fridge note in two hands, cream cards, lock preview, monitor room with Theo (wall + profile, mouth flap), receiver, arm, chain insert, all inline SVG; night vision is a scene grade; FeaturePhone is used with static readouts (cps 400, two layers with start/end for swaps) and no lcd timer; ElevatorPanel cropped to its LED and paced to the words; knock rattles at the knock3 cue + measured hits. Not done: mix.wav (multi-voice FX bake), landline_ring and chain_slide synthesis, handwriting fonts, a full render."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Twist rewritten to new information: 'What rule four? I wrote three rules. Chain, keys, password.' + 'The other two were in pencil. Both about Theo.' (frame-0 plant: the numbers and rules 1 and 4 in pencil); 'Rules bind' is now an action at the monitor's 'Ivy?'",
+   "Rule 5 covers the door ('Nobody comes in without the password. If we call, ask for it. Wrong answer? Hang up.'); the password at the door collides with rule 3; the chain slides 1 cm (insert + SFX) before she lets go",
+   "Rule-5 wording consistent: the hang-up clause is in the rule on the cover, cards and end card; VO says 'Wrong answer meant hang up'",
+   "Line 1 = 'I was babysitting on the thirty-fourth floor.'; contradiction at 6.4 s (measured)",
+   "Frame 0 shows the threat: 'Still at dinner!' lock preview next to the ringing 'INCOMING · DOYLE' handset",
+   "Runtime re-timed from Kokoro word stamps on the Spark: 100.5 s, 230 wpm speaking (speed 1.25); every row of the timed table is generated",
+   "Redundant verdicts cut ('Theo had handed them the password', 'They have keys. They never knock'); replaced by the count ladder and 'But they never knock. I let go.'",
+   "Attribution: other voices are separate Kokoro voices with filters and quoted captions; Theo's monitor line has the tag 'He whispered,' and its own voice_fx",
+   "Final word is Ivy's voice band-passed + 45 ms slap out of the handset (E voice), not the dry narrator"
+  ],
+  "reference": [
+   "Twist reframes the note itself (MOM-NOTE loop L8, T1+T3), with a frame-0 plant",
+   "Continuity: Ivy's sent bubble 'What does rule 4 mean?' is what the mother answers; she never answers anything she wasn't told",
+   "Rule 5 has its consequence clause and an 'or else' (nobody comes in); hook stakes",
+   "Real near-miss of the dangerous act: the chain slides an inch at the password",
+   "Citations re-placed: elevator relabelled B5 (T42u5xhrq-0 0:44-0:47); midpoint = rule inversion at 45-52% (DORM-RULES 1:29-1:31, MOM-NOTE 1:13); HOTEL-DOOR ladder now used at the door; MOM-NOTE 1:13 cited for a contradiction we actually plant",
+   "Lifeline under a clock: the door counts to five between Ivy's texts; 'Delivered · not read'",
+   "'The knocking stopped' replaced by 'The door went quiet' after the count"
+  ],
+  "originality": [
+   "Rule five says hang up on every surface",
+   "The password is causal: Ivy presses 9 ('LOBBY DOOR · RELEASED'), which is why the elevator climbs; the guilt line 'And I'd let them in'",
+   "Keys vs buzz is the first logical tell ('Rule three. We have keys. We never knock. So why buzz?')",
+   "The real mother's texts add a new fact (three rules) instead of repeating known ones",
+   "Rule four no longer implies the parents know: they didn't write it",
+   "Catalog overlap: narrator renamed Ivy and recoloured; family Doyle; publish_spacing rule vs horror-mom-two-chats and night-doorman-rules",
+   "Caller lines attributed by voice (af_sky through a phone filter) and quoted captions"
+  ],
+  "producibility": [
+   "[cut] removed; one [music: dread]; dropouts are hush=1.6 / 3.0 / 1.2 on cues (parser-checked)",
+   "Front matter: voice: af_heart, speed: 1.25, music: dread",
+   "Timing from measured Kokoro word stamps; every cue word-anchored",
+   "All prop times scene-local (generator computes them from word anchors minus the scene start)",
+   "FeaturePhone: static readouts with cps 400, swaps via two layers with start/end, no lcd misuse, no running timer",
+   "Peak and proof shots full frame with an SVG monitor room (bed fills the frame, head ~180 px), scene grade for night vision, Glitch 0.12 scanlines, text layers for LIVE/time/status; receiver and arm as SVG layers with keyframes",
+   "Fridge note, rule cards, marmalade cards, end card: inline SVG (Montserrat in two weights/styles stands in for two hands; fonts listed as an upgrade)",
+   "Per-voice FX specified per line in lines.FX and storyboard _voices (multi-voice mix, not a pipeline change); the single-voice fallback block still parses",
+   "ElevatorPanel cropped to its LED (scale 2, anchorY 0.2), counter paced from 11 at 'Twelve' to 31 at 'Thirty-one', then 31->34 on 'thirty-four'",
+   "knock3 placed in a 1.25 s clear gap after 'Then three knocks.'; door rattles at the cue + measured hits 0.00/0.32/0.64"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Monitor two-way talk light + 'Ivy?' makes rule four an action (fills the old dead zone)",
+  "Lifeline clock (door count) + 'Delivered · not read'",
+  "Parents' knowledge contradiction removed (rule four is forged)",
+  "Lobby buzzer used (Ivy presses it)",
+  "Runtime cut from 117 s planned (~123 s real) to 100.5 s",
+  "End card 1.6 s and it re-opens a loop (EXT 2 dialling DOYLE MOBILE)",
+  "Title A/B: the incident title is now primary, the rules title is rank 2",
+  "Viewer-proxy question 'So why buzz?' and Ivy's 'What does rule four mean?' to the real authority",
+  "'Back by 11:30' (no more 'two hours early' mismatch); the time cues are on screen (9:41, 9:44, 9:45)",
+  "Peak arm rises on the word 'Something'; 'Who answered?' timing issue gone (line replaced)",
+  "Dinner-photo bubble dropped (no new Phone bubble kind needed)",
+  "Flashback no longer needs an open FrontDoor (it is Theo's room seen from the hall, warm grade)",
+  "Door-frame rects for the doorway shots",
+  "'HANDSET' vs 'EXT 2': kept EXT 2 on the readout for legibility"
+ ],
+ "deviations": [
+  "Retention asked to keep 'Who answered?' as the kicker; replaced by the forged-rules reveal plus 'Get Theo. Get out.' (a new imperative from the real authority that collides with the forged rules), because 'Who answered?' re-asked a question the viewer already knew the answer to",
+  "Landline ring and chain slide SFX are specified (storyboard _sfx_new) but not synthesized; mix.wav is not built",
+  "No new handwriting fonts were bundled (core fonts.ts is shared and the horror kit is locked); two Montserrat styles stand in"
+ ]
+}
