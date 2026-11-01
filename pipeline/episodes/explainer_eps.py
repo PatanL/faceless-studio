@@ -1029,10 +1029,12 @@ def orca_16x9_patch(sb):
         x0 = dv[0]["x"]
         for l in sc[7]["layers"]:
             if l.get("x") == x0 and not l.get("keyframes"):
-                l["x"] = "78%"
+                l["x"] = "74%"
                 l["z"] = max(l.get("z") or 0, 7)
-        # the belly bracket would hang in open water past the whale's tail: dropped (the x1,000 header carries it)
-        sc[7]["layers"] = [l for l in sc[7]["layers"] if not (l.get("x") == "78%" and l["type"] == "svg"
+                if l.get("name") == "explainer/Tag":   # centred under the diver (left-aligned, it ran off the right edge)
+                    l["props"]["align"] = "center"
+        # the belly bracket would hang in open water past the whale's nose: dropped (the x1,000 header carries it)
+        sc[7]["layers"] = [l for l in sc[7]["layers"] if not (l.get("x") == "74%" and l["type"] == "svg"
                                                               and l.get("height", 0) > 60)]
     # QA round 2: cover p00 / loop frame p13: the orca's dorsal fin poked into the IN THE WILD subline; the picture
     # (orca + diver + chip) moves 60 px down so the fin apex clears the subline (headline untouched, same on both)
