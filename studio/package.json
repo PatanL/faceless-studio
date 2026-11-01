@@ -1,0 +1,27 @@
+{
+  "name": "faceless-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Code-only video studio: storyboard JSON -> Remotion -> MP4",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Storyboard",
+    "still": "remotion still src/index.ts Storyboard",
+    "validate": "node --experimental-strip-types --no-warnings src/cli/validate.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.2.0",
+    "@fontsource/montserrat": "^5.2.0",
+    "@remotion/cli": "4.0.539",
+    "@remotion/zod-types": "4.0.539",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "typescript": "5.8.3"
+  }
+}

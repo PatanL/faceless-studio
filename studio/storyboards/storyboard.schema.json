@@ -1,0 +1,3284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "default": 1,
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "format": {
+      "default": "9:16",
+      "type": "string",
+      "enum": [
+        "9:16",
+        "16:9"
+      ]
+    },
+    "fps": {
+      "default": 30,
+      "type": "integer",
+      "minimum": 12,
+      "maximum": 60
+    },
+    "theme": {
+      "default": {
+        "fontDisplay": "Montserrat",
+        "fontBody": "Montserrat",
+        "fontCondensed": "Anton",
+        "accent": "#ffe14d",
+        "ink": "#0b0f14",
+        "paper": "#ffffff"
+      },
+      "type": "object",
+      "properties": {
+        "fontDisplay": {
+          "default": "Montserrat",
+          "type": "string"
+        },
+        "fontBody": {
+          "default": "Montserrat",
+          "type": "string"
+        },
+        "fontCondensed": {
+          "default": "Anton",
+          "type": "string"
+        },
+        "accent": {
+          "default": "#ffe14d",
+          "type": "string",
+          "description": "Any CSS color"
+        },
+        "ink": {
+          "default": "#0b0f14",
+          "type": "string",
+          "description": "Any CSS color"
+        },
+        "paper": {
+          "default": "#ffffff",
+          "type": "string",
+          "description": "Any CSS color"
+        }
+      }
+    },
+    "scenes": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Seconds"
+          },
+          "background": {
+            "default": {
+              "type": "color",
+              "color": "#000000",
+              "depth": 0.15,
+              "overscan": 1.25
+            },
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "color"
+                  },
+                  "color": {
+                    "default": "#000000",
+                    "type": "string",
+                    "description": "Any CSS color"
+                  },
+                  "depth": {
+                    "default": 0.15,
+                    "description": "Parallax factor for the background plane",
+                    "type": "number"
+                  },
+                  "overscan": {
+                    "default": 1.25,
+                    "description": "Background is drawn this much larger than the frame",
+                    "type": "number",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "gradient"
+                  },
+                  "kind": {
+                    "default": "linear",
+                    "type": "string",
+                    "enum": [
+                      "linear",
+                      "radial"
+                    ]
+                  },
+                  "angle": {
+                    "default": 180,
+                    "description": "Degrees, linear only (180 = top to bottom)",
+                    "type": "number"
+                  },
+                  "colors": {
+                    "minItems": 2,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    }
+                  },
+                  "depth": {
+                    "default": 0.15,
+                    "description": "Parallax factor for the background plane",
+                    "type": "number"
+                  },
+                  "overscan": {
+                    "default": 1.25,
+                    "description": "Background is drawn this much larger than the frame",
+                    "type": "number",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "type",
+                  "colors"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "image"
+                  },
+                  "src": {
+                    "type": "string"
+                  },
+                  "fit": {
+                    "default": "cover",
+                    "type": "string",
+                    "enum": [
+                      "cover",
+                      "contain"
+                    ]
+                  },
+                  "depth": {
+                    "default": 0.15,
+                    "description": "Parallax factor for the background plane",
+                    "type": "number"
+                  },
+                  "overscan": {
+                    "default": 1.25,
+                    "description": "Background is drawn this much larger than the frame",
+                    "type": "number",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "type",
+                  "src"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "component"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "default": {},
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  },
+                  "depth": {
+                    "default": 0.15,
+                    "description": "Parallax factor for the background plane",
+                    "type": "number"
+                  },
+                  "overscan": {
+                    "default": 1.25,
+                    "description": "Background is drawn this much larger than the frame",
+                    "type": "number",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "type",
+                  "name"
+                ]
+              }
+            ]
+          },
+          "layers": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "rect"
+                    },
+                    "fill": {
+                      "default": "#ffffff",
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "stroke": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "strokeWidth": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "radius": {
+                      "default": 0,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "circle"
+                    },
+                    "fill": {
+                      "default": "#ffffff",
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "stroke": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "strokeWidth": {
+                      "default": 0,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "text"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "fontSize": {
+                      "default": 96,
+                      "type": "number"
+                    },
+                    "font": {
+                      "default": "display",
+                      "description": "\"display\", \"body\", \"condensed\" or a CSS font-family",
+                      "type": "string"
+                    },
+                    "weight": {
+                      "default": 900,
+                      "type": "number"
+                    },
+                    "color": {
+                      "default": "#ffffff",
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "strokeColor": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "strokeWidth": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "align": {
+                      "default": "center",
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "center",
+                        "right"
+                      ]
+                    },
+                    "uppercase": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "lineHeight": {
+                      "default": 1.05,
+                      "type": "number"
+                    },
+                    "letterSpacing": {
+                      "default": 0,
+                      "description": "em",
+                      "type": "number"
+                    },
+                    "maxWidth": {
+                      "description": "px; text wraps inside",
+                      "type": "number"
+                    },
+                    "background": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "padding": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "radius": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "typewriter": {
+                      "description": "Reveal characters over time",
+                      "type": "object",
+                      "properties": {
+                        "at": {
+                          "default": 0,
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "cps": {
+                          "default": 30,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "text"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "image"
+                    },
+                    "src": {
+                      "type": "string",
+                      "description": "Path under studio/public, or an http(s)/data: URL"
+                    },
+                    "fit": {
+                      "default": "contain",
+                      "type": "string",
+                      "enum": [
+                        "contain",
+                        "cover",
+                        "fill"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "src"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "svg"
+                    },
+                    "markup": {
+                      "description": "Inline <svg>...</svg> markup; it is scaled to the layer box",
+                      "type": "string"
+                    },
+                    "src": {
+                      "description": "Or an .svg file under studio/public",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "particles"
+                    },
+                    "preset": {
+                      "default": "dust",
+                      "type": "string",
+                      "enum": [
+                        "bubbles",
+                        "dust",
+                        "snow",
+                        "embers",
+                        "rain",
+                        "stars"
+                      ]
+                    },
+                    "count": {
+                      "default": 60,
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 600
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "Any CSS color"
+                    },
+                    "size": {
+                      "description": "[min, max] px",
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "speed": {
+                      "default": 1,
+                      "description": "Multiplier on the preset speed",
+                      "type": "number"
+                    },
+                    "seed": {
+                      "default": 1,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "y": {
+                      "default": "50%",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "anchorX": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "anchorY": {
+                      "default": 0.5,
+                      "type": "number"
+                    },
+                    "scale": {
+                      "default": 1,
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "opacity": {
+                      "default": 1,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "flipX": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "depth": {
+                      "default": 1,
+                      "description": "Parallax factor: 0 = fixed to screen, 1 = moves with the camera, >1 = foreground",
+                      "type": "number"
+                    },
+                    "z": {
+                      "default": 0,
+                      "description": "Stacking order; ties keep array order",
+                      "type": "number"
+                    },
+                    "start": {
+                      "description": "Scene-local appear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "description": "Scene-local disappear time",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "keyframes": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "t": {
+                            "type": "number",
+                            "minimum": 0,
+                            "description": "Scene-local time in seconds"
+                          },
+                          "x": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "y": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string",
+                                "pattern": "^-?\\d+(\\.\\d+)?%$"
+                              }
+                            ],
+                            "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                          },
+                          "scale": {
+                            "type": "number"
+                          },
+                          "scaleX": {
+                            "type": "number"
+                          },
+                          "scaleY": {
+                            "type": "number"
+                          },
+                          "rotate": {
+                            "description": "Degrees",
+                            "type": "number"
+                          },
+                          "opacity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "ease": {
+                            "description": "Easing used to arrive at this keyframe (default inOut)",
+                            "type": "string",
+                            "enum": [
+                              "linear",
+                              "in",
+                              "out",
+                              "inOut",
+                              "backIn",
+                              "backOut",
+                              "elastic",
+                              "bounce",
+                              "step"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "t"
+                        ]
+                      }
+                    },
+                    "enter": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "exit": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "default": "fade",
+                          "type": "string",
+                          "enum": [
+                            "fade",
+                            "pop",
+                            "slideUp",
+                            "slideDown",
+                            "slideLeft",
+                            "slideRight",
+                            "zoomIn",
+                            "zoomOut",
+                            "wipeRight",
+                            "wipeDown",
+                            "drop"
+                          ]
+                        },
+                        "at": {
+                          "description": "Start time (enter: default = layer start; exit: default = end - duration)",
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "duration": {
+                          "default": 0.4,
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "distance": {
+                          "default": 160,
+                          "description": "px for slide/drop",
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "idle": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bob",
+                              "breathe",
+                              "sway",
+                              "float",
+                              "pulse",
+                              "spin",
+                              "jitter"
+                            ]
+                          },
+                          "amount": {
+                            "description": "px for bob/float/jitter, fraction for breathe/pulse, degrees for sway",
+                            "type": "number"
+                          },
+                          "speed": {
+                            "default": 0.5,
+                            "description": "Cycles per second (spin: turns per second)",
+                            "type": "number"
+                          },
+                          "phase": {
+                            "default": 0,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      }
+                    },
+                    "blur": {
+                      "description": "px",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "shadow": {
+                      "description": "CSS drop-shadow() arguments, e.g. \"0 20px 30px rgba(0,0,0,.5)\"",
+                      "type": "string"
+                    },
+                    "blend": {
+                      "description": "CSS mix-blend-mode",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "component"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name registered by a kit with registerComponent()"
+                    },
+                    "props": {
+                      "default": {},
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "preset": {
+                "default": "none",
+                "description": "Used only when keyframes is empty; spans the whole scene",
+                "type": "string",
+                "enum": [
+                  "none",
+                  "pushIn",
+                  "pullOut",
+                  "panLeft",
+                  "panRight",
+                  "panUp",
+                  "panDown",
+                  "drift"
+                ]
+              },
+              "amount": {
+                "default": 1,
+                "description": "Preset strength multiplier",
+                "type": "number"
+              },
+              "keyframes": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "t": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "x": {
+                      "description": "World point at the centre of the screen",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ]
+                    },
+                    "y": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?\\d+(\\.\\d+)?%$"
+                        }
+                      ],
+                      "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                    },
+                    "zoom": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "rotate": {
+                      "type": "number"
+                    },
+                    "ease": {
+                      "type": "string",
+                      "enum": [
+                        "linear",
+                        "in",
+                        "out",
+                        "inOut",
+                        "backIn",
+                        "backOut",
+                        "elastic",
+                        "bounce",
+                        "step"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "t"
+                  ]
+                }
+              },
+              "shake": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "at": {
+                      "type": "number",
+                      "minimum": 0,
+                      "description": "Scene-local start"
+                    },
+                    "duration": {
+                      "default": 0.4,
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "amplitude": {
+                      "default": 18,
+                      "description": "px",
+                      "type": "number"
+                    },
+                    "frequency": {
+                      "default": 14,
+                      "description": "Hz",
+                      "type": "number"
+                    },
+                    "rotate": {
+                      "default": 0.6,
+                      "description": "Max degrees",
+                      "type": "number"
+                    },
+                    "decay": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "at"
+                  ]
+                }
+              }
+            }
+          },
+          "callouts": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "style": {
+                  "default": "label",
+                  "type": "string",
+                  "enum": [
+                    "label",
+                    "stat",
+                    "banner",
+                    "lowerThird",
+                    "title"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                },
+                "sub": {
+                  "description": "Secondary line (stat label, lower-third subtitle)",
+                  "type": "string"
+                },
+                "at": {
+                  "default": 0,
+                  "type": "number",
+                  "minimum": 0
+                },
+                "duration": {
+                  "description": "Default: until the scene ends",
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "x": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^-?\\d+(\\.\\d+)?%$"
+                    }
+                  ],
+                  "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                },
+                "y": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^-?\\d+(\\.\\d+)?%$"
+                    }
+                  ],
+                  "description": "Pixels, or a percentage string of frame width (x) / height (y)"
+                },
+                "color": {
+                  "type": "string",
+                  "description": "Any CSS color"
+                },
+                "background": {
+                  "type": "string",
+                  "description": "Any CSS color"
+                },
+                "accent": {
+                  "type": "string",
+                  "description": "Any CSS color"
+                },
+                "fontSize": {
+                  "type": "number"
+                },
+                "rotate": {
+                  "default": 0,
+                  "type": "number"
+                },
+                "enter": {
+                  "default": "pop",
+                  "type": "string",
+                  "enum": [
+                    "fade",
+                    "pop",
+                    "slideUp",
+                    "slideDown",
+                    "slideLeft",
+                    "slideRight",
+                    "zoomIn",
+                    "zoomOut",
+                    "wipeRight",
+                    "wipeDown",
+                    "drop"
+                  ]
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          },
+          "transitionIn": {
+            "default": {
+              "type": "cut",
+              "duration": 0.4,
+              "direction": "left"
+            },
+            "type": "object",
+            "properties": {
+              "type": {
+                "default": "cut",
+                "type": "string",
+                "enum": [
+                  "cut",
+                  "fade",
+                  "dipBlack",
+                  "whip",
+                  "glitch"
+                ]
+              },
+              "duration": {
+                "default": 0.4,
+                "type": "number",
+                "minimum": 0
+              },
+              "direction": {
+                "default": "left",
+                "description": "whip only",
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right",
+                  "up",
+                  "down"
+                ]
+              }
+            }
+          },
+          "grade": {
+            "type": "object",
+            "properties": {
+              "brightness": {
+                "default": 1,
+                "type": "number"
+              },
+              "contrast": {
+                "default": 1,
+                "type": "number"
+              },
+              "saturate": {
+                "default": 1,
+                "type": "number"
+              },
+              "hue": {
+                "default": 0,
+                "description": "Degrees",
+                "type": "number"
+              },
+              "tint": {
+                "type": "string",
+                "description": "Any CSS color"
+              },
+              "tintOpacity": {
+                "default": 0.25,
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "vignette": {
+                "default": 0,
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "flicker": {
+                "default": 0,
+                "description": "Random brightness flicker strength",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "sfx": {
+            "default": [],
+            "description": "Scene-local sound cues",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cue": {
+                  "description": "Name in the SFX folder: <sfxDir>/<cue>.wav",
+                  "type": "string"
+                },
+                "src": {
+                  "description": "Or an explicit file under studio/public",
+                  "type": "string"
+                },
+                "at": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "volume": {
+                  "default": 0.8,
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "at"
+              ]
+            }
+          },
+          "notes": {
+            "description": "Narration / intent, ignored by the renderer",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "duration"
+        ]
+      }
+    },
+    "captions": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "src": {
+          "description": "JSON file under studio/public with {words:[...]} or [...] (merged at render time)",
+          "type": "string"
+        },
+        "words": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "start": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "text",
+              "start",
+              "end"
+            ]
+          }
+        },
+        "maxWords": {
+          "default": 3,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "maxChars": {
+          "default": 18,
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 9007199254740991
+        },
+        "gapBreak": {
+          "default": 0.45,
+          "description": "A pause longer than this starts a new caption page",
+          "type": "number"
+        },
+        "linger": {
+          "default": 0.35,
+          "description": "Seconds a page stays after its last word if nothing follows",
+          "type": "number"
+        },
+        "style": {
+          "default": {
+            "font": "display",
+            "weight": 900,
+            "color": "#ffffff",
+            "highlight": "#ffe14d",
+            "highlightMode": "color",
+            "boxColor": "#ff3b5c",
+            "strokeColor": "#000000",
+            "strokeWidth": 14,
+            "shadow": true,
+            "uppercase": true,
+            "pop": true
+          },
+          "type": "object",
+          "properties": {
+            "font": {
+              "default": "display",
+              "type": "string"
+            },
+            "weight": {
+              "default": 900,
+              "type": "number"
+            },
+            "fontSize": {
+              "description": "Default 104 (9:16) / 84 (16:9)",
+              "type": "number"
+            },
+            "color": {
+              "default": "#ffffff",
+              "type": "string",
+              "description": "Any CSS color"
+            },
+            "highlight": {
+              "default": "#ffe14d",
+              "type": "string",
+              "description": "Any CSS color"
+            },
+            "highlightMode": {
+              "default": "color",
+              "type": "string",
+              "enum": [
+                "color",
+                "box",
+                "none"
+              ]
+            },
+            "boxColor": {
+              "default": "#ff3b5c",
+              "type": "string",
+              "description": "Any CSS color"
+            },
+            "strokeColor": {
+              "default": "#000000",
+              "type": "string",
+              "description": "Any CSS color"
+            },
+            "strokeWidth": {
+              "default": 14,
+              "type": "number"
+            },
+            "shadow": {
+              "default": true,
+              "type": "boolean"
+            },
+            "uppercase": {
+              "default": true,
+              "type": "boolean"
+            },
+            "y": {
+              "description": "Vertical centre as a fraction of height (default 0.64 / 0.82)",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "maxWidth": {
+              "description": "px (default 82% of width)",
+              "type": "number"
+            },
+            "pop": {
+              "default": true,
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "audio": {
+      "default": {
+        "voice": [],
+        "music": [],
+        "sfx": [],
+        "sfxDir": "sfx",
+        "duckOn": "auto"
+      },
+      "type": "object",
+      "properties": {
+        "voice": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string"
+              },
+              "start": {
+                "default": 0,
+                "type": "number",
+                "minimum": 0
+              },
+              "volume": {
+                "default": 1,
+                "type": "number",
+                "minimum": 0
+              },
+              "duration": {
+                "description": "Seconds; used for music ducking",
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "src"
+            ]
+          }
+        },
+        "music": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string"
+              },
+              "start": {
+                "default": 0,
+                "type": "number",
+                "minimum": 0
+              },
+              "end": {
+                "description": "Default: end of video",
+                "type": "number",
+                "minimum": 0
+              },
+              "volume": {
+                "default": 0.35,
+                "type": "number",
+                "minimum": 0
+              },
+              "duckTo": {
+                "default": 0.12,
+                "description": "Volume while speech plays",
+                "type": "number",
+                "minimum": 0
+              },
+              "attack": {
+                "default": 0.15,
+                "type": "number",
+                "minimum": 0
+              },
+              "release": {
+                "default": 0.45,
+                "type": "number",
+                "minimum": 0
+              },
+              "fadeIn": {
+                "default": 0.6,
+                "type": "number",
+                "minimum": 0
+              },
+              "fadeOut": {
+                "default": 1,
+                "type": "number",
+                "minimum": 0
+              },
+              "loop": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "src"
+            ]
+          }
+        },
+        "sfx": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cue": {
+                "description": "Name in the SFX folder: <sfxDir>/<cue>.wav",
+                "type": "string"
+              },
+              "src": {
+                "description": "Or an explicit file under studio/public",
+                "type": "string"
+              },
+              "at": {
+                "type": "number",
+                "minimum": 0
+              },
+              "volume": {
+                "default": 0.8,
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "at"
+            ]
+          }
+        },
+        "sfxDir": {
+          "default": "sfx",
+          "type": "string"
+        },
+        "duckOn": {
+          "default": "auto",
+          "description": "auto = voice clips with durations, else caption word timings",
+          "type": "string",
+          "enum": [
+            "auto",
+            "voice",
+            "captions",
+            "none"
+          ]
+        }
+      }
+    },
+    "overlays": {
+      "default": {
+        "grain": 0,
+        "vignette": 0,
+        "fadeIn": 0,
+        "fadeOut": 0
+      },
+      "type": "object",
+      "properties": {
+        "grain": {
+          "default": 0,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "vignette": {
+          "default": 0,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "fadeIn": {
+          "default": 0,
+          "description": "Seconds from black at the start",
+          "type": "number",
+          "minimum": 0
+        },
+        "fadeOut": {
+          "default": 0,
+          "description": "Seconds to black at the end",
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "scenes"
+  ]
+}
