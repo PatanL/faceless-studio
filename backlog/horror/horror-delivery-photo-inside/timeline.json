@@ -1,0 +1,1925 @@
+{
+ "runtime": 84.129,
+ "beats": [
+  {
+   "key": "S1",
+   "title": "S1 HOOK",
+   "t": 0.12
+  },
+  {
+   "key": "S2",
+   "title": "S2 TRUSTED SOURCE ANSWERS",
+   "t": 3.75
+  },
+  {
+   "key": "S3",
+   "title": "S3 PLANT + TELL (the chain sets the timeline)",
+   "t": 7.221
+  },
+  {
+   "key": "S4",
+   "title": "S4 RULES",
+   "t": 12.511
+  },
+  {
+   "key": "B3",
+   "title": "B3 NEAR-COMPLIANCE + S5 PROXIMITY RUNG 1",
+   "t": 16.145
+  },
+  {
+   "key": "B6",
+   "title": "B6 CHANNEL REMOVAL + VIEWER-PROXY VOICE",
+   "t": 21.872
+  },
+  {
+   "key": "S7",
+   "title": "S7 VOLUME LADDER",
+   "t": 31.46
+  },
+  {
+   "key": "B8",
+   "title": "B8 TURN: the protective act is the trap",
+   "t": 39.464
+  },
+  {
+   "key": "B9",
+   "title": "B9 SCARIEST IMAGE, held",
+   "t": 44.819
+  },
+  {
+   "key": "B10",
+   "title": "B10 LIFELINE UNDER A CLOCK (15 s, real time)",
+   "t": 56.182
+  },
+  {
+   "key": "T11",
+   "title": "FAKE WIN (PLAYBOOK T11)",
+   "t": 70.333
+  },
+  {
+   "key": "B11",
+   "title": "B11 RETRO-REVEAL + VOICE SWAP",
+   "t": 73.657
+  },
+  {
+   "key": "B12",
+   "title": "B12 BOOKEND + CUT",
+   "t": 81.229
+  }
+ ],
+ "items": [
+  {
+   "kind": "line",
+   "id": "n1",
+   "spk": "N",
+   "text": "My delivery photo was taken from inside my apartment.",
+   "start": 0.12,
+   "end": 2.665,
+   "dur": 2.545,
+   "words": [
+    {
+     "w": "My",
+     "s": 0.12,
+     "e": 0.21
+    },
+    {
+     "w": "delivery",
+     "s": 0.21,
+     "e": 0.56
+    },
+    {
+     "w": "photo",
+     "s": 0.56,
+     "e": 0.985
+    },
+    {
+     "w": "was",
+     "s": 0.985,
+     "e": 1.11
+    },
+    {
+     "w": "taken",
+     "s": 1.11,
+     "e": 1.435
+    },
+    {
+     "w": "from",
+     "s": 1.435,
+     "e": 1.585
+    },
+    {
+     "w": "inside",
+     "s": 1.585,
+     "e": 2.023
+    },
+    {
+     "w": "my",
+     "s": 2.023,
+     "e": 2.147
+    },
+    {
+     "w": "apartment.",
+     "s": 2.147,
+     "e": 2.715
+    }
+   ],
+   "beat": "S1",
+   "screen": "Order card: green \"\u2713 Left at door \u00b7 9:41 PM\"; proof photo of my front door from INSIDE, chain on; red ring on the chain; burned label \"taken from INSIDE \u2192\""
+  },
+  {
+   "kind": "line",
+   "id": "n2",
+   "spk": "N",
+   "text": "I live alone.",
+   "start": 2.845,
+   "end": 3.43,
+   "dur": 0.585,
+   "words": [
+    {
+     "w": "I",
+     "s": 2.845,
+     "e": 2.885
+    },
+    {
+     "w": "live",
+     "s": 2.875,
+     "e": 3.037
+    },
+    {
+     "w": "alone.",
+     "s": 3.037,
+     "e": 3.48
+    }
+   ],
+   "beat": "S1",
+   "screen": "Photo insert full-frame (white proof border, \"9:41 PM\")"
+  },
+  {
+   "kind": "line",
+   "id": "s1",
+   "spk": "S",
+   "text": "Driver verified! Location: inside unit. Anything else today?",
+   "start": 3.75,
+   "end": 6.901,
+   "dur": 3.151,
+   "words": [
+    {
+     "w": "Driver",
+     "s": 3.75,
+     "e": 3.996
+    },
+    {
+     "w": "verified!",
+     "s": 3.996,
+     "e": 4.546
+    },
+    {
+     "w": "Location:",
+     "s": 4.621,
+     "e": 5.271
+    },
+    {
+     "w": "inside",
+     "s": 5.371,
+     "e": 5.771
+    },
+    {
+     "w": "unit.",
+     "s": 5.771,
+     "e": 6.021
+    },
+    {
+     "w": "Anything",
+     "s": 6.071,
+     "e": 6.358
+    },
+    {
+     "w": "else",
+     "s": 6.358,
+     "e": 6.546
+    },
+    {
+     "w": "today?",
+     "s": 6.546,
+     "e": 6.951
+    }
+   ],
+   "beat": "S2",
+   "screen": "Support chat. Me: \"who took this photo?? I live alone\". Support: \"Driver verified \u2713 Location: INSIDE UNIT. Anything else today? \ud83d\ude42\""
+  },
+  {
+   "kind": "line",
+   "id": "n3",
+   "spk": "N",
+   "text": "In the photo my chain is on, and I put it on at nine. The photo says nine forty-one.",
+   "start": 7.221,
+   "end": 10.933,
+   "dur": 3.712,
+   "words": [
+    {
+     "w": "In",
+     "s": 7.221,
+     "e": 7.261
+    },
+    {
+     "w": "the",
+     "s": 7.221,
+     "e": 7.3
+    },
+    {
+     "w": "photo",
+     "s": 7.3,
+     "e": 7.563
+    },
+    {
+     "w": "my",
+     "s": 7.563,
+     "e": 7.7
+    },
+    {
+     "w": "chain",
+     "s": 7.7,
+     "e": 7.913
+    },
+    {
+     "w": "is",
+     "s": 7.913,
+     "e": 8.025
+    },
+    {
+     "w": "on,",
+     "s": 8.025,
+     "e": 8.35
+    },
+    {
+     "w": "and",
+     "s": 8.412,
+     "e": 8.512
+    },
+    {
+     "w": "I",
+     "s": 8.512,
+     "e": 8.6
+    },
+    {
+     "w": "put",
+     "s": 8.6,
+     "e": 8.738
+    },
+    {
+     "w": "it",
+     "s": 8.738,
+     "e": 8.813
+    },
+    {
+     "w": "on",
+     "s": 8.813,
+     "e": 8.938
+    },
+    {
+     "w": "at",
+     "s": 8.938,
+     "e": 9.012
+    },
+    {
+     "w": "nine.",
+     "s": 9.012,
+     "e": 9.525
+    },
+    {
+     "w": "The",
+     "s": 9.625,
+     "e": 9.725
+    },
+    {
+     "w": "photo",
+     "s": 9.725,
+     "e": 10.0
+    },
+    {
+     "w": "says",
+     "s": 10.0,
+     "e": 10.225
+    },
+    {
+     "w": "nine",
+     "s": 10.225,
+     "e": 10.45
+    },
+    {
+     "w": "forty-one.",
+     "s": 10.45,
+     "e": 10.983
+    }
+   ],
+   "beat": "S3",
+   "screen": "Macro on the chain in the photo; timestamp \"9:41 PM\" pulses; cut to the real door down the hall, chain on"
+  },
+  {
+   "kind": "line",
+   "id": "n4",
+   "spk": "N",
+   "text": "So he was already inside.",
+   "start": 11.153,
+   "end": 12.191,
+   "dur": 1.038,
+   "words": [
+    {
+     "w": "So",
+     "s": 11.153,
+     "e": 11.209
+    },
+    {
+     "w": "he",
+     "s": 11.209,
+     "e": 11.284
+    },
+    {
+     "w": "was",
+     "s": 11.284,
+     "e": 11.397
+    },
+    {
+     "w": "already",
+     "s": 11.397,
+     "e": 11.734
+    },
+    {
+     "w": "inside.",
+     "s": 11.734,
+     "e": 12.241
+    }
+   ],
+   "beat": "S3",
+   "screen": "RedText scrawl \"ALREADY INSIDE\" (0.8 s)"
+  },
+  {
+   "kind": "line",
+   "id": "r1",
+   "spk": "R",
+   "text": "Hi! Your order's by the door. Rate me five stars and I'll head out.",
+   "start": 12.511,
+   "end": 15.825,
+   "dur": 3.314,
+   "words": [
+    {
+     "w": "Hi!",
+     "s": 12.511,
+     "e": 12.662
+    },
+    {
+     "w": "Your",
+     "s": 12.699,
+     "e": 12.862
+    },
+    {
+     "w": "order's",
+     "s": 12.862,
+     "e": 13.262
+    },
+    {
+     "w": "by",
+     "s": 13.262,
+     "e": 13.425
+    },
+    {
+     "w": "the",
+     "s": 13.425,
+     "e": 13.537
+    },
+    {
+     "w": "door.",
+     "s": 13.537,
+     "e": 14.037
+    },
+    {
+     "w": "Rate",
+     "s": 14.162,
+     "e": 14.349
+    },
+    {
+     "w": "me",
+     "s": 14.349,
+     "e": 14.499
+    },
+    {
+     "w": "five",
+     "s": 14.499,
+     "e": 14.837
+    },
+    {
+     "w": "stars",
+     "s": 14.837,
+     "e": 15.275
+    },
+    {
+     "w": "and",
+     "s": 15.275,
+     "e": 15.374
+    },
+    {
+     "w": "I'll",
+     "s": 15.374,
+     "e": 15.487
+    },
+    {
+     "w": "head",
+     "s": 15.487,
+     "e": 15.687
+    },
+    {
+     "w": "out.",
+     "s": 15.687,
+     "e": 15.875
+    }
+   ],
+   "beat": "S4",
+   "screen": "Driver chat header \"Teo \u00b7 \u26055.0 \u00b7 1,206 deliveries \u00b7 1,200 ratings\"; bubble \"Hi! Your order's by the door \ud83d\ude42 Rate me \u2605\u2605\u2605\u2605\u2605 and I'll head out\"; app system line (on-screen only, UI chime): \"Drivers can't leave until the order is rated.\""
+  },
+  {
+   "kind": "line",
+   "id": "n5",
+   "spk": "N",
+   "text": "My thumb was on the fourth star when my fridge door thumped shut.",
+   "start": 16.145,
+   "end": 18.507,
+   "dur": 2.362,
+   "words": [
+    {
+     "w": "My",
+     "s": 16.145,
+     "e": 16.213
+    },
+    {
+     "w": "thumb",
+     "s": 16.213,
+     "e": 16.426
+    },
+    {
+     "w": "was",
+     "s": 16.426,
+     "e": 16.526
+    },
+    {
+     "w": "on",
+     "s": 16.526,
+     "e": 16.626
+    },
+    {
+     "w": "the",
+     "s": 16.626,
+     "e": 16.713
+    },
+    {
+     "w": "fourth",
+     "s": 16.713,
+     "e": 16.951
+    },
+    {
+     "w": "star",
+     "s": 16.951,
+     "e": 17.277
+    },
+    {
+     "w": "when",
+     "s": 17.277,
+     "e": 17.401
+    },
+    {
+     "w": "my",
+     "s": 17.401,
+     "e": 17.539
+    },
+    {
+     "w": "fridge",
+     "s": 17.539,
+     "e": 17.789
+    },
+    {
+     "w": "door",
+     "s": 17.789,
+     "e": 18.027
+    },
+    {
+     "w": "thumped",
+     "s": 18.027,
+     "e": 18.277
+    },
+    {
+     "w": "shut.",
+     "s": 18.277,
+     "e": 18.557
+    }
+   ],
+   "beat": "B3",
+   "screen": "Rating sheet \u2605\u2605\u2605\u2605\u2606, thumb over star 4"
+  },
+  {
+   "kind": "silence",
+   "id": "q1",
+   "start": 18.507,
+   "end": 19.107,
+   "dur": 0.6,
+   "beat": "B3",
+   "screen": "Silence: Nora frozen, lookX toward the kitchen"
+  },
+  {
+   "kind": "line",
+   "id": "n6",
+   "spk": "N",
+   "text": "The map showed my apartment, and his icon was in the kitchen.",
+   "start": 19.107,
+   "end": 21.652,
+   "dur": 2.545,
+   "words": [
+    {
+     "w": "The",
+     "s": 19.107,
+     "e": 19.147
+    },
+    {
+     "w": "map",
+     "s": 19.107,
+     "e": 19.378
+    },
+    {
+     "w": "showed",
+     "s": 19.378,
+     "e": 19.615
+    },
+    {
+     "w": "my",
+     "s": 19.615,
+     "e": 19.74
+    },
+    {
+     "w": "apartment,",
+     "s": 19.74,
+     "e": 20.353
+    },
+    {
+     "w": "and",
+     "s": 20.428,
+     "e": 20.541
+    },
+    {
+     "w": "his",
+     "s": 20.541,
+     "e": 20.678
+    },
+    {
+     "w": "icon",
+     "s": 20.678,
+     "e": 21.065
+    },
+    {
+     "w": "was",
+     "s": 21.065,
+     "e": 21.165
+    },
+    {
+     "w": "in",
+     "s": 21.165,
+     "e": 21.241
+    },
+    {
+     "w": "the",
+     "s": 21.241,
+     "e": 21.328
+    },
+    {
+     "w": "kitchen.",
+     "s": 21.328,
+     "e": 21.702
+    }
+   ],
+   "beat": "B3",
+   "screen": "Map tab: the street map zooms into a floor plan (Kitchen / Hall / Bedroom / Bath); scooter icon in Kitchen; \"Teo \u00b7 30 ft away\""
+  },
+  {
+   "kind": "line",
+   "id": "n7",
+   "spk": "N",
+   "text": "I texted my sister.",
+   "start": 21.872,
+   "end": 22.841,
+   "dur": 0.969,
+   "words": [
+    {
+     "w": "I",
+     "s": 21.872,
+     "e": 21.919
+    },
+    {
+     "w": "texted",
+     "s": 21.919,
+     "e": 22.332
+    },
+    {
+     "w": "my",
+     "s": 22.332,
+     "e": 22.469
+    },
+    {
+     "w": "sister.",
+     "s": 22.469,
+     "e": 22.891
+    }
+   ],
+   "beat": "B6",
+   "screen": "Chat \"Mia\". Me: \"someone took a photo INSIDE my place\""
+  },
+  {
+   "kind": "line",
+   "id": "m1",
+   "spk": "M",
+   "text": "It's a glitch. Just rate him.",
+   "start": 23.161,
+   "end": 24.921,
+   "dur": 1.76,
+   "words": [
+    {
+     "w": "It's",
+     "s": 23.161,
+     "e": 23.27
+    },
+    {
+     "w": "a",
+     "s": 23.27,
+     "e": 23.332
+    },
+    {
+     "w": "glitch.",
+     "s": 23.332,
+     "e": 24.007
+    },
+    {
+     "w": "Just",
+     "s": 24.157,
+     "e": 24.432
+    },
+    {
+     "w": "rate",
+     "s": 24.432,
+     "e": 24.67
+    },
+    {
+     "w": "him.",
+     "s": 24.67,
+     "e": 24.971
+    }
+   ],
+   "beat": "B6",
+   "screen": "Mia: \"it's a glitch lol. just rate him\""
+  },
+  {
+   "kind": "line",
+   "id": "n8",
+   "spk": "N",
+   "text": "I typed, he's inside. Not delivered.",
+   "start": 25.241,
+   "end": 26.93,
+   "dur": 1.689,
+   "words": [
+    {
+     "w": "I",
+     "s": 25.241,
+     "e": 25.286
+    },
+    {
+     "w": "typed,",
+     "s": 25.286,
+     "e": 25.536
+    },
+    {
+     "w": "he's",
+     "s": 25.574,
+     "e": 25.699
+    },
+    {
+     "w": "inside.",
+     "s": 25.699,
+     "e": 26.236
+    },
+    {
+     "w": "Not",
+     "s": 26.336,
+     "e": 26.524
+    },
+    {
+     "w": "delivered.",
+     "s": 26.524,
+     "e": 26.98
+    }
+   ],
+   "beat": "B6",
+   "screen": "Me: \"HE'S INSIDE\" + red \"! Not delivered\""
+  },
+  {
+   "kind": "line",
+   "id": "n9",
+   "spk": "N",
+   "text": "I called nine one one, and it bounced me back to the stars. The app had taken my phone.",
+   "start": 27.15,
+   "end": 31.14,
+   "dur": 3.99,
+   "words": [
+    {
+     "w": "I",
+     "s": 27.15,
+     "e": 27.193
+    },
+    {
+     "w": "called",
+     "s": 27.193,
+     "e": 27.468
+    },
+    {
+     "w": "nine",
+     "s": 27.468,
+     "e": 27.718
+    },
+    {
+     "w": "one",
+     "s": 27.718,
+     "e": 27.881
+    },
+    {
+     "w": "one,",
+     "s": 27.881,
+     "e": 28.143
+    },
+    {
+     "w": "and",
+     "s": 28.205,
+     "e": 28.306
+    },
+    {
+     "w": "it",
+     "s": 28.306,
+     "e": 28.393
+    },
+    {
+     "w": "bounced",
+     "s": 28.393,
+     "e": 28.681
+    },
+    {
+     "w": "me",
+     "s": 28.681,
+     "e": 28.78
+    },
+    {
+     "w": "back",
+     "s": 28.78,
+     "e": 29.018
+    },
+    {
+     "w": "to",
+     "s": 29.018,
+     "e": 29.105
+    },
+    {
+     "w": "the",
+     "s": 29.105,
+     "e": 29.193
+    },
+    {
+     "w": "stars.",
+     "s": 29.193,
+     "e": 29.868
+    },
+    {
+     "w": "The",
+     "s": 29.968,
+     "e": 30.118
+    },
+    {
+     "w": "app",
+     "s": 30.118,
+     "e": 30.306
+    },
+    {
+     "w": "had",
+     "s": 30.306,
+     "e": 30.418
+    },
+    {
+     "w": "taken",
+     "s": 30.418,
+     "e": 30.681
+    },
+    {
+     "w": "my",
+     "s": 30.681,
+     "e": 30.818
+    },
+    {
+     "w": "phone.",
+     "s": 30.818,
+     "e": 31.19
+    }
+   ],
+   "beat": "B6",
+   "screen": "Call screen \"911 \u00b7 Calling\u2026\" glitches to the rating sheet \"Rate your driver \u2606\u2606\u2606\u2606\u2606\""
+  },
+  {
+   "kind": "line",
+   "id": "r2",
+   "spk": "R",
+   "text": "Just one tap.",
+   "start": 31.46,
+   "end": 32.378,
+   "dur": 0.918,
+   "words": [
+    {
+     "w": "Just",
+     "s": 31.46,
+     "e": 31.709
+    },
+    {
+     "w": "one",
+     "s": 31.709,
+     "e": 31.972
+    },
+    {
+     "w": "tap.",
+     "s": 31.972,
+     "e": 32.428
+    }
+   ],
+   "beat": "S7",
+   "screen": "Teo: \"just one tap :)\""
+  },
+  {
+   "kind": "line",
+   "id": "r3",
+   "spk": "R",
+   "text": "I've been very patient.",
+   "start": 32.498,
+   "end": 33.571,
+   "dur": 1.073,
+   "words": [
+    {
+     "w": "I've",
+     "s": 32.498,
+     "e": 32.593
+    },
+    {
+     "w": "been",
+     "s": 32.593,
+     "e": 32.805
+    },
+    {
+     "w": "very",
+     "s": 32.805,
+     "e": 33.131
+    },
+    {
+     "w": "patient.",
+     "s": 33.131,
+     "e": 33.621
+    }
+   ],
+   "beat": "S7",
+   "screen": "Teo: \"I've been very patient.\""
+  },
+  {
+   "kind": "line",
+   "id": "r4",
+   "spk": "R",
+   "text": "Rate me!",
+   "start": 33.691,
+   "end": 34.256,
+   "dur": 0.565,
+   "words": [
+    {
+     "w": "Rate",
+     "s": 33.691,
+     "e": 33.961
+    },
+    {
+     "w": "me!",
+     "s": 33.961,
+     "e": 34.306
+    }
+   ],
+   "beat": "S7",
+   "screen": "Teo: \"RATE ME\" (red alert bubble, phone vibrates, shake)"
+  },
+  {
+   "kind": "line",
+   "id": "n10",
+   "spk": "N",
+   "text": "His icon slid into the hallway. Ten feet.",
+   "start": 34.576,
+   "end": 36.676,
+   "dur": 2.1,
+   "words": [
+    {
+     "w": "His",
+     "s": 34.576,
+     "e": 34.659
+    },
+    {
+     "w": "icon",
+     "s": 34.659,
+     "e": 35.047
+    },
+    {
+     "w": "slid",
+     "s": 35.047,
+     "e": 35.272
+    },
+    {
+     "w": "into",
+     "s": 35.272,
+     "e": 35.446
+    },
+    {
+     "w": "the",
+     "s": 35.446,
+     "e": 35.534
+    },
+    {
+     "w": "hallway.",
+     "s": 35.534,
+     "e": 36.034
+    },
+    {
+     "w": "Ten",
+     "s": 36.159,
+     "e": 36.409
+    },
+    {
+     "w": "feet.",
+     "s": 36.409,
+     "e": 36.726
+    }
+   ],
+   "beat": "S7",
+   "screen": "Floor plan: icon slides Kitchen -> Hall, \"Teo \u00b7 10 ft away\""
+  },
+  {
+   "kind": "line",
+   "id": "n11",
+   "spk": "N",
+   "text": "I locked my bedroom door and sat on the bed, facing it.",
+   "start": 36.896,
+   "end": 39.144,
+   "dur": 2.248,
+   "words": [
+    {
+     "w": "I",
+     "s": 36.896,
+     "e": 36.943
+    },
+    {
+     "w": "locked",
+     "s": 36.943,
+     "e": 37.18
+    },
+    {
+     "w": "my",
+     "s": 37.18,
+     "e": 37.318
+    },
+    {
+     "w": "bedroom",
+     "s": 37.318,
+     "e": 37.643
+    },
+    {
+     "w": "door",
+     "s": 37.643,
+     "e": 37.893
+    },
+    {
+     "w": "and",
+     "s": 37.893,
+     "e": 38.018
+    },
+    {
+     "w": "sat",
+     "s": 38.018,
+     "e": 38.205
+    },
+    {
+     "w": "on",
+     "s": 38.205,
+     "e": 38.306
+    },
+    {
+     "w": "the",
+     "s": 38.306,
+     "e": 38.38
+    },
+    {
+     "w": "bed,",
+     "s": 38.38,
+     "e": 38.668
+    },
+    {
+     "w": "facing",
+     "s": 38.743,
+     "e": 39.043
+    },
+    {
+     "w": "it.",
+     "s": 39.043,
+     "e": 39.194
+    }
+   ],
+   "beat": "S7",
+   "screen": "Bedroom: Nora on the bed facing her locked door; wardrobe ajar behind her (a faint hinge creak under the lock click)"
+  },
+  {
+   "kind": "line",
+   "id": "s2",
+   "spk": "S",
+   "text": "Sorry for the wait! Six customers never rated Teo. He's still delivering to them.",
+   "start": 39.464,
+   "end": 43.419,
+   "dur": 3.955,
+   "words": [
+    {
+     "w": "Sorry",
+     "s": 39.464,
+     "e": 39.714
+    },
+    {
+     "w": "for",
+     "s": 39.714,
+     "e": 39.827
+    },
+    {
+     "w": "the",
+     "s": 39.827,
+     "e": 39.914
+    },
+    {
+     "w": "wait!",
+     "s": 39.914,
+     "e": 40.264
+    },
+    {
+     "w": "Six",
+     "s": 40.377,
+     "e": 40.664
+    },
+    {
+     "w": "customers",
+     "s": 40.664,
+     "e": 41.189
+    },
+    {
+     "w": "never",
+     "s": 41.189,
+     "e": 41.389
+    },
+    {
+     "w": "rated",
+     "s": 41.389,
+     "e": 41.714
+    },
+    {
+     "w": "Teo.",
+     "s": 41.714,
+     "e": 42.164
+    },
+    {
+     "w": "He's",
+     "s": 42.264,
+     "e": 42.427
+    },
+    {
+     "w": "still",
+     "s": 42.427,
+     "e": 42.664
+    },
+    {
+     "w": "delivering",
+     "s": 42.664,
+     "e": 43.089
+    },
+    {
+     "w": "to",
+     "s": 43.089,
+     "e": 43.176
+    },
+    {
+     "w": "them.",
+     "s": 43.176,
+     "e": 43.469
+    }
+   ],
+   "beat": "B8",
+   "screen": "Support: \"Sorry for the wait! 6 customers never rated Teo. He's still delivering to them \ud83d\ude42\"; header stat flashes 1,206 deliveries / 1,200 ratings"
+  },
+  {
+   "kind": "silence",
+   "id": "q2",
+   "start": 43.519,
+   "end": 44.819,
+   "dur": 1.3,
+   "beat": "B8",
+   "screen": "Silence beat: Me: \"hello?\" ... \"HELLO??\" (no reply, no typing dots)"
+  },
+  {
+   "kind": "line",
+   "id": "n12",
+   "spk": "N",
+   "text": "Then a new proof photo. Me, on my bed, staring at my locked door. Taken from behind me.",
+   "start": 44.819,
+   "end": 49.032,
+   "dur": 4.213,
+   "words": [
+    {
+     "w": "Then",
+     "s": 44.819,
+     "e": 44.859
+    },
+    {
+     "w": "a",
+     "s": 44.859,
+     "e": 44.922
+    },
+    {
+     "w": "new",
+     "s": 44.922,
+     "e": 45.097
+    },
+    {
+     "w": "proof",
+     "s": 45.097,
+     "e": 45.372
+    },
+    {
+     "w": "photo.",
+     "s": 45.372,
+     "e": 45.872
+    },
+    {
+     "w": "Me,",
+     "s": 45.997,
+     "e": 46.197
+    },
+    {
+     "w": "on",
+     "s": 46.235,
+     "e": 46.335
+    },
+    {
+     "w": "my",
+     "s": 46.335,
+     "e": 46.472
+    },
+    {
+     "w": "bed,",
+     "s": 46.472,
+     "e": 46.722
+    },
+    {
+     "w": "staring",
+     "s": 46.772,
+     "e": 47.109
+    },
+    {
+     "w": "at",
+     "s": 47.109,
+     "e": 47.185
+    },
+    {
+     "w": "my",
+     "s": 47.185,
+     "e": 47.322
+    },
+    {
+     "w": "locked",
+     "s": 47.322,
+     "e": 47.572
+    },
+    {
+     "w": "door.",
+     "s": 47.572,
+     "e": 47.972
+    },
+    {
+     "w": "Taken",
+     "s": 48.072,
+     "e": 48.397
+    },
+    {
+     "w": "from",
+     "s": 48.397,
+     "e": 48.534
+    },
+    {
+     "w": "behind",
+     "s": 48.534,
+     "e": 48.859
+    },
+    {
+     "w": "me.",
+     "s": 48.859,
+     "e": 49.082
+    }
+   ],
+   "beat": "B9",
+   "screen": "Banner \"Proof of delivery updated\"; photo 2: Nora from behind on the bed, facing her locked door, phone glow; timestamp \"9:52 PM\""
+  },
+  {
+   "kind": "silence",
+   "id": "q3",
+   "start": 49.132,
+   "end": 53.132,
+   "dur": 4.0,
+   "beat": "B9",
+   "screen": "Photo 2 held still 4.0 s, heartbeat only"
+  },
+  {
+   "kind": "line",
+   "id": "n13",
+   "spk": "N",
+   "text": "The map still said hallway.",
+   "start": 53.132,
+   "end": 54.162,
+   "dur": 1.03,
+   "words": [
+    {
+     "w": "The",
+     "s": 53.132,
+     "e": 53.172
+    },
+    {
+     "w": "map",
+     "s": 53.132,
+     "e": 53.369
+    },
+    {
+     "w": "still",
+     "s": 53.369,
+     "e": 53.619
+    },
+    {
+     "w": "said",
+     "s": 53.619,
+     "e": 53.757
+    },
+    {
+     "w": "hallway.",
+     "s": 53.757,
+     "e": 54.212
+    }
+   ],
+   "beat": "B9",
+   "screen": "Cut to the floor plan: icon pulsing in \"Hall \u00b7 10 ft\""
+  },
+  {
+   "kind": "line",
+   "id": "r5",
+   "spk": "R",
+   "text": "I'm closer than the map says.",
+   "start": 54.482,
+   "end": 55.862,
+   "dur": 1.38,
+   "words": [
+    {
+     "w": "I'm",
+     "s": 54.482,
+     "e": 54.614
+    },
+    {
+     "w": "closer",
+     "s": 54.614,
+     "e": 55.026
+    },
+    {
+     "w": "than",
+     "s": 55.026,
+     "e": 55.126
+    },
+    {
+     "w": "the",
+     "s": 55.126,
+     "e": 55.214
+    },
+    {
+     "w": "map",
+     "s": 55.214,
+     "e": 55.489
+    },
+    {
+     "w": "says.",
+     "s": 55.489,
+     "e": 55.912
+    }
+   ],
+   "beat": "B9",
+   "screen": "Teo, calm lowercase: \"i'm closer than the map says.\""
+  },
+  {
+   "kind": "line",
+   "id": "n14",
+   "spk": "N",
+   "text": "Then a timer: rate in fifteen seconds, or your driver hands you the order in person.",
+   "start": 56.182,
+   "end": 60.22,
+   "dur": 4.038,
+   "words": [
+    {
+     "w": "Then",
+     "s": 56.182,
+     "e": 56.222
+    },
+    {
+     "w": "a",
+     "s": 56.209,
+     "e": 56.272
+    },
+    {
+     "w": "timer:",
+     "s": 56.272,
+     "e": 56.847
+    },
+    {
+     "w": "rate",
+     "s": 56.984,
+     "e": 57.21
+    },
+    {
+     "w": "in",
+     "s": 57.21,
+     "e": 57.322
+    },
+    {
+     "w": "fifteen",
+     "s": 57.322,
+     "e": 57.722
+    },
+    {
+     "w": "seconds,",
+     "s": 57.722,
+     "e": 58.247
+    },
+    {
+     "w": "or",
+     "s": 58.322,
+     "e": 58.409
+    },
+    {
+     "w": "your",
+     "s": 58.409,
+     "e": 58.522
+    },
+    {
+     "w": "driver",
+     "s": 58.522,
+     "e": 58.897
+    },
+    {
+     "w": "hands",
+     "s": 58.897,
+     "e": 59.159
+    },
+    {
+     "w": "you",
+     "s": 59.159,
+     "e": 59.234
+    },
+    {
+     "w": "the",
+     "s": 59.234,
+     "e": 59.347
+    },
+    {
+     "w": "order",
+     "s": 59.347,
+     "e": 59.697
+    },
+    {
+     "w": "in",
+     "s": 59.697,
+     "e": 59.797
+    },
+    {
+     "w": "person.",
+     "s": 59.797,
+     "e": 60.27
+    }
+   ],
+   "beat": "B10",
+   "screen": "Rating sheet slides up: \"Rate within 0:15 or your driver will hand you the order in person.\" Timer counts down in real time, one tick per second"
+  },
+  {
+   "kind": "line",
+   "id": "c1",
+   "spk": "C",
+   "text": "Hi, it's Lucky Noodle. Your food's still on our counter. We don't have a driver named Teo.",
+   "start": 60.54,
+   "end": 65.411,
+   "dur": 4.871,
+   "words": [
+    {
+     "w": "Hi,",
+     "s": 60.54,
+     "e": 60.73
+    },
+    {
+     "w": "it's",
+     "s": 60.767,
+     "e": 60.955
+    },
+    {
+     "w": "Lucky",
+     "s": 60.955,
+     "e": 61.255
+    },
+    {
+     "w": "Noodle.",
+     "s": 61.255,
+     "e": 61.78
+    },
+    {
+     "w": "Your",
+     "s": 61.855,
+     "e": 62.068
+    },
+    {
+     "w": "food's",
+     "s": 62.068,
+     "e": 62.455
+    },
+    {
+     "w": "still",
+     "s": 62.455,
+     "e": 62.718
+    },
+    {
+     "w": "on",
+     "s": 62.718,
+     "e": 62.867
+    },
+    {
+     "w": "our",
+     "s": 62.867,
+     "e": 63.005
+    },
+    {
+     "w": "counter.",
+     "s": 63.005,
+     "e": 63.605
+    },
+    {
+     "w": "We",
+     "s": 63.693,
+     "e": 63.818
+    },
+    {
+     "w": "don't",
+     "s": 63.818,
+     "e": 64.005
+    },
+    {
+     "w": "have",
+     "s": 64.005,
+     "e": 64.168
+    },
+    {
+     "w": "a",
+     "s": 64.168,
+     "e": 64.242
+    },
+    {
+     "w": "driver",
+     "s": 64.242,
+     "e": 64.655
+    },
+    {
+     "w": "named",
+     "s": 64.655,
+     "e": 64.942
+    },
+    {
+     "w": "Teo.",
+     "s": 64.942,
+     "e": 65.461
+    }
+   ],
+   "beat": "B10",
+   "screen": "Incoming in-app call \"Lucky Noodle\" over the sheet; timer keeps running under it; \"Call ended\""
+  },
+  {
+   "kind": "silence",
+   "id": "q4",
+   "start": 65.511,
+   "end": 68.111,
+   "dur": 2.6,
+   "beat": "B10",
+   "screen": "Silent ticks under the clock; timer runs down in real time"
+  },
+  {
+   "kind": "line",
+   "id": "n15",
+   "spk": "N",
+   "text": "I didn't turn around. I gave him five stars.",
+   "start": 68.111,
+   "end": 70.113,
+   "dur": 2.002,
+   "words": [
+    {
+     "w": "I",
+     "s": 68.111,
+     "e": 68.151
+    },
+    {
+     "w": "didn't",
+     "s": 68.117,
+     "e": 68.329
+    },
+    {
+     "w": "turn",
+     "s": 68.329,
+     "e": 68.491
+    },
+    {
+     "w": "around.",
+     "s": 68.491,
+     "e": 68.954
+    },
+    {
+     "w": "I",
+     "s": 69.029,
+     "e": 69.142
+    },
+    {
+     "w": "gave",
+     "s": 69.142,
+     "e": 69.292
+    },
+    {
+     "w": "him",
+     "s": 69.292,
+     "e": 69.454
+    },
+    {
+     "w": "five",
+     "s": 69.454,
+     "e": 69.691
+    },
+    {
+     "w": "stars.",
+     "s": 69.691,
+     "e": 70.163
+    }
+   ],
+   "beat": "B10",
+   "screen": "Thumb taps star 5 at 0:02; stars fill gold"
+  },
+  {
+   "kind": "line",
+   "id": "n16",
+   "spk": "N",
+   "text": "His icon vanished, and the app said delivery complete.",
+   "start": 70.333,
+   "end": 72.657,
+   "dur": 2.324,
+   "words": [
+    {
+     "w": "His",
+     "s": 70.333,
+     "e": 70.413
+    },
+    {
+     "w": "icon",
+     "s": 70.413,
+     "e": 70.763
+    },
+    {
+     "w": "vanished,",
+     "s": 70.763,
+     "e": 71.313
+    },
+    {
+     "w": "and",
+     "s": 71.388,
+     "e": 71.501
+    },
+    {
+     "w": "the",
+     "s": 71.501,
+     "e": 71.613
+    },
+    {
+     "w": "app",
+     "s": 71.613,
+     "e": 71.813
+    },
+    {
+     "w": "said",
+     "s": 71.813,
+     "e": 71.95
+    },
+    {
+     "w": "delivery",
+     "s": 71.95,
+     "e": 72.288
+    },
+    {
+     "w": "complete.",
+     "s": 72.288,
+     "e": 72.707
+    }
+   ],
+   "beat": "T11",
+   "screen": "Floor plan empty; green card \"Delivery complete. Thank you!\"; heartbeat fades"
+  },
+  {
+   "kind": "silence",
+   "id": "q5",
+   "start": 72.757,
+   "end": 73.657,
+   "dur": 0.9,
+   "beat": "T11",
+   "screen": "Quiet: the bed drops 6 dB"
+  },
+  {
+   "kind": "line",
+   "id": "n17",
+   "spk": "N",
+   "text": "His profile had twelve hundred and one reviews. Every photo was a front door, from the inside.",
+   "start": 73.657,
+   "end": 78.232,
+   "dur": 4.575,
+   "words": [
+    {
+     "w": "His",
+     "s": 73.657,
+     "e": 73.74
+    },
+    {
+     "w": "profile",
+     "s": 73.74,
+     "e": 74.165
+    },
+    {
+     "w": "had",
+     "s": 74.165,
+     "e": 74.315
+    },
+    {
+     "w": "twelve",
+     "s": 74.315,
+     "e": 74.615
+    },
+    {
+     "w": "hundred",
+     "s": 74.615,
+     "e": 74.99
+    },
+    {
+     "w": "and",
+     "s": 74.99,
+     "e": 75.115
+    },
+    {
+     "w": "one",
+     "s": 75.115,
+     "e": 75.277
+    },
+    {
+     "w": "reviews.",
+     "s": 75.277,
+     "e": 75.99
+    },
+    {
+     "w": "Every",
+     "s": 76.09,
+     "e": 76.39
+    },
+    {
+     "w": "photo",
+     "s": 76.39,
+     "e": 76.727
+    },
+    {
+     "w": "was",
+     "s": 76.727,
+     "e": 76.828
+    },
+    {
+     "w": "a",
+     "s": 76.828,
+     "e": 76.89
+    },
+    {
+     "w": "front",
+     "s": 76.89,
+     "e": 77.09
+    },
+    {
+     "w": "door,",
+     "s": 77.09,
+     "e": 77.44
+    },
+    {
+     "w": "from",
+     "s": 77.515,
+     "e": 77.653
+    },
+    {
+     "w": "the",
+     "s": 77.653,
+     "e": 77.765
+    },
+    {
+     "w": "inside.",
+     "s": 77.765,
+     "e": 78.282
+    }
+   ],
+   "beat": "B11",
+   "screen": "Profile \"Teo \u00b7 \u26055.0 \u00b7 1,201 reviews\"; grid of 6 door photos, all from inside, chains on"
+  },
+  {
+   "kind": "line",
+   "id": "n18",
+   "spk": "N",
+   "text": "The newest came from my account.",
+   "start": 78.452,
+   "end": 79.626,
+   "dur": 1.174,
+   "words": [
+    {
+     "w": "The",
+     "s": 78.452,
+     "e": 78.492
+    },
+    {
+     "w": "newest",
+     "s": 78.47,
+     "e": 78.77
+    },
+    {
+     "w": "came",
+     "s": 78.77,
+     "e": 78.982
+    },
+    {
+     "w": "from",
+     "s": 78.982,
+     "e": 79.107
+    },
+    {
+     "w": "my",
+     "s": 79.107,
+     "e": 79.245
+    },
+    {
+     "w": "account.",
+     "s": 79.245,
+     "e": 79.676
+    }
+   ],
+   "beat": "B11",
+   "screen": "Top review: my avatar \"Nora R. \u00b7 just now \u00b7 \u2605\u2605\u2605\u2605\u2605\""
+  },
+  {
+   "kind": "line",
+   "id": "r6",
+   "spk": "R",
+   "text": "She thinks I left.",
+   "start": 79.946,
+   "end": 80.909,
+   "dur": 0.963,
+   "words": [
+    {
+     "w": "She",
+     "s": 79.946,
+     "e": 80.077
+    },
+    {
+     "w": "thinks",
+     "s": 80.077,
+     "e": 80.34
+    },
+    {
+     "w": "I",
+     "s": 80.34,
+     "e": 80.489
+    },
+    {
+     "w": "left.",
+     "s": 80.489,
+     "e": 80.959
+    }
+   ],
+   "beat": "B11",
+   "screen": "Review text types out in my account, in his voice: \"She thinks I left.\""
+  },
+  {
+   "kind": "line",
+   "id": "n19",
+   "spk": "N",
+   "text": "Down the hall, the chain was still on.",
+   "start": 81.229,
+   "end": 82.529,
+   "dur": 1.3,
+   "words": [
+    {
+     "w": "Down",
+     "s": 81.229,
+     "e": 81.349
+    },
+    {
+     "w": "the",
+     "s": 81.349,
+     "e": 81.436
+    },
+    {
+     "w": "hall,",
+     "s": 81.436,
+     "e": 81.686
+    },
+    {
+     "w": "the",
+     "s": 81.723,
+     "e": 81.811
+    },
+    {
+     "w": "chain",
+     "s": 81.811,
+     "e": 82.023
+    },
+    {
+     "w": "was",
+     "s": 82.023,
+     "e": 82.124
+    },
+    {
+     "w": "still",
+     "s": 82.124,
+     "e": 82.324
+    },
+    {
+     "w": "on.",
+     "s": 82.324,
+     "e": 82.579
+    }
+   ],
+   "beat": "B12",
+   "screen": "The photo-1 framing of the front door, chain on; ping: it gains the white proof border, \"\u2713 Delivered to customer \u00b7 9:58 PM\", and Nora's silhouette in the foreground: it is his photo, taken from behind her"
+  },
+  {
+   "kind": "silence",
+   "id": "q6",
+   "start": 82.529,
+   "end": 84.129,
+   "dur": 1.6,
+   "beat": "B12",
+   "screen": "Hold on the new proof photo; hard cut to black"
+  }
+ ],
+ "stats": {
+  "runtime_s": 84.129,
+  "speech_s": 66.39,
+  "silence_s": 11.0,
+  "gaps_s": 6.74,
+  "words": 276,
+  "words_by_speaker": {
+   "N": 198,
+   "S": 22,
+   "R": 33,
+   "M": 6,
+   "C": 17
+  },
+  "wpm_overall": 196.8,
+  "wpm_speaking": 249.4,
+  "sentences": 46,
+  "sentence_median_all": 5.0,
+  "sentence_mean_all": 6,
+  "sentence_median_narrator": 6,
+  "punch_share_all": 0.413,
+  "punch_share_narrator": 0.259,
+  "you_sentence_share": 0.065,
+  "you_per_100_words": 1.45,
+  "distinct_numbers": [
+   "9:00",
+   "9:41",
+   "five (stars)",
+   "fourth (star)",
+   "911",
+   "10 ft",
+   "six",
+   "fifteen",
+   "1,201"
+  ],
+  "numbers_per_min": 6.4,
+  "line1_words": 9,
+  "danger_word_s": 1.585,
+  "core_hook_words": 12,
+  "core_hook_s": 3.43,
+  "contradiction_s": 5.371,
+  "words_first_10s": 36
+ }
+}

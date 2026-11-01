@@ -1,0 +1,7584 @@
+{
+ "version": 1,
+ "id": "horror-delivery-photo-inside",
+ "title": "My Delivery Driver Won't Leave Until I Rate Him 5 Stars",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "s01_hook",
+   "duration": 3.75,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "end": 2.845
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "Your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle · #4471",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1010,
+     "width": 700,
+     "height": 1060,
+     "fill": "#1a1d24",
+     "radius": 36,
+     "z": 3,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "✓ Left at door · 9:41 PM",
+     "x": 220,
+     "y": 600,
+     "fontSize": 40,
+     "color": "#4ade80",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 4,
+     "end": 2.845
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1008,
+     "width": 644,
+     "height": 780,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "end": 2.845
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.9,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 540,
+     "y": 990,
+     "width": 600,
+     "height": 700,
+     "z": 6,
+     "end": 2.845
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 773.3,
+     "y": 812.2,
+     "width": 61.111111111111114,
+     "height": 61.111111111111114,
+     "z": 7,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "9:41 PM",
+     "x": 840.0,
+     "y": 1374.0,
+     "fontSize": 27,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "end": 2.845
+    },
+    {
+     "type": "circle",
+     "x": 673.3,
+     "y": 923.3,
+     "width": 156,
+     "height": 156,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#ff3b3b",
+     "strokeWidth": 9,
+     "z": 12,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 1.6
+      }
+     ],
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "taken from INSIDE →",
+     "x": 373.29999999999995,
+     "y": 919.3,
+     "fontSize": 50,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#ff3b3b",
+     "padding": 14,
+     "radius": 10,
+     "rotate": -4,
+     "z": 13,
+     "end": 2.845
+    },
+    {
+     "type": "text",
+     "text": "Proof of delivery",
+     "x": 220,
+     "y": 1470,
+     "fontSize": 30,
+     "color": "#8a8f99",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 4,
+     "end": 2.845
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 918,
+     "width": 984,
+     "height": 1580,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 20,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 2.845,
+     "end": 3.75
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.9,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 540,
+     "y": 900,
+     "width": 940,
+     "height": 1500,
+     "z": 21,
+     "start": 2.845,
+     "end": 3.75
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 905.6,
+     "y": 621.5,
+     "width": 95.74074074074073,
+     "height": 95.74074074074073,
+     "z": 22,
+     "start": 2.845,
+     "end": 3.75
+    },
+    {
+     "type": "text",
+     "text": "9:41 PM",
+     "x": 1010.0,
+     "y": 1684.0,
+     "fontSize": 43,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 22,
+     "start": 2.845,
+     "end": 3.75
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 60,
+     "start": 2.845,
+     "end": 3.75
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.835,
+      "zoom": 1.05,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.845,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 3.75,
+      "zoom": 1.14,
+      "x": "58.00%",
+      "y": "46.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "FRAME 0 = COVER: the order card, the inside-out door photo, red ring + 'taken from INSIDE ->' label on the chain. Hard cut to the photo full-frame on 'I live alone'. A green delivery-jacket sleeve shows in the hall mirror (silent plant)."
+  },
+  {
+   "id": "s02_support",
+   "duration": 3.471,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.4,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Bites Support",
+        "subtitle": "Typically replies instantly",
+        "accent": "#8b6cff",
+        "messages": [
+         {
+          "from": "Bites Support",
+          "text": "Hi Nora! How can we help with order #4471?",
+          "at": -33.75
+         },
+         {
+          "me": true,
+          "text": "who took this photo?? I live alone",
+          "at": -2.165
+         },
+         {
+          "from": "Bites Support",
+          "text": "Driver verified ✓ Location: INSIDE UNIT. Anything else today? 🙂",
+          "at": 0.0
+         }
+        ],
+        "typing": [
+         {
+          "from": "Bites Support",
+          "at": -0.6,
+          "until": 0.0
+         }
+        ]
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 1.621,
+        "duration": 0.2,
+        "amount": 0.9
+       }
+      ]
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 1.621,
+        "duration": 0.18,
+        "amount": 0.8
+       }
+      ],
+      "seed": "g1"
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.621,
+      "zoom": 1.04,
+      "x": "50.00%",
+      "y": "52.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.821,
+      "zoom": 1.22,
+      "x": "52.00%",
+      "y": "60.00%",
+      "ease": "out"
+     },
+     {
+      "t": 3.471,
+      "zoom": 1.25,
+      "x": "52.00%",
+      "y": "60.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.621,
+      "duration": 0.22,
+      "amplitude": 10
+     }
+    ]
+   },
+   "notes": "Support's calm all-clear IS the contradiction: 'inside unit' at ~6 s."
+  },
+  {
+   "id": "s03_tell",
+   "duration": 5.29,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 918,
+     "width": 984,
+     "height": 1580,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 0,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 1.291
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.9,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 540,
+     "y": 900,
+     "width": 940,
+     "height": 1500,
+     "z": 1,
+     "start": 0.0,
+     "end": 1.291
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 905.6,
+     "y": 621.5,
+     "width": 95.74074074074073,
+     "height": 95.74074074074073,
+     "z": 2,
+     "start": 0.0,
+     "end": 1.291
+    },
+    {
+     "type": "text",
+     "text": "9:41 PM",
+     "x": 1010.0,
+     "y": 1684.0,
+     "fontSize": 43,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 2,
+     "start": 0.0,
+     "end": 1.291
+    },
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.3,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 1.291,
+     "end": 2.404
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "suspicious"
+       }
+      ],
+      "lookX": 0.5,
+      "lookY": 0.1,
+      "light": "none",
+      "blink": true
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1150,
+     "height": 1748,
+     "z": 40,
+     "depth": 0,
+     "flipX": false,
+     "start": 1.291,
+     "end": 2.404
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 918,
+     "width": 984,
+     "height": 1580,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 0,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 2.404,
+     "end": 3.932
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.9,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 540,
+     "y": 900,
+     "width": 940,
+     "height": 1500,
+     "z": 1,
+     "start": 2.404,
+     "end": 3.932
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 905.6,
+     "y": 621.5,
+     "width": 95.74074074074073,
+     "height": 95.74074074074073,
+     "z": 2,
+     "start": 2.404,
+     "end": 3.932
+    },
+    {
+     "type": "text",
+     "text": "9:41 PM",
+     "x": 1010.0,
+     "y": 1684.0,
+     "fontSize": 43,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 2,
+     "start": 2.404,
+     "end": 3.932
+    },
+    {
+     "type": "text",
+     "text": "9:41 PM",
+     "x": 540,
+     "y": 1610,
+     "fontSize": 120,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#f4f1ea",
+     "padding": 16,
+     "radius": 8,
+     "z": 30,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     },
+     "start": 2.404,
+     "end": 3.932
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.25,
+      "feet": false
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 3.932,
+     "end": 5.29
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.68,
+      "y": 0.44,
+      "radius": 0.42,
+      "darkness": 0.85
+     },
+     "depth": 0,
+     "z": 20,
+     "start": 3.932,
+     "end": 5.29
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "ALREADY INSIDE",
+      "style": "scrawl",
+      "at": 3.982,
+      "duration": 1.1,
+      "fontSize": 120,
+      "y": 0.3
+     },
+     "depth": 0,
+     "z": 70,
+     "start": 3.932,
+     "end": 5.29
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.6,
+      "x": "66.00%",
+      "y": "46.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.281,
+      "zoom": 1.75,
+      "x": "67.00%",
+      "y": "45.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.291,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 2.394,
+      "zoom": 1.04,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.404,
+      "zoom": 1.25,
+      "x": "50.00%",
+      "y": "72.00%",
+      "ease": "step"
+     },
+     {
+      "t": 3.922,
+      "zoom": 1.32,
+      "x": "50.00%",
+      "y": "74.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.932,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 5.29,
+      "zoom": 1.08,
+      "x": "62.00%",
+      "y": "44.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.932,
+      "duration": 0.25,
+      "amplitude": 14
+     }
+    ]
+   },
+   "notes": "The chain is a timeline: on at 9:00, photo at 9:41, so he was inside before she locked up."
+  },
+  {
+   "id": "s04_rules",
+   "duration": 3.634,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.35,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Teo",
+        "subtitle": "★5.0 · 1,206 deliveries · 1,200 ratings",
+        "accent": "#3d4a6b",
+        "messages": [
+         {
+          "from": "Teo",
+          "text": "Hi! Your order's by the door 🙂 Rate me ★★★★★ and I'll head out",
+          "at": 0.0
+         },
+         {
+          "kind": "system",
+          "text": "Drivers can't leave until the order is rated.",
+          "at": 3.464
+         }
+        ]
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.2,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.5,
+      "zoom": 1.35,
+      "x": "50.00%",
+      "y": "30.00%",
+      "ease": "out"
+     },
+     {
+      "t": 2.4,
+      "zoom": 1.36,
+      "x": "50.00%",
+      "y": "30.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.6,
+      "zoom": 1.08,
+      "x": "50.00%",
+      "y": "52.00%",
+      "ease": "out"
+     },
+     {
+      "t": 3.634,
+      "zoom": 1.1,
+      "x": "50.00%",
+      "y": "54.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "Plant: the header stat (1,206 deliveries vs 1,200 ratings) gets a 0.9 s punch-in. App rule is on-screen only, with a UI chime."
+  },
+  {
+   "id": "s05_kitchen",
+   "duration": 5.727,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "Your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle · #4471",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1450,
+     "width": 760,
+     "height": 860,
+     "fill": "#1a1d24",
+     "radius": 44,
+     "z": 10,
+     "shadow": "0 -20px 50px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1048,
+     "width": 120,
+     "height": 10,
+     "fill": "#3a3d46",
+     "radius": 5,
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "Rate Teo",
+     "x": 540,
+     "y": 1150,
+     "fontSize": 56,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "How was your delivery?",
+     "x": 540,
+     "y": 1215,
+     "fontSize": 30,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 276,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 276,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 0.05,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 408,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 408,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 0.25,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 540,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 540,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 0.45,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 672,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 672,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 0.568,
+     "end": 2.362
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 804,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 2.362
+    },
+    {
+     "type": "circle",
+     "x": 672,
+     "y": 1360,
+     "width": 128,
+     "height": 128,
+     "fill": "rgba(255,255,255,0.18)",
+     "z": 14,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.2,
+       "speed": 3
+      }
+     ],
+     "start": 0.568,
+     "end": 2.362
+    },
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 2.362,
+     "end": 2.962
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "shocked"
+       }
+      ],
+      "lookX": -0.7,
+      "lookY": 0.0,
+      "light": "phone",
+      "blink": true
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1150,
+     "height": 1748,
+     "z": 40,
+     "depth": 0,
+     "flipX": false,
+     "blink": false,
+     "start": 2.362,
+     "end": 2.962
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "Track your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "Teo is on the way",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 680 820\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"680\" height=\"820\" rx=\"24\" fill=\"#1a2027\"/><g stroke=\"#2f3a46\" stroke-width=\"34\"><line x1=\"0\" y1=\"180\" x2=\"680\" y2=\"140\"/><line x1=\"0\" y1=\"520\" x2=\"680\" y2=\"560\"/><line x1=\"160\" y1=\"0\" x2=\"200\" y2=\"820\"/><line x1=\"470\" y1=\"0\" x2=\"430\" y2=\"820\"/></g><rect x=\"230\" y=\"230\" width=\"170\" height=\"250\" fill=\"#26303b\"/><circle cx=\"315\" cy=\"355\" r=\"22\" fill=\"#8b6cff\"/><circle cx=\"315\" cy=\"355\" r=\"44\" fill=\"none\" stroke=\"#8b6cff\" stroke-width=\"4\" opacity=\"0.5\"/></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 680,
+     "height": 820,
+     "z": 5,
+     "keyframes": [
+      {
+       "t": 2.9619999999999997,
+       "opacity": 1,
+       "scale": 1
+      },
+      {
+       "t": 3.8619999999999997,
+       "opacity": 0,
+       "scale": 1.6,
+       "ease": "in"
+      }
+     ],
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 680 820\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"680\" height=\"820\" rx=\"24\" fill=\"#12151b\"/><g fill=\"none\" stroke=\"#c9d2de\" stroke-width=\"6\"><rect x=\"20\" y=\"20\" width=\"640\" height=\"780\"/><line x1=\"330\" y1=\"20\" x2=\"330\" y2=\"300\"/><line x1=\"20\" y1=\"300\" x2=\"250\" y2=\"300\"/><line x1=\"430\" y1=\"300\" x2=\"660\" y2=\"300\"/><line x1=\"250\" y1=\"300\" x2=\"250\" y2=\"800\"/><line x1=\"430\" y1=\"300\" x2=\"430\" y2=\"590\"/><line x1=\"430\" y1=\"690\" x2=\"430\" y2=\"800\"/></g><rect x=\"520\" y=\"12\" width=\"90\" height=\"16\" fill=\"#12151b\"/><path d=\"M 520 20 L 610 20\" stroke=\"#ffb347\" stroke-width=\"8\"/><g font-family=\"Montserrat, sans-serif\" font-weight=\"800\" font-size=\"30\" fill=\"#8a8f99\" text-anchor=\"middle\"><text x=\"175\" y=\"170\">KITCHEN</text><text x=\"495\" y=\"170\">ENTRY</text><text x=\"340\" y=\"460\">HALL</text><text x=\"135\" y=\"560\">BATH</text><text x=\"545\" y=\"470\">BEDROOM</text><text x=\"565\" y=\"58\" font-size=\"20\" fill=\"#ffb347\">FRONT DOOR</text></g></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 680,
+     "height": 820,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 2.9619999999999997,
+       "opacity": 0,
+       "scale": 0.7
+      },
+      {
+       "t": 3.8619999999999997,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "out"
+      }
+     ],
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "circle",
+     "x": 760.0,
+     "y": 1230.0,
+     "width": 32,
+     "height": 32,
+     "fill": "#4aa3ff",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "z": 6,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 1.2
+      }
+     ],
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 760.0,
+     "y": 1272.0,
+     "fontSize": 24,
+     "color": "#4aa3ff",
+     "weight": 800,
+     "align": "center",
+     "font": "body",
+     "z": 6,
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#8b6cff\" stroke=\"#fff\" stroke-width=\"6\"/><g fill=\"none\" stroke=\"#fff\" stroke-width=\"7\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"66\" r=\"9\"/><circle cx=\"72\" cy=\"66\" r=\"9\"/><path d=\"M 30 66 L 58 66 L 64 34 L 74 34\"/></g></svg>",
+     "x": 375.0,
+     "y": 815.0,
+     "width": 92,
+     "height": 92,
+     "z": 8,
+     "keyframes": [
+      {
+       "t": 2.9619999999999997,
+       "x": 375.0,
+       "y": 815.0,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "inOut"
+      }
+     ],
+     "start": 2.962,
+     "end": 5.727
+    },
+    {
+     "type": "text",
+     "text": "Teo · 30 ft away",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#2a2440",
+     "padding": 18,
+     "radius": 40,
+     "z": 7,
+     "start": 2.962,
+     "end": 5.727
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.352,
+      "zoom": 1.08,
+      "x": "56.00%",
+      "y": "70.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.362,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 2.962,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 5.183,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.727,
+      "zoom": 1.2,
+      "x": "38.00%",
+      "y": "40.00%",
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.362,
+      "duration": 0.3,
+      "amplitude": 16
+     }
+    ]
+   },
+   "notes": "Near-compliance: four stars filled, thumb on the fourth; the fridge thump stops her. Then the map is my apartment."
+  },
+  {
+   "id": "s06_mia",
+   "duration": 5.278,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 2.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Mia",
+        "subtitle": "sister",
+        "accent": "#b0607a",
+        "messages": [
+         {
+          "from": "Mia",
+          "text": "u up? lol",
+          "at": -421.872
+         },
+         {
+          "me": true,
+          "text": "someone took a photo INSIDE my place",
+          "at": 0.2
+         },
+         {
+          "from": "Mia",
+          "text": "it's a glitch lol. just rate him",
+          "at": 1.289
+         },
+         {
+          "me": true,
+          "text": "HE'S INSIDE",
+          "at": 3.702
+         },
+         {
+          "kind": "system",
+          "text": "! Not delivered",
+          "at": 4.464
+         }
+        ],
+        "typing": [
+         {
+          "from": "Mia",
+          "at": 0.689,
+          "until": 1.289
+         }
+        ]
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "props": {
+      "text": "! NOT DELIVERED",
+      "style": "flash",
+      "at": 4.464,
+      "duration": 0.7,
+      "fontSize": 96,
+      "y": 0.3
+     },
+     "depth": 0,
+     "z": 70
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.4,
+      "zoom": 1.06,
+      "x": "50.00%",
+      "y": "54.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.464,
+      "zoom": 1.1,
+      "x": "50.00%",
+      "y": "56.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.278,
+      "zoom": 1.14,
+      "x": "50.00%",
+      "y": "58.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.464,
+      "duration": 0.2,
+      "amplitude": 8
+     }
+    ]
+   },
+   "notes": "Viewer-proxy voice: Mia says what the viewer is thinking (just rate him), then the channel dies."
+  },
+  {
+   "id": "s07_911",
+   "duration": 4.31,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.2,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2,
+     "start": 0.0,
+     "end": 1.243
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "call",
+       "call": {
+        "name": "911",
+        "sub": "Emergency",
+        "label": "Calling…",
+        "at": -0.2
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1,
+      "glitch": [
+       {
+        "at": 1.093,
+        "duration": 0.3,
+        "amount": 1.0
+       }
+      ]
+     },
+     "z": 10,
+     "start": 0.0,
+     "end": 1.243
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "Your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle · #4471",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1450,
+     "width": 760,
+     "height": 860,
+     "fill": "#1a1d24",
+     "radius": 44,
+     "z": 10,
+     "shadow": "0 -20px 50px rgba(0,0,0,.6)",
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1048,
+     "width": 120,
+     "height": 10,
+     "fill": "#3a3d46",
+     "radius": 5,
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "Rate your driver",
+     "x": 540,
+     "y": 1150,
+     "fontSize": 56,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "Rate Teo to continue",
+     "x": 540,
+     "y": 1215,
+     "fontSize": 30,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 276,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 408,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 540,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 672,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 804,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 1.243,
+     "end": 4.31
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 1.143,
+        "duration": 0.3,
+        "amount": 1.0
+       },
+       {
+        "at": 2.968,
+        "duration": 0.15,
+        "amount": 0.6
+       }
+      ],
+      "seed": "g2"
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.243,
+      "zoom": 1.04,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.253,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 4.31,
+      "zoom": 1.12,
+      "x": "50.00%",
+      "y": "66.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.243,
+      "duration": 0.25,
+      "amplitude": 12
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.2
+   },
+   "notes": "Channel removal: 911 bounces back to five empty stars. 'The app had taken my phone' makes it a rule, not a glitch."
+  },
+  {
+   "id": "s08_ladder",
+   "duration": 5.436,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "props": {
+      "lamp": 0.15,
+      "tv": "off"
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2,
+     "start": 0.0,
+     "end": 3.116
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Teo",
+        "subtitle": "★5.0 · 1,206 deliveries · 1,200 ratings",
+        "accent": "#3d4a6b",
+        "messages": [
+         {
+          "from": "Teo",
+          "text": "Hi! Your order's by the door 🙂 Rate me ★★★★★ and I'll head out",
+          "at": -18.949
+         },
+         {
+          "kind": "system",
+          "text": "Drivers can't leave until the order is rated.",
+          "at": -15.485
+         },
+         {
+          "from": "Teo",
+          "text": "just one tap :)",
+          "at": 0.0
+         },
+         {
+          "from": "Teo",
+          "text": "I've been very patient.",
+          "at": 1.038
+         },
+         {
+          "from": "Teo",
+          "kind": "alert",
+          "text": "RATE ME",
+          "at": 2.231
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 2.231,
+         "duration": 0.5,
+         "amount": 1
+        }
+       ]
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10,
+     "start": 0.0,
+     "end": 3.116
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "Track your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "Teo is on the way",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 680 820\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"680\" height=\"820\" rx=\"24\" fill=\"#12151b\"/><g fill=\"none\" stroke=\"#c9d2de\" stroke-width=\"6\"><rect x=\"20\" y=\"20\" width=\"640\" height=\"780\"/><line x1=\"330\" y1=\"20\" x2=\"330\" y2=\"300\"/><line x1=\"20\" y1=\"300\" x2=\"250\" y2=\"300\"/><line x1=\"430\" y1=\"300\" x2=\"660\" y2=\"300\"/><line x1=\"250\" y1=\"300\" x2=\"250\" y2=\"800\"/><line x1=\"430\" y1=\"300\" x2=\"430\" y2=\"590\"/><line x1=\"430\" y1=\"690\" x2=\"430\" y2=\"800\"/></g><rect x=\"520\" y=\"12\" width=\"90\" height=\"16\" fill=\"#12151b\"/><path d=\"M 520 20 L 610 20\" stroke=\"#ffb347\" stroke-width=\"8\"/><g font-family=\"Montserrat, sans-serif\" font-weight=\"800\" font-size=\"30\" fill=\"#8a8f99\" text-anchor=\"middle\"><text x=\"175\" y=\"170\">KITCHEN</text><text x=\"495\" y=\"170\">ENTRY</text><text x=\"340\" y=\"460\">HALL</text><text x=\"135\" y=\"560\">BATH</text><text x=\"545\" y=\"470\">BEDROOM</text><text x=\"565\" y=\"58\" font-size=\"20\" fill=\"#ffb347\">FRONT DOOR</text></g></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 680,
+     "height": 820,
+     "z": 4,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "circle",
+     "x": 760.0,
+     "y": 1230.0,
+     "width": 32,
+     "height": 32,
+     "fill": "#4aa3ff",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "z": 6,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 1.2
+      }
+     ],
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 760.0,
+     "y": 1272.0,
+     "fontSize": 24,
+     "color": "#4aa3ff",
+     "weight": 800,
+     "align": "center",
+     "font": "body",
+     "z": 6,
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#8b6cff\" stroke=\"#fff\" stroke-width=\"6\"/><g fill=\"none\" stroke=\"#fff\" stroke-width=\"7\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"66\" r=\"9\"/><circle cx=\"72\" cy=\"66\" r=\"9\"/><path d=\"M 30 66 L 58 66 L 64 34 L 74 34\"/></g></svg>",
+     "x": 375.0,
+     "y": 815.0,
+     "width": 92,
+     "height": 92,
+     "z": 8,
+     "keyframes": [
+      {
+       "t": 3.1159999999999997,
+       "x": 375.0,
+       "y": 815.0,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "inOut"
+      },
+      {
+       "t": 4.316,
+       "x": 540.0,
+       "y": 1150.0,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "inOut"
+      }
+     ],
+     "start": 3.116,
+     "end": 5.436
+    },
+    {
+     "type": "text",
+     "text": "Teo · 30 ft away",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#2a2440",
+     "padding": 18,
+     "radius": 40,
+     "z": 7,
+     "start": 3.116,
+     "end": 4.116
+    },
+    {
+     "type": "text",
+     "text": "Teo · 10 ft away",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#2a2440",
+     "padding": 18,
+     "radius": 40,
+     "z": 7,
+     "start": 4.116,
+     "end": 5.436
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.231,
+      "zoom": 1.05,
+      "x": "50.00%",
+      "y": "52.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.381,
+      "zoom": 1.18,
+      "x": "50.00%",
+      "y": "58.00%",
+      "ease": "out"
+     },
+     {
+      "t": 3.106,
+      "zoom": 1.2,
+      "x": "50.00%",
+      "y": "58.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.116,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 5.436,
+      "zoom": 1.12,
+      "x": "50.00%",
+      "y": "56.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.231,
+      "duration": 0.3,
+      "amplitude": 20
+     }
+    ]
+   },
+   "notes": "Typography ladder: polite, curt, CAPS. Proximity ladder: kitchen 30 ft -> hall 10 ft."
+  },
+  {
+   "id": "s09_bedroom",
+   "duration": 2.568,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "props": {
+      "lights": 1,
+      "flicker": 0.3,
+      "endDoor": true,
+      "figure": 0
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 0.0,
+     "end": 0.547
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.15,
+      "wardrobeOpen": 0.22,
+      "phoneGlow": true
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 0.547,
+     "end": 2.568
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       }
+      ],
+      "lookX": 0.0,
+      "lookY": 0.2,
+      "light": "phone",
+      "blink": true
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1000,
+     "height": 1520,
+     "z": 40,
+     "depth": 0,
+     "flipX": false,
+     "start": 0.547,
+     "end": 2.568
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1080 600\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 0 140 Q 260 40 540 120 Q 820 200 1080 90 L 1080 600 L 0 600 Z\" fill=\"#34405c\" stroke=\"#0b0d12\" stroke-width=\"10\"/><path d=\"M 80 260 Q 380 180 640 260 Q 880 330 1040 250\" stroke=\"#2a3349\" stroke-width=\"12\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1700,
+     "width": 1080,
+     "height": 600,
+     "z": 45,
+     "depth": 0,
+     "start": 0.547,
+     "end": 2.568
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.55
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.537,
+      "zoom": 1.15,
+      "x": "50.00%",
+      "y": "45.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 0.547,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 2.568,
+      "zoom": 1.05,
+      "x": "54.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.447,
+      "duration": 0.15,
+      "amplitude": 6
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.25,
+    "direction": "left"
+   },
+   "notes": "She faces the camera = faces the bedroom door. The wardrobe (ajar) is behind her; its hinge creaks under the lock click."
+  },
+  {
+   "id": "s10_turn",
+   "duration": 5.355,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.1,
+      "wardrobeOpen": 0.25
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 2.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Bites Support",
+        "subtitle": "Typically replies instantly",
+        "accent": "#8b6cff",
+        "messages": [
+         {
+          "from": "Bites Support",
+          "text": "Hi Nora! How can we help with order #4471?",
+          "at": -69.464
+         },
+         {
+          "me": true,
+          "text": "who took this photo?? I live alone",
+          "at": -37.879
+         },
+         {
+          "from": "Bites Support",
+          "text": "Driver verified ✓ Location: INSIDE UNIT. Anything else today? 🙂",
+          "at": -35.714
+         },
+         {
+          "from": "Bites Support",
+          "text": "Sorry for the wait! 6 customers never rated Teo. He's still delivering to them 🙂",
+          "at": 0.0
+         },
+         {
+          "me": true,
+          "text": "hello?",
+          "at": 4.155
+         },
+         {
+          "me": true,
+          "text": "HELLO??",
+          "at": 4.755
+         }
+        ]
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 70,
+      "intensity": 0.5,
+      "from": 0.913
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.5
+     },
+     "depth": 0,
+     "z": 50
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "fill": "#07080b",
+     "radius": 0,
+     "z": 80,
+     "start": 0.913,
+     "end": 2.013
+    },
+    {
+     "type": "text",
+     "text": "Teo",
+     "x": 540,
+     "y": 700,
+     "fontSize": 64,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 81,
+     "start": 0.913,
+     "end": 2.013
+    },
+    {
+     "type": "text",
+     "text": "1,206 deliveries",
+     "x": 540,
+     "y": 860,
+     "fontSize": 92,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 81,
+     "start": 0.913,
+     "end": 2.013
+    },
+    {
+     "type": "text",
+     "text": "1,200 ratings",
+     "x": 540,
+     "y": 990,
+     "fontSize": 92,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 81,
+     "start": 0.913,
+     "end": 2.013
+    },
+    {
+     "type": "text",
+     "text": "6 never rated him",
+     "x": 540,
+     "y": 1170,
+     "fontSize": 84,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 81,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     },
+     "start": 0.913,
+     "end": 2.013
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.013,
+      "zoom": 1.06,
+      "x": "50.00%",
+      "y": "54.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.355,
+      "zoom": 1.16,
+      "x": "50.00%",
+      "y": "60.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "TURN (T3): her protective act (not rating) is the trap. Count-match pays the header plant out loud. Then two unanswered name checks ('hello?' 'HELLO??') = the silence beat before the proof."
+  },
+  {
+   "id": "s11_photo2",
+   "duration": 8.313,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.1
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2,
+     "start": 0.0,
+     "end": 1.178
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "lock",
+       "lock": {
+        "time": "9:52",
+        "date": "Friday"
+       },
+       "banners": [
+        {
+         "at": 0.05,
+         "duration": 3,
+         "app": "bites",
+         "title": "Proof of delivery updated",
+         "text": "Tap to view photo"
+        }
+       ]
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10,
+     "start": 0.0,
+     "end": 1.178
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 946.0,
+     "width": 999.1111111111111,
+     "height": 1571.111111111111,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 0,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 930,
+     "width": 960,
+     "height": 1500,
+     "fill": "#07080a",
+     "radius": 0,
+     "z": 1,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.0,
+      "wardrobeOpen": 0.3,
+      "phoneGlow": true,
+      "exposure": 0.8,
+      "lift": 0.12
+     },
+     "x": 540,
+     "y": 930,
+     "width": 960,
+     "height": 1500,
+     "z": 2,
+     "blur": 2.7,
+     "opacity": 0.55,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 900\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"10\" y=\"10\" width=\"380\" height=\"880\" fill=\"#23262d\" stroke=\"#08090b\" stroke-width=\"10\"/><rect x=\"40\" y=\"40\" width=\"320\" height=\"850\" fill=\"#2c2a2c\" stroke=\"#08090b\" stroke-width=\"8\"/><rect x=\"80\" y=\"90\" width=\"240\" height=\"300\" fill=\"none\" stroke=\"#1b1a1c\" stroke-width=\"8\"/><rect x=\"80\" y=\"450\" width=\"240\" height=\"380\" fill=\"none\" stroke=\"#1b1a1c\" stroke-width=\"8\"/><circle cx=\"320\" cy=\"480\" r=\"16\" fill=\"#9a968d\"/><rect x=\"250\" y=\"472\" width=\"72\" height=\"16\" rx=\"6\" fill=\"#aaa69c\"/><rect x=\"320\" y=\"440\" width=\"14\" height=\"22\" rx=\"3\" fill=\"#6f6c66\"/><rect x=\"40\" y=\"884\" width=\"320\" height=\"6\" fill=\"#e7b46a\" opacity=\"0.5\"/></svg>",
+     "x": 540,
+     "y": 750.0,
+     "width": 391.11111111111114,
+     "height": 880.0000000000001,
+     "z": 3,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "circle",
+     "x": 540,
+     "y": 1170.0,
+     "width": 462.2222222222222,
+     "height": 462.2222222222222,
+     "fill": "rgba(150,190,255,0.22)",
+     "z": 4,
+     "blur": 53.3,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 600 760\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 20 760 Q 40 470 190 430 Q 250 410 300 412 Q 350 410 410 430 Q 560 470 580 760 Z\" fill=\"#14171c\"/><path d=\"M 200 440 Q 300 486 400 440 Q 380 404 300 400 Q 220 404 200 440 Z\" fill=\"#1d2128\"/><path d=\"M 300 70 Q 175 72 168 200 Q 162 300 150 392 Q 196 420 240 404 Q 270 416 300 412 Q 330 416 360 404 Q 404 420 450 392 Q 438 300 432 200 Q 425 72 300 70 Z\" fill=\"#0c0d10\"/><path d=\"M 432 210 Q 440 300 450 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/><path d=\"M 168 210 Q 160 300 150 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/></svg>",
+     "x": 540,
+     "y": 1257.7777777777778,
+     "width": 666.6666666666665,
+     "height": 844.4444444444445,
+     "z": 5,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1080 600\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 0 140 Q 260 40 540 120 Q 820 200 1080 90 L 1080 600 L 0 600 Z\" fill=\"#34405c\" stroke=\"#0b0d12\" stroke-width=\"10\"/><path d=\"M 80 260 Q 380 180 640 260 Q 880 330 1040 250\" stroke=\"#2a3349\" stroke-width=\"12\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1528.888888888889,
+     "width": 960,
+     "height": 302.22222222222223,
+     "z": 6,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 1920\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"160\" height=\"1920\" fill=\"#060607\"/><rect x=\"150\" y=\"0\" width=\"20\" height=\"1920\" fill=\"#1a1517\"/></svg>",
+     "x": 140.0,
+     "y": 930,
+     "width": 177.77777777777777,
+     "height": 1500,
+     "z": 7,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.7
+     },
+     "x": 540,
+     "y": 930,
+     "width": 960,
+     "height": 1500,
+     "z": 8,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "text",
+     "text": "9:52 PM",
+     "x": 1020.0,
+     "y": 1715.5555555555557,
+     "fontSize": 39,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 9,
+     "start": 1.178,
+     "end": 8.313
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 70,
+      "bpmTo": 92,
+      "intensity": 0.7
+     },
+     "depth": 0,
+     "z": 55,
+     "start": 1.178,
+     "end": 8.313
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.168,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.178,
+      "zoom": 1.3,
+      "x": "52.00%",
+      "y": "62.00%",
+      "ease": "step"
+     },
+     {
+      "t": 3.243,
+      "zoom": 1.36,
+      "x": "52.00%",
+      "y": "63.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 3.253,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     }
+    ]
+   },
+   "notes": "THE scariest image, once: held perfectly still for the 4.0 s silence (q3) - the only still hold. Composition: wardrobe-door edge at left (camera position), her silhouette from behind, her locked door ahead."
+  },
+  {
+   "id": "s12_closer",
+   "duration": 3.05,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "Track your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "Teo is on the way",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 680 820\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"680\" height=\"820\" rx=\"24\" fill=\"#12151b\"/><g fill=\"none\" stroke=\"#c9d2de\" stroke-width=\"6\"><rect x=\"20\" y=\"20\" width=\"640\" height=\"780\"/><line x1=\"330\" y1=\"20\" x2=\"330\" y2=\"300\"/><line x1=\"20\" y1=\"300\" x2=\"250\" y2=\"300\"/><line x1=\"430\" y1=\"300\" x2=\"660\" y2=\"300\"/><line x1=\"250\" y1=\"300\" x2=\"250\" y2=\"800\"/><line x1=\"430\" y1=\"300\" x2=\"430\" y2=\"590\"/><line x1=\"430\" y1=\"690\" x2=\"430\" y2=\"800\"/></g><rect x=\"520\" y=\"12\" width=\"90\" height=\"16\" fill=\"#12151b\"/><path d=\"M 520 20 L 610 20\" stroke=\"#ffb347\" stroke-width=\"8\"/><g font-family=\"Montserrat, sans-serif\" font-weight=\"800\" font-size=\"30\" fill=\"#8a8f99\" text-anchor=\"middle\"><text x=\"175\" y=\"170\">KITCHEN</text><text x=\"495\" y=\"170\">ENTRY</text><text x=\"340\" y=\"460\">HALL</text><text x=\"135\" y=\"560\">BATH</text><text x=\"545\" y=\"470\">BEDROOM</text><text x=\"565\" y=\"58\" font-size=\"20\" fill=\"#ffb347\">FRONT DOOR</text></g></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 680,
+     "height": 820,
+     "z": 4,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "circle",
+     "x": 760.0,
+     "y": 1230.0,
+     "width": 32,
+     "height": 32,
+     "fill": "#4aa3ff",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "z": 6,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 1.2
+      }
+     ],
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 760.0,
+     "y": 1272.0,
+     "fontSize": 24,
+     "color": "#4aa3ff",
+     "weight": 800,
+     "align": "center",
+     "font": "body",
+     "z": 6,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#8b6cff\" stroke=\"#fff\" stroke-width=\"6\"/><g fill=\"none\" stroke=\"#fff\" stroke-width=\"7\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"66\" r=\"9\"/><circle cx=\"72\" cy=\"66\" r=\"9\"/><path d=\"M 30 66 L 58 66 L 64 34 L 74 34\"/></g></svg>",
+     "x": 540.0,
+     "y": 1150.0,
+     "width": 92,
+     "height": 92,
+     "z": 8,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 540.0,
+       "y": 1150.0,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "inOut"
+      }
+     ],
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.18,
+       "speed": 2.0
+      }
+     ],
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "text",
+     "text": "Teo · 10 ft away",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#2a2440",
+     "padding": 18,
+     "radius": 40,
+     "z": 7,
+     "start": 0.0,
+     "end": 1.35
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.1
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "blur": 8,
+     "opacity": 0.8,
+     "depth": 0.2,
+     "start": 1.35,
+     "end": 3.05
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cx": 0.53,
+      "cy": 0.6,
+      "tilt": -3,
+      "tremble": 1,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Bites Support": {
+         "color": "#8b6cff",
+         "initials": "B"
+        },
+        "Teo": {
+         "color": "#5a6b8f",
+         "initials": "T"
+        },
+        "Mia": {
+         "color": "#b0607a",
+         "initials": "M"
+        },
+        "Bites": {
+         "color": "#3a3f4a",
+         "initials": "b"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "theme": "dark",
+        "scale": 1.25,
+        "clock": "9:44",
+        "battery": 31,
+        "dm": true,
+        "title": "Teo",
+        "subtitle": "★5.0 · 1,206 deliveries · 1,200 ratings",
+        "accent": "#3d4a6b",
+        "messages": [
+         {
+          "from": "Teo",
+          "text": "Hi! Your order's by the door 🙂 Rate me ★★★★★ and I'll head out",
+          "at": -40.621
+         },
+         {
+          "kind": "system",
+          "text": "Drivers can't leave until the order is rated.",
+          "at": -37.157
+         },
+         {
+          "from": "Teo",
+          "text": "just one tap :)",
+          "at": -21.672
+         },
+         {
+          "from": "Teo",
+          "text": "I've been very patient.",
+          "at": -20.634
+         },
+         {
+          "from": "Teo",
+          "kind": "alert",
+          "text": "RATE ME",
+          "at": -19.441
+         },
+         {
+          "from": "Teo",
+          "text": "i'm closer than the map says.",
+          "at": 1.35
+         }
+        ]
+       }
+      },
+      "thumbY": 0.94,
+      "thumbReach": 0.1
+     },
+     "z": 10,
+     "start": 1.35,
+     "end": 3.05
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "x": "50.00%",
+      "y": "38.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.34,
+      "zoom": 1.3,
+      "x": "50.00%",
+      "y": "38.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.35,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 3.05,
+      "zoom": 1.06,
+      "x": "50.00%",
+      "y": "52.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "The tracker lies (said out loud now), and Teo drops from CAPS to calm lowercase: the scariest register."
+  },
+  {
+   "id": "s13_clock",
+   "duration": 14.151,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "Your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle · #4471",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1450,
+     "width": 760,
+     "height": 860,
+     "fill": "#1a1d24",
+     "radius": 44,
+     "z": 10,
+     "shadow": "0 -20px 50px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1048,
+     "width": 120,
+     "height": 10,
+     "fill": "#3a3d46",
+     "radius": 5,
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "Rate Teo",
+     "x": 540,
+     "y": 1150,
+     "fontSize": 56,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "How was your delivery?",
+     "x": 540,
+     "y": 1215,
+     "fontSize": 30,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 276,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 276,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 13.611,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 408,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 408,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 13.691,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 540,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 540,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 13.771,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 672,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 672,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 13.851,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 804,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#3a3d46",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "★",
+     "x": 804,
+     "y": 1360,
+     "fontSize": 118,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "start": 13.931,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "Rate within 0:15 or your driver will hand you the order in person.",
+     "x": 540,
+     "y": 1660,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "center",
+     "font": "body",
+     "maxWidth": 640,
+     "lineHeight": 1.2,
+     "z": 11,
+     "start": 0.0,
+     "end": 14.151
+    },
+    {
+     "type": "text",
+     "text": "0:15",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 0.0,
+     "end": 1.0
+    },
+    {
+     "type": "text",
+     "text": "0:14",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 1.0,
+     "end": 2.0
+    },
+    {
+     "type": "text",
+     "text": "0:13",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 2.0,
+     "end": 3.0
+    },
+    {
+     "type": "text",
+     "text": "0:12",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 3.0,
+     "end": 4.0
+    },
+    {
+     "type": "text",
+     "text": "0:11",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 4.0,
+     "end": 5.0
+    },
+    {
+     "type": "text",
+     "text": "0:10",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 5.0,
+     "end": 6.0
+    },
+    {
+     "type": "text",
+     "text": "0:09",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 6.0,
+     "end": 7.0
+    },
+    {
+     "type": "text",
+     "text": "0:08",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 7.0,
+     "end": 8.0
+    },
+    {
+     "type": "text",
+     "text": "0:07",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 8.0,
+     "end": 9.0
+    },
+    {
+     "type": "text",
+     "text": "0:06",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 9.0,
+     "end": 10.0
+    },
+    {
+     "type": "text",
+     "text": "0:05",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 10.0,
+     "end": 11.0
+    },
+    {
+     "type": "text",
+     "text": "0:04",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 11.0,
+     "end": 12.0
+    },
+    {
+     "type": "text",
+     "text": "0:03",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 12.0,
+     "end": 13.0
+    },
+    {
+     "type": "text",
+     "text": "0:02",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 13.0,
+     "end": 14.0
+    },
+    {
+     "type": "text",
+     "text": "0:01",
+     "x": 540,
+     "y": 1530,
+     "fontSize": 72,
+     "color": "#ff3b3b",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 12,
+     "start": 14.0,
+     "end": 14.151
+    },
+    {
+     "type": "circle",
+     "x": 804,
+     "y": 1360,
+     "width": 120,
+     "height": 120,
+     "fill": "rgba(255,255,255,0.25)",
+     "z": 13,
+     "keyframes": [
+      {
+       "t": 13.930999999999997,
+       "scale": 0.4,
+       "opacity": 0.9
+      },
+      {
+       "t": 14.280999999999997,
+       "scale": 1.6,
+       "opacity": 0
+      }
+     ],
+     "start": 13.931,
+     "end": 14.151
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 560,
+     "width": 720,
+     "height": 170,
+     "fill": "#22252c",
+     "radius": 34,
+     "z": 30,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "circle",
+     "x": 250,
+     "y": 560,
+     "width": 92,
+     "height": 92,
+     "fill": "#d9822b",
+     "z": 31,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "text",
+     "text": "LN",
+     "x": 250,
+     "y": 560,
+     "fontSize": 34,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 32,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle",
+     "x": 320,
+     "y": 535,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "text",
+     "text": "restaurant · in-app call",
+     "x": 320,
+     "y": 590,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "circle",
+     "x": 870,
+     "y": 560,
+     "width": 80,
+     "height": 80,
+     "fill": "#4ade80",
+     "z": 31,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "text",
+     "text": "☎",
+     "x": 870,
+     "y": 560,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 32,
+     "start": 4.008,
+     "end": 4.658
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 560,
+     "width": 720,
+     "height": 170,
+     "fill": "#22252c",
+     "radius": 34,
+     "z": 30,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "circle",
+     "x": 250,
+     "y": 560,
+     "width": 92,
+     "height": 92,
+     "fill": "#d9822b",
+     "z": 31,
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "text",
+     "text": "LN",
+     "x": 250,
+     "y": 560,
+     "fontSize": 34,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 32,
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle",
+     "x": 320,
+     "y": 535,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "text",
+     "text": "restaurant · in-app call",
+     "x": 320,
+     "y": 590,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "text",
+     "text": "0:03",
+     "x": 860,
+     "y": 535,
+     "fontSize": 30,
+     "color": "#4ade80",
+     "weight": 800,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 31,
+     "start": 4.658,
+     "end": 9.229
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 560,
+     "width": 720,
+     "height": 170,
+     "fill": "#22252c",
+     "radius": 34,
+     "z": 30,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "circle",
+     "x": 250,
+     "y": 560,
+     "width": 92,
+     "height": 92,
+     "fill": "#d9822b",
+     "z": 31,
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "text",
+     "text": "LN",
+     "x": 250,
+     "y": 560,
+     "fontSize": 34,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 32,
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "text",
+     "text": "Lucky Noodle",
+     "x": 320,
+     "y": 535,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "text",
+     "text": "restaurant · in-app call",
+     "x": 320,
+     "y": 590,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 31,
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "text",
+     "text": "Call ended",
+     "x": 860,
+     "y": 535,
+     "fontSize": 30,
+     "color": "#ff3b3b",
+     "weight": 800,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 31,
+     "start": 9.229,
+     "end": 10.129
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.05,
+      "wardrobeOpen": 0.35,
+      "phoneGlow": true
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 40,
+     "start": 11.929,
+     "end": 13.029
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 600 760\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 20 760 Q 40 470 190 430 Q 250 410 300 412 Q 350 410 410 430 Q 560 470 580 760 Z\" fill=\"#14171c\"/><path d=\"M 200 440 Q 300 486 400 440 Q 380 404 300 400 Q 220 404 200 440 Z\" fill=\"#1d2128\"/><path d=\"M 300 70 Q 175 72 168 200 Q 162 300 150 392 Q 196 420 240 404 Q 270 416 300 412 Q 330 416 360 404 Q 404 420 450 392 Q 438 300 432 200 Q 425 72 300 70 Z\" fill=\"#0c0d10\"/><path d=\"M 432 210 Q 440 300 450 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/><path d=\"M 168 210 Q 160 300 150 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/></svg>",
+     "x": 540,
+     "y": 1560,
+     "width": 750,
+     "height": 950,
+     "z": 41,
+     "depth": 0,
+     "start": 11.929,
+     "end": 13.029
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 1920\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"160\" height=\"1920\" fill=\"#060607\"/><rect x=\"150\" y=\"0\" width=\"20\" height=\"1920\" fill=\"#1a1517\"/></svg>",
+     "x": 90,
+     "y": 960,
+     "width": 200,
+     "height": 1920,
+     "z": 42,
+     "depth": 0,
+     "start": 11.929,
+     "end": 13.029
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.75
+     },
+     "depth": 0,
+     "z": 43,
+     "start": 11.929,
+     "end": 13.029
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "props": {
+      "bpm": 92,
+      "bpmTo": 120,
+      "intensity": 0.7
+     },
+     "depth": 0,
+     "z": 55
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.45
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.358,
+      "zoom": 1.04,
+      "x": "50.00%",
+      "y": "48.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 9.229,
+      "zoom": 1.1,
+      "x": "50.00%",
+      "y": "40.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 9.529,
+      "zoom": 1.45,
+      "x": "50.00%",
+      "y": "80.00%",
+      "ease": "out"
+     },
+     {
+      "t": 11.919,
+      "zoom": 1.5,
+      "x": "50.00%",
+      "y": "80.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 11.929,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 13.029,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 13.039,
+      "zoom": 1.25,
+      "x": "50.00%",
+      "y": "72.00%",
+      "ease": "step"
+     },
+     {
+      "t": 14.151,
+      "zoom": 1.3,
+      "x": "50.00%",
+      "y": "72.00%",
+      "ease": "linear"
+     }
+    ],
+    "shake": [
+     {
+      "at": 13.931,
+      "duration": 0.2,
+      "amplitude": 8
+     }
+    ]
+   },
+   "notes": "Real-time 15 s clock (one label per second). The restaurant gets through for 5 s: no driver named Teo (kills the app and support as authority). Silent ticks, then 'I didn't turn around' over the wardrobe-corner view."
+  },
+  {
+   "id": "s14_fakewin",
+   "duration": 3.324,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "9:43",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "bites",
+     "x": 200,
+     "y": 440,
+     "fontSize": 34,
+     "color": "#8b6cff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "Track your order",
+     "x": 200,
+     "y": 505,
+     "fontSize": 48,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "Teo is on the way",
+     "x": 200,
+     "y": 560,
+     "fontSize": 28,
+     "color": "#8a8f99",
+     "weight": 600,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 680 820\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"680\" height=\"820\" rx=\"24\" fill=\"#12151b\"/><g fill=\"none\" stroke=\"#c9d2de\" stroke-width=\"6\"><rect x=\"20\" y=\"20\" width=\"640\" height=\"780\"/><line x1=\"330\" y1=\"20\" x2=\"330\" y2=\"300\"/><line x1=\"20\" y1=\"300\" x2=\"250\" y2=\"300\"/><line x1=\"430\" y1=\"300\" x2=\"660\" y2=\"300\"/><line x1=\"250\" y1=\"300\" x2=\"250\" y2=\"800\"/><line x1=\"430\" y1=\"300\" x2=\"430\" y2=\"590\"/><line x1=\"430\" y1=\"690\" x2=\"430\" y2=\"800\"/></g><rect x=\"520\" y=\"12\" width=\"90\" height=\"16\" fill=\"#12151b\"/><path d=\"M 520 20 L 610 20\" stroke=\"#ffb347\" stroke-width=\"8\"/><g font-family=\"Montserrat, sans-serif\" font-weight=\"800\" font-size=\"30\" fill=\"#8a8f99\" text-anchor=\"middle\"><text x=\"175\" y=\"170\">KITCHEN</text><text x=\"495\" y=\"170\">ENTRY</text><text x=\"340\" y=\"460\">HALL</text><text x=\"135\" y=\"560\">BATH</text><text x=\"545\" y=\"470\">BEDROOM</text><text x=\"565\" y=\"58\" font-size=\"20\" fill=\"#ffb347\">FRONT DOOR</text></g></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 680,
+     "height": 820,
+     "z": 4,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "circle",
+     "x": 760.0,
+     "y": 1230.0,
+     "width": 32,
+     "height": 32,
+     "fill": "#4aa3ff",
+     "stroke": "#ffffff",
+     "strokeWidth": 5,
+     "z": 6,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 1.2
+      }
+     ],
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "you",
+     "x": 760.0,
+     "y": 1272.0,
+     "fontSize": 24,
+     "color": "#4aa3ff",
+     "weight": 800,
+     "align": "center",
+     "font": "body",
+     "z": 6,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#8b6cff\" stroke=\"#fff\" stroke-width=\"6\"/><g fill=\"none\" stroke=\"#fff\" stroke-width=\"7\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"66\" r=\"9\"/><circle cx=\"72\" cy=\"66\" r=\"9\"/><path d=\"M 30 66 L 58 66 L 64 34 L 74 34\"/></g></svg>",
+     "x": 540.0,
+     "y": 1150.0,
+     "width": 92,
+     "height": 92,
+     "z": 8,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 540.0,
+       "y": 1150.0,
+       "opacity": 1,
+       "scale": 1,
+       "ease": "inOut"
+      },
+      {
+       "t": 0.6,
+       "opacity": 0,
+       "scale": 0.2,
+       "ease": "in"
+      }
+     ],
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "Delivery complete. Thank you!",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "background": "#2a2440",
+     "padding": 18,
+     "radius": 40,
+     "z": 7,
+     "start": 0.0,
+     "end": 2.424
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1500,
+     "width": 640,
+     "height": 120,
+     "fill": "#123d26",
+     "radius": 30,
+     "z": 20,
+     "start": 0.5,
+     "end": 2.424
+    },
+    {
+     "type": "text",
+     "text": "✓ Delivery complete. Thank you!",
+     "x": 540,
+     "y": 1500,
+     "fontSize": 36,
+     "color": "#4ade80",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 21,
+     "start": 0.5,
+     "end": 2.424
+    },
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "props": {
+      "lamp": 0.3,
+      "wardrobeOpen": 0.35
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0,
+     "start": 2.424,
+     "end": 3.324
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "relieved"
+       }
+      ],
+      "lookX": 0.0,
+      "lookY": 0.5,
+      "light": "phone",
+      "blink": true
+     },
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1000,
+     "height": 1520,
+     "z": 40,
+     "depth": 0,
+     "flipX": false,
+     "start": 2.424,
+     "end": 3.324
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1080 600\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 0 140 Q 260 40 540 120 Q 820 200 1080 90 L 1080 600 L 0 600 Z\" fill=\"#34405c\" stroke=\"#0b0d12\" stroke-width=\"10\"/><path d=\"M 80 260 Q 380 180 640 260 Q 880 330 1040 250\" stroke=\"#2a3349\" stroke-width=\"12\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1700,
+     "width": 1080,
+     "height": 600,
+     "z": 45,
+     "depth": 0,
+     "start": 2.424,
+     "end": 3.324
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.08,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.424,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.434,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 3.324,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "Fake win (T11). Relief face; the wardrobe behind her is a little wider open than before (no VO)."
+  },
+  {
+   "id": "s15_reviews",
+   "duration": 7.572,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 800,
+     "height": 1620,
+     "fill": "#15171c",
+     "radius": 96,
+     "stroke": "#2c3038",
+     "strokeWidth": 8,
+     "z": 1,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1110,
+     "width": 760,
+     "height": 1580,
+     "fill": "#0f1115",
+     "radius": 76,
+     "z": 2,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "9:58",
+     "x": 200,
+     "y": 360,
+     "fontSize": 30,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "▮▮▮  31%",
+     "x": 880,
+     "y": 360,
+     "fontSize": 26,
+     "color": "#e8e8ea",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 3,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "circle",
+     "x": 260,
+     "y": 490,
+     "width": 112,
+     "height": 112,
+     "fill": "#5a6b8f",
+     "z": 3,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "T",
+     "x": 260,
+     "y": 490,
+     "fontSize": 52,
+     "color": "#fff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 4,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "Teo",
+     "x": 340,
+     "y": 460,
+     "fontSize": 52,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "★5.0 · 1,201 reviews",
+     "x": 340,
+     "y": 520,
+     "fontSize": 34,
+     "color": "#ffc83d",
+     "weight": 800,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 3,
+     "start": 0.0,
+     "end": 7.572
+    },
+    {
+     "type": "rect",
+     "x": 360,
+     "y": 868,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1128
+      },
+      {
+       "t": 4.795,
+       "y": 748,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.5,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 360,
+     "y": 850,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1110
+      },
+      {
+       "t": 4.795,
+       "y": 730,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "9:12 PM",
+     "x": 510.0,
+     "y": 1064.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1324.0
+      },
+      {
+       "t": 4.795,
+       "y": 944.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 720,
+     "y": 868,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1128
+      },
+      {
+       "t": 4.795,
+       "y": 748,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.6,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#5f7a94"
+     },
+     "x": 720,
+     "y": 850,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1110
+      },
+      {
+       "t": 4.795,
+       "y": 730,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "11:40 PM",
+     "x": 870.0,
+     "y": 1064.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1324.0
+      },
+      {
+       "t": 4.795,
+       "y": 944.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 360,
+     "y": 1288,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1548
+      },
+      {
+       "t": 4.795,
+       "y": 1168,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.7,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#7a5c8f"
+     },
+     "x": 360,
+     "y": 1270,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1530
+      },
+      {
+       "t": 4.795,
+       "y": 1150,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "8:03 PM",
+     "x": 510.0,
+     "y": 1484.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1744.0
+      },
+      {
+       "t": 4.795,
+       "y": 1364.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 720,
+     "y": 1288,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1548
+      },
+      {
+       "t": 4.795,
+       "y": 1168,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.5,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#6f8a64"
+     },
+     "x": 720,
+     "y": 1270,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1530
+      },
+      {
+       "t": 4.795,
+       "y": 1150,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "10:27 PM",
+     "x": 870.0,
+     "y": 1484.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1744.0
+      },
+      {
+       "t": 4.795,
+       "y": 1364.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 360,
+     "y": 1708,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1968
+      },
+      {
+       "t": 4.795,
+       "y": 1588,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.6,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#946a5f"
+     },
+     "x": 360,
+     "y": 1690,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1950
+      },
+      {
+       "t": 4.795,
+       "y": 1570,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 476.7,
+     "y": 1601.1,
+     "width": 30.555555555555557,
+     "height": 30.555555555555557,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1861.1
+      },
+      {
+       "t": 4.795,
+       "y": 1481.1,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "1:15 AM",
+     "x": 510.0,
+     "y": 1904.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 2164.0
+      },
+      {
+       "t": 4.795,
+       "y": 1784.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 720,
+     "y": 1708,
+     "width": 344,
+     "height": 440,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 5,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1968
+      },
+      {
+       "t": 4.795,
+       "y": 1588,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.7,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#64808a"
+     },
+     "x": 720,
+     "y": 1690,
+     "width": 300,
+     "height": 360,
+     "z": 6,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 1950
+      },
+      {
+       "t": 4.795,
+       "y": 1570,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "text",
+     "text": "9:49 PM",
+     "x": 870.0,
+     "y": 1904.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 2.433,
+       "y": 2164.0
+      },
+      {
+       "t": 4.795,
+       "y": 1784.0,
+       "ease": "out"
+      }
+     ],
+     "start": 0.0,
+     "end": 4.795
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1050,
+     "width": 700,
+     "height": 560,
+     "fill": "#1a1d24",
+     "radius": 34,
+     "z": 20,
+     "start": 4.795,
+     "end": 7.572
+    },
+    {
+     "type": "circle",
+     "x": 250,
+     "y": 860,
+     "width": 92,
+     "height": 92,
+     "fill": "#c97a5a",
+     "z": 21,
+     "start": 4.795,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "N",
+     "x": 250,
+     "y": 860,
+     "fontSize": 40,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 22,
+     "start": 4.795,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "Nora R. · just now",
+     "x": 320,
+     "y": 840,
+     "fontSize": 36,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 21,
+     "start": 4.795,
+     "end": 7.572
+    },
+    {
+     "type": "text",
+     "text": "★★★★★",
+     "x": 320,
+     "y": 895,
+     "fontSize": 40,
+     "color": "#ffc83d",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 21,
+     "start": 4.795,
+     "end": 7.572
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1148,
+     "width": 344,
+     "height": 340,
+     "fill": "#f4f1ea",
+     "radius": 6,
+     "z": 21,
+     "shadow": "0 18px 40px rgba(0,0,0,.6)",
+     "start": 4.795,
+     "end": 6.289
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.9,
+      "feet": false,
+      "exposure": 1.35,
+      "lift": 0.25,
+      "liftColor": "#8a7a64"
+     },
+     "x": 540,
+     "y": 1130,
+     "width": 300,
+     "height": 260,
+     "z": 22,
+     "start": 4.795,
+     "end": 6.289
+    },
+    {
+     "type": "text",
+     "text": "9:52 PM",
+     "x": 690.0,
+     "y": 1294.0,
+     "fontSize": 22,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 23,
+     "start": 4.795,
+     "end": 6.289
+    },
+    {
+     "type": "text",
+     "text": "She thinks I left.",
+     "x": 540,
+     "y": 1100,
+     "fontSize": 64,
+     "color": "#ffffff",
+     "weight": 900,
+     "align": "center",
+     "font": "body",
+     "z": 23,
+     "typewriter": {
+      "at": 6.289,
+      "cps": 18
+     },
+     "start": 6.289,
+     "end": 7.572
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "props": {
+      "cues": [
+       {
+        "at": 6.289,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ],
+      "seed": "g3"
+     },
+     "depth": 0,
+     "z": 60
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "props": {
+      "amount": 0.4
+     },
+     "depth": 0,
+     "z": 50
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.433,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.785,
+      "zoom": 1.05,
+      "x": "50.00%",
+      "y": "52.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 4.795,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 6.289,
+      "zoom": 1.12,
+      "x": "50.00%",
+      "y": "55.00%",
+      "ease": "out"
+     },
+     {
+      "t": 7.572,
+      "zoom": 1.2,
+      "x": "50.00%",
+      "y": "57.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "Retro-reveal + scale-up: 1,201 reviews, every photo a door from inside. The newest is from her account, read in HIS voice (am_michael): 'She thinks I left.' One thumbnail has the green sleeve in its mirror."
+  },
+  {
+   "id": "s16_bookend",
+   "duration": 2.9,
+   "background": {
+    "type": "color",
+    "color": "#07080b"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "props": {
+      "chain": "on",
+      "hallLight": 0.5,
+      "feet": false
+     },
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "z": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"54\" fill=\"#1b2029\" stroke=\"#7d828c\" stroke-width=\"8\"/><path d=\"M 70 30 Q 96 46 92 92 L 78 98 Q 80 60 62 40 Z\" fill=\"#2f6b4c\" opacity=\"0.85\"/><path d=\"M 30 40 Q 44 28 60 26\" stroke=\"#c9d2de\" stroke-width=\"5\" fill=\"none\" opacity=\"0.5\"/></svg>",
+     "x": 960,
+     "y": 640,
+     "width": 110,
+     "height": 110,
+     "z": 2
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "props": {
+      "x": 0.62,
+      "y": 0.45,
+      "radius": 0.5,
+      "darkness": 0.8
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "props": {
+      "strength": 0.15,
+      "from": 1.0
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 600 760\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 20 760 Q 40 470 190 430 Q 250 410 300 412 Q 350 410 410 430 Q 560 470 580 760 Z\" fill=\"#14171c\"/><path d=\"M 200 440 Q 300 486 400 440 Q 380 404 300 400 Q 220 404 200 440 Z\" fill=\"#1d2128\"/><path d=\"M 300 70 Q 175 72 168 200 Q 162 300 150 392 Q 196 420 240 404 Q 270 416 300 412 Q 330 416 360 404 Q 404 420 450 392 Q 438 300 432 200 Q 425 72 300 70 Z\" fill=\"#0c0d10\"/><path d=\"M 432 210 Q 440 300 450 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/><path d=\"M 168 210 Q 160 300 150 390\" stroke=\"#9cc2ff\" stroke-width=\"6\" fill=\"none\" opacity=\"0.45\"/></svg>",
+     "x": 540,
+     "y": 1640,
+     "width": 820,
+     "height": 1040,
+     "z": 35,
+     "depth": 0,
+     "start": 1.65,
+     "end": 2.9
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "fill": "rgba(0,0,0,0)",
+     "radius": 0,
+     "stroke": "#f4f1ea",
+     "strokeWidth": 44,
+     "z": 40,
+     "depth": 0,
+     "start": 1.65,
+     "end": 2.9
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 1860,
+     "width": 1080,
+     "height": 120,
+     "fill": "#f4f1ea",
+     "radius": 0,
+     "z": 41,
+     "depth": 0,
+     "start": 1.65,
+     "end": 2.9
+    },
+    {
+     "type": "text",
+     "text": "✓ Delivered to customer",
+     "x": 60,
+     "y": 1858,
+     "fontSize": 40,
+     "color": "#1f8f4e",
+     "weight": 900,
+     "align": "left",
+     "font": "body",
+     "anchorX": 0,
+     "z": 42,
+     "depth": 0,
+     "start": 1.65,
+     "end": 2.9
+    },
+    {
+     "type": "text",
+     "text": "9:58 PM",
+     "x": 1020,
+     "y": 1858,
+     "fontSize": 40,
+     "color": "#3b3b3b",
+     "weight": 700,
+     "align": "right",
+     "font": "body",
+     "anchorX": 1,
+     "z": 42,
+     "depth": 0,
+     "start": 1.65,
+     "end": 2.9
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "fill": "#ffffff",
+     "radius": 0,
+     "z": 45,
+     "depth": 0,
+     "keyframes": [
+      {
+       "t": 1.65,
+       "opacity": 0.85
+      },
+      {
+       "t": 1.83,
+       "opacity": 0
+      }
+     ],
+     "start": 1.65,
+     "end": 2.9
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.65,
+      "zoom": 1.06,
+      "x": "58.00%",
+      "y": "46.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 1.66,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 2.9,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "notes": "Bookend = the 0:02 photo framing (same camera). On the ping it becomes a NEW proof photo with her in it, taken from behind her. Hard cut, no CTA."
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "My",
+    "start": 0.12,
+    "end": 0.21
+   },
+   {
+    "text": "delivery",
+    "start": 0.21,
+    "end": 0.56
+   },
+   {
+    "text": "photo",
+    "start": 0.56,
+    "end": 0.985
+   },
+   {
+    "text": "was",
+    "start": 0.985,
+    "end": 1.11
+   },
+   {
+    "text": "taken",
+    "start": 1.11,
+    "end": 1.435
+   },
+   {
+    "text": "from",
+    "start": 1.435,
+    "end": 1.585
+   },
+   {
+    "text": "inside",
+    "start": 1.585,
+    "end": 2.023,
+    "emph": true
+   },
+   {
+    "text": "my",
+    "start": 2.023,
+    "end": 2.147
+   },
+   {
+    "text": "apartment.",
+    "start": 2.147,
+    "end": 2.715
+   },
+   {
+    "text": "I",
+    "start": 2.845,
+    "end": 2.885
+   },
+   {
+    "text": "live",
+    "start": 2.875,
+    "end": 3.037
+   },
+   {
+    "text": "alone.",
+    "start": 3.037,
+    "end": 3.48,
+    "emph": true
+   },
+   {
+    "text": "Driver",
+    "start": 3.75,
+    "end": 3.996
+   },
+   {
+    "text": "verified!",
+    "start": 3.996,
+    "end": 4.546,
+    "emph": true
+   },
+   {
+    "text": "Location:",
+    "start": 4.621,
+    "end": 5.271
+   },
+   {
+    "text": "inside",
+    "start": 5.371,
+    "end": 5.771,
+    "emph": true
+   },
+   {
+    "text": "unit.",
+    "start": 5.771,
+    "end": 6.021
+   },
+   {
+    "text": "Anything",
+    "start": 6.071,
+    "end": 6.358
+   },
+   {
+    "text": "else",
+    "start": 6.358,
+    "end": 6.546
+   },
+   {
+    "text": "today?",
+    "start": 6.546,
+    "end": 6.951
+   },
+   {
+    "text": "In",
+    "start": 7.221,
+    "end": 7.261
+   },
+   {
+    "text": "the",
+    "start": 7.221,
+    "end": 7.3
+   },
+   {
+    "text": "photo",
+    "start": 7.3,
+    "end": 7.563
+   },
+   {
+    "text": "my",
+    "start": 7.563,
+    "end": 7.7
+   },
+   {
+    "text": "chain",
+    "start": 7.7,
+    "end": 7.913
+   },
+   {
+    "text": "is",
+    "start": 7.913,
+    "end": 8.025
+   },
+   {
+    "text": "on,",
+    "start": 8.025,
+    "end": 8.35
+   },
+   {
+    "text": "and",
+    "start": 8.412,
+    "end": 8.512
+   },
+   {
+    "text": "I",
+    "start": 8.512,
+    "end": 8.6
+   },
+   {
+    "text": "put",
+    "start": 8.6,
+    "end": 8.738
+   },
+   {
+    "text": "it",
+    "start": 8.738,
+    "end": 8.813
+   },
+   {
+    "text": "on",
+    "start": 8.813,
+    "end": 8.938
+   },
+   {
+    "text": "at",
+    "start": 8.938,
+    "end": 9.012
+   },
+   {
+    "text": "9:00.",
+    "start": 9.012,
+    "end": 9.525,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 9.625,
+    "end": 9.725
+   },
+   {
+    "text": "photo",
+    "start": 9.725,
+    "end": 10.0
+   },
+   {
+    "text": "says",
+    "start": 10.0,
+    "end": 10.225
+   },
+   {
+    "text": "9:41.",
+    "start": 10.225,
+    "end": 10.983,
+    "emph": true
+   },
+   {
+    "text": "So",
+    "start": 11.153,
+    "end": 11.209
+   },
+   {
+    "text": "he",
+    "start": 11.209,
+    "end": 11.284
+   },
+   {
+    "text": "was",
+    "start": 11.284,
+    "end": 11.397
+   },
+   {
+    "text": "already",
+    "start": 11.397,
+    "end": 11.734,
+    "emph": true
+   },
+   {
+    "text": "inside.",
+    "start": 11.734,
+    "end": 12.241,
+    "emph": true
+   },
+   {
+    "text": "Hi!",
+    "start": 12.511,
+    "end": 12.662
+   },
+   {
+    "text": "Your",
+    "start": 12.699,
+    "end": 12.862
+   },
+   {
+    "text": "order's",
+    "start": 12.862,
+    "end": 13.262
+   },
+   {
+    "text": "by",
+    "start": 13.262,
+    "end": 13.425
+   },
+   {
+    "text": "the",
+    "start": 13.425,
+    "end": 13.537
+   },
+   {
+    "text": "door.",
+    "start": 13.537,
+    "end": 14.037
+   },
+   {
+    "text": "Rate",
+    "start": 14.162,
+    "end": 14.349,
+    "emph": true
+   },
+   {
+    "text": "me",
+    "start": 14.349,
+    "end": 14.499
+   },
+   {
+    "text": "five",
+    "start": 14.499,
+    "end": 14.837,
+    "emph": true
+   },
+   {
+    "text": "stars",
+    "start": 14.837,
+    "end": 15.275
+   },
+   {
+    "text": "and",
+    "start": 15.275,
+    "end": 15.374
+   },
+   {
+    "text": "I'll",
+    "start": 15.374,
+    "end": 15.487
+   },
+   {
+    "text": "head",
+    "start": 15.487,
+    "end": 15.687
+   },
+   {
+    "text": "out.",
+    "start": 15.687,
+    "end": 15.875
+   },
+   {
+    "text": "My",
+    "start": 16.145,
+    "end": 16.213
+   },
+   {
+    "text": "thumb",
+    "start": 16.213,
+    "end": 16.426
+   },
+   {
+    "text": "was",
+    "start": 16.426,
+    "end": 16.526
+   },
+   {
+    "text": "on",
+    "start": 16.526,
+    "end": 16.626
+   },
+   {
+    "text": "the",
+    "start": 16.626,
+    "end": 16.713
+   },
+   {
+    "text": "fourth",
+    "start": 16.713,
+    "end": 16.951,
+    "emph": true
+   },
+   {
+    "text": "star",
+    "start": 16.951,
+    "end": 17.277
+   },
+   {
+    "text": "when",
+    "start": 17.277,
+    "end": 17.401
+   },
+   {
+    "text": "my",
+    "start": 17.401,
+    "end": 17.539
+   },
+   {
+    "text": "fridge",
+    "start": 17.539,
+    "end": 17.789
+   },
+   {
+    "text": "door",
+    "start": 17.789,
+    "end": 18.027
+   },
+   {
+    "text": "thumped",
+    "start": 18.027,
+    "end": 18.277
+   },
+   {
+    "text": "shut.",
+    "start": 18.277,
+    "end": 18.557
+   },
+   {
+    "text": "The",
+    "start": 19.107,
+    "end": 19.147
+   },
+   {
+    "text": "map",
+    "start": 19.107,
+    "end": 19.378
+   },
+   {
+    "text": "showed",
+    "start": 19.378,
+    "end": 19.615
+   },
+   {
+    "text": "my",
+    "start": 19.615,
+    "end": 19.74
+   },
+   {
+    "text": "apartment,",
+    "start": 19.74,
+    "end": 20.353
+   },
+   {
+    "text": "and",
+    "start": 20.428,
+    "end": 20.541
+   },
+   {
+    "text": "his",
+    "start": 20.541,
+    "end": 20.678
+   },
+   {
+    "text": "icon",
+    "start": 20.678,
+    "end": 21.065
+   },
+   {
+    "text": "was",
+    "start": 21.065,
+    "end": 21.165
+   },
+   {
+    "text": "in",
+    "start": 21.165,
+    "end": 21.241
+   },
+   {
+    "text": "the",
+    "start": 21.241,
+    "end": 21.328
+   },
+   {
+    "text": "kitchen.",
+    "start": 21.328,
+    "end": 21.702,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 21.872,
+    "end": 21.919
+   },
+   {
+    "text": "texted",
+    "start": 21.919,
+    "end": 22.332
+   },
+   {
+    "text": "my",
+    "start": 22.332,
+    "end": 22.469
+   },
+   {
+    "text": "sister.",
+    "start": 22.469,
+    "end": 22.891
+   },
+   {
+    "text": "It's",
+    "start": 23.161,
+    "end": 23.27
+   },
+   {
+    "text": "a",
+    "start": 23.27,
+    "end": 23.332
+   },
+   {
+    "text": "glitch.",
+    "start": 23.332,
+    "end": 24.007,
+    "emph": true
+   },
+   {
+    "text": "Just",
+    "start": 24.157,
+    "end": 24.432
+   },
+   {
+    "text": "rate",
+    "start": 24.432,
+    "end": 24.67,
+    "emph": true
+   },
+   {
+    "text": "him.",
+    "start": 24.67,
+    "end": 24.971
+   },
+   {
+    "text": "I",
+    "start": 25.241,
+    "end": 25.286
+   },
+   {
+    "text": "typed,",
+    "start": 25.286,
+    "end": 25.536
+   },
+   {
+    "text": "he's",
+    "start": 25.574,
+    "end": 25.699
+   },
+   {
+    "text": "inside.",
+    "start": 25.699,
+    "end": 26.236,
+    "emph": true
+   },
+   {
+    "text": "Not",
+    "start": 26.336,
+    "end": 26.524
+   },
+   {
+    "text": "delivered.",
+    "start": 26.524,
+    "end": 26.98
+   },
+   {
+    "text": "I",
+    "start": 27.15,
+    "end": 27.193
+   },
+   {
+    "text": "called",
+    "start": 27.193,
+    "end": 27.468
+   },
+   {
+    "text": "911,",
+    "start": 27.468,
+    "end": 28.143,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 28.205,
+    "end": 28.306
+   },
+   {
+    "text": "it",
+    "start": 28.306,
+    "end": 28.393
+   },
+   {
+    "text": "bounced",
+    "start": 28.393,
+    "end": 28.681
+   },
+   {
+    "text": "me",
+    "start": 28.681,
+    "end": 28.78
+   },
+   {
+    "text": "back",
+    "start": 28.78,
+    "end": 29.018
+   },
+   {
+    "text": "to",
+    "start": 29.018,
+    "end": 29.105
+   },
+   {
+    "text": "the",
+    "start": 29.105,
+    "end": 29.193
+   },
+   {
+    "text": "stars.",
+    "start": 29.193,
+    "end": 29.868,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 29.968,
+    "end": 30.118
+   },
+   {
+    "text": "app",
+    "start": 30.118,
+    "end": 30.306
+   },
+   {
+    "text": "had",
+    "start": 30.306,
+    "end": 30.418
+   },
+   {
+    "text": "taken",
+    "start": 30.418,
+    "end": 30.681
+   },
+   {
+    "text": "my",
+    "start": 30.681,
+    "end": 30.818
+   },
+   {
+    "text": "phone.",
+    "start": 30.818,
+    "end": 31.19
+   },
+   {
+    "text": "Just",
+    "start": 31.46,
+    "end": 31.709
+   },
+   {
+    "text": "one",
+    "start": 31.709,
+    "end": 31.972
+   },
+   {
+    "text": "tap.",
+    "start": 31.972,
+    "end": 32.428
+   },
+   {
+    "text": "I've",
+    "start": 32.498,
+    "end": 32.593
+   },
+   {
+    "text": "been",
+    "start": 32.593,
+    "end": 32.805
+   },
+   {
+    "text": "very",
+    "start": 32.805,
+    "end": 33.131
+   },
+   {
+    "text": "patient.",
+    "start": 33.131,
+    "end": 33.621
+   },
+   {
+    "text": "RATE",
+    "start": 33.691,
+    "end": 33.961,
+    "emph": true
+   },
+   {
+    "text": "ME.",
+    "start": 33.961,
+    "end": 34.306,
+    "emph": true
+   },
+   {
+    "text": "His",
+    "start": 34.576,
+    "end": 34.659
+   },
+   {
+    "text": "icon",
+    "start": 34.659,
+    "end": 35.047
+   },
+   {
+    "text": "slid",
+    "start": 35.047,
+    "end": 35.272
+   },
+   {
+    "text": "into",
+    "start": 35.272,
+    "end": 35.446
+   },
+   {
+    "text": "the",
+    "start": 35.446,
+    "end": 35.534
+   },
+   {
+    "text": "hallway.",
+    "start": 35.534,
+    "end": 36.034,
+    "emph": true
+   },
+   {
+    "text": "10",
+    "start": 36.159,
+    "end": 36.409,
+    "emph": true
+   },
+   {
+    "text": "FEET.",
+    "start": 36.409,
+    "end": 36.726,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 36.896,
+    "end": 36.943
+   },
+   {
+    "text": "locked",
+    "start": 36.943,
+    "end": 37.18,
+    "emph": true
+   },
+   {
+    "text": "my",
+    "start": 37.18,
+    "end": 37.318
+   },
+   {
+    "text": "bedroom",
+    "start": 37.318,
+    "end": 37.643
+   },
+   {
+    "text": "door",
+    "start": 37.643,
+    "end": 37.893
+   },
+   {
+    "text": "and",
+    "start": 37.893,
+    "end": 38.018
+   },
+   {
+    "text": "sat",
+    "start": 38.018,
+    "end": 38.205
+   },
+   {
+    "text": "on",
+    "start": 38.205,
+    "end": 38.306
+   },
+   {
+    "text": "the",
+    "start": 38.306,
+    "end": 38.38
+   },
+   {
+    "text": "bed,",
+    "start": 38.38,
+    "end": 38.668
+   },
+   {
+    "text": "facing",
+    "start": 38.743,
+    "end": 39.043
+   },
+   {
+    "text": "it.",
+    "start": 39.043,
+    "end": 39.194
+   },
+   {
+    "text": "Sorry",
+    "start": 39.464,
+    "end": 39.714
+   },
+   {
+    "text": "for",
+    "start": 39.714,
+    "end": 39.827
+   },
+   {
+    "text": "the",
+    "start": 39.827,
+    "end": 39.914
+   },
+   {
+    "text": "wait!",
+    "start": 39.914,
+    "end": 40.264
+   },
+   {
+    "text": "Six",
+    "start": 40.377,
+    "end": 40.664,
+    "emph": true
+   },
+   {
+    "text": "customers",
+    "start": 40.664,
+    "end": 41.189
+   },
+   {
+    "text": "never",
+    "start": 41.189,
+    "end": 41.389
+   },
+   {
+    "text": "rated",
+    "start": 41.389,
+    "end": 41.714
+   },
+   {
+    "text": "Teo.",
+    "start": 41.714,
+    "end": 42.164,
+    "emph": true
+   },
+   {
+    "text": "He's",
+    "start": 42.264,
+    "end": 42.427
+   },
+   {
+    "text": "still",
+    "start": 42.427,
+    "end": 42.664,
+    "emph": true
+   },
+   {
+    "text": "delivering",
+    "start": 42.664,
+    "end": 43.089
+   },
+   {
+    "text": "to",
+    "start": 43.089,
+    "end": 43.176
+   },
+   {
+    "text": "them.",
+    "start": 43.176,
+    "end": 43.469
+   },
+   {
+    "text": "Then",
+    "start": 44.819,
+    "end": 44.859
+   },
+   {
+    "text": "a",
+    "start": 44.859,
+    "end": 44.922
+   },
+   {
+    "text": "new",
+    "start": 44.922,
+    "end": 45.097
+   },
+   {
+    "text": "proof",
+    "start": 45.097,
+    "end": 45.372
+   },
+   {
+    "text": "photo.",
+    "start": 45.372,
+    "end": 45.872
+   },
+   {
+    "text": "Me,",
+    "start": 45.997,
+    "end": 46.197
+   },
+   {
+    "text": "on",
+    "start": 46.235,
+    "end": 46.335
+   },
+   {
+    "text": "my",
+    "start": 46.335,
+    "end": 46.472
+   },
+   {
+    "text": "bed,",
+    "start": 46.472,
+    "end": 46.722
+   },
+   {
+    "text": "staring",
+    "start": 46.772,
+    "end": 47.109
+   },
+   {
+    "text": "at",
+    "start": 47.109,
+    "end": 47.185
+   },
+   {
+    "text": "my",
+    "start": 47.185,
+    "end": 47.322
+   },
+   {
+    "text": "locked",
+    "start": 47.322,
+    "end": 47.572,
+    "emph": true
+   },
+   {
+    "text": "door.",
+    "start": 47.572,
+    "end": 47.972
+   },
+   {
+    "text": "Taken",
+    "start": 48.072,
+    "end": 48.397
+   },
+   {
+    "text": "from",
+    "start": 48.397,
+    "end": 48.534
+   },
+   {
+    "text": "behind",
+    "start": 48.534,
+    "end": 48.859,
+    "emph": true
+   },
+   {
+    "text": "me.",
+    "start": 48.859,
+    "end": 49.082
+   },
+   {
+    "text": "The",
+    "start": 53.132,
+    "end": 53.172
+   },
+   {
+    "text": "map",
+    "start": 53.132,
+    "end": 53.369
+   },
+   {
+    "text": "still",
+    "start": 53.369,
+    "end": 53.619,
+    "emph": true
+   },
+   {
+    "text": "said",
+    "start": 53.619,
+    "end": 53.757
+   },
+   {
+    "text": "hallway.",
+    "start": 53.757,
+    "end": 54.212,
+    "emph": true
+   },
+   {
+    "text": "i'm",
+    "start": 54.482,
+    "end": 54.614
+   },
+   {
+    "text": "closer",
+    "start": 54.614,
+    "end": 55.026,
+    "emph": true
+   },
+   {
+    "text": "than",
+    "start": 55.026,
+    "end": 55.126
+   },
+   {
+    "text": "the",
+    "start": 55.126,
+    "end": 55.214
+   },
+   {
+    "text": "map",
+    "start": 55.214,
+    "end": 55.489
+   },
+   {
+    "text": "says.",
+    "start": 55.489,
+    "end": 55.912
+   },
+   {
+    "text": "Then",
+    "start": 56.182,
+    "end": 56.222
+   },
+   {
+    "text": "a",
+    "start": 56.209,
+    "end": 56.272
+   },
+   {
+    "text": "timer:",
+    "start": 56.272,
+    "end": 56.847
+   },
+   {
+    "text": "rate",
+    "start": 56.984,
+    "end": 57.21,
+    "emph": true
+   },
+   {
+    "text": "in",
+    "start": 57.21,
+    "end": 57.322
+   },
+   {
+    "text": "15",
+    "start": 57.322,
+    "end": 57.722,
+    "emph": true
+   },
+   {
+    "text": "seconds,",
+    "start": 57.722,
+    "end": 58.247
+   },
+   {
+    "text": "or",
+    "start": 58.322,
+    "end": 58.409
+   },
+   {
+    "text": "your",
+    "start": 58.409,
+    "end": 58.522
+   },
+   {
+    "text": "driver",
+    "start": 58.522,
+    "end": 58.897
+   },
+   {
+    "text": "hands",
+    "start": 58.897,
+    "end": 59.159
+   },
+   {
+    "text": "you",
+    "start": 59.159,
+    "end": 59.234
+   },
+   {
+    "text": "the",
+    "start": 59.234,
+    "end": 59.347
+   },
+   {
+    "text": "order",
+    "start": 59.347,
+    "end": 59.697
+   },
+   {
+    "text": "in",
+    "start": 59.697,
+    "end": 59.797
+   },
+   {
+    "text": "person.",
+    "start": 59.797,
+    "end": 60.27
+   },
+   {
+    "text": "Hi,",
+    "start": 60.54,
+    "end": 60.73
+   },
+   {
+    "text": "it's",
+    "start": 60.767,
+    "end": 60.955
+   },
+   {
+    "text": "Lucky",
+    "start": 60.955,
+    "end": 61.255
+   },
+   {
+    "text": "Noodle.",
+    "start": 61.255,
+    "end": 61.78
+   },
+   {
+    "text": "Your",
+    "start": 61.855,
+    "end": 62.068
+   },
+   {
+    "text": "food's",
+    "start": 62.068,
+    "end": 62.455
+   },
+   {
+    "text": "still",
+    "start": 62.455,
+    "end": 62.718,
+    "emph": true
+   },
+   {
+    "text": "on",
+    "start": 62.718,
+    "end": 62.867
+   },
+   {
+    "text": "our",
+    "start": 62.867,
+    "end": 63.005
+   },
+   {
+    "text": "counter.",
+    "start": 63.005,
+    "end": 63.605
+   },
+   {
+    "text": "We",
+    "start": 63.693,
+    "end": 63.818
+   },
+   {
+    "text": "don't",
+    "start": 63.818,
+    "end": 64.005
+   },
+   {
+    "text": "have",
+    "start": 64.005,
+    "end": 64.168
+   },
+   {
+    "text": "a",
+    "start": 64.168,
+    "end": 64.242
+   },
+   {
+    "text": "driver",
+    "start": 64.242,
+    "end": 64.655
+   },
+   {
+    "text": "named",
+    "start": 64.655,
+    "end": 64.942
+   },
+   {
+    "text": "Teo.",
+    "start": 64.942,
+    "end": 65.461,
+    "emph": true
+   },
+   {
+    "text": "I",
+    "start": 68.111,
+    "end": 68.151
+   },
+   {
+    "text": "didn't",
+    "start": 68.117,
+    "end": 68.329
+   },
+   {
+    "text": "turn",
+    "start": 68.329,
+    "end": 68.491
+   },
+   {
+    "text": "around.",
+    "start": 68.491,
+    "end": 68.954
+   },
+   {
+    "text": "I",
+    "start": 69.029,
+    "end": 69.142
+   },
+   {
+    "text": "gave",
+    "start": 69.142,
+    "end": 69.292
+   },
+   {
+    "text": "him",
+    "start": 69.292,
+    "end": 69.454
+   },
+   {
+    "text": "five",
+    "start": 69.454,
+    "end": 69.691,
+    "emph": true
+   },
+   {
+    "text": "stars.",
+    "start": 69.691,
+    "end": 70.163,
+    "emph": true
+   },
+   {
+    "text": "His",
+    "start": 70.333,
+    "end": 70.413
+   },
+   {
+    "text": "icon",
+    "start": 70.413,
+    "end": 70.763
+   },
+   {
+    "text": "vanished,",
+    "start": 70.763,
+    "end": 71.313
+   },
+   {
+    "text": "and",
+    "start": 71.388,
+    "end": 71.501
+   },
+   {
+    "text": "the",
+    "start": 71.501,
+    "end": 71.613
+   },
+   {
+    "text": "app",
+    "start": 71.613,
+    "end": 71.813
+   },
+   {
+    "text": "said",
+    "start": 71.813,
+    "end": 71.95
+   },
+   {
+    "text": "delivery",
+    "start": 71.95,
+    "end": 72.288
+   },
+   {
+    "text": "complete.",
+    "start": 72.288,
+    "end": 72.707
+   },
+   {
+    "text": "His",
+    "start": 73.657,
+    "end": 73.74
+   },
+   {
+    "text": "profile",
+    "start": 73.74,
+    "end": 74.165
+   },
+   {
+    "text": "had",
+    "start": 74.165,
+    "end": 74.315
+   },
+   {
+    "text": "1,201",
+    "start": 74.315,
+    "end": 75.277,
+    "emph": true
+   },
+   {
+    "text": "reviews.",
+    "start": 75.277,
+    "end": 75.99
+   },
+   {
+    "text": "Every",
+    "start": 76.09,
+    "end": 76.39
+   },
+   {
+    "text": "photo",
+    "start": 76.39,
+    "end": 76.727
+   },
+   {
+    "text": "was",
+    "start": 76.727,
+    "end": 76.828
+   },
+   {
+    "text": "a",
+    "start": 76.828,
+    "end": 76.89
+   },
+   {
+    "text": "front",
+    "start": 76.89,
+    "end": 77.09
+   },
+   {
+    "text": "door,",
+    "start": 77.09,
+    "end": 77.44
+   },
+   {
+    "text": "from",
+    "start": 77.515,
+    "end": 77.653
+   },
+   {
+    "text": "the",
+    "start": 77.653,
+    "end": 77.765
+   },
+   {
+    "text": "inside.",
+    "start": 77.765,
+    "end": 78.282,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 78.452,
+    "end": 78.492
+   },
+   {
+    "text": "newest",
+    "start": 78.47,
+    "end": 78.77
+   },
+   {
+    "text": "came",
+    "start": 78.77,
+    "end": 78.982
+   },
+   {
+    "text": "from",
+    "start": 78.982,
+    "end": 79.107
+   },
+   {
+    "text": "my",
+    "start": 79.107,
+    "end": 79.245
+   },
+   {
+    "text": "account.",
+    "start": 79.245,
+    "end": 79.676,
+    "emph": true
+   },
+   {
+    "text": "She",
+    "start": 79.946,
+    "end": 80.077
+   },
+   {
+    "text": "thinks",
+    "start": 80.077,
+    "end": 80.34
+   },
+   {
+    "text": "I",
+    "start": 80.34,
+    "end": 80.489
+   },
+   {
+    "text": "left.",
+    "start": 80.489,
+    "end": 80.959,
+    "emph": true
+   },
+   {
+    "text": "Down",
+    "start": 81.229,
+    "end": 81.349
+   },
+   {
+    "text": "the",
+    "start": 81.349,
+    "end": 81.436
+   },
+   {
+    "text": "hall,",
+    "start": 81.436,
+    "end": 81.686
+   },
+   {
+    "text": "the",
+    "start": 81.723,
+    "end": 81.811
+   },
+   {
+    "text": "chain",
+    "start": 81.811,
+    "end": 82.023
+   },
+   {
+    "text": "was",
+    "start": 82.023,
+    "end": 82.124
+   },
+   {
+    "text": "still",
+    "start": 82.124,
+    "end": 82.324,
+    "emph": true
+   },
+   {
+    "text": "on.",
+    "start": 82.324,
+    "end": 82.579,
+    "emph": true
+   }
+  ],
+  "maxWords": 5,
+  "maxChars": 18,
+  "gapBreak": 0.25,
+  "linger": 0.3,
+  "glue": [
+   "five stars",
+   "front door",
+   "inside unit",
+   "Lucky Noodle",
+   "10 FEET."
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 58,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "none",
+   "strokeWidth": 10,
+   "uppercase": false,
+   "y": 0.12,
+   "backing": 0.85
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n1.wav",
+    "start": 0.12,
+    "volume": 1,
+    "duration": 2.545
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n2.wav",
+    "start": 2.845,
+    "volume": 1,
+    "duration": 0.585
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/s1.wav",
+    "start": 3.75,
+    "volume": 1,
+    "duration": 3.151
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n3.wav",
+    "start": 7.221,
+    "volume": 1,
+    "duration": 3.712
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n4.wav",
+    "start": 11.153,
+    "volume": 1,
+    "duration": 1.038
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r1.wav",
+    "start": 12.511,
+    "volume": 1,
+    "duration": 3.314
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n5.wav",
+    "start": 16.145,
+    "volume": 1,
+    "duration": 2.362
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n6.wav",
+    "start": 19.107,
+    "volume": 1,
+    "duration": 2.545
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n7.wav",
+    "start": 21.872,
+    "volume": 1,
+    "duration": 0.969
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/m1.wav",
+    "start": 23.161,
+    "volume": 1,
+    "duration": 1.76
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n8.wav",
+    "start": 25.241,
+    "volume": 1,
+    "duration": 1.689
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n9.wav",
+    "start": 27.15,
+    "volume": 1,
+    "duration": 3.99
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r2.wav",
+    "start": 31.46,
+    "volume": 1,
+    "duration": 0.918
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r3.wav",
+    "start": 32.498,
+    "volume": 1,
+    "duration": 1.073
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r4.wav",
+    "start": 33.691,
+    "volume": 1,
+    "duration": 0.565
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n10.wav",
+    "start": 34.576,
+    "volume": 1,
+    "duration": 2.1
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n11.wav",
+    "start": 36.896,
+    "volume": 1,
+    "duration": 2.248
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/s2.wav",
+    "start": 39.464,
+    "volume": 1,
+    "duration": 3.955
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n12.wav",
+    "start": 44.819,
+    "volume": 1,
+    "duration": 4.213
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n13.wav",
+    "start": 53.132,
+    "volume": 1,
+    "duration": 1.03
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r5.wav",
+    "start": 54.482,
+    "volume": 1,
+    "duration": 1.38
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n14.wav",
+    "start": 56.182,
+    "volume": 1,
+    "duration": 4.038
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/c1.wav",
+    "start": 60.54,
+    "volume": 1,
+    "duration": 4.871
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n15.wav",
+    "start": 68.111,
+    "volume": 1,
+    "duration": 2.002
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n16.wav",
+    "start": 70.333,
+    "volume": 1,
+    "duration": 2.324
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n17.wav",
+    "start": 73.657,
+    "volume": 1,
+    "duration": 4.575
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n18.wav",
+    "start": 78.452,
+    "volume": 1,
+    "duration": 1.174
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/r6.wav",
+    "start": 79.946,
+    "volume": 1,
+    "duration": 0.963
+   },
+   {
+    "src": "episodes/horror-delivery-photo-inside/vo/n19.wav",
+    "start": 81.229,
+    "volume": 1,
+    "duration": 1.3
+   }
+  ],
+  "music": [
+   {
+    "src": "music/dread.m4a",
+    "start": 0,
+    "end": 83.73,
+    "volume": 0.3,
+    "duckTo": 0.12,
+    "fadeIn": 0.4,
+    "fadeOut": 1.2
+   }
+  ],
+  "sfx": [
+   {
+    "cue": "notify",
+    "at": 0.12,
+    "volume": 0.401
+   },
+   {
+    "cue": "stinger",
+    "at": 2.895,
+    "volume": 0.318
+   },
+   {
+    "cue": "message_pop",
+    "at": 3.75,
+    "volume": 0.8
+   },
+   {
+    "cue": "glitch",
+    "at": 4.9,
+    "volume": 0.505
+   },
+   {
+    "cue": "impact",
+    "at": 11.153,
+    "volume": 0.253
+   },
+   {
+    "cue": "message_pop",
+    "at": 12.511,
+    "volume": 0.8
+   },
+   {
+    "cue": "impact",
+    "at": 18.507,
+    "volume": 0.566
+   },
+   {
+    "cue": "sonar_ping",
+    "at": 20.007,
+    "volume": 0.401
+   },
+   {
+    "cue": "message_send",
+    "at": 22.072,
+    "volume": 0.635
+   },
+   {
+    "cue": "message_pop",
+    "at": 23.161,
+    "volume": 0.8
+   },
+   {
+    "cue": "glitch",
+    "at": 26.241,
+    "volume": 0.401
+   },
+   {
+    "cue": "glitch",
+    "at": 28.4,
+    "volume": 0.635
+   },
+   {
+    "cue": "message_pop",
+    "at": 31.46,
+    "volume": 0.8
+   },
+   {
+    "cue": "message_pop",
+    "at": 32.498,
+    "volume": 0.8
+   },
+   {
+    "cue": "phone_buzz",
+    "at": 33.691,
+    "volume": 0.8
+   },
+   {
+    "cue": "footsteps",
+    "at": 34.876,
+    "volume": 0.201
+   },
+   {
+    "cue": "click",
+    "at": 37.796,
+    "volume": 0.8
+   },
+   {
+    "cue": "door_creak",
+    "at": 37.896,
+    "volume": 0.08
+   },
+   {
+    "cue": "message_pop",
+    "at": 39.464,
+    "volume": 0.8
+   },
+   {
+    "cue": "drone",
+    "at": 41.464,
+    "volume": 0.401
+   },
+   {
+    "cue": "message_send",
+    "at": 43.619,
+    "volume": 0.505
+   },
+   {
+    "cue": "message_send",
+    "at": 44.219,
+    "volume": 0.635
+   },
+   {
+    "cue": "notify",
+    "at": 44.819,
+    "volume": 0.635
+   },
+   {
+    "cue": "stinger",
+    "at": 48.072,
+    "volume": 0.8
+   },
+   {
+    "cue": "heartbeat_slow",
+    "at": 49.132,
+    "volume": 0.635
+   },
+   {
+    "cue": "message_pop",
+    "at": 54.482,
+    "volume": 0.505
+   },
+   {
+    "cue": "clock_ticking",
+    "at": 56.182,
+    "volume": 0.318
+   },
+   {
+    "cue": "phone_buzz",
+    "at": 60.19,
+    "volume": 0.505
+   },
+   {
+    "cue": "tick",
+    "at": 65.511,
+    "volume": 0.635
+   },
+   {
+    "cue": "tick",
+    "at": 66.511,
+    "volume": 0.635
+   },
+   {
+    "cue": "tick",
+    "at": 67.511,
+    "volume": 0.635
+   },
+   {
+    "cue": "ding",
+    "at": 70.113,
+    "volume": 0.635
+   },
+   {
+    "cue": "whoosh",
+    "at": 76.09,
+    "volume": 0.505
+   },
+   {
+    "cue": "stinger",
+    "at": 79.946,
+    "volume": 0.635
+   },
+   {
+    "cue": "notify",
+    "at": 82.879,
+    "volume": 0.635
+   }
+  ],
+  "duckOn": "voice"
+ },
+ "overlays": {
+  "grain": 0.45,
+  "vignette": 0.3,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "backlog/horror/horror-delivery-photo-inside/build.py",
+  "timing": "Kokoro-82M on the Spark CPU, measured per line, five voices (lines.VOICES)",
+  "audio": "per-line wavs: copy ~/studio/tts/horror-delivery-photo-inside/*.wav to studio/public/episodes/horror-delivery-photo-inside/vo/ on the Spark (tts_measure.py writes them); music + sfx from studio/public",
+  "components": "registered horror kit components + core layers only (no unbuilt components)"
+ }
+}

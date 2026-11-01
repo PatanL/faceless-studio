@@ -1,0 +1,63 @@
+{
+  "episode": "horror-delivery-photo-inside",
+  "reviewed_at_utc": "2026-11-01T12:20Z",
+  "scores_before": {"retention": 6, "reference": 6, "originality": 7, "producibility": 5},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+  "score_notes": {
+    "retention": "Measured runtime 84.1 s (Kokoro, Spark CPU). The draft's planned 89 s was really about 111 s. The danger word 'inside' lands at 1.6 s, the core hook is 12 words / 3.4 s, and the contradiction comes at 5.4 s. The chain tell is now a timeline (on at 9:00, photo at 9:41 -> 'So he was already inside'), so the 1:21 bookend reads without deduction. The turn is a real T3 inversion: 'Six customers never rated Teo. He's still delivering to them.' Not rating, her protective act, is the trap, and it pays the 1,206/1,200 header plant out loud. The bedroom hole is closed in VO ('The map still said hallway.' plus Teo's calm 'i'm closer than the map says.'), and a wardrobe hinge creak under the lock click plants the from-behind angle. The ending is a present-tense threat in his voice from her account ('She thinks I left.') plus a final ping that turns the bookend into his photo of her. Five distinct Kokoro voices. 37 jolts, median gap 2.1 s, max 5.8 s. Photo 2 is held 4.0 s. Residual risks: 84 s is still past the ~60 s chat sweet spot, and narrator punch share is 26% (narration band 13-22%).",
+    "reference": "Runtime and wpm are measured, not assumed: 249 wpm speaking (in the 230-270 / 250-275 bands) and 197 overall, with 11 s of planned silence stated as deliberate. Added the missing devices: a viewer-proxy voice (Mia's rational 'just rate him', TEXT-FIGURE 0:34), near-compliance (SIEGE-CHAT 0:16), a count match (SIEGE-CHAT 0:19->0:28), the silence beat before the proof (TEXT-FIGURE 0:53), the calm-lowercase rung (TEXT-FIGURE 0:50-0:56), a real lifeline under the clock (the restaurant gets through for 5 s: 'no driver named Teo', SIEGE-CHAT 3:17-4:01), and a bookend with a figure added (HOTEL-DOOR 2:40-2:48). The clock is a real 15 s with one label per real second, and she rates at 0:02. The stats are consistent everywhere (★5.0, 1,206 deliveries, 1,200 ratings, then 1,201 reviews). T3/T11 are marked as PLAYBOOK-pattern citations. The alignment table gives % of runtime for both sides and notes that the tell and the first proximity rung moved early. The front-matter errors are fixed: the 'held-back image at 61%' claim is gone, the second-image device is re-described, and numbers are counted once each.",
+    "originality": "Gate PASS. No 8-word run is shared with any of 157 source files. The highest 5-gram share is 0.31% (research/corpus/horror/PLAYBOOK.md; limit 2%). Locale is unified to US: 911, driver, 10 ft, 30 ft, with captions showing 911 / 9:00 / 9:41 / 1,201. The pacing table's 'you' and sentence-median numbers are recomputed by build.py: 6.5% of sentences, median 5 overall and 6 for the narrator. The rating rule, the six unrated homes, the restaurant call and the voice swap from her account are ours. The fictional brands 'bites' and 'Lucky Noodle' use violet, not DoorDash red or the Uber Eats green/black. The disclosure plan is in script.md and titles.md. Delivery-photo horror is a crowded trope, so the title leads with the rating rule and the cover with the inside angle.",
+    "producibility": "storyboard.json uses only registered horror components plus core layers (0 missing). The delivery app (order card with photo inset, street map -> floor plan with a keyframed scooter icon, rating sheet with a per-second timer, in-app call card, profile grid, review card) is drawn from core layers on a static phone frame, so nothing drifts under HandPhone tilt. The back view of Nora, the bedroom door, the duvet and the wardrobe edge are inline SVG, which avoids locked kit edits (BRIEF 11:27). zod validation passes on the Spark: 16 scenes, 84.17 s, 270 caption words. check_storyboards.py on the Spark shows no missing components and no missing audio (the per-line Kokoro wavs were copied to studio/public/episodes/horror-delivery-photo-inside/vo/). Max hold is 5.1 s, only on the planned photo-2 still; every other shot is 3 s or less. 26 + 8 + 3 Spark stills were rendered and checked (out/stills/horror-delivery-photo-inside_v1/_v2/_v3.jpg); caption paging and the silhouette were fixed after review. Not done: a full MP4 render and a loudness-normalised mix. pipeline.audio.make is single-voice, so the storyboard plays per-line clips with duckOn: voice."
+  },
+  "must_fix_status": {
+    "retention": {
+      "midpoint_turn_inversion": "fixed (s2 at 0:40, count match 1,206-1,200=6)",
+      "chain_tell_logic": "fixed (n3/n4 timeline)",
+      "ending_present_tense_threat": "fixed (r6 'She thinks I left.' + bookend ping)",
+      "bedroom_presence_hole": "fixed (n13 VO + r5 + wardrobe creak plant)",
+      "first_3s_line": "fixed (danger at 1.6 s, cover label)",
+      "mandatory_second_voice": "fixed (5 voices; app text on screen only)",
+      "no_kit_fallbacks": "fixed (app screens built from core layers, rendered)"
+    },
+    "reference": {
+      "measured_runtime_wpm": "fixed (Kokoro-measured 84.1 s, 249/197 wpm)",
+      "chain_tell": "fixed",
+      "midpoint_restatement": "fixed",
+      "lifeline_without_lifeline": "fixed (restaurant call under the clock)",
+      "countdown_vs_real_time": "fixed (15 s real-time labels)",
+      "planted_stats": "fixed (consistent and paid at the turn + 1,201)",
+      "ending_adds_nothing": "fixed (the bookend becomes his photo of her)",
+      "viewer_proxy_voice": "fixed (Mia)"
+    },
+    "originality": {
+      "gate_report": "PASS, max 5-gram share 0.31%, no 8-word run",
+      "s3_tell": "fixed",
+      "rider_numbers": "fixed",
+      "pacing_table_stats": "fixed (computed by build.py)"
+    },
+    "producibility": {
+      "unrenderable_shots": "fixed (0 missing components; 37 stills rendered)",
+      "deliveryapp_gate": "met with core layers instead of a new kit component (kit is locked)",
+      "photo_inset_alignment": "fixed (static phone frame, no HandPhone on app screens)",
+      "back_view_glints": "fixed (SVG back-view silhouette, no glints)",
+      "bedroom_viewpoint_door": "fixed (wardrobe-edge SVG + bedroom-door SVG + duvet)",
+      "map_label_in_photo": "fixed (said in VO + its own map shot)",
+      "timing_not_measured": "fixed (Kokoro per line; shots anchored to word timings)",
+      "holds_over_3s": "fixed except the intended photo-2 still",
+      "countdown_jumps": "fixed (real-time labels)"
+    }
+  },
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/horror/horror-delivery-photo-inside/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "sources_scanned": 157,
+    "max_shared_5gram_share": 0.0031,
+    "max_shared_5gram_source": "research/corpus/horror/PLAYBOOK.md",
+    "longest_shared_run_words": "< 8 (none flagged)"
+  },
+  "measured": {
+    "runtime_s": 84.13, "speech_s": 66.39, "silence_s": 11.0, "words": 276, "wpm_speaking": 249.4, "wpm_overall": 196.8,
+    "turn_pct": 48, "scariest_image_pct": "57 (held 58-63)", "clock_pct": "67-83", "twist_pct": "88-96", "jolt_median_s": 2.05, "jolt_max_gap_s": 5.76
+  },
+  "files": ["script.md", "lines.py", "tts_measure.py", "tts_durations.json", "build.py", "timeline.json", "storyboard.json", "titles.md", "thumbnail.md", "review.json"]
+}
