@@ -1,0 +1,49 @@
+{
+  "v": 1,
+  "tz": "America/Chicago",
+  "paused": false,
+  "niche": "explainer",
+  "platforms": ["youtube", "tiktok", "instagram"],
+  "mode": {"youtube": "draft", "tiktok": "draft", "instagram": "draft"},
+  "disclosure_ok_auto": {"youtube": false, "tiktok": false, "instagram": false},
+  "slots": [
+    {"slot": "a", "make_at": "06:30", "post_at": "11:30"},
+    {"slot": "b", "make_at": "08:45", "post_at": "18:30"}
+  ],
+  "make_deadline_h_before_post": 3,
+  "publish_late_h": 2,
+  "drafts_missed_h": 6,
+  "status_every_min": 30,
+  "tiktok_inbox_at": "21:00",
+  "rotate_at": "04:00",
+  "rotate_window_h": 2,
+  "heartbeat_stale_min": 45,
+  "metrics_windows_h": [48, 168],
+  "metrics_platforms": ["youtube", "instagram"],
+  "learning": {"weekday": "MON", "at": "07:30"},
+  "budget": {
+    "weighted_tokens_per_video": 2500000,
+    "weighted_tokens_per_week": 40000000,
+    "operator_tokens_per_day_estimate": 1500000,
+    "soft_pct": 80,
+    "max_fix_rounds": 1,
+    "max_make_hours": 3
+  },
+  "sameness": {"last_n": 10},
+  "experiments": {
+    "one_at_a_time": true,
+    "min_n_per_arm": 6,
+    "max_n_per_arm": 10,
+    "adopt_rel_gain": 0.10,
+    "pair_win_share": 0.667,
+    "secondary_max_rel_loss": 0.15,
+    "primary_metric_default": "youtube.derived.hold_3s",
+    "baseline_last_n": 10
+  },
+  "kill_rule": {"after_videos": 30, "target_views_7d": 10000, "extend_last10_min": 5000, "extend_videos": 15, "recheck_every": 5},
+  "rules_defaults": {
+    "hook.type": "source", "hook.max_words": 12, "structure.skeleton": "source", "pace.rehook_s": 9,
+    "visual.max_hold_s": 3.0, "visual.cover": "scale", "visual.shot_mix": "balanced"
+  },
+  "notify": {"human_file": "data/operator/HUMAN.md"}
+}
