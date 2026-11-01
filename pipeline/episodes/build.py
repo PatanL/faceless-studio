@@ -80,7 +80,8 @@ def build(slug: str) -> str:
     pp = getattr(mod, "PHRASE_PAGES", False)  # caption cards on phrase boundaries (pipeline/episodes/phrases.py)
     if pp is True or (isinstance(pp, (set, list, tuple)) and slug in pp):
         from .phrases import phrase_pages
-        phrase_pages(words, glue=getattr(mod, "PHRASE_GLUE", {}).get(slug, []))
+        mc = (getattr(mod, "CAPTION_PAGING", None) or {}).get("maxChars", 16)
+        phrase_pages(words, max_chars=mc, glue=getattr(mod, "PHRASE_GLUE", {}).get(slug, []))
     holds = check_holds(slug, built)
     if holds:
         msg = f"{slug}: visual holds over {MAX_HOLD:.0f}s: " + "; ".join(holds)

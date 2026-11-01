@@ -13,12 +13,15 @@ import re
 WEAK_END = set(
     "a an the and or but nor of to in on at for with by from as into onto off its it's their her his my your our "
     "is are was were has have had be been being ever never not no very so too this that these those than "
-    "can could would will just about own every each some any what it".split())
+    "can could would will just about own every each some any what it "
+    # orca fix round 1: a card never ends on a subject pronoun / question word / auxiliary ('MAYBE THEY', 'WHAT
+    # CHANCE' is fine, 'SO WHY' is not): merge it forward
+    "they you'd you're we'd we he she i there why how since been which who whose".split())
 # two/three-word units a card never splits (lowercased); episodes add their own via phrase_pages(glue=...)
 GLUE = ["killer whale", "killer whales", "great white", "great whites", "blue whale", "ice floe", "sperm whale",
         "golf cart", "city bus", "city buses", "jet engine", "south africa", "western australia", "new zealand"]
 GOOD_START = set("and but or because with to of in on at off from for since that which who if when than like "
-                 "about so except while".split())
+                 "about so except while is are was were has have had".split())
 NUMWORDS = set("one two three four five six seven eight nine ten eleven twelve twenty thirty forty fifty sixty "
                "seventy eighty ninety hundred thousand million billion".split())
 SENT_END = re.compile(r"[.!?…]+[\"')\]]?$")
@@ -29,12 +32,14 @@ def _n(w: str) -> str:
     return re.sub(r"[^a-z0-9'-]", "", w.lower().replace("’", "'"))
 
 
-def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, pairs=frozenset()) -> float:
+def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, pairs=frozenset(), ends=frozenset()) -> float:
+    """ends: (word, word) pairs that close a glue phrase ("scared of"): a card may end there on a weak word."""
     n = len(ws)
     chars = sum(len(w) for w in ws) + n - 1
-    if n > 4 or chars > max_chars + 6:
+    # 5 words only when short (the renderer's own merge allows maxWords+1 at maxChars+8): "the shark you're scared of"
+    if n > 5 or chars > max_chars + (8 if n >= 4 else 6):
         return float("inf")
-    c = 1.0 + (1.5 if n == 4 else 0) + 0.25 * max(0, chars - max_chars)
+    c = 1.0 + (1.5 if n == 4 else 3.5 if n == 5 else 0) + 0.25 * max(0, chars - max_chars)
     if nxt is not None and (_n(ws[-1]), _n(nxt)) in pairs:
         c += 8
     last = ws[-1]
@@ -44,7 +49,7 @@ def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, 
     elif SOFT_END.search(last):
         c -= 1.5
     else:
-        if ln in WEAK_END:
+        if ln in WEAK_END and not (n >= 2 and (_n(ws[-2]), ln) in ends):
             c += 6
         if ln in NUMWORDS or re.match(r"^\d", ln):
             c += 5
@@ -62,12 +67,15 @@ def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, 
     return c
 
 
-def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45, glue=()) -> list[dict]:
-    """Mark word["br"] on caption page starts (in place); returns words. glue: extra phrases never split."""
-    pairs = set()
+def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45, glue=(), max_card_s: float = 3.0) -> list[dict]:
+    """Mark word["br"] on caption page starts (in place); returns words. glue: extra phrases never split.
+    max_card_s: a card never stays up longer than this (first word start -> last word end)."""
+    pairs, ends = set(), set()
     for ph in [*GLUE, *glue]:
         ws = [_n(x) for x in ph.split()]
         pairs |= {(a, b) for a, b in zip(ws, ws[1:])}
+        if len(ws) >= 2:
+            ends.add((ws[-2], ws[-1]))
     # hard spans: sentence ends and pauses
     spans, s = [], 0
     for i, w in enumerate(words):
@@ -81,8 +89,10 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
         best = [0.0] + [float("inf")] * m
         back = [0] * (m + 1)
         for j in range(1, m + 1):
-            for i in range(max(0, j - 4), j):
-                c = _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs)
+            for i in range(max(0, j - 5), j):
+                c = _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs, ends)
+                if j - i > 1 and words[a + j - 1]["end"] - words[a + i]["start"] > max_card_s:
+                    c = float("inf")
                 if best[i] + c < best[j]:
                     best[j], back[j] = best[i] + c, i
         cuts, j = [], m
