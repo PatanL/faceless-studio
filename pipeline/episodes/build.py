@@ -60,6 +60,25 @@ BUILDERS = {**{k: (v, explainer_eps) for k, v in explainer_eps.EPISODES.items()}
             **{k: (v, horror_eps) for k, v in horror_eps.EPISODES.items()}}
 
 
+def join_words(words: list[dict], joins: list) -> None:
+    """Merge listed word runs into one caption token so no page can split them: "scared of" (a stranded preposition
+    the pager would treat as dangling), "fifty-six kilometres" (number + unit); (src, text) also swaps the shown text,
+    e.g. ("twenty twenty,", "2020,"). Match is case-insensitive and includes punctuation. Timings span the run."""
+    key = lambda w: w["text"].lower().replace("\u2019", "'")
+    for j in joins:
+        src, rep = (j, None) if isinstance(j, str) else j
+        toks = src.lower().split()
+        i = 0
+        while i <= len(words) - len(toks):
+            run = words[i:i + len(toks)]
+            if [key(w) for w in run] == toks:
+                m = {**run[0], "text": rep or " ".join(w["text"] for w in run), "end": run[-1]["end"]}
+                if any(w.get("emph") for w in run):
+                    m["emph"] = True
+                words[i:i + len(toks)] = [m]
+            i += 1
+
+
 def build(slug: str) -> str:
     fn, mod = BUILDERS[slug]
     meta, scenes, words, total, source = load(slug)
@@ -77,6 +96,7 @@ def build(slug: str) -> str:
         if slug in getattr(mod, "STRICT_HOLDS", ()):
             raise SystemExit(msg)
         print("WARN " + msg)
+    join_words(words, getattr(mod, "CAPTION_JOIN", {}).get(slug, []))
     pp = getattr(mod, "PHRASE_PAGES", False)  # caption cards on phrase boundaries (pipeline/episodes/phrases.py)
     if pp is True or (isinstance(pp, (set, list, tuple)) and slug in pp):
         from .phrases import phrase_pages

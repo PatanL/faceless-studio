@@ -34,7 +34,13 @@ TEXT_BOOST = 1.25
 CAPTION_Y = 0.86             # 16:9 caption centre (fraction of DH); core/captions clamps lower values to the safe band anyway
 CAPTION_SCALE = 0.8          # 16:9 caption font vs 9:16
 TEXT_VISIBLE = 0.32          # visible half-height of a text component as a fraction of its box height
-TOP_SAFE = 0.025 * DH        # text never starts above this (px): the uniform remap pulls high 9:16 headlines up to the edge
+STAT_VISIBLE = 0.42          # a Stat's panel (padding + value + rule + label, pulse ring) reaches further from its centre
+TOP_SAFE = 0.055 * DH        # text never starts above this (px, 5 % title-safe): the remap pulls high 9:16 headlines up
+CAPTION_GAP = 40             # clear px between any text box and the top of the 16:9 caption band
+CAPTION_MAX_CHARS, CAPTION_MAX_WORDS = 28, 5   # 16:9 bottom band has room: longer one-line pages keep whole clauses
+# per-episode extra camera zoom for remapped (non-native) 16:9 scenes whose subject sits small in the centre column
+# (text layers are screen-locked at depth 0 and keep their size); {slug: {scene index: factor}}
+ZOOM16 = {"explainer-orca": {2: 1.15, 3: 1.15, 6: 1.15, 8: 1.15, 13: 1.0}}
 
 
 class Map:
@@ -67,6 +73,30 @@ def _pos(d: dict, m: Map, w_key="width", h_key="height"):
             d[k] = m.s(d[k])
 
 
+def _cover(layer: dict) -> dict:
+    """A full-frame svg keeps its own aspect and covers the 16:9 frame (core SvgMarkup draws 'meet', so a 9:16 box
+    squeezed into 1920x1080 showed as a portrait column: the p08 throat set, the p04 DEEP DIVE panel). Oversized sets
+    (camera-pan overscan, e.g. MOUTH_BG_WIDE) keep 1.6x room for the zoom."""
+    l = copy.deepcopy(layer)
+    a = layer["width"] / layer["height"]
+    over = layer["width"] > SW * 1.05 or layer["height"] > SH * 1.05
+    f = 1.6 if over else 1.05
+    w = max(DW * f, DH * f * a)
+    l["width"], l["height"] = round(w), round(w / a)
+    return l
+
+
+def _map16(l: dict, m: Map):
+    """A full-frame Map draws W/360 px per degree x zoom, so a 1920-wide map came out 1.8x bigger than the remapped
+    overlays (rings, country chips, pins placed in 9:16 px). Scale its zoom by SW*k/DW and shift the view so the 9:16
+    frame centre lands where the remap puts it (y ~60 %): map and overlays stay registered."""
+    f = SW * m.k / DW
+    yc = float(m.y("50%")[:-1]) / 100 * DH
+    for v in (l.get("props") or {}).get("views", []):
+        v["zoom"] = round(v["zoom"] * f, 4)
+        v["lat"] = round(v["lat"] + (yc - DH / 2) / (DW / 360 * v["zoom"]), 4)
+
+
 def _full_frame(layer: dict) -> bool:
     """A layer that covers the whole 9:16 frame (e.g. a full-bleed Map) fills the whole 16:9 frame instead."""
     w, h = layer.get("width"), layer.get("height")
@@ -75,12 +105,13 @@ def _full_frame(layer: dict) -> bool:
 
 
 def _clear_captions(l: dict, cap_font: float):
-    """Keep a text component's visible box above the 16:9 caption line."""
+    """Keep a text component's visible box (Stat: its panel and pulse ring) CAPTION_GAP px above the caption band top."""
     if not (isinstance(l.get("y"), str) and isinstance(l.get("height"), (int, float))):
         return
     cy = float(l["y"][:-1]) / 100 * DH
-    limit = CAPTION_Y * DH - cap_font * 0.75 - 10
-    over = cy + l["height"] * TEXT_VISIBLE - limit
+    limit = CAPTION_Y * DH - cap_font * 0.75 - CAPTION_GAP
+    vis = STAT_VISIBLE if l.get("name") == "explainer/Stat" else TEXT_VISIBLE
+    over = cy + l["height"] * vis - limit
     if over > 0:
         l["y"] = f"{(cy - over) / DH * 100:.2f}%"
 
@@ -109,8 +140,12 @@ def _clear_top(l: dict):
 
 def layer16(layer: dict, m: Map, cap_font: float = 67) -> dict:
     if _full_frame(layer):
+        if layer.get("type") == "svg":
+            return _cover(layer)
         l = copy.deepcopy(layer)
         l["width"], l["height"] = DW, DH
+        if l.get("name") == "explainer/Map":
+            _map16(l, m)
         return l
     if layer.get("name") in TEXT_COMPONENTS:
         m = Map(m.k, text_k=min(1.0, m.k * TEXT_BOOST))
@@ -164,8 +199,9 @@ def native_scenes(slug: str) -> dict:
     return fn(scenes)
 
 
-def reformat(sb: dict, k: float = 0.78, native: dict | None = None) -> dict:
+def reformat(sb: dict, k: float = 0.78, native: dict | None = None, zoom: dict | None = None) -> dict:
     m = Map(k)
+    zoom = zoom or {}
     out = copy.deepcopy(sb)
     out["format"] = "16:9"
     out["id"] = f"{sb['id']}-16x9"
@@ -183,13 +219,16 @@ def reformat(sb: dict, k: float = 0.78, native: dict | None = None) -> dict:
         sc["layers"] = [layer16(l, m, cap_font) for l in sc["layers"]]
         if "camera" in sc:
             sc["camera"] = camera16(sc["camera"], m)
+            for kf in sc["camera"].get("keyframes", []):
+                if "zoom" in kf and i in zoom:
+                    kf["zoom"] = round(kf["zoom"] * zoom[i], 4)
     cap = out.get("captions")
     if cap:
         st = cap.setdefault("style", {})
         st["fontSize"] = cap_font
         st["y"] = CAPTION_Y
-        cap["maxChars"] = max(cap.get("maxChars", 16), 22)
-        cap["maxWords"] = max(cap.get("maxWords", 3), 4)
+        cap["maxChars"] = max(cap.get("maxChars", 16), CAPTION_MAX_CHARS)
+        cap["maxWords"] = max(cap.get("maxWords", 3), CAPTION_MAX_WORDS)
     nat = f", landscape-native scenes {sorted(native)}" if native else ""
     out["_built"] = {**sb.get("_built", {}), "reformat": f"pipeline/episodes/reformat.py k={k} from 9:16{nat}"}
     return out
@@ -203,8 +242,14 @@ def main():
     ep = os.path.join(ROOT, "episodes", a.slug)
     sb = json.load(open(os.path.join(ep, "storyboard.json")))
     out = os.path.join(ep, "storyboard_16x9.json")
+    sb16 = reformat(sb, a.k, native_scenes(a.slug), ZOOM16.get(a.slug))
+    from . import explainer_eps
+    from .build import join_words
+    joins = getattr(explainer_eps, "CAPTION_JOIN_16X9", {}).get(a.slug)
+    if joins and sb16.get("captions"):
+        join_words(sb16["captions"]["words"], joins)
     with open(out, "w") as f:
-        json.dump(reformat(sb, a.k, native_scenes(a.slug)), f, indent=1, ensure_ascii=False)
+        json.dump(sb16, f, indent=1, ensure_ascii=False)
     print(f"{a.slug}: 16:9 cut (k={a.k}) -> {os.path.relpath(out, ROOT)}")
 
 
