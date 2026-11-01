@@ -1,5 +1,5 @@
 /**
- * People and everyday scale objects: scuba diver (swim cycle), stick-figure YOU,
+ * People and everyday scale objects: scuba diver (swim cycle), filled-silhouette YOU (style "stick" = line figure),
  * city bus, car, elephant. Facing RIGHT.
  */
 import React from 'react';
@@ -173,26 +173,45 @@ const youDraw = (c: DrawCtx) => {
 			ra = [68, 82];
 	}
 	const sh: Pt = [100, 128];
-	const arm = (a: [number, number], key: string) => {
-		const e = polar(sh, a[0], 52);
-		const h = polar(e, a[1], 50);
-		return <path key={key} d={`M ${sh[0]} ${sh[1]} L ${e[0]} ${e[1]} L ${h[0]} ${h[1]}`} stroke={col} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" fill="none" />;
-	};
 	const breathe = c.idle ? Math.sin(t * 2) * 1.5 : 0;
 	const legs = pose === 'run' ? Math.sin(t * 10) * 26 : 0;
+	// filled flat-shaded silhouette (orca review: the line-stroke stick figure read as placeholder art next to the
+	// vector animals): thick capsule limbs + a torso, white fill with a ~6 px navy outline; style "stick" = old look
+	const stick = str(c.p.style, 'filled') === 'stick';
+	const line = paint(c, str(c.p.outline, '#0b1a22'));
+	const limbW = stick ? sw : 26;
+	const ol = stick ? 0 : 12; // outline drawn as a wider navy pass under the white
+	const armD = (a: [number, number]) => {
+		const e = polar(sh, a[0], 52);
+		const h = polar(e, a[1], 50);
+		return `M ${sh[0]} ${sh[1]} L ${e[0]} ${e[1]} L ${h[0]} ${h[1]}`;
+	};
+	const legL = `M 88 206 L ${72 - legs} 274 L ${68 - legs} 336`;
+	const legR = `M 112 206 L ${128 + legs} 274 L ${132 + legs} 336`;
+	const torso = `M 76 ${100 + breathe} C 76 ${90 + breathe} 124 ${90 + breathe} 124 ${100 + breathe} L 120 214 C 112 222 88 222 80 214 Z`;
+	const pass = (stroke: string, extra: number, key: string) => (
+		<g key={key}>
+			{[armD(la), armD(ra), legL, legR].map((d, i) => (
+				<path key={i} d={d} stroke={stroke} strokeWidth={limbW + extra} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+			))}
+			{stick ? (
+				<path d={`M 100 ${86 + breathe} L 100 212`} stroke={stroke} strokeWidth={sw + 2} strokeLinecap="round" />
+			) : (
+				<path d={torso} fill={stroke} stroke={stroke} strokeWidth={extra} strokeLinejoin="round" />
+			)}
+			<circle cx={100} cy={52 + breathe} r={34 + extra / 2} fill={stroke} />
+		</g>
+	);
 	return (
 		<g>
-			<circle cx={100} cy={52 + breathe} r={34} fill={col} />
-			<path d={`M 100 ${86 + breathe} L 100 212`} stroke={col} strokeWidth={sw + 2} strokeLinecap="round" />
-			{arm(la, 'l')}
-			{arm(ra, 'r')}
-			<path d={`M 100 210 L ${70 - legs} 274 L ${66 - legs} 336`} stroke={col} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-			<path d={`M 100 210 L ${130 + legs} 274 L ${134 + legs} 336`} stroke={col} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+			{ol ? pass(line, ol, 'o') : null}
+			{pass(col, 0, 'f')}
+			{stick ? null : <path d={`M 84 ${150 + breathe} L 116 ${150 + breathe}`} stroke={paint(c, '#c9d3d8')} strokeWidth={5} strokeLinecap="round" opacity={0.7} />}
 		</g>
 	);
 };
 
-const you: Figure = {label: 'YOU', box: [30, 18, 140, 324], size: 1.75, axis: 'h', draw: youDraw};
+const you: Figure = {label: 'YOU', box: [24, 12, 152, 344], size: 1.75, axis: 'h', draw: youDraw};
 
 // ================================================================ city bus
 

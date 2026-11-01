@@ -18,7 +18,8 @@ const flexAlign = (a: string) => (a === 'left' ? 'flex-start' : a === 'right' ? 
 
 // ---------------------------------------------------------------- headline
 
-/** Big uppercase title, optional red underline that draws on. props: text, sub, color, size, underline, align, at, out */
+/** Big uppercase title, optional red underline that draws on (always the red accent; underlineColor overrides).
+ * props: text, sub, color, size, underline, underlineColor, align, at, out */
 /** Headline words listed in `red` (a word or a list, case-insensitive) are drawn in the danger red. */
 const redWords = (text: string, red: unknown): React.ReactNode => {
 	const set = new Set((Array.isArray(red) ? red : typeof red === 'string' ? [red] : []).map((w) => String(w).toUpperCase()));
@@ -63,12 +64,24 @@ export const Headline: KitComponent = ({props, time}) => {
 			>
 				{redWords(str(props.text, ''), props.red)}
 				{bool(props.underline, false) ? (
-					<div style={{position: 'absolute', left: 0, bottom: -size * 0.16, height: Math.max(3, size * 0.07), width: `${u * 100}%`, background: color, borderRadius: 2}} />
+					<div style={{position: 'absolute', left: 0, bottom: -size * 0.16, height: Math.max(3, size * 0.07), width: `${u * 100}%`, background: colorOf(props.underlineColor, C.red), borderRadius: 2}} />
 				) : null}
 			</div>
 			{typeof props.sub === 'string' ? (
 				<div style={{marginTop: size * 0.4, fontFamily: C.font, fontWeight: 700, fontSize: size * 0.42, color: C.muted, letterSpacing: '0.14em', textTransform: 'uppercase'}}>{props.sub}</div>
 			) : null}
+		</div>
+	);
+};
+
+/** Section title shared by SpeedBars/Options: the Headline look (centred, uppercase, red underline, >= 64 px). */
+const KitTitle: React.FC<{text: string; size: number; time: number; at: number; marginBottom: number}> = ({text, size, time, at, marginBottom}) => {
+	const fs = Math.max(64, size);
+	const u = at <= 0 ? 1 : easeOut(prog(time, at + 0.15, 0.45));
+	return (
+		<div style={{alignSelf: 'center', position: 'relative', fontFamily: C.font, fontWeight: 900, fontSize: fs, color: C.white, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.1, marginBottom: marginBottom + fs * 0.16, textShadow: '0 4px 18px rgba(0,0,0,0.55)', whiteSpace: 'nowrap'}}>
+			{text}
+			<div style={{position: 'absolute', left: 0, bottom: -fs * 0.16, height: Math.max(3, fs * 0.07), width: `${u * 100}%`, background: C.red, borderRadius: 2}} />
 		</div>
 	);
 };
@@ -262,7 +275,8 @@ export const Timer: KitComponent = ({props, time, width: W, height: H}) => {
 
 // ---------------------------------------------------------------- options list
 
-/** "YOUR OPTIONS" list. props: title, items[], at, stagger, strikes [{index, at}], select {index, at} | [..], size */
+/** "YOUR OPTIONS" list. props: title, titleSize, items[], at, stagger, strikes [{index, at}], stamp (red X on struck
+ * items), select {index, at} | [..], size */
 export const Options: KitComponent = ({props, time}) => {
 	const at = num(props.at, 0);
 	const stagger = num(props.stagger, 0.18);
@@ -278,9 +292,7 @@ export const Options: KitComponent = ({props, time}) => {
 	if (o <= 0) return null;
 	return (
 		<div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', opacity: o}}>
-			<div style={{fontFamily: C.font, fontWeight: 900, fontSize: size * 1.15, color: C.white, letterSpacing: '0.06em', marginBottom: size * 0.7, textTransform: 'uppercase'}}>
-				{str(props.title, 'Your options')}
-			</div>
+			{str(props.title, 'Your options') ? <KitTitle text={str(props.title, 'Your options')} size={num(props.titleSize, size * 1.15)} time={time} at={at} marginBottom={size * 0.7} /> : null}
 			<div style={{display: 'flex', flexDirection: 'column', gap: size * 0.42, alignItems: 'stretch'}}>
 				{items.map((it, i) => {
 					const ip = easeOut(prog(time, typeof itemAt[i] === 'number' ? itemAt[i] : at + 0.15 + i * stagger, 0.3));
@@ -327,6 +339,11 @@ export const Options: KitComponent = ({props, time}) => {
 								{i + 1}. {label}
 								{sp > 0 ? <span style={{position: 'absolute', left: -6, top: '52%', height: Math.max(4, size * 0.1), width: `calc(${sp * 100}% + 12px)`, background: C.red, borderRadius: 3}} /> : null}
 							</span>
+							{st && bool(props.stamp, false) && time >= st.at + 0.2 ? (
+								<span style={{position: 'relative', display: 'inline-block', marginLeft: size * 0.45, verticalAlign: 'middle', width: size * 1.05, height: size * 1.05, transform: `scale(${1.6 - 0.6 * backOut(prog(time, st.at + 0.2, 0.25))}) rotate(-8deg)`, opacity: clamp(prog(time, st.at + 0.2, 0.12))}}>
+									<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M 18 18 L 82 82 M 82 18 L 18 82" stroke={C.red} strokeWidth={22} strokeLinecap="round" /></svg>
+								</span>
+							) : null}
 						</div>
 					);
 				})}
@@ -353,7 +370,7 @@ export const SpeedBars: KitComponent = ({props, time, width: W}) => {
 	return (
 		<div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: o, fontFamily: C.font}}>
 			{typeof props.title === 'string' ? (
-				<div style={{fontWeight: 900, fontSize: size * 1.3, color: C.white, letterSpacing: '0.06em', marginBottom: size * 0.9, textTransform: 'uppercase'}}>{props.title}</div>
+				<KitTitle text={props.title} size={num(props.titleSize, size * 1.3)} time={time} at={at} marginBottom={size * 0.9} />
 			) : null}
 			{rows.map((r, i) => {
 				const p = easeOut(prog(time, at + 0.2 + i * stagger, dur));
