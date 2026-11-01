@@ -1,0 +1,154 @@
+{
+ "episode": "explainer-never-meet-orca",
+ "reviewed_at_utc": "2026-11-01T11:46Z",
+ "scores_before": {
+  "retention": 7,
+  "reference": 6,
+  "originality": 7,
+  "producibility": 6
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 9,
+  "producibility": 7
+ },
+ "score_notes": {
+  "retention": "Setup is now 0:00-0:59.4 (10%). The chip is on screen from 0:43.4 and tab one opens at 0:59.7, still 14 s past the 45 s target. The master question is spoken at 0:38.9 on black. The hook is 73 words with a 9-word first line; fins are 12% of frame height and one sinks by 2.3 s. The three credentials are paid in order at 28%/38%/49%. Climax move 3 is now a real callback (they hunt by listening). The proof rung is honest. The ending keeps the threat alive. Remaining risks: the re-immersion is early (37%), there is one 97 s gap between jokes, and 47 scenes still rely on camera re-frames rather than real state changes.",
+  "reference": "Every flagged SPERM sentence frame was rewritten, and a stricter n-gram check finds no shared 6-word run with any corpus file. The master question is spoken by 0:40 and re-armed after the giants. The TOC credentials are paid in rung order. Verdict stamps per tab plus a finished-board recap (JkAcCdqYJN0 7:01, 8:37). The twist answer uses the VtrcKTkhDHU 21:23-22:14 device: misconception, then the 'they check first' plant, then culture, then the verdict voiced. The alignment table and the pacing self-check are rebuilt from measured times; the misses are marked as misses.",
+  "originality": "Gate PASS. Max shared run with any corpus/library file is under 6 words; the highest single-source overlap is 0.07% of 5-grams (VtrcKTkhDHU). Fact errors are fixed: Starboard 2023 young white, blue whale tally 2019/2019/2021, no false 'once', the Gansbaai claim softened to the documented three-in-a-week, the organ contradiction removed. The Valdés passage was rewritten around Crozet (no 'wriggle', no 'for years', card BEACH SCHOOL). The title is distinct from the pilot; the master question was reworded after it matched the pilot's line. Two Gansbaai/Bremer details are still marked CHECK.",
+  "producibility": "storyboard.json validates on the Spark (Node 22, studio/src/cli/validate.ts): 130 scenes, every component registered, check_storyboards.py says 'ready' with a max hold of 2.9 s. Zero new M/L assets: every kit gap is inline SVG in the storyboard (tier S), and the THREAT FILE chip is injected by the generator. True-scale fixes: fin vs YOU, blue whale drawn at 20 m. Top-down shots re-staged or built from the kit's Orca pose top. Not proven by a render yet. 47 scenes use camera re-frame keyframes to meet the 3 s hold rule, and these should get real state changes after the first still review."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Time to first rung: setup cut from 1:20 (13.5%) to 0:59.4 (10%). The shark rival is one line, credential 1 is replaced, the THREAT FILE chip is on screen from 0:43.4, and tab one opens at 0:59.7. 'somewhere in the north Pacific' and 'Not once.' are cut; the hook is 92 -> 73 words",
+   "Credential 1 'every ocean' (never paid) is replaced by 'surfs onto beaches for sea lions', paid at the Argentina/Crozet beaching. Order is beach -> great whites -> blue whale = rung order. The beat table is updated",
+   "Climax option 3 is rewritten around the R3 fact. R3 now says mammal hunters 'hunt in near silence, by listening'; move 3 is 'Remember, they hunt by listening, and you kicking down on burning lungs are exactly the noise they want.' The echolocation contradiction is gone",
+   "Proof rung: 'Once' is replaced by 'A handful of bites and bumps are on record, and no deaths. The closest call is in an explorer's diary.' 'The seal-floe trick, on a man' is now 'the same idea as the floe trick'",
+   "'You' density: R5 has the toothbrushing comparison on <2 MIN plus the cage-dive line; R6 has 'Line up eleven of you head to toe' and 'your seventy-odd kilos'; the proof has 'You'd have a few millimetres of plastic.' Overall 30% of sentences / 3.1% of words",
+   "Starboard: 2023 (18 June, Mossel Bay; Towner et al. 2024 AJMS 46(1)), 'a young great white ... alone in under two minutes'",
+   "Food: 'up to about a hundred and thirty kilos on a big day, more than you weigh' (NOAA 45-136 kg)",
+   "Final payoff no longer reassures: 'Orcas could hunt you. They decided not to. And the only thing keeping you off that menu is a habit, in an animal that keeps picking up new ones.' It is planted by the Iberian rudder habit; the last image is a fin rising",
+   "First 3 s: shot 1 is 3.6 s (one line). Fins are 130 px (12% of frame) at mid-distance, the nearest sinks at 2.2 s, and the 9-word line 1 ends at ~3.6 s with the checklist from 4.0 s"
+  ],
+  "reference": [
+   "Lifted sentence frames rewritten: checklist (sea flat / life jacket, no 'sharks are rare'), hook end ('deciding something about you'), the teeth punch (on-screen HOLD/TEAR/SWALLOW inside a longer sentence, no 'what they don't do is chew. It grips'), the proof answer (no 'once'), the climax opener ('run the thought experiment ... four moves'), verdict ('Four moves, four losses. Once a pod picks you, the outcome is not up to you.'), the villain-swap card ('US -> THEM', 'the harm mostly flows from people like you and me to them')",
+   "Master question spoken at 0:38.9 on a black frame ('So why has an animal built for killing never picked you?') and re-armed after the giants ('your seventy-odd kilos a strange exception', card SO WHY NOT YOU?)",
+   "TOC payoff fixed and in order (beach R3, sharks R5, blue whale R6). The alignment table rows are re-cited against corpus timestamps",
+   "Option 3 is a true callback (R3 'hunt by listening'); option 2 rests on R4 only (the rudder fact moved to the twist as a plant for the sting)",
+   "Twist answer device: sharks bite by mistaken identity -> 'Remember, they check first' (pays w02 'take a look first' and the THEY CHECK FIRST card) -> culture -> 'They checked, and you weren't food.'",
+   "Factual 'Once' removed; the could-vs-has close is 'Could it? Clearly. Has it? Wild orcas, human deaths: zero.' The card asks HAS IT EVER TRIED IT ON A HUMAN? and is answered by BITES & BUMPS: A HANDFUL · DEATHS: 0",
+   "Setup now 10%, hook 73 words",
+   "Food softened; Valdés prey is now 'young sea lions'",
+   "Verdict stamps at every tab seam plus a finished-board recap at the bookend (all six stamps land on their words)",
+   "Pacing self-check rebuilt from measured Kokoro times; misses are marked (first rung 14 s late, numbers/min borderline, re-immersion early)"
+  ],
+  "originality": [
+   "Gate rerun: PASS",
+   "Starboard date 2023 and the on-screen card '2023 · ONE ORCA · < 2 MIN'; facts row cites Towner et al. 2024 AJMS 46(1)",
+   "Blue whale tally 2019 ADULT / 2019 CALF / 2021 YOUNG; the line says 'twice more since, both times to young whales'",
+   "No exclusive 'once'; the 1972 and 2005 incidents are acknowledged as 'a handful of bites and bumps'",
+   "Gansbaai softened to the documented 'In one week in May 2017, three great whites washed up'; the shot is now 3 IN ONE WEEK (was 0 -> 5)",
+   "The organ contradiction is gone: credential says 'without their livers'; R5 says 'no liver, and at least one had lost its heart too'",
+   "Valdés/Crozet rewritten in our own terms (Crozet mothers push calves up the sand, calves rehearse on empty beaches; card BEACH SCHOOL; no 'wriggle', no 'for years', no 'taught not born')",
+   "Self-duplication: the title is now 'Orcas Could Hunt You. They Decided Not To.' (pilot keeps 'Why You'd Never Want To Meet An Orca'). The master question was reworded because it matched the pilot's line ('So why has something this ... never come for you?')"
+  ],
+  "producibility": [
+   "Timing: every scene starts 0.12 s before its anchor word from measured Kokoro word timestamps, so mid-line shots are anchored to real word times (rerun the generator on the mix's captions.json after the final mix)",
+   "Fin at true scale: an inline-SVG fin drawn at 1.8 m x 300 px/m beside kit You at pxPerM 300 on one baseline (no layer-scale hack)",
+   "Blue whale: kit BlueWhale (28 m) drawn with pxPerM x 20/28 so it reads as the ~20 m adult next to the ~20 M ScaleBar and the eleven YOUs at the shared scale",
+   "THREAT FILE chip: an inline-SVG layer the generator injects into every scene from the credentials to the end of the climax; tab-lights are a second layer that pops on the word (no new component)",
+   "Shots 18-19 rebuilt as inline-SVG tooth vs credit card (true scale) and two interlocking tooth rows on y keyframes; no jaw prop needed",
+   "Top-down kayak circle uses kit Orca pose 'top' plus a top-view kayak SVG; the pool is a side-view tank cross-section with scaleX flips",
+   "The old shot 75 is split: map pin (Iberia, detail zoom 5) then the kit Sailboat (snapAt, sink). The wave-wash replay is a REMEMBER THE FLOE inset of the reused ICE + WAVE markup",
+   "The old shot 52 is split into a Map shot and a beach/stat shot",
+   "Map zoom capped at 3-3.5 except Iberia (5, which has detail coastlines); the six places are lon/lat pins only",
+   "Sepia: warm paper gradient background, a distinct sepia figure with a tripod camera (not the YOU icon), dogs as a Tag only",
+   "End image split into states: the last fin drops on 'They' (9:40), the second Headline line lands on its word, a menu card, then a fin rises on the last word; the CTA card adds its second folder on 'box'",
+   "Asset table rewritten with tiers: 0 M/L items, everything else is S or existing kit",
+   "Mugshots: kit Orca silhouettes with finScale 0.4 and inline-SVG bent fins; no GreatWhite 'eyes go flat'"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Norway herring beat cut",
+  "R6 now has a 3-step tactic (bite the fins / ram the flanks / push it under), a 'you' line (eleven of you) and an absolute line that re-arms the master question",
+  "Average sentence 11.5 words (was 9.1); punches limited to No. / Smart. / It plans. / It's served. / Look familiar? / Clearly.",
+  "Numbers anchored: 75 Southern Residents = one school bus, 1995 ~98 vs ~75 before/after; the carcass count is now the documented 'three in one week'; tooth size compared to your credit card",
+  "Vague crowd line and 'close enough to touch' removed",
+  "Timing remodelled from real Kokoro renders (hook speed 0.84, bookend/CTA 0.88, body 0.96); runtime 9:58.8",
+  "CTA is a two-way choice naming the next creatures: 'leopard seal or box jellyfish?'",
+  "Long static holds split; no hold > 2.9 s by the check_storyboards rule",
+  "Twist ties the two readings of the silence: 'silent while they look and chatty once they've decided'",
+  "Rudder moved out of climax option 2 into the twist (plant for the closing sting)",
+  "Reference: hook withholds the name ('the one animal out here with killer in its name'), planting the name myth-bust",
+  "Reference: new body anchors (two family cars long, four cars heavy, fin as tall as you, tooth longer than your credit card) instead of SPERM's bus/elephant/hand",
+  "Reference: 2P face-to-face beat before 'So why?' ('You're slow, soft, and floating in their kitchen, and still they swim past.')",
+  "Reference: comedy retired at the villain swap (no jokes after 8:16), and the false 'comedy kept low' claim removed",
+  "Reference: tonic immobility hedged in the climax ('If the theory is right')",
+  "Reference: the bookend restates the rule ('The rule you paddled out with still holds. In the wild, zero.') before the final image",
+  "Reference: title led with the paradox",
+  "Originality: shark stat now 'around sixty to seventy ... unprovoked'; ecotypes qualified 'in the North Pacific'; '~75' kept with CWR 74 (2025) noted; facts table citation for Starboard corrected; Ponting drawn as a distinct sepia figure",
+  "Originality: description sources list added to the front matter",
+  "Producibility: reused pilot ICE markup; ECG as the hydrophone strip; Balance for the cars-weight beat; SpeedBars for food vs you; one Seal silhouette tinted three greys; GreatWhite + Liver overlay as one reusable piece; jerrycan/box keyframed in lockstep; punch cards >= 0.8 s; eye push uses explicit camera keyframes to 2.6x"
+ ],
+ "not_applied": [
+  "First rung by 45 s: tab one lands at 0:59.7. The spoken master question and the three-item TOC were added before it, as the reference critique asked, so 45 s is not reachable without cutting them",
+  "'Picture it again' at ~47%: ours is at 37%, kept next to the floe it rhymes with",
+  "Comic-deflation cadence has one 97 s gap (4:46-6:23, giants + proof)",
+  "Facts CHECK items before the mix: which Gansbaai shark lost its heart (Towner 2022), and the exact Bremer Bay tactic wording (Totterdell 2022)",
+  "No render proof yet: the 10 s Spark gate on shots 1-6 (kayak, fins, hull rings, silence, reveal) is the next step and was not run in this script lane",
+  "research/R5 policy write-up is still missing (originality nice-to-have); the script's safety table covers the episode-level points only"
+ ],
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/explainer/explainer-never-meet-orca/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "extra_check": "narration-only n-gram scan vs every file in research/corpus and research/library/transcripts: no shared 6-word run; max single-source 5-gram overlap 0.07% (VtrcKTkhDHU.md), 4-gram 0.33% (mg2YJ04Hl9k.txt). Vs our pilot episodes/explainer-orca/script.md: longest shared run 5 words after the master-question rewrite (stock phrases like 'fifty six kilometres an hour', 'march 2019 off bremer bay'), 0.33% of 5-grams"
+ },
+ "pacing": {
+  "words": 1526,
+  "sentences": 133,
+  "avg": 11.47,
+  "you_sent": 30.08,
+  "you_words": 3.08,
+  "you_min": 4.71,
+  "runtime": 598.77,
+  "speech": 561.33,
+  "wpm_speech": 163.11,
+  "wpm": 152.91,
+  "hook_words": 73,
+  "hook_s": 30.3,
+  "nums_min": 5.41
+ },
+ "structure_pct": {
+  "hook_end": "5%",
+  "master_question": "6%",
+  "first_tab": "10%",
+  "clue_closed": "27%",
+  "credential_1": "28%",
+  "re_immersion": "37%",
+  "credential_2": "38%",
+  "credential_3": "49%",
+  "proof": "55%",
+  "climax_verdict": "70%",
+  "twist": "70%",
+  "villain_swap": "83%",
+  "bookend": "92%",
+  "cta": "99%"
+ },
+ "tts_check": {
+  "engine": "Kokoro-82M am_michael on the Spark CPU (4 threads, nice 10); speed 0.84 hook, 0.96 body, 0.88 bookend/CTA",
+  "file": "backlog/explainer/explainer-never-meet-orca/tts_durations.json (per-line duration + word timestamps)",
+  "speech_s": 561.3,
+  "runtime_s": 598.77
+ },
+ "storyboard": {
+  "file": "backlog/explainer/explainer-never-meet-orca/storyboard.json",
+  "generator": "backlog/explainer/explainer-never-meet-orca/gen_storyboard.py (lines.py + tts_durations.json + script.tmpl.md -> script.md + storyboard.json)",
+  "validator": "studio/src/cli/validate.ts on the Spark, Node 22.22.0 (schema.ts md5 identical to the Mac working tree)",
+  "result": "ok: 16:9 30fps 130 scenes 598.97s captions=1526 words, all components registered",
+  "check_storyboards": "ready, max hold 2.9 s (no voice track yet: audio.voice is empty until the mix)",
+  "holds_filled_by_camera": 47,
+  "new_components": [],
+  "new_figures": []
+ }
+}
