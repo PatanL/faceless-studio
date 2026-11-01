@@ -533,3 +533,111 @@ The sample is now 24 outliers and 8 controls (it was 12 and 7). There are 12 new
 - shTJ7_kRNJ8 was 1 day old at 3.2K views.
 - wh9ESTS69Dk's ratio is against a quiet recent window.
 - Treat these as hypotheses to test in pilots, not as rules.
+
+---
+
+## 11. Chinese source mechanics
+
+Added 2026-11-01, about 15:30 UTC, from the 10 source studies in `research/corpus/horror-cn/` (`BV*.md`; the channel map is in `SOURCES.md`). These are the Chinese originals behind most of this corpus's TikTok reposts. **They teach mechanics only.** How to turn a source's mechanics into an original story is in `research/corpus/horror-cn/TRANSPOSE_RULES.md`. The plot gate is `python3 scripts/plot_similarity.py <script.md> research/corpus/horror-cn`, and it runs next to `originality_check.py`.
+
+### 11A. Source key
+
+"Best EN" is the biggest English repost found. "×" is that repost's views over the Bilibili plays.
+
+| Short name | Study | Channel | Length | Bilibili plays | Best EN repost | × |
+|---|---|---|---|---|---|---|
+| CN-HEARSE | BV1TEJ164EHc 拦车孝 | 异常收录档案 | 21:33 | 740.6K | udhwkz Part 1, 2.2M | 3.0 |
+| CN-GRINDER | BV1qbL56CE74 磨牙怪 | 杰出影视本人 | 8:09 (chapter) | 41.8K (68-min compilation) | lehwh7, 1.9M | n/a |
+| CN-SIEGE | BV1nEoYBBEXE killer + danmaku | 杰出影视本人 | 7:21 | 151.7K | mraevq, 717K | 4.7 |
+| CN-DINO | BV1fR7szYEDq 迷雾恐龙 | 杰出影视本人 | 7:47 | 230.5K | mraevq, 326K (+ lehwh7 305K) | 1.4 (2.7 combined) |
+| CN-IMPOSTOR | BV14EiCBdEUh 迷雾伪行 | 杰出影视本人 | 15:45 | 49.6K | lehwh7, 529K | **10.7** |
+| CN-TRAIN | BV1WchTz9Ejt 迷雾列车 | 杰出影视本人 | 15:06 | 167.7K | lehwh7, 508K | 3.0 |
+| CN-SLEEP | BV1oPbFzDEX6 迷雾沉睡 | 杰出影视本人 | 14:49 | 186.9K | lehwh7, 486K | 2.6 |
+| CN-ESCAPE | BV1JhKP6FEjr night escape | 杰出影视本人 | 18:44 | 53.6K | mraevq, 428K | **8.0** |
+| CN-DUMPLING | BV1dbwuz3EvY 迷雾疑凶 | 杰出影视本人 | 18:59 | **524.6K** | ChenJie Horror (YouTube), 12K | 0.02 |
+| CN-CURTAIN | BV1DbK563Eih 诡夜红床 | 夏哭有点怂 | 13:35 | 53.6K | mraevq Part 1, 194K | 3.6 |
+
+### 11B. Mechanics catalogue (frequency across the 10 sources)
+
+Ids M1–M26 are the ones `TRANSPOSE_RULES.md` uses. "Short" means it fits a 60–90 s video; "Series" means it needs multi-part room.
+
+| Id | Mechanic | n/10 | Sources | Short | Series | Notes |
+|---|---|---|---|---|---|---|
+| M1 | Premise complete in ≤ 10 s; the title is the premise in one sentence | **10** | all | ✓ | ✓ | Median 7 s (6–10). No intro or title card anywhere |
+| M2 | A world or insider rule stated early (trade lore, one survival rule, a note) | 9 | all but DINO (SIEGE: a game-rule promise only) | ✓ | ✓ | Single rule in 5 (GRINDER, TRAIN, SLEEP, ESCAPE, DUMPLING); a list in 3 (M4) |
+| M3 | The rule backfires, inverts, or was planted by the threat | 6 | IMPOSTOR, CURTAIN, TRAIN, DUMPLING, SLEEP, GRINDER | ✓ (one backfire) | ✓ | The identity seed in CURTAIN (0:19) and IMPOSTOR (2:23) |
+| M4 | Numbered rule list (2+ rules delivered together) | 3 | HEARSE, IMPOSTOR, CURTAIN | ✓ | ✓ | Rules are spoken or on a phone; no source shows a rule card |
+| M5 | A trusted source is shown wrong | **10** | all | ✓ | ✓ | First flip median **15%** of runtime (2–32%) |
+| M5b | The helper, guide or ally is the threat | 5 | GRINDER, SIEGE, TRAIN, SLEEP, DUMPLING (CURTAIN ambiguous) | ✓ (as the last beat) | ✓ | 杰出影视's house move: the guide is the villain |
+| M6 | Authority carousel (3+ adviser handoffs, each discrediting the last) | 3 | CURTAIN (6 handoffs, about every 2 min), GRINDER, IMPOSTOR | ✗ | ✓ | Needs about 2 min per handoff |
+| M7 | Count / number clue (headcount, distance, weight, schedule, clock) | **10** | all | ✓ | ✓ | Lands by 0:19 in SIEGE, 0:43 in DUMPLING. Viewers repeat the number in comments |
+| M8 | Barrier: a knock or voice at the door, bed or seat | 7 | GRINDER, SIEGE, DINO, SLEEP, ESCAPE, DUMPLING, CURTAIN | ✓ | ✓ | The vehicle stories (HEARSE, TRAIN) and IMPOSTOR use none |
+| M9 | A phone rings nearby and exposes a lie or a body | 3 | DINO, SLEEP, SIEGE (weak) | ✓ | ✓ | Pays off within 10 s, so it's cheap |
+| M10 | Isolation with one live channel; help delayed (a number: km, minutes) | 7 | HEARSE, SIEGE, DINO, TRAIN, SLEEP, ESCAPE, DUMPLING | ✓ | ✓ | "No signal, but the chat works" (SLEEP) keeps the phone UI alive |
+| M11 | An outside check or visible second channel falsifies an insider (call, overlay, news app, feed) | 6 | HEARSE, SIEGE, DINO, IMPOSTOR, SLEEP, CURTAIN | ✓ | ✓ | The strongest Short device: SIEGE's overlay at 0:09 |
+| M12 | Two suspects or rotating suspicion, mirrored accusations | 6 | GRINDER, IMPOSTOR, TRAIN, SLEEP, DUMPLING, CURTAIN | ✗ | ✓ | The "who is lying" swing every 30–70 s (§1C) |
+| M13 | Protective object saves once then fails, or turns out to be the opposite | 4 | HEARSE, GRINDER, IMPOSTOR, CURTAIN | ✓ (one flip) | ✓ | Paired tokens from rival advisers in GRINDER |
+| M14 | A test for human vs not (shibboleth, touch, machine, question) | 6 | GRINDER, SIEGE, IMPOSTOR, ESCAPE, DUMPLING, CURTAIN | ✓ | ✓ | Lived knowledge beats book knowledge (IMPOSTOR). Needs a native question |
+| M15 | Knowledge-leak tell ("how do you know that?") | 7 | HEARSE, GRINDER, DINO, TRAIN, SLEEP, DUMPLING, CURTAIN | ✓ | ✓ | The hero flags it, then the story buries it under action (SLEEP 4:51) |
+| M16 | An early proof death: a bystander or rule-breaker | 7 | HEARSE, SIEGE, DINO, IMPOSTOR, SLEEP, ESCAPE, DUMPLING | ✓ | ✓ | First death median **10%** (n = 8; GRINDER and CURTAIN have none on screen) |
+| M17 | A countdown or visible timer (days, battery, body mark, growth, loop window) | 7 | HEARSE, GRINDER, SIEGE, DINO, TRAIN, SLEEP, CURTAIN | ✓ | ✓ | Always spoken, never a numeral on screen except TRAIN's speed display |
+| M18 | Loop, reset or nested dream | 4 | TRAIN, DUMPLING, GRINDER, SLEEP | ✗ | ✓ | TRAIN's loop is 2:00 of screen time per 2-minute loop |
+| M19 | Frame break: it's a show, a simulation, hypnosis or an illusion | 5 | SIEGE, TRAIN, SLEEP, DUMPLING, CURTAIN | ✓ (as the reveal only) | ✓ | Danmaku compare TRAIN to *Source Code*; frame breaks read as derivative fast |
+| M20 | A mimic or impostor uses a familiar voice, face or memory | 6 | GRINDER, SIEGE, DINO, IMPOSTOR, SLEEP, ESCAPE | ✓ | ✓ | ESCAPE's mimic proves itself with a domestic detail |
+| M21 | Hero ahead: a withheld action or deduction revealed after the escape | 6 | GRINDER, SIEGE, IMPOSTOR, SLEEP, DUMPLING, CURTAIN | ✓ | ✓ | Explain after the escape, never before (SIEGE 5:38) |
+| M22 | The narrator is implicated (culprit, monster, conspirator, "you're the ghost") | 5 | DINO, IMPOSTOR, TRAIN, DUMPLING, CURTAIN | ✓ (last line) | ✓ | Earned in TRAIN; asserted in DINO and DUMPLING (viewers say "???") |
+| M23 | Villain-to-victim or hidden protector | 4 | HEARSE, GRINDER, ESCAPE, CURTAIN | ✗ | ✓ | HEARSE's back quarter is melodrama; the English repost never reached it |
+| M24 | Group-chat chorus and disbelief | 3 | SIEGE, DINO, SLEEP | ✓ | ✓ | Fewer than in the English pool; most sources narrate the chat |
+| M25 | Overheard enemy or outside voices | 3 | SIEGE, TRAIN, ESCAPE | ✓ (cliffhanger) | ✓ | SIEGE ends on one |
+| M26 | Expert lore dump that names the entity | 6 | HEARSE, GRINDER, IMPOSTOR, SLEEP, ESCAPE, CURTAIN | ✗ | ✓ | Keep under 40 s, right after a shock (IMPOSTOR) |
+
+**Warning channel** (how the premise arrives): phone UI (DM, group chat, SMS) in 4 (GRINDER, SIEGE, IMPOSTOR, SLEEP); a paper note in 2 (TRAIN, DUMPLING); spoken by an insider or authority in 3 (HEARSE, ESCAPE, CURTAIN); the threat itself speaks at the door in 1 (DINO). Six of the ten have no chat UI at all, so the genre runs fine on narration plus one prop. Our chat kit is an upgrade on the sources, not a copy.
+
+**Endings:** a villain win or last-line sting in 4 (DINO, IMPOSTOR, TRAIN, DUMPLING); closed, sacrifice or tearjerker in 2 (HEARSE, ESCAPE); a generational loop in 1 (SLEEP); ambiguous and selfish in 1 (CURTAIN); a hard cliffhanger in 1 (SIEGE); closed plus a franchise tag in 1 (GRINDER). Only SIEGE leaves the danger open, and it's the one whose viewers ask for a sequel.
+
+### 11C. Beat timing (medians over the 10 sources)
+
+| Measure | Median | Range | Notes |
+|---|---|---|---|
+| Length | 15:00 | 7:21–21:33 | Three are under 8 min (SIEGE, DINO, GRINDER). The rest are "一口气看完" (watch-in-one-go) compilations |
+| Premise complete | **7 s** | 6–10 s | Same as the English pool's 8 s hook (§2) |
+| First trusted-source flip | **15%** | 2–32% | SIEGE 2%, DINO 7%, DUMPLING and TRAIN 14%, HEARSE 32% |
+| First death on screen or in report | **10%** | 1–30% (n = 8) | |
+| Main twist (the one that re-sorts the story) | **85%** | 67–98% | Matches the English pool's ~88% (B11) |
+| Turn interval (new threat, reveal or reversal) | **18 s** | 14–35 s | **14 s** under 8 min; **27 s** at 13 min and longer. The longest sag sits at ~50% (a "deduction sag") |
+| Twists | **12.5** per story | 9–19 | **0.9 per min** (one every ~68 s); 1.35/min in the short sources, 0.8/min in the long ones |
+| Text density | **370 hanzi/min** | 325–393 | One caption line every 1.5–2.1 s, 9–12 hanzi each |
+| English TTS dub speed | **~238 wpm** | 190–364 | udhwkz runs 364 wpm; lehwh7 about 250 |
+
+### 11D. What transfers to 60–90 s Shorts
+
+- **The first 10–15% of a Chinese source is already a complete Short skeleton.** SIEGE's 0:00–0:57 has the all-clear, the knock, the overlay contradiction, the count and the chat pressure: five mechanics in 57 s. CURTAIN's 0:00–0:31 has the accusation, the rule, the backfire and the cover story. DINO's 0:00–0:31 has the premise, the knock, the creature's speech, the call and the confession.
+- **The English spikes are first-part cuts.** udhwkz's 2.2M HEARSE Part 1 is source 0:00–4:28 (21%). mraevq's 194K CURTAIN (18×) is 0:00–3:45 (28%). Reposters stop at the first big question. They never reach the lore, the remedies or the melodrama.
+- **A Short takes one engine and 3–4 mechanics.** Use M1 + M2 + M11 (or M5) + M7, then one of M15, M9 or M20, then end on a new rule from a new authority (M3) or a last-line implication (M22 lite). Map it onto S1–S10 (§1B): the rule is S1/S4, the flip is S2/S5, the count is S3, the turn is S6 at ~50%, and the sting is S10.
+- **Keep the source tempo, not its length.** Turns every 14 s are the short-source median. A Short needs the English pool's 2.5–3.5 s jolt (§3), so compress three source beats into one paragraph.
+- **What doesn't fit a Short:** M6 carousels, M12 two-suspect whodunits, M18 loops, M23 villain-to-victim melodrama, M26 lore dumps and generational codas. CN-DUMPLING is the studio's biggest Chinese hit (524.6K) and barely travelled (12K): fair-play procedure needs runtime.
+- **What travels best:** phone, text or parent-warning premises. The highest English multiples are IMPOSTOR (10.7×, an unknown-number text) and ESCAPE (8.0×, a parent's unexplained warning). Absurd creatures travel when the door frame stays (DINO 631K across two reposts).
+- **Native surface, borrowed engine.** China-specific satire, folk-religion props and IP parodies don't appear in English at all (`SOURCES.md`). Folk cosmology needs a Western rule system: SOPs, bylaws, machine behaviour (`TRANSPOSE_RULES.md` §3).
+
+### 11E. What needs a multi-part series
+
+- **Engines that need room:** the carousel (CURTAIN: 6 handoffs in 13:35), loops (TRAIN: ~2 min per loop), two-suspect hunts (GRINDER, DUMPLING), mentor chains with remedies (HEARSE) and frame breaks with a proof sequence (DUMPLING).
+- **Where the sources and reposters cut:**
+  - On a new rule from a new authority. CURTAIN Part 1 ends at 28%: "it will go find someone else".
+  - On the companion asking for control (HEARSE 4:28, 21%) or an entity named with no remedy (HEARSE 8:44, 41%).
+  - On a withheld name: the hero knows who did it and asks one question first (DUMPLING 7:45, 41%).
+  - On an antagonist's silent, calm reaction: the uncle smiles and doesn't chase (IMPOSTOR 8:25, 53%, the Bilibili paywall cut).
+  - On a door decision. "Should I go out?" (CURTAIN 7:54, 58%).
+  - Parts end on a decision or a rule, never on a death.
+- **The compilation beats the parts.** CURTAIN's Part 3 alone got 2.1K and its compilation got 53.6K (about 25×); the same channel's 吓吓打墙 got 2.8K for Part 1 and 54.4K for the compilation. This matches §5's sequel decay. Post parts for reach and a full-story compile for the binge, and hook each part cold.
+- **Series identity:** a recurring hero with one costume code (Chen Jie's neon jacket) plus a recognisable house move (the helper is the villain). For us that means a numbered anthology (§5) with one recurring narrator voice and one recurring move, never the studio's.
+
+### 11F. Use rules
+
+- These stories are web-fiction adaptations that several studios animated. Retelling one is an originality failure and a rights problem, even with every name changed.
+- From one source keep at most three generic mechanics, change the order or role of one, and add one it doesn't use (`TRANSPOSE_RULES.md` §1, §4).
+- Before TTS, both gates must PASS:
+  - `python3 scripts/originality_check.py <script.md> research/corpus research/library/transcripts`
+  - `python3 scripts/plot_similarity.py <script.md> research/corpus/horror-cn`
+  
+  The plot gate FAILs on 3+ specific events in a source's order, 3+ of its twists in order, or a source name plus a signature clue. Shared generic mechanics never fail it.
