@@ -1,206 +1,257 @@
 ---
 id: horror-text-from-tomorrow
 niche: horror
-title: I Got a Text From Myself, Dated Tomorrow
-alt_titles: My Own Number Told Me Not To Go To The Roof | At 2:14 The Building Chat Said Go Up
+title: My Own Number Texted Me 39 Minutes Early
+alt_titles: Same Minute, Same Sender | The Building Chat Said Go Up. My Own Number Said Don't.   # ranked list + A/B plan in titles.md
 format: 9:16
-part: single (standalone; 3 loops left open on purpose)
-target_s: 100
-target_wpm: 245 (speech rate; about 225 overall once the 3.5 s of scripted silences are counted)
-target_words: 383
-voice: af_heart
-speed: 1.2
-music: dread
-template: pipeline/templates/horror.md (T1 Locked-Door Siege, crossed with the Chat-thread flash-forward engine)
+part: standalone (2 loops open at the cut, PLAYBOOK §4D/§5 standalone 0-2)
+target_s: 95.0 (measured: Kokoro-82M on the Spark CPU, per-line stamps in tts_durations.json; timeline in timing.json)
+words: 331 spoken (tts lines in lines.py; the narration block below is the same text)
+pacing_measured: 209 wpm overall incl. 6.6 s of scripted silence; 247 wpm while speaking (PLAYBOOK §7 narrated 230-270, chat 250-275); hook 13 words / 3.4 s; 8 spoken numbers = 5.1/min (PLAYBOOK narrated 2.2-5.8)
+voices: N Tess af_heart 1.30 | M "Me" af_heart 1.10, pitch -1 st, dry, lowpass 6 kHz (the same treatment on all 5 Me lines, 0:04 to 1:32) | O Ostrel House Office bm_george 1.15, phone band-pass | A Mr. Abel am_michael 1.05, through-door muffle | D Dee af_sky 1.30 / 1.00 | L Mrs. Lind bf_isabella 1.25 | G gas line bf_alice 1.20
+music: dread (low bed; dead air at 1:06-1:09 and 1:29-1:31 is real silence)
+template: pipeline/templates/horror.md (T1 Locked-Door Siege, crossed with the chat-thread flash-forward engine)
+source_of_truth: lines.py (spoken text, speakers, gaps, silences) -> tts_measure.py (Spark CPU) -> gen_storyboard.py -> storyboard.json + timing.json
 references:
-  - id: gzXY52lcAcI, url: https://www.youtube.com/shorts/gzXY52lcAcI, views: 352848, outlier_score: 10.38, why: the only flash-forward engine in the corpus. A message from the story's own future sets the ceiling in the first bubble, so every calm present-tense choice afterwards reads as doom. That is our premise's exact mechanic, and it also gives us the hard number clock (0:35) and the long, specific Chekhov plant (0:56).
-  - id: T42u5xhrq-0, url: https://www.youtube.com/shorts/T42u5xhrq-0, views: 868500, outlier_score: 25.54, why: the 60 s chat-Short timing reference (a bubble every ~1 s, turn at 50%), the plant at 0:13 that pays off at 0:42, the silence beat at 0:53, and the voice swap at 0:56 where the victim's own number speaks calmly as the entity and turns the threat on "you". Our twist is the same device pointed at the narrator's own number.
-  - id: 7654526047005723937, url: https://www.tiktok.com/@mraevq/video/7654526047005723937, views: 716900, outlier_score: 66.69, why: the top outlier and the exact phone-chat building format. Threat in my building in line 1, the official channel plus a number by 3 s, an impossible source contradicting the authority by 10 s, the chat piling on at 0:32-0:46, a count deduction at 0:15, a countdown call at 1:53-2:36, and a cut on an enemy imperative at peak danger.
-demand: mraevq 7664930759395888416 (Dad's warning, the whole complex died; 428K, 39.8x per INDEX/PLAYBOOK, 61x per TOPICS); lehwh7 train-crash note 508K (3.0x); The Story Vault group-chat time traveler (3.4x). backlog/horror/TOPICS.md #7.
-pacing_targets: hook 19 words / 5 s (PLAYBOOK core hook <= 30 words / 6 s); trusted channel contradicted by 0:05-0:10 (<= 11 s); jolt median ~3 s, max gap 5 s (one 5 s lull at 0:30-0:35); sentence median ~6 words with 1-3 word punch lines; turn at 0:43 (43%); scariest image held 1:13-1:18 (72-77%); twist 1:26-1:32 (86-90%); cut at 1:42.
+  - id: gzXY52lcAcI, url: https://www.youtube.com/shorts/gzXY52lcAcI, views: 352848, outlier_score: 10.38, why: the corpus's only flash-forward engine. A message from the story's own future sets the ceiling in the first bubble, so every calm present choice reads as doom. Also used as a device source for the hard thread switch (0:13), the hard number of minutes (0:35) and the worried question that gets overruled (0:46-0:48).
+  - id: T42u5xhrq-0, url: https://www.youtube.com/shorts/T42u5xhrq-0, views: 868500, outlier_score: 25.54, why: the 60 s chat-Short timing reference. Plant at 0:13 paid at 0:42 and 0:54 (proof image at 90%), the CAPS -> broken lowercase -> calm sentence-case typography ladder (0:37 / 0:51 / 0:56), two unanswered name checks (0:53), and the voice swap where the victim's own thread speaks calmly and turns the threat on "you" (0:56-0:58).
+  - id: 7654526047005723937, url: https://www.tiktok.com/@mraevq/video/7654526047005723937, views: 716900, outlier_score: 66.69, why: the top outlier and the exact building-chat format (H3). Official channel in line 2 (0:02), a false all-clear (0:03), an impossible source contradicting the authority by 0:12, the chat piling on (0:32-0:46), a count match (0:15), the real authority on a failing line confirming the fake (2:01-2:25), and a cut on an enemy imperative at peak danger (5:20-5:57). Its positions are from a 357 s story, so most rows below borrow the device only (marked).
+demand: mraevq 7664930759395888416 (a parent's warning, the whole complex died; 428K, 39.8x per PLAYBOOK); lehwh7 train-crash note 508K (3.0x); The Story Vault group-chat time traveler (3.4x). backlog/horror/TOPICS.md #7.
+sameness: the protagonist is Tess (not Nora), the neighbour is Mr. Abel (not Hale), the doubter is Mrs. Lind (not Okafor), the authority is "Ostrel House Office" (teal #4f7f86, initials OH; not "Management", not gold "WH"), the building is Ostrel House (invented). The kit's Protagonist/Neighbour art is unchanged; only names change. Do not publish this within 3 uploads of horror-new-building-rules, horror-two-emergency-alerts or horror-pinned-rules (all three use a building-chat authority).
+disclosure: description says "Fictional story. Synthetic voices. Original animation drawn in code." Never framed as true. TikTok AI-generated label on (synthetic voice).
 ---
 
-# I Got a Text From Myself, Dated Tomorrow
+# My Own Number Texted Me 39 Minutes Early
 
-**Premise.** At 1:52 a.m. Nora gets a text from her own number, timestamped tomorrow at 2:31 a.m. It says that at 2:14 the
-building chat will tell everyone to go to the roof, and that she must not go. It proves it is her by naming a hole in her
-sock she hadn't noticed. Then it lists three things that will happen first. All three happen. At 2:14 "Management" posts a gas
-leak and orders everyone up to a roof that it padlocked itself. Thirty-seven neighbours go up in silence, and Nora is the
-thirty-eighth. She calls her own number and her ringtone plays faintly from the roof above her ceiling. At 2:31 tonight
-her number texts again: "I went. Now you have to." One set of footsteps comes down and stops at her door, in socks, the left
-one with a hole. Her phone: "Open up. It's just me."
+**Premise.** At 1:52 a.m. Tess gets a text from her own number. It is stamped 2:31 a.m., thirty-nine minutes ahead,
+and it sits right under the building office's "Gas check done. All clear." It says that at 2:14 the office will call
+a gas leak and send everyone up to the roof, and that she must not go, "not even if they beg". It proves itself by
+answering before she hits send and by naming a hole in her sock she hadn't noticed. Then it predicts three things,
+and all three happen: the hall lights die door by door toward her flat, the dog downstairs stops mid-bark, and the
+office types for a full minute. At 2:14 the office breaks its own pinned rule ("Roof closed. Padlocked.") and orders
+everyone up. Thirty-seven neighbours reply "on my way"; Tess, in the last flat before the roof stairs, counts
+thirty-eight sets of feet going past her door. Above her ceiling, silence, then one footstep. The gas line says there
+is no leak. She calls her own number, and her ringtone plays on the roof. At 2:31, the minute stamped on the first
+text, a new one arrives from the same sender: "I went. Now you have to." The office account renames itself "Me".
+One set of feet comes down and stops at her door, in socks, the left one with a hole. Her phone: "Please. I'm begging
+you. Open up. It's just me."
 
-**Why it's ours.** The corpus engines are a future message from a parent about unnamed "things" (gzXY52lcAcI), a friend's
-phone taken over by a figure from a video (T42u5xhrq-0), and a killer in a fake uniform besieging a door (7654526047005723937).
-Ours has no killer, no parent, no cursed media and no uniform. The impossible source is the narrator's own future self, the
-authority is the building's own management, and the twist turns the narrator's most trusted voice (her own) into the threat.
-Names, units, times and objects are all invented: Wren House, 6A/6B/5B/4C/3A/2D, 1:52, 2:09, 2:11, 2:14, 2:29, 2:30, 2:31,
-the sock, the padlock.
+**The timestamp rule (one clean read).** Every text from "Me" carries the minute it was sent: 2:31 a.m. The first one
+arrives 39 minutes early (frame 0 shows the lock clock 1:52 against a red "2:31 AM"). At 2:31 the clock catches up
+and a second bubble lands under the same stamp (shot 25 shows both). Same minute, same sender: the voice that said
+"don't go" is the one that went. The warning was a lure that kept her alone at the last door.
 
-**Ownable rule / countable signature.** Three predictions plus a time (2:14) that the viewer can tick off. The pinned
-"Do not go up" rule gets inverted by the same account. "Seen by 37" against 38 members. The 2:31 timestamp is planted in
-line 1 and paid off at the twist.
+**Why it's ours.** The corpus engines are a parent's flash-forward about unnamed "things" (gzXY52lcAcI), a friend's phone
+taken over by a figure from a video (T42u5xhrq-0), and a killer in a fake uniform besieging a door while a livestream
+chorus watches (7654526047005723937). Ours has no killer, parent, cursed video, uniform or audience. The impossible
+source is the narrator's own number, the authority is her building's office account, and both turn out to be the same
+"me". Names, units, times and objects are invented: Ostrel House, 6A/6B/4C/3A, 1:52, 2:14, 2:30, 2:31, the sock, the
+padlock, the 37/38 count.
 
-**Sameness check.** The siblings `horror-member-41` and `horror-mom-two-chats` both end on typing dots. TOPICS #7 suggested
-the same, so this one resolves the dots into a delivered imperative ("Open up. It's just me.") over the door-gap shot.
-That ending is a new imperative from an unknown sender (PLAYBOOK 4C #1), not a "someone is typing" cut.
+**Ownable rule / countable signature.** Three predictions the viewer ticks off (lights, dog, typing), then the 2:14 order.
+"Not even if they beg" is planted at 0:09 and paid by the last line. 37 replied "on my way"; she counted 38 sets of feet
+(one extra walked up, and it comes back down). The 2:31 stamp in frame 0 is paid by the twist.
+
+**Count check (airtight).** The header says 39 members: the office account plus 38 residents. Tess is one of the 38, so
+37 neighbours. 37 replied "on my way" (everyone but her). 38 sets of feet went past her door, which is the last door
+before the roof stairs, so everyone going up passes it. 38 - 37 = one walker who isn't a neighbour. One set comes back
+down.
+
+**Sameness check.** Siblings `horror-member-41` and `horror-mom-two-chats` end on typing dots; this one ends on a
+delivered, begging imperative over a bookend lock screen (PLAYBOOK 4C #1). Sibling `horror-group-chat-extra-member` owns the
+member-count delta ("41 members"); ours is a footstep count against a reply count.
 
 ## Beat alignment
 
-| # | Our beat | Our timestamp | Reference id + timestamp | Device borrowed | How we adapt it |
-|---|---|---|---|---|---|
-| 1 | S1 Hook: text from my own number, dated tomorrow 2:31 | 0:00-0:05 | gzXY52lcAcI 0:00-0:03 (flash-forward first bubble); T42u5xhrq-0 0:00-0:03 (late-night text, 4 bubbles in 3 s) | A message from the story's own future in frame 0; late-night timestamp as the mood line | The future source is the narrator herself, not a parent. The future time (2:31) is spoken and on the lock screen as a plant |
-| 2 | S1/S2 The warning contradicts the authority before it speaks | 0:05-0:10 | 7654526047005723937 0:07-0:12 (impossible source contradicts the authority at the door) | Omniscient contradiction of a trusted channel inside 10 s | The contradiction comes before the authority's lie (a prophecy, not an overlay), so the viewer holds the answer key for the whole video |
-| 3 | S2 Impossible proof: sent folder empty, reply arrives before send | 0:10-0:16 | T42u5xhrq-0 0:14-0:23 (the source starts acting alive in stair-step lines) | Three rising lines of "this thing is alive" | Rendered in the UI itself: the draft is still in the input box when the answer pops in |
-| 4 | S3 Plant + instant payoff: the sock hole | 0:16-0:20 | T42u5xhrq-0 0:13 plant -> 0:42 payoff; gzXY52lcAcI 0:56 (hyper-specific plant) | One odd personal detail that comes back as the threat | Paid twice: at 0:18 as proof of identity, and at 1:37 as the feet under the door (the scariest callback) |
-| 5 | S4 Rules / predictions: three things will happen first | 0:20-0:25 | gzXY52lcAcI 0:03-0:07 (calm lowercase instructions after the caps line) | Calm, numbered instructions from the future source | Turned into a checklist the viewer counts against: lights, dog, chat |
-| 6 | S2 Named authority + pinned rule | 0:25-0:30 | 7654526047005723937 0:02-0:03 (Management's channel); gzXY52lcAcI 0:13 (hard switch to a mundane group thread) | The official channel, plus a thread switch as a reset | The authority's own pinned rule ("Do not go up") is the one it will invert (PLAYBOOK T3) |
-| 7 | S3 Lull + plant: padlock, only Management has the key, "a prank" | 0:30-0:35 | gzXY52lcAcI 0:37-0:38 (one-word lull before the next turn); PLAYBOOK B7 (lull <= 25 s with one plant) | The only breather, with one foreshadow line | 5 s only. The padlock opens a loop (who unlocked it?) that never closes |
-| 8 | S5 Prediction 1 comes true: lights go out door by door | 0:35-0:39 | T42u5xhrq-0 0:37-0:47 (distance ladder, one rung per short line) | Rung-by-rung approach | Approach told through light strips going dark down the hall: 3 clicks, 3 rungs |
-| 9 | S5 Prediction 2 comes true: the dog stops mid-bark | 0:39-0:43 | T42u5xhrq-0 0:31 (a sound as the jolt) | Sound anomaly | Silence used as the sound: a bark cut off halfway |
-| 10 | S6 Turn: 2:14, the chat orders everyone to the roof | 0:43-0:50 | T42u5xhrq-0 0:31 (turn at ~50%); 7654526047005723937 0:02-0:03 (official message with a number) | Turn at about half; the only full-frame colour flash | The prediction lands to the minute; the authority breaks its own pinned rule; "The door is open" contradicts the padlock |
-| 11 | S7 Chorus floods in, one doubter | 0:50-0:55 | 7654526047005723937 0:32-0:46 (the chat piles on); gzXY52lcAcI 0:46-0:48 (the worried question gets overruled) | Peer pressure through the chat, plus one viewer-proxy question | The doubter (4C) gets a two-word reply from Management, and that is the last we hear of her |
-| 12 | S7 Proximity: everyone passes my door going up, nobody runs | 0:55-1:00 | 7654526047005723937 0:24-0:29 (the threat moves physically closer) | Physical rung past the barrier | Wrong detail: in a gas leak, nobody hurries |
-| 13 | S7 Knock: calm neighbour at the door | 1:00-1:04 | 7654526047005723937 0:05 (an authority knocks at my door) | Knock at the barrier; the hero nearly complies | The knocker is a friendly neighbour, and the scare is his calm tone, not a uniform |
-| 14 | S7 Count deduction: seen by 37, I'm the 38th | 1:04-1:08 | 7654526047005723937 0:15 (the hero counts reassurers vs victims) | Count match the viewer can do in their head | The count isolates the hero instead of exposing the villain |
-| 15 | S7 Clock: tagged by unit, roof door locks at 2:30 | 1:08-1:13 | gzXY52lcAcI 0:35 (a hard number of minutes); 7654526047005723937 0:24-0:29 (my unit broadcast to everyone) | Countdown, plus being named in public | A deadline set by the fake authority, which turns the waiting into a countdown |
-| 16 | S8 Silence beat + scariest image held still | 1:13-1:18 | T42u5xhrq-0 0:53 (unanswered silence as the scare); PLAYBOOK B9 (one image held ~4 s at 65-80%) | Silence as a re-hook, held still | 37 people directly above the ceiling and no sound. 1.2 s of dead air with a low drone |
-| 17 | S8/S9 Lifeline: I call my own number, the ringtone is on the roof | 1:18-1:23 | 7654526047005723937 1:53-2:36 (the hidden-phone call under a countdown) | A lifeline call under a clock that answers the big question | The call doesn't connect to help. Its ringtone gives away where "I" am |
-| 18 | S9 Clock runs out: 2:30 | 1:23-1:26 | gzXY52lcAcI 0:35-0:36 (the clock gets worse) | The deadline passes on screen | 0.8 s pause on the clock digits flipping |
-| 19 | S10 Twist: my own number, dated today 2:31: "I went. Now you have to." | 1:26-1:32 | T42u5xhrq-0 0:56-0:58 (voice swap: the victim's own number speaks as the entity and targets "you") | Voice swap onto the most trusted sender | The sender is the narrator herself. The 2:31 planted at 0:03 pays off, so the first warning came from the same minute |
-| 20 | S10 Proof at the barrier: one set of feet, the sock hole | 1:32-1:39 | T42u5xhrq-0 0:54 (the only image, held back as proof); 7654526047005723937 0:20 (peephole/door POV) | Held-back visual proof, at the door | Pays off the 0:18 plant. No face is ever shown, only feet in the gap |
-| 21 | S10 Cliffhanger: "Open up. It's just me." Hard cut; bookend | 1:39-1:42 | 7654526047005723937 5:20-5:57 (enemy imperative at peak danger); T42u5xhrq-0 0:58 (threat turned on "you" as the last line) | Cut on a new imperative; the last shot repeats the first | Same "Me" thread as frame 0, so the video loops cleanly. No part card, no spoken subscribe |
+Our % = position in the measured 95.0 s cut. Ref % = position in that reference's own runtime. "Comparable" means the
+two positions are within ~10 points or the PLAYBOOK caps the beat in absolute seconds (hooks). Rows marked
+**device only** borrow the device, not the position; there the PLAYBOOK slot is the positional target.
+
+| # | Our beat (PLAYBOOK tag) | Ours | Reference id + timestamp (ref %) | PLAYBOOK slot | Position | Device borrowed -> how we adapt it |
+|---|---|---|---|---|---|---|
+| 1 | Hook: my own number, sent 2:31, at 1:52 (S1) | 0:00-0:04 (0-4%) | gzXY52lcAcI 0:00-0:03 (0-5%); T42u5xhrq-0 0:00-0:03 (0-5%) | S1 0-5% | comparable | A message from the story's own future in frame 0 -> the future sender is the narrator; the impossibility comes first, the time second |
+| 2 | Warning contradicts the office's all-clear (S2, H3) | 0:04-0:10 (4-11%) | 7654526047005723937 0:02-0:03 official all-clear, 0:07-0:12 impossible source says it's a trap | combination rule <=10 s; hooks capped in seconds | comparable (seconds) | The all-clear is on the cover; "the office will call a gas leak" contradicts it by 0:06 |
+| 3 | Impossible proof: answered before send (S2) | 0:10-0:14 (11-15%) | T42u5xhrq-0 0:18-0:22 (30-37%) stair-step "it's alive" | S2 premise paid 5-12% | device only | Rising lines rendered in the UI: the draft is still unsent when "You." pops in |
+| 4 | Plant paid at once: the sock hole (S3) | 0:14-0:16 (15-16%) | T42u5xhrq-0 0:13 plant (22%) -> 0:42 / 0:54 payoff (70% / 90%) | S3 8-25% | comparable | Paid twice: identity proof now, the feet under the door at 92-95% |
+| 5 | Three predictions (S3/S4) | 0:16-0:22 (17-23%) | gzXY52lcAcI 0:03-0:07 calm instructions after the caps line (5-12%) | S4 23-38% | comparable to slot | A checklist the viewer ticks: lights, dog, typing (three distinct, visible items), then 2:14 as the fourth |
+| 6 | Pinned rule + padlock (B2) | 0:22-0:25 (23-27%); the office itself is on the cover at 0% | gzXY52lcAcI 0:13 hard thread switch (22%); 7654526047005723937 0:02 official channel (1%) | B2 3-10% | gz comparable; SIEGE device only | The rule the office will invert (T3); padlock folded into the pinned text |
+| 7 | Layout plant: last door before the roof stairs | 0:25-0:27 (27-29%) | 7654526047005723937 0:29 unit and building number (8%) | §4A "plant every rung as a hyper-specific detail" | device only | Makes the 38-feet count possible and sets the final approach |
+| 8 | Prediction 1: darkness travels toward my door (S5, proximity) | 0:27-0:30 (29-32%) | T42u5xhrq-0 0:44-0:47 corner -> closer -> bed (73-78%) | §4A proximity, physical rungs ~3 s | device only | Far end, next light, mine: 3 clicks, 3 rungs, the last one at her own door |
+| 9 | Prediction 2: the bark cut off (S5) | 0:30-0:32 (32-34%) | T42u5xhrq-0 0:31 a sound as the jolt (52%) | S5 38-50% | device only | Silence used as the sound |
+| 10 | Prediction 3: the office types for a minute (S5) | 0:32-0:35 (34-37%) | gzXY52lcAcI 0:35-0:36 a hard clock that gets worse (59%) | S5 "a calm line implies harm is expected" | device only | 1.0 s of dead air on "Ostrel House Office is typing…", clock 2:13 -> 2:14 |
+| 11 | 2:14: the office inverts its pinned rule (S6/B8, T3) | 0:35-0:39 (37-41%) | T42u5xhrq-0 0:31 turn (52%), the only full-frame colour flash | S6 43-55% | **early by ~6 pts** | The episode's one RedText flash; pinned "Padlocked" and "The door is open." in one frame |
+| 12 | Chorus in CAPS + proxy objection shut down (B5) | 0:39-0:47 (42-50%) | 7654526047005723937 0:32-0:46 chat piles on (9-13%); gzXY52lcAcI 0:46-0:48 worried question overruled (78-81%); T42u5xhrq-0 0:37 first CAPS (62%) | B5 15-45%, typography ladder | device only | "EVERYONE UP" / Mrs. Lind "why UP?? you go OUT" / "GO NOW." The proxy voices the gas-leak logic and gets an answer that adds dread |
+| 13 | Feet past my door: the threat enters my space (S6) | 0:47-0:50 (50-53%) | T42u5xhrq-0 0:31-0:33 "something's in my room" (52-55%) | S6 43-55% | comparable | Hall stays dark; neighbours' phone torches sweep the gap; nobody runs |
+| 14 | Knock + the too-polite neighbour (B3 at the barrier) | 0:50-0:54 (53-57%) | 7654526047005723937 0:05 knock (1%), 0:24 polite menace through the door (7%) | B3 | device only | No uniform: a neighbour whose calm, formal wording is the scare |
+| 15 | Count deduction: 37 replied, 38 sets of feet (T2) | 0:54-0:56 (57-59%) | 7654526047005723937 0:15 count match (4%) | T2 count match | device only | The count reveals something: one extra walker went up |
+| 16 | Tagged by unit + the 2:30 deadline (B6/clock) | 0:56-1:00 (59-63%) | gzXY52lcAcI 0:35 hard number (59%); 7654526047005723937 0:29-0:34 room number broadcast (8-10%) | B6 40-55% | gz comparable | "@6A Last one." in public; the roof locks at 2:30 |
+| 17 | Broken lowercase + two unanswered name checks (S8) | 1:00-1:04 (63-67%) | T42u5xhrq-0 0:51 lowercase (85%), 0:53 "Ava?" "AVA??" (88%) | S8 78-90% | **early by ~20 pts** | "its so quiet up here", then "Dee?" "Mrs Lind?" -> Seen, no typing |
+| 18 | Scariest image, held: one footstep above my bed (B9) | 1:04-1:09 (68-72%) | PLAYBOOK B9 ~67%, held ~4 s; T42u5xhrq-0 0:47-0:48 contact + a new sense (78-80%) | B9 60-80% | comparable | Thud, dust sifting from the dark above her upturned face, 2.8 s of dead air |
+| 19 | Lifeline: the real authority says no leak (B10) | 1:09-1:12 (72-76%) | 7654526047005723937 2:01-2:25 real police on a hidden phone confirm the fake (34-41%) | B10 72-90% | slot comparable; SIEGE device only | The objection "why not call someone?" is answered on screen |
+| 20 | Own number: ringtone on the roof; 2:30 passes (B10 clock) | 1:12-1:17 (76-81%) | 7654526047005723937 1:59-2:29 battery countdown (33-42%) | B10 72-90% | slot comparable; SIEGE device only | The call reaches no help; its ringtone says where "I" am. Clock flips 2:29 -> 2:30 in silence |
+| 21 | Twist: same minute, same sender (B11, T6) | 1:17-1:21 (81-85%) | T42u5xhrq-0 0:56-0:58 voice swap (93-97%) | B11 ~89% (55-98) | within range | Both bubbles under one "Today 2:31 AM" stamp; "Me" is voiced in the processed voice from its first line |
+| 22 | The office was me (T1/T10) | 1:21-1:24 (86-88%) | 7654526047005723937 2:25 the real manager isn't who's posting (41%) | B11 | slot comparable; SIEGE device only | System line "Ostrel House Office changed their name to Me"; the pinned bar now reads "PINNED · Me". Closes the padlock/authority loop |
+| 23 | Proof at the barrier: the holed sock under the door (S9) | 1:24-1:31 (88-95%) | T42u5xhrq-0 0:54 the only image, held back as proof (90%) | S9 88-92% | comparable | SockFeet held ~3.6 s under the door edge, pale toe in the hole |
+| 24 | Cliff: the beg pays; bookend lock screen (S10, 4C #1) | 1:31-1:35 (96-100%) | T42u5xhrq-0 0:58 threat turned on "you" (97%); 7654526047005723937 5:20-5:57 enemy imperative at peak danger (90-100%) | S10 92-100% | comparable | "Please. I'm begging you. Open up. It's just me." on the frame-0 lock layout; hard cut |
 
 ## Script
 
-Hook (first line): "At one fifty-two a.m., I got a text from my own number." (12 words)
-First visual (frame 0 = cover): `horror/HandPhone` lock screen at 1:52, Wed Nov 11, one notification from **Me** stamped
-**Thu Nov 12 · 2:31 AM**, preview "At 2:14 the building chat will tell everyone to go to…". The threat (a message from
-yourself, from the future) is legible in frame 0.
+Hook (first line): "My own number texted me." (5 words; the full hook is 13 words / 3.4 s.)
+First visual (frame 0 = cover): `horror/HandPhone` lock screen, clock **1:52**, "Wednesday, November 11". Top
+notification **Me · 2:31 AM** (app line "Messages · sent 2:31 AM"): "At 2:14 the office will call a gas leak and send
+everyone up to the roof. Don't go…". Under it the office's all-clear: "Ostrel House Office · Gas check done. All clear.
+Sleep well · 1:49 AM". A red "SENT 2:31 AM" in the caption band for frame 0 only (it fades as the first caption
+appears). Threat, authority and contradiction are all readable in frame 0.
 
-Narration is first person, past tense, one voice (Nora) for narration and every message read aloud. Numbers are spelled out for
-TTS; the phone shows digits. Times are planned at 245 wpm (Kokoro af_heart at 1.2) and get re-timed from TTS word stamps.
+Times below are measured (Kokoro on the Spark CPU, gaps from lines.py). Numbers are spelled for TTS; the phone and the
+captions show digits.
 
-| Time | Beat | Voiceover (captions follow it word for word) | On-screen text (phone / overlay) |
+| Time | Beat | Voiceover (speaker; captions follow word for word) | On-screen text (phone / overlay) |
 |---|---|---|---|
-| 0:00-0:05 | S1 HOOK | At one fifty-two a.m., I got a text from my own number. Dated tomorrow, two thirty-one. | Lock 1:52 · Wed Nov 11. Notification: Me · Thu Nov 12 · 2:31 AM |
-| 0:05-0:10 | S1/S2 WARNING | At two fourteen the building chat will tell everyone to go to the roof. Don't go. Not even if they beg. | Thread "Me", grey bubble: "At 2:14 the building chat will tell everyone to go to the roof. Don't go. Not even if they beg." |
-| 0:10-0:16 | S2 IMPOSSIBLE PROOF | My sent folder was empty. I typed: who is this? It answered before I hit send. You. Check your left sock. | Draft "who is this?" sits unsent in the input box; incoming bubbles "You." and "Check your left sock." |
-| 0:16-0:20 | S3 PLANT PAID | There was a hole in my left sock. I hadn't noticed it until that second. | none (face + sock insert) |
-| 0:20-0:25 | S4 PREDICTIONS | Three more texts. First the hall lights go out. Then the dog in five B stops barking. Then the chat. | "First the hall lights go out." / "Then the dog in 5B stops barking." / "Then the chat." |
-| 0:25-0:30 | S2 AUTHORITY + RULE | The building chat. Thirty-eight members. Pinned at the top, from Management: Roof closed for repairs. Do not go up. | Thread "Wren House Residents · 38 members". Pinned alert, Management: "Roof closed for repairs. Do not go up." |
-| 0:30-0:35 | S3 LULL + PLANT | The roof door has a padlock, and only Management has the key. I told myself it was a prank. | Clock 2:03 in the status bar |
-| 0:35-0:39 | S5 PREDICTION 1 | Two oh nine. The light under my door clicked off. Then the next door's. Then the next. | Status-bar clock 2:09 |
-| 0:39-0:43 | S5 PREDICTION 2 | Two eleven. The dog in five B was barking. It stopped halfway through a bark. | Status-bar clock 2:11 |
-| 0:43-0:50 | S6 TURN | Two fourteen. My phone buzzed. Management: Gas leak on floors one to five. Everyone go up to the roof now. The door is open. | Alert bubble, Management: "Gas leak on floors 1-5. Everyone go up to the roof now. The door is open." RedText "2:14" flash (the episode's one RedText) |
-| 0:50-0:55 | S7 CHORUS | The replies came in a flood. On my way. Bringing the twins. Four C: is this real? Management: Go now. | 3A Dee: "on my way" · 2D Sam: "bringing the twins" · 4C Mrs Okafor: "is this real?" · Management: "Go now." Unread badge counts up |
-| 0:55-1:00 | S7 PROXIMITY | Doors opened all along my hall. Footsteps went past my door, every set of them going up. Nobody was running. | none |
-| 1:00-1:04 | S7 KNOCK | Then a knock. Mr. Hale from six B. Nora, it's gas. Come on. He sounded completely calm. | none (peephole) |
-| 1:04-1:08 | S7 COUNT | I didn't open. Under the message it said: seen by thirty-seven. I'm the thirty-eighth. | Under the alert: "Seen by 37" |
-| 1:08-1:13 | S7 CLOCK | Management tagged me. Six A, you're the last one. The roof door locks at two thirty. | Management: "@6A you're the last one. The roof door locks at 2:30." |
-| 1:13-1:18 | S8 SILENCE / SCARIEST IMAGE | Then nothing. Thirty-seven people on the roof, right above my ceiling, and not a single sound. [pause 1.2 s] | none (held still) |
-| 1:18-1:23 | S9 LIFELINE | At two twenty-nine I called my own number. Somewhere above the ceiling, very faintly, my ringtone started playing. | Call screen "Me (mobile)" · Calling… · 2:29 |
-| 1:23-1:26 | S9 CLOCK OUT | It stopped. The clock changed to two thirty. [pause 0.8 s] | Call screen "Call ended"; clock flips 2:29 -> 2:30 |
-| 1:26-1:32 | S10 TWIST | A new text from my own number. Dated today. Two thirty-one a.m. I went. Now you have to. | Thread "Me". Day label "Today 2:31 AM". Grey bubble: "I went. Now you have to." |
-| 1:32-1:39 | S10 PROOF AT THE DOOR | Footsteps came down from the roof. One set. They stopped at my door. Two feet in the gap underneath. In socks. The left one had a hole. | none |
-| 1:39-1:42 | S10 CLIFF | My phone lit up one last time. Open up. It's just me. [hold 0.6 s, hard cut] | Thread "Me": typing dots for 0.5 s, then "Open up. It's just me." Hard cut to black on the last word |
+| 0:00.3-0:03.7 | S1 HOOK | N: My own number texted me. Sent at two thirty-one. It was one fifty-two. | Lock 1:52; Me · 2:31 AM over the office's all-clear; punch-in + glitch on the stamp |
+| 0:03.9-0:10.1 | S2 WARNING | M: At two fourteen the office will call a gas leak and send everyone up to the roof. Don't go. Not even if they beg. | Thread "Me", day label "Today 2:31 AM", three grey bubbles, word-anchored |
+| 0:10.4-0:13.9 | S2 PROOF | N: I typed, who is this? It answered before I hit send. M: You. Check your left sock. | Draft "who is this?" stays unsent; "You." / "Check your left sock." pop in |
+| 0:14.2-0:15.6 | S3 PLANT PAID | N: I looked. A hole, at the big toe. | SockFeet insert, pale toe in the hole |
+| 0:15.9-0:21.8 | S4 PREDICTIONS | M: First, the hall goes dark, door by door. The dog downstairs stops mid-bark. The office types for a full minute. | Three grey bubbles, one per sentence |
+| 0:22.1-0:27.2 | S2 AUTHORITY + RULE | O: Roof closed. Padlocked. Only the office has the key. N: My door's the last one before the roof stairs. | Whip to "Ostrel House Residents · 39 members"; PINNED · Ostrel House Office; then the stairwell, ROOF door, padlock |
+| 0:27.4-0:30.3 | S5 PREDICTION 1 | N: Then the far end of the hall went dark. Then the next light. Then mine. | Under-door strip dims in three clicks, the last one hers |
+| 0:30.5-0:32.2 | S5 PREDICTION 2 | N: Downstairs, the dog stopped mid-bark. | Tess MCU, eyes to the floor, worried -> scared |
+| 0:32.4-0:35.4 | S5 PREDICTION 3 | N: Then the office started typing. For a full minute. [1.0 s silence] | "Ostrel House Office is typing…", clock 2:13 |
+| 0:35.4-0:39.3 | S6 TURN | N: Two fourteen. O: Gas leak. Everyone up to the roof. The door is open. | RedText "2:14" flash (the one RedText); red alert bubble under the pinned "Padlocked" |
+| 0:39.6-0:47.1 | S7 CHORUS + PROXY | D: Everyone up! L: Why up? You go out in a gas leak. O: Stairwell's full of gas. Go now. N: Thirty-seven neighbours replied, on my way. Everyone but me. | "EVERYONE UP" / "why UP?? you go OUT in a gas leak" / "Stairwell is full of gas. GO NOW." / system line "37 replied: On my way"; unread badge counts up |
+| 0:47.3-0:50.0 | S6/S7 PROXIMITY | N: Then feet went past my door, up the roof stairs. Nobody ran. | Hall dark; four torch sweeps under the door |
+| 0:50.0-0:53.7 | S7 KNOCK | [knock] A: Tess. It's Abel, from next door. Everyone is waiting for you. | Peephole: Abel lit by his phone, blank face |
+| 0:54.0-0:56.2 | S7 COUNT | N: I didn't open. I'd counted thirty-eight sets of feet. | Tess CU, snap zoom on "thirty-eight", heartbeat |
+| 0:56.4-0:59.8 | S7 CLOCK | N: The office tagged me. O: Last one. The roof locks at two thirty. | "@6A Last one. The roof locks at 2:30." |
+| 1:00.1-1:04.2 | S8 LOWERCASE + NAME CHECKS | D: its so quiet up here. N: I typed, Dee? Mrs. Lind? Seen. Nobody answered. | Dee: "its so quiet up here"; me: "Dee?" "Mrs Lind?"; "Seen"; no typing dots |
+| 1:04.4-1:08.9 | S8/B9 SCARIEST IMAGE | N: Then one footstep, right above my bed. [2.8 s dead air] | Tess looking straight up into the dark; thud; dust sifting down; locked off |
+| 1:08.9-1:11.8 | S9 LIFELINE | N: I called the gas line. G: No leak reported at that address. | Lower third "Gas Emergency Line": "calling…" -> "No leak reported at that address" |
+| 1:12.1-1:16.8 | S9 OWN NUMBER + CLOCK OUT | N: Then I called my own number. It rang. Up on the roof, faintly, my ringtone was playing. [0.7 s] | "Calling Me…" (clock 2:29); Tess, ear to phone, eyes up; ringtone muffled through the ceiling; "Call ended", clock 2:30 |
+| 1:16.8-1:21.0 | S10 TWIST | N: At two thirty-one, the minute on the first text, a new one came in. M: I went. Now you have to. | The first warning and the new bubble under one "Today 2:31 AM" stamp |
+| 1:21.3-1:23.6 | S10 THE OFFICE WAS ME | N: And in the building chat, the office had a new name. Me. | "Ostrel House Office changed their name to Me"; pinned bar now "PINNED · Me" |
+| 1:23.8-1:30.9 | S9 PROOF AT THE DOOR | N: One set of feet came down. They stopped at my door. I lay flat and looked under. Socks. A hole at the left big toe. [1.6 s hold] | Two feet shadows stop centred; then the door-gap insert, SockFeet under the door edge |
+| 1:30.9-1:35.0 | S10 CLIFF | N: My phone lit up beside me. M: Please. I'm begging you. Open up. It's just me. [0.5 s, hard cut] | Lock screen in the frame-0 layout, clock 2:33: "Me · now: Please. I'm begging you. Open up. It's just me." |
 
 ```narration
-[music: dread] At one fifty-two a.m., I got a text from my own number. Dated tomorrow, two thirty-one. [sfx: notify]
+[music: dread] N: My own number texted me. Sent at two thirty-one. [sfx: notify] It was one fifty-two. [sfx: glitch]
 
-At two fourteen the building chat will tell everyone to go to the roof. Don't go. Not even if they beg.
+M: At two fourteen the office will call a gas leak and send everyone up to the roof. Don't go. Not even if they beg.
 
-My sent folder was empty. I typed: who is this? [sfx: typing] It answered before I hit send. [sfx: message_pop] You. Check your left sock.
+N: I typed, who is this? [sfx: typing] It answered before I hit send. M: [sfx: message_pop] You. Check your left sock.
 
-There was a hole in my left sock. I hadn't noticed it until that second. [sfx: heartbeat_slow]
+N: I looked. A hole, at the big toe. [sfx: heartbeat_slow]
 
-Three more texts. [sfx: message_pop] First the hall lights go out. Then the dog in five B stops barking. Then the chat.
+M: First, the hall goes dark, door by door. The dog downstairs stops mid-bark. The office types for a full minute.
 
-The building chat. Thirty-eight members. Pinned at the top, from Management: Roof closed for repairs. Do not go up.
+O: [sfx: whoosh] Roof closed. Padlocked. Only the office has the key.
 
-The roof door has a padlock, and only Management has the key. I told myself it was a prank.
+N: My door's the last one before the roof stairs. [sfx: drone]
 
-Two oh nine. [sfx: click] The light under my door clicked off. [sfx: click] Then the next door's. [sfx: click] Then the next.
+N: Then the far end of the hall went dark. [sfx: click] Then the next light. [sfx: click] Then mine. [sfx: click]
 
-Two eleven. The dog in five B was barking. It stopped halfway through a bark. [pause: 0.3]
+N: Downstairs, the dog stopped mid-bark.
 
-Two fourteen. [sfx: phone_buzz] My phone buzzed. Management: Gas leak on floors one to five. Everyone go up to the roof now. The door is open. [sfx: glitch]
+N: Then the office started typing. For a full minute. [sfx: clock_ticking] [pause: 1.0]
 
-The replies came in a flood. [sfx: notify] On my way. Bringing the twins. Four C: is this real? Management: Go now.
+N: [sfx: stinger] Two fourteen. O: [sfx: phone_buzz] Gas leak. Everyone up to the roof. The door is open.
 
-Doors opened all along my hall. [sfx: footsteps] Footsteps went past my door, every set of them going up. Nobody was running.
+D: Everyone up! L: Why up? You go out in a gas leak. O: Stairwell's full of gas. Go now. [sfx: notify x4]
 
-Then a knock. [sfx: knock] Mr. Hale from six B. Nora, it's gas. Come on. He sounded completely calm.
+N: Thirty-seven neighbours replied, on my way. Everyone but me.
 
-I didn't open. Under the message it said: seen by thirty-seven. I'm the thirty-eighth. [sfx: heartbeat_fast]
+N: Then feet went past my door, up the roof stairs. [sfx: footsteps] Nobody ran.
 
-Management tagged me. [sfx: notify] Six A, you're the last one. The roof door locks at two thirty.
+[sfx: knock3_slow] A: Tess. It's Abel, from next door. Everyone is waiting for you.
 
-Then nothing. Thirty-seven people on the roof, right above my ceiling, and not a single sound. [sfx: drone] [pause: 1.2]
+N: I didn't open. I'd counted thirty-eight sets of feet. [sfx: heartbeat_fast]
 
-At two twenty-nine I called my own number. Somewhere above the ceiling, very faintly, my ringtone started playing. [sfx: phone_buzz_long @0.3]
+N: The office tagged me. O: [sfx: notify] Last one. The roof locks at two thirty.
 
-It stopped. The clock changed to two thirty. [sfx: tick] [pause: 0.8]
+D: its so quiet up here. N: I typed, Dee? Mrs. Lind? [sfx: message_send x2] Seen. Nobody answered.
 
-A new text from my own number. [sfx: message_pop] Dated today. Two thirty-one a.m. I went. Now you have to. [pause: 0.3]
+N: Then one footstep, right above my bed. [sfx: impact @-8 dB] [pause: 2.8]
 
-Footsteps came down from the roof. [sfx: footsteps] One set. They stopped at my door. Two feet in the gap underneath. In socks. The left one had a hole. [pause: 0.3]
+N: I called the gas line. G: No leak reported at that address.
 
-My phone lit up one last time. [sfx: typing] Open up. It's just me. [sfx: stinger @0.2]
+N: Then I called my own number. It rang. Up on the roof, faintly, my ringtone was playing. [sfx: ringtone_muffled] [sfx: tick] [pause: 0.7]
+
+N: At two thirty-one, the minute on the first text, a new one came in. M: [sfx: message_pop] I went. Now you have to. [sfx: glitch]
+
+N: And in the building chat, the office had a new name. Me. [sfx: glitch]
+
+N: One set of feet came down. [sfx: footsteps] They stopped at my door. I lay flat and looked under. Socks. A hole at the left big toe. [sfx: heartbeat_fast, stops] [pause: 1.6]
+
+N: My phone lit up beside me. M: [sfx: notify] Please. I'm begging you. Open up. It's just me. [sfx: stinger] [pause: 0.5]
 ```
 
-Timed silences for TTS: 0.3 s after the dog stops (0:43), **1.2 s of dead air at 1:17** (the roof), 0.8 s on the clock flip (1:25),
-0.3 s before the door shot (1:32) and before the final message (1:39).
+Timed silences (in lines.py as `~` entries): 1.0 s of typing dots at 0:34.4, **2.8 s of dead air at 1:06.1** (the
+footstep above), 0.7 s on the 2:30 flip at 1:16.1, 1.6 s held on the sock at 1:29.3, 0.5 s before the hard cut.
 
-Open loops at the cut (3): who or what is on the roof; who unlocked the padlock / is Management real; is the thing at
-the door "me", and does Nora open. Closed before 50%: is the text really from her (0:18), and will the predictions come true (0:35-0:43).
+Open loops at the cut (2, standalone): what is at the door, and does Tess open; what happened to the 37 on the roof.
+Closed: is the text really from her (0:14); will the predictions come true (0:27-0:35); is the office real / who has the
+padlock key (1:21, the office was "me"); where is the "me" who sent it (1:15, the roof).
+
+Jolts (new anomaly, order, number, count or punch-in; word-anchored from the measured stamps): 0.0, 2.7, 3.9, 8.3,
+9.7, 10.4, 12.9, 14.7, 15.9, 18.1, 20.3, 22.1, 22.9, 25.5, 28.4, 29.4, 30.0, 31.5, 33.1, 35.4, 36.2, 38.4, 39.6, 40.5,
+42.2, 44.4, 47.3, 49.7, 50.1, 50.3, 52.3, 55.2, 56.4, 57.4, 60.0, 62.0, 63.0, 64.6, 68.9, 70.0, 72.1, 73.9, 76.1, 76.8,
+79.9, 82.8, 83.8, 85.3, 87.0, 88.1, 90.8, 92.2, 92.7. Median gap 1.7 s (PLAYBOOK Shorts 2.5-3.5); longest 4.4 s
+(3.9 -> 8.3, inside the warning's first sentence, covered by two punch-ins) and 4.2 s (the deliberate footstep hold,
+64.6 -> 68.9). No dry stretch over 5 s.
 
 ## Shot list
 
-Cast: `horror/Protagonist` (Nora, 6A, top floor) and `horror/Neighbour` (Mr. Hale, 6B, `expr: blank` throughout, never `smile`).
-Phone scenes use `horror/HandPhone` full frame, `cy` 0.585, `phoneWidth` 0.68, with `horror/Bedroom` (`lamp` 0.3, `rain`) as a blurred
-layer behind it (`blur` 10, `opacity` 0.6), and `horror/Vignette` on top. Two threads keep their history across scenes:
-**"Me"** (header initials "N", the same avatar as Nora's own; incoming messages are grey/left because they arrive *from* her number)
-and **"Wren House Residents · 38 members"** (members: Management `#c9a227` initials "WH", 3A Dee, 2D Sam, 4C Mrs Okafor, 6B Hale).
-Night grade blue-teal; red only on the 2:14 flash and the final bubble's glitch. Captions: core track, `y` 0.15, `fontSize` 76,
-`maxWords` 3, highlight `#ff4b55`.
+Cast: `horror/Protagonist` (Tess, 6A, the last flat before the roof stairs) and `horror/Neighbour` (Mr. Abel, 6B, `expr:
+blank` throughout). Phone scenes: `horror/HandPhone` full frame, `cy` 0.585, `phoneWidth` 0.68, phone props nested
+under `phone` (`phone.mode`, `phone.chat`, `phone.lock`); `horror/Bedroom` (`lamp` 0.1-0.25, `rain`) blurred behind (`blur`
+10, `opacity` 0.6); `horror/Vignette` on top. Threads: **"Me"** (`chat.dm` "Me", avatar initials "T" in olive #55704f,
+i.e. her own avatar) and **"Ostrel House Residents · 39 members"** (office #4f7f86 "OH", Dee, Mrs. Lind, older bubbles
+from Jonah 1B and Marta 5A at negative `at`). Night grade blue-teal; red only on the 2:14 flash and the alert bubble.
+Captions: core track, `y` 0.12, `fontSize` 64, `maxWords` 3, sentence case, emphasis words in `#ff4b55`.
 
-| # | t_start | t_end | Shot type | Visual (kit vocabulary) | Camera move | SFX |
+The storyboard (`storyboard.json`, 29 scenes) is generated from these rows; scene start = 0.10 s before the anchor word.
+
+| # | Scene | Start | Dur | Shot | Visual (kit vocabulary) | Camera |
 |---|---|---|---|---|---|---|
-| 1 | 0.0 | 2.6 | Phone close (cover frame) | `HandPhone` `mode: lock`, `lock.time` "1:52", `lock.date` "Wed, Nov 11"; notification `{app: "Messages", title: "Me · Thu Nov 12 · 2:31 AM", text: "At 2:14 the building chat will tell everyone to go to…"}` present at t=0; `vibrate` at 0.2 | Static, then slow push 1.00→1.06 | notify @0.2 |
-| 2 | 2.6 | 5.0 | Phone insert | Same lock screen; `glitch` on the notification timestamp at 3.4 (amount 0.4) as "tomorrow" is spoken | Punch-in to the timestamp row (1.06→1.25) | glitch (soft) @3.4 |
-| 3 | 5.0 | 10.0 | Phone chat | `screens` switch to `mode: chat`, thread "Me", `dayLabel` "Thu, Nov 12 · 2:31 AM"; message 1 pops in word-anchored at "At two fourteen"; `tremble` 2 | Slow push 1.0→1.05 | message_pop @5.1 |
-| 4 | 10.0 | 12.4 | Character MCU | `Protagonist` `pose: phone`, `light: phone`, `expr: suspicious`→`worried` at 11.3; `Bedroom` background `lamp` 0.3 | Static | none |
-| 5 | 12.4 | 16.0 | Phone chat | Thread "Me": `draft` "who is this?" typed in the input box (`taps` on the keys 12.6-13.4); before any send tap, incoming bubbles "You." at 14.2 and "Check your left sock." at 15.0 while the draft stays unsent | Static, `tremble` 3 | typing @12.6, message_pop @14.2, message_pop @15.0 |
-| 6 | 16.0 | 18.2 | Insert (POV down) | `Bedroom` floor crop under `Darkness` (`x` 0.5, `y` 0.8, `radius` 0.25, phone-light pool); simple sock-foot shape with a hole at the left big toe (**kit gap**: one SVG prop "SockFoot"; fallback: hold on Nora's face) | Tilt-down feel: y-pan 0→-80 px | heartbeat_slow @16.4 |
-| 7 | 18.2 | 20.0 | Character CU | `Protagonist` `expr: scared`, `lookY` 0.6 (looking down), `blink` false | Snap zoom 1.0→1.12 at 18.3 | none |
-| 8 | 20.0 | 25.0 | Phone chat | Thread "Me": 3 grey bubbles at 20.9 / 22.2 / 24.1, word-anchored; panel resets to show only these 3 | Slow push | message_pop x3 |
-| 9 | 25.0 | 30.0 | Phone chat (thread switch) | Hard switch to "Wren House Residents · 38 members"; pinned `kind: alert` bubble from Management "Roof closed for repairs. Do not go up." with older bubbles at negative `at` (a lost-parcel note, a laundry reminder) to sell a normal chat | Whip transition in (core `whip`), then static | whoosh @25.0 |
-| 10 | 30.0 | 32.6 | Wide set | `Stairwell` `floor` "6", `exit` on, the roof door at the top of the flight read as locked (**kit gap**: a padlock glyph on the Stairwell's top door; fallback: `Darkness` pool on the top step) | Slow push up the stairs (y-pan) | drone (low, starts) |
-| 11 | 32.6 | 35.0 | Character MS | `Protagonist` `pose: idle`, `expr: worried`→`neutral` at 33.8 ("a prank"); `Bedroom` `lamp` 0.4 | Static | clock_ticking (low) |
-| 12 | 35.0 | 39.0 | Wide set | `FrontDoor` `hallLight` on→off at 35.8 (strip under the door goes dark); two more click-offs shown as the hall glow at the door edge dimming at 37.0 and 38.0 (`flicker` blackouts) | Static, tiny shake at each click (camera `shake` amplitude 4) | click @35.8, @37.0, @38.0 |
-| 13 | 39.0 | 43.0 | Wide set | `Hallway` `lights` 1 (dim), `endDoor` on (5B is one floor down, so this is the sound shot); `flicker` 0.2; at 41.6 everything freezes and `flicker` stops | Slow push, hard stop at 41.6 | (bark is narration only; **new SFX wanted**: dog_bark, cut off mid-bark at 41.6. Fallback: room tone drops out) |
-| 14 | 43.0 | 46.6 | Phone chat (TURN) | `HandPhone` thread "Wren House Residents", `vibrate` at 43.4 (amount 1); alert bubble from Management pops at "Gas leak"; full-frame colour flash: `RedText` "2:14" `style: flash` `at` 43.1 `duration` 0.6 (the episode's only RedText) + `Glitch` cue 43.1 | Snap zoom 1.0→1.15 at 43.1, settle | phone_buzz @43.3, glitch @49.4 |
-| 15 | 46.6 | 50.0 | Phone insert | Punch-in on "The door is open." with the pinned "Do not go up." still visible above it (rule inversion read in one frame) | Slow push 1.15→1.3 | none |
-| 16 | 50.0 | 55.0 | Phone chat (chorus) | 4 replies word-anchored (3A Dee, 2D Sam, 4C Mrs Okafor, Management); `unread` badge counts 1→9 with `unreadFrom` 50.0; `typing` dots from 3 members between bubbles | Static, `tremble` 4 | notify @50.2, message_pop per bubble |
-| 17 | 55.0 | 57.6 | Wide set | `FrontDoor`, `feet: [55.6, 57.4]` (shadows pass left to right under the door, several in a row), `hallLight` back on | Static | footsteps @55.4 (steady walking pace, not running) |
-| 18 | 57.6 | 60.0 | Character CU | `Protagonist` `expr: terrified`, `pose: cover` at "Nobody was running" | Slow push | heartbeat_slow |
-| 19 | 60.0 | 62.4 | Wide set | `FrontDoor` `knocks [60.3]`, `chain` on, `handle [{at: 61.0, duration: 0.6}]` | Shake at knock (amplitude 10) | knock @60.3 |
-| 20 | 62.4 | 64.0 | Peephole POV | `Peephole` `figure: neighbour`, `expr: blank`, `talk [[62.5, 63.6]]`, `lean` 0.2, `flicker` 0.1 | Fisheye hold, slight breathing scale 1.0→1.02 | none |
-| 21 | 64.0 | 68.0 | Phone chat | Back to the Management alert; small grey footer "Seen by 37" appears at 65.6; member count "38 members" stays visible in the header | Punch-in on "Seen by 37" | heartbeat_fast @66.8 |
-| 22 | 68.0 | 73.0 | Phone chat | Management bubble "@6A you're the last one. The roof door locks at 2:30." with the @6A mention highlighted; status clock 2:22 | Slow push | notify @68.2 |
-| 23 | 73.0 | 78.2 | Wide set (SCARIEST IMAGE, held still) | `Bedroom` `lamp` 0.15, framed on the **ceiling**: `Darkness` (`x` 0.5, `y` 0.15, `radius` 0.35, `darkness` 0.85); `Protagonist` small in the lower frame, `silhouette` false, `lookY` -1, `expr: terrified`, `blink` false. No motion from 74.0 to 78.2 (≈4 s hold) | Locked-off, no move | drone (swells at 73.0, cuts out at 76.9), then 1.2 s dead air |
-| 24 | 78.2 | 80.8 | Phone call | `HandPhone` `mode: call`, `call.name` "Me (mobile)", `call.label` "Calling…", status clock 2:29 | Static | none (ring is heard off-screen next) |
-| 25 | 80.8 | 83.2 | Character CU | `Protagonist` `pose: ear`, `lookY` -1 (eyes to the ceiling), `expr: shocked`; `Heartbeat` `bpm` 90→120 | Slow push | phone_buzz_long @81.1 at low gain, low-passed (ringtone through the ceiling; **new SFX wanted**: ringtone_muffled) |
-| 26 | 83.2 | 86.0 | Phone insert | Call screen → "Call ended"; status clock flips 2:29→2:30 at 84.6 | Static, then 0.8 s hold | tick @84.6 |
-| 27 | 86.0 | 89.0 | Phone chat (TWIST) | `screens` back to thread "Me"; new `dayLabel` "Today · 2:31 AM" under the old "Thu, Nov 12 · 2:31 AM" (both timestamps visible at once) | Push 1.0→1.1 | message_pop @86.4 |
-| 28 | 89.0 | 92.0 | Phone close | Grey bubble "I went. Now you have to." pops at "I went"; the panel is cleared to just this bubble and the first warning above it; `Glitch` cue at 90.6 (amount 0.3) | Snap zoom onto the bubble at 89.2 | glitch (soft) @90.6 |
-| 29 | 92.0 | 94.6 | Wide set | `Stairwell` `floor` "6", `flicker` 0.3; one silhouette descends from the roof door (`Hallway`-style `figure` 0..1 is not in Stairwell, so use a `horror/Darkness` pool + footsteps; **kit gap**: optional Stairwell `figure`) | Slow pull back | footsteps @92.2 (one set, slow) |
-| 30 | 94.6 | 97.0 | Wide set | `FrontDoor` `feet: true` from 95.6 (two feet stop centred under the door), `hallLight` off so only the feet shadow and a thin phone-glow line read; `chain` on | Slow push toward the gap | none (room tone) |
-| 31 | 97.0 | 99.0 | Insert (door gap) | Tight crop on the gap under the door: two sock-feet, left sock with the hole (same "SockFoot" prop as shot 6, mirrored; fallback: `feet` shadow + `Darkness` and let the narration carry "a hole") | Locked-off | heartbeat_fast (stops at 98.8) |
-| 32 | 99.0 | 101.6 | Phone chat (CLIFF, bookend) | `HandPhone` thread "Me" (the same header and avatar as shot 1): `typing [{from: "Me", at: 99.2, until: 99.9}]`, then "Open up. It's just me." pops at 100.1; `vibrate` at 100.1; `Glitch` cue 101.2 | Static, `tremble` 5 | typing @99.2, stinger @100.3 |
-| 33 | 101.6 | 102.2 | Cut to black | Core `dipBlack` ends the video; no card, no text | none | stinger tail |
+| 1 | s01_cover | 0.00 | 2.62 | Phone close (cover) | `phone.mode` lock, 1:52; two notifications at `at` -1 (visible in frame 0); `vibrate` 0.15; text layer "SENT 2:31 AM" red, frame 0 only | push 1.00 -> 1.04 |
+| 2 | s02_punch | 2.62 | 0.94 | Phone insert | Same lock; HandPhone `glitch` 0.25 (whole phone, acceptable with the punch-in) | snap 1.04 -> 1.30 onto the notifications |
+| 3 | s03_warning | 3.56 | 6.69 | Phone chat | "Me" thread, `dayLabel` "Today 2:31 AM", 3 bubbles at "At" / "Don't" / "Not" | punch at "gas", "Don't", "beg" |
+| 4 | s04_proof | 10.26 | 3.88 | Phone chat | `chat.draft` "who is this?" (static string; `taps` animate the thumb), "You." + "Check your left sock." pop while the draft stays unsent | push 1.02 -> 1.08 |
+| 5 | s05_sock | 14.13 | 1.46 | Insert | **SockFeet** inline SVG (front-low view, the same art as shot 28), pale toe in the hole; `Darkness` pool | creep toward the hole |
+| 6 | s06_predictions | 15.59 | 6.26 | Phone chat | 3 bubbles at "First" / "The dog" / "The office" | push 1.00 -> 1.06 |
+| 7 | s07_pinned | 21.85 | 3.55 | Phone chat (thread switch) | `whip` in; `chat.pinned` {from office, text "Roof closed. Padlocked. Only the office has the key."} pops at the line; older bubbles incl. the 1:49 all-clear | punch to the pinned bar at "Padlocked" |
+| 8 | s08_roofdoor | 25.40 | 1.91 | Wide set | `Stairwell` floor 6, `exit`; inline SVG "ROOF" sign + **Padlock** on the fire door (~x 330, y 930), padlock sways | push up and left onto the padlock |
+| 9 | s09_lights | 27.31 | 3.13 | Wide set | `FrontDoor` `hallLight` track 0.85 -> 0.55 -> 0.25 -> 0 at "dark" / "light" / "mine" (far glow, nearer, then her own strip) | tiny shake on each click |
+| 10 | s10_dog | 30.44 | 1.83 | Character MCU | `Protagonist` `exprs` worried -> scared at "stopped", `lookX` 0.6, `blink` false; dark Bedroom | snap zoom at "stopped" |
+| 11 | s11_typing | 32.27 | 3.05 | Phone chat | `chat.typing` office from "typing" through the 1.0 s silence; clock 2:13 | slow push to the header |
+| 12 | s12_turn | 35.32 | 4.11 | Phone chat (TURN) | clock 2:14; `RedText` "2:14" flash 0.6 s + `Glitch`; alert bubble at "Gas"; `vibrate` | snap 1.15, then punch on "The door is open." with the pinned bar in frame |
+| 13 | s13_chorus | 39.43 | 7.75 | Phone chat | CAPS chorus, Mrs. Lind's typing dots, system line "37 replied: On my way"; `unread` 5 base with `unreadFrom` 0 | push 1.00 -> 1.06 |
+| 14 | s14_feet_pass | 47.19 | 2.85 | Wide set | `FrontDoor` hall dark (`hallLight` 0) with four 0.45 s pulses to 0.5 (phone torches), `dark` 0.35 | slow push toward the gap |
+| 15 | s15_knock | 50.04 | 0.46 | Wide set | `FrontDoor` `knocks` [0.08], `handle` jiggle, chain on | shake 10 px |
+| 16 | s16_peephole | 50.50 | 3.39 | Peephole POV | `Peephole` neighbour, `expr` blank, `talk` for the whole line, `exposure` 0.7 (hall is dark), `flicker` 0.3 | hold, creep in from "Everyone" |
+| 17 | s17_count | 53.89 | 2.41 | Character CU | `Protagonist` terrified, `blink` false; `Heartbeat` from "thirty-eight" | snap zoom on "thirty-eight" |
+| 18 | s18_tagged | 56.30 | 3.50 | Phone chat | "@6A Last one. The roof locks at 2:30." (plain text mention), clock 2:22 | push |
+| 19 | s19_quiet | 59.80 | 4.46 | Phone chat | Dee lowercase bubble; my "Dee?" / "Mrs Lind?" (blue, `me`); system "Seen"; no typing | push |
+| 20 | s20_above | 64.25 | 4.50 | Character CU (SCARIEST IMAGE, held) | `Protagonist` terrified, `lookY` -1, scale 1.15; `Darkness` pooled at the top; `particles` dust from the footstep; nothing moves after the thud | locked; 6 px shake on the thud only |
+| 21 | s21_gasline | 68.75 | 3.23 | Character MS | `Protagonist` `pose` ear, worried -> scared at the answer; callout `lowerThird` "Gas Emergency Line" | push |
+| 22 | s22_calling | 71.98 | 1.84 | Phone chat | "Me" thread, system "Calling Me…", clock 2:29 (no CallScreen: the kit only draws incoming calls) | push |
+| 23 | s23_ringtone | 73.83 | 2.24 | Character CU | `Protagonist` ear, `lookY` -1, shocked; top `Darkness`; `Heartbeat` 95 -> 125 | push 1.05 -> 1.15 |
+| 24 | s24_230 | 76.06 | 0.60 | Phone insert | System "Call ended", clock 2:30 (own scene, so the status clock can flip) | static |
+| 25 | s25_twist | 76.67 | 4.53 | Phone chat (TWIST) | Panel cleared to the first warning + system "Today 2:31 AM" + "I went. Now you have to."; glitch 0.9 s after the bubble | snap onto the bubble |
+| 26 | s26_rename | 81.19 | 2.54 | Phone chat | System "Ostrel House Office changed their name to Me"; `chat.pinned.from` "Me" (edited); glitch | punch onto the system line |
+| 27 | s27_door | 83.74 | 2.45 | Wide set | `FrontDoor` `hallLight` 0.4 (EXIT glow), `feet` from "stopped" | slow push to the gap |
+| 28 | s28_gap | 86.19 | 4.56 | Insert (S9 proof, held) | Door-gap: **SockFeet** inline SVG fades in at "under"; the door's bottom edge hides everything above the toes; warm line of hall light | creep onto the hole at "hole" |
+| 29 | s29_cliff | 90.75 | 4.29 | Phone close (CLIFF, bookend) | Lock screen in the frame-0 layout, clock 2:33; new Me notification at "Please"; `vibrate`; glitch 0.35 s before the end; hard cut, no card | push 1.04 -> 1.10 |
 
-Picture changes: 33 shots in 102 s, one every ~3.1 s. Phone inserts never more than 13 s apart (template rule: one at least every ~25 s).
-Kit gaps (none block the build, all have fallbacks): a "SockFoot" SVG prop (shots 6, 31), a padlock glyph on the Stairwell's top door (shot 10), an optional
-Stairwell `figure` (shot 29), and two SFX files: `dog_bark` (cut off mid-bark) and `ringtone_muffled`.
+Picture changes: 29 scenes plus 60+ in-scene events (bubbles, punch-ins, swaps). `check_storyboards.py`: every
+component registered; the only hold over 3 s is the deliberate B9 hold in s20 (4.0 s).
+
+Kit gaps, all closed without touching the locked horror kit:
+- **SockFeet** (required, no fallback): inline SVG in `gen_storyboard.py` (`sock_feet()`), the same front-low art in
+  s05 and s28; checked in stills (`out/stills/ttft_v3.jpg`).
+- **Padlock + ROOF sign**: inline SVG layers over `Stairwell` (s08).
+- **Outgoing / ended call**: system lines in the "Me" thread (s22, s24) instead of `CallScreen`.
+- **2:29 -> 2:30 flip**: split into two scenes (s22 / s24).
+- **Ceiling**: zero-asset (Protagonist `lookY` -1 under a top `Darkness`, plus dust `particles`).
+- **SFX**: `ringtone_muffled` is new, to be synthesized on the Spark (spec in `storyboard.json` `_sfx_new`). `dog_bark` is
+  dropped (the bark is told, not heard). All other cues exist in `studio/public/sfx`. Cues live in `_sfx_cues` for the
+  mixer, not in scenes (horror episodes bake SFX into `mix.wav`).

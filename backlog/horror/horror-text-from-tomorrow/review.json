@@ -1,0 +1,84 @@
+{
+ "episode": "horror-text-from-tomorrow",
+ "reviewed_at_utc": "2026-11-01T09:45Z",
+ "scores_before": {"retention": 7, "reference": 6, "originality": 7, "producibility": 7},
+ "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+ "score_notes": {
+  "retention": "Hook front-loads the impossibility ('My own number texted me. Sent at two thirty-one. It was one fifty-two.', 13 words / 3.4 s) on a cover that shows 1:52 against a red 2:31 and the office's all-clear, which the warning contradicts by 0:06. Median jolt gap is 1.7 s, the longest 4.4 s. Three distinct on-screen predictions tick off before 2:14. 'Not even if they beg' is paid by the last line. The scariest image moved to a concrete contact (one footstep above the bed, dust, 2.8 s dead air) at 68-72%, and the holed sock under the door is held ~3.6 s at 92-95%. Remaining risks: the 2:14 order lands at 37% (S6 median 43-55%), and the name checks come at 65%, earlier than TEXT-FIGURE's 88%. 95 s is above the ~60 s chat ideal but inside the 50-100 s Shorts band.",
+  "reference": "Alignment table rebuilt from the measured 95.0 s cut: every row gives our %, the reference's % and the PLAYBOOK slot, and marks 'device only' where a SIEGE-OVERLAY (357 s) position isn't comparable; two misses are marked as early. All cited timestamps re-checked against research/corpus/horror/{gzXY52lcAcI,T42u5xhrq-0,7654526047005723937}.md. Typography ladder (CAPS chorus -> broken lowercase -> calm sentence-case 'Me'), voice swap (processed af_heart on all five 'Me' lines, the office on bm_george), proxy objection answered, real-authority lifeline, authority in frame 0. Front-matter numbers are measured, not planned.",
+  "originality": "Gate PASS (scripts/originality_check.py vs research/corpus + research/library/transcripts). Narration-only overlap with every sibling script and episode is <=0.37% of 5-grams; the only runs over 5 words are shot-list boilerplate ('HandPhone full frame cy 0.585 phoneWidth 0.68') and a generic 6-word phrase shared with horror-two-emergency-alerts ('the far end of the hall'). Names changed: Tess, Mr. Abel, Mrs. Lind, Ostrel House, 'Ostrel House Office' (teal OH avatar). The publishing-spacing rule is in the front matter. Still a building-chat story with a fake authority, so it must not ship next to new-building-rules, two-emergency-alerts or pinned-rules.",
+  "producibility": "Timeline is measured: Kokoro-82M on the Spark CPU (lines.py -> tts_measure.py -> tts_durations.json), 331 words, 95.0 s, 247 wpm while speaking. storyboard.json is generated (gen_storyboard.py), validates on the Spark (Node 22, src/cli/validate.ts: 29 scenes, 95.13 s, 325 caption words), and check_storyboards.py shows every component registered and one deliberate 4.0 s hold (B9). Kit gaps closed without touching the locked horror kit: SockFeet and Padlock/ROOF as inline SVG (checked in Spark stills out/stills/ttft_v1.jpg, ttft_v3.jpg), outgoing/ended call as chat system lines, the 2:29->2:30 flip as a scene split, the hall kept dark with torch pulses. Not done: mix.wav (voice FX + SFX bake on the Spark), ringtone_muffled synthesis, and a full render."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Count bug: header '39 members' (office + 38 residents); '37 replied: On my way' (everyone but Tess); she counts 38 sets of feet past the last door before the roof stairs. The twins line was cut",
+   "Timeline bug: one rule. Every 'Me' text is stamped 2:31 (the minute it was sent). The first arrives at 1:52; at 2:31 a second lands under the same stamp (both visible in s25). The warning is revealed as a lure: same minute, same sender",
+   "Dry stretch 0:20-0:35: the prank line is cut; padlock folded into the pinned rule; predictions land as clicks / bark / typing between 0:27 and 0:35. Longest jolt gap now 4.4 s",
+   "Third prediction replaced: 'The office types for a full minute', shown as 'Ostrel House Office is typing…' through a 1.0 s silence at 2:13; 2:14 is the fourth",
+   "'Not even if they beg' paid by the final line: 'Please. I'm begging you. Open up. It's just me.'",
+   "Scariest image: one footstep right above her bed, dust sifting down, 2.8 s dead air at 68-72%; the SockFeet prop is built (inline SVG, no fallback) and the door-gap feet are held ~3.6 s at 92-95% as the S9 proof",
+   "Continuity: the hall stays dark after prediction 1 (footsteps shown as phone-torch pulses under the door; 0.4 EXIT glow only for the final feet). The darkness travels far end -> next light -> mine, toward her door"
+  ],
+  "reference": [
+   "Count logic made airtight and made to reveal something (37 replies vs 38 sets of feet = one extra walker, who comes back down); no member-count delta",
+   "Light ladder reversed so her door goes dark last; s09 hallLight track steps 0.85 -> 0.55 -> 0.25 -> 0 on the three words",
+   "Typography ladder: 'EVERYONE UP', 'why UP?? you go OUT in a gas leak', 'GO NOW.' in caps; Dee's broken 'its so quiet up here' at 1:00; 'Me' stays calm sentence case",
+   "Voice swap: 'Me' = af_heart 1.10 with pitch -1 st, dry, lowpass 6 kHz on all five lines from 0:04; the office has its own voice (bm_george); neighbours and the gas line each get a distinct Kokoro voice (lines.VOICES / FX, storyboard _voices)",
+   "Date logic: the first text stamped 2:31 the same night (39 min ahead), the twist bubble under the same stamp; the beg paid at the cliff",
+   "B9 hold now has a concrete contact (one footstep above the bed) plus two unanswered name checks ('Dee?' 'Mrs Lind?' -> Seen) before it; dead air stretched to 2.8 s",
+   "Viewer proxy: Mrs. Lind 'Why up? You go out in a gas leak.' -> office 'Stairwell's full of gas. Go now.'; real authority: the gas line says 'No leak reported at that address' before she calls her own number",
+   "Alignment table re-cited against measured positions with ref % and PLAYBOOK slots; non-comparable rows marked 'device only'; early rows marked",
+   "Authority in frame 0: the office's 'Gas check done. All clear.' sits under the Me notification on the cover, contradicted by 0:06",
+   "Front matter is measured: 331 words, 95.0 s, 209 wpm overall / 247 speaking, hook 13 words / 3.4 s. The 1-bubble/s claim is dropped (this is narrated-over-chat)",
+   "Length/number density: 373 -> 331 words, 102 -> 95 s; spoken numbers 20 -> 8 (5.1/min). 2:09/2:11/2:13/2:22/2:29 are status-clock only; Mrs. Lind by name, no 'floors one to five', no second 5B. Not reached: the 80-85 s target"
+  ],
+  "originality": [
+   "Timestamp payoff fixed: lock 1:52 with a notification stamped 2:31 the same night; the twist at 2:31 shows one identical stamp on both bubbles",
+   "Count logic: '39 members', a reply counter that excludes Tess ('37 replied: On my way'), and the feet count; VO and shots s13/s17 match",
+   "Sameness: protagonist Tess, neighbour Mr. Abel, doubter Mrs. Lind, building Ostrel House, authority 'Ostrel House Office' (teal #4f7f86, OH); publishing-spacing rule recorded in the front matter"
+  ],
+  "producibility": [
+   "Timing re-measured with Kokoro on the Spark CPU; every shot boundary is anchored to a word (LEAD 0.10 s) and regenerates from tts_durations.json",
+   "Shot 1: the notifications use at -1, so they are visible in frame 0 (checked in the still)",
+   "SockFeet: one inline SVG (front-low view, hole at the left big toe, mirrored), used in s05 and s28; in s28 the door's bottom edge covers everything above the toes and the hall line lights them",
+   "Calls: 'Calling Me…' / 'Call ended' system lines in the Me thread (no CallScreen); the gas-line call is a Protagonist ear shot with a lowerThird",
+   "2:29 -> 2:30: separate scenes s22 / s24",
+   "Padlock + ROOF sign: inline SVG over the Stairwell fire door (s08)",
+   "Pinned rule via chat.pinned (PinnedBar), visible above the 2:14 alert in s12 and renamed 'PINNED · Me' in s26",
+   "Footsteps under the door: hallLight pulses (phone torches) with the hall dark; no static feet window",
+   "Final feet: hallLight 0.4 (EXIT glow)",
+   "Stairwell figure dropped; its time went to the door and the gap insert"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Hook front-loads the anomaly; frame-0 red 'SENT 2:31 AM' plus the stamp in the notification title",
+  "'My sent folder was empty' cut; the proof is the reply arriving before send",
+  "Fragments merged in n11/n17/n18; narrator at 1.30",
+  "Standalone with 2 loops: the office/padlock loop is closed by the rename to 'Me'",
+  "Hale's 'he sounded calm' replaced by too-polite wording in the line itself",
+  "Glitch cue timing typo gone (cues are generated from word anchors)",
+  "Gas-leak logic used as a clue (Mrs. Lind's objection)",
+  "Door-gap plausibility: 'I lay flat and looked under.'",
+  "Own-number call: 'It rang.' before the ringtone",
+  "Bookend: the last shot is the frame-0 lock layout with a new Me notification",
+  "chat.unread base 5, Peephole exposure 0.7, @6A as plain text, phone props nested under HandPhone.phone, dog_bark dropped, ringtone_muffled spec'd for Spark synthesis"
+ ],
+ "not_applied": [
+  "Runtime is 95.0 s, not the 80-85 s the reference lens asked for (inside the 50-100 s Shorts band, >= 61 s for TikTok rewards)",
+  "The 2:14 turn lands at 37% (S6 43-55%); the threat crossing into her space (feet past the door) is at 50%",
+  "Sentence median is 4 words, punch share 52% (chat-like); narrator lines were merged where it didn't cost a spike",
+  "A dedicated Bedroom ceiling prop was not built (zero-asset alternative used); kit is locked"
+ ],
+ "originality_check": {
+  "command": "python3 scripts/originality_check.py backlog/horror/horror-text-from-tomorrow/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "sibling_overlap_max_5gram_pct": 0.37,
+  "sibling_longest_run_story_text": "6 words ('the far end of the hall', horror-two-emergency-alerts)"
+ },
+ "storyboard": {
+  "file": "backlog/horror/horror-text-from-tomorrow/storyboard.json",
+  "validate": "ok (Spark, Node 22, studio/src/cli/validate.ts): 9:16 30fps 29 scenes 95.13s captions=325 words",
+  "check_storyboards": "all components registered; max hold 4.0 s (s20, the deliberate B9 hold); NO AUDIO until mix.wav is built on the Spark",
+  "stills": ["out/stills/ttft_v1.jpg", "out/stills/ttft_v2.jpg", "out/stills/ttft_v3.jpg"]
+ }
+}
