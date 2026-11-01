@@ -1,0 +1,3271 @@
+{
+ "version": 1,
+ "id": "explainer-short-blue-whale-scale",
+ "title": "5 Rounds Against A Blue Whale (You Win One)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "00_hook",
+   "duration": 2.91,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 25,
+     "rays": 8,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "36%",
+     "width": 1080,
+     "height": 320,
+     "props": {
+      "pxPerM": 36,
+      "amp": 0.5,
+      "idle": true
+     },
+     "z": 2,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.2
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "90%",
+     "y": "41%",
+     "width": 39.06,
+     "height": 63.0,
+     "props": {
+      "pose": "shrug",
+      "pxPerM": 36
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 300 300\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"290\" y1=\"10\" x2=\"20\" y2=\"290\" stroke=\"#ffffff\" stroke-width=\"4\" stroke-dasharray=\"12 10\"/></svg>",
+     "x": "82%",
+     "y": "49%",
+     "width": 150,
+     "height": 150,
+     "z": 4,
+     "depth": 0
+    },
+    {
+     "type": "circle",
+     "x": "70%",
+     "y": "58%",
+     "width": 360,
+     "height": 360,
+     "fill": "rgba(8,30,40,0.85)",
+     "stroke": "#ffffff",
+     "strokeWidth": 6,
+     "z": 5,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "70%",
+     "y": "58.5%",
+     "width": 185.535,
+     "height": 299.25,
+     "props": {
+      "pose": "point",
+      "pxPerM": 171
+     },
+     "z": 6,
+     "depth": 0,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 0 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0
+    }
+   ],
+   "notes": "Frame 0 = cover: whole whale in colour, true-scale YOU at its eye + 300 px magnifier inset. 2 text elements (score + caption).",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "underwater_rumble",
+     "at": 0.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "ding",
+     "at": 1.417,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "01_anchor",
+   "duration": 5.04,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 25,
+     "rays": 8,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "36%",
+     "width": 1080,
+     "height": 320,
+     "props": {
+      "pxPerM": 36,
+      "amp": 0.5
+     },
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1031 140\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"60,0 971,0 1031,140 0,140\" fill=\"#c98a4b\" stroke=\"#ffffff\" stroke-width=\"5\"/><line x1=\"515\" y1=\"0\" x2=\"515\" y2=\"140\" stroke=\"#ffffff\" stroke-width=\"5\"/><ellipse cx=\"515\" cy=\"70\" rx=\"64\" ry=\"26\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"5\"/><path d=\"M 40 30 Q 230 70 30 112\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"5\"/><path d=\"M 991 30 Q 801 70 1001 112\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"5\"/></svg>",
+     "x": "50%",
+     "y": "46%",
+     "width": 1031,
+     "height": 140,
+     "z": 1
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": "50%",
+     "y": "28%",
+     "width": 1008,
+     "height": 120,
+     "props": {
+      "label": "~28 M",
+      "at": 1.258,
+      "from": "left"
+     },
+     "z": 10,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "62%",
+     "width": 1000,
+     "height": 300.0,
+     "props": {
+      "text": "BIGGER WINS",
+      "at": 4.12,
+      "size": 100,
+      "color": "white",
+      "underline": false
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 0 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0
+    }
+   ],
+   "notes": "Whale (kit 28 m) at the same pxPerM as a 28.65 m court: \"as long as\" matches the picture.",
+   "camera": {
+    "preset": "drift",
+    "amount": 0.6
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.15,
+     "volume": 0.5
+    },
+    {
+     "cue": "impact",
+     "at": 4.12,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "id": "02_r1_flipper",
+   "duration": 8.22,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 40,
+     "rays": 6,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "22%",
+     "width": 1000,
+     "height": 330.0,
+     "props": {
+      "text": "ROUND 1",
+      "at": 0.0,
+      "size": 110,
+      "color": "white",
+      "underline": true,
+      "out": 1.1
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 900 260\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 0 70 C 220 20 520 30 760 90 C 860 115 900 140 890 160 C 860 185 700 190 520 185 C 320 182 140 200 0 200 Z\" fill=\"#4f6f86\"/><path d=\"M 0 200 C 140 200 320 182 520 185 C 700 190 860 185 890 160\" fill=\"none\" stroke=\"#e8f1f5\" stroke-width=\"10\"/></svg>",
+     "x": "50%",
+     "y": "42%",
+     "width": 900,
+     "height": 260,
+     "z": 3,
+     "start": 0.9,
+     "enter": {
+      "type": "slideLeft",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "31%",
+     "y": "55%",
+     "width": 325.5,
+     "height": 525.0,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 300
+     },
+     "z": 4,
+     "rotate": -90,
+     "start": 1.952,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 20 400\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"10\" y1=\"0\" x2=\"10\" y2=\"400\" stroke=\"#ffffff\" stroke-width=\"6\" stroke-dasharray=\"18 12\"/></svg>",
+     "x": "91%",
+     "y": "48%",
+     "width": 20,
+     "height": 400,
+     "z": 5,
+     "depth": 0,
+     "start": 4.028
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": "50%",
+     "y": "33%",
+     "width": 900,
+     "height": 110,
+     "props": {
+      "label": "~3 M",
+      "at": 4.028,
+      "from": "left"
+     },
+     "z": 10,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 900 260\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#dff6ff\" opacity=\"0.92\"><rect x=\"30\" y=\"105\" width=\"190\" height=\"34\" rx=\"17\"/><rect x=\"225\" y=\"92\" width=\"170\" height=\"20\" rx=\"10\"/><rect x=\"225\" y=\"128\" width=\"170\" height=\"20\" rx=\"10\"/><circle cx=\"420\" cy=\"118\" r=\"20\"/><circle cx=\"445\" cy=\"140\" r=\"16\"/><rect x=\"470\" y=\"88\" width=\"67\" height=\"12\" rx=\"6\"/><rect x=\"545\" y=\"88\" width=\"67\" height=\"12\" rx=\"6\"/><rect x=\"620\" y=\"88\" width=\"67\" height=\"12\" rx=\"6\"/><rect x=\"695\" y=\"88\" width=\"67\" height=\"12\" rx=\"6\"/><rect x=\"470\" y=\"108\" width=\"82\" height=\"12\" rx=\"6\"/><rect x=\"560\" y=\"108\" width=\"82\" height=\"12\" rx=\"6\"/><rect x=\"650\" y=\"108\" width=\"82\" height=\"12\" rx=\"6\"/><rect x=\"740\" y=\"108\" width=\"82\" height=\"12\" rx=\"6\"/><rect x=\"470\" y=\"128\" width=\"87\" height=\"12\" rx=\"6\"/><rect x=\"565\" y=\"128\" width=\"87\" height=\"12\" rx=\"6\"/><rect x=\"660\" y=\"128\" width=\"87\" height=\"12\" rx=\"6\"/><rect x=\"755\" y=\"128\" width=\"87\" height=\"12\" rx=\"6\"/><rect x=\"470\" y=\"148\" width=\"74\" height=\"12\" rx=\"6\"/><rect x=\"552\" y=\"148\" width=\"74\" height=\"12\" rx=\"6\"/><rect x=\"635\" y=\"148\" width=\"74\" height=\"12\" rx=\"6\"/><rect x=\"718\" y=\"148\" width=\"74\" height=\"12\" rx=\"6\"/><rect x=\"470\" y=\"168\" width=\"52\" height=\"12\" rx=\"6\"/><rect x=\"530\" y=\"168\" width=\"52\" height=\"12\" rx=\"6\"/><rect x=\"590\" y=\"168\" width=\"52\" height=\"12\" rx=\"6\"/><rect x=\"650\" y=\"168\" width=\"52\" height=\"12\" rx=\"6\"/></g></svg>",
+     "x": "50%",
+     "y": "42%",
+     "width": 900,
+     "height": 260,
+     "z": 6,
+     "start": 4.702,
+     "enter": {
+      "type": "fade",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "60%",
+     "width": 520,
+     "height": 96.0,
+     "props": {
+      "text": "ARM BONES",
+      "at": 4.702,
+      "size": 40,
+      "align": "center",
+      "accent": "#7fe3ff"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "66%",
+     "width": 560,
+     "height": 115.19999999999999,
+     "props": {
+      "text": "TOO SMALL",
+      "at": 6.228,
+      "size": 48,
+      "align": "center",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 0 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0,
+     "end": 7.327
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 1 : 0 YOU",
+      "at": 7.326999999999999,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 7.327
+    }
+   ],
+   "notes": "Flipper 3 m and YOU 1.75 m share pxPerM 300 (900 px vs 525 px). Bones = x-ray overlay on \"basically its arm\".",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.1
+     },
+     {
+      "t": 0.5,
+      "zoom": 1.0,
+      "ease": "out"
+     },
+     {
+      "t": 8.22,
+      "zoom": 1.05
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.7
+    },
+    {
+     "cue": "pop",
+     "at": 4.028,
+     "volume": 0.6
+    },
+    {
+     "cue": "pop",
+     "at": 4.702,
+     "volume": 0.6
+    },
+    {
+     "cue": "click",
+     "at": 6.228,
+     "volume": 0.7
+    },
+    {
+     "cue": "ding",
+     "at": 7.327,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "03_r2_spout",
+   "duration": 8.365,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 5,
+     "surface": 0.68,
+     "rays": 7,
+     "snow": 30,
+     "skyTop": "#071620",
+     "skyBottom": "#1b3b4a"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "22%",
+     "width": 1000,
+     "height": 330.0,
+     "props": {
+      "text": "ROUND 2",
+      "at": 0.0,
+      "size": 110,
+      "color": "white",
+      "underline": true,
+      "out": 1.1
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1600 220\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 0 220 C 300 40 1100 0 1600 160 L 1600 220 Z\" fill=\"#3e5a70\"/><ellipse cx=\"540\" cy=\"58\" rx=\"34\" ry=\"10\" fill=\"#132430\"/></svg>",
+     "x": "60%",
+     "y": 1246,
+     "width": 1600,
+     "height": 220,
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 300 1080\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"sp\" x1=\"0\" y1=\"1\" x2=\"0\" y2=\"0\"><stop offset=\"0\" stop-color=\"#ffffff\" stop-opacity=\"0.95\"/><stop offset=\"1\" stop-color=\"#ffffff\" stop-opacity=\"0.15\"/></linearGradient></defs><path d=\"M 135 1080 C 120 700 40 300 20 60 C 80 0 220 0 280 60 C 260 300 180 700 165 1080 Z\" fill=\"url(#sp)\"/></svg>",
+     "x": "50%",
+     "y": 1266,
+     "width": 280,
+     "height": 990,
+     "z": 4,
+     "anchorY": 1.0,
+     "start": 3.75,
+     "keyframes": [
+      {
+       "t": 3.75,
+       "scaleY": 0.05,
+       "opacity": 0.6
+      },
+      {
+       "t": 4.45,
+       "scaleY": 1.0,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": 1209.8,
+     "width": 119.35,
+     "height": 192.5,
+     "props": {
+      "pose": "wave",
+      "pxPerM": 110
+     },
+     "z": 6,
+     "start": 2.263,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": 1017.2,
+     "width": 119.35,
+     "height": 192.5,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 110
+     },
+     "z": 6,
+     "start": 4.862,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": 824.8,
+     "width": 119.35,
+     "height": 192.5,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 110
+     },
+     "z": 6,
+     "start": 4.982,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": 632.2,
+     "width": 119.35,
+     "height": 192.5,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 110
+     },
+     "z": 6,
+     "start": 5.102,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "24%",
+     "y": 439.8,
+     "width": 119.35,
+     "height": 192.5,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 110
+     },
+     "z": 6,
+     "start": 5.222,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "72%",
+     "y": "30%",
+     "width": 900,
+     "height": 288.0,
+     "props": {
+      "value": 9,
+      "at": 4.862,
+      "size": 120,
+      "suffix": " M",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "particles",
+     "preset": "rain",
+     "count": 120,
+     "color": "#c9f2b0",
+     "size": [
+      3,
+      7
+     ],
+     "speed": 0.6,
+     "seed": 3,
+     "x": "55%",
+     "y": "35%",
+     "width": 700,
+     "height": 700,
+     "z": 7,
+     "depth": 0,
+     "start": 6.612
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": "42%",
+     "width": 560,
+     "height": 96.0,
+     "props": {
+      "text": "PARTLY SNOT",
+      "at": 6.612,
+      "size": 40,
+      "align": "center",
+      "accent": "#9be36b"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 1 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0,
+     "end": 7.487
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 2 : 0 YOU",
+      "at": 7.486999999999998,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 7.487
+    }
+   ],
+   "notes": "Spout 9 m = 990 px, YOU 1.75 m = 192.5 px, 5 stacked = 962 px (shared pxPerM 110). Raw \"9 M\" shown, not said.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "y": "55%"
+     },
+     {
+      "t": 3.75,
+      "zoom": 1.0,
+      "y": "55%"
+     },
+     {
+      "t": 5.462,
+      "zoom": 1.0,
+      "y": "45%",
+      "ease": "inOut"
+     },
+     {
+      "t": 8.365,
+      "zoom": 1.03,
+      "y": "45%"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.7
+    },
+    {
+     "cue": "whoosh_long",
+     "at": 3.75,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 4.862,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 4.982,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 5.102,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 5.222,
+     "volume": 0.5
+    },
+    {
+     "cue": "bubbles",
+     "at": 6.612,
+     "volume": 0.5
+    },
+    {
+     "cue": "ding",
+     "at": 7.487,
+     "volume": 0.6
+    }
+   ],
+   "captionY": 0.76
+  },
+  {
+   "id": "04_r3_baby",
+   "duration": 2.725,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 20,
+     "rays": 8,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "22%",
+     "width": 1000,
+     "height": 330.0,
+     "props": {
+      "text": "ROUND 3",
+      "at": 0.0,
+      "size": 110,
+      "color": "white",
+      "underline": true,
+      "out": 1.1
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "45%",
+     "width": 520,
+     "height": 160,
+     "props": {
+      "amp": 0.6
+     },
+     "z": 3,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 8,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "56%",
+     "width": 360,
+     "height": 134.4,
+     "props": {
+      "text": "BABY",
+      "at": 1.938,
+      "size": 56,
+      "align": "center",
+      "accent": "#7fe3ff"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 2 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0
+    }
+   ],
+   "notes": "Turnstile: \"should be easy, it's a baby\" (41-44%), cute and calm, broken on the next word.",
+   "camera": {
+    "preset": "drift",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "id": "05_r3_newborn",
+   "duration": 7.695,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 8,
+     "rays": 9,
+     "snow": 20,
+     "topColor": "#5fd0d8",
+     "midColor": "#1e8fa6",
+     "bottomColor": "#0d4f66"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "42%",
+     "y": "24%",
+     "width": 900,
+     "height": 260,
+     "props": {
+      "pxPerM": 30,
+      "amp": 0.6
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "88%",
+     "y": "25%",
+     "width": 130.2,
+     "height": 210.0,
+     "props": {
+      "pose": "shrug",
+      "pxPerM": 120
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "37%",
+     "width": 900,
+     "height": 264.0,
+     "props": {
+      "value": 2.5,
+      "at": 1.863,
+      "size": 110,
+      "prefix": "~",
+      "suffix": " T",
+      "decimals": 1,
+      "duration": 0.5
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 672 88\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"48.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 48.0 38.6 L 48.0 59.8 M 19.2 37.0 L 76.8 37.0 M 48.0 59.8 L 26.9 85.0 M 48.0 59.8 L 69.1 85.0\"/><circle cx=\"144.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 144.0 38.6 L 144.0 59.8 M 115.2 37.0 L 172.8 37.0 M 144.0 59.8 L 122.9 85.0 M 144.0 59.8 L 165.1 85.0\"/><circle cx=\"240.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 240.0 38.6 L 240.0 59.8 M 211.2 37.0 L 268.8 37.0 M 240.0 59.8 L 218.9 85.0 M 240.0 59.8 L 261.1 85.0\"/><circle cx=\"336.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 336.0 38.6 L 336.0 59.8 M 307.2 37.0 L 364.8 37.0 M 336.0 59.8 L 314.9 85.0 M 336.0 59.8 L 357.1 85.0\"/><circle cx=\"432.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 432.0 38.6 L 432.0 59.8 M 403.2 37.0 L 460.8 37.0 M 432.0 59.8 L 410.9 85.0 M 432.0 59.8 L 453.1 85.0\"/><circle cx=\"528.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 528.0 38.6 L 528.0 59.8 M 499.2 37.0 L 556.8 37.0 M 528.0 59.8 L 506.9 85.0 M 528.0 59.8 L 549.1 85.0\"/><circle cx=\"624.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 624.0 38.6 L 624.0 59.8 M 595.2 37.0 L 652.8 37.0 M 624.0 59.8 L 602.9 85.0 M 624.0 59.8 L 645.1 85.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 864.0,
+     "width": 672,
+     "height": 88,
+     "depth": 0,
+     "z": 12,
+     "start": 1.863,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "end": 4.2,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 672 88\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"48.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 48.0 38.6 L 48.0 59.8 M 19.2 37.0 L 76.8 37.0 M 48.0 59.8 L 26.9 85.0 M 48.0 59.8 L 69.1 85.0\"/><circle cx=\"144.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 144.0 38.6 L 144.0 59.8 M 115.2 37.0 L 172.8 37.0 M 144.0 59.8 L 122.9 85.0 M 144.0 59.8 L 165.1 85.0\"/><circle cx=\"240.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 240.0 38.6 L 240.0 59.8 M 211.2 37.0 L 268.8 37.0 M 240.0 59.8 L 218.9 85.0 M 240.0 59.8 L 261.1 85.0\"/><circle cx=\"336.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 336.0 38.6 L 336.0 59.8 M 307.2 37.0 L 364.8 37.0 M 336.0 59.8 L 314.9 85.0 M 336.0 59.8 L 357.1 85.0\"/><circle cx=\"432.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 432.0 38.6 L 432.0 59.8 M 403.2 37.0 L 460.8 37.0 M 432.0 59.8 L 410.9 85.0 M 432.0 59.8 L 453.1 85.0\"/><circle cx=\"528.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 528.0 38.6 L 528.0 59.8 M 499.2 37.0 L 556.8 37.0 M 528.0 59.8 L 506.9 85.0 M 528.0 59.8 L 549.1 85.0\"/><circle cx=\"624.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 624.0 38.6 L 624.0 59.8 M 595.2 37.0 L 652.8 37.0 M 624.0 59.8 L 602.9 85.0 M 624.0 59.8 L 645.1 85.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 952.0,
+     "width": 672,
+     "height": 88,
+     "depth": 0,
+     "z": 12,
+     "start": 1.963,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "end": 4.2,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 672 88\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"48.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 48.0 38.6 L 48.0 59.8 M 19.2 37.0 L 76.8 37.0 M 48.0 59.8 L 26.9 85.0 M 48.0 59.8 L 69.1 85.0\"/><circle cx=\"144.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 144.0 38.6 L 144.0 59.8 M 115.2 37.0 L 172.8 37.0 M 144.0 59.8 L 122.9 85.0 M 144.0 59.8 L 165.1 85.0\"/><circle cx=\"240.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 240.0 38.6 L 240.0 59.8 M 211.2 37.0 L 268.8 37.0 M 240.0 59.8 L 218.9 85.0 M 240.0 59.8 L 261.1 85.0\"/><circle cx=\"336.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 336.0 38.6 L 336.0 59.8 M 307.2 37.0 L 364.8 37.0 M 336.0 59.8 L 314.9 85.0 M 336.0 59.8 L 357.1 85.0\"/><circle cx=\"432.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 432.0 38.6 L 432.0 59.8 M 403.2 37.0 L 460.8 37.0 M 432.0 59.8 L 410.9 85.0 M 432.0 59.8 L 453.1 85.0\"/><circle cx=\"528.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 528.0 38.6 L 528.0 59.8 M 499.2 37.0 L 556.8 37.0 M 528.0 59.8 L 506.9 85.0 M 528.0 59.8 L 549.1 85.0\"/><circle cx=\"624.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 624.0 38.6 L 624.0 59.8 M 595.2 37.0 L 652.8 37.0 M 624.0 59.8 L 602.9 85.0 M 624.0 59.8 L 645.1 85.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 1040.0,
+     "width": 672,
+     "height": 88,
+     "depth": 0,
+     "z": 12,
+     "start": 2.063,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "end": 4.2,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 672 88\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"48.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 48.0 38.6 L 48.0 59.8 M 19.2 37.0 L 76.8 37.0 M 48.0 59.8 L 26.9 85.0 M 48.0 59.8 L 69.1 85.0\"/><circle cx=\"144.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 144.0 38.6 L 144.0 59.8 M 115.2 37.0 L 172.8 37.0 M 144.0 59.8 L 122.9 85.0 M 144.0 59.8 L 165.1 85.0\"/><circle cx=\"240.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 240.0 38.6 L 240.0 59.8 M 211.2 37.0 L 268.8 37.0 M 240.0 59.8 L 218.9 85.0 M 240.0 59.8 L 261.1 85.0\"/><circle cx=\"336.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 336.0 38.6 L 336.0 59.8 M 307.2 37.0 L 364.8 37.0 M 336.0 59.8 L 314.9 85.0 M 336.0 59.8 L 357.1 85.0\"/><circle cx=\"432.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 432.0 38.6 L 432.0 59.8 M 403.2 37.0 L 460.8 37.0 M 432.0 59.8 L 410.9 85.0 M 432.0 59.8 L 453.1 85.0\"/><circle cx=\"528.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 528.0 38.6 L 528.0 59.8 M 499.2 37.0 L 556.8 37.0 M 528.0 59.8 L 506.9 85.0 M 528.0 59.8 L 549.1 85.0\"/><circle cx=\"624.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 624.0 38.6 L 624.0 59.8 M 595.2 37.0 L 652.8 37.0 M 624.0 59.8 L 602.9 85.0 M 624.0 59.8 L 645.1 85.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 1128.0,
+     "width": 672,
+     "height": 88,
+     "depth": 0,
+     "z": 12,
+     "start": 2.163,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "end": 4.2,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 672 88\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"48.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 48.0 38.6 L 48.0 59.8 M 19.2 37.0 L 76.8 37.0 M 48.0 59.8 L 26.9 85.0 M 48.0 59.8 L 69.1 85.0\"/><circle cx=\"144.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 144.0 38.6 L 144.0 59.8 M 115.2 37.0 L 172.8 37.0 M 144.0 59.8 L 122.9 85.0 M 144.0 59.8 L 165.1 85.0\"/><circle cx=\"240.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 240.0 38.6 L 240.0 59.8 M 211.2 37.0 L 268.8 37.0 M 240.0 59.8 L 218.9 85.0 M 240.0 59.8 L 261.1 85.0\"/><circle cx=\"336.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 336.0 38.6 L 336.0 59.8 M 307.2 37.0 L 364.8 37.0 M 336.0 59.8 L 314.9 85.0 M 336.0 59.8 L 357.1 85.0\"/><circle cx=\"432.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 432.0 38.6 L 432.0 59.8 M 403.2 37.0 L 460.8 37.0 M 432.0 59.8 L 410.9 85.0 M 432.0 59.8 L 453.1 85.0\"/><circle cx=\"528.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 528.0 38.6 L 528.0 59.8 M 499.2 37.0 L 556.8 37.0 M 528.0 59.8 L 506.9 85.0 M 528.0 59.8 L 549.1 85.0\"/><circle cx=\"624.0\" cy=\"19.3\" r=\"17.3\" fill=\"#ffffff\"/><path d=\"M 624.0 38.6 L 624.0 59.8 M 595.2 37.0 L 652.8 37.0 M 624.0 59.8 L 602.9 85.0 M 624.0 59.8 L 645.1 85.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 1216.0,
+     "width": 672,
+     "height": 88,
+     "depth": 0,
+     "z": 12,
+     "start": 2.263,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     },
+     "end": 4.2,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 80,
+     "color": "#ffffff",
+     "size": [
+      4,
+      9
+     ],
+     "speed": 0.5,
+     "seed": 7,
+     "x": "40%",
+     "y": "34%",
+     "width": 900,
+     "height": 500,
+     "z": 5,
+     "start": 3.388
+    },
+    {
+     "type": "component",
+     "name": "explainer/SpeedBars",
+     "x": "50%",
+     "y": "62%",
+     "width": 960,
+     "height": 260,
+     "props": {
+      "rows": [
+       {
+        "label": "CALF GAINS / DAY",
+        "value": 90,
+        "unit": " KG",
+        "color": "#7fe3ff"
+       },
+       {
+        "label": "ONE YOU",
+        "value": 70,
+        "unit": " KG",
+        "color": "#ffffff"
+       }
+      ],
+      "max": 100,
+      "at": 4.2,
+      "size": 34
+     },
+     "z": 20,
+     "depth": 0,
+     "start": 4.2
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 2 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0,
+     "end": 6.812
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 3 : 0 YOU",
+      "at": 6.812000000000001,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 6.812
+    }
+   ],
+   "notes": "Calf: BlueWhale pxPerM 30 (draws 7 m at the scene scale of 120 px/m = 840 px); YOU pxPerM 120 (210 px). 35-icon CountGrid.",
+   "camera": {
+    "preset": "panRight",
+    "amount": 0.4
+   },
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0.0
+   },
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.15,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 1.863,
+     "volume": 0.6
+    },
+    {
+     "cue": "pop",
+     "at": 4.2,
+     "volume": 0.6
+    },
+    {
+     "cue": "ding",
+     "at": 6.812,
+     "volume": 0.6
+    }
+   ],
+   "captionY": 0.76
+  },
+  {
+   "id": "06_r4_lunch",
+   "duration": 10.055,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 15,
+     "rays": 5,
+     "snow": 20
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 380,
+     "width": 380,
+     "height": 96.0,
+     "props": {
+      "text": "ROUND 4",
+      "at": 0.0,
+      "size": 40,
+      "align": "center",
+      "accent": "#e5483d",
+      "out": 2.9120000000000004
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 300,
+     "color": "#ff8fa3",
+     "size": [
+      3,
+      8
+     ],
+     "speed": 0.4,
+     "seed": 11,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 544.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 4.587,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 592.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 4.784,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 640.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 4.981,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 688.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 5.179,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 736.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 5.376,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 784.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 5.573,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 832.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 5.77,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 880.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 5.968,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 928.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 6.165,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 920 48\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#ffffff\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\"><circle cx=\"20.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 20.0 18.4 L 20.0 32.6 M 8.0 20.2 L 32.0 20.2 M 20.0 32.6 L 11.2 45.0 M 20.0 32.6 L 28.8 45.0\"/><circle cx=\"60.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 60.0 18.4 L 60.0 32.6 M 48.0 20.2 L 72.0 20.2 M 60.0 32.6 L 51.2 45.0 M 60.0 32.6 L 68.8 45.0\"/><circle cx=\"100.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 100.0 18.4 L 100.0 32.6 M 88.0 20.2 L 112.0 20.2 M 100.0 32.6 L 91.2 45.0 M 100.0 32.6 L 108.8 45.0\"/><circle cx=\"140.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 140.0 18.4 L 140.0 32.6 M 128.0 20.2 L 152.0 20.2 M 140.0 32.6 L 131.2 45.0 M 140.0 32.6 L 148.8 45.0\"/><circle cx=\"180.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 180.0 18.4 L 180.0 32.6 M 168.0 20.2 L 192.0 20.2 M 180.0 32.6 L 171.2 45.0 M 180.0 32.6 L 188.8 45.0\"/><circle cx=\"220.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 220.0 18.4 L 220.0 32.6 M 208.0 20.2 L 232.0 20.2 M 220.0 32.6 L 211.2 45.0 M 220.0 32.6 L 228.8 45.0\"/><circle cx=\"260.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 260.0 18.4 L 260.0 32.6 M 248.0 20.2 L 272.0 20.2 M 260.0 32.6 L 251.2 45.0 M 260.0 32.6 L 268.8 45.0\"/><circle cx=\"300.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 300.0 18.4 L 300.0 32.6 M 288.0 20.2 L 312.0 20.2 M 300.0 32.6 L 291.2 45.0 M 300.0 32.6 L 308.8 45.0\"/><circle cx=\"340.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 340.0 18.4 L 340.0 32.6 M 328.0 20.2 L 352.0 20.2 M 340.0 32.6 L 331.2 45.0 M 340.0 32.6 L 348.8 45.0\"/><circle cx=\"380.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 380.0 18.4 L 380.0 32.6 M 368.0 20.2 L 392.0 20.2 M 380.0 32.6 L 371.2 45.0 M 380.0 32.6 L 388.8 45.0\"/><circle cx=\"420.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 420.0 18.4 L 420.0 32.6 M 408.0 20.2 L 432.0 20.2 M 420.0 32.6 L 411.2 45.0 M 420.0 32.6 L 428.8 45.0\"/><circle cx=\"460.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 460.0 18.4 L 460.0 32.6 M 448.0 20.2 L 472.0 20.2 M 460.0 32.6 L 451.2 45.0 M 460.0 32.6 L 468.8 45.0\"/><circle cx=\"500.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 500.0 18.4 L 500.0 32.6 M 488.0 20.2 L 512.0 20.2 M 500.0 32.6 L 491.2 45.0 M 500.0 32.6 L 508.8 45.0\"/><circle cx=\"540.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 540.0 18.4 L 540.0 32.6 M 528.0 20.2 L 552.0 20.2 M 540.0 32.6 L 531.2 45.0 M 540.0 32.6 L 548.8 45.0\"/><circle cx=\"580.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 580.0 18.4 L 580.0 32.6 M 568.0 20.2 L 592.0 20.2 M 580.0 32.6 L 571.2 45.0 M 580.0 32.6 L 588.8 45.0\"/><circle cx=\"620.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 620.0 18.4 L 620.0 32.6 M 608.0 20.2 L 632.0 20.2 M 620.0 32.6 L 611.2 45.0 M 620.0 32.6 L 628.8 45.0\"/><circle cx=\"660.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 660.0 18.4 L 660.0 32.6 M 648.0 20.2 L 672.0 20.2 M 660.0 32.6 L 651.2 45.0 M 660.0 32.6 L 668.8 45.0\"/><circle cx=\"700.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 700.0 18.4 L 700.0 32.6 M 688.0 20.2 L 712.0 20.2 M 700.0 32.6 L 691.2 45.0 M 700.0 32.6 L 708.8 45.0\"/><circle cx=\"740.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 740.0 18.4 L 740.0 32.6 M 728.0 20.2 L 752.0 20.2 M 740.0 32.6 L 731.2 45.0 M 740.0 32.6 L 748.8 45.0\"/><circle cx=\"780.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 780.0 18.4 L 780.0 32.6 M 768.0 20.2 L 792.0 20.2 M 780.0 32.6 L 771.2 45.0 M 780.0 32.6 L 788.8 45.0\"/><circle cx=\"820.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 820.0 18.4 L 820.0 32.6 M 808.0 20.2 L 832.0 20.2 M 820.0 32.6 L 811.2 45.0 M 820.0 32.6 L 828.8 45.0\"/><circle cx=\"860.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 860.0 18.4 L 860.0 32.6 M 848.0 20.2 L 872.0 20.2 M 860.0 32.6 L 851.2 45.0 M 860.0 32.6 L 868.8 45.0\"/><circle cx=\"900.0\" cy=\"9.2\" r=\"7.2\" fill=\"#ffffff\"/><path d=\"M 900.0 18.4 L 900.0 32.6 M 888.0 20.2 L 912.0 20.2 M 900.0 32.6 L 891.2 45.0 M 900.0 32.6 L 908.8 45.0\"/></g></svg>",
+     "x": 540.0,
+     "y": 976.0,
+     "width": 920,
+     "height": 48,
+     "depth": 0,
+     "z": 12,
+     "start": 6.362,
+     "enter": {
+      "type": "pop",
+      "duration": 0.18
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Balance",
+     "x": "50%",
+     "y": 1150,
+     "width": 1000,
+     "height": 460,
+     "props": {
+      "left": {
+       "species": "krill",
+       "w": 340,
+       "at": 0.2,
+       "pos": 0.3
+      },
+      "right": {
+       "species": "you",
+       "w": 90,
+       "at": 4.587,
+       "pos": 0.3,
+       "drop": true
+      },
+      "tilt": [
+       {
+        "t": 0,
+        "v": -14
+       },
+       {
+        "t": 4.587,
+        "v": -14
+       },
+       {
+        "t": 6.362,
+        "v": 0,
+        "ease": "out"
+       },
+       {
+        "t": 7.15,
+        "v": 0
+       },
+       {
+        "t": 7.550000000000001,
+        "v": -14,
+        "ease": "backOut"
+       }
+      ]
+     },
+     "z": 10
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": 400,
+     "width": 900,
+     "height": 192.0,
+     "props": {
+      "value": 16,
+      "at": 3.212,
+      "size": 80,
+      "prefix": "~",
+      "suffix": " T / DAY",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 486,
+     "width": 420,
+     "height": 52.8,
+     "props": {
+      "text": "SAVOCA ET AL. 2021",
+      "at": 3.512,
+      "size": 22,
+      "align": "center",
+      "accent": "#7fe3ff"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "76%",
+     "y": 940,
+     "width": 300,
+     "height": 115.19999999999999,
+     "props": {
+      "text": "DAY 2",
+      "at": 7.15,
+      "size": 48,
+      "align": "center",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 3 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0,
+     "end": 9.175
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 4 : 0 YOU",
+      "at": 9.175000000000004,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 9.175
+    }
+   ],
+   "notes": "Peak. 230-icon CountGrid (23x10, 44x62 px icons) fills the top row by row; Balance levels on \"side\", re-tips on \"tomorrow\".",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0,
+      "y": "45%"
+     },
+     {
+      "t": 4.587,
+      "zoom": 1.0,
+      "y": "45%"
+     },
+     {
+      "t": 6.362,
+      "zoom": 1.0,
+      "y": "52%",
+      "ease": "inOut"
+     },
+     {
+      "t": 10.055,
+      "zoom": 1.04,
+      "y": "52%"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "boom",
+     "at": 0.0,
+     "volume": 0.6
+    },
+    {
+     "cue": "tick",
+     "at": 3.212,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 4.587,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 4.767,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 4.947,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 5.127,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 5.307,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 5.487,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 5.667,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 5.847,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 6.027,
+     "volume": 0.4
+    },
+    {
+     "cue": "tick",
+     "at": 6.207,
+     "volume": 0.4
+    },
+    {
+     "cue": "impact",
+     "at": 6.362,
+     "volume": 0.7
+    },
+    {
+     "cue": "pop",
+     "at": 7.15,
+     "volume": 0.6
+    },
+    {
+     "cue": "ding",
+     "at": 9.175,
+     "volume": 0.6
+    }
+   ],
+   "captionY": 0.76
+  },
+  {
+   "id": "07_r5_myth",
+   "duration": 4.025,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#6a1018",
+     "#2a0508",
+     "#120203"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "22%",
+     "width": 1000,
+     "height": 330.0,
+     "props": {
+      "text": "ROUND 5",
+      "at": 0.0,
+      "size": 110,
+      "color": "green",
+      "underline": true,
+      "out": 1.1
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 180,
+     "color": "#c0303a",
+     "size": [
+      8,
+      18
+     ],
+     "speed": 0.5,
+     "seed": 5,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "z": 1
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 800 800\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"tn\"><stop offset=\"0\" stop-color=\"#050000\"/><stop offset=\"0.55\" stop-color=\"#3a0609\"/><stop offset=\"1\" stop-color=\"#8f1d24\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"400\" cy=\"400\" rx=\"380\" ry=\"330\" fill=\"url(#tn)\"/></svg>",
+     "x": "50%",
+     "y": "42%",
+     "width": 800,
+     "height": 800,
+     "z": 2
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "50%",
+     "y": "62%",
+     "width": 420,
+     "height": 120,
+     "props": {
+      "kick": 1.2,
+      "arms": "forward"
+     },
+     "z": 4,
+     "rotate": -80,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": "70%",
+       "scale": 1.0
+      },
+      {
+       "t": 4.025,
+       "y": "46%",
+       "scale": 0.45,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "60%",
+     "width": 360,
+     "height": 124.8,
+     "props": {
+      "text": "MYTH?",
+      "at": 2.625,
+      "size": 52,
+      "align": "center",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 4 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0
+    }
+   ],
+   "notes": "Background change: inside the blood vessel. Diver swims for the tunnel.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.7
+    },
+    {
+     "cue": "underwater_rumble",
+     "at": 0.2,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "08_r5_ring",
+   "duration": 7.515,
+   "background": {
+    "type": "gradient",
+    "kind": "radial",
+    "colors": [
+     "#6a1018",
+     "#2a0508",
+     "#120203"
+    ],
+    "depth": 0.1,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "24%",
+     "y": 380,
+     "width": 320,
+     "height": 134.4,
+     "props": {
+      "text": "MYTH",
+      "at": 0.0,
+      "size": 56,
+      "align": "center",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "rect",
+     "x": "24%",
+     "y": 380,
+     "width": 280,
+     "height": 12,
+     "fill": "#e5483d",
+     "z": 26,
+     "depth": 0,
+     "start": 0.312,
+     "enter": {
+      "type": "wipeRight",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "80%",
+     "y": 380,
+     "width": 900,
+     "height": 172.79999999999998,
+     "props": {
+      "value": 23,
+      "at": 2.212,
+      "size": 72,
+      "prefix": "~",
+      "suffix": " CM",
+      "duration": 0.5
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "circle",
+     "x": "50%",
+     "y": 640,
+     "width": 460,
+     "height": 460,
+     "fill": "rgba(0,0,0,0)",
+     "stroke": "#e5483d",
+     "strokeWidth": 18,
+     "z": 8,
+     "start": 0.6,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     },
+     "keyframes": [
+      {
+       "t": 0.0,
+       "y": 640
+      },
+      {
+       "t": 3.25,
+       "y": 640
+      },
+      {
+       "t": 3.8,
+       "y": 960,
+       "ease": "inOut"
+      },
+      {
+       "t": 4.4,
+       "y": 960
+      },
+      {
+       "t": 4.65,
+       "y": 1180,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 480 480\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"240\" cy=\"240\" r=\"234\" fill=\"#e0782a\" stroke=\"#2b1306\" stroke-width=\"10\"/><g fill=\"none\" stroke=\"#2b1306\" stroke-width=\"9\"><line x1=\"6\" y1=\"240\" x2=\"474\" y2=\"240\"/><line x1=\"240\" y1=\"6\" x2=\"240\" y2=\"474\"/><path d=\"M 70 70 C 170 170 170 310 70 410\"/><path d=\"M 410 70 C 310 170 310 310 410 410\"/></g></svg>",
+     "x": "50%",
+     "y": 640,
+     "width": 480,
+     "height": 480,
+     "z": 9,
+     "start": 2.212,
+     "end": 3.25,
+     "keyframes": [
+      {
+       "t": 2.212,
+       "y": -300
+      },
+      {
+       "t": 2.662,
+       "y": 640,
+       "ease": "bounce"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 960 900\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"420\" y=\"380\" width=\"120\" height=\"120\" fill=\"#8fa3ae\"/><path d=\"M 30 900 C 30 600 120 500 480 490 C 840 500 930 600 930 900 Z\" fill=\"#8fa3ae\" stroke=\"#ffffff\" stroke-width=\"6\"/><ellipse cx=\"480\" cy=\"210\" rx=\"160\" ry=\"200\" fill=\"#8fa3ae\" stroke=\"#ffffff\" stroke-width=\"6\"/><circle cx=\"425\" cy=\"200\" r=\"16\" fill=\"#0b1a22\"/><circle cx=\"535\" cy=\"200\" r=\"16\" fill=\"#0b1a22\"/><path d=\"M 430 300 Q 480 330 530 300\" stroke=\"#0b1a22\" stroke-width=\"10\" fill=\"none\"/></svg>",
+     "x": "50%",
+     "y": 1200,
+     "width": 960,
+     "height": 900,
+     "z": 7,
+     "start": 2.512,
+     "keyframes": [
+      {
+       "t": 2.512,
+       "y": 2300
+      },
+      {
+       "t": 3.25,
+       "y": 1200,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 520,
+     "width": 700,
+     "height": 115.19999999999999,
+     "props": {
+      "text": "BIGGER WINS: YOU",
+      "at": 5.437,
+      "size": 48,
+      "align": "center",
+      "accent": "#3ddc84"
+     },
+     "depth": 0,
+     "z": 25
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 4 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 0.0,
+     "end": 6.787
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 4 : 1 YOU",
+      "at": 6.787000000000006,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#3ddc84"
+     },
+     "depth": 0,
+     "z": 25,
+     "start": 6.787
+    }
+   ],
+   "notes": "True scale at 2000 px/m: aorta ring 23 cm = 460 px, basketball 24 cm = 480 px, bust head 16 cm = 320 px wide, shoulders 45 cm = 900 px. The ring slides over the head (fits) and stops on the shoulders (shake).",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.515,
+      "zoom": 1.03
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.6000000000000005,
+      "duration": 0.35,
+      "amplitude": 16
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "glitch",
+     "at": 0.312,
+     "volume": 0.7
+    },
+    {
+     "cue": "pop",
+     "at": 2.212,
+     "volume": 0.6
+    },
+    {
+     "cue": "impact",
+     "at": 4.6,
+     "volume": 0.8
+    },
+    {
+     "cue": "ding",
+     "at": 6.787,
+     "volume": 0.8
+    },
+    {
+     "cue": "pop",
+     "at": 6.887,
+     "volume": 0.6
+    }
+   ],
+   "grade": {
+    "brightness": 1.05
+   },
+   "captionY": 0.76
+  },
+  {
+   "id": "09_stinger",
+   "duration": 4.4,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 6,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "40%",
+     "width": 1000,
+     "height": 276.0,
+     "props": {
+      "text": "WHALE 4 : 1 YOU",
+      "at": 0.0,
+      "size": 92,
+      "color": "white",
+      "underline": false
+     },
+     "depth": 0,
+     "z": 30
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1000 200\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke-width=\"10\" fill=\"none\"><path d=\"M 20 110 C 80 70 150 80 180 110 C 140 130 70 135 20 130 Z\" fill=\"#4f6f86\" stroke=\"#ffffff\"/><path d=\"M 300 180 C 295 120 260 60 250 20 C 280 0 320 0 350 20 C 340 60 305 120 300 180\" fill=\"#ffffff\" stroke=\"#ffffff\"/><path d=\"M 420 120 C 470 80 560 80 590 110 L 600 95 L 600 135 L 590 120 C 560 150 470 150 420 120 Z\" fill=\"#7d9bb0\" stroke=\"#ffffff\"/><path d=\"M 650 170 Q 730 40 810 170 Z\" fill=\"#ff8fa3\" stroke=\"#ffffff\"/><circle cx=\"910\" cy=\"110\" r=\"62\" stroke=\"#3ddc84\" stroke-width=\"18\"/></g></svg>",
+     "x": "50%",
+     "y": "54%",
+     "width": 1000,
+     "height": 200,
+     "z": 10,
+     "start": 0.4,
+     "enter": {
+      "type": "slideUp",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "circle",
+     "x": 950,
+     "y": 1047,
+     "width": 190,
+     "height": 190,
+     "fill": "rgba(61,220,132,0.18)",
+     "stroke": "#3ddc84",
+     "strokeWidth": 8,
+     "z": 11,
+     "depth": 0,
+     "start": 1.94,
+     "enter": {
+      "type": "pop",
+      "duration": 0.25
+     },
+     "keyframes": [
+      {
+       "t": 3.115,
+       "scale": 1.0
+      },
+      {
+       "t": 3.315,
+       "scale": 1.25,
+       "ease": "out"
+      },
+      {
+       "t": 3.565,
+       "scale": 1.0
+      }
+     ]
+    }
+   ],
+   "notes": "Final score held centre; punch on \"too big\". Hard stop on \"big\".",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0.0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.802,
+      "zoom": 1.05
+     },
+     {
+      "t": 4.002,
+      "zoom": 1.16,
+      "ease": "out"
+     },
+     {
+      "t": 4.4,
+      "zoom": 1.17
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.05,
+     "volume": 0.4
+    },
+    {
+     "cue": "boom",
+     "at": 3.802,
+     "volume": 0.8
+    }
+   ]
+  },
+  {
+   "id": "10_loop",
+   "duration": 0.55,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 25,
+     "rays": 8,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "50%",
+     "y": "36%",
+     "width": 1080,
+     "height": 320,
+     "props": {
+      "pxPerM": 36,
+      "amp": 0.5,
+      "idle": true
+     },
+     "z": 2,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.2
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "90%",
+     "y": "41%",
+     "width": 39.06,
+     "height": 63.0,
+     "props": {
+      "pose": "shrug",
+      "pxPerM": 36
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 300 300\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"290\" y1=\"10\" x2=\"20\" y2=\"290\" stroke=\"#ffffff\" stroke-width=\"4\" stroke-dasharray=\"12 10\"/></svg>",
+     "x": "82%",
+     "y": "49%",
+     "width": 150,
+     "height": 150,
+     "z": 4,
+     "depth": 0
+    },
+    {
+     "type": "circle",
+     "x": "70%",
+     "y": "58%",
+     "width": 360,
+     "height": 360,
+     "fill": "rgba(8,30,40,0.85)",
+     "stroke": "#ffffff",
+     "strokeWidth": 6,
+     "z": 5,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "70%",
+     "y": "58.5%",
+     "width": 185.535,
+     "height": 299.25,
+     "props": {
+      "pose": "point",
+      "pxPerM": 171
+     },
+     "z": 6,
+     "depth": 0,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": 270,
+     "width": 640,
+     "height": 105.6,
+     "props": {
+      "text": "WHALE 0 : 0 YOU",
+      "at": -0.6,
+      "size": 44,
+      "align": "center",
+      "bg": "#0b1a22",
+      "color": "#ffffff",
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 25
+    }
+   ],
+   "notes": "Loop: exact frame-0 recomposition, score reset to 0 : 0 (score_layers gives the 0 : 0 state only at t=0, so set it here).",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.07560137457044634
+   }
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "words": [
+   {
+    "text": "You",
+    "start": 0.1,
+    "end": 0.18
+   },
+   {
+    "text": "versus",
+    "start": 0.18,
+    "end": 0.542
+   },
+   {
+    "text": "a",
+    "start": 0.542,
+    "end": 0.605
+   },
+   {
+    "text": "blue",
+    "start": 0.605,
+    "end": 0.855
+   },
+   {
+    "text": "whale,",
+    "start": 0.855,
+    "end": 1.305
+   },
+   {
+    "text": "five",
+    "start": 1.417,
+    "end": 1.78
+   },
+   {
+    "text": "rounds,",
+    "start": 1.78,
+    "end": 2.205
+   },
+   {
+    "text": "you",
+    "start": 2.255,
+    "end": 2.405
+   },
+   {
+    "text": "win",
+    "start": 2.405,
+    "end": 2.605
+   },
+   {
+    "text": "one.",
+    "start": 2.605,
+    "end": 2.91
+   },
+   {
+    "text": "It",
+    "start": 3.06,
+    "end": 3.18
+   },
+   {
+    "text": "can",
+    "start": 3.18,
+    "end": 3.355
+   },
+   {
+    "text": "be",
+    "start": 3.355,
+    "end": 3.505
+   },
+   {
+    "text": "as",
+    "start": 3.505,
+    "end": 3.667
+   },
+   {
+    "text": "long",
+    "start": 3.667,
+    "end": 3.968
+   },
+   {
+    "text": "as",
+    "start": 3.968,
+    "end": 4.067
+   },
+   {
+    "text": "a",
+    "start": 4.067,
+    "end": 4.168
+   },
+   {
+    "text": "basketball",
+    "start": 4.168,
+    "end": 4.855
+   },
+   {
+    "text": "court",
+    "start": 4.855,
+    "end": 5.18
+   },
+   {
+    "text": "so",
+    "start": 5.18,
+    "end": 5.305
+   },
+   {
+    "text": "you",
+    "start": 5.305,
+    "end": 5.43
+   },
+   {
+    "text": "go",
+    "start": 5.43,
+    "end": 5.605
+   },
+   {
+    "text": "round",
+    "start": 5.605,
+    "end": 5.93
+   },
+   {
+    "text": "by",
+    "start": 5.93,
+    "end": 6.143
+   },
+   {
+    "text": "round.",
+    "start": 6.143,
+    "end": 6.855
+   },
+   {
+    "text": "Bigger",
+    "start": 7.03,
+    "end": 7.418
+   },
+   {
+    "text": "wins.",
+    "start": 7.418,
+    "end": 8.09
+   },
+   {
+    "text": "Round",
+    "start": 8.265,
+    "end": 8.553
+   },
+   {
+    "text": "one,",
+    "start": 8.553,
+    "end": 8.815
+   },
+   {
+    "text": "its",
+    "start": 8.853,
+    "end": 9.053
+   },
+   {
+    "text": "flipper.",
+    "start": 9.053,
+    "end": 9.765
+   },
+   {
+    "text": "Lie",
+    "start": 9.902,
+    "end": 10.165
+   },
+   {
+    "text": "down",
+    "start": 10.165,
+    "end": 10.44
+   },
+   {
+    "text": "next",
+    "start": 10.44,
+    "end": 10.715
+   },
+   {
+    "text": "to",
+    "start": 10.715,
+    "end": 10.865
+   },
+   {
+    "text": "it,",
+    "start": 10.865,
+    "end": 10.965
+   },
+   {
+    "text": "and",
+    "start": 11.002,
+    "end": 11.115
+   },
+   {
+    "text": "you",
+    "start": 11.115,
+    "end": 11.203
+   },
+   {
+    "text": "don't",
+    "start": 11.203,
+    "end": 11.352
+   },
+   {
+    "text": "even",
+    "start": 11.352,
+    "end": 11.59
+   },
+   {
+    "text": "reach",
+    "start": 11.59,
+    "end": 11.84
+   },
+   {
+    "text": "the",
+    "start": 11.84,
+    "end": 11.978
+   },
+   {
+    "text": "tip,",
+    "start": 11.978,
+    "end": 12.24
+   },
+   {
+    "text": "and",
+    "start": 12.277,
+    "end": 12.378
+   },
+   {
+    "text": "that's",
+    "start": 12.378,
+    "end": 12.652
+   },
+   {
+    "text": "basically",
+    "start": 12.652,
+    "end": 13.215
+   },
+   {
+    "text": "its",
+    "start": 13.215,
+    "end": 13.428
+   },
+   {
+    "text": "arm.",
+    "start": 13.428,
+    "end": 14.065
+   },
+   {
+    "text": "Too",
+    "start": 14.178,
+    "end": 14.415
+   },
+   {
+    "text": "small.",
+    "start": 14.415,
+    "end": 15.14,
+    "emph": true
+   },
+   {
+    "text": "Point,",
+    "start": 15.277,
+    "end": 15.615
+   },
+   {
+    "text": "whale.",
+    "start": 15.703,
+    "end": 16.17
+   },
+   {
+    "text": "And",
+    "start": 16.32,
+    "end": 16.47
+   },
+   {
+    "text": "round",
+    "start": 16.47,
+    "end": 16.795
+   },
+   {
+    "text": "two,",
+    "start": 16.795,
+    "end": 17.195
+   },
+   {
+    "text": "one",
+    "start": 17.27,
+    "end": 17.495
+   },
+   {
+    "text": "breath",
+    "start": 17.495,
+    "end": 17.795
+   },
+   {
+    "text": "out.",
+    "start": 17.795,
+    "end": 18.32
+   },
+   {
+    "text": "Stand",
+    "start": 18.433,
+    "end": 18.82
+   },
+   {
+    "text": "under",
+    "start": 18.82,
+    "end": 19.17
+   },
+   {
+    "text": "it,",
+    "start": 19.17,
+    "end": 19.27
+   },
+   {
+    "text": "and",
+    "start": 19.308,
+    "end": 19.407
+   },
+   {
+    "text": "the",
+    "start": 19.407,
+    "end": 19.495
+   },
+   {
+    "text": "spray",
+    "start": 19.495,
+    "end": 19.92
+   },
+   {
+    "text": "shoots",
+    "start": 19.92,
+    "end": 20.207
+   },
+   {
+    "text": "up",
+    "start": 20.207,
+    "end": 20.395
+   },
+   {
+    "text": "as",
+    "start": 20.395,
+    "end": 20.558
+   },
+   {
+    "text": "high",
+    "start": 20.558,
+    "end": 20.87
+   },
+   {
+    "text": "as",
+    "start": 20.87,
+    "end": 21.032
+   },
+   {
+    "text": "five",
+    "start": 21.032,
+    "end": 21.358
+   },
+   {
+    "text": "of",
+    "start": 21.358,
+    "end": 21.445
+   },
+   {
+    "text": "you",
+    "start": 21.445,
+    "end": 21.582
+   },
+   {
+    "text": "stacked,",
+    "start": 21.582,
+    "end": 22.045
+   },
+   {
+    "text": "and",
+    "start": 22.095,
+    "end": 22.233
+   },
+   {
+    "text": "part",
+    "start": 22.233,
+    "end": 22.483
+   },
+   {
+    "text": "of",
+    "start": 22.483,
+    "end": 22.558
+   },
+   {
+    "text": "it",
+    "start": 22.558,
+    "end": 22.645
+   },
+   {
+    "text": "is",
+    "start": 22.645,
+    "end": 22.782
+   },
+   {
+    "text": "snot.",
+    "start": 22.782,
+    "end": 23.495
+   },
+   {
+    "text": "Point,",
+    "start": 23.657,
+    "end": 23.995
+   },
+   {
+    "text": "whale.",
+    "start": 24.058,
+    "end": 24.49
+   },
+   {
+    "text": "So",
+    "start": 24.685,
+    "end": 24.86
+   },
+   {
+    "text": "round",
+    "start": 24.86,
+    "end": 25.148
+   },
+   {
+    "text": "three",
+    "start": 25.148,
+    "end": 25.385
+   },
+   {
+    "text": "should",
+    "start": 25.385,
+    "end": 25.535
+   },
+   {
+    "text": "be",
+    "start": 25.535,
+    "end": 25.735
+   },
+   {
+    "text": "easy,",
+    "start": 25.735,
+    "end": 26.16
+   },
+   {
+    "text": "it's",
+    "start": 26.21,
+    "end": 26.373
+   },
+   {
+    "text": "a",
+    "start": 26.373,
+    "end": 26.473
+   },
+   {
+    "text": "baby.",
+    "start": 26.473,
+    "end": 27.235
+   },
+   {
+    "text": "Newborn,",
+    "start": 27.41,
+    "end": 27.985
+   },
+   {
+    "text": "it",
+    "start": 28.035,
+    "end": 28.135
+   },
+   {
+    "text": "already",
+    "start": 28.135,
+    "end": 28.51
+   },
+   {
+    "text": "weighs",
+    "start": 28.51,
+    "end": 28.797
+   },
+   {
+    "text": "about",
+    "start": 28.797,
+    "end": 29.123
+   },
+   {
+    "text": "thirty-five",
+    "start": 29.123,
+    "end": 29.723
+   },
+   {
+    "text": "of",
+    "start": 29.723,
+    "end": 29.835
+   },
+   {
+    "text": "you,",
+    "start": 29.835,
+    "end": 30.21
+   },
+   {
+    "text": "and",
+    "start": 30.335,
+    "end": 30.448
+   },
+   {
+    "text": "on",
+    "start": 30.448,
+    "end": 30.648
+   },
+   {
+    "text": "milk",
+    "start": 30.648,
+    "end": 30.935
+   },
+   {
+    "text": "alone",
+    "start": 30.935,
+    "end": 31.36
+   },
+   {
+    "text": "it",
+    "start": 31.36,
+    "end": 31.46
+   },
+   {
+    "text": "gains",
+    "start": 31.46,
+    "end": 31.848
+   },
+   {
+    "text": "more",
+    "start": 31.848,
+    "end": 32.085
+   },
+   {
+    "text": "than",
+    "start": 32.085,
+    "end": 32.21
+   },
+   {
+    "text": "a",
+    "start": 32.21,
+    "end": 32.322
+   },
+   {
+    "text": "whole",
+    "start": 32.322,
+    "end": 32.697
+   },
+   {
+    "text": "you",
+    "start": 32.697,
+    "end": 32.922
+   },
+   {
+    "text": "every",
+    "start": 32.922,
+    "end": 33.26
+   },
+   {
+    "text": "day.",
+    "start": 33.26,
+    "end": 33.91
+   },
+   {
+    "text": "Point,",
+    "start": 34.072,
+    "end": 34.41
+   },
+   {
+    "text": "whale.",
+    "start": 34.498,
+    "end": 34.93
+   },
+   {
+    "text": "Round",
+    "start": 35.105,
+    "end": 35.38
+   },
+   {
+    "text": "four,",
+    "start": 35.38,
+    "end": 35.705
+   },
+   {
+    "text": "lunch.",
+    "start": 35.755,
+    "end": 36.405
+   },
+   {
+    "text": "Pile",
+    "start": 36.567,
+    "end": 36.892
+   },
+   {
+    "text": "one",
+    "start": 36.892,
+    "end": 37.13
+   },
+   {
+    "text": "day",
+    "start": 37.13,
+    "end": 37.367
+   },
+   {
+    "text": "of",
+    "start": 37.367,
+    "end": 37.442
+   },
+   {
+    "text": "its",
+    "start": 37.442,
+    "end": 37.642
+   },
+   {
+    "text": "krill",
+    "start": 37.642,
+    "end": 37.992
+   },
+   {
+    "text": "on",
+    "start": 37.992,
+    "end": 38.093
+   },
+   {
+    "text": "a",
+    "start": 38.093,
+    "end": 38.167
+   },
+   {
+    "text": "scale,",
+    "start": 38.167,
+    "end": 38.855
+   },
+   {
+    "text": "and",
+    "start": 38.93,
+    "end": 39.055
+   },
+   {
+    "text": "you'd",
+    "start": 39.055,
+    "end": 39.255
+   },
+   {
+    "text": "need",
+    "start": 39.255,
+    "end": 39.542
+   },
+   {
+    "text": "two",
+    "start": 39.542,
+    "end": 39.755
+   },
+   {
+    "text": "hundred",
+    "start": 39.755,
+    "end": 40.142
+   },
+   {
+    "text": "and",
+    "start": 40.142,
+    "end": 40.267
+   },
+   {
+    "text": "thirty",
+    "start": 40.267,
+    "end": 40.617
+   },
+   {
+    "text": "of",
+    "start": 40.617,
+    "end": 40.705
+   },
+   {
+    "text": "you",
+    "start": 40.705,
+    "end": 40.843
+   },
+   {
+    "text": "on",
+    "start": 40.843,
+    "end": 40.942
+   },
+   {
+    "text": "the",
+    "start": 40.942,
+    "end": 41.03
+   },
+   {
+    "text": "other",
+    "start": 41.03,
+    "end": 41.317
+   },
+   {
+    "text": "side,",
+    "start": 41.317,
+    "end": 41.905
+   },
+   {
+    "text": "and",
+    "start": 41.98,
+    "end": 42.105
+   },
+   {
+    "text": "tomorrow",
+    "start": 42.105,
+    "end": 42.63
+   },
+   {
+    "text": "it's",
+    "start": 42.63,
+    "end": 42.843
+   },
+   {
+    "text": "hungry",
+    "start": 42.843,
+    "end": 43.255
+   },
+   {
+    "text": "again.",
+    "start": 43.255,
+    "end": 43.955
+   },
+   {
+    "text": "Point,",
+    "start": 44.13,
+    "end": 44.48
+   },
+   {
+    "text": "whale.",
+    "start": 44.567,
+    "end": 45.01
+   },
+   {
+    "text": "And",
+    "start": 45.16,
+    "end": 45.31
+   },
+   {
+    "text": "round",
+    "start": 45.31,
+    "end": 45.597
+   },
+   {
+    "text": "five,",
+    "start": 45.597,
+    "end": 45.96
+   },
+   {
+    "text": "its",
+    "start": 46.01,
+    "end": 46.222
+   },
+   {
+    "text": "biggest",
+    "start": 46.222,
+    "end": 46.622
+   },
+   {
+    "text": "blood",
+    "start": 46.622,
+    "end": 46.91
+   },
+   {
+    "text": "vessel.",
+    "start": 46.91,
+    "end": 47.535
+   },
+   {
+    "text": "Heard",
+    "start": 47.635,
+    "end": 47.86
+   },
+   {
+    "text": "you",
+    "start": 47.86,
+    "end": 47.96
+   },
+   {
+    "text": "could",
+    "start": 47.96,
+    "end": 48.147
+   },
+   {
+    "text": "swim",
+    "start": 48.147,
+    "end": 48.472
+   },
+   {
+    "text": "through",
+    "start": 48.472,
+    "end": 48.735
+   },
+   {
+    "text": "it?",
+    "start": 48.735,
+    "end": 49.085
+   },
+   {
+    "text": "You",
+    "start": 49.185,
+    "end": 49.347
+   },
+   {
+    "text": "can't.",
+    "start": 49.347,
+    "end": 50.06
+   },
+   {
+    "text": "It's",
+    "start": 50.16,
+    "end": 50.297
+   },
+   {
+    "text": "about",
+    "start": 50.297,
+    "end": 50.585
+   },
+   {
+    "text": "as",
+    "start": 50.585,
+    "end": 50.747
+   },
+   {
+    "text": "wide",
+    "start": 50.747,
+    "end": 51.022
+   },
+   {
+    "text": "as",
+    "start": 51.022,
+    "end": 51.135
+   },
+   {
+    "text": "a",
+    "start": 51.135,
+    "end": 51.247
+   },
+   {
+    "text": "basketball,",
+    "start": 51.247,
+    "end": 52.06
+   },
+   {
+    "text": "your",
+    "start": 52.11,
+    "end": 52.285
+   },
+   {
+    "text": "head",
+    "start": 52.285,
+    "end": 52.51
+   },
+   {
+    "text": "goes",
+    "start": 52.51,
+    "end": 52.835
+   },
+   {
+    "text": "in,",
+    "start": 52.835,
+    "end": 53.16
+   },
+   {
+    "text": "your",
+    "start": 53.235,
+    "end": 53.435
+   },
+   {
+    "text": "shoulders",
+    "start": 53.435,
+    "end": 53.947
+   },
+   {
+    "text": "don't,",
+    "start": 53.947,
+    "end": 54.285
+   },
+   {
+    "text": "and",
+    "start": 54.335,
+    "end": 54.472
+   },
+   {
+    "text": "bigger",
+    "start": 54.472,
+    "end": 54.822
+   },
+   {
+    "text": "wins.",
+    "start": 54.822,
+    "end": 55.66
+   },
+   {
+    "text": "Point,",
+    "start": 55.822,
+    "end": 56.16
+   },
+   {
+    "text": "you.",
+    "start": 56.222,
+    "end": 56.51
+   },
+   {
+    "text": "Final",
+    "start": 56.665,
+    "end": 57.027
+   },
+   {
+    "text": "score:",
+    "start": 57.027,
+    "end": 57.64
+   },
+   {
+    "text": "whale",
+    "start": 57.777,
+    "end": 58.115
+   },
+   {
+    "text": "four,",
+    "start": 58.115,
+    "end": 58.44
+   },
+   {
+    "text": "you",
+    "start": 58.49,
+    "end": 58.64
+   },
+   {
+    "text": "one,",
+    "start": 58.64,
+    "end": 59.065
+   },
+   {
+    "text": "and",
+    "start": 59.14,
+    "end": 59.252
+   },
+   {
+    "text": "you",
+    "start": 59.252,
+    "end": 59.365
+   },
+   {
+    "text": "only",
+    "start": 59.365,
+    "end": 59.665
+   },
+   {
+    "text": "won",
+    "start": 59.665,
+    "end": 59.865
+   },
+   {
+    "text": "by",
+    "start": 59.865,
+    "end": 60.04
+   },
+   {
+    "text": "being",
+    "start": 60.04,
+    "end": 60.352
+   },
+   {
+    "text": "too",
+    "start": 60.352,
+    "end": 60.577
+   },
+   {
+    "text": "big.",
+    "start": 60.577,
+    "end": 60.93,
+    "emph": true
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 20,
+  "linger": 0.1,
+  "glue": [
+   "basketball court",
+   "five of you",
+   "thirty-five of you",
+   "whole you",
+   "two hundred and thirty",
+   "Point, whale.",
+   "Point, you.",
+   "too big."
+  ],
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.72
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-blue-whale-scale/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 61.93
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ }
+}

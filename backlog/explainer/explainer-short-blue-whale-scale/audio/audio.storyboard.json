@@ -1,0 +1,50 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 61.93,
+ "captions": {
+  "src": "episodes/explainer-short-blue-whale-scale/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-blue-whale-scale/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 61.93
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/explainer-short-blue-whale-scale/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 61.93
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/explainer-short-blue-whale-scale/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/explainer-short-blue-whale-scale/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": []
+}

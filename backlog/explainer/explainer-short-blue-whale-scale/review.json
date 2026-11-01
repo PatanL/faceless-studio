@@ -1,0 +1,117 @@
+{
+  "episode": "explainer-short-blue-whale-scale",
+  "reviewed_at_utc": "2026-11-01T11:40Z",
+  "scores_before": {"retention": 5, "reference": 5, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+  "score_notes": {
+    "retention": "The spine loop now closes at 91% ('Point, you.' 55.82 s of 61.5). The win was moved to round 5, and every round before it is a spoken loss, so 'which one, and how?' stays open through the back half. The rule 'Bigger wins.' is stated at 7.0 s, and every round ends on a spoken 2-word verdict stamp, with 'and/so' bridges into the next round. The ladder climbs: just longer than you -> 5 of you -> 35 of you -> 230 of you. After that the comparison flips to the round where you are bigger. Comedy: 'part of it is snot' (round 2) and 'tomorrow it's hungry again' (the peak). A false-reassurance turnstile at 41-44% has a background change at 45%. Remaining risks: the ROUND 1 card lands at 7.95 s but the spoken 'Round one' at 8.27 s (the Kokoro sentence pause cannot be removed). 'You' is in 50% of sentences (all 11 full content sentences, but none of the 11 stamp or title fragments).",
+    "reference": "The references were swapped to match the devices actually used. FLY (counted inventory, conjunction bridges, loop frame) and PUFFER (false-reassurance turnstile at 46%, deadpan deflations, the 60 s skeleton) are Shorts. SWALLOW supplies the scoring rule (0:14), verdict stamps (1:12) and the myth-bust 'Nope.' (5:39), and closes its title loop at 92%, which matches our 91%. PRESSURE is cited for its two devices only: the landmark shown and not said, and the planted word paid twice. Every alignment row was rechecked against research/corpus/explainer/<id>.md timestamps. The 76 s / 40-word rounds became 61.5 s / 19-36-word rounds (~8-11 s each). Raw values are on screen only, and the VO speaks only the 'N of you' form. Held at 8: 61.5 s is still past the 59 s corpus maximum. That is deliberate, because it keeps TikTok Creator Rewards eligibility (>60 s).",
+    "originality": "The gate passes against research/corpus + research/library/transcripts, and separately against episodes/ (the sibling pilot). The sibling overlap is gone: no heart, tongue, 2 bpm, gulp/pouch, throat ring or dinner plate. The aorta is compared to a basketball, which is also the payoff of the court plant. sibling_check was rewritten to say what is still shared (length as the anchor, daily food as a topic) and how it differs. Fact sourcing is corrected. Calf numbers are cited to Guinness/SeaWorld as widely cited estimates, not to NOAA. Daily food uses Savoca et al. 2021 (16 t), with NOAA's older 6 t noted. The aorta wording holds for any published width from ~17 to ~40 cm. Held at 8 because the aorta width still has no primary (ROM-published) measurement, and the flipper length is a proportion-based estimate. The VO claims are worded to hold across both ranges.",
+    "producibility": "A storyboard was generated from the measured TTS (gen_storyboard.py, all times anchored to spoken words). It validates (zod, Node 22 on the Spark). check_storyboards.py reports 'ready': every component is registered, every audio file exists, and the longest hold is 2.9 s. Ten stills were rendered on the Spark and checked (out/stills/bw_scale.jpg, bw_scale_fix.jpg). No new kit components are needed. The flipper, x-ray bones, spout, whale back, court, CountGrid, tunnel, basketball, bust and stinger icons are inline svg/core layers. Every SFX maps to an existing file. Every pxPerM is stated per shot (36 / 300 / 110 / calf 30 vs scene 120 / 2000). Held at 8 because the art is first-pass and needs one look-dev pass: the bust and ring motion, the Diver reading small at 47.8 s, and the krill 'pile' being a single big krill figure on the Balance. No MP4 has been rendered yet."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Spine loop no longer spoils itself: the win moved to round 5 and is revealed only by the spoken verdict 'Point, you.' at 55.82 s (91%). Rounds 1-4 are spoken losses, so the final score cannot be inferred before 0:45.",
+      "Sibling duplication: 3 rounds replaced (heart, tongue and the mouthful became flipper, spout and one day of food); aorta and calf kept but reframed; sibling_check rewritten honestly",
+      "First rung earlier: the anchor went from 29 words / 9.4 s to 16 words / 5.0 s; ROUND 1 card at 7.95 s, spoken at 8.27 s (was 12.6 s)",
+      "Scoring rule stated ('Bigger wins.' at 7.03 s) and a spoken 2-word verdict stamp ends every round ('Point, whale.' x4, 'Point, you.'), with 'And/So' bridges into the next round",
+      "No back-third magnitude crash: the calf is now the turnstile at 45% (35 of you, plus 'gains more than a whole you every day', which accumulates); the peak is 230 of you at 57-73%; the back third is the reversal, not a smaller number",
+      "VO and on-screen numbers agree: every raw value is on screen only, and each spoken conversion is computed from the shown value (9 M / 1.75 = 5; 2.5 T / 70 kg = 36 -> 'about thirty-five'; 16 T / 70 kg = 229 -> 230; 23 CM vs basketball 24 cm)",
+      "Unverified payoff fact: the aorta wording is hedged to hold for any published width (17-40 cm), sources are listed with their limits, and the shown value is '~23 CM'. 'A few seconds' engulfment was dropped with its round.",
+      "WPM measured, not assumed: Kokoro am_michael ran on the Spark CPU at 1.0 (v1 57.3 s), 1.1 (58.6 s) and 1.05 (final 61.5 s, 190 wpm); all timestamps and the shot list come from the 1.05 word timings (audio/captions.json)",
+      "Frame 1: the whole whale is in full colour at frame 0 (no silhouette resolve); YOU is readable through a 300 px magnifier inset; only 2 text elements in the first 1.5 s (score chip + caption); 'FIVE ROUNDS' / '1/5' cards removed"
+    ],
+    "reference": [
+      "Spine closes at 91%, like SWALLOW's 92% (8:26); 'Round three is yours' removed",
+      "Turnstile is now a false reassurance broken on the next word ('should be easy, it's a baby' -> 'Newborn, ... thirty-five of you'), cited to XFFjxTllpoA 0:27 (46%), with the background change on 'Newborn' (45%)",
+      "First rung at ~8 s (card 7.95, VO 8.27); anchor 16 words",
+      "Rule 'Bigger wins.' added; the 2 bpm clause (not a size contest) cut; the aorta win follows the rule",
+      "Rounds trimmed to ~8-11 s (19-36 words); runtime 76 s -> 61.5 s, 241 -> 193 words",
+      "Numbers said once: the VO speaks only the 'N of you' form, raw values are Stat/ScaleBar cards (PRESSURE's landmark shown, not said)",
+      "Hook is one chained 10-word line, measured at 2.8 s with no inserted gaps",
+      "Sibling overlap removed (see retention); kept the aorta and the calf",
+      "Alignment table rebuilt row by row: JELLY rows replaced by SWALLOW 0:14 / 1:12 / 5:39 / 8:26 and PUFFER 0:23 / 0:27 / 0:33-0:39 / 0:55; FLY 0:05.4 and 0:27; PRESSURE 0:10, 0:12/0:25, 0:27. No row cites a device we do not use.",
+      "Premise: each round gives you a present-tense scene (lie down, stand under it, piled on a scale, try to swim through); main title changed to '5 Rounds Against A Blue Whale (You Win One)'"
+    ],
+    "originality": [
+      "Gate rerun: PASS vs research/corpus + research/library/transcripts, and PASS vs episodes/ (sibling pilot)",
+      "Tongue VO/Stat mismatch is gone (the round is replaced); every remaining conversion is computed from the shown value",
+      "Basketball court claim reworded to 'It can be as long as a basketball court', and the kit's 28 m whale matches the 28.65 m court in the picture; 'two thousand of you' removed from the VO",
+      "Fact-table sources corrected: no NOAA citation for calf milk or gain (now Guinness + SeaWorld, marked as widely cited estimates); 16 t/day cited to Savoca et al. 2021 with NOAA's older 6 t noted; the tongue row is gone",
+      "Aorta row closed out: 23 cm secondary consensus, basketball 24 cm (not 'dinner plate', which was also the sibling's simile), head/shoulder logic stated with its validity range",
+      "Monetization: every SFX and the music bed are procedural originals (pipeline/audio/LICENSES.md, CC0); no third-party audio, so no Content ID exposure. The episode differs in structure and visuals from the sibling (rounds, scoreboard, new sets). Kokoro narration over clearly 2D animation needs no YouTube altered/synthetic disclosure; ticking it, and TikTok's AI-generated label, is harmless."
+    ],
+    "producibility": [
+      "Gap list rewritten: no new kit components. Not used, on purpose: WhaleHeart, WhaleTongue, WhaleThroat, ECG, gape. New art is inline svg in gen_storyboard.py.",
+      "Court shot: the kit BlueWhale (28 m) and the 28.65 m court share pxPerM 36, and the VO says 'as long as', so they agree",
+      "Ring gag uses a face-on bust with real proportions (head 16 cm = 320 px, shoulders 45 cm = 900 px at 2000 px/m), not the kit You (0.37 m head)",
+      "No heart + You side-by-side any more; every shot was checked against the 1080 px width in the rendered stills",
+      "2 bpm ECG removed with the heart round",
+      "Tongue mismatch gone (round replaced)",
+      "Unsupported props removed: no silhouette track (frame 0 is in colour), no pxPerM track (calf growth is shown with SpeedBars), particles via core layers with colour (krill, snot, milk, blood cells), Balance instead of HeightChart for weight, MYTH strike is a rect wipe",
+      "Tunnel (svg radial ellipse) and swimmer (explainer/Diver with kick) are specified; water jets and thumbnails are no longer needed; stinger icons are one svg",
+      "One CountGrid implementation (icon_row/count_grid, rows of svg) used for 35 and 230; the 230 grid is full-width 23x10 at 40x48 px, not inside a pouch",
+      "SFX remapped to existing files (ding, underwater_rumble, whoosh, whoosh_long, impact, pop, click, tick, bubbles, boom, glitch, riser); crowd cheer dropped; boxing_bell left as an optional synth.py add",
+      "Loop shot starts after the last word ends (60.93 -> loop 60.95-61.5)",
+      "Calf scale stated explicitly: calf BlueWhale pxPerM 30 = 7 m at the scene's 120 px/m; You pxPerM 120"
+    ]
+  },
+  "nice_to_have_applied": [
+    "Comic deflations: 'and part of it is snot' (round 2) and 'and tomorrow it's hungry again' (the peak)",
+    "Stakes: present-tense you-scenes in every round",
+    "One headline number per round; distinct measured spoken values down to ~4/min",
+    "'as long as a basketball court' (hedged with 'can be')",
+    "Stinger is 14 words, adds 'too big' for the first time (paying off the 'Too small' plant), and the last word cuts to the frame-0 loop shot",
+    "Card treatment varied: round 4 has no slam, just a small tag on a hard cut; round 5's card is green",
+    "Planted words paid off: 'basketball court' (0:04) -> 'a basketball' (0:51); 'Too small' (0:14) -> 'too big' (1:00)",
+    "Nursing calf wording: 'newborn' is used only for the birth weight; the gain is 'on milk alone ... every day'",
+    "Kokoro-friendly opener: 'It can be as long as...' (no 'Whole,')",
+    "Scoreboard generated per scene from one SCORE_EVENTS list keyed to the spoken 'Point' words, so it cannot drift",
+    "Aorta bust drawn face-on (head width), as the producibility critic suggested"
+  ],
+  "not_applied": [
+    "First rung strictly <= 8 s spoken: four anchor variants were tested in Kokoro and the best put 'Round one' at 8.14-8.27 s. Kokoro inserts ~0.5 s after each sentence. The ROUND 1 card leads the voice at 7.95 s.",
+    "Runtime <= 59 s (corpus max): kept at 61.5 s on purpose, for TikTok Creator Rewards (>60 s). Speed 1.1 gives 58.6 s if a sub-60 cut is wanted.",
+    "Primary source for the aorta width: none found (the ROM blog gives no vessel width). The wording is hedged so it holds for any published value.",
+    "Hook pause removal: not needed; the measured hook has no inserted gaps (2.8 s)",
+    "Synthesized boxing bell / whale call: optional; ding and underwater_rumble used for now"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/explainer/explainer-short-blue-whale-scale/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "extra_check": "python3 scripts/originality_check.py backlog/explainer/explainer-short-blue-whale-scale/script.md episodes -> PASS (sibling pilot not flagged)",
+    "runs": "PASS on first run of the final text; rerun after the pacing-note edit: PASS"
+  },
+  "pacing": {
+    "runtime_s": 61.5,
+    "speech_s": [0.10, 60.93],
+    "words": 193,
+    "wpm": 190.4,
+    "tts": {"engine": "kokoro", "voice": "am_michael", "speed": 1.05, "timing_coverage": 1.0, "mix_lufs": -14.1, "true_peak_dbtp": -1.0},
+    "hook_words": 10,
+    "hook_s": 2.8,
+    "first_rung_card_s": 7.95,
+    "first_rung_spoken_s": 8.27,
+    "rule_s": 7.03,
+    "verdicts_s": [15.28, 23.66, 34.07, 44.13, 55.82],
+    "turnstile_s": [25.39, 27.41],
+    "turnstile_pct": "41-45%",
+    "spine_close_pct": 0.91,
+    "you_words": 16,
+    "you_pct_words": 8.3,
+    "you_per_min": 15.8,
+    "sentences_with_you": "11/22 (all 11 content sentences; 0/11 stamps and titles)",
+    "round_lengths_s": [7.9, 8.2, 10.3, 9.9, 11.4]
+  },
+  "storyboard": {
+    "file": "backlog/explainer/explainer-short-blue-whale-scale/storyboard.json",
+    "generator": "backlog/explainer/explainer-short-blue-whale-scale/gen_storyboard.py (reads audio/captions.json)",
+    "validator": "studio/src/cli/validate.ts, run on the Spark with Node 22.22.0 --experimental-strip-types (schema.ts sha1 7e382ee8 identical on Mac and Spark)",
+    "result": "ok: 9:16 30fps 11 scenes 61.53s captions=193 words",
+    "readiness": "scripts/check_storyboards.py on the Spark: ready (components registered, audio present, max hold 2.9 s)",
+    "stills": ["out/stills/bw_scale.jpg (10 frames)", "out/stills/bw_scale_fix.jpg (layout fixes at 31.0 and 59.0 s)"],
+    "audio_on_spark": "~/studio/app/studio/public/episodes/explainer-short-blue-whale-scale/ (mix.wav, voice/music stems, captions.json)",
+    "unbuilt_components": []
+  }
+}
