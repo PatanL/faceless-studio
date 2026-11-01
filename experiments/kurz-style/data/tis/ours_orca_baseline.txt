@@ -1,0 +1,52 @@
+## ours: out/pilots/explainer-orca/explainer-orca_16x9.mp4 (baseline, same tools)
+{
+ "duration_s": 75.1,
+ "events": 12,
+ "hard_cuts": 3,
+ "animated_transitions": 9,
+ "events_per_min": 9.6,
+ "shot_len_s": {
+  "mean": 5.77,
+  "p10": 3.05,
+  "p25": 3.23,
+  "median": 4.27,
+  "p75": 6.83,
+  "p90": 11.91
+ },
+ "shots_under_1.5s": 1,
+ "shots_over_10s": 2,
+ "frames_changing(score>0.001)": 0.365,
+ "frames_static(score<=0.0005)": 0.504,
+ "sustained_fast_motion_runs": 0,
+ "score_p50_p90_p99": [
+  0.0005,
+  0.0085,
+  0.0491
+ ]
+}
+pairs 37: same 0.08  evolved 0.73  new 0.19
+seconds per NEW picture 10.6; seconds per visible change (evolved|new) 2.2; longest hold 2 s
+d p25/p50/p75: [ 9.2 12.6 17.2]
+====================================================================== 
+ ../ours/orca/metrics.json 38 frames
+-- all: 38 frames (100%)
+   n_colours  p10/p50/p90 = [5.0, 7.0, 8.3]
+   n_flat     p10/p50/p90 = [11.0, 21.5, 31.3]
+   dark_frac  p10/p50/p90 = [0.013, 0.026, 0.232]
+   outline    p10/p50/p90 = [0.188, 0.289, 0.417]
+   edge_den   p10/p50/p90 = [0.015, 0.026, 0.034]
+   grad_frac  p10/p50/p90 = [0.255, 0.498, 0.627]
+   grain      p10/p50/p90 = [0.44, 0.6, 0.732]
+   vignette   p10/p50/p90 = [0.34, 0.532, 0.796]
+   blur_frac  p10/p50/p90 = [0.145, 0.527, 0.656]
+   meanL      p10/p50/p90 = [13.59, 27.05, 32.22]
+   sat p50 (p10/p50/p90 of frame medians) = [0.678, 0.755, 0.817]; frame sat p90 median = 0.833
+   val p50 (p10/p50/p90 of frame medians) = [0.153, 0.304, 0.35]; frame val p10 median = 0.169
+   top colour bins (top-3 clusters, coverage-weighted): [('#103030', 0.182), ('#101030', 0.111), ('#103050', 0.106), ('#105050', 0.067), ('#101010', 0.066), ('#105070', 0.05), ('#307070', 0.012), ('#305070', 0.011), ('#305050', 0.009)]
+frame                   shapes   micro   big
+g_00003.jpg                100     331    10
+g_00008.jpg                106     575     8
+g_00015.jpg                 79     394     9
+g_00019.jpg                 53     472    12
+g_00025.jpg                126     604     7
+g_00029.jpg                108     472     8

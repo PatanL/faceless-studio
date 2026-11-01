@@ -1,0 +1,60 @@
+[Parsed_ebur128_0 @ 0xf22398002a30] Summary:
+
+  Integrated loudness:
+    I:         -20.2 LUFS
+    Threshold: -30.4 LUFS
+
+  Loudness range:
+    LRA:         2.4 LU
+    Threshold: -40.4 LUFS
+    LRA low:   -21.5 LUFS
+    LRA high:  -19.1 LUFS
+
+  True peak:
+{
+ "rms_full_dB voice/gap": [
+  -24.9,
+  -41.7
+ ],
+ "rms_low<150Hz_dB voice/gap": [
+  -33.7,
+  -44.5
+ ],
+ "rms_voiceband_dB voice/gap": [
+  -26.8,
+  -46.3
+ ],
+ "rms_high>5k_dB voice/gap": [
+  -56.1,
+  -82.7
+ ],
+ "windows_below_-45dB_full": 0.001,
+ "windows_below_-60dB_full": 0.0,
+ "cue_gaps>=0.4s_share": null,
+ "cue_gap_median_s": null,
+ "cues": 245,
+ "voice_pauses>=0.3s_per_min": 0.2,
+ "voice_pause_median_s(>=0.3)": 0.6,
+ "bed_level_in_pauses_dB(full,low)": [
+  -44.3,
+  -47.6
+ ],
+ "high>5k: rise at transitions vs random (median dB, share>=8dB)": [
+  20.2,
+  21.1,
+  0.9,
+  0.92
+ ],
+ "low<150: rise at transitions vs random (median dB, share>=8dB)": [
+  7.5,
+  7.5,
+  0.43,
+  0.45
+ ],
+ "full: rise at transitions vs random (median dB, share>=8dB)": [
+  6.5,
+  7.1,
+  0.36,
+  0.41
+ ]
+}

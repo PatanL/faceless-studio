@@ -1,0 +1,90 @@
+## O4yWBv2Nj68
+# cuts.py
+{
+ "duration_s": 1087.4,
+ "events": 98,
+ "hard_cuts": 8,
+ "animated_transitions": 90,
+ "events_per_min": 5.4,
+ "shot_len_s": {
+  "mean": 10.98,
+  "p10": 3.53,
+  "p25": 5.45,
+  "median": 9.43,
+  "p75": 14.11,
+  "p90": 19.52
+ },
+ "shots_under_1.5s": 5,
+ "shots_over_10s": 45,
+ "frames_changing(score>0.001)": 0.674,
+ "frames_static(score<=0.0005)": 0.166,
+ "sustained_fast_motion_runs": 2,
+ "score_p50_p90_p99": [
+  0.0017,
+  0.0055,
+  0.0243
+ ]
+}
+# gridchange.py
+pairs 543: same 0.12  evolved 0.26  new 0.62
+seconds per NEW picture 3.2; seconds per visible change (evolved|new) 2.3; longest hold 14 s
+d p25/p50/p75: [14.3 32.8 50.8]
+# aggregate.py
+====================================================================== 
+ work/O4yWBv2Nj68/metrics.json 544 frames
+-- all: 544 frames (100%)
+   n_colours  p10/p50/p90 = [6.0, 9.0, 10.0]
+   n_flat     p10/p50/p90 = [11.0, 20.0, 31.0]
+   dark_frac  p10/p50/p90 = [0.0, 0.0, 0.004]
+   outline    p10/p50/p90 = [0.003, 0.086, 0.328]
+   edge_den   p10/p50/p90 = [0.022, 0.043, 0.095]
+   grad_frac  p10/p50/p90 = [0.099, 0.23, 0.532]
+   grain      p10/p50/p90 = [0.35, 0.59, 1.75]
+   vignette   p10/p50/p90 = [0.632, 0.979, 1.265]
+   blur_frac  p10/p50/p90 = [0.151, 0.396, 0.615]
+   meanL      p10/p50/p90 = [37.47, 70.65, 87.6]
+   sat p50 (p10/p50/p90 of frame medians) = [0.055, 0.224, 0.624]; frame sat p90 median = 0.618
+   val p50 (p10/p50/p90 of frame medians) = [0.427, 0.812, 0.98]; frame val p10 median = 0.531
+   top colour bins (top-3 clusters, coverage-weighted): [('#f0f0f0', 0.208), ('#101030', 0.047), ('#d0d0d0', 0.042), ('#30b0b0', 0.034), ('#705050', 0.026), ('#909090', 0.025), ('#70d0b0', 0.016), ('#b0b0b0', 0.015), ('#50d0b0', 0.014), ('#b0b0d0', 0.013)]
+-- mid: 227 frames (42%)
+   n_colours  p10/p50/p90 = [6.0, 9.0, 10.0]
+   n_flat     p10/p50/p90 = [12.0, 22.0, 34.4]
+   dark_frac  p10/p50/p90 = [0.0, 0.0, 0.006]
+   outline    p10/p50/p90 = [0.01, 0.074, 0.231]
+   edge_den   p10/p50/p90 = [0.022, 0.043, 0.074]
+   grad_frac  p10/p50/p90 = [0.111, 0.225, 0.539]
+   grain      p10/p50/p90 = [0.37, 0.59, 1.31]
+   vignette   p10/p50/p90 = [0.641, 0.951, 1.391]
+   blur_frac  p10/p50/p90 = [0.234, 0.398, 0.596]
+   meanL      p10/p50/p90 = [39.52, 58.6, 69.0]
+   sat p50 (p10/p50/p90 of frame medians) = [0.11, 0.302, 0.755]; frame sat p90 median = 0.671
+   val p50 (p10/p50/p90 of frame medians) = [0.45, 0.655, 0.878]; frame val p10 median = 0.396
+   top colour bins (top-3 clusters, coverage-weighted): [('#705050', 0.061), ('#909090', 0.036), ('#f0f0f0', 0.032), ('#50d0b0', 0.025), ('#b0b0d0', 0.023), ('#b0b0b0', 0.022), ('#507070', 0.021), ('#30b0b0', 0.021), ('#903030', 0.016), ('#305050', 0.016)]
+-- light: 281 frames (52%)
+   n_colours  p10/p50/p90 = [5.0, 9.0, 10.0]
+   n_flat     p10/p50/p90 = [9.0, 19.0, 30.0]
+   dark_frac  p10/p50/p90 = [0.0, 0.0, 0.002]
+   outline    p10/p50/p90 = [0.003, 0.082, 0.278]
+   edge_den   p10/p50/p90 = [0.024, 0.048, 0.134]
+   grad_frac  p10/p50/p90 = [0.075, 0.214, 0.521]
+   grain      p10/p50/p90 = [0.33, 0.65, 1.86]
+   vignette   p10/p50/p90 = [0.872, 0.996, 1.249]
+   blur_frac  p10/p50/p90 = [0.133, 0.355, 0.615]
+   meanL      p10/p50/p90 = [72.2, 79.0, 91.1]
+   sat p50 (p10/p50/p90 of frame medians) = [0.039, 0.078, 0.427]; frame sat p90 median = 0.541
+   val p50 (p10/p50/p90 of frame medians) = [0.8, 0.922, 0.984]; frame val p10 median = 0.651
+   top colour bins (top-3 clusters, coverage-weighted): [('#f0f0f0', 0.377), ('#d0d0d0', 0.07), ('#30b0b0', 0.05), ('#70d0b0', 0.032), ('#70d0d0', 0.021), ('#909090', 0.019), ('#f0d0d0', 0.015), ('#f0f0d0', 0.015), ('#d0f0f0', 0.012), ('#b0b0b0', 0.012)]
+-- dark: 36 frames (7%)
+   n_colours  p10/p50/p90 = [6.0, 7.0, 8.0]
+   n_flat     p10/p50/p90 = [18.0, 20.0, 21.0]
+   dark_frac  p10/p50/p90 = [0.001, 0.002, 0.004]
+   outline    p10/p50/p90 = [0.433, 0.509, 0.55]
+   edge_den   p10/p50/p90 = [0.015, 0.022, 0.033]
+   grad_frac  p10/p50/p90 = [0.508, 0.522, 0.532]
+   grain      p10/p50/p90 = [0.49, 0.5, 0.51]
+   vignette   p10/p50/p90 = [0.34, 0.435, 0.635]
+   blur_frac  p10/p50/p90 = [0.482, 0.534, 0.689]
+   meanL      p10/p50/p90 = [15.4, 17.35, 20.15]
+   sat p50 (p10/p50/p90 of frame medians) = [0.573, 0.573, 0.58]; frame sat p90 median = 0.659
+   val p50 (p10/p50/p90 of frame medians) = [0.224, 0.224, 0.224]; frame val p10 median = 0.169
+   top colour bins (top-3 clusters, coverage-weighted): [('#101030', 0.624), ('#301050', 0.133), ('#701030', 0.007), ('#b03030', 0.004), ('#d0b0b0', 0.003), ('#50b0d0', 0.001)]
