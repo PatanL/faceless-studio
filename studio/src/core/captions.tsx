@@ -44,14 +44,49 @@ const binds = (w: Word, prev: Word | undefined, pairs: Set<string>) =>
 	!PUNCT_END.test(prev.text.trim()) &&
 	((isNum(prev) && (isNum(w) || UNITS.has(bare(w)))) || pairs.has(`${bare(prev)} ${bare(w)}`));
 
+// a page never ends on one of these unless punctuation closes it there: the phrase is still open
+// ("Rule four said if", "So who'd been answering our", "Management may", "His little green")
+const DANGLING = new Set(
+	(
+		'a an the this these those my your his her our their its no every each some any ' +
+		'and or but nor if as than because though while where who whose which ' +
+		'will would can could may might must shall should do does did is are was were be been being am has have had ' +
+		"i i'm i'd i'll i've we we're they he she he'd she'd they'd you're who'd " +
+		'little big small old new last first same other red green grey gray black white dark cold calm only very really just not'
+	).split(' '),
+);
+// ... nor on an open verb / preposition unless a new phrase starts right after it: "Rule four said | if someone",
+// "need | to come", "I looked | through the peephole", "come in | for a minute" are fine; "A calm voice said | my name",
+// "I looked through | the peephole", "We just need to come | in for a minute" are not
+const OPEN_VERB = new Set('said says say come came go get got sat looked turned switched need needs want wants'.split(' '));
+const PREP = new Set(
+	'of to in into onto on at by for from with without through about over under after before behind against between until'.split(' '),
+);
+const CLAUSE = new Set('and but or so because then when while if that who which to what'.split(' '));
+// a break right before one of these lands on a phrase boundary
+const STARTERS = new Set([...CLAUSE, ...PREP]);
+const isParticle = (w: Word, after?: Word) => PREP.has(bare(w)) && (PUNCT_END.test(w.text.trim()) || !after || STARTERS.has(bare(after)));
+// cost of a page ending on `last` (followed by nx, nx2) that leaves the phrase open: determiners / pronouns /
+// auxiliaries 4, a preposition before its object 3.5, an open verb 3 ("I looked | through" beats "I looked through |")
+const dangles = (last: Word, nx: Word, nx2?: Word) => {
+	if (PUNCT_END.test(last.text.trim())) return 0;
+	const b = bare(last);
+	if (DANGLING.has(b)) return 4;
+	if (PREP.has(b)) return STARTERS.has(bare(nx)) ? 0 : 3.5; // "come in | for", "light on | and" (particles) are fine
+	if (OPEN_VERB.has(b)) return CLAUSE.has(bare(nx)) || (PREP.has(bare(nx)) && !isParticle(nx, nx2)) ? 0 : 3;
+	return 0;
+};
+
 /**
- * Group words into short pages (1-3 words): break on maxWords, maxChars, a pause longer
- * than gapBreak, or after punctuation. A page shows from its first word until the next
- * page starts (or `linger` after its last word).
+ * Group words into short one-line pages (up to maxWords+1 words / maxChars+6 chars). Pages never cross a
+ * sentence end or a scene cut; inside a sentence the breaks are picked by least cost (see DANGLING / STARTERS).
+ * Words with `br` (pipeline phrase pages) override this: break only there. A page shows from its first word
+ * until the next page starts (or `linger` after its last word).
  */
 export function paginate(
 	words: Word[],
-	c: Pick<Captions, 'maxWords' | 'maxChars' | 'gapBreak' | 'linger'> & {glue?: string[]},
+	c: Pick<Captions, 'maxWords' | 'maxChars' | 'gapBreak' | 'linger'> & {glue?: string[]; style?: {backing?: number}},
+	cuts?: number[],
 ): CaptionPage[] {
 	const sorted = [...words].filter((w) => w.text.trim()).sort((a, b) => a.start - b.start);
 	const pairs = pairsOf([...COMPOUNDS, ...(c.glue ?? [])]);
@@ -80,79 +115,70 @@ export function paginate(
 			return {words: p.words, start: p.words[0].start, end: next !== undefined && next - last <= c.linger ? next : last + c.linger};
 		});
 	}
+	// Hard segments: a page never runs across a sentence end or a scene cut (`cuts`, global seconds). Inside a
+	// segment the breaks are chosen together (least cost): whole short lines first, never a page ending on a dangling
+	// function word ("Rule four said if", "I looked through"), never splitting glued pairs ("Six | C", "only | one"),
+	// breaks preferred at commas / pauses / before a phrase starter, no flashes under 0.6 s or lone words.
+	const cutList = [...(cuts ?? [])].sort((x, y) => x - y);
+	const crossesCut = (a: Word, b: Word) => cutList.some((t) => a.start < t - 1e-3 && b.start >= t - 1e-3);
+	const segs: Word[][] = [];
 	sorted.forEach((w, i) => {
 		const prev = sorted[i - 1];
-		const chars = cur.reduce((n, x) => n + x.text.length + 1, 0) + w.text.length;
-		const gap = !!prev && w.start - prev.end > c.gapBreak;
-		const full = cur.length >= c.maxWords || chars > c.maxChars;
-		// ... unless the word after w ends the sentence and could not join too: break earlier so that word is not orphaned
-		const nx = sorted[i + 1];
-		const orphanNext = !!nx && SENTENCE_END.test(nx.text.trim()) && cur.length + 2 > c.maxWords + 1;
-		// page would end on a stopword: let it take one more word (up to maxWords+1 / maxChars+4) ...
-		const stretch =
-			(cur.length > 0 && isStop(cur[cur.length - 1]) && cur.length <= c.maxWords && chars <= c.maxChars + 4 && !orphanNext) ||
-			(glues(w, prev) && cur.length <= c.maxWords + 1 && chars <= c.maxChars + 6) ||
-			(binds(w, prev, pairs) && cur.length <= c.maxWords && chars <= c.maxChars + 6) ||
-			// look-ahead: a phrase-final word ("cart.", "body.") joins this page instead of sitting alone on the next
-			(PUNCT_END.test(w.text.trim()) && cur.length <= c.maxWords && chars <= c.maxChars + 6);
-		if (cur.length && (gap || (full && !stretch))) {
-			flush(!gap); // ... or carry the trailing stopword(s) to the next page
-		}
-		cur.push(w);
-		// sentence ends close a page; a comma/colon only once the page has 3+ words ("Signed, Management." stays one page)
-		const wt = w.text.trim();
-		if (SENTENCE_END.test(wt) ? cur.length >= 2 || wt.length >= 8 : PUNCT_END.test(wt) && cur.length >= 3) flush();
+		if (!prev || SENTENCE_END.test(prev.text.trim()) || crossesCut(prev, w)) segs.push([]);
+		segs[segs.length - 1].push(w);
 	});
-	flush();
-	const timed = () =>
-		pages.map((p, i) => {
-			const start = p.words[0].start;
-			const last = p.words[p.words.length - 1].end;
-			const next = pages[i + 1]?.words[0].start;
-			const end = next !== undefined && next - last <= c.linger ? next : last + c.linger;
-			return {words: p.words, start, end};
-		});
-	// merge flashes: a page shorter than 0.6 s, or a lone word, joins a neighbour when the result has <= 4 words.
-	// A sentence-final page joins the previous one; a sentence-initial page joins the next one.
-	const MAXM = Math.max(4, c.maxWords);
-	const SENT_END = /[.!?…]["')\]]?$/;
-	const lastText = (p: {words: Word[]}) => p.words[p.words.length - 1].text.trim();
-	for (let guard = 0; guard < 200; guard++) {
-		const tp = timed();
-		let done = true;
-		for (let i = 0; i < tp.length; i++) {
-			const p = tp[i];
-			if (!(p.end - p.start < 0.6 || p.words.length === 1)) continue;
-			// <= 4 words, or 5 when the merged card stays short (it wraps to two lines at most)
-			const fits = (q: {words: Word[]}) => {
-				const n = q.words.length + p.words.length;
-				return n <= MAXM || (n <= MAXM + 1 && [...q.words, ...p.words].reduce((k, x) => k + x.text.length + 1, -1) <= c.maxChars + 8);
-			};
-			const prevOk = i > 0 && !SENT_END.test(lastText(pages[i - 1])) && fits(pages[i - 1]);
-			const nextOk = i < pages.length - 1 && !PUNCT_END.test(lastText(pages[i])) && fits(pages[i + 1]);
-			const ends = PUNCT_END.test(lastText(pages[i]));
-			const j = ends ? (prevOk ? i - 1 : -1) : nextOk ? i + 1 : prevOk ? i - 1 : -1;
-			if (j < 0) {
-				// a lone phrase-final word after a full page: take the previous page's tail ("in the middle | of that cloud?")
-				const pv = pages[i - 1];
-				if (p.words.length === 1 && ends && pv && !PUNCT_END.test(lastText(pv)) && pv.words.length >= 3) {
-					const moved: Word[] = [];
-					while (pv.words.length > 2 && moved.length < 2 && (moved.length === 0 || isStop(pv.words[pv.words.length - 1])))
-						moved.unshift(pv.words.pop() as Word);
-					pages[i] = {words: [...moved, ...pages[i].words]};
-					done = false;
-					break;
-				}
-				continue;
+	const hardWords = c.maxWords + 1;
+	// a backed (pill) caption shrinks its type to stay on one line, so it can take a whole short sentence
+	const hardChars = c.maxChars + ((c.style?.backing ?? 0) > 0 ? 8 : 6);
+	segs.forEach((seg, si) => {
+		const n = seg.length;
+		// the segment's last page is cut short by the next segment's first word (see the timing below)
+		const after = segs[si + 1]?.[0].start ?? Infinity;
+		const cost = (i: number, j: number) => {
+			// page = seg[i..j)
+			const ws = seg.slice(i, j);
+			const chars = ws.reduce((k, x) => k + x.text.length + 1, -1);
+			if (ws.length > 1 && (ws.length > hardWords || chars > hardChars)) return Infinity;
+			let k = 1;
+			k += Math.max(0, chars - c.maxChars) * 0.15 + (ws.length > c.maxWords ? 0.6 : 0);
+			const last = ws[ws.length - 1];
+			const end = j < n ? seg[j].start : Math.min(last.end + c.linger, Math.max(after, last.end));
+			if (end - ws[0].start < 0.6) k += 2.5;
+			if (end - ws[0].start > 3.2) k += 1;
+			if (ws.length === 1 && n > 1) k += 1;
+			if (j < n) {
+				const nx = seg[j];
+				const lt = last.text.trim();
+				k += dangles(last, nx, seg[j + 1]);
+				if (glues(nx, last) || binds(nx, last, pairs)) k += 4;
+				if (PUNCT_END.test(lt)) k -= 0.8;
+				if (nx.start - last.end > c.gapBreak) k -= 1.5;
+				if (STARTERS.has(bare(nx))) k -= 0.2;
 			}
-			const [a, b] = j < i ? [j, i] : [i, j];
-			pages.splice(a, 2, {words: [...pages[a].words, ...pages[b].words]});
-			done = false;
-			break;
+			return k;
+		};
+		const best: number[] = new Array(n + 1).fill(Infinity);
+		const nxt: number[] = new Array(n + 1).fill(n);
+		best[n] = 0;
+		for (let i = n - 1; i >= 0; i--) {
+			// longest page first: on a tie the earlier page keeps more words
+			for (let j = n; j > i; j--) {
+				const v = cost(i, j) + best[j];
+				if (v < best[i] - 1e-9) {
+					best[i] = v;
+					nxt[i] = j;
+				}
+			}
 		}
-		if (done) break;
-	}
-	return timed();
+		for (let i = 0; i < n; i = nxt[i]) pages.push({words: seg.slice(i, nxt[i])});
+	});
+	return pages.map((p, i) => {
+		const start = p.words[0].start;
+		const last = p.words[p.words.length - 1].end;
+		const next = pages[i + 1]?.words[0].start;
+		const end = next !== undefined && next - last <= c.linger ? next : last + c.linger;
+		return {words: p.words, start, end};
+	});
 }
 
 /** Global-time caption y cues from Scene.captionY / captionYAt: [{at, y}] sorted; y undefined = style.y. */
@@ -168,15 +194,16 @@ export function captionPlacement(scenes: Scene[], timings: {start: number}[], fp
 	return cues.sort((a, b) => a.at - b.at);
 }
 
-export const CaptionTrack: React.FC<{captions: Captions; format: Format; theme: Theme; placement?: CaptionCue[]}> = ({
+export const CaptionTrack: React.FC<{captions: Captions; format: Format; theme: Theme; placement?: CaptionCue[]; cuts?: number[]}> = ({
 	captions,
 	format,
 	theme,
 	placement,
+	cuts,
 }) => {
 	const frame = useCurrentFrame();
 	const {fps, width, height} = useVideoConfig();
-	const pages = useMemo(() => paginate(captions.words, captions), [captions]);
+	const pages = useMemo(() => paginate(captions.words, captions, cuts), [captions, cuts]);
 	if (!captions.enabled) return null;
 	const t = frame / fps;
 	const page = pages.find((p) => t >= p.start && t < p.end);

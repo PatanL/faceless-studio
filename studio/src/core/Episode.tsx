@@ -13,6 +13,8 @@ export const Episode: React.FC<StoryboardInput> = (props) => {
 	const {timings, totalFrames} = useMemo(() => sceneTimings(sb), [sb]);
 	// per-scene caption y (global seconds), for scenes whose framing needs the caption moved off phone text
 	const placement = useMemo(() => captionPlacement(sb.scenes, timings, sb.fps), [sb, timings]);
+	// scene cuts (global seconds): a caption page never runs across one
+	const cuts = useMemo(() => timings.slice(1).map((t) => t.start / sb.fps), [timings, sb.fps]);
 
 	return (
 		<AbsoluteFill style={{background: '#000'}}>
@@ -31,7 +33,7 @@ export const Episode: React.FC<StoryboardInput> = (props) => {
 			})}
 			{sb.overlays.vignette > 0 ? <Vignette amount={sb.overlays.vignette} /> : null}
 			{sb.overlays.grain > 0 ? <Grain amount={sb.overlays.grain} /> : null}
-			{sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} /> : null}
+			{sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} cuts={cuts} /> : null}
 			<Fades fadeIn={sb.overlays.fadeIn} fadeOut={sb.overlays.fadeOut} totalFrames={totalFrames} />
 			<AudioTrack sb={sb} timings={timings} totalFrames={totalFrames} />
 		</AbsoluteFill>
