@@ -22,11 +22,33 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "70%",
+     "x": "162%",
      "y": "40%",
-     "width": 2600,
-     "height": 760,
-     "props": {},
+     "width": 3000,
+     "height": 437,
+     "props": {
+      "gape": [
+       {
+        "t": 0,
+        "v": 0.55
+       },
+       {
+        "t": 1.425,
+        "v": 0.85
+       },
+       {
+        "t": 5.687,
+        "v": 0.85
+       },
+       {
+        "t": 6.487,
+        "v": 0.6
+       }
+      ],
+      "amp": 0.5
+     },
+     "flipX": true,
+     "z": 1,
      "idle": [
       {
        "type": "bob",
@@ -37,20 +59,82 @@
     },
     {
      "type": "component",
-     "name": "explainer/You",
-     "x": "22%",
-     "y": "44%",
-     "width": 90.0,
-     "height": 150,
+     "name": "explainer/Diver",
+     "x": "8%",
+     "y": "50%",
+     "width": 280,
+     "height": 60,
      "props": {
-      "pose": "panic"
+      "arms": "forward"
      },
      "z": 3,
-     "idle": [
+     "keyframes": [
       {
-       "type": "float",
-       "amount": 8,
-       "speed": 0.4
+       "t": 0,
+       "x": "16%",
+       "y": "51%"
+      },
+      {
+       "t": 2.825,
+       "x": "38%",
+       "y": "45%",
+       "ease": "inOut"
+      },
+      {
+       "t": 5.687,
+       "x": "40%",
+       "y": "45%"
+      },
+      {
+       "t": 6.587000000000001,
+       "x": "12%",
+       "y": "50%",
+       "rotate": -25,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "16%",
+     "y": "46%",
+     "width": 160,
+     "height": 72.0,
+     "props": {
+      "text": "YOU",
+      "at": 0.0,
+      "size": 30,
+      "accent": "#e5483d"
+     },
+     "depth": 1,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16%",
+       "y": "46.5%",
+       "rotate": 0
+      },
+      {
+       "t": 2.825,
+       "x": "38%",
+       "y": "40.5%",
+       "ease": "inOut",
+       "rotate": 0
+      },
+      {
+       "t": 5.687,
+       "x": "40%",
+       "y": "40.5%",
+       "rotate": 0
+      },
+      {
+       "t": 6.587000000000001,
+       "x": "12%",
+       "y": "45.5%",
+       "rotate": 0,
+       "ease": "out"
       }
      ]
     },
@@ -58,15 +142,16 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "15%",
+     "y": "14%",
      "width": 1000,
-     "height": 224.0,
+     "height": 236.8,
      "props": {
       "text": "FITS IN ITS MOUTH",
-      "at": 0.3,
-      "size": 70,
+      "at": 0.0,
+      "size": 74,
       "color": "white",
-      "underline": true
+      "underline": true,
+      "out": 5.15
      },
      "depth": 0,
      "z": 20
@@ -75,13 +160,13 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "62%",
+     "y": "14%",
      "width": 1000,
-     "height": 204.8,
+     "height": 236.8,
      "props": {
       "text": "CAN'T SWALLOW YOU",
       "at": 5.45,
-      "size": 64,
+      "size": 74,
       "color": "red",
       "underline": true
      },
@@ -94,13 +179,15 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.1,
-      "x": "40%"
+      "zoom": 1.12,
+      "x": "45%",
+      "y": "48%"
      },
      {
       "t": 7.805,
       "zoom": 1.0,
-      "x": "50%"
+      "x": "50%",
+      "y": "50%"
      }
     ]
    }
@@ -124,18 +211,47 @@
      "name": "explainer/BlueWhale",
      "x": "50%",
      "y": "34%",
-     "width": 1000,
+     "width": 1020,
      "height": 300,
      "props": {
-      "pxPerM": 33
-     }
+      "pxPerM": 36.42857142857143
+     },
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "130%"
+      },
+      {
+       "t": 1.6,
+       "x": "50%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "14%",
+     "width": 1000,
+     "height": 204.8,
+     "props": {
+      "text": "HEAVIEST ANIMAL EVER",
+      "at": 0.587,
+      "size": 64,
+      "color": "white",
+      "underline": true,
+      "out": 5.062
+     },
+     "depth": 0,
+     "z": 20
     },
     {
      "type": "component",
      "name": "explainer/ScaleBar",
      "x": "50%",
      "y": "44%",
-     "width": 990,
+     "width": 1020,
      "height": 140,
      "props": {
       "label": "~30 M",
@@ -145,12 +261,12 @@
     {
      "type": "component",
      "name": "explainer/Bus",
-     "x": "29%",
+     "x": "28%",
      "y": "56%",
-     "width": 396,
+     "width": 408,
      "height": 140,
      "props": {
-      "pxPerM": 33
+      "pxPerM": 34
      },
      "start": 5.262,
      "enter": {
@@ -162,12 +278,12 @@
     {
      "type": "component",
      "name": "explainer/Bus",
-     "x": "68%",
+     "x": "66%",
      "y": "56%",
-     "width": 396,
+     "width": 408,
      "height": 140,
      "props": {
-      "pxPerM": 33
+      "pxPerM": 34
      },
      "start": 5.525,
      "enter": {
@@ -179,12 +295,12 @@
     {
      "type": "component",
      "name": "explainer/Bus",
-     "x": "93%",
+     "x": "91%",
      "y": "56%",
-     "width": 198,
+     "width": 204,
      "height": 140,
      "props": {
-      "pxPerM": 33
+      "pxPerM": 34
      },
      "start": 7.238,
      "enter": {
@@ -493,7 +609,7 @@
     {
      "type": "particles",
      "preset": "dust",
-     "count": 220,
+     "count": 240,
      "color": "rgba(255,150,140,0.75)",
      "size": [
       3,
@@ -502,29 +618,40 @@
      "speed": 0.5,
      "x": "60%",
      "y": "40%",
-     "width": 1000,
+     "width": 1100,
      "height": 900,
      "z": 2
     },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "50%",
-     "y": "40%",
+     "x": "25%",
+     "y": "34%",
      "width": 1500,
-     "height": 440,
+     "height": 220,
      "props": {
-      "speed": 1.3
+      "speed": 1.3,
+      "gape": [
+       {
+        "t": 3.763,
+        "v": 0
+       },
+       {
+        "t": 4.463,
+        "v": 1,
+        "ease": "out"
+       }
+      ]
      },
      "z": 1,
      "keyframes": [
       {
        "t": 0,
-       "x": "-60%"
+       "x": "-80%"
       },
       {
-       "t": 7.88,
-       "x": "70%",
+       "t": 4.163,
+       "x": "25%",
        "ease": "out"
       }
      ]
@@ -533,7 +660,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "75%",
-     "y": "20%",
+     "y": "14%",
      "width": 320,
      "height": 91.2,
      "props": {
@@ -548,12 +675,12 @@
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "62%",
+     "y": "58%",
      "width": 1000,
      "height": 172.8,
      "props": {
       "text": "ONE GULP > ITS OWN BODY",
-      "at": 3.863,
+      "at": 3.763,
       "size": 54,
       "color": "red",
       "underline": false
@@ -597,9 +724,51 @@
     },
     {
      "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": "25%",
+     "y": "30%",
+     "width": 1500,
+     "height": 220,
+     "props": {
+      "speed": 0.8,
+      "gape": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 0.338,
+        "v": 1
+       },
+       {
+        "t": 4.625,
+        "v": 0.25,
+        "ease": "inOut"
+       }
+      ]
+     },
+     "z": 2
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "62%",
+     "y": "14%",
+     "width": 560,
+     "height": 91.2,
+     "props": {
+      "text": "BALEEN = SIEVE",
+      "at": 2.325,
+      "size": 38
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "42%",
+     "y": "58%",
      "width": 900,
      "height": 270.40000000000003,
      "props": {
@@ -608,21 +777,6 @@
       "at": 4.688,
       "size": 104,
       "duration": 1.6
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "50%",
-     "y": "16%",
-     "width": 900,
-     "height": 91.2,
-     "props": {
-      "text": "BALEEN = SIEVE",
-      "at": 2.325,
-      "size": 38
      },
      "depth": 0,
      "z": 20
@@ -662,13 +816,13 @@
     },
     {
      "type": "component",
-     "name": "explainer/You",
+     "name": "explainer/Diver",
      "x": "50%",
-     "y": "42%",
-     "width": 156.0,
-     "height": 260,
+     "y": "44%",
+     "width": 640,
+     "height": 140,
      "props": {
-      "pose": "panic"
+      "arms": "forward"
      },
      "z": 3,
      "idle": [
@@ -801,24 +955,26 @@
    "layers": [
     {
      "type": "component",
-     "name": "explainer/You",
+     "name": "explainer/Diver",
      "x": "50%",
-     "y": "40%",
-     "width": 120.0,
-     "height": 200,
+     "y": "36%",
+     "width": 420,
+     "height": 92,
      "props": {
-      "pose": "panic"
+      "arms": "forward"
      },
      "z": 3,
      "keyframes": [
       {
        "t": 5.287,
        "x": "50%",
+       "y": "36%",
        "rotate": 0
       },
       {
        "t": 6.487,
-       "x": "20%",
+       "x": "14%",
+       "y": "26%",
        "rotate": -200,
        "ease": "out"
       }
@@ -828,9 +984,9 @@
      "type": "component",
      "name": "explainer/BlueWhale",
      "x": "50%",
-     "y": "46%",
+     "y": "44%",
      "width": 2400,
-     "height": 700,
+     "height": 350,
      "props": {
       "speed": 1.2
      },
@@ -903,11 +1059,25 @@
     {
      "type": "component",
      "name": "explainer/BlueWhale",
-     "x": "70%",
+     "x": "162%",
      "y": "40%",
-     "width": 2600,
-     "height": 760,
-     "props": {},
+     "width": 3000,
+     "height": 437,
+     "props": {
+      "gape": [
+       {
+        "t": 0,
+        "v": 0.3
+       },
+       {
+        "t": 2.5,
+        "v": 0.7
+       }
+      ],
+      "amp": 0.5
+     },
+     "flipX": true,
+     "z": 1,
      "idle": [
       {
        "type": "bob",
@@ -918,22 +1088,73 @@
     },
     {
      "type": "component",
-     "name": "explainer/You",
-     "x": "22%",
-     "y": "44%",
-     "width": 90.0,
-     "height": 150,
+     "name": "explainer/Diver",
+     "x": "16%",
+     "y": "51%",
+     "width": 280,
+     "height": 60,
      "props": {
-      "pose": "wave"
+      "arms": "forward"
      },
      "z": 3,
-     "idle": [
+     "keyframes": [
       {
-       "type": "float",
-       "amount": 8,
-       "speed": 0.4
+       "t": 0,
+       "x": "16%",
+       "y": "51%"
+      },
+      {
+       "t": 9.9,
+       "x": "20%",
+       "y": "50%"
       }
      ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "16%",
+     "y": "46.5%",
+     "width": 160,
+     "height": 72.0,
+     "props": {
+      "text": "YOU",
+      "at": 0.0,
+      "size": 30,
+      "accent": "#e5483d"
+     },
+     "depth": 1,
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16%",
+       "y": "46.5%"
+      },
+      {
+       "t": 9.9,
+       "x": "20%",
+       "y": "45.5%"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "14%",
+     "width": 1000,
+     "height": 204.8,
+     "props": {
+      "text": "NEVER DOWN ITS THROAT",
+      "at": 1.725,
+      "size": 64,
+      "color": "white",
+      "underline": true,
+      "out": 5.825
+     },
+     "depth": 0,
+     "z": 20
     },
     {
      "type": "component",
@@ -2100,7 +2321,7 @@
  "overlays": {
   "grain": 0.04,
   "vignette": 0.2,
-  "fadeIn": 0.2,
+  "fadeIn": 0,
   "fadeOut": 0.5
  },
  "_built": {

@@ -12,7 +12,7 @@ RED = "#e5483d"
 
 CAPTIONS = {"font": "display", "fontSize": 84, "color": "#ffffff", "highlight": "#ff5a4a", "highlightMode": "color",
             "strokeWidth": 12, "uppercase": True, "y": 0.72}
-OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0.2, "fadeOut": 0.5}
+OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0.5}  # frame 0 is the Shorts cover: never black
 
 
 def ocean(depth, **props):
@@ -212,22 +212,33 @@ def orca(S):
 def blue_whale(S):
     sc = []
     s = S[0]
+    # hook: true-scale head close-up (28 m whale = 3000 px, a 2.6 m diver = ~280 px), mouth open,
+    # YOU drifts into the mouth on "inside", then gets pushed back out on "swallow".
+    inside, nope = s.at("inside", off=-0.2), s.at("swallow", off=-0.1)
+    diver_kf = [{"t": 0, "x": "16%", "y": "51%"}, {"t": inside + 1.4, "x": "38%", "y": "45%", "ease": "inOut"},
+                {"t": nope, "x": "40%", "y": "45%"}, {"t": nope + 0.9, "x": "12%", "y": "50%", "rotate": -25, "ease": "out"}]
     sc.append(scene(s, ocean(30, rays=8), [
-        comp("explainer/BlueWhale", "70%", "40%", 2600, 760, {}, idle=[{"type": "bob", "amount": 6, "speed": 0.2}]),
-        you("22%", "44%", 150, "panic", z=3, idle=[{"type": "float", "amount": 8, "speed": 0.4}]),
-        headline("FITS IN ITS MOUTH", at=0.3, y="15%", size=70),
-        headline("CAN'T SWALLOW YOU", at=s.at("couldn't", off=-0.1), y="62%", size=64, color="red"),
-    ], camera={"keyframes": [{"t": 0, "zoom": 1.1, "x": "40%"}, {"t": s.dur, "zoom": 1.0, "x": "50%"}]}))
+        comp("explainer/BlueWhale", "162%", "40%", 3000, 437,
+             {"gape": [{"t": 0, "v": 0.55}, {"t": inside, "v": 0.85}, {"t": nope, "v": 0.85}, {"t": nope + 0.8, "v": 0.6}],
+              "amp": 0.5}, flipX=True, z=1, idle=[{"type": "bob", "amount": 6, "speed": 0.2}]),
+        comp("explainer/Diver", "8%", "50%", 280, 60, {"arms": "forward"}, z=3, keyframes=diver_kf),
+        {**tag("YOU", 0.0, x="16%", y="46%", size=30, w=160, accent=RED), "depth": 1, "z": 4,
+         "keyframes": [{**k, "y": f"{float(k['y'][:-1]) - 4.5}%", "rotate": 0} for k in diver_kf]},
+        headline("FITS IN ITS MOUTH", at=0.0, y="14%", size=74, out=s.at("still", off=-0.1)),
+        headline("CAN'T SWALLOW YOU", at=s.at("couldn't", off=-0.1), y="14%", size=74, color="red"),
+    ], camera={"keyframes": [{"t": 0, "zoom": 1.12, "x": "45%", "y": "48%"}, {"t": s.dur, "zoom": 1.0, "x": "50%", "y": "50%"}]}))
     s = S[1]
-    PPM = 33
+    PPM = 34
     sc.append(scene(s, ocean(60, rays=7), [
-        comp("explainer/BlueWhale", "50%", "34%", 1000, 300, {"pxPerM": PPM}),
+        comp("explainer/BlueWhale", "50%", "34%", 30 * PPM, 300, {"pxPerM": PPM * 30 / 28},
+             keyframes=[{"t": 0, "x": "130%"}, {"t": 1.6, "x": "50%", "ease": "out"}]),
+        headline("HEAVIEST ANIMAL EVER", at=s.at("heaviest", off=-0.1), y="14%", size=64, out=s.at("two", off=-0.2)),
         comp("explainer/ScaleBar", "50%", "44%", 30 * PPM, 140, {"label": "~30 M", "at": s.at("thirty", off=-0.1)}),
-        comp("explainer/Bus", "29%", "56%", 12 * PPM, 140, {"pxPerM": PPM}, start=s.at("two"),
+        comp("explainer/Bus", "28%", "56%", 12 * PPM, 140, {"pxPerM": PPM}, start=s.at("two"),
              enter={"type": "slideRight", "at": s.at("two"), "duration": 0.4}),
-        comp("explainer/Bus", "68%", "56%", 12 * PPM, 140, {"pxPerM": PPM}, start=s.at("half", off=-0.1),
+        comp("explainer/Bus", "66%", "56%", 12 * PPM, 140, {"pxPerM": PPM}, start=s.at("half", off=-0.1),
              enter={"type": "slideRight", "at": s.at("half", off=-0.1), "duration": 0.4}),
-        comp("explainer/Bus", "93%", "56%", 6 * PPM, 140, {"pxPerM": PPM}, start=s.at("nose"),
+        comp("explainer/Bus", "91%", "56%", 6 * PPM, 140, {"pxPerM": PPM}, start=s.at("nose"),
              enter={"type": "slideRight", "at": s.at("nose"), "duration": 0.4}, opacity=0.8),
         headline("2.5 CITY BUSES", at=s.at("two", off=0.3), y="14%", size=66),
     ], camera=push(0.3), trans=FADE))
@@ -255,24 +266,28 @@ def blue_whale(S):
     ], camera={"preset": "pushIn", "amount": 0.6,
                "shake": [{"at": b, "duration": 0.18, "amplitude": 6} for b in beats if b < slow]}, trans=DIP))
     s = S[5]
+    gulp = s.at("gulp", off=-0.2)
     sc.append(scene(s, ocean(25, rays=9), [
-        {"type": "particles", "preset": "dust", "count": 220, "color": "rgba(255,150,140,0.75)", "size": [3, 7], "speed": 0.5,
-         "x": "60%", "y": "40%", "width": 1000, "height": 900, "z": 2},
-        comp("explainer/BlueWhale", "50%", "40%", 1500, 440, {"speed": 1.3}, z=1,
-             keyframes=[{"t": 0, "x": "-60%"}, {"t": s.dur, "x": "70%", "ease": "out"}]),
-        tag("KRILL", s.at("krill", off=-0.1), x="75%", y="20%", size=38, w=320),
-        headline("ONE GULP > ITS OWN BODY", at=s.at("gulp", off=-0.1), y="62%", size=54, color="red", underline=False),
+        {"type": "particles", "preset": "dust", "count": 240, "color": "rgba(255,150,140,0.75)", "size": [3, 7], "speed": 0.5,
+         "x": "60%", "y": "40%", "width": 1100, "height": 900, "z": 2},
+        comp("explainer/BlueWhale", "25%", "34%", 1500, 220, {"speed": 1.3, "gape": [{"t": gulp, "v": 0}, {"t": gulp + 0.7, "v": 1, "ease": "out"}]},
+             z=1, keyframes=[{"t": 0, "x": "-80%"}, {"t": gulp + 0.4, "x": "25%", "ease": "out"}]),
+        tag("KRILL", s.at("krill", off=-0.1), x="75%", y="14%", size=38, w=320),
+        headline("ONE GULP > ITS OWN BODY", at=gulp, y="58%", size=54, color="red", underline=False),
     ], trans=WHIP))
     s = S[6]
     sc.append(scene(s, ocean(25, rays=8), [
         {"type": "particles", "preset": "dust", "count": 260, "color": "rgba(255,150,140,0.7)", "size": [3, 6], "speed": 0.6, "z": 1},
-        stat(40000000, "krill in a single day", s.at("Up", off=-0.1), y="42%", size=104, duration=1.6),
-        tag("BALEEN = SIEVE", s.at("baleen", off=-0.1), y="16%", size=38),
+        comp("explainer/BlueWhale", "25%", "30%", 1500, 220,
+             {"speed": 0.8, "gape": [{"t": 0, "v": 1}, {"t": s.at("squeezes", off=-0.1), "v": 1},
+                                     {"t": s.at("food", end=True), "v": 0.25, "ease": "inOut"}]}, z=2),
+        tag("BALEEN = SIEVE", s.at("baleen", off=-0.1), x="62%", y="14%", size=38, w=560),
+        stat(40000000, "krill in a single day", s.at("Up", off=-0.1), y="58%", size=104, duration=1.6),
     ], trans=FADE))
     s = S[7]
     sc.append(scene(s, ocean(25, rays=8), [
         {"type": "particles", "preset": "dust", "count": 260, "color": "rgba(255,150,140,0.7)", "size": [3, 6], "speed": 0.5, "z": 1},
-        you("50%", "42%", 260, "panic", z=3, idle=[{"type": "float", "amount": 10, "speed": 0.4}]),
+        comp("explainer/Diver", "50%", "44%", 640, 140, {"arms": "forward"}, z=3, idle=[{"type": "float", "amount": 10, "speed": 0.4}]),
         headline("AND YOU?", at=s.at("you", off=-0.1), y="18%", size=100, color="red"),
     ], camera=push(1.0), trans=DIP))
     s = S[8]
@@ -285,15 +300,22 @@ def blue_whale(S):
     s = S[9]
     turn = s.at("turn", off=-0.4)
     sc.append(scene(s, ocean(30, rays=8), [
-        you("50%", "40%", 200, "panic", z=3, keyframes=[{"t": turn, "x": "50%", "rotate": 0}, {"t": turn + 1.2, "x": "20%", "rotate": -200, "ease": "out"}]),
-        comp("explainer/BlueWhale", "50%", "46%", 2400, 700, {"speed": 1.2}, z=1, flipX=True,
+        comp("explainer/Diver", "50%", "36%", 420, 92, {"arms": "forward"}, z=3,
+             keyframes=[{"t": turn, "x": "50%", "y": "36%", "rotate": 0}, {"t": turn + 1.2, "x": "14%", "y": "26%", "rotate": -200, "ease": "out"}]),
+        comp("explainer/BlueWhale", "50%", "44%", 2400, 350, {"speed": 1.2}, z=1, flipX=True,
              keyframes=[{"t": 0, "x": "160%"}, {"t": turn + 0.6, "x": "50%", "ease": "inOut"}, {"t": s.dur, "x": "-60%"}]),
         headline("BEING IN THE WAY", at=s.at("being", off=-0.1), y="14%", size=66, color="red"),
     ], camera={"shake": [{"at": turn + 0.4, "duration": 0.8, "amplitude": 22}]}, trans=WHIP))
     s = S[10]
+    # bookend: the hook framing again (same true-scale head close-up, mouth open, YOU outside it)
+    end_kf = [{"t": 0, "x": "16%", "y": "51%"}, {"t": s.dur, "x": "20%", "y": "50%"}]
     sc.append(scene(s, ocean(30, rays=8), [
-        comp("explainer/BlueWhale", "70%", "40%", 2600, 760, {}, idle=[{"type": "bob", "amount": 6, "speed": 0.2}]),
-        you("22%", "44%", 150, "wave", z=3, idle=[{"type": "float", "amount": 8, "speed": 0.4}]),
+        comp("explainer/BlueWhale", "162%", "40%", 3000, 437, {"gape": [{"t": 0, "v": 0.3}, {"t": 2.5, "v": 0.7}], "amp": 0.5},
+             flipX=True, z=1, idle=[{"type": "bob", "amount": 6, "speed": 0.2}]),
+        comp("explainer/Diver", "16%", "51%", 280, 60, {"arms": "forward"}, z=3, keyframes=end_kf),
+        {**tag("YOU", 0.0, x="16%", y="46.5%", size=30, w=160, accent=RED), "depth": 1, "z": 4,
+         "keyframes": [{**k, "y": f"{float(k['y'][:-1]) - 4.5}%"} for k in end_kf]},
+        headline("NEVER DOWN ITS THROAT", at=s.at("never", off=-0.1), y="14%", size=64, out=s.at("Which", off=-0.2)),
         tag("WHO SHOULD I PUT YOU NEXT TO?", s.at("Which", off=-0.1), y="13%", size=36, accent=RED),
     ], camera=push(0.4), trans=FADE))
     return sc

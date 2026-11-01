@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import {paint, type DrawCtx, type Figure} from './figure';
-import {bool, curl, num, ribbon, rnd, swimWarp, warp, type Pt, type Warp} from './util';
+import {bool, clamp, curl, num, ribbon, rnd, swimWarp, track, warp, type Pt, type Warp} from './util';
 
 const Grad: React.FC<{id: string; top: string; bottom: string; angle?: 'v' | 'h'}> = ({id, top, bottom, angle = 'v'}) => (
 	<linearGradient id={id} x1="0" y1="0" x2={angle === 'h' ? '1' : '0'} y2={angle === 'h' ? '0' : '1'}>
@@ -280,6 +280,62 @@ const BW_FLUKE = 'M 162 108 C 120 98 70 74 20 60 C 45 90 55 108 60 115 C 55 124 
 const BW_FIN = 'M 322 92 C 300 80 282 72 262 68 C 268 80 274 90 284 97 Z';
 const BW_FLIPPER = 'M 826 140 C 806 172 772 192 730 202 C 760 176 780 156 792 142 Z';
 
+/**
+ * Lunge-feeding mouth for the blue whale. gape 0..1 (number or [{t, v}] track): the lower jaw
+ * drops ~30 deg about the mouth corner, the pleated throat pouch balloons under the body and the
+ * black baleen fringe shows under the upper jaw. Drawn over the closed body, so gape 0 = no change.
+ */
+const bwMouth = (c: DrawCtx, f: Warp | undefined, g: number) => {
+	if (g <= 0.001) return null;
+	const H: Pt = [806, 127]; // mouth corner (hinge)
+	const S: Pt = [993, 117]; // snout tip
+	const th = (g * 30 * Math.PI) / 180;
+	const rot = ([x, y]: Pt): Pt => [H[0] + (x - H[0]) * Math.cos(th) - (y - H[1]) * Math.sin(th), H[1] + (x - H[0]) * Math.sin(th) + (y - H[1]) * Math.cos(th)];
+	const T = rot([988, 123]); // lower-jaw tip
+	const J1 = rot([900, 131]);
+	const J2 = rot([900, 141]);
+	const T2 = rot([984, 131]);
+	const P = (p: Pt) => wp(f, p[0], p[1]).map((v) => v.toFixed(1)).join(' ');
+	const drop = 118 * g; // throat pouch depth (drawing units)
+	const pouch = `M ${P(T)} C ${P([T[0] - 30, T[1] + 40 * g])} ${P([800, 156 + drop])} ${P([700, 154 + drop * 0.95])} C ${P([600, 152 + drop * 0.8])} ${P([500, 160 + drop * 0.3])} ${P([420, 148])} L ${P([600, 150])} L ${P(H)} Z`;
+	const pleats = c.sil
+		? null
+		: Array.from({length: 9}, (_, i) => {
+				const k = (i + 1) / 10;
+				const a = rot([988 - k * 40, 123 + k * 18]);
+				return (
+					<path
+						key={i}
+						d={`M ${P(a)} C ${P([820 - k * 20, 150 + drop * k])} ${P([680, 152 + drop * k * 0.95])} ${P([440 + k * 60, 150 + drop * k * 0.15])}`}
+						stroke="#5f7f96"
+						strokeWidth={2.4}
+						fill="none"
+						opacity={0.55}
+					/>
+				);
+		  });
+	const baleen = c.sil
+		? null
+		: Array.from({length: 26}, (_, i) => {
+				const x = 820 + i * 6.6;
+				const y = 117 + ((993 - x) / 187) * 9;
+				const len = (8 + 14 * g) * (0.6 + 0.4 * Math.sin((i / 25) * Math.PI));
+				return <path key={i} d={`M ${P([x, y])} L ${P([x - 3, y + len])}`} stroke="#15171b" strokeWidth={4.2} strokeLinecap="round" />;
+		  });
+	const inside = `M ${P(S)} C ${P([950, 117])} ${P([870, 120])} ${P(H)} L ${P(T)} Q ${P([(S[0] + T[0]) / 2 + 14, (S[1] + T[1]) / 2])} ${P(S)} Z`;
+	const tongue = `M ${P(rot([840, 128]))} Q ${P(rot([900, 112]))} ${P(rot([960, 126]))} Z`;
+	return (
+		<g>
+			<path d={pouch} fill={paint(c, '#9fb9c9')} />
+			{pleats}
+			<path d={inside} fill={paint(c, '#2b1a24')} />
+			{c.sil ? null : <path d={tongue} fill="#b9727c" opacity={0.9} />}
+			{baleen}
+			<path d={`M ${P(H)} L ${P(J1)} L ${P(T)} L ${P(T2)} L ${P(J2)} Z`} fill={paint(c, '#46698a')} />
+		</g>
+	);
+};
+
 const blueWhale: Figure = {
 	label: 'BLUE WHALE',
 	box: [20, 60, 975, 142],
@@ -287,6 +343,7 @@ const blueWhale: Figure = {
 	axis: 'w',
 	draw: (c) => {
 		const f = c.idle ? swimWarp({head: 993, tail: 20, amp: 9 * c.amp, t: c.t, freq: 0.3 * c.speed, k: 1.8}) : undefined;
+		const gape = clamp(track(c.p.gape, c.t, 0));
 		const body = warp(BW_BODY, f);
 		const mottle = c.sil
 			? null
@@ -315,7 +372,8 @@ const blueWhale: Figure = {
 								<path key={i} d={warp(`M 992 ${120 + i * 4} C 900 ${134 + i * 4} 780 ${142 + i * 3} 640 ${146 + i * 2}`, f)} stroke="#2f4c66" strokeWidth={2} fill="none" opacity={0.45} />
 						  ))}
 				</g>
-				{c.sil ? null : <path d={warp('M 993 116 C 960 114 910 112 868 109', f)} stroke="#203547" strokeWidth={2.5} fill="none" />}
+				{c.sil || gape > 0.001 ? null : <path d={warp('M 993 116 C 960 114 910 112 868 109', f)} stroke="#203547" strokeWidth={2.5} fill="none" />}
+				{bwMouth(c, f, gape)}
 				<path d={warp(BW_FLIPPER, f)} fill={paint(c, '#3f6080')} />
 				<Eye c={c} x={wp(f, 872, 112)[0]} y={wp(f, 872, 112)[1]} r={4} />
 			</g>
