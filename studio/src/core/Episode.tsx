@@ -32,7 +32,8 @@ export const Episode: React.FC<StoryboardInput> = (props) => {
 				);
 			})}
 			{sb.overlays.vignette > 0 ? <Vignette amount={sb.overlays.vignette} /> : null}
-			{sb.overlays.grain > 0 ? <Grain amount={sb.overlays.grain} /> : null}
+			{/* Live feTurbulence grain is off: at the opacities storyboards use it doesn't survive x264 (output identical
+			    within 43 bytes) but cost ~20% of render time (experiments/polish-2d/NOTES.md). Bake texture into art instead. */}
 			{sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} cuts={cuts} /> : null}
 			<Fades fadeIn={sb.overlays.fadeIn} fadeOut={sb.overlays.fadeOut} totalFrames={totalFrames} />
 			<AudioTrack sb={sb} timings={timings} totalFrames={totalFrames} />
