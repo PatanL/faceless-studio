@@ -58,7 +58,7 @@ CAPTION_PAGES = {"explainer-blue-whale": _P(
     "Up to 30 metres long. | That's two and a half | city buses, | parked nose to tail. | Lying beside it, | you'd cover a sixteenth. | "
     "It can weigh | close to 200 tonnes. | Heavier than | the biggest dinosaurs | ever found. | "
     "The tongue alone weighs | about as much as an elephant. | That's about 40 of you. | "
-    "The heart is the size of a golf cart, | and outweighs two of you. | On a deep dive, | it can slow | to just 2 beats a minute. | "
+    "The heart is the size | of a golf cart, | and outweighs two of you. | On a deep dive, | it can slow | to just 2 beats a minute. | "
     "Its call is | louder than a jet engine, | and it could reach you | hundreds of kilometres away. | "
     "To eat, it charges | into a cloud of krill | and takes one gulp of water | bigger than its own body. | "
     "So what happens to you, | floating right | in the middle of that cloud? | "
@@ -574,8 +574,8 @@ def blue_whale(S):
     sc.append(bw_scene(s, ocean(60, rays=7), [
         comp("explainer/BlueWhale", "34%", yb(yc), L, 160, {"pxPerM": PPM * 30 / 28, "speed": 0.8}, rotate=-90,
              keyframes=[{"t": 0, "y": yb(yc - 160), "opacity": 0}, {"t": 0.5, "y": yb(yc), "opacity": 1, "ease": "out"}]),
-        svg(RULER, "13%", yb(yc), 160, L, start=0.1, enter=fade(0.1, 0.3)),
-        t46("30 M", s.at("long"), x="12%", y=yb(top - 50), size=48, w=190),
+        svg(RULER, "15%", yb(yc), 160, L, start=0.1, enter=fade(0.1, 0.3)),
+        t46("30 M", s.at("long"), x="13%", y=yb(top - 50), size=48, w=190),
         {**comp("explainer/Bus", bus_x, yb(bot - 6 * PPM), 12 * PPM, 110, {"pxPerM": PPM}, rotate=-90, start=two,
                 enter={"type": "slideUp", "at": two, "duration": 0.35})},
         {**comp("explainer/Bus", bus_x, yb(bot - 18 * PPM), 12 * PPM, 110, {"pxPerM": PPM}, rotate=-90, start=half,
@@ -587,7 +587,7 @@ def blue_whale(S):
         you_chip(heavy, "53%", yb(bot - 2.6 * PPM - 50)),
         t46("YOU ≈ 1/16", lying, x="44%", y=yb(bot - 2.6 * PPM - 185), size=46, w=330, align="center"),
         {**headline("HOW BIG IS IT?", at=0, y="11%", size=66, out=two), "x": "58%"},  # clear of the 30 M chip
-        {**headline("≈ 2.5 BUSES", at=s.at("parked"), y="11%", size=66), "x": "48%"},  # ends left of the bus stack
+        {**headline("≈ 2.5 BUSES", at=s.at("parked"), y="11%", size=66), "x": "45%"},  # ends left of the bus stack
     ], Cam(s.dur, z0=1.0, z1=1.04).punch(heavy, s.at("thirty"), two, nose, lying), captionY=0.8))
 
     # ---------------------------------------------------------------- p02 weight: head close-up + 190 t, then balance vs dinosaur
