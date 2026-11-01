@@ -140,16 +140,20 @@ const Far: React.FC = () => (
 	</g>
 );
 
+// v3: D is a small figure beside a big target (the pop-in scale gag), so the S12 push goes deeper
+const DX = 2300;
+const DY = 1170;
+const DS = 1.08;
 function cam(t: number): Cam {
-	const dFace: [number, number] = [2253, 300];
+	const dFace: [number, number] = [DX - 18 * DS, DY - 545 * DS];
 	return camAt(t, [
 		[13.95, {x: 540, y: 960, s: 1, r: 0}],
 		[16.0, {x: 540, y: 960, s: 1, r: 0}],
 		[17.05, {x: 1950, y: 960, s: 1, r: 0}, E.inOutCubic],
 		[17.4, {x: 1940, y: 960, s: 1, r: 0}, E.inOutSine],
 		[19.9, {x: 1952, y: 960, s: 1.02, r: 0}, E.linear],
-		[21.1, look(dFace, [600, 640], 2.3, 8), E.inOutCubic],
-		[22.4, look([dFace[0] + 8, dFace[1] + 6], [600, 640], 2.36, 8.5), E.linear],
+		[21.1, look(dFace, [600, 640], 3.55, 8), E.inOutCubic],
+		[22.4, look([dFace[0] + 5, dFace[1] + 4], [600, 640], 3.64, 8.5), E.linear],
 	]);
 }
 
@@ -177,7 +181,8 @@ export const Range: React.FC<{t: number}> = ({t}) => {
 	return (
 		<g>
 			<g transform={camT(cf)}>
-				<rect x={-1000} y={-2000} width={6000} height={2200} fill="#D0E5FA" />
+				{/* v3: the sky plate runs far below the horizon so a rotated, pushed camera never exposes empty canvas */}
+				<rect x={-3000} y={-3000} width={10000} height={9000} fill="#D0E5FA" />
 				<CloudBand t={t} items={CLOUDS} w={1800} x0={1300} />
 				<Far />
 			</g>
@@ -189,18 +194,18 @@ export const Range: React.FC<{t: number}> = ({t}) => {
 					<SHOOTER t={t} />
 				</g>
 				{/* target */}
-				<g transform={`translate(1895 640) scale(${1.09 * tq} 1.09)`}>
+				<g transform={`translate(1800 690) scale(${1.12 * tq} 1.12)`}>
 					<ellipse cx={0} cy={560} rx={260} ry={26} fill="url(#softShadow)" />
 					<Target holes={holes} t={t} />
 				</g>
 				{/* D */}
 				{t >= 18.23 && (
-					<g transform={`translate(2270 1200) scale(${Math.max(0.001, dk)})`}>
+					<g transform={`translate(${DX} ${DY}) scale(${Math.max(0.001, dk)})`}>
 						<Soldier
 							look={LOOKS.D}
 							x={0}
 							y={0}
-							s={1.67}
+							s={DS}
 							pose={{
 								facing: -1,
 								gun: dGun,

@@ -66,8 +66,9 @@ function cam(t: number): Cam {
 		[8.1, {x: 545, y: 955, s: 1.02, r: 2}, E.linear],
 		// S05: a push that keeps A's face and the incoming rifle in frame
 		[8.95, look([aMid[0] + 30, aMid[1] + 10], [600, 820], 1.95, 7), E.inOutSine],
-		// S06: the AK-12 itself is the subject, centred and diagonal
-		[9.25, look([gunC[0] + 6, gunC[1] - 4], [560, 900], 4.5, -3), E.inOutCubic],
+		// S06 (hard cut at 9.0, as in the reference): a receiver CU, the AK-12 the only subject
+		[9.0, look([aMid[0] + 30, aMid[1] + 10], [600, 820], 1.95, 7), E.linear],
+		[9.0334, look([gunC[0] + 6, gunC[1] - 4], [560, 900], 4.5, -3), E.linear],
 		[11.3, look([gunC[0] + 10, gunC[1] - 10], [560, 900], 4.7, -4), E.linear],
 		[11.5, look([gunC[0] + 10, gunC[1] - 10], [560, 900], 4.7, -4), E.linear],
 		// S07: B's face at the left, larger, the clipboard beside it
@@ -155,6 +156,7 @@ export const Base: React.FC<{t: number}> = ({t}) => {
 						eyes: blinking(t, 5) ? 'closed' : 'open',
 						breathe: t * 0.4 + 0.3,
 						headY: aTalk ? Math.sin(t * 9) * 3 : 0,
+						noHead: t > 9.02 && t < 11.32,
 						headRot: aTalk ? Math.sin(t * 4.3) * 2 : 0,
 						lookX: 1.8,
 					}}

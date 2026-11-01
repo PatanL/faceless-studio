@@ -1,6 +1,6 @@
 import React, {useId} from 'react';
 import {P} from './defs';
-import {Gun, GunPose, gunPt} from './guns';
+import {ANCH, Gun, GunPose, gunPt} from './guns';
 import type {Mouth} from '../lib/anim';
 
 // Cut-out soldier puppet in the reference's construction: flat fills, no outlines, one darker
@@ -17,6 +17,9 @@ export type Look = {
 	camo: 'ru' | 'ua' | 'off';
 	head: 'helmet' | 'cap';
 	hairFringe?: boolean;
+	/** v3 hair mass under the helmet: crop = dark block at the back + sideburn, side = crop + a short
+	 *  fringe tuft, swoop = a big fringe sweeping diagonally across the forehead */
+	hairStyle?: 'crop' | 'side' | 'swoop';
 	skin?: string;
 	/** body build: w = torso/shoulder width factor, belly = 0..1 paunch, leg = trouser width factor */
 	build?: {w?: number; belly?: number; leg?: number};
@@ -49,20 +52,30 @@ export type Pose = {
 	pointF?: boolean;
 	sweat?: boolean;
 	carrier?: boolean;
+	/** v3 acting: extra foot spread (units, + = wider), and the pointing finger's angle (deg, 0 = +x) */
+	stance?: number;
+	pointAng?: number;
+	/** hide the head (receiver close-ups where the face must stay out of frame) */
+	noHead?: boolean;
+	/** scale of the near hand circle (the S15 fumbling-hand gag) */
+	handNScale?: number;
 };
 
 export const LOOKS: Record<string, Look> = {
-	A: {hair: '#1F1D18', beard: 'full', beardColor: '#1E1C19', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
-	B: {hair: '#5A3418', beard: 'goatee', beardColor: '#6B3B1E', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
-	C: {hair: '#1F1D18', beard: 'full', beardColor: '#1E1C19', eye: '#6E7A1E', patch: 'ru', camo: 'ru', head: 'helmet'},
-	D: {hair: '#3A2416', beard: 'moustache', beardColor: '#4A2A1A', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
-	E: {hair: '#6B4A2A', beard: 'goatee', beardColor: '#6B4A2A', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
-	F: {hair: '#6B4A2A', beard: 'moustache', beardColor: '#4A2A1A', eye: P.eyeBlue, patch: 'ua', camo: 'ru', head: 'helmet', hairFringe: true},
-	G: {hair: '#4A2E1A', beard: 'full', beardColor: '#4A2A18', eye: P.eyeBlue, patch: 'ua', camo: 'ua', head: 'helmet'},
-	Blond: {hair: '#E8B85A', beard: 'none', eye: P.eyeBlue, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
-	Off: {hair: '#4A3020', beard: 'goatee', beardColor: '#5A3420', eye: P.eyeGreen, patch: 'ru', camo: 'off', head: 'cap', build: {w: 1.22, belly: 1, leg: 1.12}},
-	H: {hair: '#2A1C14', beard: 'stubble', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
+	A: {hair: '#1F1D18', hairStyle: 'crop', beard: 'full', beardColor: '#1E1C19', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
+	B: {hair: '#5A3418', hairStyle: 'side', beard: 'goatee', beardColor: '#6B3B1E', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
+	C: {hair: '#1F1D18', hairStyle: 'crop', beard: 'full', beardColor: '#1E1C19', eye: '#6E7A1E', patch: 'ru', camo: 'ru', head: 'helmet'},
+	D: {hair: '#2A1B12', hairStyle: 'side', beard: 'moustache', beardColor: '#3A2214', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
+	E: {hair: '#7A5430', hairStyle: 'swoop', beard: 'goatee', beardColor: '#6B4A2A', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
+	F: {hair: '#D6AE68', hairStyle: 'swoop', beard: 'moustache', beardColor: '#5A3420', eye: P.eyeBlue, patch: 'ua', camo: 'ru', head: 'helmet', hairFringe: true},
+	G: {hair: '#4A2E1A', hairStyle: 'side', beard: 'full', beardColor: '#5A3420', eye: P.eyeBlue, patch: 'ua', camo: 'ua', head: 'helmet'},
+	Blond: {hair: '#E8B85A', hairStyle: 'swoop', beard: 'none', eye: P.eyeBlue, patch: 'ru', camo: 'ru', head: 'helmet', hairFringe: true},
+	Off: {hair: '#4A3020', hairStyle: 'crop', beard: 'goatee', beardColor: '#5A3420', eye: P.eyeGreen, patch: 'ru', camo: 'off', head: 'cap', build: {w: 1.22, belly: 1, leg: 1.12}},
+	H: {hair: '#2A1C14', hairStyle: 'crop', beard: 'stubble', eye: P.eyeGreen, patch: 'ru', camo: 'ru', head: 'helmet'},
 };
+
+const ANCH_GRIP = Object.fromEntries(Object.entries(ANCH).map(([k, v]) => [k, v.grip])) as Record<string, [number, number]>;
+const ANCH_FORE = Object.fromEntries(Object.entries(ANCH).map(([k, v]) => [k, v.fore])) as Record<string, [number, number]>;
 
 const deg = (r: number) => (r * 180) / Math.PI;
 
@@ -213,6 +226,18 @@ const BROW_ROT: Record<Brows, [number, number, number]> = {
 	raised: [-4, 4, -8],
 };
 
+// v3 head kit: a rounded squircle face (soft jaw corners), a per-character hair mass under the helmet,
+// the ear over the sideburn, and rounded beard silhouettes. Coordinates are before the 1.16 x widen.
+const FACE = 'M-40,-98 Q-41,-136 -4,-136 L16,-136 Q53,-136 53,-98 L54,-46 Q55,4 14,5 L4,5 Q-39,4 -40,-38 Z';
+
+function hairPaths(style: 'crop' | 'side' | 'swoop'): string[] {
+	// [mass inside the face clip, optional extra tuft]
+	const crop = 'M-46,-142 L58,-142 L58,-112 Q44,-106 30,-111 Q14,-104 -2,-110 Q-10,-108 -12,-98 L-13,-64 Q-14,-50 -22,-46 L-46,-46 Z';
+	if (style === 'crop') return [crop];
+	if (style === 'side') return [crop, 'M-6,-112 Q4,-90 26,-96 Q40,-100 44,-112 Q20,-104 -6,-112 Z'];
+	return ['M-46,-142 L58,-142 L58,-120 Q36,-122 18,-104 Q2,-88 -10,-72 L-13,-58 Q-16,-48 -24,-46 L-46,-46 Z', 'M58,-120 Q40,-110 30,-96 Q22,-86 14,-84 Q22,-104 36,-118 Z'];
+}
+
 /** Head in its own frame: origin at the neck top, the face is ~135 tall above it. */
 export const Head: React.FC<{look: Look; pose: Pose}> = ({look, pose}) => {
 	const id = useId().replace(/:/g, '');
@@ -225,67 +250,70 @@ export const Head: React.FC<{look: Look; pose: Pose}> = ({look, pose}) => {
 	const bc = look.beardColor ?? look.hair;
 	const mouth = pose.mouth ?? 'closed';
 	const mx = 22;
-	const my = beard === 'full' ? -20 : -22;
+	const my = beard === 'full' ? -18 : -22;
 	const pulse = pose.heartPulse ?? 1;
+	const hp = hairPaths(look.hairStyle ?? (look.hairFringe ? 'side' : 'crop'));
 	return (
 		<g>
-			{/* ear (back side), bigger and lower, with an inner fold */}
-			<ellipse cx={-50} cy={-62} rx={17} ry={24} fill={skin} />
-			<ellipse cx={-50} cy={-62} rx={17} ry={24} fill={P.skinShade} opacity={0.5} />
-			<path d="M-56,-74 Q-46,-84 -44,-66 Q-44,-52 -54,-50" fill="none" stroke={P.skinDeep} strokeWidth={5} strokeLinecap="round" />
-			{/* hair tufts escaping under the helmet at the back */}
-			<path d={`M-62,-104 L-56,-82 L-50,-96 L-44,-78 L-38,-94 L-34,-74 L-28,-100 Z`} fill={look.hair} />
+			{/* hair mass at the back of the skull, behind the face, under the helmet rim */}
+			<path d="M-36,-112 L-64,-108 Q-72,-80 -62,-56 Q-54,-44 -40,-46 Z" fill={look.hair} />
 			{/* face (widened 16% about its centre line) */}
 			<g transform="translate(6 0) scale(1.16 1) translate(-6 0)">
-			<clipPath id={`face${id}`}>
-				<rect x={-40} y={-134} width={92} height={136} rx={30} />
-			</clipPath>
-			<rect x={-40} y={-134} width={92} height={136} rx={30} fill={skin} />
-			<g clipPath={`url(#face${id})`}>
-				{/* shadow side (far cheek / under-jaw) */}
-				<path d="M-40,-134 L-24,-134 Q-30,-70 -18,2 L-40,2 Z" fill={P.skinShade} />
-				<rect x={-40} y={-10} width={92} height={12} fill={P.skinShade} opacity={0.6} />
-				{/* hair under the helmet */}
-				<path
-					d={`M-44,-136 L56,-136 L56,-104 Q40,-110 26,-102 Q10,-112 -6,-100 Q-20,-108 -26,-96 L-28,-${look.hairFringe ? 70 : 80} Q-34,-${look.hairFringe ? 60 : 72} -44,-70 Z`}
-					fill={look.hair}
-				/>
-				{look.hairFringe && <path d="M-6,-104 Q8,-92 22,-100 Q14,-108 -6,-104 Z" fill={look.hair} />}
-				{/* rim light on the lit cheek */}
-				<path d="M50,-110 Q54,-60 46,-8 L52,-8 L52,-110 Z" fill="#FFE2C8" opacity={0.35} />
-				{beard === 'stubble' && <path d="M-22,-46 Q16,-36 52,-46 L52,2 L-22,2 Z" fill="#7A6050" opacity={0.28} />}
-			</g>
-			{/* cheeks */}
-			<ellipse cx={-8} cy={-46} rx={10} ry={8} fill={P.blush} opacity={0.6} />
-			<ellipse cx={46} cy={-46} rx={8} ry={8} fill={P.blush} opacity={0.6} />
-			{/* nose */}
-			<path d="M20,-80 Q18,-62 14,-54 Q22,-46 33,-51 Q31,-62 28,-80 Z" fill={P.skinDeep} opacity={0.85} />
-			<ellipse cx={26} cy={-52} rx={6} ry={4} fill="#C98466" opacity={0.6} />
-			{/* eyes + brows */}
-			<Eye x={6} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
-			<Eye x={38} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
-			<Brow x={5} y={-93 + bdy} rot={br1} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={-1} />
-			<Brow x={39} y={-93 + bdy} rot={br2} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={1} />
-			{/* facial hair + mouth */}
-			{beard === 'full' && (
-				<g>
-					<path d="M-30,-58 Q-30,-40 -18,-36 Q20,-30 52,-38 L52,-6 Q50,18 26,18 L-6,18 Q-30,16 -32,-8 Z" fill={bc} />
-					<path d="M-6,-40 Q22,-50 46,-40 L46,-34 Q22,-40 -6,-34 Z" fill="#000" opacity={0.25} />
-					<path d="M-28,-6 Q-26,14 -6,16 L-6,18 Q-30,16 -32,-8 Z" fill="#000" opacity={0.2} />
+				<clipPath id={`face${id}`}>
+					<path d={FACE} />
+				</clipPath>
+				<path d={FACE} fill={skin} />
+				<g clipPath={`url(#face${id})`}>
+					{/* shadow side (far cheek / under-jaw) */}
+					<path d="M-40,-134 L-22,-134 Q-30,-70 -16,6 L-40,6 Z" fill={P.skinShade} />
+					<path d="M-40,-14 Q8,-2 56,-14 L56,6 L-40,6 Z" fill={P.skinShade} opacity={0.6} />
+					{/* hair mass under the helmet: top band, a block at the back down to the sideburn */}
+					<path d={hp[0]} fill={look.hair} />
+					{hp[1] && <path d={hp[1]} fill={look.hair} />}
+					<path d="M-12,-98 L-13,-64 Q-14,-50 -22,-46 L-16,-46 Q-8,-52 -7,-66 L-6,-100 Z" fill="#000" opacity={0.18} />
+					{/* rim light on the lit cheek */}
+					<path d="M50,-104 Q55,-60 48,-12 L56,-12 L56,-104 Z" fill="#FFE2C8" opacity={0.35} />
+					{beard === 'stubble' && <path d="M-22,-46 Q16,-34 56,-46 L56,6 L-22,6 Z" fill="#7A6050" opacity={0.28} />}
 				</g>
-			)}
-			{beard === 'goatee' && (
-				<g>
-					<path d="M2,-38 Q22,-44 44,-38 L44,-30 Q22,-34 2,-30 Z" fill={bc} />
-					<path d="M2,-30 L44,-30 L44,-2 Q42,20 23,22 Q4,20 2,-2 Z" fill={bc} />
-					<path d="M2,-10 Q4,20 23,22 L23,16 Q8,14 6,-8 Z" fill="#000" opacity={0.18} />
-				</g>
-			)}
-			{beard === 'moustache' && (
-				<path d="M0,-38 Q22,-46 46,-38 L48,-26 Q44,-24 40,-30 Q22,-34 6,-30 Q2,-24 -2,-26 Z" fill={bc} />
-			)}
-			<MouthShape m={mouth} x={mx + 1} y={beard === 'moustache' ? -16 : my} onBeard={beard === 'full' || beard === 'goatee'} />
+				{/* cheeks */}
+				<ellipse cx={-6} cy={-46} rx={10} ry={8} fill={P.blush} opacity={0.6} />
+				<ellipse cx={46} cy={-46} rx={8} ry={8} fill={P.blush} opacity={0.6} />
+				{/* nose */}
+				<path d="M20,-80 Q18,-62 14,-54 Q22,-46 33,-51 Q31,-62 28,-80 Z" fill={P.skinDeep} opacity={0.85} />
+				<ellipse cx={26} cy={-52} rx={6} ry={4} fill="#C98466" opacity={0.6} />
+				{/* eyes + brows */}
+				<Eye x={8} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
+				<Eye x={38} y={-74} c={look.eye} lx={lx} ly={ly} state={eyes} pulse={pulse} />
+				<Brow x={7} y={-93 + bdy} rot={br1} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={-1} />
+				<Brow x={39} y={-93 + bdy} rot={br2} c={look.brow ?? (look.head === 'cap' ? '#3A2618' : '#2A1E15')} side={1} />
+				{/* facial hair (rounded silhouettes) + mouth */}
+				{beard === 'full' && (
+					<g>
+						<path d="M-36,-60 Q-26,-58 -20,-46 Q-10,-34 6,-38 Q24,-46 46,-40 Q54,-38 55,-42 L56,-12 Q58,24 18,24 L4,24 Q-38,22 -39,-22 Z" fill={bc} />
+						<path d="M2,-40 Q24,-50 48,-41 Q50,-35 46,-33 Q24,-41 4,-33 Q0,-35 2,-40 Z" fill="#000" opacity={0.22} />
+						<path d="M-34,-18 Q-30,18 2,20 L4,24 Q-38,22 -39,-22 Z" fill="#000" opacity={0.2} />
+						<path d="M30,14 Q44,10 50,-4" stroke="#FFFFFF" strokeOpacity={0.12} strokeWidth={4} fill="none" strokeLinecap="round" />
+					</g>
+				)}
+				{beard === 'goatee' && (
+					<g>
+						<path d="M2,-38 Q12,-46 23,-40 Q34,-46 44,-38 Q48,-32 44,-29 Q34,-34 23,-32 Q12,-34 2,-29 Q-2,-32 2,-38 Z" fill={bc} />
+						<path d="M6,-26 Q23,-30 40,-26 Q46,-24 46,-14 L46,-4 Q44,22 23,24 Q2,22 0,-4 L0,-14 Q0,-24 6,-26 Z" fill={bc} />
+						<path d="M1,-8 Q4,20 23,22 L23,17 Q8,15 6,-6 Z" fill="#000" opacity={0.18} />
+					</g>
+				)}
+				{beard === 'moustache' && (
+					<g>
+						<path d="M-2,-36 Q8,-46 23,-40 Q38,-46 48,-36 Q52,-26 46,-24 Q36,-32 23,-30 Q10,-32 0,-24 Q-6,-26 -2,-36 Z" fill={bc} />
+						<path d="M8,-36 Q16,-40 23,-37 Q30,-40 38,-36" stroke="#FFFFFF" strokeOpacity={0.14} strokeWidth={3} fill="none" strokeLinecap="round" />
+					</g>
+				)}
+				<MouthShape m={mouth} x={mx + 1} y={beard === 'moustache' ? -16 : my} onBeard={beard === 'full' || beard === 'goatee'} />
 			</g>
+			{/* ear over the sideburn at the back edge, with an inner fold */}
+			<ellipse cx={-48} cy={-62} rx={16} ry={23} fill={skin} />
+			<ellipse cx={-48} cy={-62} rx={16} ry={23} fill={P.skinShade} opacity={0.45} />
+			<path d="M-54,-74 Q-44,-84 -42,-66 Q-42,-52 -52,-50" fill="none" stroke={P.skinDeep} strokeWidth={5} strokeLinecap="round" />
 			{pose.sweat && <path d="M58,-104 Q66,-90 64,-84 Q60,-78 55,-84 Q53,-90 58,-104 Z" fill="#BFE6FF" />}
 			{/* headgear */}
 			{look.head === 'helmet' ? <Helmet /> : <FieldCap />}
@@ -346,7 +374,7 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 		const sw = legsKind === 'march' ? 1 : 0;
 		const liftF = Math.max(0, Math.sin(ph * Math.PI * 2)) * 34 * sw;
 		const liftN = Math.max(0, -Math.sin(ph * Math.PI * 2)) * 34 * sw;
-		const spread = crouch * 26;
+		const spread = crouch * 26 + (pose.stance ?? 0);
 		legDefs.push({hip: [32, hipY], foot: [44 + spread + liftF * 0.5, -58 - liftF], bootRot: -liftF * 0.2, far: true});
 		legDefs.push({hip: [-32, hipY], foot: [-40 - spread + liftN * 0.5, -58 - liftN], bootRot: -liftN * 0.2, far: false});
 	}
@@ -412,9 +440,9 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 		);
 	};
 	const handShape = (h: [number, number], point: boolean, near: boolean) => (
-		<g transform={`translate(${h[0]} ${h[1]})`}>
+		<g transform={`translate(${h[0]} ${h[1]}) scale(${near ? pose.handNScale ?? 1 : 1})`}>
 			{point && (
-				<g>
+				<g transform={`rotate(${pose.pointAng ?? 0})`}>
 					<rect x={14} y={-12} width={46} height={18} rx={9} fill={P.hand} />
 					<rect x={14} y={-1} width={46} height={7} rx={3.5} fill={P.handShade} opacity={0.6} />
 					<rect x={-2} y={6} width={26} height={20} rx={10} fill={P.handShade} />
@@ -456,7 +484,7 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 						)}
 					</g>
 					{/* neck */}
-					<rect x={-26} y={-490} width={58} height={34} rx={11} fill={P.skinShade} />
+					{!pose.noHead && <rect x={-26} y={-490} width={58} height={34} rx={11} fill={P.skinShade} />}
 					<g transform={`scale(${bw} 1)`}>
 						{carrier && !isOff && (
 							<g>
@@ -508,9 +536,11 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 						)}
 					</g>
 					{/* head */}
-					<g transform={`translate(${4 + (pose.headX ?? 0)} ${-474 + (pose.headY ?? 0)}) rotate(${pose.headRot ?? 0})`}>
-						<Head look={look} pose={pose} />
-					</g>
+					{!pose.noHead && (
+						<g transform={`translate(${4 + (pose.headX ?? 0)} ${-474 + (pose.headY ?? 0)}) rotate(${pose.headRot ?? 0})`}>
+							<Head look={look} pose={pose} />
+						</g>
+					)}
 					{/* arms, gun, hands. With a gun, the support (far) hand sits behind the rifle and the
 					    near hand wraps the pistol grip below the receiver, so the gun's silhouette stays readable. */}
 					{hF && pose.handF !== undefined && arm(shF, hF, false)}
@@ -519,6 +549,25 @@ export const Soldier: React.FC<{look: Look; pose: Pose; x: number; y: number; s?
 					{g && <Gun g={g} />}
 					{hF && pose.handF !== undefined && !holding && handShape(hF, !!pose.pointF, false)}
 					{hN && handShape(hN, !!pose.pointN, true)}
+					{/* v3 grip wrap: the near hand's thumb lies along the receiver and the support hand's
+					    fingertips curl round the handguard, so hands read as holding rather than floating */}
+					{g && pose.handN === 'grip' && (
+						<g transform={`translate(${g.x} ${g.y}) rotate(${g.rot}) scale(${g.s ?? 1})`}>
+							<path d={`M${ANCH_GRIP[g.kind][0] - 14},${ANCH_GRIP[g.kind][1] - 30} L${ANCH_GRIP[g.kind][0] + 30},${ANCH_GRIP[g.kind][1] - 40}`} stroke={P.hand} strokeWidth={17} strokeLinecap="round" />
+							<path d={`M${ANCH_GRIP[g.kind][0] - 12},${ANCH_GRIP[g.kind][1] - 25} L${ANCH_GRIP[g.kind][0] + 28},${ANCH_GRIP[g.kind][1] - 34}`} stroke={P.handShade} strokeWidth={5} strokeLinecap="round" opacity={0.7} />
+							<path d={`M${ANCH_GRIP[g.kind][0] + 12},${ANCH_GRIP[g.kind][1] - 12} Q${ANCH_GRIP[g.kind][0] + 22},${ANCH_GRIP[g.kind][1]} ${ANCH_GRIP[g.kind][0] + 14},${ANCH_GRIP[g.kind][1] + 14}`} stroke={P.handShade} strokeWidth={4} fill="none" strokeLinecap="round" />
+						</g>
+					)}
+					{g && pose.handF === 'fore' && (
+						<g transform={`translate(${g.x} ${g.y}) rotate(${g.rot}) scale(${g.s ?? 1})`}>
+							{[-14, 0, 14].map((dx, i) => (
+								<g key={dx}>
+									<circle cx={ANCH_FORE[g.kind][0] + dx} cy={ANCH_FORE[g.kind][1] + 6 - (i === 1 ? 2 : 0)} r={10} fill={P.hand} />
+									<circle cx={ANCH_FORE[g.kind][0] + dx + 2} cy={ANCH_FORE[g.kind][1] + 9} r={6} fill={P.handShade} opacity={0.6} />
+								</g>
+							))}
+						</g>
+					)}
 				</g>
 			</g>
 		</g>

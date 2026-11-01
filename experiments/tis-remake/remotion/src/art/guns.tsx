@@ -20,7 +20,7 @@ export const G = {
 	gold: '#D9B24A',
 };
 
-const ANCH: Record<GunKind, {grip: [number, number]; fore: [number, number]; muzzle: [number, number]; stock: [number, number]; sel: [number, number]}> = {
+export const ANCH: Record<GunKind, {grip: [number, number]; fore: [number, number]; muzzle: [number, number]; stock: [number, number]; sel: [number, number]}> = {
 	ak47: {grip: [-42, 46], fore: [100, 8], muzzle: [204, -2], stock: [-190, 14], sel: [-34, -6]},
 	ak12: {grip: [-42, 46], fore: [108, 8], muzzle: [222, -2], stock: [-190, 14], sel: [-34, -6]},
 	ak12acc: {grip: [-42, 46], fore: [119, 44], muzzle: [280, -2], stock: [-190, 14], sel: [-34, -6]},

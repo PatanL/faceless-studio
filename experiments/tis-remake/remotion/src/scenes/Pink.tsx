@@ -1,8 +1,8 @@
 import React from 'react';
 import {E, FPS, blinking, camAt, camT, clamp, hash, kf, lerp, para, rng} from '../lib/anim';
 import {Gun, GunPose} from '../art/guns';
-import {Head, LOOKS, Soldier} from '../art/soldier';
-import {CloudBand, Explosion, Hedgehog, MuzzleFlash, Streaks, Wire, streakSet} from '../art/props';
+import {Flag, Head, LOOKS, Soldier} from '../art/soldier';
+import {Burst, CloudBand, Hedgehog, MuzzleFlash, Streaks, Wire, streakSet} from '../art/props';
 import {P} from '../art/defs';
 
 // Scene block 6 (32.43-38.93): pink sunset ruins. S17 F yelling, S18 truck + explosion cover, S19 barricade.
@@ -143,19 +143,28 @@ const Prone: React.FC<{t: number; x: number; y: number}> = ({t, x, y}) => {
 			<path d={`M60,-44 L180,${-34 + l1} L262,${-38 + l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={72} strokeLinecap="round" strokeLinejoin="round" />
 			<path d={`M60,-30 L180,${-10 - l1} L262,${-6 - l1}`} fill="none" stroke="url(#camoRU)" strokeWidth={72} strokeLinecap="round" strokeLinejoin="round" />
 			<path d={`M60,-30 L180,${-10 - l1} L262,${-6 - l1}`} fill="none" stroke="#000" strokeOpacity={0.12} strokeWidth={72} strokeLinecap="round" />
-			<g transform={`translate(292 ${-34 + l1}) rotate(-90)`}>
-				<rect x={-30} y={-20} width={60} height={70} rx={14} fill={P.boot} />
-			</g>
-			<g transform={`translate(292 ${-2 - l1}) rotate(-90)`}>
-				<rect x={-30} y={-20} width={60} height={70} rx={14} fill={P.boot} />
-				<rect x={-30} y={40} width={60} height={12} rx={5} fill="#0E0D0B" />
-			</g>
+			{[-34 + l1, -2 - l1].map((by, i) => (
+				<g key={i} transform={`translate(286 ${by}) rotate(${i ? 8 : -6})`}>
+					{/* boot seen from behind-side: rounded heel, sole, laced top */}
+					<path d="M-6,-30 Q30,-34 40,-14 L44,22 Q44,34 32,34 L-2,34 Q-12,34 -12,22 L-14,-18 Q-14,-30 -6,-30 Z" fill={P.boot} />
+					<path d="M30,-28 Q44,-20 44,0 L46,26 Q46,36 36,36 L32,36 Q40,30 38,10 Z" fill="#0E0D0B" />
+					<rect x={-14} y={-34} width={44} height={12} rx={6} fill={P.bootTop} />
+				</g>
+			))}
 			{/* torso lying */}
 			<rect x={-160} y={-124} width={240} height={124} rx={50} fill="url(#camoRU)" />
-			<rect x={-140} y={-112} width={190} height={84} rx={16} fill="url(#camoRUdk)" />
-			{[-120, -70, -20].map((px) => (
-				<rect key={px} x={px} y={-106} width={40} height={30} rx={8} fill="#3A3926" />
+			<rect x={-140} y={-112} width={190} height={84} rx={22} fill="url(#camoRUdk)" />
+			<rect x={-140} y={-112} width={190} height={12} rx={6} fill="#FFFDE8" opacity={0.12} />
+			{[-124, -78, -32].map((px) => (
+				<g key={px}>
+					<rect x={px} y={-108} width={40} height={36} rx={10} fill="#4E4B33" />
+					<rect x={px} y={-108} width={40} height={12} rx={6} fill="#3A3926" />
+				</g>
 			))}
+			<g transform="translate(-20 -96)">
+				<Flag kind="ru" x={-18} y={-12} w={34} h={22} r={4} />
+			</g>
+			<rect x={-150} y={-30} width={230} height={30} rx={15} fill="#000" opacity={0.12} />
 			{/* head looking forward-left */}
 			<g transform="translate(-190 -66) rotate(-8) scale(-1 1) scale(0.95)">
 				<Head look={LOOKS.D} pose={{mouth: 'flat', brows: 'angry', eyes: blinking(t, 41) ? 'closed' : 'open', lookX: 2}} />
@@ -170,9 +179,36 @@ const Prone: React.FC<{t: number; x: number; y: number}> = ({t, x, y}) => {
 	);
 };
 
+/** S19 far layer: sunset sky, clouds and a pale skyline of damaged blocks (parallax 0.55). */
+const BarricadeFar: React.FC<{t: number}> = ({t}) => (
+	<g>
+		<rect x={-1500} y={-1600} width={4400} height={2600} fill="#94A2EB" />
+		<rect x={-1500} y={-200} width={4400} height={700} fill="#B7A6E6" opacity={0.6} />
+		<CloudBand t={t} items={[[-100, -320, 1.0], [380, -420, 0.8], [900, -300, 1.1], [1400, -400, 0.9]]} w={2000} x0={-400} c="#E8D2D6" sh="#A7A2EE" />
+		{[
+			[-420, -40, 300, '#E5A3A6'],
+			[-80, -160, 260, '#EBB0AC'],
+			[230, -10, 340, '#DE979E'],
+			[620, -200, 280, '#E8A8A8'],
+			[950, -60, 320, '#DE979E'],
+			[1320, -140, 300, '#E5A3A6'],
+		].map(([x, y, w, c], i) => (
+			<g key={i}>
+				<path d={`M${x},1200 L${x},${(y as number) + 30} L${(x as number) + (w as number) * 0.3},${y} L${(x as number) + (w as number) * 0.45},${(y as number) + 40} L${(x as number) + (w as number) * 0.7},${(y as number) + 10} L${(x as number) + (w as number)},${(y as number) + 50} L${(x as number) + (w as number)},1200 Z`} fill={c as string} />
+				{[0, 1, 2, 3, 4, 5, 6].map((r) =>
+					[0, 1, 2].map((k) => (
+						<rect key={`${r}${k}`} x={(x as number) + 30 + k * ((w as number) - 60) / 3} y={(y as number) + 90 + r * 120} width={((w as number) - 60) / 3 - 26} height={60} fill="#B86A7E" opacity={0.55} />
+					)),
+				)}
+			</g>
+		))}
+	</g>
+);
+
 const Barricade: React.FC<{t: number}> = ({t}) => {
 	const f = Math.floor(t * FPS);
-	const standG: GunPose = {kind: 'ak12', x: 150 - (f % 3 === 0 ? 8 : 0), y: -440, rot: -2};
+	const gA: GunPose = {kind: 'ak12', x: 150 - (f % 3 === 0 ? 8 : 0), y: -440, rot: -2};
+	const gB: GunPose = {kind: 'ak12', x: 140 - ((f + 1) % 3 === 0 ? 7 : 0), y: -420, rot: -9};
 	const sparks = [0, 1, 2, 3].map((i) => {
 		const per = 0.9 + hash(i) * 0.6;
 		const ph = ((t + hash(i + 4) * per) % per) / per;
@@ -180,26 +216,41 @@ const Barricade: React.FC<{t: number}> = ({t}) => {
 	});
 	return (
 		<g>
-			<rect x={-600} y={-400} width={2600} height={1500} fill="#F6C2B1" />
-			<Block x={-80} y={-260} w={420} h={1300} c="#FCD5B1" side="#DD7480" win="#602A3A" seed={11} cols={2} rows={10} />
-			<Block x={380} y={-300} w={460} h={1340} c="#EFAA9B" side="#C36170" win="#451233" seed={12} cols={2} rows={10} blown={0.6} />
-			<Block x={880} y={-240} w={520} h={1280} c="#F6C2B1" side="#DD7480" win="#602A3A" seed={13} cols={3} rows={10} blown={0.45} />
-			<path d="M180,380 L260,450 L250,560 L330,640 M560,120 L640,180 L700,170 L760,240" stroke="#B05060" strokeWidth={6} fill="none" strokeLinecap="round" />
-			<rect x={-600} y={990} width={2600} height={70} fill="#ECB8A9" />
-			<rect x={-600} y={1050} width={2600} height={1600} fill="#7A4F49" />
-			<Streaks items={streakSet(31, 16, -500, 1800, 1100, 1900, 140, 420, 26)} c="#86594F" />
-			{/* standing shooter behind the wire */}
-			<Soldier look={LOOKS.H} x={690} y={980} s={0.7} pose={{facing: -1, gun: standG, handN: 'grip', handF: 'fore', brows: 'angry', mouth: 'flat', lean: 5, headX: 10, eyes: blinking(t, 44) ? 'closed' : 'open', lookX: 2}} />
-			<g transform={`translate(${690 - 0.7 * (standG.x + 222) - 30} ${980 - 0.7 * 445})`}>
-				<MuzzleFlash frame={f} size={95} seed={3} />
+			{/* near tower blocks: broken tops so the sky shows between them, each with its own depth shade */}
+			<Block x={-120} y={-330} w={440} h={1380} c="#FCD5B1" side="#DD7480" win="#602A3A" seed={11} cols={2} rows={11} />
+			<path d="M-120,-330 L-40,-380 L60,-340 L150,-410 L230,-350 L320,-372 L320,-330 Z" fill="#FCD5B1" />
+			{/* the middle block is a lower, shell-damaged ruin: sky and the far skyline show above it */}
+			<Block x={360} y={200} w={470} h={850} c="#EFAA9B" side="#C36170" win="#451233" seed={12} cols={2} rows={6} blown={0.6} />
+			<path d="M360,200 L360,150 L420,110 L480,170 L560,60 L640,150 L720,100 L830,170 L830,200 Z" fill="#EFAA9B" />
+			<path d="M560,60 L640,150 L630,160 L560,80 Z" fill="#C36170" />
+			<Block x={880} y={-280} w={540} h={1330} c="#F6C2B1" side="#DD7480" win="#602A3A" seed={13} cols={3} rows={10} blown={0.45} />
+			<rect x={330} y={-330} width={30} height={1380} fill="#B05A6A" opacity={0.5} />
+			<rect x={830} y={-280} width={50} height={1330} fill="#9A4A5E" opacity={0.45} />
+			<path d="M180,380 L260,450 L250,560 L330,640 M560,120 L640,180 L700,170 L760,240 M1000,300 L1060,380 L1040,470" stroke="#B05060" strokeWidth={6} fill="none" strokeLinecap="round" />
+			{/* pavement, kerb, street */}
+			<rect x={-700} y={960} width={2800} height={40} fill="#D98F92" />
+			<rect x={-700} y={990} width={2800} height={70} fill="#ECB8A9" />
+			<rect x={-700} y={1052} width={2800} height={12} fill="#C98C88" />
+			<rect x={-700} y={1060} width={2800} height={1600} fill="#7A4F49" />
+			<Streaks items={streakSet(31, 22, -600, 1900, 1100, 1900, 140, 420, 26)} c="#86594F" />
+			{/* two soldiers standing behind the wire, aiming left: distinct stances */}
+			<Soldier look={LOOKS.H} x={600} y={985} s={0.66} pose={{facing: -1, gun: gA, handN: 'grip', handF: 'fore', brows: 'angry', mouth: 'flat', lean: 6, stance: 10, headX: 10, headRot: 3, eyes: blinking(t, 44) ? 'closed' : 'open', lookX: 2}} />
+			<Soldier look={LOOKS.C} x={800} y={990} s={0.64} pose={{facing: -1, gun: gB, handN: 'grip', handF: 'fore', brows: 'angry', mouth: f % 20 < 10 ? 'yell' : 'flat', lean: 2, crouch: 0.4, stance: -4, headX: 4, headRot: -4, eyes: blinking(t, 46) ? 'closed' : 'open', lookX: 2.4}} />
+			<g transform={`translate(${600 - 0.66 * (gA.x + 222) - 30} ${985 - 0.66 * 445})`}>
+				<MuzzleFlash frame={f} size={80} seed={3} />
 			</g>
-			<Hedgehog x={230} y={890} />
-			<Hedgehog x={850} y={890} />
+			<g transform={`translate(${800 - 0.64 * (gB.x + 222 * Math.cos(0.157)) - 30} ${990 - 0.64 * (420 - 222 * Math.sin(0.157)) - 4})`}>
+				<MuzzleFlash frame={f + 1} size={72} seed={7} />
+			</g>
+			<Hedgehog x={-60} y={880} s={1.05} />
+			<Hedgehog x={380} y={900} s={0.95} flip />
+			<Hedgehog x={850} y={885} s={1.05} />
+			<Hedgehog x={1300} y={900} s={0.95} flip />
 			{[800, 845, 895, 945, 995].map((y, i) => (
-				<Wire key={y} x0={-300} x1={1500} y={y} sag={6 + i} seed={i * 13} />
+				<Wire key={y} x0={-500} x1={1700} y={y} sag={6 + i} seed={i * 13} />
 			))}
 			{sparks.map((s, i) => (s.k > 0 ? <path key={i} transform={`translate(${s.x} ${s.y}) scale(${s.k * 26})`} d="M0,-1 L0.25,-0.25 L1,0 L0.25,0.25 L0,1 L-0.25,0.25 L-1,0 L-0.25,-0.25 Z" fill="#FFD34D" /> : null))}
-			<Prone t={t} x={650} y={1150} />
+			<Prone t={t} x={650} y={1160} />
 		</g>
 	);
 };
@@ -209,9 +260,9 @@ export const Pink: React.FC<{t: number}> = ({t}) => {
 		// S17 holds on F, then a fast whip right (F is out of frame by 34.75) under the explosion cover
 		const c = camAt(t, [
 			[32.43, {x: 540, y: 960, s: 1, r: 0}],
-			[34.38, {x: 545, y: 955, s: 1.05, r: 0}, E.linear],
-			[34.78, {x: 545 + 700, y: 955, s: 1.05, r: 0}, E.inOutCubic],
-			[35.1, {x: 545 + 820, y: 955, s: 1.05, r: 0}, E.outCubic],
+			[34.42, {x: 545, y: 955, s: 1.05, r: 0}, E.linear],
+			// S18: a visible truck right (~0.8 frame widths) onto the tall block, F exits left
+			[35.1, {x: 545 + 860, y: 955, s: 1.05, r: 0}, E.inOutCubic],
 		]);
 		const cF = para(c, 1.5, 545, 955);
 		const yell = t > 32.5;
@@ -248,14 +299,20 @@ export const Pink: React.FC<{t: number}> = ({t}) => {
 			</g>
 		);
 	}
+	// S19: opens tilted up on the tower blocks and sky, settles down onto the barricade (35.1-36.0),
+	// then a slow push-in with a drift right until the wipe
 	const c = camAt(t, [
-		[35.1, {x: 540, y: 960, s: 1.06, r: 0}],
-		[35.25, {x: 545, y: 960, s: 1.06, r: 0}, E.linear],
-		[38.95, {x: 745, y: 960, s: 1.06, r: 0}, E.linear],
+		[35.1, {x: 760, y: 280, s: 1.3, r: -2}],
+		[36.0, {x: 560, y: 940, s: 1.04, r: 0}, E.inOutCubic],
+		[38.7, {x: 690, y: 975, s: 1.17, r: 0.5}, E.linear],
 	]);
+	const cFar = para(c, 0.55, 560, 940);
 	const ex = clamp((t - EX0) / EXD);
 	return (
 		<g>
+			<g transform={camT(cFar)}>
+				<BarricadeFar t={t} />
+			</g>
 			<g transform={camT(c)}>
 				<Barricade t={t} />
 			</g>
@@ -264,38 +321,26 @@ export const Pink: React.FC<{t: number}> = ({t}) => {
 	);
 };
 
-// Explosion cover: enters from the lower right at 34.55, fills the whole frame from ~34.78 to ~35.12
-// (the S18->S19 cut at 35.10 happens under it), then shrinks away to the lower left.
-const EX0 = 34.55;
-const EXD = 0.8;
+// v3 explosion: a layered cloud burst (~640 px) low in frame. It erupts at the lower right at 34.74,
+// drifts left along the street while it grows, holds and breaks up into smoke and debris; the S18->S19
+// cut at 35.10 happens while it is at its biggest, and it is gone at the lower left by ~35.34.
+const EX0 = 34.74;
+const EXD = 0.6;
 const ExplosionCover: React.FC<{u: number}> = ({u}) => {
-	const x = kf(u, [
-		[0, 1150],
-		[0.3, 560, E.outCubic],
-		[0.7, 520],
-		[1, -300, E.inCubic],
-	]);
+	const x = lerp(860, 170, E.inOutSine(u));
 	const y = kf(u, [
-		[0, 1700],
-		[0.3, 960, E.outCubic],
-		[0.7, 980],
-		[1, 1800, E.inCubic],
+		[0, 1330],
+		[0.4, 1240, E.outCubic],
+		[1, 1300],
 	]);
-	const s = kf(u, [
-		[0, 260],
-		[0.3, 3500, E.outCubic],
-		[0.7, 3700],
-		[1, 400, E.inCubic],
-	]);
-	const core = kf(u, [
-		[0, 0],
-		[0.25, 1],
-		[0.72, 1],
-		[0.85, 0],
+	const size = kf(u, [
+		[0, 380],
+		[0.35, 640, E.outCubic],
+		[1, 720],
 	]);
 	return (
 		<g transform={`translate(${x} ${y})`}>
-			<Explosion size={s} rot={lerp(-40, 80, u)} core={core} />
+			<Burst size={size} k={u} seed={5} rot={lerp(-6, 10, u)} />
 		</g>
 	);
 };

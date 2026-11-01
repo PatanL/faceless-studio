@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cam, E, blinking, camAt, camT, look, rng} from '../lib/anim';
+import {Cam, E, blinking, camAt, camT, clamp, look, rng} from '../lib/anim';
 import {GunPose, gunPt} from '../art/guns';
 import {Look, LOOKS, Soldier} from '../art/soldier';
 import {CloudBand, Streaks, streakSet} from '../art/props';
@@ -13,20 +13,23 @@ const CLOUDS: [number, number, number][] = [
 	[900, 220, 1.1],
 	[1300, 120, 1.3],
 ];
-const SQUAD: {look: Look; x: number}[] = [
-	{look: LOOKS.B, x: 285},
-	{look: LOOKS.A, x: 480},
-	{look: LOOKS.E, x: 675},
-	{look: LOOKS.Blond, x: 870},
+// v3 acting: each squad member has his own stance, lean, gun angle, head tilt and step phase (no clone line)
+type Member = {look: Look; x: number; crouch: number; lean: number; gunRot: number; gunY: number; tilt: number; stance: number; phase: number; speed: number; brows: 'neutral' | 'angry' | 'worried' | 'raised'; mouth: 'closed' | 'flat' | 'o'};
+const SQUAD: Member[] = [
+	{look: LOOKS.B, x: 270, crouch: 0.7, lean: 7, gunRot: 9, gunY: 10, tilt: -6, stance: 6, phase: 0, speed: 1.6, brows: 'neutral', mouth: 'closed'},
+	{look: LOOKS.A, x: 478, crouch: 0.4, lean: 3, gunRot: -3, gunY: -14, tilt: 5, stance: -8, phase: 0.31, speed: 1.5, brows: 'angry', mouth: 'flat'},
+	{look: LOOKS.E, x: 680, crouch: 0.6, lean: 4, gunRot: 4, gunY: 0, tilt: -2, stance: 0, phase: 0.62, speed: 1.6, brows: 'neutral', mouth: 'closed'},
+	{look: LOOKS.Blond, x: 885, crouch: 0.85, lean: 10, gunRot: 14, gunY: 22, tilt: 8, stance: 14, phase: 0.85, speed: 1.7, brows: 'worried', mouth: 'o'},
 ];
 const SY = 1170;
 const SS = 0.91;
 const EI = 2;
 
 function squadGun(i: number, t: number, bob: number): GunPose {
-	return {kind: 'ak12', x: 70, y: -300 + bob * 0.3, rot: 4 + Math.sin(t * 4 + i) * 1.5, lod: i === EI ? 2 : 1};
+	const m = SQUAD[i];
+	return {kind: 'ak12', x: 70 - m.gunY * 0.4, y: -300 + m.gunY + bob * 0.3, rot: m.gunRot + Math.sin(t * 4 + i) * 1.5, lod: i === EI ? 2 : 1};
 }
-const march = (t: number, i: number) => t * 1.6 - i * 0.1;
+const march = (t: number, i: number) => t * SQUAD[i].speed + SQUAD[i].phase;
 
 /** World position of E's receiver centre (the S15 ECU subject). */
 function eRecv(t: number): [number, number] {
@@ -103,14 +106,17 @@ function cam(t: number): Cam {
 		[28.8, look(h, [560, 960], 4.7, 2), E.outCubic],
 		[30.4, look([h[0] - 6, h[1] + 4], [580, 980], 4.85, 2), E.linear],
 		// S16: tilt up to a big E, grimacing, the rifle crossing the foreground
-		[31.2, look(eFace, [430, 720], 4.2, -6), E.inOutCubic],
-		[32.9, look(eFace, [430, 720], 4.32, -7), E.linear],
+		// v3: E stays smaller on the tilt, the oversized hand stays big in the foreground
+		[31.2, look([eFace[0] + 30, eFace[1] + 90], [560, 640], 2.7, -6), E.inOutCubic],
+		[32.9, look([eFace[0] + 30, eFace[1] + 90], [560, 640], 2.8, -7), E.linear],
 	]);
 }
 
 export const Ruins: React.FC<{t: number}> = ({t}) => {
 	const c = cam(t);
 	const fumble = t > 28.6 && t < 30.6;
+	// the S15 gag: E's hand balloons into a huge fumbling circle over the receiver (and stays big into S16)
+	const bigHand = 1 + 0.85 * Math.min(E.outBack(clamp((t - 28.25) / 0.45)), 1 - E.inOutCubic(clamp((t - 32.2) / 0.3)));
 	return (
 		<g>
 			<g transform={camT(c)}>
@@ -149,16 +155,19 @@ export const Ruins: React.FC<{t: number}> = ({t}) => {
 								facing: 1,
 								legs: 'march',
 								legPhase: ph,
-								crouch: 0.6,
+								crouch: m.crouch,
+								stance: m.stance,
 								bob: -bob,
-								lean: 4,
+								lean: m.lean,
 								gun: g,
 								handN: hN,
+								handNScale: isE ? bigHand : 1,
 								handF: 'fore',
-								mouth: grimace ?? (i === 3 ? 'flat' : 'closed'),
-								brows: talking ? 'angry' : i === 1 ? 'angry' : 'neutral',
+								mouth: grimace ?? m.mouth,
+								brows: talking ? 'angry' : m.brows,
 								eyes: blinking(t, 30 + i) ? 'closed' : 'open',
-								headRot: Math.sin(t * 1.3 + i * 2) * 6,
+								headRot: m.tilt + Math.sin(t * 1.3 + i * 2) * 4,
+								headX: i === 3 ? 6 : 0,
 								lookX: Math.sin(t * 0.9 + i) * 2.5,
 								breathe: t * 0.4,
 							}}

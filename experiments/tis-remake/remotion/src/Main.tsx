@@ -22,8 +22,8 @@ const SCENES: {id: string; C: SceneFC; t0: number; t1: number}[] = [
 	{id: 'range', C: Range, t0: 14.25, t1: 22.3},
 	{id: 'office', C: Office, t0: 22.3, t1: 26.33},
 	{id: 'ruins', C: Ruins, t0: 26.33, t1: 32.8},
-	{id: 'pink', C: Pink, t0: 32.8, t1: 38.93},
-	{id: 'armoury', C: Armoury, t0: 38.93, t1: 44.8},
+	{id: 'pink', C: Pink, t0: 32.8, t1: 38.68},
+	{id: 'armoury', C: Armoury, t0: 38.68, t1: 44.8},
 	{id: 'ball', C: Ball, t0: 44.8, t1: 50.1},
 	{id: 'camp', C: Camp, t0: 50.1, t1: 999},
 ];
@@ -35,7 +35,7 @@ const TRANS: {t0: number; t1: number; from: string; to: string; kind: Kind}[] = 
 	{t0: 21.97, t1: 22.3, from: 'range', to: 'office', kind: 'slash'},
 	{t0: 25.97, t1: 26.33, from: 'office', to: 'ruins', kind: 'iris'},
 	{t0: 32.43, t1: 32.8, from: 'ruins', to: 'pink', kind: 'blob'},
-	{t0: 38.55, t1: 38.93, from: 'pink', to: 'armoury', kind: 'blob2'},
+	{t0: 38.3, t1: 38.68, from: 'pink', to: 'armoury', kind: 'blob2'},
 	{t0: 44.43, t1: 44.8, from: 'armoury', to: 'ball', kind: 'slash'},
 	{t0: 49.7, t1: 50.1, from: 'ball', to: 'camp', kind: 'splat'},
 ];
@@ -122,15 +122,6 @@ const Matte: React.FC<{kind: Kind; u: number; t: number}> = ({kind, u, t}) => {
 };
 
 const Overlay: React.FC<{kind: Kind; u: number; t: number}> = ({kind, u, t}) => {
-	if (kind === 'iris') {
-		const r = E.inQuad(u) * 1180 + 1;
-		return (
-			<g>
-				<circle cx={540} cy={900} r={r} fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth={40} />
-				<circle cx={540} cy={900} r={r - 26} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth={14} />
-			</g>
-		);
-	}
 	if (kind === 'blob2') {
 		return (
 			<g>

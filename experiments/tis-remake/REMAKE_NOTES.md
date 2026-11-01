@@ -96,3 +96,39 @@ Known gaps after v2:
 - F still faces right rather than three-quarter to the camera.
 - The S26 M4 is smaller than the reference's.
 - The prone S19 soldier is still simple.
+
+## v3 (judge fix round 2)
+
+Outputs: `out/remake_v3.mp4` (1080x1920, 30 fps, 1680 frames, 56.0 s; render 40 s on the Spark CPU at `--concurrency=4`, `nice -n 10`, under the render lock), `out/side_by_side_v3.mp4`, `out/pairs_v3_sheet.jpg` (the standard 12 pairs) and `out/pairs_v3_fixes_sheet.jpg` (20 pairs at the judged problem times: 9.8, 18.6, 20.8, 21.5, 23, 27, 28.9, 31.5, 34.7, 34.95, 36.5, 37.6, 38.4, 39.5, 40.6, 45, 47.8, 54.75, 3.5, 33).
+
+Fixes, in the judge's order:
+
+1. **S12 black void** (`scenes/Range.tsx`). The sky plate now runs from y -3000 to 6000, so no rotated or pushed camera can expose the empty canvas. D is also smaller now (see 7), so the push goes to 3.55x, and the frame stays on sand and wall.
+2. **Head kit** (`art/soldier.tsx`, used by about 15 shots):
+   - The face is a rounded squircle path (`FACE`) with soft jaw corners, not a rectangle.
+   - Each character has a hair mass under the helmet (`Look.hairStyle`): `crop` is a dark block at the back of the skull down to the sideburn (A, C, H, the officer); `side` adds a fringe tuft (B, D, G); `swoop` is a fringe that sweeps diagonally across the forehead (E, F, Blond). F is now blond, as in the reference.
+   - A back-of-skull hair shape sits behind the face, and the ear sits over the sideburn.
+   - The full beard, goatee and moustache are redrawn as rounded silhouettes.
+3. **Acting.**
+   - S14: each squad member has his own crouch, stance (`Pose.stance`), lean, gun angle and height, head tilt, step phase and speed, brows and mouth, so it is no longer a clone line.
+   - S20: the queue is re-spaced (150/345/545). D stands with his thumbs in his belt, a wide stance and his head cocked. A talks with an open-palm gesture. B scratches his helmet rim with an index finger (`Pose.pointAng`), then reaches and points at the rifle the officer holds out (40.15–40.55) before taking it at 41.0.
+   - Grip wrap, for every soldier holding a rifle: the near hand's thumb lies along the receiver, and the support hand's three fingertips curl round the handguard. These are drawn over the gun.
+4. **S18 explosion** (`art/props.tsx` `Burst`, `scenes/Pink.tsx`). The burst is layered: three-tone tapered flame petals, overlapping fire-cloud circles, a yellow core, dark smoke puffs and flying debris. It is about 640 px across and placed low, erupting lower right at 34.74 and drifting to the lower left by about 35.34. Because it no longer covers the frame, the S18 truck right (about 860 px, 34.42–35.10) is visible again, with F exiting left.
+5. **S19 rebuilt.**
+   - Background: a parallax far layer (sunset sky, clouds and a pale damaged skyline). The middle block is now a lower, shell-damaged ruin, so the sky and skyline show above it. The near blocks have broken tops, and there is a pavement and kerb.
+   - Hedgehogs: four chunky, shaded hedgehogs (two crossed beams plus a receding one, lit tops, dark undersides, cut-face ends, a gusset plate and bolts).
+   - Soldiers: two standing soldiers with distinct stances, both firing. The prone soldier has rounded boots, padded pouches and a patch.
+   - Camera: the shot opens tilted up on the blocks and sky, settles onto the barricade (35.1–36.0), then pushes in slowly to 1.17x.
+   - The S19→S20 blob wipe now runs 38.30–38.68 (0.25 s earlier).
+6. **Captions** (`Captions.tsx`). K2D Medium with a 1.6 px same-colour stroke for the reference's heavier weight, 78 px type, -1.2 px tracking, and a box at least 928 px wide with 52 px side padding.
+7. **Scale gags.**
+   - S11: D is a small figure (scale 1.08, down from 1.67) beside a bigger target, which now sits lower and further left.
+   - S15: E's near hand balloons to 1.85x over the receiver (`Pose.handNScale`) and stays big through the S16 tilt. S16 frames E smaller (2.7x).
+   - S26: the M4 is the hero. It is drawn 1.5x, lifted to a 45° diagonal so the magazine hangs down-left instead of sticking out sideways, and G's face is cropped at the right edge. The sparkles are bigger.
+8. **Polish.**
+   - The iris transition's glossy rim strokes are removed.
+   - S06 is a hard cut at 9.0 to a receiver CU with no head or neck (`Pose.noHead`).
+   - S22 has 64 two-tone diagonal streaks, a bigger ball (R 162), thicker legs and wider rifle waves. S23's brows act, and the ball has a terminator crescent and gloss highlights.
+   - S13: the scratching hand goes behind the official's head, with the arm drawn before the head and the elbow raised.
+
+Still open after v3: the hook rifle silhouette (S01), the S03 flag dominance, the S08 muzzle flash style, F is still in profile rather than 3/4, the S04 AK-47 swap, and S24/S25 crate perspective.

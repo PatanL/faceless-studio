@@ -24,16 +24,22 @@ const Box: React.FC<{lines: string[]; opacity?: number}> = ({lines, opacity = 1}
 			style={{
 				transform: 'translateY(-50%)',
 				background: 'rgba(0,0,0,0.70)',
-				borderRadius: 36,
-				padding: "17px 40px 18px",
+				borderRadius: 34,
+				// v3: the reference's wide box (928 px) with generous side padding, a slightly heavier
+				// medium face (K2D Medium + a hairline stroke) and tighter tracking
+				padding: '16px 52px 18px',
+				minWidth: 928,
+				boxSizing: 'border-box',
 				fontFamily: 'K2D, sans-serif',
 				fontWeight: 500,
-				fontSize: 75,
+				fontSize: 78,
+				letterSpacing: -1.2,
+				WebkitTextStroke: '1.6px #FFFFFD',
 				lineHeight: '100px',
 				color: '#FFFFFD',
 				textAlign: 'center',
 				whiteSpace: 'pre',
-				maxWidth: 1040,
+				maxWidth: 1060,
 			}}
 		>
 			{lines.join('\n')}

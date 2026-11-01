@@ -296,21 +296,101 @@ function starHole(i: number) {
 	return `M${pts.join(' L')} Z`;
 }
 
-export const Hedgehog: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => (
-	<g transform={`translate(${x} ${y}) scale(${s})`}>
-		<ellipse cx={0} cy={86} rx={150} ry={14} fill="url(#softShadow)" />
-		{[
-			[-45, '#625850'],
-			[45, '#7A7068'],
-		].map(([a, c], i) => (
-			<g key={i} transform={`rotate(${a as number})`}>
-				<rect x={-150} y={-24} width={300} height={48} rx={24} fill={c as string} />
-				<rect x={-130} y={-15} width={200} height={12} rx={6} fill="#A39A90" opacity={0.75} />
-				<rect x={-150} y={10} width={300} height={14} rx={7} fill="#000" opacity={0.15} />
+/** v3 Czech hedgehog: three chunky shaded beams (two crossed in the picture plane, one receding),
+ *  each with a lit top face, a dark underside, rounded ends showing a lighter cut face, and bolts. */
+export const Hedgehog: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => {
+	const beam = (a: number, L: number, w: number, c: string, key: string, back?: boolean) => (
+		<g key={key} transform={`rotate(${a})`}>
+			<rect x={-L / 2} y={-w / 2} width={L} height={w} rx={w * 0.22} fill={c} />
+			{/* lit top face */}
+			<rect x={-L / 2 + 6} y={-w / 2} width={L - 12} height={w * 0.3} rx={w * 0.14} fill="#9C928A" opacity={back ? 0.5 : 0.9} />
+			<rect x={-L / 2 + 10} y={-w / 2 + 3} width={L * 0.55} height={w * 0.08} rx={3} fill="#C9C0B6" opacity={back ? 0.3 : 0.8} />
+			{/* dark underside */}
+			<rect x={-L / 2} y={w * 0.18} width={L} height={w * 0.32} rx={w * 0.14} fill="#000" opacity={0.22} />
+			{/* cut faces at the ends */}
+			<rect x={-L / 2} y={-w / 2} width={w * 0.34} height={w} rx={w * 0.17} fill="#8A8079" />
+			<rect x={L / 2 - w * 0.34} y={-w / 2} width={w * 0.34} height={w} rx={w * 0.17} fill="#8A8079" />
+			<circle cx={-L / 2 + w * 0.17} cy={0} r={w * 0.09} fill="#4A423C" />
+		</g>
+	);
+	return (
+		<g transform={`translate(${x} ${y}) scale(${(flip ? -1 : 1) * s} ${s})`}>
+			<ellipse cx={0} cy={112} rx={210} ry={20} fill="url(#softShadow)" />
+			{/* receding beam (behind) */}
+			<g transform="translate(10 18) scale(0.62 1)">{beam(-82, 250, 62, '#4E4640', 'r', true)}</g>
+			{beam(-40, 330, 70, '#625850', 'a')}
+			{beam(40, 330, 70, '#7A7068', 'b')}
+			{/* gusset plate + bolts at the crossing */}
+			<path d="M-30,-6 L0,-34 L30,-6 L0,22 Z" fill="#544B44" />
+			<circle cx={-8} cy={-6} r={5} fill="#2E2925" />
+			<circle cx={10} cy={-4} r={5} fill="#2E2925" />
+		</g>
+	);
+};
+
+/** v3 explosion: a layered cloud burst. Tapered flame petals in three tones, overlapping fire-cloud
+ *  circles, dark smoke puffs and flying debris. `k` 0..1 is its life (grow, hold, break up). */
+export const Burst: React.FC<{size: number; k: number; seed?: number; rot?: number}> = ({size, k, seed = 3, rot = 0}) => {
+	const R = size / 2;
+	const grow = E.outBack(clamp(k / 0.3));
+	const fade = 1 - clamp((k - 0.65) / 0.35);
+	const petals = (n: number, r: number, w: number, c: string, off: number) => {
+		let d = '';
+		for (let i = 0; i < n; i++) {
+			const a = off + (i / n) * Math.PI * 2;
+			const rr = r * (0.78 + 0.32 * hash(seed + i * 3.7 + n));
+			const c1 = [Math.cos(a - w) * rr * 0.45, Math.sin(a - w) * rr * 0.45];
+			const c2 = [Math.cos(a + w) * rr * 0.45, Math.sin(a + w) * rr * 0.45];
+			const tip = [Math.cos(a) * rr, Math.sin(a) * rr];
+			d += `M0,0 Q${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${tip[0].toFixed(1)},${tip[1].toFixed(1)} Q${c2[0].toFixed(1)},${c2[1].toFixed(1)} 0,0 Z `;
+		}
+		return <path d={d} fill={c} />;
+	};
+	const puffs = Array.from({length: 9}, (_, i) => {
+		const a = (i / 9) * Math.PI * 2 + hash(seed + i) * 0.5;
+		const d = R * (0.28 + hash(seed + i * 2) * 0.16) * (0.8 + 0.4 * k);
+		return [Math.cos(a) * d, Math.sin(a) * d * 0.85, R * (0.2 + hash(seed + i * 5) * 0.12)] as const;
+	});
+	const smoke = Array.from({length: 7}, (_, i) => {
+		const a = -Math.PI / 2 + (hash(seed + i * 11) - 0.5) * 2.6;
+		const d = R * (0.35 + 0.55 * clamp((k - 0.15) / 0.85)) * (0.7 + hash(seed + i) * 0.5);
+		return [Math.cos(a) * d, Math.sin(a) * d - R * 0.15 * k, R * (0.16 + hash(seed + i * 7) * 0.1) * (0.6 + k)] as const;
+	});
+	const debris = Array.from({length: 10}, (_, i) => {
+		const a = (i / 10) * Math.PI * 2 + hash(seed + i * 13);
+		const d = R * (0.3 + 1.1 * clamp(k / 0.8)) * (0.7 + hash(seed + i * 17) * 0.6);
+		return [Math.cos(a) * d, Math.sin(a) * d + R * 0.5 * k * k, hash(seed + i) * 360 + k * 500, 8 + hash(seed + i * 19) * 12] as const;
+	});
+	return (
+		<g transform={`rotate(${rot})`}>
+			<circle r={R * 1.05 * grow} fill="url(#glowOrange)" opacity={0.7 * fade} />
+			{/* smoke behind */}
+			<g opacity={0.85 * clamp(k / 0.2)}>
+				{smoke.map(([x, y, r], i) => (
+					<g key={i}>
+						<circle cx={x} cy={y} r={r} fill="#6E4A4E" />
+						<circle cx={x - r * 0.2} cy={y - r * 0.25} r={r * 0.6} fill="#8A6266" />
+					</g>
+				))}
 			</g>
-		))}
-	</g>
-);
+			<g transform={`scale(${grow})`} opacity={fade}>
+				{petals(11, R, 0.2, '#E8542A', 0.1)}
+				{petals(9, R * 0.78, 0.24, '#F7931E', 0.45)}
+				{puffs.map(([x, y, r], i) => (
+					<circle key={`p${i}`} cx={x} cy={y} r={r} fill={i % 3 === 0 ? '#F7931E' : '#F9A93A'} />
+				))}
+				{puffs.map(([x, y, r], i) => (
+					<circle key={`q${i}`} cx={x * 0.7 - r * 0.15} cy={y * 0.7 - r * 0.2} r={r * 0.62} fill="#FFD34D" />
+				))}
+				{petals(7, R * 0.42, 0.3, '#FFE58A', 0.2)}
+				<circle r={R * 0.16} fill="#FFF6D6" />
+			</g>
+			{debris.map(([x, y, r, w], i) => (
+				<rect key={`d${i}`} x={x - w / 2} y={y - w / 3} width={w} height={w * 0.66} rx={2} fill={i % 3 ? '#3A2522' : '#5A3532'} transform={`rotate(${r} ${x} ${y})`} opacity={clamp((1 - k) * 3)} />
+			))}
+		</g>
+	);
+};
 
 export const Wire: React.FC<{x0: number; x1: number; y: number; sag?: number; seed?: number}> = ({x0, x1, y, sag = 10, seed = 0}) => {
 	const barbs = [];

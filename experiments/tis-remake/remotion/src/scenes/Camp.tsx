@@ -27,9 +27,10 @@ export const Camp: React.FC<{t: number}> = ({t}) => {
 		[49.7, {x: 540, y: 960, s: 1, r: 0}],
 		[52.4, {x: 545, y: 958, s: 1.05, r: 0}, E.linear],
 		// S25 push + rotate, then S26: a tight CU, big bearded face at right, the M4 raised across the frame
-		[53.8, look(gFace, [790, 700], 4.5, -8), E.inOutCubic],
-		[54.0, look(gFace, [790, 700], 4.52, -8), E.linear],
-		[56.1, look([gFace[0] - 4, gFace[1] - 4], [795, 690], 4.75, -9), E.linear],
+		// v3: the M4 is the hero - a big diagonal rifle centre frame, G's face cropped at the right edge
+		[53.8, look(gFace, [930, 560], 3.4, -8), E.inOutCubic],
+		[54.0, look(gFace, [930, 560], 3.42, -8), E.linear],
+		[56.1, look([gFace[0] - 4, gFace[1] - 4], [940, 550], 3.6, -9), E.linear],
 	]);
 	const cFront = para(c, 1.3, 545, 958);
 	const lift = E.outBack(clamp((t - 53.9) / 0.55));
@@ -67,7 +68,8 @@ export const Camp: React.FC<{t: number}> = ({t}) => {
 					s={GS}
 					pose={{
 						facing: -1,
-						gun: {kind: 'm4', x: 40 + lift * 70, y: -380 - lift * 90 + Math.sin(t * 2) * 4, rot: -60 - lift * 18, lod: 2},
+						// lifted to a 45-degree diagonal (magazine hanging down-left, not sideways) and drawn larger
+						gun: {kind: 'm4', x: 40 + lift * 120, y: -380 - lift * 40 + Math.sin(t * 2) * 4, rot: -60 + lift * 16, s: 1 + 0.5 * lift, lod: 2},
 						handN: 'grip',
 						handF: 'fore',
 						mouth: t > 51.6 ? (t > 54 ? (t % 0.8 < 0.5 ? 'grin' : 'smile') : talkMouth(t, 11, 'grin')) : 'closed',
@@ -88,10 +90,10 @@ export const Camp: React.FC<{t: number}> = ({t}) => {
 				<Crate x={340} y={1060} w={360} h={250} />
 				<Crate x={700} y={1100} w={420} h={300} c="#666B3E" />
 			</g>
-			<Sparkle t={t} t0={54.4} x={330} y={420} size={520} />
-			<Sparkle t={t} t0={54.75} x={480} y={780} size={280} spin={-30} />
-			<Sparkle t={t} t0={55.1} x={380} y={580} size={360} />
-			<Sparkle t={t} t0={55.3} x={560} y={900} size={110} />
+			<Sparkle t={t} t0={54.35} x={340} y={400} size={640} dur={0.6} />
+			<Sparkle t={t} t0={54.7} x={560} y={820} size={340} spin={-30} />
+			<Sparkle t={t} t0={55.05} x={300} y={640} size={420} />
+			<Sparkle t={t} t0={55.3} x={640} y={1000} size={160} />
 		</g>
 	);
 };

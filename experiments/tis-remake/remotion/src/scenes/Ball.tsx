@@ -57,27 +57,32 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 	const dart = t > 47.2 ? Math.sign(Math.sin(t * Math.PI * 2 * 1.2)) * 10 : Math.sin(t * 2) * 4;
 	const worry = t > 47.2 ? 1 : 0.5;
 	const sweatY = t > 47.2 ? Math.min(20, (t - 47.2) * 12) : 0;
-	const R = 140;
+	const R = 162;
+	// brows act: a worried knit that twitches up on each eye dart in S23
+	const browUp = t > 47.2 ? 8 + Math.abs(Math.sin(t * Math.PI * 2 * 1.2)) * 8 : Math.sin(t * 3) * 3;
+	const browTw = t > 47.2 ? Math.sin(t * Math.PI * 2 * 2.4) * 4 : 0;
 	const armL = (() => {
 		const a = (wave(0) * Math.PI) / 180;
 		const h: [number, number] = [cx - 250 + Math.sin(a) * 30, cy - 30 - Math.cos(a) * 20];
-		return {pts: [[cx - 120, cy + 30], [cx - 190, cy + 70], [cx - 260, cy + 40], h] as [number, number][], h, rot: -105 + 32 * Math.sin(t * Math.PI * 2 * 0.7)};
+		return {pts: [[cx - 120, cy + 30], [cx - 190, cy + 70], [cx - 260, cy + 40], h] as [number, number][], h, rot: -105 + 48 * Math.sin(t * Math.PI * 2 * 0.85)};
 	})();
 	const armR = (() => {
 		const a = (wave(2) * Math.PI) / 180;
 		const h: [number, number] = [cx + 250 + Math.sin(a) * 30, cy - 30 - Math.cos(a) * 20];
-		return {pts: [[cx + 120, cy + 30], [cx + 190, cy + 70], [cx + 260, cy + 40], h] as [number, number][], h, rot: -70 + 28 * Math.sin(t * Math.PI * 2 * 0.95 + 1.2)};
+		return {pts: [[cx + 120, cy + 30], [cx + 190, cy + 70], [cx + 260, cy + 40], h] as [number, number][], h, rot: -70 + 46 * Math.sin(t * Math.PI * 2 * 1.05 + 1.2)};
 	})();
 	return (
 		<g>
 			<g transform={camT(c)}>
 				<rect x={-1500} y={-1500} width={4080} height={4920} fill="#5836D2" />
 				<g transform={`translate(${-((t * 30) % 300)} ${(t * 30) % 300})`}>
-					{Array.from({length: 26}, (_, i) => {
-						const x = -600 + hash(i) * 2400;
-						const y = -600 + hash(i + 50) * 3200;
-						const L = 160 + hash(i + 9) * 360;
-						return <rect key={i} x={x} y={y} width={L} height={40} rx={20} fill="#6541D5" transform={`rotate(-45 ${x} ${y})`} />;
+					{/* v3: a denser field of diagonal speed streaks in two tones */}
+					{Array.from({length: 64}, (_, i) => {
+						const x = -800 + hash(i) * 2800;
+						const y = -700 + hash(i + 50) * 3500;
+						const L = 140 + hash(i + 9) * 420;
+						const h = 26 + hash(i + 17) * 26;
+						return <rect key={i} x={x} y={y} width={L} height={h} rx={h / 2} fill={i % 3 === 0 ? '#7150DC' : '#6541D5'} transform={`rotate(-45 ${x} ${y})`} />;
 					})}
 					{Array.from({length: 18}, (_, i) => (
 						<circle key={`d${i}`} cx={-400 + hash(i + 200) * 2000} cy={-400 + hash(i + 300) * 2800} r={10 + hash(i + 400) * 14} fill="#6541D5" />
@@ -85,8 +90,8 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 				</g>
 				<ellipse cx={540 + sx * 0.8} cy={1170} rx={240} ry={20} fill="#000" opacity={0.18} />
 				{/* legs: bent knees splayed outward (crouch) */}
-				<Chain pts={[[cx - 50, cy + 110], [cx - 150 - lift(0) * 0.3, cy + 230 - lift(0) * 0.6], [cx - 96, 1120 - lift(0)]]} w={40} />
-				<Chain pts={[[cx + 50, cy + 110], [cx + 150 + lift(1) * 0.3, cy + 230 - lift(1) * 0.6], [cx + 96, 1120 - lift(1)]]} w={40} />
+				<Chain pts={[[cx - 50, cy + 110], [cx - 150 - lift(0) * 0.3, cy + 230 - lift(0) * 0.6], [cx - 96, 1120 - lift(0)]]} w={56} />
+				<Chain pts={[[cx + 50, cy + 110], [cx + 150 + lift(1) * 0.3, cy + 230 - lift(1) * 0.6], [cx + 96, 1120 - lift(1)]]} w={56} />
 				<Foot x={cx - 100} y={1150 - lift(0)} />
 				<Foot x={cx + 100} y={1150 - lift(1)} />
 				<g transform={`rotate(${leanDeg} ${cx} ${cy + 120})`}>
@@ -107,7 +112,11 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 					<circle cx={cx - 30} cy={cy + 70} r={40} fill="#FF8080" opacity={0.3} />
 					<circle cx={cx + 70} cy={cy + 80} r={30} fill="#FF8080" opacity={0.3} />
 					<path d={`M${cx + R},${cy - R} A${R},${R} 0 0 1 ${cx + R * 0.2},${cy + R} L${cx + R},${cy + R} Z`} fill="#000" opacity={0.1} />
+					{/* v3 shading: a terminator crescent on the shadow side and a glossy top-left highlight */}
+					<path d={`M${cx + R * 0.35},${cy - R} A${R},${R} 0 0 1 ${cx + R * 0.35},${cy + R} A${R * 0.8},${R} 0 0 0 ${cx + R * 0.35},${cy - R} Z`} fill="#000" opacity={0.12} />
 				</g>
+				<ellipse cx={cx - R * 0.5} cy={cy - R * 0.62} rx={R * 0.28} ry={R * 0.13} fill="#FFFFFF" opacity={0.55} transform={`rotate(-35 ${cx - R * 0.5} ${cy - R * 0.62})`} />
+				<circle cx={cx - R * 0.78} cy={cy - R * 0.28} r={R * 0.06} fill="#FFFFFF" opacity={0.5} />
 				{/* visor + brows */}
 				<g transform={`translate(${cx} ${cy - 55})`}>
 					<rect x={-76} y={-30} width={152} height={62} rx={26} fill="#2E2B33" />
@@ -116,8 +125,8 @@ export const Ball: React.FC<{t: number}> = ({t}) => {
 					<circle cx={30 + dart} cy={2} r={15} fill="#111" />
 					<circle cx={-25 + dart} cy={-3} r={4} fill="#FFF" />
 					<circle cx={35 + dart} cy={-3} r={4} fill="#FFF" />
-					<rect x={-76} y={-60} width={64} height={18} rx={9} fill="#76737C" transform={`rotate(${-12 * worry} -44 -51)`} />
-					<rect x={12} y={-60} width={64} height={18} rx={9} fill="#76737C" transform={`rotate(${12 * worry} 44 -51)`} />
+					<rect x={-76} y={-62 - browUp} width={64} height={20} rx={10} fill="#76737C" transform={`rotate(${-16 * worry - browTw} -44 -51)`} />
+					<rect x={12} y={-62 - browUp} width={64} height={20} rx={10} fill="#76737C" transform={`rotate(${16 * worry + browTw} 44 -51)`} />
 				</g>
 				{t > 46.0 && <path d={`M${cx},${cy + 20 + sweatY} Q${cx + 13},${cy + 42 + sweatY} ${cx},${cy + 50 + sweatY} Q${cx - 13},${cy + 42 + sweatY} ${cx},${cy + 20 + sweatY} Z`} fill="#FFFFFF" />}
 				{/* rifles in the grippers */}

@@ -55,12 +55,23 @@ const Official: React.FC<{t: number}> = ({t}) => {
 	]);
 	const tap = t > 24.3 ? Math.max(0, Math.sin((t - 24.3) * Math.PI * 2 * 1.4)) * 12 : 0;
 	const rest: [number, number] = [150, 260 - tap];
-	const head: [number, number] = [110 + sc * 6 * (scratching ? 1 : 0), -150 + sc * 14 * (scratching ? 1 : 0)];
+	// v3: the scratching hand goes BEHIND the head (upper right of the skull), elbow raised high
+	const head: [number, number] = [62 + sc * 8 * (scratching ? 1 : 0), -196 + sc * 12 * (scratching ? 1 : 0)];
+	const behind = handTo > 0.55;
 	const hR: [number, number] = [rest[0] + (head[0] - rest[0]) * handTo, rest[1] + (head[1] - rest[1]) * handTo];
 	const shR: [number, number] = [150, 70];
 	const eR = ik(shR, hR, 150, 140, handTo > 0.5 ? -1 : 1);
 	const blink = blinking(t, 21) || blinking(t + 1.3, 22);
 	const headTilt = Math.sin(t * 1.3) * 2 + (scratching ? -4 : 0);
+	const arm = (
+		<g>
+				{/* right arm (scratch / tap) */}
+				<path d={`M${shR[0]},${shR[1]} L${eR[0]},${eR[1]} L${hR[0]},${hR[1]}`} fill="none" stroke="#1F2734" strokeWidth={78} strokeLinecap="round" strokeLinejoin="round" />
+				<path d={`M${eR[0]},${eR[1]} L${hR[0]},${hR[1]}`} fill="none" stroke="#000" strokeOpacity={0.12} strokeWidth={78} strokeLinecap="round" />
+				<circle cx={hR[0]} cy={hR[1]} r={44} fill={P.hand} />
+				<path d={`M${hR[0] - 40},${hR[1] + 12} Q${hR[0]},${hR[1] + 52} ${hR[0] + 36},${hR[1] + 20} Q${hR[0] + 20},${hR[1] + 44} ${hR[0]},${hR[1] + 44} Z`} fill={P.handShade} opacity={0.7} />
+		</g>
+	);
 	return (
 		<g transform="translate(540 610) scale(1.14)">
 			{/* body */}
@@ -72,6 +83,7 @@ const Official: React.FC<{t: number}> = ({t}) => {
 			<path d="M-14,60 L14,60 L10,80 L-10,80 Z" fill="#8E2A20" />
 			<path d="M-60,30 L-110,30 L-20,240 L-6,200 Z" fill="#1D2532" />
 			<path d="M60,30 L110,30 L20,240 L6,200 Z" fill="#1D2532" />
+			{behind && arm}
 			{/* neck + head */}
 			<rect x={-34} y={-20} width={68} height={60} rx={14} fill={P.skinShade} />
 			<g transform={`rotate(${headTilt} 0 -10)`}>
@@ -116,11 +128,7 @@ const Official: React.FC<{t: number}> = ({t}) => {
 				<ellipse cx={0} cy={-40} rx={5} ry={4} fill="#C0392B" />
 				<path d="M-28,-26 Q0,-16 28,-26" stroke="#E3A584" strokeWidth={4} fill="none" strokeLinecap="round" />
 			</g>
-			{/* right arm (scratch / tap) */}
-			<path d={`M${shR[0]},${shR[1]} L${eR[0]},${eR[1]} L${hR[0]},${hR[1]}`} fill="none" stroke="#1F2734" strokeWidth={78} strokeLinecap="round" strokeLinejoin="round" />
-			<path d={`M${eR[0]},${eR[1]} L${hR[0]},${hR[1]}`} fill="none" stroke="#000" strokeOpacity={0.12} strokeWidth={78} strokeLinecap="round" />
-			<circle cx={hR[0]} cy={hR[1]} r={44} fill={P.hand} />
-			<path d={`M${hR[0] - 40},${hR[1] + 12} Q${hR[0]},${hR[1] + 52} ${hR[0] + 36},${hR[1] + 20} Q${hR[0] + 20},${hR[1] + 44} ${hR[0]},${hR[1] + 44} Z`} fill={P.handShade} opacity={0.7} />
+			{!behind && arm}
 		</g>
 	);
 };

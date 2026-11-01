@@ -56,11 +56,14 @@ const Rack: React.FC<{x: number; w: number}> = ({x, w}) => (
 );
 
 const OX = 830;
+const DQX = 150;
+const AQX = 345;
+const BQX = 545;
 const FY = 1185;
 const SS = 1.04;
 
 export const Armoury: React.FC<{t: number}> = ({t}) => {
-	const bFace: [number, number] = [532 + 10 * SS, FY - 541 * SS];
+	const bFace: [number, number] = [BQX + 10 * SS, FY - 541 * SS];
 	// S21: a clean MCU of B (A's face is pushed out of frame left, the officer is only a shoulder at right)
 	const c = camAt(t, [
 		[38.55, {x: 540, y: 960, s: 1, r: 0}],
@@ -76,7 +79,7 @@ export const Armoury: React.FC<{t: number}> = ({t}) => {
 		[40.0, 760],
 		[40.5, 700],
 	]);
-	const gy = 925 - lift * 120;
+	const gy = 925 - lift * 150;
 	// officer local gun (officer faces -1, leans over)
 	const oGun: GunPose | null = t < 41.0 ? {kind: 'ak12', x: (OX - gx) / SS, y: (gy - FY) / SS, rot: 180 + lift * 10} : null;
 	const bHas = t >= 41.0;
@@ -84,6 +87,15 @@ export const Armoury: React.FC<{t: number}> = ({t}) => {
 	const up = E.outBack(clamp((t - 41.0) / 0.6));
 	const bGun: GunPose = {kind: 'ak12', x: 40 + (1 - up) * 30, y: -350 + (1 - up) * 40 + Math.sin(t * 2) * 4, rot: -18 - up * 40, lod: 2};
 	const scratch = Math.sin(t * Math.PI * 2 * 1.4);
+	// v3 handoff: B stops scratching and reaches across for the rifle the officer holds out (40.2-41.0)
+	const reach = kf(t, [
+		[40.15, 0],
+		[40.55, 1, E.outBack],
+	]);
+	const scratchHand: [number, number] = [26 + scratch * 6, -610 + scratch * 12];
+	const gunHand: [number, number] = [(gx - BQX) / SS - 30, (gy - FY) / SS + 10];
+	const bHandF: [number, number] = [scratchHand[0] + (gunHand[0] - scratchHand[0]) * reach, scratchHand[1] + (gunHand[1] - scratchHand[1]) * reach];
+	const aGest = Math.sin(t * Math.PI * 2 * 0.9);
 	return (
 		<g>
 			<g transform={camT(c)}>
@@ -125,23 +137,41 @@ export const Armoury: React.FC<{t: number}> = ({t}) => {
 				))}
 				<Bag x={930} y={942} s={1.05} />
 				<Bag x={1010} y={942} s={0.9} />
-				{/* the queue */}
-				<Soldier look={LOOKS.D} x={172} y={FY} s={SS} pose={{facing: 1, mouth: 'flat', brows: 'neutral', eyes: blinking(t, 62) ? 'closed' : 'open', breathe: t * 0.4, headRot: Math.sin(t * 1.1) * 2, lookX: 2.2}} />
-				<Soldier look={LOOKS.A} x={352} y={FY} s={SS} pose={{facing: 1, mouth: talkMouth(t, 9, 'closed'), brows: 'neutral', eyes: blinking(t, 63) ? 'closed' : 'open', breathe: t * 0.4 + 0.5, headRot: Math.sin(t * 4) * 2, lookX: 2.4}} />
+				{/* the queue: three distinct poses with readable gaps (v3) */}
+				{/* D: thumbs in the belt, wide stance, head cocked toward A */}
+				<Soldier
+					look={LOOKS.D}
+					x={DQX}
+					y={FY}
+					s={SS}
+					pose={{facing: 1, stance: 16, lean: -3, handN: [-96, -300], handF: [96, -300], mouth: 'flat', brows: 'raised', eyes: blinking(t, 62) ? 'closed' : 'open', breathe: t * 0.4, headRot: 7 + Math.sin(t * 1.1) * 2, headX: 4, lookX: 2.6, lookY: -0.5}}
+				/>
+				{/* A: talking, his far hand gesturing at chest height with an open palm */}
+				<Soldier
+					look={LOOKS.A}
+					x={AQX}
+					y={FY}
+					s={SS}
+					pose={{facing: 1, stance: -6, lean: 4, handN: [-60, -270], handF: [150 + aGest * 14, -400 - Math.abs(aGest) * 30], mouth: talkMouth(t, 9, 'closed'), brows: 'angry', eyes: blinking(t, 63) ? 'closed' : 'open', breathe: t * 0.4 + 0.5, headRot: -4 + Math.sin(t * 4) * 2, lookX: 2.4}}
+				/>
 				<Soldier
 					look={LOOKS.B}
-					x={532}
+					x={BQX}
 					y={FY}
 					s={SS}
 					pose={{
 						facing: 1,
+						stance: 4,
 						gun: bHas ? bGun : null,
-						handN: bHas ? 'grip' : undefined,
-						handF: bHas ? 'fore' : t < 40.4 ? [20 + scratch * 6, -600 + scratch * 14] : [110, -330],
+						handN: bHas ? 'grip' : [-50, -280],
+						handF: bHas ? 'fore' : bHandF,
+						// index finger scratching the helmet rim, then pointing at the rifle as he reaches
+						pointF: !bHas,
+						pointAng: reach > 0.5 ? 0 : -115,
 						mouth: bHas ? talkMouth(t, 10, 'O') : 'O',
 						brows: 'worried',
 						eyes: blinking(t, 64) ? 'closed' : 'open',
-						headRot: bHas ? Math.sin(t * 0.8) * 4 - 2 : -3,
+						headRot: bHas ? Math.sin(t * 0.8) * 4 - 2 : -6 + reach * 6,
 						breathe: t * 0.4 + 0.2,
 						lookX: 2,
 					}}
