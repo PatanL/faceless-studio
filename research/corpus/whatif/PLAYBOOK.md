@@ -129,24 +129,33 @@ Hook = everything up to the first beat after the premise is fully stated. Views 
 | H10 | **Trailer of dated consequences** (in hours… in [N] days… in a week…) + one undated master mystery | 3–4 promises paid in order of length; the first paid ~25 s after the hook | EVERY-HUMAN 1.08M |
 | H11 | **Impossible exact number on the least likely person**, read in full, then your own modest number + a flash-forward warning | withheld reveal + personal stake + time-boxed dread | WEALTH 1.17M |
 | H12 | **One-way trip + irreversible rule + promise of repeated reveals + destination tease + a mute sidekick** | the constraint is the master loop (93% of runtime); route shown in first 15 s | BILLION-YEARS 413K |
+| H13 | **Here's what would happen if you [tiny constant rate]** + two checkable ×60 rungs in 9 s | the premise is the first sentence; the maths proves the ladder is real and starts it moving | GROW-1CM 3.32M (69×), BLACK-HOLE-NS 435K |
+| H14 | **Flash-forward image + "you can't stop [verb]ing" + a counter already moving** | shows the payoff from ~20% in, before the title card | SHRINK 873K (623×) |
+| H15 | **Named reader's question read out in full**, then "start with the obvious" | an outside voice owns the question; the title is answered exactly at the end | LAST-LIGHT 10.4M |
+| H16 | **A riddle about our world told from inside the changed one** (premise never stated) | the viewer half-solves it in 5 s and stays to be proved right | UNDERWATER 709K |
+| H17 | **Imagine waking up tomorrow without [X]** → two-step rule-out (not stolen, never invented) → obvious joke dismissed → 3 teases of rising surprise | three specific loops (a place, your phone, a thesis) paid shortest-first | NO-CLOTHES 297K (30×) |
+| H18 | **Micro-absences** (no notifications, silent street, steaming coffee) → premise implied from word one, stated at ~29 s → 3-question stack → format promise ("hour by hour") | a format promise turns the chapter stamps into kept promises | LAST-HUMAN-2 243K (25×) |
+| H19 | **Famous real benchmark first** (a known catastrophe, then "if it hit today") → premise → fake spoiler | borrows a known event's dread; premise late (34 s) but the benchmark is a loop closed at 67% | ASTEROIDS 3.10M |
+| H20 | **Idle question asked casually, undersold, overheard by the subject** | the hook builds a character with a grudge in 11 s instead of selling a fact | SUN-GONE 7.77M |
+| H21 | **No spoken hook: title + brand sting, premise shown** (time-lapse, montage, countdown cards) | works only with a title that already hooks and a returning audience | NOCTURNAL 2.12M, HIBERNATE 1.67M, WOMB 2.25M |
 
-Combination rule seen in every hit: **premise + personal position + a clock or number that is already moving**. The top four by outlier score (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRONS 29×, OXYGEN 21×) all show a running tracker within the hook.
+Combination rule seen in every hit: **premise + personal position + a clock or number that is already moving**. The top four by outlier score (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRONS 29×, OXYGEN 21×) all show a running tracker within the hook. With the expansion it still holds for the two new top scores (SHRINK 623×: size counter on frame 1; GROW-1CM 69×: a time stamp every ~10 s). The exceptions are the sketch channels (If Humans, SolarBalls), where a character or picture gag replaces the tracker. Long-form hook length over all 12 narrated long-forms: **median ~88 words / ~34 s** (33–123 words, 10–49 s); unchanged from the first sample.
 
 ---
 
 ## 3. Re-hook cadence
 
-| Layer | Shorts (80 s) | Long-form |
-|---|---|---|
-| Any new on-screen element (caption, HUD flip/subline, card) | every **3.8 s** median (3.2–3.8) | — |
-| New caption / spoken sentence | every **5.0 s** median (gap medians 4–6 s; peak 3 s at the ladder climax; stretch to 10–15 s only while a HUD number moves) | sentence ~every 3.5 s |
-| Verbal re-hook (question, "but/except" pivot, tease, ominous one-liner, character cut-in) | every caption is one | every **~30 s** median (17–33 s); pivot words **1.5/min** median (0.4–2.3) |
-| Hard visual change / pattern interrupt | every 7–15 s (style flip, dissolve, white-out, black) | register switch (story ↔ diagram board) every 15–40 s |
-| Chapter stamp (DAY n / YEAR n / RULE n / N YEARS / chapter label) | every 10–18 s when used (PI=3 has 4 chapter labels) | every **60–75 s** (46–87 s) |
-| Tracker update (counter, badge, floating number) | every frame (HUD ticks with ms digits) | every 8–30 s (WEALTH: a dollar figure ~every 8 s; EVERY-HUMAN clock median 25 s) |
-| Comedy button (one-word deadpan, gag, character line) | rare (POPSTAR's deadline gag) | every 30–60 s in story engines; drop them in the last act so sincerity lands |
+| Layer | Shorts (80 s, caption sims) | Narrated Shorts (2.5–3 min) | Long-form |
+|---|---|---|---|
+| Any new on-screen element (caption, HUD flip/subline, card) | every **3.7 s** median (3.0–3.8) | new fact/image every ~4 s | caption-only long: caption every ~7.7 s; card timeline: card every 3.5 s |
+| New caption / spoken sentence | every **4.75 s** median (gap medians 4–6 s; peak 3 s at the ladder climax; stretch to 10–15 s only while a HUD number moves) | sentence every ~4 s | sentence ~every 3.5 s |
+| Verbal re-hook (question, "but/except" pivot, tease, ominous one-liner, character cut-in) | every caption is one | time/scale milestone every ~10 s; turn phrase every 15–40 s; pivots **~3/min** (1.4–3.6) | every **~30 s** median (17–43 s); pivot words **1.5/min** median (0.4–2.4) |
+| Hard visual change / pattern interrupt | every 7–15 s (style flip, dissolve, white-out, black) | — | register switch (story ↔ diagram board) every 15–40 s; sketches cut every 3.5–10 s |
+| Chapter stamp (DAY n / YEAR n / RULE n / N YEARS / chapter label) | every 10–18 s when used (PI=3 has 4 chapter labels) | one per scale domain, ~20–30 s | every **~50–60 s** median (25–112 s; ASTEROIDS' case cards every 170–300 s) |
+| Tracker update (counter, badge, floating number) | every frame (HUD ticks with ms digits) | spoken time stamp every ~10 s (GROW-1CM) or none (BLACK-HOLE-NS) | every 8–30 s (WEALTH: a dollar figure ~every 8 s; EVERY-HUMAN clock median 25 s; SHRINK comparison subline ~22 s) |
+| Comedy button (one-word deadpan, gag, character line) | rare (POPSTAR's deadline gag) | one deadpan line right after the darkest beat | every 30–60 s in story engines; drop them in the last act so sincerity lands (ASTEROIDS keeps them to the end; it is a documentary voice, not a story) |
 
-Never leave **>35 s** of long-form without one of: a stamp, a question, a tease or a number change (EVERY-HUMAN's max gap). Long self-propelled stretches (a rescue with a ticking clock, a character parade) are the only exception.
+Never leave **>35 s** of long-form without one of: a stamp, a question, a tease or a number change (EVERY-HUMAN's max gap). Long self-propelled stretches (a rescue with a ticking clock, a character parade) are the only exception. The expansion adds two more exceptions: a stretch filled by **back-to-back analogies** (BLACK-HOLE-NS, 28 s) and a caption-only stretch held by a **continuously moving counter** (SHRINK, max 58 s between macro re-hooks).
 
 ---
 
@@ -154,8 +163,8 @@ Never leave **>35 s** of long-form without one of: a stamp, a question, a tease 
 
 | Stat | Shorts | Long-form |
 |---|---|---|
-| Documented loops per minute | **3.75** median (3.0–4.5) | **1.16** median (0.56–1.55) |
-| Master loop span | **70%** median (59–78%) of runtime (return clock), closing at 69–80% | **≥78%** in 6 of 7 (78–93%); the outlier is 10X-FASTER whose "stays normal" plant spans 39% and is then replaced by a series loop |
+| Documented loops per minute | **3.75** median (3.0–4.5); IRON 6.0 (8 loops) | **~1.2–1.3** median over 12 (0.25–2.2): original 7 median 1.16, new five 0.25 (ASTEROIDS), 1.3, 1.5, 1.5, 2.2 (LAST-LIGHT) |
+| Master loop span | **70%** median (58–78%) of runtime (return clock), closing at 68–80%; narrated Shorts 74–78%, skit 62% | **≥78%** in 11 of 12 (78–95%); the new five are all 85–95%. The outlier is still 10X-FASTER, whose "stays normal" plant spans 39% and is then replaced by a series loop |
 | Loops open at once | always ≥2 (they overlap; a new one opens before the old closes) | 2–3 at almost every point |
 | Left open on purpose | 1 (pushed to the post caption question) | 1–2 (series villain, unknowable mystery) |
 
@@ -165,7 +174,11 @@ Patterns:
 - **Planted rule, dismissed.** A cost or flaw is stated early and waved away with a one-word false resolution; it comes due 2–4 min later (STOP-TIME, 10X-FASTER, RESTART).
 - **Tracker number.** "Keep this number in mind, it grows": advanced once per act, final value in the climax (BILLION-YEARS day length; WEALTH your number; Shorts HUD sublines).
 - **Chekhov by-product.** Something created on rung 2 reacts at the return (OXYGEN hydrogen; LAST-HUMAN radio bubble).
-- **Personal thread checked at every act break.** Your own number/body/home is revisited each act (WEALTH, LAST-HUMAN dog).
+- **Personal thread checked at every act break.** Your own number/body/home is revisited each act (WEALTH, LAST-HUMAN dog, LAST-HUMAN-2 dog, UNDERWATER grandfather's chart).
+- **Format promise as a loop.** "Hour by hour, year by year" or "when each one might turn off" makes every chapter stamp a kept promise (LAST-HUMAN-2, LAST-LIGHT).
+- **Plants that close 4.5–6.5 min later**, layered under 2–10 s micro-teases at chapter seams, so 3–4 loops are open at almost every point (LAST-HUMAN-2, UNDERWATER).
+- **The eliminated candidate returns.** A thing ruled out early comes back in a new form as the answer (LAST-LIGHT: nuclear out at 22%, wins at 71%).
+- **A loop deliberately left unanswered in the middle** (ASTEROIDS' interstellar mystery, "either way") is fine if the master loop is strong.
 
 ---
 
@@ -186,8 +199,17 @@ Every hit runs at least one; the strongest run two at once (scale + stakes, or t
 | **Stakes swap** | numbers fall while human stakes rise: money → trust → family → a life | WEALTH |
 | **Shrinking object, growing time** | what lasts: monuments → carvings → a rock layer → footprints → a record of a human voice | EVERY-HUMAN act 3 |
 | **Hope ladder (reversal)** | survival cases of rising scale and closeness: a few birds → a colony → a small human group → your own ancestors | RESTART |
+| **Scale inward** (mirror of scale outward) | room → rug → mite → blood → cell → DNA → atom → nucleus → quark → the limit of measurement; the last rungs swap objects for limits | SHRINK |
+| **Identity ladder** | human → monster → "no longer human" → planet-like body → galaxy → the universe itself | GROW-1CM |
+| **Candidate elimination by lifespan** | hours → days → years → decades → a century → centuries; cause of death moves people → maintenance → wear → chemistry → physics | LAST-LIGHT |
+| **Verdict scorecard** | each case ends on a graded verdict (local → regional → not extinction → extinction → total reset) | ASTEROIDS |
+| **What's-lost ladder** | comfort → continents → body traits → home → identity → industry → computers → leaving Earth | NO-CLOTHES |
+| **Circle of impact** | you → one family member → experts → the world's media → everyone like you → society → every institution | WOMB |
+| **Crossing lines** | loot rises while the crew falls (4 → 3 → 2 → 1); the whole video is that picture | HIBERNATE |
+| **Concept ladder** | boundary → time paradox → body → loophole → geometry → time → end of physics (bigger in idea, not in size) | BLACK-HOLE-NS |
+| **Inside-out journey** | closed city → off the map → the past (drowned town) → danger → taboo → the open world | UNDERWATER |
 
-Rung rules: one idea per rung; one real number per rung; each rung bigger, faster, closer or more personal than the last; the top rung is the most human or most personal, not just the biggest.
+Rung rules: one idea per rung; one real number per rung; each rung bigger, faster, closer or more personal than the last; the top rung is the most human or most personal, not just the biggest. New from the expansion: **the scale ladder can end on a real limit instead of an object** (Planck length, the observable universe), which gives an "endless" premise a true ending (SHRINK, GROW-1CM). In a repeated-card format, give **each rung one new mechanism** so it is not a re-run (ASTEROIDS).
 
 ---
 
@@ -206,7 +228,15 @@ Rung rules: one idea per rung; one real number per rung; each rung bigger, faste
 | T9 | **Two-stage reveal** — first answer, then "even that isn't the last", ending on the most human detail | EVERY-HUMAN |
 | T10 | **Bathos** — cosmic event lands on the smallest domestic detail | LAST-HUMAN, POPSTAR |
 | T11 | **Universe reveal** — strangers who already know, a team from other episodes, an antagonist who cancels the power | 10X-FASTER, STOP-TIME |
-| T12 | **Honest speculation flag** — say aloud where agreed science ends before the speculative payoff | LAST-HUMAN, BILLION-YEARS |
+| T12 | **Honest speculation flag** — say aloud where agreed science ends before the speculative payoff | LAST-HUMAN, BILLION-YEARS, SHRINK, BLACK-HOLE-NS |
+| T13 | **Delayed consequence** — the return looks like a fix; a false-calm repeat of the opening shot, one permanent small change, then a third clock to a bigger hit minutes later | IRON |
+| T14 | **The eliminated candidate wins** — something ruled out early returns in a new form as the answer, after a hedged front-runner and a false ending | LAST-LIGHT |
+| T15 | **The premise saves you** — each threat is escaped by the premise itself (you shrink past it), which drops you into the next world | SHRINK |
+| T16 | **Word-for-word bookend** — an early boast repeated at the end over an image that reverses it | HIBERNATE |
+| T17 | **Bluff, then the real slow version** — the threat is called off, then a calm "until" adds the true far-future version of the same threat | SUN-GONE |
+| T18 | **Decode payoff** — the riddle from the hook happens to the hero; myth-busts in a row; a 2-word reveal; a childhood rhyme's joke reversed | UNDERWATER |
+| T19 | **"You" dies** — the timeline needs an end state: your death in the second person, then deep time and what lasts | LAST-HUMAN-2, WOMB |
+| T20 | **Fake ending by real science** — an honest "here is how it really ends" early, waved off to open the master loop | GROW-1CM |
 
 ---
 
@@ -214,7 +244,9 @@ Rung rules: one idea per rung; one real number per rung; each rung bigger, faste
 
 - **Shorts:** black 1–2 s → exact title repeat (the last frame matches the first, so the replay loops) → one small-caps real fact (a % of your body, a dated historical event) held ~6 s. No on-screen CTA. Post caption = premise retold in 4–8 escalating sentences + a comment prompt: *which one next / which would break first near you / would you have held on*. All 5 hits.
 - **Long-form ending stack:** master payoff → bookend to the opening place or object → recap of 4–5 milestones (icon timeline or thumbnail grid) → one-line thesis or moral → **personal choice question** that restates the premise (who would you pick, which stop, which one thing survives, binary dilemma) → optional series hook. Subscribe asks are rare (only EVERY-HUMAN, framed as an identity compliment); no corpus video asks mid-roll.
-- The CTA question is always answerable by everyone (no wrong answers) and uses options the video already showed (BILLION-YEARS: the 10 stops).
+- The CTA question is always answerable by everyone (no wrong answers) and uses options the video already showed (BILLION-YEARS: the 10 stops; LAST-HUMAN-2 turns its on-screen epitaph into "what would you write?").
+- **Loop cut** (expansion): both narrated What If Shorts end with the final sentence cut off on a joining word, so the replay's first line finishes it (GROW-1CM, BLACK-HOLE-NS). A silent subscribe card or a brand-pun card is the sketch-channel ending (SUN-GONE, NOCTURNAL, HIBERNATE).
+- **No-CTA endings are common in the expansion**: SHRINK, LAST-LIGHT, UNDERWATER, ASTEROIDS and HIBERNATE have no comment question. An exact answer to the title (LAST-LIGHT), a real limit (SHRINK) or a reversed bookend (HIBERNATE) does the CTA's job.
 
 ## 8. Series / part-2 mechanics
 
@@ -222,45 +254,66 @@ Rung rules: one idea per rung; one real number per rung; each rung bigger, faste
 - **Fatigue is real.** Same-template follow-ups decay when the premise is a near-repeat or less fundamental: hydrogen 0.67×, "lost a proton" 0.24× (after "gained a proton" 1.92×). Pop-star sequel (10 billion×) 3.36× vs the original's 7.84× (~43%).
 - **Long-form "Part 2/3" halves each time:** IFOLOGY Zombie 93K → 47K → 40K; Awaken Last Guy → Last Girl 401K → 184K. Make **standalone episodes** that share a universe instead (IFOLOGY's team crossovers as the cliffhanger act; STOP-TIME, 10X-FASTER), and leave exactly one loop open (a villain, a "who else moves?") for the next episode.
 - Never put "Part 2" in a title. Put the shared element (HUD design, sidekick, team, recurring home set) in the video instead.
+- Expansion checks: the 4th particle in the @man_ia_c template (IRON, 4.32×) scored below the first three (8–29×), so the template still decays. The same premise from a second channel can still break out: LAST-HUMAN-2 (OminiAM, 25×) a week after LAST-HUMAN (Oddly Elsewhere, 6×). Both channels re-use their series grammar (brand sting, recurring sets) rather than "Part 2" (If Humans, SolarBalls, What If).
 
 ---
 
 ## 9. Pacing stats (measured)
 
-From `tools/pacing_stats.json`. Sentences split on . ? ! in auto-subs; "second person" = sentences containing you/your/you're/yourself; numbers = digit tokens + number words (two…trillion, half, percent).
+From `tools/pacing_stats.json` (re-run 12:45 UTC over all 25 raw transcripts; the script now sorts each file into a format group and prints group medians). Sentences split on . ? ! in auto-subs; "second person" = sentences containing you/your/you're/yourself; numbers = digit tokens + number words (two…trillion, half, percent). Hook lengths and loop counts are read from the annotated `.md` files, not the script. AV1zVKuEtFc (SUN-GONE) has unpunctuated auto-subs, so its sentence metrics are left out.
 
-### Long-form (7 corpus scripts)
+### Long-form, narrated (12 scripts: original 7 + LAST-LIGHT, ASTEROIDS, NO-CLOTHES, LAST-HUMAN-2, UNDERWATER)
 
-| Metric | Median | Range | Notes |
-|---|---|---|---|
-| Words per minute | **154** | 134–186 | explainer-led (RESTART, EVERY-HUMAN, LAST-HUMAN, BILLION-YEARS) 134–154; story-led (WEALTH, STOP-TIME, 10X-FASTER) 165–186 |
-| Total words | 1,783 | 934–2,029 | for 7–13 min |
-| Cold-open hook length | **87 words / 34 s** | 44–119 words, 13–49 s | premise stated by **8 s** median (4–13 s) |
-| Sentence length (mean words) | **9.0** | 7.2–11.6 | median sentence 8 words |
-| Punch lines (≤3-word sentences) | **14.7%** | 8–23% | |
-| % sentences in second person | **33%** | 5–59% | story engines 48–59%; EVERY-HUMAN is 5% ("I" narrator + "right now" facts) |
-| "you" words per 100 words | 3.8 | 0.7–9.2 | |
-| Numbers per minute | **4.7** | 1.3–8.2 | RESTART and WEALTH ~8/min; STOP-TIME 1.3 is the floor |
-| Questions per minute | 0.66 | 0–1.6 | auto-subs drop some "?" |
-| Pivot words (but/except/until/here's/problem…) per min | **1.5** | 0.4–2.3 | |
-| Open loops per minute | **1.16** | 0.56–1.55 | |
-| Verbal re-hook interval | **~30 s** | 17–33 s | |
-| Chapter stamp interval | 60–75 s | 46–87 s | |
+| Metric | Median (12) | Range | Was (7) | Notes |
+|---|---|---|---|---|
+| Words per minute | **153** | 134–219 | 154 (134–186) | xkcd's LAST-LIGHT (219) is a dense expert read with 21-word sentences. Without it the range is 134–186. Timeline/explainer engines 135–155; story-led power stories 165–186 |
+| Total words | 1,780 | 934–3,186 | 1,783 | ASTEROIDS is 23.6 min |
+| Cold-open hook length | **~88 words / ~34 s** | 33–123 words, 10–49 s | 87 / 34 s | premise stated by ~8–10 s median (3–34 s); stated late on purpose by ASTEROIDS (34 s, benchmark first) and LAST-HUMAN-2 (29 s, implied from word one); never stated in UNDERWATER |
+| Sentence length (mean words) | **9.8** | 7.2–21.0 | 9.0 | 8.6–10.8 for 10 of 12 |
+| Punch lines (≤3-word sentences) | **11.8%** | 0–23% | 14.7% | the new five are lower (0–10%); story engines still 13–23% |
+| % sentences in second person | **27%** | 0–59% | 33% | story engines 48–59%; LAST-LIGHT 0% ("we", reader question) and ASTEROIDS 14.5% (placed in the same slot of every cascade) |
+| "you" words per 100 words | 3.6 | 0–9.2 | 3.8 | |
+| Numbers per minute | **3.5** | 0.9–8.2 | 4.7 | lower in the new five (0.9–3.3); LAST-HUMAN-2 at 25× has 0.9 |
+| Questions per minute | 0.55 | 0–1.6 | 0.66 | auto-subs drop some "?" |
+| Pivot words (but/except/until/here's/problem…) per min | **1.5** | 0.4–2.4 | 1.5 | held |
+| Open loops per minute | **~1.2–1.3** | 0.25–2.2 | 1.16 | from the annotated loop tables |
+| Verbal re-hook interval | **~30 s** | 17–43 s | ~30 s | ASTEROIDS 43 s is the slowest |
+| Chapter stamp interval | ~50–60 s | 25–112 s (case cards 170–300 s) | 60–75 s | |
 
-### Shorts (5 corpus scripts, 80 s each, caption-only originals)
+### Shorts, caption-only sims (6 scripts: 5 original + IRON; 80 s each)
 
-| Metric | Median | Range | Notes |
+| Metric | Median (6) | Range | Notes |
 |---|---|---|---|
 | Caption words per minute | **56** | 43–65 | ~11 captions; TTS read of captions should stay ~60–70 wpm with the same holds |
-| All on-screen text per minute (title, HUD, end card) | 115 | 103–131 | |
-| Title (hook) length | **7 words**, held **5–8 s** | 7–9 words | event lands at 8 s (10%) in 4/5 |
+| All on-screen text per minute (title, HUD, end card) | 118 | 103–164 | IRON is the densest (164) and has the lowest score of the six |
+| Title (hook) length | **7 words**, held **5–8 s** | 7–9 words | event lands at 8 s (10%) in 5/6 |
 | Captions per video | 11 | 11–13 | |
 | Caption length (mean words) | **6.7** | 5.3–7.3; max 7–10 | one claim per caption, no subordinate clauses |
-| Caption gap | **5.0 s** median | 4.0–6.0 (means 4.7–6.4) | |
-| New on-screen element every | 3.8 s | 3.2–3.8 s | |
-| Captions in second person | **18%** (= 1–2 lines) | 7–18% | one "you are in [place]" line + one body line; PI=3 has exactly one "your" line at 51% |
-| Numbers per minute (all text) | **14** | 7–18 | most live in the HUD, not the captions (0–5 numeric captions) |
-| Open loops per minute | **3.75** | 3.0–4.5 | |
+| Caption gap | **4.75 s** median | 4.0–6.0 (means 4.7–6.4) | IRON front-loads: 8 captions in the first 26 s, then the HUD carries the rest |
+| New on-screen element every | 3.65 s | 3.0–3.8 s | |
+| Captions in second person | **18%** (= 1–2 lines) | 7–23% | |
+| Numbers per minute (all text) | **14.6** | 7–25 | most live in the HUD, not the captions (0–5 numeric captions) |
+| Open loops per minute | **3.75** | 3.0–6.0 | IRON 6.0 |
+
+### Shorts, narrated (3 scripts, new)
+
+| Metric | GROW-1CM | BLACK-HOLE-NS | SUN-GONE (skit) | Use |
+|---|---|---|---|---|
+| Duration | 172 s | 152 s | 81 s | VO Shorts can run 2.5–3 min if the VO pivots every ~15 s |
+| Words / wpm | 436 / 152 | 418 / 165 | 213 / 158 | **~158 wpm** median |
+| % sentences with "you" | 88% | 74% | n/a | near-total second person |
+| Numbers per minute | 4.9 | 0 | 0.7 | a moving number is optional here; the 69× one has it |
+| Pivots per minute | 1.4 | 3.6 | 3.0 | |
+| Hook | 12-word premise in ~2 s + 2 maths rungs (29 words / 9 s) | 12 words / 4 s | 26 words / 11 s (two voices) | |
+| Ending | mid-sentence loop cut | mid-sentence loop cut | silent subscribe card | |
+
+### Other formats (1–2 scripts each, new)
+
+| Format | Key numbers |
+|---|---|
+| Caption-only long (SHRINK, 405 s) | 50 captions, 229 caption words, mean **4.6 words** (max 8), **34 caption wpm**, a caption every **7.7 s** (4–13 s), a HUD comparison subline every ~22 s, a macro re-hook every ~30 s (max 58 s), 33% of captions in second person, hook 12 words of text in ~10 s |
+| Scrolling card timeline (WOMB, 182 s) | 50 cards, one every **3.5 s**; title 4.8 words, body 14.5 words; 80 title words/min (318 with bodies, which are optional reading); 54% of card lines in second person; time-unit jump every ~8–30 s, a major re-hook every ~9 s |
+| Sketch (NOCTURNAL 90 s, HIBERNATE 283 s) | 27 and 62 wpm; a cut every 3.5–10 s; story turns every ~17 s (HIBERNATE); 24–44% of spoken lines ≤3 words; 0–1 numbers per minute |
 
 ---
 
@@ -298,13 +351,29 @@ RESTART (14.4×) and *Could 8 Billion People Live in ONE City?* (0.08×) share t
 | A true fact at the end | A meta "stay until the end" ask instead of a twist (hydrogen 0.67×) |
 | Like rate 4.8–11.5% | Like rate 0.9–4.5% (the weak ones listed) |
 
+IRON (4.32×, like rate 4.8%) sits between the two columns. It has every hit feature, but it is the 4th particle on the same template and carries the most on-screen text (164 words/min, 25 numbers/min vs 103–131 and 7–18). Read it as template fatigue plus over-dense HUD, not as a failed structure.
+
 ### 10D. What the very top share across channels
 
-The four highest outlier scores (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRONS 29×, OXYGEN 21×) all have: (1) a **running tracker** on screen from the hook to the end (clock, year badge, return countdown); (2) a **master loop held to ≥85%** (in Shorts, the return clock spans ~70% and closes at ~80%); (3) a **ladder on a log or outward scale**, so the viewer can feel how many rungs are left; (4) a **payoff that lands on the viewer** (your body, your house, a human trace); (5) **real, checkable numbers** plus at least one real dated precedent. Second person is not required (EVERY-HUMAN is 5%); **the viewer's position is** (here, right now, your house).
+The four highest outlier scores (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRONS 29×, OXYGEN 21×) all have: (1) a **running tracker** on screen from the hook to the end (clock, year badge, return countdown); (2) a **master loop held to ≥85%** (in Shorts, the return clock spans ~70% and closes at ~80%); (3) a **ladder on a log or outward scale**, so the viewer can feel how many rungs are left; (4) a **payoff that lands on the viewer** (your body, your house, a human trace); (5) **real, checkable numbers** plus at least one real dated precedent. Second person is not required (EVERY-HUMAN is 5%); **the viewer's position is** (here, right now, your house). The two new top scores fit all five: SHRINK (623×) has the falling YOUR SIZE counter from frame 1, a master loop to 96%, a log-scale inward ladder, the payoff on "you" (closer in size to the universe than to the bottom of physics) and real facts on every rung; GROW-1CM (69×) has a time stamp every ~10 s, a master loop of 78%, a log-scale outward ladder and an identity payoff on "you".
+
+### 10E. Expansion pairs (same channel or same premise; no new low-performer controls were added)
+
+| Pair | Higher | Lower | What differs |
+|---|---|---|---|
+| What If, narrated Shorts | GROW-1CM 69× | BLACK-HOLE-NS 9× | Same host voice, pace (152 vs 165 wpm), heavy "you" (88% vs 74%), loop-cut ending. The hit has a **moving number** (a time stamp every ~10 s, 4.9 numbers/min) and a log ladder the viewer can count; the other has 0 numbers and relies on concepts and analogies |
+| Same premise, two channels | LAST-HUMAN-2 (OminiAM) 25× | LAST-HUMAN (Oddly Elsewhere) 6× | Both use the same science beats: grid and blackout sky, reactors shut down, food rots, the space station falls, scurvy, water wrecks buildings, nature returns. The premise forces those beats. The 25× one adds a **format promise** and 13 chapter stamps (vs 9), puts more facts per chapter, kills "you" at the end and asks a CTA question; the 6× one is a diary with jokes and a twist. Absolute views favour the 6× (914K vs 243K, a week older): the scores are relative to each channel |
+| OminiAM, all four | 25–107× | (channel median) | All 147–154 wpm, chapter/timeline spine, real science before speculation, a 45–50 s hook with 3 teases or questions, a personal choice CTA. Numbers per minute vary (0.9–3.7) and second person varies (5–41%), so neither drives their wins |
+| If Humans | NOCTURNAL 16× (90 s, ~0 words) | HIBERNATE 12.6× (283 s story) | The shorter, wordless gag premise beat the narrative one; both open on the brand sting with no spoken hook |
+| Oddly Elsewhere | LAST-HUMAN 6.1× | UNDERWATER 4.8× | Both second-person narrative at 145–154 wpm; UNDERWATER never states the premise. Both are outliers, so this pair says little |
+
+Corpus-wide check: over the 12 narrated long-forms, no pacing metric tracks outlier score (Spearman |ρ| ≤ 0.47; questions/min +0.47 and duration +0.45 come from the four long OminiAM uploads, wpm −0.31). Across channels the score mostly measures channel size and age. **The within-channel IFOLOGY result (10A) is still the only clean pacing signal**: more "you", more pivots and a faster pace inside one story channel. Structural features (tracker, master loop, log ladder, payoff on the viewer) are the cross-channel signal.
 
 ---
 
-## 11. Device catalog (approximate frequency: regex-tagged beat/device cells across the 1,321 annotated lines)
+## 11. Device catalog (approximate frequency: regex-tagged beat/device cells across the 1,321 annotated lines of the original 12)
+
+Counts were not re-run for the expansion. New devices it adds, each in at least one hit: **matched-frame swap** (same place, two lightings: NOCTURNAL); **selective deletion** (the object goes, its people stay: IRON); **dramatic-irony decode** (UNDERWATER); **outside-vs-inside viewpoint pair** (BLACK-HOLE-NS); **real-science off-ramp** (GROW-1CM); **first-hand operator quotes** as authority (LAST-LIGHT); **themed sponsor read** with fictional headlines about the case just shown (ASTEROIDS, at 21%); **flat literal icons** that carry a card on their own (WOMB); **fake deaths by cut to black** (SHRINK); **mid-sentence loop cut** (What If Shorts).
 
 | Device family | Tagged lines | Use it for |
 |---|---|---|
@@ -349,15 +418,22 @@ The four highest outlier scores (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRON
 - [ ] White-out or full-frame interrupt near the midpoint.
 - [ ] Return at ~80%, twist at ~85%, black + exact title repeat + one true fact in the last 10%.
 - [ ] Comment question in the post caption, not on screen. Caption-read VO (if any) ~60–70 wpm.
+- [ ] Keep all on-screen text ≤ ~130 words/min and the HUD readable (IRON at 164 is the weakest of the six).
+
+**Narrated Shorts (2:30–3:00, optional variant)**
+- [ ] Premise is sentence one (≤12 words, ≤4 s); 2 checkable maths rungs by ~9 s.
+- [ ] ~155–165 wpm, "you" in most sentences, a time/scale milestone every ~10 s, a turn phrase every 15–40 s.
+- [ ] One honest real-science off-ramp by ~20%, then a pivot that opens the master loop (ends ~75–80%).
+- [ ] Ends on the biggest real number, then a sentence cut mid-way so the replay completes it. No CTA.
 
 **Long-form (7–13 min)**
-- [ ] Cold open ≤50 s / ≤120 words (target ~35 s / ~90), premise stated by ~10 s, impossible change inside the first two sentences, no channel intro.
+- [ ] Cold open ≤50 s / ≤120 words (target ~35 s / ~90), premise stated (or unmistakably shown) by ~10 s, impossible change inside the first two sentences, no channel intro. If the hook leads with a real benchmark instead, close that benchmark loop by ~2/3.
 - [ ] Rules stated with one explicit "remember this" plant that pays off at 40–60%.
-- [ ] 145–155 wpm for explainer/timeline engines; 175–185 for power stories. Mean sentence 8–9 words, ~15% punch lines.
+- [ ] 145–155 wpm for explainer/timeline engines; 175–185 for power stories. Mean sentence 8–10 words, 8–15% punch lines.
 - [ ] Second person in ≥45% of sentences for power stories (≥25% otherwise), and in the first sentence.
 - [ ] Re-hook every ≤30 s (no gap >35 s); chapter stamp every 60–75 s; ~1 new loop per minute; ≥1.5 pivots/min.
-- [ ] ≥4 numbers per minute on average.
-- [ ] First turn by ~25%; midpoint re-hook at 45–60%; climax ~80%; ending stack ≤12% of runtime.
+- [ ] ≥3 numbers per minute on average (real and checkable). Timeline engines can go lower if each chapter has one real fact.
+- [ ] First turn by ~15–25%; midpoint re-hook at 45–70%; master payoff 80–95%; ending stack after the payoff ≤12% of runtime.
 - [ ] 3+ plants longer than 3 min paid off; one loop optionally left open for the series.
 - [ ] Each beat type has its own visual mode (story set / diagram board / chapter stamp).
 
@@ -370,3 +446,41 @@ The four highest outlier scores (EVERY-HUMAN 107×, BILLION-YEARS 41×, ELECTRON
 3. **RESTART — 6oZ9fdM0n50** (4.22M, 14.44×). The biggest long-form view count and ~80% flat 2D: a second-person cold open with a self-correction, a doubling ladder to a one-word false resolution, then mechanism → historical proof → escalation to an emotional floor → hope ladder → honest verdict with a hard number → choice CTA. Read `6oZ9fdM0n50.md`.
 
 Next if you are writing a power story: **10X-FASTER — y300HjYnHPw** (rules + plant → honeymoon → numbered problems → rug pull → real analogue → rescue → universe hook).
+
+From the expansion, by job:
+- Caption-only long-form, or a scale ladder: **SHRINK — YayPaipjNAM** (623×; `YayPaipjNAM.md` Transferable skeleton).
+- A narrated 2–3 min Short: **GROW-1CM — 2d6Ciu3INeA** (69×; off-ramp + pivot + log ladder + loop cut).
+- A question with one exact answer: **LAST-LIGHT — 8fADp43wJwU** (10.4M; candidate chase + eliminated-candidate twist).
+- A timeline that needs no narration: **WOMB — eiBR6wlwPfA** (cheapest to build: one card component + a scroll).
+- A @man_ia_c Short with a delayed twist: **IRON — 7693888660256722208**.
+
+---
+
+## 14. What changed with the expansion
+
+Added at 12:08–12:35 UTC: 13 annotated scripts (6 new channels, 4 new outliers from known channels, 7 new sub-formats). Stats re-run over all 25. No ordinary controls were added, so §10A–10C are unchanged and §10E uses within-channel and same-premise pairs only.
+
+**What held**
+- The structural core: one changed rule + the viewer's position + a tracker that is already moving + a master loop to ≥78% + a log-scale ladder + a payoff on the viewer. It holds in both new top scores (SHRINK YayPaipjNAM 623×, GROW-1CM 2d6Ciu3INeA 69×) and in 11 of 12 narrated long-forms (new five 85–95%: 8fADp43wJwU, Q9F0z4CR0gM, n1CYFTKR_B0, DgftZCQe8sI, K_56-ZqYviY).
+- Long-form pace and turns: median **153 wpm** (was 154), **1.5 pivots/min** (unchanged), re-hook **~30 s**, hook **~88 words / ~34 s** (was 87 / 34).
+- The @man_ia_c Short template: IRON (7693888660256722208) fits every S-beat; caption length, cadence and second-person share did not move (6.7 words, ~4.75 s, 18%).
+- Series fatigue: the 4th particle on the same template scored lowest (4.32×).
+
+**What shifted**
+- Second person in long-form fell from 33% to **27%**, numbers/min from 4.7 to **3.5**, punch lines from 14.7% to **11.8%**. Expert and documentary voices (8fADp43wJwU 0% "you", Q9F0z4CR0gM 14.5%) and a 25× timeline at 0.9 numbers/min (DgftZCQe8sI) show these are style choices, not requirements. The IFOLOGY within-channel result (more "you" and pivots win) still stands for story engines.
+- Beat timings: the first turn now comes earlier (13–22% in the new five), the midpoint spreads later (57–72%) and the master payoff lands later (87–95%; DgftZCQe8sI 89%, K_56-ZqYviY 87%, 8fADp43wJwU 94%).
+- Chapter stamps now come more often: ~50–60 s median (was 60–75 s). DgftZCQe8sI runs 13 stamps in 651 s; n1CYFTKR_B0's chapters are 38–75 s.
+- Shorts are not capped at 85 s: narrated What If Shorts run 2:32–2:52 at ~158 wpm (2d6Ciu3INeA, VZ27faCr8UU).
+- A CTA question is optional: 5 of the 13 new videos have none (YayPaipjNAM, 8fADp43wJwU, K_56-ZqYviY, Q9F0z4CR0gM, DOEQgRAFeI0).
+
+**New patterns**
+- Hooks H13–H21 (§2): tiny-rate premise + ×60 rungs, flash-forward + counter, a named reader's question, a riddle from inside the world, imagine + rule-outs + 3 teases, micro-absences + format promise, a famous benchmark first, a casually asked question that is overheard, and no spoken hook at all (sketch and card channels).
+- Engines (§1B): candidate chase (8fADp43wJwU), stack the extremes (Q9F0z4CR0gM), alt history (n1CYFTKR_B0), worldbuilding story (K_56-ZqYviY), caption-only long (YayPaipjNAM), scrolling card timeline (eiBR6wlwPfA), story sketch (DOEQgRAFeI0). Short variants (§1A+): narrated ladder (2d6Ciu3INeA, VZ27faCr8UU), character skit (AV1zVKuEtFc), wordless gag montage (rzoq6AOgudA).
+- Twists T13–T20 (§6): delayed consequence with a third clock (IRON), the eliminated candidate wins (8fADp43wJwU), the premise saves you (YayPaipjNAM), a word-for-word bookend (DOEQgRAFeI0), a bluff and then the real slow version (AV1zVKuEtFc), a decode payoff (K_56-ZqYviY), "you" dies (DgftZCQe8sI, eiBR6wlwPfA), a fake ending by real science (2d6Ciu3INeA).
+- Ladders (§5): scale inward, identity, candidate lifespan, verdict scorecard, what's lost, circle of impact, crossing lines, concept, inside-out.
+- Two code-cheap formats with proven reach, both a good fit for our kit: **caption-only long-form** (YayPaipjNAM: HUD + serif captions, ~230 words for 6:45) and the **scrolling card timeline** (eiBR6wlwPfA: one card component, 50 cards, no VO).
+- Sponsor placement, if ever needed: themed to the episode, at ~21% right after the first case and a cliffhanger bridge (Q9F0z4CR0gM).
+
+**Caveats**
+- Outlier scores are channel-relative. 623× (6K-sub channel) and 4.3× (xkcd, 1.38M subs, 10.4M views) are not comparable sizes. Three expansion picks are older than their channel's 60-upload window (AV1zVKuEtFc, eiBR6wlwPfA, 8fADp43wJwU), so they are scored against today's median.
+- Frames were not checked for 2d6Ciu3INeA or VZ27faCr8UU; their visual notes are inferred from the script. SUN-GONE's sentence metrics are excluded (no punctuation).
