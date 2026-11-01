@@ -1,0 +1,79 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 79.125,
+ "captions": {
+  "src": "episodes/horror-elevator-maintenance/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-elevator-maintenance/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 79.125
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-elevator-maintenance/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 79.125
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-elevator-maintenance/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-elevator-maintenance/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "impact",
+   "at": 5.1
+  },
+  {
+   "cue": "notify",
+   "at": 8.275
+  },
+  {
+   "cue": "riser",
+   "at": 28.975
+  },
+  {
+   "cue": "notify",
+   "at": 44.625
+  },
+  {
+   "cue": "ding",
+   "at": 59.475
+  },
+  {
+   "cue": "notify",
+   "at": 64.225
+  },
+  {
+   "cue": "stinger",
+   "at": 75.675
+  }
+ ]
+}

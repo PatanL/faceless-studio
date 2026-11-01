@@ -1,0 +1,2749 @@
+{
+ "version": 1,
+ "id": "horror-pinned-rules",
+ "title": "Someone Pinned New Rules In Our Building Chat (Part 1)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p00",
+   "duration": 6.2,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0,
+      "rain": true
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "PINNED · RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
+          "from": "Management",
+          "kind": "alert",
+          "at": 0.575
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:04",
+        "battery": 31,
+        "count": 38
+       },
+       "vibrate": [
+        {
+         "at": 0.15,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.06
+     },
+     {
+      "t": 6.2,
+      "zoom": 1.0
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.15,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Rule four said: if someone knocks three times, you are not home. Do not answer. Do not move."
+  },
+  {
+   "id": "p01",
+   "duration": 6.925,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "PINNED · RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
+          "from": "Management",
+          "kind": "alert",
+          "at": -5.625
+         },
+         {
+          "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.",
+          "from": "Management",
+          "at": 3.4
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:04",
+        "battery": 31,
+        "count": 38,
+        "unread": 6,
+        "unreadFrom": -92.8
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.925,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "It was pinned in our building chat at one in the morning. Signed, Management. Six other rules came with it."
+  },
+  {
+   "id": "p02",
+   "duration": 7.075,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "PINNED · RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
+          "from": "Management",
+          "kind": "alert",
+          "at": -12.55
+         },
+         {
+          "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.",
+          "from": "Management",
+          "at": -3.525
+         },
+         {
+          "text": "RULE 1: Keep your hallway light off after midnight.",
+          "from": "Management",
+          "at": 0.4
+         },
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": 3.212
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:04",
+        "battery": 31,
+        "count": 38
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.075,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Rule one. Keep your hallway light off after midnight. Rule five. Management will never ask to come inside."
+  },
+  {
+   "id": "p03",
+   "duration": 6.775,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "PINNED · RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
+          "from": "Management",
+          "kind": "alert",
+          "at": -19.625
+         },
+         {
+          "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.",
+          "from": "Management",
+          "at": -10.6
+         },
+         {
+          "text": "RULE 1: Keep your hallway light off after midnight.",
+          "from": "Management",
+          "at": -6.675
+         },
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": -3.863
+         },
+         {
+          "text": "lol is this a prank",
+          "from": "Mrs. Ortiz (3B)",
+          "at": 0.75
+         },
+         {
+          "text": "breaking every rule tonight just to see what happens",
+          "from": "Ben (5A)",
+          "at": 2.138
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:04",
+        "battery": 31,
+        "count": 38,
+        "typing": [
+         {
+          "from": "Ben (5A)",
+          "at": 1.238,
+          "until": 2.138
+         }
+        ]
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.775,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Everyone thought it was a prank. Ben in five A said he'd break every rule tonight, just to see what happens."
+  },
+  {
+   "id": "p04",
+   "duration": 7.25,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "PINNED · RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
+          "from": "Management",
+          "kind": "alert",
+          "at": -26.4
+         },
+         {
+          "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.",
+          "from": "Management",
+          "at": -17.375
+         },
+         {
+          "text": "RULE 1: Keep your hallway light off after midnight.",
+          "from": "Management",
+          "at": -13.45
+         },
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": -10.638
+         },
+         {
+          "text": "lol is this a prank",
+          "from": "Mrs. Ortiz (3B)",
+          "at": -6.025
+         },
+         {
+          "text": "breaking every rule tonight just to see what happens",
+          "from": "Ben (5A)",
+          "at": -4.637
+         },
+         {
+          "text": "Looked up Hartwell Property Group. DISSOLVED two years ago.",
+          "from": "Dev (6C)",
+          "kind": "alert",
+          "at": 1.775
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "1:04",
+        "battery": 31,
+        "count": 38
+       }
+      },
+      "glitch": [
+       {
+        "at": 4.888,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 4.888,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g4"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.25,
+      "zoom": 1.1,
+      "y": "52%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Then Dev in six C posted a screenshot. He'd looked up our management company. It shut down two years ago."
+  },
+  {
+   "id": "p05",
+   "duration": 4.525,
+   "background": {
+    "type": "component",
+    "name": "horror/LivingRoom",
+    "depth": 0.25,
+    "props": {
+     "lamp": 0.25,
+     "tv": "off"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 860,
+     "height": 1307,
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "suspicious"
+       },
+       {
+        "t": 2.463,
+        "e": "scared"
+       }
+      ],
+      "lookX": 0,
+      "lookY": 0.6
+     },
+     "flipX": false
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.5,
+      "y": 0.62,
+      "radius": 0.5,
+      "darkness": 0.55
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.6
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "So who'd been answering our repair requests? And who pinned the rules?",
+   "grade": {
+    "saturate": 0.8,
+    "brightness": 0.95
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 6.05,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "RULE 1: Keep your hallway light off after midnight.",
+          "from": "Management",
+          "at": -25.225
+         },
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": -22.413
+         },
+         {
+          "text": "lol is this a prank",
+          "from": "Mrs. Ortiz (3B)",
+          "at": -17.8
+         },
+         {
+          "text": "breaking every rule tonight just to see what happens",
+          "from": "Ben (5A)",
+          "at": -16.412
+         },
+         {
+          "text": "Looked up Hartwell Property Group. DISSOLVED two years ago.",
+          "from": "Dev (6C)",
+          "kind": "alert",
+          "at": -10.0
+         },
+         {
+          "text": "someone's knocking. 3 times",
+          "from": "Ben (5A)",
+          "at": 1.775
+         },
+         {
+          "text": "i'm opening it. wish me luck",
+          "from": "Ben (5A)",
+          "at": 3.562
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "2:14",
+        "battery": 31,
+        "count": 38
+       },
+       "vibrate": [
+        {
+         "at": 1.775,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.05,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.775,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck."
+  },
+  {
+   "id": "p07",
+   "duration": 4.9,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "RULE 1: Keep your hallway light off after midnight.",
+          "from": "Management",
+          "at": -31.275
+         },
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": -28.463
+         },
+         {
+          "text": "lol is this a prank",
+          "from": "Mrs. Ortiz (3B)",
+          "at": -23.85
+         },
+         {
+          "text": "breaking every rule tonight just to see what happens",
+          "from": "Ben (5A)",
+          "at": -22.462
+         },
+         {
+          "text": "Looked up Hartwell Property Group. DISSOLVED two years ago.",
+          "from": "Dev (6C)",
+          "kind": "alert",
+          "at": -16.05
+         },
+         {
+          "text": "someone's knocking. 3 times",
+          "from": "Ben (5A)",
+          "at": -4.275
+         },
+         {
+          "text": "i'm opening it. wish me luck",
+          "from": "Ben (5A)",
+          "at": -2.488
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "2:21",
+        "battery": 31,
+        "count": 38,
+        "subtitle": "Ben (5A) · last seen 2:14"
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 80,
+      "bpmTo": 110
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.9,
+      "zoom": 1.12,
+      "y": "54%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "That was the last thing he sent. His little green dot turned grey."
+  },
+  {
+   "id": "p08",
+   "duration": 6.85,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Willow Court Residents",
+        "messages": [
+         {
+          "text": "RULE 5: Management will never ask to come inside.",
+          "from": "Management",
+          "at": -33.363
+         },
+         {
+          "text": "lol is this a prank",
+          "from": "Mrs. Ortiz (3B)",
+          "at": -28.75
+         },
+         {
+          "text": "breaking every rule tonight just to see what happens",
+          "from": "Ben (5A)",
+          "at": -27.362
+         },
+         {
+          "text": "Looked up Hartwell Property Group. DISSOLVED two years ago.",
+          "from": "Dev (6C)",
+          "kind": "alert",
+          "at": -20.95
+         },
+         {
+          "text": "someone's knocking. 3 times",
+          "from": "Ben (5A)",
+          "at": -9.175
+         },
+         {
+          "text": "i'm opening it. wish me luck",
+          "from": "Ben (5A)",
+          "at": -7.388
+         },
+         {
+          "text": "PINNED · RULE 5 (edited): Management may need to come inside. Please cooperate.",
+          "from": "Management",
+          "kind": "alert",
+          "at": 1.687
+         }
+        ],
+        "dayLabel": "Today 1:02 AM",
+        "accent": "#3d5a80",
+        "clock": "2:23",
+        "battery": 31,
+        "count": 38
+       }
+      },
+      "glitch": [
+       {
+        "at": 1.687,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 1.687,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g8"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.85,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.3
+   },
+   "notes": "Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate."
+  },
+  {
+   "id": "p09",
+   "duration": 4.525,
+   "background": {
+    "type": "component",
+    "name": "horror/FrontDoor",
+    "depth": 0.25,
+    "props": {
+     "hallLight": 0.15,
+     "chain": "on"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "80%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 600,
+     "height": 912,
+     "props": {
+      "pose": "idle",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 2.7150000000000003,
+        "e": "terrified"
+       }
+      ],
+      "lookX": 0.9,
+      "lookY": 0
+     },
+     "flipX": true,
+     "depth": 1.3
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.5,
+      "y": 0.6,
+      "radius": 0.45,
+      "darkness": 0.65
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "I switched off my hallway light and sat with my back against the door."
+  },
+  {
+   "id": "p10",
+   "duration": 7.144,
+   "background": {
+    "type": "component",
+    "name": "horror/FrontDoor",
+    "depth": 0.25,
+    "props": {
+     "knocks": [
+      1.525,
+      2.375,
+      3.2249999999999996
+     ],
+     "hallLight": 0.5,
+     "chain": "on",
+     "feet": [
+      1.025,
+      99
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "88%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 560,
+     "height": 851,
+     "props": {
+      "pose": "idle",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 1.525,
+        "e": "shocked"
+       }
+      ],
+      "lookX": 0.9,
+      "lookY": 0,
+      "blink": false
+     },
+     "flipX": true,
+     "depth": 1.3
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.05
+     },
+     {
+      "t": 7.144,
+      "zoom": 1.16,
+      "y": "46%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.525,
+      "duration": 0.16,
+      "amplitude": 20
+     },
+     {
+      "at": 2.375,
+      "duration": 0.16,
+      "amplitude": 20
+     },
+     {
+      "at": 3.2249999999999996,
+      "duration": 0.16,
+      "amplitude": 20
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Right behind my head, someone knocked. Three times."
+  },
+  {
+   "id": "p11",
+   "duration": 5.225,
+   "background": {
+    "type": "color",
+    "color": "#050506"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "depth": 0,
+     "props": {
+      "figure": "neighbour",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "smile"
+       }
+      ],
+      "lean": 0.4,
+      "flicker": 0.3,
+      "talk": [
+       [
+        0.85,
+        1.675
+       ],
+       [
+        1.775,
+        4.35
+       ]
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.3,
+      "seed": "pp"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.225,
+      "zoom": 1.1
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "A calm voice said my name. It's Management. We just need to come in for a minute."
+  },
+  {
+   "id": "p12",
+   "duration": 7.35,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "flicker": 0.4,
+      "lights": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 4,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Management": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Ben (5A)": {
+         "color": "#8f6a4a",
+         "initials": "B"
+        },
+        "Dev (6C)": {
+         "color": "#4f7a73",
+         "initials": "D"
+        },
+        "Mrs. Ortiz (3B)": {
+         "color": "#7a5c8f",
+         "initials": "MO"
+        },
+        "Kay (2F)": {
+         "color": "#4a628f",
+         "initials": "K"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Ben (5A)",
+        "messages": [
+         {
+          "text": "it's fine, open up. they only want to talk",
+          "from": "Ben (5A)",
+          "at": 2.325
+         },
+         {
+          "text": "i'm standing right behind them",
+          "from": "Ben (5A)",
+          "at": 4.975
+         }
+        ],
+        "dayLabel": "Today 2:31 AM",
+        "accent": "#3d5a80",
+        "clock": "2:31",
+        "battery": 31,
+        "subtitle": "online"
+       },
+       "vibrate": [
+        {
+         "at": 0.525,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.35,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.525,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them."
+  },
+  {
+   "id": "p13",
+   "duration": 7.475,
+   "background": {
+    "type": "color",
+    "color": "#050506"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "depth": 0,
+     "props": {
+      "figure": "neighbour",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "smile"
+       },
+       {
+        "t": 2.537,
+        "e": "grin"
+       }
+      ],
+      "lean": 0.55,
+      "flicker": 0.5,
+      "lookX": 0,
+      "lookY": 0.1,
+      "glitch": [
+       {
+        "at": 2.537,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "text": "Only one",
+      "style": "flash",
+      "at": 2.637,
+      "fontSize": 150,
+      "strobe": 8
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 2.537,
+        "duration": 0.3,
+        "amount": 1
+       }
+      ],
+      "seed": "end"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.4,
+      "seed": "pe"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.475,
+      "zoom": 1.15
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.537,
+      "duration": 0.4,
+      "amplitude": 18
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.3
+   },
+   "notes": "I looked through the peephole again. There was only one person out there."
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "Rule",
+    "start": 0.525,
+    "end": 0.787
+   },
+   {
+    "text": "four",
+    "start": 0.787,
+    "end": 1.025
+   },
+   {
+    "text": "said:",
+    "start": 1.025,
+    "end": 1.475
+   },
+   {
+    "text": "if",
+    "start": 1.575,
+    "end": 1.7
+   },
+   {
+    "text": "someone",
+    "start": 1.7,
+    "end": 1.95
+   },
+   {
+    "text": "knocks",
+    "start": 1.95,
+    "end": 2.25
+   },
+   {
+    "text": "three",
+    "start": 2.25,
+    "end": 2.475
+   },
+   {
+    "text": "times,",
+    "start": 2.475,
+    "end": 2.825
+   },
+   {
+    "text": "you",
+    "start": 2.862,
+    "end": 2.938
+   },
+   {
+    "text": "are",
+    "start": 2.938,
+    "end": 3.013
+   },
+   {
+    "text": "not",
+    "start": 3.013,
+    "end": 3.175
+   },
+   {
+    "text": "home.",
+    "start": 3.175,
+    "end": 3.6
+   },
+   {
+    "text": "Do",
+    "start": 3.675,
+    "end": 3.788
+   },
+   {
+    "text": "not",
+    "start": 3.788,
+    "end": 3.95
+   },
+   {
+    "text": "answer.",
+    "start": 3.95,
+    "end": 4.425
+   },
+   {
+    "text": "Do",
+    "start": 4.5,
+    "end": 4.612
+   },
+   {
+    "text": "not",
+    "start": 4.612,
+    "end": 4.8
+   },
+   {
+    "text": "move.",
+    "start": 4.8,
+    "end": 5.35
+   },
+   {
+    "text": "It",
+    "start": 6.35,
+    "end": 6.462
+   },
+   {
+    "text": "was",
+    "start": 6.462,
+    "end": 6.612
+   },
+   {
+    "text": "pinned",
+    "start": 6.612,
+    "end": 6.912
+   },
+   {
+    "text": "in",
+    "start": 6.912,
+    "end": 6.987
+   },
+   {
+    "text": "our",
+    "start": 6.987,
+    "end": 7.125
+   },
+   {
+    "text": "building",
+    "start": 7.125,
+    "end": 7.487
+   },
+   {
+    "text": "chat",
+    "start": 7.487,
+    "end": 7.775
+   },
+   {
+    "text": "at",
+    "start": 7.775,
+    "end": 7.875
+   },
+   {
+    "text": "one",
+    "start": 7.875,
+    "end": 8.037
+   },
+   {
+    "text": "in",
+    "start": 8.037,
+    "end": 8.112
+   },
+   {
+    "text": "the",
+    "start": 8.112,
+    "end": 8.2
+   },
+   {
+    "text": "morning.",
+    "start": 8.2,
+    "end": 8.95
+   },
+   {
+    "text": "Signed,",
+    "start": 9.112,
+    "end": 9.625
+   },
+   {
+    "text": "Management.",
+    "start": 9.7,
+    "end": 10.45
+   },
+   {
+    "text": "Six",
+    "start": 10.575,
+    "end": 10.9
+   },
+   {
+    "text": "other",
+    "start": 10.9,
+    "end": 11.15
+   },
+   {
+    "text": "rules",
+    "start": 11.15,
+    "end": 11.5
+   },
+   {
+    "text": "came",
+    "start": 11.5,
+    "end": 11.712
+   },
+   {
+    "text": "with",
+    "start": 11.712,
+    "end": 11.85
+   },
+   {
+    "text": "it.",
+    "start": 11.85,
+    "end": 12.225
+   },
+   {
+    "text": "Rule",
+    "start": 13.275,
+    "end": 13.525
+   },
+   {
+    "text": "one.",
+    "start": 13.525,
+    "end": 13.9
+   },
+   {
+    "text": "Keep",
+    "start": 13.975,
+    "end": 14.188
+   },
+   {
+    "text": "your",
+    "start": 14.188,
+    "end": 14.3
+   },
+   {
+    "text": "hallway",
+    "start": 14.3,
+    "end": 14.65
+   },
+   {
+    "text": "light",
+    "start": 14.65,
+    "end": 14.838
+   },
+   {
+    "text": "off",
+    "start": 14.838,
+    "end": 15.012
+   },
+   {
+    "text": "after",
+    "start": 15.012,
+    "end": 15.287
+   },
+   {
+    "text": "midnight.",
+    "start": 15.287,
+    "end": 15.9
+   },
+   {
+    "text": "Rule",
+    "start": 16.038,
+    "end": 16.337
+   },
+   {
+    "text": "five.",
+    "start": 16.337,
+    "end": 16.925
+   },
+   {
+    "text": "Management",
+    "start": 17.038,
+    "end": 17.625
+   },
+   {
+    "text": "will",
+    "start": 17.625,
+    "end": 17.775
+   },
+   {
+    "text": "never",
+    "start": 17.775,
+    "end": 18.075
+   },
+   {
+    "text": "ask",
+    "start": 18.075,
+    "end": 18.35
+   },
+   {
+    "text": "to",
+    "start": 18.35,
+    "end": 18.45
+   },
+   {
+    "text": "come",
+    "start": 18.45,
+    "end": 18.587
+   },
+   {
+    "text": "inside.",
+    "start": 18.587,
+    "end": 19.3
+   },
+   {
+    "text": "Everyone",
+    "start": 20.35,
+    "end": 20.8
+   },
+   {
+    "text": "thought",
+    "start": 20.8,
+    "end": 21.013
+   },
+   {
+    "text": "it",
+    "start": 21.013,
+    "end": 21.088
+   },
+   {
+    "text": "was",
+    "start": 21.088,
+    "end": 21.188
+   },
+   {
+    "text": "a",
+    "start": 21.188,
+    "end": 21.25
+   },
+   {
+    "text": "prank.",
+    "start": 21.25,
+    "end": 21.9
+   },
+   {
+    "text": "Ben",
+    "start": 22.038,
+    "end": 22.325
+   },
+   {
+    "text": "in",
+    "start": 22.325,
+    "end": 22.475
+   },
+   {
+    "text": "five",
+    "start": 22.475,
+    "end": 22.775
+   },
+   {
+    "text": "A",
+    "start": 22.775,
+    "end": 23.0
+   },
+   {
+    "text": "said",
+    "start": 23.0,
+    "end": 23.138
+   },
+   {
+    "text": "he'd",
+    "start": 23.138,
+    "end": 23.25
+   },
+   {
+    "text": "break",
+    "start": 23.25,
+    "end": 23.513
+   },
+   {
+    "text": "every",
+    "start": 23.513,
+    "end": 23.85
+   },
+   {
+    "text": "rule",
+    "start": 23.85,
+    "end": 24.1
+   },
+   {
+    "text": "tonight,",
+    "start": 24.1,
+    "end": 24.575
+   },
+   {
+    "text": "just",
+    "start": 24.675,
+    "end": 24.925
+   },
+   {
+    "text": "to",
+    "start": 24.925,
+    "end": 25.05
+   },
+   {
+    "text": "see",
+    "start": 25.05,
+    "end": 25.225
+   },
+   {
+    "text": "what",
+    "start": 25.225,
+    "end": 25.363
+   },
+   {
+    "text": "happens.",
+    "start": 25.363,
+    "end": 26.075
+   },
+   {
+    "text": "Then",
+    "start": 27.125,
+    "end": 27.338
+   },
+   {
+    "text": "Dev",
+    "start": 27.338,
+    "end": 27.65
+   },
+   {
+    "text": "in",
+    "start": 27.65,
+    "end": 27.813
+   },
+   {
+    "text": "six",
+    "start": 27.813,
+    "end": 28.113
+   },
+   {
+    "text": "C",
+    "start": 28.113,
+    "end": 28.413
+   },
+   {
+    "text": "posted",
+    "start": 28.413,
+    "end": 28.788
+   },
+   {
+    "text": "a",
+    "start": 28.788,
+    "end": 28.85
+   },
+   {
+    "text": "screenshot.",
+    "start": 28.85,
+    "end": 29.725
+   },
+   {
+    "text": "He'd",
+    "start": 29.825,
+    "end": 30.0
+   },
+   {
+    "text": "looked",
+    "start": 30.0,
+    "end": 30.213
+   },
+   {
+    "text": "up",
+    "start": 30.213,
+    "end": 30.338
+   },
+   {
+    "text": "our",
+    "start": 30.338,
+    "end": 30.475
+   },
+   {
+    "text": "management",
+    "start": 30.475,
+    "end": 30.95
+   },
+   {
+    "text": "company.",
+    "start": 30.95,
+    "end": 31.575
+   },
+   {
+    "text": "It",
+    "start": 31.675,
+    "end": 31.863
+   },
+   {
+    "text": "shut",
+    "start": 31.863,
+    "end": 32.075
+   },
+   {
+    "text": "down",
+    "start": 32.075,
+    "end": 32.375
+   },
+   {
+    "text": "two",
+    "start": 32.375,
+    "end": 32.575
+   },
+   {
+    "text": "years",
+    "start": 32.575,
+    "end": 32.788
+   },
+   {
+    "text": "ago.",
+    "start": 32.788,
+    "end": 33.325
+   },
+   {
+    "text": "So",
+    "start": 34.375,
+    "end": 34.55
+   },
+   {
+    "text": "who'd",
+    "start": 34.55,
+    "end": 34.688
+   },
+   {
+    "text": "been",
+    "start": 34.688,
+    "end": 34.888
+   },
+   {
+    "text": "answering",
+    "start": 34.888,
+    "end": 35.362
+   },
+   {
+    "text": "our",
+    "start": 35.362,
+    "end": 35.487
+   },
+   {
+    "text": "repair",
+    "start": 35.487,
+    "end": 35.85
+   },
+   {
+    "text": "requests?",
+    "start": 35.85,
+    "end": 36.55
+   },
+   {
+    "text": "And",
+    "start": 36.625,
+    "end": 36.763
+   },
+   {
+    "text": "who",
+    "start": 36.763,
+    "end": 36.888
+   },
+   {
+    "text": "pinned",
+    "start": 36.888,
+    "end": 37.138
+   },
+   {
+    "text": "the",
+    "start": 37.138,
+    "end": 37.225
+   },
+   {
+    "text": "rules?",
+    "start": 37.225,
+    "end": 37.875
+   },
+   {
+    "text": "At",
+    "start": 38.9,
+    "end": 39.025
+   },
+   {
+    "text": "two",
+    "start": 39.025,
+    "end": 39.2
+   },
+   {
+    "text": "fourteen,",
+    "start": 39.2,
+    "end": 39.675
+   },
+   {
+    "text": "Ben",
+    "start": 39.725,
+    "end": 39.95
+   },
+   {
+    "text": "wrote",
+    "start": 39.95,
+    "end": 40.137
+   },
+   {
+    "text": "again.",
+    "start": 40.137,
+    "end": 40.5
+   },
+   {
+    "text": "Someone's",
+    "start": 40.575,
+    "end": 40.875
+   },
+   {
+    "text": "knocking.",
+    "start": 40.875,
+    "end": 41.6
+   },
+   {
+    "text": "Three",
+    "start": 41.712,
+    "end": 41.95
+   },
+   {
+    "text": "times.",
+    "start": 41.95,
+    "end": 42.325
+   },
+   {
+    "text": "I'm",
+    "start": 42.362,
+    "end": 42.525
+   },
+   {
+    "text": "opening",
+    "start": 42.525,
+    "end": 42.9
+   },
+   {
+    "text": "it.",
+    "start": 42.9,
+    "end": 43.05
+   },
+   {
+    "text": "Wish",
+    "start": 43.125,
+    "end": 43.312
+   },
+   {
+    "text": "me",
+    "start": 43.312,
+    "end": 43.45
+   },
+   {
+    "text": "luck.",
+    "start": 43.45,
+    "end": 43.925
+   },
+   {
+    "text": "That",
+    "start": 44.95,
+    "end": 45.087
+   },
+   {
+    "text": "was",
+    "start": 45.087,
+    "end": 45.237
+   },
+   {
+    "text": "the",
+    "start": 45.237,
+    "end": 45.325
+   },
+   {
+    "text": "last",
+    "start": 45.325,
+    "end": 45.637
+   },
+   {
+    "text": "thing",
+    "start": 45.637,
+    "end": 45.762
+   },
+   {
+    "text": "he",
+    "start": 45.762,
+    "end": 45.887
+   },
+   {
+    "text": "sent.",
+    "start": 45.887,
+    "end": 46.425
+   },
+   {
+    "text": "His",
+    "start": 46.525,
+    "end": 46.7
+   },
+   {
+    "text": "little",
+    "start": 46.7,
+    "end": 46.95
+   },
+   {
+    "text": "green",
+    "start": 46.95,
+    "end": 47.275
+   },
+   {
+    "text": "dot",
+    "start": 47.275,
+    "end": 47.55
+   },
+   {
+    "text": "turned",
+    "start": 47.55,
+    "end": 47.85
+   },
+   {
+    "text": "grey.",
+    "start": 47.85,
+    "end": 48.4
+   },
+   {
+    "text": "Then",
+    "start": 49.85,
+    "end": 49.962
+   },
+   {
+    "text": "the",
+    "start": 49.962,
+    "end": 50.05
+   },
+   {
+    "text": "pinned",
+    "start": 50.05,
+    "end": 50.325
+   },
+   {
+    "text": "post",
+    "start": 50.325,
+    "end": 50.65
+   },
+   {
+    "text": "changed.",
+    "start": 50.65,
+    "end": 51.35
+   },
+   {
+    "text": "Rule",
+    "start": 51.487,
+    "end": 51.75
+   },
+   {
+    "text": "five",
+    "start": 51.75,
+    "end": 52.062
+   },
+   {
+    "text": "now",
+    "start": 52.062,
+    "end": 52.25
+   },
+   {
+    "text": "said:",
+    "start": 52.25,
+    "end": 52.675
+   },
+   {
+    "text": "Management",
+    "start": 52.787,
+    "end": 53.312
+   },
+   {
+    "text": "may",
+    "start": 53.312,
+    "end": 53.437
+   },
+   {
+    "text": "need",
+    "start": 53.437,
+    "end": 53.612
+   },
+   {
+    "text": "to",
+    "start": 53.612,
+    "end": 53.687
+   },
+   {
+    "text": "come",
+    "start": 53.687,
+    "end": 53.812
+   },
+   {
+    "text": "inside.",
+    "start": 53.812,
+    "end": 54.425
+   },
+   {
+    "text": "Please",
+    "start": 54.537,
+    "end": 54.875
+   },
+   {
+    "text": "cooperate.",
+    "start": 54.875,
+    "end": 55.7
+   },
+   {
+    "text": "I",
+    "start": 56.7,
+    "end": 56.837
+   },
+   {
+    "text": "switched",
+    "start": 56.837,
+    "end": 57.112
+   },
+   {
+    "text": "off",
+    "start": 57.112,
+    "end": 57.312
+   },
+   {
+    "text": "my",
+    "start": 57.312,
+    "end": 57.475
+   },
+   {
+    "text": "hallway",
+    "start": 57.475,
+    "end": 57.825
+   },
+   {
+    "text": "light",
+    "start": 57.825,
+    "end": 58.362
+   },
+   {
+    "text": "and",
+    "start": 58.362,
+    "end": 58.512
+   },
+   {
+    "text": "sat",
+    "start": 58.512,
+    "end": 58.762
+   },
+   {
+    "text": "with",
+    "start": 58.762,
+    "end": 58.862
+   },
+   {
+    "text": "my",
+    "start": 58.862,
+    "end": 59.0
+   },
+   {
+    "text": "back",
+    "start": 59.0,
+    "end": 59.262
+   },
+   {
+    "text": "against",
+    "start": 59.262,
+    "end": 59.562
+   },
+   {
+    "text": "the",
+    "start": 59.562,
+    "end": 59.65
+   },
+   {
+    "text": "door.",
+    "start": 59.65,
+    "end": 60.15
+   },
+   {
+    "text": "Right",
+    "start": 61.225,
+    "end": 61.412
+   },
+   {
+    "text": "behind",
+    "start": 61.412,
+    "end": 61.712
+   },
+   {
+    "text": "my",
+    "start": 61.712,
+    "end": 61.85
+   },
+   {
+    "text": "head,",
+    "start": 61.85,
+    "end": 62.175
+   },
+   {
+    "text": "someone",
+    "start": 62.25,
+    "end": 62.5
+   },
+   {
+    "text": "knocked.",
+    "start": 62.5,
+    "end": 63.1
+   },
+   {
+    "text": "Three",
+    "start": 66.419,
+    "end": 66.644
+   },
+   {
+    "text": "times.",
+    "start": 66.644,
+    "end": 67.319
+   },
+   {
+    "text": "A",
+    "start": 68.369,
+    "end": 68.456
+   },
+   {
+    "text": "calm",
+    "start": 68.456,
+    "end": 68.769
+   },
+   {
+    "text": "voice",
+    "start": 68.769,
+    "end": 69.069
+   },
+   {
+    "text": "said",
+    "start": 69.069,
+    "end": 69.206
+   },
+   {
+    "text": "my",
+    "start": 69.206,
+    "end": 69.369
+   },
+   {
+    "text": "name.",
+    "start": 69.369,
+    "end": 69.894
+   },
+   {
+    "text": "It's",
+    "start": 69.994,
+    "end": 70.244
+   },
+   {
+    "text": "Management.",
+    "start": 70.244,
+    "end": 70.969
+   },
+   {
+    "text": "We",
+    "start": 71.044,
+    "end": 71.169
+   },
+   {
+    "text": "just",
+    "start": 71.169,
+    "end": 71.331
+   },
+   {
+    "text": "need",
+    "start": 71.331,
+    "end": 71.506
+   },
+   {
+    "text": "to",
+    "start": 71.506,
+    "end": 71.594
+   },
+   {
+    "text": "come",
+    "start": 71.594,
+    "end": 71.731
+   },
+   {
+    "text": "in",
+    "start": 71.731,
+    "end": 71.894
+   },
+   {
+    "text": "for",
+    "start": 71.894,
+    "end": 72.006
+   },
+   {
+    "text": "a",
+    "start": 72.006,
+    "end": 72.056
+   },
+   {
+    "text": "minute.",
+    "start": 72.056,
+    "end": 72.569
+   },
+   {
+    "text": "My",
+    "start": 73.594,
+    "end": 73.756
+   },
+   {
+    "text": "phone",
+    "start": 73.756,
+    "end": 74.069
+   },
+   {
+    "text": "buzzed.",
+    "start": 74.069,
+    "end": 74.519
+   },
+   {
+    "text": "A",
+    "start": 74.594,
+    "end": 74.694
+   },
+   {
+    "text": "message",
+    "start": 74.694,
+    "end": 75.069
+   },
+   {
+    "text": "from",
+    "start": 75.069,
+    "end": 75.244
+   },
+   {
+    "text": "Ben.",
+    "start": 75.244,
+    "end": 75.719
+   },
+   {
+    "text": "It's",
+    "start": 75.819,
+    "end": 76.069
+   },
+   {
+    "text": "fine,",
+    "start": 76.069,
+    "end": 76.419
+   },
+   {
+    "text": "open",
+    "start": 76.469,
+    "end": 76.731
+   },
+   {
+    "text": "up.",
+    "start": 76.731,
+    "end": 77.169
+   },
+   {
+    "text": "They",
+    "start": 77.269,
+    "end": 77.419
+   },
+   {
+    "text": "only",
+    "start": 77.419,
+    "end": 77.719
+   },
+   {
+    "text": "want",
+    "start": 77.719,
+    "end": 77.881
+   },
+   {
+    "text": "to",
+    "start": 77.881,
+    "end": 77.969
+   },
+   {
+    "text": "talk.",
+    "start": 77.969,
+    "end": 78.394
+   },
+   {
+    "text": "I'm",
+    "start": 78.469,
+    "end": 78.619
+   },
+   {
+    "text": "standing",
+    "start": 78.619,
+    "end": 78.994
+   },
+   {
+    "text": "right",
+    "start": 78.994,
+    "end": 79.181
+   },
+   {
+    "text": "behind",
+    "start": 79.181,
+    "end": 79.531
+   },
+   {
+    "text": "them.",
+    "start": 79.531,
+    "end": 79.944
+   },
+   {
+    "text": "I",
+    "start": 80.944,
+    "end": 81.094
+   },
+   {
+    "text": "looked",
+    "start": 81.094,
+    "end": 81.319
+   },
+   {
+    "text": "through",
+    "start": 81.319,
+    "end": 81.506
+   },
+   {
+    "text": "the",
+    "start": 81.506,
+    "end": 81.594
+   },
+   {
+    "text": "peephole",
+    "start": 81.594,
+    "end": 81.981
+   },
+   {
+    "text": "again.",
+    "start": 81.981,
+    "end": 82.494
+   },
+   {
+    "text": "There",
+    "start": 82.594,
+    "end": 82.731
+   },
+   {
+    "text": "was",
+    "start": 82.731,
+    "end": 82.831
+   },
+   {
+    "text": "only",
+    "start": 82.831,
+    "end": 83.131
+   },
+   {
+    "text": "one",
+    "start": 83.131,
+    "end": 83.369
+   },
+   {
+    "text": "person",
+    "start": 83.369,
+    "end": 83.769
+   },
+   {
+    "text": "out",
+    "start": 83.769,
+    "end": 83.969
+   },
+   {
+    "text": "there.",
+    "start": 83.969,
+    "end": 84.444
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 16,
+  "style": {
+   "font": "display",
+   "fontSize": 76,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "color",
+   "strokeWidth": 12,
+   "uppercase": false,
+   "y": 0.15
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-pinned-rules/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 88.269
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.0,
+  "fadeIn": 0.2,
+  "fadeOut": 0.6
+ },
+ "_built": {
+  "by": "pipeline/episodes/build.py",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/horror-pinned-rules/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

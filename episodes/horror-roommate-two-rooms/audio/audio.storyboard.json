@@ -1,0 +1,91 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 71.049,
+ "captions": {
+  "src": "episodes/horror-roommate-two-rooms/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-roommate-two-rooms/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 71.049
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-roommate-two-rooms/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 71.049
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-roommate-two-rooms/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-roommate-two-rooms/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "notify",
+   "at": 1.137
+  },
+  {
+   "cue": "notify",
+   "at": 6.175
+  },
+  {
+   "cue": "notify",
+   "at": 13.2
+  },
+  {
+   "cue": "knock3",
+   "at": 16.55
+  },
+  {
+   "cue": "knock3",
+   "at": 18.499
+  },
+  {
+   "cue": "notify",
+   "at": 40.886
+  },
+  {
+   "cue": "stinger",
+   "at": 51.899
+  },
+  {
+   "cue": "door_creak",
+   "at": 61.599
+  },
+  {
+   "cue": "notify",
+   "at": 64.399
+  },
+  {
+   "cue": "stinger",
+   "at": 67.599
+  }
+ ]
+}

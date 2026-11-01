@@ -1,0 +1,51 @@
+{
+ "id": "explainer-orca",
+ "niche": "explainer",
+ "script": "episodes/explainer-orca/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 1.22,
+  "synth_s": 17.59,
+  "duration_s": 89.06,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.03,
+  "true_peak_dbtp_4x": -1.1,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.0,
+   "LRA_lu": 3.5,
+   "true_peak_dbtp": -1.1
+  },
+  "duration_s": 89.46,
+  "music": "deep_ocean",
+  "sfx_placed": [
+   {
+    "cue": "impact",
+    "at": 41.55,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -4.0
+   },
+   {
+    "cue": "stinger",
+    "at": 82.48,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 4.026,
+    "level_db": -5.0
+   }
+  ],
+  "music_rms_db_under_voice": -45.75,
+  "music_rms_db_in_gaps": -36.92,
+  "measured_duck_db": -8.83
+ },
+ "words": 247,
+ "wall_s": 20.6
+}

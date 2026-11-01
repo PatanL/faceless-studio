@@ -1,0 +1,83 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 81.725,
+ "captions": {
+  "src": "episodes/horror-member-41/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-member-41/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 81.725
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-member-41/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 81.725
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-member-41/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-member-41/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "door_creak",
+   "at": 34.775
+  },
+  {
+   "cue": "glitch",
+   "at": 47.6
+  },
+  {
+   "cue": "footsteps",
+   "at": 58.225
+  },
+  {
+   "cue": "knock",
+   "at": 61.025
+  },
+  {
+   "cue": "knock",
+   "at": 62.475
+  },
+  {
+   "cue": "knock",
+   "at": 63.975
+  },
+  {
+   "cue": "heartbeat_fast",
+   "at": 67.125
+  },
+  {
+   "cue": "stinger",
+   "at": 78.275
+  }
+ ]
+}

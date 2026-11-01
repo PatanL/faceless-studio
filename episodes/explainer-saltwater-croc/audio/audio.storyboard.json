@@ -1,0 +1,59 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 85.005,
+ "captions": {
+  "src": "episodes/explainer-saltwater-croc/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-saltwater-croc/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 85.005
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/explainer-saltwater-croc/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 85.005
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/explainer-saltwater-croc/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/explainer-saltwater-croc/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "impact",
+   "at": 35.195
+  },
+  {
+   "cue": "stinger",
+   "at": 74.05
+  }
+ ]
+}

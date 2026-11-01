@@ -1,0 +1,2348 @@
+{
+ "version": 1,
+ "id": "explainer-anglerfish",
+ "title": "Never Swim Toward A Light In The Deep",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p00",
+   "duration": 6.255,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1000,
+     "rays": 0,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "30%",
+     "y": "44%",
+     "width": 560,
+     "height": 110,
+     "props": {
+      "arms": "forward"
+     },
+     "idle": [
+      {
+       "type": "float",
+       "amount": 8,
+       "speed": 0.3
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#d8fff6\"/><stop offset=\"0.25\" stop-color=\"#6ff0d8\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#6ff0d8\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#g)\"/></svg>",
+     "x": "74%",
+     "y": "36%",
+     "width": 120,
+     "height": 120,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.25,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "16%",
+     "width": 1000,
+     "height": 384.0,
+     "props": {
+      "text": "DON'T.",
+      "at": 4.125,
+      "size": 120,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "If you're ever a thousand metres underwater and you see a little light... don't swim toward it.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "45%"
+     },
+     {
+      "t": 6.255,
+      "zoom": 1.1,
+      "x": "58%"
+     }
+    ]
+   }
+  },
+  {
+   "id": "p01",
+   "duration": 6.18,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1000,
+     "rays": 0,
+     "snow": 110,
+     "drift": 0.5
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#d8fff6\"/><stop offset=\"0.25\" stop-color=\"#6ff0d8\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#6ff0d8\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#g)\"/></svg>",
+     "x": "50%",
+     "y": "36%",
+     "width": 160,
+     "height": 160,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.25,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/DepthMeter",
+     "x": "88%",
+     "y": "40%",
+     "width": 260,
+     "height": 1000,
+     "props": {
+      "depth": 1000,
+      "window": 600,
+      "step": 100,
+      "size": 40
+     },
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 900,
+     "height": 96.0,
+     "props": {
+      "text": "NO SUNLIGHT",
+      "at": 0.3,
+      "size": 40
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "There's no sunlight down here. So when anything glows, everything in the dark comes over to look.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 7.33,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "50%",
+     "y": "40%",
+     "width": 800,
+     "height": 520,
+     "props": {},
+     "start": 1.913,
+     "enter": {
+      "type": "fade",
+      "at": 1.913,
+      "duration": 0.9
+     },
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 8,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 288.0,
+     "props": {
+      "text": "IT'S BAIT",
+      "at": 0.663,
+      "size": 90,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "62%",
+     "width": 900,
+     "height": 96.0,
+     "props": {
+      "text": "ROD = FIN SPINE",
+      "at": 5.125,
+      "size": 40
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "That light is bait. It hangs off an anglerfish's head, on a fishing rod grown from the first spine of its fin.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 7.03,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "60%",
+     "y": "52%",
+     "width": 1500,
+     "height": 980,
+     "props": {}
+    },
+    {
+     "type": "particles",
+     "preset": "dust",
+     "count": 90,
+     "color": "rgba(120,255,220,0.9)",
+     "size": [
+      3,
+      6
+     ],
+     "speed": 0.4,
+     "x": "40%",
+     "y": "34%",
+     "width": 360,
+     "height": 360,
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "16%",
+     "width": 420,
+     "height": 105.6,
+     "props": {
+      "text": "BACTERIA",
+      "at": 2.0,
+      "size": 44,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "The glow isn't even the fish. It's bacteria living inside the tip. They get a home, and the fish gets a lamp.",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.03,
+      "zoom": 1.2,
+      "x": "45%",
+      "y": "40%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 5.28,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": "72%",
+     "y": "44%",
+     "width": 216.0,
+     "height": 360,
+     "props": {
+      "pose": "stand"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "36%",
+     "y": "44%",
+     "width": 600,
+     "height": 400,
+     "props": {},
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 0.18
+      },
+      {
+       "t": 2.9,
+       "scale": 0.18
+      },
+      {
+       "t": 4.3,
+       "scale": 1.0,
+       "ease": "backOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 900,
+     "height": 76.8,
+     "props": {
+      "text": "REAL SIZE: SMALLER THAN YOUR HAND",
+      "at": 0.3,
+      "size": 32
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Most anglerfish are smaller than your hand. So let's scale one up to your size.",
+   "camera": {
+    "shake": [
+     {
+      "at": 4.2,
+      "duration": 0.4,
+      "amplitude": 14
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 6.43,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "50%",
+     "y": "42%",
+     "width": 1100,
+     "height": 720,
+     "props": {}
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "14%",
+     "width": 1000,
+     "height": 243.20000000000002,
+     "props": {
+      "text": "ONE-WAY DOOR",
+      "at": 1.738,
+      "size": 76,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Its teeth point backwards, like a one-way door. Anything that goes in can only go further in.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.9
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 5.83,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "50%",
+     "y": "40%",
+     "width": 900,
+     "height": 600,
+     "props": {},
+     "idle": [
+      {
+       "type": "breathe",
+       "amount": 0.06,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "60%",
+     "width": 900,
+     "height": 338.0,
+     "props": {
+      "value": 2,
+      "label": "x its own length",
+      "at": 2.638,
+      "size": 130,
+      "suffix": "x",
+      "duration": 0.3,
+      "color": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Its jaw and stomach stretch so far it can swallow prey twice as long as its own body.",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 4.58,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1100,
+     "rays": 0,
+     "snow": 40
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "44%",
+     "y": "38%",
+     "width": 900,
+     "height": 600,
+     "props": {}
+    },
+    {
+     "type": "component",
+     "name": "explainer/Car",
+     "x": "60%",
+     "y": "58%",
+     "width": 520,
+     "height": 240,
+     "props": {
+      "color": "#3a8fd6"
+     },
+     "start": 1.838,
+     "enter": {
+      "type": "drop",
+      "at": 1.838,
+      "duration": 0.35,
+      "distance": 400
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 900,
+     "height": 96.0,
+     "props": {
+      "text": "AT YOUR SIZE",
+      "at": 0.2,
+      "size": 40
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "At your size, that's something as long as a small car. In one bite.",
+   "camera": {
+    "shake": [
+     {
+      "at": 3.35,
+      "duration": 0.4,
+      "amplitude": 20
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 3.38,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1500,
+     "rays": 0,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "36%",
+     "width": 1000,
+     "height": 224.0,
+     "props": {
+      "text": "NOT EVEN THE STRANGEST PART",
+      "at": 0.1,
+      "size": 70,
+      "color": "red",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "And that's not even the strangest thing about it.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 8.305,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1500,
+     "rays": 0,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "40%",
+     "y": "40%",
+     "width": 800,
+     "height": 520,
+     "props": {}
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "90%",
+     "y": "46%",
+     "width": 110,
+     "height": 72,
+     "props": {
+      "speed": 1.6
+     },
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "110%",
+       "y": "30%"
+      },
+      {
+       "t": 5.15,
+       "x": "62%",
+       "y": "46%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "78%",
+     "y": "58%",
+     "width": 260,
+     "height": 81.6,
+     "props": {
+      "text": "MALE",
+      "at": 1.075,
+      "size": 34
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 900,
+     "height": 96.0,
+     "props": {
+      "text": "NEVER LETS GO",
+      "at": 6.35,
+      "size": 40,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "In some species, the males are tiny. When one finally finds a female in the dark, he bites onto her side, and never lets go.",
+   "camera": {
+    "shake": [
+     {
+      "at": 5.15,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 8.805,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1500,
+     "rays": 0,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "40%",
+     "y": "40%",
+     "width": 800,
+     "height": 520,
+     "props": {}
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "62%",
+     "y": "46%",
+     "width": 110,
+     "height": 72,
+     "props": {
+      "silhouette": "#2b3036"
+     },
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 8.805,
+       "opacity": 0.25
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 900,
+     "height": 96.0,
+     "props": {
+      "text": "SHARED BLOOD",
+      "at": 2.75,
+      "size": 40,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "60%",
+     "width": 900,
+     "height": 86.39999999999999,
+     "props": {
+      "text": "EYES · ORGANS: GONE",
+      "at": 3.85,
+      "size": 36
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "His body fuses with hers. They share the same blood. His eyes and most of his organs fade away, until he's basically part of her.",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.7
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 3.955,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1500,
+     "rays": 0,
+     "snow": 50
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "50%",
+     "y": "34%",
+     "width": 760,
+     "height": 500,
+     "props": {}
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "30%",
+     "y": "50%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 0.0
+     },
+     "start": 1.488,
+     "enter": {
+      "type": "pop",
+      "at": 1.488,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "44%",
+     "y": "50%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 0.3
+     },
+     "start": 1.568,
+     "enter": {
+      "type": "pop",
+      "at": 1.568,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "58%",
+     "y": "50%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 0.6
+     },
+     "start": 1.648,
+     "enter": {
+      "type": "pop",
+      "at": 1.648,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "72%",
+     "y": "50%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 0.8999999999999999
+     },
+     "start": 1.728,
+     "enter": {
+      "type": "pop",
+      "at": 1.728,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "30%",
+     "y": "56%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 1.2
+     },
+     "start": 1.808,
+     "enter": {
+      "type": "pop",
+      "at": 1.808,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "44%",
+     "y": "56%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 1.5
+     },
+     "start": 1.888,
+     "enter": {
+      "type": "pop",
+      "at": 1.888,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "58%",
+     "y": "56%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 1.7999999999999998
+     },
+     "start": 1.968,
+     "enter": {
+      "type": "pop",
+      "at": 1.968,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Anglerfish",
+     "x": "72%",
+     "y": "56%",
+     "width": 90,
+     "height": 60,
+     "props": {
+      "silhouette": "#2b3036",
+      "timeOffset": 2.1
+     },
+     "start": 2.048,
+     "enter": {
+      "type": "pop",
+      "at": 2.048,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": "50%",
+     "y": "64%",
+     "width": 900,
+     "height": 286.0,
+     "props": {
+      "value": 8,
+      "label": "males on one female",
+      "at": 1.688,
+      "size": 110,
+      "duration": 0.4,
+      "color": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "Some females have been found carrying eight males at once.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p12",
+   "duration": 10.575,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 1000,
+     "rays": 0,
+     "snow": 60
+    }
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#d8fff6\"/><stop offset=\"0.25\" stop-color=\"#6ff0d8\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#6ff0d8\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#g)\"/></svg>",
+     "x": "50%",
+     "y": "38%",
+     "width": 160,
+     "height": 160,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.25,
+       "speed": 0.6
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "60%",
+     "width": 900,
+     "height": 86.39999999999999,
+     "props": {
+      "text": "WHO SHOULD I SCALE UP NEXT?",
+      "at": 6.65,
+      "size": 36,
+      "accent": "#e5483d"
+     },
+     "depth": 0,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "15%",
+     "width": 1000,
+     "height": 198.4,
+     "props": {
+      "text": "DON'T SWIM TOWARD IT",
+      "at": 0.2,
+      "size": 62,
+      "color": "white",
+      "underline": true
+     },
+     "depth": 0,
+     "z": 20
+    }
+   ],
+   "notes": "So if you see a light in the deep, don't swim toward it. And if you're a male anglerfish... honestly, it's already too late. Which deep sea creature should I scale up next?",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.35
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "If",
+    "start": 0.525,
+    "end": 0.662
+   },
+   {
+    "text": "you're",
+    "start": 0.662,
+    "end": 0.812
+   },
+   {
+    "text": "ever",
+    "start": 0.812,
+    "end": 1.1
+   },
+   {
+    "text": "a",
+    "start": 1.1,
+    "end": 1.225
+   },
+   {
+    "text": "thousand",
+    "start": 1.225,
+    "end": 1.7
+   },
+   {
+    "text": "metres",
+    "start": 1.7,
+    "end": 2.075
+   },
+   {
+    "text": "underwater",
+    "start": 2.075,
+    "end": 2.725
+   },
+   {
+    "text": "and",
+    "start": 2.725,
+    "end": 2.85
+   },
+   {
+    "text": "you",
+    "start": 2.85,
+    "end": 2.987
+   },
+   {
+    "text": "see",
+    "start": 2.987,
+    "end": 3.188
+   },
+   {
+    "text": "a",
+    "start": 3.188,
+    "end": 3.25
+   },
+   {
+    "text": "little",
+    "start": 3.25,
+    "end": 3.5
+   },
+   {
+    "text": "light...",
+    "start": 3.5,
+    "end": 4.075
+   },
+   {
+    "text": "don't",
+    "start": 4.225,
+    "end": 4.487
+   },
+   {
+    "text": "swim",
+    "start": 4.487,
+    "end": 4.8
+   },
+   {
+    "text": "toward",
+    "start": 4.8,
+    "end": 5.1
+   },
+   {
+    "text": "it.",
+    "start": 5.1,
+    "end": 5.5
+   },
+   {
+    "text": "There's",
+    "start": 6.405,
+    "end": 6.605
+   },
+   {
+    "text": "no",
+    "start": 6.605,
+    "end": 6.83
+   },
+   {
+    "text": "sunlight",
+    "start": 6.83,
+    "end": 7.305
+   },
+   {
+    "text": "down",
+    "start": 7.305,
+    "end": 7.605
+   },
+   {
+    "text": "here.",
+    "start": 7.605,
+    "end": 8.08
+   },
+   {
+    "text": "So",
+    "start": 8.192,
+    "end": 8.393
+   },
+   {
+    "text": "when",
+    "start": 8.393,
+    "end": 8.567
+   },
+   {
+    "text": "anything",
+    "start": 8.567,
+    "end": 8.98
+   },
+   {
+    "text": "glows,",
+    "start": 8.98,
+    "end": 9.53
+   },
+   {
+    "text": "everything",
+    "start": 9.605,
+    "end": 10.043
+   },
+   {
+    "text": "in",
+    "start": 10.043,
+    "end": 10.117
+   },
+   {
+    "text": "the",
+    "start": 10.117,
+    "end": 10.205
+   },
+   {
+    "text": "dark",
+    "start": 10.205,
+    "end": 10.53
+   },
+   {
+    "text": "comes",
+    "start": 10.53,
+    "end": 10.793
+   },
+   {
+    "text": "over",
+    "start": 10.793,
+    "end": 11.005
+   },
+   {
+    "text": "to",
+    "start": 11.005,
+    "end": 11.13
+   },
+   {
+    "text": "look.",
+    "start": 11.13,
+    "end": 11.655
+   },
+   {
+    "text": "That",
+    "start": 12.585,
+    "end": 12.81
+   },
+   {
+    "text": "light",
+    "start": 12.81,
+    "end": 13.035
+   },
+   {
+    "text": "is",
+    "start": 13.035,
+    "end": 13.198
+   },
+   {
+    "text": "bait.",
+    "start": 13.198,
+    "end": 13.81
+   },
+   {
+    "text": "It",
+    "start": 13.91,
+    "end": 14.06
+   },
+   {
+    "text": "hangs",
+    "start": 14.06,
+    "end": 14.41
+   },
+   {
+    "text": "off",
+    "start": 14.41,
+    "end": 14.623
+   },
+   {
+    "text": "an",
+    "start": 14.623,
+    "end": 14.748
+   },
+   {
+    "text": "anglerfish's",
+    "start": 14.748,
+    "end": 15.41
+   },
+   {
+    "text": "head,",
+    "start": 15.41,
+    "end": 15.935
+   },
+   {
+    "text": "on",
+    "start": 16.035,
+    "end": 16.173
+   },
+   {
+    "text": "a",
+    "start": 16.173,
+    "end": 16.248
+   },
+   {
+    "text": "fishing",
+    "start": 16.248,
+    "end": 16.61
+   },
+   {
+    "text": "rod",
+    "start": 16.61,
+    "end": 16.96
+   },
+   {
+    "text": "grown",
+    "start": 16.96,
+    "end": 17.335
+   },
+   {
+    "text": "from",
+    "start": 17.335,
+    "end": 17.473
+   },
+   {
+    "text": "the",
+    "start": 17.473,
+    "end": 17.573
+   },
+   {
+    "text": "first",
+    "start": 17.573,
+    "end": 17.86
+   },
+   {
+    "text": "spine",
+    "start": 17.86,
+    "end": 18.148
+   },
+   {
+    "text": "of",
+    "start": 18.148,
+    "end": 18.223
+   },
+   {
+    "text": "its",
+    "start": 18.223,
+    "end": 18.423
+   },
+   {
+    "text": "fin.",
+    "start": 18.423,
+    "end": 19.01
+   },
+   {
+    "text": "The",
+    "start": 19.915,
+    "end": 19.99
+   },
+   {
+    "text": "glow",
+    "start": 19.99,
+    "end": 20.39
+   },
+   {
+    "text": "isn't",
+    "start": 20.39,
+    "end": 20.628
+   },
+   {
+    "text": "even",
+    "start": 20.628,
+    "end": 20.852
+   },
+   {
+    "text": "the",
+    "start": 20.852,
+    "end": 20.953
+   },
+   {
+    "text": "fish.",
+    "start": 20.953,
+    "end": 21.59
+   },
+   {
+    "text": "It's",
+    "start": 21.69,
+    "end": 21.865
+   },
+   {
+    "text": "bacteria",
+    "start": 21.865,
+    "end": 22.515
+   },
+   {
+    "text": "living",
+    "start": 22.515,
+    "end": 22.803
+   },
+   {
+    "text": "inside",
+    "start": 22.803,
+    "end": 23.152
+   },
+   {
+    "text": "the",
+    "start": 23.152,
+    "end": 23.24
+   },
+   {
+    "text": "tip.",
+    "start": 23.24,
+    "end": 23.74
+   },
+   {
+    "text": "They",
+    "start": 23.84,
+    "end": 23.965
+   },
+   {
+    "text": "get",
+    "start": 23.965,
+    "end": 24.102
+   },
+   {
+    "text": "a",
+    "start": 24.102,
+    "end": 24.165
+   },
+   {
+    "text": "home,",
+    "start": 24.165,
+    "end": 24.54
+   },
+   {
+    "text": "and",
+    "start": 24.578,
+    "end": 24.678
+   },
+   {
+    "text": "the",
+    "start": 24.678,
+    "end": 24.777
+   },
+   {
+    "text": "fish",
+    "start": 24.777,
+    "end": 25.065
+   },
+   {
+    "text": "gets",
+    "start": 25.065,
+    "end": 25.277
+   },
+   {
+    "text": "a",
+    "start": 25.277,
+    "end": 25.365
+   },
+   {
+    "text": "lamp.",
+    "start": 25.365,
+    "end": 25.99
+   },
+   {
+    "text": "Most",
+    "start": 26.945,
+    "end": 27.233
+   },
+   {
+    "text": "anglerfish",
+    "start": 27.233,
+    "end": 27.845
+   },
+   {
+    "text": "are",
+    "start": 27.845,
+    "end": 27.995
+   },
+   {
+    "text": "smaller",
+    "start": 27.995,
+    "end": 28.433
+   },
+   {
+    "text": "than",
+    "start": 28.433,
+    "end": 28.533
+   },
+   {
+    "text": "your",
+    "start": 28.533,
+    "end": 28.645
+   },
+   {
+    "text": "hand.",
+    "start": 28.645,
+    "end": 29.27
+   },
+   {
+    "text": "So",
+    "start": 29.383,
+    "end": 29.52
+   },
+   {
+    "text": "let's",
+    "start": 29.52,
+    "end": 29.695
+   },
+   {
+    "text": "scale",
+    "start": 29.695,
+    "end": 30.045
+   },
+   {
+    "text": "one",
+    "start": 30.045,
+    "end": 30.207
+   },
+   {
+    "text": "up",
+    "start": 30.207,
+    "end": 30.37
+   },
+   {
+    "text": "to",
+    "start": 30.37,
+    "end": 30.457
+   },
+   {
+    "text": "your",
+    "start": 30.457,
+    "end": 30.608
+   },
+   {
+    "text": "size.",
+    "start": 30.608,
+    "end": 31.32
+   },
+   {
+    "text": "Its",
+    "start": 32.225,
+    "end": 32.45
+   },
+   {
+    "text": "teeth",
+    "start": 32.45,
+    "end": 32.725
+   },
+   {
+    "text": "point",
+    "start": 32.725,
+    "end": 33.05
+   },
+   {
+    "text": "backwards,",
+    "start": 33.05,
+    "end": 33.65
+   },
+   {
+    "text": "like",
+    "start": 33.688,
+    "end": 33.812
+   },
+   {
+    "text": "a",
+    "start": 33.812,
+    "end": 33.913
+   },
+   {
+    "text": "one-way",
+    "start": 33.913,
+    "end": 34.375
+   },
+   {
+    "text": "door.",
+    "start": 34.375,
+    "end": 34.975
+   },
+   {
+    "text": "Anything",
+    "start": 35.1,
+    "end": 35.55
+   },
+   {
+    "text": "that",
+    "start": 35.55,
+    "end": 35.725
+   },
+   {
+    "text": "goes",
+    "start": 35.725,
+    "end": 36.025
+   },
+   {
+    "text": "in",
+    "start": 36.025,
+    "end": 36.25
+   },
+   {
+    "text": "can",
+    "start": 36.25,
+    "end": 36.375
+   },
+   {
+    "text": "only",
+    "start": 36.375,
+    "end": 36.675
+   },
+   {
+    "text": "go",
+    "start": 36.675,
+    "end": 36.862
+   },
+   {
+    "text": "further",
+    "start": 36.862,
+    "end": 37.225
+   },
+   {
+    "text": "in.",
+    "start": 37.225,
+    "end": 37.75
+   },
+   {
+    "text": "Its",
+    "start": 38.655,
+    "end": 38.893
+   },
+   {
+    "text": "jaw",
+    "start": 38.893,
+    "end": 39.205
+   },
+   {
+    "text": "and",
+    "start": 39.205,
+    "end": 39.33
+   },
+   {
+    "text": "stomach",
+    "start": 39.33,
+    "end": 39.68
+   },
+   {
+    "text": "stretch",
+    "start": 39.68,
+    "end": 40.018
+   },
+   {
+    "text": "so",
+    "start": 40.018,
+    "end": 40.242
+   },
+   {
+    "text": "far",
+    "start": 40.242,
+    "end": 40.443
+   },
+   {
+    "text": "it",
+    "start": 40.443,
+    "end": 40.518
+   },
+   {
+    "text": "can",
+    "start": 40.518,
+    "end": 40.693
+   },
+   {
+    "text": "swallow",
+    "start": 40.693,
+    "end": 41.105
+   },
+   {
+    "text": "prey",
+    "start": 41.105,
+    "end": 41.343
+   },
+   {
+    "text": "twice",
+    "start": 41.343,
+    "end": 42.068
+   },
+   {
+    "text": "as",
+    "start": 42.068,
+    "end": 42.23
+   },
+   {
+    "text": "long",
+    "start": 42.23,
+    "end": 42.443
+   },
+   {
+    "text": "as",
+    "start": 42.443,
+    "end": 42.543
+   },
+   {
+    "text": "its",
+    "start": 42.543,
+    "end": 42.68
+   },
+   {
+    "text": "own",
+    "start": 42.68,
+    "end": 42.93
+   },
+   {
+    "text": "body.",
+    "start": 42.93,
+    "end": 43.58
+   },
+   {
+    "text": "At",
+    "start": 44.485,
+    "end": 44.598
+   },
+   {
+    "text": "your",
+    "start": 44.598,
+    "end": 44.748
+   },
+   {
+    "text": "size,",
+    "start": 44.748,
+    "end": 45.11
+   },
+   {
+    "text": "that's",
+    "start": 45.148,
+    "end": 45.335
+   },
+   {
+    "text": "something",
+    "start": 45.335,
+    "end": 45.598
+   },
+   {
+    "text": "as",
+    "start": 45.598,
+    "end": 45.735
+   },
+   {
+    "text": "long",
+    "start": 45.735,
+    "end": 45.923
+   },
+   {
+    "text": "as",
+    "start": 45.923,
+    "end": 46.023
+   },
+   {
+    "text": "a",
+    "start": 46.023,
+    "end": 46.098
+   },
+   {
+    "text": "small",
+    "start": 46.098,
+    "end": 46.473
+   },
+   {
+    "text": "car.",
+    "start": 46.473,
+    "end": 47.06
+   },
+   {
+    "text": "In",
+    "start": 47.198,
+    "end": 47.36
+   },
+   {
+    "text": "one",
+    "start": 47.36,
+    "end": 47.585
+   },
+   {
+    "text": "bite.",
+    "start": 47.585,
+    "end": 48.16
+   },
+   {
+    "text": "And",
+    "start": 49.065,
+    "end": 49.203
+   },
+   {
+    "text": "that's",
+    "start": 49.203,
+    "end": 49.49
+   },
+   {
+    "text": "not",
+    "start": 49.49,
+    "end": 49.69
+   },
+   {
+    "text": "even",
+    "start": 49.69,
+    "end": 49.928
+   },
+   {
+    "text": "the",
+    "start": 49.928,
+    "end": 50.015
+   },
+   {
+    "text": "strangest",
+    "start": 50.015,
+    "end": 50.59
+   },
+   {
+    "text": "thing",
+    "start": 50.59,
+    "end": 50.79
+   },
+   {
+    "text": "about",
+    "start": 50.79,
+    "end": 51.09
+   },
+   {
+    "text": "it.",
+    "start": 51.09,
+    "end": 51.49
+   },
+   {
+    "text": "In",
+    "start": 52.445,
+    "end": 52.57
+   },
+   {
+    "text": "some",
+    "start": 52.57,
+    "end": 52.82
+   },
+   {
+    "text": "species,",
+    "start": 52.82,
+    "end": 53.32
+   },
+   {
+    "text": "the",
+    "start": 53.358,
+    "end": 53.47
+   },
+   {
+    "text": "males",
+    "start": 53.47,
+    "end": 53.845
+   },
+   {
+    "text": "are",
+    "start": 53.845,
+    "end": 53.97
+   },
+   {
+    "text": "tiny.",
+    "start": 53.97,
+    "end": 54.695
+   },
+   {
+    "text": "When",
+    "start": 54.82,
+    "end": 54.97
+   },
+   {
+    "text": "one",
+    "start": 54.97,
+    "end": 55.22
+   },
+   {
+    "text": "finally",
+    "start": 55.22,
+    "end": 55.683
+   },
+   {
+    "text": "finds",
+    "start": 55.683,
+    "end": 55.983
+   },
+   {
+    "text": "a",
+    "start": 55.983,
+    "end": 56.07
+   },
+   {
+    "text": "female",
+    "start": 56.07,
+    "end": 56.533
+   },
+   {
+    "text": "in",
+    "start": 56.533,
+    "end": 56.608
+   },
+   {
+    "text": "the",
+    "start": 56.608,
+    "end": 56.695
+   },
+   {
+    "text": "dark,",
+    "start": 56.695,
+    "end": 57.22
+   },
+   {
+    "text": "he",
+    "start": 57.32,
+    "end": 57.445
+   },
+   {
+    "text": "bites",
+    "start": 57.445,
+    "end": 57.77
+   },
+   {
+    "text": "onto",
+    "start": 57.77,
+    "end": 58.008
+   },
+   {
+    "text": "her",
+    "start": 58.008,
+    "end": 58.158
+   },
+   {
+    "text": "side,",
+    "start": 58.158,
+    "end": 58.57
+   },
+   {
+    "text": "and",
+    "start": 58.62,
+    "end": 58.745
+   },
+   {
+    "text": "never",
+    "start": 58.745,
+    "end": 58.995
+   },
+   {
+    "text": "lets",
+    "start": 58.995,
+    "end": 59.27
+   },
+   {
+    "text": "go.",
+    "start": 59.27,
+    "end": 59.845
+   },
+   {
+    "text": "His",
+    "start": 60.75,
+    "end": 60.938
+   },
+   {
+    "text": "body",
+    "start": 60.938,
+    "end": 61.3
+   },
+   {
+    "text": "fuses",
+    "start": 61.3,
+    "end": 61.725
+   },
+   {
+    "text": "with",
+    "start": 61.725,
+    "end": 61.9
+   },
+   {
+    "text": "hers.",
+    "start": 61.9,
+    "end": 62.575
+   },
+   {
+    "text": "They",
+    "start": 62.675,
+    "end": 62.838
+   },
+   {
+    "text": "share",
+    "start": 62.838,
+    "end": 63.088
+   },
+   {
+    "text": "the",
+    "start": 63.088,
+    "end": 63.213
+   },
+   {
+    "text": "same",
+    "start": 63.213,
+    "end": 63.55
+   },
+   {
+    "text": "blood.",
+    "start": 63.55,
+    "end": 64.225
+   },
+   {
+    "text": "His",
+    "start": 64.325,
+    "end": 64.55
+   },
+   {
+    "text": "eyes",
+    "start": 64.55,
+    "end": 64.95
+   },
+   {
+    "text": "and",
+    "start": 64.95,
+    "end": 65.075
+   },
+   {
+    "text": "most",
+    "start": 65.075,
+    "end": 65.313
+   },
+   {
+    "text": "of",
+    "start": 65.313,
+    "end": 65.388
+   },
+   {
+    "text": "his",
+    "start": 65.388,
+    "end": 65.563
+   },
+   {
+    "text": "organs",
+    "start": 65.563,
+    "end": 66.0
+   },
+   {
+    "text": "fade",
+    "start": 66.0,
+    "end": 66.25
+   },
+   {
+    "text": "away,",
+    "start": 66.25,
+    "end": 66.725
+   },
+   {
+    "text": "until",
+    "start": 66.788,
+    "end": 67.05
+   },
+   {
+    "text": "he's",
+    "start": 67.05,
+    "end": 67.288
+   },
+   {
+    "text": "basically",
+    "start": 67.288,
+    "end": 67.8
+   },
+   {
+    "text": "part",
+    "start": 67.8,
+    "end": 68.038
+   },
+   {
+    "text": "of",
+    "start": 68.038,
+    "end": 68.113
+   },
+   {
+    "text": "her.",
+    "start": 68.113,
+    "end": 68.6
+   },
+   {
+    "text": "Some",
+    "start": 69.555,
+    "end": 69.78
+   },
+   {
+    "text": "females",
+    "start": 69.78,
+    "end": 70.168
+   },
+   {
+    "text": "have",
+    "start": 70.168,
+    "end": 70.268
+   },
+   {
+    "text": "been",
+    "start": 70.268,
+    "end": 70.443
+   },
+   {
+    "text": "found",
+    "start": 70.443,
+    "end": 70.868
+   },
+   {
+    "text": "carrying",
+    "start": 70.868,
+    "end": 71.293
+   },
+   {
+    "text": "eight",
+    "start": 71.293,
+    "end": 71.505
+   },
+   {
+    "text": "males",
+    "start": 71.505,
+    "end": 71.843
+   },
+   {
+    "text": "at",
+    "start": 71.843,
+    "end": 71.93
+   },
+   {
+    "text": "once.",
+    "start": 71.93,
+    "end": 72.58
+   },
+   {
+    "text": "So",
+    "start": 73.51,
+    "end": 73.598
+   },
+   {
+    "text": "if",
+    "start": 73.598,
+    "end": 73.71
+   },
+   {
+    "text": "you",
+    "start": 73.71,
+    "end": 73.848
+   },
+   {
+    "text": "see",
+    "start": 73.848,
+    "end": 74.06
+   },
+   {
+    "text": "a",
+    "start": 74.06,
+    "end": 74.16
+   },
+   {
+    "text": "light",
+    "start": 74.16,
+    "end": 74.398
+   },
+   {
+    "text": "in",
+    "start": 74.398,
+    "end": 74.473
+   },
+   {
+    "text": "the",
+    "start": 74.473,
+    "end": 74.573
+   },
+   {
+    "text": "deep,",
+    "start": 74.573,
+    "end": 74.835
+   },
+   {
+    "text": "don't",
+    "start": 74.91,
+    "end": 75.148
+   },
+   {
+    "text": "swim",
+    "start": 75.148,
+    "end": 75.435
+   },
+   {
+    "text": "toward",
+    "start": 75.435,
+    "end": 75.735
+   },
+   {
+    "text": "it.",
+    "start": 75.735,
+    "end": 76.11
+   },
+   {
+    "text": "And",
+    "start": 76.185,
+    "end": 76.323
+   },
+   {
+    "text": "if",
+    "start": 76.323,
+    "end": 76.435
+   },
+   {
+    "text": "you're",
+    "start": 76.435,
+    "end": 76.573
+   },
+   {
+    "text": "a",
+    "start": 76.573,
+    "end": 76.673
+   },
+   {
+    "text": "male",
+    "start": 76.673,
+    "end": 77.023
+   },
+   {
+    "text": "anglerfish...",
+    "start": 77.023,
+    "end": 77.96
+   },
+   {
+    "text": "honestly,",
+    "start": 78.11,
+    "end": 78.585
+   },
+   {
+    "text": "it's",
+    "start": 78.635,
+    "end": 78.835
+   },
+   {
+    "text": "already",
+    "start": 78.835,
+    "end": 79.223
+   },
+   {
+    "text": "too",
+    "start": 79.223,
+    "end": 79.435
+   },
+   {
+    "text": "late.",
+    "start": 79.435,
+    "end": 80.01
+   },
+   {
+    "text": "Which",
+    "start": 80.11,
+    "end": 80.348
+   },
+   {
+    "text": "deep",
+    "start": 80.348,
+    "end": 80.623
+   },
+   {
+    "text": "sea",
+    "start": 80.623,
+    "end": 80.86
+   },
+   {
+    "text": "creature",
+    "start": 80.86,
+    "end": 81.26
+   },
+   {
+    "text": "should",
+    "start": 81.26,
+    "end": 81.398
+   },
+   {
+    "text": "I",
+    "start": 81.398,
+    "end": 81.548
+   },
+   {
+    "text": "scale",
+    "start": 81.548,
+    "end": 81.848
+   },
+   {
+    "text": "up",
+    "start": 81.848,
+    "end": 82.035
+   },
+   {
+    "text": "next?",
+    "start": 82.035,
+    "end": 82.685
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 16,
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#ffffff",
+   "highlight": "#ff5a4a",
+   "highlightMode": "color",
+   "strokeWidth": 12,
+   "uppercase": true,
+   "y": 0.72
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/explainer-anglerfish/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 83.935
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.04,
+  "vignette": 0.2,
+  "fadeIn": 0.2,
+  "fadeOut": 0.5
+ },
+ "_built": {
+  "by": "pipeline/episodes/build.py",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/explainer-anglerfish/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

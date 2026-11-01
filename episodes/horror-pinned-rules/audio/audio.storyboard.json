@@ -1,0 +1,79 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 88.269,
+ "captions": {
+  "src": "episodes/horror-pinned-rules/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-pinned-rules/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 88.269
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-pinned-rules/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 88.269
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-pinned-rules/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-pinned-rules/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "knock3",
+   "at": 1.95
+  },
+  {
+   "cue": "notify",
+   "at": 5.6
+  },
+  {
+   "cue": "stinger",
+   "at": 33.675
+  },
+  {
+   "cue": "knock3",
+   "at": 40.875
+  },
+  {
+   "cue": "knock3_slow",
+   "at": 63.35
+  },
+  {
+   "cue": "phone_buzz",
+   "at": 74.069
+  },
+  {
+   "cue": "stinger",
+   "at": 84.819
+  }
+ ]
+}

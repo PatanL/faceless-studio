@@ -1,0 +1,2559 @@
+{
+ "version": 1,
+ "id": "horror-member-41",
+ "title": "Our Building Has 40 Apartments. The Chat Has 41 Members. (Part 1)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p00",
+   "duration": 5.975,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "flicker": 0.2,
+      "lights": 2
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -4.0
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -3.0
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:41",
+        "battery": 31,
+        "count": 41
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "text": "41 members",
+      "style": "neon",
+      "at": 3.913,
+      "fontSize": 100
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.975,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Our building has forty apartments. Our residents' group chat has forty-one members."
+  },
+  {
+   "id": "p01",
+   "duration": 7.225,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "flicker": 0.2,
+      "lights": 2
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -9.975
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -8.975
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:41",
+        "battery": 31,
+        "count": 41
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.225,
+      "zoom": 1.14,
+      "y": "47%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Nobody knows who the extra one is. The account is just called Night Desk. No photo. Nobody remembers adding it."
+  },
+  {
+   "id": "p02",
+   "duration": 7.15,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "flicker": 0.3,
+      "lights": 2
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -17.2
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -16.2
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:41",
+        "battery": 31,
+        "count": 41
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.15,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "But every time someone asks what that noise in the hallway was, Night Desk answers first. And it's always right."
+  },
+  {
+   "id": "p03",
+   "duration": 9.35,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "2",
+      "flicker": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -24.35
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -23.35
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": 1.462
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": 5.7
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:52",
+        "battery": 31,
+        "count": 41
+       },
+       "vibrate": [
+        {
+         "at": 5.7,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 9.35,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 5.7,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "Tonight, Priya in two D asked who was running in the stairwell. Night Desk replied in under a second. Nobody is in the stairwell. Stay in your unit."
+  },
+  {
+   "id": "p04",
+   "duration": 5.725,
+   "background": {
+    "type": "component",
+    "name": "horror/Stairwell",
+    "depth": 0.25,
+    "props": {
+     "floor": "2",
+     "flicker": 0.5
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.35,
+      "y": 0.45,
+      "radius": 0.45,
+      "darkness": 0.5,
+      "flicker": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "text": "Wide open",
+      "style": "scrawl",
+      "at": 3.162,
+      "fontSize": 130
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.75
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0,
+    "shake": [
+     {
+      "at": 4.2,
+      "duration": 0.6,
+      "amplitude": 8,
+      "frequency": 3
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "notes": "A minute later, Priya posted a photo of the stairwell door. Wide open. Swinging."
+  },
+  {
+   "id": "p05",
+   "duration": 7.3,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -39.425
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -38.425
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": -13.613
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": -9.375
+         },
+         {
+          "text": "@Admin can you remove Night Desk??",
+          "from": "Leo (3C)",
+          "at": 1.312
+         },
+         {
+          "text": "I already have. 3 times. It keeps coming back.",
+          "from": "Admin · Tom (1A)",
+          "kind": "alert",
+          "at": 3.45
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:55",
+        "battery": 31,
+        "count": 41
+       }
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.3,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "Someone asked the admin to remove Night Desk. The admin wrote: I already have. Three times. It keeps coming back."
+  },
+  {
+   "id": "p06",
+   "duration": 5.55,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -46.725
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -45.725
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": -20.913
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": -16.675
+         },
+         {
+          "text": "@Admin can you remove Night Desk??",
+          "from": "Leo (3C)",
+          "at": -5.988
+         },
+         {
+          "text": "I already have. 3 times. It keeps coming back.",
+          "from": "Admin · Tom (1A)",
+          "kind": "alert",
+          "at": -3.85
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:56",
+        "battery": 31,
+        "count": 41
+       }
+      },
+      "glitch": [
+       {
+        "at": 3.775,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 3.775,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g6"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "text": "42",
+      "style": "flash",
+      "at": 3.775,
+      "fontSize": 220,
+      "strobe": 6
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.55,
+      "zoom": 1.18,
+      "y": "40%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "I opened the member list. Forty-one. Then, while I was looking at it, forty-two."
+  },
+  {
+   "id": "p07",
+   "duration": 7.1,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 3,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "anyone hear that bang on 3?",
+          "from": "Leo (3C)",
+          "at": -52.275
+         },
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -51.275
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": -26.463
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": -22.225
+         },
+         {
+          "text": "@Admin can you remove Night Desk??",
+          "from": "Leo (3C)",
+          "at": -11.538
+         },
+         {
+          "text": "I already have. 3 times. It keeps coming back.",
+          "from": "Admin · Tom (1A)",
+          "kind": "alert",
+          "at": -9.4
+         },
+         {
+          "text": "Fourth floor residents, remain behind your doors. Someone is checking each unit.",
+          "from": "Night Desk",
+          "kind": "alert",
+          "at": 1.687
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "12:58",
+        "battery": 31,
+        "count": 42
+       },
+       "vibrate": [
+        {
+         "at": 1.687,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.1,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.687,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "Night Desk posted again. Fourth floor residents, remain behind your doors. Someone is checking each unit."
+  },
+  {
+   "id": "p08",
+   "duration": 2.7,
+   "background": {
+    "type": "component",
+    "name": "horror/Bedroom",
+    "depth": 0.25,
+    "props": {
+     "lamp": 0.15,
+     "phoneGlow": true
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 860,
+     "height": 1307,
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       }
+      ],
+      "lookX": 0,
+      "lookY": 0.6
+     },
+     "flipX": false
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.4
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "I live on the fourth floor."
+  },
+  {
+   "id": "p09",
+   "duration": 7.575,
+   "background": {
+    "type": "color",
+    "color": "#000"
+   },
+   "notes": "Footsteps in the hallway. They stopped outside four A. One knock. Then four B. One knock. Then four C. One knock.",
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.3
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.3,
+     "end": 4.275,
+     "props": {
+      "flicker": 0.7,
+      "figure": 1,
+      "figureDepth": 0.85
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.3,
+     "start": 4.275,
+     "end": 5.75,
+     "props": {
+      "flicker": 0.8,
+      "figure": 1,
+      "figureDepth": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.3,
+     "start": 5.75,
+     "props": {
+      "flicker": 0.9,
+      "figure": 1,
+      "figureDepth": 0.38,
+      "lights": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.4,
+      "blackouts": [
+       {
+        "at": 2.687,
+        "duration": 0.15
+       },
+       {
+        "at": 4.175000000000001,
+        "duration": 0.15
+       },
+       {
+        "at": 5.65,
+        "duration": 0.15
+       }
+      ],
+      "seed": "hw"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.2,
+    "shake": [
+     {
+      "at": 2.787,
+      "duration": 0.16,
+      "amplitude": 14
+     },
+     {
+      "at": 4.275,
+      "duration": 0.16,
+      "amplitude": 14
+     },
+     {
+      "at": 5.75,
+      "duration": 0.16,
+      "amplitude": 14
+     }
+    ]
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 2.1,
+   "background": {
+    "type": "component",
+    "name": "horror/FrontDoor",
+    "depth": 0.25,
+    "props": {
+     "hallLight": 0.6,
+     "chain": "on",
+     "feet": [
+      0.2,
+      99
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 130,
+      "bpmTo": 160
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.2
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "I'm in four D."
+  },
+  {
+   "id": "p11",
+   "duration": 5.225,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -70.75
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": -45.938
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": -41.7
+         },
+         {
+          "text": "@Admin can you remove Night Desk??",
+          "from": "Leo (3C)",
+          "at": -31.013
+         },
+         {
+          "text": "I already have. 3 times. It keeps coming back.",
+          "from": "Admin · Tom (1A)",
+          "kind": "alert",
+          "at": -28.875
+         },
+         {
+          "text": "Fourth floor residents, remain behind your doors. Someone is checking each unit.",
+          "from": "Night Desk",
+          "kind": "alert",
+          "at": -17.788
+         },
+         {
+          "text": "At 4D now. Please open, for your safety.",
+          "from": "Night Desk",
+          "kind": "alert",
+          "at": 1.712
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "1:03",
+        "battery": 31,
+        "count": 42
+       },
+       "vibrate": [
+        {
+         "at": 0.375,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 150
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.225,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.375,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "My phone lit up. Night Desk. At four D now. Please open, for your safety."
+  },
+  {
+   "id": "p12",
+   "duration": 8.75,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 6,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Night Desk": {
+         "color": "#2a2d33",
+         "initials": "ND"
+        },
+        "Priya (2D)": {
+         "color": "#8f4a55",
+         "initials": "P"
+        },
+        "Admin · Tom (1A)": {
+         "color": "#4f7a73",
+         "initials": "T"
+        },
+        "Leo (3C)": {
+         "color": "#6b7a4a",
+         "initials": "L"
+        },
+        "4D": {
+         "color": "#7a5c8f",
+         "initials": "4D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Elm House Residents",
+        "messages": [
+         {
+          "text": "A delivery cart. It has left the building.",
+          "from": "Night Desk",
+          "at": -75.975
+         },
+         {
+          "text": "who is running in the stairwell??",
+          "from": "Priya (2D)",
+          "at": -51.163
+         },
+         {
+          "text": "Nobody is in the stairwell. Stay in your unit.",
+          "from": "Night Desk",
+          "at": -46.925
+         },
+         {
+          "text": "@Admin can you remove Night Desk??",
+          "from": "Leo (3C)",
+          "at": -36.238
+         },
+         {
+          "text": "I already have. 3 times. It keeps coming back.",
+          "from": "Admin · Tom (1A)",
+          "kind": "alert",
+          "at": -34.1
+         },
+         {
+          "text": "Fourth floor residents, remain behind your doors. Someone is checking each unit.",
+          "from": "Night Desk",
+          "kind": "alert",
+          "at": -23.013
+         },
+         {
+          "text": "At 4D now. Please open, for your safety.",
+          "from": "Night Desk",
+          "kind": "alert",
+          "at": -3.513
+         }
+        ],
+        "dayLabel": "Today 12:40 AM",
+        "accent": "#3d5a80",
+        "clock": "1:03",
+        "battery": 31,
+        "count": 42,
+        "typing": [
+         {
+          "from": "4D",
+          "at": 3.65,
+          "until": 9.75
+         }
+        ]
+       }
+      },
+      "glitch": [
+       {
+        "at": 3.35,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 160
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 3.35,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g12"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 8.75,
+      "zoom": 1.2,
+      "y": "40%"
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "And then I saw the name of member forty-two. It was four D. It was me. And it was typing."
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "Our",
+    "start": 0.475,
+    "end": 0.6
+   },
+   {
+    "text": "building",
+    "start": 0.6,
+    "end": 1.025
+   },
+   {
+    "text": "has",
+    "start": 1.025,
+    "end": 1.262
+   },
+   {
+    "text": "forty",
+    "start": 1.262,
+    "end": 1.575
+   },
+   {
+    "text": "apartments.",
+    "start": 1.575,
+    "end": 2.45
+   },
+   {
+    "text": "Our",
+    "start": 2.55,
+    "end": 2.7
+   },
+   {
+    "text": "residents'",
+    "start": 2.7,
+    "end": 3.2
+   },
+   {
+    "text": "group",
+    "start": 3.2,
+    "end": 3.487
+   },
+   {
+    "text": "chat",
+    "start": 3.487,
+    "end": 3.8
+   },
+   {
+    "text": "has",
+    "start": 3.8,
+    "end": 4.013
+   },
+   {
+    "text": "forty-one",
+    "start": 4.013,
+    "end": 4.412
+   },
+   {
+    "text": "members.",
+    "start": 4.412,
+    "end": 5.075
+   },
+   {
+    "text": "Nobody",
+    "start": 6.125,
+    "end": 6.45
+   },
+   {
+    "text": "knows",
+    "start": 6.45,
+    "end": 6.712
+   },
+   {
+    "text": "who",
+    "start": 6.712,
+    "end": 6.812
+   },
+   {
+    "text": "the",
+    "start": 6.812,
+    "end": 6.925
+   },
+   {
+    "text": "extra",
+    "start": 6.925,
+    "end": 7.262
+   },
+   {
+    "text": "one",
+    "start": 7.262,
+    "end": 7.412
+   },
+   {
+    "text": "is.",
+    "start": 7.412,
+    "end": 7.825
+   },
+   {
+    "text": "The",
+    "start": 7.9,
+    "end": 8.05
+   },
+   {
+    "text": "account",
+    "start": 8.05,
+    "end": 8.4
+   },
+   {
+    "text": "is",
+    "start": 8.4,
+    "end": 8.55
+   },
+   {
+    "text": "just",
+    "start": 8.55,
+    "end": 8.725
+   },
+   {
+    "text": "called",
+    "start": 8.725,
+    "end": 9.025
+   },
+   {
+    "text": "Night",
+    "start": 9.025,
+    "end": 9.225
+   },
+   {
+    "text": "Desk.",
+    "start": 9.225,
+    "end": 9.825
+   },
+   {
+    "text": "No",
+    "start": 9.962,
+    "end": 10.162
+   },
+   {
+    "text": "photo.",
+    "start": 10.162,
+    "end": 10.775
+   },
+   {
+    "text": "Nobody",
+    "start": 10.912,
+    "end": 11.275
+   },
+   {
+    "text": "remembers",
+    "start": 11.275,
+    "end": 11.688
+   },
+   {
+    "text": "adding",
+    "start": 11.688,
+    "end": 12.0
+   },
+   {
+    "text": "it.",
+    "start": 12.0,
+    "end": 12.375
+   },
+   {
+    "text": "But",
+    "start": 13.35,
+    "end": 13.475
+   },
+   {
+    "text": "every",
+    "start": 13.475,
+    "end": 13.775
+   },
+   {
+    "text": "time",
+    "start": 13.775,
+    "end": 14.113
+   },
+   {
+    "text": "someone",
+    "start": 14.113,
+    "end": 14.438
+   },
+   {
+    "text": "asks",
+    "start": 14.438,
+    "end": 14.812
+   },
+   {
+    "text": "what",
+    "start": 14.812,
+    "end": 14.95
+   },
+   {
+    "text": "that",
+    "start": 14.95,
+    "end": 15.175
+   },
+   {
+    "text": "noise",
+    "start": 15.175,
+    "end": 15.488
+   },
+   {
+    "text": "in",
+    "start": 15.488,
+    "end": 15.562
+   },
+   {
+    "text": "the",
+    "start": 15.562,
+    "end": 15.65
+   },
+   {
+    "text": "hallway",
+    "start": 15.65,
+    "end": 16.0
+   },
+   {
+    "text": "was,",
+    "start": 16.0,
+    "end": 16.475
+   },
+   {
+    "text": "Night",
+    "start": 16.575,
+    "end": 16.775
+   },
+   {
+    "text": "Desk",
+    "start": 16.775,
+    "end": 17.075
+   },
+   {
+    "text": "answers",
+    "start": 17.075,
+    "end": 17.475
+   },
+   {
+    "text": "first.",
+    "start": 17.475,
+    "end": 18.15
+   },
+   {
+    "text": "And",
+    "start": 18.25,
+    "end": 18.387
+   },
+   {
+    "text": "it's",
+    "start": 18.387,
+    "end": 18.525
+   },
+   {
+    "text": "always",
+    "start": 18.525,
+    "end": 18.9
+   },
+   {
+    "text": "right.",
+    "start": 18.9,
+    "end": 19.45
+   },
+   {
+    "text": "Tonight,",
+    "start": 20.5,
+    "end": 20.85
+   },
+   {
+    "text": "Priya",
+    "start": 20.9,
+    "end": 21.25
+   },
+   {
+    "text": "in",
+    "start": 21.25,
+    "end": 21.413
+   },
+   {
+    "text": "two",
+    "start": 21.413,
+    "end": 21.625
+   },
+   {
+    "text": "D",
+    "start": 21.625,
+    "end": 21.812
+   },
+   {
+    "text": "asked",
+    "start": 21.812,
+    "end": 22.163
+   },
+   {
+    "text": "who",
+    "start": 22.163,
+    "end": 22.262
+   },
+   {
+    "text": "was",
+    "start": 22.262,
+    "end": 22.413
+   },
+   {
+    "text": "running",
+    "start": 22.413,
+    "end": 22.712
+   },
+   {
+    "text": "in",
+    "start": 22.712,
+    "end": 22.788
+   },
+   {
+    "text": "the",
+    "start": 22.788,
+    "end": 22.875
+   },
+   {
+    "text": "stairwell.",
+    "start": 22.875,
+    "end": 23.65
+   },
+   {
+    "text": "Night",
+    "start": 23.775,
+    "end": 24.05
+   },
+   {
+    "text": "Desk",
+    "start": 24.05,
+    "end": 24.4
+   },
+   {
+    "text": "replied",
+    "start": 24.4,
+    "end": 24.887
+   },
+   {
+    "text": "in",
+    "start": 24.887,
+    "end": 24.988
+   },
+   {
+    "text": "under",
+    "start": 24.988,
+    "end": 25.163
+   },
+   {
+    "text": "a",
+    "start": 25.163,
+    "end": 25.225
+   },
+   {
+    "text": "second.",
+    "start": 25.225,
+    "end": 25.9
+   },
+   {
+    "text": "Nobody",
+    "start": 26.05,
+    "end": 26.562
+   },
+   {
+    "text": "is",
+    "start": 26.562,
+    "end": 26.688
+   },
+   {
+    "text": "in",
+    "start": 26.688,
+    "end": 26.762
+   },
+   {
+    "text": "the",
+    "start": 26.762,
+    "end": 26.85
+   },
+   {
+    "text": "stairwell.",
+    "start": 26.85,
+    "end": 27.55
+   },
+   {
+    "text": "Stay",
+    "start": 27.675,
+    "end": 28.05
+   },
+   {
+    "text": "in",
+    "start": 28.05,
+    "end": 28.137
+   },
+   {
+    "text": "your",
+    "start": 28.137,
+    "end": 28.25
+   },
+   {
+    "text": "unit.",
+    "start": 28.25,
+    "end": 28.825
+   },
+   {
+    "text": "A",
+    "start": 29.85,
+    "end": 29.925
+   },
+   {
+    "text": "minute",
+    "start": 29.925,
+    "end": 30.175
+   },
+   {
+    "text": "later,",
+    "start": 30.175,
+    "end": 30.5
+   },
+   {
+    "text": "Priya",
+    "start": 30.575,
+    "end": 30.9
+   },
+   {
+    "text": "posted",
+    "start": 30.9,
+    "end": 31.238
+   },
+   {
+    "text": "a",
+    "start": 31.238,
+    "end": 31.3
+   },
+   {
+    "text": "photo",
+    "start": 31.3,
+    "end": 31.663
+   },
+   {
+    "text": "of",
+    "start": 31.663,
+    "end": 31.738
+   },
+   {
+    "text": "the",
+    "start": 31.738,
+    "end": 31.825
+   },
+   {
+    "text": "stairwell",
+    "start": 31.825,
+    "end": 32.3
+   },
+   {
+    "text": "door.",
+    "start": 32.3,
+    "end": 32.8
+   },
+   {
+    "text": "Wide",
+    "start": 32.962,
+    "end": 33.25
+   },
+   {
+    "text": "open.",
+    "start": 33.25,
+    "end": 33.775
+   },
+   {
+    "text": "Swinging.",
+    "start": 33.9,
+    "end": 34.55
+   },
+   {
+    "text": "Someone",
+    "start": 35.575,
+    "end": 35.85
+   },
+   {
+    "text": "asked",
+    "start": 35.85,
+    "end": 36.112
+   },
+   {
+    "text": "the",
+    "start": 36.112,
+    "end": 36.225
+   },
+   {
+    "text": "admin",
+    "start": 36.225,
+    "end": 36.65
+   },
+   {
+    "text": "to",
+    "start": 36.65,
+    "end": 36.737
+   },
+   {
+    "text": "remove",
+    "start": 36.737,
+    "end": 37.075
+   },
+   {
+    "text": "Night",
+    "start": 37.075,
+    "end": 37.275
+   },
+   {
+    "text": "Desk.",
+    "start": 37.275,
+    "end": 37.875
+   },
+   {
+    "text": "The",
+    "start": 38.0,
+    "end": 38.15
+   },
+   {
+    "text": "admin",
+    "start": 38.15,
+    "end": 38.525
+   },
+   {
+    "text": "wrote:",
+    "start": 38.525,
+    "end": 38.825
+   },
+   {
+    "text": "I",
+    "start": 38.875,
+    "end": 39.0
+   },
+   {
+    "text": "already",
+    "start": 39.0,
+    "end": 39.3
+   },
+   {
+    "text": "have.",
+    "start": 39.3,
+    "end": 39.8
+   },
+   {
+    "text": "Three",
+    "start": 39.937,
+    "end": 40.175
+   },
+   {
+    "text": "times.",
+    "start": 40.175,
+    "end": 40.65
+   },
+   {
+    "text": "It",
+    "start": 40.687,
+    "end": 40.8
+   },
+   {
+    "text": "keeps",
+    "start": 40.8,
+    "end": 41.075
+   },
+   {
+    "text": "coming",
+    "start": 41.075,
+    "end": 41.325
+   },
+   {
+    "text": "back.",
+    "start": 41.325,
+    "end": 41.85
+   },
+   {
+    "text": "I",
+    "start": 42.875,
+    "end": 43.025
+   },
+   {
+    "text": "opened",
+    "start": 43.025,
+    "end": 43.287
+   },
+   {
+    "text": "the",
+    "start": 43.287,
+    "end": 43.375
+   },
+   {
+    "text": "member",
+    "start": 43.375,
+    "end": 43.625
+   },
+   {
+    "text": "list.",
+    "start": 43.625,
+    "end": 44.125
+   },
+   {
+    "text": "Forty-one.",
+    "start": 44.262,
+    "end": 45.0
+   },
+   {
+    "text": "Then,",
+    "start": 45.112,
+    "end": 45.5
+   },
+   {
+    "text": "while",
+    "start": 45.575,
+    "end": 45.762
+   },
+   {
+    "text": "I",
+    "start": 45.762,
+    "end": 45.862
+   },
+   {
+    "text": "was",
+    "start": 45.862,
+    "end": 46.0
+   },
+   {
+    "text": "looking",
+    "start": 46.0,
+    "end": 46.312
+   },
+   {
+    "text": "at",
+    "start": 46.312,
+    "end": 46.45
+   },
+   {
+    "text": "it,",
+    "start": 46.45,
+    "end": 46.55
+   },
+   {
+    "text": "forty-two.",
+    "start": 46.6,
+    "end": 47.35
+   },
+   {
+    "text": "Night",
+    "start": 48.425,
+    "end": 48.675
+   },
+   {
+    "text": "Desk",
+    "start": 48.675,
+    "end": 48.975
+   },
+   {
+    "text": "posted",
+    "start": 48.975,
+    "end": 49.337
+   },
+   {
+    "text": "again.",
+    "start": 49.337,
+    "end": 49.9
+   },
+   {
+    "text": "Fourth",
+    "start": 50.012,
+    "end": 50.337
+   },
+   {
+    "text": "floor",
+    "start": 50.337,
+    "end": 50.625
+   },
+   {
+    "text": "residents,",
+    "start": 50.625,
+    "end": 51.175
+   },
+   {
+    "text": "remain",
+    "start": 51.25,
+    "end": 51.7
+   },
+   {
+    "text": "behind",
+    "start": 51.7,
+    "end": 52.037
+   },
+   {
+    "text": "your",
+    "start": 52.037,
+    "end": 52.15
+   },
+   {
+    "text": "doors.",
+    "start": 52.15,
+    "end": 52.725
+   },
+   {
+    "text": "Someone",
+    "start": 52.85,
+    "end": 53.2
+   },
+   {
+    "text": "is",
+    "start": 53.2,
+    "end": 53.362
+   },
+   {
+    "text": "checking",
+    "start": 53.362,
+    "end": 53.75
+   },
+   {
+    "text": "each",
+    "start": 53.75,
+    "end": 53.975
+   },
+   {
+    "text": "unit.",
+    "start": 53.975,
+    "end": 54.5
+   },
+   {
+    "text": "I",
+    "start": 55.525,
+    "end": 55.675
+   },
+   {
+    "text": "live",
+    "start": 55.675,
+    "end": 55.862
+   },
+   {
+    "text": "on",
+    "start": 55.862,
+    "end": 55.962
+   },
+   {
+    "text": "the",
+    "start": 55.962,
+    "end": 56.05
+   },
+   {
+    "text": "fourth",
+    "start": 56.05,
+    "end": 56.325
+   },
+   {
+    "text": "floor.",
+    "start": 56.325,
+    "end": 56.875
+   },
+   {
+    "text": "Footsteps",
+    "start": 58.225,
+    "end": 58.687
+   },
+   {
+    "text": "in",
+    "start": 58.687,
+    "end": 58.762
+   },
+   {
+    "text": "the",
+    "start": 58.762,
+    "end": 58.85
+   },
+   {
+    "text": "hallway.",
+    "start": 58.85,
+    "end": 59.475
+   },
+   {
+    "text": "They",
+    "start": 59.6,
+    "end": 59.75
+   },
+   {
+    "text": "stopped",
+    "start": 59.75,
+    "end": 60.1
+   },
+   {
+    "text": "outside",
+    "start": 60.1,
+    "end": 60.587
+   },
+   {
+    "text": "four",
+    "start": 60.587,
+    "end": 60.875
+   },
+   {
+    "text": "A.",
+    "start": 60.875,
+    "end": 61.025
+   },
+   {
+    "text": "One",
+    "start": 61.025,
+    "end": 61.212
+   },
+   {
+    "text": "knock.",
+    "start": 61.212,
+    "end": 61.7
+   },
+   {
+    "text": "Then",
+    "start": 61.8,
+    "end": 62.037
+   },
+   {
+    "text": "four",
+    "start": 62.037,
+    "end": 62.3
+   },
+   {
+    "text": "B.",
+    "start": 62.3,
+    "end": 62.475
+   },
+   {
+    "text": "One",
+    "start": 62.475,
+    "end": 62.7
+   },
+   {
+    "text": "knock.",
+    "start": 62.7,
+    "end": 63.2
+   },
+   {
+    "text": "Then",
+    "start": 63.3,
+    "end": 63.537
+   },
+   {
+    "text": "four",
+    "start": 63.537,
+    "end": 63.787
+   },
+   {
+    "text": "C.",
+    "start": 63.787,
+    "end": 63.975
+   },
+   {
+    "text": "One",
+    "start": 63.975,
+    "end": 64.175
+   },
+   {
+    "text": "knock.",
+    "start": 64.175,
+    "end": 64.7
+   },
+   {
+    "text": "I'm",
+    "start": 65.8,
+    "end": 65.962
+   },
+   {
+    "text": "in",
+    "start": 65.962,
+    "end": 66.112
+   },
+   {
+    "text": "four",
+    "start": 66.112,
+    "end": 66.375
+   },
+   {
+    "text": "D.",
+    "start": 66.375,
+    "end": 66.85
+   },
+   {
+    "text": "My",
+    "start": 67.9,
+    "end": 68.062
+   },
+   {
+    "text": "phone",
+    "start": 68.062,
+    "end": 68.325
+   },
+   {
+    "text": "lit",
+    "start": 68.325,
+    "end": 68.462
+   },
+   {
+    "text": "up.",
+    "start": 68.462,
+    "end": 68.825
+   },
+   {
+    "text": "Night",
+    "start": 68.925,
+    "end": 69.125
+   },
+   {
+    "text": "Desk.",
+    "start": 69.125,
+    "end": 69.475
+   },
+   {
+    "text": "At",
+    "start": 69.512,
+    "end": 69.65
+   },
+   {
+    "text": "four",
+    "start": 69.65,
+    "end": 69.875
+   },
+   {
+    "text": "D",
+    "start": 69.875,
+    "end": 70.037
+   },
+   {
+    "text": "now.",
+    "start": 70.037,
+    "end": 70.375
+   },
+   {
+    "text": "Please",
+    "start": 70.475,
+    "end": 70.75
+   },
+   {
+    "text": "open,",
+    "start": 70.75,
+    "end": 71.1
+   },
+   {
+    "text": "for",
+    "start": 71.15,
+    "end": 71.262
+   },
+   {
+    "text": "your",
+    "start": 71.262,
+    "end": 71.4
+   },
+   {
+    "text": "safety.",
+    "start": 71.4,
+    "end": 72.125
+   },
+   {
+    "text": "And",
+    "start": 73.125,
+    "end": 73.237
+   },
+   {
+    "text": "then",
+    "start": 73.237,
+    "end": 73.362
+   },
+   {
+    "text": "I",
+    "start": 73.362,
+    "end": 73.512
+   },
+   {
+    "text": "saw",
+    "start": 73.512,
+    "end": 73.737
+   },
+   {
+    "text": "the",
+    "start": 73.737,
+    "end": 73.825
+   },
+   {
+    "text": "name",
+    "start": 73.825,
+    "end": 74.137
+   },
+   {
+    "text": "of",
+    "start": 74.137,
+    "end": 74.25
+   },
+   {
+    "text": "member",
+    "start": 74.25,
+    "end": 74.525
+   },
+   {
+    "text": "forty-two.",
+    "start": 74.525,
+    "end": 75.25
+   },
+   {
+    "text": "It",
+    "start": 75.375,
+    "end": 75.487
+   },
+   {
+    "text": "was",
+    "start": 75.487,
+    "end": 75.662
+   },
+   {
+    "text": "four",
+    "start": 75.662,
+    "end": 75.9
+   },
+   {
+    "text": "D.",
+    "start": 75.9,
+    "end": 76.062
+   },
+   {
+    "text": "It",
+    "start": 76.062,
+    "end": 76.162
+   },
+   {
+    "text": "was",
+    "start": 76.162,
+    "end": 76.325
+   },
+   {
+    "text": "me.",
+    "start": 76.325,
+    "end": 76.725
+   },
+   {
+    "text": "And",
+    "start": 76.85,
+    "end": 77.012
+   },
+   {
+    "text": "it",
+    "start": 77.012,
+    "end": 77.087
+   },
+   {
+    "text": "was",
+    "start": 77.087,
+    "end": 77.225
+   },
+   {
+    "text": "typing.",
+    "start": 77.225,
+    "end": 77.9
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 16,
+  "style": {
+   "font": "display",
+   "fontSize": 76,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "color",
+   "strokeWidth": 12,
+   "uppercase": false,
+   "y": 0.15
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-member-41/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 81.725
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.0,
+  "fadeIn": 0.2,
+  "fadeOut": 0.6
+ },
+ "_built": {
+  "by": "pipeline/episodes/build.py",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/horror-member-41/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

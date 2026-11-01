@@ -1,0 +1,2329 @@
+{
+ "version": 1,
+ "id": "horror-elevator-maintenance",
+ "title": "I Texted Elevator Maintenance At 1 A.M. (Part 1)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p00",
+   "duration": 5.725,
+   "notes": "The elevator stopped between floors at one in the morning. Then the lights went out.",
+   "background": {
+    "type": "component",
+    "name": "horror/ElevatorPanel",
+    "depth": 1,
+    "props": {
+     "from": 6,
+     "to": 6,
+     "at": 0,
+     "floors": 10,
+     "flicker": 0.3
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.5,
+      "blackouts": [
+       {
+        "at": 4.075,
+        "duration": 99
+       }
+      ],
+      "seed": "el"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.2,
+      "y": "30%"
+     },
+     {
+      "t": 5.725,
+      "zoom": 1.28,
+      "y": "30%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.2,
+      "duration": 0.4,
+      "amplitude": 20
+     }
+    ]
+   }
+  },
+  {
+   "id": "p01",
+   "duration": 5.15,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "",
+      "flicker": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Maintenance",
+        "messages": [
+         {
+          "text": "Hi, I'm stuck in the elevator at 120 Grant St. Between floors. Lights are out.",
+          "me": true,
+          "at": 3.487
+         }
+        ],
+        "dayLabel": "Today 1:07 AM",
+        "accent": "#3d5a80",
+        "clock": "1:07",
+        "battery": 18,
+        "subtitle": "+1 (555) 0143"
+       }
+      },
+      "taps": [
+       {
+        "at": 3.187,
+        "x": 0.88,
+        "y": 0.95
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.5,
+      "y": 0.5,
+      "radius": 0.6,
+      "darkness": 0.5
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.15,
+      "zoom": 1.04
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "There's a sticker by the buttons. In an emergency, text Maintenance. So I did."
+  },
+  {
+   "id": "p02",
+   "duration": 7.675,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "",
+      "flicker": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Maintenance",
+        "messages": [
+         {
+          "text": "Hi, I'm stuck in the elevator at 120 Grant St. Between floors. Lights are out.",
+          "me": true,
+          "at": -1.663
+         },
+         {
+          "text": "Stay calm. Press 4, then 2, then hold CLOSE.",
+          "from": "Maintenance",
+          "at": 1.438
+         },
+         {
+          "text": "Whatever you do, don't look at the mirror.",
+          "from": "Maintenance",
+          "kind": "alert",
+          "at": 4.825
+         }
+        ],
+        "dayLabel": "Today 1:07 AM",
+        "accent": "#3d5a80",
+        "clock": "1:07",
+        "battery": 18,
+        "subtitle": "+1 (555) 0143",
+        "typing": [
+         {
+          "from": "Maintenance",
+          "at": 0.1,
+          "until": 1.438
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 1.438,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.675,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.438,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "They answered right away. Stay calm. Press four, then two, then hold the close button. Whatever you do, don't look at the mirror."
+  },
+  {
+   "id": "p03",
+   "duration": 5.05,
+   "background": {
+    "type": "component",
+    "name": "horror/Hallway",
+    "depth": 0.25,
+    "props": {
+     "lights": 1,
+     "flicker": 0.2
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stranger",
+     "x": "78%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 620,
+     "height": 942,
+     "depth": 1.1,
+     "opacity": 0.85,
+     "props": {
+      "silhouette": true,
+      "expr": "blank"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "38%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 820,
+     "height": 1246,
+     "props": {
+      "pose": "idle",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 3.113,
+        "e": "terrified"
+       }
+      ],
+      "lookX": 0.8,
+      "lookY": 0,
+      "blink": false
+     },
+     "flipX": false
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.4,
+      "y": 0.5,
+      "radius": 0.45,
+      "darkness": 0.85
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.85
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "I'd never noticed the mirror before. In the dark, I could feel it behind me.",
+   "grade": {
+    "saturate": 0.6
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 6.05,
+   "notes": "I pressed four. Then two. The elevator jolted, and started going up instead of down.",
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "background": {
+    "type": "component",
+    "name": "horror/ElevatorPanel",
+    "depth": 1,
+    "props": {
+     "from": 6,
+     "to": 9,
+     "at": 2.988,
+     "perFloor": 1.1,
+     "floors": 10,
+     "pressed": [
+      {
+       "at": 0.6,
+       "floor": 4
+      },
+      {
+       "at": 1.313,
+       "floor": 2
+      }
+     ],
+     "flicker": 0.4
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15,
+      "y": "50%"
+     },
+     {
+      "t": 2.688,
+      "zoom": 1.15,
+      "y": "50%"
+     },
+     {
+      "t": 3.2880000000000003,
+      "zoom": 1.25,
+      "y": "28%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.688,
+      "duration": 0.5,
+      "amplitude": 22
+     }
+    ]
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 6.325,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "",
+      "flicker": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Maintenance",
+        "messages": [
+         {
+          "text": "Hi, I'm stuck in the elevator at 120 Grant St. Between floors. Lights are out.",
+          "me": true,
+          "at": -20.438
+         },
+         {
+          "text": "Stay calm. Press 4, then 2, then hold CLOSE.",
+          "from": "Maintenance",
+          "at": -17.337
+         },
+         {
+          "text": "Whatever you do, don't look at the mirror.",
+          "from": "Maintenance",
+          "kind": "alert",
+          "at": -13.95
+         },
+         {
+          "text": "Good. Keep holding CLOSE.",
+          "from": "Maintenance",
+          "at": 1.663
+         },
+         {
+          "text": "You'll hear someone ask to get in. Say no.",
+          "from": "Maintenance",
+          "at": 3.1
+         }
+        ],
+        "dayLabel": "Today 1:07 AM",
+        "accent": "#3d5a80",
+        "clock": "1:09",
+        "battery": 18,
+        "subtitle": "+1 (555) 0143"
+       },
+       "vibrate": [
+        {
+         "at": 1.663,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 6.325,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.663,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "Maintenance texted again. Good. Keep holding close. You'll hear someone ask to get in. Say no."
+  },
+  {
+   "id": "p06",
+   "duration": 9.275,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "",
+      "flicker": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 1.5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Brightline Lift Services",
+        "messages": [
+         {
+          "text": "We're closed until 8 AM. Your elevator shows OUT OF SERVICE.",
+          "from": "Brightline Lift Services",
+          "at": 3.625
+         },
+         {
+          "text": "Who are you talking to?",
+          "from": "Brightline Lift Services",
+          "kind": "alert",
+          "at": 7.05
+         }
+        ],
+        "dayLabel": "Today 1:10 AM",
+        "accent": "#3d5a80",
+        "clock": "1:10",
+        "battery": 17,
+        "subtitle": "Verified business"
+       },
+       "vibrate": [
+        {
+         "at": 0.1,
+         "duration": 0.4
+        }
+       ],
+       "banners": [
+        {
+         "at": 0.1,
+         "duration": 1.6,
+         "app": "Messages",
+         "title": "Brightline Lift Services",
+         "text": "Building maintenance here."
+        }
+       ]
+      },
+      "glitch": [
+       {
+        "at": 7.1,
+        "duration": 0.22,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 7.1,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "g6"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 9.275,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.1,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.3
+   },
+   "notes": "Then a different number messaged me. It said it was building maintenance. We're closed until eight. Your elevator shows out of service. Who are you talking to?"
+  },
+  {
+   "id": "p07",
+   "duration": 5.675,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Stairwell",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "floor": "",
+      "flicker": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 4,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Maintenance",
+        "messages": [
+         {
+          "text": "Hi, I'm stuck in the elevator at 120 Grant St. Between floors. Lights are out.",
+          "me": true,
+          "at": -36.038
+         },
+         {
+          "text": "Stay calm. Press 4, then 2, then hold CLOSE.",
+          "from": "Maintenance",
+          "at": -32.937
+         },
+         {
+          "text": "Whatever you do, don't look at the mirror.",
+          "from": "Maintenance",
+          "kind": "alert",
+          "at": -29.55
+         },
+         {
+          "text": "Good. Keep holding CLOSE.",
+          "from": "Maintenance",
+          "at": -13.937
+         },
+         {
+          "text": "You'll hear someone ask to get in. Say no.",
+          "from": "Maintenance",
+          "at": -12.5
+         },
+         {
+          "text": "Don't listen to them. They're the ones who want in.",
+          "from": "Maintenance",
+          "kind": "alert",
+          "at": 2.35
+         }
+        ],
+        "dayLabel": "Today 1:07 AM",
+        "accent": "#3d5a80",
+        "clock": "1:11",
+        "battery": 18,
+        "subtitle": "+1 (555) 0143"
+       },
+       "vibrate": [
+        {
+         "at": 2.35,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 100,
+      "bpmTo": 130
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.675,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 2.35,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "Before I could answer, the first number wrote: Don't listen to them. They're the ones who want in."
+  },
+  {
+   "id": "p08",
+   "duration": 6.95,
+   "notes": "The floor counter kept climbing. Eight. Nine. Ten. Eleven. Our building only has ten floors.",
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "background": {
+    "type": "component",
+    "name": "horror/ElevatorPanel",
+    "depth": 1,
+    "props": {
+     "from": 7,
+     "to": 11,
+     "at": 1.387,
+     "perFloor": 0.62,
+     "floors": 12,
+     "flicker": 0.4
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 40,
+     "props": {
+      "text": "We only have 10 floors",
+      "style": "neon",
+      "at": 4.475,
+      "fontSize": 96,
+      "strobe": 6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.65
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "y": "25%"
+     },
+     {
+      "t": 6.95,
+      "zoom": 1.35,
+      "y": "26%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.412,
+      "duration": 0.3,
+      "amplitude": 14
+     }
+    ]
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 5.6,
+   "background": {
+    "type": "component",
+    "name": "horror/Hallway",
+    "depth": 0.25,
+    "props": {
+     "lights": 1,
+     "flicker": 0.8,
+     "figure": 0.7,
+     "figureDepth": 0.9
+    }
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "25%",
+     "y": "50%",
+     "width": 540,
+     "height": 1920,
+     "fill": "#0d0f12",
+     "depth": 0,
+     "z": 5,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "25%"
+      },
+      {
+       "t": 1.825,
+       "x": "25%"
+      },
+      {
+       "t": 5.6,
+       "x": "-5%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": "75%",
+     "y": "50%",
+     "width": 540,
+     "height": 1920,
+     "fill": "#0d0f12",
+     "depth": 0,
+     "z": 5,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "75%"
+      },
+      {
+       "t": 1.825,
+       "x": "75%"
+      },
+      {
+       "t": 5.6,
+       "x": "105%",
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.85
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "notes": "The elevator stopped. And the doors began to open, onto a floor with no number."
+  },
+  {
+   "id": "p10",
+   "duration": 5.7,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lights": 1,
+      "flicker": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -3,
+      "tremble": 5,
+      "side": "right",
+      "phone": {
+       "members": {
+        "Maintenance": {
+         "color": "#3a3f4a",
+         "initials": "M"
+        },
+        "Brightline Lift Services": {
+         "color": "#4f7a73",
+         "initials": "BL"
+        }
+       },
+       "mode": "lock",
+       "lock": {
+        "time": "1:13",
+        "date": "Sunday, November 1",
+        "notifications": [
+         {
+          "at": 3.012,
+          "app": "Messages",
+          "title": "Maintenance",
+          "text": "Run."
+         },
+         {
+          "at": 4.187,
+          "app": "Messages",
+          "title": "Brightline Lift Services",
+          "text": "Stay."
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 3.012,
+         "duration": 0.4
+        },
+        {
+         "at": 4.187,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.7,
+      "zoom": 1.04
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.012,
+      "duration": 0.3,
+      "amplitude": 10
+     },
+     {
+      "at": 4.187,
+      "duration": 0.3,
+      "amplitude": 10
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "notes": "Both numbers texted me at the same time. One said: Run. The other said: Stay."
+  },
+  {
+   "id": "p11",
+   "duration": 9.95,
+   "background": {
+    "type": "component",
+    "name": "horror/Hallway",
+    "depth": 0.25,
+    "props": {
+     "lights": 1,
+     "flicker": 0.4
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "30%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 760,
+     "height": 1155,
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "terrified"
+       }
+      ],
+      "lookX": -0.6,
+      "lookY": 0
+     },
+     "flipX": false
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "76%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 700,
+     "height": 1064,
+     "depth": 1.0,
+     "opacity": 0.9,
+     "start": 1.525,
+     "enter": {
+      "type": "fade",
+      "duration": 0.6
+     },
+     "props": {
+      "exprs": [
+       {
+        "t": 0,
+        "e": "neutral"
+       },
+       {
+        "t": 4.837,
+        "e": "suspicious"
+       }
+      ],
+      "light": "red",
+      "lookX": -1,
+      "blink": false,
+      "glitch": [
+       {
+        "at": 4.837,
+        "duration": 0.3,
+        "amount": 1
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 4.837,
+        "duration": 0.35,
+        "amount": 1
+       }
+      ],
+      "seed": "mir"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.85
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "45%"
+     },
+     {
+      "t": 9.95,
+      "zoom": 1.15,
+      "x": "65%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.837,
+      "duration": 0.4,
+      "amplitude": 18
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "notes": "And out of the corner of my eye, in the mirror, my reflection wasn't reading the messages. It was looking straight at me."
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "The",
+    "start": 0.475,
+    "end": 0.6
+   },
+   {
+    "text": "elevator",
+    "start": 0.6,
+    "end": 1.15
+   },
+   {
+    "text": "stopped",
+    "start": 1.15,
+    "end": 1.488
+   },
+   {
+    "text": "between",
+    "start": 1.488,
+    "end": 1.837
+   },
+   {
+    "text": "floors",
+    "start": 1.837,
+    "end": 2.25
+   },
+   {
+    "text": "at",
+    "start": 2.25,
+    "end": 2.35
+   },
+   {
+    "text": "one",
+    "start": 2.35,
+    "end": 2.538
+   },
+   {
+    "text": "in",
+    "start": 2.538,
+    "end": 2.612
+   },
+   {
+    "text": "the",
+    "start": 2.612,
+    "end": 2.7
+   },
+   {
+    "text": "morning.",
+    "start": 2.7,
+    "end": 3.375
+   },
+   {
+    "text": "Then",
+    "start": 3.513,
+    "end": 3.775
+   },
+   {
+    "text": "the",
+    "start": 3.775,
+    "end": 3.875
+   },
+   {
+    "text": "lights",
+    "start": 3.875,
+    "end": 4.2
+   },
+   {
+    "text": "went",
+    "start": 4.2,
+    "end": 4.375
+   },
+   {
+    "text": "out.",
+    "start": 4.375,
+    "end": 4.875
+   },
+   {
+    "text": "There's",
+    "start": 5.875,
+    "end": 6.037
+   },
+   {
+    "text": "a",
+    "start": 6.037,
+    "end": 6.1
+   },
+   {
+    "text": "sticker",
+    "start": 6.1,
+    "end": 6.45
+   },
+   {
+    "text": "by",
+    "start": 6.45,
+    "end": 6.587
+   },
+   {
+    "text": "the",
+    "start": 6.587,
+    "end": 6.675
+   },
+   {
+    "text": "buttons.",
+    "start": 6.675,
+    "end": 7.3
+   },
+   {
+    "text": "In",
+    "start": 7.4,
+    "end": 7.487
+   },
+   {
+    "text": "an",
+    "start": 7.487,
+    "end": 7.575
+   },
+   {
+    "text": "emergency,",
+    "start": 7.575,
+    "end": 8.225
+   },
+   {
+    "text": "text",
+    "start": 8.275,
+    "end": 8.562
+   },
+   {
+    "text": "Maintenance.",
+    "start": 8.562,
+    "end": 9.125
+   },
+   {
+    "text": "So",
+    "start": 9.212,
+    "end": 9.375
+   },
+   {
+    "text": "I",
+    "start": 9.375,
+    "end": 9.525
+   },
+   {
+    "text": "did.",
+    "start": 9.525,
+    "end": 10.0
+   },
+   {
+    "text": "They",
+    "start": 11.025,
+    "end": 11.175
+   },
+   {
+    "text": "answered",
+    "start": 11.175,
+    "end": 11.475
+   },
+   {
+    "text": "right",
+    "start": 11.475,
+    "end": 11.663
+   },
+   {
+    "text": "away.",
+    "start": 11.663,
+    "end": 12.2
+   },
+   {
+    "text": "Stay",
+    "start": 12.363,
+    "end": 12.6
+   },
+   {
+    "text": "calm.",
+    "start": 12.6,
+    "end": 13.125
+   },
+   {
+    "text": "Press",
+    "start": 13.225,
+    "end": 13.5
+   },
+   {
+    "text": "four,",
+    "start": 13.5,
+    "end": 13.775
+   },
+   {
+    "text": "then",
+    "start": 13.825,
+    "end": 14.038
+   },
+   {
+    "text": "two,",
+    "start": 14.038,
+    "end": 14.325
+   },
+   {
+    "text": "then",
+    "start": 14.375,
+    "end": 14.525
+   },
+   {
+    "text": "hold",
+    "start": 14.525,
+    "end": 14.763
+   },
+   {
+    "text": "the",
+    "start": 14.763,
+    "end": 14.85
+   },
+   {
+    "text": "close",
+    "start": 14.85,
+    "end": 15.15
+   },
+   {
+    "text": "button.",
+    "start": 15.15,
+    "end": 15.65
+   },
+   {
+    "text": "Whatever",
+    "start": 15.75,
+    "end": 16.1
+   },
+   {
+    "text": "you",
+    "start": 16.1,
+    "end": 16.25
+   },
+   {
+    "text": "do,",
+    "start": 16.25,
+    "end": 16.525
+   },
+   {
+    "text": "don't",
+    "start": 16.6,
+    "end": 16.788
+   },
+   {
+    "text": "look",
+    "start": 16.788,
+    "end": 16.938
+   },
+   {
+    "text": "at",
+    "start": 16.938,
+    "end": 17.013
+   },
+   {
+    "text": "the",
+    "start": 17.013,
+    "end": 17.1
+   },
+   {
+    "text": "mirror.",
+    "start": 17.1,
+    "end": 17.7
+   },
+   {
+    "text": "I'd",
+    "start": 18.7,
+    "end": 18.875
+   },
+   {
+    "text": "never",
+    "start": 18.875,
+    "end": 19.175
+   },
+   {
+    "text": "noticed",
+    "start": 19.175,
+    "end": 19.538
+   },
+   {
+    "text": "the",
+    "start": 19.538,
+    "end": 19.625
+   },
+   {
+    "text": "mirror",
+    "start": 19.625,
+    "end": 19.913
+   },
+   {
+    "text": "before.",
+    "start": 19.913,
+    "end": 20.55
+   },
+   {
+    "text": "In",
+    "start": 20.688,
+    "end": 20.812
+   },
+   {
+    "text": "the",
+    "start": 20.812,
+    "end": 20.9
+   },
+   {
+    "text": "dark,",
+    "start": 20.9,
+    "end": 21.35
+   },
+   {
+    "text": "I",
+    "start": 21.425,
+    "end": 21.55
+   },
+   {
+    "text": "could",
+    "start": 21.55,
+    "end": 21.7
+   },
+   {
+    "text": "feel",
+    "start": 21.7,
+    "end": 21.888
+   },
+   {
+    "text": "it",
+    "start": 21.888,
+    "end": 21.963
+   },
+   {
+    "text": "behind",
+    "start": 21.963,
+    "end": 22.312
+   },
+   {
+    "text": "me.",
+    "start": 22.312,
+    "end": 22.725
+   },
+   {
+    "text": "I",
+    "start": 23.75,
+    "end": 23.875
+   },
+   {
+    "text": "pressed",
+    "start": 23.875,
+    "end": 24.2
+   },
+   {
+    "text": "four.",
+    "start": 24.2,
+    "end": 24.575
+   },
+   {
+    "text": "Then",
+    "start": 24.675,
+    "end": 24.913
+   },
+   {
+    "text": "two.",
+    "start": 24.913,
+    "end": 25.45
+   },
+   {
+    "text": "The",
+    "start": 25.625,
+    "end": 25.775
+   },
+   {
+    "text": "elevator",
+    "start": 25.775,
+    "end": 26.288
+   },
+   {
+    "text": "jolted,",
+    "start": 26.288,
+    "end": 26.8
+   },
+   {
+    "text": "and",
+    "start": 26.875,
+    "end": 27.0
+   },
+   {
+    "text": "started",
+    "start": 27.0,
+    "end": 27.375
+   },
+   {
+    "text": "going",
+    "start": 27.375,
+    "end": 27.638
+   },
+   {
+    "text": "up",
+    "start": 27.638,
+    "end": 27.788
+   },
+   {
+    "text": "instead",
+    "start": 27.788,
+    "end": 28.038
+   },
+   {
+    "text": "of",
+    "start": 28.038,
+    "end": 28.125
+   },
+   {
+    "text": "down.",
+    "start": 28.125,
+    "end": 28.725
+   },
+   {
+    "text": "Maintenance",
+    "start": 29.8,
+    "end": 30.275
+   },
+   {
+    "text": "texted",
+    "start": 30.275,
+    "end": 30.688
+   },
+   {
+    "text": "again.",
+    "start": 30.688,
+    "end": 31.2
+   },
+   {
+    "text": "Good.",
+    "start": 31.313,
+    "end": 31.625
+   },
+   {
+    "text": "Keep",
+    "start": 31.7,
+    "end": 31.913
+   },
+   {
+    "text": "holding",
+    "start": 31.913,
+    "end": 32.225
+   },
+   {
+    "text": "close.",
+    "start": 32.225,
+    "end": 32.725
+   },
+   {
+    "text": "You'll",
+    "start": 32.8,
+    "end": 32.95
+   },
+   {
+    "text": "hear",
+    "start": 32.95,
+    "end": 33.15
+   },
+   {
+    "text": "someone",
+    "start": 33.15,
+    "end": 33.4
+   },
+   {
+    "text": "ask",
+    "start": 33.4,
+    "end": 33.638
+   },
+   {
+    "text": "to",
+    "start": 33.638,
+    "end": 33.725
+   },
+   {
+    "text": "get",
+    "start": 33.725,
+    "end": 33.888
+   },
+   {
+    "text": "in.",
+    "start": 33.888,
+    "end": 34.225
+   },
+   {
+    "text": "Say",
+    "start": 34.338,
+    "end": 34.575
+   },
+   {
+    "text": "no.",
+    "start": 34.575,
+    "end": 35.075
+   },
+   {
+    "text": "Then",
+    "start": 36.125,
+    "end": 36.3
+   },
+   {
+    "text": "a",
+    "start": 36.3,
+    "end": 36.375
+   },
+   {
+    "text": "different",
+    "start": 36.375,
+    "end": 36.663
+   },
+   {
+    "text": "number",
+    "start": 36.663,
+    "end": 36.95
+   },
+   {
+    "text": "messaged",
+    "start": 36.95,
+    "end": 37.35
+   },
+   {
+    "text": "me.",
+    "start": 37.35,
+    "end": 37.725
+   },
+   {
+    "text": "It",
+    "start": 37.825,
+    "end": 38.0
+   },
+   {
+    "text": "said",
+    "start": 38.0,
+    "end": 38.163
+   },
+   {
+    "text": "it",
+    "start": 38.163,
+    "end": 38.237
+   },
+   {
+    "text": "was",
+    "start": 38.237,
+    "end": 38.375
+   },
+   {
+    "text": "building",
+    "start": 38.375,
+    "end": 38.75
+   },
+   {
+    "text": "maintenance.",
+    "start": 38.75,
+    "end": 39.55
+   },
+   {
+    "text": "We're",
+    "start": 39.65,
+    "end": 39.837
+   },
+   {
+    "text": "closed",
+    "start": 39.837,
+    "end": 40.237
+   },
+   {
+    "text": "until",
+    "start": 40.237,
+    "end": 40.525
+   },
+   {
+    "text": "eight.",
+    "start": 40.525,
+    "end": 40.95
+   },
+   {
+    "text": "Your",
+    "start": 41.025,
+    "end": 41.2
+   },
+   {
+    "text": "elevator",
+    "start": 41.2,
+    "end": 41.763
+   },
+   {
+    "text": "shows",
+    "start": 41.763,
+    "end": 42.1
+   },
+   {
+    "text": "out",
+    "start": 42.1,
+    "end": 42.237
+   },
+   {
+    "text": "of",
+    "start": 42.237,
+    "end": 42.325
+   },
+   {
+    "text": "service.",
+    "start": 42.325,
+    "end": 42.975
+   },
+   {
+    "text": "Who",
+    "start": 43.075,
+    "end": 43.25
+   },
+   {
+    "text": "are",
+    "start": 43.25,
+    "end": 43.35
+   },
+   {
+    "text": "you",
+    "start": 43.35,
+    "end": 43.475
+   },
+   {
+    "text": "talking",
+    "start": 43.475,
+    "end": 43.913
+   },
+   {
+    "text": "to?",
+    "start": 43.913,
+    "end": 44.3
+   },
+   {
+    "text": "Before",
+    "start": 45.4,
+    "end": 45.712
+   },
+   {
+    "text": "I",
+    "start": 45.712,
+    "end": 45.825
+   },
+   {
+    "text": "could",
+    "start": 45.825,
+    "end": 45.95
+   },
+   {
+    "text": "answer,",
+    "start": 45.95,
+    "end": 46.4
+   },
+   {
+    "text": "the",
+    "start": 46.475,
+    "end": 46.612
+   },
+   {
+    "text": "first",
+    "start": 46.612,
+    "end": 46.912
+   },
+   {
+    "text": "number",
+    "start": 46.912,
+    "end": 47.15
+   },
+   {
+    "text": "wrote:",
+    "start": 47.15,
+    "end": 47.55
+   },
+   {
+    "text": "Don't",
+    "start": 47.65,
+    "end": 47.875
+   },
+   {
+    "text": "listen",
+    "start": 47.875,
+    "end": 48.2
+   },
+   {
+    "text": "to",
+    "start": 48.2,
+    "end": 48.287
+   },
+   {
+    "text": "them.",
+    "start": 48.287,
+    "end": 48.7
+   },
+   {
+    "text": "They're",
+    "start": 48.8,
+    "end": 48.938
+   },
+   {
+    "text": "the",
+    "start": 48.938,
+    "end": 49.025
+   },
+   {
+    "text": "ones",
+    "start": 49.025,
+    "end": 49.262
+   },
+   {
+    "text": "who",
+    "start": 49.262,
+    "end": 49.375
+   },
+   {
+    "text": "want",
+    "start": 49.375,
+    "end": 49.575
+   },
+   {
+    "text": "in.",
+    "start": 49.575,
+    "end": 50.05
+   },
+   {
+    "text": "The",
+    "start": 51.075,
+    "end": 51.15
+   },
+   {
+    "text": "floor",
+    "start": 51.15,
+    "end": 51.425
+   },
+   {
+    "text": "counter",
+    "start": 51.425,
+    "end": 51.85
+   },
+   {
+    "text": "kept",
+    "start": 51.85,
+    "end": 52.1
+   },
+   {
+    "text": "climbing.",
+    "start": 52.1,
+    "end": 52.8
+   },
+   {
+    "text": "Eight.",
+    "start": 52.912,
+    "end": 53.225
+   },
+   {
+    "text": "Nine.",
+    "start": 53.312,
+    "end": 53.725
+   },
+   {
+    "text": "Ten.",
+    "start": 53.837,
+    "end": 54.225
+   },
+   {
+    "text": "Eleven.",
+    "start": 54.337,
+    "end": 54.975
+   },
+   {
+    "text": "Our",
+    "start": 55.075,
+    "end": 55.225
+   },
+   {
+    "text": "building",
+    "start": 55.225,
+    "end": 55.6
+   },
+   {
+    "text": "only",
+    "start": 55.6,
+    "end": 55.9
+   },
+   {
+    "text": "has",
+    "start": 55.9,
+    "end": 56.1
+   },
+   {
+    "text": "ten",
+    "start": 56.1,
+    "end": 56.35
+   },
+   {
+    "text": "floors.",
+    "start": 56.35,
+    "end": 57.0
+   },
+   {
+    "text": "The",
+    "start": 58.025,
+    "end": 58.15
+   },
+   {
+    "text": "elevator",
+    "start": 58.15,
+    "end": 58.675
+   },
+   {
+    "text": "stopped.",
+    "start": 58.675,
+    "end": 59.375
+   },
+   {
+    "text": "And",
+    "start": 59.475,
+    "end": 59.612
+   },
+   {
+    "text": "the",
+    "start": 59.612,
+    "end": 59.7
+   },
+   {
+    "text": "doors",
+    "start": 59.7,
+    "end": 60.0
+   },
+   {
+    "text": "began",
+    "start": 60.0,
+    "end": 60.325
+   },
+   {
+    "text": "to",
+    "start": 60.325,
+    "end": 60.45
+   },
+   {
+    "text": "open,",
+    "start": 60.45,
+    "end": 60.9
+   },
+   {
+    "text": "onto",
+    "start": 61.0,
+    "end": 61.237
+   },
+   {
+    "text": "a",
+    "start": 61.237,
+    "end": 61.312
+   },
+   {
+    "text": "floor",
+    "start": 61.312,
+    "end": 61.65
+   },
+   {
+    "text": "with",
+    "start": 61.65,
+    "end": 61.825
+   },
+   {
+    "text": "no",
+    "start": 61.825,
+    "end": 62.0
+   },
+   {
+    "text": "number.",
+    "start": 62.0,
+    "end": 62.575
+   },
+   {
+    "text": "Both",
+    "start": 63.625,
+    "end": 63.875
+   },
+   {
+    "text": "numbers",
+    "start": 63.875,
+    "end": 64.225
+   },
+   {
+    "text": "texted",
+    "start": 64.225,
+    "end": 64.637
+   },
+   {
+    "text": "me",
+    "start": 64.637,
+    "end": 64.737
+   },
+   {
+    "text": "at",
+    "start": 64.737,
+    "end": 64.812
+   },
+   {
+    "text": "the",
+    "start": 64.812,
+    "end": 64.9
+   },
+   {
+    "text": "same",
+    "start": 64.9,
+    "end": 65.15
+   },
+   {
+    "text": "time.",
+    "start": 65.15,
+    "end": 65.7
+   },
+   {
+    "text": "One",
+    "start": 65.8,
+    "end": 66.025
+   },
+   {
+    "text": "said:",
+    "start": 66.025,
+    "end": 66.425
+   },
+   {
+    "text": "Run.",
+    "start": 66.537,
+    "end": 66.925
+   },
+   {
+    "text": "The",
+    "start": 67.025,
+    "end": 67.112
+   },
+   {
+    "text": "other",
+    "start": 67.112,
+    "end": 67.35
+   },
+   {
+    "text": "said:",
+    "start": 67.35,
+    "end": 67.625
+   },
+   {
+    "text": "Stay.",
+    "start": 67.712,
+    "end": 68.3
+   },
+   {
+    "text": "And",
+    "start": 69.325,
+    "end": 69.45
+   },
+   {
+    "text": "out",
+    "start": 69.45,
+    "end": 69.637
+   },
+   {
+    "text": "of",
+    "start": 69.637,
+    "end": 69.712
+   },
+   {
+    "text": "the",
+    "start": 69.712,
+    "end": 69.8
+   },
+   {
+    "text": "corner",
+    "start": 69.8,
+    "end": 70.137
+   },
+   {
+    "text": "of",
+    "start": 70.137,
+    "end": 70.212
+   },
+   {
+    "text": "my",
+    "start": 70.212,
+    "end": 70.387
+   },
+   {
+    "text": "eye,",
+    "start": 70.387,
+    "end": 70.675
+   },
+   {
+    "text": "in",
+    "start": 70.725,
+    "end": 70.812
+   },
+   {
+    "text": "the",
+    "start": 70.812,
+    "end": 70.9
+   },
+   {
+    "text": "mirror,",
+    "start": 70.9,
+    "end": 71.475
+   },
+   {
+    "text": "my",
+    "start": 71.575,
+    "end": 71.725
+   },
+   {
+    "text": "reflection",
+    "start": 71.725,
+    "end": 72.325
+   },
+   {
+    "text": "wasn't",
+    "start": 72.325,
+    "end": 72.65
+   },
+   {
+    "text": "reading",
+    "start": 72.65,
+    "end": 72.937
+   },
+   {
+    "text": "the",
+    "start": 72.937,
+    "end": 73.025
+   },
+   {
+    "text": "messages.",
+    "start": 73.025,
+    "end": 73.9
+   },
+   {
+    "text": "It",
+    "start": 74.0,
+    "end": 74.112
+   },
+   {
+    "text": "was",
+    "start": 74.112,
+    "end": 74.212
+   },
+   {
+    "text": "looking",
+    "start": 74.212,
+    "end": 74.512
+   },
+   {
+    "text": "straight",
+    "start": 74.512,
+    "end": 74.812
+   },
+   {
+    "text": "at",
+    "start": 74.812,
+    "end": 74.887
+   },
+   {
+    "text": "me.",
+    "start": 74.887,
+    "end": 75.3
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 16,
+  "style": {
+   "font": "display",
+   "fontSize": 76,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "color",
+   "strokeWidth": 12,
+   "uppercase": false,
+   "y": 0.15
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-elevator-maintenance/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 79.125
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.0,
+  "fadeIn": 0.2,
+  "fadeOut": 0.6
+ },
+ "_built": {
+  "by": "pipeline/episodes/build.py",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/horror-elevator-maintenance/mix.wav (Spark; rebuild with pipeline.audio.make)"
+ }
+}

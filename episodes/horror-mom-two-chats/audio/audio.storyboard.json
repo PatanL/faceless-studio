@@ -1,0 +1,71 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 74.925,
+ "captions": {
+  "src": "episodes/horror-mom-two-chats/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/horror-mom-two-chats/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 74.925
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/horror-mom-two-chats/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 74.925
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/horror-mom-two-chats/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/horror-mom-two-chats/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "notify",
+   "at": 6.825
+  },
+  {
+   "cue": "notify",
+   "at": 8.738
+  },
+  {
+   "cue": "ding",
+   "at": 35.312
+  },
+  {
+   "cue": "phone_buzz_long",
+   "at": 49.85
+  },
+  {
+   "cue": "stinger",
+   "at": 71.525
+  }
+ ]
+}
