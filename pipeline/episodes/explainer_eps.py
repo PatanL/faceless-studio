@@ -35,7 +35,13 @@ CAPTION_JOIN = {"explainer-orca": ["fifty-six kilometres", "scared of", ("twenty
                 "explainer-blue-whale": ["two and a half", "even notice", ("two hundred tonnes.", "200 tonnes."),
                                          ("two hundred tonnes", "200 tonnes"), ("forty million", "40 million"),
                                          ("forty", "40"), ("thirty metres", "30 metres"), ("seven metres", "7 metres"),
-                                         ("two beats", "2 beats")]}
+                                         ("two beats", "2 beats")] + [
+                    # a 9:16 page wraps to two lines between words: these runs stay together on the 2nd line (NBSP), so no
+                    # line ends on a dangling word ("PARKED NOSE TO / TAIL." -> "PARKED / NOSE TO TAIL.")
+                    (r, r.replace(" ", "\u00a0")) for r in (
+                        "nose to tail.", "a sixteenth.", "of a golf cart,", "a jet engine,", "in the way", "in its mouth.",
+                        "only opens", "back out.", "kilometres away.", "it charges", "of krill", "of that cloud?",
+                        "40 of you.")]}
 # extra joins for the 16:9 cut only (longer one-line pages there; pipeline/episodes/reformat.py)
 CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres"]}
 # explicit caption pages (build.py mark_pages -> Word.br; the shared core pager stays untouched because horror uses it):
@@ -925,6 +931,48 @@ def blue_whale_16x9(S):
     out[2] = bw_scene(s, ocean(80, rays=6), layers, Cam(s.dur, z0=1.0, z1=1.03, p=1.07).punch(s.at("two"), dino))
     return out
 
+
+
+def _pct(v):
+    return float(str(v).rstrip("%"))
+
+
+def blue_whale_16x9_patch(sb):
+    """Post-remap fixes for the 16:9 cut (1920x1080 coords; pipeline/episodes/reformat.py PATCH_16X9), QA round 1:
+    p08 throat set full-bleed (WhaleThroat bleed: walls, baleen and tongue floor run to the frame edges, the diver
+    inside the set); p05 / p09 YOU chip >= 20 px above a bigger diver; p09 the 7 m fluke ~950 px wide, in from the
+    right edge at mid-frame (y ~50-60 %), passing below the diver and clear of the caption band (y > 80 %)."""
+    sc = sb["scenes"]
+    named = lambda i, name, text=None: [l for l in sc[i]["layers"] if l.get("name") == name
+                                        and (text is None or l.get("props", {}).get("text") == text)]
+    for l in named(8, "explainer/WhaleThroat"):
+        l["props"]["bleed"] = 700
+    # p05 far YOU: diver 200 px, chip clear above it
+    for d in named(5, "explainer/Diver"):
+        d["width"], d["height"] = 200, 47
+        for c in named(5, "explainer/Tag", "YOU"):
+            c["x"], c["y"] = d["x"], f"{_pct(d['y']) - 105 / 10.8:.2f}%"
+    # p09 diver ~270 px, chip keyframes follow the diver 110 px above it
+    for d in named(9, "explainer/Diver"):
+        d["width"], d["height"] = 270, 60
+        for c in named(9, "explainer/Tag", "YOU"):
+            c["y"] = f"{_pct(d['y']) - 110 / 10.8:.2f}%"
+            c["keyframes"] = [{"t": k["t"], "x": k["x"], "y": f"{_pct(k['y']) - 110 / 10.8:.2f}%",
+                               **({"ease": k["ease"]} if "ease" in k else {})} for k in d["keyframes"]]
+    for f in [l for l in sc[9]["layers"] if l["type"] == "svg" and l.get("width", 0) > 500]:
+        t0 = f["keyframes"][0]["t"]               # = sweeps - 0.95
+        sw = t0 + 0.95
+        f["width"], f["height"] = 950, round(950 * 180 / 480, 1)
+        f["x"], f["y"] = "110%", "56%"
+        f["keyframes"] = [{"t": t0, "x": "112%", "y": "57%", "rotate": 12, "opacity": 0},
+                          {"t": sw - 0.7, "x": "96%", "y": "56%", "rotate": 10, "opacity": 1},
+                          {"t": sw + 0.3, "x": "62%", "y": "55%", "rotate": -4, "opacity": 1, "ease": "inOut"},
+                          {"t": sw + 0.9, "x": "40%", "y": "53%", "rotate": -10, "opacity": 1},
+                          {"t": sw + 1.4, "x": "26%", "y": "52%", "rotate": -14, "opacity": 0}]
+    return sb
+
+
+PATCH_16X9 = {"explainer-blue-whale": blue_whale_16x9_patch}
 
 # =========================================================================== pressure ladder
 

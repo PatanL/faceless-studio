@@ -99,11 +99,14 @@ const whaleThroat: Figure = {
 	axis: 'w',
 	draw: (c) => {
 		const glow = num(c.p.glow, 0); // 0..1 rim highlight
+		// bleed (figure units, default 0): walls, baleen row and tongue floor continue this far past every edge, so a
+		// landscape cut can run the set edge to edge (QA 16:9: a 1014 px panel with hard seams in a 1920 frame)
+		const B = Math.max(0, num(c.p.bleed, 0));
 		const {x, y, rx, ry} = TH_RING;
 		return (
 			<g>
 				<defs>
-					<radialGradient id={`${c.id}-cv`} cx="0.25" cy="0.47" r="0.9">
+					<radialGradient id={`${c.id}-cv`} gradientUnits="userSpaceOnUse" cx="250" cy="470" r="900">
 						<stop offset="0" stopColor={paint(c, '#140709')} />
 						<stop offset="0.25" stopColor={paint(c, '#3a1822')} />
 						<stop offset="1" stopColor={paint(c, '#5a2a36')} />
@@ -116,7 +119,7 @@ const whaleThroat: Figure = {
 					</linearGradient>
 					<Lin id={`${c.id}-tg`} a={paint(c, '#c47f88')} b={paint(c, '#93525d')} />
 				</defs>
-				<rect x={0} y={0} width={1000} height={1000} fill={`url(#${c.id}-cv)`} />
+				<rect x={-B} y={-B} width={1000 + 2 * B} height={1000 + 2 * B} fill={`url(#${c.id}-cv)`} />
 				{/* perspective folds converging on the throat */}
 				{c.sil
 					? null
@@ -129,17 +132,17 @@ const whaleThroat: Figure = {
 							[600, 1000],
 					  ].map(([ex, ey], i) => <path key={i} d={`M ${x} ${y} Q ${(x + ex) / 2 + 40} ${(y + ey) / 2} ${ex} ${ey}`} stroke="#6e3542" strokeWidth={14} fill="none" opacity={0.35} />)}
 				{/* palate + baleen fringe across the top */}
-				<path d="M 0 0 L 1000 0 L 1000 170 C 760 150 420 170 0 210 Z" fill={paint(c, '#4a2430')} />
+				<path d={`M ${-B} ${-B} L ${1000 + B} ${-B} L ${1000 + B} 170 L 1000 170 C 760 150 420 170 0 210 L ${-B} ${210 + B * 0.04} Z`} fill={paint(c, '#4a2430')} />
 				{c.sil
 					? null
-					: Array.from({length: 46}, (_, i) => {
-							const bx = 10 + i * 22;
+					: Array.from({length: 46 + 2 * Math.ceil(B / 22)}, (_, i) => {
+							const bx = 10 + (i - Math.ceil(B / 22)) * 22;
 							const top = 210 - (bx / 1000) * 40;
 							const len = 70 + 40 * Math.sin((i / 45) * Math.PI) + rnd(`bl${i}`) * 20;
 							return <path key={i} d={`M ${bx} ${top - 6} L ${bx - 6} ${top + len}`} stroke={i % 3 ? '#1b1d21' : '#4a4038'} strokeWidth={9} strokeLinecap="round" opacity={0.95} />;
 					  })}
 				{/* tongue floor */}
-				<path d="M 0 760 C 200 700 420 690 640 700 C 820 708 940 730 1000 760 L 1000 1000 L 0 1000 Z" fill={`url(#${c.id}-tg)`} />
+				<path d={`M ${-B} 760 L 0 760 C 200 700 420 690 640 700 C 820 708 940 730 1000 760 L ${1000 + B} 760 L ${1000 + B} ${1000 + B} L ${-B} ${1000 + B} Z`} fill={`url(#${c.id}-tg)`} />
 				{speckle(c, 'thf', 30, 20, 730, 960, 250, '#e9b2b8', 0.28)}
 				{/* daylight from the open mouth on the right (prop daylight: 0..1, default 0; a band reads as a seam full-bleed) */}
 				{num(c.p.daylight, 0) > 0 ? <rect x={440} y={0} width={560} height={1000} fill={`url(#${c.id}-mo)`} opacity={num(c.p.daylight, 0)} /> : null}

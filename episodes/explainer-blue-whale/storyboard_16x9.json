@@ -2246,8 +2246,8 @@
      "name": "explainer/Diver",
      "x": "33.33%",
      "y": "76.61%",
-     "width": 140.4,
-     "height": 32.76,
+     "width": 200,
+     "height": 47,
      "props": {
       "arms": "side"
      },
@@ -2270,7 +2270,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "33.33%",
-     "y": "70.37%",
+     "y": "66.89%",
      "width": 234.0,
      "height": 102.96,
      "props": {
@@ -2851,7 +2851,8 @@
         "t": 7.257000000000001,
         "v": 1
        }
-      ]
+      ],
+      "bleed": 700
      },
      "start": 4.382,
      "depth": 0.5,
@@ -3170,8 +3171,8 @@
      "name": "explainer/Diver",
      "x": "50.00%",
      "y": "40.55%",
-     "width": 202.8,
-     "height": 45.24,
+     "width": 270,
+     "height": 60,
      "props": {
       "arms": "side"
      },
@@ -3215,7 +3216,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50.00%",
-     "y": "34.31%",
+     "y": "30.36%",
      "width": 234.0,
      "height": 102.96,
      "props": {
@@ -3233,28 +3234,28 @@
       {
        "t": 0,
        "x": "50.00%",
-       "y": "34.31%"
+       "y": "30.36%"
       },
       {
        "t": 5.032,
        "x": "50.00%",
-       "y": "34.31%"
+       "y": "30.36%"
       },
       {
        "t": 6.032,
        "x": "41.23%",
-       "y": "27.38%",
+       "y": "23.43%",
        "ease": "out"
       },
       {
        "t": 7.707,
        "x": "41.23%",
-       "y": "28.77%"
+       "y": "24.82%"
       },
       {
        "t": 8.707,
        "x": "35.08%",
-       "y": "32.93%",
+       "y": "28.98%",
        "ease": "out"
       }
      ]
@@ -3331,47 +3332,47 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 480 180\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"fk\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7397b0\"/><stop offset=\"1\" stop-color=\"#3a5a78\"/></linearGradient></defs><path d=\"M 214 180 L 220 92 L 260 92 L 266 180 Z\" fill=\"#3f6080\"/><path d=\"M 240 70 C 180 40 90 16 6 30 C 30 70 110 110 196 116 L 240 98 L 284 116 C 370 110 450 70 474 30 C 390 16 300 40 240 70 Z\" fill=\"url(#fk)\" stroke=\"#2f4c66\" stroke-width=\"4\"/></svg>",
-     "x": "70.18%",
-     "y": "66.90%",
-     "width": 546.0,
-     "height": 204.36,
+     "x": "110%",
+     "y": "56%",
+     "width": 950,
+     "height": 356.2,
      "start": 6.757,
      "end": 9.207,
      "z": 4,
      "keyframes": [
       {
        "t": 6.757,
-       "x": "71.94%",
-       "y": "68.29%",
+       "x": "112%",
+       "y": "57%",
        "rotate": 12,
        "opacity": 0
       },
       {
        "t": 7.007,
-       "x": "67.55%",
-       "y": "66.90%",
+       "x": "96%",
+       "y": "56%",
        "rotate": 10,
        "opacity": 1
       },
       {
        "t": 8.007,
-       "x": "53.51%",
-       "y": "61.35%",
+       "x": "62%",
+       "y": "55%",
        "rotate": -4,
        "opacity": 1,
        "ease": "inOut"
       },
       {
        "t": 8.607,
-       "x": "43.86%",
-       "y": "55.81%",
+       "x": "40%",
+       "y": "53%",
        "rotate": -10,
        "opacity": 1
       },
       {
        "t": 9.107,
-       "x": "36.84%",
-       "y": "54.42%",
+       "x": "26%",
+       "y": "52%",
        "rotate": -14,
        "opacity": 0
       }
@@ -3821,18 +3822,8 @@
     "br": true
    },
    {
-    "text": "nose",
+    "text": "nose to tail.",
     "start": 10.255,
-    "end": 10.63
-   },
-   {
-    "text": "to",
-    "start": 10.63,
-    "end": 10.768
-   },
-   {
-    "text": "tail.",
-    "start": 10.768,
     "end": 11.53
    },
    {
@@ -3863,13 +3854,8 @@
     "end": 13.205
    },
    {
-    "text": "a",
+    "text": "a sixteenth.",
     "start": 13.205,
-    "end": 13.317
-   },
-   {
-    "text": "sixteenth.",
-    "start": 13.317,
     "end": 13.97
    },
    {
@@ -4005,18 +3991,8 @@
     "end": 22.73
    },
    {
-    "text": "40",
+    "text": "40 of you.",
     "start": 22.73,
-    "end": 23.155
-   },
-   {
-    "text": "of",
-    "start": 23.155,
-    "end": 23.305
-   },
-   {
-    "text": "you.",
-    "start": 23.305,
     "end": 23.49
    },
    {
@@ -4046,23 +4022,8 @@
     "end": 24.722
    },
    {
-    "text": "of",
+    "text": "of a golf cart,",
     "start": 24.722,
-    "end": 24.797
-   },
-   {
-    "text": "a",
-    "start": 24.797,
-    "end": 24.897
-   },
-   {
-    "text": "golf",
-    "start": 24.897,
-    "end": 25.235
-   },
-   {
-    "text": "cart,",
-    "start": 25.235,
     "end": 25.66
    },
    {
@@ -4180,18 +4141,8 @@
     "end": 31.79
    },
    {
-    "text": "a",
+    "text": "a jet engine,",
     "start": 31.79,
-    "end": 31.902
-   },
-   {
-    "text": "jet",
-    "start": 31.902,
-    "end": 32.177
-   },
-   {
-    "text": "engine,",
-    "start": 32.177,
     "end": 32.915
    },
    {
@@ -4216,14 +4167,19 @@
     "end": 33.802
    },
    {
-    "text": "hundreds of kilometres",
+    "text": "hundreds",
     "start": 33.802,
-    "end": 35.04,
+    "end": 34.277,
     "br": true
    },
    {
-    "text": "away.",
-    "start": 35.04,
+    "text": "of",
+    "start": 34.277,
+    "end": 34.39
+   },
+   {
+    "text": "kilometres away.",
+    "start": 34.39,
     "end": 35.45
    },
    {
@@ -4238,13 +4194,8 @@
     "end": 36.085
    },
    {
-    "text": "it",
+    "text": "it charges",
     "start": 36.16,
-    "end": 36.297
-   },
-   {
-    "text": "charges",
-    "start": 36.297,
     "end": 36.697
    },
    {
@@ -4264,13 +4215,8 @@
     "end": 37.347
    },
    {
-    "text": "of",
+    "text": "of krill",
     "start": 37.347,
-    "end": 37.472
-   },
-   {
-    "text": "krill",
-    "start": 37.472,
     "end": 38.285
    },
    {
@@ -4384,18 +4330,8 @@
     "end": 43.962
    },
    {
-    "text": "of",
+    "text": "of that cloud?",
     "start": 43.962,
-    "end": 44.05
-   },
-   {
-    "text": "that",
-    "start": 44.05,
-    "end": 44.3
-   },
-   {
-    "text": "cloud?",
-    "start": 44.3,
     "end": 44.73
    },
    {
@@ -4478,13 +4414,8 @@
     "emph": true
    },
    {
-    "text": "only",
+    "text": "only opens",
     "start": 49.887,
-    "end": 50.262
-   },
-   {
-    "text": "opens",
-    "start": 50.262,
     "end": 50.725
    },
    {
@@ -4551,13 +4482,8 @@
     "end": 54.525
    },
    {
-    "text": "back",
+    "text": "back out.",
     "start": 54.525,
-    "end": 54.825
-   },
-   {
-    "text": "out.",
-    "start": 54.825,
     "end": 55.09
    },
    {
@@ -4603,18 +4529,8 @@
     "end": 57.922
    },
    {
-    "text": "in",
+    "text": "in the way",
     "start": 57.922,
-    "end": 57.997
-   },
-   {
-    "text": "the",
-    "start": 57.997,
-    "end": 58.085
-   },
-   {
-    "text": "way",
-    "start": 58.085,
     "end": 58.385
    },
    {
@@ -4699,18 +4615,8 @@
     "end": 64.69
    },
    {
-    "text": "in",
+    "text": "in its mouth.",
     "start": 64.69,
-    "end": 64.777
-   },
-   {
-    "text": "its",
-    "start": 64.777,
-    "end": 64.977
-   },
-   {
-    "text": "mouth.",
-    "start": 64.977,
     "end": 65.615
    },
    {

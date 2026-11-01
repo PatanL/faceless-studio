@@ -250,6 +250,9 @@ def main():
     joins = getattr(explainer_eps, "CAPTION_JOIN_16X9", {}).get(a.slug)
     if joins and sb16.get("captions"):
         join_words(sb16["captions"]["words"], joins)
+    patch = getattr(explainer_eps, "PATCH_16X9", {}).get(a.slug)
+    if patch:  # per-episode post-remap fixes in 16:9 coordinates
+        sb16 = patch(sb16)
     pages = getattr(explainer_eps, "CAPTION_PAGES_16X9", {}).get(a.slug)
     if sb16.get("captions"):
         from .build import mark_pages
