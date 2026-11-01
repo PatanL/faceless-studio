@@ -37,9 +37,12 @@ ALWAYS = [
     (r"(>|\btee\b|sed\s+-i|\bmv\b|\bcp\b|\brm\b|\bchmod\b)[^|;&]*data/operator/(config\.json|approval_mode|claude_settings\.json)",
      "the human owns config.json and the approval switch"),
     (r"(>|\btee\b|sed\s+-i|\bmv\b|\bcp\b|\brm\b|\bchmod\b)[^|;&]*pipeline/ops/guard\.py", "the guard is not editable from the session"),
+    (r"pipeline[./]qa[./](gate|sameness)\b[^|;&]*--(against|last-n)\b",
+     "the gate's sameness history is not the operator's to choose (post.py refuses a non-default history)"),
 ]
 DRAFTS = [
     (r"--mode[=\s]+auto\b", "APPROVAL_MODE=drafts: auto posting is off"),
+    (r"--modes[=\s]+\S*=auto\b", "APPROVAL_MODE=drafts: auto posting is off"),
     (r"\bAPPROVAL_MODE\s*=|export\s+APPROVAL_MODE|env\s+[^|;&]*APPROVAL_MODE", "APPROVAL_MODE is set by operator_tmux.sh only"),
     (r"disclosure_ok_auto", "disclosure switches are the human's"),
 ]

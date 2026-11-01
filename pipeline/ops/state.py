@@ -15,7 +15,9 @@ CLI (run from ~/studio/app; the operator uses these instead of editing JSON by h
   python -m pipeline.ops.state busy on|off [--what review]  # in-session LLM job running (watchdog won't rotate)
   python -m pipeline.ops.state job JOB_ID --status done|failed|skipped [--verdict PASS|FIX|REJECT] [--exit N] [--note T]
   python -m pipeline.ops.state pause "reason"               # operator may pause; only the human unpauses
-  python -m pipeline.ops.state watchdog --tmux-alive 0|1    # prints none|tick|resume|rotate
+  python -m pipeline.ops.state watchdog --tmux-alive 0|1    # prints none|tick|resume|rotate|backoff; writes HUMAN.md
+                                                            # when the heartbeat is > 2 h stale or launches die fast
+  python -m pipeline.ops.state watchdog-launched --survived 0|1
 """
 from __future__ import annotations
 
@@ -25,6 +27,7 @@ import copy
 import datetime as dt
 import json
 import os
+import re
 import sys
 
 from pipeline.common import locks, timeutil
@@ -94,6 +97,9 @@ def default_state() -> dict:
         "experiment": {"active": None},
         "rejected_sources": [],
         "notified": [],
+        "sessions": [],
+        "dep_strikes": {},
+        "watchdog": {"launches": [], "fast_exits": 0, "next_launch_after": None},
         "killrule": {"last_n": 0, "verdict": None},
         "counters": {"published": {"youtube": 0, "tiktok": 0, "instagram": 0}, "drafts_created": 0,
                      "consecutive_failed_slots": 0, "slots_failed": 0, "slots_posted": 0},
@@ -183,6 +189,28 @@ def job_id(date: str, slot: str | None, jtype: str, suffix: str | None = None) -
     return f"{jid}-{suffix}" if suffix else jid
 
 
+def chain_of(j: dict, jid: str = "") -> int:
+    """Which source attempt of its slot a job belongs to: 1 for the first make's chain, 2 for make-r2's, ..."""
+    if j.get("chain"):
+        return int(j["chain"])
+    m = re.search(r"-make-r(\d+)$", jid or "")
+    return int(m.group(1)) if m else 1
+
+
+def chain_suffix(chain: int, rnd: int | None = None) -> str | None:
+    """Id suffix of a chained job: review/fix/publish of make-r2 are ...-review-s2, ...-fix-s2, ...-publish-s2
+    (review round 2 of it: ...-review-s2-r2), so they never collide with the first make's chain."""
+    parts = [f"s{chain}"] if chain and chain > 1 else []
+    if rnd and rnd > 1:
+        parts.append(f"r{rnd}")
+    return "-".join(parts) or None
+
+
+DEP_OF = {"make": "claude", "fix": "claude", "review": "claude", "publish": "buffer", "status": "buffer",
+          "metrics48": "analytics", "metrics7d": "analytics", "learning": "analytics", "killrule": "analytics",
+          "tiktok_inbox": "analytics"}
+
+
 def register(st: dict, job: dict) -> bool:
     """Add a pending job if its id is new. Idempotent. Returns True if added."""
     if job["job_id"] in st["jobs"]:
@@ -227,6 +255,7 @@ def slot_failed(st: dict, config: dict, job: dict, why: str, now: dt.datetime | 
     left_h = (post_at - now).total_seconds() / 3600
     if len(makes) < 2 and left_h >= config.get("make_deadline_h_before_post", 3) and not st["paused"]:
         register(st, {"job_id": job_id(date, slot, "make", "r2"), "type": "make", "date": date, "slot": slot,
+                      "chain": 2,
                       "due_at": timeutil.iso(now), "expires_at": timeutil.iso(post_at - dt.timedelta(hours=config.get("make_deadline_h_before_post", 3))),
                       "reason": f"retry with next source after: {why}"})
         journal(f"slot {date}/{slot}: {why}; source {src} rejected; retrying with the next source ({left_h:.1f} h left)")
@@ -261,24 +290,33 @@ def finish_job(st: dict, config: dict, jid: str, status: str, exit_code: int | N
     res = j.get("result") or {}
     slug = res.get("slug") or j.get("slug")
 
+    dep = DEP_OF.get(t, t or "job")
     if exit_code == 5:
-        _pause(st, "dependency_unavailable", f"Job `{jid}` exited 5 (claude auth, API 401/403, tunnel or a lane not installed). Log: {j.get('log')}")
-    elif exit_code == 3:
-        nxt_monday = timeutil.to_local(now).date() + dt.timedelta(days=7 - timeutil.to_local(now).weekday())
-        st["budget"]["stop_until"] = timeutil.iso(timeutil.at_local(nxt_monday.isoformat(), "00:00"))
-        human(f"Budget cap reached by `{jid}`; makes are paused until {nxt_monday} (metrics keep running).",
-              key=f"budget:{timeutil.iso_week(now)}", st=st)
+        _dependency_strike(st, config, dep, jid, j, now)
+    elif exit_code == 0 and status == "done":
+        st.setdefault("dep_strikes", {}).pop(dep, None)
+        st["dep_strikes"].pop(f"{dep}:fail1", None)
+    elif exit_code == 1 and status == "failed" and t not in ("make", "fix"):
+        _light_failure(st, config, dep, jid, j, now)
+    budget_hard = False
+    if exit_code == 3:
+        budget_hard = _budget_stop(st, config, jid, res, now)
 
+    chain = chain_of(j, jid)
     if t in ("make", "fix"):
         if status == "done":
             rnd = 1 if t == "make" else int(j.get("round", 1)) + 1
-            register(st, {"job_id": job_id(date, slot, "review", None if rnd == 1 else f"r{rnd}"), "type": "review",
-                          "date": date, "slot": slot, "slug": slug, "round": rnd, "due_at": timeutil.iso(now),
+            register(st, {"job_id": job_id(date, slot, "review", chain_suffix(chain, rnd)), "type": "review",
+                          "date": date, "slot": slot, "slug": slug, "round": rnd, "chain": chain,
+                          "due_at": timeutil.iso(now),
                           "source_id": res.get("source_id") or j.get("source_id"), "gate": res.get("gate")})
-        elif status == "failed" and exit_code not in (3, 5):
-            slot_failed(st, config, j, f"{t} failed (exit {exit_code})", now)
+        elif status == "failed" and exit_code == 5:
+            st["counters"]["slots_failed"] += 1  # not the source's fault: no reject, the loop is paused/striking
+        elif status == "failed" and exit_code == 3 and budget_hard:
+            st["counters"]["slots_failed"] += 1  # weekly cap: makes stop until Monday
         elif status == "failed":
-            st["counters"]["slots_failed"] += 1
+            why = (f"{t} hit the per-video token cap (exit 3)" if exit_code == 3 else f"{t} failed (exit {exit_code})")
+            slot_failed(st, config, j, why, now)
     elif t == "review" and status == "done":
         rnd = int(j.get("round", 1))
         if verdict == "PASS" and j.get("gate") == "FAIL":  # nothing posts without gate PASS
@@ -286,27 +324,139 @@ def finish_job(st: dict, config: dict, jid: str, status: str, exit_code: int | N
             j["verdict"] = "FIX"
             j["note"] = ((j.get("note") or "") + " review PASS overridden: gate FAIL").strip()
         if verdict == "PASS":
-            register(st, {"job_id": job_id(date, slot, "publish"), "type": "publish", "date": date, "slot": slot,
-                          "slug": slug, "due_at": timeutil.iso(now), "source_id": j.get("source_id")})
+            post_at = timeutil.parse(slot_info(config, date, slot)["post_at"])
+            register(st, {"job_id": job_id(date, slot, "publish", chain_suffix(chain)), "type": "publish",
+                          "date": date, "slot": slot, "chain": chain, "slug": slug, "due_at": timeutil.iso(now),
+                          "source_id": j.get("source_id"),
+                          "expires_at": timeutil.iso(post_at + dt.timedelta(hours=config.get("publish_late_h", 2)))})
         elif verdict == "FIX" and rnd <= int(config["budget"].get("max_fix_rounds", 1)):
-            register(st, {"job_id": job_id(date, slot, "fix", None if rnd == 1 else f"r{rnd}"), "type": "fix",
-                          "date": date, "slot": slot, "slug": slug, "round": rnd, "due_at": timeutil.iso(now),
-                          "source_id": j.get("source_id")})
+            register(st, {"job_id": job_id(date, slot, "fix", chain_suffix(chain, rnd)), "type": "fix",
+                          "date": date, "slot": slot, "slug": slug, "round": rnd, "chain": chain,
+                          "due_at": timeutil.iso(now), "source_id": j.get("source_id")})
         else:
             slot_failed(st, config, j, f"review round {rnd} verdict {verdict or 'none'}", now)
     elif t == "publish":
-        if status == "done":
-            st["counters"]["consecutive_failed_slots"] = 0
-            st["counters"]["slots_posted"] += 1
-            st["counters"]["drafts_created"] += int(res.get("drafts", 0))
-        elif exit_code not in (3, 5):
-            slot_failed(st, config, j, f"publish failed (exit {exit_code})", now)
+        _finish_publish(st, config, jid, j, status, exit_code, res, slug, now)
     elif t == "tiktok_inbox" and status == "done" and int(res.get("screenshots", 0)) > 0:
         register(st, {"job_id": job_id(timeutil.local_date(now), None, "tiktok_screens"), "type": "tiktok_screens",
                       "due_at": timeutil.iso(now), "files": int(res["screenshots"])})
     elif t == "killrule" and status == "done":
         act_on_killrule(st, res.get("killrule") or {})
     return sorted(set(st["jobs"]) - before)
+
+
+def _dependency_strike(st: dict, config: dict, dep: str, jid: str, j: dict, now: dt.datetime) -> None:
+    """Exit 5 = a real auth/config failure (401/403, expired login, missing binary): pause after
+    dependency_pause_after[dep] such exits in a row for the same dependency within dependency_window_h.
+    Short outages are exit 1 and never pause (the next bucket retries)."""
+    strikes = st.setdefault("dep_strikes", {})
+    win = dt.timedelta(hours=float(config.get("dependency_window_h", 6)))
+    lst = [x for x in strikes.get(dep, []) if now - timeutil.parse(x) < win] + [timeutil.iso(now)]
+    strikes[dep] = lst[-20:]
+    after = config.get("dependency_pause_after") or {}
+    need = int(after.get(dep, after.get("default", 2)) if isinstance(after, dict) else after)
+    if len(lst) >= max(1, need):
+        _pause(st, "dependency_unavailable",
+               f"Job `{jid}` exited 5 ({dep}: auth rejected, login expired, or a tool/lane not installed); "
+               f"{len(lst)} such failure(s) in {win.total_seconds() / 3600:.0f} h. Log: {j.get('log')}")
+    else:
+        journal(f"{jid}: dependency {dep} exit 5 ({len(lst)}/{need} before pausing)")
+
+
+def _light_failure(st: dict, config: dict, dep: str, jid: str, j: dict, now: dt.datetime) -> None:
+    """Exit 1 on a light job (network blip, 5xx): count; tell the human after N in a row, never pause."""
+    fails = st.setdefault("dep_strikes", {})
+    key = f"{dep}:fail1"
+    lst = (fails.get(key) or []) + [timeutil.iso(now)]
+    fails[key] = lst[-50:]
+    n = int(config.get("light_failures_notify", 6))
+    if len(lst) >= n:
+        human(f"`{dep}` jobs have failed {len(lst)} times in a row (exit 1, e.g. network or 5xx). Last: `{jid}`, "
+              f"log {j.get('log')}. The loop keeps retrying; check the dependency if this goes on.",
+              key=f"light:{dep}:{timeutil.local_date(now)}", st=st)
+
+
+def _budget_stop(st: dict, config: dict, jid: str, res: dict, now: dt.datetime) -> bool:
+    """Exit 3: the weekly cap (makes stop until Monday) only when budget.check() says hard; studio-make's own
+    per-video cap (make_status budget_cap=video) just fails that slot. Returns True for the weekly stop."""
+    level = res.get("budget_level")
+    if level is None:
+        try:
+            from pipeline.ops import budget
+            level = budget.check(config, st, now)["level"]
+        except Exception:  # noqa: BLE001 - unknown -> treat as the per-video cap (never a silent week-long stop)
+            level = "unknown"
+    if level != "hard":
+        journal(f"{jid}: per-video token cap reached (weekly budget {level}); only this slot fails")
+        return False
+    nxt_monday = timeutil.to_local(now).date() + dt.timedelta(days=7 - timeutil.to_local(now).weekday())
+    st["budget"]["stop_until"] = timeutil.iso(timeutil.at_local(nxt_monday.isoformat(), "00:00"))
+    human(f"Weekly token budget reached (`{jid}`); makes are paused until {nxt_monday} (metrics keep running).",
+          key=f"budget:{timeutil.iso_week(now)}", st=st)
+    return True
+
+
+def live_posts(slug: str | None) -> list[dict]:
+    """Latest non-dry-run posts.jsonl rows of a slug that exist in Buffer (or were posted by hand)."""
+    if not slug:
+        return []
+    from pipeline.common import jsonl
+    live = {"draft", "scheduled", "sending", "published", "missed", "manual"}
+    return [r for r in jsonl.latest(paths.ledger("posts.jsonl"), "post_key").values()
+            if r.get("slug") == slug and not r.get("dry_run") and r.get("status") in live]
+
+
+def _finish_publish(st, config, jid, j, status, exit_code, res, slug, now) -> None:
+    c = st["counters"]
+    created = res.get("created") or [r.get("platform") for r in live_posts(slug)]
+    if status == "done" and res.get("dry_run"):
+        journal(f"{jid}: publish was a dry run (Buffer credentials missing); nothing reached Buffer")
+        human(f"Publish of `{slug}` ran as a **dry run**: BUFFER_API_KEY / BUFFER_CHANNEL_* are missing in "
+              f"~/studio/.env, so nothing was posted. Payloads are in data/posts.jsonl (dry_run rows).",
+              key=f"publish-dry:{timeutil.local_date(now)}", st=st)
+    elif status == "done":
+        c["consecutive_failed_slots"] = 0
+        c["slots_posted"] += 1
+        c["drafts_created"] += int(res.get("drafts", 0))
+    elif status == "skipped":
+        journal(f"{jid}: publish skipped ({j.get('note') or 'slot passed'}); source not rejected")
+        human(f"`{slug}` passed review but missed its slot ({j.get('note') or 'post time passed'}). It was not "
+              f"posted and its source was not rejected; post it by hand or leave it.", key=f"missed-slot:{jid}", st=st)
+    elif created:
+        # posts exist in Buffer: never reject the source or re-make the slot over a failure after creation
+        c["consecutive_failed_slots"] = 0
+        c["slots_posted"] += 1
+        journal(f"{jid}: publish exited {exit_code} after Buffer posts were created for {created}; not a failed slot")
+        human(f"Publish job `{jid}` for `{slug}` exited {exit_code} after creating Buffer posts for "
+              f"{', '.join(created)}. Check them in Buffer (and the job log {j.get('log')}).",
+              key=f"publish-partial:{jid}", st=st)
+    elif exit_code != 5 and not (exit_code == 3):
+        slot_failed(st, config, j, f"publish failed (exit {exit_code})", now)
+
+
+def reset_stale_session_jobs(st: dict, now: dt.datetime, max_min: float = 90, max_attempts: int = 2) -> list[str]:
+    """In-session jobs (review, tiktok_screens) left `running` by a session that died: back to pending (attempt
+    counted) after max_min, failed after max_attempts. Returns the ids changed."""
+    out = []
+    for jid, j in list(st["jobs"].items()):  # slot_failed may register a retry make
+        if j.get("type") not in SESSION_JOB_TYPES or j.get("status") != "running":
+            continue
+        since = j.get("started_at")
+        if since and (now - timeutil.parse(since)).total_seconds() < max_min * 60:
+            continue
+        if int(j.get("attempts", 0)) >= max_attempts:
+            j.update({"status": "failed", "finished_at": timeutil.iso(now),
+                      "note": f"session job running > {max_min:.0f} min {j.get('attempts')} times (session died?)"})
+            journal(f"{jid}: stale session job failed after {j.get('attempts')} attempts")
+            if j.get("type") == "review" and j.get("slot"):
+                config = load_config()
+                slot_failed(st, config, j, "review never finished (stale session job)", now)
+        else:
+            j.update({"status": "pending", "due_at": timeutil.iso(now),
+                      "note": f"reset: running > {max_min:.0f} min without an end (attempt {j.get('attempts', 0)})"})
+            journal(f"{jid}: stale session job reset to pending")
+        out.append(jid)
+    return out
 
 
 def act_on_killrule(st: dict, kr: dict) -> None:
@@ -354,12 +504,17 @@ def watchdog_action(config: dict, st: dict, tmux_alive: bool, due_jobs: list[dic
     if stopped:
         return "none"
     if not tmux_alive:
+        nxt = (st.get("watchdog") or {}).get("next_launch_after")
+        if nxt and now < timeutil.parse(nxt):
+            return "backoff"
         return "resume"
     tz = timeutil.ZoneInfo(config.get("tz", "America/Chicago"))
     sess = st.get("session") or {}
     busy = sess.get("busy")
     busy_fresh = bool(busy) and (now - timeutil.parse(busy["since"])).total_seconds() < 3600
-    running_session_jobs = any(j.get("status") == "running" and j.get("type") in SESSION_JOB_TYPES for j in st["jobs"].values())
+    running_session_jobs = any(
+        j.get("status") == "running" and j.get("type") in SESSION_JOB_TYPES and j.get("started_at")
+        and (now - timeutil.parse(j["started_at"])).total_seconds() < 90 * 60 for j in st["jobs"].values())
     started = timeutil.parse(sess["started_at"]) if sess.get("started_at") else None
     today = timeutil.local_date(now, tz)
     rot = timeutil.at_local(today, config.get("rotate_at", "04:00"), tz)
@@ -372,6 +527,50 @@ def watchdog_action(config: dict, st: dict, tmux_alive: bool, due_jobs: list[dic
     if stale and due_jobs:
         return "tick"
     return "none"
+
+
+WATCHDOG_FAST_EXIT_N = 3
+WATCHDOG_STALE_H = 2.0
+
+
+def watchdog_launched(st: dict, survived: bool, now: dt.datetime) -> int:
+    """Record a resume/rotate launch the watchdog made and whether the session was still alive ~2 min later.
+    After WATCHDOG_FAST_EXIT_N fast exits in a row, back off: 30 min, 1 h, 2 h, ... up to 4 h. Returns the streak."""
+    wd = st.setdefault("watchdog", {"launches": [], "fast_exits": 0, "next_launch_after": None})
+    wd["launches"] = (wd.get("launches") or [])[-19:] + [timeutil.iso(now)]
+    if survived:
+        wd["fast_exits"] = 0
+        wd["next_launch_after"] = None
+        return 0
+    wd["fast_exits"] = int(wd.get("fast_exits", 0)) + 1
+    n = wd["fast_exits"]
+    if n >= WATCHDOG_FAST_EXIT_N:
+        wait_min = min(240, 30 * 2 ** (n - WATCHDOG_FAST_EXIT_N))
+        wd["next_launch_after"] = timeutil.iso(now + dt.timedelta(minutes=wait_min))
+    return n
+
+
+def watchdog_notes(config: dict, st: dict, now: dt.datetime, stopped: bool = False) -> list[tuple[str, str]]:
+    """(key, text) HUMAN.md entries the watchdog should write (deduped by key). Pure."""
+    if stopped:
+        return []
+    out = []
+    day = timeutil.local_date(now)
+    wd = st.get("watchdog") or {}
+    n = int(wd.get("fast_exits", 0))
+    if n >= WATCHDOG_FAST_EXIT_N:
+        out.append((f"watchdog:fast-exit:{day}",
+                    f"The operator session died within 2 minutes of launch {n} times in a row (expired claude login, "
+                    f"usage/rate limit, or a missing allowlist: `scripts/operator_tmux.sh status`, and "
+                    f"~/studio/logs/operator/watchdog.log). The watchdog now waits until "
+                    f"{wd.get('next_launch_after')} between launches. Makes and slots are being skipped."))
+    hb = (st.get("session") or {}).get("heartbeat_at")
+    if hb and (now - timeutil.parse(hb)).total_seconds() > WATCHDOG_STALE_H * 3600:
+        age = (now - timeutil.parse(hb)).total_seconds() / 3600
+        out.append((f"watchdog:stale:{day}",
+                    f"The operator heartbeat is {age:.1f} h old (session down or stuck). Due jobs are not being "
+                    f"handled; makes expire and slots are skipped. `scripts/operator_tmux.sh status` / `attach`."))
+    return out
 
 
 # ---------------------------------------------------------------------------------------------- CLI
@@ -406,6 +605,8 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("pause"); p.add_argument("reason")
     p = sub.add_parser("unpause", help="human only (scripts/operator_ctl.sh unpause)")
     p = sub.add_parser("watchdog"); p.add_argument("--tmux-alive", type=int, required=True)
+    p = sub.add_parser("watchdog-launched", help="watchdog: a launch it made was (not) alive ~2 min later")
+    p.add_argument("--survived", type=int, required=True)
     a = ap.parse_args(argv)
     cfg = load_config()
 
@@ -425,8 +626,21 @@ def main(argv: list[str] | None = None) -> int:
         from pipeline.ops import due as due_mod
         st = load_state()
         now = timeutil.now_utc()
+        stopped = os.path.exists(paths.stopped_flag())
         jobs = due_mod.due_from_disk(cfg, st, now)
-        print(watchdog_action(cfg, st, bool(a.tmux_alive), jobs, now, stopped=os.path.exists(paths.stopped_flag())))
+        notes = watchdog_notes(cfg, st, now, stopped)
+        if notes:
+            with updating() as s2:
+                for key, text in notes:
+                    human(text, key=key, st=s2)
+        print(watchdog_action(cfg, st, bool(a.tmux_alive), jobs, now, stopped=stopped))
+        return 0
+    if a.cmd == "watchdog-launched":
+        with updating() as s2:
+            n = watchdog_launched(s2, bool(a.survived), timeutil.now_utc())
+            for key, text in watchdog_notes(cfg, s2, timeutil.now_utc()):
+                human(text, key=key, st=s2)
+        print(f"fast exits in a row: {n}")
         return 0
     rejected: list[str] = []
     slug = None
@@ -437,6 +651,9 @@ def main(argv: list[str] | None = None) -> int:
             now = timeutil.iso()
             st["session"].update({"id": a.id, "started_at": now, "last_resume_at": now, "heartbeat_at": now,
                                   "tmux": a.tmux, "busy": None})
+            # every session id, so budget.py can measure real usage from the transcripts
+            st["sessions"] = ([x for x in st.get("sessions", []) if x.get("id") != a.id]
+                              + [{"id": a.id, "started_at": now}])[-30:]
             st["crons"] = []  # session crons die with the session; the new session re-arms them
         elif a.cmd == "crons-set":
             st["crons"] = json.loads(a.json)

@@ -107,23 +107,32 @@ Job ids: `<YYYYMMDD>-<slot|na>-<type>[-<suffix>]`. Types run by `run.py` (determ
 |---|---|---|---|---|
 | `make` (06:30 slot A, 08:45 slot B) | run.py | `experiments assign` -> `sources pick --exclude <rejected>` -> `studio-make --source <id> --slot --date --experiment --budget-tokens 2.5M` (retried once `--from <failed step>`) -> `qa.gate` | exit 0; gate PASS or FAIL recorded in the job result | `review` registered |
 | `review` | **you** (reviewer subagent) | section 7 | `review.json` written, verdict given | PASS -> `publish`; FIX (round 1) -> `fix`; REJECT or FIX in round 2 -> next source or slot failed |
-| `fix` | run.py | `studio-make --slug S --from review --review-notes episodes/S/review_notes.md`, then gate | exit 0 | `review` round 2 |
-| `publish` | run.py | `publish.post S --slot-at <post time> --platforms ... --mode draft|auto` (mode decided per platform) | exit 0 | drafts: HUMAN.md "approve by HH:MM" |
-| `status` (every 30 min while posts are open) | run.py | `publish.status --all-open`; drafts unapproved 6 h after the slot -> HUMAN.md | exit 0 | metrics jobs appear at published + 48 h / 7 d |
-| `metrics48`, `metrics7d` | run.py | `analytics.collect --post-key K --window`, `analytics.align S --window`; 7 d YouTube also `heatmap <source>` and `align --source` | exit 0 | nothing; read the alignment top drops on the Monday |
-| `tiktok_inbox` (21:00, only if files wait) | run.py | `tiktok_import` for each CSV | exit 0 | if screenshots remain: do `tiktok_screens` |
+| `fix` | run.py | `studio-make --slug S --from review --review-notes episodes/S/review_notes.md --budget-tokens <2.5M + budget.fix_round_tokens 1M>`, then gate | exit 0 | `review` round 2 |
+| `publish` | run.py | one `publish.post S --slot-at <post time> --platforms youtube,tiktok,instagram --modes youtube=draft\|auto,... --result-file F`, started **detached**: the job ends as soon as the Buffer posts exist; post.py keeps the cloudflared URL up on its own until Buffer has fetched the media (up to 12 h, `publish_hold_max_h`) | exit 0 (also when a platform failed after others were created: HUMAN.md lists it) | drafts: HUMAN.md "approve by HH:MM" |
+| `status` (every 30 min while posts are open, or a sent post still lacks its link) | run.py | `publish.status --all-open`; drafts unapproved 6 h after the slot -> HUMAN.md; a Buffer post that turns `failed` -> HUMAN.md | exit 0 or 4 | metrics jobs appear at published + 48 h / 7 d |
+| `metrics48`, `metrics7d` (+ `-retry<k>`) | run.py | `analytics.collect --post-key K --window`, `analytics.align S --window`; 7 d YouTube also `heatmap <source>` and `align --source`. If the newest row is still incomplete (dry run, `pending`, error, no views), a `-retry<k>` job follows 12 h later, until window + 48 h | exit 0 | nothing; read the alignment top drops on the Monday |
+| `tiktok_inbox` (21:00, only if files wait) | run.py | `tiktok_import --inbox` once (CSVs move to `done/`, rows are deduped, a bad CSV goes to `failed/`), then the screenshots an imported `*.screenshot.csv` covers move to `done/` (code, not you) | exit 0 | if screenshots remain: do `tiktok_screens` |
 | `tiktok_screens` | **you** (transcriber subagent) | read the screenshots per `pipeline/analytics/TIKTOK_IMPORT.md`, write `data/inbox/tiktok/<date>-screens.csv` in its column format; the next `tiktok_inbox` imports it | CSV written | |
 | `learning` (Mon 07:30) | run.py, then **you** | `experiments decide`, `analytics.learning --week W`; then section 8 | exit 0 | next experiment opened |
 | `killrule` (Mon 07:30, and every 5th new 7-d YouTube row after 30) | run.py | `analytics.killrule`; the code pauses the loop on `stop` | exit 0 | section 8.4 |
 | `triage` | **you** (triage subagent) | read the job log tail (last 150 lines), `make_status.json`, `gate.json`; classify | cause in the journal | HUMAN.md if a human must act |
 
-Exit codes everywhere: 0 ok (incl. dry-run), 1 failed, 2 usage, 3 budget cap, 4 nothing to do, 5 dependency down
-(claude auth, API 401/403, tunnel, lane not installed: **pauses the loop**), 6 blocked by a gate.
+Exit codes everywhere: 0 ok (incl. dry-run), 1 failed (also network errors and 5xx after retries: transient, the
+next run retries), 2 usage, 3 budget cap, 4 nothing to do, 5 dependency down (claude auth, API 401/403, tunnel, lane
+not installed), 6 blocked by a gate.
+
+Job ids: `<YYYYMMDD>-<slot>-<type>[-suffix]`. The second source of a slot is `make-r2`; its chain is `review-s2`,
+`fix-s2`, `review-s2-r2`, `publish-s2` (so it never collides with the first make's jobs).
 
 Failure policy (the code applies it; you explain it): a failed make is retried once from the failed step; a second
-failure, a review REJECT or a FIX in round 2 rejects the source and, if the slot's post time is still >= 3 h away,
-makes the slot again with the next source; otherwise the slot is skipped. Two failed slots in a row, any exit 5, or
-a budget stop pause the loop and write HUMAN.md.
+failure, a review REJECT, a FIX in round 2 or a make that hit its **per-video** token cap rejects the source and, if
+the slot's post time is still >= 3 h away, makes the slot again with the next source; otherwise the slot is
+skipped. A publish that missed its slot (post time + 2 h passed, also while paused) is `skipped`: the source is not
+rejected and the slot does not count as failed. A publish that fails after some Buffer posts exist is never a failed
+slot. Pauses (with HUMAN.md): two failed slots in a row; exit 5 from claude once, or from the same other dependency
+twice within 6 h (`dependency_pause_after`, `dependency_window_h`); the **weekly** budget hard cap (makes stop until
+Monday). Six exit-1 failures in a row of one dependency only write HUMAN.md.
+In-session jobs left `running` for 90 min (a session died mid-review) go back to pending once, then fail.
 
 ## 6. Daily routine (America/Chicago)
 
@@ -263,7 +272,7 @@ Unit: weighted tokens = input + output + cache creation + 0.1 x cache reads.
 | Triage subagent | 40k (log tails only, never whole logs) |
 | Weekly-notes subagent | 60k |
 | A quiet tick in this session | 15k |
-| This session per day (all of the above you run) | 1.5M (`budget add-operator` after each job) |
+| This session per day (all of the above you run) | 1.5M, **measured** from the session transcripts (plus subagents) by `budget check`; at the cap `review`/`tiktok_screens` wait for the next day and HUMAN.md says so. Still log `budget add-operator` after each job (the larger number counts) |
 | Week | 40M; at 80 % one video a day and no optional work; at 100 % makes stop until Monday |
 
 `python -m pipeline.ops.budget check` prints the level. Keep your own context small: use subagents for anything

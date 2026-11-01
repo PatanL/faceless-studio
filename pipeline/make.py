@@ -81,7 +81,11 @@ MIN_RUNTIME_S = 61.0
 DEFAULT_BUDGET = int(os.environ.get("STUDIO_BUDGET_TOKENS", "2500000"))
 # rough weighted-token cost of one claude call per kind (for the "would exceed" budget check); measured on the Spark
 EST_TOKENS = {"annotate": 400_000, "script": 600_000, "shots": 900_000, "review": 400_000, "package": 300_000}
-AUTH_RX = re.compile(r"auth|log ?in|401|403|credential|expired|invalid api key|not logged", re.I)
+# claude's own auth failure strings only (word-bounded): an ordinary failure whose text says "author", or a 401/403
+# inside a session UUID or a cost number, must stay exit 1 (exit 5 pauses the whole operator loop)
+AUTH_RX = re.compile(r"\bInvalid API key\b|Please run /login\b|\bOAuth token (?:has )?expired\b|"
+                     r"\bnot logged in\b|\bauthentication_error\b|\bAPI Error: 40[13]\b|"
+                     r"\bOAuth authentication is currently not supported\b", re.I)
 EXIT_FAIL, EXIT_USAGE, EXIT_BUDGET, EXIT_NOTHING, EXIT_DEP, EXIT_GATE = 1, 2, 3, 4, 5, 6
 
 
@@ -318,6 +322,7 @@ class Make:
         used = st["usage_total"]["weighted_tokens"]
         est = EST_TOKENS.get(kind, 300_000)
         if used + est > cap:
+            st["budget_cap"] = "video"  # this per-video cap, never the weekly one (pipeline.ops reads it)
             raise Fail(f"{name}: budget: {used:,} weighted tokens used + ~{est:,} for {kind} > --budget-tokens {cap:,}",
                        EXIT_BUDGET)
 
@@ -376,7 +381,10 @@ class Make:
         last = text.splitlines()[-1][:200] if text else "(no output)"
         if rc != 0 or res.get("is_error"):
             restore()
-            code = EXIT_DEP if (AUTH_RX.search(text[-2000:]) or rc in (126, 127)) else EXIT_FAIL
+            # auth strings are looked for in claude's `result` when it is an error, else (no parseable JSON) in the
+            # raw output; never in the agent's normal final text of a run that failed for another reason
+            probe = (res.get("result") or "") if res.get("is_error") else ("" if res else out or "")
+            code = EXIT_DEP if (AUTH_RX.search(probe[-2000:]) or rc in (126, 127)) else EXIT_FAIL
             self.log(f"{name}: claude -p FAILED (exit {rc}) after {time.time() - t0:.0f}s: {last}")
             raise Fail(f"{name}: claude -p failed (exit {rc}): {last}", code)
         self.log(f"{name}: claude -p done in {time.time() - t0:.0f}s "
@@ -731,7 +739,8 @@ class Make:
                     f"({dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC). Sources in `episodes/{self.slug}/`.\n\n")
             f.write("\n".join(f"- `{x}`" for x in files) + "\n")
         src = self.source()
-        if src and getattr(self.a, "source", None):
+        # mark the source used whenever this episode was made from one (source.json), also on a --slug --from retry
+        if src and src.get("source_id") and not getattr(self.a, "dry_run_claude", False):
             self.spark(f"python3 -m pipeline.sources mark {shlex.quote(src['source_id'])} used --slug {self.slug}",
                        check=False, quiet=True)
         self.log(f"collect: out/{self.slug}/ ({len(files)} files)")

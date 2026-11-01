@@ -19,6 +19,7 @@ and data/operator/approval_mode), config.mode.<p> is auto and config.disclosure_
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime as dt
 import glob
 import importlib.util
@@ -112,6 +113,50 @@ class Runner:
             self.say(out.strip()[-2000:])
         return p.returncode, out or ""
 
+    def detached(self, argv: list[str], result_file: str, wait_s: float = 2400) -> tuple[int, dict]:
+        """Start argv in its own session and return as soon as it writes `result_file` with phase created|done, or
+        exits. The process may keep running after that (post.py's tunnel hold): it is never killed by this job.
+        If neither happens within wait_s, the process group is terminated (SIGTERM first, so post.py closes its
+        tunnel) and (1, {}) is returned. -> (exit code, result JSON)."""
+        argv = [str(x) for x in argv]
+        self.cmds.append(argv)
+        mod = next((LANE_MODULE[m] for m in LANE_MODULE if m in argv[:3]), None)
+        self.say("$ (detached) " + " ".join(shlex.quote(x) for x in argv))
+        with contextlib.suppress(OSError):
+            os.unlink(result_file)
+        if self.fake is not None:
+            key = argv[2] if len(argv) > 2 and argv[1] == "-m" else os.path.basename(argv[0])
+            code, _ = self.fake(key, argv)
+            return code, _read_json(result_file)
+        if self.dry:
+            return 0, {}
+        if mod and not _have(mod):
+            return 5, {}
+        env = dict(os.environ, CUDA_VISIBLE_DEVICES="", TZ="America/Chicago", PYTHONUNBUFFERED="1")
+        p = subprocess.Popen(argv, cwd=paths.ROOT, env=env, stdout=self.log, stderr=self.log, stdin=subprocess.DEVNULL,
+                             text=True, start_new_session=True)
+        t_end = time.time() + wait_s
+        while time.time() < t_end:
+            rc = p.poll()
+            res = _read_json(result_file)
+            if rc is not None:
+                return rc, res
+            if res.get("phase") in ("created", "done") and res.get("pid") == p.pid:
+                self.say(f"pid {p.pid} reported phase {res['phase']}: leaving it running (hold={res.get('holding')})")
+                return int(res.get("exit") or 0), {**res, "hold_pid": p.pid if res.get("holding") else None}
+            time.sleep(2)
+        self.say(f"no result from pid {p.pid} after {wait_s:.0f}s: terminating its process group")
+        with contextlib.suppress(ProcessLookupError):
+            os.killpg(p.pid, signal.SIGTERM)
+            for _ in range(30):
+                if p.poll() is not None:
+                    break
+                time.sleep(1)
+            if p.poll() is None:
+                os.killpg(p.pid, signal.SIGKILL)
+        p.wait()
+        return 1, _read_json(result_file)
+
     def json_out(self, argv, **kw) -> dict:
         code, out = self.sh(argv, capture=True, **kw)
         if self.dry and self.fake is None:
@@ -123,6 +168,14 @@ class Runner:
                 return json.loads(out)
             except json.JSONDecodeError:
                 raise StepFailed(1, f"expected JSON from {' '.join(argv[:4])}")
+
+
+def _read_json(path: str) -> dict:
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
 # ---------------------------------------------------------------------------------------------- handlers
@@ -181,6 +234,10 @@ def h_make(r: Runner, st: dict):
         slug = _find_slug(job, started)
         ms = _make_status(slug) if slug else {}
         left = max_s - (time.time() - t0)
+        if slug:
+            r.result["slug"] = slug
+        if e.code == 3:
+            r.result["budget_cap"] = ms.get("budget_cap") or "video"  # studio-make's cap is per video
         if e.code == 1 and slug and ms.get("step") and left > 600:
             r.say(f"retrying once from step {ms['step']}")
             r.sh(["./studio-make", "--slug", slug, "--from", ms["step"], "--budget-tokens", str(cap)], timeout_s=left)
@@ -198,13 +255,18 @@ def h_fix(r: Runner, st: dict):
     notes = f"episodes/{slug}/review_notes.md"
     if not r.dry and r.fake is None and not os.path.exists(os.path.join(paths.ROOT, notes)):
         raise StepFailed(2, f"{notes} missing: the operator writes it before starting a fix job")
-    cap = int(r.config["budget"]["weighted_tokens_per_video"])
+    # studio-make counts a slug's usage across invocations, so a fix round starts from the make's total: give it
+    # its own allowance on top of the per-video cap instead of failing on the first claude call
+    b = r.config["budget"]
+    cap = int(b["weighted_tokens_per_video"]) + int(b.get("fix_round_tokens", 1_000_000))
     r.sh(["./studio-make", "--slug", slug, "--from", "review", "--review-notes", notes, "--budget-tokens", str(cap)],
-         timeout_s=float(r.config["budget"].get("max_make_hours", 3)) * 3600)
+         timeout_s=float(b.get("max_make_hours", 3)) * 3600)
     r.result.update({"slug": slug, "gate": _gate(r, slug)})
 
 
 def h_publish(r: Runner, st: dict):
+    """One pipeline.publish.post call for every platform (per-platform modes, one URL, one hold), started detached:
+    the job ends as soon as the Buffer posts exist; post.py keeps the cloudflared URL up on its own afterwards."""
     job, cfg = r.job, r.config
     slug = job["slug"]
     post_at = timeutil.parse(S.slot_info(cfg, job["date"], job["slot"])["post_at"])
@@ -213,36 +275,67 @@ def h_publish(r: Runner, st: dict):
         raise StepFailed(4, f"slot post time {timeutil.iso(post_at)} passed {late} ago; not posting late")
     slot_at = max(post_at, timeutil.now_utc() + dt.timedelta(minutes=20))
     approval = S.approval_mode()
+    platforms = cfg.get("platforms", ["youtube", "tiktok", "instagram"])
+    modes = {p: S.effective_mode(cfg, p, approval) for p in platforms}
     groups: dict[str, list[str]] = {}
-    for p in cfg.get("platforms", ["youtube", "tiktok", "instagram"]):
-        groups.setdefault(S.effective_mode(cfg, p, approval), []).append(p)
+    for p in platforms:
+        groups.setdefault(modes[p], []).append(p)
     r.say(f"APPROVAL_MODE={approval}; modes {groups}")
-    for mode in ("draft", "auto"):
-        if groups.get(mode):
-            r.sh([PY, "-m", "pipeline.publish.post", slug, "--slot-at", timeutil.iso(slot_at),
-                  "--platforms", ",".join(groups[mode]), "--mode", mode], timeout_s=2400)
-    r.result.update({"slug": slug, "slot_at": timeutil.iso(slot_at), "modes": groups,
-                     "drafts": len(groups.get("draft", []))})
-    if groups.get("draft") and not r.dry:
+    res_file = os.path.join(paths.ops_dir(), "publish", f"{r.job_id}.json")
+    os.makedirs(os.path.dirname(res_file), exist_ok=True)
+    code, res = r.detached([PY, "-m", "pipeline.publish.post", slug, "--slot-at", timeutil.iso(slot_at),
+                            "--platforms", ",".join(platforms), "--modes", ",".join(f"{p}={modes[p]}" for p in platforms),
+                            "--result-file", res_file, "--hold-max-h", str(cfg.get("publish_hold_max_h", 12))],
+                           res_file, wait_s=float(cfg.get("publish_wait_s", 2400)))
+    created = res.get("created")
+    if created is None:  # fake runner / dry plan / a post.py that died before writing: assume all or nothing
+        created = platforms if code == 0 else []
+    skipped = res.get("skipped_platforms") or []
+    failed = [p for p in res.get("failed") or [] if p not in created]
+    drafts = [p for p in created if modes.get(p) == "draft"]
+    r.result.update({"slug": slug, "slot_at": timeutil.iso(slot_at), "modes": groups, "created": created,
+                     "failed": failed, "skipped_platforms": skipped, "dry_run": bool(res.get("dry_run")),
+                     "drafts": 0 if res.get("dry_run") else len(drafts), "hold_pid": res.get("hold_pid"),
+                     "result_file": res_file})
+    if code != 0 and not created:
+        raise StepFailed(code, f"pipeline.publish.post exited {code}; no Buffer post was created")
+    if r.dry or res.get("dry_run"):
+        return
+    if code != 0 or failed:
+        r.result["partial"] = True
+        S.human(f"Publish of `{slug}`: created {', '.join(created) or 'nothing'}, FAILED {', '.join(failed) or '?'} "
+                f"(exit {code}). See the job log and data/posts.jsonl; post the missing platform(s) by hand and "
+                f"record them with `pipeline.publish.post --record-manual`.", key=f"publish-failed:{slug}", st=st)
+    if skipped:
+        S.human(f"`{slug}` was not posted to {', '.join(skipped)}: "
+                f"{', '.join('BUFFER_CHANNEL_' + p.upper() for p in skipped)} missing in ~/studio/.env.",
+                key=f"publish-skipped:{','.join(skipped)}:{timeutil.local_date()}", st=st)
+    if drafts:
         loc = timeutil.to_local(slot_at)
-        S.human(f"Approve the Buffer drafts for `{slug}` ({', '.join(groups['draft'])}) by {loc:%a %H:%M} "
+        S.human(f"Approve the Buffer drafts for `{slug}` ({', '.join(drafts)}) by {loc:%a %H:%M} "
                 f"America/Chicago. In Buffer, set each platform's AI-content toggle before approving. "
                 f"Captions: out/{slug}/publish/captions.json. Unapproved drafts count as missed "
                 f"{cfg.get('drafts_missed_h', 6)} h after the slot.", key=f"approve:{slug}", st=st)
 
 
 def h_status(r: Runner, st: dict):
-    r.sh([PY, "-m", "pipeline.publish.status", "--all-open"], timeout_s=900)
+    code, _ = r.sh([PY, "-m", "pipeline.publish.status", "--all-open"], timeout_s=900, ok=(0, 4))
     if r.dry:
         return
     cfg = r.config
     now = timeutil.now_utc()
     for key, p in jsonl.latest(paths.ledger("posts.jsonl"), "post_key").items():
+        if p.get("dry_run"):
+            continue
         if p.get("mode") == "draft" and p.get("status") == "draft" and p.get("scheduled_at"):
             if now - timeutil.parse(p["scheduled_at"]) > dt.timedelta(hours=cfg.get("drafts_missed_h", 6)):
                 S.human(f"Draft `{key}` was not approved within {cfg.get('drafts_missed_h', 6)} h of its slot "
                         f"({p['scheduled_at']}); it counts as missed. Delete or post it in Buffer.",
                         key=f"missed:{key}", st=st)
+        if p.get("status") == "failed" and p.get("buffer_post_id"):
+            S.human(f"Buffer post `{key}` ({p.get('buffer_post_id')}) went to **failed**: {p.get('error') or 'no error text'}. "
+                    f"It will not go out; fix it in Buffer (media fetch? channel?) or post by hand and record it with "
+                    f"`pipeline.publish.post --record-manual`.", key=f"failed:{key}", st=st)
 
 
 def h_metrics(r: Runner, st: dict):
@@ -269,13 +362,36 @@ def h_killrule(r: Runner, st: dict):
         r.result["killrule"] = {}
 
 
+IMAGE_EXT = (".png", ".jpg", ".jpeg", ".webp")
+
+
 def h_tiktok_inbox(r: Runner, st: dict):
+    """Import every CSV once (`tiktok_import --inbox` moves them to done/ and dedupes rows), then move the
+    screenshots a successfully imported `*.screenshot.csv` covered (images not newer than it) to done/ from code.
+    Only screenshots still waiting afterwards make a tiktok_screens session job."""
     inbox = os.path.join(paths.data_dir(), "inbox", "tiktok")
+    done = os.path.join(inbox, "done")
     csvs = sorted(glob.glob(os.path.join(inbox, "*.csv")))
-    for f in csvs:
-        r.sh([PY, "-m", "pipeline.analytics.tiktok_import", f], timeout_s=300)
-    shots = [f for f in glob.glob(os.path.join(inbox, "*")) if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp"))]
-    r.result.update({"csv": len(csvs), "screenshots": len(shots)})
+    screen_csvs = {os.path.basename(f): os.path.getmtime(f) for f in csvs if f.endswith(".screenshot.csv")}
+    code = 0
+    if csvs:
+        code, _ = r.sh([PY, "-m", "pipeline.analytics.tiktok_import", "--inbox"], timeout_s=300, ok=(0, 1))
+    moved = 0
+    if not r.dry and r.fake is None:
+        imported = [m for n, m in screen_csvs.items() if os.path.exists(os.path.join(done, n))]
+        if imported:
+            upto = max(imported)
+            os.makedirs(done, exist_ok=True)
+            for f in glob.glob(os.path.join(inbox, "*")):
+                if f.lower().endswith(IMAGE_EXT) and os.path.getmtime(f) <= upto + 1:
+                    os.replace(f, os.path.join(done, os.path.basename(f)))
+                    moved += 1
+        if code != 0:
+            S.human("TikTok import: some CSVs in data/inbox/tiktok/ failed (moved to data/inbox/tiktok/failed/; see "
+                    f"the job log {os.path.join(paths.log_dir(), r.job_id + '.log')}). Fix and drop them again.",
+                    key=f"tiktok-import:{timeutil.local_date()}", st=st)
+    shots = [f for f in glob.glob(os.path.join(inbox, "*")) if f.lower().endswith(IMAGE_EXT)]
+    r.result.update({"csv": len(csvs), "screenshots": len(shots), "screenshots_done": moved, "import_exit": code})
 
 
 HANDLERS = {"make": h_make, "fix": h_fix, "publish": h_publish, "status": h_status, "metrics48": h_metrics,
@@ -313,7 +429,16 @@ def execute(job_id: str, dry: bool = False, fake=None, log=None) -> int:
     except Exception as e:  # noqa: BLE001 - recorded, never swallowed silently
         code, note = 1, f"{type(e).__name__}: {e}"
         r.say(note)
-    status = "done" if code in (0, 4) and not (code == 4 and job.get("type") in ("make", "publish")) else "failed"
+    if code == 4 and job.get("type") == "publish":
+        status = "skipped"  # the slot's post time passed: not a failure of the video or its source
+    else:
+        status = "done" if code in (0, 4) and not (code == 4 and job.get("type") == "make") else "failed"
+    if code == 3:
+        try:
+            from pipeline.ops import budget
+            r.result["budget_level"] = budget.check(cfg, st)["level"]
+        except Exception:  # noqa: BLE001
+            pass
     r.say(f"=== {job_id} end exit {code} -> {status} result {json.dumps(r.result)}")
     if not dry:
         with S.updating() as st2:
@@ -377,6 +502,7 @@ def reconcile() -> list[str]:
     cfg = S.load_config()
     out = []
     with S.updating() as st:
+        out += S.reset_stale_session_jobs(st, timeutil.now_utc(), float(cfg.get("session_job_stale_min", 90)))
         for jid, j in st["jobs"].items():
             if j.get("status") != "running" or j.get("type") not in HANDLERS:
                 continue

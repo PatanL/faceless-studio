@@ -9,6 +9,11 @@ deterministic (`<YYYYMMDD>-<slot|na>-<type>[-<suffix>]`), so calling it twice or
 
 --register writes new jobs to state.json as pending and marks expired ones skipped. Order of the output:
 publish, review, fix, make, status, metrics, tiktok, learning, killrule (then due_at).
+
+Publish jobs expire at post_at + publish_late_h (skipped, never failed: a missed slot does not reject the source),
+also while the loop is paused. A metrics job whose latest row for (post_key, window) is still incomplete (dry run or
+synthetic, `pending`, an error, or no views) gets a `-retry<k>` job 12 h after the previous attempt finished, until
+window + 48 h. In-session jobs (review, tiktok_screens) wait while the operator session is at its daily token cap.
 """
 from __future__ import annotations
 
@@ -25,6 +30,26 @@ from pipeline.ops import paths, state as S
 PRIORITY = {"publish": 0, "review": 1, "fix": 2, "make": 3, "status": 4, "metrics48": 5, "metrics7d": 5,
             "tiktok_inbox": 6, "tiktok_screens": 6, "learning": 7, "killrule": 8, "triage": 9}
 OPEN_POST = {"draft", "scheduled", "sending"}
+METRICS_RETRY_H = 12      # collect.RETRY_PENDING_H
+METRICS_GRACE_H = 48      # collect.PENDING_GRACE_H
+
+
+def metric_incomplete(m: dict | None) -> bool:
+    """A metrics row that should be fetched again: missing, dry-run/synthetic, pending, an error, or no views."""
+    if not m:
+        return True
+    return bool(m.get("dry_run") or m.get("status") == "dry_run" or m.get("source") == "synthetic"
+                or m.get("error") or m.get("pending") or m.get("views") is None)
+
+
+def needs_link(p: dict, now: dt.datetime) -> bool:
+    """A published Buffer post whose platform link is not known yet (status.py keeps polling it for 48 h)."""
+    if p.get("status") != "published" or p.get("dry_run") or not p.get("buffer_post_id"):
+        return False
+    if p.get("external_url") and p.get("external_id"):
+        return False
+    sent = p.get("published_at")
+    return not sent or (now - timeutil.parse(sent)).total_seconds() < 48 * 3600
 WEEKDAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
 
@@ -68,7 +93,7 @@ def time_based_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.
                      "due_at": info["make_at"], "expires_at": timeutil.iso(expires), "post_at": info["post_at"]})
 
     # Buffer status refresh: current half-hour bucket, only while some post is open
-    if any((p.get("status") in OPEN_POST) and not p.get("dry_run") for p in posts.values()):
+    if any(((p.get("status") in OPEN_POST) and not p.get("dry_run")) or needs_link(p, now) for p in posts.values()):
         every = int(config.get("status_every_min", 30))
         loc = timeutil.to_local(now, tz)
         mins = (loc.hour * 60 + loc.minute) // every * every
@@ -78,6 +103,10 @@ def time_based_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.
 
     # metrics at published + 48 h / 7 d (API platforms only; TikTok comes through the inbox)
     have = {(m.get("post_key"), m.get("window")) for m in metrics if not m.get("error") and not m.get("dry_run")}
+    last_row: dict = {}
+    for m in metrics:
+        last_row[(m.get("post_key"), m.get("window"))] = m
+    existing = st.get("jobs", {})
     for key, p in posts.items():
         if p.get("status") != "published" or not p.get("published_at"):
             continue
@@ -87,12 +116,18 @@ def time_based_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.
         pd = timeutil.local_date(pub, tz)
         for h in config.get("metrics_windows_h", [48, 168]):
             w = window_label(int(h))
+            jt = "metrics48" if w == "48h" else ("metrics7d" if w == "7d" else f"metrics{w}")
+            base = {"type": jt if jt in PRIORITY else "metrics48", "post_key": key, "slug": p.get("slug"),
+                    "platform": p.get("platform"), "window": w, "source_id": p.get("source_id")}
+            base_id = S.job_id(pd, None, jt, key)
+            if base_id in existing:
+                retry = _metrics_retry(existing, base_id, last_row.get((key, w)), pub, int(h), now)
+                if retry:
+                    jobs.append({**base, **retry})
+                continue
             if (key, w) in have:
                 continue
-            jt = "metrics48" if w == "48h" else ("metrics7d" if w == "7d" else f"metrics{w}")
-            jobs.append({"job_id": S.job_id(pd, None, jt, key), "type": jt if jt in PRIORITY else "metrics48",
-                         "post_key": key, "slug": p.get("slug"), "platform": p.get("platform"), "window": w,
-                         "source_id": p.get("source_id"), "due_at": timeutil.iso(pub + dt.timedelta(hours=int(h)))})
+            jobs.append({"job_id": base_id, **base, "due_at": timeutil.iso(pub + dt.timedelta(hours=int(h)))})
 
     # TikTok inbox (daily, only when files are waiting)
     if facts.get("tiktok_inbox", 0) > 0:
@@ -123,6 +158,25 @@ def time_based_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.
     return jobs
 
 
+def _metrics_retry(existing: dict, base_id: str, last: dict | None, pub: dt.datetime, h: int,
+                   now: dt.datetime) -> dict | None:
+    """The next `<base>-retry<k>` job (id + due_at) when the base job and earlier retries have finished and the
+    latest row is still incomplete, 12 h after the last attempt, within window + 48 h; else None."""
+    if not metric_incomplete(last):
+        return None
+    if now > pub + dt.timedelta(hours=h + METRICS_GRACE_H):
+        return None
+    tries = [base_id] + sorted((k for k in existing if k.startswith(base_id + "-retry")),
+                               key=lambda k: int(k.rsplit("retry", 1)[1] or 0))
+    prev = existing[tries[-1]]
+    if prev.get("status") in ("pending", "running"):
+        return None
+    since = prev.get("finished_at") or prev.get("due_at")
+    due = timeutil.parse(since) + dt.timedelta(hours=METRICS_RETRY_H) if since else now
+    return {"job_id": f"{base_id}-retry{len(tries)}", "due_at": timeutil.iso(max(due, pub + dt.timedelta(hours=h))),
+            "retry": len(tries)}
+
+
 def due_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.datetime, facts: dict | None = None) -> dict:
     """{"due": [...], "expired": [...], "new": [...]} - pure; `new` = due or future-dated jobs not yet in state."""
     facts = facts or {}
@@ -143,24 +197,36 @@ def due_jobs(config: dict, st: dict, posts: dict, metrics: list, now: dt.datetim
     for jid, j in existing.items():
         if j.get("status") != "pending":
             continue
+        exp = j.get("expires_at")
+        if not exp and j.get("type") == "publish" and j.get("date") and j.get("slot"):
+            try:  # publish jobs registered before they carried expires_at
+                post_at = timeutil.parse(S.slot_info(config, j["date"], j["slot"])["post_at"])
+                exp = timeutil.iso(post_at + dt.timedelta(hours=config.get("publish_late_h", 2)))
+            except KeyError:
+                exp = None
+        if exp and now >= timeutil.parse(exp):  # checked before the pause: a paused publish still expires
+            why = "slot post time passed while pending" if j.get("type") == "publish" else "expired while pending"
+            expired.append({"job_id": jid, **j, "reason": why})
+            continue
         if j.get("type") == "make" and not ok_make:
             continue
         if j.get("type") == "publish" and (config.get("paused") or st.get("paused")):
             continue
-        exp = j.get("expires_at")
-        if exp and now >= timeutil.parse(exp):
-            expired.append({"job_id": jid, **j, "reason": "expired while pending"})
+        if j.get("type") in S.SESSION_JOB_TYPES and facts.get("operator_cap"):
             continue
         if timeutil.parse(j.get("due_at") or timeutil.iso(now)) <= now:
             due.append({"job_id": jid, **j})
     due.sort(key=lambda j: (PRIORITY.get(j.get("type"), 99), j.get("due_at") or ""))
-    return {"due": due, "expired": expired, "new": new, "makes_blocked": None if ok_make else why}
+    return {"due": due, "expired": expired, "new": new, "makes_blocked": None if ok_make else why,
+            "session_blocked": "operator daily token cap" if facts.get("operator_cap") else None}
 
 
 # ---------------------------------------------------------------------------------------------- disk loaders
 def load_facts(config: dict, st: dict) -> dict:
     from pipeline.ops import budget
-    facts = {"budget": budget.check(config, st)["level"]}
+    b = budget.check(config, st)
+    facts = {"budget": b["level"], "operator_cap": b.get("operator_cap", False),
+             "operator_measured_today": b.get("operator_measured_today")}
     inbox = os.path.join(paths.data_dir(), "inbox", "tiktok")
     facts["tiktok_inbox"] = len([f for f in glob.glob(os.path.join(inbox, "*")) if os.path.isfile(f)])
     return facts
@@ -178,7 +244,17 @@ def register_due(now: dt.datetime | None = None) -> dict:
     with S.updating() as st:
         posts = jsonl.latest(paths.ledger("posts.jsonl"), "post_key")
         metrics = jsonl.read(paths.ledger("metrics.jsonl"))
-        r = due_jobs(config, st, posts, metrics, now, load_facts(config, st))
+        facts = load_facts(config, st)
+        r = due_jobs(config, st, posts, metrics, now, facts)
+        if facts.get("operator_measured_today") is not None:
+            md = st["budget"].setdefault("operator_measured_by_day", {})
+            md[timeutil.local_date(now)] = int(facts["operator_measured_today"])
+            for k in sorted(md)[:-21]:
+                md.pop(k, None)
+        if facts.get("operator_cap"):
+            S.human("The operator session reached its daily token cap (budget.operator_tokens_per_day_estimate, "
+                    "measured from its transcripts): in-session jobs (review, tiktok_screens) wait until tomorrow. "
+                    "Deterministic jobs keep running.", key=f"opcap:{timeutil.local_date(now)}", st=st)
         for j in r["new"]:
             S.register(st, j)
         for j in r["expired"]:
@@ -186,6 +262,10 @@ def register_due(now: dt.datetime | None = None) -> dict:
             if jid not in st["jobs"]:
                 S.register(st, {k: v for k, v in j.items() if k != "reason"})
             if st["jobs"][jid].get("status") == "pending":
+                if j.get("type") == "publish":
+                    S.finish_job(st, config, jid, "skipped", note=j["reason"], now=now)
+                    S.journal(f"{jid}: skipped ({j['reason']})")
+                    continue
                 st["jobs"][jid].update({"status": "skipped", "note": j["reason"], "finished_at": timeutil.iso(now)})
                 if j.get("type") == "make" and j.get("slot"):
                     S.journal(f"{jid}: skipped ({j['reason']})")

@@ -132,7 +132,8 @@ class TestDueCalendar(Tmp):
                             published[key] = timeutil.parse(p["scheduled_at"])
                     S.finish_job(st, cfg, jid, "done", 0, now=now)
                 elif t in ("metrics48", "metrics7d"):
-                    metrics.append({"post_key": j["post_key"], "window": j["window"], "platform": j["platform"]})
+                    metrics.append({"post_key": j["post_key"], "window": j["window"], "platform": j["platform"],
+                                    "views": 100})  # a complete row (no views/pending/error -> a retry job)
                     S.finish_job(st, cfg, jid, "done", 0, now=now)
                 else:
                     S.finish_job(st, cfg, jid, "done", 0, now=now)
@@ -416,14 +417,14 @@ class TestRunHandlers(Tmp):
     def test_publish_drafts_by_default(self):
         flat = self._publish(cfg_auto=True)  # config says auto, but APPROVAL_MODE is unset (drafts)
         self.assertEqual(len(flat), 1)
-        self.assertIn("--platforms youtube,tiktok,instagram --mode draft", flat[0])
+        self.assertIn("--platforms youtube,tiktok,instagram --modes youtube=draft,tiktok=draft,instagram=draft", flat[0])
         with open(os.path.join(os.environ["STUDIO_DATA"], "operator", "HUMAN.md")) as f:
             self.assertIn("Approve the Buffer drafts for `op-x`", f.read())
 
     def test_publish_auto_only_where_all_switches_agree(self):
         flat = self._publish(approval_file="auto", env_mode="auto", cfg_auto=True)
-        self.assertIn("--platforms tiktok,instagram --mode draft", flat[0])
-        self.assertIn("--platforms youtube --mode auto", flat[1])
+        self.assertEqual(len(flat), 1)  # one post.py call: one URL, one hold, no stale --slot-at for the auto group
+        self.assertIn("--modes youtube=auto,tiktok=draft,instagram=draft", flat[0])
 
     def test_dry_run_and_missing_lane(self):
         date = timeutil.local_date()
