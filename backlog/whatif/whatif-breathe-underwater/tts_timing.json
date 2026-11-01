@@ -1,0 +1,550 @@
+{
+ "measured_utc": "2026-11-01T09:4xZ",
+ "host": "dgx-spark CPU (CUDA_VISIBLE_DEVICES='', torch 4 threads, nice 10)",
+ "voice": "am_michael",
+ "lang": "a",
+ "note": "raw Kokoro clip lengths per VO line (untrimmed). Fit raw = a + words*60/wpm + pause*(sentences-1). Speeds 0.96/1.15 were measured on an earlier draft (1,342 words); 1.2/1.25 on the final draft. Lines c3, c8, g9, h4, h9, f4, a6, x7 re-measured after their final edit.",
+ "fits": {
+  "0.96": {
+   "a_s": 0.711,
+   "wpm": 171.2,
+   "pause_s": 0.085,
+   "total_s": 571.3,
+   "draft": "earlier"
+  },
+  "1.15": {
+   "a_s": 0.597,
+   "wpm": 193.6,
+   "pause_s": 0.074,
+   "total_s": 501.8,
+   "draft": "earlier"
+  },
+  "1.2": {
+   "a_s": 0.524,
+   "wpm": 198.3,
+   "pause_s": 0.023,
+   "total_s": 471.0,
+   "draft": "final"
+  },
+  "1.25": {
+   "a_s": 0.512,
+   "wpm": 207.1,
+   "pause_s": 0.028,
+   "total_s": 452.6,
+   "draft": "final"
+  }
+ },
+ "chosen_speed": 1.25,
+ "lines": {
+  "c1": {
+   "tts": "You fall off a ferry in the Pacific and gasp in seawater.",
+   "raw_1.2": 3.775,
+   "raw_1.25": 3.675
+  },
+  "c2": {
+   "tts": "And you're fine.",
+   "raw_1.2": 1.475,
+   "raw_1.25": 1.425
+  },
+  "c3": {
+   "tts": "No coughing. No burning. Your chest just keeps going, like you've done this forever.",
+   "raw_1.2": 5.0,
+   "raw_1.25": 4.875
+  },
+  "c4": {
+   "tts": "Something bumps your back and holds on. A remora. It thinks you're a shark.",
+   "raw_1.2": 4.45,
+   "raw_1.25": 4.325
+  },
+  "c5": {
+   "tts": "Everyone up there breathes air. Everyone but you.",
+   "raw_1.2": 3.2,
+   "raw_1.25": 3.075
+  },
+  "c6": {
+   "tts": "And here's the catch: air doesn't work for you anymore. You can't climb back on.",
+   "raw_1.2": 4.7,
+   "raw_1.25": 4.5
+  },
+  "c7": {
+   "tts": "Under you, the floor is four kilometres down. The deepest floor on Earth is a trench, a few hundred kilometres south-west of you.",
+   "raw_1.2": 8.175,
+   "raw_1.25": 7.7
+  },
+  "c8": {
+   "tts": "And a line on your way down is a wall.",
+   "raw_1.2": 2.6,
+   "raw_1.25": 2.525
+  },
+  "c9": {
+   "tts": "So you go down.",
+   "raw_1.2": 1.625,
+   "raw_1.25": 1.625
+  },
+  "t0": {
+   "tts": "What if you could breathe underwater?",
+   "raw_1.2": 2.325,
+   "raw_1.25": 2.275
+  },
+  "r1": {
+   "tts": "One change: your body can pull oxygen out of water.",
+   "raw_1.2": 3.825,
+   "raw_1.25": 3.75
+  },
+  "r2": {
+   "tts": "One promise: every time the ocean tries to kill you, you get the fix a real animal already uses.",
+   "raw_1.2": 6.5,
+   "raw_1.25": 6.275
+  },
+  "r3": {
+   "tts": "Until there isn't one.",
+   "raw_1.2": 1.9,
+   "raw_1.25": 1.85
+  },
+  "r4": {
+   "tts": "Everything else stays human: daylight eyes, and blood at thirty-seven degrees.",
+   "raw_1.2": 4.975,
+   "raw_1.25": 4.725
+  },
+  "r5": {
+   "tts": "Keep an eye on that number. It's already moving.",
+   "raw_1.2": 3.2,
+   "raw_1.25": 3.1
+  },
+  "g1": {
+   "tts": "First, the bad news: seawater holds about thirty times less oxygen than air.",
+   "raw_1.2": 5.325,
+   "raw_1.25": 5.1
+  },
+  "g2": {
+   "tts": "So about sixty litres of sea has to pour through you every minute.",
+   "raw_1.2": 4.15,
+   "raw_1.25": 4.075
+  },
+  "g3": {
+   "tts": "A bathtub every two and a half minutes.",
+   "raw_1.2": 2.625,
+   "raw_1.25": 2.475
+  },
+  "g4": {
+   "tts": "Lungs can't. Water is heavy, and lungs push it in and out the same pipe.",
+   "raw_1.2": 4.725,
+   "raw_1.25": 4.575
+  },
+  "g5": {
+   "tts": "In nineteen sixty-six, a lab mouse breathed oxygen-rich liquid and lived. Breathing out was the hard part.",
+   "raw_1.2": 6.75,
+   "raw_1.25": 6.55
+  },
+  "g6": {
+   "tts": "You try to shout for help. Nothing comes out. No air, no voice.",
+   "raw_1.2": 4.175,
+   "raw_1.25": 4.05
+  },
+  "g7": {
+   "tts": "The remora looks relieved.",
+   "raw_1.2": 2.05,
+   "raw_1.25": 2.025
+  },
+  "g8": {
+   "tts": "So here's your first fix, borrowed from every fish alive: gills.",
+   "raw_1.2": 4.35,
+   "raw_1.25": 4.125
+  },
+  "g9": {
+   "tts": "Water goes in your mouth and out behind your jaw, with your blood flowing against it.",
+   "raw_1.2": 5.175,
+   "raw_1.25": 4.95
+  },
+  "g10": {
+   "tts": "That grabs up to eighty percent of the oxygen. Your lungs managed a quarter.",
+   "raw_1.2": 4.85,
+   "raw_1.25": 4.675
+  },
+  "g11": {
+   "tts": "Easy. Except breathing water does one more thing to you, and you won't feel it yet.",
+   "raw_1.2": 5.1,
+   "raw_1.25": 4.925
+  },
+  "h1": {
+   "tts": "two hundred metres. For a while, this is the best swim of your life.",
+   "raw_1.2": 4.3,
+   "raw_1.25": 4.175
+  },
+  "h2": {
+   "tts": "Every ten metres adds an atmosphere of pressure, crushing the air inside divers.",
+   "raw_1.2": 5.35,
+   "raw_1.25": 5.125
+  },
+  "h3": {
+   "tts": "But you have no air left to crush. Water floods your sinuses and ears, and water barely squeezes.",
+   "raw_1.2": 6.5,
+   "raw_1.25": 6.2
+  },
+  "h4": {
+   "tts": "The deepest anyone has dived on a single breath is two hundred and fifty-three metres. You pass it without noticing.",
+   "raw_1.2": 7.2,
+   "raw_1.25": 6.825
+  },
+  "h5": {
+   "tts": "Then a blue whale slides under you, longer than two buses.",
+   "raw_1.2": 3.925,
+   "raw_1.25": 3.65
+  },
+  "h6": {
+   "tts": "It doesn't even look at you. Good.",
+   "raw_1.2": 2.4,
+   "raw_1.25": 2.25
+  },
+  "h7": {
+   "tts": "Problem one: salt. The sea you keep swallowing is about three times saltier than your blood.",
+   "raw_1.2": 5.675,
+   "raw_1.25": 5.45
+  },
+  "h8": {
+   "tts": "Fish have the fix: gill cells that pump salt back out. Now so do you.",
+   "raw_1.2": 4.725,
+   "raw_1.25": 4.425
+  },
+  "h9": {
+   "tts": "Problem two: light. About one percent of the sunlight gets this deep, and your eyes were made for beaches. No fix for that.",
+   "raw_1.2": 7.45,
+   "raw_1.25": 7.325
+  },
+  "h11": {
+   "tts": "Your fingertips have gone white. You decide it's just the light.",
+   "raw_1.2": 3.825,
+   "raw_1.25": 3.65
+  },
+  "m1": {
+   "tts": "one thousand metres. The light isn't dim anymore. It's gone.",
+   "raw_1.2": 4.075,
+   "raw_1.25": 3.975
+  },
+  "m2": {
+   "tts": "Then the dark starts to sparkle: around three in four animals here make their own light.",
+   "raw_1.2": 5.275,
+   "raw_1.25": 5.05
+  },
+  "m3": {
+   "tts": "Problem three: something glowing drifts up to your face. An anglerfish, small enough for your palm.",
+   "raw_1.2": 6.1,
+   "raw_1.25": 5.875
+  },
+  "m5": {
+   "tts": "But here's the thing. None of that was ever the real problem.",
+   "raw_1.2": 3.925,
+   "raw_1.25": 3.725
+  },
+  "m6": {
+   "tts": "The real problem has been killing you since the ferry, and it's on screen right now.",
+   "raw_1.2": 4.875,
+   "raw_1.25": 4.775
+  },
+  "m7": {
+   "tts": "Your blood. thirty-seven degrees, remember? The water here is four.",
+   "raw_1.2": 4.225,
+   "raw_1.25": 4.075
+  },
+  "m8": {
+   "tts": "Gills swap heat too. Your blood leaves them as cold as the sea.",
+   "raw_1.2": 4.175,
+   "raw_1.25": 3.925
+  },
+  "m9": {
+   "tts": "At the surface, you were losing heat about thirty times faster than you make it.",
+   "raw_1.2": 4.775,
+   "raw_1.25": 4.55
+  },
+  "m10": {
+   "tts": "Here, it's a hundred. Your gills are a radiator, and the ocean is the room.",
+   "raw_1.2": 4.875,
+   "raw_1.25": 4.625
+  },
+  "m11": {
+   "tts": "Hypothermia starts at thirty-five degrees. You passed it a while ago.",
+   "raw_1.2": 4.45,
+   "raw_1.25": 4.375
+  },
+  "m12": {
+   "tts": "Down here, you've got minutes.",
+   "raw_1.2": 1.975,
+   "raw_1.25": 1.925
+  },
+  "f1": {
+   "tts": "Except a few fish cheat the cold, and their cheat is real.",
+   "raw_1.2": 3.675,
+   "raw_1.25": 3.525
+  },
+  "f2": {
+   "tts": "In a bluefin tuna, warm blood heading out hands its heat to cold blood coming in, through a tangle of tiny vessels.",
+   "raw_1.2": 7.3,
+   "raw_1.25": 7.0
+  },
+  "f3": {
+   "tts": "It's your gill trick run backwards, saving heat instead of grabbing oxygen.",
+   "raw_1.2": 4.85,
+   "raw_1.25": 4.6
+  },
+  "f4": {
+   "tts": "So your third fix: a tuna's heat exchanger, between your gills and the rest of you.",
+   "raw_1.2": 5.075,
+   "raw_1.25": 4.975
+  },
+  "f5": {
+   "tts": "The readout stops falling. But tuna stay warm by never stopping, and now neither can you.",
+   "raw_1.2": 5.525,
+   "raw_1.25": 5.25
+  },
+  "n1": {
+   "tts": "two thousand metres. A click hits you so hard you feel it in your teeth.",
+   "raw_1.2": 4.475,
+   "raw_1.25": 4.3
+  },
+  "n2": {
+   "tts": "Then faster and faster, until the clicks blur into a buzz.",
+   "raw_1.2": 4.1,
+   "raw_1.25": 3.875
+  },
+  "n3": {
+   "tts": "That's a sperm whale. When its clicks become a buzz, it's closing in on something.",
+   "raw_1.2": 5.025,
+   "raw_1.25": 4.825
+  },
+  "n4": {
+   "tts": "You're warm, you're moving, and you're about the size of what it eats.",
+   "raw_1.2": 3.85,
+   "raw_1.25": 3.675
+  },
+  "n6": {
+   "tts": "The buzz hits you in the chest. Then the whale turns away.",
+   "raw_1.2": 3.725,
+   "raw_1.25": 3.55
+  },
+  "n7": {
+   "tts": "It wanted a giant squid, with eyes as wide as dinner plates. You don't make the cut.",
+   "raw_1.2": 5.1,
+   "raw_1.25": 4.925
+  },
+  "n8": {
+   "tts": "Here's the problem nobody warned you about: every fix makes you better at the deep, and worse at everything else.",
+   "raw_1.2": 6.65,
+   "raw_1.25": 6.35
+  },
+  "n9": {
+   "tts": "Many deep fish brought up to the surface don't survive the trip. You're turning into one.",
+   "raw_1.2": 5.325,
+   "raw_1.25": 5.025
+  },
+  "a1": {
+   "tts": "four thousand metres. You land on the floor of the Pacific: mud, cold, and four hundred atmospheres.",
+   "raw_1.2": 6.525,
+   "raw_1.25": 6.225
+  },
+  "a2": {
+   "tts": "Your gills are fine. Your molecules are not.",
+   "raw_1.2": 3.15,
+   "raw_1.25": 3.025
+  },
+  "a3": {
+   "tts": "Pressure this strong squeezes your proteins out of shape. Your hands shake. Your thoughts slow.",
+   "raw_1.2": 5.425,
+   "raw_1.25": 5.275
+  },
+  "a4": {
+   "tts": "In nineteen ninety-two, a diver in a French chamber survived the pressure of seven hundred and one metres, a human record.",
+   "raw_1.2": 7.65,
+   "raw_1.25": 7.425
+  },
+  "a5": {
+   "tts": "You're almost six times deeper. But deep fish carry a molecule called T-M-A-O that props proteins back into shape.",
+   "raw_1.2": 7.225,
+   "raw_1.25": 6.925
+  },
+  "a6": {
+   "tts": "Your fourth fix: you pack your cells with it. The shaking stops.",
+   "raw_1.2": 3.8,
+   "raw_1.25": 3.525
+  },
+  "a7": {
+   "tts": "But there's a ceiling: the deeper you go, the more you need, and around eight thousand two hundred metres your cells get as concentrated as the sea.",
+   "raw_1.2": 8.625,
+   "raw_1.25": 8.2
+  },
+  "a8": {
+   "tts": "In twenty fourteen, scientists predicted that's where fish run out. It's the wall on your route.",
+   "raw_1.2": 5.825,
+   "raw_1.25": 5.675
+  },
+  "w1": {
+   "tts": "The trench is still days away. So you walk.",
+   "raw_1.2": 2.925,
+   "raw_1.25": 2.875
+  },
+  "w2": {
+   "tts": "Then a brand-new problem: you're starving.",
+   "raw_1.2": 2.725,
+   "raw_1.25": 2.625
+  },
+  "w3": {
+   "tts": "Staying warm burns food, and about one percent of what grows in sunlight ever reaches this mud.",
+   "raw_1.2": 6.1,
+   "raw_1.25": 5.95
+  },
+  "w4": {
+   "tts": "The remora has gone quiet.",
+   "raw_1.2": 2.15,
+   "raw_1.25": 2.1
+  },
+  "w5": {
+   "tts": "So, honestly, where could you live?",
+   "raw_1.2": 2.425,
+   "raw_1.25": 2.325
+  },
+  "w6": {
+   "tts": "The open ocean? Nothing to eat. The abyss? You're in it.",
+   "raw_1.2": 3.675,
+   "raw_1.25": 3.5
+  },
+  "w7": {
+   "tts": "Unless you find a vent, a hot spring on the seafloor crowded with life.",
+   "raw_1.2": 4.35,
+   "raw_1.25": 4.25
+  },
+  "w8": {
+   "tts": "But your best home is a coral reef, thirty metres down, still in the sunshine.",
+   "raw_1.2": 4.95,
+   "raw_1.25": 4.775
+  },
+  "w9": {
+   "tts": "Except you can't go back up. Not in a body tuned for the abyss.",
+   "raw_1.2": 4.1,
+   "raw_1.25": 3.9
+  },
+  "w10": {
+   "tts": "And then, ahead of you, the floor just ends.",
+   "raw_1.2": 2.75,
+   "raw_1.25": 2.675
+  },
+  "x1": {
+   "tts": "eight thousand two hundred metres. The trench walls close in.",
+   "raw_1.2": 3.95,
+   "raw_1.25": 3.8
+  },
+  "x2": {
+   "tts": "Right at the line, a pale fish drifts past like a wet tissue. A snailfish.",
+   "raw_1.2": 4.875,
+   "raw_1.25": 4.675
+  },
+  "x3": {
+   "tts": "One trench north, in twenty twenty-two, a camera filmed its cousin at eight thousand three hundred and thirty-six metres. No fish has ever been seen deeper.",
+   "raw_1.2": 9.625,
+   "raw_1.25": 9.275
+  },
+  "x4": {
+   "tts": "This is the wall. There's no animal left to borrow from.",
+   "raw_1.2": 3.825,
+   "raw_1.25": 3.625
+  },
+  "x5": {
+   "tts": "The remora lets go and drifts back up toward the light.",
+   "raw_1.2": 3.575,
+   "raw_1.25": 3.45
+  },
+  "x6": {
+   "tts": "From here on, this is our guess, not known science.",
+   "raw_1.2": 3.225,
+   "raw_1.25": 3.175
+  },
+  "x7": {
+   "tts": "You can stay at the line, where your body still makes sense. Or pay for the last two thousand seven hundred metres with the only thing you have left: the way back.",
+   "raw_1.2": 9.175,
+   "raw_1.25": 8.925
+  },
+  "x8": {
+   "tts": "You keep packing your cells past the limit. They swell with sea. They hold.",
+   "raw_1.2": 4.475,
+   "raw_1.25": 4.35
+  },
+  "x9": {
+   "tts": "And they'll never work in the shallows again.",
+   "raw_1.2": 2.675,
+   "raw_1.25": 2.575
+  },
+  "x10": {
+   "tts": "You go down.",
+   "raw_1.2": 1.55,
+   "raw_1.25": 1.45
+  },
+  "x11": {
+   "tts": "ten thousand nine hundred and thirty-five metres. Challenger Deep.",
+   "raw_1.2": 4.225,
+   "raw_1.25": 4.1
+  },
+  "x12": {
+   "tts": "No light. No sound. Just a puff of grey mud where you land.",
+   "raw_1.2": 4.075,
+   "raw_1.25": 3.95
+  },
+  "x13": {
+   "tts": "Over one thousand atmospheres: a small car parked on each of your thumbnails.",
+   "raw_1.2": 5.125,
+   "raw_1.25": 4.85
+  },
+  "x14": {
+   "tts": "And finally, food. Amphipods, little shrimp-like scavengers, swarm over anything that sinks.",
+   "raw_1.2": 5.925,
+   "raw_1.25": 5.825
+  },
+  "x15": {
+   "tts": "Down here, you're the thing that sank.",
+   "raw_1.2": 2.225,
+   "raw_1.25": 2.2
+  },
+  "x16": {
+   "tts": "You eat them. They nibble you back. Fair.",
+   "raw_1.2": 2.65,
+   "raw_1.25": 2.625
+  },
+  "x17": {
+   "tts": "In twenty nineteen, scientists opened up amphipods from this trench. Every single one had man-made fibres in its gut.",
+   "raw_1.2": 7.8,
+   "raw_1.25": 7.425
+  },
+  "x18": {
+   "tts": "Your first meal in six days, and your world got to it first.",
+   "raw_1.2": 4.125,
+   "raw_1.25": 3.9
+  },
+  "b1": {
+   "tts": "You look up. eleven kilometres above you, the ferry is still crossing. The remora is up there somewhere.",
+   "raw_1.2": 6.525,
+   "raw_1.25": 6.275
+  },
+  "b2": {
+   "tts": "So, could you breathe underwater? Yes. That part's easy.",
+   "raw_1.2": 3.875,
+   "raw_1.25": 3.7
+  },
+  "b3": {
+   "tts": "You'd need gills, salt pumps, a tuna's heat exchanger and a deep fish's chemistry. And you'd pay with the way home.",
+   "raw_1.2": 6.975,
+   "raw_1.25": 6.575
+  },
+  "b4": {
+   "tts": "Getting in was never the hard part. Getting out is.",
+   "raw_1.2": 3.625,
+   "raw_1.25": 3.375
+  },
+  "e1": {
+   "tts": "So, back at that ferry rail: would you jump? And where would you stop: the reef, the vent, or the line?",
+   "raw_1.2": 5.825,
+   "raw_1.25": 5.625
+  },
+  "e2": {
+   "tts": "Want to see what happens when you try to swim back up? Tell me.",
+   "raw_1.2": 3.775,
+   "raw_1.25": 3.6
+  }
+ }
+}
