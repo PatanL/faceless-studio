@@ -1,0 +1,23 @@
+== kurzW  (426.4 s)
+P1  pal_conform               0.144  target >= 0.85            FAIL
+P2  pal_vm_share              0.212  target <= 0.08            FAIL
+P3  pal_sat_chroma             0.81  target 0.66-0.88          PASS
+P4  pal_grey                  0.001  target <= 0.04            PASS
+P5  pal_hue_fam                 5.0  target >= 3               PASS
+P6  pal_near_white           0.0042  target <= 0.015           PASS
+P7  pal_pure_white           0.0008  target <= 0.003           PASS
+P8  pal_black                   0.0  target <= 0.005           PASS
+D1  density_shapes            137.0  target >= 110             PASS
+D2  density_micro             633.0  target >= 600             PASS
+D3  specks_small              124.0  target >= 120             PASS
+D4  fm_edge_den              0.0472  target 0.040-0.08         PASS
+D5  fm_outline                0.004  target <= 0.05            PASS
+M1  alive_pct                 98.01  target >= 95 (pass >= 80) PASS
+M2  longest_quiet_s            6.17  target <= 2.5             FAIL
+M3  sec_per_new                 4.4  target <= 3.5 (long-form <= 5) FAIL
+M4  sec_per_change              2.4  target 2.0-4.5            PASS
+M5  hard_cuts_per_min          1.83  target <= 2               PASS
+A1  lufs_i                    -16.0  target -14 +/- 1          FAIL
+A2  lra                         2.3  target <= 4               PASS
+A3  silences_045                  0  target 0                  PASS
+automatic checks passed: 16/21
