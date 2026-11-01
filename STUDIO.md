@@ -149,3 +149,28 @@ Other items:
   `python3 scripts/check_storyboards.py backlog/whatif/*/storyboard.json`.
 - **Script-only backlog** (originality PASS, no audio or storyboard yet): `backlog/explainer/*` (10) and `backlog/horror/*` (10).
   Run steps 2-5 of section 1 for each. Pick topics from `backlog/<niche>/TOPICS.md` and today's `research/daily/latest.md`.
+
+## 7. Operator loop
+
+One Claude Code session (tmux `studio-op` on the Spark, `~/studio/app`) makes 2 explainer Shorts a day, each modeled
+on one viral source, then gates, reviews, posts through Buffer (drafts until auto is switched on), measures and runs
+one-variable experiments. Its standing instructions are `OPERATOR.md`; the design is `docs/OPERATOR_DESIGN.md`.
+
+- **Start / watch / stop** (from the Mac or the Spark): `scripts/operator_tmux.sh start|attach|status|rotate|stop`.
+  `stop` writes `data/operator/STOPPED` so the watchdog leaves it down; `start` clears it.
+- **Watchdog** (system cron every 15 min, human-installed with `scripts/install_operator_cron.sh`): resumes a dead
+  session, rotates it daily between 04:00 and 06:00 America/Chicago, and types `operator tick` when the heartbeat is
+  over 45 min old and a job is due.
+- **Human switches**: `scripts/operator_ctl.sh status|pause|unpause|mode <platform> draft|auto|disclosure <platform> yes|no`.
+  A platform posts automatically only with `APPROVAL_MODE=auto` (in `~/studio/.env`, read at session start), `mode=auto`
+  and `disclosure_ok_auto=true`; otherwise every post is a Buffer draft to approve. Messages for you: `data/operator/HUMAN.md`.
+- **Permissions**: the session runs with `--permission-mode dontAsk` and the allowlist `~/studio/operator_settings.json`
+  (review and copy `scripts/operator_settings.example.json`), plus the PreToolUse guard `pipeline/ops/guard.py`, which
+  blocks auto posting while `APPROVAL_MODE` is not `auto`, secrets, switches, cron, push and edits outside the
+  operator's own outputs, in every permission mode. `bypassPermissions` is refused in drafts mode.
+- **State and jobs**: `python -m pipeline.ops.state show --brief`, `python -m pipeline.ops.due`,
+  `python -m pipeline.ops.run auto|start|plan <job>`, `python -m pipeline.ops.budget check`. Job logs:
+  `~/studio/logs/operator/`. `python -m pipeline.ops.run plan <job_id>` prints a job's commands without running them.
+- **Bring results to the Mac**: `scripts/pull_ops.sh [--proposals]` (Spark-owned paths, no media), then commit.
+- **Kill rule**: after 30 YouTube videos, median 7-day views per video vs 10,000 plus trend (`data/killrule.json`); on
+  `stop` the loop pauses itself and writes HUMAN.md.
