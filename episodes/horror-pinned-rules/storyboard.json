@@ -7,7 +7,7 @@
  "scenes": [
   {
    "id": "p00",
-   "duration": 4.97,
+   "duration": 4.265,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -15,13 +15,14 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/FrontDoor",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0.15,
-      "rain": true
+      "hallLight": 0.9,
+      "chain": "on",
+      "feet": true
      }
     },
     {
@@ -92,11 +93,12 @@
         "accent": "#3d5a80",
         "clock": "1:04",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -1.0,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": 1.5,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38
@@ -117,6 +119,60 @@
     },
     {
      "type": "component",
+     "name": "horror/FrontDoor",
+     "depth": 0,
+     "z": 40,
+     "start": 0,
+     "end": 1.813,
+     "props": {
+      "hallLight": 1.0,
+      "chain": "off",
+      "feet": true,
+      "knocks": [
+       0.987,
+       1.287,
+       1.587
+      ],
+      "peepholeGlow": 0.6
+     },
+     "id": "cut:0:1.813",
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": 1.813,
+       "scale": 1.06,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Neighbour",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 880,
+     "height": 1338,
+     "props": {
+      "silhouette": true,
+      "exprs": [
+       {
+        "t": 0,
+        "e": "neutral"
+       }
+      ],
+      "lookX": 0
+     },
+     "depth": 0,
+     "z": 41,
+     "start": 0,
+     "end": 1.813
+    },
+    {
+     "type": "component",
      "name": "horror/RedText",
      "depth": 0,
      "z": 70,
@@ -124,31 +180,31 @@
       "text": "RULE 4: DON'T ANSWER THE DOOR",
       "style": "neon",
       "at": -0.3,
-      "duration": 0.7749999999999999,
-      "fontSize": 118,
+      "duration": 2.113,
+      "fontSize": 112,
       "shake": 0,
-      "y": 0.155
+      "y": 0.255
      }
     },
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 3.32,
-     "end": 4.97,
+     "start": 3.42,
+     "end": 4.265,
      "props": {
-      "lamp": 0.3,
-      "rain": true,
-      "phoneGlow": 1
+      "lamp": 0.35,
+      "tv": "off"
      },
+     "id": "cut:3.42:4.265",
      "keyframes": [
       {
-       "t": 3.32,
+       "t": 3.42,
        "scale": 1.0
       },
       {
-       "t": 4.97,
+       "t": 4.265,
        "scale": 1.05,
        "ease": "linear"
       }
@@ -170,7 +226,7 @@
         "e": "scared"
        },
        {
-        "t": 4.35,
+        "t": 3.7,
         "e": "terrified"
        }
       ],
@@ -182,43 +238,59 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 3.32,
-     "end": 4.97
+     "start": 3.42,
+     "end": 4.265
     }
    ],
    "camera": {
     "keyframes": [
      {
-      "t": 0,
-      "zoom": 1.5,
-      "x": "50%",
-      "y": "66.6%"
+      "t": 0.0,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 0.5,
-      "zoom": 1.5,
-      "x": "50%",
-      "y": "66.6%"
+      "t": 1.78,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
      },
      {
-      "t": 2.5,
-      "zoom": 1.1,
-      "x": "50%",
-      "y": "56%",
-      "ease": "inOut"
+      "t": 1.813,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
      },
      {
-      "t": 3.32,
-      "zoom": 1.14,
-      "x": "50%",
-      "y": "56%",
+      "t": 2.642,
+      "zoom": 1.03,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 2.675,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "step"
+     },
+     {
+      "t": 4.232,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ],
     "shake": [
      {
-      "at": 1.762,
-      "duration": 0.6,
+      "at": 0.987,
+      "duration": 0.7,
       "amplitude": 8
      }
     ]
@@ -226,11 +298,25 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Rule four said: if someone knocks three times, you are not home. Do not answer. Do not move."
+   "notes": "Rule four said if someone knocks three times, you are not home. Do not answer. Do not move.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 2.675,
+     "y": 0.75
+    },
+    {
+     "at": 3.42,
+     "y": 0.12
+    }
+   ]
   },
   {
    "id": "p01",
-   "duration": 6.17,
+   "duration": 3.8,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -238,12 +324,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -286,62 +373,58 @@
          {
           "text": "whoever keeps propping the lobby door open pls stop",
           "from": "Kay (2F)",
-          "at": -64.97
+          "at": -64.265
          },
          {
           "text": "the dryer in the basement ate my sock again",
           "from": "Mrs. Ortiz (3B)",
-          "at": -63.97
+          "at": -63.265
          },
          {
           "text": "anyone else's heating ticking all night?",
           "from": "Dev (6C)",
-          "at": -62.97
+          "at": -62.265
          },
          {
           "text": "Management pinned a message",
           "kind": "system",
-          "at": -61.97
+          "at": -61.265
          },
          {
           "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
           "from": "Management",
           "kind": "card",
-          "at": -5.57
+          "at": -4.865
          },
          {
           "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.\n- Management",
           "from": "Management",
-          "at": 1.825
+          "at": 0.1
          },
          {
           "text": "RULE 5: Management will never ask to come inside.",
           "from": "Management",
-          "at": 3.187
+          "at": 1.112
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "1:04",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -5.97,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -2.765,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38,
         "typing": [
          {
           "from": "Management",
-          "at": 1.125,
-          "until": 1.825
-         },
-         {
-          "from": "Management",
-          "at": 2.487,
-          "until": 3.187
+          "at": 0.412,
+          "until": 1.112
          }
         ],
         "unread": 6,
@@ -369,23 +452,23 @@
     },
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 4.962,
-     "end": 6.17,
+     "start": 0.487,
+     "end": 1.112,
      "props": {
-      "lamp": 0.3,
-      "rain": true,
-      "phoneGlow": 1
+      "lamp": 0.35,
+      "tv": "off"
      },
+     "id": "cut:0.487:1.112",
      "keyframes": [
       {
-       "t": 4.962,
+       "t": 0.487,
        "scale": 1.0
       },
       {
-       "t": 6.17,
+       "t": 1.112,
        "scale": 1.05,
        "ease": "linear"
       }
@@ -414,8 +497,8 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 4.962,
-     "end": 6.17
+     "start": 0.487,
+     "end": 1.112
     }
    ],
    "camera": {
@@ -428,7 +511,7 @@
       "ease": "linear"
      },
      {
-      "t": 1.792,
+      "t": 0.067,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
@@ -438,35 +521,35 @@
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
-      "t": 1.825,
+      "t": 0.1,
       "ease": "linear"
      },
      {
-      "t": 2.075,
-      "zoom": 1.3,
-      "x": "50.00%",
-      "y": "61.54%",
+      "t": 0.35,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 3.204,
-      "zoom": 1.326,
-      "x": "50.00%",
-      "y": "61.54%",
+      "t": 1.079,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "t": 3.237,
-      "zoom": 1.65,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 1.112,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 6.137,
-      "zoom": 1.6995,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 3.767,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ],
@@ -481,11 +564,29 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Pinned in our building chat at one a.m. Signed, Management. Rule five: Management will never ask to come inside."
+   "notes": "Signed, Management. Rule five: Management will never ask to come inside.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 0.1,
+     "y": 0.75
+    },
+    {
+     "at": 0.487,
+     "y": 0.12
+    },
+    {
+     "at": 1.112,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p02",
-   "duration": 4.235,
+   "duration": 3.255,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -493,12 +594,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -541,58 +643,59 @@
          {
           "text": "the dryer in the basement ate my sock again",
           "from": "Mrs. Ortiz (3B)",
-          "at": -70.14
+          "at": -67.065
          },
          {
           "text": "anyone else's heating ticking all night?",
           "from": "Dev (6C)",
-          "at": -69.14
+          "at": -66.065
          },
          {
           "text": "Management pinned a message",
           "kind": "system",
-          "at": -68.14
+          "at": -65.065
          },
          {
           "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
           "from": "Management",
           "kind": "card",
-          "at": -11.74
+          "at": -8.665
          },
          {
           "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.\n- Management",
           "from": "Management",
-          "at": -4.345
+          "at": -3.7
          },
          {
           "text": "RULE 5: Management will never ask to come inside.",
           "from": "Management",
-          "at": -2.983
+          "at": -2.688
          },
          {
           "text": "Looked up Hartwell Property Group. DISSOLVED. Closed two years ago.",
           "from": "Dev (6C)",
           "kind": "alert",
-          "at": 1.175
+          "at": 0.925
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "1:04",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -12.14,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -6.565,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38,
         "typing": [
          {
           "from": "Dev (6C)",
-          "at": 0.475,
-          "until": 1.175
+          "at": 0.225,
+          "until": 0.925
          }
         ]
        }
@@ -601,7 +704,7 @@
       "thumbReach": 0.1,
       "glitch": [
        {
-        "at": 2.762,
+        "at": 2.0,
         "duration": 0.22,
         "amount": 0.9
        }
@@ -625,7 +728,7 @@
      "props": {
       "cues": [
        {
-        "at": 2.762,
+        "at": 2.0,
         "duration": 0.25,
         "amount": 1
        }
@@ -638,19 +741,20 @@
      "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 2.762,
-     "end": 4.235,
+     "start": 2.15,
+     "end": 3.255,
      "props": {
       "lamp": 0.45,
       "tv": "off"
      },
+     "id": "cut:2.15:3.255",
      "keyframes": [
       {
-       "t": 2.762,
+       "t": 2.15,
        "scale": 1.0
       },
       {
-       "t": 4.235,
+       "t": 3.255,
        "scale": 1.05,
        "ease": "linear"
       }
@@ -672,7 +776,7 @@
         "e": "shocked"
        },
        {
-        "t": 3.262,
+        "t": 2.6,
         "e": "scared"
        }
       ],
@@ -684,8 +788,8 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 2.762,
-     "end": 4.235
+     "start": 2.15,
+     "end": 3.255
     }
    ],
    "camera": {
@@ -698,7 +802,7 @@
       "ease": "linear"
      },
      {
-      "t": 1.142,
+      "t": 0.892,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
@@ -708,35 +812,21 @@
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
+      "t": 0.925,
+      "ease": "linear"
+     },
+     {
       "t": 1.175,
-      "ease": "linear"
-     },
-     {
-      "t": 1.425,
-      "zoom": 1.3,
-      "x": "50.00%",
-      "y": "61.54%",
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 1.742,
-      "zoom": 1.326,
-      "x": "50.00%",
-      "y": "61.54%",
-      "ease": "linear"
-     },
-     {
-      "t": 1.775,
-      "zoom": 1.65,
-      "x": "53.00%",
-      "y": "69.70%",
-      "ease": "step"
-     },
-     {
-      "t": 4.202,
-      "zoom": 1.6995,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 3.222,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ]
@@ -744,11 +834,25 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "Then Dev in six C checked. Our management company shut down two years ago."
+   "notes": "Dev in Six-C checked. Management shut down two years ago.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 0.925,
+     "y": 0.75
+    },
+    {
+     "at": 2.15,
+     "y": 0.12
+    }
+   ]
   },
   {
    "id": "p03",
-   "duration": 3.405,
+   "duration": 3.24,
    "background": {
     "type": "component",
     "name": "horror/LivingRoom",
@@ -775,7 +879,7 @@
         "e": "suspicious"
        },
        {
-        "t": 2.15,
+        "t": 2.075,
         "e": "scared"
        }
       ],
@@ -817,22 +921,22 @@
       "ease": "linear"
      },
      {
-      "t": 2.029,
+      "t": 1.954,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 2.062,
-      "zoom": 1.4,
+      "t": 1.987,
+      "zoom": 1.3,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "step"
      },
      {
-      "t": 3.372,
-      "zoom": 1.442,
+      "t": 3.207,
+      "zoom": 1.339,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
@@ -850,7 +954,7 @@
   },
   {
    "id": "p04",
-   "duration": 6.945,
+   "duration": 6.695,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -858,12 +962,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -906,67 +1011,68 @@
          {
           "text": "New building rules (1-7) are now in effect. Thank you for your cooperation.\n- Management",
           "from": "Management",
-          "at": -11.985
+          "at": -10.195
          },
          {
           "text": "RULE 5: Management will never ask to come inside.",
           "from": "Management",
-          "at": -10.623
+          "at": -9.183
          },
          {
           "text": "Looked up Hartwell Property Group. DISSOLVED. Closed two years ago.",
           "from": "Dev (6C)",
           "kind": "alert",
-          "at": -6.465
+          "at": -5.57
          },
          {
           "text": "lol is this a prank",
           "from": "Mrs. Ortiz (3B)",
-          "at": 0.575
+          "at": 0.6
          },
          {
           "text": "probably the kids on 4",
           "from": "Kay (2F)",
-          "at": 1.325
+          "at": 1.35
          },
          {
           "text": "leaving my hallway light ON tonight",
           "from": "Ben (5A)",
-          "at": 3.025
+          "at": 2.95
          },
          {
           "text": "breaking every rule. let's see what happens",
           "from": "Ben (5A)",
-          "at": 4.45
+          "at": 4.325
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "1:09",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -19.78,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -13.06,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38,
         "typing": [
          {
           "from": "Kay (2F)",
-          "at": 0.625,
-          "until": 1.325
+          "at": 0.65,
+          "until": 1.35
          },
          {
           "from": "Ben (5A)",
-          "at": 2.325,
-          "until": 3.025
+          "at": 2.25,
+          "until": 2.95
          },
          {
           "from": "Ben (5A)",
-          "at": 3.75,
-          "until": 4.45
+          "at": 3.625,
+          "until": 4.325
          }
         ]
        }
@@ -986,27 +1092,127 @@
     },
     {
      "type": "component",
-     "name": "horror/Hallway",
+     "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 3.6,
-     "end": 4.4,
+     "start": 1.05,
+     "end": 1.712,
      "props": {
-      "flicker": 0.5,
-      "lights": 3,
-      "endDoor": true
+      "lamp": 0.35,
+      "tv": "off"
      },
+     "id": "cut:1.05:1.712",
      "keyframes": [
       {
-       "t": 3.6,
+       "t": 1.05,
        "scale": 1.0
       },
       {
-       "t": 4.4,
-       "scale": 1.12,
+       "t": 1.712,
+       "scale": 1.05,
        "ease": "linear"
       }
      ]
+    },
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 1150,
+     "height": 1748,
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "suspicious"
+       }
+      ],
+      "lookX": 0.2,
+      "lookY": 0.5,
+      "light": "phone"
+     },
+     "flipX": false,
+     "depth": 0,
+     "z": 41,
+     "start": 1.05,
+     "end": 1.712
+    },
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "depth": 0,
+     "z": 40,
+     "start": 1.712,
+     "end": 4.225,
+     "props": {
+      "flicker": 0.1,
+      "lights": 3,
+      "endDoor": true
+     },
+     "id": "cut:1.712:4.225",
+     "keyframes": [
+      {
+       "t": 1.712,
+       "scale": 1.0
+      },
+      {
+       "t": 4.225,
+       "scale": 1.08,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "circle",
+     "x": "50%",
+     "y": "36%",
+     "width": 340,
+     "height": 340,
+     "fill": "#ffe9b0",
+     "opacity": 0.3,
+     "blur": 40,
+     "depth": 0,
+     "z": 41,
+     "start": 1.712,
+     "end": 4.225
+    },
+    {
+     "type": "text",
+     "text": "5A",
+     "x": "50%",
+     "y": "43%",
+     "fontSize": 58,
+     "color": "#e8d9a8",
+     "font": "display",
+     "depth": 0,
+     "z": 42,
+     "start": 1.712,
+     "end": 4.225
+    },
+    {
+     "type": "component",
+     "name": "horror/Neighbour",
+     "x": "30%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 760,
+     "height": 1155,
+     "props": {
+      "exprs": [
+       {
+        "t": 0,
+        "e": "sly"
+       }
+      ],
+      "lookX": 0.5
+     },
+     "depth": 0,
+     "z": 43,
+     "start": 1.712,
+     "end": 4.225
     }
    ],
    "camera": {
@@ -1019,7 +1225,7 @@
       "ease": "linear"
      },
      {
-      "t": 0.542,
+      "t": 0.567,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
@@ -1029,81 +1235,46 @@
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
-      "t": 0.575,
+      "t": 0.6,
       "ease": "linear"
      },
      {
-      "t": 0.825,
-      "zoom": 1.25,
-      "x": "50.00%",
-      "y": "60.00%",
+      "t": 0.85,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 1.292,
-      "zoom": 1.275,
-      "x": "50.00%",
-      "y": "60.00%",
+      "t": 4.192,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "zoom": 1.275,
-      "x": "50.00%",
-      "y": "60.00%",
-      "t": 1.325,
-      "ease": "linear"
-     },
-     {
-      "t": 1.575,
-      "zoom": 1.35,
-      "x": "50.00%",
-      "y": "62.96%",
-      "ease": "out"
-     },
-     {
-      "t": 2.992,
-      "zoom": 1.377,
-      "x": "50.00%",
-      "y": "62.96%",
-      "ease": "linear"
-     },
-     {
-      "t": 3.025,
-      "zoom": 1.65,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 4.225,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 4.417,
-      "zoom": 1.6995,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 5.392,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "t": 4.45,
-      "zoom": 1.6,
-      "x": "53.00%",
-      "y": "68.75%",
-      "ease": "step"
-     },
-     {
-      "t": 5.542,
-      "zoom": 1.648,
-      "x": "53.00%",
-      "y": "68.75%",
-      "ease": "linear"
-     },
-     {
-      "t": 5.575,
+      "t": 5.425,
       "zoom": 1.0,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "step"
      },
      {
-      "t": 6.912,
+      "t": 6.662,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
@@ -1115,11 +1286,33 @@
     "type": "fade",
     "duration": 0.25
    },
-   "notes": "Everyone said it was a prank. Ben in five A said he'd leave his hallway light on and break every rule tonight, just to see what happens."
+   "notes": "Everyone said it was a prank. Ben in five-A said he'd leave his hallway light on and break every rule tonight, just to see what happens.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 0.6,
+     "y": 0.75
+    },
+    {
+     "at": 1.05,
+     "y": 0.12
+    },
+    {
+     "at": 4.225,
+     "y": 0.75
+    },
+    {
+     "at": 5.425,
+     "y": 0.12
+    }
+   ]
   },
   {
    "id": "p05",
-   "duration": 4.775,
+   "duration": 4.665,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -1127,12 +1320,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -1176,27 +1370,27 @@
           "text": "Looked up Hartwell Property Group. DISSOLVED. Closed two years ago.",
           "from": "Dev (6C)",
           "kind": "alert",
-          "at": -13.41
+          "at": -12.265
          },
          {
           "text": "lol is this a prank",
           "from": "Mrs. Ortiz (3B)",
-          "at": -6.37
+          "at": -6.095
          },
          {
           "text": "probably the kids on 4",
           "from": "Kay (2F)",
-          "at": -5.62
+          "at": -5.345
          },
          {
           "text": "leaving my hallway light ON tonight",
           "from": "Ben (5A)",
-          "at": -3.92
+          "at": -3.745
          },
          {
           "text": "breaking every rule. let's see what happens",
           "from": "Ben (5A)",
-          "at": -2.495
+          "at": -2.37
          },
          {
           "text": "someone's knocking. 3 times",
@@ -1206,18 +1400,19 @@
          {
           "text": "i'm opening it. wish me luck",
           "from": "Ben (5A)",
-          "at": 3.212
+          "at": 3.188
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "2:14",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -26.725,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -19.755,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38,
@@ -1229,8 +1424,8 @@
          },
          {
           "from": "Ben (5A)",
-          "at": 2.512,
-          "until": 3.212
+          "at": 2.488,
+          "until": 3.188
          }
         ]
        },
@@ -1260,7 +1455,7 @@
      "depth": 0,
      "z": 40,
      "start": 2.225,
-     "end": 3.945,
+     "end": 3.92,
      "props": {
       "hallLight": 0.9,
       "chain": "off",
@@ -1270,18 +1465,19 @@
       ],
       "handle": [
        {
-        "at": 3.425,
+        "at": 3.4,
         "duration": 0.6
        }
       ]
      },
+     "id": "cut:2.225:3.92",
      "keyframes": [
       {
        "t": 2.225,
        "scale": 1.0
       },
       {
-       "t": 3.945,
+       "t": 3.92,
        "scale": 1.1,
        "ease": "linear"
       }
@@ -1308,7 +1504,7 @@
      "depth": 0,
      "z": 41,
      "start": 2.225,
-     "end": 3.945
+     "end": 3.92
     },
     {
      "type": "text",
@@ -1321,7 +1517,7 @@
      "depth": 0,
      "z": 42,
      "start": 2.225,
-     "end": 3.945
+     "end": 3.92
     }
    ],
    "camera": {
@@ -1342,30 +1538,30 @@
      },
      {
       "t": 1.575,
-      "zoom": 1.65,
-      "x": "53.00%",
-      "y": "69.70%",
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 3.912,
-      "zoom": 1.6995,
-      "x": "53.00%",
-      "y": "69.70%",
+      "t": 3.887,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "t": 3.945,
-      "zoom": 1.6,
-      "x": "53.00%",
-      "y": "68.75%",
+      "t": 3.92,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 4.742,
-      "zoom": 1.648,
-      "x": "53.00%",
-      "y": "68.75%",
+      "t": 4.632,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ],
@@ -1381,11 +1577,29 @@
     "type": "dipBlack",
     "duration": 0.3
    },
-   "notes": "At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck."
+   "notes": "At two fourteen, Ben wrote again. Someone's knocking. Three times. I'm opening it. Wish me luck.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.575,
+     "y": 0.75
+    },
+    {
+     "at": 2.225,
+     "y": 0.12
+    },
+    {
+     "at": 3.92,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p06",
-   "duration": 3.75,
+   "duration": 3.56,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -1393,12 +1607,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -1441,48 +1656,49 @@
          {
           "text": "lol is this a prank",
           "from": "Mrs. Ortiz (3B)",
-          "at": -11.145
+          "at": -10.76
          },
          {
           "text": "probably the kids on 4",
           "from": "Kay (2F)",
-          "at": -10.395
+          "at": -10.01
          },
          {
           "text": "leaving my hallway light ON tonight",
           "from": "Ben (5A)",
-          "at": -8.695
+          "at": -8.41
          },
          {
           "text": "breaking every rule. let's see what happens",
           "from": "Ben (5A)",
-          "at": -7.27
+          "at": -7.035
          },
          {
           "text": "someone's knocking. 3 times",
           "from": "Ben (5A)",
-          "at": -3.2
+          "at": -3.09
          },
          {
           "text": "i'm opening it. wish me luck",
           "from": "Ben (5A)",
-          "at": -1.563
+          "at": -1.477
          },
          {
           "text": "Ben (5A) · last seen 2:14 AM",
           "kind": "system",
-          "at": 2.7
+          "at": 2.6
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "2:21",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -31.5,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -24.42,
+         "lines": 3,
          "from": "Management"
         },
         "count": 38
@@ -1513,22 +1729,23 @@
     },
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 3.05,
-     "end": 3.75,
+     "start": 2.95,
+     "end": 3.56,
      "props": {
-      "lamp": 0.1,
-      "phoneGlow": 1
+      "lamp": 0.15,
+      "tv": "off"
      },
+     "id": "cut:2.95:3.56",
      "keyframes": [
       {
-       "t": 3.05,
+       "t": 2.95,
        "scale": 1.0
       },
       {
-       "t": 3.75,
+       "t": 3.56,
        "scale": 1.05,
        "ease": "linear"
       }
@@ -1558,8 +1775,8 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 3.05,
-     "end": 3.75
+     "start": 2.95,
+     "end": 3.56
     }
    ],
    "camera": {
@@ -1572,45 +1789,45 @@
       "ease": "linear"
      },
      {
-      "t": 1.492,
+      "t": 1.442,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 1.525,
-      "zoom": 1.8,
-      "x": "50.00%",
-      "y": "72.22%",
+      "t": 1.475,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 2.667,
-      "zoom": 1.854,
-      "x": "50.00%",
-      "y": "72.22%",
+      "t": 2.567,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "zoom": 1.854,
-      "x": "50.00%",
-      "y": "72.22%",
-      "t": 2.7,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 2.6,
       "ease": "linear"
      },
      {
-      "t": 2.95,
-      "zoom": 1.35,
-      "x": "50.00%",
-      "y": "62.96%",
+      "t": 2.85,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 3.717,
-      "zoom": 1.3905,
-      "x": "50.00%",
-      "y": "62.96%",
+      "t": 3.527,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ]
@@ -1618,11 +1835,25 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "That was the last thing he sent. His little green dot turned grey."
+   "notes": "That was the last thing he sent. His little green dot turned grey.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.475,
+     "y": 0.75
+    },
+    {
+     "at": 2.95,
+     "y": 0.12
+    }
+   ]
   },
   {
    "id": "p07",
-   "duration": 5.51,
+   "duration": 5.405,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -1630,12 +1861,13 @@
    "layers": [
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0.2,
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "lamp": 0
+      "lamp": 0.45,
+      "tv": "off"
      }
     },
     {
@@ -1678,27 +1910,27 @@
          {
           "text": "leaving my hallway light ON tonight",
           "from": "Ben (5A)",
-          "at": -12.445
+          "at": -11.97
          },
          {
           "text": "breaking every rule. let's see what happens",
           "from": "Ben (5A)",
-          "at": -11.02
+          "at": -10.595
          },
          {
           "text": "someone's knocking. 3 times",
           "from": "Ben (5A)",
-          "at": -6.95
+          "at": -6.65
          },
          {
           "text": "i'm opening it. wish me luck",
           "from": "Ben (5A)",
-          "at": -5.313
+          "at": -5.037
          },
          {
           "text": "Ben (5A) · last seen 2:14 AM",
           "kind": "system",
-          "at": -1.05
+          "at": -0.96
          },
          {
           "text": "Management edited the pinned message",
@@ -1709,28 +1941,29 @@
           "text": "RULE 5 (edited): Management may need to come inside. Please cooperate.",
           "from": "Management",
           "kind": "alert",
-          "at": 1.587
+          "at": 1.563
          }
         ],
         "dayLabel": "Today 1:02 AM",
         "accent": "#3d5a80",
         "clock": "2:23",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -35.25,
+         "text": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management will never ask to come inside.",
+         "at": -27.98,
+         "lines": 3,
          "from": "Management",
          "editAt": 0.8,
-         "editText": "RULE 5 (edited): Management may need to come inside. Please cooperate."
+         "editText": "Building rules 1-7\n4. If someone knocks three times, you are not home.\n5. Management may need to come inside. Please cooperate."
         },
         "count": 38,
         "typing": [
          {
           "from": "Management",
-          "at": 0.887,
-          "until": 1.587
+          "at": 0.863,
+          "until": 1.563
          }
         ]
        }
@@ -1773,22 +2006,23 @@
     },
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/LivingRoom",
      "depth": 0,
      "z": 40,
-     "start": 4.3,
-     "end": 5.51,
+     "start": 2.963,
+     "end": 5.405,
      "props": {
-      "lamp": 0.1,
-      "phoneGlow": 1
+      "lamp": 0.15,
+      "tv": "off"
      },
+     "id": "cut:2.963:5.405",
      "keyframes": [
       {
-       "t": 4.3,
+       "t": 2.963,
        "scale": 1.0
       },
       {
-       "t": 5.51,
+       "t": 5.405,
        "scale": 1.05,
        "ease": "linear"
       }
@@ -1807,6 +2041,10 @@
       "exprs": [
        {
         "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 4.25,
         "e": "terrified"
        }
       ],
@@ -1818,8 +2056,8 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 4.3,
-     "end": 5.51
+     "start": 2.963,
+     "end": 5.405
     }
    ],
    "camera": {
@@ -1840,53 +2078,160 @@
      },
      {
       "t": 0.8,
-      "zoom": 1.65,
-      "x": "53.00%",
-      "y": "34.00%",
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "40.56%",
       "ease": "step"
      },
      {
-      "t": 2.654,
-      "zoom": 1.6995,
-      "x": "53.00%",
-      "y": "34.00%",
+      "t": 1.53,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "40.56%",
       "ease": "linear"
      },
      {
-      "t": 2.687,
-      "zoom": 1.6,
-      "x": "53.00%",
-      "y": "68.75%",
+      "t": 1.563,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 5.477,
-      "zoom": 1.648,
-      "x": "53.00%",
-      "y": "68.75%",
+      "t": 5.372,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ]
    },
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
-   "notes": "Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate."
+   "notes": "Then the pinned post changed. Rule five now said: Management may need to come inside. Please cooperate.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 1.563,
+     "y": 0.75
+    },
+    {
+     "at": 2.963,
+     "y": 0.12
+    }
+   ]
   },
   {
    "id": "p08",
-   "duration": 3.435,
+   "duration": 3.67,
    "background": {
     "type": "component",
     "name": "horror/FrontDoor",
     "depth": 0.25,
     "props": {
-     "hallLight": 0.5,
+     "hallLight": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": 3.05,
+       "v": 0.5
+      },
+      {
+       "t": 3.3,
+       "v": 0.35
+      }
+     ],
+     "dark": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 0.563,
+       "v": 0
+      },
+      {
+       "t": 0.813,
+       "v": 0.45
+      }
+     ],
      "chain": "on"
     }
    },
    "layers": [
+    {
+     "type": "rect",
+     "fill": "#3b3e48",
+     "width": "100%",
+     "height": "100%",
+     "depth": 0,
+     "z": 80,
+     "start": 0,
+     "end": 1.913
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 360,
+     "height": 560,
+     "fill": "#d9d2c2",
+     "radius": 36,
+     "stroke": "#14151a",
+     "strokeWidth": 10,
+     "depth": 0,
+     "z": 81,
+     "start": 0,
+     "end": 1.913
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "44%",
+     "width": 130,
+     "height": 210,
+     "fill": "#f1ece0",
+     "radius": 20,
+     "stroke": "#14151a",
+     "strokeWidth": 8,
+     "depth": 0,
+     "z": 82,
+     "start": 0,
+     "end": 0.563
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "56%",
+     "width": 130,
+     "height": 210,
+     "fill": "#b9b2a3",
+     "radius": 20,
+     "stroke": "#14151a",
+     "strokeWidth": 8,
+     "depth": 0,
+     "z": 82,
+     "start": 0.563,
+     "end": 1.913
+    },
+    {
+     "type": "rect",
+     "fill": "#000000",
+     "opacity": 0.4,
+     "width": "100%",
+     "height": "100%",
+     "depth": 0,
+     "z": 83,
+     "start": 0.563,
+     "end": 1.913
+    },
     {
      "type": "component",
      "name": "horror/Protagonist",
@@ -1896,14 +2241,14 @@
      "width": 1000,
      "height": 1520,
      "props": {
-      "pose": "idle",
+      "pose": "sit",
       "exprs": [
        {
         "t": 0,
         "e": "scared"
        },
        {
-        "t": 2.061,
+        "t": 2.569,
         "e": "terrified"
        }
       ],
@@ -1933,7 +2278,7 @@
       "strength": 0,
       "blackouts": [
        {
-        "at": 0.537,
+        "at": 0.563,
         "duration": 0.12
        }
       ],
@@ -1960,24 +2305,24 @@
       "ease": "linear"
      },
      {
-      "t": 1.717,
+      "t": 1.88,
       "zoom": 1.02,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 1.75,
-      "zoom": 1.15,
+      "t": 1.913,
+      "zoom": 1.0,
       "x": "50.00%",
-      "y": "47.00%",
+      "y": "50.00%",
       "ease": "step"
      },
      {
-      "t": 3.402,
-      "zoom": 1.196,
+      "t": 3.637,
+      "zoom": 1.05,
       "x": "50.00%",
-      "y": "47.00%",
+      "y": "50.00%",
       "ease": "linear"
      }
     ]
@@ -1990,21 +2335,23 @@
   },
   {
    "id": "p09",
-   "duration": 5.869,
+   "duration": 6.486,
    "background": {
     "type": "component",
     "name": "horror/FrontDoor",
     "depth": 0.25,
     "props": {
-     "hallLight": 0.5,
+     "hallLight": 0.35,
      "chain": "on",
+     "dark": 0.45,
      "knocks": [
-      1.865,
-      2.815,
-      3.7649999999999997
+      1.955,
+      2.9050000000000002,
+      3.855
      ],
+     "knockY": 820,
      "feet": [
-      1.365,
+      0.9550000000000001,
       99
      ]
     }
@@ -2019,7 +2366,7 @@
      "width": 1000,
      "height": 1520,
      "props": {
-      "pose": "idle",
+      "pose": "sit",
       "exprs": [
        {
         "t": 0,
@@ -2029,37 +2376,39 @@
       "lookX": 0.5,
       "lookY": 0
      },
-     "flipX": false,
-     "end": 1.865
+     "flipX": false
     },
     {
      "type": "component",
      "name": "horror/FrontDoor",
      "depth": 0,
      "z": 40,
-     "start": 2.815,
-     "end": 3.765,
+     "start": 1.125,
+     "end": 2.855,
      "props": {
-      "hallLight": 0.5,
+      "hallLight": 0.35,
       "chain": "on",
+      "dark": 0.45,
       "knocks": [
-       1.865,
-       2.815,
-       3.7649999999999997
+       1.955,
+       2.9050000000000002,
+       3.855
       ],
+      "knockY": 820,
       "feet": [
-       1.365,
+       0.9550000000000001,
        99
       ]
      },
+     "id": "cut:1.125:2.855",
      "keyframes": [
       {
-       "t": 2.815,
-       "scale": 1.05
+       "t": 1.125,
+       "scale": 1.0
       },
       {
-       "t": 3.765,
-       "scale": 1.1,
+       "t": 2.855,
+       "scale": 1.04,
        "ease": "linear"
       }
      ]
@@ -2068,56 +2417,94 @@
      "type": "component",
      "name": "horror/Protagonist",
      "x": "50%",
-     "y": "100%",
+     "y": "171%",
      "anchorY": 1,
-     "width": 1200,
-     "height": 1824,
+     "width": 2300,
+     "height": 3496,
      "props": {
       "pose": "idle",
       "exprs": [
        {
         "t": 0,
-        "e": "shocked"
+        "e": "scared"
        }
       ],
-      "lookX": 0.8,
+      "lookX": 0.7,
       "lookY": 0,
       "blink": false
      },
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 2.815,
-     "end": 3.765
+     "start": 1.125,
+     "end": 2.855
     },
     {
      "type": "component",
      "name": "horror/FrontDoor",
      "depth": 0,
      "z": 40,
-     "start": 4.834,
-     "end": 5.869,
+     "start": 2.855,
+     "end": 5.486,
      "props": {
-      "hallLight": 0.5,
+      "hallLight": 0.35,
       "chain": "on",
+      "dark": 0.45,
       "knocks": [
-       1.865,
-       2.815,
-       3.7649999999999997
+       1.955,
+       2.9050000000000002,
+       3.855
       ],
+      "knockY": 820,
       "feet": [
-       1.365,
+       0.9550000000000001,
        99
       ]
      },
+     "id": "cut:2.855:5.486",
      "keyframes": [
       {
-       "t": 4.834,
-       "scale": 1.05
+       "t": 2.855,
+       "scale": 1.15
       },
       {
-       "t": 5.869,
-       "scale": 1.12,
+       "t": 5.486,
+       "scale": 1.3,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "horror/FrontDoor",
+     "depth": 0,
+     "z": 40,
+     "start": 5.486,
+     "end": 6.486,
+     "props": {
+      "hallLight": 0.35,
+      "chain": "on",
+      "dark": 0.45,
+      "knocks": [
+       1.955,
+       2.9050000000000002,
+       3.855
+      ],
+      "knockY": 820,
+      "feet": [
+       0.9550000000000001,
+       99
+      ]
+     },
+     "id": "cut:5.486:6.486",
+     "keyframes": [
+      {
+       "t": 5.486,
+       "scale": 1.02
+      },
+      {
+       "t": 6.486,
+       "scale": 1.08,
        "ease": "linear"
       }
      ]
@@ -2128,10 +2515,10 @@
      "x": "50%",
      "y": "100%",
      "anchorY": 1,
-     "width": 1200,
-     "height": 1824,
+     "width": 1150,
+     "height": 1748,
      "props": {
-      "pose": "idle",
+      "pose": "sit",
       "exprs": [
        {
         "t": 0,
@@ -2145,8 +2532,8 @@
      "flipX": false,
      "depth": 0,
      "z": 41,
-     "start": 4.834,
-     "end": 5.869
+     "start": 5.486,
+     "end": 6.486
     },
     {
      "type": "component",
@@ -2162,60 +2549,32 @@
     "keyframes": [
      {
       "t": 0.0,
-      "zoom": 1.12,
+      "zoom": 1.1,
       "x": "50.00%",
-      "y": "47.00%",
+      "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 1.832,
-      "zoom": 1.1536,
+      "t": 6.453,
+      "zoom": 1.133,
       "x": "50.00%",
-      "y": "47.00%",
-      "ease": "linear"
-     },
-     {
-      "t": 1.865,
-      "zoom": 1.3,
-      "x": "61.54%",
-      "y": "47.00%",
-      "ease": "step"
-     },
-     {
-      "t": 3.732,
-      "zoom": 1.339,
-      "x": "61.54%",
-      "y": "47.00%",
-      "ease": "linear"
-     },
-     {
-      "t": 3.765,
-      "zoom": 1.25,
-      "x": "50.00%",
-      "y": "60.00%",
-      "ease": "step"
-     },
-     {
-      "t": 5.836,
-      "zoom": 1.35,
-      "x": "50.00%",
-      "y": "60.00%",
+      "y": "50.00%",
       "ease": "linear"
      }
     ],
     "shake": [
      {
-      "at": 1.865,
+      "at": 1.955,
       "duration": 0.16,
       "amplitude": 20
      },
      {
-      "at": 2.815,
+      "at": 2.9050000000000002,
       "duration": 0.16,
       "amplitude": 20
      },
      {
-      "at": 3.7649999999999997,
+      "at": 3.855,
       "duration": 0.16,
       "amplitude": 20
      }
@@ -2228,7 +2587,7 @@
   },
   {
    "id": "p10",
-   "duration": 3.89,
+   "duration": 4.42,
    "background": {
     "type": "color",
     "color": "#050506"
@@ -2243,18 +2602,18 @@
       "exprs": [
        {
         "t": 0,
-        "e": "smile"
+        "e": "stare"
        }
       ],
       "lean": 0.4,
       "flicker": 0.3,
       "radius": 0.52,
-      "exposure": 2.0,
-      "surround": "#4a5262",
+      "exposure": 1.2,
+      "surround": "#050506",
       "talk": [
        [
-        1.5,
-        3.69
+        1.775,
+        4.285
        ]
       ]
      }
@@ -2280,38 +2639,38 @@
       "ease": "linear"
      },
      {
-      "t": 1.417,
+      "t": 1.692,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 1.45,
+      "t": 1.725,
       "zoom": 1.3,
       "x": "50.00%",
-      "y": "42.00%",
+      "y": "45.00%",
       "ease": "step"
      },
      {
-      "t": 2.329,
+      "t": 2.742,
       "zoom": 1.339,
       "x": "50.00%",
-      "y": "42.00%",
+      "y": "45.00%",
       "ease": "linear"
      },
      {
-      "t": 2.362,
+      "t": 2.775,
       "zoom": 1.15,
       "x": "50.00%",
-      "y": "45.00%",
+      "y": "47.00%",
       "ease": "step"
      },
      {
-      "t": 3.857,
+      "t": 4.387,
       "zoom": 1.1845,
       "x": "50.00%",
-      "y": "45.00%",
+      "y": "47.00%",
       "ease": "linear"
      }
     ]
@@ -2324,7 +2683,7 @@
   },
   {
    "id": "p11",
-   "duration": 6.03,
+   "duration": 8.12,
    "background": {
     "type": "color",
     "color": "#0b0d12"
@@ -2337,8 +2696,9 @@
      "blur": 4,
      "opacity": 1.0,
      "props": {
-      "hallLight": 0.5,
-      "chain": "on"
+      "hallLight": 0.35,
+      "chain": "on",
+      "dark": 0.45
      }
     },
     {
@@ -2381,62 +2741,63 @@
          {
           "text": "u still have my drill?",
           "from": "Ben (5A)",
-          "at": -92.954
+          "at": -89.461
          },
          {
           "text": "yeah sorry, tomorrow",
           "me": true,
-          "at": -91.954
+          "at": -88.461
          },
          {
           "text": "no rush lol",
           "from": "Ben (5A)",
-          "at": -90.954
+          "at": -87.461
          },
          {
           "text": "did u see the rules thing in the group",
           "from": "Ben (5A)",
-          "at": -89.954
+          "at": -86.461
          },
          {
           "text": "Today 2:31 AM",
           "kind": "system",
-          "at": -88.954
+          "at": -85.461
          },
          {
           "text": "it's fine, open up. they only want to talk",
           "from": "Ben (5A)",
-          "at": 2.112
+          "at": 2.325
          },
          {
           "text": "i'm standing right behind them",
           "from": "Ben (5A)",
-          "at": 4.5
+          "at": 4.975
          }
         ],
         "dayLabel": "Yesterday",
         "accent": "#3d5a80",
         "clock": "2:31",
         "battery": 31,
-        "theme": "light",
+        "theme": "dark",
         "scale": 1.25,
         "subtitle": "online",
         "typing": [
          {
           "from": "Ben (5A)",
-          "at": 1.412,
-          "until": 2.112
+          "at": 1.625,
+          "until": 2.325
          },
          {
           "from": "Ben (5A)",
-          "at": 3.8,
-          "until": 4.5
+          "at": 4.275,
+          "until": 4.975
          }
-        ]
+        ],
+        "dm": "Ben (5A)"
        },
        "vibrate": [
         {
-         "at": 0.45,
+         "at": 0.525,
          "duration": 0.4
         }
        ]
@@ -2459,72 +2820,23 @@
      "name": "horror/Peephole",
      "depth": 0,
      "z": 40,
-     "start": 3.475,
-     "end": 3.775,
+     "start": 3.875,
+     "end": 4.175,
      "props": {
       "figure": "neighbour",
       "exprs": [
        {
         "t": 0,
-        "e": "smile"
+        "e": "stare"
        }
       ],
       "lean": 0.5,
       "flicker": 0.5,
       "radius": 0.52,
-      "exposure": 2.0,
-      "surround": "#4a5262"
-     }
-    },
-    {
-     "type": "component",
-     "name": "horror/FrontDoor",
-     "depth": 0,
-     "z": 40,
-     "start": 5.212,
-     "end": 6.03,
-     "props": {
-      "hallLight": 0.5,
-      "chain": "on"
+      "exposure": 1.2,
+      "surround": "#050506"
      },
-     "keyframes": [
-      {
-       "t": 5.212,
-       "scale": 1.0
-      },
-      {
-       "t": 6.03,
-       "scale": 1.05,
-       "ease": "linear"
-      }
-     ]
-    },
-    {
-     "type": "component",
-     "name": "horror/Protagonist",
-     "x": "50%",
-     "y": "100%",
-     "anchorY": 1,
-     "width": 1150,
-     "height": 1748,
-     "props": {
-      "pose": "phone",
-      "exprs": [
-       {
-        "t": 0,
-        "e": "terrified"
-       }
-      ],
-      "lookX": 0,
-      "lookY": 0.5,
-      "blink": false,
-      "light": "phone"
-     },
-     "flipX": false,
-     "depth": 0,
-     "z": 41,
-     "start": 5.212,
-     "end": 6.03
+     "id": "cut:3.875:4.175"
     }
    ],
    "camera": {
@@ -2537,86 +2849,86 @@
       "ease": "linear"
      },
      {
-      "t": 1.067,
+      "t": 2.292,
       "zoom": 1.03,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 1.1,
-      "zoom": 1.35,
+      "zoom": 1.03,
       "x": "50.00%",
-      "y": "62.96%",
-      "ease": "step"
-     },
-     {
-      "t": 2.079,
-      "zoom": 1.3905,
-      "x": "50.00%",
-      "y": "62.96%",
+      "y": "50.00%",
+      "t": 2.325,
       "ease": "linear"
      },
      {
-      "zoom": 1.3905,
-      "x": "50.00%",
-      "y": "62.96%",
-      "t": 2.112,
-      "ease": "linear"
-     },
-     {
-      "t": 2.362,
-      "zoom": 1.55,
-      "x": "50.00%",
-      "y": "67.74%",
+      "t": 2.575,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 3.742,
-      "zoom": 1.581,
-      "x": "50.00%",
-      "y": "67.74%",
+      "t": 4.142,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "t": 3.775,
-      "zoom": 1.35,
-      "x": "50.00%",
-      "y": "62.96%",
+      "t": 4.175,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "step"
      },
      {
-      "t": 4.467,
-      "zoom": 1.3905,
-      "x": "50.00%",
-      "y": "62.96%",
+      "t": 4.942,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      },
      {
-      "zoom": 1.3905,
-      "x": "50.00%",
-      "y": "62.96%",
-      "t": 4.5,
+      "zoom": 1.2444,
+      "x": "55.60%",
+      "y": "77.80%",
+      "t": 4.975,
       "ease": "linear"
      },
      {
-      "t": 4.75,
-      "zoom": 1.6,
-      "x": "50.00%",
-      "y": "68.75%",
+      "t": 5.225,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "out"
      },
      {
-      "t": 5.997,
-      "zoom": 1.632,
-      "x": "50.00%",
-      "y": "68.75%",
+      "t": 6.405,
+      "zoom": 1.281,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "linear"
+     },
+     {
+      "t": 6.438,
+      "zoom": 1.22,
+      "x": "55.60%",
+      "y": "77.80%",
+      "ease": "step"
+     },
+     {
+      "t": 8.087,
+      "zoom": 1.342,
+      "x": "55.60%",
+      "y": "77.80%",
       "ease": "linear"
      }
     ],
     "shake": [
      {
-      "at": 0.45,
+      "at": 0.525,
       "duration": 0.3,
       "amplitude": 10
      }
@@ -2625,11 +2937,29 @@
    "transitionIn": {
     "type": "cut"
    },
-   "notes": "My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them."
+   "notes": "My phone buzzed. A message from Ben. It's fine, open up. They only want to talk. I'm standing right behind them.",
+   "captionYAt": [
+    {
+     "at": 0.0,
+     "y": 0.12
+    },
+    {
+     "at": 2.325,
+     "y": 0.75
+    },
+    {
+     "at": 3.875,
+     "y": 0.12
+    },
+    {
+     "at": 4.175,
+     "y": 0.75
+    }
+   ]
   },
   {
    "id": "p12",
-   "duration": 5.97,
+   "duration": 7.125,
    "background": {
     "type": "color",
     "color": "#050506"
@@ -2639,11 +2969,11 @@
      "type": "component",
      "name": "horror/Peephole",
      "depth": 1,
-     "end": 2.225,
+     "end": 2.338,
      "props": {
       "radius": 0.52,
-      "exposure": 2.0,
-      "surround": "#4a5262",
+      "exposure": 1.2,
+      "surround": "#050506",
       "lean": 0.55,
       "flicker": 0.5,
       "lookX": 0,
@@ -2652,7 +2982,7 @@
       "exprs": [
        {
         "t": 0,
-        "e": "smile"
+        "e": "stare"
        }
       ]
      }
@@ -2661,11 +2991,12 @@
      "type": "component",
      "name": "horror/Peephole",
      "depth": 1,
-     "start": 2.225,
+     "start": 2.338,
+     "end": 5.525,
      "props": {
       "radius": 0.52,
-      "exposure": 2.0,
-      "surround": "#4a5262",
+      "exposure": 1.2,
+      "surround": "#050506",
       "lean": 0.55,
       "flicker": 0.2,
       "lookX": 0,
@@ -2680,12 +3011,28 @@
       "light": "red",
       "glitch": [
        {
-        "at": 2.225,
-        "duration": 0.25,
+        "at": 2.338,
+        "duration": 0.2,
         "amount": 1
        }
       ]
-     }
+     },
+     "keyframes": [
+      {
+       "t": 2.338,
+       "scale": 1.0
+      },
+      {
+       "t": 3.738,
+       "scale": 1.05,
+       "ease": "linear"
+      },
+      {
+       "t": 5.525,
+       "scale": 1.1,
+       "ease": "linear"
+      }
+     ]
     },
     {
      "type": "component",
@@ -2695,11 +3042,12 @@
      "props": {
       "text": "Only one",
       "style": "flash",
-      "at": 2.325,
-      "duration": 1.8449999999999998,
+      "at": 2.438,
+      "duration": 3.087,
       "fontSize": 120,
       "strobe": 8,
-      "y": 0.8
+      "y": 0.8,
+      "glow": 0.3
      }
     },
     {
@@ -2710,8 +3058,8 @@
      "props": {
       "cues": [
        {
-        "at": 2.225,
-        "duration": 0.3,
+        "at": 2.338,
+        "duration": 0.2,
         "amount": 1
        }
       ],
@@ -2730,142 +3078,16 @@
     },
     {
      "type": "component",
-     "name": "horror/Bedroom",
+     "name": "horror/EndCard",
      "depth": 0,
-     "z": 45,
-     "start": 4.17,
-     "end": 5.97,
+     "z": 80,
+     "start": 5.525,
      "props": {
-      "lamp": 0.6,
-      "rain": true
-     }
-    },
-    {
-     "type": "component",
-     "name": "horror/HandPhone",
-     "props": {
-      "phoneWidth": 0.68,
-      "cx": 0.53,
-      "cy": 0.61,
-      "tilt": -3,
-      "tremble": 5,
-      "side": "right",
-      "phone": {
-       "members": {
-        "Management": {
-         "color": "#3a3f4a",
-         "initials": "M"
-        },
-        "Ben (5A)": {
-         "color": "#8f6a4a",
-         "initials": "B"
-        },
-        "Dev (6C)": {
-         "color": "#4f7a73",
-         "initials": "D"
-        },
-        "Mrs. Ortiz (3B)": {
-         "color": "#7a5c8f",
-         "initials": "MO"
-        },
-        "Kay (2F)": {
-         "color": "#4a628f",
-         "initials": "K"
-        }
-       },
-       "mode": "chat",
-       "chat": {
-        "title": "Willow Court Residents",
-        "messages": [
-         {
-          "text": "breaking every rule. let's see what happens",
-          "from": "Ben (5A)",
-          "at": -35.754
-         },
-         {
-          "text": "someone's knocking. 3 times",
-          "from": "Ben (5A)",
-          "at": -31.684
-         },
-         {
-          "text": "i'm opening it. wish me luck",
-          "from": "Ben (5A)",
-          "at": -30.047
-         },
-         {
-          "text": "Ben (5A) · last seen 2:14 AM",
-          "kind": "system",
-          "at": -25.784
-         },
-         {
-          "text": "Management edited the pinned message",
-          "kind": "system",
-          "at": -23.934
-         },
-         {
-          "text": "RULE 5 (edited): Management may need to come inside. Please cooperate.",
-          "from": "Management",
-          "kind": "alert",
-          "at": -23.147
-         },
-         {
-          "text": "RULE 6:",
-          "from": "Management",
-          "kind": "card",
-          "at": 4.37
-         }
-        ],
-        "dayLabel": "Today 1:02 AM",
-        "accent": "#3d5a80",
-        "clock": "2:33",
-        "battery": 31,
-        "theme": "light",
-        "scale": 1.5,
-        "pinned": {
-         "text": "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move.",
-         "at": -59.984,
-         "from": "Management",
-         "editAt": -23.934,
-         "editText": "RULE 5 (edited): Management may need to come inside. Please cooperate."
-        },
-        "count": 38,
-        "typing": [
-         {
-          "from": "Management",
-          "at": 4.7700000000000005,
-          "until": 6.97
-         }
-        ],
-        "subtitle": "Management is typing…"
-       },
-       "vibrate": [
-        {
-         "at": 4.32,
-         "duration": 0.5
-        }
-       ]
-      },
-      "thumbY": 0.94,
-      "thumbReach": 0.1
-     },
-     "depth": 0,
-     "z": 46,
-     "start": 4.17,
-     "end": 5.97
-    },
-    {
-     "type": "component",
-     "name": "horror/RedText",
-     "depth": 0,
-     "z": 70,
-     "props": {
-      "text": "PART 2",
-      "style": "stamp",
-      "at": 5.0,
-      "duration": 0.9699999999999998,
-      "fontSize": 130,
-      "shake": 0,
-      "y": 0.135
+      "rule": "RULE 6:",
+      "from": "Management",
+      "label": "PART 2",
+      "at": 5.525,
+      "stampAt": 6.125
      }
     }
    ],
@@ -2879,30 +3101,44 @@
       "ease": "linear"
      },
      {
-      "t": 2.192,
+      "t": 2.305,
       "zoom": 1.06,
       "x": "50.00%",
       "y": "50.00%",
       "ease": "linear"
      },
      {
-      "t": 2.225,
-      "zoom": 1.4,
+      "t": 2.338,
+      "zoom": 1.3,
       "x": "50.00%",
-      "y": "36.00%",
+      "y": "42.00%",
       "ease": "step"
      },
      {
-      "t": 5.937,
-      "zoom": 1.442,
+      "t": 5.492,
+      "zoom": 1.339,
       "x": "50.00%",
-      "y": "36.00%",
+      "y": "42.00%",
+      "ease": "linear"
+     },
+     {
+      "t": 5.525,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
+      "ease": "step"
+     },
+     {
+      "t": 7.092,
+      "zoom": 1.0,
+      "x": "50.00%",
+      "y": "50.00%",
       "ease": "linear"
      }
     ],
     "shake": [
      {
-      "at": 2.225,
+      "at": 2.338,
       "duration": 0.4,
       "amplitude": 18
      }
@@ -2910,7 +3146,7 @@
    },
    "transitionIn": {
     "type": "glitch",
-    "duration": 0.3
+    "duration": 0.2
    },
    "notes": "I looked through the peephole again. There was only one person out there."
   }
@@ -2919,1062 +3155,1013 @@
   "words": [
    {
     "text": "Rule",
-    "start": 0.475,
-    "end": 0.7
+    "start": 0.1,
+    "end": 0.275
    },
    {
     "text": "four",
-    "start": 0.7,
-    "end": 0.925
+    "start": 0.275,
+    "end": 0.5,
+    "emph": true
    },
    {
-    "text": "said:",
-    "start": 0.925,
-    "end": 1.3
+    "text": "said",
+    "start": 0.5,
+    "end": 0.662
    },
    {
     "text": "if",
-    "start": 1.4,
-    "end": 1.525
+    "start": 0.662,
+    "end": 0.75
    },
    {
     "text": "someone",
-    "start": 1.525,
-    "end": 1.762
+    "start": 0.75,
+    "end": 0.987
    },
    {
     "text": "knocks",
-    "start": 1.762,
-    "end": 2.025
+    "start": 0.987,
+    "end": 1.25
    },
    {
     "text": "three",
-    "start": 2.025,
-    "end": 2.25
+    "start": 1.25,
+    "end": 1.475,
+    "emph": true
    },
    {
     "text": "times,",
-    "start": 2.25,
-    "end": 2.575
+    "start": 1.475,
+    "end": 1.825
    },
    {
     "text": "you",
-    "start": 2.612,
-    "end": 2.688
+    "start": 1.863,
+    "end": 1.938
    },
    {
     "text": "are",
-    "start": 2.688,
-    "end": 2.763
+    "start": 1.938,
+    "end": 2.013
    },
    {
     "text": "not",
-    "start": 2.763,
-    "end": 2.925
+    "start": 2.013,
+    "end": 2.175
    },
    {
     "text": "home.",
-    "start": 2.925,
-    "end": 3.325
+    "start": 2.175,
+    "end": 2.625,
+    "emph": true
    },
    {
     "text": "Do",
-    "start": 3.4,
-    "end": 3.513
+    "start": 2.725,
+    "end": 2.837
    },
    {
     "text": "not",
-    "start": 3.513,
-    "end": 3.675
+    "start": 2.837,
+    "end": 3.0
    },
    {
     "text": "answer.",
-    "start": 3.675,
-    "end": 4.075
+    "start": 3.0,
+    "end": 3.425
    },
    {
     "text": "Do",
-    "start": 4.15,
-    "end": 4.263
+    "start": 3.5,
+    "end": 3.613
    },
    {
     "text": "not",
-    "start": 4.263,
-    "end": 4.45
+    "start": 3.613,
+    "end": 3.8
    },
    {
     "text": "move.",
-    "start": 4.45,
-    "end": 4.77
-   },
-   {
-    "text": "Pinned",
-    "start": 5.12,
-    "end": 5.357
-   },
-   {
-    "text": "in",
-    "start": 5.357,
-    "end": 5.433
-   },
-   {
-    "text": "our",
-    "start": 5.433,
-    "end": 5.558
-   },
-   {
-    "text": "building",
-    "start": 5.558,
-    "end": 5.895
-   },
-   {
-    "text": "chat",
-    "start": 5.895,
-    "end": 6.145
-   },
-   {
-    "text": "at",
-    "start": 6.145,
-    "end": 6.245
-   },
-   {
-    "text": "one",
-    "start": 6.245,
-    "end": 6.47
-   },
-   {
-    "text": "a.m.",
-    "start": 6.47,
-    "end": 6.845
+    "start": 3.8,
+    "end": 4.13
    },
    {
     "text": "Signed,",
-    "start": 6.845,
-    "end": 7.245
+    "start": 4.415,
+    "end": 4.665
    },
    {
     "text": "Management.",
-    "start": 7.32,
-    "end": 8.07
+    "start": 4.702,
+    "end": 5.315,
+    "emph": true
    },
    {
     "text": "Rule",
-    "start": 8.207,
-    "end": 8.445
+    "start": 5.427,
+    "end": 5.665
    },
    {
     "text": "five:",
-    "start": 8.445,
-    "end": 8.97
+    "start": 5.665,
+    "end": 6.09
    },
    {
     "text": "Management",
-    "start": 9.082,
-    "end": 9.532
+    "start": 6.165,
+    "end": 6.602
    },
    {
     "text": "will",
-    "start": 9.532,
-    "end": 9.67
+    "start": 6.602,
+    "end": 6.715
    },
    {
     "text": "never",
-    "start": 9.67,
-    "end": 9.945
+    "start": 6.715,
+    "end": 6.99
    },
    {
     "text": "ask",
-    "start": 9.945,
-    "end": 10.195
+    "start": 6.99,
+    "end": 7.202
    },
    {
     "text": "to",
-    "start": 10.195,
-    "end": 10.282
+    "start": 7.202,
+    "end": 7.277
    },
    {
     "text": "come",
-    "start": 10.282,
-    "end": 10.407
+    "start": 7.277,
+    "end": 7.402
    },
    {
     "text": "inside.",
-    "start": 10.407,
-    "end": 10.94
-   },
-   {
-    "text": "Then",
-    "start": 11.29,
-    "end": 11.49
+    "start": 7.402,
+    "end": 7.93,
+    "emph": true
    },
    {
     "text": "Dev",
-    "start": 11.49,
-    "end": 11.79
+    "start": 8.215,
+    "end": 8.49
    },
    {
     "text": "in",
-    "start": 11.79,
-    "end": 11.953
+    "start": 8.49,
+    "end": 8.64
    },
    {
-    "text": "six",
-    "start": 11.953,
-    "end": 12.19
-   },
-   {
-    "text": "C",
-    "start": 12.19,
-    "end": 12.365
+    "text": "Six-C",
+    "start": 8.64,
+    "end": 9.04
    },
    {
     "text": "checked.",
-    "start": 12.365,
-    "end": 12.865
-   },
-   {
-    "text": "Our",
-    "start": 12.965,
-    "end": 13.115
-   },
-   {
-    "text": "management",
-    "start": 13.115,
-    "end": 13.565
-   },
-   {
-    "text": "company",
-    "start": 13.565,
-    "end": 13.902
-   },
-   {
-    "text": "shut",
-    "start": 13.902,
-    "end": 14.115
-   },
-   {
-    "text": "down",
-    "start": 14.115,
-    "end": 14.39
-   },
-   {
-    "text": "two",
-    "start": 14.39,
-    "end": 14.565
-   },
-   {
-    "text": "years",
-    "start": 14.565,
-    "end": 14.777
-   },
-   {
-    "text": "ago.",
-    "start": 14.777,
-    "end": 15.15
-   },
-   {
-    "text": "So",
-    "start": 15.525,
-    "end": 15.687
-   },
-   {
-    "text": "who'd",
-    "start": 15.687,
-    "end": 15.812
-   },
-   {
-    "text": "been",
-    "start": 15.812,
-    "end": 16.012
-   },
-   {
-    "text": "answering",
-    "start": 16.012,
-    "end": 16.387
-   },
-   {
-    "text": "our",
-    "start": 16.387,
-    "end": 16.512
-   },
-   {
-    "text": "repair",
-    "start": 16.512,
-    "end": 16.812
-   },
-   {
-    "text": "requests?",
-    "start": 16.812,
-    "end": 17.425
-   },
-   {
-    "text": "And",
-    "start": 17.487,
-    "end": 17.612
-   },
-   {
-    "text": "who",
-    "start": 17.612,
-    "end": 17.725
-   },
-   {
-    "text": "pinned",
-    "start": 17.725,
-    "end": 17.962
-   },
-   {
-    "text": "the",
-    "start": 17.962,
-    "end": 18.05
-   },
-   {
-    "text": "rules?",
-    "start": 18.05,
-    "end": 18.58
-   },
-   {
-    "text": "Everyone",
-    "start": 18.93,
-    "end": 19.355
-   },
-   {
-    "text": "said",
-    "start": 19.355,
-    "end": 19.517
-   },
-   {
-    "text": "it",
-    "start": 19.517,
-    "end": 19.592
-   },
-   {
-    "text": "was",
-    "start": 19.592,
-    "end": 19.692
-   },
-   {
-    "text": "a",
-    "start": 19.692,
-    "end": 19.755
-   },
-   {
-    "text": "prank.",
-    "start": 19.755,
-    "end": 20.38
-   },
-   {
-    "text": "Ben",
-    "start": 20.517,
-    "end": 20.78
-   },
-   {
-    "text": "in",
-    "start": 20.78,
-    "end": 20.905
-   },
-   {
-    "text": "five",
-    "start": 20.905,
-    "end": 21.18
-   },
-   {
-    "text": "A",
-    "start": 21.18,
-    "end": 21.405
-   },
-   {
-    "text": "said",
-    "start": 21.405,
-    "end": 21.542
-   },
-   {
-    "text": "he'd",
-    "start": 21.542,
-    "end": 21.705
-   },
-   {
-    "text": "leave",
-    "start": 21.705,
-    "end": 21.892
-   },
-   {
-    "text": "his",
-    "start": 21.892,
-    "end": 22.03
-   },
-   {
-    "text": "hallway",
-    "start": 22.03,
-    "end": 22.38
-   },
-   {
-    "text": "light",
-    "start": 22.38,
-    "end": 22.58
-   },
-   {
-    "text": "on",
-    "start": 22.58,
-    "end": 22.905
-   },
-   {
-    "text": "and",
-    "start": 22.905,
-    "end": 23.03
-   },
-   {
-    "text": "break",
-    "start": 23.03,
-    "end": 23.28
-   },
-   {
-    "text": "every",
-    "start": 23.28,
-    "end": 23.58
-   },
-   {
-    "text": "rule",
-    "start": 23.58,
-    "end": 23.805
-   },
-   {
-    "text": "tonight,",
-    "start": 23.805,
-    "end": 24.305
-   },
-   {
-    "text": "just",
-    "start": 24.405,
-    "end": 24.617
-   },
-   {
-    "text": "to",
-    "start": 24.617,
-    "end": 24.705
-   },
-   {
-    "text": "see",
-    "start": 24.705,
-    "end": 24.867
-   },
-   {
-    "text": "what",
-    "start": 24.867,
-    "end": 24.992
-   },
-   {
-    "text": "happens.",
-    "start": 24.992,
-    "end": 25.55
-   },
-   {
-    "text": "At",
-    "start": 25.875,
-    "end": 26.0
-   },
-   {
-    "text": "two",
-    "start": 26.0,
-    "end": 26.175
-   },
-   {
-    "text": "fourteen,",
-    "start": 26.175,
-    "end": 26.575
-   },
-   {
-    "text": "Ben",
-    "start": 26.625,
-    "end": 26.8
-   },
-   {
-    "text": "wrote",
-    "start": 26.8,
-    "end": 26.987
-   },
-   {
-    "text": "again.",
-    "start": 26.987,
-    "end": 27.325
-   },
-   {
-    "text": "Someone's",
-    "start": 27.4,
-    "end": 27.7
-   },
-   {
-    "text": "knocking.",
-    "start": 27.7,
-    "end": 28.325
-   },
-   {
-    "text": "Three",
-    "start": 28.437,
-    "end": 28.675
-   },
-   {
-    "text": "times.",
-    "start": 28.675,
-    "end": 29.0
-   },
-   {
-    "text": "I'm",
-    "start": 29.037,
-    "end": 29.15
-   },
-   {
-    "text": "opening",
-    "start": 29.15,
-    "end": 29.5
-   },
-   {
-    "text": "it.",
-    "start": 29.5,
-    "end": 29.65
-   },
-   {
-    "text": "Wish",
-    "start": 29.7,
-    "end": 29.887
-   },
-   {
-    "text": "me",
-    "start": 29.887,
-    "end": 30.025
-   },
-   {
-    "text": "luck.",
-    "start": 30.025,
-    "end": 30.3
-   },
-   {
-    "text": "That",
-    "start": 30.65,
-    "end": 30.787
-   },
-   {
-    "text": "was",
-    "start": 30.787,
-    "end": 30.912
-   },
-   {
-    "text": "the",
-    "start": 30.912,
-    "end": 31.0
-   },
-   {
-    "text": "last",
-    "start": 31.0,
-    "end": 31.287
-   },
-   {
-    "text": "thing",
-    "start": 31.287,
-    "end": 31.412
-   },
-   {
-    "text": "he",
-    "start": 31.412,
-    "end": 31.525
-   },
-   {
-    "text": "sent.",
-    "start": 31.525,
-    "end": 32.0
-   },
-   {
-    "text": "His",
-    "start": 32.075,
-    "end": 32.25
-   },
-   {
-    "text": "little",
-    "start": 32.25,
-    "end": 32.475
-   },
-   {
-    "text": "green",
-    "start": 32.475,
-    "end": 32.75
-   },
-   {
-    "text": "dot",
-    "start": 32.75,
-    "end": 33.0
-   },
-   {
-    "text": "turned",
-    "start": 33.0,
-    "end": 33.25
-   },
-   {
-    "text": "grey.",
-    "start": 33.25,
-    "end": 33.65
-   },
-   {
-    "text": "Then",
-    "start": 34.4,
-    "end": 34.512
-   },
-   {
-    "text": "the",
-    "start": 34.512,
-    "end": 34.6
-   },
-   {
-    "text": "pinned",
-    "start": 34.6,
-    "end": 34.875
-   },
-   {
-    "text": "post",
-    "start": 34.875,
-    "end": 35.15
-   },
-   {
-    "text": "changed.",
-    "start": 35.15,
-    "end": 35.75
-   },
-   {
-    "text": "Rule",
-    "start": 35.887,
-    "end": 36.125
-   },
-   {
-    "text": "five",
-    "start": 36.125,
-    "end": 36.387
-   },
-   {
-    "text": "now",
-    "start": 36.387,
-    "end": 36.55
-   },
-   {
-    "text": "said:",
-    "start": 36.55,
-    "end": 36.925
+    "start": 9.04,
+    "end": 9.515
    },
    {
     "text": "Management",
-    "start": 37.037,
-    "end": 37.487
+    "start": 9.615,
+    "end": 10.065
    },
    {
-    "text": "may",
-    "start": 37.487,
-    "end": 37.612
+    "text": "shut",
+    "start": 10.065,
+    "end": 10.24,
+    "emph": true
    },
    {
-    "text": "need",
-    "start": 37.612,
-    "end": 37.787
+    "text": "down",
+    "start": 10.24,
+    "end": 10.49
    },
    {
-    "text": "to",
-    "start": 37.787,
-    "end": 37.862
+    "text": "two",
+    "start": 10.49,
+    "end": 10.627,
+    "emph": true
    },
    {
-    "text": "come",
-    "start": 37.862,
-    "end": 37.987
+    "text": "years",
+    "start": 10.627,
+    "end": 10.827
    },
    {
-    "text": "inside.",
-    "start": 37.987,
-    "end": 38.55
+    "text": "ago.",
+    "start": 10.827,
+    "end": 11.21
    },
    {
-    "text": "Please",
-    "start": 38.65,
-    "end": 38.95
+    "text": "So",
+    "start": 11.47,
+    "end": 11.607
    },
    {
-    "text": "cooperate.",
-    "start": 38.95,
-    "end": 39.56
+    "text": "who'd",
+    "start": 11.607,
+    "end": 11.732
    },
    {
-    "text": "I",
-    "start": 39.91,
-    "end": 40.035
+    "text": "been",
+    "start": 11.732,
+    "end": 11.907
    },
    {
-    "text": "switched",
-    "start": 40.035,
-    "end": 40.297
+    "text": "answering",
+    "start": 11.907,
+    "end": 12.282
    },
    {
-    "text": "off",
-    "start": 40.297,
-    "end": 40.472
+    "text": "our",
+    "start": 12.282,
+    "end": 12.407
    },
    {
-    "text": "my",
-    "start": 40.472,
-    "end": 40.61
+    "text": "repair",
+    "start": 12.407,
+    "end": 12.682
    },
    {
-    "text": "hallway",
-    "start": 40.61,
-    "end": 40.96
+    "text": "requests?",
+    "start": 12.682,
+    "end": 13.295
    },
    {
-    "text": "light",
-    "start": 40.96,
-    "end": 41.422
+    "text": "And",
+    "start": 13.357,
+    "end": 13.482
    },
    {
-    "text": "and",
-    "start": 41.422,
-    "end": 41.56
+    "text": "who",
+    "start": 13.482,
+    "end": 13.595
    },
    {
-    "text": "sat",
-    "start": 41.56,
-    "end": 41.747
-   },
-   {
-    "text": "with",
-    "start": 41.747,
-    "end": 41.847
-   },
-   {
-    "text": "my",
-    "start": 41.847,
-    "end": 41.985
-   },
-   {
-    "text": "back",
-    "start": 41.985,
-    "end": 42.222
-   },
-   {
-    "text": "against",
-    "start": 42.222,
-    "end": 42.497
+    "text": "pinned",
+    "start": 13.595,
+    "end": 13.832
    },
    {
     "text": "the",
-    "start": 42.497,
-    "end": 42.585
+    "start": 13.832,
+    "end": 13.92
    },
    {
-    "text": "door.",
-    "start": 42.585,
-    "end": 42.97
+    "text": "rules?",
+    "start": 13.92,
+    "end": 14.45
    },
    {
-    "text": "Right",
-    "start": 43.345,
-    "end": 43.532
-   },
-   {
-    "text": "behind",
-    "start": 43.532,
-    "end": 43.807
-   },
-   {
-    "text": "my",
-    "start": 43.807,
-    "end": 43.945
-   },
-   {
-    "text": "head,",
-    "start": 43.945,
-    "end": 44.245
-   },
-   {
-    "text": "someone",
-    "start": 44.32,
-    "end": 44.557
-   },
-   {
-    "text": "knocked.",
-    "start": 44.557,
-    "end": 45.06
-   },
-   {
-    "text": "Three",
-    "start": 48.079,
-    "end": 48.304
-   },
-   {
-    "text": "times.",
-    "start": 48.304,
-    "end": 48.864
-   },
-   {
-    "text": "A",
-    "start": 49.214,
-    "end": 49.289
-   },
-   {
-    "text": "calm",
-    "start": 49.289,
-    "end": 49.564
-   },
-   {
-    "text": "voice",
-    "start": 49.564,
-    "end": 49.789
+    "text": "Everyone",
+    "start": 14.71,
+    "end": 15.135
    },
    {
     "text": "said",
-    "start": 49.789,
-    "end": 49.926
+    "start": 15.135,
+    "end": 15.322
    },
    {
-    "text": "my",
-    "start": 49.926,
-    "end": 50.051
-   },
-   {
-    "text": "name.",
-    "start": 50.051,
-    "end": 50.489
-   },
-   {
-    "text": "It's",
-    "start": 50.564,
-    "end": 50.789
-   },
-   {
-    "text": "Management.",
-    "start": 50.789,
-    "end": 51.414
-   },
-   {
-    "text": "We",
-    "start": 51.476,
-    "end": 51.589
-   },
-   {
-    "text": "just",
-    "start": 51.589,
-    "end": 51.751
-   },
-   {
-    "text": "need",
-    "start": 51.751,
-    "end": 51.901
-   },
-   {
-    "text": "to",
-    "start": 51.901,
-    "end": 51.989
-   },
-   {
-    "text": "come",
-    "start": 51.989,
-    "end": 52.126
-   },
-   {
-    "text": "in",
-    "start": 52.126,
-    "end": 52.264
-   },
-   {
-    "text": "for",
-    "start": 52.264,
-    "end": 52.376
-   },
-   {
-    "text": "a",
-    "start": 52.376,
-    "end": 52.426
-   },
-   {
-    "text": "minute.",
-    "start": 52.426,
-    "end": 52.754
-   },
-   {
-    "text": "My",
-    "start": 53.104,
-    "end": 53.254
-   },
-   {
-    "text": "phone",
-    "start": 53.254,
-    "end": 53.504
-   },
-   {
-    "text": "buzzed.",
-    "start": 53.504,
-    "end": 53.929
-   },
-   {
-    "text": "A",
-    "start": 54.004,
-    "end": 54.104
-   },
-   {
-    "text": "message",
-    "start": 54.104,
-    "end": 54.429
-   },
-   {
-    "text": "from",
-    "start": 54.429,
-    "end": 54.604
-   },
-   {
-    "text": "Ben.",
-    "start": 54.604,
-    "end": 55.054
-   },
-   {
-    "text": "It's",
-    "start": 55.116,
-    "end": 55.304
-   },
-   {
-    "text": "fine,",
-    "start": 55.304,
-    "end": 55.629
-   },
-   {
-    "text": "open",
-    "start": 55.679,
-    "end": 55.916
-   },
-   {
-    "text": "up.",
-    "start": 55.916,
-    "end": 56.279
-   },
-   {
-    "text": "They",
-    "start": 56.379,
-    "end": 56.529
-   },
-   {
-    "text": "only",
-    "start": 56.529,
-    "end": 56.816
-   },
-   {
-    "text": "want",
-    "start": 56.816,
-    "end": 56.966
-   },
-   {
-    "text": "to",
-    "start": 56.966,
-    "end": 57.054
-   },
-   {
-    "text": "talk.",
-    "start": 57.054,
-    "end": 57.429
-   },
-   {
-    "text": "I'm",
-    "start": 57.504,
-    "end": 57.654
-   },
-   {
-    "text": "standing",
-    "start": 57.654,
-    "end": 58.029
-   },
-   {
-    "text": "right",
-    "start": 58.029,
-    "end": 58.216
-   },
-   {
-    "text": "behind",
-    "start": 58.216,
-    "end": 58.491
-   },
-   {
-    "text": "them.",
-    "start": 58.491,
-    "end": 58.784
-   },
-   {
-    "text": "I",
-    "start": 59.134,
-    "end": 59.259
-   },
-   {
-    "text": "looked",
-    "start": 59.259,
-    "end": 59.484
-   },
-   {
-    "text": "through",
-    "start": 59.484,
-    "end": 59.671
-   },
-   {
-    "text": "the",
-    "start": 59.671,
-    "end": 59.759
-   },
-   {
-    "text": "peephole",
-    "start": 59.759,
-    "end": 60.121
-   },
-   {
-    "text": "again.",
-    "start": 60.121,
-    "end": 60.584
-   },
-   {
-    "text": "There",
-    "start": 60.684,
-    "end": 60.821
+    "text": "it",
+    "start": 15.322,
+    "end": 15.397
    },
    {
     "text": "was",
-    "start": 60.821,
-    "end": 60.921
+    "start": 15.397,
+    "end": 15.498
+   },
+   {
+    "text": "a",
+    "start": 15.498,
+    "end": 15.56
+   },
+   {
+    "text": "prank.",
+    "start": 15.56,
+    "end": 16.185,
+    "emph": true
+   },
+   {
+    "text": "Ben",
+    "start": 16.322,
+    "end": 16.547,
+    "emph": true
+   },
+   {
+    "text": "in",
+    "start": 16.547,
+    "end": 16.685
+   },
+   {
+    "text": "five-A",
+    "start": 16.685,
+    "end": 17.085
+   },
+   {
+    "text": "said",
+    "start": 17.085,
+    "end": 17.247
+   },
+   {
+    "text": "he'd",
+    "start": 17.247,
+    "end": 17.41
+   },
+   {
+    "text": "leave",
+    "start": 17.41,
+    "end": 17.598
+   },
+   {
+    "text": "his",
+    "start": 17.598,
+    "end": 17.71
+   },
+   {
+    "text": "hallway",
+    "start": 17.71,
+    "end": 18.06
+   },
+   {
+    "text": "light",
+    "start": 18.06,
+    "end": 18.26
+   },
+   {
+    "text": "on",
+    "start": 18.26,
+    "end": 18.56
+   },
+   {
+    "text": "and",
+    "start": 18.56,
+    "end": 18.685
+   },
+   {
+    "text": "break",
+    "start": 18.685,
+    "end": 18.935
+   },
+   {
+    "text": "every",
+    "start": 18.935,
+    "end": 19.235
+   },
+   {
+    "text": "rule",
+    "start": 19.235,
+    "end": 19.46
+   },
+   {
+    "text": "tonight,",
+    "start": 19.46,
+    "end": 19.935
+   },
+   {
+    "text": "just",
+    "start": 20.035,
+    "end": 20.247
+   },
+   {
+    "text": "to",
+    "start": 20.247,
+    "end": 20.335
+   },
+   {
+    "text": "see",
+    "start": 20.335,
+    "end": 20.497
+   },
+   {
+    "text": "what",
+    "start": 20.497,
+    "end": 20.622
+   },
+   {
+    "text": "happens.",
+    "start": 20.622,
+    "end": 21.17
+   },
+   {
+    "text": "At",
+    "start": 21.405,
+    "end": 21.53
+   },
+   {
+    "text": "two",
+    "start": 21.53,
+    "end": 21.705
+   },
+   {
+    "text": "fourteen,",
+    "start": 21.705,
+    "end": 22.105
+   },
+   {
+    "text": "Ben",
+    "start": 22.155,
+    "end": 22.33
+   },
+   {
+    "text": "wrote",
+    "start": 22.33,
+    "end": 22.518
+   },
+   {
+    "text": "again.",
+    "start": 22.518,
+    "end": 22.855
+   },
+   {
+    "text": "Someone's",
+    "start": 22.93,
+    "end": 23.23
+   },
+   {
+    "text": "knocking.",
+    "start": 23.23,
+    "end": 23.83,
+    "emph": true
+   },
+   {
+    "text": "Three",
+    "start": 23.942,
+    "end": 24.18
+   },
+   {
+    "text": "times.",
+    "start": 24.18,
+    "end": 24.505
+   },
+   {
+    "text": "I'm",
+    "start": 24.543,
+    "end": 24.655
+   },
+   {
+    "text": "opening",
+    "start": 24.655,
+    "end": 25.005
+   },
+   {
+    "text": "it.",
+    "start": 25.005,
+    "end": 25.155
+   },
+   {
+    "text": "Wish",
+    "start": 25.205,
+    "end": 25.392
+   },
+   {
+    "text": "me",
+    "start": 25.392,
+    "end": 25.53
+   },
+   {
+    "text": "luck.",
+    "start": 25.53,
+    "end": 25.81
+   },
+   {
+    "text": "That",
+    "start": 26.07,
+    "end": 26.207
+   },
+   {
+    "text": "was",
+    "start": 26.207,
+    "end": 26.308
+   },
+   {
+    "text": "the",
+    "start": 26.308,
+    "end": 26.395
+   },
+   {
+    "text": "last",
+    "start": 26.395,
+    "end": 26.683
+   },
+   {
+    "text": "thing",
+    "start": 26.683,
+    "end": 26.808
+   },
+   {
+    "text": "he",
+    "start": 26.808,
+    "end": 26.92
+   },
+   {
+    "text": "sent.",
+    "start": 26.92,
+    "end": 27.37
+   },
+   {
+    "text": "His",
+    "start": 27.445,
+    "end": 27.608
+   },
+   {
+    "text": "little",
+    "start": 27.608,
+    "end": 27.795
+   },
+   {
+    "text": "green",
+    "start": 27.795,
+    "end": 28.07
+   },
+   {
+    "text": "dot",
+    "start": 28.07,
+    "end": 28.32
+   },
+   {
+    "text": "turned",
+    "start": 28.32,
+    "end": 28.57
+   },
+   {
+    "text": "grey.",
+    "start": 28.57,
+    "end": 28.97,
+    "emph": true
+   },
+   {
+    "text": "Then",
+    "start": 29.63,
+    "end": 29.742
+   },
+   {
+    "text": "the",
+    "start": 29.742,
+    "end": 29.83
+   },
+   {
+    "text": "pinned",
+    "start": 29.83,
+    "end": 30.105
+   },
+   {
+    "text": "post",
+    "start": 30.105,
+    "end": 30.38
+   },
+   {
+    "text": "changed.",
+    "start": 30.38,
+    "end": 30.955,
+    "emph": true
+   },
+   {
+    "text": "Rule",
+    "start": 31.093,
+    "end": 31.33
+   },
+   {
+    "text": "five",
+    "start": 31.33,
+    "end": 31.567
+   },
+   {
+    "text": "now",
+    "start": 31.567,
+    "end": 31.73
+   },
+   {
+    "text": "said:",
+    "start": 31.73,
+    "end": 32.105
+   },
+   {
+    "text": "Management",
+    "start": 32.218,
+    "end": 32.667
+   },
+   {
+    "text": "may",
+    "start": 32.667,
+    "end": 32.792
+   },
+   {
+    "text": "need",
+    "start": 32.792,
+    "end": 32.968
+   },
+   {
+    "text": "to",
+    "start": 32.968,
+    "end": 33.042
+   },
+   {
+    "text": "come",
+    "start": 33.042,
+    "end": 33.167
+   },
+   {
+    "text": "inside.",
+    "start": 33.167,
+    "end": 33.73,
+    "emph": true
+   },
+   {
+    "text": "Please",
+    "start": 33.83,
+    "end": 34.13
+   },
+   {
+    "text": "cooperate.",
+    "start": 34.13,
+    "end": 34.75
+   },
+   {
+    "text": "I",
+    "start": 35.035,
+    "end": 35.172
+   },
+   {
+    "text": "switched",
+    "start": 35.172,
+    "end": 35.448
+   },
+   {
+    "text": "off",
+    "start": 35.448,
+    "end": 35.648
+   },
+   {
+    "text": "my",
+    "start": 35.648,
+    "end": 35.81
+   },
+   {
+    "text": "hallway",
+    "start": 35.81,
+    "end": 36.16
+   },
+   {
+    "text": "light",
+    "start": 36.16,
+    "end": 36.698
+   },
+   {
+    "text": "and",
+    "start": 36.698,
+    "end": 36.848
+   },
+   {
+    "text": "sat",
+    "start": 36.848,
+    "end": 37.098
+   },
+   {
+    "text": "with",
+    "start": 37.098,
+    "end": 37.198
+   },
+   {
+    "text": "my",
+    "start": 37.198,
+    "end": 37.335
+   },
+   {
+    "text": "back",
+    "start": 37.335,
+    "end": 37.598
+   },
+   {
+    "text": "against",
+    "start": 37.598,
+    "end": 37.898
+   },
+   {
+    "text": "the",
+    "start": 37.898,
+    "end": 37.985
+   },
+   {
+    "text": "door.",
+    "start": 37.985,
+    "end": 38.37
+   },
+   {
+    "text": "Right",
+    "start": 38.705,
+    "end": 38.893
+   },
+   {
+    "text": "behind",
+    "start": 38.893,
+    "end": 39.193
+   },
+   {
+    "text": "my",
+    "start": 39.193,
+    "end": 39.33
+   },
+   {
+    "text": "head,",
+    "start": 39.33,
+    "end": 39.655
+   },
+   {
+    "text": "someone",
+    "start": 39.73,
+    "end": 39.98
+   },
+   {
+    "text": "knocked.",
+    "start": 39.98,
+    "end": 40.51,
+    "emph": true
+   },
+   {
+    "text": "Three",
+    "start": 44.091,
+    "end": 44.316
+   },
+   {
+    "text": "times.",
+    "start": 44.316,
+    "end": 44.906
+   },
+   {
+    "text": "A",
+    "start": 45.191,
+    "end": 45.279
+   },
+   {
+    "text": "calm",
+    "start": 45.279,
+    "end": 45.591
+   },
+   {
+    "text": "voice",
+    "start": 45.591,
+    "end": 45.891
+   },
+   {
+    "text": "said",
+    "start": 45.891,
+    "end": 46.029
+   },
+   {
+    "text": "my",
+    "start": 46.029,
+    "end": 46.191
+   },
+   {
+    "text": "name.",
+    "start": 46.191,
+    "end": 46.716
+   },
+   {
+    "text": "It's",
+    "start": 46.816,
+    "end": 47.066
+   },
+   {
+    "text": "Management.",
+    "start": 47.066,
+    "end": 47.791,
+    "emph": true
+   },
+   {
+    "text": "We",
+    "start": 47.866,
+    "end": 47.991
+   },
+   {
+    "text": "just",
+    "start": 47.991,
+    "end": 48.154
+   },
+   {
+    "text": "need",
+    "start": 48.154,
+    "end": 48.329
+   },
+   {
+    "text": "to",
+    "start": 48.329,
+    "end": 48.416
+   },
+   {
+    "text": "come",
+    "start": 48.416,
+    "end": 48.554
+   },
+   {
+    "text": "in",
+    "start": 48.554,
+    "end": 48.716
+   },
+   {
+    "text": "for",
+    "start": 48.716,
+    "end": 48.829
+   },
+   {
+    "text": "a",
+    "start": 48.829,
+    "end": 48.879
+   },
+   {
+    "text": "minute.",
+    "start": 48.879,
+    "end": 49.326
+   },
+   {
+    "text": "My",
+    "start": 49.611,
+    "end": 49.774
+   },
+   {
+    "text": "phone",
+    "start": 49.774,
+    "end": 50.086
+   },
+   {
+    "text": "buzzed.",
+    "start": 50.086,
+    "end": 50.536
+   },
+   {
+    "text": "A",
+    "start": 50.611,
+    "end": 50.711
+   },
+   {
+    "text": "message",
+    "start": 50.711,
+    "end": 51.086
+   },
+   {
+    "text": "from",
+    "start": 51.086,
+    "end": 51.261
+   },
+   {
+    "text": "Ben.",
+    "start": 51.261,
+    "end": 51.736
+   },
+   {
+    "text": "It's",
+    "start": 51.836,
+    "end": 52.086
+   },
+   {
+    "text": "fine,",
+    "start": 52.086,
+    "end": 52.436
+   },
+   {
+    "text": "open",
+    "start": 52.486,
+    "end": 52.749
+   },
+   {
+    "text": "up.",
+    "start": 52.749,
+    "end": 53.186
+   },
+   {
+    "text": "They",
+    "start": 53.286,
+    "end": 53.436
    },
    {
     "text": "only",
-    "start": 60.921,
-    "end": 61.209
+    "start": 53.436,
+    "end": 53.736
+   },
+   {
+    "text": "want",
+    "start": 53.736,
+    "end": 53.899
+   },
+   {
+    "text": "to",
+    "start": 53.899,
+    "end": 53.986
+   },
+   {
+    "text": "talk.",
+    "start": 53.986,
+    "end": 54.411
+   },
+   {
+    "text": "I'm",
+    "start": 54.486,
+    "end": 54.636
+   },
+   {
+    "text": "standing",
+    "start": 54.636,
+    "end": 55.011
+   },
+   {
+    "text": "right",
+    "start": 55.011,
+    "end": 55.199
+   },
+   {
+    "text": "behind",
+    "start": 55.199,
+    "end": 55.549
+   },
+   {
+    "text": "them.",
+    "start": 55.549,
+    "end": 55.846
+   },
+   {
+    "text": "I",
+    "start": 57.731,
+    "end": 57.881
+   },
+   {
+    "text": "looked",
+    "start": 57.881,
+    "end": 58.106
+   },
+   {
+    "text": "through",
+    "start": 58.106,
+    "end": 58.294
+   },
+   {
+    "text": "the",
+    "start": 58.294,
+    "end": 58.381
+   },
+   {
+    "text": "peephole",
+    "start": 58.381,
+    "end": 58.769
+   },
+   {
+    "text": "again.",
+    "start": 58.769,
+    "end": 59.281
+   },
+   {
+    "text": "There",
+    "start": 59.381,
+    "end": 59.519
+   },
+   {
+    "text": "was",
+    "start": 59.519,
+    "end": 59.619
+   },
+   {
+    "text": "only",
+    "start": 59.619,
+    "end": 59.919
    },
    {
     "text": "one",
-    "start": 61.209,
-    "end": 61.434
+    "start": 59.919,
+    "end": 60.156,
+    "emph": true
    },
    {
     "text": "person",
-    "start": 61.434,
-    "end": 61.721
+    "start": 60.156,
+    "end": 60.556
    },
    {
     "text": "out",
-    "start": 61.721,
-    "end": 61.871
+    "start": 60.556,
+    "end": 60.756
    },
    {
     "text": "there.",
-    "start": 61.871,
-    "end": 62.154
+    "start": 60.756,
+    "end": 61.106
    }
   ],
-  "maxWords": 3,
-  "maxChars": 16,
+  "maxWords": 5,
+  "maxChars": 18,
   "style": {
    "font": "display",
-   "fontSize": 76,
+   "fontSize": 58,
    "color": "#ffffff",
    "highlight": "#ff4b55",
-   "highlightMode": "color",
-   "strokeWidth": 12,
+   "highlightMode": "content",
+   "strokeWidth": 10,
    "uppercase": false,
    "y": 0.12,
-   "backing": 0.5
+   "backing": 0.85
   }
  },
  "audio": {
@@ -3983,7 +4170,7 @@
     "src": "episodes/horror-pinned-rules/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 65.754
+    "duration": 64.706
    }
   ],
   "music": [],
@@ -3992,7 +4179,7 @@
  },
  "overlays": {
   "grain": 0.5,
-  "vignette": 0.0,
+  "vignette": 0.35,
   "fadeIn": 0,
   "fadeOut": 0.25
  },

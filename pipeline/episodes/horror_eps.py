@@ -8,22 +8,26 @@ from __future__ import annotations
 
 from .common import load_cues, ov
 
-# captions sit in the dark band above the hand-held phone (phone cy 0.61; captions clamp to y ~0.16 by the safe area);
-# the backing pill keeps them legible whenever a punch-in puts UI behind them
-CAPTIONS = {"font": "display", "fontSize": 76, "color": "#ffffff", "highlight": "#ff4b55", "highlightMode": "color",
-            "strokeWidth": 12, "uppercase": False, "y": 0.12, "backing": 0.5}
-OVERLAYS = {"grain": 0.5, "vignette": 0.0, "fadeIn": 0, "fadeOut": 0.25}  # frame 0 is the TikTok/Shorts cover: never black
+# captions: ONE line of 4-5 words (~3.4% of frame height) in a dark pill, in the band above the hand-held phone / above
+# faces (y 0.12 clamps to ~0.153 by the safe area). Chat punch-ins move them to the low band (CAP_LOW) through
+# Scene.captionYAt, so they never sit on the bubbles being read.
+CAPTIONS = {"font": "display", "fontSize": 58, "color": "#ffffff", "highlight": "#ff4b55", "highlightMode": "content",
+            "strokeWidth": 10, "uppercase": False, "y": 0.12, "backing": 0.85}
+CAPTION_PAGING = {"maxWords": 5, "maxChars": 18}  # + stopword/glue stretch stays inside one 860 px line
+CAP_TOP = 0.12
+CAP_LOW = 0.75   # clamps to the bottom safe line (~0.75): over the input bar + thumb in a chat punch-in
+OVERLAYS = {"grain": 0.5, "vignette": 0.35, "fadeIn": 0, "fadeOut": 0.25}  # frame 0 is the TikTok/Shorts cover: never black
 VIG = 0.4      # default vignette (0.7-0.8 crushed the picture far below the references' exposure)
 DARK = 0.3     # default Darkness overlay strength (was 0.55-0.65)
-# Chat look shared by every horror episode: bright grey messenger with big text, like the reference series
-# (a light screen glowing in a dark room reads at a glance on a phone; 1.25x text keeps 3-5 bubbles on screen).
-CHAT_THEME = "light"
+# Chat look shared by every horror episode: dark messenger with big text (review: the light theme lit the whole
+# frame and flattened the night look; 1.25x text keeps 3-5 bubbles on screen).
+CHAT_THEME = "dark"
 CHAT_SCALE = 1.25
 BG = {"type": "color", "color": "#0b0d12"}
 
 FADE = {"type": "fade", "duration": 0.25}
 DIP = {"type": "dipBlack", "duration": 0.3}
-GLITCH = {"type": "glitch", "duration": 0.3}
+GLITCH = {"type": "glitch", "duration": 0.2}  # <= 6 frames: a longer glitch samples as unreadable noise
 WHIP = {"type": "whip", "duration": 0.3, "direction": "up"}
 
 
@@ -111,17 +115,58 @@ BUBBLE_Y = 0.86
 PIN_Y = 0.34
 
 
+# chat punch-in: zoom <= 1.25 so the whole bubble column (avatar .. right edge, world x 0.20-0.85) stays inside
+# x 70..930 px; the newest bubble lands at screen y ~0.6 and the caption drops to CAP_LOW (input bar + thumb)
+PUNCH_Z = 1.22
+PUNCH_X = 0.556
+
+
 def _clampy(v, z):
     lo = 1 / (2 * z)
     return max(lo, min(1 - lo, v))
 
 
-def shot(t, zoom=1.0, y=None, x=None, how="cut", drift=0.03):
+def shot(t, zoom=1.0, y=None, x=None, how="cut", drift=0.03, cap=None, free=False):
     """One framing. how: 'cut' (hard cut, then slow drift) or 'punch' (0.25 s ease-out push from the last framing).
-    y/x: world point (fraction of the frame) to aim at, clamped so the view never leaves the frame."""
-    yy = _clampy(0.5 if y is None else y, zoom)
-    xx = _clampy(0.5 if x is None else x, zoom)
-    return {"t": round(max(0.0, t), 3), "zoom": zoom, "y": yy, "x": xx, "how": how, "drift": drift}
+    y/x: world point (fraction of the frame) to aim at, clamped so the view never leaves the frame (free=True: not
+    clamped, e.g. to look below the phone's bottom edge into the hand). cap: caption y while this shot holds."""
+    yy, xx = (0.5 if y is None else y), (0.5 if x is None else x)
+    if not free:
+        yy, xx = _clampy(yy, zoom), _clampy(xx, zoom)
+    return {"t": round(max(0.0, t), 3), "zoom": zoom, "y": yy, "x": xx, "how": how, "drift": drift, "cap": cap, "free": free}
+
+
+def bub(t, how="cut", drift=0.02, at=0.6):
+    """Chat punch-in on the newest bubble (screen y `at`), whole bubble width in frame, caption in the low band."""
+    return shot(t, PUNCH_Z, y=BUBBLE_Y - (at - 0.5) / PUNCH_Z, x=PUNCH_X, how=how, drift=drift, cap=CAP_LOW, free=True)
+
+
+def pin_shot(t, how="cut", drift=0.02):
+    """Punch-in on the pinned bar (screen y ~0.42); the caption stays in the top band over the dark set."""
+    return shot(t, PUNCH_Z, y=PIN_Y + 0.08 / PUNCH_Z, x=PUNCH_X, how=how, drift=drift, cap=CAP_TOP, free=True)
+
+
+def caption_track(shots, cuts, dur):
+    """Scene.captionYAt from a shot list + cutaway windows [(t0, t1)]: shot cap (default CAP_TOP) while the phone
+    is on screen, CAP_TOP during cutaways (faces, sets)."""
+    shots = sorted(shots, key=lambda s: s["t"])
+
+    def y_at(t):
+        if any(a <= t + 1e-6 < b for a, b in cuts):
+            return CAP_TOP
+        cur = CAP_TOP
+        for s in shots:
+            if s["t"] <= t + 1e-6:
+                cur = s.get("cap") or CAP_TOP
+        return cur
+    times = sorted({0.0, *[s["t"] for s in shots], *[a for a, _ in cuts], *[b for _, b in cuts if b < dur]})
+    out, last = [], None
+    for t in times:
+        y = y_at(t)
+        if y != last:
+            out.append({"at": round(t, 3), "y": y})
+            last = y
+    return out if any(c["y"] != CAP_TOP for c in out) else []
 
 
 def shots_cam(shots, dur, shake=None):
@@ -137,7 +182,8 @@ def shots_cam(shots, dur, shake=None):
         else:
             kfs.append({"t": s["t"], **pos, "ease": "step" if kfs else "linear"})
         z2 = round(s["zoom"] * (1 + s["drift"]), 4)
-        last = {"zoom": z2, "x": f"{_clampy(s['x'], z2) * 100:.2f}%", "y": f"{_clampy(s['y'], z2) * 100:.2f}%"}
+        cx, cy = (s["x"], s["y"]) if s.get("free") else (_clampy(s["x"], z2), _clampy(s["y"], z2))
+        last = {"zoom": z2, "x": f"{cx * 100:.2f}%", "y": f"{cy * 100:.2f}%"}
         kfs.append({"t": round(max(kfs[-1]["t"] + 0.05, nxt - 1 / 30), 3), **last, "ease": "linear"})
     cam = {"keyframes": kfs}
     if shake:
@@ -145,13 +191,10 @@ def shots_cam(shots, dur, shake=None):
     return cam
 
 
-def bubble_shots(chat, dur, punch=1.3):
-    """Default phone camera: full shot, then a 0.25 s punch toward the bubble zone on every new bubble, easing back."""
+def bubble_shots(chat, dur, punch=None):
+    """Default phone camera: full shot, then a 0.25 s punch onto the newest bubble on every new bubble (bub())."""
     beats = sorted(m["at"] for m in (chat or {}).get("messages", []) if 0.3 <= m["at"] < dur - 0.3)
-    out = [shot(0, 1.0)]
-    for a in beats:
-        out.append(shot(a, punch, y=BUBBLE_Y, how="punch", drift=-0.15))
-    return out
+    return [shot(0, 1.0)] + [bub(a, how="punch") for a in beats]
 
 
 def phone_scene(sc, members, chat=None, mode="chat", set_="Bedroom", set_props=None, tilt=-3, tremble=1.5, taps=None,
@@ -180,12 +223,27 @@ def phone_scene(sc, members, chat=None, mode="chat", set_="Bedroom", set_props=N
     if glitch:
         layers.append(ov("horror/Glitch", z=60, cues=[{"at": a, "duration": 0.25, "amount": 1} for a in glitch], seed=f"g{sc.i}"))
     layers += extra or []
-    cam = camera or shots_cam(shots or bubble_shots(chat, sc.dur), sc.dur, shake=shake)
+    shots = shots or (None if camera else bubble_shots(chat, sc.dur))
+    cam = camera or shots_cam(shots, sc.dur, shake=shake)
     if vibrate and "shake" not in cam:
         cam = {**cam, "shake": [{"at": a, "duration": 0.3, "amplitude": 10} for a in vibrate]}
     s = {"id": f"p{sc.i:02d}", "duration": sc.dur, "background": BG, "layers": layers, "camera": cam,
          "transitionIn": trans or {"type": "cut"}, "notes": sc.text}
+    if shots:
+        track = caption_track(shots, cut_windows(layers), sc.dur)
+        if track:
+            s["captionYAt"] = track
     return s
+
+
+def cut_windows(layers):
+    """Cutaway windows [(t0, t1)] from the layers cutaway() made (their set layer has id 'cut:<t0>:<t1>')."""
+    out = []
+    for l in layers:
+        if str(l.get("id", "")).startswith("cut:"):
+            _, a, b = l["id"].split(":")
+            out.append((float(a), float(b)))
+    return out
 
 
 def set_scene(sc, bg_name, bg_props, layers, camera=None, trans=FADE, grade=None, bg_depth=0.25):
@@ -221,7 +279,8 @@ def cutaway(t0, t1, bg_name, bg_props, layers=(), z=40, push=(1.0, 1.05)):
     fixed to the screen (depth 0) so the phone scene's camera move does not touch it. Breaks up long chat runs the
     way the reference series cuts phone -> face -> phone. push: slow scale on the set over the shot."""
     t0, t1 = round(t0, 3), round(t1, 3)
-    bg = {"type": "component", "name": f"horror/{bg_name}", "depth": 0, "z": z, "start": t0, "end": t1, "props": bg_props}
+    bg = {"type": "component", "name": f"horror/{bg_name}", "depth": 0, "z": z, "start": t0, "end": t1, "props": bg_props,
+          "id": f"cut:{t0}:{t1}"}
     if push and push[0] != push[1]:
         bg["keyframes"] = [{"t": t0, "scale": push[0]}, {"t": t1, "scale": push[1], "ease": "linear"}]
     out = [bg]
@@ -246,85 +305,103 @@ def phone_insert(t0, t1, phone, z=45, **hp):
 # =========================================================================== pinned rules (PILOT)
 
 def pinned_rules(S):
-    """Shot grammar (fix round 1): every phone paragraph alternates full phone -> tight insert on the newest bubble
-    (hard cut, zoom 1.7-2.0) -> Nora reaction close-up, no framing held > 3 s; sets lifted to night midtones."""
+    """Shot grammar (fix round 2): frame 0 = a threat (silhouette at the door) under the RULE 4 headline; chat punch-ins
+    at zoom 1.22 with the whole bubble in frame and the caption moved to the low band; phone <= ~40% of the runtime
+    (reaction / set cuts on every phone paragraph); the climax is a sequence (switch insert, ECU eyes, OTS door)."""
     use_cues("horror-pinned-rules")
     M = {"Management": {"color": "#3a3f4a", "initials": "M"}, "Ben (5A)": {"color": "#8f6a4a", "initials": "B"},
          "Dev (6C)": {"color": "#4f7a73", "initials": "D"}, "Mrs. Ortiz (3B)": {"color": "#7a5c8f", "initials": "MO"},
          "Kay (2F)": {"color": "#4a628f", "initials": "K"}}
     RULE4 = "RULE 4: If someone knocks three times, you are not home. Do not answer. Do not move."
+    PIN = ("Building rules 1-7\n4. If someone knocks three times, you are not home.\n"
+           "5. Management will never ask to come inside.")
+    PIN_EDIT = ("Building rules 1-7\n4. If someone knocks three times, you are not home.\n"
+                "5. Management may need to come inside. Please cooperate.")
     th = Thread("Willow Court Residents", M, count=38, day="Today 1:02 AM", clock="1:04")
     # a lived-in chat: ordinary building noise before the rules arrive (fills the top of the screen)
     th.history([("Kay (2F)", "whoever keeps propping the lobby door open pls stop"),
                 ("Mrs. Ortiz (3B)", "the dryer in the basement ate my sock again"),
                 ("Dev (6C)", "anyone else's heating ticking all night?"),
                 ("system", "Management pinned a message")])
-    BED = {"lamp": 0.15, "rain": True}
-    BED_CU = {"lamp": 0.3, "rain": True, "phoneGlow": 1}
     LIV = {"lamp": 0.45, "tv": "off"}
+    LIV_CU = {"lamp": 0.35, "tv": "off"}
+    LIV_LOW = {"lamp": 0.15, "tv": "off"}
     DOOR = {"hallLight": 0.5, "chain": "on"}
+    # after the switch (34 s on) the flat goes dark; the corridor strip under the door dims but stays readable
+    DOOR_DARK = {"hallLight": 0.35, "chain": "on", "dark": 0.45}
+    ROOM = {"set_": "LivingRoom", "set_props": LIV}  # one location (the living room) until the door
     out = []
 
-    # 0 hook: frame 0 = tight crop on the red pinned rule (the cover), hook caption burned in for 0-0.5 s,
-    #   pull back to the full phone, then Nora's face on "Do not answer"
+    def sil(w=860, x="50%", **kw):
+        """The thing at the door: black figure with eye glints (horror/Neighbour silhouette)."""
+        return {"type": "component", "name": "horror/Neighbour", "x": x, "y": "100%", "anchorY": 1, "width": w,
+                "height": round(w * 1.52), "props": {"silhouette": True, "exprs": [{"t": 0, "e": "neutral"}], **kw}}
+
+    # 0 hook. Cover (frame 0): the figure standing at a door with light under it + the RULE 4 headline on an opaque
+    #   plate below the caption band; the door rattles on the spoken knock; hard cut to the phone (full, zoom 1.0,
+    #   threat behind it: blurred door with feet in the light), punch onto the rule, then Nora's face.
     s = S[0]
-    th.pinned(s, -1, RULE4, **{"from": "Management"})
+    th.pinned(s, 1.5, PIN, lines=3, **{"from": "Management"})
     th.add(s, -0.6, RULE4, "Management", kind="card")
-    cu = s.at("Do", off=-0.08)
-    out.append(phone_scene(s, M, th.chat(s), set_props=BED, trans=None,
-                           camera={"keyframes": [{"t": 0, "zoom": 1.5, "x": "50%", "y": "66.6%"},
-                                                 {"t": 0.5, "zoom": 1.5, "x": "50%", "y": "66.6%"},
-                                                 {"t": 2.5, "zoom": 1.1, "x": "50%", "y": "56%", "ease": "inOut"},
-                                                 {"t": cu, "zoom": 1.14, "x": "50%", "y": "56%", "ease": "linear"}],
-                                   "shake": [{"at": s.at("knocks"), "duration": 0.6, "amplitude": 8}]},
-                           extra=[ov("horror/RedText", z=70, text="RULE 4: DON'T ANSWER THE DOOR", style="neon", at=-0.3,
-                                     duration=s.first() + 0.3, fontSize=118, shake=0, y=0.155)]
-                           + cutaway(cu, s.dur, "Bedroom", BED_CU, [
+    kn = _sfx_at(s, "knock3", s.at("knocks"))
+    knocks = [kn, kn + 0.3, kn + 0.6]
+    c1 = s.at("you", off=-0.05)
+    cu = s.at("Do", nth=1, off=-0.08)
+    cover = cutaway(0, c1, "FrontDoor", {"hallLight": 1.0, "chain": "off", "feet": True, "knocks": knocks, "peepholeGlow": 0.6},
+                    [sil(880, lookX=0)], push=(1.0, 1.06))
+    out.append(phone_scene(s, M, th.chat(s), set_="FrontDoor", set_props={"hallLight": 0.9, "chain": "on", "feet": True}, trans=None,
+                           shots=[shot(0, 1.0), shot(c1, 1.0), bub(s.at("Do", off=-0.05))],
+                           shake=[{"at": kn, "duration": 0.7, "amplitude": 8}],
+                           extra=cover + [ov("horror/RedText", z=70, text="RULE 4: DON'T ANSWER THE DOOR", style="neon", at=-0.3,
+                                             duration=c1 + 0.3, fontSize=112, shake=0, y=0.255)]
+                           + cutaway(cu, s.dur, "LivingRoom", LIV_CU, [
                                nora_cu([(0, "scared"), (s.at("move.", off=-0.1), "terrified")], blink=False)])))
-    # 1 pinned + signed + rule five: full -> punch on the post -> insert on rule 5 -> face
+    # 1 signed + rule five: full -> punch on the post -> 0.7 s face on "Management." -> insert on rule 5
     s = S[1]
     b1 = s.at("Signed", off=-0.05)
     b2 = s.at("Rule", off=-0.05)
     th.add(s, b1, "New building rules (1-7) are now in effect. Thank you for your cooperation.\n- Management", "Management")
     th.add(s, b2, "RULE 5: Management will never ask to come inside.", "Management")
-    f1 = s.at("Management", nth=1, off=-0.05)
-    out.append(phone_scene(s, M, th.chat(s, unread=6, unreadFrom=-99), vibrate=[0.1], trans=None,
-                           shots=[shot(0, 1.0), shot(b1, 1.3, y=BUBBLE_Y, how="punch", drift=0.02),
-                                  shot(b2 + 0.05, 1.65, y=BUBBLE_Y, x=0.53)],
-                           extra=cutaway(f1 + 0.9, s.dur, "Bedroom", BED_CU, [nora_cu([(0, "suspicious")], look=(0.1, 0.5))])))
-    # 2 the company is gone (lands ~12-14 s): full -> insert on Dev's alert -> Nora reaction on "shut down"
+    out.append(phone_scene(s, M, th.chat(s, unread=6, unreadFrom=-99), vibrate=[0.1], trans=None, **ROOM,
+                           shots=[shot(0, 1.0), bub(b1, how="punch"), bub(b2)],
+                           extra=cutaway(s.at("Management.", off=0.05), b2, "LivingRoom", LIV_CU, [nora_cu([(0, "suspicious")], look=(0.1, 0.5))])))
+    # 2 the company is gone (contradiction by ~9.5 s): full -> insert on Dev's DISSOLVED alert -> Nora on "shut down"
     s = S[2]
     b = s.at("checked", off=-0.05)
     shut = s.at("shut")
     th.add(s, b, "Looked up Hartwell Property Group. DISSOLVED. Closed two years ago.", "Dev (6C)", kind="alert")
-    out.append(phone_scene(s, M, th.chat(s), glitch=[shut], tremble=2.5, trans=None,
-                           shots=[shot(0, 1.0), shot(b, 1.3, y=BUBBLE_Y, how="punch", drift=0.02),
-                                  shot(s.at("Our", off=-0.05), 1.65, y=BUBBLE_Y, x=0.53)],
-                           extra=cutaway(shut, s.dur, "LivingRoom", LIV, [
-                               nora_cu([(0, "shocked"), (shut + 0.5, "scared")], blink=False)])))
+    out.append(phone_scene(s, M, th.chat(s), glitch=[shut], tremble=2.5, trans=None, **ROOM,
+                           shots=[shot(0, 1.0), bub(b, how="punch")],
+                           extra=cutaway(shut + 0.15, s.dur, "LivingRoom", LIV, [
+                               nora_cu([(0, "shocked"), (shut + 0.6, "scared")], blink=False)])))
     # 3 reaction: medium, then a hard cut closer on "And who pinned the rules?"
     s = S[3]
     out.append(set_scene(s, "LivingRoom", LIV, [
         nora([(0, "suspicious"), (s.at("pinned", off=-0.2), "scared")], pose="phone", light="phone", look=(0, 0.6), w=900),
         ov("horror/Darkness", x=0.5, y=0.55, radius=0.55, darkness=DARK),
         ov("horror/Vignette", amount=VIG)], grade={"saturate": 0.85}, trans=DIP,
-        camera=shots_cam([shot(0, 1.0, y=0.55), shot(s.at("And", off=-0.05), 1.4, y=0.5)], s.dur)))
-    # 4 the chorus laughs, Ben dares it: punches on each bubble, insert on Ben, a hallway establishing shot
+        camera=shots_cam([shot(0, 1.0, y=0.55), shot(s.at("And", off=-0.05), 1.3, y=0.5)], s.dur)))
+    # 4 the chorus laughs, Ben dares it: punch on the first bubble -> Nora 'suspicious' on "prank." -> the plant:
+    #   Ben at door 5A with his hallway light ON (~2 s) -> punch on his dare
     s = S[4]
-    th.add(s, s.at("prank.", off=-0.4), "lol is this a prank", "Mrs. Ortiz (3B)")
-    th.add(s, s.at("prank.", off=0.35), "probably the kids on 4", "Kay (2F)")
+    pr = s.at("prank.")
+    th.add(s, pr - 0.4, "lol is this a prank", "Mrs. Ortiz (3B)")
+    th.add(s, pr + 0.35, "probably the kids on 4", "Kay (2F)")
     bb1 = s.at("leave", off=0.1)
     bb2 = s.at("break", off=0.2)
     th.add(s, bb1, "leaving my hallway light ON tonight", "Ben (5A)")
     th.add(s, bb2, "breaking every rule. let's see what happens", "Ben (5A)")
-    h0, h1 = s.at("light", off=0.0), bb2 - 0.05
-    out.append(phone_scene(s, M, th.chat(s, clock="1:09"), trans=FADE,
-                           shots=[shot(0, 1.0), shot(s.at("prank.", off=-0.4), 1.25, y=BUBBLE_Y, how="punch", drift=0.02),
-                                  shot(s.at("prank.", off=0.35), 1.35, y=BUBBLE_Y, how="punch", drift=0.02),
-                                  shot(bb1, 1.65, y=BUBBLE_Y, x=0.53), shot(bb2, 1.6, y=BUBBLE_Y, x=0.53),
-                                  shot(s.at("just", off=-0.05), 1.0)],
-                           extra=cutaway(h0, h1, "Hallway", {"flicker": 0.5, "lights": 3, "endDoor": True}, push=(1.0, 1.12))))
-    # 5 2:14, Ben at his door: insert on "someone's knocking", then a two-shot of Ben's door, back for "wish me luck"
+    h0, h1 = s.at("Ben", off=-0.05), s.at("break", off=0.1)
+    ben_hall = {"type": "component", "name": "horror/Neighbour", "x": "30%", "y": "100%", "anchorY": 1, "width": 760, "height": 1155,
+                "props": {"exprs": [{"t": 0, "e": "sly"}], "lookX": 0.5}}
+    plate5a = {"type": "text", "text": "5A", "x": "50%", "y": "43%", "fontSize": 58, "color": "#e8d9a8", "font": "display"}
+    lamp = {"type": "circle", "x": "50%", "y": "36%", "width": 340, "height": 340, "fill": "#ffe9b0", "opacity": 0.3, "blur": 40}
+    out.append(phone_scene(s, M, th.chat(s, clock="1:09"), trans=FADE, **ROOM,
+                           shots=[shot(0, 1.0), bub(pr - 0.4, how="punch"), bub(h1), shot(s.at("just", off=-0.05), 1.0)],
+                           extra=cutaway(pr + 0.05, h0, "LivingRoom", LIV_CU, [nora_cu([(0, "suspicious")], look=(0.2, 0.5))])
+                           + cutaway(h0, h1, "Hallway", {"flicker": 0.1, "lights": 3, "endDoor": True}, [lamp, plate5a, ben_hall],
+                                     push=(1.0, 1.08))))
+    # 5 2:14, Ben at his door: insert on "someone's knocking", then Ben's door, back for "wish me luck"
     s = S[5]
     th.clock = "2:14"
     k1 = s.at("Someone's", off=-0.1)
@@ -335,64 +412,81 @@ def pinned_rules(S):
     ben = {"type": "component", "name": "horror/Neighbour", "x": "50%", "y": "100%", "anchorY": 1, "width": 980, "height": 1490,
            "props": {"silhouette": True, "exprs": [{"t": 0, "e": "neutral"}], "lookX": 0.6}}
     plate = {"type": "text", "text": "5A", "x": "50%", "y": "21%", "fontSize": 64, "color": "#c9b98f", "font": "display"}
-    out.append(phone_scene(s, M, th.chat(s), vibrate=[k1], trans=DIP,
-                           shots=[shot(0, 1.0), shot(k1, 1.65, y=BUBBLE_Y, x=0.53), shot(d1, 1.6, y=BUBBLE_Y, x=0.53)],
+    out.append(phone_scene(s, M, th.chat(s), vibrate=[k1], trans=DIP, **ROOM,
+                           shots=[shot(0, 1.0), bub(k1), bub(d1)],
                            extra=cutaway(d0, d1, "FrontDoor", {"hallLight": 0.9, "chain": "off", "knocks": [d0 + 0.05, d0 + 0.35],
                                                               "handle": [{"at": s.at("opening"), "duration": 0.6}]},
                                          [ben, plate], push=(1.0, 1.1))))
-    # 6 the green dot goes grey (dark UI: the lights are going out)
+    # 6 the green dot goes grey: punch on the status line, then her face
     s = S[6]
     g = s.at("grey.", off=-0.05)
     th.system(s, g, "Ben (5A) · last seen 2:14 AM")
-    out.append(phone_scene(s, M, th.chat(s, clock="2:21"), tremble=3, heartbeat={"bpm": 80, "bpmTo": 110}, trans=None,
-                           shots=[shot(0, 1.0), shot(s.at("His", off=-0.05), 1.8, y=BUBBLE_Y, x=0.5),
-                                  shot(g, 1.35, y=BUBBLE_Y, how="punch")],
-                           extra=cutaway(g + 0.35, s.dur, "Bedroom", {"lamp": 0.1, "phoneGlow": 1}, [
+    out.append(phone_scene(s, M, th.chat(s, clock="2:21"), tremble=3, heartbeat={"bpm": 80, "bpmTo": 110}, trans=None, **ROOM,
+                           shots=[shot(0, 1.0), bub(s.at("His", off=-0.05)), bub(g, how="punch")],
+                           extra=cutaway(g + 0.35, s.dur, "LivingRoom", LIV_LOW, [
                                nora_cu([(0, "scared")], blink=False, look=(0, 0.6))])))
-    # 7 rule five is edited: insert on the pinned bar as it flashes, insert on the new alert, then her face
+    # 7 rule five is edited: pinned bar flashes -> <= 1.5 s insert on the edited rule -> dot-pupil terror close-up
     s = S[7]
     e = s.at("changed.", off=-0.1)
-    th.edit_pin(s, e, "RULE 5 (edited): Management may need to come inside. Please cooperate.")
+    th.edit_pin(s, e, PIN_EDIT)
     th.system(s, e, "Management edited the pinned message")
     ra = s.at("Rule", off=-0.05)
     th.add(s, ra, "RULE 5 (edited): Management may need to come inside. Please cooperate.", "Management", kind="alert")
-    out.append(phone_scene(s, M, th.chat(s, clock="2:23"), glitch=[e], tremble=3, trans=GLITCH,
-                           shots=[shot(0, 1.0), shot(e, 1.65, y=PIN_Y, x=0.53), shot(s.at("Management", off=-0.1), 1.6, y=BUBBLE_Y, x=0.53)],
-                           extra=cutaway(s.at("Please", off=-0.1), s.dur, "Bedroom", {"lamp": 0.1, "phoneGlow": 1}, [
-                               nora_cu([(0, "terrified")], blink=False, look=(0, 0.6))])))
-    # 8 back against the door: wide (light switches off), then a hard cut closer on "sat", face in the middle third
+    face = min(ra + 1.4, s.at("Please", off=-0.1))
+    out.append(phone_scene(s, M, th.chat(s, clock="2:23"), glitch=[e], tremble=3, trans=GLITCH, **ROOM,
+                           shots=[shot(0, 1.0), pin_shot(e), bub(ra)],
+                           extra=cutaway(face, s.dur, "LivingRoom", LIV_LOW, [
+                               nora_cu([(0, "scared"), (s.at("Please", off=-0.1), "terrified")], blink=False, look=(0, 0.6))])))
+    # 8 light-switch insert (flips on "off", the strip under the door dies) -> wide: Nora sits with her back to the door
     s = S[8]
     off_t = s.at("off")
-    out.append(set_scene(s, "FrontDoor", DOOR, [
-        nora([(0, "scared"), (s.dur * 0.6, "terrified")], x="50%", w=1000, look=(0.5, 0)),
+    sat = s.at("sat", off=-0.05)
+    wall = {"type": "rect", "fill": "#3b3e48", "width": "100%", "height": "100%", "depth": 0, "z": 80, "start": 0, "end": sat}
+    sw_plate = {"type": "rect", "x": "50%", "y": "50%", "width": 360, "height": 560, "fill": "#d9d2c2", "radius": 36,
+                "stroke": "#14151a", "strokeWidth": 10, "depth": 0, "z": 81, "start": 0, "end": sat}
+    sw_on = {"type": "rect", "x": "50%", "y": "44%", "width": 130, "height": 210, "fill": "#f1ece0", "radius": 20,
+             "stroke": "#14151a", "strokeWidth": 8, "depth": 0, "z": 82, "start": 0, "end": min(off_t, sat)}
+    sw_off = {"type": "rect", "x": "50%", "y": "56%", "width": 130, "height": 210, "fill": "#b9b2a3", "radius": 20,
+              "stroke": "#14151a", "strokeWidth": 8, "depth": 0, "z": 82, "start": min(off_t, sat), "end": sat}
+    dim = {"type": "rect", "fill": "#000000", "opacity": 0.4, "width": "100%", "height": "100%", "depth": 0, "z": 83,
+           "start": min(off_t, sat), "end": sat}
+    door_t = s.at("door.", off=-0.05)
+    sw_door = {"hallLight": [{"t": 0, "v": 0.5}, {"t": door_t, "v": 0.5}, {"t": door_t + 0.25, "v": 0.35}],
+               "dark": [{"t": 0, "v": 0}, {"t": off_t, "v": 0}, {"t": off_t + 0.25, "v": 0.45}], "chain": "on"}
+    out.append(set_scene(s, "FrontDoor", sw_door, [
+        wall, sw_plate, sw_on, sw_off, dim,
+        nora([(0, "scared"), (s.dur * 0.7, "terrified")], pose="sit", x="50%", w=1000, look=(0.5, 0)),
         ov("horror/Darkness", x=0.5, y=0.5, radius=0.6, darkness=DARK),
         ov("horror/Flicker", strength=0, blackouts=[{"at": off_t, "duration": 0.12}], seed="sw"),
         ov("horror/Vignette", amount=VIG)], trans=DIP,
-        camera=shots_cam([shot(0, 1.0, drift=0.02), shot(s.at("sat", off=-0.05), 1.15, y=0.47, drift=0.04)], s.dur)))
-    # 9 three knocks behind my head (knock3_slow onsets 0 / 0.95 / 1.9 s): cut on every knock
+        camera=shots_cam([shot(0, 1.0, drift=0.02), shot(sat, 1.0, drift=0.05)], s.dur)))
+    # 9 three knocks behind her head (knock3_slow onsets 0 / 0.95 / 1.9 s): medium -> ECU of the eyes on "someone
+    #   knocked" -> over-the-shoulder on the door as it takes the knocks -> medium, terrified, on "Three times."
     s = S[9]
     k0 = _sfx_at(s, "knock3_slow", s.at("knocked", off=0.4))
     ks = [k0, k0 + 0.95, k0 + 1.9]
     three = s.at("Three", off=-0.05)
-    out.append(set_scene(s, "FrontDoor", {**DOOR, "knocks": ks, "feet": [k0 - 0.5, 99]}, [
-        nora([(0, "scared")], x="50%", w=1000, look=(0.5, 0), end=k0),
-        *cutaway(ks[1], ks[2], "FrontDoor", {**DOOR, "knocks": ks, "feet": [k0 - 0.5, 99]}, [
-            nora([(0, "shocked")], x="50%", w=1200, look=(0.8, 0), blink=False)], push=(1.05, 1.1)),
-        *cutaway(three, s.dur, "FrontDoor", {**DOOR, "knocks": ks, "feet": [k0 - 0.5, 99]}, [
-            nora([(0, "terrified")], x="50%", w=1200, look=(0.8, 0.1), blink=False)], push=(1.05, 1.12)),
+    some = s.at("someone", off=-0.05)
+    DK = {**DOOR_DARK, "knocks": ks, "knockY": 820, "feet": [max(0.2, k0 - 1.0), 99]}
+    ecu = nora([(0, "scared")], x="50%", w=2300, y="171%", look=(0.7, 0), blink=False)  # eyes at screen y ~0.42
+    out.append(set_scene(s, "FrontDoor", DK, [
+        nora([(0, "scared")], pose="sit", x="50%", w=1000, look=(0.5, 0)),
+        *cutaway(some, k0 + 0.9, "FrontDoor", DK, [ecu], push=(1.0, 1.04)),
+        *cutaway(k0 + 0.9, three, "FrontDoor", DK, [], push=(1.15, 1.3)),  # the door itself takes the knocks
+        *cutaway(three, s.dur, "FrontDoor", DK, [
+            nora([(0, "terrified")], pose="sit", x="50%", w=1150, look=(0.8, 0.1), blink=False)], push=(1.02, 1.08)),
         ov("horror/Vignette", amount=VIG)],
-        camera=shots_cam([shot(0, 1.12, y=0.47, drift=0.03), shot(k0, 1.3, x=0.66, y=0.47),
-                          shot(ks[2], 1.25, y=0.87, drift=0.08)], s.dur, shake=knocks_cam(ks)), trans=None))
+        camera=shots_cam([shot(0, 1.1, y=0.5, drift=0.03)], s.dur, shake=knocks_cam(ks)), trans=None))
     # 10 the voice: peephole, hard cut closer when it says "It's Management"
     s = S[10]
     out.append({"id": f"p{s.i:02d}", "duration": s.dur, "background": {"type": "color", "color": "#050506"},
                 "layers": [{"type": "component", "name": "horror/Peephole", "depth": 1, "props": {
-                    "figure": "neighbour", "exprs": [{"t": 0, "e": "smile"}], "lean": 0.4, "flicker": 0.3, "radius": 0.52, "exposure": 2.0, "surround": "#4a5262",
+                    "figure": "neighbour", "exprs": [{"t": 0, "e": "stare"}], "lean": 0.4, "flicker": 0.3, "radius": 0.52, "exposure": 1.2, "surround": "#050506",
                     "talk": [[s.at("It's"), s.last()]]}},
                     ov("horror/Flicker", strength=0.3, seed="pp")],
-                "camera": shots_cam([shot(0, 1.0), shot(s.at("It's", off=-0.05), 1.3, y=0.42), shot(s.at("We", off=-0.05), 1.15, y=0.45)], s.dur),
+                "camera": shots_cam([shot(0, 1.0), shot(s.at("It's", off=-0.05), 1.3, y=0.45), shot(s.at("We", off=-0.05), 1.15, y=0.47)], s.dur),
                 "transitionIn": DIP, "notes": s.text})
-    # 11 Ben's DM: pre-filled thread, punch on each bubble, 0.3 s flash of the peephole between them, then her face
+    # 11 Ben's DM: punch on each bubble, a 0.3 s flash of the peephole between them, then her face
     s = S[11]
     dm = Thread("Ben (5A)", M, subtitle="online", day="Yesterday", clock="2:31")
     dm.history([("Ben (5A)", "u still have my drill?"), ("me", "yeah sorry, tomorrow"), ("Ben (5A)", "no rush lol"),
@@ -402,40 +496,37 @@ def pinned_rules(S):
     dm.add(s, m1, "it's fine, open up. they only want to talk", "Ben (5A)")
     dm.add(s, m2, "i'm standing right behind them", "Ben (5A)")
     pk = s.at("They", off=0.05)
-    out.append(phone_scene(s, M, dm.chat(s), vibrate=[s.at("buzzed.", off=-0.1)], tremble=4, set_="FrontDoor",
-                           set_props=DOOR, trans=None,
-                           shots=[shot(0, 1.0), shot(s.at("message", off=-0.05), 1.35, y=0.64), shot(m1, 1.55, y=BUBBLE_Y, how="punch", drift=0.02),
-                                  shot(pk + 0.3, 1.35, y=0.64), shot(m2, 1.6, y=BUBBLE_Y, how="punch", drift=0.02)],
-                           extra=[*cutaway(pk, pk + 0.3, "Peephole", {"figure": "neighbour", "exprs": [{"t": 0, "e": "smile"}], "lean": 0.5, "flicker": 0.5, "radius": 0.52, "exposure": 2.0, "surround": "#4a5262"}, push=None),
-                                  *cutaway(s.at("behind", off=-0.05), s.dur, "FrontDoor", DOOR, [
-                                      nora_cu([(0, "terrified")], blink=False, look=(0, 0.5))])]))
-    # 12 only one person (hard cut closer on "one", grin, red under-light) -> RULE 6 bookend on the phone -> PART 2
+    # the reveal holds clean on the bubble (1.6 s audio pause after "them."), slow push, no cutaway
+    them = s.at("them.", off=0.35)
+    out.append(phone_scene(s, M, dm.chat(s, dm="Ben (5A)"), vibrate=[s.at("buzzed.", off=-0.1)], tremble=4, set_="FrontDoor",
+                           set_props=DOOR_DARK, trans=None,
+                           shots=[shot(0, 1.0), bub(m1, how="punch"), bub(pk + 0.3), bub(m2, how="punch", drift=0.05),
+                                  bub(them, drift=0.1)],
+                           extra=cutaway(pk, pk + 0.3, "Peephole", {"figure": "neighbour", "exprs": [{"t": 0, "e": "stare"}], "lean": 0.5, "flicker": 0.5, "radius": 0.52, "exposure": 1.2, "surround": "#050506"}, push=None)))
+    # 12 only one person: hard cut closer on "one" (stare -> grin, red under-light, "Only one") -> full-frame
+    #   horror/EndCard (RULE 6 typing + PART 2 stamp) held for the last >= 1.6 s, the phone buzz landing inside it.
+    #   Runs to the end of the mix (the stinger tail rings out).
     s = S[12]
     one = s.at("one")
-    buzz = _sfx_at(s, "phone_buzz", s.at("there.", off=1.2))
-    book = round(buzz - 0.15, 3)
-    card = round(buzz + 0.68, 3)
-    dur = round(card + 0.97, 3)          # end ~0.8 s after the PART 2 card lands
-    th.clock = "2:33"
-    th.add(s, buzz + 0.05, "RULE 6:", "Management", kind="card")
-    rule6 = th.chat(s, typing=[("Management", buzz + 0.45, dur + 1)], dots=0)
-    rule6["subtitle"] = "Management is typing…"
-    rule6["scale"] = 1.5
-    peep = {"radius": 0.52, "exposure": 2.0, "surround": "#4a5262", "lean": 0.55, "flicker": 0.5, "lookX": 0, "lookY": 0.1, "figure": "neighbour"}
-    end_phone = handphone({"members": M, "mode": "chat", "chat": rule6, "vibrate": [{"at": buzz, "duration": 0.5}]}, tremble=5)
+    dur = s.dur
+    buzz = _sfx_at(s, "phone_buzz", dur - 0.6)
+    card = round(min(buzz - 0.1, dur - 1.6), 3)
+    peep = {"radius": 0.52, "exposure": 1.2, "surround": "#050506", "lean": 0.55, "flicker": 0.5, "lookX": 0, "lookY": 0.1, "figure": "neighbour"}
     out.append({"id": f"p{s.i:02d}", "duration": dur, "background": {"type": "color", "color": "#050506"},
                 "layers": [{"type": "component", "name": "horror/Peephole", "depth": 1, "end": one, "props": {
-                    **peep, "exprs": [{"t": 0, "e": "smile"}]}},
-                    {"type": "component", "name": "horror/Peephole", "depth": 1, "start": one, "props": {
+                    **peep, "exprs": [{"t": 0, "e": "stare"}]}},
+                    {"type": "component", "name": "horror/Peephole", "depth": 1, "start": one, "end": card, "props": {
                         **peep, "exprs": [{"t": 0, "e": "grin"}], "light": "red", "flicker": 0.2,
-                        "glitch": [{"at": one, "duration": 0.25, "amount": 1}]}},
-                    ov("horror/RedText", z=55, text="Only one", style="flash", at=one + 0.1, duration=book - one - 0.1,
-                       fontSize=120, strobe=8, y=0.8),
-                    ov("horror/Glitch", z=60, cues=[{"at": one, "duration": 0.3, "amount": 1}], seed="end"),
+                        "glitch": [{"at": one, "duration": 0.2, "amount": 1}]},
+                     "keyframes": [{"t": one, "scale": 1.0}, {"t": round(one + 1.4, 3), "scale": 1.05, "ease": "linear"},
+                                   {"t": card, "scale": 1.1, "ease": "linear"}]},
+                    ov("horror/RedText", z=55, text="Only one", style="flash", at=one + 0.1, duration=round(card - one - 0.1, 3),
+                       fontSize=120, strobe=8, y=0.8, glow=0.3),
+                    ov("horror/Glitch", z=60, cues=[{"at": one, "duration": 0.2, "amount": 1}], seed="end"),
                     ov("horror/Flicker", strength=0.4, seed="pe"),
-                    *cutaway(book, dur, "Bedroom", {**BED, "lamp": 0.6}, [end_phone], z=45, push=None),
-                    ov("horror/RedText", z=70, text="PART 2", style="stamp", at=card, duration=dur - card, fontSize=130, shake=0, y=0.135)],
-                "camera": shots_cam([shot(0, 1.0, drift=0.06), shot(one, 1.4, y=0.36)], dur,
+                    {"type": "component", "name": "horror/EndCard", "depth": 0, "z": 80, "start": card, "props": {
+                        "rule": "RULE 6:", "from": "Management", "label": "PART 2", "at": card, "stampAt": round(card + 0.6, 3)}}],
+                "camera": shots_cam([shot(0, 1.0, drift=0.06), shot(one, 1.3, y=0.42), shot(card, 1.0, drift=0)], dur,
                                     shake=[{"at": one, "duration": 0.4, "amplitude": 18}]),
                 "transitionIn": GLITCH, "notes": s.text})
     return out
@@ -778,6 +869,9 @@ def roommate(S):
     return out
 
 
+# explicit red words (content words only; build.py rejects stopwords). An episode listed here gets ONLY these in red.
+EMPHASIS = {"horror-pinned-rules": ["four", "three", "home", "Management", "inside", "shut", "two", "prank", "Ben", "knocking",
+                                    "grey", "changed", ("inside", 1), "knocked", ("Management", 4), "one"]}
 STRICT_HOLDS = ("horror-pinned-rules",)  # pilot: fail the build on any >3 s visual hold
 
 EPISODES = {
