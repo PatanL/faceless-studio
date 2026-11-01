@@ -1,0 +1,117 @@
+{
+  "episode": "whatif-oceans-turn-fresh",
+  "reviewed_at_utc": "2026-11-01T09:40Z",
+  "scores_before": {"retention": 5, "reference": 6, "originality": 7, "producibility": 6},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 7},
+  "score_notes": {
+    "retention": "Every on-screen fact now holds while it is shown, because the salt drops 35.0 to 0.0 in 1 s at the flip. The master clock has a stake ('BOATS LEAVE IN', with an empty line at dawn). The obvious false resolution (a drinkable sea) turns on 'But'. The ladder climbs lips, whole sea, fish, nearly every sea animal, you (dip), 3.2 billion people, the current, then your winters. The payoff lands on the viewer's own quay. Text is cut from about 240 to about 172 words. Remaining risk: the premise is still familiar (PLAYBOOK 10C).",
+    "reference": "The twist lands where 'you' were placed, as in ELECTRONS, OXYGEN and PI=3: the place moved to Bergen, at the end of the Gulf Stream. The twist caption is the consequence and gets one HUD equivalence line. The night clock carries no years-scale effect; every years-scale effect sits behind the FIRST WINTER stamp. Only two captions run over the wide-shot number, matching ELECTRONS 0:44/0:50. Chapter labels open at the flip and then come every 10-13 s, ending on the biggest category. Every alignment row cites a real corpus timestamp.",
+    "originality": "The gate passes against the corpus, the library and the two same-topic competitor transcripts (now added to research/library/transcripts). The place, rungs and twist are our own: Bergen, the fishing line, 'saltier than the ocean', the 3.2 billion protein figure, BOATS LEAVE IN, the Bergen model figure. Every claim flagged by the critique was fixed: heat label, Gulf Stream overstatement, the Calgary implication, the duration claim, and the hedge on the end fact.",
+    "producibility": "The HUD is one whatif/Hud component driven by a state table with fixed y-slots, retire rules, formats ('ss.mmm', 'h:mm:ss') and linear tracks, so Timer/Stat gaps no longer apply. Captions are text layers in the band y 1220-1440 at 860 px. The map sits in a 1080x1000 box at zoom 3.2 or more, with generic `paths`/`rings`/`highlightColor` additions. The flash and the white-out are rect opacity keyframes. The storyboard validates. Held at 7 because studio/src/kits/whatif does not exist yet (Hud, SerifCaption, TitleCard, BergenHarbor, CurrentRibbon, FishSchool, RodLine, PeopleGrid, SaltBars, Glyph, Kelp, SeaColumn) and the Map additions are unbuilt."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "Salt readout drops 35.0 -> 0.0 g/kg over 1 s at the 0:08 flip (white flash) and reads 0.0 for every later line; the fish-blood rule, the body line and the drinkable line are all true while shown",
+      "Master clock given a stake: 'BOATS LEAVE IN 6:00:00' (closes at 1:02 with 'BOATS OUT' + an empty hook); the only years-scale effects sit behind an explicit 'FIRST WINTER' chapter stamp at 1:06; the heat number is held, not slid, during the night; corner clock deleted",
+      "Ships rung replaced by a human rung with a checkable number: '3.2 billion people rely on fish protein.' (FAO SOFIA 2024), plus a return-to-you dip before it",
+      "Reef rung replaced by the full-scale effect: 'Nearly every sea animal dies before dawn.' (reef share cut; no reefs in Bergen)",
+      "False resolution added: 'The whole sea is drinkable now.' + HUD '2.2 BILLION LACK SAFE WATER' (WHO/UNICEF JMP), then 'But fish blood is saltier than this water.'",
+      "Twist states a consequence, not a latitude inference: 'But that current kept your winters mild.' The Calgary pair is gone; one HUD line 'SHUTDOWN MODEL: BERGEN ~15°C COLDER'; the payoff lands on the viewer's own quay (place moved to Bergen); the rod closes at the dawn bookend with an empty hook, no text (T10)",
+      "On-screen text cut from ~240 to ~172 words (129 wpm, range 103-131): corner clock deleted, white-out has no new text, the twist window has 7 caption + 7 HUD words, end fact is 15 words",
+      "Caption density 76 words / 80 s = 57 wpm (12 captions, mean 6.3, max 8)",
+      "Mechanism block is one rule ('Sinking salty water up north helps pull it.') + a 4-word implication ('Icy fresh water floats.') + the textless beat with the 'NORTHERN SINKING: STOPPED' status; 4°C detail moved to the fact file",
+      "Heat number relabelled 'HEAT CARRIED NORTH' and shown as an everyday comparison '60× HUMAN ENERGY USE' (1.2 PW RAPID / 19.6 TW); metric only (g/kg, tonnes, °C)",
+      "Hook: bright moonlit palette, large moon with a moving reflection column from frame 1, a clearly visible orange current ribbon (the plant), the 35.0 g/kg readout at meter size, and the title 'What if all the salt left the sea tonight?'"
+    ],
+    "reference": [
+      "Twist lands on the viewer: option (a), 'you' moved to Bergen harbour on the current's path; plant reads 'GULF STREAM: OFFSHORE'; both the dawn bookend and the FIRST WINTER twist are on the viewer's own quay",
+      "Twist caption carries the reversal/consequence; the twist HUD is cut from 3 lines to ONE equivalence line",
+      "Story clock and live number agree: the heat number holds through the night with a terse status line ('NORTHERN SINKING: STOPPED', ELECTRONS 0:56 device); all years-scale content comes after the explicit 'FIRST WINTER' stamp",
+      "S7 thinned to two captions (0:45, 0:51) over the HUD number, matching ELECTRONS 0:44/0:50; second textless break removed; the beat-13 alignment row is rewritten to cite those real slots",
+      "Ships rung replaced by a return-to-you dip at 43% ('You're now saltier than the ocean.', PI=3 0:41 / OXYGEN 0:35) followed by a bigger human rung",
+      "Bull-shark gag cut (the euryhaline exception moved to the fact file; 'Nearly' covers it in the caption)",
+      "Text density inside the §9 range: captions 57 wpm, all text ~129 wpm; corner clock dropped; no text in the white-out; end fact 15 words",
+      "Wonder/rule timing re-spaced: body 0:09, false resolution 0:14, rule 0:19.5, implication 0:24 held 3 s, textless 0:27-0:31 (the 'glass-clear water' wonder was not used because removing salt does not clear water)",
+      "Chapter labels open at the flip: THE WATER 0:08, THE FISH 0:20, THE PEOPLE 0:33, THE CURRENT 0:43 (gaps 12/13/10), final and biggest category FIRST WINTER 1:06; THE SHIPS and THE ICE dropped"
+    ],
+    "originality": [
+      "Gate re-run: PASS against research/corpus + research/library/transcripts, and PASS against the LEo81a2w07Q / k5axKjJpT7Y competitor transcripts",
+      "HUD/caption contradiction removed: salt goes to 0.0 within 1 s of the flip",
+      "Heat label fixed: 'HEAT CARRIED NORTH', 1.2 PW (RAPID 2004-2020 mean, ~1.15 after 2009) / 19.6 TW = 60×; fact note gives the RAPID periods",
+      "Calgary temperature pair and the latitude implication removed; model-sourced figure instead (van Westen et al. 2024: Bergen ~15°C, London ~10°C), flagged 'check against the paper'",
+      "'FOR DECADES' removed; HUD reads 'SHUTDOWN MODEL: ...' with no duration; the fact note flags the unrealistic forcing and that no model has simulated a fully fresh ocean",
+      "Gulf Stream overstatement fixed: the caption says 'helps pull it'; the map path keeps flowing and thins only north of 55°N; the post caption no longer says the current loses the push that drives it"
+    ],
+    "producibility": [
+      "Timer formats: whatif/Hud has its own 'ss.mmm' (0:08.000 countdown) and 'h:mm:ss' (6:00:00 at 400×) formats; listed in kit_gaps",
+      "Salt counter: linear 1 s track (35.0 -> 0.0 over 8.0-9.0), episode-time tracks with scene `t0`, so there is no eased restart at cuts; the 0:24 '25 g/kg' claim is gone",
+      "Persistent HUD: one whatif/Hud component with identical props in every scene + `t0`; fixed y-slots C/L/T/M/S; one segment per slot at a time with explicit from/to (retire rules); slide-ins only when a segment starts inside the scene",
+      "Overflow: the meter is split into a label row and a value row (widest ~420 px); the longest subline ~650 px; the salt-total line is 5 words at full opacity on the map; the end fact is a text layer with maxWidth 860, 2 lines",
+      "Caption band moved to y 1220-1440 (storyboard y 1330), above the 1480 bottom inset",
+      "Fonts: Source Serif 4 (incl. italic) and JetBrains Mono via @fontsource on the Spark only; captions are whole-sentence text layers (core captions disabled); title stacked as 3 text layers with the cyan keyword line",
+      "Maps: always in a 1080x1000 box at zoom >= 3.2 (North Atlantic) or 8-9 (Bergen); the London-Calgary view is cut; generic Map `paths` (with widthTrack and label), `highlightColor`, PLACES bergen/floridaStraits/labradorSea/nordicSeas; sinking sites use existing `rings`; no ice polygon needed",
+      "Caption timing: the implication holds 3 s before the break; VO spec is 110-130 wpm per line inside each window (captions only); corner clock cut",
+      "Timing consistency: the countdown starts at 8.000 and lands on the 0:08 event; the flash is 9 frames (8.0-8.3); chapter gaps stated from the actual times (12/13/10 s); the riser starts at 39.5, before the 41.0 white-out"
+    ]
+  },
+  "nice_to_have_applied": [
+    "Post-caption CTA uses options shown in the video, in the PI=3 'near you' form: 'Where you live, what would you miss first: seafood, the sea life, or mild winters?'",
+    "'Freezes two degrees sooner' and the ICE chapter cut (freezing point kept in the fact file)",
+    "Open loops listed with open/close times (8 documented + 1 left open)",
+    "Chapter-label gaps corrected and stated from the real times",
+    "'So water pours in' replaced by 'So the fish swell.' (4 words, points at the fish)",
+    "Originality gate re-run after the rewrite: PASS",
+    "Number chain partly unified around the 35 g/kg baseline (salt total from ocean mass x 3.5%; you at 9 g/kg vs the sea at 0.0)",
+    "Salt-total scale shown on the map at full opacity instead of an unreadable white-out subline",
+    "Hook HUD decluttered: label, number, meter, one plant subline (no corner clock)",
+    "'Species' wording issue moot (reef line cut)",
+    "Pre-event countdown no longer starts at the reference's 0:07.533 fingerprint",
+    "7-word and 8-word title variants ranked in titles.md",
+    "End fact hedged ('LIKELY') and cut to 15 words",
+    "Title moved away from the 5.93M What If phrasing",
+    "Competitor transcripts LEo81a2w07Q and k5axKjJpT7Y added to research/library/transcripts (header line: url, views, outlier n/a) so the gate covers them",
+    "Asset plan: pier/quay, moon and reflection as one BergenHarbor background with three time states; white flash and white-out as rect layers; salt glints = particles 'bubbles' boxed to the water; spray = tiny 'rain' particles; snow = 'snow' particles; fish swell via scale keyframes on one ~30-line fish figure",
+    "Dawn bookend restores the normal teal (fresh overlay cross-fades out 62.0-63.0), so 'The sea looks normal' matches the image",
+    "Body beat has a visual hook: droplet + raincloud glyphs beside your head",
+    "Horizon red line replaced by a broad orange current ribbon in the water (legible at 9:16)"
+  ],
+  "not_applied": [
+    "Bull shark at the bookend: the shark gag was cut (reference must-fix), and bull sharks do not live off Norway; the euryhaline exception lives in the fact file",
+    "'For one night' premise with a SALT RETURNS clock: rejected so the AMOC twist stays (salt never comes back); kept as title option 7 for a possible separate episode",
+    "Cargo-ship Plimsoll close-up and GreatWhite recolour: both shots cut",
+    "Second person at 4/12 captions (33%) stays above the 18% median on purpose, for place, body, dip and twist",
+    "Monetization check against research/R5: still empty. Visuals are code-drawn and the script is original; vary the palette and opening across whatif Shorts (this one is moonlit blue/orange, friction is warm golden/amber)"
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-oceans-turn-fresh/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "runs": "first run after the rewrite FAILED on one 8-word run ('chapter labels at 0 08 0 20 0', pacing-note phrasing shared with research/corpus/whatif/7696143265405488416.md); reworded, second run PASS",
+    "longest_shared_run_words": "< 8 with every source",
+    "max_shared_5gram_share": "0.15% (research/corpus/whatif/PLAYBOOK.md); highest transcript-type source 0.10% (7693305573487562016.md)",
+    "competitor_check": "PASS against LEo81a2w07Q and k5axKjJpT7Y (now in research/library/transcripts)"
+  },
+  "pacing": {
+    "runtime_s": 80,
+    "captions": 12,
+    "caption_words": 76,
+    "caption_wpm": 57.0,
+    "all_onscreen_words": 172,
+    "all_onscreen_wpm": 129,
+    "caption_gap_median_s": 5.0,
+    "event_s": 8.0,
+    "return_s": 62.0,
+    "twist_caption_s": 66.0,
+    "black_s": 71.0,
+    "master_loop_share": 0.675,
+    "chapter_labels_s": [8, 20, 33, 43, 66]
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-oceans-turn-fresh/storyboard.json",
+    "generator": "backlog/whatif/whatif-oceans-turn-fresh/gen_storyboard.py",
+    "validator": "studio/src/cli/validate.ts (working-tree schema.ts synced to dgx-spark:~/studio/app), Node 22.22.0 on the Spark",
+    "result": "ok: 9:16 30fps 18 scenes 80.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/BergenHarbor", "whatif/CurrentRibbon", "whatif/RodLine", "whatif/Glyph", "whatif/Kelp", "whatif/FishSchool", "whatif/SeaColumn", "whatif/SaltBars", "whatif/PeopleGrid"],
+    "unbuilt_props": ["explainer/Map paths/box/dawnSweep/ringsGrey", "explainer/Map PLACES bergen, floridaStraits, labradorSea, nordicSeas"]
+  }
+}

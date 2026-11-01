@@ -1,0 +1,6058 @@
+{
+ "version": 1,
+ "id": "whatif-oceans-turn-fresh",
+ "title": "What if all the salt left the sea tonight?",
+ "format": "9:16",
+ "fps": 30,
+ "theme": {
+  "fontDisplay": "Montserrat",
+  "fontBody": "Montserrat",
+  "fontCondensed": "Anton",
+  "accent": "#7fe3ff",
+  "ink": "#0B0D10",
+  "paper": "#FFFFFF"
+ },
+ "scenes": [
+  {
+   "id": "s01-harbor-night",
+   "duration": 8.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "night",
+     "moon": true,
+     "ripples": true
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CurrentRibbon",
+     "props": {
+      "color": "#ff8a3d",
+      "width": 120,
+      "opacity": 0.8,
+      "dashSpeed": 1.0
+     },
+     "x": "50%",
+     "y": 1380,
+     "width": 1300,
+     "height": 420,
+     "depth": 0.15,
+     "z": 15
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 240,
+     "y": 1240,
+     "width": 200,
+     "height": 330
+    },
+    {
+     "type": "component",
+     "name": "whatif/RodLine",
+     "props": {
+      "hand": "right",
+      "lineTo": [
+       500,
+       1500
+      ],
+      "reel": 0
+     },
+     "x": 390,
+     "y": 1200,
+     "width": 360,
+     "height": 520
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 55 Q30 25 55 55 T105 55 T155 55 T205 55\" fill=\"none\" stroke=\"#7fe3ff\" stroke-width=\"9\" stroke-linecap=\"round\"/><g fill=\"#ffffff\"><rect x=\"88\" y=\"6\" width=\"12\" height=\"12\" transform=\"rotate(20 94 12)\"/><rect x=\"112\" y=\"16\" width=\"9\" height=\"9\" transform=\"rotate(-15 116 20)\"/></g></svg>",
+     "x": "50%",
+     "y": 640,
+     "width": 200,
+     "height": 90,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 7.0,
+     "exit": {
+      "type": "fade",
+      "at": 6.6,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if all the",
+     "x": "50%",
+     "y": 760,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "exit": {
+      "type": "fade",
+      "at": 6.6,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "salt",
+     "x": "50%",
+     "y": 880,
+     "fontSize": 150,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#7fe3ff",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "exit": {
+      "type": "fade",
+      "at": 6.6,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "text",
+     "text": "left the sea tonight?",
+     "x": "50%",
+     "y": 1000,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "exit": {
+      "type": "fade",
+      "at": 6.6,
+      "duration": 0.40000000000000036
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 0.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You're fishing in Bergen harbor, Norway.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 5.0,
+     "end": 7.8,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Frame 1 = cover: bright moonlit Bryggen, moon reflection with ripples, orange current ribbon (plant), you with a rod. Title clears 6.6-7.0. [screen 0.0-8.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%",
+      "y": "50%",
+      "zoom": 1.0
+     },
+     {
+      "t": 7.0,
+      "x": "50%",
+      "y": "50%",
+      "zoom": 1.05,
+      "ease": "linear"
+     },
+     {
+      "t": 8.0,
+      "x": "50%",
+      "y": "54%",
+      "zoom": 1.08
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "clock_ticking",
+     "at": 0.0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s02-flip",
+   "duration": 1.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "night",
+     "moon": true,
+     "ripples": true
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CurrentRibbon",
+     "props": {
+      "color": "#ff8a3d",
+      "width": 120,
+      "opacity": 0.8,
+      "dashSpeed": 1.0
+     },
+     "x": "50%",
+     "y": 1380,
+     "width": 1300,
+     "height": 420,
+     "depth": 0.15,
+     "z": 15
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 240,
+     "y": 1240,
+     "width": 200,
+     "height": 330
+    },
+    {
+     "type": "component",
+     "name": "whatif/RodLine",
+     "props": {
+      "hand": "right",
+      "lineTo": [
+       500,
+       1500
+      ],
+      "reel": 0
+     },
+     "x": 390,
+     "y": 1200,
+     "width": 360,
+     "height": 520
+    },
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 140,
+     "color": "#FFFFFF",
+     "size": [
+      3,
+      7
+     ],
+     "speed": 3.0,
+     "seed": 11,
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 900,
+     "end": 1.0,
+     "exit": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 920,
+     "fill": "#bfeaff",
+     "opacity": 0.22,
+     "blend": "screen",
+     "depth": 0.15,
+     "z": 20,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 1.0,
+       "opacity": 0.22
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 90,
+     "opacity": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 0.3,
+       "opacity": 0,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 8.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "9-frame white flash (8.0-8.3); salt glints burst off the water and wink out; HUD salt 35.0 -> 0.0 in 1 s; chapter THE WATER. [screen 8.0-9.0 s]",
+   "camera": {
+    "keyframes": [],
+    "shake": [
+     {
+      "at": 0.0,
+      "duration": 0.35,
+      "amplitude": 12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "impact",
+     "at": 0.0,
+     "volume": 0.9
+    },
+    {
+     "cue": "whoosh",
+     "at": 0.0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s03-spray",
+   "duration": 5.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "night",
+     "moon": true,
+     "ripples": true,
+     "crop": "quay"
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CurrentRibbon",
+     "props": {
+      "color": "#ff8a3d",
+      "width": 120,
+      "opacity": 0.8,
+      "dashSpeed": 1.0
+     },
+     "x": "50%",
+     "y": 1380,
+     "width": 1300,
+     "height": 420,
+     "depth": 0.15,
+     "z": 15
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 920,
+     "fill": "#bfeaff",
+     "opacity": 0.22,
+     "blend": "screen",
+     "depth": 0.15,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 420,
+     "y": 1150,
+     "width": 300,
+     "height": 495
+    },
+    {
+     "type": "component",
+     "name": "whatif/RodLine",
+     "props": {
+      "hand": "right",
+      "lineTo": [
+       680,
+       1410
+      ],
+      "reel": 0
+     },
+     "x": 570,
+     "y": 1110,
+     "width": 360,
+     "height": 520
+    },
+    {
+     "type": "particles",
+     "preset": "rain",
+     "count": 20,
+     "color": "#dff4ff",
+     "size": [
+      2,
+      4
+     ],
+     "speed": 0.6,
+     "seed": 4,
+     "x": 520,
+     "y": 900,
+     "width": 360,
+     "height": 260
+    },
+    {
+     "type": "component",
+     "name": "whatif/Glyph",
+     "props": {
+      "kind": "droplet",
+      "color": "#7fe3ff"
+     },
+     "x": 700,
+     "y": 820,
+     "width": 90,
+     "height": 110,
+     "start": 0.6,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Glyph",
+     "props": {
+      "kind": "raincloud",
+      "color": "#dff4ff"
+     },
+     "x": 800,
+     "y": 740,
+     "width": 130,
+     "height": 90,
+     "start": 1.0,
+     "enter": {
+      "type": "pop",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 9.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "The spray on your lips tastes like rain.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 4.6,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Body first: spray on your lips tastes like rain. Glyphs only, no text. [screen 9.0-14.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "sfx": [
+    {
+     "cue": "bubbles",
+     "at": 0.2,
+     "volume": 0.2
+    }
+   ]
+  },
+  {
+   "id": "s04-cup",
+   "duration": 5.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "night",
+     "moon": true,
+     "ripples": true,
+     "crop": "waterline"
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 920,
+     "fill": "#bfeaff",
+     "opacity": 0.22,
+     "blend": "screen",
+     "depth": 0.15,
+     "z": 20
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 10 H100 L92 100 H18 Z\" fill=\"#c9d3dc\" stroke=\"#5b6b73\" stroke-width=\"5\"/><path d=\"M100 30 Q125 45 98 70\" fill=\"none\" stroke=\"#5b6b73\" stroke-width=\"7\"/><rect x=\"16\" y=\"30\" width=\"80\" height=\"62\" fill=\"#bfeaff\" opacity=\".8\"/></svg>",
+     "x": 560,
+     "y": 1180,
+     "width": 240,
+     "height": 220,
+     "z": 30,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 980
+      },
+      {
+       "t": 1.4,
+       "y": 1300,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.0,
+       "y": 1020,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.5,
+       "y": 1000
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 14.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "The whole sea is drinkable now.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "False resolution: a tin cup dips into the harbour and comes up clear; HUD 2.2 BILLION LACK SAFE WATER at 14.5. [screen 14.0-19.5 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "y": "50%",
+      "zoom": 1.0
+     },
+     {
+      "t": 5.5,
+      "y": "48%",
+      "zoom": 1.04
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.6,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s05-school",
+   "duration": 7.5,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "props": {
+     "depth": 10,
+     "rays": 6,
+     "snow": 20,
+     "topColor": "#1b6f8f",
+     "bottomColor": "#0b3550"
+    },
+    "depth": 0.2,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Kelp",
+     "props": {
+      "count": 7,
+      "seed": 2
+     },
+     "x": "50%",
+     "y": 1500,
+     "width": 1200,
+     "height": 700,
+     "depth": 0.4
+    },
+    {
+     "type": "component",
+     "name": "whatif/FishSchool",
+     "props": {
+      "species": [
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "cod",
+       "cod",
+       "cod"
+      ],
+      "seed": 5,
+      "swell": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.5,
+        "v": 0
+       },
+       {
+        "t": 7.5,
+        "v": 1
+       }
+      ]
+     },
+     "x": "50%",
+     "y": 900,
+     "width": 1000,
+     "height": 700,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 480
+      },
+      {
+       "t": 7.5,
+       "x": 600,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 19.5,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "But fish blood is saltier than this water.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 4.1,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "So the fish swell.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 4.5,
+     "end": 7.5,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Rule caption 4 at 19.5 (chapter THE FISH at 20.0); caption 5 at 24.0; fish start to swell at 24.0. [screen 19.5-27.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "48%"
+     },
+     {
+      "t": 7.5,
+      "x": "52%",
+      "ease": "linear"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "sonar_ping",
+     "at": 0.5,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s06-sink",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "props": {
+     "depth": 10,
+     "rays": 6,
+     "snow": 20,
+     "topColor": "#1b6f8f",
+     "bottomColor": "#0b3550"
+    },
+    "depth": 0.2,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Kelp",
+     "props": {
+      "count": 7,
+      "seed": 2
+     },
+     "x": "50%",
+     "y": 1500,
+     "width": 1200,
+     "height": 700,
+     "depth": 0.4
+    },
+    {
+     "type": "component",
+     "name": "whatif/FishSchool",
+     "props": {
+      "species": [
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "herring",
+       "cod",
+       "cod",
+       "cod"
+      ],
+      "seed": 5,
+      "swell": 1,
+      "scatter": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4,
+        "v": 1
+       }
+      ],
+      "sink": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4,
+        "v": 260,
+        "ease": "in"
+       }
+      ],
+      "tilt": 70
+     },
+     "x": 600,
+     "y": 900,
+     "width": 1000,
+     "height": 700
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 27.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Textless: the school breaks apart and sinks past the kelp. [screen 27.0-31.0 s]",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "drone",
+     "at": 0.0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s07-column",
+   "duration": 3.5,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "props": {
+     "depth": 10,
+     "rays": 6,
+     "snow": 20,
+     "topColor": "#1b6f8f",
+     "bottomColor": "#0b3550"
+    },
+    "depth": 0.2,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/SeaColumn",
+     "props": {
+      "surfaceBand": true,
+      "freshOverlay": 0.22,
+      "settling": [
+       {
+        "t": 0,
+        "v": 0.3
+       },
+       {
+        "t": 3.5,
+        "v": 1
+       }
+      ],
+      "glyphs": [
+       "fish",
+       "fish",
+       "crab",
+       "jelly",
+       "starfish",
+       "fish"
+      ]
+     },
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 31.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Nearly every sea animal dies before dawn.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.2,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Nearly every sea animal dies before dawn: whole-column cross-section, everything settling. Chapter THE PEOPLE at 33.0. [screen 31.0-34.5 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.15
+     },
+     {
+      "t": 3.5,
+      "zoom": 0.9
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "whoosh_long",
+     "at": 0.2,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s08-dip",
+   "duration": 3.5,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "night",
+     "moon": true,
+     "ripples": true,
+     "crop": "quay"
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 920,
+     "fill": "#bfeaff",
+     "opacity": 0.22,
+     "blend": "screen",
+     "depth": 0.15,
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "shrug",
+      "color": "#3A8FD6"
+     },
+     "x": 380,
+     "y": 1150,
+     "width": 300,
+     "height": 495
+    },
+    {
+     "type": "component",
+     "name": "whatif/SaltBars",
+     "props": {
+      "you": 9,
+      "sea": 0,
+      "max": 12,
+      "growAt": 0.2
+     },
+     "x": 760,
+     "y": 1000,
+     "width": 300,
+     "height": 420
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 34.5,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "You're now saltier than the ocean.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.2,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Return-to-you dip at 43%: two icon bars, you (tall) vs the sea (empty). No text. [screen 34.5-38.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "sfx": [
+    {
+     "cue": "tick",
+     "at": 0.1,
+     "volume": 0.5
+    },
+    {
+     "cue": "tick",
+     "at": 0.7,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s09-people",
+   "duration": 3.0,
+   "background": {
+    "type": "color",
+    "color": "#10283a",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/PeopleGrid",
+     "props": {
+      "count": 32,
+      "cols": 8,
+      "stagger": 0.06,
+      "fishGlyph": true,
+      "greyFishAt": 2.0
+     },
+     "x": "50%",
+     "y": 900,
+     "width": 900,
+     "height": 700
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 38.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "3.2 billion people rely on fish protein.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.0,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "3.2 billion: 32 figures (1 = 100 million) with fish glyphs that grey out from 40.0. [screen 38.0-41.0 s]",
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "pop",
+     "at": 0.1,
+     "volume": 0.3
+    },
+    {
+     "cue": "pop",
+     "at": 0.4,
+     "volume": 0.3
+    },
+    {
+     "cue": "pop",
+     "at": 0.7,
+     "volume": 0.3
+    },
+    {
+     "cue": "pop",
+     "at": 1.0,
+     "volume": 0.3
+    },
+    {
+     "cue": "riser",
+     "at": 1.5,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s10-whiteout",
+   "duration": 2.0,
+   "background": {
+    "type": "color",
+    "color": "#10283a",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "particles",
+     "preset": "bubbles",
+     "count": 300,
+     "color": "#FFFFFF",
+     "size": [
+      6,
+      18
+     ],
+     "speed": 4.0,
+     "seed": 21,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 70,
+     "opacity": 0,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0
+      },
+      {
+       "t": 0.8,
+       "opacity": 1,
+       "ease": "in"
+      },
+      {
+       "t": 2.0,
+       "opacity": 1
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 41.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "White salt crystals fill the frame, then pure white. No new text; HUD drawn in ink colour. [screen 41.0-43.0 s]",
+   "sfx": [
+    {
+     "cue": "boom",
+     "at": 0.8,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s11-map-path",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Map",
+    "props": {
+     "views": [
+      {
+       "t": 0,
+       "place": "bergen",
+       "zoom": 8
+      },
+      {
+       "t": 2.5,
+       "lon": -35,
+       "lat": 45,
+       "zoom": 3.2
+      }
+     ],
+     "box": {
+      "y": 420,
+      "height": 1000
+     },
+     "palette": {
+      "land": "#2a3b4c",
+      "sea": "#0f2a40"
+     },
+     "pins": [
+      {
+       "place": "bergen",
+       "label": "YOU",
+       "color": "#7fe3ff"
+      }
+     ],
+     "paths": [
+      {
+       "points": [
+        [
+         -80.5,
+         24.5
+        ],
+        [
+         -79.5,
+         30
+        ],
+        [
+         -75.5,
+         35.2
+        ],
+        [
+         -60,
+         40.5
+        ],
+        [
+         -45,
+         45
+        ],
+        [
+         -25,
+         51
+        ],
+        [
+         -12,
+         55.5
+        ],
+        [
+         -3,
+         59
+        ],
+        [
+         5.32,
+         60.39
+        ]
+       ],
+       "color": "#ff8a3d",
+       "width": 10,
+       "dash": [
+        18,
+        10
+       ],
+       "drawAt": 0.6,
+       "drawDur": 2.4,
+       "label": "GULF STREAM",
+       "labelAt": [
+        -50,
+        41
+       ]
+      }
+     ]
+    },
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "fill": "#FFFFFF",
+     "depth": 0,
+     "z": 70,
+     "opacity": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 1
+      },
+      {
+       "t": 0.3,
+       "opacity": 0
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 43.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Sinking salty water up north helps pull it.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 2.0,
+     "end": 4.0,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Scale jump: Bergen pin -> North Atlantic; Gulf Stream path draws Florida Straits -> Bergen (plant named). Chapter THE CURRENT; meter SALT GONE. [screen 43.0-47.0 s]",
+   "sfx": [
+    {
+     "cue": "whoosh",
+     "at": 0.0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s12-map-sinking",
+   "duration": 8.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Map",
+    "props": {
+     "views": [
+      {
+       "t": 0,
+       "lon": -35,
+       "lat": 45,
+       "zoom": 3.2
+      },
+      {
+       "t": 8,
+       "lon": -25,
+       "lat": 58,
+       "zoom": 3.4
+      }
+     ],
+     "box": {
+      "y": 420,
+      "height": 1000
+     },
+     "palette": {
+      "land": "#2a3b4c",
+      "sea": "#0f2a40"
+     },
+     "pins": [
+      {
+       "place": "bergen",
+       "label": "YOU",
+       "color": "#7fe3ff"
+      }
+     ],
+     "paths": [
+      {
+       "points": [
+        [
+         -80.5,
+         24.5
+        ],
+        [
+         -79.5,
+         30
+        ],
+        [
+         -75.5,
+         35.2
+        ],
+        [
+         -60,
+         40.5
+        ],
+        [
+         -45,
+         45
+        ],
+        [
+         -25,
+         51
+        ],
+        [
+         -12,
+         55.5
+        ],
+        [
+         -3,
+         59
+        ],
+        [
+         5.32,
+         60.39
+        ]
+       ],
+       "color": "#ff8a3d",
+       "width": 10,
+       "dash": [
+        18,
+        10
+       ],
+       "drawAt": -10,
+       "drawDur": 2.4,
+       "label": "GULF STREAM",
+       "labelAt": [
+        -50,
+        41
+       ]
+      }
+     ],
+     "rings": [
+      {
+       "place": "labradorSea",
+       "r": 60,
+       "color": "#6fc3ff"
+      },
+      {
+       "place": "nordicSeas",
+       "r": 60,
+       "color": "#6fc3ff"
+      }
+     ],
+     "ringsGreyAt": 4.0
+    },
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 47.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Sinking salty water up north helps pull it.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 3.6,
+     "depth": 0,
+     "z": 75,
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "Icy fresh water floats.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 4.0,
+     "end": 7.5,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Captions 9 (45.0, in previous shot) and 10 (51.0). Sinking rings pulse, then stop and grey at 51.0. HEAT CARRIED NORTH held. [screen 47.0-55.0 s]",
+   "sfx": [
+    {
+     "cue": "underwater_rumble",
+     "at": 0.0,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "id": "s13-map-stopped",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Map",
+    "props": {
+     "views": [
+      {
+       "t": 0,
+       "lon": -25,
+       "lat": 58,
+       "zoom": 3.4
+      }
+     ],
+     "box": {
+      "y": 420,
+      "height": 1000
+     },
+     "palette": {
+      "land": "#2a3b4c",
+      "sea": "#0f2a40"
+     },
+     "pins": [
+      {
+       "place": "bergen",
+       "label": "YOU",
+       "color": "#7fe3ff"
+      }
+     ],
+     "paths": [
+      {
+       "points": [
+        [
+         -80.5,
+         24.5
+        ],
+        [
+         -79.5,
+         30
+        ],
+        [
+         -75.5,
+         35.2
+        ],
+        [
+         -60,
+         40.5
+        ],
+        [
+         -45,
+         45
+        ],
+        [
+         -25,
+         51
+        ],
+        [
+         -12,
+         55.5
+        ],
+        [
+         -3,
+         59
+        ],
+        [
+         5.32,
+         60.39
+        ]
+       ],
+       "color": "#ff8a3d",
+       "width": 10,
+       "dash": [
+        18,
+        10
+       ],
+       "drawAt": -10,
+       "drawDur": 2.4,
+       "label": "GULF STREAM",
+       "labelAt": [
+        -50,
+        41
+       ],
+       "widthTrack": {
+        "northOfLat": 55,
+        "track": [
+         {
+          "t": 0,
+          "v": 10
+         },
+         {
+          "t": 4,
+          "v": 4
+         }
+        ]
+       }
+      }
+     ],
+     "rings": [
+      {
+       "place": "labradorSea",
+       "r": 60,
+       "color": "#6fc3ff",
+       "out": 0.4
+      },
+      {
+       "place": "nordicSeas",
+       "r": 60,
+       "color": "#6fc3ff",
+       "out": 1.6
+      }
+     ],
+     "ringsGrey": true
+    },
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 55.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "NORTHERN SINKING: STOPPED. Rings fade; the path keeps flowing but thins north of 55N only (wind-driven part continues). [screen 55.0-59.0 s]",
+   "sfx": [
+    {
+     "cue": "drone",
+     "at": 0.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s14-map-dive",
+   "duration": 3.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Map",
+    "props": {
+     "views": [
+      {
+       "t": 0,
+       "lon": -25,
+       "lat": 58,
+       "zoom": 3.4
+      },
+      {
+       "t": 3,
+       "place": "bergen",
+       "zoom": 9,
+       "ease": "in"
+      }
+     ],
+     "box": {
+      "y": 420,
+      "height": 1000
+     },
+     "palette": {
+      "land": "#2a3b4c",
+      "sea": "#0f2a40"
+     },
+     "pins": [
+      {
+       "place": "bergen",
+       "label": "YOU",
+       "color": "#7fe3ff"
+      }
+     ],
+     "paths": [
+      {
+       "points": [
+        [
+         -80.5,
+         24.5
+        ],
+        [
+         -79.5,
+         30
+        ],
+        [
+         -75.5,
+         35.2
+        ],
+        [
+         -60,
+         40.5
+        ],
+        [
+         -45,
+         45
+        ],
+        [
+         -25,
+         51
+        ],
+        [
+         -12,
+         55.5
+        ],
+        [
+         -3,
+         59
+        ],
+        [
+         5.32,
+         60.39
+        ]
+       ],
+       "color": "#ff8a3d",
+       "width": 6,
+       "dash": [
+        18,
+        10
+       ],
+       "drawAt": -10,
+       "drawDur": 2.4,
+       "label": "GULF STREAM",
+       "labelAt": [
+        -50,
+        41
+       ]
+      }
+     ],
+     "dawnSweep": {
+      "at": 0.5,
+      "dur": 2.5
+     }
+    },
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 59.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    }
+   ],
+   "notes": "Dive back into the Bergen pin as a dawn glow sweeps from the east; master clock runs out. [screen 59.0-62.0 s]",
+   "sfx": [
+    {
+     "cue": "riser",
+     "at": 0.5,
+     "volume": 0.35
+    },
+    {
+     "cue": "clock_ticking",
+     "at": 1.0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s15-harbor-dawn",
+   "duration": 4.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "dawn",
+     "boatsOut": [
+      {
+       "t": 0.3,
+       "v": 0
+      },
+      {
+       "t": 4,
+       "v": 1
+      }
+     ]
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CurrentRibbon",
+     "props": {
+      "color": "#ff8a3d",
+      "width": 120,
+      "opacity": 0.8,
+      "dashSpeed": 1.0
+     },
+     "x": "50%",
+     "y": 1380,
+     "width": 1300,
+     "height": 420,
+     "depth": 0.15,
+     "z": 15
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": 1460,
+     "width": 1080,
+     "height": 920,
+     "fill": "#bfeaff",
+     "opacity": 0.22,
+     "blend": "screen",
+     "depth": 0.15,
+     "z": 20,
+     "keyframes": [
+      {
+       "t": 0,
+       "opacity": 0.22
+      },
+      {
+       "t": 1.0,
+       "opacity": 0
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 240,
+     "y": 1240,
+     "width": 200,
+     "height": 330
+    },
+    {
+     "type": "component",
+     "name": "whatif/RodLine",
+     "props": {
+      "hand": "right",
+      "lineTo": [
+       500,
+       1500
+      ],
+      "reel": [
+       {
+        "t": 1.0,
+        "v": 0
+       },
+       {
+        "t": 3.0,
+        "v": 1,
+        "ease": "inOut"
+       }
+      ]
+     },
+     "x": 390,
+     "y": 1200,
+     "width": 360,
+     "height": 520
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 62.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "Sunrise. The sea looks normal.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.5,
+     "end": 3.6,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Bookend of shot 1 at dawn: the sea looks normal, boats head out, you reel in an empty hook (bathos, no text). BOATS OUT / BERGEN, 6 HOURS LATER. [screen 62.0-66.0 s]",
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "x": "50%",
+      "y": "50%",
+      "zoom": 1.0
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.4
+    },
+    {
+     "cue": "breath",
+     "at": 0.2,
+     "volume": 0.15
+    },
+    {
+     "cue": "click",
+     "at": 2.8,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s16-harbor-winter",
+   "duration": 5.0,
+   "background": {
+    "type": "component",
+    "name": "whatif/BergenHarbor",
+    "props": {
+     "time": "winter",
+     "snowOnRoofs": true
+    },
+    "depth": 0.15,
+    "overscan": 1.2
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "whatif/CurrentRibbon",
+     "props": {
+      "color": "#ff8a3d",
+      "width": 40,
+      "opacity": 0.35,
+      "dashSpeed": 1.0
+     },
+     "x": "50%",
+     "y": 1380,
+     "width": 1300,
+     "height": 420,
+     "depth": 0.15,
+     "z": 15
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "props": {
+      "pose": "stand",
+      "color": "#3A8FD6"
+     },
+     "x": 240,
+     "y": 1240,
+     "width": 200,
+     "height": 330
+    },
+    {
+     "type": "component",
+     "name": "whatif/RodLine",
+     "props": {
+      "hand": "right",
+      "lineTo": [
+       500,
+       1500
+      ],
+      "reel": 0
+     },
+     "x": 390,
+     "y": 1200,
+     "width": 360,
+     "height": 520
+    },
+    {
+     "type": "particles",
+     "preset": "snow",
+     "count": 80,
+     "color": "#FFFFFF",
+     "size": [
+      3,
+      8
+     ],
+     "speed": 0.8,
+     "seed": 9,
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920
+    },
+    {
+     "type": "component",
+     "name": "whatif/Hud",
+     "props": {
+      "t0": 66.0,
+      "state": {
+       "slots": {
+        "C": {
+         "y": 250,
+         "size": 30,
+         "color": "#7fe3ff"
+        },
+        "L": {
+         "y": 296,
+         "size": 30
+        },
+        "T": {
+         "y": 340,
+         "size": 96,
+         "mono": true
+        },
+        "M": {
+         "labelY": 456,
+         "labelSize": 28,
+         "valueY": 492,
+         "size": 54,
+         "unitSize": 28,
+         "mono": true
+        },
+        "S": {
+         "y": 566,
+         "size": 28
+        },
+        "maxWidth": 860
+       },
+       "C": [
+        {
+         "from": 8,
+         "to": 20,
+         "text": "THE WATER"
+        },
+        {
+         "from": 20,
+         "to": 33,
+         "text": "THE FISH"
+        },
+        {
+         "from": 33,
+         "to": 43,
+         "text": "THE PEOPLE"
+        },
+        {
+         "from": 43,
+         "to": 62,
+         "text": "THE CURRENT"
+        },
+        {
+         "from": 66,
+         "to": 71.0,
+         "text": "FIRST WINTER"
+        }
+       ],
+       "L": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "SALT GONE IN"
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "BOATS LEAVE IN"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BOATS OUT"
+        }
+       ],
+       "T": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "{v}",
+         "format": "ss.mmm",
+         "prefix": "0:",
+         "track": [
+          {
+           "t": 0,
+           "v": 8.0,
+           "ease": "linear"
+          },
+          {
+           "t": 8,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 62,
+         "text": "{v}",
+         "format": "h:mm:ss",
+         "track": [
+          {
+           "t": 8,
+           "v": 21600,
+           "ease": "linear"
+          },
+          {
+           "t": 62,
+           "v": 0,
+           "ease": "linear"
+          }
+         ]
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "0:00:00"
+        }
+       ],
+       "M": [
+        {
+         "from": 0,
+         "to": 8,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 0,
+           "v": 35.0
+          }
+         ]
+        },
+        {
+         "from": 8,
+         "to": 43,
+         "label": "OCEAN SALT",
+         "text": "{v}",
+         "unit": "g/kg",
+         "decimals": 1,
+         "track": [
+          {
+           "t": 8,
+           "v": 35.0,
+           "ease": "linear"
+          },
+          {
+           "t": 9,
+           "v": 0.0,
+           "ease": "linear"
+          }
+         ],
+         "colorTrack": [
+          {
+           "t": 8,
+           "v": "#7fe3ff"
+          },
+          {
+           "t": 9,
+           "v": "#ff5a4f"
+          }
+         ]
+        },
+        {
+         "from": 43,
+         "to": 47,
+         "label": "SALT GONE",
+         "text": "~50",
+         "unit": "QUADRILLION TONNES"
+        },
+        {
+         "from": 47,
+         "to": 62,
+         "label": "HEAT CARRIED NORTH",
+         "text": "60×",
+         "unit": "HUMAN ENERGY USE"
+        }
+       ],
+       "S": [
+        {
+         "from": 0,
+         "to": 8,
+         "text": "GULF STREAM: OFFSHORE",
+         "opacity": 0.7
+        },
+        {
+         "from": 8,
+         "to": 14.5,
+         "text": "1 HOUR = 9 SECONDS"
+        },
+        {
+         "from": 14.5,
+         "to": 20,
+         "text": "2.2 BILLION LACK SAFE WATER"
+        },
+        {
+         "from": 55,
+         "to": 62,
+         "text": "NORTHERN SINKING: STOPPED",
+         "dot": "#ff5a4f"
+        },
+        {
+         "from": 62,
+         "to": 66,
+         "text": "BERGEN, 6 HOURS LATER"
+        },
+        {
+         "from": 67,
+         "to": 71.0,
+         "text": "SHUTDOWN MODEL: BERGEN ~15°C COLDER"
+        }
+       ],
+       "inkDuring": [
+        {
+         "from": 41,
+         "to": 43,
+         "color": "#0b1a2e"
+        }
+       ]
+      },
+      "mono": "JetBrains Mono",
+      "accent": "#7fe3ff",
+      "warn": "#ff5a4f"
+     },
+     "id": "hud",
+     "x": 70,
+     "y": 240,
+     "anchorX": 0,
+     "anchorY": 0,
+     "width": 860,
+     "height": 340,
+     "depth": 0,
+     "z": 80
+    },
+    {
+     "type": "text",
+     "text": "But that current kept your winters mild.",
+     "x": "50%",
+     "y": 1330,
+     "fontSize": 62,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 860,
+     "lineHeight": 1.15,
+     "shadow": "0 3px 14px rgba(0,0,0,.6)",
+     "start": 0.0,
+     "end": 5.0,
+     "depth": 0,
+     "z": 75,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     }
+    }
+   ],
+   "notes": "Twist on the viewer: same quay in snow, FIRST WINTER; current ribbon thin and pale. One HUD line at 67.0. [screen 66.0-71.0 s]",
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3
+   },
+   "sfx": [
+    {
+     "cue": "stinger",
+     "at": 0.0,
+     "volume": 0.5
+    },
+    {
+     "cue": "whoosh_long",
+     "at": 0.3,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s17-black",
+   "duration": 2.0,
+   "background": {
+    "type": "color",
+    "color": "#000000",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [],
+   "notes": "Black, silence, HUD hidden. [screen 71.0-73.0 s]"
+  },
+  {
+   "id": "s18-endcard",
+   "duration": 7.0,
+   "background": {
+    "type": "color",
+    "color": "#05080c",
+    "depth": 0,
+    "overscan": 1.0
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 55 Q30 25 55 55 T105 55 T155 55 T205 55\" fill=\"none\" stroke=\"#7fe3ff\" stroke-width=\"9\" stroke-linecap=\"round\"/><g fill=\"#ffffff\"><rect x=\"88\" y=\"6\" width=\"12\" height=\"12\" transform=\"rotate(20 94 12)\"/><rect x=\"112\" y=\"16\" width=\"9\" height=\"9\" transform=\"rotate(-15 116 20)\"/></g></svg>",
+     "x": "50%",
+     "y": 640,
+     "width": 200,
+     "height": 90,
+     "depth": 0,
+     "z": 60,
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "What if all the",
+     "x": "50%",
+     "y": 760,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "salt",
+     "x": "50%",
+     "y": 880,
+     "fontSize": 150,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 700,
+     "color": "#7fe3ff",
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "left the sea tonight?",
+     "x": "50%",
+     "y": 1000,
+     "fontSize": 84,
+     "font": "\"Source Serif 4\", \"DejaVu Serif\", Georgia, serif",
+     "weight": 600,
+     "color": "#FFFFFF",
+     "maxWidth": 900,
+     "depth": 0,
+     "z": 60,
+     "shadow": "0 4px 18px rgba(0,0,0,.45)",
+     "start": 0.0,
+     "end": 7.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "12,900 YEARS AGO, MELTWATER LIKELY STALLED THIS CURRENT.\nEUROPE TURNED ICE-AGE COLD FOR 1,200 YEARS.",
+     "x": "50%",
+     "y": 1180,
+     "fontSize": 34,
+     "font": "display",
+     "weight": 700,
+     "color": "#D9DEE3",
+     "letterSpacing": 0.08,
+     "lineHeight": 1.4,
+     "maxWidth": 860,
+     "start": 1.0,
+     "enter": {
+      "type": "fade",
+      "duration": 0.6
+     },
+     "depth": 0,
+     "z": 60
+    }
+   ],
+   "notes": "Exact title repeat + Younger Dryas fact (not read). [screen 73.0-80.0 s]",
+   "sfx": [
+    {
+     "cue": "ding",
+     "at": 0.0,
+     "volume": 0.2
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": false
+ },
+ "audio": {
+  "voice": [],
+  "music": [
+   {
+    "src": "music/deep_ocean.m4a",
+    "start": 0.0,
+    "end": 41.0,
+    "volume": 0.25,
+    "duckTo": 0.12,
+    "fadeIn": 0.5,
+    "fadeOut": 0.3
+   },
+   {
+    "src": "music/documentary_pulse.m4a",
+    "start": 43.0,
+    "end": 71.0,
+    "volume": 0.25,
+    "duckTo": 0.12,
+    "fadeIn": 0.3,
+    "fadeOut": 0.4
+   },
+   {
+    "src": "sfx/underwater_rumble.wav",
+    "start": 19.5,
+    "end": 34.5,
+    "volume": 0.3,
+    "duckTo": 0.3,
+    "fadeIn": 0.4,
+    "fadeOut": 0.4,
+    "loop": true
+   }
+  ],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0.03,
+  "vignette": 0.12,
+  "fadeIn": 0,
+  "fadeOut": 0.4
+ }
+}
