@@ -41,7 +41,7 @@ CAPTION_JOIN = {"explainer-orca": ["fifty-six kilometres", "scared of", ("twenty
                     (r, r.replace(" ", "\u00a0")) for r in (
                         "nose to tail.", "a sixteenth.", "of a golf cart,", "a jet engine,", "in the way", "in its mouth.",
                         "only opens", "back out.", "kilometres away.", "it charges", "of krill", "of that cloud?",
-                        "40 of you.")]}
+                        "40 of you.", "the size")]}
 # extra joins for the 16:9 cut only (longer one-line pages there; pipeline/episodes/reformat.py)
 CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres",
                                              ("a blue whale's mouth.", "a\u00a0blue\u00a0whale's\u00a0mouth.")],
