@@ -1,0 +1,188 @@
+{
+ "v": 1,
+ "session": {
+  "id": null,
+  "started_at": null,
+  "last_resume_at": "2026-11-01T20:44:56Z",
+  "heartbeat_at": "2026-11-01T21:17:21Z",
+  "tmux": "studio-op",
+  "busy": null
+ },
+ "paused": false,
+ "pause_reason": null,
+ "crons": [],
+ "jobs": {
+  "20261101-b-make": {
+   "status": "done",
+   "attempts": 1,
+   "created_at": "2026-11-01T20:46:05Z",
+   "type": "make",
+   "date": "2026-11-01",
+   "slot": "b",
+   "due_at": "2026-11-01T14:45:00Z",
+   "expires_at": "2026-11-01T21:30:00Z",
+   "post_at": "2026-11-02T00:30:00Z",
+   "pid": null,
+   "started_at": "2026-11-01T20:46:05Z",
+   "log": "/home/dzliu/studio/logs/operator/20261101-b-make.log",
+   "finished_at": "2026-11-01T21:07:37Z",
+   "exit_code": 0,
+   "result": {
+    "source_id": "VtrcKTkhDHU",
+    "experiment_id": null,
+    "arm": null,
+    "slug": "op-20261101-b-ocean",
+    "gate": "FAIL"
+   }
+  },
+  "20261101-a-make": {
+   "status": "skipped",
+   "attempts": 0,
+   "created_at": "2026-11-01T20:46:05Z",
+   "type": "make",
+   "date": "2026-11-01",
+   "slot": "a",
+   "due_at": "2026-11-01T12:30:00Z",
+   "expires_at": "2026-11-01T14:30:00Z",
+   "post_at": "2026-11-01T17:30:00Z",
+   "note": "too late for the slot",
+   "finished_at": "2026-11-01T20:46:05Z"
+  },
+  "20261101-b-review": {
+   "status": "done",
+   "attempts": 1,
+   "created_at": "2026-11-01T21:07:37Z",
+   "type": "review",
+   "date": "2026-11-01",
+   "slot": "b",
+   "slug": "op-20261101-b-ocean",
+   "round": 1,
+   "chain": 1,
+   "due_at": "2026-11-01T21:07:37Z",
+   "source_id": "VtrcKTkhDHU",
+   "gate": "FAIL",
+   "started_at": "2026-11-01T21:08:49Z",
+   "finished_at": "2026-11-01T21:11:12Z",
+   "pid": null,
+   "verdict": "FIX"
+  },
+  "20261101-b-fix": {
+   "status": "done",
+   "attempts": 1,
+   "created_at": "2026-11-01T21:11:12Z",
+   "type": "fix",
+   "date": "2026-11-01",
+   "slot": "b",
+   "slug": "op-20261101-b-ocean",
+   "round": 1,
+   "chain": 1,
+   "due_at": "2026-11-01T21:11:12Z",
+   "source_id": "VtrcKTkhDHU",
+   "pid": null,
+   "started_at": "2026-11-01T21:11:12Z",
+   "log": "/home/dzliu/studio/logs/operator/20261101-b-fix.log",
+   "finished_at": "2026-11-01T21:16:55Z",
+   "exit_code": 0,
+   "result": {
+    "slug": "op-20261101-b-ocean",
+    "gate": "PASS"
+   }
+  },
+  "20261101-b-review-r2": {
+   "status": "done",
+   "attempts": 1,
+   "created_at": "2026-11-01T21:16:55Z",
+   "type": "review",
+   "date": "2026-11-01",
+   "slot": "b",
+   "slug": "op-20261101-b-ocean",
+   "round": 2,
+   "chain": 1,
+   "due_at": "2026-11-01T21:16:55Z",
+   "source_id": "VtrcKTkhDHU",
+   "gate": "PASS",
+   "started_at": "2026-11-01T21:18:04Z",
+   "finished_at": "2026-11-01T21:18:04Z",
+   "pid": null,
+   "verdict": "PASS"
+  },
+  "20261101-b-publish": {
+   "status": "done",
+   "attempts": 1,
+   "created_at": "2026-11-01T21:18:04Z",
+   "type": "publish",
+   "date": "2026-11-01",
+   "slot": "b",
+   "chain": 1,
+   "slug": "op-20261101-b-ocean",
+   "due_at": "2026-11-01T21:18:04Z",
+   "source_id": "VtrcKTkhDHU",
+   "expires_at": "2026-11-02T02:30:00Z",
+   "pid": null,
+   "started_at": "2026-11-01T21:18:04Z",
+   "log": "/home/dzliu/studio/logs/operator/20261101-b-publish.log",
+   "finished_at": "2026-11-01T21:18:06Z",
+   "exit_code": 0,
+   "result": {
+    "slug": "op-20261101-b-ocean",
+    "slot_at": "2026-11-02T00:30:00Z",
+    "modes": {
+     "draft": [
+      "youtube",
+      "tiktok",
+      "instagram"
+     ]
+    },
+    "created": [],
+    "failed": [],
+    "skipped_platforms": [],
+    "dry_run": true,
+    "drafts": 0,
+    "hold_pid": null,
+    "result_file": "/home/dzliu/studio/app/data/operator/publish/20261101-b-publish.json"
+   }
+  }
+ },
+ "budget": {
+  "week": "2026-W44",
+  "weighted_tokens": 0,
+  "videos": 0,
+  "operator_tokens_estimate": 75000,
+  "operator_by_day": {
+   "2026-11-01": 75000
+  },
+  "stop_until": null,
+  "operator_measured_by_day": {
+   "2026-11-01": 0
+  }
+ },
+ "experiment": {
+  "active": null
+ },
+ "rejected_sources": [],
+ "notified": [
+  "publish-dry:2026-11-01"
+ ],
+ "sessions": [],
+ "dep_strikes": {},
+ "watchdog": {
+  "launches": [],
+  "fast_exits": 0,
+  "next_launch_after": null
+ },
+ "killrule": {
+  "last_n": 0,
+  "verdict": null
+ },
+ "counters": {
+  "published": {
+   "youtube": 0,
+   "tiktok": 0,
+   "instagram": 0
+  },
+  "drafts_created": 0,
+  "consecutive_failed_slots": 0,
+  "slots_failed": 0,
+  "slots_posted": 0
+ }
+}

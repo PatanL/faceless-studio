@@ -24,6 +24,9 @@ Visual rules (from the pilot reviews; follow all of them):
 - Never let the picture sit still for more than 3 s: every scene needs a camera move (camera {{"preset": "pushIn", "amount": 0.4-0.8}}
   or keyframes) AND a new layer, keyframe, strike, count-up or camera key landing on a spoken word every 1.5-3 s.
   Anchor every time to spoken words ("at": "@bus", "@bus+0.2", "@bus.end"); only use numbers for 0 or -0.6.
+- No black card longer than 0.45 s, even with white text on it (a "WHY?" on black): the QA gate's blackdetect FAILs
+  any black run over 0.5 s. For a "question on black" beat, fade the black rect out by "@<word>+0.3" or put the
+  text over the dark Ocean background instead.
 - True scale: when a creature stands next to YOU / Diver / Bus / Car, give every figure the same "pxPerM" (e.g. 60-120)
   and a layer box big enough for its real size (see the README real-size table). Add a small "YOU" Tag above the human.
 - Palette: white/grey art and white uppercase labels, ONE red accent per scene (Headline "color": "red", Options strikes,

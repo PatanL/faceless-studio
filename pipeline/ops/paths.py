@@ -1,4 +1,4 @@
-"""Where the operator's files live. Override the data root with STUDIO_DATA (tests) and logs with OPERATOR_LOG_DIR."""
+"""Where the operator's files live. Override the data root with STUDIO_DATA (or STUDIO_DATA_DIR, the L3/L4 name; tests) and logs with OPERATOR_LOG_DIR."""
 from __future__ import annotations
 
 import os
@@ -7,7 +7,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
 def data_dir() -> str:
-    return os.path.abspath(os.environ.get("STUDIO_DATA") or os.path.join(ROOT, "data"))
+    return os.path.abspath(os.environ.get("STUDIO_DATA") or os.environ.get("STUDIO_DATA_DIR") or os.path.join(ROOT, "data"))
 
 
 def ops_dir() -> str:

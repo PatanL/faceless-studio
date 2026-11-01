@@ -14,7 +14,7 @@ ROOT = Path(os.environ.get("STUDIO_ROOT") or Path(__file__).resolve().parents[2]
 
 
 def data_dir() -> Path:
-    return Path(os.environ.get("STUDIO_DATA_DIR") or ROOT / "data")
+    return Path(os.environ.get("STUDIO_DATA_DIR") or os.environ.get("STUDIO_DATA") or ROOT / "data")
 
 
 def posts_ledger() -> Path:

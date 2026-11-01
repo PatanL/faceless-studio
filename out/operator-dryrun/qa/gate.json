@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "slug": "op-20261101-b-ocean",
+ "at": "2026-11-01T21:16:55Z",
+ "verdict": "PASS",
+ "warn_count": 2,
+ "fail": [],
+ "mp4": "out/op-20261101-b-ocean/op-20261101-b-ocean_9x16.mp4",
+ "mp4_sha256": "ec7dc6ed3580c68271252174fba8b1b37701a3a34f625976d3d316cbfb0fc6b5",
+ "duration_s": 93.48,
+ "niche": "explainer",
+ "checks": {
+  "duration": {
+   "status": "WARN",
+   "value": 93.48,
+   "threshold": ">= 61.0 and <= 180.0 (WARN > 90.0)"
+  },
+  "loudness": {
+   "status": "PASS",
+   "value": {
+    "I_lufs": -14.1,
+    "true_peak_dbtp": -1.0,
+    "LRA_lu": 1.9
+   },
+   "threshold": "I -14.0 +-1.5 LUFS, true peak <= -0.5 dBTP (WARN > -1.0)"
+  },
+  "black_frames": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no black run > 0.5 s unless the scene marks it intended"
+  },
+  "frozen": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no freeze > visual.max_hold_s + 0.5 = 3.5 s",
+   "detail": "storyboard max hold 2.76 s"
+  },
+  "missing_kit": {
+   "status": "PASS",
+   "value": 0.0,
+   "threshold": "magenta share <= 0.2% in every 1 fps frame",
+   "detail": "magenta pixel share in sampled frames"
+  },
+  "originality": {
+   "status": "PASS",
+   "value": {
+    "max_run": 6,
+    "max_5gram_share": 0.0086,
+    "worst": "research/corpus/explainer/VtrcKTkhDHU.md",
+    "source_id": "VtrcKTkhDHU",
+    "source_transcript": "research/corpus/explainer/raw/VtrcKTkhDHU.txt",
+    "vs_source_5gram_share": 0.0,
+    "vs_source_run": 4
+   },
+   "threshold": "corpus: run < 8 and 5-gram share < 2% per source; source: share < 1% and run < 6"
+  },
+  "sameness": {
+   "status": "PASS",
+   "value": {
+    "vs": [],
+    "max": {}
+   },
+   "threshold": "FAIL: title>=0.6 (and subject words >=0.6; template only = WARN), hook>=0.6, same topic, thumb_hamming<=8, script>=0.15, frames_hamming<=10; WARN: beats_ned<=0.1 vs 3+, shot_mix>=0.95, cover_hamming<=8, same subject/source",
+   "detail": "no published history to compare against",
+   "history_mode": "default",
+   "history": []
+  },
+  "source_title": {
+   "status": "PASS",
+   "value": {
+    "title": {
+     "full": 0.355,
+     "content": 0.27,
+     "level": "PASS",
+     "run": 0
+    },
+    "hook": {
+     "full": 0.123,
+     "content": 0.119,
+     "level": "PASS",
+     "run": 0
+    }
+   },
+   "threshold": "title trigram >= 0.6 with the same subject words, or a 5-word run with a subject word, vs the source title = FAIL; same template on another subject = WARN",
+   "detail": "vs source title \"Why The Ocean's Deadliest Predator Refuses To Kill Us\""
+  },
+  "music": {
+   "status": "PASS",
+   "value": "deep_ocean",
+   "threshold": "one of ['deep_ocean', 'documentary_pulse', 'dread', 'tension_pulse'] or none",
+   "detail": "in-house synth bed"
+  },
+  "captions": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "any (the reviewer decides)",
+   "detail": "0 issue(s)"
+  },
+  "safe_area": {
+   "status": "WARN",
+   "value": [
+    {
+     "what": "captions",
+     "bottom_pct": 77.0,
+     "one_line_bottom_pct": 74.6,
+     "scenes": "all"
+    }
+   ],
+   "threshold": "FAIL: screen-fixed text, or a 1-line caption page, ending below 80 % of the height; WARN: anything (2-line captions) below 66 %, or a text layer within 5 % of an edge",
+   "detail": "0 fail, 1 warn (storyboard geometry; camera moves are not modelled)"
+  },
+  "hook": {
+   "status": "PASS",
+   "value": {
+    "words": 10,
+    "first_speech_s": 0.1,
+    "text": "It flips great whites, kills blue whales, and wrecks yachts."
+   },
+   "threshold": "first speech <= 1.0 s (WARN words > hook.max_words 12)"
+  },
+  "disclosure": {
+   "status": "PASS",
+   "value": {
+    "line": "Narration: synthetic AI voice (Kokoro TTS). Animation: original 2D vector art."
+   },
+   "threshold": "AI-voice disclosure in every platform's caption",
+   "detail": "AI-voice line in youtube, tiktok and instagram captions"
+  },
+  "variant": {
+   "status": "PASS",
+   "value": {},
+   "detail": "no variant.json variables"
+  }
+ },
+ "sheets": {
+  "sbs": "out/op-20261101-b-ocean/qa/sbs.jpg",
+  "stills": "out/op-20261101-b-ocean/qa/stills.jpg"
+ },
+ "gate_s": 15.5
+}

@@ -203,8 +203,15 @@ def _gate(r: Runner, slug: str) -> str:
     return "PASS" if code == 0 else "FAIL"
 
 
+def _render_env(cfg: dict):
+    """Render concurrency for studio-make comes from config (budget.render_concurrency, default 2: BRIEF says 2 while
+    another job of ours may run, and run.py allows one light job beside a make). The operator cannot set env vars."""
+    os.environ["CONC"] = str(max(1, min(4, int(cfg["budget"].get("render_concurrency", 2)))))
+
+
 def h_make(r: Runner, st: dict):
     job, cfg = r.job, r.config
+    _render_env(cfg)
     niche = cfg.get("niche", "explainer")
     started = time.time()
     exp = {}
@@ -252,6 +259,7 @@ def h_make(r: Runner, st: dict):
 
 def h_fix(r: Runner, st: dict):
     slug = r.job["slug"]
+    _render_env(r.config)
     notes = f"episodes/{slug}/review_notes.md"
     if not r.dry and r.fake is None and not os.path.exists(os.path.join(paths.ROOT, notes)):
         raise StepFailed(2, f"{notes} missing: the operator writes it before starting a fix job")

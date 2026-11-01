@@ -22,7 +22,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
 def data_dir() -> str:
-    return os.environ.get("STUDIO_DATA_DIR") or os.path.join(ROOT, "data")
+    return os.environ.get("STUDIO_DATA_DIR") or os.environ.get("STUDIO_DATA") or os.path.join(ROOT, "data")
 
 
 def dpath(*parts: str) -> str:

@@ -140,7 +140,10 @@ def beat_plan(dur: float, bm: dict | None, src: dict, src_dur: float | None) -> 
 
 
 def sbs(mp4, dur: float, bm, src: dict, fm: dict, niche: str, source_frames: str = "auto") -> np.ndarray:
-    ids = [src.get("source_id")] + list(fm.get("_references") or [])
+    # Only the episode's own source: its beat times (source.json) mean nothing on another video, so a corpus
+    # neighbour is never substituted when the source MP4 is missing (that showed a jellyfish TikTok under an orca
+    # episode). Episodes without source.json (no beat times) may still fall back to their front-matter references.
+    ids = [src["source_id"]] if src.get("source_id") else list(fm.get("_references") or [])
     sid, svid = source_video(niche, [i for i in ids if i]) if source_frames == "auto" else (src.get("source_id"), None)
     sdur = probe_duration(svid) if svid else None
     plan = beat_plan(dur, bm, src, sdur)
@@ -149,7 +152,7 @@ def sbs(mp4, dur: float, bm, src: dict, fm: dict, niche: str, source_frames: str
         top.append(cell(frames.grab(mp4, t, CW, CH), f"{label} {mmss(t)}", ACC))
         img = frames.grab(svid, st, CW, CH) if svid and st is not None else None
         bottom.append(cell(img, f"SRC {mmss(st)}" if st is not None else "SRC", FG,
-                           note=f"{(sid or 'NO SOURCE')[:14]}"))
+                           note=f"{(sid or 'NO SOURCE')[:14]}" + ("" if svid else " NOT ON DISK")))
     sheet = grid(top + bottom, len(plan))
     head = np.full((30, sheet.shape[1], 3), BG, dtype=np.uint8)
     text(head, 6, 8, f"OURS (TOP) VS SOURCE {sid or '-'} (BOTTOM)"[:max(10, sheet.shape[1] // 12)], FG)

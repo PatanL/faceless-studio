@@ -361,6 +361,11 @@ class Make:
                     pass
 
         pfile = f"/tmp/studio-make-{self.slug}-{name}.md"
+        # every step lost turns to refused ad-hoc Bash (awk, python3 -c, heredocs) in the 2026-11-01 operator dry run
+        bash_ok = [t[5:-1] for t in extra_tools if t.startswith("Bash(")]
+        prompt += ("\n\nTools: the working directory is the repo (no cd needed). Read files with Read/Glob/Grep and "
+                   "change them with Edit/Write; Bash is refused except "
+                   + (", ".join(f"`{b.rstrip(':*')} ...`" for b in bash_ok) if bash_ok else "nothing") + ".\n")
         if LOCAL:
             with open(pfile, "w", encoding="utf-8") as f:
                 f.write(prompt)

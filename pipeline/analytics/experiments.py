@@ -64,9 +64,9 @@ CANDIDATES = {
         ("structure.skeleton", "playbook_ladder", "The PLAYBOOK escalation ladder holds better than the source order", "youtube.avg_view_pct"),
     ],
     "visual": [
-        ("visual.max_hold_s", 2.0, "No visual hold over 2.0 s (vs 3.0) reduces mid-scene drops", "youtube.avg_view_pct"),
+        ("visual.max_hold_s", 2.0, "No visual hold over 2.0 s (vs 3.0) reduces mid-scene drops", "youtube.derived.hold_50pct"),
         ("visual.cover", "eye", "An eye close-up cover/frame 0 beats the scale cover", "youtube.derived.hold_3s"),
-        ("visual.shot_mix", "creature_heavy", "More creature shots, fewer infographics, holds attention", "youtube.avg_view_pct"),
+        ("visual.shot_mix", "creature_heavy", "More creature shots, fewer infographics, holds attention", "youtube.derived.hold_50pct"),
     ],
 }
 SECONDARY = ["youtube.avg_view_pct", "youtube.views@7d"]

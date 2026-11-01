@@ -7,8 +7,12 @@ recently. You write exactly one file, `out/<slug>/qa/review.json`, and nothing e
 
 ## 0. Preconditions (stop if any fails)
 
-- `gate.json` exists, `verdict` is `PASS`, and its `mp4_sha256` equals `sha256sum out/<slug>/<slug>_9x16.mp4`.
-  If not, do not review: write nothing and report "gate not PASS / stale" to the journal.
+- `gate.json` exists and its `mp4_sha256` equals `sha256sum out/<slug>/<slug>_9x16.mp4`. If it is missing or
+  stale, do not review: write nothing and report "gate missing / stale" to the journal.
+- `gate.json` `verdict` is `FAIL`: the verdict can never be PASS. Follow OPERATOR.md 7.2: a FAIL that a fix round
+  can repair (captions, safe area, holds, black/frozen frames, loudness) is `FIX` (round 1), with each failing
+  check as a `must_fix`; an originality, sameness or duration FAIL is `REJECT`. You still write review.json (with
+  `gate_sha`), so the chain moves on; a visual pass is optional.
 - This is round 1, or round 2 after exactly one fix round (`studio-make --from review --review-notes ...` and a
   fresh gate). There is no round 3: a round-2 result other than PASS is `REJECT`.
 

@@ -207,7 +207,8 @@ Spawn one **weekly-notes subagent** (cap **60k**) with `data/learning/LEARNING.m
 - **Balanced arms.** Arms alternate by slot and day (even local day: A = control, B = treatment; odd day:
   swapped), so both arms get both post times and every day yields one same-day pair.
 - **Primary metric** is a retention ratio, never views: `youtube.derived.hold_3s` for hook variables,
-  `youtube.avg_view_pct` for structure and pace, `youtube.derived.hold_50pct` for visual variables. Secondary:
+  `youtube.avg_view_pct` for structure and pace, `youtube.derived.hold_50pct` for visual variables (two exceptions, set in `experiments.CANDIDATES`: `visual.cover` uses `hold_3s`, the cover
+  is what the first seconds show; `structure.ending` uses `youtube.derived.completion`). Secondary:
   `youtube.avg_view_pct` (or hold_3s), normalized 7-d views (8.2), Instagram avg watch time when present.
 
 ### 8.2 Minimum samples and baseline normalization
@@ -280,12 +281,27 @@ that reads images or long files, read log tails, never cat whole JSONL ledgers (
 
 ## 11. Human setup (once; the operator never does these)
 
-1. `~/studio/.env` (mode 600) with the variables in docs/OPERATOR_DESIGN.md 4.5 (`BUFFER_API_KEY`,
-   `BUFFER_CHANNEL_YOUTUBE`/`_TIKTOK`/`_INSTAGRAM`, optional `BUFFER_ORG_ID`, `BUFFER_API_URL`,
-   `PUBLIC_HOST_MODE`, `PUBLIC_BASE_URL`, `CLOUDFLARED_BIN`, `YT_CLIENT_SECRETS_FILE`, `YT_TOKEN_FILE`,
-   `YT_CHANNEL_ID`, `IG_USER_ID`, `IG_ACCESS_TOKEN`, `META_GRAPH_VERSION`, optional `YTDLP_COOKIES_FILE`) plus
+1. `~/studio/.env` (mode 600) with the variables in docs/OPERATOR_DESIGN.md 4.5 plus
    `APPROVAL_MODE=drafts` (the master switch; `auto` only after checking the platforms' AI labels). Without them
-   every CLI runs in dry-run.
+   every CLI runs in dry-run. Checked in the 2026-11-01 dry run (section 13), by account:
+   - **Buffer** (one org with the YouTube, TikTok and Instagram channels connected): `BUFFER_API_KEY` (Buffer >
+     Settings > API, org owner), then `python -m pipeline.publish.buffer channels` lists the ids for
+     `BUFFER_CHANNEL_YOUTUBE`, `BUFFER_CHANNEL_TIKTOK`, `BUFFER_CHANNEL_INSTAGRAM`. Optional: `BUFFER_ORG_ID`,
+     `BUFFER_API_URL`, `BUFFER_YT_CATEGORY_ID` (default 28).
+   - **Public media URL** for Buffer to fetch the MP4: nothing to set for the default (`PUBLIC_HOST_MODE=cloudflared`,
+     `CLOUDFLARED_BIN` defaults to `~/.local/bin/cloudflared`, installed). `static` mode needs `PUBLIC_BASE_URL` and
+     `PUBLIC_MEDIA_DIR`.
+   - **YouTube** (channel account + a Google Cloud project with YouTube Data API v3 and YouTube Analytics API, OAuth
+     client type Desktop app): save the client JSON as `~/studio/secrets/yt_client_secret.json` (or set
+     `YT_CLIENT_SECRETS_FILE`), set `YT_CHANNEL_ID=UC...`, run the consent (step 2) which writes `YT_TOKEN_FILE`
+     (default `~/studio/secrets/yt_token.json`).
+   - **Instagram** (professional account linked to a Facebook Page, Meta app with `instagram_basic` +
+     `instagram_manage_insights`): `IG_USER_ID`, `IG_ACCESS_TOKEN` (long-lived), `META_GRAPH_VERSION`, and
+     `IG_GRAPH_HOST=graph.instagram.com` only for an Instagram-Login token.
+   - **TikTok**: no API. Metrics come from CSVs/screenshots you drop in `data/inbox/tiktok/`
+     (`pipeline/analytics/TIKTOK_IMPORT.md`).
+   - Optional: `YTDLP_COOKIES_FILE` (yt-dlp when YouTube bot-blocks the Spark; also needed to fetch source videos
+     for the side-by-side sheet, see Known gaps), `STUDIO_CLAUDE_MODEL`.
 2. YouTube consent: `python -m pipeline.analytics.youtube auth` over `ssh -L 8765:127.0.0.1:8765 dgx-spark`.
 3. Review `scripts/operator_settings.example.json`, then `cp` it to `~/studio/operator_settings.json` on the Spark.
 4. `scripts/operator_tmux.sh start` (from the Mac or the Spark), then `scripts/install_operator_cron.sh`.
@@ -305,3 +321,66 @@ that reads images or long files, read log tails, never cat whole JSONL ledgers (
   `status` should mark drafts unapproved 6 h after the slot as `missed`.
 - L4: `experiments decide` should apply the counting, normalization and confound rules of 8.2 and record the
   primary metric per dimension as listed in 8.1.
+
+## 13. Dry run of one full cycle (2026-11-01, played by hand)
+
+A Mac session played the operator on the Spark (`~/studio/app`, `STUDIO_LOCAL=1`, `APPROVAL_MODE=drafts`, no
+`~/studio/.env`) and followed sections 3-8. Artifacts: `out/operator-dryrun/` (MP4, `qa/` gate + sheets + review,
+`publish/captions.json`, `ledgers/`).
+
+| Step | Result |
+|---|---|
+| Resume | `state init`, `heartbeat --resume`, `reconcile`. Crons were not armed: CronCreate only means something inside the real tmux session |
+| Tick 1, `run auto` | `20261101-a-make` skipped (too late), `20261101-b-make` started: `experiments assign` gave no experiment, `sources pick` gave **VtrcKTkhDHU** (OctoLab, "Why The Ocean's Deadliest Predator Refuses To Kill Us", 8.29M views, outlier x318.8, a 34-min long-form) |
+| make | `op-20261101-b-ocean`, 21.3 min, 0.98M weighted tokens ($6.24): script 234 words, originality PASS (vs source: run 4, 0 % 5-grams), TTS 93.5 s, shots, storyboard PASS, in-make review, render 160 s at **concurrency 2**, package, thumbs |
+| gate r1 | **FAIL** `black_frames` (a 0.9 s "WHY?" card on black at 6.6 s); WARN duration 93.5 s, captions (one 5-word page), safe_area (captions at 77 %) |
+| review r1 | **FIX**, viewer 72 (hook 8, clarity 7, pacing 7, visual 6): black card, 5-word page, a seal drawn as a ring |
+| fix | 5.5 min, +0.32M tokens (make total 1.30M, $7.95). Gate r2 **PASS** (2 WARN: duration, safe_area) |
+| review r2 | **PASS**, viewer 76 (hook 8, clarity 8, pacing 7, visual 7), no must_fix |
+| publish | detached `publish.post`, all 3 platforms `draft`, `--slot-at 2026-11-02T00:30Z` (18:30 local). DRY-RUN (no Buffer key), 3 `dry_run` rows in `data/posts.jsonl` with the full GraphQL payloads; HUMAN.md entry written by the code |
+| analytics | `collect --post-key ... --window 48h|7d` for YouTube and Instagram wrote synthetic rows; `align op-20261101-b-ocean --window 7d` named the top drops (p05 RUNG1 27.6 s, p09 PEAK 57.5 s, p01 HOOK 2.3 s); `heatmap VtrcKTkhDHU --align` fetched the source's real Most-replayed curve; `killrule`: insufficient (0/30) |
+| learning | `analytics.learning` wrote `data/learning/2026-W44.md` + LEARNING.md; operator notes added; proposed (not opened) `hook.max_words` 12 -> 8, primary `youtube.derived.hold_3s` |
+
+Small fixes made during the run: render concurrency now comes from config (`budget.render_concurrency`, default 2;
+the operator cannot set `CONC`); `STUDIO_DATA` and `STUDIO_DATA_DIR` are aliases in every lane; the side-by-side
+sheet no longer substitutes a corpus neighbour's video (it showed a jellyfish TikTok under the orca episode) when
+the source MP4 is missing; word target 180-210 (234 words ran 93.5 s); the shots prompt forbids black cards over
+0.45 s; REVIEW_PROMPT now says what to do on a gate FAIL (it said "write nothing", which stalled the chain);
+visual experiments use `hold_50pct` as 8.1 says; every `claude -p` step is told which Bash commands it may run (each
+step lost turns to refused ad-hoc Bash).
+
+The dry-run rows stay in the Spark ledgers: they are all `dry_run`/`synthetic` and every reader skips them. The
+source VtrcKTkhDHU is marked picked, so the live loop will not reuse it. To start from a clean operator state anyway:
+`mv data/operator data/operator.dryrun-20261101` on the Spark before the first `operator_tmux.sh start`.
+
+## Known gaps
+
+Found in the 2026-11-01 dry run and too big to fix in passing. Each needs a decision or a lane change on the Mac.
+
+1. **The picker prefers long-form sources.** The score's `1.5 * log10(outlier)` dwarfs the `+0.5` Shorts bonus, so
+   the first pick was a 34-min video. Its pacing (120 wpm, re-hook every 30 s) does not transfer to a 75-s Short; only
+   the angle and beat order did. Decide whether to restrict `--source` picks to Shorts/TikToks or cap the outlier term
+   for long-form (`pipeline/sources.py` `score`).
+2. **The source video is not on disk, so the side-by-side is blind.** Picks don't download the source into
+   `~/studio/refs/explainer/`; `sbs.jpg` now shows "NOT ON DISK" labels and the reviewer's `vs_source` is
+   structural only. Needs a low-res fetch in the source step under `ytdlp.lock` (YouTube bot-blocks full downloads
+   from the Spark: `YTDLP_COOKIES_FILE`).
+3. **Topic keys are too generic.** The orca video's topic is "ocean" (kit-fit matched the background), so the slug is
+   `op-...-ocean` and the same-topic dedupe and sameness `topic` check would not catch a second orca video. The topic
+   should come from the subject creature (the script's or annotation's subject), not the background.
+4. **Runtime above 90 s only WARNs,** yet experiments count 61-90 s videos only, so such a video is a wasted
+   sample. The word target is lowered, but a fix round cannot shorten a script. Consider a gate FAIL above 90 s for
+   `op-*` episodes, or a `--from script` path in the fix job.
+5. **A dry cycle cannot be isolated.** `pipeline/sources.py` and `pipeline/qa` use `<repo>/data` directly (no
+   `STUDIO_DATA`), so a rehearsal writes the real `sources.jsonl` and operator state.
+6. **Dry-run posts never create status or metrics jobs** (only `published` posts do), so the analytics chain runs only
+   by hand until real posts exist. The first live week is its real test.
+7. **Session crons are untested.** The `tick`/`make-a`/`make-b` CronCreate re-arm only works inside the real tmux
+   session; check `state show --brief` crons after the first `operator_tmux.sh start`.
+8. **`claude -p` JSON results are dumped into `make.log`** (several KB per call), which crowds out the 150-line
+   tail that the triage job reads. Log only `result` and usage.
+9. **The in-make review round misses what the gate and the operator catch.** It looks at stills only, so it let
+   through a 0.9 s black card (between two stills) and a seal drawn as a ring. Expect about one fix round per video
+   (+0.3M tokens, +6 min) until it also reads the gate's black/caption checks.
+10. **Cost per video** in this run: 1.30M weighted tokens ($7.95 at list price) for make + fix, plus ~75k for the
+    operator's reviews. Two a day is about 2.7M/day and 19M/week, inside the 40M weekly cap.

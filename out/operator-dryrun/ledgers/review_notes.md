@@ -1,0 +1,3 @@
+- t 6.6 s, p02: Keep the WHY? beat but fade the black rect out by @Why+0.3 (black <= 0.45 s), or drop the rect and put the WHY? headline over the dark Ocean background; nothing else in p02 changes.
+- t 5.17 s, p01: Split the page so no page has more than 4 words (break before 'it has never hunted you').
+- t 69.0 s, p10: Replace the ring svg with explainer/Seal at the same pxPerM as the YOU skeleton (true scale) and keep the SEAL tag under it.

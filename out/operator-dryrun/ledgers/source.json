@@ -1,0 +1,326 @@
+{
+ "v": 1,
+ "source_id": "VtrcKTkhDHU",
+ "url": "https://www.youtube.com/watch?v=VtrcKTkhDHU",
+ "platform": "youtube",
+ "format": "long",
+ "title": "Why The Ocean's Deadliest Predator Refuses To Kill Us",
+ "channel": "OctoLab",
+ "views": 8289332,
+ "outlier_score": 318.82,
+ "duration_s": 2022,
+ "picked_at": "2026-11-01T20:46:07Z",
+ "pick": {
+  "rank": null,
+  "score": 11.674,
+  "reasons": [
+   "views 8,289,332",
+   "outlier 318.82",
+   "kit_fit:Ocean 0.4",
+   "transcript",
+   "corpus"
+  ],
+  "candidates_considered": 60
+ },
+ "topic": "ocean",
+ "kit_component": "explainer/Ocean",
+ "corpus_file": "research/corpus/explainer/VtrcKTkhDHU.md",
+ "transcript_file": "research/corpus/explainer/raw/VtrcKTkhDHU.txt",
+ "annotation": "research/corpus/explainer/INDEX.json",
+ "angle": "An unnamed apex ocean predator that can destroy anything has never hunted a human in the wild; the video builds its power, mind and family life before answering why, then reverses: humans broke the truce.",
+ "hook": {
+  "code": "H6",
+  "shape": "Unnamed predator paradox",
+  "first_speech_s": 8.0,
+  "words": 8,
+  "source_first_line_words": 8
+ },
+ "beats": [
+  {
+   "i": 0,
+   "label": "SPECTACLE",
+   "playbook": "S1",
+   "t0": 0,
+   "t1": 8,
+   "pct0": 0.0,
+   "pct1": 0.4,
+   "device": "silent cold open",
+   "purpose": ""
+  },
+  {
+   "i": 1,
+   "label": "HOOK",
+   "playbook": "S1",
+   "t0": 8,
+   "t1": 49,
+   "pct0": 0.4,
+   "pct1": 2.4,
+   "device": "unnamed subject + rising triple of feats + 'yet never' paradox + why-question on black + transformation promise",
+   "purpose": ""
+  },
+  {
+   "i": 2,
+   "label": "CHAPTER CARD",
+   "playbook": null,
+   "t0": 49,
+   "t1": 64,
+   "pct0": 2.4,
+   "pct1": 3.2,
+   "device": "",
+   "purpose": ""
+  },
+  {
+   "i": 3,
+   "label": "SETUP",
+   "playbook": "S2",
+   "t0": 64,
+   "t1": 324,
+   "pct0": 3.2,
+   "pct1": 16.0,
+   "device": "myth-bust of name + weapons inventory, plants details",
+   "purpose": ""
+  },
+  {
+   "i": 4,
+   "label": "ESC",
+   "playbook": "S3",
+   "t0": 324,
+   "t1": 707,
+   "pct0": 16.0,
+   "pct1": 35.0,
+   "device": "power: prey ladder paying hook items 1 and 2, then tactics",
+   "purpose": ""
+  },
+  {
+   "i": 5,
+   "label": "ESC",
+   "playbook": "S3",
+   "t0": 707,
+   "t1": 939,
+   "pct0": 35.0,
+   "pct1": 46.4,
+   "device": "mind: brain, empathy, dialects, culture",
+   "purpose": ""
+  },
+  {
+   "i": 6,
+   "label": "ESC",
+   "playbook": "S3",
+   "t0": 939,
+   "t1": 1198,
+   "pct0": 46.4,
+   "pct1": 59.2,
+   "device": "heart: matriarchy, grief story, explicit re-hook to master loop",
+   "purpose": ""
+  },
+  {
+   "i": 7,
+   "label": "REVEAL",
+   "playbook": "S6",
+   "t0": 1198,
+   "t1": 1523,
+   "pct0": 59.2,
+   "pct1": 75.3,
+   "device": "the answer: 2P face-to-face scene, sonar mechanism, near-miss story, counter-evidence, one-line rule closes master loop",
+   "purpose": ""
+  },
+  {
+   "i": 8,
+   "label": "TWIST/REVERSAL",
+   "playbook": "S6",
+   "t0": 1523,
+   "t1": 1852,
+   "pct0": 75.3,
+   "pct1": 91.6,
+   "device": "captivity: humans broke the treaty, decline ladder, 1-2-3 incident countdown",
+   "purpose": ""
+  },
+  {
+   "i": 9,
+   "label": "CLOSE",
+   "playbook": "S7",
+   "t0": 1852,
+   "t1": 1995,
+   "pct0": 91.6,
+   "pct1": 98.7,
+   "device": "present threats, question upgrade, 2P bookend, one-line moral",
+   "purpose": ""
+  },
+  {
+   "i": 10,
+   "label": "END SCREEN",
+   "playbook": null,
+   "t0": 1995,
+   "t1": 2022,
+   "pct0": 98.7,
+   "pct1": 100.0,
+   "device": "visual CTA only",
+   "purpose": ""
+  }
+ ],
+ "pacing": {
+  "wpm": 120,
+  "avg_shot_s": null,
+  "rehook_s": 30.0
+ },
+ "skeleton": [
+  {
+   "i": 0,
+   "label": "HOOK",
+   "playbook": "S1",
+   "from_beats": [
+    0,
+    1
+   ],
+   "target_pct0": 0,
+   "target_pct1": 5.0,
+   "target_s": [
+    0.0,
+    3.8
+   ],
+   "device": "silent cold open + unnamed subject + rising triple of feats + 'yet never' paradox + why-question on black + transformation promise"
+  },
+  {
+   "i": 1,
+   "label": "STAKES",
+   "playbook": "S2",
+   "from_beats": [
+    3
+   ],
+   "target_pct0": 5,
+   "target_pct1": 18.0,
+   "target_s": [
+    3.8,
+    13.5
+   ],
+   "device": "myth-bust of name + weapons inventory, plants details"
+  },
+  {
+   "i": 2,
+   "label": "RUNG1",
+   "playbook": "S3",
+   "from_beats": [
+    4
+   ],
+   "target_pct0": 18,
+   "target_pct1": 31.1,
+   "target_s": [
+    13.5,
+    23.3
+   ],
+   "device": "power: prey ladder paying hook items 1 and 2, then tactics"
+  },
+  {
+   "i": 3,
+   "label": "RUNG2",
+   "playbook": "S3",
+   "from_beats": [
+    5
+   ],
+   "target_pct0": 31.1,
+   "target_pct1": 39.1,
+   "target_s": [
+    23.3,
+    29.3
+   ],
+   "device": "mind: brain, empathy, dialects, culture"
+  },
+  {
+   "i": 4,
+   "label": "RUNG3",
+   "playbook": "S3",
+   "from_beats": [
+    6
+   ],
+   "target_pct0": 39.1,
+   "target_pct1": 48.0,
+   "target_s": [
+    29.3,
+    36.0
+   ],
+   "device": "heart: matriarchy, grief story, explicit re-hook to master loop"
+  },
+  {
+   "i": 5,
+   "label": "TURN",
+   "playbook": "S4",
+   "from_beats": [],
+   "target_pct0": 48,
+   "target_pct1": 54.0,
+   "target_s": [
+    36.0,
+    40.5
+   ],
+   "device": "4-7 word false reassurance or 'not the worst part' line, background change on the next word (PLAYBOOK default)"
+  },
+  {
+   "i": 6,
+   "label": "PEAK",
+   "playbook": "S5",
+   "from_beats": [],
+   "target_pct0": 54,
+   "target_pct1": 75.0,
+   "target_s": [
+    40.5,
+    56.2
+   ],
+   "device": "the worst outcome or the big reveal, through a joke or a euphemism (PLAYBOOK default)"
+  },
+  {
+   "i": 7,
+   "label": "TWIST",
+   "playbook": "S6",
+   "from_beats": [
+    7
+   ],
+   "target_pct0": 75,
+   "target_pct1": 83.5,
+   "target_s": [
+    56.2,
+    62.6
+   ],
+   "device": "the answer: 2P face-to-face scene, sonar mechanism, near-miss story, counter-evidence, one-line rule closes master loop"
+  },
+  {
+   "i": 8,
+   "label": "TWIST",
+   "playbook": "S6",
+   "from_beats": [
+    8
+   ],
+   "target_pct0": 83.5,
+   "target_pct1": 92.0,
+   "target_s": [
+    62.6,
+    69.0
+   ],
+   "device": "captivity: humans broke the treaty, decline ladder, 1-2-3 incident countdown"
+  },
+  {
+   "i": 9,
+   "label": "STINGER",
+   "playbook": "S7",
+   "from_beats": [
+    9
+   ],
+   "target_pct0": 92,
+   "target_pct1": 100.0,
+   "target_s": [
+    69.0,
+    75.0
+   ],
+   "device": "present threats, question upgrade, 2P bookend, one-line moral"
+  }
+ ],
+ "target": {
+  "runtime_s": [
+   65,
+   85
+  ],
+  "words": [
+   200,
+   235
+  ]
+ },
+ "heatmap_file": null
+}

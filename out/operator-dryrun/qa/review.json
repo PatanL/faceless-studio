@@ -1,0 +1,29 @@
+{
+ "v": 1,
+ "slug": "op-20261101-b-ocean",
+ "at": "2026-11-01T21:18:04Z",
+ "round": 2,
+ "verdict": "PASS",
+ "viewer_score": 76,
+ "scores": {
+  "hook": 8,
+  "clarity": 8,
+  "pacing": 7,
+  "visual": 7,
+  "vs_source": "same"
+ },
+ "must_fix": [],
+ "nice_to_have": [
+  "Duration 93.5 s (gate WARN > 90 s): this video falls outside the 61-90 s window experiments compare. The word target is now 180-210 for the next makes.",
+  "The headline still repeats the caption at 50 s (NOT EXACTLY / NOT EXACTLY).",
+  "Captions sit at 77 % height in every scene (gate WARN safe_area). That is the kit-wide caption y.",
+  "p07 grief beat (42-46 s) is a lone orca with a 2018 tag. A visible calf would carry the story better.",
+  "vs_source is structural only: the source VtrcKTkhDHU is not on disk, so the source row of sbs.jpg is labels only. Round-1 must-fixes all landed: no black run, no 5-word page, the seal is the kit Seal."
+ ],
+ "files_viewed": [
+  "out/op-20261101-b-ocean/qa/stills.jpg",
+  "out/op-20261101-b-ocean/qa/sbs.jpg"
+ ],
+ "gate_sha": "71e0661d5473bb08dd3f4d86d379366565f906b1340f8b155f9fdcfd31f03919",
+ "tokens_estimate": 30000
+}
