@@ -1,0 +1,22 @@
+{
+  "name": "polish-bench",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Render-cost micro-bench for the polish techniques in docs/POLISH_IDEAS.md (Spark CPU, swangle)",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/effects": "4.0.539",
+    "@remotion/motion-blur": "4.0.539",
+    "@remotion/noise": "4.0.539",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}
