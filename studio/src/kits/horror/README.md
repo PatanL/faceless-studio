@@ -69,3 +69,11 @@ Scene cuts can use the core `glitch`, `dipBlack` or `whip` transitions.
 Burned-in captions come from the core caption track. The style used in the showcase, at the top of the frame and clear of the phone:
 `{"fontSize": 76, "highlight": "#ff4b55", "uppercase": false, "strokeWidth": 12, "y": 0.15}`, `maxWords` 3, `maxChars` 16.
 In phone scenes, keep `HandPhone.cy` at about 0.585 so the caption has room above the phone.
+
+### Inserts and punch-in helpers (horror-pinned-rules fix round 3)
+
+- `horror/LightSwitch` (full-frame insert): lamp-lit wall plate, Nora's hand reaches in from the lower right and flicks the
+  rocker down at `at`; the wall drops from warm to blue-black. Props: `at`, `reach` (0.4 s), `withdraw` (0.55 s), `on` (lamp colour).
+- `horror/TopFade` (overlay, depth 0, z below cutaways): darkens the top `height` (0.3) of the screen during `windows`
+  [{at, until}] so the text row cut by a chat punch-in's top edge falls into shadow; the caption pill sits on it.
+- `horror/Phone` chat list fades its top 120 px, so older rows dissolve under the header / pinned bar instead of being sliced.

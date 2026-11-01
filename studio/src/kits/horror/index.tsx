@@ -7,6 +7,7 @@ import {FeaturePhone} from './FeaturePhone';
 import {EndCard} from './EndCard';
 import {Darkness, Flicker, GlitchOverlay, Heartbeat, RedText, VignetteFx, withGlitch} from './fx';
 import {HandPhone} from './HandPhone';
+import {LightSwitch, TopFade} from './LightSwitch';
 import {Phone} from './Phone';
 
 // devices
@@ -33,3 +34,6 @@ registerComponent('horror/Glitch', GlitchOverlay);
 registerComponent('horror/RedText', RedText);
 registerComponent('horror/Darkness', Darkness);
 registerComponent('horror/EndCard', EndCard);
+registerComponent('horror/TopFade', TopFade);
+// inserts
+registerComponent('horror/LightSwitch', LightSwitch);

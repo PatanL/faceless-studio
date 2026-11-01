@@ -272,7 +272,16 @@ const ChatScreen: React.FC<{c: Record<string, unknown>; t: number}> = ({c, t}) =
 				</div>
 				{pinned ? <PinnedBar p={pinned} t={t} th={th} s={sc} /> : null}
 			</div>
-			<div style={{flex: 1, position: 'relative', overflow: 'hidden'}}>
+			{/* message list: older rows fade out under the header / pinned bar instead of being sliced by its edge */}
+			<div
+				style={{
+					flex: 1,
+					position: 'relative',
+					overflow: 'hidden',
+					WebkitMaskImage: 'linear-gradient(to bottom, transparent 0px, #000 120px)',
+					maskImage: 'linear-gradient(to bottom, transparent 0px, #000 120px)',
+				}}
+			>
 				<div style={{position: 'absolute', left: 0, right: 0, bottom: 16, display: 'flex', flexDirection: 'column', transform: `translateY(${shove}px)`}}>
 					{str(c.dayLabel, '') ? (
 						<div style={{alignSelf: 'center', fontFamily: FONT, fontWeight: 700, fontSize: 19 * Math.min(sc, 1.3), color: th.dayText, background: th.dayBg, padding: '6px 16px', borderRadius: 14, marginBottom: 6}}>{str(c.dayLabel, '')}</div>
