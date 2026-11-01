@@ -39,7 +39,7 @@ Hard rules:
   separated), references: the SOURCE first (id, url, views, outlier_score, why_chosen), then 1-2 corpus neighbours.
   Then a beat alignment table (our paragraph -> skeleton beat -> source beat + its timestamp + device borrowed),
   "Facts to verify" with a real source per fact, and shot notes per paragraph naming the kit components.
-- The narration goes in ONE fenced ```narration block. One paragraph = one scene. 11-14 paragraphs, 210-260 spoken words
+- The narration goes in ONE fenced ```narration block. One paragraph = one scene. 11-14 paragraphs, 200-235 spoken words
   (runtime 65-85 s; never under 61 s), each paragraph 1-3 sentences / 4-9 s of speech. Hook <= 12 words unless the
   variant says otherwise, second person or the source's hook shape, subject on screen in frame 1. No CTA, no
   "subscribe"; the last line calls back to the hook so the Short loops (unless the variant sets another ending).

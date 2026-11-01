@@ -666,8 +666,9 @@ class Make:
         else:
             self.run(["rsync", "-a", f"{HOST}:{REMOTE}/studio/out/{self.slug}/{self.slug}_sheet.jpg", self.out + "/"],
                      check=False, quiet=True)
-        dur = self.run(["bash", "-c", f"ffprobe -v error -show_entries format=duration -of csv=p=0 {shlex.quote(mp4)} "
-                                      f"2>/dev/null || true"], check=False, quiet=True).strip()
+        rel_mp4 = os.path.relpath(mp4, ROOT) if LOCAL else f"studio/out/{name}"
+        dur = (self.spark(f"ffprobe -v error -show_entries format=duration -of csv=p=0 {shlex.quote(rel_mp4)} 2>/dev/null || true",
+                          check=False, quiet=True) or "").strip()
         try:
             dur = round(float(dur.splitlines()[-1]), 2)
         except (ValueError, IndexError):

@@ -93,7 +93,7 @@ HOOK_BY_ID = {
     "SDs41Ke3v4Q": "H19", "thtoMGvpWIU": "H20", "UfbYyHuVx5M": "H21",
 }
 TARGET_RUNTIME = (65, 85)
-TARGET_WORDS = (210, 260)
+TARGET_WORDS = (200, 235)  # Kokoro am_michael ~172 wpm at speed 1.0 + paragraph pauses: 246 words ran 91.7 s
 KOKORO_WPM_AT_1 = 172  # am_michael at speed 1.0 measured on explainer-giant-pacific-octopus (247 words / 86.1 s)
 VS_SOURCE_RUN = 6       # FAIL if a 6-word run is shared with the source transcript (stricter than the general 8)
 VS_SOURCE_SHARE = 0.01  # FAIL if >= 1 % of our 5-grams are in the source transcript
