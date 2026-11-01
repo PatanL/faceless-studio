@@ -12,7 +12,7 @@ Read first (in this order, skim the long ones):
 4. A finished example of the file format: backlog/explainer/explainer-short-cookiecutter-shark/script.md
 5. studio/src/kits/explainer/README.md (what the kit can draw). Plan visuals the kit already has: creatures
    SpermWhale ColossalSquid Orca GreatWhite BlueWhale Anglerfish Octopus Crocodile Hippo Grizzly Seal Diver You Bus Car
-   Elephant GolfCart Jet Sauropod Krill WhaleHeart, plus Map, DepthMeter, ScaleBar, Stat, Timer, Options, SpeedBars,
+   Elephant GolfCart Jet Sauropod Krill WhaleHeart Cookiecutter, plus Map, DepthMeter, ScaleBar, Stat, Timer, Options, SpeedBars,
    Headline, Tag, HeightChart, Balance, ECG, Sailboat. A creature the kit lacks may be a simple inline SVG shape, so
    keep it to one simple silhouette, and say so in the shot notes.
 

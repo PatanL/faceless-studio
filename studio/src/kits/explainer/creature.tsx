@@ -6,9 +6,10 @@ import {MARINE} from './marine';
 import {PEOPLE} from './people';
 import {ANATOMY} from './anatomy';
 import {ORCA_KIT_FIGURES} from './orca_kit';
+import {SMALL_SHARKS} from './smallsharks';
 import {bool, num, safeId, str} from './util';
 
-export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY, ...ORCA_KIT_FIGURES};
+export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY, ...ORCA_KIT_FIGURES, ...SMALL_SHARKS};
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
 const ALIASES: Record<string, string> = {

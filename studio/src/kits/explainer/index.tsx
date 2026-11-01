@@ -48,6 +48,7 @@ const FIXED: Record<string, string> = {
 	Krill: 'krill',
 	Seal: 'seal',
 	Liver: 'liver',
+	Cookiecutter: 'cookiecutter',
 };
 for (const [name, species] of Object.entries(FIXED)) registerComponent(`explainer/${name}`, fixed(species));
 

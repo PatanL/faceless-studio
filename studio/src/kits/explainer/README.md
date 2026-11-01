@@ -42,6 +42,7 @@ Built-in idle motion (tail/fluke travelling wave, tentacle waves, fin kicks, lur
 | `Bus` / `Car` / `Elephant` | 12 / 4.5 / 3.3 m tall | `text` (bus), `color` (car) |
 | `Seal` | 1.6 m (harbour seal) | |
 | `Liver` | organ icon | (pair with a red glow / `shadow`) |
+| `Cookiecutter` | 0.5 m (smallsharks.tsx) | `glow` (0..1 or track: green belly photophores), `collar` (dark band, true), `mouth` ("closed"/"open") |
 
 `Orca` extras (orca_kit.tsx): `pose: "top"` (top-down, flukes sway sideways), `pose: "head"` (head-on, flippers flap),
 `finScale` (dorsal fin height; 1.5 = adult male ~1.8 m).

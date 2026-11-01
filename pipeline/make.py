@@ -48,6 +48,7 @@ ENV = ("export CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=4 MKL_NUM_THREADS=2 OPENB
        "source ~/studio/app/scripts/spark_env.sh >/dev/null 2>&1; cd ~/studio/app")
 TOOLS = ["Read", "Write", "Edit", "Glob", "Grep"]
 EXAMPLE_THUMBS = {"explainer": "explainer-blue-whale", "horror": "horror-pinned-rules"}
+PILOT = {"explainer": "explainer-orca", "horror": "horror-pinned-rules"}  # out/pilots/<x>/{titles,description}.md
 
 
 class Fail(SystemExit):
@@ -196,14 +197,15 @@ class Make:
     def stills_times(self) -> list[float]:
         sb = json.load(open(os.path.join(self.ep, "storyboard.json")))
         ts, t = [0.0], 0.0
-        for s in sb["scenes"]:
-            ts.append(round(t + s["duration"] * 0.6, 2))
+        for s in sb["scenes"]:  # two stills per scene: after its first beat and near its end
+            ts += [round(t + s["duration"] * 0.35, 2), round(t + s["duration"] * 0.85, 2)]
             t += s["duration"]
         ts.append(round(t - 0.1, 2))
         return ts
 
     def step_review(self):
-        for r in range(self.a.review_rounds):
+        done = len([f for f in os.listdir(self.out) if f.startswith("review_r")])
+        for r in range(done, done + self.a.review_rounds):
             ts = self.stills_times()
             sheet = f"out/{self.slug}/review_r{r + 1}.jpg"
             self.run(["scripts/spark_stills.sh", f"episodes/{self.slug}/storyboard.json", ",".join(map(str, ts)), sheet],
@@ -234,7 +236,12 @@ class Make:
 
     def step_package(self):
         self.sync()
-        self.claude(self.fill("package.md", example=EXAMPLE_THUMBS[self.niche]), "package", timeout=1200)
+        # out/ is not synced to the Spark: hand the pilot's titles/description to the prompt inline
+        pilot = os.path.join(ROOT, "out", "pilots", PILOT[self.niche])
+        ex = {k: (open(os.path.join(pilot, f"{k}.md")).read()[:6000] if os.path.exists(os.path.join(pilot, f"{k}.md"))
+                  else "(missing)") for k in ("titles", "description")}
+        self.claude(self.fill("package.md", example=EXAMPLE_THUMBS[self.niche], titles_example=ex["titles"],
+                              description_example=ex["description"]), "package", timeout=1200)
         self.pull(*(f"episodes/{self.slug}/{f}" for f in ("titles.md", "description.md", "thumbs.json")))
         missing = [f for f in ("titles.md", "description.md", "thumbs.json") if not os.path.exists(os.path.join(self.ep, f))]
         if missing:

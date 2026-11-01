@@ -186,7 +186,7 @@ def layout_warnings(scenes: list[dict], fmt: str = "9:16") -> list[str]:
 
 
 FIGURE_NAMES = {f"explainer/{n}" for n in ("SpermWhale ColossalSquid Orca GreatWhite BlueWhale Anglerfish Octopus Crocodile "
-                                           "Hippo Grizzly Diver You Bus Car Elephant GolfCart Sauropod Jet Seal").split()}
+                                           "Hippo Grizzly Diver You Bus Car Elephant GolfCart Sauropod Jet Seal Cookiecutter").split()}
 
 
 def zod_validate(path: str) -> tuple[bool, str]:

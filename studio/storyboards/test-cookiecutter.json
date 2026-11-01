@@ -1,0 +1,79 @@
+{
+ "version": 1,
+ "id": "test-cookiecutter",
+ "title": "t",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "a",
+   "duration": 2,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "props": {
+     "depth": 300,
+     "rays": 5
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "30%",
+     "width": 1000,
+     "height": 260,
+     "props": {
+      "glow": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Cookiecutter",
+     "x": "50%",
+     "y": "50%",
+     "width": 600,
+     "height": 160,
+     "props": {
+      "mouth": "open",
+      "glow": 0.3
+     },
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Creature",
+     "x": "30%",
+     "y": "65%",
+     "width": 400,
+     "height": 200,
+     "props": {
+      "species": "cookiecutter",
+      "pxPerM": 400
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "70%",
+     "y": "65%",
+     "width": 1100,
+     "height": 300,
+     "props": {
+      "pxPerM": 400
+     }
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": false,
+  "words": []
+ },
+ "audio": {
+  "voice": [],
+  "music": [],
+  "sfx": []
+ }
+}
