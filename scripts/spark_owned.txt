@@ -1,0 +1,13 @@
+# Paths the Spark owns (operator data, runtime outputs). One rsync pattern per line, anchored at the repo root.
+# scripts/spark_sync.sh never pushes them from the Mac and protects them from --delete (F25, F26);
+# scripts/pull_ops.sh pulls them back to the Mac. Blank lines and '#' comments are ignored.
+/data/
+/episodes/op-*/
+/research/corpus/*/auto/
+/research/library.jsonl
+/research/library.state.json
+/research/daily/
+/studio/public/episodes/
+/studio/public/music/*.wav
+/episodes/*/audio/
+/out/

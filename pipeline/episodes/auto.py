@@ -30,7 +30,13 @@ itemAt / hits / beats / taps lists), a string anchor may replace the number; it 
   "@bus+0.3"      offset in seconds (also -0.2), combinable: "@bus#2.end-0.1"
   "@:start" 0     "@:end" scene duration    "@:first" first word    "@:last" end of the last word
   "@:40%"         a fraction of the scene duration
-Anchors on non-time keys are resolved too when they match a spoken word, and otherwise left as text.
+Anchors resolve only under those time keys and time lists (F05). Anywhere else a string starting with "@" is
+text (chat handles such as "@Mom", "@Admin who is member #41?") and is left alone.
+Anchor grammar: ^@[\\w'*-]+(#\\d+)?(\\.end)?([+-][\\d.]+)?$ or the specials above; anything else is an error.
+
+The new storyboard is written to storyboard.json.tmp, zod-validated, and only then moved over storyboard.json, so a
+failed build always leaves the last good storyboard in place (F03). On the Spark (STUDIO_LOCAL=1, or
+STUDIO_REQUIRE_ZOD=1, or a checkout at ~/studio/app) a missing zod/node is a failure, not a skip (F08).
 """
 from __future__ import annotations
 
@@ -45,9 +51,14 @@ import sys
 
 from .common import ROOT, Scene, load, norm, storyboard
 
-TIME_KEYS = {"at", "t", "start", "end", "out", "until", "editAt", "connectedAt", "readAt", "seenAt", "from_t"}
-TIME_LISTS = {"itemAt", "hits", "beats", "taps", "times"}
+TIME_KEYS = {"at", "t", "start", "end", "out", "until", "editAt", "connectedAt", "readAt", "seenAt", "from_t", "stampAt"}
+TIME_LISTS = {"itemAt", "hits", "beats", "taps", "times", "talk"}
+# keys that are a time in some components (Heartbeat/Flicker "from") and text in others (EndCard "from": "June (3B)",
+# chat messages): an anchor there resolves only if it is well-formed, spoken, and not inside a dict with "text"
+AMBIGUOUS_TIME_KEYS = {"from"}
 ANCHOR = re.compile(r"^@(?P<body>.+?)(?P<off>[+-]\d+(?:\.\d+)?)?$")
+WORD_ANCHOR = re.compile(r"^@[\w'*-]+(#\d+)?(\.end)?([+-][\d.]+)?$")
+SPECIAL_ANCHOR = re.compile(r"^@:(start|end|first|last|\d+(\.\d+)?%)([+-][\d.]+)?$")
 NICHE_DEFAULT_BG = {
     "explainer": {"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2,
                   "props": {"depth": 30, "rays": 7, "snow": 60}},
@@ -60,7 +71,10 @@ class AnchorError(Exception):
 
 
 def resolve_anchor(s: Scene, a: str) -> float:
-    m = ANCHOR.match(a.strip())
+    a = a.strip()
+    if not (WORD_ANCHOR.match(a) or SPECIAL_ANCHOR.match(a)):
+        raise AnchorError(f"bad anchor {a!r} (grammar: @word[#n][.end][+-s] or @:start|end|first|last|NN%)")
+    m = ANCHOR.match(a)
     if not m:
         raise AnchorError(f"bad anchor {a!r}")
     body, off = m.group("body"), float(m.group("off") or 0)
@@ -85,6 +99,8 @@ def resolve_anchor(s: Scene, a: str) -> float:
     nth = 1
     if "#" in body:
         body, n = body.rsplit("#", 1)
+        if not n.isdigit() or int(n) < 1:
+            raise AnchorError(f"anchor {a!r}: '#{n}' is not a 1-based occurrence number")
         nth = int(n)
     try:
         return s.at(body, nth=nth - 1, end=end, off=off)
@@ -96,18 +112,28 @@ def resolve_anchor(s: Scene, a: str) -> float:
 def resolve(obj, s: Scene, errors: list, path: str, key: str | None = None, in_time_list: bool = False):
     """Recursively replace anchor strings with numbers. Errors on unresolved anchors under time keys."""
     if isinstance(obj, dict):
-        return {k: resolve(v, s, errors, f"{path}.{k}", k, k in TIME_LISTS) for k, v in obj.items()}
+        out = {}
+        for k, v in obj.items():
+            if k in AMBIGUOUS_TIME_KEYS and isinstance(v, str):
+                out[k] = v
+                if v.startswith("@") and "text" not in obj:
+                    try:
+                        out[k] = resolve_anchor(s, v)
+                    except AnchorError:
+                        pass
+                continue
+            out[k] = resolve(v, s, errors, f"{path}.{k}", k, k in TIME_LISTS)
+        return out
     if isinstance(obj, list):
         return [resolve(v, s, errors, f"{path}[{i}]", key, in_time_list) for i, v in enumerate(obj)]
-    if isinstance(obj, str) and obj.startswith("@") and len(obj) > 1:
-        timey = key in TIME_KEYS or in_time_list
+    timey = key in TIME_KEYS or in_time_list
+    if timey and isinstance(obj, str) and obj.startswith("@") and len(obj) > 1:
         try:
             return resolve_anchor(s, obj)
         except AnchorError as e:
-            if timey:
-                errors.append(f"{path}: {e}")
+            errors.append(f"{path}: {e}")
             return obj
-    if (key in TIME_KEYS or in_time_list) and isinstance(obj, str):
+    if timey and isinstance(obj, str):
         errors.append(f"{path}: time value {obj!r} is not a number or an @anchor")
     return obj
 
@@ -189,17 +215,29 @@ FIGURE_NAMES = {f"explainer/{n}" for n in ("SpermWhale ColossalSquid Orca GreatW
                                            "Hippo Grizzly Diver You Bus Car Elephant GolfCart Sauropod Jet Seal Cookiecutter").split()}
 
 
+def zod_required() -> bool:
+    """True on the Spark: a missing zod must fail the build there instead of silently skipping (F08)."""
+    if os.environ.get("STUDIO_REQUIRE_ZOD") == "0":
+        return False
+    if os.environ.get("STUDIO_REQUIRE_ZOD") == "1" or os.environ.get("STUDIO_LOCAL") == "1":
+        return True
+    return os.path.realpath(ROOT) == os.path.realpath(os.path.expanduser("~/studio/app"))
+
+
 def zod_validate(path: str) -> tuple[bool, str]:
     """Run studio/src/cli/validate.ts when node + node_modules exist (the Spark). -> (ok, message)."""
     studio = os.path.join(ROOT, "studio")
+    required = zod_required()
     if not os.path.isdir(os.path.join(studio, "node_modules", "zod")):
+        if required:
+            return False, "zod required here but studio/node_modules/zod is missing (npm ci running or failed?)"
         return True, "zod skipped (no studio/node_modules here)"
     node = os.environ.get("STUDIO_NODE") or shutil.which("node")
     if not node:
         cands = sorted(glob.glob(os.path.expanduser("~/.nvm/versions/node/v22*/bin/node")))
         node = cands[-1] if cands else None
     if not node:
-        return True, "zod skipped (no node)"
+        return (False, "zod required here but no node found") if required else (True, "zod skipped (no node)")
     r = subprocess.run([node, "--experimental-strip-types", "--no-warnings", "src/cli/validate.ts", path],
                        cwd=studio, capture_output=True, text=True)
     return r.returncode == 0, (r.stdout + r.stderr).strip()
@@ -264,9 +302,11 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     if niche == "explainer":
         from .phrases import phrase_pages
         phrase_pages(words, glue=shots.get("glue", []))
-    holds = check_holds(slug, built)
+    variant = _read_json(os.path.join(ep, "variant.json")) or {}
+    limit = float((variant.get("values") or {}).get("visual.max_hold_s") or 3.0)
+    holds = check_holds(slug, built, limit) if limit != 3.0 else check_holds(slug, built)
     if holds:
-        warnings.append("visual holds over 3 s (add a layer/keyframe/camera key in that window): " + "; ".join(holds))
+        warnings.append(f"visual holds over {limit:g} s (add a layer/keyframe/camera key in that window): " + "; ".join(holds))
     if errors or check_only:
         return errors, warnings
     paging = dict(getattr(mod, "CAPTION_PAGING", None) or {})
@@ -275,17 +315,99 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
     sb["_built"]["by"] = "pipeline/episodes/auto.py (shots.json)"
     path = os.path.join(ep, "storyboard.json")
-    with open(path, "w") as f:
+    tmp = path + ".tmp"  # validate first, replace only on PASS (F03): a failed build keeps the last good file
+    with open(tmp, "w") as f:
         json.dump(sb, f, indent=1, ensure_ascii=False)
     dur = sum(s["duration"] for s in built)
-    print(f"{slug}: {len(built)} scenes, {dur:.1f}s, {len(words)} words, timing={source.split()[0]} -> "
-          f"{os.path.relpath(path, ROOT)}")
     if zod:
-        ok, msg = zod_validate(path)
+        ok, msg = zod_validate(tmp)
         print(msg)
         if not ok:
             errors.append("zod schema: " + msg)
+            print(f"{slug}: storyboard NOT written (zod failed); the previous storyboard.json is unchanged, "
+                  f"the rejected build is {os.path.relpath(tmp, ROOT)}")
+            return errors, warnings
+    os.replace(tmp, path)
+    print(f"{slug}: {len(built)} scenes, {dur:.1f}s, {len(words)} words, timing={source.split()[0]} -> "
+          f"{os.path.relpath(path, ROOT)}")
+    bm = beatmap(slug, sb, specs, meta, _read_json(os.path.join(ep, "source.json")))
+    bpath = os.path.join(ep, "beatmap.json")
+    with open(bpath + ".tmp", "w") as f:
+        json.dump(bm, f, indent=1, ensure_ascii=False)
+    os.replace(bpath + ".tmp", bpath)
+    print(f"{slug}: beatmap.json ({len(bm['scenes'])} scenes, beats from {bm['beats_from']})")
     return errors, warnings
+
+
+def _read_json(path: str):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def caption_pages(words: list[dict], linger: float = 0.3) -> list[dict]:
+    """Caption pages as the explainer pager marks them (word "br" = first word of a page; else one page per word run)."""
+    pages, cur = [], []
+    for w in words:
+        if (w.get("br") and cur) or (cur and w["start"] - cur[-1]["end"] > 0.45):
+            pages.append(cur)
+            cur = []
+        cur.append(w)
+    if cur:
+        pages.append(cur)
+    out = []
+    for k, p in enumerate(pages):
+        t1 = pages[k + 1][0]["start"] if k + 1 < len(pages) else p[-1]["end"] + linger
+        out.append({"t0": round(p[0]["start"], 3), "t1": round(min(t1, p[-1]["end"] + linger), 3),
+                    "text": " ".join(w["text"] for w in p)})
+    return out
+
+
+def beatmap(slug: str, sb: dict, specs: list[dict], meta: dict, source: dict | None) -> dict:
+    """episodes/<slug>/beatmap.json: one row per scene (time range, beat, skeleton/source beat, narration, components,
+    longest hold, caption pages), the bridge from script and shots to video time and retention curves.
+    Times use frame-accurate cumulative rounding (start_i = round(cum_i * fps) / fps, F20)."""
+    from .common import visual_events
+    fps = sb.get("fps", 30)
+    scenes = sb["scenes"]
+    total = sum(s["duration"] for s in scenes)
+    skel = (source or {}).get("skeleton") or []
+    plan = [int(x) for x in re.findall(r"\d+", str(meta.get("beat_plan", "")))]
+    beats_from = "beat_plan" if skel and len(plan) == len(scenes) and all(0 <= x < len(skel) for x in plan) else (
+        "timing" if skel else "shots")
+    pages = caption_pages(sb.get("captions", {}).get("words", []))
+    rows, cum = [], 0.0
+    for i, s in enumerate(scenes):
+        t0 = round(cum * fps) / fps
+        cum += s["duration"]
+        t1 = round(cum * fps) / fps
+        if beats_from == "beat_plan":
+            k = plan[i]
+        elif skel:
+            mid = 100 * (t0 + t1) / 2 / max(total, 1e-6)
+            k = next((e["i"] for e in skel if e["target_pct0"] <= mid < e["target_pct1"]), skel[-1]["i"])
+        else:
+            k = None
+        sk = skel[k] if k is not None and k < len(skel) else None
+        spec_beat = (specs[i] if i < len(specs) else {}).get("beat")
+        comps = []
+        for l in s.get("layers", []):
+            if l.get("type") == "component" and l.get("name") not in comps:
+                comps.append(l["name"])
+        ev = visual_events(s)
+        hold = max((b - a for a, b in zip(ev, ev[1:])), default=s["duration"])
+        bg = s.get("background") or {}
+        rows.append({"scene_id": s.get("id", f"p{i + 1:02d}"), "p": i + 1, "t0": round(t0, 3), "t1": round(t1, 3),
+                     "beat": (sk or {}).get("label") or (str(spec_beat).upper() if spec_beat else None),
+                     "shots_beat": spec_beat, "skeleton_i": k, "playbook": (sk or {}).get("playbook"),
+                     "source_beat_i": (sk or {}).get("from_beats", []), "text": s.get("notes", ""),
+                     "components": comps, "background": bg.get("name") or bg.get("type"),
+                     "max_hold_s": round(hold, 2),
+                     "caption_pages": [p for p in pages if t0 <= p["t0"] < t1]})
+    return {"v": 1, "slug": slug, "duration_s": round(round(total * fps) / fps, 3), "fps": fps,
+            "source_id": (source or {}).get("source_id"), "beats_from": beats_from, "scenes": rows}
 
 
 def main():

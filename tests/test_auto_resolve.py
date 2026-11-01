@@ -20,31 +20,52 @@ class Resolve(unittest.TestCase):
         self.assertEqual(out["at"], 0.5)
         self.assertEqual(errs, [])
 
-    @unittest.expectedFailure
     def test_F05_chat_text_starting_with_at_is_not_an_anchor(self):
         """F05: {'text': '@Mom'} is chat text and must stay a string."""
         out = resolve({"text": "@Mom", "at": "@mom"}, scene(), [], "p")
         self.assertEqual(out["text"], "@Mom")
 
-    @unittest.expectedFailure
     def test_F05_hash_in_chat_text_does_not_crash(self):
         """F05: '@Admin who is member #41?' raised an uncaught ValueError from int()."""
         out = resolve({"text": "@Admin who is member #41?"}, scene(), [], "p")
         self.assertEqual(out["text"], "@Admin who is member #41?")
 
 
+class AnchorGrammar(unittest.TestCase):
+    def test_bad_occurrence_under_time_key_is_an_error_not_a_crash(self):
+        errs = []
+        out = resolve({"at": "@mom#2x"}, scene(), errs, "p")
+        self.assertEqual(out["at"], "@mom#2x")
+        self.assertTrue(errs and "bad anchor" in errs[0], errs)
+
+    def test_time_lists_nest(self):
+        errs = []
+        out = resolve({"talk": [["@mom", "@called.end"]]}, scene(), errs, "p")
+        self.assertEqual(out["talk"], [[0.5, 1.2]])
+        self.assertEqual(errs, [])
+
+    def test_ambiguous_from_key(self):
+        """'from' is a time for Heartbeat/Flicker and text for EndCard / chat messages."""
+        errs = []
+        out = resolve({"a": {"from": "@called"}, "b": {"from": "June (3B)"}, "c": {"from": "@Mom", "text": "hi"}},
+                      scene(), errs, "p")
+        self.assertEqual(out["a"]["from"], 0.9)
+        self.assertEqual(out["b"]["from"], "June (3B)")
+        self.assertEqual(out["c"]["from"], "@Mom")
+        self.assertEqual(errs, [])
+
+
 class WriteOrder(unittest.TestCase):
-    @unittest.expectedFailure
     def test_F03_zod_runs_before_storyboard_is_written(self):
-        """F03 (static check): build() must validate before replacing storyboard.json
-        (validate a temp file, then os.replace), so a zod failure keeps the last good file."""
+        """F03 (static check): build() writes a temp file, validates it, and only then os.replace()s it over
+        storyboard.json, so a zod failure keeps the last good file."""
         src = _util.read("pipeline/episodes/auto.py")
         body = src[src.index("def build("):src.index("def main(")]
-        writes = [m.start() for m in re.finditer(r'open\(path, "w"\)', body)]
-        zod = body.find("zod_validate(")
-        self.assertTrue(writes and zod != -1)
-        self.assertTrue("os.replace" in body or zod < writes[0], "storyboard.json is written before zod_validate")
-
+        self.assertNotIn('open(path, "w")', body, "storyboard.json opened for writing directly")
+        tmp_write = body.find('open(tmp, "w")')
+        zod = body.find("zod_validate(tmp)")
+        replace = body.find("os.replace(tmp, path)")
+        self.assertTrue(-1 < tmp_write < zod < replace, (tmp_write, zod, replace))
 
 if __name__ == "__main__":
     unittest.main()

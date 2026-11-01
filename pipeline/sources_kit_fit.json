@@ -1,0 +1,33 @@
+{
+ "v": 1,
+ "about": "Source picking (pipeline/sources.py): how well the explainer kit can draw a source's subject. Each rule: regex keywords (matched as whole words, case-insensitive, against the title), the kit component that draws it, a weight 0-1 (1 = a finished true-scale figure; 0.5 = a related figure or an infographic that carries the topic) and the topic name used in the slug. The highest-weight match wins. No match = kit_fit 0 (still eligible if the subject can be one simple inline silhouette). 'avoid' rules subtract: topics the kit cannot draw honestly (humans in danger close up, land insects, plants, gore).",
+ "rules": [
+  {"kw": ["sperm whales?", "cachalots?"], "component": "explainer/SpermWhale", "weight": 1.0, "topic": "sperm whale"},
+  {"kw": ["blue whales?"], "component": "explainer/BlueWhale", "weight": 1.0, "topic": "blue whale"},
+  {"kw": ["orcas?", "killer whales?"], "component": "explainer/Orca", "weight": 1.0, "topic": "orca"},
+  {"kw": ["great whites?", "great white sharks?", "white sharks?"], "component": "explainer/GreatWhite", "weight": 1.0, "topic": "great white"},
+  {"kw": ["megalodon", "megalodons"], "component": "explainer/GreatWhite", "weight": 0.7, "topic": "megalodon"},
+  {"kw": ["sharks?"], "component": "explainer/GreatWhite", "weight": 0.7, "topic": "shark"},
+  {"kw": ["colossal squids?", "giant squids?", "squids?"], "component": "explainer/ColossalSquid", "weight": 1.0, "topic": "colossal squid"},
+  {"kw": ["anglerfish", "angler fish"], "component": "explainer/Anglerfish", "weight": 1.0, "topic": "anglerfish"},
+  {"kw": ["deep sea", "deep ocean", "deeper", "abyss", "abyssal", "midnight zone", "trench", "mariana"], "component": "explainer/DepthMeter", "weight": 0.8, "topic": "deep sea"},
+  {"kw": ["pressure"], "component": "explainer/DepthMeter", "weight": 0.8, "topic": "ocean pressure"},
+  {"kw": ["octopus", "octopuses", "octopi"], "component": "explainer/Octopus", "weight": 1.0, "topic": "octopus"},
+  {"kw": ["crocodiles?", "crocs?", "alligators?", "gators?", "caimans?"], "component": "explainer/Crocodile", "weight": 1.0, "topic": "crocodile"},
+  {"kw": ["hippos?", "hippopotamus(es)?"], "component": "explainer/Hippo", "weight": 1.0, "topic": "hippo"},
+  {"kw": ["grizzl(y|ies)", "bears?", "polar bears?"], "component": "explainer/Grizzly", "weight": 0.9, "topic": "bear"},
+  {"kw": ["seals?", "sea lions?", "walrus(es)?"], "component": "explainer/Seal", "weight": 0.9, "topic": "seal"},
+  {"kw": ["cookiecutter"], "component": "explainer/Cookiecutter", "weight": 1.0, "topic": "cookiecutter shark"},
+  {"kw": ["krill"], "component": "explainer/Krill", "weight": 0.8, "topic": "krill"},
+  {"kw": ["whales?"], "component": "explainer/SpermWhale", "weight": 0.6, "topic": "whale"},
+  {"kw": ["elephants?"], "component": "explainer/Elephant", "weight": 0.7, "topic": "elephant"},
+  {"kw": ["dinosaurs?", "sauropods?", "brachiosaurus", "titanoboa", "prehistoric", "mosasaurus", "spinosaurus", "t\\. ?rex"], "component": "explainer/Sauropod", "weight": 0.4, "topic": "prehistoric"},
+  {"kw": ["jellyfish", "jellies", "eels?", "pufferfish", "puffer", "stingrays?", "barracudas?", "oarfish", "lionfish", "box jellyfish", "sea snakes?", "dolphins?", "manta"], "component": "explainer/Creature", "weight": 0.5, "topic": null},
+  {"kw": ["ocean", "sea", "underwater", "reef"], "component": "explainer/Ocean", "weight": 0.4, "topic": "ocean"}
+ ],
+ "avoid": [
+  {"kw": ["spiders?", "beetles?", "horseflies", "horsefly", "mantis(es)?", "ants?", "wasps?", "plants?", "rocks?"], "penalty": 0.8, "why": "land insects / plants / geology: no kit figure, off-niche for an ocean channel"},
+  {"kw": ["shot", "balloon", "disaster", "lion treat", "baby", "wolves", "goats?", "sheep", "cow", "leopard", "porcupine", "dobermans?", "pets?"], "penalty": 0.6, "why": "not an ocean animal topic, or a human-tragedy story"}
+ ],
+ "meme_title": "^[#\\s\\W]*$|(^|\\s)#\\S+(\\s+#\\S+)+\\s*$|\\bmemes?\\b|\\bI CARE\\b"
+}

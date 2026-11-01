@@ -15,5 +15,8 @@ look at the current sheet:
   component, Tag or Stat that says the same thing
 - a scene whose two stills are almost empty (only a caption): add the subject or a label anchored to a spoken word
 - `python3 -m pipeline.episodes.auto {slug} --check` WARN lines
+Notes from the episode reviewer (address every one that a shots.json edit can fix; if a note needs a script or
+narration change, do not edit the script: reply with a line starting "SCRIPT CHANGE NEEDED:" for it):
+{review_notes}
 Keep everything else. Then run `python3 -m pipeline.episodes.auto {slug} --check` until it prints PASS.
 Reply with one line per fix (or "no fixes").

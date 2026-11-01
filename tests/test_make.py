@@ -32,7 +32,6 @@ def write(path, text):
 
 
 class Make(unittest.TestCase):
-    @unittest.expectedFailure
     def test_F01_failed_claude_rewrite_is_not_success(self):
         """F01: claude exits 1 (auth/rate limit); the old script.md is still there. step_script must fail."""
         with tempfile.TemporaryDirectory() as tmp:
@@ -50,7 +49,6 @@ class Make(unittest.TestCase):
             with self.assertRaises(mk.Fail):
                 m.step_script()
 
-    @unittest.expectedFailure
     def test_F02_new_script_invalidates_shots(self):
         """F02: after --rewrite / --script, an existing shots.json (old paragraphs/anchors) must be replanned."""
         with tempfile.TemporaryDirectory() as tmp:
@@ -62,7 +60,6 @@ class Make(unittest.TestCase):
             m.step_shots()
             self.assertTrue(calls, "shots: used the stale shots.json")
 
-    @unittest.expectedFailure
     def test_F04_failed_review_round_keeps_last_good_shots(self):
         """F04: a review round that breaks shots.json must roll back to the last good one."""
         with tempfile.TemporaryDirectory() as tmp:
@@ -71,8 +68,7 @@ class Make(unittest.TestCase):
             write(shots, "GOOD")
             m.stills_times = lambda: [0.0]
             m.run = lambda *x, **k: ""
-            m.claude = lambda *x, **k: ""
-            m.pull = lambda *x, **k: write(shots, "BROKEN")
+            m.claude = lambda *x, **k: write(shots, "BROKEN")  # the round's edit breaks shots.json
 
             def bad_storyboard():
                 raise mk.Fail("storyboard: auto build failed")
@@ -83,7 +79,6 @@ class Make(unittest.TestCase):
                 pass
             self.assertEqual(open(shots).read(), "GOOD")
 
-    @unittest.expectedFailure
     def test_F06_pull_failures_are_not_silent(self):
         """F06: pull() must not use check=False (or must verify the pulled file)."""
         with tempfile.TemporaryDirectory() as tmp:
