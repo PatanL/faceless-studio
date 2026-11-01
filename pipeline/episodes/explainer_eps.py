@@ -21,17 +21,31 @@ EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             # red = threat words only, about one every 8-10 s (orca review: not "alone"/"culture")
             "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
 # caption cards on phrase boundaries (pipeline/episodes/phrases.py): opt-in per episode (True = every episode), + glue
-PHRASE_PAGES = {"explainer-orca"}
+# (explainer-orca moved to the core least-cost pager + CAPTION_GLUE: the phrases.py br pages ended on dangling words)
+PHRASE_PAGES: set[str] = set()
 PHRASE_GLUE = {"explainer-orca": ["shark you're scared of", "except since", "orca mother", "fifty metres out", "brought down", "you're about the size",
                                   "ramming sailboats", "because they can't", "adult blue whale", "surviving great whites",
                                   "what chance", "nobody's ever proven that", "pod brought", "since twenty twenty",
                                   "have been ramming", "you taste", "haven't decided"]}
+# word runs shown as one caption token (pipeline/episodes/build.py join_words): pairs the least-cost pager would split
+# or strand (number | unit, verb | object, "scared | of"); (src, shown text) swaps the text
+CAPTION_JOIN = {"explainer-orca": ["fifty-six kilometres", "scared of", ("twenty twenty,", "2020,"), ("twenty nineteen,", "2019,"),
+                                   "it reaches", "eight metres long,", "mothers taught", "haven't decided"],
+                "explainer-blue-whale": ["two and a half", "even notice"]}
+# extra joins for the 16:9 cut only (longer one-line pages there; pipeline/episodes/reformat.py)
+CAPTION_JOIN_16X9 = {"explainer-blue-whale": ["reach you", "hundreds of kilometres"]}
 STRICT_HOLDS = {"explainer-blue-whale", "explainer-orca"}                    # build.py fails these on any visual hold > 3 s
 # 9:16 caption pages: phrase-complete 2-4 word cards (the refs show "When a horse fly"); paginate() glues numbers and
 # compounds and merges flashes shorter than 0.6 s
 CAPTION_PAGING = {"maxWords": 4, "maxChars": 20}
 CAPTION_GLUE = {"explainer-blue-whale": ["golf cart", "beach ball", "jet engine", "deep dive", "own body", "city buses",
-                                         "two hundred tonnes", "forty million"]}
+                                         "two hundred tonnes", "forty million", "blue whale's", "half city",
+                                         "biggest dinosaurs", "gets pushed", "isn't being", "metres wide", "forty million krill"],
+                 # orca: PHRASE_GLUE pairs + QA 2nd pass (number+unit, "what chance", "this fast/smart", "her calf")
+                 "explainer-orca": PHRASE_GLUE["explainer-orca"] + [
+                     "fiftysix kilometres an hour", "as tall as", "what chance do you have", "this fast", "this smart",
+                     "never come", "for you", "orcas eat", "taught her calf", "washing up", "the best answer",
+                     "and you'd never meet"]}
 
 
 def ocean(depth, **props):
@@ -473,7 +487,7 @@ def blue_whale(S):
         you_chip(0, CHIP_IN["x"], CHIP_IN["y"], ckf),
         _cover_headline(0, out=nope),
         _cover_arrow(end=out),
-        headline("CAN'T\nSWALLOW YOU", at=nope, y="15%", size=108, red="YOU", underline=False),
+        headline("NO WAY\nDOWN", at=nope, y="15%", size=108, red="DOWN", underline=False),  # caption says "can't swallow you"
     ], cam))
 
     # ---------------------------------------------------------------- p01 length: nose-up whale vs 2.5 stacked buses
@@ -528,7 +542,8 @@ def blue_whale(S):
     land = el + 0.4
     forty = s.at("forty", off=-0.15)
     # "about forty of you": 40 true-to-each-other YOU figures fill in over the tongue pan (8 x 5 grid)
-    crowd = [comp("explainer/You", f"{8 + (k % 8) * 4.0:.1f}%", f"{10 + (k // 8) * 3.6:.1f}%", 36, 60, {"pose": "stand"},
+    # (QA 16:9: at y 10-28 % the crowd went off the top edge after the remap; now y 30-46 %, 66 px figures, left of the beam)
+    crowd = [comp("explainer/You", f"{5 + (k % 8) * 4.2:.1f}%", f"{30 + (k // 8) * 4.0:.1f}%", 40, 66, {"pose": "stand"},
                   start=forty + k * 0.018, enter=pop(forty + k * 0.018, 0.2), depth=0.2, z=8) for k in range(40)]
     sc.append(bw_scene(s, ocean(50, rays=7), [
         comp("explainer/Balance", "50%", "42%", 1040, 760, {
@@ -536,7 +551,7 @@ def blue_whale(S):
             "right": {"species": "elephant", "w": 440, "at": el, "drop": True, "pos": 0.25, "idle": True},
             "tilt": [{"t": 0, "v": -13}, {"t": land, "v": -13}, {"t": land + 0.5, "v": 0, "ease": "out"}],
         }, depth=0.3),
-        t46("TONGUE", tg, x="25%", y="45%", size=46, w=360),
+        t46("TONGUE", tg, x="25%", y="45%", size=46, w=360, out=forty),  # clears the way for the crowd
         t46("≈ 2.7 TONNES EACH", land, y="62%", size=54, w=1000, align="center", out=forty),
         *crowd,
         t46("≈ 40 OF YOU", forty + 0.5, x="76%", y="16%", size=54, w=420, align="center"),
@@ -589,7 +604,7 @@ def blue_whale(S):
     sc.append(bw_scene(s, ocean(40, rays=6), [
         comp("explainer/BlueWhale", "40%", "45%", 1150, 168, {"speed": 0.8}, z=2, idle=[{"type": "bob", "amount": 5, "speed": 0.3}]),
         *rings,
-        wstat(188, "decibels", s.at("louder"), y="60%", size=120, suffix=" dB", duration=0.8),
+        wstat(188, "decibels", s.at("louder"), y="60%", size=120, suffix=" dB", duration=0.8, out=far - 0.25),
         comp("explainer/Jet", "68%", "22%", 520, 140, {}, start=jet, depth=0.2,
              enter={"type": "slideLeft", "at": jet, "duration": 0.4}),
         t46("JET ENGINE", jet + 0.35, x="50%", y="13%", size=46, w=1000, align="center", out=carry),
@@ -692,17 +707,17 @@ def blue_whale(S):
              keyframes=[{"t": 0, "x": "140%"}, {"t": way, "x": "128%", "rotate": 0},
                         {"t": turn, "x": "118%", "rotate": 0, "ease": "inOut"},
                         {"t": turn + 0.8, "x": "100%", "rotate": -14, "ease": "inOut"},
-                        {"t": sweeps - 0.75, "x": "20%", "rotate": -6, "opacity": 1, "ease": "inOut"},
-                        {"t": sweeps - 0.4, "x": "-8%", "rotate": -4, "opacity": 0},
-                        {"t": s.dur, "x": "-40%", "rotate": 0, "opacity": 0}]),
+                        {"t": sweeps - 0.9, "x": "26%", "rotate": -6, "opacity": 1, "ease": "inOut"},
+                        {"t": sweeps - 0.3, "x": "18%", "rotate": -5, "opacity": 0},
+                        {"t": s.dur, "x": "10%", "rotate": -4, "opacity": 0}]),
         comp("explainer/Diver", "50%", "36%", 260, 58, {"arms": "side"}, z=3,
              keyframes=[{"t": 0, "x": "50%", "y": "36%", "rotate": 0}, {"t": turn + 0.3, "x": "50%", "y": "36%", "rotate": 0},
-                        {"t": turn + 1.3, "x": "30%", "y": "26%", "rotate": -230, "ease": "out"},
-                        {"t": sweeps, "x": "30%", "y": "27%", "rotate": -250},
+                        {"t": turn + 1.3, "x": "30%", "y": "31%", "rotate": -230, "ease": "out"},
+                        {"t": sweeps, "x": "30%", "y": "32%", "rotate": -250},
                         {"t": sweeps + 1.0, "x": "16%", "y": "35%", "rotate": -420, "ease": "out"}]),
         you_chip(0.0, "50%", "31.5%", [{"t": 0, "x": "50%", "y": "31.5%"}, {"t": turn + 0.3, "x": "50%", "y": "31.5%"},
-                                        {"t": turn + 1.3, "x": "30%", "y": "21.5%", "ease": "out"},
-                                        {"t": sweeps, "x": "30%", "y": "22.5%"},
+                                        {"t": turn + 1.3, "x": "30%", "y": "26.5%", "ease": "out"},
+                                        {"t": sweeps, "x": "30%", "y": "27.5%"},
                                         {"t": sweeps + 1.0, "x": "16%", "y": "30.5%", "ease": "out"}]),
         headline("NOT THE MOUTH", at=0, y="13%", size=70, out=way),
         svg(ARROW, "64%", "41%", 260, 180, start=way, end=turn + 0.3, enter=pop(way, 0.25), z=5),
@@ -710,11 +725,13 @@ def blue_whale(S):
         t46("7 M TAIL", sweeps, y="13%", size=50, w=500, align="center"),
         # the 7 m fluke at true scale against the 2.6 m diver (260 px => 100 px/m => 700 px), seen from above, sweeping
         # up past YOU on "sweeps"
-        svg(FLUKE, "62%", "78%", 700, 262, start=sweeps - 0.35, end=sweeps + 1.0, z=4,
+        # (QA: it crossed in < 1 s and left through the top edge) sweeps across the middle of the frame, fades on the left
+        svg(FLUKE, "62%", "78%", 700, 262, start=sweeps - 0.35, end=sweeps + 1.5, z=4,
             keyframes=[{"t": sweeps - 0.35, "x": "70%", "y": "80%", "rotate": 24, "opacity": 0},
                        {"t": sweeps - 0.15, "x": "60%", "y": "62%", "rotate": 16, "opacity": 1},
-                       {"t": sweeps + 0.3, "x": "36%", "y": "30%", "rotate": -6, "ease": "inOut"},
-                       {"t": sweeps + 1.0, "x": "4%", "y": "-14%", "rotate": -28, "ease": "in"}]),
+                       {"t": sweeps + 0.3, "x": "40%", "y": "40%", "rotate": -6, "opacity": 1, "ease": "inOut"},
+                       {"t": sweeps + 0.9, "x": "22%", "y": "34%", "rotate": -14, "opacity": 1},
+                       {"t": sweeps + 1.4, "x": "10%", "y": "30%", "rotate": -20, "opacity": 0}]),
     ], cam))
 
     # ---------------------------------------------------------------- p10 bookend: back to the frame-0 state (seamless loop)
