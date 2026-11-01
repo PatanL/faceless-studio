@@ -1,0 +1,2979 @@
+{
+ "niche": "explainer",
+ "emphasis": [
+  "circles",
+  "cookiecutter:",
+  "bait.",
+  "golf",
+  "thumb",
+  "what-if.",
+  "submarines.",
+  [
+   "circle.",
+   3
+  ]
+ ],
+ "glue": [
+  "great whites",
+  "tiger sharks",
+  "pool float",
+  "suction cup",
+  "hole saw",
+  "golf ball",
+  "sonar domes",
+  "navy submarines",
+  "one more circle"
+ ],
+ "scenes": [
+  {
+   "p": 1,
+   "beat": "hook",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skh\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e0b294\"/><stop offset=\"1\" stop-color=\"#b98262\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skh)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#f1cdb4\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#c99a7c\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 1340,
+     "width": 1200,
+     "height": 700,
+     "z": 2,
+     "end": "@perfect"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 0.8
+      }
+     ],
+     "end": "@perfect"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 5,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.5,
+       "speed": 0.6
+      }
+     ],
+     "end": "@perfect"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"hlg\"><stop offset=\"0.6\" stop-color=\"#140707\"/><stop offset=\"1\" stop-color=\"#5a2b28\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"url(#hlg)\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 230,
+     "height": 92,
+     "z": 3,
+     "end": "@perfect"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 270,
+     "height": 112,
+     "z": 6,
+     "end": "@perfect"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 600,
+     "y": 1000,
+     "width": 200,
+     "height": 80,
+     "z": 6,
+     "end": "@perfect"
+    },
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": 540,
+     "y": 720,
+     "width": 1000,
+     "height": 320,
+     "props": {
+      "pxPerM": 34,
+      "idle": false
+     },
+     "start": "@perfect",
+     "end": "@out",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 735,
+     "y": 712,
+     "width": 17,
+     "height": 5,
+     "start": "@perfect",
+     "end": "@out",
+     "z": 6
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 735,
+     "y": 712,
+     "width": 90,
+     "height": 90,
+     "start": "@perfect",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@perfect",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@perfect+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skh\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e0b294\"/><stop offset=\"1\" stop-color=\"#b98262\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skh)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#f1cdb4\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#c99a7c\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 1340,
+     "width": 1200,
+     "height": 700,
+     "z": 2,
+     "start": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 0.8
+      }
+     ],
+     "start": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 5,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.5,
+       "speed": 0.6
+      }
+     ],
+     "start": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"hlg\"><stop offset=\"0.6\" stop-color=\"#140707\"/><stop offset=\"1\" stop-color=\"#5a2b28\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"url(#hlg)\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 230,
+     "height": 92,
+     "z": 3,
+     "start": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 270,
+     "height": 112,
+     "z": 6,
+     "start": "@out"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 600,
+     "y": 1000,
+     "width": 200,
+     "height": 80,
+     "start": "@you",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@you",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@you+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 290,
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "PERFECT\nCIRCLES",
+      "at": -0.6,
+      "size": 120,
+      "color": "white",
+      "underline": false,
+      "red": "CIRCLES"
+     },
+     "z": 40,
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "p": 2,
+   "beat": "misdirect",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 60,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "drift",
+    "amount": 0.6
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": 540,
+     "y": 700,
+     "width": 760,
+     "height": 300,
+     "props": {
+      "pxPerM": 120,
+      "idle": false
+     },
+     "end": "@tiger",
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 380,
+     "height": 106,
+     "props": {
+      "text": "GREAT WHITE",
+      "at": "@forget",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "end": "@tiger"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 520,
+     "height": 16,
+     "fill": "#e5483d",
+     "radius": 8,
+     "z": 35,
+     "depth": 0,
+     "start": "@tiger-0.35",
+     "keyframes": [
+      {
+       "t": "@tiger-0.35",
+       "scaleX": 0
+      },
+      {
+       "t": "@tiger",
+       "scaleX": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@tiger+0.1"
+    },
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": 540,
+     "y": 700,
+     "width": 760,
+     "height": 300,
+     "props": {
+      "pxPerM": 120,
+      "idle": false,
+      "silhouette": "#52606b"
+     },
+     "flipX": true,
+     "start": "@tiger",
+     "end": "@pool",
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 380,
+     "height": 106,
+     "props": {
+      "text": "TIGER SHARK",
+      "at": "@tiger",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@tiger",
+     "end": "@pool"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 520,
+     "height": 16,
+     "fill": "#e5483d",
+     "radius": 8,
+     "z": 35,
+     "depth": 0,
+     "start": "@pool-0.35",
+     "keyframes": [
+      {
+       "t": "@pool-0.35",
+       "scaleX": 0
+      },
+      {
+       "t": "@pool",
+       "scaleX": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@pool+0.1"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 560 300\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M30 190 Q120 90 330 100 Q470 104 530 170 Q470 240 300 240 Q130 240 30 190 Z\" fill=\"#7cc6f0\" stroke=\"#2f7fb0\" stroke-width=\"8\"/><path d=\"M60 200 Q250 250 500 180\" fill=\"#f3f6f7\"/><path d=\"M250 104 L300 10 L340 104 Z\" fill=\"#7cc6f0\" stroke=\"#2f7fb0\" stroke-width=\"8\"/><circle cx=\"440\" cy=\"150\" r=\"22\" fill=\"#fff\"/><circle cx=\"446\" cy=\"150\" r=\"11\" fill=\"#0b1a22\"/><path d=\"M470 196 Q500 205 520 186\" stroke=\"#0b1a22\" stroke-width=\"6\" fill=\"none\"/><path d=\"M30 190 L0 150 L4 230 Z\" fill=\"#7cc6f0\" stroke=\"#2f7fb0\" stroke-width=\"8\"/></svg>",
+     "x": 620,
+     "y": 740,
+     "width": 560,
+     "height": 300,
+     "start": "@pool",
+     "z": 4,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 10,
+       "speed": 0.7
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 240,
+     "y": 780,
+     "width": 170,
+     "height": 320,
+     "props": {
+      "pose": "panic",
+      "pxPerM": 120
+     },
+     "start": "@pool",
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 353,
+     "height": 106,
+     "props": {
+      "text": "POOL FLOAT",
+      "at": "@pool",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@pool"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 480,
+     "height": 16,
+     "fill": "#e5483d",
+     "radius": 8,
+     "z": 35,
+     "depth": 0,
+     "start": "@kid-0.35",
+     "keyframes": [
+      {
+       "t": "@kid-0.35",
+       "scaleX": 0
+      },
+      {
+       "t": "@kid",
+       "scaleX": 1,
+       "ease": "out"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "p": 3,
+   "beat": "pivot-reveal-count",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 400,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 540,
+     "y": 760,
+     "width": 200,
+     "height": 360,
+     "props": {
+      "pose": "stand"
+     },
+     "end": "@is",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"gg1\"><stop offset=\"0\" stop-color=\"#d8fff0\"/><stop offset=\"0.25\" stop-color=\"#3dff9a\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#gg1)\"/></svg>",
+     "x": 540,
+     "y": 1250,
+     "width": 420,
+     "height": 420,
+     "end": "@is",
+     "z": 3,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 1300,
+       "opacity": 0.2
+      },
+      {
+       "t": "@included.end",
+       "y": 1040,
+       "opacity": 0.9,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 320,
+     "width": 1000,
+     "height": 340,
+     "props": {
+      "text": "YOU\nINCLUDED",
+      "at": "@you",
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "INCLUDED",
+      "out": "@is"
+     },
+     "z": 40,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 540,
+     "y": 600,
+     "width": 520,
+     "height": 143,
+     "start": "@is",
+     "end": "@with",
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.12,
+       "speed": 0.8
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 600,
+     "width": 520,
+     "height": 143,
+     "start": "@is",
+     "end": "@with",
+     "z": 5,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 6,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 620 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 40 L470 46 Q520 30 580 40 Q620 60 580 84 Q520 92 470 76 L0 82 Z\" fill=\"#f3f6f7\" stroke=\"#0b1a22\" stroke-width=\"6\"/></svg>",
+     "x": 540,
+     "y": 800,
+     "width": 645,
+     "height": 126,
+     "start": "@shorter",
+     "end": "@with",
+     "z": 5,
+     "enter": {
+      "type": "slideLeft",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 420,
+     "width": 526,
+     "height": 96,
+     "props": {
+      "text": "COOKIECUTTER SHARK",
+      "at": "@cookiecutter",
+      "size": 40,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@is",
+     "end": "@with"
+    },
+    {
+     "type": "component",
+     "name": "explainer/ScaleBar",
+     "x": 540,
+     "y": 930,
+     "width": 520,
+     "height": 120,
+     "props": {
+      "label": "~50 CM / 1.6 FT",
+      "at": "@shorter",
+      "from": "left",
+      "labelSize": 36
+     },
+     "start": "@shorter",
+     "end": "@with",
+     "z": 8
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 330,
+     "width": 360,
+     "height": 99,
+     "start": "@with",
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": 540,
+     "y": 760,
+     "width": 900,
+     "height": 520,
+     "props": {
+      "title": "3 TOOLS",
+      "items": [
+       "SUCTION LIPS",
+       "HOOK TEETH",
+       "BLADE TEETH"
+      ],
+      "at": "@three",
+      "stagger": 0.15,
+      "size": 50
+     },
+     "start": "@with",
+     "z": 20,
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "p": 4,
+   "beat": "depth-bait",
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": [
+      {
+       "t": 0,
+       "v": 1000
+      },
+      {
+       "t": "@feet.end",
+       "v": 60,
+       "ease": "out"
+      }
+     ],
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "camera": {
+    "preset": "panUp",
+    "amount": 0.5
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/DepthMeter",
+     "x": 140,
+     "y": 700,
+     "width": 200,
+     "height": 1000,
+     "props": {
+      "depth": [
+       {
+        "t": 0,
+        "v": 1000
+       },
+       {
+        "t": "@feet.end",
+        "v": 0,
+        "ease": "inOut"
+       }
+      ],
+      "max": 1100,
+      "window": 1100,
+      "step": 100,
+      "suffix": " M"
+     },
+     "end": "@glowing",
+     "z": 10,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 828\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M50 0 L53 120 L60 260 L66 420 L74 600 L84 828 L16 828 L26 600 L34 420 L40 260 L47 120 Z\" fill=\"#20323b\" stroke=\"#5f7a86\" stroke-width=\"2\"/></svg>",
+     "x": 330,
+     "y": 824,
+     "width": 92,
+     "height": 753,
+     "end": "@glowing",
+     "z": 3,
+     "opacity": 0.9
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 720,
+     "y": 250,
+     "width": 50,
+     "height": 90,
+     "props": {
+      "pose": "stand"
+     },
+     "end": "@glowing",
+     "z": 6
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 720,
+     "y": 1150,
+     "width": 300,
+     "height": 83,
+     "rotate": -20,
+     "end": "@glowing",
+     "z": 4,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 1150
+      },
+      {
+       "t": "@feet.end",
+       "y": 520,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 720,
+     "y": 1150,
+     "width": 300,
+     "height": 83,
+     "rotate": -20,
+     "end": "@glowing",
+     "z": 5,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": 1150
+      },
+      {
+       "t": "@feet.end",
+       "y": 520,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 720,
+     "y": 1000,
+     "width": 452,
+     "height": 96,
+     "props": {
+      "text": "1 KM / 3,300 FT",
+      "at": "@kilometer",
+      "size": 40,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "end": "@glowing"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 540,
+     "y": 650,
+     "width": 800,
+     "height": 220,
+     "start": "@glowing",
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.25,
+       "speed": 1.0
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 650,
+     "width": 800,
+     "height": 220,
+     "start": "@glowing",
+     "z": 5,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.4
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 650,
+     "width": 800,
+     "height": 220,
+     "start": "@collar",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@collar",
+       "opacity": 0
+      },
+      {
+       "t": "@collar+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@scientists+0.3",
+     "exit": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 900,
+     "width": 380,
+     "height": 106,
+     "props": {
+      "text": "DARK COLLAR",
+      "at": "@collar",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@collar",
+     "end": "@scientists"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 45 Q70 5 150 30 Q190 40 205 45 Q190 52 150 60 Q70 85 20 45 Z\" fill=\"#160e0b\" opacity=\"1\" stroke=\"#ffe14d\" stroke-width=\"5\"/><path d=\"M20 45 L0 25 L6 45 L0 65 Z\" fill=\"#160e0b\" opacity=\"0.7\"/><circle cx=\"178\" cy=\"42\" r=\"4\" fill=\"#222\"/></svg>",
+     "x": 765,
+     "y": 665,
+     "width": 170,
+     "height": 70,
+     "start": "@scientists",
+     "z": 8,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 300,
+     "width": 1000,
+     "height": 210,
+     "props": {
+      "text": "BAIT?",
+      "at": "@think",
+      "size": 120,
+      "color": "white",
+      "underline": false
+     },
+     "z": 40,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 900,
+     "width": 291,
+     "height": 82,
+     "props": {
+      "text": "BEST GUESS",
+      "at": "@think",
+      "size": 34,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@think"
+    }
+   ]
+  },
+  {
+   "p": 5,
+   "beat": "mechanism-chain",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 200,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.3,
+    "shake": [
+     {
+      "at": "@twists",
+      "duration": 0.5,
+      "amplitude": 10
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 300,
+     "y": 650,
+     "width": 500,
+     "height": 138,
+     "end": "@even",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 45 Q70 5 150 30 Q190 40 205 45 Q190 52 150 60 Q70 85 20 45 Z\" fill=\"#160e0b\" opacity=\"1\" stroke=\"#ffe14d\" stroke-width=\"5\"/><path d=\"M20 45 L0 25 L6 45 L0 65 Z\" fill=\"#160e0b\" opacity=\"0.7\"/><circle cx=\"178\" cy=\"42\" r=\"4\" fill=\"#222\"/></svg>",
+     "x": 470,
+     "y": 655,
+     "width": 80,
+     "height": 33,
+     "end": "@even",
+     "z": 6
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 45 Q70 5 150 30 Q190 40 205 45 Q190 52 150 60 Q70 85 20 45 Z\" fill=\"#9fb7c9\" opacity=\"0.85\"/><path d=\"M20 45 L0 25 L6 45 L0 65 Z\" fill=\"#9fb7c9\" opacity=\"0.7\"/><circle cx=\"178\" cy=\"42\" r=\"4\" fill=\"#222\"/></svg>",
+     "x": 1150,
+     "y": 640,
+     "width": 260,
+     "height": 106,
+     "flipX": true,
+     "end": "@even",
+     "z": 7,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 1150
+      },
+      {
+       "t": "@reaches.end",
+       "x": 640,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": 540,
+     "y": 740,
+     "width": 1000,
+     "height": 320,
+     "props": {
+      "pxPerM": 34,
+      "idle": false
+     },
+     "start": "@even",
+     "end": "@lips",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 735,
+     "y": 732,
+     "width": 17,
+     "height": 5,
+     "start": "@even",
+     "end": "@lips",
+     "z": 6
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 735,
+     "y": 732,
+     "width": 90,
+     "height": 90,
+     "start": "@even",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@even",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@even+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@lips"
+    },
+    {
+     "type": "rect",
+     "x": 820,
+     "y": 1010,
+     "width": 400,
+     "height": 230,
+     "fill": "#0b1a22",
+     "radius": 18,
+     "opacity": 0.9,
+     "start": "@whale",
+     "end": "@same",
+     "z": 14,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Bus",
+     "x": 820,
+     "y": 990,
+     "width": 340,
+     "height": 150,
+     "props": {
+      "text": ""
+     },
+     "start": "@whale",
+     "end": "@same",
+     "z": 15,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"4\" width=\"84\" height=\"12\" fill=\"#f2c230\"/><path d=\"M84 4 L100 10 L84 16 Z\" fill=\"#3a2c25\"/></svg>",
+     "x": 780,
+     "y": 1030,
+     "width": 14,
+     "height": 3,
+     "start": "@whale",
+     "end": "@same",
+     "z": 16,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 780,
+     "y": 1030,
+     "width": 44,
+     "height": 44,
+     "start": "@whale",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@whale",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@whale+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@same",
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 820,
+     "y": 1160,
+     "width": 340,
+     "height": 67,
+     "props": {
+      "text": "PENCIL ON A BUS",
+      "at": "@whale",
+      "size": 28,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@whale",
+     "end": "@same"
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 960,
+     "y": 700,
+     "width": 40,
+     "height": 70,
+     "props": {
+      "pose": "stand",
+      "pxPerM": 34
+     },
+     "start": "@same",
+     "end": "@lips",
+     "z": 6
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 960,
+     "y": 630,
+     "width": 132,
+     "height": 67,
+     "props": {
+      "text": "YOU",
+      "at": "@you",
+      "size": 28,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@same",
+     "end": "@lips"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Options",
+     "x": 540,
+     "y": 300,
+     "width": 900,
+     "height": 300,
+     "props": {
+      "title": "3 TOOLS",
+      "items": [
+       "SUCTION LIPS",
+       "HOOK TEETH",
+       "BLADE TEETH"
+      ],
+      "at": "@same",
+      "stagger": 0.12,
+      "size": 38,
+      "select": [
+       {
+        "index": 0,
+        "at": "@lips"
+       },
+       {
+        "index": 1,
+        "at": "@anchors"
+       },
+       {
+        "index": 2,
+        "at": "@blade"
+       }
+      ]
+     },
+     "start": "@same",
+     "end": "@so",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skw\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8f979d\"/><stop offset=\"1\" stop-color=\"#596169\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skw)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#aeb6bb\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#737b81\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 1340,
+     "width": 1200,
+     "height": 700,
+     "start": "@lips",
+     "end": "@so",
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "rotate": 90,
+     "start": "@lips",
+     "end": "@so",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"386\" cy=\"64\" rx=\"10\" ry=\"13\" fill=\"#ffe14d\" fill-opacity=\"0.45\" stroke=\"#ffe14d\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "start": "@lips",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@lips",
+       "opacity": 0
+      },
+      {
+       "t": "@lips+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "rotate": 90,
+     "end": "@so"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 160 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 110 Q80 0 150 110 Z\" fill=\"#e5483d\"/><rect x=\"70\" y=\"0\" width=\"20\" height=\"50\" rx=\"6\" fill=\"#8a1f1a\"/></svg>",
+     "x": 540,
+     "y": 1040,
+     "width": 180,
+     "height": 135,
+     "start": "@suction",
+     "end": "@suction+0.8",
+     "z": 20,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M378 55 L381 61 L384 55 Z M384 55 L387 61 L390 55 Z\" fill=\"#ffe14d\" stroke=\"#ffe14d\" stroke-width=\"1.5\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "start": "@top",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@top",
+       "opacity": 0
+      },
+      {
+       "t": "@top+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "rotate": 90,
+     "end": "@so"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 140\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"#f3f6f7\" stroke-width=\"12\" stroke-linecap=\"round\"><circle cx=\"60\" cy=\"18\" r=\"11\"/><path d=\"M60 30 L60 128 M20 92 Q24 128 60 128 Q96 128 100 92 M36 54 L84 54\"/></g></svg>",
+     "x": 680,
+     "y": 1020,
+     "width": 110,
+     "height": 128,
+     "start": "@anchors",
+     "end": "@anchors+0.6",
+     "z": 20,
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 900\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1200\" height=\"60\" fill=\"#596169\"/><rect y=\"60\" width=\"1200\" height=\"440\" fill=\"#efe0c4\"/><rect y=\"500\" width=\"1200\" height=\"400\" fill=\"#c9707a\"/><path d=\"M0 280 Q300 300 600 280 T1200 280\" stroke=\"#e2cfac\" stroke-width=\"6\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1440,
+     "width": 1200,
+     "height": 900,
+     "start": "@and",
+     "end": "@so",
+     "z": 3,
+     "enter": {
+      "type": "wipeDown",
+      "duration": 0.5
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M366 74 L370 64 L374 74 L378 64 L382 74 L386 64 L390 74 Z\" fill=\"#ffe14d\" stroke=\"#b89a00\" stroke-width=\"1\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "start": "@bottom",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@bottom",
+       "opacity": 0
+      },
+      {
+       "t": "@bottom+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "rotate": 90,
+     "end": "@so"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skw\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8f979d\"/><stop offset=\"1\" stop-color=\"#596169\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skw)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#aeb6bb\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#737b81\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 960,
+     "width": 1300,
+     "height": 2100,
+     "start": "@so",
+     "end": "@hole",
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 600,
+     "y": 720,
+     "width": 560,
+     "height": 154,
+     "anchorX": 0.98,
+     "anchorY": 0.53,
+     "start": "@so",
+     "end": "@hole",
+     "z": 5,
+     "keyframes": [
+      {
+       "t": "@twists",
+       "rotate": 0
+      },
+      {
+       "t": "@hole",
+       "rotate": 300,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 600,
+     "y": 720,
+     "width": 260,
+     "height": 260,
+     "start": "@twists",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@twists",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@twists+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@hole"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"86\" fill=\"#9aa4ab\" stroke=\"#5d666c\" stroke-width=\"8\"/><circle cx=\"100\" cy=\"100\" r=\"16\" fill=\"#3a4045\"/><g fill=\"#d5dade\"><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(0 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(24 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(48 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(72 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(96 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(120 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(144 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(168 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(192 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(216 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(240 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(264 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(288 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(312 100 100)\"/><path d=\"M100 4 L108 18 L92 18 Z\" transform=\"rotate(336 100 100)\"/></g></svg>",
+     "x": 540,
+     "y": 720,
+     "width": 380,
+     "height": 380,
+     "start": "@hole",
+     "end": "@and#2",
+     "z": 8,
+     "idle": [
+      {
+       "type": "spin",
+       "speed": 1.2
+      }
+     ],
+     "enter": {
+      "type": "pop",
+      "duration": 0.2
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 990,
+     "width": 298,
+     "height": 106,
+     "props": {
+      "text": "HOLE SAW",
+      "at": "@hole",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@hole",
+     "end": "@and#2"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 900\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1200\" height=\"60\" fill=\"#596169\"/><rect y=\"60\" width=\"1200\" height=\"440\" fill=\"#efe0c4\"/><rect y=\"500\" width=\"1200\" height=\"400\" fill=\"#c9707a\"/><path d=\"M0 280 Q300 300 600 280 T1200 280\" stroke=\"#e2cfac\" stroke-width=\"6\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 1200,
+     "height": 900,
+     "start": "@and#2",
+     "z": 2
+    },
+    {
+     "type": "rect",
+     "x": 460,
+     "y": 660,
+     "width": 140,
+     "height": 200,
+     "fill": "#140707",
+     "start": "@and#2",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 140 200\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"140\" height=\"24\" rx=\"10\" fill=\"#596169\"/><rect x=\"0\" y=\"22\" width=\"140\" height=\"120\" fill=\"#efe0c4\"/><rect x=\"0\" y=\"140\" width=\"140\" height=\"60\" rx=\"10\" fill=\"#c9707a\"/></svg>",
+     "x": 460,
+     "y": 660,
+     "width": 140,
+     "height": 200,
+     "start": "@and#2",
+     "z": 5,
+     "keyframes": [
+      {
+       "t": "@lifts",
+       "y": 660
+      },
+      {
+       "t": "@plug.end",
+       "y": 540,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"60\" cy=\"60\" r=\"56\" fill=\"#f6f7f2\"/><g fill=\"#d4d6cf\"><circle cx=\"40\" cy=\"36\" r=\"5\"/><circle cx=\"64\" cy=\"30\" r=\"5\"/><circle cx=\"84\" cy=\"46\" r=\"5\"/><circle cx=\"34\" cy=\"62\" r=\"5\"/><circle cx=\"60\" cy=\"56\" r=\"5\"/><circle cx=\"86\" cy=\"70\" r=\"5\"/><circle cx=\"46\" cy=\"86\" r=\"5\"/><circle cx=\"70\" cy=\"84\" r=\"5\"/></g></svg>",
+     "x": 700,
+     "y": 480,
+     "width": 120,
+     "height": 120,
+     "start": "@golf",
+     "z": 5,
+     "enter": {
+      "type": "pop",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Stat",
+     "x": 540,
+     "y": 280,
+     "width": 600,
+     "height": 220,
+     "props": {
+      "value": 5,
+      "suffix": " CM",
+      "at": "@plug",
+      "duration": 0.6,
+      "size": 110
+     },
+     "start": "@and#2",
+     "z": 20,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 700,
+     "y": 600,
+     "width": 164,
+     "height": 82,
+     "props": {
+      "text": "2 IN",
+      "at": "@golf",
+      "size": 34,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@golf"
+    }
+   ]
+  },
+  {
+   "p": 6,
+   "beat": "turnstile",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 40,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "drift",
+    "amount": 0.6
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/BlueWhale",
+     "x": 540,
+     "y": 700,
+     "width": 1000,
+     "height": 320,
+     "props": {
+      "pxPerM": 34,
+      "idle": false
+     },
+     "end": "@you",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 700,
+     "y": 690,
+     "width": 26,
+     "height": 26,
+     "end": "@you",
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 742,
+     "y": 712,
+     "width": 26,
+     "height": 26,
+     "end": "@you",
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 790,
+     "y": 694,
+     "width": 26,
+     "height": 26,
+     "end": "@you",
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 660,
+     "y": 716,
+     "width": 26,
+     "height": 26,
+     "end": "@you",
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 830,
+     "y": 730,
+     "width": 40,
+     "height": 11,
+     "end": "@you",
+     "z": 5,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": 830
+      },
+      {
+       "t": "@spare",
+       "x": 1040
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 435,
+     "height": 106,
+     "props": {
+      "text": "TONS TO SPARE",
+      "at": "@tons",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "end": "@you"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 1300,
+     "height": 2300,
+     "fill": "#03060a",
+     "start": "@you",
+     "z": 20
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 540,
+     "y": 760,
+     "width": 200,
+     "height": 360,
+     "props": {
+      "pose": "stand"
+     },
+     "start": "@you",
+     "z": 22
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 320,
+     "width": 1000,
+     "height": 340,
+     "props": {
+      "text": "YOU\nDON'T",
+      "at": "@you",
+      "size": 112,
+      "color": "white",
+      "underline": false,
+      "red": "DON'T"
+     },
+     "z": 40,
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "p": 7,
+   "beat": "re-immersion",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 5,
+     "rays": 0,
+     "snow": 40,
+     "surface": 0.2,
+     "skyTop": "#02060c",
+     "skyBottom": "#0b1e2b"
+    }
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "panLeft",
+    "amount": 0.4
+   },
+   "layers": [
+    {
+     "type": "circle",
+     "x": 840,
+     "y": 190,
+     "width": 110,
+     "height": 110,
+     "fill": "#e9eef2",
+     "z": 2,
+     "depth": 0.2
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 540,
+     "y": 400,
+     "width": 120,
+     "height": 220,
+     "props": {
+      "pose": "run"
+     },
+     "rotate": -90,
+     "end": "@when",
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 640,
+     "width": 435,
+     "height": 106,
+     "props": {
+      "text": "FAR FROM LAND",
+      "at": "@far",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "end": "@when"
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 540,
+     "y": 430,
+     "width": 120,
+     "height": 220,
+     "props": {
+      "pose": "run",
+      "color": "#14242e"
+     },
+     "rotate": -90,
+     "start": "@when",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"gg1\"><stop offset=\"0\" stop-color=\"#d8fff0\"/><stop offset=\"0.25\" stop-color=\"#3dff9a\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#gg1)\"/></svg>",
+     "x": 540,
+     "y": 1500,
+     "width": 360,
+     "height": 360,
+     "start": "@when",
+     "z": 4,
+     "keyframes": [
+      {
+       "t": "@when",
+       "y": 1500,
+       "opacity": 0.3
+      },
+      {
+       "t": "@leg",
+       "y": 560,
+       "opacity": 1,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 1500,
+     "width": 220,
+     "height": 60,
+     "rotate": -80,
+     "start": "@when",
+     "z": 5,
+     "keyframes": [
+      {
+       "t": "@when",
+       "y": 1500
+      },
+      {
+       "t": "@leg",
+       "y": 590,
+       "ease": "inOut"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "p": 8,
+   "beat": "peak",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5,
+    "shake": [
+     {
+      "at": "@twist",
+      "duration": 0.4,
+      "amplitude": 14
+     },
+     {
+      "at": "@swallow",
+      "duration": 0.5,
+      "amplitude": 18
+     }
+    ]
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skh\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e0b294\"/><stop offset=\"1\" stop-color=\"#b98262\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skh)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#f1cdb4\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#c99a7c\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 1340,
+     "width": 1200,
+     "height": 700,
+     "end": "@it",
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "rotate": 90,
+     "end": "@it",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"386\" cy=\"64\" rx=\"10\" ry=\"13\" fill=\"#ffe14d\" fill-opacity=\"0.45\" stroke=\"#ffe14d\" stroke-width=\"4\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "start": "@seal",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@seal",
+       "opacity": 0
+      },
+      {
+       "t": "@seal+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "rotate": 90,
+     "end": "@it"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M378 55 L381 61 L384 55 Z M384 55 L387 61 L390 55 Z\" fill=\"#ffe14d\" stroke=\"#ffe14d\" stroke-width=\"1.5\"/></svg>",
+     "x": 540,
+     "y": 280,
+     "width": 1500,
+     "height": 412,
+     "start": "@hook",
+     "z": 9,
+     "keyframes": [
+      {
+       "t": "@hook",
+       "opacity": 0
+      },
+      {
+       "t": "@hook+0.2",
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "rotate": 90,
+     "end": "@it"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 220,
+     "height": 90,
+     "start": "@twist",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@twist",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@twist+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ],
+     "end": "@it"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 900\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1200\" height=\"40\" fill=\"#e0b294\"/><rect y=\"40\" width=\"1200\" height=\"220\" fill=\"#f2d27a\"/><rect y=\"260\" width=\"1200\" height=\"640\" fill=\"#b23a48\"/><path d=\"M0 520 Q300 540 600 520 T1200 520\" stroke=\"#9a2f3c\" stroke-width=\"6\" fill=\"none\"/></svg>",
+     "x": 540,
+     "y": 1000,
+     "width": 1200,
+     "height": 900,
+     "start": "@it",
+     "end": "@then",
+     "z": 2
+    },
+    {
+     "type": "rect",
+     "x": 420,
+     "y": 550,
+     "width": 260,
+     "height": 364,
+     "anchorY": 0,
+     "fill": "#140707",
+     "start": "@it",
+     "end": "@then",
+     "z": 3,
+     "keyframes": [
+      {
+       "t": "@cut",
+       "scaleY": 0.2
+      },
+      {
+       "t": "@deep.end",
+       "scaleY": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 600,
+     "y": 550,
+     "width": 12,
+     "height": 364,
+     "anchorY": 0,
+     "fill": "#ffe14d",
+     "start": "@deep",
+     "end": "@then",
+     "z": 6,
+     "keyframes": [
+      {
+       "t": "@deep",
+       "scaleY": 0
+      },
+      {
+       "t": "@deep+0.4",
+       "scaleY": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 140 338\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"10\" y=\"0\" width=\"120\" height=\"338\" rx=\"58\" fill=\"#e0b294\" stroke=\"#0b1a22\" stroke-width=\"6\"/><rect x=\"34\" y=\"250\" width=\"72\" height=\"70\" rx=\"26\" fill=\"#f3d9c8\"/></svg>",
+     "x": 760,
+     "y": 719,
+     "width": 140,
+     "height": 338,
+     "start": "@thumb",
+     "end": "@then",
+     "z": 6,
+     "enter": {
+      "type": "slideDown",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 330,
+     "width": 576,
+     "height": 96,
+     "props": {
+      "text": "UP TO 7 CM / 2.75 IN",
+      "at": "@deep",
+      "size": 40,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@deep",
+     "end": "@then"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skh\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e0b294\"/><stop offset=\"1\" stop-color=\"#b98262\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skh)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#f1cdb4\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#c99a7c\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 960,
+     "width": 1300,
+     "height": 2100,
+     "start": "@then",
+     "z": 2
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"hlg\"><stop offset=\"0.6\" stop-color=\"#140707\"/><stop offset=\"1\" stop-color=\"#5a2b28\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"url(#hlg)\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 300,
+     "height": 300,
+     "start": "@then",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 140 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"0\" y=\"0\" width=\"140\" height=\"24\" rx=\"10\" fill=\"#e0b294\"/><rect x=\"0\" y=\"22\" width=\"140\" height=\"120\" fill=\"#f2d27a\"/><rect x=\"0\" y=\"140\" width=\"140\" height=\"60\" rx=\"10\" fill=\"#b23a48\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 260,
+     "height": 260,
+     "start": "@then",
+     "z": 4,
+     "keyframes": [
+      {
+       "t": "@swallow",
+       "x": 540,
+       "y": 760,
+       "scale": 1
+      },
+      {
+       "t": "@circle",
+       "x": 760,
+       "y": 520,
+       "scale": 0.05,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 900,
+     "y": 470,
+     "width": 480,
+     "height": 132,
+     "rotate": -35,
+     "anchorX": 0.98,
+     "anchorY": 0.53,
+     "start": "@then",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 540,
+     "y": 760,
+     "width": 340,
+     "height": 340,
+     "start": "@circle",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@circle",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@circle+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "p": 9,
+   "beat": "reality-flip",
+   "background": {
+    "type": "color",
+    "color": "#05080c"
+   },
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.4
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 640,
+     "width": 1000,
+     "height": 410,
+     "props": {
+      "text": "NOT A\nWHAT-IF",
+      "at": "@not",
+      "size": 140,
+      "color": "white",
+      "underline": false,
+      "red": "WHAT-IF",
+      "out": "@in"
+     },
+     "z": 40,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": 540,
+     "y": 720,
+     "width": 1000,
+     "height": 900,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": -155,
+        "lat": 18,
+        "zoom": 1.6
+       }
+      ],
+      "pins": [
+       {
+        "place": "hawaii",
+        "label": "HAWAII",
+        "at": "@two"
+       }
+      ],
+      "rings": [
+       {
+        "place": "hawaii",
+        "r": 5,
+        "at": "@nine"
+       }
+      ]
+     },
+     "start": "@in",
+     "end": "@became",
+     "z": 3,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 300,
+     "width": 239,
+     "height": 154,
+     "props": {
+      "text": "2009",
+      "at": "@nine",
+      "size": 64,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@in",
+     "end": "@became"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1080 1920\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"nsg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#02060c\"/><stop offset=\"0.4\" stop-color=\"#0b1e2b\"/><stop offset=\"0.401\" stop-color=\"#06202c\"/><stop offset=\"1\" stop-color=\"#010507\"/></linearGradient></defs><rect width=\"1080\" height=\"1920\" fill=\"url(#nsg)\"/></svg>",
+     "x": 540,
+     "y": 960,
+     "width": 1080,
+     "height": 1920,
+     "start": "@became",
+     "z": 2,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 470,
+     "y": 790,
+     "width": 120,
+     "height": 220,
+     "props": {
+      "pose": "run"
+     },
+     "rotate": -90,
+     "start": "@became",
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"bg1\"><stop offset=\"0\" stop-color=\"#fff6d8\"/><stop offset=\"0.25\" stop-color=\"#ffd27a\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#ffd27a\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#bg1)\"/></svg>",
+     "x": 820,
+     "y": 740,
+     "width": 280,
+     "height": 280,
+     "start": "@became",
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 0.7
+      }
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 820,
+     "y": 790,
+     "width": 200,
+     "height": 46,
+     "fill": "#1b2630",
+     "radius": 10,
+     "start": "@became",
+     "z": 5
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 330,
+     "width": 576,
+     "height": 96,
+     "props": {
+      "text": "FIRST KNOWN SURVIVOR",
+      "at": "@first",
+      "size": 40,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@first"
+    }
+   ]
+  },
+  {
+   "p": 10,
+   "beat": "relief-sting",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 30,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.5
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 520,
+     "y": 780,
+     "width": 220,
+     "height": 400,
+     "props": {
+      "pose": "stand"
+     },
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 780,
+     "y": 680,
+     "width": 170,
+     "height": 170,
+     "start": "@lived",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@lived",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@lived+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 330,
+     "width": 298,
+     "height": 106,
+     "props": {
+      "text": "SURVIVED",
+      "at": "@lived",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 460,
+     "width": 516,
+     "height": 106,
+     "props": {
+      "text": "NEVER GROWS BACK",
+      "at": "@grow",
+      "size": 44,
+      "align": "center",
+      "accent": "red"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@grow"
+    }
+   ]
+  },
+  {
+   "p": 11,
+   "beat": "disgust",
+   "background": {
+    "type": "color",
+    "color": "#120a08"
+   },
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "drift",
+    "amount": 0.5
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 460,
+     "y": 700,
+     "width": 1000,
+     "height": 275,
+     "z": 5
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M366 74 L370 64 L374 74 L378 64 L382 74 L386 64 L390 74 Z\" fill=\"#ffe14d\" stroke=\"#b89a00\" stroke-width=\"1\"/></svg>",
+     "x": 460,
+     "y": 700,
+     "width": 1000,
+     "height": 275,
+     "z": 7,
+     "keyframes": [
+      {
+       "t": "@swallows",
+       "x": 460,
+       "y": 700,
+       "opacity": 1,
+       "rotate": 0
+      },
+      {
+       "t": "@row.end",
+       "x": 200,
+       "y": 720,
+       "opacity": 0,
+       "rotate": -8,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M366 74 L370 64 L374 74 L378 64 L382 74 L386 64 L390 74 Z\" fill=\"#ffe14d\" stroke=\"#b89a00\" stroke-width=\"1\"/></svg>",
+     "x": 460,
+     "y": 700,
+     "width": 1000,
+     "height": 275,
+     "start": "@grows",
+     "z": 7,
+     "enter": {
+      "type": "fade",
+      "duration": 0.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 380,
+     "width": 626,
+     "height": 96,
+     "props": {
+      "text": "SWALLOWS ITS OLD TEETH",
+      "at": "@swallows",
+      "size": 40,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "p": 12,
+   "beat": "can-even-list",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 120,
+     "rays": 7,
+     "snow": 60
+    }
+   },
+   "transitionIn": {
+    "type": "cut",
+    "duration": 0
+   },
+   "camera": {
+    "preset": "pullOut",
+    "amount": 0.4
+   },
+   "layers": [
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 700 280\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M40 150 Q140 82 360 84 Q500 86 580 112 Q610 124 618 136 L692 144 L692 152 L612 158 Q520 196 320 198 Q140 196 40 150 Z\" fill=\"#8c9aa4\"/><path d=\"M180 176 Q300 196 560 170 Q470 190 320 192 Q220 190 180 176 Z\" fill=\"#c9d3d9\"/><path d=\"M300 88 Q330 44 376 18 Q360 58 384 88 Z\" fill=\"#7a8892\"/><path d=\"M44 150 L2 104 L16 150 L2 198 Z\" fill=\"#7a8892\"/><circle cx=\"586\" cy=\"132\" r=\"7\" fill=\"#0b1a22\"/></svg>",
+     "x": 540,
+     "y": 700,
+     "width": 700,
+     "height": 280,
+     "end": "@tuna",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 640,
+     "y": 680,
+     "width": 34,
+     "height": 34,
+     "end": "@tuna",
+     "z": 4
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 700,
+     "y": 712,
+     "width": 30,
+     "height": 30,
+     "end": "@tuna",
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 298,
+     "height": 106,
+     "props": {
+      "text": "DOLPHINS",
+      "at": "@dolphins",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "end": "@tuna"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 220 90\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20 45 Q70 5 150 30 Q190 40 205 45 Q190 52 150 60 Q70 85 20 45 Z\" fill=\"#9fb7c9\" opacity=\"0.85\"/><path d=\"M20 45 L0 25 L6 45 L0 65 Z\" fill=\"#9fb7c9\" opacity=\"0.7\"/><circle cx=\"178\" cy=\"42\" r=\"4\" fill=\"#222\"/></svg>",
+     "x": 540,
+     "y": 700,
+     "width": 600,
+     "height": 245,
+     "start": "@tuna",
+     "end": "@the",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 620,
+     "y": 700,
+     "width": 34,
+     "height": 34,
+     "start": "@tuna",
+     "end": "@the",
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 189,
+     "height": 106,
+     "props": {
+      "text": "TUNA",
+      "at": "@tuna",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@tuna",
+     "end": "@the"
+    },
+    {
+     "type": "component",
+     "name": "explainer/GreatWhite",
+     "x": 540,
+     "y": 700,
+     "width": 760,
+     "height": 300,
+     "props": {
+      "pxPerM": 120,
+      "idle": false
+     },
+     "start": "@the",
+     "end": "@even",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 700,
+     "y": 700,
+     "width": 34,
+     "height": 34,
+     "start": "@the",
+     "end": "@even",
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 960,
+     "width": 407,
+     "height": 106,
+     "props": {
+      "text": "GREAT WHITES",
+      "at": "@the",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@the",
+     "end": "@even"
+    },
+    {
+     "type": "rect",
+     "x": 540,
+     "y": 960,
+     "width": 540,
+     "height": 16,
+     "fill": "#e5483d",
+     "radius": 8,
+     "z": 35,
+     "depth": 0,
+     "start": "@the",
+     "end": "@even",
+     "keyframes": [
+      {
+       "t": "@just",
+       "scaleX": 1
+      },
+      {
+       "t": "@forgot.end",
+       "scaleX": 0,
+       "ease": "in"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 900 300\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M60 150 Q60 100 160 100 L760 100 Q880 100 880 150 Q880 200 760 200 L160 200 Q60 200 60 150 Z\" fill=\"#3c464d\"/><path d=\"M760 100 Q880 100 880 150 Q880 200 760 200 Z\" fill=\"#5a4c40\"/><rect x=\"360\" y=\"50\" width=\"160\" height=\"56\" rx=\"12\" fill=\"#3c464d\"/><path d=\"M60 150 L10 110 L10 190 Z\" fill=\"#30393f\"/></svg>",
+     "x": 540,
+     "y": 700,
+     "width": 900,
+     "height": 300,
+     "start": "@even",
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 905,
+     "y": 660,
+     "width": 28,
+     "height": 28,
+     "start": "@domes+0",
+     "z": 4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 930,
+     "y": 700,
+     "width": 28,
+     "height": 28,
+     "start": "@domes+0.12",
+     "z": 4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 950,
+     "y": 735,
+     "width": 28,
+     "height": 28,
+     "start": "@domes+0.24",
+     "z": 4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 915,
+     "y": 745,
+     "width": 28,
+     "height": 28,
+     "start": "@domes+0.36",
+     "z": 4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#e8e2d6\" stroke-width=\"10\"/></svg>",
+     "x": 945,
+     "y": 675,
+     "width": 28,
+     "height": 28,
+     "start": "@domes+0.48",
+     "z": 4,
+     "enter": {
+      "type": "pop",
+      "duration": 0.15
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": 540,
+     "y": 380,
+     "width": 489,
+     "height": 106,
+     "props": {
+      "text": "EVEN SUBMARINES",
+      "at": "@even",
+      "size": 44,
+      "align": "center"
+     },
+     "z": 30,
+     "depth": 0,
+     "start": "@even"
+    }
+   ]
+  },
+  {
+   "p": 13,
+   "beat": "stinger-loop",
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 10,
+     "rays": 0,
+     "snow": 40,
+     "surface": 0.2,
+     "skyTop": "#02060c",
+     "skyBottom": "#0b1e2b"
+    }
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.4
+   },
+   "layers": [
+    {
+     "type": "circle",
+     "x": 840,
+     "y": 190,
+     "width": 110,
+     "height": 110,
+     "fill": "#e9eef2",
+     "z": 2,
+     "end": "@to"
+    },
+    {
+     "type": "component",
+     "name": "explainer/You",
+     "x": 540,
+     "y": 400,
+     "width": 120,
+     "height": 220,
+     "props": {
+      "pose": "run",
+      "color": "#14242e"
+     },
+     "rotate": -90,
+     "end": "@to",
+     "z": 5,
+     "idle": [
+      {
+       "type": "bob",
+       "amount": 5,
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"gg1\"><stop offset=\"0\" stop-color=\"#d8fff0\"/><stop offset=\"0.25\" stop-color=\"#3dff9a\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#gg1)\"/></svg>",
+     "x": 540,
+     "y": 1600,
+     "width": 320,
+     "height": 320,
+     "end": "@to",
+     "z": 4,
+     "keyframes": [
+      {
+       "t": "@dark",
+       "y": 1600,
+       "opacity": 0.2
+      },
+      {
+       "t": "@rising",
+       "y": 1200,
+       "opacity": 0.7
+      },
+      {
+       "t": "@to",
+       "y": 760,
+       "opacity": 1,
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Ocean",
+     "x": 540,
+     "y": 960,
+     "width": 1300,
+     "height": 2300,
+     "props": {
+      "depth": 30,
+      "rays": 7,
+      "snow": 60
+     },
+     "start": "@to",
+     "z": 1,
+     "depth": 0
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 1200 700\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"skh\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e0b294\"/><stop offset=\"1\" stop-color=\"#b98262\"/></linearGradient></defs><rect width=\"1200\" height=\"700\" fill=\"url(#skh)\"/><path d=\"M0 4 Q600 -10 1200 4\" stroke=\"#f1cdb4\" stroke-width=\"8\" fill=\"none\"/><g fill=\"#c99a7c\"><ellipse cx=\"140\" cy=\"120\" rx=\"9\" ry=\"4\"/><ellipse cx=\"420\" cy=\"220\" rx=\"8\" ry=\"4\"/><ellipse cx=\"760\" cy=\"150\" rx=\"9\" ry=\"4\"/><ellipse cx=\"1010\" cy=\"300\" rx=\"8\" ry=\"4\"/><ellipse cx=\"300\" cy=\"420\" rx=\"9\" ry=\"4\"/><ellipse cx=\"880\" cy=\"520\" rx=\"9\" ry=\"4\"/></g></svg>",
+     "x": 540,
+     "y": 1340,
+     "width": 1200,
+     "height": 700,
+     "z": 2,
+     "start": "@to"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"ccg\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9dffc4\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#3dff9a\" stop-opacity=\"0\"/></radialGradient></defs><ellipse cx=\"190\" cy=\"82\" rx=\"185\" ry=\"26\" fill=\"url(#ccg)\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 4,
+     "idle": [
+      {
+       "type": "pulse",
+       "amount": 0.15,
+       "speed": 0.8
+      }
+     ],
+     "start": "@to"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 400 110\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M392 58 Q386 34 340 31 L120 37 Q62 41 30 52 L8 38 L15 58 L8 78 L30 64 Q62 76 120 80 L340 86 Q386 82 392 58 Z\" fill=\"#3b2c25\"/><path d=\"M150 37 L168 21 L186 36 Z M96 41 L110 29 L122 40 Z\" fill=\"#2c201b\"/><path d=\"M298 33 L322 32 L322 86 L298 85 Z\" fill=\"#160e0b\"/><path d=\"M60 70 Q200 84 296 82\" stroke=\"#7dffb0\" stroke-width=\"3\" stroke-dasharray=\"2 7\" fill=\"none\" opacity=\"0.8\"/><circle cx=\"362\" cy=\"50\" r=\"7\" fill=\"#b9f3e4\"/><circle cx=\"363\" cy=\"50\" r=\"3\" fill=\"#0b1a22\"/><ellipse cx=\"386\" cy=\"64\" rx=\"8\" ry=\"11\" fill=\"#6b4a3f\"/></svg>",
+     "x": 358,
+     "y": 654,
+     "width": 880,
+     "height": 242,
+     "rotate": 55,
+     "z": 5,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 1.5,
+       "speed": 0.6
+      }
+     ],
+     "start": "@to"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"hlg\"><stop offset=\"0.6\" stop-color=\"#140707\"/><stop offset=\"1\" stop-color=\"#5a2b28\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"url(#hlg)\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 230,
+     "height": 92,
+     "z": 3,
+     "start": "@to"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 880,
+     "y": 1110,
+     "width": 270,
+     "height": 112,
+     "z": 6,
+     "start": "@to"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"88\" fill=\"none\" stroke=\"#ffe14d\" stroke-width=\"12\"/></svg>",
+     "x": 600,
+     "y": 1000,
+     "width": 200,
+     "height": 80,
+     "start": "@circle",
+     "z": 12,
+     "keyframes": [
+      {
+       "t": "@circle",
+       "scale": 0.6,
+       "opacity": 0
+      },
+      {
+       "t": "@circle+0.35",
+       "scale": 1,
+       "opacity": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": 540,
+     "y": 290,
+     "width": 1000,
+     "height": 360,
+     "props": {
+      "text": "PERFECT\nCIRCLES",
+      "at": "@circle",
+      "size": 120,
+      "color": "white",
+      "underline": false,
+      "red": "CIRCLES"
+     },
+     "z": 40,
+     "depth": 0
+    }
+   ]
+  }
+ ]
+}

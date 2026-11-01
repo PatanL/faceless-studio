@@ -1,0 +1,258 @@
+{
+ "episode": "explainer-short-cookiecutter-shark",
+ "reviewed_at_utc": "2026-11-01T11:45Z",
+ "scores_before": {
+  "retention": 6,
+  "reference": 6,
+  "originality": 7,
+  "producibility": 6
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 7,
+  "producibility": 8
+ },
+ "score_notes": {
+  "retention": "The viewer is at risk from line 1 to the end. 'You' is 13 of 242 words (5.4%) and in 10 of 18 sentences (56%). Every whale-half number is tied to the viewer's body (arm, feet, 'the same three you would', golf ball, thumb). The count lands at 0:12.1, down from 0:24.6. The pivot is aimed at the viewer ('you included'). The peak adds a new fact (up to 7 cm deep, about the length of your thumb) and a purpose reveal (it swallows the plug), so it is no longer a recap. The stinger is back in the night water under 'someone swimming', with 'circle' as the last word. Measured runtime is 74.9 s at 193 wpm, down from 87.2 s at 170 wpm. Remaining gap: 10.4 you-words a minute, below the 12-20 target.",
+  "reference": "References are now FLY, JELLY and PUFFER. PRESSURE is demoted to a minor single-device reference. The mechanism is a real FLY open chain: 54 words with no full stop for 15 s. The peak sentence (19 words) has no full stop either, and no paragraph splits a sentence. The table no longer claims a device the text doesn't carry out. The purpose reveal comes from FLY 0:24.9. The planted word is now 'circle', paid off bigger each time. The P9 flip and P13 stinger cite PUFFER 0:43 and 0:55. Every timestamp in the table is re-checked against the corpus files.",
+  "originality": "The gate passes. The narration alone shares 0 five-word sequences with any corpus or library source, and its longest shared run is 4 words. Factual fixes: no more 'whales fear it'; the lure is hedged aloud; 'twists' replaces 'spins', with a ~300° turn on screen; there is no unsourced 'not the last'; the wound sits off the body. The 57M premise transcript (CRGWDiIgMZ4) still could not be fetched (YouTube bot check), so the score stays 7 until a person adds it and reruns the gate.",
+  "producibility": "storyboard.json is built by pipeline/episodes/auto.py from shots.json against the measured captions. It has 13 scenes and 158 layers, zod 'ok', auto PASS, 0 hold warnings, and a 2.1 s longest hold. It uses no new components. Static-svg animation is split into overlay layers keyed to spoken words. The swimmer is You rotated -90 with pose run. The map is Pacific-scale. Creatures carrying marks have idle false. Two-colour headlines use the Headline red prop. The camera uses presets and in-scene cuts use layer swaps. 52 look-dev stills were rendered on the Spark CPU and checked. Remaining: mix.wav for this narration exists only in the Spark scratch dir (rerun TTS into studio/public on build), and two auto.py pxPerM warnings remain because the cards are not comparisons."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "'You' through the whale half: shorter than your arm, a kilometer below your feet, 'the same three you would', a plug bigger than a golf ball. Measured: 5.4% of words, 56% of sentences.",
+   "The pivot is re-aimed at the viewer ('The one that bites almost anything, you included, is the cookiecutter'), with no whale-fear claim.",
+   "The first rung arrives earlier: the three-'Forget' misdirect became one sentence, and 'three tools' lands at 0:12.1 (16%).",
+   "The 'you' role is fixed: 'Anything it reaches, even a whale, gets the same three you would'. 'You' is only ever the victim.",
+   "The peak is strictly worse than the whale payoff: a new fact (it can cut as deep as your thumb is long, up to 7 cm, ScaleBar + thumb) and a purpose reveal ('then swallow a circle of you').",
+   "The hypothesis is hedged aloud: 'Scientists think it's bait.' Headline BAIT? + Tag BEST GUESS.",
+   "Frame 1 is unmistakable: the shark, big and diagonal, latched mouth-first into human-toned skin, with the bite ring, a finished hole and PERFECT CIRCLES. Shot 40 mirrors it. Rendered and checked at 0.0 s and 74.8 s.",
+   "The stinger is back on a person in the night water: 'And tonight, under someone swimming in the dark, a green glow is rising to cut one more circle.' 'Circle' is the last word."
+  ],
+  "reference": [
+   "The count moved into the P3 reveal at 0:12.1. P4 depth+bait is 6.9 s and hedged.",
+   "Second person is raised to 5.4% of words / 56% of sentences. The whale demo is 15 s inside one chain, framed by 'the same three you would'.",
+   "P5 role confusion is removed. 'You' is only ever the victim.",
+   "Pivot contradiction removed (no 'whales fear it'). The pivot is a superlative turned on the viewer's own list of fears.",
+   "FLY purpose reveal added and landed on you ('then swallow a circle of you', 0:48.3). The table cites FLY 0:24.9 for it.",
+   "The chain devices are now true: P5 has no full stop for 15 s, and P8 has none for 4.9 s. The table describes exactly that.",
+   "The peak adds the 7 cm / thumb fact (FLY 0:12.3-0:15.6, one layer deeper).",
+   "The planted word is 'circle', paid off bigger each time (hook, 'cutting circles', healed scars, a circle of you, never grows back, submarine domes, last word). The 'saw' plant is gone.",
+   "XFFjxTllpoA (PUFFER) added as the third reference. P9 and P13 now cite its 0:43 and 0:55. fmZfphacPPQ is listed as a minor reference for its visual-only landmark only.",
+   "Closest-source check attempted: CRGWDiIgMZ4 (the 57M premise video) fetched on the Spark with ~/.local/bin/yt-dlp, default + tv_simply + mweb + android_vr clients. All four failed with 'Sign in to confirm you're not a bot'. Not bypassed (cookies/bot-check bypass is out of bounds). Recorded in the front matter as a blocker before publishing.",
+   "The lure hypothesis is hedged in the VO."
+  ],
+  "originality": [
+   "Gate rerun: PASS. The CRGWDiIgMZ4 transcript is still missing (see above). The alt title 'How Cookiecutter Sharks Bite You' is dropped. No title option is a one-word change from the 57M title.",
+   "'The one whales fear' is removed from the VO, the Headline and the shot list.",
+   "The lure is hedged in the voice ('Scientists think it's bait.')."
+  ],
+  "producibility": [
+   "The hero stays an inline svg, as the critique allows. Honest scale is set by hand: CC_SIDE width 17 px at pxPerM 34 in shots 2, 15 and 23. The glow is its own layer with idle pulse.",
+   "In-drawing animation is split into layers: CC_LIPS / CC_TOP_TEETH / CC_LOW_TEETH / CC_COLLAR overlays on the hero viewBox, with opacity keyed to their words. The collar→fish change is a crossfade. Rings enter with scale 0.6→1 + opacity and never draw on. The detaching tooth row is its own layer (shot 34).",
+   "The swimmer is explainer/You rotated -90 with pose run (shots 25, 26, 32, 39), not Diver.",
+   "Depth landmark: a single Burj Khalifa silhouette beside a static-window DepthMeter. No Eiffel stack.",
+   "The map stays at Pacific scale (lon -155, lat 18, zoom 1.6) with a pin + ring. No island polygons are needed.",
+   "Creatures carrying marks have idle false (BlueWhale shots 2/15/23, GreatWhite shot 37). Marks sit on the front half.",
+   "Runtime is built from the measured captions.json (Kokoro speed 1.15): 74.93 s mix, inside 61-85.",
+   "Camera uses presets only (pushIn, pullOut, panUp/Left/Down, drift) plus shake. Transitions only at the 13 scene boundaries, marked S in the shot list. In-scene cuts are layer start/end swaps.",
+   "Two-colour headlines use the explainer Headline 'red' word prop (PERFECT CIRCLES, YOU INCLUDED, YOU DON'T, NOT A WHAT-IF)."
+  ]
+ },
+ "nice_to_have_applied": [
+  "Relief has a sting, sourced: 'He lived. But you don't grow that circle back.' (Florida Museum: 'permanent tissue loss', plastic surgery to close).",
+  "Great-white callback: 'the great whites you just forgot', with the struck 0:03 card returning and its strike retracting.",
+  "The tooth-swallow fact is its own sentence and scene. The victim list is its own sentence ending on 'even ... navy submarines'.",
+  "No paragraph splits a sentence, so there are no TTS seams inside the chains (verified on the word timings: every 0.15 s gap falls after a full stop).",
+  "Wording: 'the first person known to survive its bite'.",
+  "Pace: 242 words at 193 wpm, 74.9 s (Kokoro speed 1.15 in the front matter).",
+  "Hook ends at 2.43 s.",
+  "Imperial on screen: 1.6 FT, 3,300 FT, 2 IN, 2.75 IN. Spoken comparisons skip units (arm, feet, golf ball, thumb).",
+  "Spoken you-scale: 'shorter than your arm', with a forearm drawn to scale. Pencil-on-a-bus is visual only (with a ring callout on the 16 px pencil).",
+  "Single landmark of matching size (Burj Khalifa 828 m), never named.",
+  "Frame 1 = subject + mechanism + result + cover text at t=0.",
+  "Cheaper equivalents: tiger shark = GreatWhite silhouette; the poster becomes a pool float + You panic; top-down = side view rotated about the mouth anchor; tuna = FISH recoloured; human skin and section = colour string-replaces; boat = GLOW + hull rect.",
+  "Stat '2009' replaced by a Tag (no 0→2009 count-up).",
+  "Unique svg gradient ids (ccg, hlg, skg/skw/skh, nsg, bg1, gg1).",
+  "No shot is held over 3 s (longest hold 2.1 s)."
+ ],
+ "not_applied": [
+  "you-words per minute 10.4, below the 12-20 target. Raising it means putting 'you' into the whale demo, which the critique asked us not to do.",
+  "A Figure species 'cookiecutter' in marine.tsx was not added. Shared kit files are edited concurrently by other agents, and the critique allows the svg route with a hand-set width.",
+  "Reality flip at 66%, earlier than PUFFER's 73%. The 7 cm peak and reveal needed the 60-66% slot.",
+  "The CRGWDiIgMZ4 transcript is not in the gate (YouTube bot check). A person must add it before publishing."
+ ],
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/explainer/explainer-short-cookiecutter-shark/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "exit_code": 0,
+  "narration_only": {
+   "words": 242,
+   "max_shared_5gram_share": "0.00%",
+   "longest_shared_run_words": 4
+  },
+  "whole_file": {
+   "max_shared_5gram_share": "0.15% (research/corpus/whatif/PLAYBOOK.md)",
+   "longest_shared_run_words": 7
+  },
+  "closest_source_missing": "CRGWDiIgMZ4 (Zack D. Films, How Cookiecutter Sharks Bite Whales, 57M): subs blocked by YouTube bot check on the Spark, 2026-11-01 ~11:15 UTC"
+ },
+ "pacing": {
+  "runtime_s": 74.93,
+  "words": 242,
+  "wpm": 193,
+  "hook_end_s": 2.43,
+  "count_at_s": 12.13,
+  "you_words": 13,
+  "you_word_pct": 5.4,
+  "you_sentences": "10/18",
+  "you_per_min": 10.4,
+  "turnstile_s": 36.78,
+  "peak_s": [
+   44.6,
+   49.5
+  ],
+  "reality_flip_s": 49.66,
+  "stinger_s": 69.14,
+  "paragraph_spans_s": [
+   [
+    0.1,
+    2.43
+   ],
+   [
+    2.58,
+    6.63
+   ],
+   [
+    6.78,
+    14.07
+   ],
+   [
+    14.22,
+    21.13
+   ],
+   [
+    21.28,
+    36.63
+   ],
+   [
+    36.78,
+    39.67
+   ],
+   [
+    39.82,
+    44.41
+   ],
+   [
+    44.6,
+    49.51
+   ],
+   [
+    49.66,
+    56.09
+   ],
+   [
+    56.24,
+    58.37
+   ],
+   [
+    58.52,
+    62.25
+   ],
+   [
+    62.4,
+    68.99
+   ],
+   [
+    69.14,
+    74.65
+   ]
+  ]
+ },
+ "tts_check": {
+  "engine": "Kokoro-82M am_michael speed 1.15, Spark CPU (CUDA_VISIBLE_DEVICES='', 4 threads, nice 10)",
+  "command": "python -m pipeline.audio.make ~/studio/scratch/cc-final/script.md --niche explainer --id explainer-short-cookiecutter-shark --out ~/studio/scratch/cc-final/public --meta-out ~/studio/scratch/cc-final/audio",
+  "duration_s": 74.93,
+  "mix_lufs": -14.0,
+  "true_peak_dbtp": -1.1,
+  "cues": [
+   [
+    "pop",
+    2.43
+   ],
+   [
+    "whoosh",
+    6.48
+   ],
+   [
+    "ding",
+    14.07
+   ],
+   [
+    "underwater_rumble",
+    21.13
+   ],
+   [
+    "whoosh_long",
+    34.46
+   ],
+   [
+    "pop",
+    36.63
+   ],
+   [
+    "riser",
+    39.22
+   ],
+   [
+    "heartbeat",
+    41.96
+   ],
+   [
+    "bubbles",
+    44.3
+   ],
+   [
+    "impact",
+    49.51
+   ],
+   [
+    "whoosh",
+    55.94
+   ],
+   [
+    "whoosh_long",
+    58.22
+   ],
+   [
+    "whoosh",
+    62.1
+   ],
+   [
+    "sonar_ping",
+    66.8
+   ],
+   [
+    "bubbles",
+    68.84
+   ],
+   [
+    "pop",
+    74.17
+   ]
+  ],
+  "note": "Written to a Spark scratch dir so the concurrent studio-make run on episodes/explainer-short-cookiecutter-shark (old 247-word script, 87.2 s) was not disturbed. That episode's audio/storyboard are stale and must be rebuilt from this script."
+ },
+ "storyboard": {
+  "file": "backlog/explainer/explainer-short-cookiecutter-shark/storyboard.json",
+  "generator": "backlog/explainer/explainer-short-cookiecutter-shark/gen_storyboard.py -> shots.json -> python3 -m pipeline.episodes.auto (isolated root on the Spark, symlinked pipeline/studio)",
+  "validator": "studio/src/cli/validate.ts (zod, Node 22 on the Spark) via auto.py",
+  "result": "ok: 9:16 30fps 13 scenes 74.87s captions=241 words; auto.py PASS; check_storyboards.py hold 2.1 s (audio column NO AUDIO on the Mac: mix.wav is on the Spark only)",
+  "warnings": [
+   "scenes[4]/[5] pxPerM heuristic: Bus inset and the post-turn YOU are not size comparisons"
+  ],
+  "stills_checked": "52 stills rendered with studio/src/cli/stills.mjs on the Spark CPU (dgx-spark:~/studio/scratch/cc-final/stills, stills2)",
+  "audio_src": "episodes/explainer-short-cookiecutter-shark/mix.wav (rebuild with pipeline.audio.make from this script before rendering)"
+ }
+}
