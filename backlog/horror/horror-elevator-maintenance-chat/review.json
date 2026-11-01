@@ -1,0 +1,96 @@
+{
+ "episode": "horror-elevator-maintenance-chat",
+ "reviewed_at_utc": "2026-11-01T12:55Z",
+ "scores_before": {"retention": 7, "reference": 6, "originality": 7, "producibility": 6},
+ "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 8, "producibility": 8},
+ "score_notes": {
+  "retention": "The hook speaks the impossibility by 3.9 s ('Before I touched a thing, Maintenance texted me.'), and the viewer's 0:03 question is asked at 0:11 and answered with a lie by 0:15. The rules are numbered One-Four, and the painted nine is now rule four, which the blank wall breaks. Omar's channel is explained: Nora texts the after-hours number on the inspection card. The channel-removal ladder runs alongside the sensory one (undelivered, no service, deleted, one bar, the intercom dies, his number taken). The punishment comes from Maintenance's side. Turn at 46%, scariest image at 64% held 5.2 s, two 3.0 s silences. Measured 123.0 s, 472 words, 230 wpm overall. Remaining risks: 123 s is long for a chat-led Short (the 60 s chat hits are faster), numbers run at 11/min (the button code is the evidence), and the 'Lights on' twist fact sits at 83%.",
+  "reference": "Every alignment row is re-cited against research/corpus/horror/raw/*.txt and backed by the script. B6 isolation is real (2:03-2:11: 'Not delivered', 'No service', 'why do its texts still come through?'). The fake authority acts on the channel (2:21-2:30: Omar's door-key text becomes 'This message was deleted'). The count match is paid (0:19-0:28 / 1:53-1:58: 2-11-5 is the reset code only his office has). On the lifeline, Nora asks the master question out loud under a concrete clock (3:24-3:37; the INTERCOM 0:10 runs in real time from the press and hits 0:00 on the cut). T42 devices are in: the name checks Omar? / OMAR?? and the voice swap from Omar's number. The B5 row now cites 1:15-1:24 for the rungs and 0:55 for the verdict separately; plants cite PLAYBOOK T7, and the FLOOR-PHRASE 1:12 forcing detail is true because rule four uses the nine.",
+  "originality": "Gate PASS (scripts/originality_check.py vs research/corpus + research/library/transcripts). Spoken-only check over all 56 lines (472 words) against every sibling script.md, corpus raw transcript and library transcript: longest shared run is 5 words, all stock ('keep your eyes on the' in shTJ7_kRNJ8; 'don't answer him he isn't' in the horror-babysitter-parent-rules draft). Continuity is fixed: Omar never knows her name, and the last line pays it off. Omar's number comes from the inspection card. He is 'the only maintenance on call', not 'nobody's working'. 'Door key', not 'crank key'. The alarm is labelled ALARM / PHONE. The twist fact comes from someone standing at car 2 on nine, not from the machine room. The button order is the controller's reset code, so the ritual belongs to this story rather than the Elevator Game.",
+  "producibility": "The timeline is measured: Kokoro-82M on the Spark CPU (lines.py -> tts_measure.py -> tts_durations.json), five voice setups, all cached; per-line voices bypass the locked one-voice tts.py. storyboard.json is generated, and every boundary and cue is anchored to a word. It validates on the Spark (Node 22, src/cli/validate.ts: 41 scenes, 123.03 s, 472 caption words); check_storyboards.py shows all components registered, with only the two deliberate holds over 3 s. The kit gaps are closed without touching the locked horror kit: backdrop A (mirror shows glare only) and backdrop B (doors as two sliding leaves), the B9 image (terrified reflection + calm 'stare' face in the mirror), the counter dash plate (at 999 / target 0, so nothing ticks), the inspection card, the ALARM / PHONE bell, the dome camera, the intercom grille + explainer/Timer, the landing wall warm/cold, and the verdict contact cards. Every camera move is keyframed in art coordinates. Phone share 39% after reaction cuts. Checked in 3 Spark still sheets. Not done: mix.wav, the new SFX, a full render."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Continuity: Omar never says 'Nora'. The intercom opens with 'Car 2? I can hear you.' The verdict 'One of them knew my name' stays true and is paid by the last line, 'I never told Omar my name.'",
+   "Omar's channel: the after-hours number is on an inspection card under the buttons (on screen from 0:17 in the rules close-up). At 0:41 Nora texts it herself ('stuck in car 2. maintenance is watching me on the camera')",
+   "B6 isolation added at 54-59%: lights out -> 'where are you?' Not delivered -> No service -> his door-key text deleted -> Maintenance's banner still lands -> 'So why did its texts still come through?' The alarm is the only route left after 'One bar flickered back. One text got through.'",
+   "Twist physics: Omar is on nine, right in front of car 2: 'Doors open. Lights on. Nobody's inside.' The camera loop pays separately: 'car 2's camera has been dead since Tuesday' (0:54)",
+   "The punishment comes from the entity: MAINT 'You shouldn't have done that.' (1:45.3) before the climb",
+   "0:19-0:31 dip removed: the viewer-proxy beat moved to 0:11-0:15; the painted nine is rule four ('Don't step out until you see your number'), so the blank wall breaks a promise; the mirror line is 12 words. No gap over 3 s outside the two deliberate holds"
+  ],
+  "reference": [
+   "The B9/B6 isolation row is now true (Not delivered, No service, enemy banner arrives); Omar's last text reaches her only on one bar as a lock-screen notification",
+   "Channel control: Omar's door-key bubble becomes 'This message was deleted' (ref 2:21-2:30)",
+   "Lifeline: Nora asks 'Omar, who's been texting me?' on the intercom; the clock is concrete ('The intercom opens for ten seconds'), runs in real time from the press, and reaches 0:00 as the line cuts mid-sentence",
+   "Silences: two real 3.0 s silences (the held image, heartbeat only; dead air after 'No number.', hallway buzz only), plus four short beats",
+   "wpm recomputed the corpus way: 472 words / 123.0 s = 230 overall (268 speaking), measured with Kokoro",
+   "Plant stretch: plants are now a rule (rule four) and one 12-word line, with the jolts around them; the plants row is re-cited to PLAYBOOK T7 + FLOOR-PHRASE 1:12 (now actually a forcing detail)",
+   "T42 ending devices: the name checks 'Omar?' / 'OMAR??' (CAPS rung), and the voice swap: the last imperative comes from Omar's number in his voice with Maintenance's calm register",
+   "2-11-5 is paid: 'That's the reset code for car 2. Only my office has it.' (0:51, count-match register)",
+   "Continuity: the status clocks run 1:04 -> 1:06 -> 1:07 -> 1:09 -> 1:10 -> 1:11 across the five minutes; Omar is at the landing on nine, not in the machine room"
+  ],
+  "originality": [
+   "Gate rerun: PASS",
+   "'Nora?' removed; only Maintenance (and finally Omar's hijacked number) knows her name",
+   "Omar's number comes from the inspection card Nora reads; no key fob",
+   "The alarm gets a cause: no service + his texts undelivered; one bar carries one text that names the alarm as the only line",
+   "Twist source: Omar standing in front of car 2 on nine (doors open, lights on, nobody inside); the dead camera is a separate paid fact",
+   "'Nobody's working tonight' replaced by 'I'm the only maintenance on call tonight.'"
+  ],
+  "producibility": [
+   "Shot 20 restaged (now s24_image): the door reflection shows her terrified face close; in the mirror rectangle behind it her face, calm, horror/Protagonist expr 'stare'. No back-view asset needed",
+   "MirrorWall is glare only everywhere else (car_a: two diagonal highlights, no Protagonist)",
+   "Two backdrops: A faces Nora (mirror behind her), B is her POV (steel doors with seam, leaves slide open in s33)",
+   "Counter: every panel shot passes at 999 / target 0 (no tick, no lit target, no ding) under an opaque dash plate; the climb leaves the arrow visible (from 9 to 12, perFloor 4: blinks, never arrives)",
+   "Shot 25 (now s32_climb): target 0, no arrival inside the scene",
+   "Rules shot: no phone banners; neon cards at y 34% (124 px), clear of the caption band at y 0.12",
+   "Camera: every panel crop and push is a keyframed zoom on art coordinates (buttons y 760-1250, Close/alarm y 1540, card y 1440, counter y 390); chat shots punch in on each new bubble",
+   "Audio: per-line voices measured and rendered by this folder's tts_measure.py (Kokoro, Spark CPU, 3 threads, nice 10); OMAR-V intercom chain and the voice-swap chain specified in lines.FX for the mix",
+   "Timeline re-timed from the TTS output; every shot boundary is anchored to a word (LEAD 0.10 s), no absolute seconds",
+   "Behind-phone plates specified: blurred backdrop A with the Darkness pool at z 0 (lights the car, not the phone); after the blackout, black + phone spill and a darker hand (skin #6b5d52)",
+   "Phone draft typing dropped: keyboard taps + typing SFX, then the bubble pops on its word"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Hook front-loads the impossibility ('Before I touched a thing, Maintenance texted me.'); line 1 tightened to 'between six and seven'",
+  "Cover carries a visual threat: a pale face-height highlight with eye dots in the mirror strip, facing the camera",
+  "Rules numbered One-Four",
+  "The clock pays off (0:00 exactly on the cut)",
+  "Part 1 label in the title + a PART 2 card on the last frame; 4 loops open (series band), 3 unpaid specifics for Part 2",
+  "Title replaced (H12 incident title); 8 ranked options in titles.md",
+  "Hold Close is limited to 'until the lights dim' (about 1.5 s on screen), not 28 s",
+  "Truth twist moved later (83%, from 84% of a shorter cut; the voice-swap twist at 97%)",
+  "Rhetorical questions 4.4/min; the master question restated 6 times",
+  "B5 citation corrected (1:15-1:24 rungs; 0:55 verdict)",
+  "'door key' instead of 'crank key'; ALARM / PHONE label on the button",
+  "Phone share 39% (reaction cuts at 0:45.9 and 0:53.0, an alarm-button insert at 1:30.0)",
+  "Verdict split uses two big contact cards, readable at phone size",
+  "Lock-screen notifications use at -1 (visible on frame 0); phone props nested under HandPhone.phone; all at values scene-local",
+  "Captions follow the shipped horror defaults (y 0.12, 18 chars, backing 0.85) with 4-word phrase pages"
+ ],
+ "not_applied": [
+  "Runtime 123.0 s, not trimmed toward 108-110 s: the critiques' added beats (isolation, deletion, code payoff, name checks, intercom question) cost about 15 s; it stays inside the 115-125 s window",
+  "The concrete-fact twist lands at 83%, 2 points under the 85-95% band (the voice-swap twist at 97% is inside the 55-98% range)",
+  "Numbers run at 11.2/min against narrated 3-5: the button count is repeated on purpose as evidence",
+  "Status bar can't drop to zero bars and 'Not delivered' is a grey system line, not a red badge (horror kit locked)",
+  "New SFX (glass tap, cable groan, alarm bell, fan/fluorescent bed) are specified in storyboard._sfx_new and _bed, not synthesized; the mixer has no pan, so the roof shift is mono",
+  "Protagonist name 'Nora' (the kit default) is shared with the horror-babysitter-parent-rules draft; rename one before both ship"
+ ],
+ "originality_check": {
+  "command": "python3 scripts/originality_check.py backlog/horror/horror-elevator-maintenance-chat/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "spoken_only_longest_shared_run": "5 words, stock phrases ('keep your eyes on the' shTJ7_kRNJ8; 'don't answer him he isn't' horror-babysitter-parent-rules)"
+ },
+ "measured": {
+  "total_s": 123.0, "words": 472, "wpm_overall": 230.2, "wpm_speech": 267.6, "hook_words": 18, "hook_end_s": 3.94,
+  "turn_pct": 46.2, "scariest_image_pct": 64.0, "lifeline_pct": "71-85", "twist_fact_pct": 83.3, "voice_swap_pct": 96.7,
+  "silences_s": [1.0, 3.0, 0.7, 0.5, 3.0, 0.6], "questions_per_min": 4.4, "numbers_per_min": 11.2, "you_sentence_share": 0.12,
+  "sentence_median_words": 4, "phone_share": 0.39, "scenes": 41
+ },
+ "storyboard": {
+  "file": "backlog/horror/horror-elevator-maintenance-chat/storyboard.json",
+  "validate": "ok (Spark, Node 22, studio/src/cli/validate.ts): 9:16 30fps 41 scenes 123.03s captions=472 words",
+  "check_storyboards": "all components registered (incl. explainer/Timer); holds over 3 s only s24_image (5.3 s, deliberate B9 hold) and s34_blank (5.1 s, deliberate dead air); NO AUDIO until mix.wav is built on the Spark",
+  "stills": ["out/stills/hemc_v1.jpg", "out/stills/hemc_v2.jpg", "out/stills/hemc_v3.jpg"]
+ }
+}

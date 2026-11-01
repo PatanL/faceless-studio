@@ -1,252 +1,306 @@
 ---
 id: horror-elevator-maintenance-chat
 niche: horror
-title: Maintenance Told Me Which Buttons to Press
-alt_titles: Don't Look at the Mirror, Car 2 | The Elevator Stopped and Maintenance Texted First | No Number on This Floor
-format: 9:16 Short, single (standalone; the cut leaves a Part 2 door open)
-target_runtime_s: 120 (window 115-125; well over 61 for Creator Rewards)
-target_words: 424
-target_wpm: 235 speech / 212 overall incl. 5 timed silences (PLAYBOOK §7 narrated 230-270; we sit at the low edge so the two text voices stay readable on screen; Kokoro speed ~1.2)
-hook: 30 words / 8.0 s to the first verdict; trusted helper contradicted at 5.4 s
-voices: NARR = Nora, first person (af_heart). MAINT = the "Maintenance" thread, calm, flat, unhurried, never raises its voice (bm_lewis, speed 1.05). OMAR = real maintenance texts (am_adam); OMAR-V = the same voice live over the car intercom (band-pass 300-3400 Hz, light crackle).
-music: low_elevator_hum drone (fan + fluorescent buzz bed). Drops to the fan only at 1:02.2, dead at 1:17.5 (lights out), back as a single sub drone at 1:44.9, dead again at 1:54.6.
+title: The Elevator Stopped and Maintenance Texted First (Part 1)
+alt_titles: see titles.md (8 ranked)
+format: 9:16 Short, Part 1 of 2 (title label + a "PART 2" card on the last frame; PLAYBOOK §4C warns that an unlabelled cliff underperforms, udhwkz control 0.77x)
+runtime_s: 123.0 (measured, Kokoro-82M on the Spark CPU; window 115-125; over 61 s for TikTok Creator Rewards)
+words: 472
+wpm: 230 overall (words / full runtime, the way the corpus counts it), 268 while speaking. PLAYBOOK §7 narrated target 230-270; the translated narrated TikTok median is 281.
+hook: line 1 = 10 words / 2.0 s ("At 1 a.m., my elevator stopped between six and seven."). The impossibility is spoken by 3.9 s (18 words): "Before I touched a thing, Maintenance texted me." The trusted helper is distrusted at 6.6 s ("I never saved that contact. Who is Maintenance?").
+voices: NARR = Nora, af_heart 1.35 (also reads her own ME bubbles and her one live intercom line). MAINT = bm_george 1.15, calm, flat, always sentence case on screen. OMAR = am_michael 1.25 (texts). OMAR-V = am_michael 1.2 with an intercom chain (band-pass 300-3400 Hz, crackle). Last line from Omar's number = am_michael 1.0, pitch -1 st, dry (the voice swap). Every voice is already cached on the Spark. Per-line voices are measured and rendered by this folder's tts_measure.py, because pipeline/audio/tts.py (locked) does one voice per episode.
+music: no score. A fan + fluorescent buzz bed, then fan only after the turn (0:57.6), silence from the lights going out (1:06.8), motor whine + sub drone for the climb (1:47.3), hallway tube buzz only after the doors open. Bed segments are in storyboard.json `_bed`.
 template: pipeline/templates/horror.md (chat thread + narrator, fake-authority variant)
-sibling_check: TOPICS #13 (no-fourth-floor, rejected) shared the elevator; nothing here uses a banned number, a key fob or a "welcome home" line. TOPICS #9's draft sequence "4, then 2" is dropped because it opens the same way as the public Elevator Game ritual; our sequence is 2, 11, 5 plus a held Close, and no passenger ever enters the car.
+build: lines.py (every spoken line) -> tts_measure.py (Spark CPU) -> tts_durations.json -> gen_storyboard.py -> storyboard.json + timing.json + script_timed.md (pasted below). Every shot boundary sits 0.10 s before the word it belongs to; nothing is hand-timed.
+sibling_check: TOPICS #13 (no-fourth-floor, rejected) shared the elevator; nothing here uses a banned number, a key fob or a "welcome home" line. TOPICS #9's draft "4, then 2" is dropped (it opens like the public Elevator Game). Our button order 2, 11, 5 is owned by the story: it is the controller's reset code. No passenger ever enters the car. Fake-authority voice bm_george is shared with horror-text-from-tomorrow's office, so don't post the two in the same week.
 references:
   - id: 7659677578365537569
     url: https://www.tiktok.com/@udhwkz/video/7659677578365537569
     views: 376200
     outlier_score: 10.79
-    why: Closest engine (PLAYBOOK §1D "locked-door siege, fake authority"). Its spine is an official-sounding channel that offers safety and is the threat, beaten by a second, real authority on a failing line who answers with one concrete contradicting fact, then an imperative from the wrong sender at the cut. We borrow the false-help-in-the-trusted-channel open, the odd-detail clue that breaks a common-knowledge rule, the verdict line after each rung, the "only the enemy's channel works" isolation, the countdown contact with the real authority, the concrete-fact twist, and the last-notification imperative. None of its plot (killer, fake cop, building chat, stickers, burner phone, crew) is used.
+    why: The closest engine (PLAYBOOK §1D "locked-door siege, fake authority"). An official-sounding channel offers safety and is the threat; a count proves it has inside knowledge; the hero's channels die while the enemy's still works, and the fake authority deletes the real warning; a last lifeline to the real authority under a clock gets the opening question answered with one concrete, checkable fact; then a last notification gives an imperative. None of its plot (killer, fake cop, owners' chat, stickers, burner phone, crew) is used.
   - id: T42u5xhrq-0
     url: https://www.youtube.com/shorts/T42u5xhrq-0
     views: 868500
     outlier_score: 25.54
-    why: The chat-Short timing reference (PLAYBOOK §9.3) and our format: the viewer holds the phone and the horror arrives as text. Borrowed: several lines plus a banner in the first 3 s, the stand-in asking the viewer's question and getting an unsettling reassurance, the plant that returns 70 s later one step worse (one tap, then two), the turn into the hero's own space at ~50%, the single held image as proof, the dead-air beat before the end, and the calm sentence-case entity register for the last line with the threat on "you". Stretched from 60 s to 120 s with narration.
+    why: The chat-Short timing reference (PLAYBOOK §9.3) and our format: the viewer holds the phone and the horror arrives as text. Borrowed: several lines plus a banner in the first 3 s, the stand-in asking the viewer's question and getting an unsettling reassurance, the "I can't" exit-closed beat, the turn into the hero's space near 50% with the only colour flash, the two unanswered name checks (calm, then CAPS), the single held image as proof, and the voice swap (the trusted person's own channel speaks calmly as the entity, with the threat on "you"). Stretched from 60 s to 123 s with narration.
   - id: 7694996216505060641
     url: https://www.tiktok.com/@udhwkz/video/7694996216505060641
     views: 613300
     outlier_score: 17.6
-    why: The corpus's only elevator story (same set, same 9:16 narrated format) and the best model of a mundane routine turned wrong in under 4 s. Borrowed: the in-motion hook in an elevator with one wrong detail, the rational decoy offered early (a jammed car) so the real answer lands harder, the format switch to a phone oracle that makes a quieter demand, the home-floor number as a forcing detail, the dead-air beat before the kicker, and the hard cut with the master question unanswered. We drop its forbidden-phrase engine, its floor question, its strangers and its family ending (its own §3 do-not-use list).
+    why: The corpus's only elevator story (same set, same narrated 9:16 format) and the best model of a mundane routine that turns wrong inside 4 s. Borrowed: the in-motion elevator hook with one wrong detail, the rational decoy offered early (a jammed car), the home-floor number used as a forcing detail, rhetorical questions that restate the master question, the dead air before the kicker, and the hard cut with the master question unanswered. Its forbidden-phrase engine, floor question, strangers and family ending are not used (its own §3 do-not-use list).
 ---
 
-# Maintenance Told Me Which Buttons to Press
+# The Elevator Stopped and Maintenance Texted First (Part 1)
 
-**Premise.** At 1 a.m. my elevator (car 2) stops between the sixth and seventh floor. Before I touch anything, a contact
-called "Maintenance", one I never saved, texts me by name: don't look at the mirror; press 2, then 11, then 5; hold Close
-until the light goes out; never press the alarm. I follow the steps. Something settles on the roof and taps the mirror once.
-A number I don't know texts: it's Omar, the real building maintenance man, paged by the fault. The office is closed till 8 and
-nobody is working tonight. Who am I talking to? The lights die, and in the steel doors I see the mirror behind me holding my
-face, not the back of my head. I break the alarm rule to reach Omar. He is looking at car 2 right now: parked on nine, doors
-open, empty. The line dies, the car climbs, and the doors open on a landing with no number. Behind me, two taps on the
-mirror. Maintenance, calm: don't turn around, step out.
+**Premise.** At 1 a.m. Nora's elevator, car 2, stops between six and seven. Before she touches anything, a contact called
+"Maintenance", one she never saved, texts her by name: don't look at the mirror. It says it is watching her on the car's
+camera, whose light is off, and gives four numbered rules: press 2, 11, 5; hold Close until the lights dim; never press
+the alarm; don't step out until you see your number (hers is a red nine painted on the landing wall). Each button brings
+something closer: a drop, a weight settling on the roof, one tap on the mirror behind her. Nora texts the after-hours
+number on the inspection card. Omar, the only maintenance man on call, says 2-11-5 is the car's reset code that only his
+office has, and that car 2's camera has been dead since Tuesday: who is she talking to? Maintenance answers inside his
+thread. When the lights die, her texts stop being delivered, his promise of the door key is deleted, and Maintenance's
+messages still arrive. In the steel doors she sees the mirror behind her holding her own face, calm, where the back of
+her head should be. One bar comes back with one text: press the alarm, and the intercom opens for ten seconds. She
+breaks the rule. Omar is on nine, right in front of car 2: doors open, lights on, nobody inside. The line dies.
+Maintenance: "You shouldn't have done that." The car climbs, the doors open on a wall with no number, the mirror is tapped
+twice, and a text arrives from Omar's number: "Don't turn around, Nora. Step out." She never told Omar her name.
 
-**Ownable signature:** the mirror on the back wall of car 2, which I am told never to look at. It taps once at 0:46.4 and twice at 1:56.4.
-**Countable plants:** the button order 2, 11, 5 (0:15.0, pressed 0:38.7-0:45.1); every landing has its number painted across from the doors, mine a red nine (0:22.1, paid by Omar's "parked on nine" at 1:41.2 and by the blank wall at 1:52.3); the floor display shows two red dashes between floors (1:13.6, paid at 1:47.6 when it never changes on the climb).
-**Rules (from the wrong authority):** don't look at the mirror (broken by accident at 1:18.9, punished at 1:30.5); press 2, 11, 5 (kept); hold Close until the light goes out (kept: the light goes out at 1:17.5); never press the alarm (broken on purpose at 1:36.5, punished by the climb at 1:44.9).
+**Ownable signature:** a "Maintenance" contact that knows the car better than the building does: its button order is the
+controller's reset code, and it can delete the real maintenance man's messages. The mirror on the back wall of car 2 (the
+thing she must not look at) taps once at 0:37.1 and twice at 1:57.0.
 
-Master loop: who is Maintenance? Opens 0:05.4 ("I hadn't called anyone"), restated 1:00.9 (Omar: who are you talking to?) and 1:08.7 (one knew my name, the other had a key), deepened at 1:30.5, left open.
-Micro loops: is the camera watching (0:33.6 -> 0:36.0, closed: it's off; reframed at 1:30.5, the watcher is in the mirror); what is on the roof (0:41.4 -> 1:44.9, it rides up with me, SFX only); what tapped the mirror (0:46.4 -> 1:26.6 my own face -> 1:56.4 twice); will Omar get here (1:05.5 -> 1:39.0 he's in the machine room, then the line dies); where am I if car 2 is empty on nine (1:41.2 -> open).
-Open at the cut (3): who or what is Maintenance, what floor this is, what is in the mirror behind me. One above the standalone band (0-2) on purpose: the step-out-or-turn-around dilemma is the comment bait and the Part 2 door.
+**Countable plants (all paid):**
+- the button order 2, 11, 5 (rule one, 0:17.0; pressed 0:31.7-0:36.1; paid at 0:51.3: "That's the reset code for car 2. Only my office has it." That is the SIEGE-CHAT count-match register: the false authority's instructions prove inside knowledge);
+- my floor, a red nine painted across from the doors (0:27.4; paid twice: Omar is on nine at an empty car 2 at 1:39.7, and the landing at 1:50.6 has no number);
+- rule four, "Don't step out until you see your number" (0:24.8; broken promise at 1:50.6, and the last order at 1:59.0 tells her to step out anyway);
+- the camera with its light off (0:15.2; confirmed dead since Tuesday at 0:54.3);
+- the after-hours number on the inspection card (on screen from 0:17.0 in the rules close-up; used by Nora at 0:41.2);
+- the two red dashes on the counter (visible in every panel shot from frame 0; paid at 1:46.8, "The display stayed on two dashes.");
+- "One of them knew my name" (1:04.3; paid by the last line, "I never told Omar my name.").
 
-## Pacing targets vs PLAYBOOK
+**Rules (from the wrong authority), numbered so viewers can count violations:**
+- don't look at the mirror (the first text, 0:04.1): broken by accident through the door reflection at 1:14.2, punished at 1:23.6 ("I told you not to look.");
+- One, press 2, then 11, then 5: kept;
+- Two, hold Close until the lights dim: kept (the light steps down three times from 0:40.8);
+- Three, never press the alarm: broken on purpose at 1:34.1. The punishment comes from Maintenance's side, "You shouldn't have done that." at 1:45.3, then the climb. The entity acts; the real authority's advice was right but too late;
+- Four, don't step out until you see your number: it can't be kept (there is no number), and the final order contradicts it.
+
+**Loops.** Master loop, who is Maintenance: opened at 2.4 s and 6.6 s ("Who is Maintenance?"), restated at 11.2 s (how do you know my name), 56.8 s (who are you talking to), 1:04.3 (one knew my name), 1:12.9 (why do its texts still come through), and asked out loud on the lifeline at 1:37.1 ("Omar, who's been texting me?"). Partly answered (not anyone in the building, knows the reset code, controls the channel, now speaks from Omar's number), left open.
+Micro loops: the camera (0:12.5 -> 0:15.2, closed; reconfirmed 0:54.3); will Omar get here (1:01.1 -> deleted 1:09.2 -> he is on nine 1:38.2, then the line dies; closed: no); the thing on the roof (0:33.5 -> it rides up at 1:47.3; open); the mirror tap (0:37.1 -> my face 1:18.4 -> twice 1:57.0); where am I if car 2 is empty on nine (1:42.4 -> open).
+Open at the cut (4, series band 3-6): who or what Maintenance is; what floor this is; what is in the mirror behind me; whether Omar is still Omar. Unpaid specifics for Part 2 (≥2, PLAYBOOK §5): who outside Omar's office has the reset code; the weight that rode up on the roof; Omar's deleted message and his number now used by the entity.
+
+## Pacing vs PLAYBOOK (all measured from timing.json)
 
 | Metric | PLAYBOOK target | This script |
 |---|---|---|
-| Runtime | Shorts 50-100 s, story 150-360 s; we sit between (TOPICS asks ~120 s) | 120.0 s (computed at 235 wpm per line + 0.15 s gaps + marked pauses) |
-| Words / wpm | narrated 230-270 | 424 words, 235 wpm speech, 212 overall |
-| Hook | core <=30 words, <=6 s; trusted source contradicted <=11 s; threat in frame 0 | line 1 is 12 words / 3.1 s; banner on screen from frame 0; contradiction "I hadn't called anyone" at 5.4 s; 30 words to 8.0 s |
-| Frame 0 = cover | shows the threat | hand-held phone, lock screen 1:04, banner "Maintenance: Stay calm, Nora. Don't look at the mirror." over the blurred elevator panel with the red counter stuck on dashes |
-| Jolt interval | median 6 s; never >8 s; tighter in the last third | median 2.6 s; longest gap 7.5 s (0:19.2 -> 0:26.6, the plant stretch); last third median 2.2 s |
-| Turn | B8 45-60% | Omar's "Who are you talking to?" at 1:00.9 (51%), with the only full-frame red flash |
-| Scariest image | once, 60-80%, held ~4 s | my own face in the mirror, 1:26.6-1:30.5 (72-75%), held still 3.9 s |
-| Lifeline under a clock | 70-90% | alarm line to Omar, "thirty seconds", 1:32.2 (77%) |
-| Truth twist | ~89% (55-98) | "It's parked on nine. Doors open. Nobody's inside." 1:41.2 (84%), sealed by "So where are you?" 1:43.4 (86%) |
-| Cliff | last ~5%, imperative, bookend | blank landing 1:52.3, two taps 1:55.5, "Don't turn around, Nora. Step out." 1:57.5; lock-screen shot mirrors frame 0 |
-| Silences | 1-3 timed, 3-8 s with SFX | 1.0 s after "Who are you talking to?"; 1.5 s hold on the mirror face (heartbeat only); 0.6 s intercom crackle; 0.8 s dead air after "No number."; 0.8 s final hold. Total 4.7 s, none dry (each carries SFX or is the scare) |
-| Numbers / min | narrated 3-5 | 1 a.m., sixth, seventh, car 2, 2, 11, 5, nine, 8, five minutes, thirty seconds = 11 distinct (5.5/min) |
-| Sentence median | 6-9 words, punches at spikes | 7 words; punches "Once.", "Don't look. Hold Close.", "Who are you talking to?", "No number.", "Twice." |
-| "You" share | first-person narrated 3-13%, dialogue-heavy 16-28% | 8 of 43 lines (19%), all inside MAINT/OMAR texts or voice |
-| Rules | >=2 stated, >=1 broken, one "remember this" plant | 4 stated, 2 broken; the painted-nine plant pays off twice |
-| Ending | hard cut, new imperative / threat on "you", last shot bookends first | imperative from the fake authority, a dilemma with both choices bad, lock-screen bookend, hard cut, no CTA |
+| Runtime | Shorts 50-100 s, stories 150-360 s; TOPICS asks ~120 s | 123.0 s |
+| Words / wpm | narrated 230-270 (words ÷ full runtime) | 472 words, 230 wpm overall, 268 speaking |
+| Hook | line 1 ≤12 words; core ≤30 words / ≤6 s; trusted source contradicted ≤11 s; threat in frame 0 | line 1 10 words / 2.0 s; impossibility spoken by 3.9 s (18 words); "Who is Maintenance?" at 7.8 s; frame 0 = the lock-screen rule banner over the stalled panel (two red dashes) with a face-height highlight in the mirror strip |
+| Viewer proxy | early, unsettling reassurance | 0:11.2 "how do you know my name?" -> "I'm watching you on the camera." -> light off (0:15.2) |
+| Jolt interval | median 6 s; never >8 s; tighter in the last third | median ~2.4 s (nearly every line is a rule, a number, a sound or a reply). The longest gaps are the two deliberate holds: the held image (5.2 s, 1:18.4-1:23.6) and the dead air after "No number." (3.0 s) |
+| Rules | ≥2 stated, ≥1 broken, one "remember this" plant | 1 + 4 numbered rules, 2 broken (one by accident, one on purpose), 1 unkeepable; the red nine pays twice |
+| Ladders | two at once | proximity/sensory (drop -> roof -> mirror tap -> my face in the mirror -> two taps behind me) and channel removal (lights -> my texts undelivered -> no service -> his text deleted -> one bar -> intercom dies -> his number taken) |
+| Midpoint turn | B8 45-60% (S6 43-55%) | "Who are you talking to?" at 56.8 s (46%), with the only full-frame red flash and 1.0 s of fan-only hold |
+| Isolation | B6 40-55%, only the enemy's channel works | 1:06.8-1:12.9 (54-59%): "Not delivered", "No service", his text deleted, Maintenance's banner still lands, "So why did its texts still come through?" |
+| Scariest image | once, 60-80%, held ~4 s | my calm face in the mirror where the back of my head should be, 1:18.4 (64%), held 5.2 s (3.0 s of it heartbeat-only silence) |
+| Name checks | S8 two unanswered, CAPS | 1:25.3 (69%): "Omar?" then "OMAR??", both "(!) Not delivered" |
+| Lifeline under a clock | 70-90%, ask the opening question | 1:27.3-1:44.0 (71-85%): one bar, one text, the alarm; an INTERCOM 0:10 clock that starts on the press and reaches 0:00 exactly as the line cuts; Nora asks the master question out loud at 1:37.1 |
+| Truth twist | ~89% (85-95) | the concrete fact "Doors open. Lights on. Nobody's inside." at 1:42.4 (83%, 2 points early). The voice-swap twist "Don't turn around, Nora." from Omar's number lands at 1:59.0 (97%) and is sealed by "I never told Omar my name." (98%) |
+| Cliff | last ~5%, imperative, bookend | 1:57.4-2:03.0: lock-screen bookend of frame 0 (1:04 -> 1:11), an imperative with a threat on "you" from the wrong sender, a "PART 2" card, hard cut, no CTA |
+| Silences | 1-3 timed, 3-8 s with SFX | two real ones of 3.0 s (the held image: heartbeat only; after "No number.": hallway buzz only) plus four beats: 1.0 s fan-only after the turn, 0.7 s bell + crackle, 0.5 s crackle dies, 0.6 s final hold |
+| Numbers / min | narrated 3-5 | 11.2/min (23 spoken: 1 a.m., six, seven, car 2 x6, 2/11/5 x3, nine x2, Tuesday, five minutes, ten seconds). High on purpose: the button count is the story's evidence (count-match engine). Off-band, noted |
+| Questions / min | median 3.3 | 4.4/min (9 lines with "?"), with the master question restated 6 times |
+| Sentence median | narrated 6-9; chat 4-5 | 4 words, 54% punches (chat-heavy: half the lines are bubbles) |
+| "You" share | first-person narrated 3-13%, dialogue-heavy 16-28% | 12% of sentences, all inside MAINT/OMAR lines |
+| Phone share | pilot grammar ≤ ~40% | 39% (reaction cuts at 0:45.9, 0:53.0 and the alarm-button insert at 1:30.0) |
 
-## Beat alignment
+## Beat alignment (reference timestamps re-checked against research/corpus/horror/raw/*.txt)
 
-| Our beat | Our timestamp | Reference id + timestamp | Device borrowed | How we adapt it |
+| Our beat | Ours (s, %) | Reference id + timestamp | Device borrowed | How we adapt it |
 |---|---|---|---|---|
-| B1 Hook | 0:00.0-0:08.1 | 7694996216505060641 0:00-0:04; T42u5xhrq-0 0:00-0:03 | mundane routine in an elevator with one wrong detail in the first sentence; several lines plus the phone channel inside 3 s | The wrong detail is the stop between floors; the phone banner is on screen from frame 0 and speaks a rule, not a mood line |
-| B1 contradiction | 0:05.4 | 7659677578365537569 0:06-0:11; 0:39 | an official channel's reassurance that the viewer distrusts at once; a timing tell ("replied almost instantly") | Help arrives before anyone asked: "I hadn't called anyone. I hadn't even touched the alarm." The tell is the speed and the name |
-| B2 False safety + decoy | 0:08.1-0:15.0 | 7694996216505060641 0:15-0:20 (rational decoy); 7659677578365537569 0:35 (pretext) | a rational cause offered early so the real one lands harder; a pretext that makes compliance sound sensible | "Car 2 is jammed. I can get you moving." The contact name nobody saved is the one loose thread |
-| B2 Rules laid down | 0:15.0-0:22.1 | 7659677578365537569 0:37 and 0:46-0:48 (imperative + veiled consequence) | numbered imperatives from the false authority, one with a reason that sounds technical | Four rules as texts and neon cards: the mirror, the order 2-11-5, hold Close, never the alarm ("it resets the car") |
-| Plants | 0:22.1-0:31.4 | 7694996216505060641 1:12 (home floor number as forcing detail); T42u5xhrq-0 0:13 (odd detail planted for later) | a specific number tied to the hero's home; the object that will become the threat, introduced flatly | Painted floor numbers, mine a red nine (pays at 1:41.2 and 1:52.3); the mirror back wall, and my eyes kept on the steel doors (sets up the reflection device) |
-| Viewer proxy | 0:31.4-0:38.7 | T42u5xhrq-0 0:09 / 0:14-0:15; 7659677578365537569 0:18-0:19 | the stand-in asks the viewer's question and gets an unsettling reassurance; a clue that breaks a common-knowledge rule | "How do you know my name?" -> "I'm watching you on the camera." The camera's red light is off |
-| B5 Pressure ladder | 0:38.7-0:52.5 | 7659677578365537569 1:15-1:24 (physical rungs, each ending on a short verdict); T42u5xhrq-0 0:31-0:33 (sound inside my space) | rungs ~3 s apart; each rung brings the threat closer; one short line from the authority between rungs | One rung per button: the car drops, something settles on the roof, something taps the mirror once; "Don't look. Hold Close."; lights fade |
-| B8 Midpoint turn | 0:52.5-1:03.3 | 7659677578365537569 3:20-3:42 (the real authority contradicts the fake one); T42u5xhrq-0 0:31 (turn at 50%) | a second, more trustworthy channel says the first one cannot exist; placed at the half | Moved from the climax to the midpoint: Omar, paged by the fault, says the office is closed and nobody's working. "Who are you talking to?" at 51% with the red flash and 1.0 s of fan noise |
-| Rival claims + verdict | 1:03.3-1:11.9 | 7659677578365537569 2:21-2:30 (fake authority acts on the channel); 0:55 (5-word verdict) | the false authority moves to discredit the real voice; a short verdict line closes the rung | Maintenance answers inside Omar's thread as a banner: "He isn't in the building." Omar counters with a key and a number (five minutes). Verdict: one knew my name, the other had a key |
-| B7 Lull + plant | 1:11.9-1:17.5 | T42u5xhrq-0 0:25-0:29 (simple fix + foreshadow line) | the only breather, with one foreshadow line | Omar asks for the display; two red dashes; "Keep it between floors till I get there" (we will not) |
-| B9 Peak contact | 1:17.5-1:32.2 | 7659677578365537569 2:03-2:11 (isolation: only the enemy channel works); T42u5xhrq-0 0:54 (the one image, held, as proof) | strip the safe channels, then one still image after 60% that proves the threat is real | Lights out; my phone lights the steel doors; in them the mirror shows my face instead of the back of my head. Held 3.9 s. Maintenance: "I told you not to look." |
-| B10 Lifeline under a clock | 1:32.2-1:41.2 | 7659677578365537569 3:17-3:37 (last bar, real authority, 30 s card, ask the opening question) | one costly lifeline with a visible countdown; reaching the real authority | Omar's line needs the alarm, the one rule I was told never to break; a 0:30 card ticks on screen; I press it |
-| B11 Truth twist | 1:41.2-1:50.6 | 7659677578365537569 3:58-4:01 (one concrete fact erases the fake story); 4:02 (line dies at peak need) | the real authority's single checkable fact; the lifeline cuts off right after it | Omar is looking at car 2: parked on nine, doors open, nobody inside. "So where are you?" The line dies, the car climbs, the dashes never change |
-| B12 Cliffhanger | 1:50.6-2:00.0 | 7694996216505060641 2:20-2:25 and 2:39-2:46 (dead air, then hard cut with the question open); T42u5xhrq-0 0:56-0:58 (calm entity register, threat on "you"); 7659677578365537569 4:05-4:08 (last notification, imperative) | dead-air beat, plant payoff, an imperative from the wrong sender, cut with no answer | Doors open on a landing with a blank wall; 0.8 s of silence; two taps on the mirror; Maintenance, calm: "Don't turn around, Nora. Step out." Lock-screen bookend of frame 0, hard cut |
+| B1 hook, in motion | 0:00-0:04 (0-3%) | 7694996216505060641 0:00-0:04; T42u5xhrq-0 0:00-0:03 | a mundane elevator ride with one wrong detail in sentence 1; several lines plus the phone channel inside 3 s | the stop between floors, then the impossibility spoken by 3.9 s (help arrives first); the banner is on screen from frame 0 |
+| B1 trusted source distrusted | 0:06.6 (5%) | 7659677578365537569 0:06-0:11 (official all-clear) and 0:39 (the "replied almost instantly" tell) | an official channel's reassurance the viewer distrusts at once; a timing tell | "I never saved that contact. Who is Maintenance?" The tells are speed and her name |
+| B2 rational decoy | 0:08.7 (7%) | 7694996216505060641 0:15 (is the elevator breaking down) | a rational cause offered early so the real one lands harder | "Car 2 is jammed. I can get you moving." |
+| Viewer proxy | 0:11.2-0:15.2 (9-12%) | T42u5xhrq-0 0:09 and 0:14-0:15; 7659677578365537569 0:18-0:19 | the stand-in asks the viewer's question and gets an unsettling reassurance; a clue that breaks a common-knowledge rule | moved up from 0:31: "how do you know my name?" -> "watching you on the camera" -> the red light is off |
+| B2 numbered rules | 0:17.0-0:27.2 (14-22%) | 7659677578365537569 0:35-0:37 (pretext: please cooperate) and 1:46-1:49 (imperative + veiled consequence); PLAYBOOK B2 (numbered list, viewers count violations) | numbered imperatives from the false authority, one with a technical-sounding reason | One-Four as neon cards; "It resets the car" is the pretext; rule four turns the floor plant into a rule |
+| Plants | 0:27.4-0:31.5 (22-26%) | PLAYBOOK T7 (planted identifier); 7694996216505060641 1:12 (the home floor as a forcing detail) | a hyper-specific identifier tied to the hero's home that later forces a choice | the red nine is what rule four tells her to wait for; at the cut it is missing and she is ordered out anyway. The mirror is introduced flatly (glare only, never a reflection) |
+| B5 pressure ladder | 0:31.7-0:41.1 (26-33%) | 7659677578365537569 1:15-1:24 (physical rungs about 3 s apart); T42u5xhrq-0 0:31-0:33 (a sound inside my space) | rungs about 3 s apart, each closer | one rung per button: drop, roof, one tap on the mirror; "Don't look. Hold Close."; the light steps down |
+| B8 hero reaches the real authority | 0:41.2-0:50.3 (34-41%) | 7659677578365537569 3:12-3:20 (the hero finds a way to reach the real authority herself) | agency: the hero makes the call | Nora texts the after-hours number on the inspection card planted on screen at 0:17 |
+| B4/T2 count match | 0:51.3 (42%) | 7659677578365537569 0:19-0:28 (four stickers -> exactly four confirmers) and 1:53-1:58 (the four accounts) | a count that proves the false authority has inside knowledge | 2-11-5 is the controller's reset code; only Omar's office has it |
+| B8 turn | 0:54.3-0:58.6 (44-48%) | 7659677578365537569 3:41-3:45 (the real authority contradicts the fake one); T42u5xhrq-0 0:31 (turn at ~52%) | a second, trustworthy channel says the first cannot exist | dead camera since Tuesday + "Who are you talking to?" with the only red flash |
+| Rival claims + verdict | 0:58.6-1:05.9 (48-54%) | 7659677578365537569 1:43-1:51 (the admin pressures the hero by name); 0:55 (verdict line) | the false authority moves to discredit the real voice; a short verdict closes the rung | Maintenance banners inside Omar's thread: "He isn't in the building." Omar counters with a key and five minutes. Verdict: one knew my name, the other had a key |
+| B6 isolation + channel control | 1:06.0-1:14.1 (54-60%) | 7659677578365537569 2:03-2:11 (no signal, red exclamation marks, "why is the chat still working?") and 2:21-2:30 (the admin deletes the warning and mutes everyone) | strip the safe channels; only the enemy's still works; the fake authority acts on the channel | lights out; "Not delivered", "No service"; Omar's door-key text becomes "This message was deleted"; Maintenance's banner still lands; "So why did its texts still come through?" |
+| B9 peak contact | 1:14.2-1:25.2 (60-68%) | T42u5xhrq-0 0:54 (the one image, held, as proof); PLAYBOOK §3 silence beat | one still image after 60% that proves the threat is real, then silence | in the steel doors: my terrified reflection close, and in the mirror behind it my own face, calm, staring. 3.0 s heartbeat only. "I told you not to look." |
+| S8 name checks | 1:25.3 (69%) | T42u5xhrq-0 0:53 ("Ava?" / "AVA??") | two unanswered name checks, the second in caps | "Omar?" / "OMAR??", both not delivered (the CAPS rung of the typography ladder) |
+| B10 lifeline under a clock | 1:27.3-1:44.0 (71-85%) | 7659677578365537569 3:17 (one bar left), 3:24-3:37 (the hero asks the opening questions out loud), 3:33 (the 30 s battery clock) | one costly lifeline, a concrete limit, the master question asked out loud | one bar, one text; the alarm (rule three) is the only route left; the intercom stays open ten seconds and the INTERCOM clock runs in real time from the press; "Omar, who's been texting me?" |
+| B11 truth twist (fact) | 1:42.4 (83%) | 7659677578365537569 3:58-4:01 (one concrete, checkable fact erases the fake story); 4:02 (the line dies at peak need) | a single checkable fact from the real authority; the lifeline cuts right after | "I'm on nine, right in front of car 2. Doors open. Lights on. Nobody's inside. So where are—" cut at 0:00 |
+| B11 the entity acts | 1:45.3-1:49.2 (86-89%) | 7659677578365537569 2:21-2:30 (the false authority punishes the warning) | the punishment comes from the false authority's side, so the dilemma stays "who is Maintenance", not "who is lying" | "You shouldn't have done that." -> the car climbs; the display stays on two dashes |
+| B12 dead air + plant paid | 1:50.6-1:55.7 (90-94%) | 7694996216505060641 2:20-2:25 (dead air while the trusted voice stays silent) | an unanswered silence before the kicker | the blank wall (same framing as the red-nine insert), then 3.0 s of hallway buzz |
+| B12 cliff, voice swap | 1:55.7-2:03.0 (94-100%) | T42u5xhrq-0 0:56-0:58 (the trusted person's own channel speaks calmly as the entity, threat on "you"); 7659677578365537569 4:05-4:08 (last notification, imperative); 7694996216505060641 2:39-2:46 (hard cut, master question open) | voice swap + a last-notification imperative + a hard cut | two taps on the mirror; a banner from Omar's number in Omar's voice, slowed, in Maintenance's calm register: "Don't turn around, Nora. Step out."; "I never told Omar my name."; PART 2 card; lock-screen bookend of frame 0 |
 
-## Script
+## Script (timed from the Kokoro measurement)
 
-Speaker key: NARR = Nora narrating. MAINT (text) = bubble in the "Maintenance" thread, read in the MAINT voice. OMAR (text) = bubble in the unknown-number thread, read in the OMAR voice. ME (text) = Nora's own bubble, read by NARR. OMAR-V = Omar live over the car intercom.
-Captions: core caption track, top of frame (`y` 0.15, `maxWords` 3, highlight `#ff4b55`). Chat bubbles appear on the phone at the same time as the line. MAINT bubbles are always calm sentence case; that register never changes.
 
-### Hook
-**First line:** "At 1 a.m., my elevator stopped between the sixth and seventh floor."
-**First visual (frame 0, also the cover):** a cartoon hand holding a phone on the lock screen at 1:04, one banner from "Maintenance" reading "Stay calm, Nora. Don't look at the mirror." Behind the phone, blurred, the elevator button panel with its red floor counter showing two dashes, and a pale vertical strip of mirror catching the phone light at the frame edge.
+#### B1 HOOK: stalled car, and help arrives before anyone asked (0:00.2, 0%)
+- `0:00.2` NARR: At 1 a.m., my elevator stopped between six and seven.
+  - On screen: Lock screen 1:04, banner 'Maintenance: Stay calm, Nora. Don't look at the mirror.' already up; blurred panel, counter on two red dashes; a pale face-height highlight in the mirror strip at the right edge
+- `0:02.4` NARR: Before I touched a thing, Maintenance texted me.
+  - On screen: Banner pulses once
+- `0:04.1` MAINT (text): Stay calm, Nora. Don't look at the mirror.
+  - On screen: Banner text, 'mirror' red in the caption
+- `0:06.6` NARR: I never saved that contact. Who is Maintenance?
+  - On screen: Banner opens into the 'Maintenance' thread; header 'Maintenance'
 
-#### B1 Hook (0:00.0-0:08.1)
-- `0:00.0` NARR: At 1 a.m., my elevator stopped between the sixth and seventh floor.
-  - On screen: lock screen 1:04; banner already present; caption.
-- `0:03.2` MAINT (text): Stay calm, Nora. Don't look at the mirror.
-  - On screen: banner pulses once as it is read; "mirror" highlighted red in the caption.
-- `0:05.4` NARR: I hadn't called anyone. I hadn't even touched the alarm.
-  - On screen: caption, "hadn't called anyone" highlighted.
+#### B2 DECOY + VIEWER PROXY (the 0:03 question asked by 0:13) (0:08.7, 7%)
+- `0:08.7` MAINT (text): Car 2 is jammed. I can get you moving.
+  - On screen: MAINT bubble
+- `0:11.2` NARR: I typed: how do you know my name?
+  - On screen: keyboard ticks; ME bubble 'how do you know my name?' pops on 'name'
+- `0:12.5` MAINT (text): I'm watching you on the camera. You're doing fine.
+  - On screen: MAINT bubble
+- `0:15.2` NARR: The camera in the corner had its red light off.
+  - On screen: Dome camera, LED unlit
 
-#### B2 False safety and decoy (0:08.1-0:15.0)
-- `0:08.1` NARR: The text came from a contact called Maintenance. I never saved that contact.
-  - On screen: banner opens into the "Maintenance" thread; header reads "Maintenance".
-- `0:11.6` MAINT (text): Car 2 is jammed. I can get you moving. Do it in order.
+#### B2 RULES (numbered, from the wrong authority) + PLANTS (0:17.0, 14%)
+- `0:17.0` MAINT (text): One. Press 2, then 11, then 5.
+  - On screen: Panel close-up; neon card '2 → 11 → 5'; inspection card under the buttons: 'CAR 2 · AFTER HOURS +1 555 0142'
+- `0:19.5` MAINT (text): Two. Hold Close until the lights dim.
+  - On screen: card 'HOLD CLOSE'
+- `0:21.8` MAINT (text): Three. Never press the alarm. It resets the car.
+  - On screen: card 'NEVER: ALARM'; the alarm button glints
+- `0:24.8` MAINT (text): Four. Don't step out until you see your number.
+  - On screen: card 'WAIT FOR YOUR NUMBER'
+- `0:27.4` NARR: Mine's a red nine, painted across from the doors.
+  - On screen: Warm insert: my landing, a huge red 9 on the wall facing the doors
+- `0:29.3` NARR: The back wall is a mirror. I kept my eyes on the steel doors.
+  - On screen: Nora facing camera, mirror behind her empty (glare only, out of focus)
 
-#### B2 Rules (0:15.0-0:22.1)
-- `0:15.0` MAINT (text): One. Press 2, then 11, then 5.
-  - On screen: neon card "2 → 11 → 5" top right for 1.6 s.
-- `0:17.0` MAINT (text): Two. Hold Close until the light goes out.
-  - On screen: card "HOLD CLOSE" for 1.4 s.
-- `0:19.2` MAINT (text): And whatever happens, never press the alarm. It resets the car.
-  - On screen: card "NEVER: ALARM" for 1.6 s, the bell button on the panel glints once.
+#### B5 PRESSURE LADDER: one rung per button (0:31.7, 26%)
+- `0:31.7` NARR: I pressed 2. The car dropped a foot and caught.
+- `0:33.5` NARR: I pressed 11. Something on the roof shifted, settling in.
+- `0:35.9` NARR: I pressed 5. Behind me, something tapped the mirror. Once.
+- `0:38.4` MAINT (text): Don't look. Hold Close.
+- `0:39.9` NARR: I held it down until the lights dimmed.
+  - On screen: Thumb on Close; the car light drops in three steps
 
-#### Plants (0:22.1-0:31.4)
-- `0:22.1` NARR: Every landing in my building has its number painted across from the doors. Mine's a red nine.
-  - On screen: quick warm insert of a landing with a huge red "9" on the wall; caption "red nine" highlighted (plant).
-- `0:26.6` NARR: The back wall of car 2 is one big mirror. I kept my eyes on the steel doors.
-  - On screen: caption, "mirror" highlighted; the mirror stays out of focus.
+#### B8 MIDPOINT: Nora texts the real authority; the count pays off (reset code); TURN (0:41.2, 34%)
+- `0:41.2` NARR: The inspection card had an after-hours number. I texted it.
+  - On screen: Inspection card insert: '+1 555 0142'
+- `0:43.4` ME (text, read by NARR): stuck in car 2. maintenance is watching me on the camera
+  - On screen: ME bubble, lowercase, new thread '+1 555 0142'
+- `0:46.0` OMAR (text): This is Omar. I'm the only maintenance on call tonight.
+- `0:48.8` OMAR (text): What did they tell you to press?
+- `0:50.3` ME (text, read by NARR): 2, 11, 5
+  - On screen: ME bubble '2 11 5'
+- `0:51.3` OMAR (text): That's the reset code for car 2. Only my office has it.
+- `0:54.3` OMAR (text): And car 2's camera has been dead since Tuesday.
+- `0:56.8` OMAR (text): Who are you talking to?
+  - On screen: the video's only full-frame red flash
+- `[silence 1.0 s, 0:57.6-0:58.6]` Hold on the bubble; the fluorescent buzz cuts out, fan only
 
-#### Viewer proxy (0:31.4-0:38.7)
-- `0:31.4` NARR: I typed: how do you know my name?
-  - On screen: my blue bubble types out in the draft field and sends at 0:33.1.
-- `0:33.6` MAINT (text): I'm watching you on the camera. You're doing fine.
-- `0:36.0` NARR: The camera in the corner had its red light off.
-  - On screen: caption, "light off" highlighted.
+#### RIVAL CLAIMS: the fake authority answers inside the real one's thread (0:58.6, 48%)
+- `0:58.6` MAINT (text): Don't answer him. He isn't in the building.
+  - On screen: Maintenance banner over Omar's thread
+- `1:01.1` OMAR (text): Don't press anything. I'm coming up with the door key. Five minutes.
+- `1:04.3` NARR: One of them knew my name. The other had a key.
+  - On screen: Split: Maintenance header + 'Nora' bubble / Omar's number + 'door key' bubble
 
-#### B5 Pressure ladder (0:38.7-0:52.5)
-- `0:38.7` NARR: I pressed 2. The car dropped a foot and caught.
-  - Audio: button click 0:38.8; cable groan and drop 0:39.6; hard catch 0:40.1.
-- `0:41.4` NARR: I pressed 11. Something on the roof shifted, heavy, like it was settling in.
-  - Audio: click 0:41.5; slow heavy shift across the ceiling 0:42.6-0:44.4, left to right.
-- `0:45.1` NARR: I pressed 5. And behind me, something tapped the mirror. Once.
-  - Audio: click 0:45.2; one hard glass tap 0:46.4, centred, slight reverb (plant: the tap sample).
-- `0:48.1` MAINT (text): Don't look. Hold Close.
-- `0:49.3` NARR: I held it down with my thumb. The lights began to fade.
-  - On screen: the car's light drops in three steps over 3 s.
+#### B6 ISOLATION: lights out, my texts stop, the enemy's keep coming; the fake authority deletes the real one (1:06.0, 54%)
+- `1:06.0` NARR: Then the lights went out.
+  - On screen: Black; phone glow only
+- `1:07.2` NARR: I typed, where are you? Not delivered. No bars.
+  - On screen: ME bubble 'where are you?', system lines '(!) Not delivered' and 'No service' (the kit's status bar can't drop bars)
+- `1:09.2` NARR: And his last text was gone.
+  - On screen: Omar's 'door key' bubble becomes 'This message was deleted'
+- `1:10.3` MAINT (text): He isn't coming. Keep your eyes on the doors.
+  - On screen: Maintenance banner arrives anyway
+- `1:12.9` NARR: So why did its texts still come through?
 
-#### B8 Midpoint turn (0:52.5-1:03.3)
-- `0:52.5` NARR: Then my phone buzzed. A number I didn't know.
-  - On screen: phone vibrates; a new thread with an unsaved number.
-- `0:54.9` OMAR (text): This is Omar, building maintenance. Car 2 just paged me with a fault.
-- `0:58.4` OMAR (text): The office is closed till 8. Nobody's working tonight.
-  - On screen: "closed till 8" highlighted.
-- `1:00.9` OMAR (text): Who are you talking to?
-  - On screen: the video's only full-frame red flash at 1:00.9; caption in red.
-- `[pause 1.0 s]` the fluorescent buzz cuts out, leaving only the fan.
+#### B9 PEAK CONTACT: the mirror, seen in the doors (held) (1:14.2, 60%)
+- `1:14.2` NARR: My phone lit the steel doors. In them, I saw the mirror behind me.
+  - On screen: Steel doors in phone light; my reflection close, the mirror rectangle behind it
+- `1:16.8` NARR: I should have seen the back of my head.
+- `1:18.4` NARR: I saw my face. Calm. Looking right at me.
+  - On screen: THE image: my terrified reflection close; in the mirror behind, my face, calm, staring
+- `[silence 3.0 s, 1:20.6-1:23.6]` Image held still; heartbeat only
+- `1:23.6` MAINT (text): I told you not to look.
 
-#### Rival claims and verdict (1:03.3-1:11.9)
-- `1:03.3` MAINT (text, as a banner over Omar's thread): Don't answer him. He isn't in the building.
-- `1:05.5` OMAR (text): Don't press anything else. I'm coming with the crank key. Five minutes.
-  - On screen: "five minutes" highlighted.
-- `1:08.7` NARR: One of them knew my name. The other one had a key.
-  - On screen: split frame, "Maintenance" header left, Omar's number right.
+#### S8 NAME CHECKS: unanswered (1:25.3, 69%)
+- `1:25.3` NARR: I typed, Omar? Then, OMAR. Nothing went through.
+  - On screen: ME 'Omar?' / 'OMAR??', each followed by '(!) Not delivered'
 
-#### B7 Lull and foreshadow (1:11.9-1:17.5)
-- `1:11.9` OMAR (text): What does the floor display say?
-- `1:13.6` ME (text, lowercase): two red dashes. between floors
-  - On screen: counter insert, two red dashes.
-- `1:15.0` OMAR (text): Good. Keep it between floors till I get there.
+#### B10 LIFELINE UNDER A CLOCK: one bar, one text, the alarm is the only route (1:27.3, 71%)
+- `1:27.3` NARR: One bar flickered back. One text got through.
+  - On screen: Lock screen 1:10, dark hand
+- `1:29.1` OMAR (text): Your texts stopped. Press the alarm. The intercom opens for ten seconds.
+  - On screen: Lock-screen banner from +1 555 0142
+- `1:33.3` NARR: Never press the alarm. I pressed it.
+  - On screen: Thumb on the alarm button
+- `[silence 0.7 s, 1:34.5-1:35.2]` Bell rings once; intercom crackle opens; 0:10 clock starts
+- `1:35.2` OMAR-V (intercom): Car 2? I can hear you. Talk to me.
+  - On screen: Intercom grille, 0:10 counting down
+- `1:37.1` NORA (live, intercom): Omar, who's been texting me?
+- `1:38.2` OMAR-V (intercom): I don't know. Listen. I'm on nine, right in front of car 2.
+- `1:41.3` OMAR-V (intercom): Doors open. Lights on. Nobody's inside. So where are
+  - On screen: glitch on 'Nobody's inside'; the clock hits 0:00 as the line cuts mid-sentence
+- `[silence 0.5 s, 1:44.0-1:44.5]` Crackle dies; 0:00
 
-#### B9 Peak contact (1:17.5-1:32.2)
-- `1:17.5` NARR: Then the lights went out.
-  - Audio: everything except my breathing cuts at 1:17.6; the fan spins down.
-- `1:18.9` NARR: My phone lit up the steel doors, and in them I could see the mirror behind me.
-  - On screen: only the phone's glow; a smeared reflection in the brushed steel.
-- `1:23.4` NARR: In the mirror, I should have seen the back of my head.
-- `1:26.6` NARR: I saw my own face. Looking right at me.
-  - On screen: the one image, held still to 1:30.5.
-- `[hold 1.5 s]` heartbeat only.
-- `1:30.5` MAINT (text): I told you not to look.
+#### B11 TRUTH TWIST LANDS + PUNISHMENT FROM MAINTENANCE'S SIDE (1:44.5, 85%)
+- `1:44.5` NARR: The line went dead.
+- `1:45.3` MAINT (text): You shouldn't have done that.
+  - On screen: Maintenance bubble, then the car jolts
+- `1:46.8` NARR: And the car began to climb. The display stayed on two dashes.
+  - On screen: Counter crop: dashes, arrow blinking up
 
-#### B10 Lifeline under a clock (1:32.2-1:41.2)
-- `1:32.2` OMAR (text): I'm in the machine room. Press the alarm, it opens a line to me. Thirty seconds.
-  - On screen: red card "0:30" top right, starts counting down at 1:38.6.
-- `1:36.5` NARR: Never press the alarm. I pressed it.
-  - On screen: caption, "pressed it" highlighted (rule broken).
-- `[pause 0.6 s]` one short bell ring, then intercom crackle opens at 1:38.4.
-- `1:39.0` OMAR-V (intercom): Nora? I'm looking at car 2 right now.
+#### B12 CLIFF: no number, two taps, the voice swap (1:49.3, 89%)
+- `1:49.3` NARR: It stopped. The doors slid open.
+- `1:50.6` NARR: The wall across from me was blank. No number.
+  - On screen: Same framing as the red-nine insert, the wall bare and cold
+- `[silence 3.0 s, 1:52.7-1:55.7]` Dead air: hallway tube buzz only
+- `1:55.7` NARR: Behind me, something tapped the mirror. Twice.
+- `1:57.5` NARR: My phone lit up. Omar's number.
+  - On screen: Lock-screen bookend of frame 0
+- `1:59.0` OMAR's number (text, voice swap): Don't turn around, Nora. Step out.
+  - On screen: Banner from +1 555 0142: 'Don't turn around, Nora. Step out.'
+- `2:01.1` NARR: I never told Omar my name.
+- `[silence 0.6 s, 2:02.3-2:02.9]` Hold, 'PART 2' card, hard cut to black
 
-#### B11 Truth twist (1:41.2-1:50.6)
-- `1:41.2` OMAR-V: It's parked on nine. Doors open. Nobody's inside.
-  - On screen: glitch on "Nobody's inside"; countdown at 0:27.
-- `1:43.4` OMAR-V: So where are you?
-- `[pause 0.4 s]` crackle dies mid-word; countdown freezes at 0:25.
-- `1:44.9` NARR: The line went dead. And the car began to climb.
-  - Audio: the roof weight shifts once as the car starts (the 0:41 sound, rides along).
-- `1:47.6` NARR: The display never changed. Two red dashes, all the way up.
+## Shot list (generated; every boundary sits LEAD 0.10 s before its anchor word)
 
-#### B12 Cliffhanger (1:50.6-2:00.0)
-- `1:50.6` NARR: It stopped. The doors slid open.
-- `1:52.3` NARR: The wall across from me was blank. No number.
-  - On screen: same framing as the red-nine insert at 0:22.1, the wall now bare.
-- `[silence 0.8 s]` dead air, music and room tone out.
-- `1:55.5` NARR: Behind me, something tapped the mirror. Twice.
-  - Audio: the 0:46.4 tap sample, twice, at 1:56.4 and 1:56.8.
-- `1:57.5` MAINT (text, calm): Don't turn around, Nora. Step out.
-  - On screen: lock-screen banners, frame mirrors 0:00.
-- `[hold 0.8 s]` hard cut to black at 2:00.0. No CTA.
+| # | scene | start | dur | beat | spoken in shot |
+|---|---|---|---|---|---|
+| 1 | `s01_cover` | 0:00.0 | 4.04 | B1 hook (cover, lock screen 1:04) | At 1 a.m., my elevator stopped between six and seven. / Before I touched a thing, Maintenance texted me. |
+| 2 | `s02_banner` | 0:04.0 | 2.46 | B1 the rule arrives before anyone asked | Stay calm, Nora. Don't look at the mirror. |
+| 3 | `s03_doubt` | 0:06.5 | 1.86 | B1 contradiction: I never saved that contact (master question) | I never saved that contact. Who is Maintenance? |
+| 4 | `s04_thread` | 0:08.4 | 6.78 | B2 decoy + viewer proxy (how do you know my name?) | Car 2 is jammed. I can get you moving. / I typed: how do you know my name? / I'm watching you on the camera. You're doing fine. |
+| 5 | `s05_camera` | 0:15.1 | 1.76 | B2 proxy answered with a lie: the camera light is off | The camera in the corner had its red light off. |
+| 6 | `s06_rules` | 0:16.9 | 10.44 | B2 four numbered rules (cards) + the inspection card in view | One. Press 2, then 11, then 5. / Two. Hold Close until the lights dim. / Three. Never press the alarm. It resets the car. / Four. Don't step out until you see your number. |
+| 7 | `s07_nine` | 0:27.3 | 1.85 | B2 plant: my landing, the red nine (warm memory) | Mine's a red nine, painted across from the doors. |
+| 8 | `s08_mirror` | 0:29.2 | 2.45 | B2 plant: the mirror (glare only) behind me, eyes on the doors | The back wall is a mirror. I kept my eyes on the steel doors. |
+| 9 | `s09_press2` | 0:31.6 | 1.79 | B5 rung 1: press 2, the car drops a foot | I pressed 2. The car dropped a foot and caught. |
+| 10 | `s10a_press11` | 0:33.4 | 0.75 | B5 rung 2a: press 11 | I pressed 11. Something on the roof shifted, settling in. |
+| 11 | `s10b_roof` | 0:34.2 | 1.61 | B5 rung 2b: something settles on the roof |  |
+| 12 | `s11a_press5` | 0:35.8 | 0.58 | B5 rung 3a: press 5 (all three lit) | I pressed 5. Behind me, something tapped the mirror. Once. |
+| 13 | `s11b_tap` | 0:36.4 | 3.46 | B5 rung 3b: one tap on the mirror; 'Don't look. Hold Close.' | Don't look. Hold Close. |
+| 14 | `s12_close` | 0:39.8 | 1.30 | B5: I hold Close; the light steps down three times (rule two kept) | I held it down until the lights dimmed. |
+| 15 | `s13_card` | 0:41.1 | 2.23 | B8 hero acts: the inspection card's after-hours number | The inspection card had an after-hours number. I texted it. |
+| 16 | `s14_omar` | 0:43.4 | 2.51 | B8 hero reaches the real authority; he asks what it made her press | stuck in car 2. maintenance is watching me on the camera |
+| 17 | `s14b_react` | 0:45.9 | 2.83 | B8 reaction: a real person answers (then: the ONLY one on call) | This is Omar. I'm the only maintenance on call tonight. |
+| 18 | `s14c_press` | 0:48.7 | 2.48 | B8 'What did they tell you to press?' / '2 11 5' | What did they tell you to press? / 2, 11, 5 |
+| 19 | `s15_code` | 0:51.2 | 1.83 | B4/T2 count payoff: 2-11-5 is the controller's reset code | That's the reset code for car 2. Only my office has it. |
+| 20 | `s16_react` | 0:53.0 | 1.22 | B4 reaction: only his office has the code |  |
+| 21 | `s17_turn` | 0:54.2 | 4.32 | B8 TURN: dead camera, 'Who are you talking to?' (only red flash) + 1.0 s fan-only hold | And car 2's camera has been dead since Tuesday. / Who are you talking to? |
+| 22 | `s18_rival` | 0:58.5 | 5.61 | Rival claims: Maintenance banners over Omar's thread; door key, five minutes | Don't answer him. He isn't in the building. / Don't press anything. I'm coming up with the door key. Five minutes. |
+| 23 | `s19_verdict` | 1:04.2 | 1.78 | Verdict line: one knew my name, the other had a key | One of them knew my name. The other had a key. |
+| 24 | `s20_out` | 1:05.9 | 1.17 | B6 lights out (fan spins down) | Then the lights went out. |
+| 25 | `s21_nodeliver` | 1:07.1 | 1.95 | B6 isolation: my texts fail, no service | I typed, where are you? Not delivered. No bars. |
+| 26 | `s22_deleted` | 1:09.1 | 5.06 | B6 the fake authority acts on the channel: his text deleted; its banner still lands | And his last text was gone. / He isn't coming. Keep your eyes on the doors. / So why did its texts still come through? |
+| 27 | `s23_doors` | 1:14.1 | 4.16 | B9 the steel doors in phone light; the mirror behind me, reflected | My phone lit the steel doors. In them, I saw the mirror behind me. / I should have seen the back of my head. |
+| 28 | `s24_image` | 1:18.3 | 5.26 | B9 THE image, held: my face where the back of my head should be (3.0 s silence) | I saw my face. Calm. Looking right at me. |
+| 29 | `s25_told` | 1:23.5 | 1.63 | B9 punished: 'I told you not to look.' | I told you not to look. |
+| 30 | `s26_names` | 1:25.2 | 2.02 | S8 two unanswered name checks (caps), not delivered | I typed, Omar? Then, OMAR. Nothing went through. |
+| 31 | `s27_onebar` | 1:27.2 | 2.80 | B10 one bar, one text: the alarm is the only route left | One bar flickered back. One text got through. / Your texts stopped. Press the alarm. The intercom opens for ten seconds. |
+| 32 | `s27b_alarmwait` | 1:30.0 | 3.18 | B10 the alarm button in phone light (the one rule I was told never to break) |  |
+| 33 | `s28_alarm` | 1:33.2 | 1.58 | B10 rule three broken on purpose: I press the alarm (bell, crackle) | Never press the alarm. I pressed it. |
+| 34 | `s29_intercom` | 1:34.8 | 9.61 | B10/B11 ten seconds on the intercom; twist: car 2 is on nine, empty | Car 2? I can hear you. Talk to me. / Omar, who's been texting me? / I don't know. Listen. I'm on nine, right in front of car 2. / Doors open. Lights on. Nobody's inside. So where are |
+| 35 | `s30_dead` | 1:44.4 | 0.85 | B11 the line is dead | The line went dead. |
+| 36 | `s31_shouldnt` | 1:45.2 | 1.45 | B11 the entity acts: 'You shouldn't have done that.' | You shouldn't have done that. |
+| 37 | `s32_climb` | 1:46.7 | 2.52 | B11 the car climbs; the dashes never change | And the car began to climb. The display stayed on two dashes. |
+| 38 | `s33_open` | 1:49.2 | 1.30 | B12 the doors open | It stopped. The doors slid open. |
+| 39 | `s34_blank` | 1:50.5 | 5.11 | B12 plant paid: the blank wall, no number; 3.0 s dead air | The wall across from me was blank. No number. |
+| 40 | `s35_taps` | 1:55.6 | 1.84 | B12 two taps on the mirror behind me | Behind me, something tapped the mirror. Twice. |
+| 41 | `s36_bookend` | 1:57.4 | 5.57 | B12 cliff: the voice swap from Omar's number, lock-screen bookend, hard cut | My phone lit up. Omar's number. / Don't turn around, Nora. Step out. / I never told Omar my name. |
 
-## Shot list
+## Sets and kit gaps (the horror kit is locked: everything below is inline SVG / core layers in gen_storyboard.py, checked in Spark stills out/stills/hemc_v1.jpg, hemc_v2.jpg, hemc_v3.jpg)
 
-Kit names from `studio/src/kits/horror/README.md`. "Nora" = `horror/Protagonist` default colours. Omar is never shown (texts and intercom only). All `at` values in this table are episode seconds; convert to scene seconds when building the storyboard. HandPhone at `cy` 0.585 so captions fit above. The car interior has no kit set yet (see gaps): "CarSet" below means the fallback stack of core layers: a `gradient` background `#5f666e -> #2c3036` (brushed steel), a 4 px vertical seam `rect` at x 50% (the door split), and a `horror/Darkness` pool; "MirrorWall" means a core `rect` panel `#9aa3ab` at opacity 0.35 with a 3 px highlight edge, holding a `horror/Protagonist` layer with `flipX true`.
-
-| # | t_start | t_end | Shot type | Visual description (kit vocabulary) | Camera move | SFX |
-|---|---|---|---|---|---|---|
-| 1 | 0:00.0 | 0:05.4 | Phone POV, lock screen (cover) | `horror/HandPhone` phone `mode lock`, `lock.time "1:04"`, `notifications [{at 0.0, app "Messages", title "Maintenance", text "Stay calm, Nora. Don't look at the mirror."}]`; layer `horror/ElevatorPanel` `from 6 to 6`, `floors 12`, `flicker 0.2`, `blur 10`, `opacity 0.7` (counter shows dashes, kit gap, fallback below); thin MirrorWall strip at the right edge catching phone glow; `horror/Vignette amount 0.5` | `pushIn` amount 0.4 | fan hum + fluorescent buzz bed; stop clunk at 0:00.3; notify ping 0:00.4 |
-| 2 | 0:05.4 | 0:08.1 | Medium, Nora in the car | CarSet behind, `horror/Darkness x 0.5 y 0.45 radius 0.55 darkness 0.6`; Nora `pose phone`, `light phone`, `exprs [{t 0, worried}, {t 1.2, suspicious}]`, `lookX 0` | `drift` | buzz bed |
-| 3 | 0:08.1 | 0:15.0 | Phone POV, Maintenance thread | `horror/HandPhone` `mode chat`, `chat.title "Maintenance"`, `chat.subtitle "mobile"`, `messages` [first bubble pre-placed, 11.6 "Car 2 is jammed..."], `typing [{from Maintenance, at 9.8, until 11.6}]` | static; panel reset at 8.1 | pop at 11.6 |
-| 4 | 0:15.0 | 0:22.1 | Close, button panel | `horror/ElevatorPanel` `from 6 to 6`, `floors 12`, `flicker 0.15`; `horror/RedText style neon fontSize 64`: "2 → 11 → 5" at 15.0 dur 1.6, "HOLD CLOSE" at 17.0 dur 1.4, "NEVER: ALARM" at 19.2 dur 1.6, all top right; MAINT bubbles ride as `horror/Phone` banners along the top | slow `panDown` amount 0.3 (down the button rows to Close and the bell) | bubble pops 15.0 / 17.0 / 19.2; small electric tick on the bell glint 20.4 |
-| 5 | 0:22.1 | 0:26.6 | Insert, memory of my landing | `horror/Hallway lights 3 flicker 0 endDoor false figure 0`, warmer grade; core `text` "9" Anton 620 px `#b3262b` opacity 0.9 centred on the end wall (painted-number plant) | `pushIn` amount 0.2 | buzz bed thins; distant normal elevator ding 0:23.0 |
-| 6 | 0:26.6 | 0:31.4 | Medium wide, inside the car | CarSet; MirrorWall behind Nora, `blur 6` (kept soft: we don't look); Nora `pose phone`, `expr worried`, `lookX 0`, `lookY 0.3` (eyes down to the doors' base) | `drift` | buzz bed |
-| 7 | 0:31.4 | 0:36.0 | Phone POV, proxy question | Maintenance thread; `draft` types "how do you know my name?" from 31.4, sends 33.1 (`me: true`); `taps` on send; MAINT bubble 33.6 | static | keyboard ticks 31.4-33.1; send whoosh 33.1; pop 33.6 |
-| 8 | 0:36.0 | 0:38.7 | Extreme close, ceiling camera | core `svg` dome camera in the top corner of the CarSet, LED `circle` `#3a0d10` unlit; `horror/Darkness x 0.75 y 0.2 radius 0.3` | `pushIn` amount 0.6 | buzz; a single LED-off electrical click 0:37.4 |
-| 9 | 0:38.7 | 0:41.4 | Close, panel, press 2 | `horror/ElevatorPanel pressed [{at 38.8, floor 2}]`; `horror/Flicker blackouts [{at 39.6, duration 0.15}]` | `camera.shake [{at 39.6, duration 0.5, amplitude 22}]` | click; cable groan; drop 39.6; catch 40.1 |
-| 10 | 0:41.4 | 0:45.1 | Low angle, Nora + ceiling | CarSet; Nora `pose phone`, `exprs [{t 0, worried}, {t 1.2, scared}]`, `lookY -0.8` (to the ceiling); a slow shadow bulge drifting across the ceiling (core `rect` gradient, x keyframes 0.1 -> 0.9 over 1.8 s); `horror/ElevatorPanel pressed [{at 41.5, floor 11}]` as a 0.6 s insert at the start | `panUp` amount 0.4 | click 41.5; heavy roof shift 42.6-44.4, L -> R |
-| 11a | 0:45.1 | 0:46.4 | Close, panel, press 5 | `horror/ElevatorPanel pressed [{at 45.2, floor 5}]` (2, 11 and 5 now all lit) | static | click 45.2 |
-| 11b | 0:46.4 | 0:49.3 | Close, Nora frozen | Nora `expr terrified`, `lookX -1` (eyes to the back wall, head not turning), `blink false`; `horror/Darkness darkness 0.7` | `camera.shake [{at 46.4, duration 0.12, amplitude 8}]` | one glass tap 46.4; MAINT bubble pop 48.1 (heard, not shown) |
-| 12 | 0:49.3 | 0:52.5 | Extreme close, thumb on Close | `horror/ElevatorPanel` cropped to the open / close / alarm row; Close button glow (kit gap: no pressed state for Close; fallback core `circle` `#ffb35c` glow over it); `horror/Darkness` darkness tween 0.55 -> 0.85 in three steps | slow `pushIn` 0.3 | buzz drops a semitone at each light step |
-| 13 | 0:52.5 | 1:00.9 | Phone POV, unknown number | `horror/HandPhone` `vibrate [{at 52.6, duration 0.8, amount 1}]`; chat `title "+1 555 0142"`, `subtitle "Not in your contacts"`, OMAR bubbles 54.9, 58.4; `tremble 2` | static; panel reset at 52.5 | buzz x2 52.6; pops |
-| 14 | 1:00.9 | 1:03.3 | Phone POV, the turn | same thread, bubble 60.9 "Who are you talking to?"; full-frame red flash: `horror/Glitch cues [{at 60.9, duration 0.25, amount 0.8}]` + `horror/Vignette color "190,20,30" amount 0.9` for 0.4 s; caption in red | `pushIn` 0.2 then hold | sub hit 60.9; fluorescent buzz cuts at 62.2, fan only |
-| 15 | 1:03.3 | 1:08.7 | Phone POV, rival claims | Omar thread; `banners [{at 63.3, duration 2.2, app "Messages", title "Maintenance", text "Don't answer him. He isn't in the building."}]`; OMAR bubble 65.5 | static | banner ping 63.3; pop 65.5 |
-| 16 | 1:08.7 | 1:11.9 | Split frame, verdict | left half: `horror/Phone` chat header "Maintenance" with my name in its last bubble; right half: `horror/Phone` chat header "+1 555 0142" with "crank key" in view; `horror/Glitch amount 0.1` on the seam | static | low drone swell |
-| 17a | 1:11.9 | 1:13.6 | Phone POV, lull | Omar thread, bubble 71.9 | static | fan only |
-| 17b | 1:13.6 | 1:15.0 | Insert, counter | `horror/ElevatorPanel` cropped to the counter, dashes (fallback below), arrow dark | static | soft typing ticks |
-| 17c | 1:15.0 | 1:17.5 | Phone POV | ME bubble "two red dashes. between floors" (`me: true`) pre-placed, OMAR bubble 75.0 | static | pop |
-| 18 | 1:17.5 | 1:18.9 | Black | `horror/Flicker blackouts [{at 77.6, duration 99}]` over the car; only the phone glow survives (`horror/Darkness x 0.5 y 0.8 radius 0.18 darkness 0.97`) | static | everything cuts at 77.6; fan spin-down; my breath |
-| 19 | 1:18.9 | 1:26.6 | POV, the steel doors | CarSet at low exposure; the phone glow pool on the door seam; a smeared reflection (Nora `silhouette true`, `blur 4`, opacity 0.45) and behind it a paler MirrorWall rectangle | very slow `pushIn` amount 0.5 toward the mirror region of the reflection | breath; low drone in at 80.0 |
-| 20 | 1:26.6 | 1:30.5 | THE image (held) | Framed inside the MirrorWall: Nora facing camera, `expr neutral`, `blink false`, `light phone`, `lookX 0 lookY 0`, eyes level with the lens; foreground bottom third, a black head-and-shoulders shape (the real Nora from behind; kit gap: Protagonist back view; fallback core `svg` bob silhouette `#050608`); `horror/Glitch amount 0.05` | none, hold still 3.9 s | heartbeat only, 60 bpm; `horror/Heartbeat bpm 60 intensity 0.5 from 86.6 to 90.5` |
-| 21 | 1:30.5 | 1:32.2 | Phone POV, Maintenance | Maintenance thread, MAINT bubble 90.5; `horror/Glitch cues [{at 90.5, duration 0.3, amount 0.4}]` | static | pop; drone |
-| 22 | 1:32.2 | 1:36.5 | Phone POV, lifeline | Omar thread, OMAR bubble 92.2; `horror/RedText style neon text "0:30" at 92.2 fontSize 72` top right | static | pop |
-| 23 | 1:36.5 | 1:39.0 | Extreme close, alarm button | `horror/ElevatorPanel` cropped to the bell button; press glow (fallback core `circle` glow, as shot 12); Nora's thumb implied by the frame edge | `camera.shake [{at 97.0, duration 0.15, amplitude 10}]` | short bell ring 97.0; intercom crackle opens 98.4 |
-| 24 | 1:39.0 | 1:44.9 | Close, intercom grille | core `rect` stripe grille below the panel buttons (kit gap: no intercom prop), lit by the phone; countdown card `horror/RedText` "0:30" -> "0:25" (fallback: five RedText cards one per second from 98.6, kit gap: no countdown in the horror kit; the explainer kit timer can be borrowed); `horror/Glitch cues [{at 102.3, duration 0.3, amount 0.5}]` on "Nobody's inside" | slow `pushIn` 0.3 | OMAR-V band-passed; crackle dies mid-word at 104.5 |
-| 25 | 1:44.9 | 1:50.6 | Close, panel counter, climbing | `horror/ElevatorPanel` counter crop, arrow blinking up (kit: `from 7 to 12 at 104.9 perFloor 1.1` for the arrow; counter forced to dashes, fallback below); `horror/Darkness darkness 0.9` | continuous low `camera.shake` amplitude 3 (rumble) | motor whine rising; roof weight shift 105.4; sub drone |
-| 26 | 1:50.6 | 1:52.3 | POV, doors open | two steel core `rect` door panels sliding apart (x keyframes over 1.2 s, kit gap: no door-open in the car), revealing `horror/Hallway lights 1 flicker 0.6 endDoor false figure 0` | static | stop clunk 110.6; door rumble 110.8-112.0 |
-| 27 | 1:52.3 | 1:55.5 | POV, blank wall | same framing and lens as shot 5, the end wall bare (no "9" text), colder grade, `horror/Hallway flicker 0.4` | `pushIn` amount 0.2 | hallway tube buzz; all audio out 114.6-115.4 (dead air) |
-| 28 | 1:55.5 | 1:57.5 | Close, Nora | CarSet behind (doors open light on her face); Nora `expr terrified`, `blink false`, `lookX 0`, frozen; `horror/Darkness x 0.5 y 0.4 radius 0.35` | static | two glass taps 116.4 / 116.8 (exact sample of shot 11b) |
-| 29 | 1:57.5 | 2:00.0 | Phone POV, lock screen (bookend of shot 1) | `horror/HandPhone mode lock`, `lock.time "1:19"`, `notifications [{at 0.0, title "Maintenance", text "Stay calm, Nora. Don't look at the mirror."}, {at 117.5, title "Maintenance", text "Don't turn around, Nora. Step out."}]`; blurred layer now the open doors and the bare landing instead of the panel | `pushIn` amount 0.5; hard cut to black at 120.0 | notify ping 117.5; all audio cut at 120.0 |
-
-## Kit gaps noted (for the horror kit owners, not blockers)
-
-- No elevator car interior set (steel doors, mirror back wall, ceiling camera, intercom grille, doors opening). Shots 2, 6, 8, 10, 19, 20, 24, 26 use the CarSet / MirrorWall core-layer fallback described above the table. A `horror/ElevatorCar` background with `mirror`, `doorsOpen 0..1`, `cameraLed` and `lights 0..1` props would cover all of them.
-- `horror/ElevatorPanel`: no way to show dashes on the counter (shots 1, 17b, 25). Fallback: `from`/`to` set to the same floor and a core `text` "- -" in Anton `#ff3b30` laid over the counter digits. Also no pressed state for the open / close / alarm row (shots 12, 23); fallback is a core `circle` glow.
-- `horror/Protagonist`: no back view (shot 20 foreground); fallback core `svg` silhouette.
-- No countdown component in the horror kit (shot 24); borrow the explainer kit timer or step RedText cards.
+- **Backdrop A, facing Nora** (`car_a()`): the mirror back wall behind her shows **glare only** (two diagonal highlights), never a reflection, so her face appears in a mirror exactly once (the B9 image). Brushed-steel side walls, ceiling light panel, handrail, floor.
+- **Backdrop B, her POV** (`DOOR_FRAME` + `door_panel("L"/"R")`): steel doors with a seam; the two leaves are separate layers with x keyframes so they slide open in shot 39 onto the landing.
+- **The B9 image**: on the doors, her own terrified reflection close and translucent (Protagonist `terrified`, opacity 0.42, blur 2); behind it, in the pale mirror rectangle, a smaller, crisp Nora with `expr stare` (unblinking, pupils locked on the lens, lit by the phone). Her face is where the back of her head belongs. No glitch on the hold.
+- **Counter dashes** (`dashes()`): ElevatorPanel can't show dashes, so every panel shot passes `at 999, target 0` (no ticking, no lit target, no ding) and lays an opaque plate with dim 88 ghosts and two red dashes over the digits. On the climb the plate leaves the kit's arrow visible (`from 9 to 12, perFloor 4`, so it blinks up and never arrives).
+- **Inspection card** (`CARD`) under the floor buttons with "+1 555 0142"; **ALARM / PHONE** bell glyph over the kit's "!" button (`BELL`); **Close pressed** = a core circle glow; **dome camera** with an unlit LED (`CEILING_CAM`); **intercom grille** (`INTERCOM`) with an `explainer/Timer` (INTERCOM 0:10, real time from the press, reaches 0:00 on the cut); **landing wall** (`landing()`): flat wall facing the doors, warm with a 760 px red 9, or cold and bare; **verdict split** = two large contact cards (`split_cards()`), readable at phone size.
+- **Lighting**: phone shots sit on a blurred backdrop A, with the Darkness pool *behind* the hand (z 0) so it lights the car and not the phone. After the lights die (1:06.8), phone shots are black with only the phone's spill, the hand drawn darker (`skin #6b5d52`).
+- **Camera**: every move is keyframed in art coordinates (the panel crops zoom 2.0-3.1 on the exact row: buttons at y 760-1250, Close/alarm at y 1540, card at y 1440, counter at y 390); chat shots punch in on each new bubble.
+- **Not possible without the locked kit** (worked around): the status bar can't drop to zero bars (shown as a "No service" system line); "Not delivered" is a grey system line, not a red badge; Phone `draft` can't type out (keyboard taps + SFX, then the bubble).
+- **Audio still to build on the Spark** (pipeline/audio is locked): mix.wav from the per-line wavs in `~/studio/tts/hemc_lines` with lines.FX, SFX from `_sfx_cues`, the bed from `_bed`. New sounds are specified in `_sfx_new` (glass tap, cable groan, elevator alarm bell, fan/fluorescent bed); until then the cues use existing files (knock, underwater_rumble, desk_bell_ring).
