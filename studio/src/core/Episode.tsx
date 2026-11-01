@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {AudioTrack} from './audio';
-import {CaptionTrack} from './captions';
+import {CaptionTrack, captionPlacement} from './captions';
 import {waitForFonts} from './fonts';
 import {SceneView, Vignette} from './SceneView';
 import {parseStoryboard, sceneTimings, StoryboardSchema, type StoryboardInput} from './schema';
@@ -11,6 +11,8 @@ export const Episode: React.FC<StoryboardInput> = (props) => {
 	waitForFonts();
 	const sb = useMemo(() => parseStoryboard(props), [props]);
 	const {timings, totalFrames} = useMemo(() => sceneTimings(sb), [sb]);
+	// per-scene caption y (global seconds), for scenes whose framing needs the caption moved off phone text
+	const placement = useMemo(() => captionPlacement(sb.scenes, timings, sb.fps), [sb, timings]);
 
 	return (
 		<AbsoluteFill style={{background: '#000'}}>
@@ -29,7 +31,7 @@ export const Episode: React.FC<StoryboardInput> = (props) => {
 			})}
 			{sb.overlays.vignette > 0 ? <Vignette amount={sb.overlays.vignette} /> : null}
 			{sb.overlays.grain > 0 ? <Grain amount={sb.overlays.grain} /> : null}
-			{sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} /> : null}
+			{sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} /> : null}
 			<Fades fadeIn={sb.overlays.fadeIn} fadeOut={sb.overlays.fadeOut} totalFrames={totalFrames} />
 			<AudioTrack sb={sb} timings={timings} totalFrames={totalFrames} />
 		</AbsoluteFill>

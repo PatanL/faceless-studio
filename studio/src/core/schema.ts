@@ -348,6 +348,7 @@ export const Word = z.object({
 	start: Seconds,
 	end: Seconds,
 	emph: z.boolean().optional().describe('Draw this word in style.highlight (explicit emphasis, any highlightMode)'),
+	br: z.boolean().optional().describe('A caption page starts at this word. If any word has br, pages break only at br words (phrase pages from pipeline/episodes/phrases.py)'),
 });
 export type Word = z.infer<typeof Word>;
 
@@ -357,7 +358,7 @@ export const CaptionStyle = z.object({
 	fontSize: z.number().optional().describe('Default 104 (9:16) / 84 (16:9)'),
 	color: Color.default('#ffffff'),
 	highlight: Color.default('#ffe14d'),
-	highlightMode: z.enum(['color', 'box', 'none']).default('color'),
+	highlightMode: z.enum(['color', 'box', 'content', 'none']).default('color').describe("'content' = like 'color' but never on stopwords ('and', 'the', 'to'...); 'none' = only Word.emph words"),
 	boxColor: Color.default('#ff3b5c'),
 	strokeColor: Color.default('#000000'),
 	strokeWidth: z.number().default(14),
@@ -367,6 +368,7 @@ export const CaptionStyle = z.object({
 	maxWidth: z.number().optional().describe('px (default 82% of width)'),
 	pop: z.boolean().default(true),
 	backing: z.number().min(0).max(1).default(0).describe('Opacity of a dark rounded pill behind the caption block (0 = none); keeps it legible over busy UI'),
+	backingColor: z.string().default('0,0,0').describe('r,g,b of the backing pill'),
 });
 
 export const Captions = z.object({
@@ -377,6 +379,7 @@ export const Captions = z.object({
 	maxChars: z.number().int().min(4).default(18),
 	gapBreak: z.number().default(0.45).describe('A pause longer than this starts a new caption page'),
 	linger: z.number().default(0.35).describe('Seconds a page stays after its last word if nothing follows'),
+	glue: z.array(z.string()).default([]).describe('Phrases a caption page never splits ("golf cart", "beach ball")'),
 	style: CaptionStyle.default(CaptionStyle.parse({})),
 });
 export type Captions = z.infer<typeof Captions>;
@@ -394,6 +397,11 @@ export const Scene = z.object({
 	grade: Grade.optional(),
 	sfx: z.array(SfxCue).default([]).describe('Scene-local sound cues'),
 	notes: z.string().optional().describe('Narration / intent, ignored by the renderer'),
+	captionY: z.number().min(0).max(1).optional().describe('Caption centre (fraction of height) while this scene plays; overrides captions.style.y'),
+	captionYAt: z
+		.array(z.object({at: z.number().describe('Scene-local seconds'), y: z.number().min(0).max(1)}))
+		.optional()
+		.describe('Caption y changes inside the scene (e.g. low while a punch-in fills the top with phone text)'),
 });
 export type Scene = z.infer<typeof Scene>;
 
