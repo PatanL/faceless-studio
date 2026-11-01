@@ -1,0 +1,777 @@
+{
+ "id": "J3XahLkDEzU",
+ "url": "https://www.youtube.com/watch?v=J3XahLkDEzU",
+ "platform": "youtube",
+ "niche": "whatif",
+ "channel": "Oddly Elsewhere",
+ "title": "What If You Were the Last Human on Earth?",
+ "upload_date": "2026-10-13",
+ "duration": 660.46,
+ "views": 914113,
+ "likes": 4087,
+ "comments": 616,
+ "shares": null,
+ "subs": 19000,
+ "channel_median_views": 149479,
+ "outlier_score": 6.11,
+ "role": "outlier",
+ "analysis_notes": "Downloaded on the Spark at 854x480 30fps (format 397 + opus 251, 25 MB, kept since <300 MB) to ~/studio/refs/whatif/J3XahLkDEzU.mp4 with info.json, webp thumbnail and en/en-orig auto-subs (word-timed, 1,598 words). Metadata at about 09:25 UTC: 914,113 views, 4,087 likes (0.45% like rate, low; viewers watch passively), 616 comments, 19k subs, posted 2026-10-13 (about 3 weeks old). YouTube chapters: 0:00 The first day alone, 1:00 The grid goes dark, 2:02 Living off the leftovers, 3:23 Adapting to the new world, 4:50 Marking the passage of time, 6:06 The first year's challenges, 7:28 Years of solitude, 9:27 Decades of silence and hope. Category Film & Animation; 20 SEO tags ('last human on earth', 'what if everyone disappeared', 'life after humans', 'nature reclaims earth', '20 years alone'...). Frames sampled every 2 s (330) -> contact sheet sheets/J3XahLkDEzU.jpg (15x22 grid; frame n = t 2n s, row-major); scene detection (ffmpeg scene>0.25) found 149 cuts. Full timestamped transcript at research/library/transcripts/J3XahLkDEzU.txt. Style: a single recurring cartoon protagonist (bulging round eyes, spiky hair, brass goggles, teal jacket) in flat-shaded 2.5D/low-poly city sets with ink outlines and a muted, desaturated palette, alternating with very minimal cream-paper infographics (thin lines, one teal or red accent). British-English narrator ('petrol', 'tins', 'allotments', 'lift'), calm, dry and witty, in second person. Audio mean -18 dB, peak -0.7 dB; quiet music bed with about 8 music-only holds (4-15 s) at emotional peaks. It is a 'documentary story' rather than a list: one character, one timeline (Day 1 -> Year 20), real science facts as the problems in a survival story, and a fiction twist at the end. Don't reuse its story, jokes, character design or wording.",
+ "title_pattern": "'What If You Were the Last Human on Earth?' = [What If] + [You] + [extreme, total, simple scenario]. Second person ('You') makes the viewer the subject; 'Last Human on Earth' is a well-known high-search phrase (tags repeat its variants). Under 45 characters, no number, no clickbait adjectives. The thumbnail adds what the title leaves out (the time span Day 1 -> Year 20), so title and thumbnail do different jobs. Reusable: 'What If You Were the Only Person Awake?', 'What If You Lived Alone on the Moon for 20 Years?'.",
+ "thumbnail": {
+  "source": "Custom 1280x720 thumbnail (not a video frame, but drawn in the same style and with the same assets as the video).",
+  "composition": "Before/after split screen divided by a slanted white bar. Left: the grey Day 1 coffee street (stopped cars, the tallest tower centred on the vanishing point). Right: the same kind of street on Year 20, overgrown with bushes, windows broken. The hero's head and shoulders sit in the bottom corner of each half, the same pose and grin, cropped at the chest: clean-shaven on the left, grey-bearded with a missing goggles lens on the right. Each half has a yellow label in the top corner.",
+  "text": "Two yellow road-sign style labels with black outline and heavy black sans: 'DAY 1' (left) and 'YEAR 20' (right). Only 3 words in total.",
+  "colours": "Left half cool greys/beige with a little teal (coffee awning); right half olive and leaf greens. Saturated yellow labels and white cartoon eyes are the brightest values. Overall muted, so the yellow tags and the eyes pop.",
+  "subject_scale_contrast": "The face is huge (about 45% of frame height per half) against a deep perspective street, so you see a person and a whole world at once. The grin is the same in both halves, but the beard, the lost lens and the weeds show 20 years passing. That is the whole video in one image.",
+  "why_it_works": "The before/after split is easy to read at mobile size and asks 'what happened in between?'. The same face makes it a story about a person, not a lecture. The cheerful expression in a post-apocalyptic setting is unexpected (curiosity, not doom). Day/Year labels promise a timeline structure, the binge-able 'Day 1 to Year N' format."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "You're fourth in the queue for coffee, then you're first, then there's no queue, no barista.",
+  "verbatim_5_to_28s": "Four coffees still steaming and a card machine beeping approved at nobody. Outside, the street has emptied mid-sentence. Cars stopped where they were, a dog lead with nobody on the end of it. Your phone still works. Nobody answers it. Your feed stops at 14 minutes past 9:00. As far as you can tell, you're the last person on Earth.",
+  "first_speech_at_s": 0.0,
+  "device": "Cold open in the middle of an ordinary moment, in second person and present tense: the disappearance is shown as a countdown ('fourth... first... no queue') instead of being explained. Then a run of specific, uncanny leftovers (steaming coffees, 'approved at nobody', a dog lead with nobody on it, a feed frozen at 9:14), each a small 'show, don't tell' image. The premise sentence is held back to 28 s and spoken quietly, as a conclusion the viewer has already reached. No title, no channel intro, no 'in this video'. The hook also plants the dog, the billboard and the crossroads, which come back as callbacks at 4:14, 6:45 and 9:42.",
+  "visual": "First frame: a warm, readable cafe interior with the hero from behind in the queue. People vanish between cuts at 2.9 s and 4 s; inserts every ~2 s (cups, card machine, face)."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 12.3,
+   "beat_type": "hook_cold_open_vanishing",
+   "summary": "No intro. 'You're fourth in the queue for coffee, then you're first, then there's no queue' — the vanishing told as a countdown of the queue, then uncanny leftovers: four coffees still steaming, a card machine beeping 'approved' at nobody."
+  },
+  {
+   "t_start": 12.3,
+   "t_end": 28.2,
+   "beat_type": "hook_uncanny_details_and_premise",
+   "summary": "Street emptied mid-sentence, cars stopped, a dog lead with nobody on the end of it, phone works but nobody answers, feed stops at 9:14. Then the premise line: 'you're the last person on Earth.' Plants the dog and the 'We're always here' billboard for later callbacks."
+  },
+  {
+   "t_start": 28.2,
+   "t_end": 30.8,
+   "beat_type": "chapter_card",
+   "summary": "Split-flap 'DAY 1 / The Queue' sign over the river-and-skyline establishing shot, music sting."
+  },
+  {
+   "t_start": 30.8,
+   "t_end": 60.0,
+   "beat_type": "wish_fulfilment_montage",
+   "summary": "Upside first: you stop paying, breakfast is every pastry, the car you wanted since you were nine, the penthouse on floor 41. The city runs on autopilot 'for nobody' (driverless trains, traffic lights): a repeated phrase that sets up the turn."
+  },
+  {
+   "t_start": 60.0,
+   "t_end": 89.7,
+   "beat_type": "science_turn_grid",
+   "summary": "'It can't keep that up.' The grid explained as a balancing act (seesaw diagram), the 2003 North America blackout (500+ generators in ~7 min) as a dot-map stat, expert estimate 'hours, maybe a day'; reactors shut themselves down, 'designed for nobody'."
+  },
+  {
+   "t_start": 89.7,
+   "t_end": 101.0,
+   "beat_type": "set_piece_blackout",
+   "summary": "At 8:10 pm the penthouse goes dark, then the street, then the city district by district. Slow, near-silent visual beat."
+  },
+  {
+   "t_start": 101.0,
+   "t_end": 118.0,
+   "beat_type": "wonder_payoff_anecdote",
+   "summary": "'And you see what the lights were hiding': the Milky Way. 1994 Los Angeles earthquake blackout anecdote (people phoned the observatory about a silver cloud). A reward after the loss."
+  },
+  {
+   "t_start": 118.0,
+   "t_end": 122.2,
+   "beat_type": "chapter_card",
+   "summary": "'DAY 5 / The Top Floor'."
+  },
+  {
+   "t_start": 122.2,
+   "t_end": 146.4,
+   "beat_type": "problem_escalation_science",
+   "summary": "The tap coughs: water arrives by gravity but no longer climbs (diagram of reservoir and tower, building cross-section draining). Then the smell: freezers last ~2 days, these have had five. Comic disgust face."
+  },
+  {
+   "t_start": 146.4,
+   "t_end": 156.8,
+   "beat_type": "comic_transition",
+   "summary": "Down 41 floors with everything you own; 'You lose a lens on floor 19' (a goggles lens falls off, a running visual gag that stays for the rest of the film)."
+  },
+  {
+   "t_start": 156.8,
+   "t_end": 191.9,
+   "beat_type": "inventory_countdown_infographic",
+   "summary": "'An inheritance with a countdown': an expiry timeline that grows bar by bar (fresh food days, petrol months, tinned fruit ~1.5 years, pills years, beans and rice decades). Thesis: calories aren't the problem, vitamins might be, the grid stuff already is. Plants the saved tin of peaches 'for a special occasion' (pays off in the last shot)."
+  },
+  {
+   "t_start": 191.9,
+   "t_end": 203.8,
+   "beat_type": "transition_and_chapter_card",
+   "summary": "Leaves the supermarket to 'go looking for somewhere a person could actually live'. 'DAY 50 / The Lock House'."
+  },
+  {
+   "t_start": 203.8,
+   "t_end": 230.5,
+   "beat_type": "new_base_logic",
+   "summary": "A lockkeeper's cottage chosen the way people have chosen homes for 10,000 years (water, soil, nothing taller than you; flat diagram). 200 allotment sheds of tools and seeds. The best vehicle is a cargo bike."
+  },
+  {
+   "t_start": 230.5,
+   "t_end": 250.0,
+   "beat_type": "micro_threat_scurvy",
+   "summary": "Pharmacy raid, then 'your gums have started to bleed': scurvy, the sailors' disease; 7 weeks of pastries and tins will do it. Plant potatoes. Small, physical, believable stakes."
+  },
+  {
+   "t_start": 250.0,
+   "t_end": 254.0,
+   "beat_type": "emotional_turn",
+   "summary": "'The nights are the hardest part. Not the dark, the quiet.' First mention of loneliness."
+  },
+  {
+   "t_start": 254.0,
+   "t_end": 290.0,
+   "beat_type": "companion_callback",
+   "summary": "The dog from the coffee shop (from the 16 s shot) is in a shed with puppies. Science: which pet dogs survive; the 14-week socialisation window (bar graphic). One puppy follows you home. Delayed naming joke: 'after the thing she likes most about you' = a TINS bowl."
+  },
+  {
+   "t_start": 286.0,
+   "t_end": 290.0,
+   "beat_type": "chapter_card",
+   "summary": "'DAY 100 / Lost Count' (overlaps end of previous beat)."
+  },
+  {
+   "t_start": 290.0,
+   "t_end": 327.0,
+   "beat_type": "problem_solve_timekeeping",
+   "summary": "'It's day 100, probably.' Tally marks on brick. Michel Siffre 1962 cave anecdote (thought it was 20 Aug, it was mid-September; calendar flip cards). Fix: mark sunrise against the skyline until it stops: midsummer, 21 June. 'You were 9 days out.'"
+  },
+  {
+   "t_start": 327.0,
+   "t_end": 366.0,
+   "beat_type": "problem_solve_light_emotional_hold",
+   "summary": "Solar panels all switched off on day one by design (anti-islanding: cut out within 2 s to protect engineers; 'there are no engineers'). Rewire the cottage to camper-van batteries: '11 days and two small fires'. Then one bulb: 'the first light in the city you made yourself', held on a ~14 s music-only shot."
+  },
+  {
+   "t_start": 360.5,
+   "t_end": 366.0,
+   "beat_type": "chapter_card",
+   "summary": "Split-flap flips DAY -> 'YEAR 1 / First Winter'."
+  },
+  {
+   "t_start": 366.0,
+   "t_end": 388.4,
+   "beat_type": "decay_science_with_joke",
+   "summary": "The city freezes; split pipes flood floors, 'that's how buildings start to die'. German cockroach dies without central heating: 'So much for inheriting the earth.'"
+  },
+  {
+   "t_start": 388.4,
+   "t_end": 412.0,
+   "beat_type": "loneliness_low_point",
+   "summary": "'Some nights you nearly don't either. Not from the cold, from the quiet.' Alexander Selkirk anecdote (worst months the first eight, tamed cats, sang and danced). You talk to the man on the bank advert (callback to the 12 s billboard): 'He's a good listener.'"
+  },
+  {
+   "t_start": 412.0,
+   "t_end": 431.3,
+   "beat_type": "spectacle_and_symbol",
+   "summary": "Something crosses the night sky in pieces: the ISS re-entering because nobody boosted it. 'For 25 years there was always somebody up there. Now there's nobody up there either.'"
+  },
+  {
+   "t_start": 431.3,
+   "t_end": 448.7,
+   "beat_type": "milestone_day_365",
+   "summary": "You bake a cake, Tins eats most of it, peaches tin still on the sill. 'It's spring. You're still here.' Long music hold."
+  },
+  {
+   "t_start": 448.7,
+   "t_end": 485.0,
+   "beat_type": "years_montage_rapid",
+   "summary": "Corner year counter ticks Year 2..9 with one fact and one joke per year: bus-shelter greenhouse; water wheel plus car alternator (tens of watts); chickens need a rooster, 'so now you have an alarm clock'; apple grafting, a pip gives 'a random apple'; 'Year seven, you pull out your own tooth. You don't talk about year seven.'"
+  },
+  {
+   "t_start": 485.0,
+   "t_end": 524.0,
+   "beat_type": "year_10_world_reclaimed",
+   "summary": "The city has turned green: water does most of the damage (house cross-section), concrete towers stand a century. Chernobyl wolves 7x more common than in reserves; you hear them across the water. Tins is getting old, still never catches a deer. The big project: a solar radio station on the water tower."
+  },
+  {
+   "t_start": 524.0,
+   "t_end": 553.5,
+   "beat_type": "cosmic_science_turn",
+   "summary": "Earth's radio bubble (~80 ly out, mostly too faint past ~16 ly, radar the loudest), and inside it a growing 'shell of silence' nearly 10 ly thick since everyone vanished. Concentric-ring diagram."
+  },
+  {
+   "t_start": 553.5,
+   "t_end": 567.5,
+   "beat_type": "ritual_emotional_hold",
+   "summary": "Every evening you add one small voice: Morse, 'CQ. Calling anyone.' Music hold; then 'YEAR 20 / Still Here' card (weathered, overgrown sign)."
+  },
+  {
+   "t_start": 567.5,
+   "t_end": 607.3,
+   "beat_type": "year_20_resolution_montage",
+   "summary": "Reading glasses (the city left about a million pairs). Tins is under the apple tree; her granddaughter sleeps on your boots, also called Tins ('never good with names'). Callbacks: the coffee crossroads is a birch wood; the stadium is full again with horses (Chernobyl's 36 horses -> 130+). The last lights not yours are tritium exit signs, halving every 12 years."
+  },
+  {
+   "t_start": 607.3,
+   "t_end": 622.3,
+   "beat_type": "stakes_and_ritual",
+   "summary": "'Every tooth and every cut is a gamble now.' You still climb the tower every evening: 'CQ, still here.' Zoom out to a dark Earth with one light."
+  },
+  {
+   "t_start": 622.3,
+   "t_end": 630.2,
+   "beat_type": "credibility_pivot",
+   "summary": "'Everything up to now scientists more or less agree on. This next part, nobody can tell you.' Signals the switch from science to fiction and keeps the trust earned so far."
+  },
+  {
+   "t_start": 630.2,
+   "t_end": 650.0,
+   "beat_type": "twist_contact",
+   "summary": "'On day 7,135, the radio answers.' The needle moves; a light rises over the birch wood; a saucer lands in the garden. They set out when Earth was the loudest thing for light-years, came all this way to meet 8 billion people."
+  },
+  {
+   "t_start": 650.0,
+   "t_end": 656.4,
+   "beat_type": "punchline_callback_payoff",
+   "summary": "'They're 20 years late and they've parked on the cabbages.' The hero steps out holding the saved tin of peaches: the special occasion has come."
+  },
+  {
+   "t_start": 656.4,
+   "t_end": 660.5,
+   "beat_type": "end_card",
+   "summary": "Black, then 'ODDLY ELSEWHERE' wordmark. No subscribe ask in the narration."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 2.9,
+   "shot_type": "wide_interior_character",
+   "visual_description": "Cream/teal cafe interior, flat-shaded 2.5D. Hero (spiky hair, brass goggles, teal jacket, satchel) from behind, fourth in a queue at the counter.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 2.9,
+   "t_end": 6.8,
+   "shot_type": "side_profile_queue",
+   "visual_description": "Side view along the counter: three people ahead of the hero blink out one by one until he stands alone.",
+   "camera_motion": "static; figures disappear on narration beats",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 6.8,
+   "t_end": 10.7,
+   "shot_type": "insert_objects",
+   "visual_description": "Four coffee cups on the counter with animated steam curls. Then: Card terminal close-up, screen blinking 'approved'.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 10.7,
+   "t_end": 12.4,
+   "shot_type": "reaction_closeup",
+   "visual_description": "Hero's face, huge round eyes, mouth open, confused.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 12.4,
+   "t_end": 17.0,
+   "shot_type": "wide_exterior_establishing",
+   "visual_description": "Hero from behind on the pavement looking down an empty street of stopped cars; billboard of a smiling bearded man 'WE'RE ALWAYS HERE' over the street; a pigeon.",
+   "camera_motion": "slow push / reframing",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 17.0,
+   "t_end": 19.2,
+   "shot_type": "medium_animal",
+   "visual_description": "A shepherd-type dog with a red lead trailing, sniffing the empty street.",
+   "camera_motion": "pan following dog",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 19.2,
+   "t_end": 24.7,
+   "shot_type": "pov_phone",
+   "visual_description": "Hand-held phone POV: call screen 'No answer', then a feed frozen at 09:14.",
+   "camera_motion": "static, UI animates",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 24.7,
+   "t_end": 27.3,
+   "shot_type": "wide_interior",
+   "visual_description": "Empty train platform, departure board 'CENTRAL HARBOUR ON TIME'; hero tiny by a pillar.",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 27.3,
+   "t_end": 30.9,
+   "shot_type": "chapter_card",
+   "visual_description": "River-and-skyline establishing shot (ferris wheel, clock tower, tallest tower), grey winter light. Split-flap sign 'DAY 1' with subtitle.",
+   "camera_motion": "static; flaps flip in",
+   "on_screen_text": "DAY 1 / The Queue"
+  },
+  {
+   "t_start": 30.9,
+   "t_end": 35.5,
+   "shot_type": "character_gags",
+   "visual_description": "Hero on a plain cream background holding a bank card, then pocketing it (stop paying). Then: Hero in the cafe hugging an armful of pastries, delighted.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 35.5,
+   "t_end": 41.0,
+   "shot_type": "montage_dream_car",
+   "visual_description": "Showroom with a green convertible; key board with a hand grabbing a key; the car on an empty road.",
+   "camera_motion": "cuts with small pushes",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 41.0,
+   "t_end": 45.0,
+   "shot_type": "overhead_and_follow",
+   "visual_description": "Top-down view of a city avenue jammed with parked cars, then the hero weaving between car roofs.",
+   "camera_motion": "overhead static, then follow",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 45.0,
+   "t_end": 53.8,
+   "shot_type": "establishing_and_lift",
+   "visual_description": "Skyline with the tallest tower; lift doors from behind the hero, floor counter 5 -> 41.",
+   "camera_motion": "static; counter animates",
+   "on_screen_text": "5 -> 41"
+  },
+  {
+   "t_start": 53.8,
+   "t_end": 60.1,
+   "shot_type": "city_autopilot",
+   "visual_description": "Empty street with billboard; a driverless train sliding past an empty platform; a traffic light turning green for nobody.",
+   "camera_motion": "static holds",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 60.1,
+   "t_end": 72.0,
+   "shot_type": "infographic_seesaw",
+   "visual_description": "Cream background: a seesaw with power stations on one side and a city on the other, wobbling; little blocks added and removed to keep balance.",
+   "camera_motion": "static; elements animate",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 72.0,
+   "t_end": 80.0,
+   "shot_type": "infographic_dot_map",
+   "visual_description": "Map of North America drawn as teal dots (generators) that grey out in a cascade.",
+   "camera_motion": "static; counter animates",
+   "on_screen_text": "2003 / 410 / 508 / 7 min"
+  },
+  {
+   "t_start": 80.0,
+   "t_end": 89.7,
+   "shot_type": "infographic_seesaw_and_reactor",
+   "visual_description": "Hero standing under the seesaw as it tips; then a reactor dome icon switching ON -> OFF with a cooling tower.",
+   "camera_motion": "static",
+   "on_screen_text": "ON / OFF / Backup diesel ≈ 7 days"
+  },
+  {
+   "t_start": 89.7,
+   "t_end": 101.0,
+   "shot_type": "set_piece_blackout",
+   "visual_description": "Penthouse at dusk: hero from behind at floor-to-ceiling glass over a lit city, floor lamp on; the lamp, the street and then the city go dark in waves; his face lit only by moonlight; full black.",
+   "camera_motion": "slow push, tilt up into the night",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 101.0,
+   "t_end": 109.2,
+   "shot_type": "infographic_anecdote_night",
+   "visual_description": "Dark-blue flat diagram: observatory icon, skyline whose windows go out, an old telephone with a call arc to the observatory, a silver band across the sky.",
+   "camera_motion": "static; elements animate",
+   "on_screen_text": "1994"
+  },
+  {
+   "t_start": 109.2,
+   "t_end": 117.6,
+   "shot_type": "wonder_reveal",
+   "visual_description": "Milky Way through the penthouse glass; hero from behind, then a smiling close-up, then a wide shot with him tiny.",
+   "camera_motion": "slow tilt / pull-back",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 117.6,
+   "t_end": 122.2,
+   "shot_type": "chapter_card",
+   "visual_description": "Same river-skyline shot, a little later.",
+   "camera_motion": "static; flaps flip",
+   "on_screen_text": "DAY 5 / The Top Floor"
+  },
+  {
+   "t_start": 122.2,
+   "t_end": 137.5,
+   "shot_type": "insert_and_infographic",
+   "visual_description": "Bathroom sink crowded with bottles, the tap sputtering then dry. Then: Line diagram: hill reservoir -> pipe -> tower with roof tank; then a building cross-section of flats with showers draining the tank empty.",
+   "camera_motion": "static",
+   "on_screen_text": "DAY 1 - NIGHT"
+  },
+  {
+   "t_start": 137.5,
+   "t_end": 153.2,
+   "shot_type": "reaction_insert_and_stairwell",
+   "visual_description": "Hero grimacing at the smell; an open fridge leaking in the dark. Then: Aerial look through the glass, then the hero carrying bags down a concrete stairwell; '41' stencil on the wall; a goggles lens drops and bounces away.",
+   "camera_motion": "static",
+   "on_screen_text": "2 days / 41"
+  },
+  {
+   "t_start": 153.2,
+   "t_end": 160.0,
+   "shot_type": "wide_supermarket_to_shelf",
+   "visual_description": "Hero in a supermarket aisle, then a flat front-on wall of colourful shelves that fades to cream.",
+   "camera_motion": "lateral truck, cross-fade",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 160.0,
+   "t_end": 180.0,
+   "shot_type": "infographic_timeline",
+   "visual_description": "Hero at the left of a horizontal ground line; items appear (fish, jerrycan, peaches tin with 'BEST BEFORE' stamp, pills, rice sack) with red duration bars growing under them.",
+   "camera_motion": "static with one push-in on the peaches tin",
+   "on_screen_text": "days / months / 1½ years / years / decades (sealed, dry)"
+  },
+  {
+   "t_start": 180.0,
+   "t_end": 188.9,
+   "shot_type": "infographic_pyramid_and_glow",
+   "visual_description": "Hero beside a pyramid of tins (a lifetime of calories); close-up with a pink glow (vitamins); timeline again with a plug icon (grid items already gone).",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 188.9,
+   "t_end": 199.8,
+   "shot_type": "insert_and_walk_out",
+   "visual_description": "A hand in the dark places one peaches tin back on an empty shelf, under a spotlight. Then: Hero with bags walking out through the supermarket glass doors.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 199.8,
+   "t_end": 203.8,
+   "shot_type": "chapter_card",
+   "visual_description": "River skyline now with blossom trees.",
+   "camera_motion": "static; flaps flip",
+   "on_screen_text": "DAY 50 / The Lock House"
+  },
+  {
+   "t_start": 203.8,
+   "t_end": 209.3,
+   "shot_type": "wide_establishing_new_base",
+   "visual_description": "High three-quarter view of a red-brick lock cottage on the river, allotment plots and sheds, a water tower, the skyline far off.",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 209.3,
+   "t_end": 216.2,
+   "shot_type": "infographic_minimal",
+   "visual_description": "Cream background: a tiny hut on a line; a river dips beside it, soil, and the hero next to a height marker (nothing taller than you).",
+   "camera_motion": "static; elements draw in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 216.2,
+   "t_end": 230.5,
+   "shot_type": "location_and_follow",
+   "visual_description": "Hero among allotment sheds with a wheelbarrow. Then: Hero on a cargo bike threading between stopped cars under blossom trees.",
+   "camera_motion": "small reframes across 3 cuts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 230.5,
+   "t_end": 240.2,
+   "shot_type": "pharmacy_sequence",
+   "visual_description": "Pharmacy aisle; flat front shelf of bottles and boxes swept into the hero's bag; empty shelf; close-up of the hero with bleeding gums.",
+   "camera_motion": "static, lateral sweep",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 240.2,
+   "t_end": 249.2,
+   "shot_type": "infographic_and_insert",
+   "visual_description": "Sailor silhouette icon; '7 weeks' with a row of pastry and tin icons; a hand pushing potatoes into brown soil, which sprout.",
+   "camera_motion": "static",
+   "on_screen_text": "7 weeks"
+  },
+  {
+   "t_start": 249.2,
+   "t_end": 256.4,
+   "shot_type": "night_mood",
+   "visual_description": "Night street, then the hero awake in bed, only eyes above the blanket, clock on the wall.",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 256.4,
+   "t_end": 273.9,
+   "shot_type": "reveal_and_infographic",
+   "visual_description": "Inside a dark shed: the coffee-shop dog lying with puppies; then cream diagrams: dog silhouettes by size (small and large fade out); a puppy on a 14-segment bar that turns red at the end.",
+   "camera_motion": "static",
+   "on_screen_text": "14 weeks"
+  },
+  {
+   "t_start": 273.9,
+   "t_end": 285.2,
+   "shot_type": "medium_and_name_gag",
+   "visual_description": "Hero in the shed door with puppies; walking home with one puppy following; a hand writes 'TINS' on a bowl; the puppy sits in the TINS bowl next to a tin.",
+   "camera_motion": "static",
+   "on_screen_text": "TINS"
+  },
+  {
+   "t_start": 285.2,
+   "t_end": 290.0,
+   "shot_type": "chapter_card",
+   "visual_description": "River skyline, trees in leaf.",
+   "camera_motion": "static; flaps flip",
+   "on_screen_text": "DAY 100 / Lost Count"
+  },
+  {
+   "t_start": 290.0,
+   "t_end": 301.8,
+   "shot_type": "tally_and_anecdote",
+   "visual_description": "Tally marks on a brick wall, a hand chalks '100'; bearded hero beside it; cross-section of a cave with a tent at the bottom.",
+   "camera_motion": "static",
+   "on_screen_text": "100 / 1962"
+  },
+  {
+   "t_start": 301.8,
+   "t_end": 307.4,
+   "shot_type": "infographic_calendar",
+   "visual_description": "Tear-off calendar under a lamp in the dark: AUG 19 -> AUG 20; then SEP 14 on cream with a red gap bar.",
+   "camera_motion": "static",
+   "on_screen_text": "AUG 19 / AUG 20 / SEP 14"
+  },
+  {
+   "t_start": 307.4,
+   "t_end": 329.5,
+   "shot_type": "process_sunrise_calendar",
+   "visual_description": "Hero at dawn carrying stakes; POV framed between his teal legs looking at the skyline at sunrise; the sun creeps along the towers; a line-art diagram of the sun path over the skyline; stakes in the ground.",
+   "camera_motion": "static holds, slow pans",
+   "on_screen_text": "21 June"
+  },
+  {
+   "t_start": 329.5,
+   "t_end": 341.6,
+   "shot_type": "infographic_solar",
+   "visual_description": "Hero flicking a dead light switch; isometric grid of rooftops covered in solar panels; cream diagram: house -> switch box -> pole, the switch opening.",
+   "camera_motion": "static; elements animate",
+   "on_screen_text": "2 s"
+  },
+  {
+   "t_start": 341.6,
+   "t_end": 351.7,
+   "shot_type": "process_build_comic",
+   "visual_description": "Pigeons on an empty power line (no engineers); hero on the cottage roof among cables; cargo bike with batteries; smoke and a singed, sooty hero with the dog.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 351.7,
+   "t_end": 360.5,
+   "shot_type": "emotional_hold_light",
+   "visual_description": "Night exterior: the dark city and one small lit window; inside, the hero under one glowing bulb with the dog.",
+   "camera_motion": "very slow push; music only",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 360.5,
+   "t_end": 366.0,
+   "shot_type": "chapter_card",
+   "visual_description": "River skyline in snow; the sign flips DAY -> YEAR.",
+   "camera_motion": "static; flaps flip",
+   "on_screen_text": "YEAR 1 / First Winter"
+  },
+  {
+   "t_start": 366.0,
+   "t_end": 394.8,
+   "shot_type": "callback_and_infographic_decay",
+   "visual_description": "Snowy coffee street (same angle as 12 s); cream cross-section of a building with a radiator pipe that splits and drips, flooding the floor; a cockroach by a warm radiator with a palm sprout, then frozen and dead by a cold one. Then: Bundled-up hero by a fireplace with the dog asleep, a warm orange glow.",
+   "camera_motion": "static; elements animate",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 394.8,
+   "t_end": 406.9,
+   "shot_type": "infographic_anecdote_flat",
+   "visual_description": "Flat beach: Selkirk silhouette, 'ROBINSON CRUSOE' book, moon phases across the sky (months passing), then dancing with cats.",
+   "camera_motion": "static; elements animate",
+   "on_screen_text": "ROBINSON CRUSOE"
+  },
+  {
+   "t_start": 406.9,
+   "t_end": 412.0,
+   "shot_type": "callback_billboard",
+   "visual_description": "Hero and dog on a snowy riverside looking up at the old billboard; close-up of the smiling bank-advert man.",
+   "camera_motion": "push-in to the billboard",
+   "on_screen_text": "WE'RE ALWAYS HERE"
+  },
+  {
+   "t_start": 412.0,
+   "t_end": 431.3,
+   "shot_type": "spectacle_night",
+   "visual_description": "Dark skyline across the river; hero and dog silhouetted; burning fragments streak across the sky; cutaway diagram of Earth with the station's orbit spiralling down.",
+   "camera_motion": "static wide holds",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 431.3,
+   "t_end": 448.7,
+   "shot_type": "milestone_inserts",
+   "visual_description": "The dog beside a cake, then by an empty plate; lock cottage in spring; peaches tin on the windowsill with blossom; river-skyline card flipping to YEAR.",
+   "camera_motion": "static; music hold",
+   "on_screen_text": "YEAR"
+  },
+  {
+   "t_start": 448.7,
+   "t_end": 485.0,
+   "shot_type": "time_lapse_montage",
+   "visual_description": "Same high view of the cottage and allotments across seasons with a small YEAR N tag in the top-right corner: snow, greenhouse built from bus-shelter glass, water wheel on the weir with a cable to the house, a lit window at night, chicken coop, rooster on the sill with the sleeping hero, apple grafts across seasons; a circular vignette of the bearded hero (year seven).",
+   "camera_motion": "held angle, cuts every 2-4 s",
+   "on_screen_text": "YEAR 1..YEAR 9"
+  },
+  {
+   "t_start": 485.0,
+   "t_end": 503.1,
+   "shot_type": "world_reclaimed",
+   "visual_description": "Hero with chickens, walking past the water wheel; river-skyline with overgrown towers; house cross-section with rain, leaking gutter and rot; street of birch trees with deer.",
+   "camera_motion": "static; slow pushes",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 503.1,
+   "t_end": 519.97,
+   "shot_type": "infographic_and_companion",
+   "visual_description": "Chernobyl icon vs nature reserve with '7x' wolves; night river with hero and dog listening; old Tins resting, then chasing deer through long grass.",
+   "camera_motion": "static",
+   "on_screen_text": "Chernobyl / reserves / 7x"
+  },
+  {
+   "t_start": 519.97,
+   "t_end": 547.5,
+   "shot_type": "project_reveal_and_bubble_diagram",
+   "visual_description": "Low-angle water tower with an aerial and a ladder; radio desk with a frequency display. Then: Cream: a dot that grows into concentric teal rings (Earth's radio bubble), labels, a dish firing a radar beam at a planet, then a black disk growing at the centre (the silent shell).",
+   "camera_motion": "slow tilt",
+   "on_screen_text": "7.030 / about 67 / 80 / 16 light years; nearly 10 light years"
+  },
+  {
+   "t_start": 547.5,
+   "t_end": 567.5,
+   "shot_type": "ritual_and_card",
+   "visual_description": "Hero at the radio desk at sunset; close-up of a hand on a Morse key; water tower at dusk; bubble diagram with a pulse; river-skyline card, now rusty and covered in vines.",
+   "camera_motion": "static holds",
+   "on_screen_text": "YEAR 20 / Still Here"
+  },
+  {
+   "t_start": 567.5,
+   "t_end": 583.9,
+   "shot_type": "year_20_vignettes",
+   "visual_description": "Hero in reading glasses holding up a pair; a planter crammed with a million glasses; apple tree over a stone cairn (Tins' grave); hero in the doorway with a young dog on his boots; close-up of a collar tag 'TINS'.",
+   "camera_motion": "static",
+   "on_screen_text": "TINS"
+  },
+  {
+   "t_start": 583.9,
+   "t_end": 598.7,
+   "shot_type": "callback_reclaimed_city",
+   "visual_description": "Coffee crossroads now a birch wood; the old 'HERE' billboard among trees; stadium full of grazing horses; cream diagram of horse silhouettes growing from 36 to 130+.",
+   "camera_motion": "slow pushes",
+   "on_screen_text": "HERE / 36 / 130+"
+  },
+  {
+   "t_start": 598.7,
+   "t_end": 607.3,
+   "shot_type": "mood_exit_signs",
+   "visual_description": "Dark green corridor lit only by an exit sign; diagram close-up of the sign dimming.",
+   "camera_motion": "slow push",
+   "on_screen_text": "+9 years / +12 years"
+  },
+  {
+   "t_start": 607.3,
+   "t_end": 630.3,
+   "shot_type": "ritual_zoom_out",
+   "visual_description": "Hero in the doorway, thoughtful; climbing the water tower ladder at dusk; Morse key; one long zoom out from a dark map with one light to the whole dark Earth.",
+   "camera_motion": "long continuous pull-back",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 630.3,
+   "t_end": 638.9,
+   "shot_type": "twist_trigger",
+   "visual_description": "Hero at the radio, the old dog asleep under the desk; extreme close-up of the meter needle jumping; the hero's shocked, delighted face.",
+   "camera_motion": "snap cuts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 638.9,
+   "t_end": 650.8,
+   "shot_type": "twist_reveal",
+   "visual_description": "Night: birch wood and cabbage rows, a white light rising behind the trees; a glowing saucer lands in the cabbages; hero and dog silhouetted in the doorway.",
+   "camera_motion": "slow push-ins",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 650.8,
+   "t_end": 656.4,
+   "shot_type": "punchline",
+   "visual_description": "Low close-up of the saucer rim resting on crushed cabbages; hero in the doorway, then holding up the peaches tin.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 656.4,
+   "t_end": 660.5,
+   "shot_type": "end_card",
+   "visual_description": "Black, then a small white 'ODDLY ELSEWHERE' wordmark at centre.",
+   "camera_motion": "static",
+   "on_screen_text": "ODDLY ELSEWHERE"
+  }
+ ],
+ "pacing": {
+  "words_total": 1598,
+  "duration_s": 660.5,
+  "words_per_minute_overall": 145,
+  "words_per_minute_while_speaking": "about 160-165 (about 70 s of music-only holds removed)",
+  "music_only_holds": "about 8 holds of 4-15 s at 0:28 (title), 1:51-2:02 (Milky Way), 4:37-4:50 (naming the puppy), 5:51-6:06 (first bulb), 7:13-7:28 (Day 365 cake), 9:13-9:27 (CQ), 10:11-10:22 (CQ still here), 10:33-10:38 (radio answers)",
+  "scene_cuts_detected": 149,
+  "shots_in_list": 62,
+  "avg_shot_length_s": 4.4,
+  "shot_length_range": "1-3 s during the hook and the montages; 10-30 s holds for infographic builds (one camera, elements animate in) and for emotional moments",
+  "chapter_cards": "7 split-flap location cards (Day 1, 5, 50, 100, Year 1, 10, 20), i.e. one roughly every 80-90 s, each a reset and progress marker",
+  "rehook_interval_s": "about 20-40 s: each section opens with a new problem ('It can't keep that up', 'the tap coughs', 'your gums have started to bleed', 'you lost a week', 'every panel switched itself off') that is solved within 30-60 s; a joke lands about every 30 s",
+  "notes": "The rhythm is problem -> real science fact or historical anecdote -> practical fix -> dry joke -> small emotional beat, repeated per chapter, then sped up in the years montage (one sentence per year) and slowed down for the ending. Narration is calm and dry, never shouted. Silence is used as punctuation."
+ },
+ "techniques_worth_copying": [
+  "Day-counter spine: the scenario is one character's timeline (Day 1 -> 5 -> 50 -> 100 -> Year 1 -> 10 -> 20) shown with a physical split-flap sign over the same establishing shot. The sign and the view age with the story (clean -> snowy -> rusty with vines), so a single reused shot is the chapter card, the progress bar and the time-lapse.",
+  "Second-person, present-tense narration ('You're fourth in the queue... you bake a cake'), so the viewer lives the what-if instead of being lectured.",
+  "Science as the obstacle in the story: each fact (grid balance, gravity water, freezer life, expiry dates, scurvy, puppy socialisation, anti-islanding solar, frozen pipes, ISS orbit decay, radio bubble) shows up as a problem the hero meets and solves. One named historical anecdote per chapter (2003 blackout, 1994 LA Milky Way calls, Siffre 1962, Selkirk, Chernobyl wolves/horses) gives credibility.",
+  "Plant and pay off: the dog on the lead (0:16) -> mother of Tins (4:14); the bank billboard (0:12) -> the man you talk to (6:45); the coffee crossroads (0:12) -> birch wood (9:42); the saved peaches tin (3:10) -> opened when the aliens land (10:55). Callbacks reward people who watch to the end and give the ending emotional weight.",
+  "Dry, specific jokes as rhythm: 'approved at nobody', 'designed for nobody', 'two small fires', 'so now you have an alarm clock', 'You don't talk about year seven', 'They're 20 years late and they've parked on the cabbages'. Understatement, not gags.",
+  "Repeated phrase as a motif: 'for nobody' / 'nobody' (trains, lights, reactors, engineers, the ISS) carries the loneliness theme without saying it.",
+  "Upside first, then the turn: 30 s of wish-fulfilment (free pastries, dream car, penthouse) before 'It can't keep that up.' This is the classic what-if bait-and-switch.",
+  "An emotional hold after every win (first bulb, Milky Way, cake, CQ): 10-15 s of music with no narration. It makes an explainer feel like a short film.",
+  "A rapid montage to cover time: 'Year two, ... Year three, ...', one line, one fact or joke per year, with the same camera angle and a corner year tag, so 8 years fit into 36 s.",
+  "Credibility pivot before the twist: 'Everything up to now scientists more or less agree on. This next part, nobody can tell you.' It allows a fiction ending without spending the trust earned so far.",
+  "Infographics on plain cream paper with very few elements (a seesaw, a growing timeline, concentric rings, a tally bar), built up in step with the narration. Cheap to make and very clear.",
+  "Thumbnail: a before/after split with the same character, two yellow labels, and the time span as the only text."
+ ],
+ "code_only_remake_requirements": {
+  "assets": "One rigged SVG hero (head, 2 eye states, mouth set, goggles with a removable lens, beard layer at 3 lengths, satchel, 4-5 body poses: from behind, walking, holding, sitting, at a desk), a dog in 3 ages (puppy, adult, grey) with 3 poses, about 12 SVG backgrounds drawn in flat 2.5D perspective (cafe, street with billboard, river skyline, penthouse window, stairwell, supermarket aisle, cottage plus allotments high angle, pharmacy shelf, beach, radio desk, water tower, stadium), an icon set for infographics (power station, city block, reactor, fridge, tins, pills, rice sack, dog silhouettes, calendar, sun, solar panel, radiator, cockroach, horse, Earth), and a split-flap sign component.",
+  "layout": "16:9 1920x1080. Scenes fill the frame; infographics on a #EEE8DC-ish cream with a soft vignette, thin dark linework, one accent (teal #4FA3A5 or red #C0392B) and a small geometric sans for labels; chapter sign bottom-left over the establishing shot; year tag top-right during montages.",
+  "camera": "Mostly static frames with slow push-ins (scale 1.00 -> 1.05 over 4-6 s), a few lateral trucks across shelves, one long zoom-out (map -> globe), and parallax layers on the skyline shots. Everything can be done with Remotion interpolate() on transform.",
+  "motion": "Infographic elements appear in sync with the narration (opacity plus 6-10 px rise, or draw-on stroke via strokeDashoffset), bars that grow, counters that tick, rings that grow (r interpolation), a seesaw rotation with spring(). Split-flap flips as scaleY on two halves. Steam curls and blinking UI as loops. A light that sweeps out over the city as a staged opacity mask over the window layers.",
+  "time_lapse_reuse": "Make the establishing skyline and the cottage high view as parametric SVG scenes with props for season (palette swap, snow overlay, blossom/leaf colours), decay level (broken windows, vines, overgrowth blobs) and night (dark overlay plus lit windows), so one scene renders every chapter card and the years montage.",
+  "captions": "None in the video (it relies on clean narration); optional for our version.",
+  "audio": "Calm British-English (or neutral) Kokoro/Piper voice at about 160 wpm, second person; a soft piano/ambient bed with 10-15 s music-only holds at emotional beats; small sound effects (card beep, lift ding, tap cough, flap clicks, Morse beeps).",
+  "effort_note": "About 60 shots in 11 minutes. The infographic half is quick to do in code. The character scenes need a reusable pose library and layered SVG sets; low-poly 3D cars and buildings can become flat isometric SVG blocks. A 3-5 minute version with 4 chapter cards would be a realistic first pilot."
+ }
+}

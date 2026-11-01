@@ -1,0 +1,695 @@
+{
+ "id": "epzTfKxp16E",
+ "url": "https://www.youtube.com/watch?v=epzTfKxp16E",
+ "platform": "youtube",
+ "niche": "horror",
+ "channel": "Wansee Entertainment",
+ "title": "2 : 48 AM.. (TRUE Horror Story Animated)",
+ "upload_date": "2026-07-13",
+ "duration": 311.5,
+ "views": 215096,
+ "likes": 5784,
+ "comments": 289,
+ "subs": 1840000,
+ "channel_median_views": 185265,
+ "outlier_score": 1.16,
+ "role": "control",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/epzTfKxp16E.{mp4,jpg,en-orig.vtt,info.json,sheet.jpg,cuts.txt} + epzTfKxp16E_frames/ (every 2 s, 320 px) + epzTfKxp16E_rev_0[1-6].jpg (5x6 review sheets, 60 s each)",
+  "transcript_source": "YouTube auto-subs en-orig (word-timed ASR); 'en' track returned HTTP 429. A few words lost under SFX (peephole 'eyes' ~98 s, 'other side' ~140 s, the whisper at ~243 s is masked/inaudible in subs). Full text: research/library/transcripts/epzTfKxp16E.txt",
+  "frames": "sampled every 2 s (156 frames). Contact sheet research/library/sheets/epzTfKxp16E.jpg is 10 cols x 16 rows, 160x90 tiles, row-major, tile n = (n-1)*2 s; each row = 20 s.",
+  "source_resolution": "854x480 24 fps (format 397 AV1 + opus), 8.7 MB",
+  "cut_detection": "ffmpeg scene>0.3 found 52 cuts (dark low-contrast cuts under-detected); shot list built from the 2 s frame pass, boundaries +-1-2 s. Camera motion is inferred from framing drift between samples.",
+  "chapters": "YouTube chapters: 0 The first encounter / 36 Watching from the shadows / 85 Creeping suspicion / 114 The home invasion / 166 A violent confrontation / 260 The butcher of Roseberg",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:12 UTC; ~3.5 months after upload. Control: performs at channel median (1.16x).",
+  "audio": "single first-person male narrator VO throughout (calm, steady, slightly breathy), ambient drone music bed entering ~34 s, SFX for doorbell, pounding, footsteps; character lines delivered by the same narrator in quotes. No burned-in captions."
+ },
+ "title_pattern": {
+  "template": "[Exact time] AM.. (TRUE Horror Story Animated)",
+  "notes": "Hyper-specific clock time ('2 : 48 AM') as the whole hook, trailing ellipsis for dread, and the channel's fixed parenthetical genre tag '(TRUE Horror Story Animated)' which sells authenticity + format. The time is spoken at 15 s ('It was exactly 2:48 a.m.') so the title pays off early. Odd spacing '2 : 48' makes it look like a digital clock read-out. No creature named - curiosity about what happens at that minute."
+ },
+ "thumbnail": {
+  "composition": "Mid-story still (the fast-food booth scene, ~166-172 s): two boys at a round table, left one in profile sipping from a red cup, right one in a hoodie hunched over his food, glancing sideways with a suspicious frown. Two-shot, characters fill ~80% of frame, warm-brown blurred restaurant background.",
+  "text": "None.",
+  "colours": "Muted earthy palette: dark green and navy clothes, saturated red cups as the only strong accents, warm beige/brown bg. No horror colour grading.",
+  "subject_scale_contrast": "None - equal-size characters, no monster, no darkness. Lowest-tension frame type in the video.",
+  "why_it_works": "Mostly it doesn't by itself: it's an understated 'slice of life with side-eye' frame relying on the channel's recognisable art style and subscriber base (1.84 M) and the title's time hook. The sidelong suspicious glance implies 'someone is watching', matching the stalker premise without spoiling it. Useful as a control: a non-scary thumbnail landing exactly at channel median. Our versions should test a monster/silhouette-in-window frame against this."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "It was summer vacation, and I was spending the week at my best friend Thomas's apartment.",
+  "first_speech_at_s": 0.9,
+  "device": "Slow-burn 'normalcy' cold open (no scare in the first 5 s): first-person, past tense, relatable setup (sleepover, games, YouTube) with the title's specific time ('exactly 2:48 a.m.') landing at 15 s and the first wrongness ('Something felt wrong') at 25 s; first visual threat (silhouette POV) at 30 s. Relies on channel trust + 'TRUE story' framing rather than a front-loaded shock.",
+  "visual_0_5s": "Static symmetric wide shot of two boys on a white sofa gaming, flat bright-ish greys; no music yet."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 14,
+   "beat_type": "cold_open_normalcy",
+   "summary": "Summer-vacation sleepover at best friend Thomas's apartment; games, YouTube, 2 a.m. challenges. Establishes two characters, location, and 'normal' baseline in ~12 s."
+  },
+  {
+   "t_start": 14,
+   "t_end": 28,
+   "beat_type": "title_timestamp_trigger",
+   "summary": "'It was exactly 2:48 a.m.' (title line spoken at 15 s) - narrator wakes, gets water; 'Something felt wrong.'"
+  },
+  {
+   "t_start": 28,
+   "t_end": 47,
+   "beat_type": "first_sighting",
+   "summary": "Looks out the 2nd-floor window: a motionless man on the sidewalk, head tilted, staring 'directly at me'. Music sting enters."
+  },
+  {
+   "t_start": 47,
+   "t_end": 66,
+   "beat_type": "reaction_and_witness",
+   "summary": "Narrator recoils, swears; Thomas stumbles in and also sees him - second witness confirms it is real."
+  },
+  {
+   "t_start": 66,
+   "t_end": 82,
+   "beat_type": "creature_tease",
+   "summary": "Tall, unnaturally thin figure (shown as silhouette with glowing eyes); they look away and back and he's gone."
+  },
+  {
+   "t_start": 82,
+   "t_end": 99,
+   "beat_type": "escalation_doorbell_jump_scare",
+   "summary": "Minutes later the doorbell rings; peephole reveals two bloodshot wide-open eyes - first jump scare (~95 s)."
+  },
+  {
+   "t_start": 99,
+   "t_end": 118,
+   "beat_type": "authority_dismissal",
+   "summary": "Police arrive, man gone; 'Probably just a drunk guy.' Narrator: 'But I knew.' (classic disbelief beat)"
+  },
+  {
+   "t_start": 118,
+   "t_end": 138,
+   "beat_type": "night_two_repeat_escalation",
+   "summary": "Next night same spot, same stare; doorbell won't stop, pounding, door rattles."
+  },
+  {
+   "t_start": 138,
+   "t_end": 148,
+   "beat_type": "hide",
+   "summary": "Boys lock themselves in the bathroom; bat; police called; then silence."
+  },
+  {
+   "t_start": 148,
+   "t_end": 166,
+   "beat_type": "evidence_clue",
+   "summary": "Police find no forced entry but bloody fingerprints on the handle; still can't act."
+  },
+  {
+   "t_start": 166,
+   "t_end": 182,
+   "beat_type": "night_three_flee_and_stalk",
+   "summary": "Too afraid to stay home; fast-food till midnight; walking back on a dark street - slow heavy footsteps behind."
+  },
+  {
+   "t_start": 182,
+   "t_end": 228,
+   "beat_type": "monster_reveal_description",
+   "summary": "He's right there: ~7 ft, stretched limbs, grey skin, sunken face, lipless rotten grin, clawed neck, blood under nails, smell of death. 45 s of slow, itemised close-ups - the centrepiece."
+  },
+  {
+   "t_start": 228,
+   "t_end": 246,
+   "beat_type": "attack_climax",
+   "summary": "He grabs Thomas, throws him down, whispers into his face (line masked)."
+  },
+  {
+   "t_start": 246,
+   "t_end": 258,
+   "beat_type": "fight_back_escape",
+   "summary": "Narrator kicks him in the face; they run bleeding to a store and call police."
+  },
+  {
+   "t_start": 258,
+   "t_end": 290,
+   "beat_type": "aftermath_reveal",
+   "summary": "He's caught. His house: remains of three missing people, basement 'dining room' with bones and raw meat, and a wall of photos of the two boys - he'd watched them for days/weeks."
+  },
+  {
+   "t_start": 290,
+   "t_end": 300,
+   "beat_type": "name_and_backstory",
+   "summary": "'The Butcher of Roseburg', escaped psychiatric patient, never declared dead."
+  },
+  {
+   "t_start": 300,
+   "t_end": 311.5,
+   "beat_type": "open_ending_stinger",
+   "summary": "'And apparently, he had been waiting.' Daylight shot of the boys with him crouched in the bushes - lingering threat, then cut to black."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 8,
+   "shot_type": "wide_static_two_shot",
+   "visual_description": "Two teen boys (narrator in green sweater, Thomas in navy hoodie) sit side by side on a white sofa facing camera, gaming controllers in hands; pale grey-green wall, flat-lit, symmetric",
+   "camera_motion": "static; limited character animation (hands/mouths)",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 8,
+   "t_end": 10,
+   "shot_type": "wide_two_shot",
+   "visual_description": "Same sofa, boys now sprawled and slouched on their phones (time-passing gag)",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 10,
+   "t_end": 14,
+   "shot_type": "wide_reverse_from_behind",
+   "visual_description": "Back view of the sofa, boys leaning over a phone on a tripod (filming 'challenges')",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 14,
+   "t_end": 20,
+   "shot_type": "medium_single_establishing_room",
+   "visual_description": "Narrator in foreground right of a dim living room: night window with curtain, armchair, round wall clock; he wakes, yawns",
+   "camera_motion": "static; yawn animation",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 20,
+   "t_end": 26,
+   "shot_type": "medium_wide",
+   "visual_description": "Kitchen at night: narrator at counter beside a dark window, pours a glass of water and drinks",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 26,
+   "t_end": 28,
+   "shot_type": "close_up",
+   "visual_description": "Close-up of narrator drinking from the glass, eyes drifting toward the window",
+   "camera_motion": "static / slight push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 28,
+   "t_end": 30,
+   "shot_type": "medium",
+   "visual_description": "Narrator lowers the glass and turns his head toward the window ('Something felt wrong')",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 30,
+   "t_end": 36,
+   "shot_type": "exterior_high_angle_pov",
+   "visual_description": "Exterior of a red-brick apartment block at night, narrator small in a lit 2nd-floor window; huge black silhouette of a head fills the bottom-left foreground (the watcher's POV)",
+   "camera_motion": "static hold; [music] sting enters ~34 s",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 36,
+   "t_end": 42,
+   "shot_type": "ots_down_angle",
+   "visual_description": "Over narrator's shoulder looking down through the window: a black, thin, long-armed silhouette stands on the sidewalk in a pool of streetlight, head tilted",
+   "camera_motion": "very slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 42,
+   "t_end": 46,
+   "shot_type": "low_angle_close_up",
+   "visual_description": "Narrator's face framed by window frame, wide-eyed and pale, mouth open",
+   "camera_motion": "static hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 46,
+   "t_end": 50,
+   "shot_type": "medium_from_behind",
+   "visual_description": "Narrator jerks back from the window, glass in hand (back to camera)",
+   "camera_motion": "quick recoil motion",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 50,
+   "t_end": 54,
+   "shot_type": "close_up_profile",
+   "visual_description": "Narrator in profile against white tile, gritted teeth, eyes darting ('What is this guy doing?')",
+   "camera_motion": "static, mouth flap",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 54,
+   "t_end": 60,
+   "shot_type": "medium_two_shot",
+   "visual_description": "Kitchen: Thomas in hoodie stumbles in half-asleep; narrator turns, then grabs his arm",
+   "camera_motion": "static; walk-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 60,
+   "t_end": 62,
+   "shot_type": "medium_two_shot",
+   "visual_description": "Narrator pulls Thomas toward the window, shouting",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 62,
+   "t_end": 66,
+   "shot_type": "exterior_high_angle_pov",
+   "visual_description": "Brick wall exterior: both boys' faces in the window; the watcher's black silhouette head in the foreground",
+   "camera_motion": "static hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 66,
+   "t_end": 70,
+   "shot_type": "low_angle_full_body_reveal",
+   "visual_description": "Man's legs and dangling, overly long grey hands at street level; then full tall dark figure with glowing white eyes on the sidewalk",
+   "camera_motion": "slow tilt up",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 70,
+   "t_end": 74,
+   "shot_type": "extreme_close_up",
+   "visual_description": "Pitch-black face with two pale, staring eyeballs (pinprick pupils)",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 74,
+   "t_end": 78,
+   "shot_type": "exterior_window_two_shot",
+   "visual_description": "Through the window from outside: both boys frozen, then turning to each other",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 78,
+   "t_end": 80,
+   "shot_type": "close_up_two_profiles",
+   "visual_description": "Both boys in profile facing each other, terrified ('Let's call the police')",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 80,
+   "t_end": 84,
+   "shot_type": "ots_two_backs",
+   "visual_description": "Backs of both heads looking out the window: sidewalk now empty (he's gone)",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 84,
+   "t_end": 90,
+   "shot_type": "medium_wide_from_behind",
+   "visual_description": "Boys at kitchen window from behind, then turning around in panic",
+   "camera_motion": "static; turn animation",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 90,
+   "t_end": 94,
+   "shot_type": "medium_dark_hallway",
+   "visual_description": "Dark entry hall, a light shaft from a doorway; narrator creeps toward the front door, sweating, leans to the peephole",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 94,
+   "t_end": 98,
+   "shot_type": "extreme_close_up_jump_scare",
+   "visual_description": "Giant bloodshot eyeball filling the frame through the peephole fisheye vignette",
+   "camera_motion": "hard cut in; hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 98,
+   "t_end": 100,
+   "shot_type": "close_up_reaction",
+   "visual_description": "Narrator recoils, mouth open in a scream, peephole door behind",
+   "camera_motion": "shake",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 100,
+   "t_end": 106,
+   "shot_type": "wide_hallway",
+   "visual_description": "Narrator sits on the floor of the entry hall; Thomas stands by door, then door opens to reveal a police officer",
+   "camera_motion": "static; door opens",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 106,
+   "t_end": 114,
+   "shot_type": "close_up_authority",
+   "visual_description": "Police officer close-up, adjusting cap, then deadpan 'Probably just a drunk guy'",
+   "camera_motion": "static, mouth flap",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 114,
+   "t_end": 118,
+   "shot_type": "close_up",
+   "visual_description": "Narrator in living room by clock, sweating, jaw set ('But I knew')",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 118,
+   "t_end": 124,
+   "shot_type": "ots_down_angle_repeat",
+   "visual_description": "Repeat of the window OTS composition: silhouette back on the sidewalk in the same spot (next night)",
+   "camera_motion": "static (deliberate visual callback)",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 124,
+   "t_end": 130,
+   "shot_type": "medium_two_shot",
+   "visual_description": "Both boys at the kitchen counter by the window, legs shaking, then snapping toward the door",
+   "camera_motion": "static; tremble",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 130,
+   "t_end": 138,
+   "shot_type": "ots_door_pov",
+   "visual_description": "Dark hallway with the front door centred; narrator's shoulder/head enters frame right, turning in fear as the bell rings nonstop and pounding starts",
+   "camera_motion": "static with door rattle / shake",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 138,
+   "t_end": 148,
+   "shot_type": "medium_wide",
+   "visual_description": "Bathroom with checker floor: Thomas in hoodie cowers, narrator raises a baseball bat at the locked door",
+   "camera_motion": "static loop; shaking",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 148,
+   "t_end": 152,
+   "shot_type": "ots_two_officers",
+   "visual_description": "Two officers from behind in the empty hallway",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 152,
+   "t_end": 158,
+   "shot_type": "insert_close_up",
+   "visual_description": "Door handle with small bloody fingerprints",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 158,
+   "t_end": 166,
+   "shot_type": "medium_two_officers",
+   "visual_description": "Officer in foreground explains ('There's no evidence...'), second officer in shadow behind, apartment curtain bg",
+   "camera_motion": "static, gesture",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 166,
+   "t_end": 174,
+   "shot_type": "medium_two_shot",
+   "visual_description": "Fast-food booth: the two boys with drinks, fries tray, nervous glances",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 174,
+   "t_end": 180,
+   "shot_type": "wide_side_tracking",
+   "visual_description": "Boys walking past a grimy wall with barred windows on a poorly lit street",
+   "camera_motion": "slow lateral track",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 180,
+   "t_end": 184,
+   "shot_type": "close_two_shot",
+   "visual_description": "Both boys turn around, terrified profiles",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 184,
+   "t_end": 188,
+   "shot_type": "three_shot_reveal",
+   "visual_description": "Grinning grey long-haired man looms right behind Thomas's shoulder, towering over them",
+   "camera_motion": "static; hard cut reveal",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 188,
+   "t_end": 190,
+   "shot_type": "extreme_close_up_eye_reflection",
+   "visual_description": "Narrator's eye fills frame with the man's silhouette reflected in the pupil",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 190,
+   "t_end": 196,
+   "shot_type": "high_angle_scale",
+   "visual_description": "Top-down view showing the man towering over Thomas; Thomas looks up from far below",
+   "camera_motion": "slow move",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 196,
+   "t_end": 206,
+   "shot_type": "close_up_monster_face",
+   "visual_description": "Pale grey face, sunken cheeks, red-rimmed bulging eyes, greasy black hair, wide grin of rotten brown teeth on deep-blue vignette",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 206,
+   "t_end": 214,
+   "shot_type": "extreme_close_up_teeth",
+   "visual_description": "Lipless grin filling frame: crooked brown teeth, dark gums",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 214,
+   "t_end": 220,
+   "shot_type": "low_angle_neck",
+   "visual_description": "Scratched, torn neck and jaw in profile against dark apartment blocks",
+   "camera_motion": "slow tilt",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 220,
+   "t_end": 224,
+   "shot_type": "insert_hand",
+   "visual_description": "Long bony grey hand, dark crud under the fingernails, spotlit on black",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 224,
+   "t_end": 228,
+   "shot_type": "close_up_reaction",
+   "visual_description": "Narrator gags, covering nose and mouth with his sleeve (the smell)",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 228,
+   "t_end": 232,
+   "shot_type": "three_shot",
+   "visual_description": "Boys either side of the grinning man; narrator still covering his nose",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 232,
+   "t_end": 234,
+   "shot_type": "action_frame",
+   "visual_description": "Man lunges and grabs Thomas",
+   "camera_motion": "fast motion",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 234,
+   "t_end": 240,
+   "shot_type": "close_up_pinned",
+   "visual_description": "Thomas thrown to the ground, cheek on pavement; the man's hair and face descend into frame beside him",
+   "camera_motion": "slow descend",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 240,
+   "t_end": 246,
+   "shot_type": "extreme_close_up_whisper",
+   "visual_description": "Man's grey lipless mouth at Thomas's ear, Thomas's eye wide; mouth opens to whisper (words masked)",
+   "camera_motion": "static hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 246,
+   "t_end": 250,
+   "shot_type": "action",
+   "visual_description": "Narrator kicks the man in the face (aftermath composition: narrator standing over him)",
+   "camera_motion": "fast motion",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 250,
+   "t_end": 256,
+   "shot_type": "close_two_shot_escape",
+   "visual_description": "Boys fleeing on the dark street, Thomas clutching bleeding arm; behind them the man rises on all fours, then stands",
+   "camera_motion": "static; background figure animates",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 256,
+   "t_end": 258,
+   "shot_type": "wide_interior",
+   "visual_description": "Bright convenience store: boys at the counter asking the clerk to call police",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 258,
+   "t_end": 262,
+   "shot_type": "medium",
+   "visual_description": "The man behind jail-cell bars, gripping them, grinning ('they caught him')",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 262,
+   "t_end": 266,
+   "shot_type": "wide_establishing",
+   "visual_description": "Isolated two-storey house with garage surrounded by dark pines at night",
+   "camera_motion": "static / slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 266,
+   "t_end": 270,
+   "shot_type": "medium",
+   "visual_description": "Officer in a basement doorway, recoiling",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 270,
+   "t_end": 274,
+   "shot_type": "wide_dark_interior",
+   "visual_description": "Two officers in a filthy basement with butcher hooks and bloody meat on tables",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 274,
+   "t_end": 278,
+   "shot_type": "high_angle_insert",
+   "visual_description": "Round table covered with raw meat, bone fragments, blood, a knife; bloodstained tiles",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 278,
+   "t_end": 282,
+   "shot_type": "close_up",
+   "visual_description": "Officer gagging, fist to mouth",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 282,
+   "t_end": 288,
+   "shot_type": "wide",
+   "visual_description": "Wall covered in dozens of snapshots of the two boys; officer, then the man's silhouette standing before it",
+   "camera_motion": "static; figure swap",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 288,
+   "t_end": 290,
+   "shot_type": "flashback_insert",
+   "visual_description": "Narrator laughing earlier in the apartment window while the dark watcher stands on the street behind (reframe of earlier days)",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 290,
+   "t_end": 294,
+   "shot_type": "close_up_monster",
+   "visual_description": "Grinning man pressing face between cell bars, bloodshot eyes",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 294,
+   "t_end": 300,
+   "shot_type": "wide_empty_room",
+   "visual_description": "Empty psychiatric ward: rumpled hospital bed, open window, hanging curtain ('escaped... years earlier')",
+   "camera_motion": "static hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 300,
+   "t_end": 305,
+   "shot_type": "wide_daylight_stinger",
+   "visual_description": "Daytime street: the two boys walk and chat by a railing; in the foreground bushes the pale man crouches, watching them",
+   "camera_motion": "slow pan to reveal the man",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 305,
+   "t_end": 311.5,
+   "shot_type": "black_end",
+   "visual_description": "Black screen / end",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  }
+ ],
+ "pacing": {
+  "words_total": 804,
+  "speech_span_s": 304.6,
+  "words_per_minute": 158,
+  "shots_in_list": 64,
+  "avg_shot_length_s": 4.8,
+  "scene_detect_cuts": 52,
+  "re_hook_interval_s": "new escalation every ~15-20 s (sighting 34, Thomas sees 65, vanish 80, doorbell/peephole 95, police dismiss 108, night two 118, pounding 135, bathroom 140, fingerprints 155, footsteps 178, reveal 184, attack 230, kick 246, house 262, photo wall 282, stinger 300)",
+  "notes": "Three-night 'rule of three' escalation ladder (window -> doorbell -> door pounding -> street encounter), each night closer in distance. Shots are long holds (3-6 s) of limited animation; tempo comes from narration, not cuts. Monster description slows down to ~45 s of itemised close-ups (face, teeth, neck, nails, smell). Narration is dense and continuous with almost no silence; ~158 wpm.",
+  "caption_style": "none (no burned-in captions)"
+ },
+ "techniques_worth_copying": [
+  "Exact-minute title ('2:48 AM') that is spoken in the narration within the first 15 s - a cheap, specific, ownable hook.",
+  "Rule-of-three nights with shrinking distance: across the street -> at the door -> inches from your face. Each night repeats a shot composition (window OTS) so the viewer recognises the pattern and dreads the variation.",
+  "Watcher's-POV exterior shot: giant black silhouette head in the foreground looking up at the lit window - tells you he's watching before the narrator sees him.",
+  "Silhouette-first creature design: show only a black, too-thin figure with glowing eyes for the first 3 minutes; full design withheld until the 3-minute climax.",
+  "Itemised monster reveal: one close-up per described feature (eyes, teeth, neck, hand/nails) synced line by line to narration - a slideshow of dread that is easy to make in code.",
+  "Peephole jump scare: hard cut to a frame-filling eyeball with a fisheye vignette.",
+  "Authority-dismissal beat ('Probably just a drunk guy') and the physical clue that proves otherwise (bloody fingerprints on the handle) - escalates stakes without new scares.",
+  "Aftermath reveal that recontextualises the whole story: the wall of photos of the protagonists ('he had been watching us for days').",
+  "Open-ending stinger: daylight 'safe' scene with the villain crouched in the foreground bushes + 'he had been waiting' - leaves dread and comment bait.",
+  "Masked/inaudible whisper at the climax ('I am...') - the unknown line drives comments and rewatches.",
+  "YouTube chapters with evocative titles ('The butcher of Roseberg') as a retention/navigation aid on a 5-min video."
+ ],
+ "code_only_remake_requirements": {
+  "assets": "Flat 2D cel-shaded characters (2 boys with distinct colour-coded clothing: green sweater vs navy hoodie; officer; tall thin grey villain) as layered SVG puppets with swappable mouth (3-4 visemes), eyes (normal/wide/pinprick), brows, and 2-3 arm poses. Backgrounds as layered SVG: living room with clock, kitchen with window, brick exterior with lit window, dark hallway/front door, bathroom checker floor, fast-food booth, barred-window street, convenience store, cell bars, house in woods, basement, photo wall, hospital room, daylight street with bushes. ~15 backgrounds, reused heavily.",
+  "shots_and_camera": "~60 shots at 3-6 s holds; Remotion camera = CSS transform scale/translate for slow push-ins (1.00->1.08 over a shot), tilt-ups, slow lateral tracks, and 2-4 frame shake on scares. Vignette overlay (radial gradient) on all dark scenes; spotlight pool under streetlight via radial gradient mask.",
+  "special_frames": "Silhouette figure = solid black SVG path with 2 white ellipse eyes + soft glow; peephole eyeball = procedural SVG iris (radial gradients) inside a fisheye circular vignette; giant foreground head silhouette as a black blob path; teeth ECU = SVG path with procedurally placed irregular brown teeth; photo wall = grid of small rotated rects with random thumbnails of our own character renders.",
+  "animation": "Limited animation is enough: mouth flaps synced to TTS word timings (viseme by syllable), blinks, breathing scale, sweat-drop sprite, trembling (sin jitter), door rattle, walk cycles only for 2-3 shots (or slide + bob).",
+  "audio": "One narrator TTS voice (Kokoro, calm male, ~155-160 wpm), dark ambient drone bed entering at first sighting, SFX: doorbell, rapid ringing loop, door pounding, footsteps, sting on reveals. Need to source CC0 SFX or synthesise.",
+  "structure": "Storyboard JSON mapping each narration sentence to a shot (bg + puppet poses + camera move + SFX), chapter markers, end on black. No captions needed for this long-form format (optionally add for Shorts cut-downs).",
+  "hard_parts": "Character consistency across 60 shots and believable facial expressions (fear, gritted teeth, scream) from SVG puppets; the detailed grotesque monster close-ups (face/teeth/neck) need carefully hand-authored SVG illustrations; perspective backgrounds (high-angle exterior, top-down) need hand-drawn SVG rather than procedural."
+ }
+}

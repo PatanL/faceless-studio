@@ -1,0 +1,586 @@
+{
+ "id": "7659677578365537569",
+ "url": "https://www.tiktok.com/@udhwkz/video/7659677578365537569",
+ "platform": "tiktok",
+ "niche": "horror",
+ "channel": "udhwkz",
+ "title": "#edit #anime #animetkitok #animerecommendation",
+ "upload_date": "2026-07-07",
+ "duration": 249.08,
+ "views": 376200,
+ "likes": 24800,
+ "comments": 51,
+ "reposts": 1518,
+ "subs": null,
+ "channel_median_views": 34850,
+ "outlier_score": 10.79,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/7659677578365537569.{mp4,jpg,eng-US.vtt,info.json,cuts.txt}, frames in fr_7659677578365537569/",
+  "transcript_source": "TikTok auto-captions eng-US (of an English AI-dub voiceover); saved to research/library/transcripts/7659677578365537569.txt. Proper names are mis-transcribed (Zhang Bo / John Bow / Jang; Zheng Chuan / Jungkwan; unit numbers rendered as times e.g. '6:01' = unit 601).",
+  "frames": "sampled every 2 s (125 frames); contact sheet research/library/sheets/7659677578365537569.jpg is 10x13 tiles, row-major, 2 s per tile, labelled",
+  "video": "576x1024 30fps, 9.8 MB; picture is a ~3:2 landscape band centred in a black 9:16 frame",
+  "hard_cuts_detected": "ffmpeg scene>0.3 found only 1; scene>0.08 found 23 - most changes are crossfades/subtle (chat bubble pop-ins, same-background reframes), so shot count below is from visual inspection",
+  "audio": "continuous bed (no silence >0.4 s at -35 dB): single fast narrator voice over low tension music; character lines voiced in the same narrator voice",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:05 UTC; channel follower count not exposed by yt-dlp",
+  "provenance": "Repost/English dub of a Chinese stick-figure animated suspense series (Chinese UI text in chat screens). Study structure only; do not reuse story, characters, art or audio."
+ },
+ "title_pattern": {
+  "template": "#edit #anime #[niche-tag] #[recommendation-tag]  (hashtags only, no hook in title)",
+  "notes": "Title carries zero curiosity; discovery is purely via the For You feed and the first-frame burned-in caption, which IS the real title ('There's a killer hiding in our apartment complex'). Hashtags mislabel it as anime to ride anime-edit traffic. For our use: put the hook sentence as the first caption, keep the post caption short with niche tags."
+ },
+ "thumbnail": {
+  "composition": "Auto cover = frame 0. Black 9:16 frame; landscape image band in the middle (~y 29-71%); two-line white italic caption sitting on the black above the band. Subject centred in a one-point-perspective corridor vanishing point.",
+  "text": "'Theres a killer hiding in our apartment complex Every' - white italic sans (Arial-italic look), ~4% frame height, centred, no stroke/box, cut mid-sentence",
+  "colours": "Sick teal/green corridor lighting, near-black shadow figure, a single dark-red door frame on the right as accent; surround pure black",
+  "subject_scale_contrast": "Small-to-mid figure (~45% of band height) dwarfed by long corridor; knife raised above head; the vanishing point light frames the head",
+  "why_it_works": "Instantly legible threat (silhouette + knife + grin) in a relatable place (your apartment hallway); the caption states the premise in plain words; the cut-off 'Every' pulls you into the next line. Teal-on-black reads as horror in a feed thumbnail grid."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "There's a killer hiding in our apartment complex. Every time they strike, a song plays in the hallway. Sometimes sad, sometimes intense.",
+  "verbatim_5_to_13s": "Management sent a group text telling everyone to lock their doors, then updated us shortly after that the killer had been caught. Just then, someone knocked.",
+  "device": "First-person cold open stating a dangerous premise in the first sentence + one uncanny rule (a song plays when they strike) for specificity; then a false-relief beat ('killer had been caught') immediately undercut by a knock at 11.2 s. Classic 'safe -> knock' reversal; no intro, no channel branding.",
+  "time_to_first_conflict_s": 11.2
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 6.3,
+   "beat_type": "cold-open premise hook",
+   "summary": "Killer hiding in my apartment complex; a song plays in the hallway every time they strike."
+  },
+  {
+   "t_start": 6.3,
+   "t_end": 12.6,
+   "beat_type": "false safety + inciting knock",
+   "summary": "Group text: lock doors... then 'killer caught'. Immediately someone knocks."
+  },
+  {
+   "t_start": 12.6,
+   "t_end": 26.8,
+   "beat_type": "anomaly stack",
+   "summary": "Cop at peephole asks to open; protagonist notices wrong details: cop alone (cops work in pairs), four creepy smiley stickers on chest. Chill."
+  },
+  {
+   "t_start": 26.8,
+   "t_end": 56.7,
+   "beat_type": "clue / pattern reveal",
+   "summary": "Exactly four accounts confirmed the capture: admin Zhang Bo plus three instant replies (601, 502, 301) urging cooperation. 'Way too coincidental.'"
+  },
+  {
+   "t_start": 56.7,
+   "t_end": 70.2,
+   "beat_type": "doubt seeded",
+   "summary": "Other neighbours (1002, 601) question it; nobody answers them."
+  },
+  {
+   "t_start": 70.2,
+   "t_end": 86.4,
+   "beat_type": "escalation (antagonist presses)",
+   "summary": "Cop senses something, pounds the door, threatens to break it, radios 'Unit 802 uncooperative, requesting backup'."
+  },
+  {
+   "t_start": 86.4,
+   "t_end": 113.0,
+   "beat_type": "social pressure escalation",
+   "summary": "Chat erupts: the four accounts tag him by name, call him paranoid, admin says police have the landlord's number and keys are coming."
+  },
+  {
+   "t_start": 113.0,
+   "t_end": 123.6,
+   "beat_type": "theory / mid-video twist",
+   "summary": "He deduces the four accounts' owners are already dead and the killer is using their phones to lure him out. 'Rather arrested than murdered.'"
+  },
+  {
+   "t_start": 123.6,
+   "t_end": 135.0,
+   "beat_type": "isolation",
+   "summary": "No signal for 911, WeChat messages fail with red marks; yet the building group chat still works. Weird."
+  },
+  {
+   "t_start": 135.0,
+   "t_end": 153.2,
+   "beat_type": "ally warning + silencing",
+   "summary": "Li from 601 warns 'don't open, that's not the police', sees red footprints in elevator; admin deletes it and mutes the whole group."
+  },
+  {
+   "t_start": 153.2,
+   "t_end": 179.9,
+   "beat_type": "backstory flashback (setup reveal)",
+   "summary": "Too-good sublease with free rent; previous tenant borrowed his phone at signing - likely planted malware. Why all the trouble?"
+  },
+  {
+   "t_start": 179.9,
+   "t_end": 183.4,
+   "beat_type": "ticking clock",
+   "summary": "Rhythmic knocking becomes kicking; they're breaking in."
+  },
+  {
+   "t_start": 183.4,
+   "t_end": 200.6,
+   "beat_type": "resource discovery",
+   "summary": "Remembers the box the previous tenant left: burner phone, one bar of battery. Swaps SIM, dials police."
+  },
+  {
+   "t_start": 200.6,
+   "t_end": 235.4,
+   "beat_type": "climax call with countdown",
+   "summary": "Real police: signal is jammed, how did you reach us; 30 seconds of battery; 'do not open the door, it's a whole crew of serial killers'. Asks if building manager is alive."
+  },
+  {
+   "t_start": 235.4,
+   "t_end": 244.6,
+   "beat_type": "final twist",
+   "summary": "Real building manager is at the perimeter and is a different person (a middle-aged woman) - the 'manager' in the chat is fake."
+  },
+  {
+   "t_start": 244.6,
+   "t_end": 249.1,
+   "beat_type": "cliffhanger end",
+   "summary": "Phone dies; last notification: 'Don't let them find you. Get out of the building.' No resolution (part-2 / comment bait)."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 1.2,
+   "shot_type": "wide",
+   "visual_description": "Teal-lit apartment corridor (painterly/posterized photo background); dark shadow stick-figure with round head, grin and raised kitchen knife stands centre",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'There's a killer hiding in our apartment complex...'"
+  },
+  {
+   "t_start": 1.2,
+   "t_end": 6,
+   "shot_type": "wide",
+   "visual_description": "Same corridor, darker; doors either side (one red); white music-note icons float/bounce beside doors = 'a song plays in the hallway'",
+   "camera_motion": "static with animated note icons",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 6,
+   "t_end": 8.7,
+   "shot_type": "wide",
+   "visual_description": "Empty dim apartment hallway, long perspective, cold grey-blue",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Management sent a group text...'"
+  },
+  {
+   "t_start": 8.7,
+   "t_end": 12,
+   "shot_type": "insert",
+   "visual_description": "Big flat-grey cartoon hand holds phone; WeChat-style group chat '业主群' with message bubble (Chinese), teal blurred background",
+   "camera_motion": "slight drift",
+   "on_screen_text": "burned-in voiceover caption above picture band; in-image Chinese chat text"
+  },
+  {
+   "t_start": 12,
+   "t_end": 13.7,
+   "shot_type": "over-shoulder",
+   "visual_description": "Protagonist (round white head, dark messy hair, blue shirt, flat 2D) seen from behind at his front door, looking through peephole",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Just then someone knocked...'"
+  },
+  {
+   "t_start": 13.7,
+   "t_end": 16.3,
+   "shot_type": "POV close-up",
+   "visual_description": "Peephole POV: cop in peaked cap, face partially obscured by smudge, dark hallway",
+   "camera_motion": "slight fisheye/zoom",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 16.3,
+   "t_end": 18,
+   "shot_type": "medium",
+   "visual_description": "Protagonist at door hand on lock, hesitating",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'I was about to unlock the door...'"
+  },
+  {
+   "t_start": 18,
+   "t_end": 20,
+   "shot_type": "two-shot",
+   "visual_description": "Two cops side by side (the pair that SHOULD be there), the real one alone vs imagined partner",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Shouldn't cops always work in pairs?'"
+  },
+  {
+   "t_start": 20,
+   "t_end": 21.9,
+   "shot_type": "extreme close-up",
+   "visual_description": "Huge cop face filling frame, small chest badges visible",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 21.9,
+   "t_end": 24,
+   "shot_type": "insert",
+   "visual_description": "Extreme close-up of four smiley-face '微笑服务' stickers on the cop's chest",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'four stickers... like smiley faces'"
+  },
+  {
+   "t_start": 24,
+   "t_end": 26,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist reaction: wide eyes, sweat; door behind",
+   "camera_motion": "small shake",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'A terrifying thought sent a chill down my spine'"
+  },
+  {
+   "t_start": 26,
+   "t_end": 29,
+   "shot_type": "medium",
+   "visual_description": "Protagonist pulls out phone, chat bubble overlay fades in over him",
+   "camera_motion": "crossfade",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 29,
+   "t_end": 31,
+   "shot_type": "insert",
+   "visual_description": "Phone group chat crossfading over protagonist",
+   "camera_motion": "crossfade",
+   "on_screen_text": "burned-in voiceover caption above picture band: '...was exactly four'"
+  },
+  {
+   "t_start": 31,
+   "t_end": 56,
+   "shot_type": "insert (sequence)",
+   "visual_description": "Hand-held phone chat screen; new Chinese message bubbles from 'Zhang Bo' and three replies (Liu Xun 601, Wang Dalu 502, Wushao 301) pop in one after another; avatar thumbnails; teal blurred BG. ~6 screen updates",
+   "camera_motion": "slow drift; each new bubble pops in",
+   "on_screen_text": "burned-in voiceover caption above picture band; voiceover reads each message with name + unit number"
+  },
+  {
+   "t_start": 56,
+   "t_end": 58,
+   "shot_type": "medium",
+   "visual_description": "Protagonist at door, uneasy",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'This was way too coincidental'"
+  },
+  {
+   "t_start": 58,
+   "t_end": 60,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist looking at phone",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 60,
+   "t_end": 69,
+   "shot_type": "insert (sequence)",
+   "visual_description": "Chat screen: suspicious neighbours (1002, 601) post doubts with red avatars",
+   "camera_motion": "bubbles pop in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 69,
+   "t_end": 73,
+   "shot_type": "medium",
+   "visual_description": "Protagonist pressed to door, peeping, holding breath",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'I held my breath...'"
+  },
+  {
+   "t_start": 73,
+   "t_end": 76,
+   "shot_type": "close-up",
+   "visual_description": "Cop at door through peephole, frowning, ringing bell; motion lines",
+   "camera_motion": "small shake",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 76,
+   "t_end": 80,
+   "shot_type": "close-up",
+   "visual_description": "Cop shouting, pounding door ('Open up for inspection!')",
+   "camera_motion": "shake on pounds",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 80,
+   "t_end": 86.6,
+   "shot_type": "close-up",
+   "visual_description": "Cop raises walkie-talkie and speaks ('Unit 802 is being uncooperative')",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 86.6,
+   "t_end": 88,
+   "shot_type": "transition",
+   "visual_description": "Teal smeared whip-blur",
+   "camera_motion": "whip pan",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Suddenly, the group chat went wild'"
+  },
+  {
+   "t_start": 88,
+   "t_end": 113.4,
+   "shot_type": "insert (sequence)",
+   "visual_description": "Phone chat: Wang Dalu says his cop left for 802; Liu Xun tags 'Zheng Chuan'; admin Zhang Bo tags him, threatens landlord keys. ~10 screen updates, @-mention bubbles highlighted",
+   "camera_motion": "bubbles pop in, slight drift",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 113.4,
+   "t_end": 116,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist lit warm from phone, eyes narrowed (realization)",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'These people are the four suspicious accounts'"
+  },
+  {
+   "t_start": 116,
+   "t_end": 120,
+   "shot_type": "wide",
+   "visual_description": "Dark living room (painterly photo BG): shadow killer figure holding a phone, a cartoon victim lying on floor at his feet",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'probably killed... using their phones to lure me out'"
+  },
+  {
+   "t_start": 120,
+   "t_end": 124,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist defiant/fearful face",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'I'd rather get arrested than murdered'"
+  },
+  {
+   "t_start": 124,
+   "t_end": 126,
+   "shot_type": "medium",
+   "visual_description": "Protagonist at door dialling",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 126,
+   "t_end": 128,
+   "shot_type": "insert",
+   "visual_description": "Phone screen grey, no signal / call fails",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'no signal'"
+  },
+  {
+   "t_start": 128,
+   "t_end": 130,
+   "shot_type": "insert",
+   "visual_description": "Phone chat with single green message and red exclamation mark (failed send)",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 130,
+   "t_end": 134,
+   "shot_type": "medium",
+   "visual_description": "Protagonist puzzled at door, looking at phone",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'why is the apartment group chat still working?'"
+  },
+  {
+   "t_start": 134,
+   "t_end": 141,
+   "shot_type": "insert (sequence)",
+   "visual_description": "Chat: Li from 601 warns 'don't open the door, that's not the police'; red-footprint line",
+   "camera_motion": "bubbles pop in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 141,
+   "t_end": 143,
+   "shot_type": "insert",
+   "visual_description": "Chat screen goes grey: message deleted, group muted",
+   "camera_motion": "flash/grey-out",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'The admin deleted the message and muted everyone'"
+  },
+  {
+   "t_start": 143,
+   "t_end": 151.8,
+   "shot_type": "insert (sequence)",
+   "visual_description": "Chat: admin 'Property Manager Zhang' pinned announcement, muted state",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 151.8,
+   "t_end": 158,
+   "shot_type": "medium",
+   "visual_description": "Protagonist at door with phone, worried; cut-ins between medium and close",
+   "camera_motion": "static/hard cuts",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Lee took a huge risk to warn me...'"
+  },
+  {
+   "t_start": 158,
+   "t_end": 160,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist, warm light",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Everything today feels like a setup'"
+  },
+  {
+   "t_start": 160,
+   "t_end": 172,
+   "shot_type": "flashback wide/medium",
+   "visual_description": "Bright beige sunlit living room (photo-style BG): protagonist meets grey-skinned previous tenant; tenant borrows his phone; protagonist holds phone. Desaturated warm palette marks flashback",
+   "camera_motion": "slow pans, crossfades",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'A month ago, I found this place through a sublease...'"
+  },
+  {
+   "t_start": 172,
+   "t_end": 174,
+   "shot_type": "medium",
+   "visual_description": "Present: protagonist holding phone, dark blue room, distortion lines",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 174,
+   "t_end": 180,
+   "shot_type": "medium",
+   "visual_description": "Protagonist in dark blue room, then bathroom door; shake lines",
+   "camera_motion": "small shake",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Hiding in the bathroom?'"
+  },
+  {
+   "t_start": 180,
+   "t_end": 184,
+   "shot_type": "insert",
+   "visual_description": "Front door being kicked: crack/impact marks, white motion lines",
+   "camera_motion": "impact shake",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'heavy pounding and kicking. They're trying to break in'"
+  },
+  {
+   "t_start": 184,
+   "t_end": 186,
+   "shot_type": "transition/insert",
+   "visual_description": "Close blue-teal bed sheet/blanket swoosh",
+   "camera_motion": "whip/pan",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Suddenly I remembered something'"
+  },
+  {
+   "t_start": 186,
+   "t_end": 192,
+   "shot_type": "medium",
+   "visual_description": "Protagonist kneels pulling cardboard box from under bed; then warm bookshelf room (memory of finding it)",
+   "camera_motion": "static, crossfades",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 192,
+   "t_end": 196,
+   "shot_type": "medium",
+   "visual_description": "Protagonist opens box, takes out small old phone",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'a tiny old school burner phone'"
+  },
+  {
+   "t_start": 196,
+   "t_end": 200,
+   "shot_type": "insert",
+   "visual_description": "Close-up grey hand holding chunky candy-bar burner phone; keypad; one battery bar, dialling",
+   "camera_motion": "push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Only one bar of battery left'"
+  },
+  {
+   "t_start": 200,
+   "t_end": 206,
+   "shot_type": "medium",
+   "visual_description": "Protagonist on the phone in dark bedroom (bed, nightstand lamp), sweating",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'It connected. Hello?'"
+  },
+  {
+   "t_start": 206,
+   "t_end": 214,
+   "shot_type": "medium close",
+   "visual_description": "Police operator (cap, headset) at dark desk, speaking urgently",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 214,
+   "t_end": 220,
+   "shot_type": "medium",
+   "visual_description": "Protagonist on phone; red '30秒' countdown graphic pops in at right",
+   "camera_motion": "pop-in graphic",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'My phone says 30 seconds until it dies'"
+  },
+  {
+   "t_start": 220,
+   "t_end": 227.5,
+   "shot_type": "close-up",
+   "visual_description": "Operator leaning in, alarmed, motion ticks ('Sir, do not open that door!')",
+   "camera_motion": "push-in, small shake",
+   "on_screen_text": "burned-in voiceover caption above picture band"
+  },
+  {
+   "t_start": 227.5,
+   "t_end": 236,
+   "shot_type": "medium",
+   "visual_description": "Protagonist in blue bedroom, lamp, wide eyes, questioning",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Is Uncle Zeng... still alive?'"
+  },
+  {
+   "t_start": 236,
+   "t_end": 244,
+   "shot_type": "close-up",
+   "visual_description": "Protagonist close-up, phone to ear, increasing dread",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'your building manager is right here at the perimeter. But her name isn't...'"
+  },
+  {
+   "t_start": 244,
+   "t_end": 246,
+   "shot_type": "close-up",
+   "visual_description": "Phone going dark, protagonist",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'it cut off'"
+  },
+  {
+   "t_start": 246,
+   "t_end": 249.1,
+   "shot_type": "insert",
+   "visual_description": "Burner phone close-up: red notification text in Chinese ('别让他们找到...逃出大楼') — ends mid-tension, no resolution",
+   "camera_motion": "static",
+   "on_screen_text": "burned-in voiceover caption above picture band: 'Don't let them find you. Get out of the building'"
+  }
+ ],
+ "pacing": {
+  "words": 1088,
+  "words_per_min": 262,
+  "wpm_note": "Very fast narration (~4.4 words/s), essentially no pauses; captions chunk 4-9 words per line",
+  "shots_estimated": "~70 distinct visual states (counting each chat-screen update); 51 shot groups listed",
+  "avg_shot_length_s": 3.6,
+  "avg_shot_note": "Character shots hold 2-6 s; chat-screen sequences hold one framing for 10-25 s but refresh every ~2-4 s via new bubbles, so perceived change is ~every 2-3 s",
+  "re_hook_interval_s": "new anomaly/escalation roughly every 12-20 s (pairs, stickers, exactly four, pounding, radio, tags, dead-owners theory, no signal, warning, mute, malware, kicking, burner phone, 30 s, wrong manager, final notification)",
+  "screen_time_split": "~45% phone/chat inserts, ~45% character shots, ~10% environment/transition"
+ },
+ "techniques_worth_copying": [
+  "Open with the premise as a single first-person sentence plus one weird rule; false relief then a knock inside 12 s",
+  "'Count the clue' deduction: a concrete number (exactly four accounts / four stickers) makes the viewer feel clever and creates the mid-video theory",
+  "Group-chat-as-antagonist: the story is told through phone message screens with names + unit numbers; cheap to render, highly readable, lets one narrator voice all characters",
+  "Escalation ladder with external pressure (door pounding, backup, landlord keys) alternating with information beats (chat), every 12-20 s",
+  "Isolation beats: no signal, failed messages, then the one channel still working is the compromised one",
+  "Ally warning that gets deleted/muted on screen - visible censorship is a strong horror signal",
+  "Flashback in a different palette (bright beige vs present-day blue/teal) to plant 'it was a setup' backstory",
+  "Ticking clock device in the final third (one battery bar, '30 seconds' graphic)",
+  "Twist via authority confirmation (real police: the manager is someone else) then hard cliffhanger on a phone notification - drives comments/part 2",
+  "Fixed letterbox layout: black 9:16 with centred image band and captions above it keeps captions out of UI and makes every frame consistent",
+  "Fast 260 wpm continuous narration over low music bed; no pauses = no scroll-away gaps"
+ ],
+ "code_only_remake_needs": [
+  "Layout template: 1080x1920 black canvas, 1080x~720 image band centred (y≈560-1360), caption line(s) above the band in white italic sans, word-chunk timed to TTS",
+  "Character kit (SVG): round white-head stick/bean figures with hair variants, blue shirt protagonist, grey 'shadow' killer variant with grin; poses: back-view at door, peeking, holding phone, phone to ear, kneeling, shocked (sweat drops, motion ticks); cop/operator with peaked cap + headset; expression swaps (eyes/mouth) are enough",
+  "Background kit: dark corridor (one-point perspective), front door with peephole + lock, dark living room, bedroom with lamp, bright flashback room; posterized/flat with teal/blue grading via SVG filters or gradient overlays; vignette",
+  "Phone UI component: big flat grey cartoon hand holding a phone; group-chat screen with header, avatars, name + unit labels, message bubbles that pop in (spring), @-mentions, red failed-send '!', grey muted/deleted state; burner candy-bar phone variant with keypad + battery bar + notification text",
+  "Effects: slow Ken-Burns push-ins on every shot, small screen shake for knocks/kicks, whip-blur transition, crossfades for flashback, door impact cracks/motion lines, peephole fisheye mask, pop-in countdown graphic, floating music-note icons",
+  "Audio: one fast narrator TTS (Kokoro, ~250 wpm) + low drone/tension loop + knock/kick SFX; all character lines in narrator voice keeps TTS simple",
+  "Storyboard granularity: ~1 visual per sentence (2-4 s), chat sequences as single shots with per-message timed reveals",
+  "Original story needed: our own locked-room + compromised-chat premise; do not reuse this plot, names or art"
+ ]
+}

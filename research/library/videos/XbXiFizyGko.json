@@ -1,0 +1,690 @@
+{
+ "id": "XbXiFizyGko",
+ "url": "https://www.youtube.com/watch?v=XbXiFizyGko",
+ "platform": "youtube",
+ "niche": "whatif",
+ "channel": "Awaken",
+ "title": "What if You’re The Last Guy on Earth?",
+ "upload_date": "2026-10-27",
+ "duration": 494,
+ "views": 402797,
+ "likes": 6369,
+ "comments": 525,
+ "subs": 14100,
+ "channel_median_views": 292226,
+ "outlier_score": 1.37,
+ "role": "control",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/whatif/XbXiFizyGko.{mp4,webp,jpg,info.json,en-orig.json3,en.json3,tx.txt} + XbXiFizyGko_frames/ (every 2 s, 247 frames) + XbXiFizyGko_part0-4.jpg (5x10 sheets, 100 s each) + XbXiFizyGko_hook.jpg (1 fps, 0-20 s)",
+  "transcript_source": "YouTube auto-subs (en-orig, word-timed). Full timestamped transcript in research/library/transcripts/XbXiFizyGko.txt. ASR is clean; a few numbers are written as words or digits inconsistently.",
+  "frames": "Sampled every 2 s. Contact sheet research/library/sheets/XbXiFizyGko.jpg is 13 columns x 19 rows, row-major, 2 s per tile (tile 1 = 0 s). Hook re-checked at 1 fps; 240-250 s at 2 fps.",
+  "source_resolution": "854x480 (16:9 long-form), 30 fps.",
+  "cut_detection": "ffmpeg scene>0.3 found ~54 hard changes; most of the visual rhythm comes from camera moves, counters and pop-in labels inside shots, so shot_list entries are at visual-change granularity (merged where a scene is one continuous set), +-1 s.",
+  "metadata_snapshot": "views/likes/comments from yt-dlp info.json 2026-11-01 ~09:26 UTC, 5 days after upload. Task listed 400,683 views.",
+  "audio": "Single male narrator (calm, wry, second-person) over a continuous music bed; a laugh-track sting at ~17 s; comic SFX stings (screech, crack, thud, honk) matched to comic-burst graphics; a few character lines delivered as on-screen subtitles in the general's scene (narrator reads them as reported speech)."
+ },
+ "title_pattern": {
+  "template": "What if You're The Last [casual noun for a group] on Earth?",
+  "notes": "Classic second-person what-if. 'Guy' instead of 'Man' makes it casual and slightly comic, which signals the tone (dark comedy, not doom). The premise is gendered (only men vanish), and that is only clear from the thumbnail ('4B WOMEN?!'). Title and thumbnail split the job: the title gives the scenario and the thumbnail gives the twist and the stakes. The in-video title card says the formal version: 'WHAT IF YOU WERE THE LAST MAN ON EARTH?'."
+ },
+ "thumbnail": {
+  "composition": "Wide 16:9 hotel-corridor scene in the channel's flat 3D style. A large protagonist (faceless black round head, navy suit, cyan tie) on the right tugs his collar with a sweat drop and worried eyes. A woman in a red dress lounges on a bed in the lower-left foreground with heart eyes. Behind them a deep-perspective queue of women with heart eyes stretches down the corridor to a vanishing point.",
+  "text": "'4B WOMEN?!' top-left in two lines: '4B' in huge white rounded heavy sans, 'WOMEN?!' in yellow with a dark outline. 2 words, number-led.",
+  "colours": "Saturated royal-blue walls with warm cream corridor light; red dress, pink hearts, yellow text, cyan tie. High-key and warm overall, with complementary blue vs red/yellow accents.",
+  "subject_scale_contrast": "One big nervous man vs an endless shrinking queue of women: the 1-vs-4-billion ratio is shown as a perspective line. The faceless characters make heart eyes and the sweat drop the only facial read, so the emotion survives at feed size.",
+  "why_it_works": "The number ('4B') plus the punctuation ('?!') makes the absurd ratio the hook. The visual is a comic 'too much of a good thing' gag (he looks scared, not happy), which promises that the fantasy goes wrong, the same irony as the video's 'What could possibly go wrong?'. Clean shapes and very few colours keep it readable."
+ },
+ "hook": {
+  "verbatim_0_5s": "At 9:41, every man on Earth disappears. Bus drivers, boyfriends...",
+  "verbatim_0_33s": "At 9:41, every man on Earth disappears. Bus drivers, boyfriends, the guy selling hot dogs, gone. Mid-sentence. Every single one, except you. [laughter] Yeah, this is the fantasy every guy has had at least once. That night, you fall asleep smiling. 4 billion women and one of you. What could possibly go wrong?",
+  "device": "Precise-time cold open ('At 9:41', with an LED clock flipping from 9:40 to 9:41 on screen) + a rapid list of concrete, everyday men, each vanishing on cue in its own 1-2 s shot (man with shopping bag, bus driver, hot dog vendor, boyfriend mid-sentence with a speech bubble cut off at 'So anyway, I was'). Then the stakes on a news ticker (MEN ON EARTH counter crashes from 816,408,931 to 1), the second-person reversal 'except you', and a comic cutaway (the cat caption 'Biscuit is also a boy. He doesn't count.') with a laugh sting. It closes on dramatic irony: 'What could possibly go wrong?' while you dream, then 'Let's see if you keep that energy' pivots to the dark side.",
+  "hook_length_s": 33,
+  "first_frame": "Extreme close-up of a green LED pharmacy clock reading 9:40 PM over a blurred night street. It reads as a precise moment before the viewer knows why."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 13.5,
+   "beat_type": "cold_open_premise",
+   "summary": "9:41 PM, city street: men vanish in sparkles mid-action (shopping, driving a bus, selling hot dogs, mid-sentence on a park bench). The News 9 counter drops to MEN ON EARTH: 1."
+  },
+  {
+   "t_start": 13.5,
+   "t_end": 20,
+   "beat_type": "protagonist_reveal_comic",
+   "summary": "'Except you.' You on the couch with your cat, plus a caption gag ('Biscuit is also a boy. He doesn't count.'). You smile at the window; laugh sting; freeze-frame polaroid."
+  },
+  {
+   "t_start": 20,
+   "t_end": 33,
+   "beat_type": "fantasy_setup_irony",
+   "summary": "Narrator names the fantasy. You fall asleep smiling and dream of a pink garden of heart-eyed women. 'What could possibly go wrong?'"
+  },
+  {
+   "t_start": 33,
+   "t_end": 61,
+   "beat_type": "global_stakes_escalation",
+   "summary": "'While you dream, the world is screaming': 4B people vanished, families lost someone, driverless cars crash, planes with no pilot (1 in 20 pilots is a woman), candle vigils. 'Is this the end of humanity?'"
+  },
+  {
+   "t_start": 61,
+   "t_end": 66,
+   "beat_type": "title_card",
+   "summary": "LED dot-matrix title: WHAT IF YOU WERE THE LAST MAN ON EARTH?"
+  },
+  {
+   "t_start": 66,
+   "t_end": 91,
+   "beat_type": "chapter_1_social_reaction",
+   "summary": "Chapter sign '1 · THE MORNING AFTER'. Walls of missing posters, then the counter-view: an influencer calls it the best day in history (comment UI gags). Her ring light dies, which turns into the next beat."
+  },
+  {
+   "t_start": 91,
+   "t_end": 128,
+   "beat_type": "systems_collapse_stat_montage",
+   "summary": "Each job men did becomes a failing system with a stat label: grid (96% of line workers), trucks (90%, shelves empty by day 3), ships (99% of sailors), miners, soldiers, 160+ world leaders."
+  },
+  {
+   "t_start": 128,
+   "t_end": 134,
+   "beat_type": "relief_beat",
+   "summary": "One piece of good news: 2 in 3 health workers are women, so hospitals keep running."
+  },
+  {
+   "t_start": 134,
+   "t_end": 152,
+   "beat_type": "core_problem_reveal",
+   "summary": "No men means no babies. Sperm banks are empty ('EVERY SAMPLE: GONE'); a population line chart falls to zero over about 100 years. Cliffhanger: 'Unless the last man on Earth gets out of bed.'"
+  },
+  {
+   "t_start": 152,
+   "t_end": 176,
+   "beat_type": "chapter_2_protagonist_prep_comedy",
+   "summary": "'2 · THE LAST BACHELOR'. You wake up feeling like a king (4 years single) and get ready: suit, rose, hair ('close enough'). Mirror practice goes badly; deep breath."
+  },
+  {
+   "t_start": 176,
+   "t_end": 200,
+   "beat_type": "chase_set_piece",
+   "summary": "One woman notices, then all of them. Run. Top-down map chase (YOU vs EVERYONE ELSE) and a screeching laundromat encounter. You lose them in an alley."
+  },
+  {
+   "t_start": 200,
+   "t_end": 222,
+   "beat_type": "disguise_gag",
+   "summary": "'Meet Brenda': wig, dress, heels. The police hunting the last man wave at you. A heel catches in a grate; 'IT'S A MAN!' comic burst; 'Lights out.'"
+  },
+  {
+   "t_start": 222,
+   "t_end": 244,
+   "beat_type": "chapter_3_fame_hope",
+   "summary": "'3 · HOPE'. Your arrest photo is on every screen ('LAST MAN ON EARTH FOUND - IN HEELS'), plus merch, a golden statue of you in the dress, and crowds with candles. One-word button: 'Hope.'"
+  },
+  {
+   "t_start": 244,
+   "t_end": 270,
+   "beat_type": "authority_figure_choice",
+   "summary": "You wake chained in a bunker, still in the dress. General Valentina Cross: 'You are humanity's last hope... You can help us or not. Your choice.' You choose to help."
+  },
+  {
+   "t_start": 270,
+   "t_end": 280,
+   "beat_type": "time_skip_reward",
+   "summary": "A few months later: VIP life by the pool, robe and attendants. 'But here's the problem.'"
+  },
+  {
+   "t_start": 280,
+   "t_end": 317,
+   "beat_type": "chapter_4_math_problem",
+   "summary": "'4 · SUPPLY & DEMAND'. 100M sperm a day (1,157/s). The record holder, a Moroccan sultan with ~1,000 kids, needed 1-2 'appointments' a day for 30+ years. 2B women at one a day means 5.5M years (on-screen year counter, THUD faint gag)."
+  },
+  {
+   "t_start": 317,
+   "t_end": 343,
+   "beat_type": "solution_reveal",
+   "summary": "Plan B: IVF. One sperm per egg (ICSI), tens of millions per sample, 4M IVF cycles a year, about 1M babies. Every lab on Earth works on Project 001. 'Your new job? Fill a cup and go back to the pool.'"
+  },
+  {
+   "t_start": 343,
+   "t_end": 372,
+   "beat_type": "chapter_5_payoff_births",
+   "summary": "'5 · THE NEXT GENERATION'. Year one: babies in Tokyo, Sao Paulo, Lagos; 'It's a boy'; MEN ON EARTH: 2; global fireworks; 1M babies in year one; clinics scale like factories, reaching 10M babies a year by year 10."
+  },
+  {
+   "t_start": 372,
+   "t_end": 393,
+   "beat_type": "complication_genetics",
+   "summary": "Catch: every child is a half-sibling, so sons marry girls who were kids on the night. Genghis Khan's Y chromosome is in 1 man in 200; here every man carries YOURS."
+  },
+  {
+   "t_start": 393,
+   "t_end": 418,
+   "beat_type": "parallel_track_women_rebuild",
+   "summary": "The world doesn't wait: WWII callback (6M+ American women went to work, 1942), so 'we've still got this'. Women fix the grid and drive the trucks and planes, and the city lights come back. Year 13 puberty gag (choir voice crack)."
+  },
+  {
+   "t_start": 418,
+   "t_end": 438,
+   "beat_type": "time_skip_payoff_counters",
+   "summary": "Year 18: graduation, the first men in two decades, a MEN ON EARTH counter climbing past 50M. 100M+ kids in a 'WE ♥ DAD' stadium, a name wall with 'NAMES REMEMBERED: 2' gag, and 'REBOOTING HUMANITY 16% to 100%'."
+  },
+  {
+   "t_start": 438,
+   "t_end": 479,
+   "beat_type": "epilogue_reflection_callback",
+   "summary": "'EPILOGUE · THE LAST MAN', 50 years later: statue ('HE SHOWED UP'), World's #1 Dad, Father's Day is basically your birthday. Old you on a rooftop deck chair watches families and traffic. Answers the title question: dream for a night, then the hardest job in history, 'mostly from a deck chair' ('(you're welcome.)')."
+  },
+  {
+   "t_start": 479,
+   "t_end": 494,
+   "beat_type": "end_screen",
+   "summary": "Music-only end card: poolside set with you in the deck chair, two end-screen video slots and a subscribe circle; kids pile in."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 1.5,
+   "shot_type": "insert_ecu",
+   "visual_description": "Green LED pharmacy clock over a blurred night street flips 9:40 to 9:41 PM.",
+   "camera_motion": "static, slight push",
+   "on_screen_text": "9:40 PM / 9:41"
+  },
+  {
+   "t_start": 1.5,
+   "t_end": 4.5,
+   "shot_type": "medium_wide_tracking",
+   "visual_description": "Night sidewalk by City Pharmacy: a man with a shopping bag vanishes in cyan sparkles and the bag drops; others walk on.",
+   "camera_motion": "slow dolly back with walkers",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 4.5,
+   "t_end": 6,
+   "shot_type": "wide",
+   "visual_description": "Bus at a stop with no driver rolls into a hydrant, which sprays water; people on the pavement.",
+   "camera_motion": "static",
+   "on_screen_text": "BUS"
+  },
+  {
+   "t_start": 6,
+   "t_end": 8.5,
+   "shot_type": "medium / wide",
+   "visual_description": "A woman walking, her companion gone in sparkles; Tony's Pizza hot dog cart with the vendor gone, a woman left standing.",
+   "camera_motion": "static",
+   "on_screen_text": "TONY'S PIZZA / HOT DOGS / SLICES"
+  },
+  {
+   "t_start": 8.5,
+   "t_end": 11.5,
+   "shot_type": "wide_two_shot",
+   "visual_description": "Park at night: dog walker gone, leash drops. A couple on a bench, with a speech bubble 'So anyway, I was' and the boyfriend vanishing mid-line; she sits alone.",
+   "camera_motion": "static",
+   "on_screen_text": "So anyway, I was"
+  },
+  {
+   "t_start": 11.5,
+   "t_end": 13.5,
+   "shot_type": "screen_graphic",
+   "visual_description": "News 9 breaking desk: anchor, glowing world map, MEN ON EARTH counter crashing from 816,408,931 to 1; WOMEN ON EARTH 4,100,000,000; ticker.",
+   "camera_motion": "static",
+   "on_screen_text": "NEWS 9 BREAKING DESK / MEN ON EARTH 1 / EVERY MAN ON EARTH HAS VANISHED"
+  },
+  {
+   "t_start": 13.5,
+   "t_end": 16,
+   "shot_type": "medium_closeup",
+   "visual_description": "You (faceless black round head, teal hoodie) on the couch with a ginger cat and a CRUNCH chip tub.",
+   "camera_motion": "static",
+   "on_screen_text": "(Biscuit is also a boy. He doesn't count.)"
+  },
+  {
+   "t_start": 16,
+   "t_end": 20,
+   "shot_type": "medium",
+   "visual_description": "You at the window ('PARADISE' neon) slowly grin (^^ eyes) and turn to the city.",
+   "camera_motion": "slow push in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 20,
+   "t_end": 25,
+   "shot_type": "freeze_frame_polaroid",
+   "visual_description": "Moment frozen into a tilted polaroid of you and the cat in the window (laugh sting).",
+   "camera_motion": "slow zoom",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 25,
+   "t_end": 34,
+   "shot_type": "top_down + dream_bubble",
+   "visual_description": "Top-down bed, you asleep and smiling. A dream bubble opens into a pink cherry-blossom garden with heart-eyed women around you. Cut to an ECU of your blushing smile.",
+   "camera_motion": "static then push into bubble",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 34,
+   "t_end": 50,
+   "shot_type": "lateral_facade_truck",
+   "visual_description": "Long truck along a brick apartment facade at night: windows show women awake, phones glowing, empty sides of beds.",
+   "camera_motion": "slow continuous truck right",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 50,
+   "t_end": 55,
+   "shot_type": "aerial + cockpit",
+   "visual_description": "Aerial gridlock of crashed driverless cars with fire, then a cockpit at dusk with a plane in the sky and a woman pilot in the right seat.",
+   "camera_motion": "static / slight drift",
+   "on_screen_text": "1 IN 20 PILOTS IS A WOMAN"
+  },
+  {
+   "t_start": 55,
+   "t_end": 61,
+   "shot_type": "crowd_wide to aerial",
+   "visual_description": "Candle vigil, women filling the street under a hanging 'MEN ON EARTH 1' sign. Crane up to an aerial of the packed avenue.",
+   "camera_motion": "crane up",
+   "on_screen_text": "MEN ON EARTH 1"
+  },
+  {
+   "t_start": 61,
+   "t_end": 66,
+   "shot_type": "title_card",
+   "visual_description": "Pink LED dot-matrix board types the title letter by letter.",
+   "camera_motion": "static",
+   "on_screen_text": "WHAT IF YOU WERE THE LAST MAN ON EARTH?"
+  },
+  {
+   "t_start": 66,
+   "t_end": 72,
+   "shot_type": "chapter_card_diegetic + skyline",
+   "visual_description": "Morning: building entrance plastered with MISSING posters, a dot-matrix chapter sign above. Smoky dawn skyline.",
+   "camera_motion": "slow push / static",
+   "on_screen_text": "1 · THE MORNING AFTER / MISSING"
+  },
+  {
+   "t_start": 72,
+   "t_end": 78,
+   "shot_type": "wide to medium",
+   "visual_description": "Street wall entirely covered in missing posters; women pin more ('HAVE YOU SEEN', 'MY DAD?', 'MY SON?').",
+   "camera_motion": "truck along wall",
+   "on_screen_text": "HAVE YOU SEEN / MY DAD? / MY HUSBAND"
+  },
+  {
+   "t_start": 78,
+   "t_end": 90,
+   "shot_type": "medium + phone_ui_insert",
+   "visual_description": "Influencer bedroom: ring light, 'BEST DAY EVER!!' sign. Pushes into a phone livestream UI with scrolling comments.",
+   "camera_motion": "push in to phone, pull back",
+   "on_screen_text": "BEST DAY EVER!! / toilet seat stays DOWN / QUEEN / peace and quiet"
+  },
+  {
+   "t_start": 90,
+   "t_end": 97,
+   "shot_type": "medium + skyline",
+   "visual_description": "Ring light flickers and dies; room dark. The skyline at dusk with districts blacking out.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 97,
+   "t_end": 104,
+   "shot_type": "wide + space",
+   "visual_description": "Abandoned utility bucket truck on a residential street, then Earth from space at night with city lights going out.",
+   "camera_motion": "slow push",
+   "on_screen_text": "96% OF LINE WORKERS ARE MEN"
+  },
+  {
+   "t_start": 104,
+   "t_end": 112,
+   "shot_type": "medium + wide + aisle",
+   "visual_description": "Empty truck cab, door open; a depot of parked trucks; supermarket aisle full on DAY 1, then bare on DAY 3.",
+   "camera_motion": "static / dolly down aisle",
+   "on_screen_text": "OVER 90% OF TRUCK DRIVERS ARE MEN / DAY 1 / DAY 3 / SORRY OUT OF STOCK"
+  },
+  {
+   "t_start": 112,
+   "t_end": 121,
+   "shot_type": "wide + interior",
+   "visual_description": "A container ship drifting on a calm pink sea, then its empty bridge with instruments.",
+   "camera_motion": "slow orbit / push",
+   "on_screen_text": "99% OF SAILORS ARE MEN"
+  },
+  {
+   "t_start": 121,
+   "t_end": 128,
+   "shot_type": "wide",
+   "visual_description": "Mine tunnel with abandoned helmets and lamps, then a world-leaders summit room with flags and a ring of empty chairs.",
+   "camera_motion": "push in",
+   "on_screen_text": "MINERS / 118+ COUNTRIES / 160+ COUNTRIES / WORLD LEADERS SUMMIT"
+  },
+  {
+   "t_start": 128,
+   "t_end": 134,
+   "shot_type": "medium + corridor",
+   "visual_description": "A woman at an office desk, then a hospital corridor with women staff wheeling a patient.",
+   "camera_motion": "dolly forward",
+   "on_screen_text": "2 IN 3 HEALTH WORKERS ARE WOMEN"
+  },
+  {
+   "t_start": 134,
+   "t_end": 143,
+   "shot_type": "wide to closeup",
+   "visual_description": "Sperm-bank cryo hall of steel tanks; a scientist opens one and finds it empty.",
+   "camera_motion": "dolly forward, cut to CU",
+   "on_screen_text": "EVERY SAMPLE: GONE"
+  },
+  {
+   "t_start": 143,
+   "t_end": 150,
+   "shot_type": "data_chart",
+   "visual_description": "Dark line chart '4.1B WOMEN -> 0' drawing a falling curve with a year counter; background shifts from purple to red.",
+   "camera_motion": "static, line animates",
+   "on_screen_text": "21 YEARS / 72 YEARS / 100 YEARS"
+  },
+  {
+   "t_start": 150,
+   "t_end": 157,
+   "shot_type": "wide + chapter_card_diegetic",
+   "visual_description": "You asleep in bed with the cat; then a hallway door 'GENTS' with a small sign as the chapter card.",
+   "camera_motion": "static",
+   "on_screen_text": "2 · THE LAST BACHELOR"
+  },
+  {
+   "t_start": 157,
+   "t_end": 166,
+   "shot_type": "medium + inserts",
+   "visual_description": "You wake with a crown pop-in and arms up; alarm 7:00; phone '4 YEARS SINGLE'; wardrobe opens on a suit; you posed in the suit with a rose and glamour sparkles.",
+   "camera_motion": "quick cuts, small pushes",
+   "on_screen_text": "7:00 / 4 YEARS SINGLE"
+  },
+  {
+   "t_start": 166,
+   "t_end": 176,
+   "shot_type": "medium + ECU",
+   "visual_description": "Bathroom mirror practice, then slipping and falling out of frame (comic burst). ECU of you with flat eyes doing a deep breath in and out.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 176,
+   "t_end": 190,
+   "shot_type": "wide street",
+   "visual_description": "You step out onto a stoop and walk past Luna Cafe; a woman turns with heart eyes (CU); more women follow; you wave, then arms up in panic.",
+   "camera_motion": "tracking with walk",
+   "on_screen_text": "LUNA CAFE"
+  },
+  {
+   "t_start": 190,
+   "t_end": 196,
+   "shot_type": "top_down_map + medium",
+   "visual_description": "Overhead street map: green 'YOU' dot chased by a swarm labelled 'EVERYONE ELSE'. Laundromat woman in a pink robe and face mask with heart eyes.",
+   "camera_motion": "static top-down; push in",
+   "on_screen_text": "YOU / EVERYONE ELSE / SUDS & SPIN / SCREECH! / Hiii~"
+  },
+  {
+   "t_start": 196,
+   "t_end": 206,
+   "shot_type": "alley + reveal",
+   "visual_description": "Dark alley. Disguise reveal in a dressing-room set with pop-in labels on each item: wig, yellow sundress, heels on a checker floor.",
+   "camera_motion": "tilt down body, push",
+   "on_screen_text": "WIG / HEELS"
+  },
+  {
+   "t_start": 206,
+   "t_end": 212,
+   "shot_type": "wide",
+   "visual_description": "In front of Tony's Pizza two police officers holding a WANTED poster of you wave at 'Brenda'.",
+   "camera_motion": "static",
+   "on_screen_text": "WANTED"
+  },
+  {
+   "t_start": 212,
+   "t_end": 222,
+   "shot_type": "wide plaza",
+   "visual_description": "Town plaza with fountain: you strut; a heel jams in a drain grate; you trip and the wig flies off.",
+   "camera_motion": "static then quick cut",
+   "on_screen_text": "IT'S A MAN!"
+  },
+  {
+   "t_start": 222,
+   "t_end": 226,
+   "shot_type": "diegetic_chapter_card",
+   "visual_description": "A 'MEN' restroom door turned into a shrine: candles, notes, teddy bears.",
+   "camera_motion": "slow push",
+   "on_screen_text": "SECTION 112 RESTROOMS / OUR HERO / 3 · HOPE / WE LOVE YOU / HE EXISTS"
+  },
+  {
+   "t_start": 226,
+   "t_end": 232,
+   "shot_type": "screen_graphic + city wide",
+   "visual_description": "News 9 split: your mugshot on the map; Times-Square-style canyon of billboards; crowd holding phones.",
+   "camera_motion": "dutch-angle push, crane down",
+   "on_screen_text": "LAST MAN ON EARTH FOUND - IN HEELS / MEN ON EARTH: 1 / THE LAST MAN"
+  },
+  {
+   "t_start": 232,
+   "t_end": 244,
+   "shot_type": "wide montage",
+   "visual_description": "Merch stand of t-shirts with your face; a sculptor carving your statue; a golden statue of you in the dress on a plinth over a sea of candle-holding women at sunset.",
+   "camera_motion": "push in to statue",
+   "on_screen_text": "OFFICIAL LAST MAN MERCH / HOPE / Hope."
+  },
+  {
+   "t_start": 244,
+   "t_end": 252,
+   "shot_type": "wide exterior + interior",
+   "visual_description": "SUVs with lights roll into a floodlit 'FACILITY' at night. Bunker B4: you chained to a chair, still in the dress; '!' burst, sweat drop. The door opens on backlit silhouettes.",
+   "camera_motion": "static",
+   "on_screen_text": "FACILITY 9 / B4"
+  },
+  {
+   "t_start": 252,
+   "t_end": 268,
+   "shot_type": "shot_reverse_shot",
+   "visual_description": "General Valentina Cross (shades, peaked cap, epaulettes) flanked by a scientist and a soldier. CUs alternate between her and you blushing, with an HR monitor beside her.",
+   "camera_motion": "slow push-ins",
+   "on_screen_text": "HR 128 / You are humanity's last hope. / You can help us... / Your choice."
+  },
+  {
+   "t_start": 268,
+   "t_end": 280,
+   "shot_type": "insert + wide",
+   "visual_description": "Hands unlock the cuffs. 'A few months later': handshake in a Facility 9 office, then a sunset poolside resort with you in a VIP robe on a lounger and attendants fanning you.",
+   "camera_motion": "static, slight drift",
+   "on_screen_text": "A few months later / VIP"
+  },
+  {
+   "t_start": 280,
+   "t_end": 292,
+   "shot_type": "diegetic_chapter_card + dashboard",
+   "visual_description": "Clinic door as chapter card with a take-a-number display. Lab dashboard counter rolling to 100,000,000 / DAY. You in your room with a calendar.",
+   "camera_motion": "static",
+   "on_screen_text": "4 · SUPPLY & DEMAND / NOW SERVING #000,011 / SUBJECT 001 - DAILY OUTPUT 100,000,000 / DAY = 1,157 PER SECOND"
+  },
+  {
+   "t_start": 292,
+   "t_end": 306,
+   "shot_type": "historical_cutaway + ledger",
+   "visual_description": "Moroccan palace gate, then a sultan's gold-framed portrait with a kids counter. A candlelit 'APPOINTMENTS' ledger with year counter and quill flipping pages.",
+   "camera_motion": "push in",
+   "on_screen_text": "MEKNES, MOROCCO - EARLY 1700s / ~1,000 KIDS / YEAR 6 / 16 / 27 / 32 / 1-2 per day · 30+ years"
+  },
+  {
+   "t_start": 306,
+   "t_end": 318,
+   "shot_type": "wide + gag",
+   "visual_description": "Take-a-number door; an endless hotel corridor queue of women; white flash with a counter; you in a robe sweating at the door, then a THUD burst as you faint.",
+   "camera_motion": "dolly down corridor",
+   "on_screen_text": "~2,000,000,000 WOMEN OF CHILDBEARING AGE / take a number: #1,999,999,999 / at one a day... / 4,097,408 YEARS / THUD"
+  },
+  {
+   "t_start": 318,
+   "t_end": 327,
+   "shot_type": "medium + micro_insert",
+   "visual_description": "General, you and the scientist with an 'IVF PLAN B' sign. Microscope ICSI view of a pipette injecting one sperm into an egg. Glowing sample vial with a multiplier.",
+   "camera_motion": "static, push to vial",
+   "on_screen_text": "IVF PLAN B / ONE SPERM · ONE EGG / SAMPLE 001 / x40,000,000 IN ONE SAMPLE"
+  },
+  {
+   "t_start": 327,
+   "t_end": 342,
+   "shot_type": "map_graphic + insert",
+   "visual_description": "Night world map dotted with clinics and counters. Control room with arcs from 'PROJECT 001'. A sample hatch with instructions; you walk back to the pool.",
+   "camera_motion": "slow push",
+   "on_screen_text": "4,000,000 IVF CYCLES / YEAR / ~1,000,000 BABIES / PROJECT 001 / 1. Fill cup 2. Go back to pool"
+  },
+  {
+   "t_start": 342,
+   "t_end": 350,
+   "shot_type": "diegetic_chapter_card + nursery",
+   "visual_description": "Maternity ward nursery door with a hanging sign, then a night nursery with a nurse lifting a baby; city/time stamps.",
+   "camera_motion": "static",
+   "on_screen_text": "5 · THE NEXT GENERATION / YEAR ONE / TOKYO · 2:14 AM / LAGOS · 6:16 PM"
+  },
+  {
+   "t_start": 350,
+   "t_end": 360,
+   "shot_type": "crowd + split_screen + grid",
+   "visual_description": "Vigil crowd now celebrating under an 'It's a boy' balloon. Split-screen fireworks panels over world landmarks; a grid of baby cradles zooming out to thousands of dots.",
+   "camera_motion": "zoom out",
+   "on_screen_text": "MEN ON EARTH: 2 / TOKYO PARIS RIO SYDNEY NEW YORK / 641,510 -> 1,000,000 BABIES · YEAR ONE"
+  },
+  {
+   "t_start": 360,
+   "t_end": 370,
+   "shot_type": "factory + globe_chart",
+   "visual_description": "Factory press stamping out clinic buildings with a counter; rotating Earth with a growing bar chart.",
+   "camera_motion": "static, counters roll",
+   "on_screen_text": "2,003 -> 20,019 -> 40,000 FERTILITY CLINICS / everyone, all in / YEAR 10 10,000,000 BABIES A YEAR"
+  },
+  {
+   "t_start": 370,
+   "t_end": 384,
+   "shot_type": "wide playground + medium bench + corkboard",
+   "visual_description": "Playground of kids with a 'DAD' avatar and lines linking every child to you. Boy and girl on a bench, both tagged DAD (no). Corkboard polaroids: a girl on the night of 9:41, then 'year 20' grown up as a couple.",
+   "camera_motion": "static, lines animate",
+   "on_screen_text": "DAD / 9:41 PM - the night / year 20 / same girl, grown up"
+  },
+  {
+   "t_start": 384,
+   "t_end": 394,
+   "shot_type": "diagram + crowd",
+   "visual_description": "Pink X and teal Y chromosomes beside a grid of 200 men with one highlighted (Genghis Khan medallion). Then a crowd of identical men in Y-shirts stamped 'YOURS'.",
+   "camera_motion": "static, elements pop",
+   "on_screen_text": "1 IN 200 MEN / GENGHIS KHAN / YOURS"
+  },
+  {
+   "t_start": 394,
+   "t_end": 412,
+   "shot_type": "construction + sepia_historical + rally",
+   "visual_description": "Construction site with women workers ('the world doesn't wait'). Sepia 1942 factory with a riveter and counter. Teal sunburst hard-hat woman 'TODAY'. Whip pan to truck depot (HONK!) and women pilots.",
+   "camera_motion": "whip pans between panels",
+   "on_screen_text": "the world doesn't wait / WE'VE GOT THIS! / 1942 / 6,000,000+ AMERICAN WOMEN WENT TO WORK / TODAY WE'VE STILL GOT THIS. / THE TRUCKS / HONK! / THE PLANES"
+  },
+  {
+   "t_start": 412,
+   "t_end": 420,
+   "shot_type": "rooftop wide + stage",
+   "visual_description": "Workers on a rooftop watch the dark city switch back on district by district. Spring concert choir of boys with a CRACK! burst as voices break.",
+   "camera_motion": "static",
+   "on_screen_text": "YEAR 13 / SPRING CONCERT / CRACK!"
+  },
+  {
+   "t_start": 420,
+   "t_end": 432,
+   "shot_type": "graduation wide + stadium",
+   "visual_description": "Westbrook University graduation of thousands of boys in teal gowns; parade through cheering crowds; stadium of 100M kids with light show.",
+   "camera_motion": "crane / push in",
+   "on_screen_text": "YEAR 18 / CONGRATULATIONS, CLASS OF YEAR 18 / MEN ON EARTH 20,551,145 -> 52,400,001 / YOUR KIDS 56,351,700 -> 100,000,000+ / WE ♥ DAD"
+  },
+  {
+   "t_start": 432,
+   "t_end": 438,
+   "shot_type": "gag_insert + street",
+   "visual_description": "You at a giant 'DAD'S FAMILY REUNION - NAME WALL' with a 'NAMES REMEMBERED 2' counter. Busy street under a skybridge progress bar.",
+   "camera_motion": "static",
+   "on_screen_text": "NAMES REMEMBERED 2 / REBOOTING HUMANITY... 16% / REBOOT COMPLETE 100%"
+  },
+  {
+   "t_start": 438,
+   "t_end": 452,
+   "shot_type": "diegetic_chapter_card + montage",
+   "visual_description": "Roof door chapter sign. Gold statue under '50 YEARS LATER'; plinth inscription; grocer billboard; posters; Father's Day calendar.",
+   "camera_motion": "push / truck",
+   "on_screen_text": "EPILOGUE · THE LAST MAN / 50 YEARS LATER / THE LAST MAN - HE SHOWED UP. / WORLD'S #1 DAD (officially) / LAST MAN THE MUSICAL / HAPPY FATHER'S DAY / basically your birthday"
+  },
+  {
+   "t_start": 452,
+   "t_end": 462,
+   "shot_type": "rooftop wide + street truck",
+   "visual_description": "Sunset rooftop: old you in a deck chair with the cat beside the now-old general. Shopfront truck past Bloom, Boutique and Bakery with fathers and daughters, grandmas and grandsons.",
+   "camera_motion": "lateral truck",
+   "on_screen_text": "FATHERS & DAUGHTERS / GRANDMAS & GRANDSONS"
+  },
+  {
+   "t_start": 462,
+   "t_end": 480,
+   "shot_type": "rooftop medium",
+   "visual_description": "Rooftop under string lights: old you smiling with the general. Memory/thought bubble of the crowd, balloon, aside caption.",
+   "camera_motion": "slow push in, pull back",
+   "on_screen_text": "(you're welcome.)"
+  },
+  {
+   "t_start": 480,
+   "t_end": 494,
+   "shot_type": "end_screen",
+   "visual_description": "Dusk beach set with an 'It's a boy' balloon. End card: poolside deck chair, two framed end-screen video slots, a subscribe circle; tiny kids pile onto you.",
+   "camera_motion": "static",
+   "on_screen_text": "NOW SERVING #1"
+  }
+ ],
+ "pacing": {
+  "words_total": 1053,
+  "narration_span_s": [
+   0,
+   479
+  ],
+  "words_per_min": 132,
+  "wpm_by_segment": {
+   "0-60": 119,
+   "60-150": 136,
+   "150-240": 115,
+   "240-330": 134,
+   "330-420": 155,
+   "420-480": 123
+  },
+  "notes_on_speech": "Steady ~130 wpm. It quickens to ~155 wpm in the stats-heavy generation montage (330-420 s) and slows in the comedy set pieces, where visuals carry the jokes (chase, Brenda). Pauses of 2-6 s sit at the comic beats and chapter turns (13 s laugh, 64 s title, 191 s chase, 262 s 'your choice', 341 s chapter 5). 13 s of music-only outro.",
+  "hard_cuts_scene_detect": 54,
+  "avg_hard_cut_length_s": 9.1,
+  "avg_visual_change_s": 2.5,
+  "visual_units_in_shot_list": 57,
+  "avg_shot_list_entry_s": 8.7,
+  "rehook_interval_s": "~20-40 s. Each chapter opens on a diegetic numbered sign and each act ends on a turn line ('What could possibly go wrong?', 'Then her ring light flickers and dies', 'Unless the last man on Earth gets out of bed', 'One problem, you can't walk in heels', 'But here's the problem', 'Here's the catch'). A new number, label or comic burst lands every 3-6 s.",
+  "hook_length_s": 33,
+  "structure_timing_pct": "cold open 0-3% | irony setup 3-7% | global stakes 7-12% | title 12-13% | ch1 consequences + collapse + core problem 13-31% | ch2 bachelor comedy (prep, chase, Brenda) 31-45% | ch3 fame/hope + general's choice 45-55% | ch4 math problem + IVF solution 57-69% | ch5 next generation + genetics + rebuild + reboot 69-89% | epilogue 89-97% | end screen 97-100%"
+ },
+ "techniques_worth_copying": [
+  "Precise-time cold open ('At 9:41'), with the clock itself as the first frame. The time comes back as a motif (polaroid 'the night 9:41' at 380 s), so the opening becomes a callback.",
+  "A list of vanishing archetypes, one shot each ('Bus drivers, boyfriends, the guy selling hot dogs ... Mid-sentence'). Every noun gets its own 1-2 s visual payoff, and the last one is cut off mid-speech bubble for a laugh.",
+  "A persistent MEN ON EARTH counter is the video's spine: 816M to 1 (hook), 1 on vigil banners, 2 at the first birth, 20M to 52M at graduation. One number shows the whole story arc.",
+  "Diegetic numbered chapter cards ('1 · THE MORNING AFTER', '2 · THE LAST BACHELOR', '3 · HOPE', '4 · SUPPLY & DEMAND', '5 · THE NEXT GENERATION', 'EPILOGUE · THE LAST MAN') on doors and signs in the world, never full-screen slates. They give long-form structure without breaking immersion.",
+  "Stat-per-shot montage: each lost profession is one set (bucket truck, truck depot, ship bridge, mine, summit) with a small monospace pill label giving the stat ('99% OF SAILORS ARE MEN'). Facts land as visual nouns, not voice-over lists.",
+  "It alternates hard science with slapstick: every heavy stat block is followed by a comedy set piece (Brenda disguise, THUD faint, CRACK voice break, NAMES REMEMBERED: 2). Long-form what-if keeps retention with a joke every ~30 s.",
+  "Second-person protagonist with a faceless round-head avatar plus a pet sidekick (Biscuit). Because the viewer IS 'you', the absurd premise feels personal. Callbacks to the cat and the deck chair close the loop.",
+  "Big-number reframes as animated counters with a relatable divisor ('100,000,000 / DAY = 1,157 PER SECOND', '4,097,408 YEARS' counting up, '~1,000 KIDS'). Historical anchors (Moroccan sultan, Genghis Khan 1 in 200, 1942 riveters) make the numbers credible.",
+  "Comic-book burst SFX graphics ('IT'S A MAN!', 'THUD', 'CRACK!', 'HONK!', 'SCREECH!') paired with an audio sting. Cheap to make and they punctuate jokes at feed scale.",
+  "Ending: answer the title question in one line ('For one night it would feel like a dream. Then it would be the hardest job in human history') then undercut it with the running gag ('mostly from a deck chair'). Circular callback to the opening fantasy.",
+  "The thumbnail/title split: the title is the neutral what-if, and the thumbnail carries the hook number and the emotional contradiction (scared man, 4B WOMEN?!)."
+ ],
+ "code_only_remake_requirements": {
+  "feasibility": "Medium-high. The look is soft-lit low-poly 3D (Blender-style isometric dioramas), which pure SVG cannot match. But almost every shot is a static or slowly-moving diorama with flat characters, labels and counters, so a 2.5D Remotion version with layered SVG sets plus parallax gets 80% of the effect.",
+  "characters": "One rig: a faceless black circle head on a stick body with ellipse eyes and swappable expression states (^^ happy, flat-line deadpan, heart eyes, sweat drop, blush, '!' burst); hair and outfit layers (hoodie, suit, wig + sundress, robe, old-age). Women share the same rig with hair/earring/dress variants. A pet cat sprite. Crowds are instanced tiny rigs (hundreds to thousands; a canvas layer for very large crowds or dot fields).",
+  "sets": "About 25 reusable SVG backdrops: night street with storefronts (Pharmacy, Tony's Pizza, Luna Cafe, Suds & Spin), park bench, apartment interior/window, brick facade with windows (for the long truck), news studio, cockpit, supermarket aisle, ship bridge, mine, summit room, hospital corridor, cryo hall, bunker, poolside resort, lab, nursery, playground, graduation quad, stadium, rooftop at sunset. Day/dusk/night colour grades as palette tokens.",
+  "graphics_components": "LED dot-matrix text component (clock + title card); monospace pill stat labels; animated rolling counters (big serif gold numerals on dark navy panels); line chart (population to zero, bg colour lerp); bar chart; world map and rotating globe with dot/arc overlays; split-screen panels; comic burst stars with text; phone livestream/comment UI; news lower-third + ticker; polaroid freeze-frame; dream/thought bubble mask; diegetic chapter signs (door plaques, hanging signs); end-screen layout.",
+  "motion": "Slow dolly/truck parallax across layered sets (3-5 depth layers), crane up/down by scaling layers, push-ins on characters, whip-pan blur transitions, sparkle-dissolve vanish effect (particle burst + opacity), pop-in labels with spring easing, counters with ease-out roll, pages flipping for the ledger.",
+  "audio": "Local TTS narrator (calm, wry male, ~130 wpm) with word timings for label sync; music bed with ducking; SFX library for stings (laugh, screech, thud, crack, honk, whoosh, sparkle). No captions burned in except occasional character lines and asides in italics.",
+  "data_driven_storyboard": "Each beat = {set, characters+expressions, camera move, labels[], counter{from,to}, sfx}. About 55-60 shots for 8 min, an average visual change every 2-3 s inside shots via labels/counters/expression swaps.",
+  "gaps_vs_original": "The original has volumetric lighting, soft shadows, depth of field and real 3D camera moves (orbits around the ship, crane over crowds). Approximate them with gradient lighting overlays, blur on far layers and pre-drawn isometric angles; accept a flatter look or render key 3D shots in Blender separately (the Mac is reserved, so only as a Spark CPU job if allowed)."
+ }
+}

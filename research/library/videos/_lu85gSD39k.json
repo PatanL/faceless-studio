@@ -1,0 +1,702 @@
+{
+ "id": "_lu85gSD39k",
+ "url": "https://www.youtube.com/watch?v=_lu85gSD39k",
+ "platform": "youtube",
+ "niche": "whatif",
+ "channel": "OminiAM",
+ "title": "What If You Traveled One Billion Years Into the Future?",
+ "upload_date": "2026-10-19",
+ "duration": 789,
+ "views": 413502,
+ "views_at_selection": 412612,
+ "likes": 2936,
+ "comments": 212,
+ "subs": 5620,
+ "channel_median_views": 10058,
+ "outlier_score": 41.02,
+ "role": "outlier",
+ "format": "Long-form 13m09s, 16:9 (854x480 @24fps at the 480p cap), category Education. Second-person ('you') narrated journey with one calm male VO (clean, likely TTS) over an ambient music bed; no dialogue, the companion robot only 'beeps'. Visual style: flat 2D vector 'kurzgesagt-lite' explainer: a black round-head stick character with big white googly eyes, steampunk goggles, red hoodie and backpack; a brass/teal steampunk time-pod; flat layered landscapes per stop; dark navy starfield diagram slides; flat green-on-blue maps. Persistent UI: karaoke word-by-word captions bottom centre (spoken words white bold, upcoming words grey, key nouns/numbers orange), a '+N YEARS' pill top-left, a small orange ring logo top-right, and pill callout labels with thin leader lines. Structure = numbered time-stop listicle (10 stops: 1k, 10k, 50k, 1M, 10M, 50M, 100M, 250M, 600M, 1B years) with YouTube chapters in the description.",
+ "title_pattern": {
+  "template": "What If You Traveled [Huge Round Number] [Units] Into the [Future/Past]?",
+  "type": "second-person hypothetical + extreme scale number (deep-time journey)",
+  "notes": "'You' + a single physical action (traveled) + an absurd but concrete scale ('One Billion Years', spelled out in the title, numeral '1 BILLION' in the thumbnail). Deep-time / far-future is an evergreen search cluster (tags: earth in 1 billion years, future of earth, pangaea ultima, betelgeuse supernova). The title promises a destination; the video sells the journey via escalating stops, so retention comes from 'what is the next stop'.",
+  "variants_to_try": [
+   "What If You Traveled 100 Million Years Into the Past?",
+   "What If You Slept for 1 Million Years?",
+   "What If You Could Only Travel Forward in Time?"
+  ]
+ },
+ "thumbnail": {
+  "composition": "Centre-framed tiny hero: the channel's black round-head stick character (huge white googly eyes, brass goggles on head, red hoodie, backpack) standing dead centre, full body, facing camera, with the white robot sphere (cyan eye, glowing scan beam) hovering at his right. He is surrounded by a crowd of tall, elegant, pale-skinned far-future humanoids in white/gold robes with glowing tattoos; blurred giant figures frame the left and right edges (foreground bokeh). Background: glossy futuristic city with white towers, hanging gardens, waterfalls, flying saucers, holograms, an orange sun plus a pale moon and a ringed planet in a teal sky.",
+  "text": "'1 BILLION' (white) over 'YEARS.' (bright yellow), very heavy rounded sans, thick black outline, two stacked lines in the bottom-left ~40% width. The full stop adds finality.",
+  "colours": "Warm golden-hour peach/cream (people, buildings, floor reflections) vs teal sky and cyan holograms; the saturated red hoodie and black head are the only dark/red mass, so the eye lands on the hero instantly. Yellow text echoes the sun.",
+  "subject_scale_contrast": "Small, cartoonish, flat-black stick hero vs tall realistic-ish alien humans and a towering city: 'fish out of water / you don't belong here' reading. Familiar channel mascot inside an unfamiliar world.",
+  "why_it_works": "Promises a concrete payoff (what do people look like in 1 billion years?) in one glance, the mascot gives brand recognition, extreme number in two words, high warm/cool contrast, faces looking at the hero create curiosity. NOTE: it is a polished glossy 3D-style render that does NOT match the flat-vector video, and the video never shows future people (its ending is literally 'the one thing you never found was people'), so it is a curiosity-bait mismatch. For us (no AI image gen) the code-only version should keep the idea (tiny mascot amid a strange far-future crowd/landscape + 2-line number text) rendered in SVG with gradients and bloom.",
+  "code_only_feasibility": "Medium: SVG/Canvas layered city silhouettes, gradient sky, glow filters, simplified robed figures with soft shading and depth-of-field blur on edge figures; the mascot and robot are trivial vectors."
+ },
+ "hook": {
+  "verbatim_0_5s": "What if you stepped into a time machine, pulled one lever, and traveled 1 billion years into the future?",
+  "verbatim_0_35s": "What if you stepped into a time machine, pulled one lever, and traveled 1 billion years into the future? There's just one problem. This machine can stop anywhere along the way, but it can never go back. Every time the door opens, you'll see a future no human has ever seen. And by the end of this trip, the planet outside won't look anything like home. Your only company is a tiny robot that came with the machine. It doesn't talk. It just beeps a lot. Ready? Let's go. You pull the lever.",
+  "visual_0_5s": "Cosy brick-walled room at night (bookshelves, moon in window); the stick hero walks in from left toward a glowing brass steampunk time-pod with open door; the title types on in two lines at top ('WHAT IF YOU TRAVELED' white / 'ONE BILLION YEARS INTO THE FUTURE?' orange); karaoke captions bottom.",
+  "devices": [
+   "title question restated verbatim as the first line (search-intent match)",
+   "second-person immersion + one simple physical action (pull a lever)",
+   "constraint/stakes twist at 7 s: 'can stop anywhere, but never go back' with a 'NO WAY BACK' stamp (sets up the ending)",
+   "route map: a timeline of every stop shown at 0:08 = progress bar / open loop for the whole video",
+   "promise of novelty ('a future no human has ever seen') + end-state tease ('won't look anything like home') with an Earth that whitens as a counter spins to 793 million",
+   "cute mute companion (robot that only beeps) for warmth and recurring micro-gags",
+   "'Ready? Let's go.' launch line into a ritual sequence (lever, day-night flicker, vortex, clunk) reused at every stop"
+  ],
+  "time_to_first_stop_s": 50
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 14,
+   "beat_type": "cold open: title question + constraint",
+   "summary": "Title question verbatim; rule twist (can stop anywhere, can never go back) shown as a route timeline of stops and a 'NO WAY BACK' stamp."
+  },
+  {
+   "t_start": 14,
+   "t_end": 34,
+   "beat_type": "promise + companion setup",
+   "summary": "Spinning Earth with a racing year counter turns white (end-state tease); promise of an unseen future; mute beeping robot introduced; 'Ready? Let's go.'"
+  },
+  {
+   "t_start": 34,
+   "t_end": 50,
+   "beat_type": "travel ritual #1",
+   "summary": "Cockpit: lever pull, window shows sun racing, day/night flicker, blur, clunk. This ritual (cockpit + counter + vortex + chapter banner) recurs as the act break before each stop."
+  },
+  {
+   "t_start": 50,
+   "t_end": 116,
+   "beat_type": "stop 1: 1,000 years - silent overgrown city",
+   "summary": "Silence (no cars/planes/music icons crossed out), cracked streets, trees on rooftops, bridge garden; 'where did everyone go?' open question left unanswered (paid off at the end). Turn: the planet itself barely changed - 1,000 years is a blink on Earth's 4.5-billion-year bar. 'You'll have to go much further.'"
+  },
+  {
+   "t_start": 116,
+   "t_end": 181,
+   "beat_type": "stop 2: 10,000 years - new North Star",
+   "summary": "Cold night, Polaris missing; axial-wobble explainer (26,000-year precession circle); robot points at Deneb, the new North Star; ice-age-or-not caveat; too cold, back inside."
+  },
+  {
+   "t_start": 181,
+   "t_end": 241,
+   "beat_type": "stop 3: 50,000 years - Niagara gone + day-length thread planted",
+   "summary": "Falls eroded back to Lake Erie (cross-section + map with retreating marker). Planted running thread: Moon slows Earth's spin, day is ~1 s longer - 'keep that number in mind, it's going to grow.'"
+  },
+  {
+   "t_start": 241,
+   "t_end": 322,
+   "beat_type": "stop 4: 1 million years - sky rewritten",
+   "summary": "'This is where things start getting weird.' Orion missing a shoulder: Betelgeuse went supernova (giant red disk, supernova burst, visible in daytime). Constellations drifted (bent Big Dipper). New craters and lava fields; robot beeps twice = 'let's not stay'."
+  },
+  {
+   "t_start": 322,
+   "t_end": 380,
+   "beat_type": "stop 5: 10 million years - new ocean, new animals",
+   "summary": "Beach where there was land: East African Rift flooded into a new sea, a piece of Africa drifting off 'like a ship leaving the dock'. Evolved weird animals; robot takes ~200 photos (gag)."
+  },
+  {
+   "t_start": 380,
+   "t_end": 446,
+   "beat_type": "stop 6: 50 million years - Mediterranean closed + Mars rings",
+   "summary": "Mountaintop where the Mediterranean was: Africa crashed into Europe, Himalaya-sized range burying Italy/Greece; Australia pushes into SE Asia. Callback: day now ~14 min longer. Phobos destroyed, Mars gets rings."
+  },
+  {
+   "t_start": 446,
+   "t_end": 492,
+   "beat_type": "stop 7: 100 million years - impact + rebound",
+   "summary": "Ground shaking, steaming crater; big impacts ~every 100 My so one has probably happened again; 'life always finds a way' sprout-to-forest rebound; robot beeping fast, move on."
+  },
+  {
+   "t_start": 492,
+   "t_end": 563,
+   "beat_type": "stop 8: 250 million years - Pangaea Ultima + galactic birthday",
+   "summary": "'This stop is special': continents reassembled (Pangaea then -> today -> Pangaea Ultima), hot interior desert too hot for mammals, only coasts green. Callback: day +1 hour. Solar system completed a lap of the galaxy: 'Happy galactic birthday.'"
+  },
+  {
+   "t_start": 563,
+   "t_end": 630,
+   "beat_type": "stop 9: 600 million years - last eclipse + dimming life",
+   "summary": "Moon slides over sun but only an annular ring: Moon recedes ~4 cm/yr (fingernail speed); 'the last total solar eclipse happened while you were traveling. Nobody was there to see it.' Sun 6% brighter, CO2 drawdown, forests thinning."
+  },
+  {
+   "t_start": 630,
+   "t_end": 704,
+   "beat_type": "stop 10 / climax: 1 billion years - oceans boiling",
+   "summary": "'Last stop' dial, final lever pull. White hazy sky, sun 10% brighter, oceans evaporating, salt-crusted seabed, no forests/animals/birds, only underground microbes. Callback: day ~29 hours. Perspective turn: our world was a very short moment on Earth's timeline bar."
+  },
+  {
+   "t_start": 704,
+   "t_end": 756,
+   "beat_type": "no-return + montage recap + unanswered loop paid off",
+   "summary": "No fuel, dial can't go back (pays off the 0:07 rule). Sitting on the seabed, recap montage of every stop as postcards. The one thing never found: people - speculative hopeful answer (descendants on another planet telling stories about a blue world)."
+  },
+  {
+   "t_start": 756,
+   "t_end": 776,
+   "beat_type": "moral / emotional landing",
+   "summary": "'We're living in Earth's best years': full oceans, green forests, perfect-size Moon for eclipses; hero back home cheering."
+  },
+  {
+   "t_start": 776,
+   "t_end": 789,
+   "beat_type": "CTA: comment prompt + series sign-off",
+   "summary": "'Which stop would you get off at?' grid of stop buttons; comment icon, 'see you in the next What If'."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 7,
+   "shot_type": "2D wide, interior establishing",
+   "visual_description": "Brick-walled night room, bookshelves, moon window; stick hero walks in toward glowing brass/teal steampunk time-pod with open door",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "WHAT IF YOU TRAVELED / ONE BILLION YEARS INTO THE FUTURE? (typed on, white + orange)"
+  },
+  {
+   "t_start": 7,
+   "t_end": 14,
+   "shot_type": "diagram: timeline",
+   "visual_description": "Dark navy slide, gold horizontal timeline with dots labelled NOW, 1,000, 10,000, 50,000, 1M, 10M, 50M, 100M, 250M, 600M; pod icon at the far end; then red left arrow + red stamp",
+   "camera_motion": "static; stamp pops in",
+   "on_screen_text": "STOP ANYWHERE / NO WAY BACK"
+  },
+  {
+   "t_start": 14,
+   "t_end": 24,
+   "shot_type": "diagram: globe + counter",
+   "visual_description": "Rotating Earth in starfield with a rolling year counter above (1 -> 3 -> 1,570 -> 31,068,732 -> 793,953,606); Earth bleaches white/hazy",
+   "camera_motion": "slow zoom",
+   "on_screen_text": "year counter"
+  },
+  {
+   "t_start": 24,
+   "t_end": 34,
+   "shot_type": "2D medium, interior",
+   "visual_description": "Room again: robot sphere (white, cyan eye) floats in beside hero; 'BEEP!' bubble; hero waves",
+   "camera_motion": "static",
+   "on_screen_text": "BEEP!"
+  },
+  {
+   "t_start": 34,
+   "t_end": 50,
+   "shot_type": "2D interior cockpit close-up",
+   "visual_description": "Detailed steampunk cockpit: riveted teal walls, brass gauges, round porthole, red-knob lever; hero pulls lever, counter 'YEARS FROM NOW' spins; porthole shows sun racing, day/night flicker, then blue light-streak vortex",
+   "camera_motion": "static with vortex zoom/shake",
+   "on_screen_text": "1 YEARS FROM NOW counter"
+  },
+  {
+   "t_start": 50,
+   "t_end": 58,
+   "shot_type": "chapter card over wide exterior",
+   "visual_description": "Overgrown abandoned city skyline (vines, trees on roofs), pod lands with puff; dark translucent band across middle with chapter title",
+   "camera_motion": "band slides in",
+   "on_screen_text": "1,000 YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 58,
+   "t_end": 95,
+   "shot_type": "2D wide exterior, walking + callouts",
+   "visual_description": "Hero and robot in the ruined city; crossed-out icons (car, plane, music note) pop over him; pill callouts with leader lines point at cracked street, rooftop trees, bridge garden; hero shrugs, question marks",
+   "camera_motion": "slow pan following hero",
+   "on_screen_text": "+1,000 YEARS pill; CRACKED STREETS; TREES ON ROOFTOPS; question marks"
+  },
+  {
+   "t_start": 95,
+   "t_end": 106,
+   "shot_type": "diagram: comparison",
+   "visual_description": "Two Earths side by side in space with '=' between them, labels for mountains, rivers, moon",
+   "camera_motion": "static, labels pop",
+   "on_screen_text": "THEN / +1,000 YEARS; SAME MOUNTAINS / SAME RIVERS / SAME MOON"
+  },
+  {
+   "t_start": 106,
+   "t_end": 116,
+   "shot_type": "diagram: proportion bar",
+   "visual_description": "Long purple-to-green gradient bar for Earth's age; a hairline sliver marked as 1,000 years; giant eye icon blinks",
+   "camera_motion": "static",
+   "on_screen_text": "EARTH'S AGE ~4.5 BILLION YEARS; 1,000 YEARS = A BLINK; MUCH FURTHER..."
+  },
+  {
+   "t_start": 116,
+   "t_end": 122,
+   "shot_type": "cockpit travel ritual",
+   "visual_description": "Lever pull, counter rolling, porthole vortex, chapter number over dashboard",
+   "camera_motion": "vortex zoom",
+   "on_screen_text": "10,000 YEARS"
+  },
+  {
+   "t_start": 122,
+   "t_end": 134,
+   "shot_type": "2D wide exterior night",
+   "visual_description": "Snowy tundra under starry sky, pod steaming, hero looks up",
+   "camera_motion": "static",
+   "on_screen_text": "+10,000 YEARS"
+  },
+  {
+   "t_start": 134,
+   "t_end": 138,
+   "shot_type": "diagram: sky",
+   "visual_description": "Empty starfield where Polaris should be; red reticle circle + red stamp",
+   "camera_motion": "static",
+   "on_screen_text": "MISSING"
+  },
+  {
+   "t_start": 138,
+   "t_end": 144,
+   "shot_type": "diagram: globe",
+   "visual_description": "Earth with a tilted axis line wobbling like a top",
+   "camera_motion": "axis animates",
+   "on_screen_text": "EARTH WOBBLES LIKE A SPINNING TOP"
+  },
+  {
+   "t_start": 144,
+   "t_end": 154,
+   "shot_type": "diagram: precession circle",
+   "visual_description": "Thin circle with Polaris top, Vega and Deneb on rim; gold pointer sweeps around",
+   "camera_motion": "pointer rotation",
+   "on_screen_text": "ONE FULL WOBBLE - 26,000 YEARS; NORTH POLE'S POINTER; POLARIS / VEGA / DENEB"
+  },
+  {
+   "t_start": 154,
+   "t_end": 160,
+   "shot_type": "2D wide exterior night",
+   "visual_description": "Tundra; robot shines a thin light beam at a bright star; label",
+   "camera_motion": "static",
+   "on_screen_text": "DENEB - YOUR NEW NORTH STAR"
+  },
+  {
+   "t_start": 160,
+   "t_end": 176,
+   "shot_type": "diagram: globe",
+   "visual_description": "Earth in space with climate labels; ice-age label then red counter label",
+   "camera_motion": "slow rotation",
+   "on_screen_text": "COLDER - DRIER; NEXT ICE AGE?; red caveat label"
+  },
+  {
+   "t_start": 176,
+   "t_end": 181,
+   "shot_type": "2D wide exterior night",
+   "visual_description": "Hero zips hoodie, heads back to pod",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 181,
+   "t_end": 186,
+   "shot_type": "flash transition + chapter card",
+   "visual_description": "White flash into side-view river landscape with chapter band",
+   "camera_motion": "band slides",
+   "on_screen_text": "50,000 YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 186,
+   "t_end": 195,
+   "shot_type": "2D side cross-section",
+   "visual_description": "Flat cliffs and a blue river channel, pod and hero on the bank; hero points",
+   "camera_motion": "static",
+   "on_screen_text": "BACK IN YOUR TIME"
+  },
+  {
+   "t_start": 195,
+   "t_end": 206,
+   "shot_type": "diagram: cross-section",
+   "visual_description": "Waterfall cross-section, white water curtain, rock ledge eroding",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "THE WATER EATS THE ROCK; FALLS"
+  },
+  {
+   "t_start": 206,
+   "t_end": 214,
+   "shot_type": "map: top-down",
+   "visual_description": "Lake Ontario (top) to Lake Erie (bottom) on green ground, river channel; falls marker retreats upstream as a year counter climbs",
+   "camera_motion": "marker animation",
+   "on_screen_text": "LAKE ONTARIO; LAKE ERIE; year counter"
+  },
+  {
+   "t_start": 214,
+   "t_end": 241,
+   "shot_type": "diagram: Earth-Moon",
+   "visual_description": "Earth spinning with Moon orbiting, orange braking arc around Earth; big orange '+1 SECOND' appears",
+   "camera_motion": "static",
+   "on_screen_text": "MOON'S GRAVITY SLOWS EARTH'S SPIN; +1 SECOND per day"
+  },
+  {
+   "t_start": 241,
+   "t_end": 258,
+   "shot_type": "chapter card + 2D wide exterior dusk",
+   "visual_description": "White transition to purple dusk desert; hero looks up at Orion drawn as connected star lines",
+   "camera_motion": "static, stars pop",
+   "on_screen_text": "1 MILLION YEARS; ORION - THE HUNTER"
+  },
+  {
+   "t_start": 258,
+   "t_end": 262,
+   "shot_type": "diagram: sky",
+   "visual_description": "Red reticle on Orion's missing shoulder",
+   "camera_motion": "static",
+   "on_screen_text": "red reticle"
+  },
+  {
+   "t_start": 262,
+   "t_end": 272,
+   "shot_type": "diagram: scale reveal",
+   "visual_description": "Small red star -> huge red-orange disk filling frame; tiny 'our sun' dot with leader line",
+   "camera_motion": "zoom-in",
+   "on_screen_text": "BETELGEUSE - A RED SUPERGIANT; OUR SUN"
+  },
+  {
+   "t_start": 272,
+   "t_end": 280,
+   "shot_type": "diagram: explosion",
+   "visual_description": "White supernova bloom with shock ring; then day sky with sun plus second bright point",
+   "camera_motion": "flash + slow zoom",
+   "on_screen_text": "SUPERNOVA; VISIBLE IN DAYTIME"
+  },
+  {
+   "t_start": 280,
+   "t_end": 297,
+   "shot_type": "diagram: sky",
+   "visual_description": "Big Dipper dots drift apart and bend",
+   "camera_motion": "star drift animation",
+   "on_screen_text": "BENT"
+  },
+  {
+   "t_start": 297,
+   "t_end": 322,
+   "shot_type": "2D wide exterior",
+   "visual_description": "Reddish volcanic plain with erupting volcano and fresh crater; robot scan beam across horizon; double beep",
+   "camera_motion": "static",
+   "on_screen_text": "NEW CRATER; LAVA ROCK"
+  },
+  {
+   "t_start": 322,
+   "t_end": 336,
+   "shot_type": "chapter card + 2D wide beach",
+   "visual_description": "Turquoise sea, sand, palm trees, distant hills; pod lands",
+   "camera_motion": "band slides",
+   "on_screen_text": "10 MILLION YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 336,
+   "t_end": 361,
+   "shot_type": "map: Africa",
+   "visual_description": "Flat green Africa on blue; rift line draws down East Africa, ocean floods in, Somali chunk drifts off",
+   "camera_motion": "map animation",
+   "on_screen_text": "EAST AFRICAN RIFT; A BRAND NEW SEA"
+  },
+  {
+   "t_start": 361,
+   "t_end": 380,
+   "shot_type": "2D wide beach with creatures",
+   "visual_description": "Hero with a pink long-beaked bird, a purple furry cat-thing and a tan rabbit-like creature; robot camera flashes",
+   "camera_motion": "static, creatures bob",
+   "on_screen_text": "BIRDS WITH STRANGE BEAKS; ~200 PHOTOS"
+  },
+  {
+   "t_start": 380,
+   "t_end": 390,
+   "shot_type": "chapter card + 2D wide summit",
+   "visual_description": "Snowy mountaintop above clouds, blue sky, pod and hero",
+   "camera_motion": "band slides",
+   "on_screen_text": "50 MILLION YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 390,
+   "t_end": 416,
+   "shot_type": "map: Mediterranean",
+   "visual_description": "Africa slides into Europe, sea closes, white triangle mountains pop up in a row",
+   "camera_motion": "map animation",
+   "on_screen_text": "+50,000,000 YEARS; NEW MOUNTAINS - HIMALAYA-SIZED; ITALY (BURIED); GREECE (BURIED)"
+  },
+  {
+   "t_start": 416,
+   "t_end": 421,
+   "shot_type": "map: Australia",
+   "visual_description": "Australia with north arrow pushing into SE Asia",
+   "camera_motion": "arrow animation",
+   "on_screen_text": "AUSTRALIA MOVES NORTH"
+  },
+  {
+   "t_start": 421,
+   "t_end": 431,
+   "shot_type": "diagram: Earth-Moon (callback)",
+   "visual_description": "Earth/Moon diagram reused with orange arc",
+   "camera_motion": "static",
+   "on_screen_text": "+14 MINUTES"
+  },
+  {
+   "t_start": 431,
+   "t_end": 446,
+   "shot_type": "diagram: planet",
+   "visual_description": "Mars with tiny Phobos spiralling in, then Mars with a thin ring",
+   "camera_motion": "orbit animation",
+   "on_screen_text": "PHOBOS; SPIRALLING CLOSER; RINGS!"
+  },
+  {
+   "t_start": 446,
+   "t_end": 457,
+   "shot_type": "chapter card + 2D wide exterior",
+   "visual_description": "Red-brown smoky landscape with steaming crater columns; pod lands hard (shake)",
+   "camera_motion": "camera shake",
+   "on_screen_text": "100 MILLION YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 457,
+   "t_end": 469,
+   "shot_type": "diagram over scene",
+   "visual_description": "Red meteor streaks falling on a dimmed version of the scene with a tick timeline",
+   "camera_motion": "streak animation",
+   "on_screen_text": "BIG IMPACTS - ONCE EVERY 100 MILLION YEARS"
+  },
+  {
+   "t_start": 469,
+   "t_end": 492,
+   "shot_type": "2D wide time-lapse",
+   "visual_description": "Barren ground: a sprout grows, trees fill the frame, purple creatures graze; hero runs back to pod",
+   "camera_motion": "static, growth animation",
+   "on_screen_text": "LIFE REBOUNDS AGAIN"
+  },
+  {
+   "t_start": 492,
+   "t_end": 500,
+   "shot_type": "chapter card over map",
+   "visual_description": "Dark blue map with supercontinent silhouette behind chapter band",
+   "camera_motion": "band slides",
+   "on_screen_text": "250 MILLION YEARS / INTO THE FUTURE"
+  },
+  {
+   "t_start": 500,
+   "t_end": 523,
+   "shot_type": "map: continents",
+   "visual_description": "Pangaea -> today's world map -> continents drift back together into Pangaea Ultima",
+   "camera_motion": "map morph",
+   "on_screen_text": "PANGAEA - 300 MILLION YEARS AGO; TODAY; PANGAEA ULTIMA"
+  },
+  {
+   "t_start": 523,
+   "t_end": 540,
+   "shot_type": "2D wide exterior hot desert",
+   "visual_description": "Orange sky, huge pale sun, cracked red ground; hero squints, robot; red stamp",
+   "camera_motion": "heat shimmer",
+   "on_screen_text": "ALMOST NO RAIN; TOO HOT FOR MAMMALS; ONLY THE COASTS ARE GREEN"
+  },
+  {
+   "t_start": 540,
+   "t_end": 548,
+   "shot_type": "diagram: Earth-Moon (callback)",
+   "visual_description": "Earth/Moon with orange arc",
+   "camera_motion": "static",
+   "on_screen_text": "+1 HOUR"
+  },
+  {
+   "t_start": 548,
+   "t_end": 563,
+   "shot_type": "diagram: galaxy",
+   "visual_description": "Top-down Milky Way spiral with elliptical orbit line, sun dot travels a full lap",
+   "camera_motion": "orbit animation",
+   "on_screen_text": "ONE LAP - 230 MILLION YEARS; HAPPY GALACTIC BIRTHDAY!"
+  },
+  {
+   "t_start": 563,
+   "t_end": 580,
+   "shot_type": "chapter card + 2D wide grassland",
+   "visual_description": "Noon sky, bright sun; dark moon disc slides over it leaving a ring; red stamp",
+   "camera_motion": "static, disc slides",
+   "on_screen_text": "600 MILLION YEARS; A TOTAL ECLIPSE?; NEVER COMES"
+  },
+  {
+   "t_start": 580,
+   "t_end": 594,
+   "shot_type": "diagram: Earth-Moon distance",
+   "visual_description": "Earth and Moon with distance label and a fingernail icon comparison",
+   "camera_motion": "moon slides right",
+   "on_screen_text": "+4 CM EVERY YEAR; FINGERNAIL SPEED"
+  },
+  {
+   "t_start": 594,
+   "t_end": 605,
+   "shot_type": "diagram: eclipse",
+   "visual_description": "Annular eclipse ring over horizon",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "A RING OF SUNLIGHT; THE LAST TOTAL ECLIPSE"
+  },
+  {
+   "t_start": 605,
+   "t_end": 616,
+   "shot_type": "diagram: sun",
+   "visual_description": "Glowing sun with a brightness bar filling",
+   "camera_motion": "bar fill",
+   "on_screen_text": "+6% BRIGHTER"
+  },
+  {
+   "t_start": 616,
+   "t_end": 630,
+   "shot_type": "2D wide exterior",
+   "visual_description": "Row of trees thinning and losing leaves under a hazy sun",
+   "camera_motion": "slow fade",
+   "on_screen_text": "ROCKS SOAK UP CO2 - PLANTS NEED IT; FORESTS THINNING"
+  },
+  {
+   "t_start": 630,
+   "t_end": 641,
+   "shot_type": "cockpit travel ritual (final)",
+   "visual_description": "Porthole shows 'LAST STOP 1,000,000,000'; final lever pull; counter rolls 612,896,545 -> 996,704,623; vortex",
+   "camera_motion": "vortex zoom",
+   "on_screen_text": "LAST STOP / 1,000,000,000"
+  },
+  {
+   "t_start": 641,
+   "t_end": 670,
+   "shot_type": "2D wide exterior, white",
+   "visual_description": "Bleached white hazy salt flat, hero steps out of pod; labels",
+   "camera_motion": "static",
+   "on_screen_text": "+1,000,000,000 YEARS; PALE HAZY SKY; +10% BRIGHTER; OCEANS -> STEAM"
+  },
+  {
+   "t_start": 670,
+   "t_end": 686,
+   "shot_type": "2D wide, walking + icons",
+   "visual_description": "Hero walks on cracked seabed; forest/animal/bird icons appear then get crossed out; magnifying glass reveals microbes",
+   "camera_motion": "pan with hero",
+   "on_screen_text": "NO FORESTS / NO ANIMALS / NO BIRDS; MICROBES"
+  },
+  {
+   "t_start": 686,
+   "t_end": 692,
+   "shot_type": "diagram: Earth-Moon (callback)",
+   "visual_description": "Earth with small moon",
+   "camera_motion": "static",
+   "on_screen_text": "~29 HOURS"
+  },
+  {
+   "t_start": 692,
+   "t_end": 704,
+   "shot_type": "diagram: proportion bar",
+   "visual_description": "'EARTH'S STORY' gradient bar; tiny marked slice for our era",
+   "camera_motion": "marker pop",
+   "on_screen_text": "EARTH'S STORY; OCEANS - FORESTS - 7 BILLION PEOPLE; A VERY SHORT MOMENT"
+  },
+  {
+   "t_start": 704,
+   "t_end": 714,
+   "shot_type": "cockpit",
+   "visual_description": "Porthole white, red display 'NO FUEL', red stamp",
+   "camera_motion": "static, display blink",
+   "on_screen_text": "NO FUEL; NO GOING BACK"
+  },
+  {
+   "t_start": 714,
+   "t_end": 736,
+   "shot_type": "2D wide + recap montage",
+   "visual_description": "Hero sitting on seabed beside pod; postcard thumbnails of each previous stop pop in above him in a grid",
+   "camera_motion": "static, cards pop one by one",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 736,
+   "t_end": 756,
+   "shot_type": "diagram: space speculation",
+   "visual_description": "Starfield with '?' pill; a ship/comet streak crosses; distant orange star with a planet; small blue Earth",
+   "camera_motion": "streak animation",
+   "on_screen_text": "?; ANOTHER PLANET; A BLUE WORLD"
+  },
+  {
+   "t_start": 756,
+   "t_end": 766,
+   "shot_type": "title card",
+   "visual_description": "Big Earth in starfield with orange title",
+   "camera_motion": "slow zoom",
+   "on_screen_text": "EARTH'S BEST YEARS"
+  },
+  {
+   "t_start": 766,
+   "t_end": 772,
+   "shot_type": "2D wide montage",
+   "visual_description": "Beach with full ocean and palms; total eclipse with corona",
+   "camera_motion": "quick cuts",
+   "on_screen_text": "FULL OCEANS - GREEN FORESTS; A PERFECT TOTAL ECLIPSE"
+  },
+  {
+   "t_start": 772,
+   "t_end": 776,
+   "shot_type": "2D medium interior",
+   "visual_description": "Back in the brick room, hero cheers with arms up, robot beside",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 776,
+   "t_end": 789,
+   "shot_type": "end card / CTA",
+   "visual_description": "Purple slide 'WHICH STOP WOULD YOU CHOOSE?' with a grid of 10 rounded stop buttons; then yellow comment icon; fade to black",
+   "camera_motion": "static, buttons pop",
+   "on_screen_text": "WHICH STOP WOULD YOU CHOOSE?; TELL ME IN THE COMMENTS; SEE YOU IN THE NEXT WHAT IF"
+  }
+ ],
+ "pacing": {
+  "words_total": 2075,
+  "speech_span_s": 783,
+  "words_per_minute": 159,
+  "hard_cuts_detected": 21,
+  "scene_cut_method": "ffmpeg select=gt(scene,0.3) on 480p gives only 21 (mostly whip/flash/vortex chapter transitions); at 0.12 gives 71. Most changes are soft (crossfades, slides, elements animating in), so cut counts understate visual change.",
+  "visual_setups_counted": "~95 distinct backgrounds/diagram setups from the 2 s contact sheet",
+  "avg_shot_length_s": 8.3,
+  "avg_visual_change_interval_s": "~2.5 (a new callout, label, icon or animation step lands roughly every caption phrase)",
+  "chapter_length_s": "stops every 50-75 s (1k at 0:50, 10k 2:01, 50k 3:01, 1M 4:01, 10M 5:22, 50M 6:22, 100M 7:27, 250M 8:12, 600M 9:24, 1B 10:33)",
+  "re_hook_interval_s": "~60 s new stop (new location + year banner) and inside each stop a 'reveal' fact every ~15-20 s; running day-length thread revisited at 3:50, 7:02, 9:03, 11:26",
+  "structure_ratio": "hook+setup 0:00-0:50 = 6%, ten stops 0:50-11:44 = 83%, no-return/recap/moral/CTA 11:44-13:09 = 11%",
+  "explainer_vs_scene_share": "~50% character-in-landscape scenes, ~50% diagrams/maps; never more than ~25 s on one diagram"
+ },
+ "art_style": "Flat vector with subtle gradients and soft shadows, slight paper/grain. Palette per stop: night navy+gold, dusk purple, turquoise beach, rust-red crater, orange desert, bleached white end. UI accents: orange (#F5A23A-ish) for key words and labels, red for stamps (MISSING, NEVER COMES, NO WAY BACK), white bold condensed sans (DIN/Oswald-like) captions. Steampunk cockpit is the one richly detailed illustration and serves as the recurring 'act break' set.",
+ "techniques_worth_copying": [
+  "Numbered-stop journey structure with a visible route timeline shown in the first 10 s: the viewer always knows how many stops remain (built-in progress bar).",
+  "A repeated travel ritual (cockpit, lever, rolling counter, day/night flicker, vortex, clunk, chapter band '[N] YEARS / INTO THE FUTURE') as a branded act-break every ~60 s.",
+  "Escalation by order of magnitude: each stop is 'bigger' than the last (city -> sky -> continents -> planets -> oceans boiling).",
+  "A running numeric thread planted early and paid off repeatedly (day length: +1 s -> +14 min -> +1 h -> 29 h) with 'keep that number in mind' wording.",
+  "Constraint introduced in the hook (can never go back) and paid off at the climax (no fuel, dial doesn't go backwards).",
+  "Unanswered question planted at stop 1 ('where did everyone go?') answered only at the end ('the one thing you never found was people') for a reflective close.",
+  "Recap montage of every stop as postcards before the moral; then an uplifting reframe ('we're living in Earth's best years').",
+  "Mute companion robot as a cheap emotion/gag device (beeps twice = let's go, 200 photos, beeping fast).",
+  "Relatable scale analogies: Moon drifts at fingernail speed; 1,000 years is a blink on a 4.5-billion-year bar; Africa leaving 'like a ship leaving the dock'.",
+  "Karaoke word-highlight captions with key nouns/numbers in orange; persistent '+N YEARS' pill as a context anchor.",
+  "Callout pills with thin leader lines naming things in-scene (CRACKED STREETS, ITALY (BURIED)) - cheap and informative.",
+  "Red rubber-stamp words for twists (MISSING, BENT, NEVER COMES, NO GOING BACK).",
+  "CTA as a choice question ('which stop would you get off at?') shown as a button grid - drives comments.",
+  "Thumbnail: mascot small in the centre of a strange crowd/world + two-line number text."
+ ],
+ "weaknesses_vs_outliers": [
+  "Thumbnail visually promises future people and a glossy 3D world the video never delivers (style and content mismatch).",
+  "Long stretches are static wide shots with slow element pop-ins; little character acting.",
+  "Clean but flat TTS-like VO; emotional peaks rely on script, not delivery."
+ ],
+ "code_only_remake_needs": [
+  "Mascot rig in SVG: round black head, big white eyes with pupils/blinks, goggles prop, red hoodie torso, backpack, stick limbs with walk, point, shrug, sit, cheer, zip-hoodie poses; companion robot sphere with cyan eye, hover bob, beam and camera-flash states.",
+  "Time-pod prop (brass/teal steampunk with porthole, gauges, steam puff) as an SVG component; land/thump and steam animations.",
+  "Cockpit set: the one detailed illustration (riveted panels, gauges, porthole, red lever) built once in SVG; porthole content slot (sky day/night cycling, light-streak vortex via radial lines + blur + zoom); rolling odometer counter component.",
+  "Chapter band component: translucent dark band across mid-frame with big title + subtitle, slide-in/out; white flash transition.",
+  "Landscape kit of flat layered backgrounds with theme tokens: night tundra with snow, overgrown city, river cross-section/waterfall, dusk desert, volcanic plain, beach with palms, mountaintop over clouds, smoky crater field, hot orange desert, grassland, white salt flat, brick room.",
+  "Diagram kit on starfield: globe (needs an orthographic world-map SVG with rotation - d3-geo works in Remotion), Earth-Moon orbit with arc, precession circle, constellations (star dots + lines + drift), supernova bloom (radial gradient + ring), galaxy spiral with orbit path, eclipse (disc over sun with corona glow), Mars with rings.",
+  "Map kit: flat green-on-blue maps with animated plate motion (Africa rift split, Africa-Europe collision with mountain triangles, Australia drift, Pangaea -> today -> Pangaea Ultima morph). Needs simplified continent polygons plus path interpolation (flubber or similar).",
+  "Proportion/timeline bar component (gradient bar, sliver marker with leader label) and route timeline with labelled stops.",
+  "Annotation system: pill callouts with leader lines, '+N YEARS' context pill, red stamp words with pop/rotate, crossed-out icon row, magnifying-glass reveal, '?' pill.",
+  "Karaoke caption renderer driven by word timestamps (from TTS alignment or whisper): spoken words white, upcoming grey, keyword list in orange.",
+  "Recap postcard grid that reuses earlier scene renders as thumbnails (render stills of each scene, then lay out).",
+  "End card: question + grid of choice buttons; comment icon.",
+  "Audio: calm VO (Kokoro), ambient music bed, beeps/whoosh/clunk SFX for the robot and travel ritual."
+ ],
+ "transcript_source": "YouTube auto-generated English subtitles (en-orig json3, word-timed), grouped into ~5-7 s lines; full timestamped transcript at research/library/transcripts/_lu85gSD39k.txt",
+ "assets": {
+  "sheet": "research/library/sheets/_lu85gSD39k.jpg",
+  "thumb": "research/library/thumbs/_lu85gSD39k.jpg",
+  "transcript": "research/library/transcripts/_lu85gSD39k.txt",
+  "spark_video": "~/studio/refs/whatif/_lu85gSD39k.mp4 (25.1 MB, kept)",
+  "spark_subs": "~/studio/refs/whatif/_lu85gSD39k.en-orig.json3",
+  "spark_frames": "~/studio/refs/whatif/fr__lu85/ (every 2 s), hr__lu85/ (full-res stills)",
+  "spark_scene_cuts": "~/studio/refs/whatif/_lu85.scenes.txt (0.3), _lu85.scenes12.txt (0.12)"
+ },
+ "description_hook": "What if you stepped into a time machine and traveled one billion years into the future, with no way back? ... Which stop would you get off at? Tell me in the comments. (+ timestamped chapters for each stop)"
+}

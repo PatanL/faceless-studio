@@ -1,0 +1,527 @@
+{
+  "id": "7666044652910316833",
+  "url": "https://www.tiktok.com/@mraevq/video/7666044652910316833",
+  "platform": "tiktok",
+  "niche": "horror",
+  "channel": "mraevq",
+  "title": "#cartoon #fyp",
+  "upload_date": "2026-07-24",
+  "duration": 403,
+  "views": 325900,
+  "likes": 18800,
+  "comments": 302,
+  "shares": 1046,
+  "subs": null,
+  "channel_median_views": 10750,
+  "outlier_score": 30.32,
+  "role": "outlier",
+  "analysis_notes": {
+    "source_files_spark": "~/studio/refs/horror/7666044652910316833.{mp4,image,eng-US.vtt,info.json} plus f_7666044652910316833/ (202 frames, 2 s, 270x480), scenes_7666044652910316833.txt (scene>0.08 cut list) and rv_7666/ (8x4 review sheets)",
+    "download": "Lowest available rendition is 576x1024 h264 (540p, 6.7 MB); TikTok offers nothing at 480p. Needed yt-dlp with curl_cffi impersonation: installed yt-dlp[default,curl-cffi] into ~/studio/.venv (the ~/.local/bin/yt-dlp has no impersonation and TikTok returns 'Unexpected response').",
+    "transcript_source": "TikTok auto-subs (eng-US), 220 cues. Full copy at research/library/transcripts/7666044652910316833.txt with names fixed from the burned-in captions: Chen Jie (narrator; auto-subs say Chenji/Genji/Ng/Changia), Wang Qiang (keeper; Wang Chong/Wangchuan/Wonkyo), Gao Xiang (streamer; Gau Song/Gaosang/Garson), Zhang (keeper; John/Jang/Xiang), 'Our zoo' (auto-subs: 'Arzu'), 'genes' (auto-subs: 'jeans').",
+    "frames": "Sampled every 2 s (202 frames). Contact sheet research/library/sheets/7666044652910316833.jpg is 12 columns x 17 rows of 133 px tiles, row-major, 2 s per tile (24 s per row), timestamps in yellow.",
+    "cut_detection": "ffmpeg scene>0.25 finds 0 cuts because ~55% of every frame is static black letterbox; at scene>0.08 it finds 105 changes (max score 0.23), matching the visible hard cuts. Shot list merges same-setup ping-pong stretches; timings +/-1 s.",
+    "metadata_snapshot": "views/likes/comments/shares from yt-dlp info.json 2026-11-01 ~09:05 UTC. channel_follower_count not exposed by the extractor (subs null). Audio track credited '原創音樂' (original sound) by mraevq.",
+    "provenance": "Translated English dub of a Chinese 2D animated web series (Chinese ticket board '门票价 800元', yuan prices, JD.com ad, Chinese names). Per BRIEF rule 5: study the structure only, never the story."
+  },
+  "title_pattern": "No title at all: hashtag-only caption '#cartoon #fyp'. On TikTok the video hook carries all the discovery; the caption only asks for feed placement. Nothing to copy except 'don't spend effort on the caption, spend it on the first 3 seconds'.",
+  "thumbnail": {
+    "composition": "Not a designed thumbnail: TikTok cover = frame 0. A 16:9 rounded-corner picture letterboxed in the middle of a black 9:16 canvas (picture covers only y~30-70%). Inside: the dinosaur behind a chain-link fence on the left third, mouth open over a red meat slab on a pole; two cartoon humans (director in black suit, narrator in neon-yellow jacket) standing on the right two-thirds, facing camera.",
+    "text": "None on the cover itself (the first burned-in subtitle 'Our zoo bred a dinosaur.' appears in the video, not the cover).",
+    "colours": "Very dark overall (heavy vignette/darkened grade): deep green foliage, black suit, grey mesh. Pops: neon-yellow jacket, red meat, pink-red dinosaur mouth and orange eye.",
+    "subject_scale_contrast": "Moderate: the dinosaur head is about the size of a human torso and half hidden behind the fence; the threat is framed as 'caged' next to calm humans. Style contrast is stronger than scale: semi-realistic shaded creature vs flat chibi big-head humans.",
+    "why_it_works": "On TikTok the cover barely matters (For You feed autoplays); the frame works because 'dinosaur + ordinary people' is an instant absurd/dangerous premise and the neon-yellow protagonist is recognisable across every later shot. The letterbox signals 'animated series episode' which this audience follows.",
+    "code_remake_notes": "Trivial in SVG/Remotion: black 1080x1920 canvas, centred 1080x~770 rounded rect scene, fence as repeated vertical posts + diagonal mesh pattern, green bush silhouettes, two flat characters, a creature head SVG with gradient shading, dark radial vignette."
+  },
+  "hook": {
+    "first_5s_verbatim": "Our zoo bred a dinosaur. The director made a fortune from it. But six months later, it knocked on my door.",
+    "first_12s_verbatim": "Our zoo bred a dinosaur. The director made a fortune from it. But six months later, it knocked on my door. \"Dad, open the door. I'm starving. I want meat!\" A chill ran down my spine. What was going on? The dinosaur could speak, and it called me Dad.",
+    "device": "Compressed backstory + 'But [time skip], it [came to my home]' inciting incident in 3 sentences (5.2 s), then an immediate impossible-detail line of monster dialogue ('Dad', 'I want meat') and the narrator voicing the viewer's question ('What was going on?'). First-person present danger, zero preamble, the monster is on screen by second 3.",
+    "hook_length_s": 11.7,
+    "open_loops": [
+      "Why can it talk?",
+      "Why does it call him Dad?",
+      "Will the custom door hold?"
+    ]
+  },
+  "beats": [
+    {
+      "t_start": 0.0,
+      "t_end": 5.2,
+      "beat_type": "hook",
+      "summary": "Two-sentence premise plus inciting incident: our zoo bred a dinosaur, the director got rich, and six months later it knocked on MY door."
+    },
+    {
+      "t_start": 5.2,
+      "t_end": 11.7,
+      "beat_type": "hook_escalation",
+      "summary": "The monster speaks through the door: 'Dad, open the door. I'm starving. I want meat!' - a talking monster that calls the narrator 'Dad' (open question #1)."
+    },
+    {
+      "t_start": 11.7,
+      "t_end": 45.2,
+      "beat_type": "setup_exposition_via_call",
+      "summary": "Phone call with keeper Wang Qiang: it escaped; the door is custom-made (false safety); confession that they spliced the narrator's genes into it so it could perform tricks. Explains 'Dad' while seeding guilt."
+    },
+    {
+      "t_start": 45.2,
+      "t_end": 60.3,
+      "beat_type": "antagonist_and_flashback",
+      "summary": "Greedy director forbids police ('cash cow', not broken even). Quick flashback of the dinosaur crushing a visitor's leg proves danger; narrator calls police anyway."
+    },
+    {
+      "t_start": 60.3,
+      "t_end": 99.8,
+      "beat_type": "first_kill",
+      "summary": "Neighbour Ms. Wang opens her door to complain and is pinned; narrator chooses to lock his door ('I'm no hero'). The dinosaur uses her hand on a fingerprint lock (intelligence escalation)."
+    },
+    {
+      "t_start": 99.8,
+      "t_end": 121.8,
+      "beat_type": "cruelty_and_growth",
+      "summary": "It eats her on the balcony in front of him on purpose; she wakes and curses him ('You'll die like me'); after eating it grows from 6 ft to 8 ft (rule: every kill makes it bigger)."
+    },
+    {
+      "t_start": 121.8,
+      "t_end": 160.9,
+      "beat_type": "authority_fails_setup",
+      "summary": "Director arrives with tranquilizers and a net, refusing rifles; narrator insists; director admits T. rex DNA. Sets up a predictable failure."
+    },
+    {
+      "t_start": 160.9,
+      "t_end": 172.3,
+      "beat_type": "sponsor_break",
+      "summary": "In-dialogue ad: 'how are you calling me, wasn't your phone broken?' -> JD.com trade-in subsidy pitch with app screenshots."
+    },
+    {
+      "t_start": 172.3,
+      "t_end": 197.1,
+      "beat_type": "offscreen_fight",
+      "summary": "Team reaches Room 804; struggle heard off-screen; silence; a knock on the narrator's door."
+    },
+    {
+      "t_start": 197.1,
+      "t_end": 265.5,
+      "beat_type": "door_standoff_deduction",
+      "summary": "Peephole: only the director. Wang Qiang warns him; narrator deduces the lie (two men can't carry 800 lb down 8 floors; Zhang's ringtone next door). Director confesses, begs, cries; narrator refuses and lectures him."
+    },
+    {
+      "t_start": 265.5,
+      "t_end": 284.0,
+      "beat_type": "karmic_kill_and_ticking_clock",
+      "summary": "Dinosaur kills the director instantly, eats all three, grows past 10 ft. Police delayed by snow: hold out 30 minutes."
+    },
+    {
+      "t_start": 284.0,
+      "t_end": 354.6,
+      "beat_type": "disbelief_subplot",
+      "summary": "Group-chat warning is mocked; the dead woman's husband thinks it's a prank; a paid volunteer livestreams from 804, finds no dinosaur, and the chat accuses the narrator of murder."
+    },
+    {
+      "t_start": 354.6,
+      "t_end": 375.2,
+      "beat_type": "jump_scare_and_escalation",
+      "summary": "'Is something behind you?' - the dinosaur flings the streamer. Then the dead man's phone calls the narrator: 'Dad, I'm coming for you.' It can use phones and has learned to climb."
+    },
+    {
+      "t_start": 375.2,
+      "t_end": 389.0,
+      "beat_type": "climax_resolution",
+      "summary": "It crawls up the building toward him; he runs; police arrive and shoot it."
+    },
+    {
+      "t_start": 389.0,
+      "t_end": 403.6,
+      "beat_type": "twist_ending",
+      "summary": "Wang Qiang calls: 'Did the police suspect you?' - narrator and keeper planned it; footage clears them, the director is dead, the zoo is theirs: 'We'll breed more dinosaurs and rule the world.' Hard cut, no CTA."
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0.0,
+      "t_end": 1.3,
+      "shot_type": "establishing_two_shot",
+      "visual_description": "Night zoo enclosure: wire-mesh fence, a dark detailed raptor/T-rex grabs a red meat slab on a feeding pole (left); the zoo director (black suit, scowl) and narrator Chen Jie (neon-yellow jacket, pale wide-eyed face) stand right. Same frame is the cover/thumbnail.",
+      "camera_motion": "static, slight push-in",
+      "on_screen_text": "Our zoo bred a dinosaur."
+    },
+    {
+      "t_start": 1.3,
+      "t_end": 3.1,
+      "shot_type": "medium",
+      "visual_description": "Zoo exterior: keeper in red jacket/cap beside a black ticket-price board (Chinese '门票价 800元'), dinosaur behind the fence.",
+      "camera_motion": "static",
+      "on_screen_text": "The director made a fortune from it."
+    },
+    {
+      "t_start": 3.1,
+      "t_end": 7.6,
+      "shot_type": "monster_insert",
+      "visual_description": "Apartment hallway (blue/orange striped wall): the dinosaur's head in profile at a door, mouth open, claw raised to knock.",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "But six months later, it knocked on my door. / I'm starving. I want meat!"
+    },
+    {
+      "t_start": 7.6,
+      "t_end": 12.9,
+      "shot_type": "reaction_close",
+      "visual_description": "Chen Jie inside by his front door, rigid, exaggerated meme-face eyes (tiny pupils), mouth agape.",
+      "camera_motion": "static, expression swaps",
+      "on_screen_text": "A chill ran down my spine. / The dinosaur could speak."
+    },
+    {
+      "t_start": 12.9,
+      "t_end": 18.9,
+      "shot_type": "phone_call_cutaway",
+      "visual_description": "Keeper Wang Qiang (red spiky hair, black-white hoodie) at the zoo fence by the ticket board, phone to ear.",
+      "camera_motion": "static",
+      "on_screen_text": "And it called me Dad. / Then Wang Qiang called Chen Jie! / We can't find it anywhere."
+    },
+    {
+      "t_start": 18.9,
+      "t_end": 32.1,
+      "shot_type": "phone_ping_pong",
+      "visual_description": "Alternating singles: Chen Jie (blue phone, back to the door) vs Wang Qiang at zoo. ~3 cuts. Both faces switch between fear/anger expressions on line changes.",
+      "camera_motion": "static",
+      "on_screen_text": "Stop searching! / It's outside my door. / Your door was custom-made. / Why can this dinosaur suddenly talk?"
+    },
+    {
+      "t_start": 32.1,
+      "t_end": 40.3,
+      "shot_type": "phone_call_cutaway",
+      "visual_description": "Wang Qiang close, guilty bug-eyed face, confessing.",
+      "camera_motion": "static",
+      "on_screen_text": "Wang Qiang froze, then confessed. / So we added your genes."
+    },
+    {
+      "t_start": 40.3,
+      "t_end": 43.6,
+      "shot_type": "reaction_close",
+      "visual_description": "Chen Jie angry, squinting, lowers phone and hangs up.",
+      "camera_motion": "static",
+      "on_screen_text": "You bastard! / Then I hung up."
+    },
+    {
+      "t_start": 43.6,
+      "t_end": 51.0,
+      "shot_type": "two_shot_then_single",
+      "visual_description": "Night park: Wang Qiang and the director; then director alone on phone, scowling, trees behind.",
+      "camera_motion": "static",
+      "on_screen_text": "Wang Qiang told the director everything. / That dinosaur cost me a fortune. / I haven't broken even yet."
+    },
+    {
+      "t_start": 51.0,
+      "t_end": 57.8,
+      "shot_type": "flashback_montage",
+      "visual_description": "Flashback: a visitor lies on stepping stones inside the enclosure, dinosaur approaching; director at the ticket board refusing; dinosaur stomps on the visitor's leg. 4 quick shots.",
+      "camera_motion": "static, hard cuts",
+      "on_screen_text": "A visitor fell into its enclosure. / The director refused to let anyone shoot. / The dinosaur crushed the visitor's leg."
+    },
+    {
+      "t_start": 57.8,
+      "t_end": 61.3,
+      "shot_type": "reaction_then_monster",
+      "visual_description": "Chen Jie calls police; cut to dinosaur at the door again, pounding.",
+      "camera_motion": "static",
+      "on_screen_text": "Remembering that, I called the police. / Right after I called, it pounded again."
+    },
+    {
+      "t_start": 61.3,
+      "t_end": 65.2,
+      "shot_type": "medium",
+      "visual_description": "Neighbour Ms. Wang (purple top, bob haircut, rosy cheeks) at her own door, annoyed.",
+      "camera_motion": "static",
+      "on_screen_text": "Stop knocking this late! / I'll complain to management!"
+    },
+    {
+      "t_start": 65.2,
+      "t_end": 68.8,
+      "shot_type": "reaction_close",
+      "visual_description": "Chen Jie shouting through his door.",
+      "camera_motion": "static",
+      "on_screen_text": "Get back inside!"
+    },
+    {
+      "t_start": 68.8,
+      "t_end": 74.0,
+      "shot_type": "attack",
+      "visual_description": "Hallway: dinosaur lunges across frame and pins Ms. Wang to the floor, jaws over her face.",
+      "camera_motion": "fast slide-in of the creature, then hold",
+      "on_screen_text": "It instantly pinned her down. / Help! Don't eat me!"
+    },
+    {
+      "t_start": 74.0,
+      "t_end": 95.2,
+      "shot_type": "reaction_close_long",
+      "visual_description": "Long stretch on Chen Jie at his door: reaches for the handle, locks it, peers through peephole; 4-5 cuts between near-identical frames with changing facial expressions (fear, relief, smirk).",
+      "camera_motion": "static, micro push-ins",
+      "on_screen_text": "Ms. Wang begged me for help. / Then I locked my door. / Ms. Wang, I'm no hero. / It used her hand to unlock her door. / It understood fingerprint locks."
+    },
+    {
+      "t_start": 95.2,
+      "t_end": 99.8,
+      "shot_type": "monster_wide",
+      "visual_description": "Night balcony of the neighbouring flat: dinosaur over Ms. Wang's body behind black railings, window and lamp behind.",
+      "camera_motion": "static",
+      "on_screen_text": "It had dragged Ms. Wang outside. / When it saw me, it ate her openly."
+    },
+    {
+      "t_start": 99.8,
+      "t_end": 103.6,
+      "shot_type": "full_figure",
+      "visual_description": "Chen Jie standing on his own balcony behind a white door frame, full-body, staring.",
+      "camera_motion": "static",
+      "on_screen_text": "Damn it! This was deliberate. / What did this monster want?"
+    },
+    {
+      "t_start": 103.6,
+      "t_end": 117.5,
+      "shot_type": "gore_insert_vs_reaction",
+      "visual_description": "Ms. Wang upside-down in the dinosaur's jaws through railings, bleeding, eyes open, crying out; intercut with Chen Jie in his bedroom apologising.",
+      "camera_motion": "static",
+      "on_screen_text": "The pain suddenly woke her. / Chen Jie, why didn't you save me? / I hate you. You'll die like me!"
+    },
+    {
+      "t_start": 117.5,
+      "t_end": 121.8,
+      "shot_type": "monster_wide",
+      "visual_description": "Dinosaur alone on the balcony, head raised, roaring; scaled up between two shots to show growth.",
+      "camera_motion": "scale-up between cuts",
+      "on_screen_text": "Five minutes later, it finished eating. / Its body grew before my eyes."
+    },
+    {
+      "t_start": 121.8,
+      "t_end": 126.9,
+      "shot_type": "reaction_close",
+      "visual_description": "Chen Jie in dark bedroom (bed, red curtain).",
+      "camera_motion": "static",
+      "on_screen_text": "How was that possible? / It should only reach six feet."
+    },
+    {
+      "t_start": 126.9,
+      "t_end": 160.9,
+      "shot_type": "phone_ping_pong",
+      "visual_description": "Director (suit) and a blond keeper in orange jacket in a grey corridor on the phone vs Chen Jie in bedroom; ~10 alternating cuts.",
+      "camera_motion": "static",
+      "on_screen_text": "We brought tranquilizer guns. / Treat dinosaurs like children. / It's taller than a basketball player. / I added a little T. rex DNA."
+    },
+    {
+      "t_start": 160.9,
+      "t_end": 172.3,
+      "shot_type": "sponsor_overlay",
+      "visual_description": "Integrated ad: Chen Jie on phone while screenshots of the JD.com trade-in app (white/red/green UI cards) slide in on the right edge of the frame.",
+      "camera_motion": "overlay slide-ins",
+      "on_screen_text": "I used JD's trade-in program. / It only cost me two thousand yuan. / New phones get a five-hundred-yuan subsidy."
+    },
+    {
+      "t_start": 172.3,
+      "t_end": 181.6,
+      "shot_type": "medium",
+      "visual_description": "Director in front of Room 804 door with keepers; dinosaur flank glimpsed behind; arms crossed.",
+      "camera_motion": "static",
+      "on_screen_text": "Five minutes later, they reached Room 804. / The dinosaur is inside. / It's my cash cow."
+    },
+    {
+      "t_start": 181.6,
+      "t_end": 197.1,
+      "shot_type": "phone_ping_pong",
+      "visual_description": "Chen Jie at his door listening to the struggle; Wang Qiang calls again from the zoo; Chen Jie on phone.",
+      "camera_motion": "static",
+      "on_screen_text": "Then I heard a fierce struggle. / Chen Jie, are you okay? / Soon, everything went quiet."
+    },
+    {
+      "t_start": 197.1,
+      "t_end": 199.7,
+      "shot_type": "pov_peephole",
+      "visual_description": "Peephole POV: circular fisheye mask on black, the director alone in the corridor, a diagonal white light beam across.",
+      "camera_motion": "static",
+      "on_screen_text": "Only the director stood there. Everyone else was gone."
+    },
+    {
+      "t_start": 199.7,
+      "t_end": 206.9,
+      "shot_type": "reaction_then_call",
+      "visual_description": "Chen Jie reaching for the handle; hard cut to Wang Qiang yelling on the phone.",
+      "camera_motion": "static",
+      "on_screen_text": "As I reached for the door, Wang Qiang yelled. / Chen Jie, don't open it!"
+    },
+    {
+      "t_start": 206.9,
+      "t_end": 252.9,
+      "shot_type": "peephole_ping_pong",
+      "visual_description": "Standoff: alternates peephole-POV director (pleading, sweating) with Chen Jie close-ups holding the phone; ~8 cuts. Deduction beats land on Chen Jie.",
+      "camera_motion": "static",
+      "on_screen_text": "That dinosaur weighed at least eight hundred pounds. / His ringtone came from next door. / I'm sorry. I lied. / It's asleep now. But the drug will wear off soon."
+    },
+    {
+      "t_start": 252.9,
+      "t_end": 265.5,
+      "shot_type": "peephole_ping_pong",
+      "visual_description": "Director bursts into tears in the peephole; Chen Jie refuses, cold expression.",
+      "camera_motion": "static",
+      "on_screen_text": "Please! / You brought this on yourself. / You got those two keepers killed."
+    },
+    {
+      "t_start": 265.5,
+      "t_end": 267.1,
+      "shot_type": "attack",
+      "visual_description": "Corridor by door '808': the dinosaur rears up behind the director, jaws over his head.",
+      "camera_motion": "hard cut, static",
+      "on_screen_text": "Then the dinosaur appeared and killed him instantly."
+    },
+    {
+      "t_start": 267.1,
+      "t_end": 271.6,
+      "shot_type": "monster_wide",
+      "visual_description": "Balcony: dinosaur eating; then grown dinosaur on the balcony against a moon.",
+      "camera_motion": "static, scale-up",
+      "on_screen_text": "It ate all three on the balcony. / After eating, it grew again, reaching over ten feet."
+    },
+    {
+      "t_start": 271.6,
+      "t_end": 284.0,
+      "shot_type": "reaction_close_long",
+      "visual_description": "Chen Jie in bedroom on the phone to police; a red/orange comic burst icon pops by the phone (ringing).",
+      "camera_motion": "static, icon pop",
+      "on_screen_text": "I called the police again. / But snow has blocked the roads."
+    },
+    {
+      "t_start": 284.0,
+      "t_end": 294.7,
+      "shot_type": "reaction_close",
+      "visual_description": "Chen Jie by the door typing in the group chat, phone held out.",
+      "camera_motion": "static",
+      "on_screen_text": "I tagged everyone in the group chat. / There's a dinosaur in Room 804. / It has already killed four people."
+    },
+    {
+      "t_start": 294.7,
+      "t_end": 297.8,
+      "shot_type": "split_frame",
+      "visual_description": "Sceptical resident (black hair, black jacket) in a dim room, phone in hand; right third shows a dark strip with orange dino figurines.",
+      "camera_motion": "static",
+      "on_screen_text": "What nonsense is this? / Dinosaurs have been extinct for ages."
+    },
+    {
+      "t_start": 297.8,
+      "t_end": 317.0,
+      "shot_type": "chat_ping_pong",
+      "visual_description": "Group-chat argument as alternating singles: Chen Jie vs Lou (blond, red hoodie, phone) in a dim room; ~6 cuts.",
+      "camera_motion": "static",
+      "on_screen_text": "Chen Jie, isn't 804 my home? / Your wife was killed. / You're helping her prank me, aren't you? / I'll pay two thousand yuan."
+    },
+    {
+      "t_start": 317.0,
+      "t_end": 330.3,
+      "shot_type": "chat_ping_pong",
+      "visual_description": "Gao Xiang (muscular, tank top, gold chain) in a living room with a lamp and gold wall decor volunteers; Chen Jie messages him.",
+      "camera_motion": "static",
+      "on_screen_text": "Hearing about the money, Gao Xiang volunteered. / That dinosaur is over ten feet tall! / Don't worry."
+    },
+    {
+      "t_start": 330.3,
+      "t_end": 354.6,
+      "shot_type": "livestream_ping_pong",
+      "visual_description": "Gao Xiang inside 804's living room (yellow/grey sofa, window) with a stick and phone, livestreaming; intercut Lou and the sceptical resident and Chen Jie.",
+      "camera_motion": "static",
+      "on_screen_text": "There's no dinosaur here. / I'm already inside your home. / There's no dinosaur, but your wife is dead. / Did you kill her and blame a dinosaur?"
+    },
+    {
+      "t_start": 354.6,
+      "t_end": 359.5,
+      "shot_type": "jump_scare",
+      "visual_description": "Same living room: dinosaur jaws descend into frame top-left behind Gao Xiang; next shot he is flung across the floor.",
+      "camera_motion": "creature slides in from frame edge, hard cut",
+      "on_screen_text": "Gao Xiang turned around. / The dinosaur stood right behind him. / It instantly knocked him across the room."
+    },
+    {
+      "t_start": 359.5,
+      "t_end": 375.2,
+      "shot_type": "reaction_close_long",
+      "visual_description": "Chen Jie at his door, phone to ear, terrified as the dead man's phone calls him.",
+      "camera_motion": "static, expression swaps",
+      "on_screen_text": "When I answered, the dinosaur spoke. / Damn it! It could use a phone!"
+    },
+    {
+      "t_start": 375.2,
+      "t_end": 379.2,
+      "shot_type": "monster_wide",
+      "visual_description": "Night exterior: huge dinosaur crawling along the building balconies toward camera, moon behind.",
+      "camera_motion": "static",
+      "on_screen_text": "I looked and saw it had grown again. / It had learned to climb and was crawling toward me."
+    },
+    {
+      "t_start": 379.2,
+      "t_end": 387.2,
+      "shot_type": "two_shot",
+      "visual_description": "Stairwell: Chen Jie with police officers in hi-vis 'POLICE' vests; two officers nod.",
+      "camera_motion": "static",
+      "on_screen_text": "The police arrived right then. / The dinosaur is in my home. / The officers nodded."
+    },
+    {
+      "t_start": 387.2,
+      "t_end": 389.0,
+      "shot_type": "monster_insert",
+      "visual_description": "Dinosaur head lying on the floor by a door, dead.",
+      "camera_motion": "static",
+      "on_screen_text": "Then they went upstairs and shot it."
+    },
+    {
+      "t_start": 389.0,
+      "t_end": 391.9,
+      "shot_type": "phone_call_cutaway",
+      "visual_description": "Wang Qiang at the zoo on phone, calm.",
+      "camera_motion": "static",
+      "on_screen_text": "Did the police suspect you?"
+    },
+    {
+      "t_start": 391.9,
+      "t_end": 403.6,
+      "shot_type": "reveal_close",
+      "visual_description": "Chen Jie in the stairwell, phone at ear, smug side-eye smirk for the final lines; cut ends abruptly.",
+      "camera_motion": "static",
+      "on_screen_text": "Everything went smoothly. / Now the director is dead. / We'll breed more dinosaurs and rule the world."
+    }
+  ],
+  "pacing": {
+    "spoken_words": 1487,
+    "words_per_minute": 221,
+    "avg_shot_length_s": 3.8,
+    "shot_length_notes": "105 detected visual changes in 403.6 s (scene>0.08) -> ~106 shots, median ~3 s, range 0.7-15 s. Long holds (8-15 s) are always on the narrator's reaction face during voice-over; creature/attack inserts are short (1.5-4 s).",
+    "re_hook_interval_s": "~15-25 s: a new threat, reveal or rule appears roughly every 20 s (talks -> has your genes -> kills neighbour -> uses fingerprint lock -> grows -> director lies -> director killed -> grows -> nobody believes -> jump scare -> uses phone -> climbs -> twist).",
+    "subtitle_density": "One short burned-in sentence at a time (4-9 words), synced to each line of dialogue; ~220 caption cues = a new caption every ~1.8 s.",
+    "dialogue_ratio": "Roughly 55% character dialogue (phone calls, door talk, group chat) vs 45% first-person narration; narration lines are terse past-tense 'Then X happened.'",
+    "structure": "Single continuous episode, escalating-threat ladder with a twist ending; no chapters, no CTA, one mid-roll integrated sponsor at 40% (2:40-2:52)."
+  },
+  "techniques_worth_copying": [
+    "Three-sentence cold open: backstory in one line, consequence in one line, 'But N months later, it [came for me]' in the third. Monster speaks a line by second 5.",
+    "Monster-with-rules escalation: each kill makes it grow (6 ft -> 8 ft -> 10 ft -> bigger), and it learns a human skill each act (speech, fingerprint lock, phone, climbing). Every new rule is a re-hook.",
+    "Phone-call ping-pong as the main storytelling engine: two static characters alternate on calls, so exposition is dialogue not narration, and it costs one pose per character.",
+    "Door/peephole standoff with deduction: the protagonist catches a lie with concrete physical logic (800 lb, 8th floor, ringtone heard next door). Viewers love out-thinking the trap.",
+    "Morally grey narrator who chooses self-preservation ('I'm no hero', locks the door) and a victim who curses him: guilt + comment bait.",
+    "Greedy authority figure who refuses guns to protect profit and dies for it: karmic payoff the audience waits for.",
+    "Disbelief sub-plot via group chat / livestream: sceptics, a paid volunteer, an accusation against the narrator, then 'Is something behind you?' jump scare.",
+    "Last-10-seconds twist reframing the whole story (narrator and keeper engineered it), ending on a sinister sequel-bait line and a hard cut - drives rewatches and 'part 2?' comments.",
+    "Letterboxed 16:9 scene in a 9:16 canvas with small burned-in subtitles: reads as an 'episode' and lets one landscape render serve both YouTube and TikTok.",
+    "Visual economy: ~8 reusable sets (door, bedroom, zoo fence, corridor, balcony, peephole, living room, stairwell) and ~8 characters with swappable meme-face expressions carry 6.7 minutes."
+  ],
+  "code_only_remake_needs": {
+    "feasibility": "High. The original is limited 2D puppet animation: static sets, characters with expression swaps and mouth flaps, hard cuts, occasional creature slide-in and scale-up. Everything maps to Remotion + SVG.",
+    "assets": [
+      "~8 flat SVG sets in a dark palette: apartment door interior (with peephole + handle), bedroom (bed, curtain), corridor with numbered doors, exterior balcony with railings + moon, zoo fence/enclosure with ticket board, living room with sofa, stairwell, park at night.",
+      "Character rig in SVG: chibi big head + body, 6-8 swappable eye/brow/mouth expression sets (fear with tiny pupils, squint anger, smirk, crying), mouth-flap visemes, arm poses (phone at ear, phone held out, hand on door handle).",
+      "Original creature design (do NOT copy theirs): layered SVG with gradient shading so it looks heavier than the flat humans; poses for: at the door, lunge/pin, eating behind railings, roar, crawling on building, dead on floor; size variants for growth stages.",
+      "Peephole POV mask: circular fisheye vignette with barrel-distort feel (SVG mask + slight radial scale) and a diagonal light beam.",
+      "Phone/chat UI overlays (group chat bubbles, incoming call, livestream frame) as React components instead of real app screenshots.",
+      "Comic burst/impact icons, blood decals, red flash overlay for kills."
+    ],
+    "engine_features": [
+      "Storyboard schema: shots of {set, characters[pose, expression, position], creature[pose, scale], overlay, caption}, one shot per dialogue line or two.",
+      "Letterbox layout: 16:9 rounded scene centred in 1080x1920, optional top/bottom title bands (the original leaves them empty; we could use the top band for a series title/part number).",
+      "Auto expression switching keyed to caption text/emotion tags; mouth flaps keyed to TTS word timestamps.",
+      "Shot templates: phone ping-pong (alternate singles per speaker), peephole POV, monster insert with slide-in/scale-up, jump-scare (creature enters frame edge + 2-frame shake), reaction hold with slow push-in.",
+      "Burned-in captions: one sentence at a time, small white sans with shadow at the bottom of the scene box, timed from TTS.",
+      "Multi-voice TTS (Kokoro: narrator, monster pitched-down, 4-5 side voices) + low drone bed, door-knock, roar and phone-ring SFX."
+    ],
+    "effort_estimate": "One reusable horror kit (sets + rig + creature + 5 shot templates) then ~1 storyboard JSON per episode; a 6-7 min episode is ~100 shots, mostly template reuse."
+  }
+}

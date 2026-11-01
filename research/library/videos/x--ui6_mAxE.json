@@ -1,0 +1,217 @@
+{
+  "id": "x--ui6_mAxE",
+  "url": "https://www.youtube.com/shorts/x--ui6_mAxE",
+  "platform": "youtube_shorts",
+  "niche": "horror",
+  "channel": "Wansee Entertainment",
+  "title": "I gave her a ride, but she was.....",
+  "upload_date": "2023-05-05",
+  "duration": 14.92,
+  "views": 141758,
+  "likes": 4413,
+  "comments": 75,
+  "shares": null,
+  "subs": 1840000,
+  "channel_median_views": 15000,
+  "outlier_score": 9.45,
+  "role": "outlier",
+  "analysis_notes": {
+    "source_files_spark": "~/studio/refs/horror/x--ui6_mAxE.{mp4,jpg,en-orig.vtt,en.vtt,info.json,sheet.jpg}; dense 4 fps sheet + full-res frames in ~/studio/refs/horror/work_x--ui6_mAxE/",
+    "download": "360x480 (3:4) h264 25 fps + opus, 0.47 MB merged. Native max is 600x800, i.e. the Short is a 3:4 canvas, not 9:16 (YouTube pads it with black on phones). Kept on Spark (<300 MB).",
+    "transcript_source": "YouTube auto-subs en-orig with word timings (35 words). Full text in research/library/transcripts/x--ui6_mAxE.txt. The name auto-transcribed as 'Mary talish' is uncertain.",
+    "frames": "Sampled every 1 s (15 frames). research/library/sheets/x--ui6_mAxE.jpg = 5 cols x 3 rows, row-major, 1 s per tile starting at 0 s. A 4 fps sheet (60 tiles) was also inspected for shot timing.",
+    "visual_change_detection": "ffmpeg scene score: only one hard cut (9.16 s); 0.6-1.12 s flagged as the character sliding into frame. All other changes are in-shot character motion (expression swaps, ghost sliding/leaning in, tongue extending).",
+    "audio": "No silence gaps anywhere (0.5 s RMS stays between -16 and -24 dBFS for the whole 15 s), so narration sits on a continuous music/ambience bed; not listened to directly.",
+    "context": "The word 'again' in line 2 implies this is a cut-down excerpt from a longer Wansee story: the Short starts mid-story and ends on the scare with no resolution. Upload is 2023, metadata snapshot 2026-11-01 ~09:13 UTC.",
+    "originality_warning": "Study structure only. Do not reuse the hitchhiker/back-seat ghost premise beat-for-beat, the character design (blonde rotted ghost, long tongue), the title wording or the narration lines."
+  },
+  "title_pattern": {
+    "template": "I <did a kind/ordinary favour for her>, but she was.....",
+    "notes": "First-person confession + 'but she was' + trailing ellipsis. The predicate is withheld, so the title is pure curiosity gap; the viewer completes it (dead? a ghost?) and stays to confirm. The exact same text is burned into the top band for the whole video, so title, thumbnail and frame all repeat one question. Short (7 words), lowercase-casual, no hashtags in title (description has #shorts)."
+  },
+  "thumbnail": {
+    "composition": "Auto/frame-picked 16:9 (1280x720) image: the 3:4 short frame centred on black. Top: two-line title text. Middle: the story panel at ~7 s, ghost woman in the back seat left third, screaming driver right half, both facing camera. Bottom: red WANSEE ENTERTAINMENT logo.",
+    "text": "'I gave her a ride / But she was....' white sans, two lines, left-aligned within the centred block.",
+    "colours": "Pure black surround; desaturated grey-green car interior; pale grey-green skin on the ghost with black hollow eye sockets and a red-pink open mouth; driver's orange hair and warm skin as the only warm tones; red brand logo.",
+    "subject_scale_contrast": "Two faces of similar size side by side: normal human (warm, cartoon-simple) vs. rotted ghost (grey, dark eye hollows). Contrast is of state (alive/dead), not scale. The ghost sits further back but is the visual hook.",
+    "why_it_works": "Answers half of the title's question visually (she was a ghost) while the scream sells the stakes; the open mouths on both characters read instantly at small size. Simple flat-colour cartoon on black stands out in a feed of live-action. Weakness: lots of dead black space, small panel; it works mostly because Shorts are discovered in the feed, not via thumbnail."
+  },
+  "hook": {
+    "first_3_5s_verbatim": "Just as I got into my car, I saw Mary Talish again.",
+    "first_3_5s_visual": "POV from the back seat: an empty driver's headrest for 0.6 s, then the narrator slides into the driver's seat (0.6-1.1 s) and stares straight at the camera (i.e. toward the back seat) with a blank face; at 3.2 s his eyes dart sideways and his mouth drops open.",
+    "device": "In-medias-res first-person narration ('Just as I...') with a recurrence word ('again') that implies an existing threat, combined with a persistent on-screen title question ('But she was....') and a dread camera position: the camera sits in the back seat, where the threat will appear, so the viewer is looking from the ghost's spot. Visual reveal (ghost slides in at 4.4 s) arrives before the narration names her as a ghost (9.4 s): the picture outruns the words."
+  },
+  "beats": [
+    {
+      "t_start": 0.0,
+      "t_end": 1.12,
+      "beat_type": "cold_open_setting",
+      "summary": "Empty driver's seat seen from the back seat; narration starts mid-action 'Just as I got into my car'; the narrator slides into the seat."
+    },
+    {
+      "t_start": 1.12,
+      "t_end": 3.2,
+      "beat_type": "normalcy",
+      "summary": "Narrator sits facing the camera, blank, ordinary night drive. Dead-air stillness before the scare."
+    },
+    {
+      "t_start": 3.2,
+      "t_end": 4.4,
+      "beat_type": "recognition",
+      "summary": "'I saw Mary Talish again' - eyes dart to the side, mouth opens: he has noticed someone; recurrence implies a prior encounter."
+    },
+    {
+      "t_start": 4.4,
+      "t_end": 7.0,
+      "beat_type": "reveal",
+      "summary": "The ghost woman slides into the back seat from frame left: hollow black eyes, rotted grey skin. Visual reveal precedes the narration describing her."
+    },
+    {
+      "t_start": 7.0,
+      "t_end": 9.16,
+      "beat_type": "escalation",
+      "summary": "'This time she was not looking like a human' - driver screams, ghost's mouth gapes and a long tongue drops out."
+    },
+    {
+      "t_start": 9.16,
+      "t_end": 12.5,
+      "beat_type": "climax_proximity",
+      "summary": "Hard cut to the driver's side profile, sweating, frozen; the ghost leans forward from behind the headrest, tongue snaking toward his face. 'but rather a ghost or a zombie, and she gave me a creepy smile'."
+    },
+    {
+      "t_start": 12.5,
+      "t_end": 14.92,
+      "beat_type": "unresolved_end",
+      "summary": "Hold on the ghost's face at his cheek, tongue almost touching him; ends abruptly on the line 'creepy smile' with no resolution, inviting a replay and a click to the channel for the full story."
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0.0,
+      "t_end": 0.6,
+      "shot_type": "POV wide (back seat)",
+      "visual_description": "Dark car interior at night, empty driver's seat back and headrest in centre, rear window shapes behind.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 0.6,
+      "t_end": 1.12,
+      "shot_type": "POV wide (back seat)",
+      "visual_description": "Driver (orange hair, white shirt) slides into the seat from the right edge.",
+      "camera_motion": "static; character slide-in",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 1.12,
+      "t_end": 3.2,
+      "shot_type": "medium close-up, frontal",
+      "visual_description": "Driver faces the camera between the headrests, neutral face, slight idle blink.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 3.2,
+      "t_end": 4.4,
+      "shot_type": "medium close-up, frontal",
+      "visual_description": "Expression swap: pupils shift to frame left (toward the rear seat), mouth drops to a small 'o'.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 4.4,
+      "t_end": 5.9,
+      "shot_type": "two-shot (ghost left third, driver right half)",
+      "visual_description": "Ghost woman (blonde, grey rotted skin, black hollow eyes, torn white dress) slides in from the left edge and settles in the back seat behind and left of the driver.",
+      "camera_motion": "static; character slide-in from left",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 5.9,
+      "t_end": 7.0,
+      "shot_type": "two-shot",
+      "visual_description": "Hold: ghost stares at camera, driver's eyes glance sideways at her, worried brow.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 7.0,
+      "t_end": 7.75,
+      "shot_type": "two-shot",
+      "visual_description": "Driver screams (wide open mouth, raised brows); ghost's jaw drops open.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 7.75,
+      "t_end": 9.16,
+      "shot_type": "two-shot",
+      "visual_description": "Ghost's long red tongue extends down to her chest; driver keeps screaming, small mouth-shape changes.",
+      "camera_motion": "static; tongue grow animation",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 9.16,
+      "t_end": 9.6,
+      "shot_type": "close-up, driver profile (facing right)",
+      "visual_description": "Hard cut: driver in right profile, sweat drops, mouth agape, headrest on the left, dark window behind; ghost's face just visible behind the headrest edge.",
+      "camera_motion": "static",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 9.6,
+      "t_end": 12.5,
+      "shot_type": "close-up two-shot, profile",
+      "visual_description": "Ghost leans forward from behind the headrest, her head growing in frame and getting lighter as it nears the driver; tongue snakes horizontally toward his cheek.",
+      "camera_motion": "static camera; ghost scale-up + slide right (pseudo push-in on the threat)",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    },
+    {
+      "t_start": 12.5,
+      "t_end": 14.92,
+      "shot_type": "close-up two-shot, profile",
+      "visual_description": "Ghost's face against the back of the driver's head, tongue curled just under his face; small tongue wiggle and his frozen scream. Video ends on this frame.",
+      "camera_motion": "static; subtle tongue loop",
+      "on_screen_text": "I gave her a ride / But she was.... (persistent top title band, white sans on black) + WANSEE ENTERTAINMENT red logo (bottom band)"
+    }
+  ],
+  "pacing": {
+    "words": 35,
+    "words_per_minute": 141,
+    "speech_window_s": "0.66-14.46 (narration covers ~93% of runtime, no pauses)",
+    "hard_cuts": 1,
+    "camera_setups": 2,
+    "avg_camera_setup_length_s": 7.5,
+    "visual_changes": 11,
+    "avg_visual_change_interval_s": 1.36,
+    "notes": "Almost no editing: two camera setups, everything else is limb/face/character motion inside a static frame. New visual information about every 1-1.5 s (sit down, look, ghost slides in, scream, tongue, cut, lean-in). Scare is front-loaded: monster on screen by 4.4 s (30% of runtime) and the closest-proximity moment fills the last 35%."
+  },
+  "techniques_worth_copying": [
+    "Curiosity-gap title with a withheld predicate ('but she was.....') repeated as a persistent on-screen title band for the whole video, so the question never leaves the screen.",
+    "Camera placed where the threat will appear (back-seat POV): the empty seat is itself a dread shot and the character looking 'at us' implicates the viewer.",
+    "Picture runs ahead of narration: the ghost appears ~5 s before the voice says 'ghost', rewarding attentive viewers and creating a tense gap.",
+    "Slide-in reveals from the frame edge instead of cuts: cheap to animate, read clearly at phone size.",
+    "One hard cut, saved for the climax (frontal two-shot -> tight profile), which makes the single cut feel like a jolt.",
+    "Threat closes distance across shots (back seat far left -> right behind his head -> tongue at his cheek): proximity escalation is the whole arc.",
+    "End on the scariest frame with no resolution so the 15 s loop restarts on the empty-seat shot; excerpt framing ('again') suggests a longer story exists.",
+    "Strong graphic layout for a non-9:16 source: title band top, story panel middle, brand logo bottom on black. Consistent channel template for every Short."
+  ],
+  "code_only_remake_needs": {
+    "canvas": "1080x1920 (or 1080x1440 3:4 like the original) black background; top title band (2 lines, ~64-72 px white sans), middle 16:9 story panel (~100% width, ~42% height), bottom brand wordmark band.",
+    "assets_svg": [
+      "Car interior from back seat at night: front seat back + headrests, side windows, rear seats (flat grey-green fills, dark outlines).",
+      "Driver character as layered SVG: head, hair, torso, separate eyes/pupils, brows, 4-5 mouth shapes (neutral, small o, worried, scream), sweat drops; plus a right-profile version.",
+      "Ghost character: front and three-quarter/profile versions with hollow-eye sockets (radial gradient black), rotted skin texture (noise filter or hand-drawn cracks), mouth open shape, tongue as an animatable SVG path (stroke with round caps, length via strokeDashoffset or path morph)."
+    ],
+    "animation": [
+      "Character slide-in from frame edge with ease-out (spring) for the driver (0.6-1.1 s) and ghost (4.4-5.9 s).",
+      "Expression swaps on timeline cues (pupil translate, mouth shape swap, brow rotate).",
+      "Tongue grow: interpolate a cubic path's control points / dash length over ~1.4 s; looping wiggle with sin(frame).",
+      "Climax: hard cut to profile layout, ghost group translateX + scale 0.7->1.2 and brightness filter up over ~3 s.",
+      "Optional subtle camera shake on scream frames and a slow vignette darken."
+    ],
+    "audio": "Single first-person narrator TTS (Kokoro, calm male, ~140 wpm) over a continuous low drone / dark ambient bed; optional sting on the hard cut at the climax and on the ghost slide-in.",
+    "text": "Static title band only (no word-by-word captions in the original). For our version consider adding kinetic captions inside the black band below the panel since the original leaves that space empty.",
+    "effort": "Low: 2 backgrounds, 2 characters x 2 angles, ~10 keyframed actions. A reusable 'car-at-night jumpscare' Remotion scene with props for character art would cover many 15 s horror Shorts."
+  }
+}

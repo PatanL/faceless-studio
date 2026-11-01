@@ -1,0 +1,746 @@
+{
+  "id": "7654526047005723937",
+  "url": "https://www.tiktok.com/@mraevq/video/7654526047005723937",
+  "platform": "tiktok",
+  "niche": "horror",
+  "channel": "mraevq",
+  "title": "#chenjie #wangqiang",
+  "upload_date": "2026-06-23",
+  "duration": 357.9,
+  "views": 716900,
+  "likes": 50400,
+  "comments": 252,
+  "shares": 4151,
+  "subs": null,
+  "channel_median_views": 10750,
+  "outlier_score": 66.69,
+  "role": "outlier",
+  "analysis_notes": "Source file reused from the R2 lane download (1080x1920, 357.9 s; yt-dlp on the Spark now fails on TikTok without impersonation) and re-encoded to 480x854 at ~/studio/refs/horror/7654526047005723937.mp4 (12 MB, kept). No TikTok subtitles; transcript = faster-whisper small (CPU, 2 threads), checked against the burned-in English captions (whisper 'Anksand Gardens' = caption 'Anxin Gardens', 'sent something' = 'sensed something'). Full transcript: research/library/transcripts/7654526047005723937.txt. Content is a translated/dubbed repost of a Chinese 2D 'limited animation' web series (系统/直播 escape-room genre: protagonist trapped in a deadly 'livestream' and only he can see the floating audience comments). The whole picture is horizontally mirrored (all Chinese text reads backwards) and a soft diagonal light-glare sweep passes every few seconds -- classic re-upload anti-duplicate tricks; the English captions are added on top in an unmirrored black band. Track credited as original audio '原創音樂'. One continuous English narrator voice (sounds TTS) reads narration AND all dialogue; whisper VAD found speech for the full runtime (no pauses). Shares (4.2k) are 8% of likes -- strong send-to-friend signal. Story belongs to the source series; do not reuse.",
+  "title_pattern": "No real title: only two pinyin character-name hashtags (#chenjie #wangqiang = the source animation's protagonists, 陈杰 / 王强). The caption carries zero hook; distribution is entirely by the first-frame + first spoken line. Pattern for us: titles are disposable on TikTok for this format -- put the hook in frame 1 and line 1; at most add a series/character tag for binge discovery.",
+  "thumbnail": {
+    "composition": "Auto cover = frame 0. 9:16 canvas, top ~29% black with a single caption line, middle ~43% is the 4:3-ish animation band, bottom ~28% black. In the band: a full-black silhouette of a man centre-left holding a red-handled axe with a white-edged blade, in a dim brown-over-olive corridor; blue vertical sign with white Chinese characters top-right; door frame at right edge.",
+    "text": "'A killer broke into my apartment complex.' -- small white sans-serif, centred above the picture (same style as every subtitle). Sign text '单元楼' (mirrored).",
+    "colours": "Mostly black; muted brown/olive wall; accents of red (axe handle) and royal blue (sign). Low-key, desaturated, with one warm danger accent.",
+    "subject_scale_contrast": "Faceless silhouette fills ~60% of picture height; the axe blade is the brightest object and points at the viewer. Large black letterbox areas make the small picture feel claustrophobic/peephole-like.",
+    "why_it_works": "Pure genre signal in one glance (anonymous figure + axe) plus a first-person sentence that reads as the start of a true story ('my apartment complex'). The caption is the hook; the silhouette withholds identity, which the next 5 s exploit (the 'cop' is the killer)."
+  },
+  "hook": {
+    "verbatim_0_to_5s": "A killer broke into my apartment complex. Management warned everyone to stay safe. Two minutes later, neighbors said he was caught.",
+    "verbatim_5_to_14s": "Then a police officer knocked on my door. As I reached for the door, words appeared before me. What an idiot! The killer wears a fake uniform to trick residents. This is already his seventh victim.",
+    "first_speech_at_s": 0.0,
+    "device": "First-person cold open with zero preamble: threat -> official reassurance -> 'resolved' in three 1.7-s sentences (false safety), then the knock at 5.4 s inverts it. At 7 s a second, bigger hook: an impossible omniscient voice (neon floating comments) reveals dramatic irony -- the helper is the killer. Two twists inside 14 s; the viewer now knows more than the neighbours, and stays to see how he escapes. Visual: faceless axe silhouette (frame 0) -> believable chat-UI 'evidence' -> uniformed cop -> glowing neon text box (pattern interrupt)."
+  },
+  "beats": [
+    {
+      "t_start": 0,
+      "t_end": 5.4,
+      "beat_type": "hook_cold_open",
+      "summary": "Killer in the building; management warns; neighbours say he's caught -- three facts in 5 s set a false sense of safety."
+    },
+    {
+      "t_start": 5.4,
+      "t_end": 7.2,
+      "beat_type": "inciting_knock",
+      "summary": "A 'police officer' knocks on the narrator's door."
+    },
+    {
+      "t_start": 7.2,
+      "t_end": 14.3,
+      "beat_type": "supernatural_warning_twist",
+      "summary": "Floating comments (danmaku) appear in mid-air mocking him: the cop is the killer in a fake uniform, 7th victim."
+    },
+    {
+      "t_start": 14.3,
+      "t_end": 20.6,
+      "beat_type": "dread_inference",
+      "summary": "He realises the six 'caught' messages may come from dead neighbours or the killer himself."
+    },
+    {
+      "t_start": 20.6,
+      "t_end": 32,
+      "beat_type": "escalation_threat",
+      "summary": "Fake cop pounds harder, threatens to break in, radios 'backup' naming Room 802."
+    },
+    {
+      "t_start": 32,
+      "t_end": 47.6,
+      "beat_type": "social_pressure",
+      "summary": "Group chat erupts; manager 'Jake' and residents pressure him to open, threaten landlord's key."
+    },
+    {
+      "t_start": 47.6,
+      "t_end": 60,
+      "beat_type": "reasoning_distrust",
+      "summary": "He weighs who to trust; arrest beats murder; searches for a weapon."
+    },
+    {
+      "t_start": 60,
+      "t_end": 74,
+      "beat_type": "meta_reveal",
+      "summary": "Comments call him 'the streamer' -- he is the unwilling star of a staged live show; audience says weapons are useless, call someone."
+    },
+    {
+      "t_start": 74,
+      "t_end": 96.6,
+      "beat_type": "isolation",
+      "summary": "No signal, messages fail; a resident warns of bloody footprints, then management mutes the chat."
+    },
+    {
+      "t_start": 96.6,
+      "t_end": 112,
+      "beat_type": "despair_audience_odds",
+      "summary": "Hopelessness; audience comments rate his odds ('doomed', 'there must be a clue')."
+    },
+    {
+      "t_start": 112,
+      "t_end": 150,
+      "beat_type": "lifeline_and_info_dump",
+      "summary": "Remembers previous tenant's hidden phone (1%): real police say it's a whole gang, don't open, and the manager isn't Jake but Donna."
+    },
+    {
+      "t_start": 150,
+      "t_end": 158.4,
+      "beat_type": "audience_needle",
+      "summary": "Phone dies; audience mocks him for calling instead of reading texts; last text: 'Do not let them find it.'"
+    },
+    {
+      "t_start": 158.4,
+      "t_end": 172,
+      "beat_type": "false_respite",
+      "summary": "Knocking stops, fake cop leaves; crash; doorbell rings."
+    },
+    {
+      "t_start": 172,
+      "t_end": 186,
+      "beat_type": "new_character_ally_or_trap",
+      "summary": "Linda from 601 (bruised) begs to be let in, says the cop broke her lock."
+    },
+    {
+      "t_start": 186,
+      "t_end": 206,
+      "beat_type": "audience_bets_comic_relief",
+      "summary": "Comments debate whether Linda is a planted trap; one bets he'll 'eat poop upside down' if the streamer escapes."
+    },
+    {
+      "t_start": 206,
+      "t_end": 230,
+      "beat_type": "decision_and_alliance",
+      "summary": "He checks her empty hands, lets her in; conceals the black phone and the gang info; probes her story."
+    },
+    {
+      "t_start": 230,
+      "t_end": 270,
+      "beat_type": "siege_and_plan",
+      "summary": "Fake cop returns with a hammer; protagonist proposes a lights-off ambush (she hides in bedroom, he waits in kitchen)."
+    },
+    {
+      "t_start": 270,
+      "t_end": 274,
+      "beat_type": "betrayal_twist",
+      "summary": "A phone rings, cop rushes in, Linda shouts 'he's in the kitchen' -- but he's gone."
+    },
+    {
+      "t_start": 274,
+      "t_end": 286,
+      "beat_type": "twist_explanation_payoff",
+      "summary": "He was already in the elevator: Linda's 7th-floor story didn't add up; he decoys the lift to 6 and exits on 5."
+    },
+    {
+      "t_start": 286,
+      "t_end": 302,
+      "beat_type": "audience_celebration_callback",
+      "summary": "Chat explodes; callback to the poop bet and diaper jokes; 'he'll still die'."
+    },
+    {
+      "t_start": 302,
+      "t_end": 312,
+      "beat_type": "investigation_shock",
+      "summary": "Room 601 is really broken into: a corpse in the living room (the real occupant)."
+    },
+    {
+      "t_start": 312,
+      "t_end": 320,
+      "beat_type": "audience_comic_relief",
+      "summary": "Diaper callback; 'is anyone watching the killers?'"
+    },
+    {
+      "t_start": 320,
+      "t_end": 357.9,
+      "beat_type": "eavesdrop_cliffhanger_cta",
+      "summary": "Walkie-talkie on the table: gang leader organises the hunt, elevators secured, 'I will make that rat beg for death' -> 'Tap the story below to watch the full ending.'"
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0,
+      "t_end": 2,
+      "shot_type": "establishing_silhouette",
+      "visual_description": "Black silhouette of the killer holding a red-handled axe in a brown/olive lobby corridor; blue vertical sign '单元楼' (building entrance) top right, door frame right.",
+      "camera_motion": "static",
+      "on_screen_text": "A killer broke into my apartment complex."
+    },
+    {
+      "t_start": 2,
+      "t_end": 5.4,
+      "shot_type": "character_plus_phone_ui",
+      "visual_description": "Light-grey phone chat UI (WeChat-style property group '安心苑物业群(156)') fills left 2/3; protagonist peeks in from right holding a phone. Chat list grows longer at ~4 s (neighbours saying the killer was caught).",
+      "camera_motion": "phone UI pops in, list scrolls/expands",
+      "on_screen_text": "Management warned everyone to stay safe. / Two minutes later, neighbors said he was caught."
+    },
+    {
+      "t_start": 5.4,
+      "t_end": 7,
+      "shot_type": "character_medium",
+      "visual_description": "Fake cop at the apartment door: side-parted hair, frowning, blue shirt + green/yellow hi-vis vest with 'POLICE'; grey door with peephole behind, blue/orange wall stripe.",
+      "camera_motion": "static",
+      "on_screen_text": "Then a police officer knocked on my door."
+    },
+    {
+      "t_start": 7,
+      "t_end": 10,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Protagonist reaching for door handle, exaggerated wide-eyed face; neon danmaku box pops in mid-left ('好蠢啊 / 杀人犯穿着假警服 / 在到处骗人开门 / 这已经是他骗的第七户了').",
+      "camera_motion": "box pop-in with flicker",
+      "on_screen_text": "As I reached for the door, words appeared before me. / What an idiot."
+    },
+    {
+      "t_start": 10,
+      "t_end": 14.3,
+      "shot_type": "character_plus_danmaku_zoom",
+      "visual_description": "Same danmaku box now enlarged and pushed toward camera, overlapping protagonist's face.",
+      "camera_motion": "box scale-up/push-in",
+      "on_screen_text": "The killer wears a fake uniform to trick residents. / This is already his seventh victim."
+    },
+    {
+      "t_start": 14.3,
+      "t_end": 16,
+      "shot_type": "reaction_closeup",
+      "visual_description": "Protagonist's face turns to 'horror face': pupils shrink to dots in huge white eyes, mouth tight; phone in hand.",
+      "camera_motion": "static, slight squash",
+      "on_screen_text": "My blood ran cold."
+    },
+    {
+      "t_start": 16,
+      "t_end": 18,
+      "shot_type": "phone_ui",
+      "visual_description": "Chat UI again, longer neighbour list (re-read as evidence).",
+      "camera_motion": "slide-in",
+      "on_screen_text": "Exactly six people claimed the killer had been caught."
+    },
+    {
+      "t_start": 18,
+      "t_end": 20.6,
+      "shot_type": "reaction_closeup",
+      "visual_description": "Protagonist at the door, open-mouthed terror, phone in hand.",
+      "camera_motion": "static",
+      "on_screen_text": "Were they already dead? / Did the killer send those messages?"
+    },
+    {
+      "t_start": 20.6,
+      "t_end": 24,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist leaning to peephole, eyes wide, door left.",
+      "camera_motion": "slight lean",
+      "on_screen_text": "I looked through the peephole again. / The officer sensed something and began pounding harder."
+    },
+    {
+      "t_start": 24,
+      "t_end": 28,
+      "shot_type": "character_medium",
+      "visual_description": "Fake cop at door, stern, shouting (mouth flaps).",
+      "camera_motion": "static; diagonal light-glare sweep passes",
+      "on_screen_text": "Sir, open the door and cooperate. / Otherwise, I will break it down."
+    },
+    {
+      "t_start": 28,
+      "t_end": 32,
+      "shot_type": "character_medium",
+      "visual_description": "Fake cop raises a walkie-talkie to his ear, calling 'backup'.",
+      "camera_motion": "static",
+      "on_screen_text": "As he spoke, he called for backup. / Trouble at Building 13, Room 802. Send backup now."
+    },
+    {
+      "t_start": 32,
+      "t_end": 34,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist holding phone near door, worried.",
+      "camera_motion": "static",
+      "on_screen_text": "The residents' chat suddenly erupted."
+    },
+    {
+      "t_start": 34,
+      "t_end": 40,
+      "shot_type": "phone_ui",
+      "visual_description": "Chat UI left 2/3, new messages from residents and management ('routine check, do not panic'); protagonist peeking right.",
+      "camera_motion": "messages append",
+      "on_screen_text": "My officer left after hearing about Room 802. / It is only a routine check. Do not panic. / If they break in, you will face questioning."
+    },
+    {
+      "t_start": 40,
+      "t_end": 47.6,
+      "shot_type": "phone_ui",
+      "visual_description": "Chat UI scrolled: manager messages with crescent-moon avatar pressuring him to open; landlord/key threat.",
+      "camera_motion": "messages append, scroll",
+      "on_screen_text": "Open the door if you are home. / The police already got your landlord's number from me. / If you refuse, he will bring them a key. / Stop wasting everyone's time."
+    },
+    {
+      "t_start": 47.6,
+      "t_end": 58.6,
+      "shot_type": "character_medium_hold",
+      "visual_description": "Protagonist close medium beside door, hollow-eyed fear, holding phone; tiny expression/mouth changes only (long hold under dense narration).",
+      "camera_motion": "static, mouth flap",
+      "on_screen_text": "Something felt wrong. / Both of them wanted me to open up. / Jake was suspicious too. / He first reported the killer. / The killer may have already murdered him. / Even arrest was better than being murdered."
+    },
+    {
+      "t_start": 58.6,
+      "t_end": 61,
+      "shot_type": "action",
+      "visual_description": "New location: bedroom (sepia wall, grey bed). Protagonist rummages under the bed, cartoon dust-cloud puff.",
+      "camera_motion": "dust puff animation",
+      "on_screen_text": "I searched my room for a weapon. / Then the floating comments refreshed."
+    },
+    {
+      "t_start": 61,
+      "t_end": 64,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Danmaku box pops in left over the rummaging pose ('主播还是有点智商...').",
+      "camera_motion": "pop-in",
+      "on_screen_text": "The streamer realized everyone in the chat is the killer."
+    },
+    {
+      "t_start": 64,
+      "t_end": 68,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "New danmaku box text (weapons are useless, killer has a gun).",
+      "camera_motion": "box text swap",
+      "on_screen_text": "He can only buy some time. / Why is he looking for weapons? / The killer has a gun. Nothing will help."
+    },
+    {
+      "t_start": 68,
+      "t_end": 72,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Third danmaku box ('都是节目效果 / 有没有事打个电话 / 不就知道了').",
+      "camera_motion": "box text swap",
+      "on_screen_text": "It is all for entertainment. / Just call someone and confirm it."
+    },
+    {
+      "t_start": 72,
+      "t_end": 78,
+      "shot_type": "character_medium_front",
+      "visual_description": "Protagonist stands facing camera in bedroom, puzzled frown.",
+      "camera_motion": "static",
+      "on_screen_text": "Why were they calling me a streamer? / I was confused. / But this was no time to wonder. / The comments reminded me to trust the real police."
+    },
+    {
+      "t_start": 78,
+      "t_end": 84,
+      "shot_type": "character_plus_prop",
+      "visual_description": "Protagonist holds phone up to face, eyes bulging, no signal.",
+      "camera_motion": "static",
+      "on_screen_text": "I tried calling them, but had no signal. / None of my messages to friends would send either. / Then another message appeared."
+    },
+    {
+      "t_start": 84,
+      "t_end": 92,
+      "shot_type": "phone_ui_large",
+      "visual_description": "Big phone mock-up (dark bezel) left: chat message from a resident ('do not open, bloody footprints in elevator').",
+      "camera_motion": "static; light-glare sweep",
+      "on_screen_text": "Something is wrong. I tried going out, but found bloody footprints inside the elevator. / Room 802, do not open the door. That man is not a cop."
+    },
+    {
+      "t_start": 92,
+      "t_end": 96.6,
+      "shot_type": "phone_ui_large",
+      "visual_description": "Same phone: management posts 'dangerous evidence' notice, then announces all members muted.",
+      "camera_motion": "messages append",
+      "on_screen_text": "Residents, the killer hid extremely dangerous evidence here. / To prevent rumors, everyone is now muted. I will post any new updates."
+    },
+    {
+      "t_start": 96.6,
+      "t_end": 101.3,
+      "shot_type": "reaction_closeup",
+      "visual_description": "Protagonist faces camera, dot-pupil horror eyes, bedroom.",
+      "camera_motion": "static",
+      "on_screen_text": "Our only way to communicate was gone. / My door would eventually be opened. / Was I supposed to wait for death?"
+    },
+    {
+      "t_start": 101.3,
+      "t_end": 111.8,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Three successive danmaku boxes (audience: streamer doing well but doomed; 'no livestream is unwinnable, a clue he missed'; 'web of deception').",
+      "camera_motion": "box swaps every ~3-4 s",
+      "on_screen_text": "The streamer is doing pretty well. But he still seems doomed. / No livestream creates an impossible scenario. There must be a clue he missed. / Still, the killers built an impressive web of deception. I doubt the streamer will escape."
+    },
+    {
+      "t_start": 111.8,
+      "t_end": 116,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist hand on chin, thinking; red curtain behind, bedroom.",
+      "camera_motion": "static",
+      "on_screen_text": "So this was a staged livestream. / I began thinking. / Then I remembered a phone hidden under my bed."
+    },
+    {
+      "t_start": 116,
+      "t_end": 120,
+      "shot_type": "character_plus_prop",
+      "visual_description": "Protagonist holds out a black brick phone toward camera.",
+      "camera_motion": "static",
+      "on_screen_text": "The previous tenant left it. / I offered to mail it, but he refused."
+    },
+    {
+      "t_start": 120,
+      "t_end": 122,
+      "shot_type": "insert_ui",
+      "visual_description": "Black phone screen insert: red low-battery icon '1%'; protagonist at edge.",
+      "camera_motion": "static",
+      "on_screen_text": "The phone had almost no battery left."
+    },
+    {
+      "t_start": 122,
+      "t_end": 150,
+      "shot_type": "character_phone_call_hold",
+      "visual_description": "Protagonist holding black phone to ear, stern; long static hold. A yellow jagged 'speech burst' icon flashes at the phone whenever the police dispatcher speaks (e.g. 2:08, 2:26).",
+      "camera_motion": "static, burst icon flashes, occasional glare sweep",
+      "on_screen_text": "I called the police. Hello, I rent Room 802... / Are you inside Building 13, Room 802? All signals are blocked. How did you call us? / ...Your manager is outside with us, but she is not Jake. Her name is Donna, a middle-aged woman."
+    },
+    {
+      "t_start": 150,
+      "t_end": 154,
+      "shot_type": "character_medium",
+      "visual_description": "Phone lowered, protagonist frowning, battery dead.",
+      "camera_motion": "static",
+      "on_screen_text": "The battery failed, and the call disconnected. / The streamer messed up."
+    },
+    {
+      "t_start": 154,
+      "t_end": 156,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Danmaku box '主播傻了 / 先看短信啊 / 打什么电话'.",
+      "camera_motion": "pop-in",
+      "on_screen_text": "Read the texts first. Why call?"
+    },
+    {
+      "t_start": 156,
+      "t_end": 158.4,
+      "shot_type": "character_plus_prop",
+      "visual_description": "Protagonist glancing at the black phone's last text.",
+      "camera_motion": "static",
+      "on_screen_text": "In the final seconds, I read, \"Do not let them find it.\""
+    },
+    {
+      "t_start": 158.4,
+      "t_end": 162,
+      "shot_type": "character_medium",
+      "visual_description": "Back at the front door; protagonist at peephole, neutral-tense.",
+      "camera_motion": "static",
+      "on_screen_text": "The knocking suddenly stopped. / I quietly returned to the peephole."
+    },
+    {
+      "t_start": 162,
+      "t_end": 164,
+      "shot_type": "character_fullbody",
+      "visual_description": "Fake cop, smaller/full body, talking into radio and leaving (seen through peephole framing).",
+      "camera_motion": "static",
+      "on_screen_text": "The fake cop spoke into his radio and left."
+    },
+    {
+      "t_start": 164,
+      "t_end": 172,
+      "shot_type": "reaction_closeup",
+      "visual_description": "Protagonist at door; expression shifts to hollow dot-pupil terror at the crash and doorbell.",
+      "camera_motion": "static, expression swaps",
+      "on_screen_text": "Watching him leave gave me a terrible feeling. / Soon, I heard a huge crash. / Minutes later, someone repeatedly rang my doorbell. / A middle-aged woman now stood outside."
+    },
+    {
+      "t_start": 172,
+      "t_end": 186,
+      "shot_type": "character_medium",
+      "visual_description": "Linda: middle-aged woman, bob haircut, maroon top, round belly, bruised eye; at the door outside, pleading (mouth flaps, tearful).",
+      "camera_motion": "static, mouth/eye swaps",
+      "on_screen_text": "I am Linda from Room 601. That cop entered my home. / He smashed my lock with a tool. / After the chat was muted, I hid upstairs. When he entered my home, I ran here. / I only trust you and the resident in Building 4."
+    },
+    {
+      "t_start": 186,
+      "t_end": 190,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist reaches for the door handle, then pauses.",
+      "camera_motion": "static",
+      "on_screen_text": "I quickly moved to open the door. / Then a new comment flashed."
+    },
+    {
+      "t_start": 190,
+      "t_end": 202,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Stack of danmaku boxes, audience debating if Linda is a trap ('不至于吧...', '我感觉十有八九...主播还能逃生我倒立吃粑粑', '换我肯定不开门...').",
+      "camera_motion": "box swaps every 2-4 s",
+      "on_screen_text": "What if this is another trap? Surely not. / They planted a fake ally in the chat. That would be brutal. / It probably is. If he escapes, I will eat poop upside down. / I would never open it for a stranger. ... This situation is extremely unusual."
+    },
+    {
+      "t_start": 202,
+      "t_end": 206,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist at door, uneasy.",
+      "camera_motion": "static",
+      "on_screen_text": "Linda's knocking became much quieter. / She likely feared alerting the fake cop."
+    },
+    {
+      "t_start": 206,
+      "t_end": 210,
+      "shot_type": "character_medium",
+      "visual_description": "Linda framed alone, hands visible and empty.",
+      "camera_motion": "static",
+      "on_screen_text": "I studied Linda carefully. / Her hands were empty."
+    },
+    {
+      "t_start": 210,
+      "t_end": 230,
+      "shot_type": "two_shot_and_singles",
+      "visual_description": "Inside the apartment: two-shot (Linda left, protagonist right), alternating with tighter singles of each as they talk (shot-reverse-shot).",
+      "camera_motion": "cuts between two-shot and singles",
+      "on_screen_text": "Thank you, young man. We are still in danger... / I hid the black phone from her. I also hid that we faced an entire gang. / Who are they, and why are they so vicious? ... / Linda, how long did he take to break your lock? Maybe a dozen hits."
+    },
+    {
+      "t_start": 230,
+      "t_end": 232,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist at peephole.",
+      "camera_motion": "static",
+      "on_screen_text": "I heard footsteps and rushed to the peephole."
+    },
+    {
+      "t_start": 232,
+      "t_end": 234,
+      "shot_type": "character_fullbody",
+      "visual_description": "Fake cop outside, head down, approaching with hammer.",
+      "camera_motion": "static",
+      "on_screen_text": "The fake cop approached slowly, carrying a hammer."
+    },
+    {
+      "t_start": 234,
+      "t_end": 240,
+      "shot_type": "two_shot",
+      "visual_description": "Linda (left) vs protagonist (right) arguing about barricading.",
+      "camera_motion": "static",
+      "on_screen_text": "Quick, barricade the door! / That will not work. It opens outward. / There are two of us, and he may not know."
+    },
+    {
+      "t_start": 240,
+      "t_end": 242,
+      "shot_type": "character_action",
+      "visual_description": "Fake cop swinging hammer at the lock.",
+      "camera_motion": "hammer swing loop",
+      "on_screen_text": "The fake cop began hammering the lock."
+    },
+    {
+      "t_start": 242,
+      "t_end": 254,
+      "shot_type": "character_medium_hold",
+      "visual_description": "Protagonist explains the ambush plan, Linda cropped at left edge.",
+      "camera_motion": "static, mouth flap",
+      "on_screen_text": "I will turn off the lights. Hide in the bedroom. I will wait in the kitchen. / When he enters, make some noise inside. When he investigates, I will attack from behind. / This is our only chance. Something unknown must be delaying the real police."
+    },
+    {
+      "t_start": 254,
+      "t_end": 256,
+      "shot_type": "character_medium",
+      "visual_description": "Linda in the dim bedroom.",
+      "camera_motion": "static",
+      "on_screen_text": "After Linda hid, I cut the power."
+    },
+    {
+      "t_start": 256,
+      "t_end": 258,
+      "shot_type": "character_action",
+      "visual_description": "Fake cop hammering door.",
+      "camera_motion": "hammer loop",
+      "on_screen_text": "The fake cop kept hammering the door."
+    },
+    {
+      "t_start": 258,
+      "t_end": 262,
+      "shot_type": "location_change",
+      "visual_description": "Kitchen (sink, cabinets), darkened: protagonist gripping a kitchen knife, watching entrance.",
+      "camera_motion": "static",
+      "on_screen_text": "I grabbed a knife and watched the entrance. / I left the kitchen door open to avoid suspicion."
+    },
+    {
+      "t_start": 262,
+      "t_end": 266,
+      "shot_type": "character_medium",
+      "visual_description": "Fake cop at door, hand on handle.",
+      "camera_motion": "static",
+      "on_screen_text": "Then the hammering stopped. / The door handle began rattling."
+    },
+    {
+      "t_start": 266,
+      "t_end": 268,
+      "shot_type": "insert_dark",
+      "visual_description": "Near-black dark room; yellow ring-burst icon flashes (phone ringing).",
+      "camera_motion": "flash",
+      "on_screen_text": "Suddenly, a phone rang inside."
+    },
+    {
+      "t_start": 268,
+      "t_end": 270,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist in dim kitchen holding knife.",
+      "camera_motion": "static",
+      "on_screen_text": "The fake cop rushed past me into the room."
+    },
+    {
+      "t_start": 270,
+      "t_end": 272,
+      "shot_type": "character_fullbody",
+      "visual_description": "Linda emerges, pointing/shouting, fake cop's edge visible right.",
+      "camera_motion": "static",
+      "on_screen_text": "Linda emerged and shouted at him. He is in the kitchen, get him!"
+    },
+    {
+      "t_start": 272,
+      "t_end": 274,
+      "shot_type": "character_medium",
+      "visual_description": "Fake cop in kitchen turns, bloody streak in hair; nobody there.",
+      "camera_motion": "static",
+      "on_screen_text": "The fake cop turned, but I had vanished."
+    },
+    {
+      "t_start": 274,
+      "t_end": 282,
+      "shot_type": "twist_reveal_hold",
+      "visual_description": "Protagonist inside lift (steel-blue walls), hand on chin, smug-calm.",
+      "camera_motion": "static",
+      "on_screen_text": "I was already inside the elevator because I never trusted Linda. / She claimed she hid on the seventh floor. The killer had walked from eight down to six. If she hid on seven, he would have found her."
+    },
+    {
+      "t_start": 282,
+      "t_end": 284,
+      "shot_type": "insert_ui",
+      "visual_description": "Elevator floor display reading 6, call buttons panel.",
+      "camera_motion": "static",
+      "on_screen_text": "The elevator soon reached the sixth floor."
+    },
+    {
+      "t_start": 284,
+      "t_end": 286,
+      "shot_type": "insert_closeup",
+      "visual_description": "Huge elevator button panel; yellow-sleeved hand presses 5.",
+      "camera_motion": "hand push-in",
+      "on_screen_text": "I selected five, then stepped out."
+    },
+    {
+      "t_start": 286,
+      "t_end": 302,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Corridor (grey wall, blue dado): protagonist left, neon danmaku boxes stream on the right (audience celebrating, diaper joke, 'he'll still die').",
+      "camera_motion": "box swaps every ~2 s, boxes slide",
+      "on_screen_text": "The comments exploded over my incredible escape. / I cannot believe the streamer escaped that... I wore adult diapers before the stream. / Escaping once means nothing. He will still die. / The comments offered nothing useful."
+    },
+    {
+      "t_start": 302,
+      "t_end": 304,
+      "shot_type": "insert_location",
+      "visual_description": "Door of room '601' slightly ajar, dark door on grey wall.",
+      "camera_motion": "static",
+      "on_screen_text": "Room 601's door was slightly open."
+    },
+    {
+      "t_start": 304,
+      "t_end": 308,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist in corridor, suspicious.",
+      "camera_motion": "static",
+      "on_screen_text": "Just as I suspected. / Linda was fake, but they really broke Room 601's door."
+    },
+    {
+      "t_start": 308,
+      "t_end": 310,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist slipping through the doorway into 601.",
+      "camera_motion": "static",
+      "on_screen_text": "I slipped inside and froze in shock."
+    },
+    {
+      "t_start": 310,
+      "t_end": 312,
+      "shot_type": "reveal_shot",
+      "visual_description": "Corpse of a red-haired woman in yellow blouse/red skirt sprawled on pink floor, eyes closed.",
+      "camera_motion": "static",
+      "on_screen_text": "A corpse lay carelessly in the living room."
+    },
+    {
+      "t_start": 312,
+      "t_end": 320,
+      "shot_type": "character_plus_danmaku",
+      "visual_description": "Inside 601 (wooden bookshelf bg): protagonist edge-left, danmaku boxes (diaper joke callback, 'is anyone watching the killers', 'their stream ended long ago').",
+      "camera_motion": "box swaps",
+      "on_screen_text": "The comments flooded the screen again. Good thing I listened and wore adult diapers. / Is anyone watching the killers? Are they some cult? / Their livestream ended long ago."
+    },
+    {
+      "t_start": 320,
+      "t_end": 324,
+      "shot_type": "character_medium",
+      "visual_description": "Protagonist pressed by the door, listening.",
+      "camera_motion": "static",
+      "on_screen_text": "Then several voices came through nearby. / What happened? How did he escape?"
+    },
+    {
+      "t_start": 324,
+      "t_end": 338,
+      "shot_type": "prop_hold",
+      "visual_description": "Black walkie-talkie on a round brown table, pink wall; yellow burst icon flashes beside it each time a villain speaks.",
+      "camera_motion": "static, burst icon flashes",
+      "on_screen_text": "A radio was sitting on the table. / A slippery rat is hiding from us. We are searching. / The elevator first stopped at six... Entering an elevator does not mean riding it... Which one did he choose? / Enough arguing."
+    },
+    {
+      "t_start": 338,
+      "t_end": 340,
+      "shot_type": "character_medium",
+      "visual_description": "Cutaway: protagonist listening, bookshelf behind.",
+      "camera_motion": "static",
+      "on_screen_text": "Another voice silenced them and issued orders."
+    },
+    {
+      "t_start": 340,
+      "t_end": 357.9,
+      "shot_type": "prop_hold_cta",
+      "visual_description": "Walkie-talkie on table, burst icon flashing with orders; final caption is the CTA.",
+      "camera_motion": "static, burst icon flashes",
+      "on_screen_text": "Ruby, take the elevator down and meet us. / Fake cop, take the other elevator upstairs... Secure both elevators first... / I will make that rat beg for death. / Tap the story below to watch the full ending."
+    }
+  ],
+  "pacing": {
+    "words_total": 1381,
+    "speech_span_s": 357.9,
+    "words_per_minute": 231.5,
+    "caption_cards": 202,
+    "avg_caption_card_s": 1.77,
+    "hard_cuts_detected_scene_0.25": 41,
+    "avg_hard_cut_interval_s": 8.5,
+    "shots_in_list": 67,
+    "avg_shot_length_s": 5.3,
+    "visual_change_interval_s": "~2-4 s counting expression swaps, danmaku box pop-ins and phone-UI message appends; some long holds of 10-28 s on a single pose under narration (phone call 2:02-2:30, walkie-talkie 5:24-5:58)",
+    "rehook_interval_s": "~15-25 s: twists at 7 (fake cop), 60 (it's a livestream), 84 (bloody footprints), 92 (muted), 114 (hidden phone), 141 (manager is not Jake), 172 (Linda), 190 (trap?), 266 (betrayal), 274 (he was in the elevator), 310 (corpse), 324 (radio), 355 (cliffhanger)",
+    "notes": "Wall-to-wall narration at ~3.9 words/s with no pauses; sentences short (avg 6.8 words). Audience-comment interludes (~every 40-60 s) act as a Greek chorus: comic relief, odds-setting, and recap. Ends mid-crisis with a 'Tap the story below' CTA (series funnel). Audio mean -21 dB, peak -3.6 dB."
+  },
+  "techniques_worth_copying": [
+    "Two twists in the first 14 s: false resolution (killer 'caught') then a trusted figure revealed as the threat via an omniscient source.",
+    "Diegetic 'floating comments' device: an in-world audience the protagonist can read. It delivers exposition, dramatic irony, odds ('he's doomed'), comic relief (bets, diaper jokes) and recaps without breaking first-person narration. Render as glowing neon boxes with electric borders -- an instantly recognisable pattern interrupt.",
+    "Fake-UI evidence: group-chat screens, mute notices, a 1% battery icon -- cheap visuals that make the story feel documentary and give the eye text to read.",
+    "Trust ladder: every helper (neighbours, manager, cop, Linda) is suspect; the protagonist wins by spotting a logic slip (Linda's floor story vs the killer's route), then the narration explains the deduction AFTER the payoff (reveal-then-explain).",
+    "Running gag callback: 'I'll eat poop upside down if he escapes' set at 3:15, paid off at 4:50 -- rewards retention.",
+    "Speaking-object icon: a yellow jagged burst next to a phone/radio signals off-screen voices, so a single narrator voice can read every character.",
+    "Limited animation economy: 4 characters, ~7 backgrounds, held poses with expression swaps (normal / dot-pupil horror eyes / narrowed), hard cuts only; story density does the work.",
+    "Episodic cliffhanger + CTA ('Tap the story below to watch the full ending') at ~6 min; long runtime with 66x channel-median views shows long-form story reposts can outlier on TikTok when every 15-25 s re-hooks.",
+    "Layout: letterboxed picture band with the caption in the black band above it -- caption never covers the art and stays readable."
+  ],
+  "code_only_remake_requirements": {
+    "layout": "1080x1920; black background; subtitle text block at y~22-26% (white, ~40 px sans, centred, 1-2 lines, swap per sentence); picture band 1080x~820 at y~29-72%; optional top/bottom series title.",
+    "characters": "SVG puppet rigs for 3-4 flat cel-shaded characters (thick outlines, flat fills, simple shading), each with swappable parts: eyes (normal, wide, dot-pupil horror, narrowed, closed), brows, mouth set for lip flap (3-4 visemes or open/closed toggled by audio amplitude), 2-3 arm poses (holding phone to ear, reaching for handle, hand-on-chin), prop slots (phone, black brick phone, hammer, knife, radio). Blink + 1-2 px idle bob.",
+    "backgrounds": "~7 flat SVG sets: apartment door w/ peephole (inside and outside variants), bedroom, kitchen, elevator interior + button panel insert, corridor, neighbour's living room w/ bookshelf, table with radio; silhouette 'killer' card for the cold open; corpse reveal card.",
+    "ui_components": "(1) Chat-app screen component (title bar with group name + member count, avatar+name+bubble rows, append/scroll animation, 'all members muted' system message). (2) Danmaku/neon comment box: rounded rect with animated blue electric border (SVG feTurbulence + feDisplacementMap + glow), glowing pink/red text, pop-in scale 0.8->1 with flicker, text swaps. (3) Low-battery insert. (4) Yellow jagged 'voice burst' icon flashing beside phone/radio while off-screen characters speak. (5) Elevator floor display + big button panel with a pressing hand.",
+    "effects": "Hard cuts; occasional push-in on the danmaku box; cartoon dust puff; diagonal light-glare sweep (optional); dim/darken filter for lights-off scenes; screen shake on knocks/hammer hits.",
+    "audio": "One Kokoro/Piper narrator at ~230 wpm (speed ~1.15-1.2) reading narration and dialogue, optionally a second voice for villains/comments; SFX: knock, pounding, hammer on metal, doorbell, phone ring, elevator ding, radio static; low drone bed.",
+    "data_model": "Storyboard JSON per sentence: {text, speaker, scene, characters[{id,pose,eyes,mouth}], overlay(chat|danmaku|insert|burst), sfx}. One sentence = one caption card (~1.8 s); scene changes every 2-4 sentences.",
+    "original_story_needed": "Write our own trapped-in-a-deadly-livestream / omniscient-comments story; do not reuse this plot, characters (Linda, fake cop, Room 802/601) or lines."
+  }
+}

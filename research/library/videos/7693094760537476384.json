@@ -1,0 +1,118 @@
+{
+ "id": "7693094760537476384",
+ "url": "https://www.tiktok.com/@man_ia_c/video/7693094760537476384",
+ "platform": "tiktok",
+ "niche": "whatif",
+ "channel": "@man_ia_c",
+ "title": "What if a tsunami hit your cruise ship? You're on the pool deck, 300 miles from land. The alarm goes off, nobody moves. Then someone at the rail starts screaming: a wall of water is coming from the side, taller than a skyscraper, and the ship can't turn in time. Where would you run? 👇 #whatif #pov #simulation #science #fyp",
+ "upload_date": "2026-10-05",
+ "duration": 80,
+ "views": 607200,
+ "likes": 14900,
+ "comments": 283,
+ "reposts": 828,
+ "subs": null,
+ "subs_note": "channel_follower_count not returned by yt-dlp TikTok extractor",
+ "channel_median_views": 624750,
+ "outlier_score": 0.97,
+ "role": "control",
+ "audio": "original sound 'son original' by 'What if?' - no voiceover (faster-whisper small, CPU: 0 speech segments). Ambient/music bed at about -24 dB RMS for 0-10 s, steps up to about -18 dB at 12 s (tsunami introduced), climbs to -15 dB by 56 s and peaks at -8 dB at 60-63 s (wave impact and underwater cut), then decays to -31 dB at 70 s and near silence (-48 to -54 dB) on the end card.",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/whatif/7693094760537476384.{mp4,image,info.json}; frames, caption crops, key frames, sheet in ~/studio/refs/whatif/work_7693094760537476384/",
+  "download": "576x1024 h264 30 fps, 8.3 MB (TikTok's only rendition, watermarked; no <=480p option exists). Kept on the Spark (<300 MB). No subtitles/auto-captions offered.",
+  "transcript_source": "Burned-in captions and HUD read visually from 1 fps crops of the caption/HUD band; full text in research/library/transcripts/7693094760537476384.txt.",
+  "frames": "Sampled every 1 s (80 frames, video < 90 s). research/library/sheets/7693094760537476384.jpg = 10 cols x 8 rows, row-major, 1 s per tile (tile n ~ t = n-0.5 s).",
+  "visual_change_detection": "ffmpeg scene filter (threshold 0.12) finds a single hard cut at 62.1 s (deck -> underwater). Everything else is one continuous simulated camera with pans/turns; plus a fade to black ~70-72 s and an end card from ~73 s.",
+  "platform_label": "TikTok shows an 'AI-generated' label in the corner. Visuals look like a real-time low-poly 3D scene (game-engine / Three.js style) rather than diffusion video.",
+  "control_note": "Same channel, same format, same week as the 13.4M-view outlier 7693305573487562016 (oxygen). This one performed at channel median (0.97x). Likely differences: the premise is less surprising (a tsunami hitting a ship is an expected disaster, while the oxygen one has counter-intuitive science consequences), the first 30 s are a long, low-stakes setup with almost no visual change (walking past sun loungers), the payoff is a generic 'wave hits camera' with no clever twist, and the end card admits the premise is unrealistic (open-ocean tsunamis are ~3 ft), undercutting the sim."
+ },
+ "title_pattern": {
+  "template": "What if a [disaster] hit your [everyday-luxury place]? + 'You're on the [specific spot], [N] miles from [safety].' + 2-3 escalating story sentences (alarm ignored -> someone screams -> threat bigger than [familiar tall thing] -> escape fails) + engagement CTA 'Where would you run? 👇' + #whatif #pov #simulation #science #fyp",
+  "notes": "Identical caption formula to the channel's outlier (question + second-person placement + escalation + CTA question). The caption here adds narrative details not in the video (alarm, someone screaming) - the caption is a mini-story, not a description. Note the caption is more dramatic than the video itself."
+ },
+ "thumbnail": {
+  "source": "TikTok originCover = first frame of the video (no designed thumbnail)",
+  "composition": "9:16 low-poly 3D render from eye height walking down a cruise pool deck: wooden plank walkway in the lower-left foreground converging toward a small teal-roofed deck bar in mid-right, rows of blue sun loungers on the right, blocky low-poly passengers in the middle, seagulls in a blue sky top half with a hazy horizon line at ~43% height. Diagonal palm-leaf shadows across the deck.",
+  "text": "Centered white serif (Garamond/Cormorant-like) two-line title at ~25-30% height: 'What if a tsunami / hit your cruise ship?'. HUD at left ~47% height: tiny tracked sans caps 'OCEAN DEPTH', large thin serif numerals '16,716 ft', tiny caps 'BELOW THE HULL'.",
+  "colours": "Bright daytime palette: sky blue gradient to pale cream at the horizon, warm brown/tan wood deck, grey deck plates, navy loungers, teal accents; white text only. Sunny and calm - nothing in frame signals danger.",
+  "subject_scale_contrast": "Weak: no single subject, no visible threat; the only scale cue is the HUD number (16,716 ft of water under you) contrasting with a tiny deck. The wave never appears in the cover.",
+  "why_it_works": "The calm vacation 'before' plus a big depth number and the word 'tsunami' lets the viewer imagine the disaster; the premium serif/HUD look signals a polished simulation. Weakness compared with the channel's outlier: the cover is a generic deck with no tension object (no countdown clock, no wave sliver on the horizon), so it relies entirely on the title."
+ },
+ "hook": {
+  "verbatim_0_5s": "(on-screen, no voice) 'What if a tsunami hit your cruise ship?' over a sunny pool deck, slow forward walk; HUD 'OCEAN DEPTH 16,716 ft BELOW THE HULL' with the number jittering live.",
+  "verbatim_0_15s": "What if a tsunami hit your cruise ship? / You are on deck, 300 miles from land. / The ocean below you is three miles deep.",
+  "device": "Question title + second-person POV placement + live HUD metric (ocean depth) that jitters to feel 'live'. Unlike the outlier, there is no countdown or ticking clock in the hook and no event in the first 15 s - the threat (TSUNAMI 115 mi, 500 mph counter) only arrives at ~17 s. Setup facts (300 miles from land, three miles deep) build isolation/vulnerability but give no immediate payoff."
+ },
+ "beats": [
+  {"t_start": 0, "t_end": 5, "beat_type": "question_hook", "summary": "Title question over a calm sunny cruise pool deck; slow first-person walk past loungers; HUD OCEAN DEPTH ~16,716 ft BELOW THE HULL; seagulls overhead."},
+  {"t_start": 5, "t_end": 10, "beat_type": "pov_setup", "summary": "'You are on deck, 300 miles from land.' Camera keeps strolling among passengers and loungers - isolation established."},
+  {"t_start": 10, "t_end": 16, "beat_type": "stakes_fact", "summary": "'The ocean below you is three miles deep.' Camera turns left to reveal the pool and waterslide tower; depth counter still on screen."},
+  {"t_start": 16, "t_end": 22, "beat_type": "inciting_event_offscreen", "summary": "HUD flips to 'TSUNAMI 115.2 mi / 500 MILES AN HOUR' and starts counting down fast. 'Far away, the seafloor jumps.' Music level steps up. Nothing visible changes on deck (dramatic irony)."},
+  {"t_start": 22, "t_end": 29, "beat_type": "speed_fact", "summary": "'The tsunami moves as fast as a jet.' Distance drops from ~50 to ~8 mi while camera drifts back over loungers; passengers oblivious."},
+  {"t_start": 29, "t_end": 34, "beat_type": "false_reassurance", "summary": "Camera turns to the rail and the open sea. 'Out here, it is barely three feet tall.' Distance 4.6 -> 3.0 mi - the real-science fact that ships don't notice tsunamis."},
+  {"t_start": 34, "t_end": 40, "beat_type": "twist", "summary": "HUD flips to 'WAVE HEIGHT 102 ft / x.x MILES AWAY' and rises fast; a teal band appears on the horizon. 'Not this one.' Passengers at the rail start reacting."},
+  {"t_start": 40, "t_end": 47, "beat_type": "escalation_direction", "summary": "Camera swings across the deck: 'It is coming from the side.' People run; camera briefly looks aft at the white superstructure with a passenger waving arms (~45-47 s). Wave 500 -> 830 ft."},
+  {"t_start": 47, "t_end": 53, "beat_type": "escalation_helplessness", "summary": "Camera returns to the rail: a huge teal wall fills the upper frame, sky darkens. 'The ship cannot turn in time.' Wave 865 -> 1,040 ft, 1.4 -> 0.7 miles away."},
+  {"t_start": 53, "t_end": 58, "beat_type": "escalation_scale_comparison", "summary": "'It is taller than a skyscraper.' Wave curls overhead, 1,070 -> 1,190 ft; distance switches from miles to feet (520 FEET AWAY -> 175)."},
+  {"t_start": 58, "t_end": 62, "beat_type": "climax_impact", "summary": "'There is nowhere left to run.' Spray and foam break over the deck, loungers tumble at camera, counter reaches 1,300 ft / 0 FEET AWAY; audio peaks."},
+  {"t_start": 62, "t_end": 72, "beat_type": "aftermath_underwater", "summary": "Hard cut underwater: HUD 'THE WAVE / HERE'. Bubbles, floating life rings, umbrellas and silhouetted bodies drift; cracked-glass lens overlays spread; scene darkens to black."},
+  {"t_start": 72, "t_end": 80, "beat_type": "end_card_fact_check", "summary": "Near-black card repeats the title question, then tiny mono caps: 'In the open ocean, tsunamis rarely top 3 feet - ships at sea usually don't notice them pass.' Audio near silent. Loops back to the title frame."}
+ ],
+ "shot_list": [
+  {"t_start": 0, "t_end": 5, "shot_type": "pov_walk_wide", "visual_description": "Eye-level walk down a wooden deck walkway; deck bar with teal roof ahead, navy loungers right, low-poly passengers, seagulls, palm shadows", "camera_motion": "slow dolly forward with walking bob", "on_screen_text": "What if a tsunami hit your cruise ship? | OCEAN DEPTH 16,716 ft BELOW THE HULL"},
+  {"t_start": 5, "t_end": 11, "shot_type": "pov_walk_medium", "visual_description": "Same walk, closer to loungers and sunbathers; passengers walking past", "camera_motion": "slow forward drift, slight right yaw", "on_screen_text": "You are on deck, 300 miles from land. | OCEAN DEPTH 16,7xx ft"},
+  {"t_start": 11, "t_end": 14, "shot_type": "pov_medium", "visual_description": "Loungers with sunbathers, deck bar behind", "camera_motion": "drift then begins turning left", "on_screen_text": "The ocean below you is three miles deep."},
+  {"t_start": 14, "t_end": 20, "shot_type": "pan_reveal_wide", "visual_description": "Bright turquoise pool along the wooden walkway, waterslide tower at the far end, swimmers' heads in the water", "camera_motion": "left pan then slow forward", "on_screen_text": "The ocean below you is three miles deep. -> TSUNAMI 115.2 mi 500 MILES AN HOUR (counting down) | Far away, the seafloor jumps."},
+  {"t_start": 20, "t_end": 28, "shot_type": "pov_medium", "visual_description": "Back over the lounger rows; oblivious sunbathers, people strolling", "camera_motion": "right pan, slow drift", "on_screen_text": "Far away, the seafloor jumps. | The tsunami moves as fast as a jet. | TSUNAMI 61.5 -> 10.8 mi"},
+  {"t_start": 28, "t_end": 34, "shot_type": "medium_wide_rail", "visual_description": "Passengers standing at the railing looking out at a calm sea and hazy horizon; beach ball bouncing", "camera_motion": "right pan to the rail then hold with gentle sway", "on_screen_text": "Out here, it is barely three feet tall. | TSUNAMI 8.0 -> 3.0 mi"},
+  {"t_start": 34, "t_end": 40, "shot_type": "wide_rail_horizon", "visual_description": "Thin teal wave band rises on the horizon behind the rail; green umbrella, loungers; passengers point", "camera_motion": "slow push toward the rail", "on_screen_text": "WAVE HEIGHT 102 -> 503 ft, x.x MILES AWAY | Not this one."},
+  {"t_start": 40, "t_end": 45, "shot_type": "whip_pan_medium", "visual_description": "Camera swings across the deck as passengers run; wave wall visible behind the deck bar", "camera_motion": "fast pan left with handheld shake", "on_screen_text": "It is coming from the side. | WAVE HEIGHT 559 -> 747 ft"},
+  {"t_start": 45, "t_end": 47, "shot_type": "reverse_angle_wide", "visual_description": "Looking aft along the deck at the tall white ship superstructure; a passenger faces camera waving both arms, crowd behind", "camera_motion": "quick turn around, hold", "on_screen_text": "WAVE HEIGHT 788 -> 828 ft"},
+  {"t_start": 47, "t_end": 53, "shot_type": "wide_threat_reveal", "visual_description": "Back to the rail: teal wave wall fills the upper half, sky turning grey, people running past umbrellas, sun-like beach balls", "camera_motion": "turn back, slow tilt up as wave grows", "on_screen_text": "The ship cannot turn in time. | WAVE HEIGHT 865 -> 1,038 ft, 1.4 -> 0.7 MILES AWAY"},
+  {"t_start": 53, "t_end": 58, "shot_type": "low_angle_wide", "visual_description": "Wave crest curls overhead, foam streaks and rain-like spray lines; deck bar and umbrella dwarfed", "camera_motion": "slight tilt up, shake increasing", "on_screen_text": "It is taller than a skyscraper. | WAVE HEIGHT 1,070 -> 1,190 ft, 520 -> 175 FEET AWAY"},
+  {"t_start": 58, "t_end": 62, "shot_type": "impact_chaos", "visual_description": "White foam breaks across the frame, deck tilts, loungers and debris fly toward camera, bubbles", "camera_motion": "violent shake and roll, camera knocked over", "on_screen_text": "There is nowhere left to run. | WAVE HEIGHT 1,218 -> 1,300 ft, 50 -> 0 FEET AWAY"},
+  {"t_start": 62, "t_end": 66, "shot_type": "underwater_wide", "visual_description": "Hard cut to murky teal underwater: bubbles, life rings, umbrellas, loungers and small human silhouettes tumbling; spider-web glass cracks appear over the lens", "camera_motion": "slow drift and roll", "on_screen_text": "THE WAVE HERE"},
+  {"t_start": 66, "t_end": 72, "shot_type": "underwater_dark", "visual_description": "Deeper, darker water, debris sinking, three crack overlays, light fading to black", "camera_motion": "slow sink, fade to black", "on_screen_text": "THE WAVE HERE (until ~70 s)"},
+  {"t_start": 72, "t_end": 74, "shot_type": "black", "visual_description": "Near-black frame", "camera_motion": "static", "on_screen_text": ""},
+  {"t_start": 74, "t_end": 80, "shot_type": "end_card", "visual_description": "Near-black (#111) card with centered serif title and tiny letter-spaced mono caps fact line", "camera_motion": "static, text fades in", "on_screen_text": "What if a tsunami hit your cruise ship? | IN THE OPEN OCEAN, TSUNAMIS RARELY TOP 3 FEET - SHIPS AT SEA USUALLY DON'T NOTICE THEM PASS"}
+ ],
+ "pacing": {
+  "words_total_captions": 72,
+  "words_total_incl_end_card": 96,
+  "words_per_min": 54,
+  "note_wpm": "No narration. 10 italic serif caption lines (3-8 words) plus the title; each held ~3-5 s with 2-4 s caption-free gaps; new line roughly every 5-6 s. 54 wpm over the 80 s on reading pace (72 wpm counting the end card).",
+  "shot_count_approx": 16,
+  "avg_shot_length_s": 5.0,
+  "note_shots": "Only one hard cut (62.1 s) plus a fade to black and the end card - effectively a single-take simulated camera. Counting camera re-framings as shots gives ~16 segments (avg ~5 s), noticeably slower than the outlier (~2.4 s). 0-34 s is nearly static touring of the deck; real visual escalation only begins at 34 s (wave appears) - 43% of runtime before the threat is visible.",
+  "hud_cadence": "HUD label changes 3 times (OCEAN DEPTH 0-17 s -> TSUNAMI distance/speed 17-35 s -> WAVE HEIGHT + distance 35-62 s -> THE WAVE HERE 62-70 s). The number ticks every frame, giving constant motion even when the scene is calm.",
+  "time_scale": "Tsunami covers ~112 mi in ~18 s on screen (compressed time, ~1,000x faster than 500 mph), then the wave grows 102 -> 1,300 ft in ~27 s. Inverse of the outlier's slow-motion trick.",
+  "caption_style": "Centered white italic serif, ~30 px at 576 wide, at ~70% frame height, fade in/out, no box. Title: upright serif, larger, at ~27% height. HUD at left ~47% height: tiny tracked sans caps label, big thin serif number with unit, tiny caps sub-line.",
+  "audio_curve": "Bed -24 dB -> -18 dB when the tsunami is announced -> crescendo to -8 dB at impact -> silence on the end card."
+ },
+ "techniques_worth_copying": [
+  "Three-stage HUD that re-labels itself with the story (OCEAN DEPTH -> TSUNAMI distance at 500 MPH -> WAVE HEIGHT + FEET AWAY -> 'THE WAVE / HERE'); unit switch from miles to feet at the last moment makes proximity feel sudden.",
+  "Dramatic irony: the HUD shows the threat approaching while passengers on screen stay oblivious.",
+  "Real-science false reassurance then twist: 'Out here, it is barely three feet tall.' / 'Not this one.' - a 3-word re-hook at the midpoint.",
+  "Caption ladder of short declaratives that each raise stakes along a different axis: location -> depth -> cause -> speed -> (false calm) -> direction -> helplessness -> scale comparison -> no escape.",
+  "Familiar scale comparison ('taller than a skyscraper') timed with the camera tilting up at the wall of water.",
+  "Impact -> hard cut underwater -> cracked-lens overlays -> fade to black: a clean 'you didn't make it' ending without gore.",
+  "End card that repeats the title question plus a tiny real-fact disclaimer (credibility, comment bait, loop back to the start).",
+  "Audio as escalation: bed volume steps up at the inciting event and crescendos to the impact, then cuts to silence."
+ ],
+ "what_to_avoid_vs_outlier": [
+  "Don't spend 30+ s on calm setup with no visible change; put a countdown or visible threat on screen in the first 3 s (the outlier's live countdown hits zero at 8 s).",
+  "Avoid an obvious premise whose outcome the viewer can predict; the outlier wins with counter-intuitive consequences (river becomes hydrogen, concrete crumbles).",
+  "A fact-check end card that says the premise wouldn't happen can deflate shares; if used, frame it as a surprising fact rather than a debunk.",
+  "Cover frame has no tension object; add the threat (wave sliver on the horizon, ticking clock) to frame 0."
+ ],
+ "code_only_remake_needs": {
+  "summary": "Feasible in Remotion with a fake-3D (2.5D) approach or react-three-fiber; the look is flat-shaded low-poly, no textures, so it suits code.",
+  "scene": "Low-poly cruise deck: plank walkway, grey deck plates, rows of navy/yellow loungers (instanced boxes), deck bar with teal roof, umbrellas (cone + pole), railing, pool (flat turquoise plane), waterslide tower, white superstructure block. Gradient sky, hazy horizon, flat ocean plane, a few seagull V-sprites. Blocky stick passengers (box limbs) with 2-3 simple loop animations (walk, stand, run, wave arms). Palm-leaf shadow overlay as a soft dark SVG texture.",
+  "camera": "Scripted single camera path with keyframed position/yaw/pitch: forward walk with head-bob, left pan to pool, right pan to rail, quick 180 turn, tilt up, then shake/roll on impact. In 2.5D: parallax layers per depth band and SVG/CSS transforms; in R3F: a spline camera.",
+  "wave": "Teal wall: an extruded curved mesh or layered SVG path whose height animates from a 4 px horizon band to filling the frame, with a lighter crest, white foam streak strokes, diagonal spray lines, then full-frame white foam wipe on impact.",
+  "underwater": "Full-frame teal gradient + dark vignette, particle bubbles (circles rising), drifting debris sprites (ring, umbrella, lounger, silhouettes) with slow rotation, light shafts, three SVG spider-crack overlays scaling in, fade to black.",
+  "hud_and_captions": "HUD component: label (tracked caps sans) + big thin serif number interpolated per frame with toLocaleString and unit + sub-line; label/unit switches by beat; small random jitter for 'live' depth readout. Caption component: italic serif, centered at 70% height, 0.3 s fade in/out, one line per beat. Title and end card in upright serif with a mono caps fact line.",
+  "audio": "Ambient sea/wind + music bed with volume automation keyed to beats, low rumble rising from 34 s, impact boom + underwater muffle filter at the cut, silence on the end card. No VO needed (optional Kokoro TTS if we add narration).",
+  "storyboard_fields": "Per beat: t_start/t_end, caption, camera keyframe, hud {label, from, to, unit, sub}, wave_height_px, sky_tint, shake_amount, audio_gain."
+ }
+}

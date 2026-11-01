@@ -1,0 +1,639 @@
+{
+ "id": "7702661541224566049",
+ "url": "https://www.tiktok.com/@udhwkz/video/7702661541224566049",
+ "platform": "tiktok",
+ "niche": "horror",
+ "channel": "udhwkz",
+ "title": "#edit #anime #animetkitok #animerecommendation",
+ "upload_date": "2026-10-31",
+ "duration": 201.94,
+ "views": 2200000,
+ "likes": 164200,
+ "comments": 170,
+ "reposts": 3717,
+ "subs": null,
+ "channel_median_views": 34850,
+ "outlier_score": 63.13,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/7702661541224566049.{mp4,jpg,image,eng-US.vtt,info.json} + 7702661541224566049_frames/ (every 2 s, 101 frames) + _view_0/_crop_1..5 viewing sheets",
+  "transcript_source": "TikTok auto-captions eng-US (148 cues); they match the burned-in captions frame by frame. Saved to research/library/transcripts/7702661541224566049.txt",
+  "frames": "contact sheet research/library/sheets/7702661541224566049.jpg is 10x11 tiles, row-major, 2 s per tile (tile 1 = 0 s), full 9:16 frames incl. letterbox",
+  "source_resolution": "576x1024 h264 30 fps (the only <=540p format TikTok offered); content panel is ~4:3 centred in a black 9:16 canvas",
+  "cut_detection": "ffmpeg scene>0.12 on the cropped panel: 73 cuts; shot times +-0.5 s; several cuts are within-scene reframes/punch-ins",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:05 UTC, about 1 day after upload; channel_follower_count not exposed",
+  "audio": "single English TTS narrator voicing both narration and dialogue at very high speed (~370 wpm); loud master (mean -15.5 dB, peak 0 dB). Music/SFX not separately analysed",
+  "provenance": "Translated English dub of a Chinese animated horror series (stick-figure characters over painted backgrounds; 奠, 车门, 出口 Chinese signage; names Dong/Xiao Wu). Machine translation artifacts: Xiao Wu flips between he/she, 'hook 1574' for plate J1574. Per BRIEF rule 5: study structure only, do not copy story."
+ },
+ "title_pattern": {
+  "template": "#edit #anime #animetkitok #animerecommendation (hashtags only)",
+  "notes": "No descriptive title; the same 4-hashtag string on every upload from this channel. Discovery is entirely feed-driven: the 'anime' tags target the anime-edit audience while the burned first caption ('cut off a funeral procession') does the title's job. For our channel, a hashtag-only title is a viable test for TikTok but useless for YouTube Shorts search; put the hook in caption 1 instead."
+ },
+ "thumbnail": {
+  "composition": "TikTok cover = first frame. 9:16 black canvas; a ~4:3 animation panel centred vertically (roughly y 29-71%); caption line just above the panel. Inside: over-the-shoulder POV from the truck driver's seat, back of a round cartoon head big in the left third, dashboard bottom, through the windshield a black hearse centred-right on a curving night highway with a coin-and-red-tassel charm hanging in the middle.",
+  "text": "One white italic sans line above the panel: 'cut off a funeral procession' (a fragment of the hook sentence, not a designed headline). The white 奠 funeral character on the hearse glass is the strongest graphic element.",
+  "colours": "Near-monochrome cold blue-grey night; pure black letterbox; whites (奠 glyph, road lines, round head) and one red accent (tassel, tail lights).",
+  "subject_scale_contrast": "Huge dark silhouette head foreground vs small hearse in the distance: puts the viewer in the driver's seat, with the threat small, centred and framed by the windshield.",
+  "why_it_works": "Reads as a story already in motion rather than an ad; the funeral glyph plus hearse plus night road signal horror instantly even without understanding Chinese; the caption fragment begs the question 'what happens if you do?'. Simple flat cartoon character on realistic painted background is a recognisable 'anime story' style in the feed."
+ },
+ "hook": {
+  "verbatim_0_5s": "Every trucker knows you never cut off a funeral procession, no matter how slow they're going. People say it's out of respect for the dead, but honestly, everyone's just scared of bad luck.",
+  "device": "Insider taboo rule ('Every [profession] knows you never [X]') followed by a debunk-turned-fear twist ('respect... but honestly, everyone's scared'). Starts mid-world with no intro; the first frame already shows the hearse. Three cuts in the first 5.5 s (POV, cab exterior, 奠 extreme close-up) plus a 1.7 s first shot.",
+  "on_screen": "Burned caption fragments synced to the voice; first one 'cut off a funeral procession'."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 5.5,
+   "beat_type": "hook: taboo rule",
+   "summary": "States a trade taboo ('every trucker knows you never cut off a funeral procession') and its real motive (fear of bad luck) over the hearse POV."
+  },
+  {
+   "t_start": 5.5,
+   "t_end": 16.1,
+   "beat_type": "setup: the procession",
+   "summary": "Procession merges in front; vivid inventory of omens: black lead sedan with white flowers and hazards, hearse with funeral character, casket glimpsed through glass."
+  },
+  {
+   "t_start": 16.1,
+   "t_end": 22.7,
+   "beat_type": "rule #1 stated in dialogue",
+   "summary": "Passenger asks to pass; narrator refuses: the dead have right of way, you never pass a hearse, 'rule of our trade'."
+  },
+  {
+   "t_start": 22.7,
+   "t_end": 30.1,
+   "beat_type": "stakes / setting lore",
+   "summary": "47 km to next exit; this stretch is cursed and kills a dozen people a year, so following slowly is 'safe'."
+  },
+  {
+   "t_start": 30.1,
+   "t_end": 42.5,
+   "beat_type": "rule #2 broken (foreshadow)",
+   "summary": "Passenger rolls the window down and spits; narrator snaps at him (never open a window at night); passenger goes silent with a strange expression."
+  },
+  {
+   "t_start": 42.5,
+   "t_end": 53.2,
+   "beat_type": "inciting incident",
+   "summary": "A big rig overtakes the procession (plate detail J1574) and stops across its path; convoy halts."
+  },
+  {
+   "t_start": 53.2,
+   "t_end": 68.0,
+   "beat_type": "uncanny ritual #1",
+   "summary": "Rig driver walks stiffly, dragging his feet, to the hearse, kowtows three times so hard it thuds, raises his hands as if begging."
+  },
+  {
+   "t_start": 68.0,
+   "t_end": 75.7,
+   "beat_type": "payoff of ritual #1",
+   "summary": "Hearse opens; driver tears a strip of the white casket cloth and gives it to him; he drives away."
+  },
+  {
+   "t_start": 75.7,
+   "t_end": 91.0,
+   "beat_type": "explanation / false relief",
+   "summary": "Narrator explains the local custom of blocking the hearse to receive mourning cloth; tension drops, feels rational."
+  },
+  {
+   "t_start": 91.0,
+   "t_end": 100.9,
+   "beat_type": "lull / mood",
+   "summary": "Convoy resumes; heavy silence; passenger turns away; mat trailing the hearse flickers in headlights."
+  },
+  {
+   "t_start": 100.9,
+   "t_end": 108.8,
+   "beat_type": "twist seed",
+   "summary": "Passenger says the portrait on the coffin looked like her uncle; narrator dismisses it."
+  },
+  {
+   "t_start": 108.8,
+   "t_end": 120.2,
+   "beat_type": "escalation",
+   "summary": "Soft click: seatbelt off, blank face, hand shoots to the door handle."
+  },
+  {
+   "t_start": 120.2,
+   "t_end": 135.8,
+   "beat_type": "action spike",
+   "summary": "Door pops open, door-warning light, hard braking and screeching tyres; passenger leaps out, rolls, stands up unhurt and ignores the narrator."
+  },
+  {
+   "t_start": 135.8,
+   "t_end": 157.4,
+   "beat_type": "uncanny ritual #2 (mirror)",
+   "summary": "Passenger walks with the same stiff, foot-dragging gait to the hearse, which has stopped as if waiting, and repeats the three kowtows, hands raised."
+  },
+  {
+   "t_start": 157.4,
+   "t_end": 166.1,
+   "beat_type": "horror image",
+   "summary": "Hearse window lowers; a thin bony hand offers the white cloth; passenger takes it 'like a devout believer'."
+  },
+  {
+   "t_start": 166.1,
+   "t_end": 178.4,
+   "beat_type": "uncanny return",
+   "summary": "Back in the cab: folds cloth into pocket, hands placed neatly on knees, stares ahead in pale dashboard glow, drained face."
+  },
+  {
+   "t_start": 178.4,
+   "t_end": 196.4,
+   "beat_type": "rationalisation + doubt seed",
+   "summary": "Passenger claims it was a maternal uncle and she had to do the ritual; narrator notes she is an only child and he never knew of maternal siblings."
+  },
+  {
+   "t_start": 196.4,
+   "t_end": 201.9,
+   "beat_type": "cliffhanger (cut mid-sentence)",
+   "summary": "After 10 minutes the passenger offers to take the wheel; narrator agrees; video cuts off mid-sentence, implying part 2 and a possessed driver."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 1.7,
+   "shot_type": "POV over-shoulder (driver)",
+   "visual_description": "Back of narrator's round stick-figure head in left foreground, truck dashboard and wheel; through the windshield a black hearse with a white 奠 (funeral) character on the rear window, a coin-and-red-tassel charm hanging from the mirror, curving night highway",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "cut off a funeral procession"
+  },
+  {
+   "t_start": 1.7,
+   "t_end": 3.8,
+   "shot_type": "exterior medium, front of truck cab",
+   "visual_description": "Light-blue truck cab seen from the front, narrator (blue shirt) at the wheel behind glass, charm visible, a second car in the foreground",
+   "camera_motion": "static",
+   "on_screen_text": "People say its out of"
+  },
+  {
+   "t_start": 3.8,
+   "t_end": 5.4,
+   "shot_type": "extreme close-up insert",
+   "visual_description": "Hearse rear window filling the frame: huge grey 奠 character, white-draped casket shape beneath",
+   "camera_motion": "slow push",
+   "on_screen_text": "just scared of bad luck"
+  },
+  {
+   "t_start": 5.4,
+   "t_end": 7.0,
+   "shot_type": "aerial establishing wide",
+   "visual_description": "Storm-cloud night sky over a dark mountain road, small headlights of cars merging from an off-ramp",
+   "camera_motion": "slow drift",
+   "on_screen_text": "They merged from an offramp"
+  },
+  {
+   "t_start": 7.0,
+   "t_end": 11.7,
+   "shot_type": "medium, front of lead sedan",
+   "visual_description": "Black sedan with a large white chrysanthemum and ribbon bow on the hood, headlights on, hazard blink; two framings (medium then tighter)",
+   "camera_motion": "push-in across a cut",
+   "on_screen_text": "Leading the pack was a black sedan with white flowers / on the hood and hazards blinking"
+  },
+  {
+   "t_start": 11.7,
+   "t_end": 14.2,
+   "shot_type": "POV through windshield",
+   "visual_description": "Hearse from behind at the back of the procession, charm hanging in the foreground, fog",
+   "camera_motion": "subtle sway",
+   "on_screen_text": "At the very back was the hearse with a huge"
+  },
+  {
+   "t_start": 14.2,
+   "t_end": 16.2,
+   "shot_type": "extreme close-up insert",
+   "visual_description": "奠 character on hearse rear glass, casket under cloth visible inside",
+   "camera_motion": "slow push",
+   "on_screen_text": "door and through the glass you could barely make out"
+  },
+  {
+   "t_start": 16.2,
+   "t_end": 17.9,
+   "shot_type": "two-shot frontal from outside the cab",
+   "visual_description": "Passenger Xiao Wu (brown shirt) left, driver/narrator (blue shirt) right, both stick figures with round white heads",
+   "camera_motion": "static",
+   "on_screen_text": "Dong why are we tailing"
+  },
+  {
+   "t_start": 17.9,
+   "t_end": 22.8,
+   "shot_type": "medium close-up, driver",
+   "visual_description": "Narrator at the wheel, side angle, speaking the rule (mouth open on dialogue)",
+   "camera_motion": "static with punch-in",
+   "on_screen_text": "was riding shotgun / step aside You never pass a hearse"
+  },
+  {
+   "t_start": 22.8,
+   "t_end": 25.5,
+   "shot_type": "medium close-up, passenger",
+   "visual_description": "Xiao Wu frowning (angry brows, grey nose blush), seatbelt across chest",
+   "camera_motion": "static",
+   "on_screen_text": "How long are we gonna crawl like this"
+  },
+  {
+   "t_start": 25.5,
+   "t_end": 26.8,
+   "shot_type": "MCU + circular inset",
+   "visual_description": "Same Xiao Wu shot with a circular vignette inset of a blue 出口 EXIT road sign (thought/information bubble)",
+   "camera_motion": "inset pops in",
+   "on_screen_text": "The next exit is still 47 kilometers away"
+  },
+  {
+   "t_start": 26.8,
+   "t_end": 30.1,
+   "shot_type": "POV through windshield",
+   "visual_description": "Hearse ahead in thick fog, road lines streaking, motion blur on edges",
+   "camera_motion": "forward tracking",
+   "on_screen_text": "This stretch is super cursed claims over a dozen lives / a year Following them slow actually keeps us safe"
+  },
+  {
+   "t_start": 30.1,
+   "t_end": 33.0,
+   "shot_type": "over-shoulder MCU, passenger",
+   "visual_description": "Xiao Wu in focus, blurred narrator head in foreground left, side window behind",
+   "camera_motion": "static",
+   "on_screen_text": "A midnight funeral Talk"
+  },
+  {
+   "t_start": 33.0,
+   "t_end": 34.7,
+   "shot_type": "medium, passenger profile",
+   "visual_description": "Xiao Wu turns to the window, back of head to camera, rolling window down",
+   "camera_motion": "static",
+   "on_screen_text": "Mumbling under his breath he rolled"
+  },
+  {
+   "t_start": 34.7,
+   "t_end": 38.4,
+   "shot_type": "MCU two angles",
+   "visual_description": "Narrator shouting with red 'anger' zig-zag marks; then stern close-up",
+   "camera_motion": "quick punch-in",
+   "on_screen_text": "roll that back up / Didnt I tell you Never roll"
+  },
+  {
+   "t_start": 38.4,
+   "t_end": 42.5,
+   "shot_type": "MCU passenger, dread shading",
+   "visual_description": "Xiao Wu head down, black-to-transparent gradient over the upper face (dread shading), side window behind",
+   "camera_motion": "static",
+   "on_screen_text": "He kept his head down silent looking / totally shaken with a weird look on his face"
+  },
+  {
+   "t_start": 42.5,
+   "t_end": 44.8,
+   "shot_type": "MCU driver",
+   "visual_description": "Narrator at wheel, neutral-concerned face",
+   "camera_motion": "static",
+   "on_screen_text": "Right then a big rig flew past us"
+  },
+  {
+   "t_start": 44.8,
+   "t_end": 49.9,
+   "shot_type": "exterior wide",
+   "visual_description": "Container big rig passing the flower-bow sedan on the highway; dark sky",
+   "camera_motion": "lateral pan with the truck",
+   "on_screen_text": "I thought to myself what kind of / reckless idiot dares to pass a hearse"
+  },
+  {
+   "t_start": 49.9,
+   "t_end": 53.1,
+   "shot_type": "close-up insert",
+   "visual_description": "Back of the rig, license plate 'J1574' highlighted",
+   "camera_motion": "static",
+   "on_screen_text": "crystal clear Hook 1574"
+  },
+  {
+   "t_start": 53.1,
+   "t_end": 55.1,
+   "shot_type": "exterior wide",
+   "visual_description": "Rig stopped across the sedan's path, procession halted",
+   "camera_motion": "static",
+   "on_screen_text": "brakes and blocked the front of the funeral procession / to a sudden halt"
+  },
+  {
+   "t_start": 55.1,
+   "t_end": 60.5,
+   "shot_type": "exterior medium, character walk",
+   "visual_description": "Grey shaggy-coated stick figure (the rig driver) steps from the truck and walks stiffly between the sedan and other cars toward the back",
+   "camera_motion": "slow track following",
+   "on_screen_text": "jacket and started walking slowly toward the back / His walking style was super weird / totally stiff dragging his feet step by step"
+  },
+  {
+   "t_start": 60.5,
+   "t_end": 65.2,
+   "shot_type": "POV through windshield",
+   "visual_description": "Figure drops to his knees behind the hearse, bows forehead to asphalt three times; charm in foreground; small spark at impact",
+   "camera_motion": "static, impact shake",
+   "on_screen_text": "his knees and dropped to his knees / He bowed three times / and you could hear the heavy thud"
+  },
+  {
+   "t_start": 65.2,
+   "t_end": 68.0,
+   "shot_type": "MCU low angle",
+   "visual_description": "Figure kneeling with both arms raised high, eyes closed, shaded face",
+   "camera_motion": "static",
+   "on_screen_text": "his head like he was begging for something"
+  },
+  {
+   "t_start": 68.0,
+   "t_end": 71.8,
+   "shot_type": "exterior medium",
+   "visual_description": "Hearse back door opening; in background the truck cab with both protagonists watching; kneeling figure foreground",
+   "camera_motion": "static",
+   "on_screen_text": "Just then the back door of the hearse opened and"
+  },
+  {
+   "t_start": 71.8,
+   "t_end": 75.6,
+   "shot_type": "exterior medium/close",
+   "visual_description": "Black casket covered with white cloth in the open hearse; driver tears a strip; figure receives it; figure returns to his rig",
+   "camera_motion": "cut sequence",
+   "on_screen_text": "we could see a black casket covered with a white / The driver tore a corner off the white cloth / guy who accepted it with both hands before getting in"
+  },
+  {
+   "t_start": 75.6,
+   "t_end": 80.9,
+   "shot_type": "two-shot frontal from outside",
+   "visual_description": "Both protagonists in the cab, narrator explaining",
+   "camera_motion": "static",
+   "on_screen_text": "Its a local custom called blocking the hearse / filial respect and its my first time seeing it too"
+  },
+  {
+   "t_start": 80.9,
+   "t_end": 91.8,
+   "shot_type": "MCU driver (explainer stretch)",
+   "visual_description": "Narrator talking at the wheel through several reframes; at ~84 s a circular inset flashback of the flower-bow sedan",
+   "camera_motion": "small punch-ins every 2-3 s",
+   "on_screen_text": "the hearse even mean / deceased if they didnt make it in time / They kneel on the ground and kowtow three times / mourning cloth ... / of grief for the deceased"
+  },
+  {
+   "t_start": 91.8,
+   "t_end": 95.1,
+   "shot_type": "POV through windshield",
+   "visual_description": "Following the hearse again on the highway, steady",
+   "camera_motion": "forward tracking",
+   "on_screen_text": "following behind the hearse / Xiaowu stopped"
+  },
+  {
+   "t_start": 95.1,
+   "t_end": 98.5,
+   "shot_type": "medium, passenger from behind",
+   "visual_description": "Xiao Wu facing the side window, face hidden, dim",
+   "camera_motion": "static",
+   "on_screen_text": "talking facing the window so I couldnt see her expression"
+  },
+  {
+   "t_start": 98.5,
+   "t_end": 100.3,
+   "shot_type": "extreme close-up insert",
+   "visual_description": "奠 hearse rear window again, washed-out grey",
+   "camera_motion": "slow push",
+   "on_screen_text": "The mat trailing behind the hearse"
+  },
+  {
+   "t_start": 100.3,
+   "t_end": 103.4,
+   "shot_type": "over-shoulder two-shot",
+   "visual_description": "Narrator's head foreground, Xiao Wu's face reflected/in background",
+   "camera_motion": "static",
+   "on_screen_text": "Yeah / Who stares at that"
+  },
+  {
+   "t_start": 103.4,
+   "t_end": 105.5,
+   "shot_type": "extreme close-up",
+   "visual_description": "Big face filling the frame, furrowed brows",
+   "camera_motion": "snap zoom",
+   "on_screen_text": "I couldnt help but be stunned no way its that"
+  },
+  {
+   "t_start": 105.5,
+   "t_end": 111.9,
+   "shot_type": "MCU driver, dread shading",
+   "visual_description": "Narrator with gradient shadow over eyes; moon visible through window",
+   "camera_motion": "slow push",
+   "on_screen_text": "did you see it wrong / Xiaowu didnt answer but I heard a / very soft click over on her side"
+  },
+  {
+   "t_start": 111.9,
+   "t_end": 115.5,
+   "shot_type": "MCU passenger frontal",
+   "visual_description": "Xiao Wu with blank face, unbuckled seatbelt hanging beside the seat",
+   "camera_motion": "punch-in across a cut",
+   "on_screen_text": "down with a totally blank face / and was hanging right beside the seat"
+  },
+  {
+   "t_start": 115.5,
+   "t_end": 120.3,
+   "shot_type": "wide two-shot frontal + MCU",
+   "visual_description": "Cab from the front, Xiao Wu shaded; then side close-up as her hand goes to the handle",
+   "camera_motion": "cut",
+   "on_screen_text": "your seatbelt on but she didnt react / Xiaowu as the words left my mouth her hand suddenly"
+  },
+  {
+   "t_start": 120.3,
+   "t_end": 122.7,
+   "shot_type": "MCU passenger",
+   "visual_description": "Xiao Wu at the open door, cold air",
+   "camera_motion": "static",
+   "on_screen_text": "The car door popped open and the cold"
+  },
+  {
+   "t_start": 122.7,
+   "t_end": 124.7,
+   "shot_type": "close-up insert",
+   "visual_description": "Dashboard: glowing gauges and a red '车门' door-open warning light",
+   "camera_motion": "static",
+   "on_screen_text": "The dashboard instantly lit up"
+  },
+  {
+   "t_start": 124.7,
+   "t_end": 126.8,
+   "shot_type": "close-up insert",
+   "visual_description": "Driver's foot stamping the brake pedal",
+   "camera_motion": "quick motion",
+   "on_screen_text": "I slammed on the brakes we werent"
+  },
+  {
+   "t_start": 126.8,
+   "t_end": 128.9,
+   "shot_type": "close-up insert",
+   "visual_description": "Tyre screeching with smoke and skid marks",
+   "camera_motion": "shake",
+   "on_screen_text": "The tires let out a screeching sound"
+  },
+  {
+   "t_start": 128.9,
+   "t_end": 130.7,
+   "shot_type": "MCU driver, dread shading",
+   "visual_description": "Narrator shocked, shaded face",
+   "camera_motion": "static",
+   "on_screen_text": "as they dragged across the ground"
+  },
+  {
+   "t_start": 130.7,
+   "t_end": 135.9,
+   "shot_type": "exterior wide",
+   "visual_description": "Truck cab with door flung open, Xiao Wu tumbles onto the road and pops back up; then cab front view",
+   "camera_motion": "static",
+   "on_screen_text": "jumped out hit the ground / couldnt feel any pain / but she acted like she didnt hear a thing"
+  },
+  {
+   "t_start": 135.9,
+   "t_end": 139.3,
+   "shot_type": "MCU driver",
+   "visual_description": "Narrator leaning across from the driver's seat, fog rolling in through the open door",
+   "camera_motion": "slow push",
+   "on_screen_text": "The door was wide open and the fog rolled / I leaned over from the drivers seat and watched"
+  },
+  {
+   "t_start": 139.3,
+   "t_end": 143.5,
+   "shot_type": "POV through windshield",
+   "visual_description": "Xiao Wu seen from behind walking stiffly toward the stopped hearse on the empty road",
+   "camera_motion": "static",
+   "on_screen_text": "him walk step by step toward the hearse ahead / stopped again as if waiting for Xiao Wu"
+  },
+  {
+   "t_start": 143.5,
+   "t_end": 147.0,
+   "shot_type": "exterior medium",
+   "visual_description": "Xiao Wu walking past the flower-bow sedan toward the hearse",
+   "camera_motion": "slow track",
+   "on_screen_text": "Xiao Wu walked toward the hearse / with stiff knees dragging his feet"
+  },
+  {
+   "t_start": 147.0,
+   "t_end": 149.8,
+   "shot_type": "medium driver at open door",
+   "visual_description": "Narrator half out of the cab looking up",
+   "camera_motion": "static",
+   "on_screen_text": "up again she was already right in front of the"
+  },
+  {
+   "t_start": 149.8,
+   "t_end": 157.4,
+   "shot_type": "exterior medium + close-ups",
+   "visual_description": "Xiao Wu kneels beside the sedan, forehead to the ground, then flattened with hands raised (mirrors the rig driver)",
+   "camera_motion": "cuts tighten each bow",
+   "on_screen_text": "He dropped to his knees hitting the concrete / His forehead hit the / On the third bow he flattened himself completely / against the ground with his hands raised"
+  },
+  {
+   "t_start": 157.4,
+   "t_end": 161.1,
+   "shot_type": "close-up insert",
+   "visual_description": "Hearse window rolling down; thin bony hand holding out a white cloth, orange interior light strip",
+   "camera_motion": "static",
+   "on_screen_text": "The hearse window rolled down and a thin bony hand / reached out holding a piece of white cloth"
+  },
+  {
+   "t_start": 161.1,
+   "t_end": 166.0,
+   "shot_type": "POV through windshield",
+   "visual_description": "Xiao Wu kneeling behind the hearse accepting the cloth, then standing",
+   "camera_motion": "static",
+   "on_screen_text": "very slowly and respectfully like a devout believer / stood up"
+  },
+  {
+   "t_start": 166.0,
+   "t_end": 172.5,
+   "shot_type": "MCU passenger",
+   "visual_description": "Xiao Wu back in the seat folding the cloth, then profile staring ahead, hands on knees",
+   "camera_motion": "static",
+   "on_screen_text": "car and shut the door / twice and put it in his pocket / He stared straight ahead acting"
+  },
+  {
+   "t_start": 172.5,
+   "t_end": 175.8,
+   "shot_type": "close-up passenger frontal",
+   "visual_description": "Xiao Wu blank face lit by a pink-purple dashboard glow from below",
+   "camera_motion": "slow push",
+   "on_screen_text": "The cab became / eerie glow on Xiao Wus face"
+  },
+  {
+   "t_start": 175.8,
+   "t_end": 179.4,
+   "shot_type": "MCU driver, dread shading",
+   "visual_description": "Narrator turning, shaded face",
+   "camera_motion": "static",
+   "on_screen_text": "Xiao Wu turned his head to look at me / coffin really your uncle"
+  },
+  {
+   "t_start": 179.4,
+   "t_end": 187.5,
+   "shot_type": "MCU to ECU passenger",
+   "visual_description": "Xiao Wu answering, sad brows, grey shading creeping over the face",
+   "camera_motion": "punch-ins",
+   "on_screen_text": "side Havent seen him in years / hearse and I saw his portrait on the coffin / kind of sad / the roadblocking mourning ritual myself"
+  },
+  {
+   "t_start": 187.5,
+   "t_end": 190.3,
+   "shot_type": "MCU driver, dread shading",
+   "visual_description": "Narrator, moonlit window",
+   "camera_motion": "static",
+   "on_screen_text": "had no clue if his mom had any siblings"
+  },
+  {
+   "t_start": 190.3,
+   "t_end": 193.8,
+   "shot_type": "MCU through windshield from outside",
+   "visual_description": "Xiao Wu shaded, face turned toward window",
+   "camera_motion": "static",
+   "on_screen_text": "Xiao Wu didnt say anything else keeping her face turned / toward the window Figuring she was upset I didnt bother"
+  },
+  {
+   "t_start": 193.8,
+   "t_end": 198.4,
+   "shot_type": "two-shot frontal from outside",
+   "visual_description": "Both in the cab, Xiao Wu offering to drive",
+   "camera_motion": "static",
+   "on_screen_text": "she suddenly spoke up / I glanced at her Keeping busy might take her mind"
+  },
+  {
+   "t_start": 198.4,
+   "t_end": 201.9,
+   "shot_type": "POV through windshield",
+   "visual_description": "Back to the opening framing: charm, hearse with 奠 ahead in fog (bookend); video ends mid-sentence",
+   "camera_motion": "forward tracking",
+   "on_screen_text": "off things Even though Xiao Wu hadnt / been driving long crawling along behind a hearse at snail"
+  }
+ ],
+ "pacing": {
+  "words": 1242,
+  "words_per_min": 369,
+  "note_wpm": "Very fast TTS, apparently sped up ~1.5x from normal; one voice for narration and all dialogue; dialogue lines are not tagged, so context does the speaker attribution.",
+  "avg_shot_length_s": 2.8,
+  "shot_note": "73 detected cuts in 202 s (~2.8 s); counting punch-ins/inset pops, the picture changes about every 2 s. Hook section is faster (~1.6 s/shot). Long held shots are reserved for the explanation stretch (80-92 s).",
+  "re_hook_interval_s": "roughly every 12-20 s a new escalation (new rule, rig overtakes, kowtow, custom explained, uncle twist, seatbelt click, door opens, mirror kowtow, bony hand, cliffhanger)",
+  "caption_style": "white italic sans (Arial-like), 1-2 lines, ~5-9 words per card, centred above the panel on black, no highlight/karaoke, changes every ~1.4 s"
+ },
+ "techniques_worth_copying": [
+  "Open with a profession-specific rule/taboo stated as common knowledge, then state why people really obey it (fear); 'rules horror' framing primes the viewer to wait for a rule to be broken.",
+  "Plant two rules early (never pass a hearse; never roll down the window at night) and show the companion breaking the minor one at 30 s: a silent cause the ending later pays off.",
+  "Mirror structure: a stranger performs an uncanny ritual (stiff walk, three kowtows, hands raised), it gets a rational explanation (false relief), then the trusted companion performs the identical ritual. Repetition makes the second time terrifying.",
+  "Concrete sensory and numeric details as credibility anchors: 47 km to the exit, a dozen deaths a year, plate J1574, 'thud from dozens of meters away', the soft click of a seatbelt.",
+  "Small physical tells for possession: seatbelt slipping off, blank face, hands neatly on knees, staring ahead, pale dashboard light on the face.",
+  "Doubt seed in the last 20 s (only child, unknown maternal uncle) undermining the explanation the possessed character gives.",
+  "End mid-sentence on an ominous offer (let me drive) for a series cliffhanger; no CTA, no outro, which also drives replays and follows for part 2.",
+  "Bookend visuals: the final shot repeats the opening POV of the hearse through the windshield.",
+  "Recurring visual motif as punctuation: the 奠 glyph extreme close-up inserted at 4 s, 14 s, 98 s, used as a beat separator.",
+  "Insert close-ups for every action verb (brake pedal, screeching tyre, door-warning light, licence plate, bony hand): each sentence gets its own picture.",
+  "Dread shading: a black gradient pulled down over the upper face of the flat cartoon character whenever fear rises; cheap and very legible.",
+  "Circular inset bubbles for information or flashback (exit sign, sedan memory) instead of cutting away.",
+  "Simple flat stick-figure characters (round white heads, dot eyes, expressive brows) composited over moody, realistic painted backgrounds: the contrast is the style and keeps character animation cheap.",
+  "Very fast single-voice TTS (~370 wpm) with burned captions: dense storytelling in ~3 min holds attention and suits the read-along TikTok audience."
+ ],
+ "code_only_remake_needs": {
+  "canvas": "1080x1920 black canvas with a centred ~4:3 (1080x810) story panel at about 29-71% height; caption zone directly above the panel. Optionally use the full 9:16 for ours, but the letterbox look is part of the 'anime repost' feel.",
+  "characters": "SVG rig for flat stick-figure people: round white head with thick black outline, dot eyes, swappable brow/mouth shapes (neutral, angry with red zig-zag marks, shocked O mouth, sad brows), grey nose blush, solid shirt torso (blue/brown), thin stick limbs. Poses: sitting at wheel, turned to window, walking with stiff dragging gait, kneeling, forehead to ground, prone with arms raised, holding a cloth. Dread shading = linear-gradient mask over the upper face.",
+  "backgrounds": "Painted-look night scenes as layered SVG/Canvas: truck cab interior from 4 angles (driver POV through windshield, frontal exterior of cab, passenger side window, dashboard), highway with fog (Canvas noise or blurred SVG layers), black sedan and hearse vector illustrations (front and rear), container rig, moonlit sky. Grain/vignette/fog overlay and a cold blue-grey palette with red accents.",
+  "props_inserts": "Funeral glyph on rear glass (use our own symbol/text, not a copied frame), flower bow on hood, hanging charm with pendulum swing, licence plate, dashboard gauges with glowing warning icon, brake pedal, tyre with smoke particles, bony hand + white cloth, casket under cloth.",
+  "camera": "Per-shot Ken Burns: slow push-ins, punch-in cuts (scale 1.0 to 1.3 on a cut), lateral pans for passing vehicles, small shake on impacts, forward-tracking road lines for windshield POV. Circular inset bubble component (mask + pop-in spring).",
+  "captions": "Word-timed captions from TTS timestamps rendered as white italic sans, 1-2 lines of 5-9 words, changing ~every 1.4 s, centred above the panel.",
+  "audio": "Kokoro/Piper TTS for a single narrator at ~1.4-1.5x speed (target 330-370 wpm), plus low drone bed, tyre screech, door-alarm chime, thud SFX on kowtows (royalty-free or synthesised).",
+  "storyboard": "Shot every ~2-3 s mapped to sentence boundaries, roughly 70-80 shots for 3 min; reuse ~10 background setups with different crops and character poses to keep asset count low (the original reuses the cab and windshield POV constantly)."
+ }
+}

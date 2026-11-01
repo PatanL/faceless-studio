@@ -1,0 +1,353 @@
+{
+ "id": "xKgepVHATm4",
+ "url": "https://www.youtube.com/shorts/xKgepVHATm4",
+ "platform": "youtube_shorts",
+ "niche": "horror",
+ "channel": "WrONG Rules",
+ "title": "New Household Rules (Pt2?) #scary #monster #horrorstories #viral #tiktok #trending #storytime",
+ "upload_date": "2024-02-07",
+ "duration": 59.76,
+ "views": 9389,
+ "likes": 473,
+ "comments": 18,
+ "subs": 20700,
+ "channel_median_views": 9400,
+ "outlier_score": 1.0,
+ "role": "control",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/xKgepVHATm4.{mp4,jpg,en-orig.vtt,info.json} + xKgepVHATm4_frames/ (1 fps, 60 frames) + xKgepVHATm4_q[0-3].jpg (1 fps, 15 s each) + xKgepVHATm4_h[0-3].jpg (2 fps, cropped to picture+caption band)",
+  "transcript_source": "YouTube auto-subs en-orig (word-timed ASR, 154 words). 'en' track returned HTTP 429; en-orig is the same ASR. Burned-in captions match the ASR except 'ASAP' is captioned as 'AS SOON AS POSSIBLE'.",
+  "frames": "contact sheet research/library/sheets/xKgepVHATm4.jpg is 10x6 tiles, row-major, 1 s per tile (tile 1 = 0 s), 160x284 px each. Shot times refined from the 2 fps pass, +-0.5 s.",
+  "source_resolution": "only 240x426 AV1 available at <=480p; enough for layout, colours and text, not fine texture.",
+  "cut_detection": "ffmpeg scene>0.25 finds only 3 cuts (12.7, 46.4, 56.8) because most transitions are fades/flashes/glitches over black; scene>0.12 finds 12. Shot list is from visual inspection.",
+  "audio": "silencedetect (-35 dB, 0.4 s) finds no gaps: a continuous music/ambience bed under a single narrator voice-over. Voice timbre and music were not separately analysed.",
+  "art_style_note": "Pictures look like AI-generated semi-realistic anime stills of one recurring girl (black hair, red headband, red sweater). Per BRIEF rule 4 we cannot use AI imagery; remake notes below assume SVG/vector art.",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:15 UTC; 1.7 years after upload. Description empty, no tags."
+ },
+ "title_pattern": {
+  "template": "New [Place] Rules (Pt[N]?) + 7-hashtag stack (#scary #monster #horrorstories #viral #tiktok #trending #storytime)",
+  "notes": "Rules-horror series title. 'New Household Rules' names the format (a list of rules for a house) but gives no stakes, no number and no creature; '(Pt2?)' with a question mark reads as uncertain/unplanned and tells cold viewers they missed part 1. Over half the title is generic hashtags (#viral #tiktok #trending), i.e. a TikTok repost habit. As a control it shows the baseline: format label + part number, no curiosity gap in the title itself."
+ },
+ "thumbnail": {
+  "composition": "No custom thumbnail. yt-dlp maxres is an auto-picked frame at ~30.5 s: the girl in a red sweater, medium shot, front-on, hand on cheek, sleepy/sulky expression against a mint-green wall with a brown door frame, pillarboxed inside a blurred 16:9 copy. In the Shorts feed the effective thumbnail is frame 0: black 9:16 canvas, a 16:9 picture band across the middle third showing the back of the girl's head (red headband) in the left foreground staring at a dark wooden door at floor level, a glitch streak across the top, caption 'PEEK UNDER THE DOOR' below.",
+  "text": "Only the burned-in caption: thin, scratchy, hand-lettered all-caps in white, centred just under the picture band ('IF YOU'RE TIRED AT NIGHT' on the auto thumb, 'PEEK UNDER THE DOOR' on frame 0). Small: roughly 6-7% of frame width per word.",
+  "colours": "Black letterbox dominates (~65% of the frame). Inside the band: muted mint/sage greens, warm browns of doors and floor, one saturated red accent (headband + sweater) that becomes the character's colour signature across every shot.",
+  "subject_scale_contrast": "Weak. Frame 0 subject faces away and the door is the 'subject' at floor level; the auto thumb is a calm medium shot. The only scale contrast in the video comes later (tiny girl in a wide doorway at 33 s vs. ECU face at 42 s).",
+  "why_it_works": "As a control it mostly does not: the letterboxed band wastes two thirds of the feed tile, there is no face or threat on frame 0 and the caption is small. What it does right: the imperative caption ('PEEK UNDER THE DOOR') immediately signals the rules format, and the red-on-green character palette is consistent and recognisable for returning series viewers."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "Peek under the door to see if the lights in the living room are flickering. If they are,",
+  "first_speech_at_s": 0.0,
+  "device": "Cold open mid-list with a second-person imperative rule plus a conditional ('if they are... if not...'): the viewer is put in the house and given a task, no premise or setup. A 0.7 s full-screen kinetic card at 2.0 s repeats 'ARE FLICKERING' in 5 stacked rows with RGB glitch bands, acting out the word. Frame 0 also carries a glitch streak. Weakness for cold viewers: as 'Pt2' it never says whose rules these are or why, and the first rule references an unseen living room and an earlier bathroom check ('check the bathroom AGAIN').",
+  "visual_0_5s": "0-2.0 s back-of-head OTS of the girl staring at a dark door at floor level (glitch line at 0 s); 2.0-2.8 s full-frame stacked 'ARE FLICKERING' text with green/blue/red glitch bands; 2.8-5 s back to the door shot with slow push-in, caption 'IF THEY ARE', then a red glitch flash."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 4.1,
+   "beat_type": "hook_rule_cold_open",
+   "summary": "Rule 1 as a second-person task: peek under the door, check whether the living-room lights flicker. Kinetic 'ARE FLICKERING' card at 2 s."
+  },
+  {
+   "t_start": 4.1,
+   "t_end": 9.3,
+   "beat_type": "conditional_branch",
+   "summary": "'If they are, stay put' (red glitch caption) / 'if not, check the bathroom again' - binary choice; 'again' implies events from part 1."
+  },
+  {
+   "t_start": 9.3,
+   "t_end": 13.0,
+   "beat_type": "warning_emphasis",
+   "summary": "'Remember, don't open the door right away' - full-screen red stacked 'REMEMBER' card then a text-only black card: the rule is delivered as a warning with no picture."
+  },
+  {
+   "t_start": 13.0,
+   "t_end": 18.0,
+   "beat_type": "rule_unexplained_object",
+   "summary": "'If the shadow disappears, bring in the blue and white things ASAP' - girl peering into a bathroom with teal puddles; the 'blue and white things' are never explained (colour-coded caption words make them feel important)."
+  },
+  {
+   "t_start": 18.0,
+   "t_end": 23.9,
+   "beat_type": "rule_lights",
+   "summary": "'Only turn off the light in the bathroom, keep all the other room lights on' - hand on light switch; yellow comic 'LIGHTS ON' punch text."
+  },
+  {
+   "t_start": 23.9,
+   "t_end": 30.2,
+   "beat_type": "rule_mundane_relief",
+   "summary": "Fridge food: warm it up before eating, but don't eat it all up - mundane chore that implies someone or something else in the house needs the food."
+  },
+  {
+   "t_start": 30.2,
+   "t_end": 38.4,
+   "beat_type": "false_safety",
+   "summary": "'If you're tired at night, go to our room... you'll see a white closet. It's safe, don't worry' - the parents' room is presented as the safe zone; reassurance primes the scare."
+  },
+  {
+   "t_start": 38.4,
+   "t_end": 44.3,
+   "beat_type": "escalation_check",
+   "summary": "'Before you go to bed, check on the closet carefully. Peek through the gap' - the safe object becomes the threat; profile CU at the closet gap, then ECU frightened face."
+  },
+  {
+   "t_start": 44.3,
+   "t_end": 50.0,
+   "beat_type": "scare_peak",
+   "summary": "'If you see a blue eye staring from inside, shine your flashlight till it vanish' - face cuts to a colour-inverted magenta/blue glitch negative (jump-scare stand-in), then dissolves with chromatic blur = 'vanish'."
+  },
+  {
+   "t_start": 50.0,
+   "t_end": 57.4,
+   "beat_type": "final_ritual_rule",
+   "summary": "'One last thing before bed' (black card, red keywords): hang a bag on the outside door knob, lock the door, go rest - offering ritual with no explanation."
+  },
+  {
+   "t_start": 57.4,
+   "t_end": 59.76,
+   "beat_type": "series_cliffhanger",
+   "summary": "'Next morning you'll find the second note' - girl asleep, then sitting up holding a paper note; chains to the next part."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 2.0,
+   "shot_type": "over_the_shoulder_back_view",
+   "visual_description": "Back of the girl's head (black hair, red headband) large in left foreground; she stares at a dark brown wooden door and grey floorboards; mint wall. Glitch streak across the top on frame 0.",
+   "camera_motion": "static, very slow push-in",
+   "on_screen_text": "PEEK UNDER THE DOOR / TO SEE IF THE LIGHTS / IN THE LIVING ROOM"
+  },
+  {
+   "t_start": 2.0,
+   "t_end": 2.8,
+   "shot_type": "kinetic_text_card",
+   "visual_description": "Full frame filled with 5 stacked repeats of 'ARE FLICKERING' in white scratchy caps, scrolling vertically, over a flickering picture with horizontal green, blue and red glitch bands.",
+   "camera_motion": "vertical scroll + glitch",
+   "on_screen_text": "ARE FLICKERING x5"
+  },
+  {
+   "t_start": 2.8,
+   "t_end": 5.0,
+   "shot_type": "over_the_shoulder_back_view",
+   "visual_description": "Return to the door shot.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "IF THEY ARE"
+  },
+  {
+   "t_start": 5.0,
+   "t_end": 6.0,
+   "shot_type": "glitch_flash",
+   "visual_description": "Same shot with a red horizontal glitch bar; caption flashes in red.",
+   "camera_motion": "glitch jitter",
+   "on_screen_text": "STAY PUT (red)"
+  },
+  {
+   "t_start": 6.0,
+   "t_end": 9.2,
+   "shot_type": "over_the_shoulder_back_view",
+   "visual_description": "Door shot continues; door slightly larger than at 3 s (push-in ~5%).",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "IF NOT / CHECK THE BATHROOM AGAIN"
+  },
+  {
+   "t_start": 9.2,
+   "t_end": 10.0,
+   "shot_type": "kinetic_text_card",
+   "visual_description": "Black frame filled with stacked red dripping 'REMEMBER' rows (8 rows), scrolling.",
+   "camera_motion": "vertical scroll",
+   "on_screen_text": "REMEMBER x8 (red)"
+  },
+  {
+   "t_start": 10.0,
+   "t_end": 12.6,
+   "shot_type": "black_text_card",
+   "visual_description": "Pure black, two centred lines of white scratchy caps mid-frame (no picture).",
+   "camera_motion": "none",
+   "on_screen_text": "DON'T OPEN THE DOOR / RIGHT AWAY"
+  },
+  {
+   "t_start": 12.6,
+   "t_end": 13.0,
+   "shot_type": "white_flash_transition",
+   "visual_description": "Over-exposed white flash revealing the girl's silhouette.",
+   "camera_motion": "flash",
+   "on_screen_text": "-"
+  },
+  {
+   "t_start": 13.0,
+   "t_end": 17.9,
+   "shot_type": "over_the_shoulder_back_view",
+   "visual_description": "Girl from behind at a door frame peering into a tiled bathroom: grey-blue wall cabinets, green bin, green pipe, toilet edge right, teal puddles/footprints on the floor.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "IF THE SHADOW DISAPPEARS (shadow in blue) / BRING IN / THE BLUE AND WHITE THINGS (BLUE blue, WHITE white-fill black-outline) / AS SOON AS POSSIBLE"
+  },
+  {
+   "t_start": 17.9,
+   "t_end": 22.4,
+   "shot_type": "back_view_close",
+   "visual_description": "Crossfade to back of the girl's head filling centre frame, red-sleeved hand pressing a wall light switch on a mint wall.",
+   "camera_motion": "static",
+   "on_screen_text": "REMEMBER / ONLY TURN OFF THE LIGHT / IN THE BATHROOM / KEEP ALL THE OTHER ROOM"
+  },
+  {
+   "t_start": 22.4,
+   "t_end": 23.6,
+   "shot_type": "text_punch_overlay",
+   "visual_description": "Same switch shot; yellow outlined comic-style 'LIGHTS ON' pops over the picture, then a zoom-blur transition.",
+   "camera_motion": "zoom blur out",
+   "on_screen_text": "LIGHTS ON (yellow, outlined, over picture)"
+  },
+  {
+   "t_start": 23.6,
+   "t_end": 30.0,
+   "shot_type": "over_the_shoulder_back_view",
+   "visual_description": "Girl from behind reaching up into a packed open fridge: blue lidded box, jars, bottles, colourful packages.",
+   "camera_motion": "slow drift right / push-in",
+   "on_screen_text": "FOODS IN THE FRIDGE / WARM IT UP BEFORE EATING / BUT DON'T EAT IT ALL UP"
+  },
+  {
+   "t_start": 30.0,
+   "t_end": 33.0,
+   "shot_type": "medium_front",
+   "visual_description": "Girl front-on, medium shot, hand on cheek, sleepy/sulky expression; mint wall, brown door frame. (This is YouTube's auto-thumbnail frame.)",
+   "camera_motion": "static",
+   "on_screen_text": "IF YOU'RE TIRED AT NIGHT / GO TO OUR ROOM"
+  },
+  {
+   "t_start": 33.0,
+   "t_end": 35.5,
+   "shot_type": "wide_establishing",
+   "visual_description": "Wide bedroom view: dark brown door left, girl small in the doorway, tall white closet with chrome handles right.",
+   "camera_motion": "static",
+   "on_screen_text": "IN THERE / YOU'LL SEE A WHITE CLOSET (WHITE outlined)"
+  },
+  {
+   "t_start": 35.5,
+   "t_end": 38.0,
+   "shot_type": "wide_establishing",
+   "visual_description": "Dissolve (ghost double visible) to same composition with the girl nearer, arms crossed.",
+   "camera_motion": "dissolve",
+   "on_screen_text": "IT'S SAFE DON'T WORRY"
+  },
+  {
+   "t_start": 38.0,
+   "t_end": 42.4,
+   "shot_type": "profile_close",
+   "visual_description": "Blur transition to a close profile of the girl leaning to the gap between the white closet doors, chrome handles in front of her face.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "BEFORE YOU GO TO BED / CHECK ON THE CLOSET / CAREFULLY"
+  },
+  {
+   "t_start": 42.4,
+   "t_end": 46.4,
+   "shot_type": "extreme_close_face",
+   "visual_description": "Front ECU of the girl's face: oversized glossy blue-grey eyes, raised brows, flushed cheeks, frightened; pale background.",
+   "camera_motion": "static / slight push",
+   "on_screen_text": "PEEK THROUGH THE GAP / IF YOU SEE A BLUE EYE (BLUE EYE blue) / IS STARING FROM INSIDE"
+  },
+  {
+   "t_start": 46.4,
+   "t_end": 47.4,
+   "shot_type": "inverted_glitch_scare",
+   "visual_description": "Hard cut: same face colour-inverted to a black-skinned negative with magenta/pink glow and white teeth - the 'thing in the closet' stand-in.",
+   "camera_motion": "jitter",
+   "on_screen_text": "IS STARING FROM INSIDE"
+  },
+  {
+   "t_start": 47.4,
+   "t_end": 48.4,
+   "shot_type": "inverted_glitch_scare",
+   "visual_description": "Inverted face shifts to blue/cyan glow (flashlight beam colour).",
+   "camera_motion": "jitter + glow pulse",
+   "on_screen_text": "SHINE YOUR FLASHLIGHT (FLASHLIGHT yellow) / TILL IT VANISH"
+  },
+  {
+   "t_start": 48.4,
+   "t_end": 49.9,
+   "shot_type": "chromatic_dissolve",
+   "visual_description": "Face smears and fades with pink/purple chromatic aberration and blur to black.",
+   "camera_motion": "blur out",
+   "on_screen_text": "TILL IT VANISH"
+  },
+  {
+   "t_start": 49.9,
+   "t_end": 52.4,
+   "shot_type": "black_text_card",
+   "visual_description": "Black frame, single centred line.",
+   "camera_motion": "none",
+   "on_screen_text": "ONE LAST THING BEFORE BED (LAST THING red)"
+  },
+  {
+   "t_start": 52.4,
+   "t_end": 55.3,
+   "shot_type": "side_back_medium",
+   "visual_description": "Girl from behind/side reaching to a door knob where a white plastic bag hangs; dark door and frame.",
+   "camera_motion": "static",
+   "on_screen_text": "HANG A BAG / ON THE OUTSIDE DOOR KNOB / LOCK THE DOOR"
+  },
+  {
+   "t_start": 55.3,
+   "t_end": 56.9,
+   "shot_type": "black_text_card",
+   "visual_description": "Black frame, centred line.",
+   "camera_motion": "none",
+   "on_screen_text": "AND THEN YOU GO REST"
+  },
+  {
+   "t_start": 56.9,
+   "t_end": 58.9,
+   "shot_type": "medium_high_angle",
+   "visual_description": "Girl asleep in bed, eyes closed, grey pillows, white blanket, white nightstand.",
+   "camera_motion": "static",
+   "on_screen_text": "NEXT MORNING / YOU'LL FIND THE 2ND NOTE (2ND NOTE red)"
+  },
+  {
+   "t_start": 58.9,
+   "t_end": 59.76,
+   "shot_type": "medium",
+   "visual_description": "Same bed; girl now sitting up holding a sheet of paper (the note), looking off-screen, wary.",
+   "camera_motion": "cut",
+   "on_screen_text": "YOU'LL FIND THE 2ND NOTE"
+  }
+ ],
+ "pacing": {
+  "words_total": 154,
+  "speech_span_s": 59.6,
+  "words_per_minute": 155,
+  "caption_cards": 36,
+  "avg_caption_card_s": 1.6,
+  "caption_style": "1 short phrase (2-6 words) at a time, all caps, swapped every ~1.5 s, timed to the voice",
+  "shots_in_list": 25,
+  "avg_shot_length_s": 2.4,
+  "distinct_illustrations": 12,
+  "avg_illustration_hold_s": 4.2,
+  "hard_cuts_detected_scene_0.25": 3,
+  "hard_cuts_detected_scene_0.12": 12,
+  "text_only_cards": 5,
+  "rehook_interval_s": "~5-6 s: each new rule is a mini re-hook; pattern interrupts (text cards / glitch / colour punch) at 2, 5, 9, 10, 22.5, 46.4, 50, 55 s",
+  "notes": "Slow-ish narration (155 wpm, pauses of ~0.5-1 s between clauses) carried by visual interrupts rather than speech speed. Long holds on single images (door 0-9 s with interruptions, fridge 6.4 s) are the weakest stretches. Scare peak at 77-83% of runtime; cliffhanger in the last 2.5 s."
+ },
+ "techniques_worth_copying": [
+  "Rules-list format in second-person imperative with conditional branches ('if X, do Y; if not, do Z'): every rule is a self-contained micro-mystery and a natural re-hook every ~5 s.",
+  "Unexplained concrete specifics ('the blue and white things', 'hang a bag on the outside door knob', 'don't eat it all up') - the viewer infers an unseen presence; nothing is explained, which drives comments.",
+  "Colour-coded keyword captions tied to story objects (blue = shadow/eye, white = closet/things, red = warnings and the cliffhanger, yellow = light/flashlight). Cheap to do in code and makes key nouns pop.",
+  "Full-screen kinetic word-stack cards ('ARE FLICKERING' x5, 'REMEMBER' x8) with RGB glitch as 0.7-0.8 s pattern interrupts that act out the word.",
+  "Text-only black cards for the most important warnings and the transition into the final rule - silence of the picture = emphasis.",
+  "False-safety beat ('It's safe, don't worry') immediately before the safe object becomes the threat.",
+  "Jump-scare without a monster: colour-invert the protagonist's ECU face into a magenta/cyan negative with jitter, then chromatic-blur dissolve for 'vanish'. Fully reproducible with CSS/SVG filters.",
+  "Series cliffhanger ('next morning you'll find the second note') - a physical object that promises the next episode.",
+  "One recurring character with a fixed colour signature (red headband + red sweater) across every shot for series recognition.",
+  "AVOID (control lessons): letterboxed 16:9 band wasting ~65% of the 9:16 frame; starting a Pt2 with no premise for cold viewers; frame 0 with no face/threat; hashtag-stuffed title; 6-9 s holds on one static picture."
+ ],
+ "code_only_remake_requirements": {
+  "layout": "1080x1920 black canvas. Picture band 1080x608 (16:9) centred at y~650-1258 (34-66%); caption line centred at y~1330 (~69%). Better for us: fill the full 9:16 frame and keep the caption at ~70%, since the letterbox is a weakness.",
+  "typography": "Thin, scratchy hand-lettered all-caps font (Google Fonts candidates: 'Rock Salt', 'Gochi Hand', 'Covered By Your Grace', 'Nanum Pen Script'); per-word colour tokens (white default, red #c8102e-ish warnings, blue #3a6fd8-ish, yellow #e8d33a, 'white' as white fill + black outline); a drippy red display font for the REMEMBER card (e.g. 'Creepster'); yellow outlined comic font for punch overlays (e.g. 'Bangers').",
+  "scenes": "~11 flat/soft-shaded SVG interior illustrations: door + floorboards (low angle), tiled bathroom with cabinets/bin/puddles, wall light switch, open fridge shelves, mint-wall bedroom, wide bedroom doorway + white wardrobe, wardrobe-gap profile, bed + nightstand, door knob with plastic bag. Each needs a slow Ken Burns transform (scale 1.00->1.06-1.08 over the shot, optional x-drift).",
+  "character": "One SVG girl rig (black bob hair, red headband, red sweater) in 6 views: back-of-head OTS, back reaching up, front medium (hand-on-cheek pose), small full-body in doorway (2 poses: hands at sides, arms crossed), close profile, front ECU face with eye states (normal, wide/frightened, closed/asleep) and a sitting-up-with-note pose. Blink + subtle breathing loop to avoid dead stills.",
+  "effects": "RGB-split glitch (offset R/G/B layers + random horizontal slice displacement, coloured bars) for 0.3-1 s; colour inversion + hue-rotate + glow (CSS filter: invert(1) hue-rotate(...) saturate(3) + drop-shadow) for the scare; chromatic blur dissolve; white flash; zoom-blur transition (scale + motion blur); crossfade/ghost-double dissolve; full-screen stacked-text card component (N rows of the same word, vertical scroll ~1 row/0.2 s, per-row jitter, optional glitch bands behind); black text card; comic pop-in overlay text (scale 1.3->1 with outline).",
+  "audio": "Local TTS narrator (Kokoro/Piper) at ~150-160 wpm with 0.5-1 s pauses between clauses; word timestamps from TTS or faster-whisper to drive caption swaps; continuous low drone/ambient bed (no gaps); SFX on every glitch/text card (static burst, sub hit), a sting on the inverted-face scare.",
+  "data_model": "storyboard: list of rules {line, condition_branch?, keywords:[{word,colour}], scene_id, character_pose, effect:(none|glitch|stack_card|black_card|invert_scare|punch_text), duration_from_tts}. Caption chunker splits each line into 2-6 word cards.",
+  "effort_estimate": "Moderate: the effects and caption system are simple; the cost is the 11 illustrated SVG scenes and the multi-view character rig. Reusable across a whole 'rules' series."
+ }
+}

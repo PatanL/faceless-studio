@@ -1,0 +1,685 @@
+{
+  "id": "mg2YJ04Hl9k",
+  "url": "https://www.youtube.com/watch?v=mg2YJ04Hl9k",
+  "platform": "youtube",
+  "channel": "Depth Theory",
+  "title": "Would A Great White Survive Every Prehistoric Ocean?",
+  "upload_date": "2026-10-29",
+  "duration": 1181,
+  "views": 157910,
+  "likes": 692,
+  "comments": 70,
+  "subs": 6100,
+  "channel_median_views": 157498,
+  "outlier_score": 1,
+  "role": "control",
+  "niche": "explainer",
+  "metrics_note": "views/likes/subs re-read from yt-dlp info.json on 2026-11-01 (task input had views 157498, subs 6080). 157k views on a 6.1k-sub channel, 3 days after upload; this was the channel's only/median video in the sample, so outlier_score=1 is a sampling artifact rather than a sign it underperformed (~26x views/subs).",
+  "transcript_source": "YouTube auto-subs (en), ~2,972 words; saved on Spark at ~/studio/refs/explainer/mg2YJ04Hl9k.transcript.txt",
+  "format": "16:9 long-form, 19:41, 2D flat-vector animated explainer, single narrator VO, music bed, 13 YouTube chapters",
+  "title_pattern": {
+    "template": "Would A [Iconic Modern Animal] Survive Every [Prehistoric/Extreme Setting]?",
+    "type": "hypothetical survival gauntlet / 'drop X into every era' question title",
+    "notes": "Yes/no question with an implied scorecard; pairs a universally known apex animal with a time-travel tour of many eras so one video covers ~10 mini-matchups. 'Every' promises completeness and a running tally. Reusable: 'Would a T-rex survive every mass extinction?', 'Could a human survive every ice age?'"
+  },
+  "thumbnail": {
+    "composition": "Left 45%: huge great white head in profile facing right, cropped by frame edge, wearing a small sparkling crown. Right 50%: four prehistoric challengers (orthocone, megalodon, Dunkleosteus, mosasaur/pliosaur) arranged in a loose arc, all facing/snapping toward the shark. Title text top-centre-left.",
+    "text": "'Still King?' — two words, heavy condensed sans; 'Still' in white, 'King?' in red. Only ~2 words, does not repeat the title.",
+    "colours": "Pure black background with stark black-and-white engraved/pen-and-ink (crosshatch) illustration; the only colour is the red 'King?' — very high contrast, monochrome stands out in a colourful feed.",
+    "subject_scale_contrast": "Hero shark is 2-3x the size of each challenger and closest to camera; challengers are smaller but multiple and open-mouthed, so 'one vs many' reads instantly. Crown is a tiny prop that carries the whole premise.",
+    "why_it_works": "Single readable question + crown prop = status challenge; open jaws on every creature promise conflict; recognisable silhouettes (megalodon, Dunkleosteus) are fan-bait for prehistoric-animal audiences. Notably the thumbnail style (engraved B&W) does NOT match the video's flat colour vector style — thumbnail is optimised purely for CTR.",
+    "code_remake_notes": "Engraving look is hard in pure SVG; approximate with SVG hatch patterns/feTurbulence + threshold filter, or keep the brand flat-vector style and copy only the composition (big hero left + crown, 3-4 rivals right, 2-word red/white question)."
+  },
+  "hook": {
+    "verbatim_0_5s": "Picture the most feared animal in the sea. 6 m long, a mouth full of serrated teeth that never stop growing back.",
+    "first_25s_summary": "Builds up the great white with rapid superlatives (smells blood from hundreds of metres, launches seals out of the water, almost nothing attacks an adult) -> 'If any animal deserves to be called the king of the ocean, it's this one.' -> 0:23 twist: 'Except...' orcas in South Africa kill great whites with one neat wound and eat only the liver; whole coastlines empty for a year. -> 'So how much of a king is it really? Let's find out.'",
+    "device": "Second-person 'Picture...' imagery + stacked superlatives, then a hard subversion ('Except...') with a surprising real-world fact (orcas eating livers), which converts into the central question. Visual: hero shark side-on, then tight jaw close-up at ~6s, blood plume, backlit breach silhouette; word-by-word captions with one orange keyword.",
+    "rules_setup": "0:50-1:28 sets up game rules explicitly: one adult 5 m great white, no time to adapt, must eat, one escape (can dive to 1,200 m), scoring legend crown=rules / check=survives / skull=doesn't make it. This gives the viewer a reason to stay for every era."
+  },
+  "beats": [
+    {
+      "t_start": 0,
+      "t_end": 23,
+      "beat_type": "hook",
+      "summary": "'Picture the most feared animal in the sea' — superlative build-up of the great white as king of the ocean."
+    },
+    {
+      "t_start": 23,
+      "t_end": 49,
+      "beat_type": "twist/subversion",
+      "summary": "Orcas kill great whites off South Africa, eating only the liver; sharks abandon coastlines. 'How much of a king is it really?'"
+    },
+    {
+      "t_start": 49,
+      "t_end": 88,
+      "beat_type": "premise + rules",
+      "summary": "Drop one 5 m adult into every ocean in Earth's history; no adapting; escape = diving to 1,200 m; scoring legend crown/pass/skull."
+    },
+    {
+      "t_start": 88,
+      "t_end": 197,
+      "beat_type": "era 1: Cambrian (skull)",
+      "summary": "Title card + world-building (no life on land, 21-hour days, Cambrian explosion); shark is biggest animal alive and eats Anomalocaris easily, but no big fatty prey and low oxygen -> 'king of the world and slowly starving'. Verdict SKULL (starved)."
+    },
+    {
+      "t_start": 197,
+      "t_end": 292,
+      "beat_type": "era 2: Ordovician (crown)",
+      "summary": "High seas, first reefs, ice cap foreshadows extinction; orthocones debunk (9 m claim vs 5.5 m real) — 'a meal with a handle'; sea scorpions snacks. Verdict CROWN."
+    },
+    {
+      "t_start": 292,
+      "t_end": 406,
+      "beat_type": "era 3: Devonian (pass/standoff)",
+      "summary": "Forests, anoxic seas, giant reefs, Tiktaalik; Cladoselache 'family'; Dunkleosteus myth-bust (2023 study ~4 m). Bone armor vs speed -> standoff. Verdict PASS. First scoreboard 1/1/1."
+    },
+    {
+      "t_start": 406,
+      "t_end": 501,
+      "beat_type": "era 4: Carboniferous-Permian (crown)",
+      "summary": "Giant bugs from high oxygen, coal swamps, Pangaea forms; golden age of weird sharks (Stethacanthus, Edestus, Helicoprion + fun fact it's a ratfish relative). Verdict CROWN, then Great Dying '9 in 10' kicker."
+    },
+    {
+      "t_start": 501,
+      "t_end": 589,
+      "beat_type": "era 5: Triassic (pass)",
+      "summary": "Post-extinction clean slate, ammonites, ichthyosaurs; Shonisaurus 15 m but harmless, Thalattoarchon 8.6 m apex; first time shark isn't biggest predator -> dives. Verdict PASS."
+    },
+    {
+      "t_start": 589,
+      "t_end": 695,
+      "beat_type": "era 6: Jurassic (pass, it dived)",
+      "summary": "Pangaea splits, birds; pliosaurs, Liopleurodon myth-bust (25 m -> ~8 m); Leedsichthys food; pliosaurs are air-breathers so the dive saves it. Verdict PASS (IT DIVED). Scoreboard 2/3/1; 'That's about to change' cliffhanger."
+    },
+    {
+      "t_start": 695,
+      "t_end": 785,
+      "beat_type": "era 7: Cretaceous (skull)",
+      "summary": "Western Interior Seaway, chalk/White Cliffs, T-rex timing; mosasaurs, Tylosaurus with shark in stomach, Cretoxyrhina 'Ginsu shark' that ate mosasaurs ('Read that again'). No safe deep. Verdict SKULL (eaten)."
+    },
+    {
+      "t_start": 785,
+      "t_end": 875,
+      "beat_type": "era 8: Eocene (pass)",
+      "summary": "Hothouse, palms near Arctic, whales evolve from dog-sized walkers; Basilosaurus 16 m with tiny legs, bite marks on calf skulls; shark stays deep. Verdict PASS. Teaser: 'Now the worst ocean of all.'"
+    },
+    {
+      "t_start": 875,
+      "t_end": 973,
+      "beat_type": "era 9: Miocene Peru (skull)",
+      "summary": "Upwelling food chain, swimming sloths; Megalodon (15 m, bites flippers/tail) and Livyatan (teeth on both jaws, can follow a dive). Verdict DEAD. TWICE. 'But here's where the story turns around.'"
+    },
+    {
+      "t_start": 973,
+      "t_end": 1040,
+      "beat_type": "era 10: Pliocene (twist, unscored)",
+      "summary": "Panama closes, cooling; real great whites appear; 2022 zinc-isotope study puts early great whites at megalodon's trophic level -> may have helped push megalodon to extinction (with hedges). 'Megalodon was gone. The great white was still here.'"
+    },
+    {
+      "t_start": 1040,
+      "t_end": 1103,
+      "beat_type": "era 11: Modern ocean (pass, not the king)",
+      "summary": "Cold ocean, seals = buffet, but orcas: Farallon Islands 1997 kill, tonic immobility, sharks flee hunting grounds. Callback to the hook. 'Still running from a dolphin.' Verdict PASS - NOT THE KING."
+    },
+    {
+      "t_start": 1103,
+      "t_end": 1152,
+      "beat_type": "payoff / final score",
+      "summary": "Final tally 2 ruled / 5 survived / 3 died; rivals crossed out one by one (Dunkleosteus, pliosaurs, mosasaurs, megalodon gone); thesis: survival by knowing when to run and where to hide — 'the deep... that's what wins.'"
+    },
+    {
+      "t_start": 1152,
+      "t_end": 1181,
+      "beat_type": "CTA / end screen",
+      "summary": "Comment prompt 'Which animal next?' with mock comment box, then 'Watch next' end-screen card with channel logo."
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0,
+      "t_end": 6,
+      "shot_type": "hero establishing",
+      "visual_description": "Flat-vector great white swimming left-to-right side-on in teal underwater gradient with god rays and floating particles",
+      "camera_motion": "slow push-in / parallax drift",
+      "on_screen_text": "word-by-word captions bottom-centre"
+    },
+    {
+      "t_start": 6,
+      "t_end": 8,
+      "shot_type": "close-up",
+      "visual_description": "Tight crop on jaw with serrated teeth highlighted yellow",
+      "camera_motion": "punch-in cut",
+      "on_screen_text": "none"
+    },
+    {
+      "t_start": 8,
+      "t_end": 12,
+      "shot_type": "illustrative",
+      "visual_description": "Red blood plume dispersing in water at left, shark turns toward it",
+      "camera_motion": "static, element animates",
+      "on_screen_text": "none"
+    },
+    {
+      "t_start": 12,
+      "t_end": 16,
+      "shot_type": "silhouette",
+      "visual_description": "Backlit black silhouette of shark breaching upward toward bright surface",
+      "camera_motion": "static",
+      "on_screen_text": "'fly out of the WATER.'"
+    },
+    {
+      "t_start": 16,
+      "t_end": 26,
+      "shot_type": "hero + label",
+      "visual_description": "Shark centred; underlined species label top-left; small gold crown with 'KING?' pops above dorsal fin",
+      "camera_motion": "slow push",
+      "on_screen_text": "'almost NOTHING', 'Great White Shark', 'KING?'"
+    },
+    {
+      "t_start": 26,
+      "t_end": 32,
+      "shot_type": "surface view",
+      "visual_description": "Waterline at top, sunlit surface, shark beneath",
+      "camera_motion": "static",
+      "on_screen_text": "'washing up DEAD' (red)"
+    },
+    {
+      "t_start": 32,
+      "t_end": 36,
+      "shot_type": "diagram / cutaway",
+      "visual_description": "Shark with gold outline ring on wound; then grey silhouette cutaway with orange liver",
+      "camera_motion": "cut",
+      "on_screen_text": "'Shark liver'"
+    },
+    {
+      "t_start": 36,
+      "t_end": 46,
+      "shot_type": "threat reveal",
+      "visual_description": "Murky dark water, faint shapes; orca slides in beside shark, shark exits",
+      "camera_motion": "horizontal pan/track",
+      "on_screen_text": "'just LEAVE.'"
+    },
+    {
+      "t_start": 46,
+      "t_end": 50,
+      "shot_type": "map (coastline)",
+      "visual_description": "Top-down stylised coastline: sand band top, ocean, fish dots disappearing",
+      "camera_motion": "static",
+      "on_screen_text": "'South Africa', 'for a YEAR.'"
+    },
+    {
+      "t_start": 50,
+      "t_end": 58,
+      "shot_type": "hero + scale bar",
+      "visual_description": "Shark with crown 'KING?'; then label 'Our great white' with yellow length bar '5 m · over a tonne'",
+      "camera_motion": "static",
+      "on_screen_text": "'KING?', '5 m - over a tonne'"
+    },
+    {
+      "t_start": 58,
+      "t_end": 64,
+      "shot_type": "device: time dial",
+      "visual_description": "Grey analog dial/clock on black ('time machine') with blue centre, needle sweeps",
+      "camera_motion": "needle rotation, zoom",
+      "on_screen_text": "'every OCEAN', 'no time to ADAPT.'"
+    },
+    {
+      "t_start": 64,
+      "t_end": 80,
+      "shot_type": "dive + depth gauge",
+      "visual_description": "Shark pitches nose-down and descends; vertical ruler 0-1,200 m on right with red marker; background darkens to near-black",
+      "camera_motion": "tilt down / darken",
+      "on_screen_text": "'can DIVE.', 'Deepest great white on record', '1,200 m'"
+    },
+    {
+      "t_start": 80,
+      "t_end": 88,
+      "shot_type": "legend card",
+      "visual_description": "Dark slate; three icons build in a list: gold crown 'rules the ocean', teal check 'survives', skull 'doesn't make it'",
+      "camera_motion": "static, staggered pop-ins",
+      "on_screen_text": "legend text"
+    },
+    {
+      "t_start": 88,
+      "t_end": 96,
+      "shot_type": "transition + era title",
+      "visual_description": "Dial fades from black, needle swings, 'DT' logo-orange wedge wipe; era title card: small caps '500 MILLION YEARS AGO' + icon + 'CAMBRIAN PERIOD' (bold+light weights) over teal underwater with shark passing",
+      "camera_motion": "dial zoom wipe",
+      "on_screen_text": "'500 MILLION YEARS AGO', 'CAMBRIAN PERIOD'"
+    },
+    {
+      "t_start": 96,
+      "t_end": 104,
+      "shot_type": "land side-view",
+      "visual_description": "Barren rocky desert landscape cross-section with sea strip at bottom",
+      "camera_motion": "slow lateral pan",
+      "on_screen_text": "'no TREES, no GRASS, no INSECTS.', 'bare rock and wind'"
+    },
+    {
+      "t_start": 104,
+      "t_end": 116,
+      "shot_type": "underwater + paleomap",
+      "visual_description": "Seafloor with red arthropods; cut to framed paleogeographic map (tan landmasses with teal outline on blue grid panel)",
+      "camera_motion": "static / slow zoom",
+      "on_screen_text": "'EVERY animal lives in the SEA.'"
+    },
+    {
+      "t_start": 116,
+      "t_end": 122,
+      "shot_type": "land + moon",
+      "visual_description": "Dusk landscape with oversized moon, count-up number",
+      "camera_motion": "slow push on moon",
+      "on_screen_text": "'21 HOURS', 'The Moon, much closer'"
+    },
+    {
+      "t_start": 122,
+      "t_end": 136,
+      "shot_type": "seafloor ecosystem",
+      "visual_description": "Sponges and trilobites seafloor; Anomalocaris swims across",
+      "camera_motion": "lateral pan",
+      "on_screen_text": "'Sponges and trilobites', 'Cambrian EXPLOSION'"
+    },
+    {
+      "t_start": 136,
+      "t_end": 144,
+      "shot_type": "drop-in + size compare",
+      "visual_description": "Shark drops in with bubble trail; then dark size-comparison panel: shark 5 m bar vs tiny Anomalocaris bar",
+      "camera_motion": "static",
+      "on_screen_text": "'biggest ANYTHING.'"
+    },
+    {
+      "t_start": 144,
+      "t_end": 160,
+      "shot_type": "creature intro",
+      "visual_description": "Anomalocaris labelled, gold circle highlights on spiked arms and ring mouth; shark gulps it; crown 'EASILY'",
+      "camera_motion": "punch-in on details",
+      "on_screen_text": "'Anomalocaris', 'EASILY'"
+    },
+    {
+      "t_start": 160,
+      "t_end": 176,
+      "shot_type": "problem setup",
+      "visual_description": "Shark alone over seafloor; trilobite close-up; oxygen bar 'Oxygen today 100%' vs 'Cambrian a fraction' (red short bar)",
+      "camera_motion": "static",
+      "on_screen_text": "'NOTHING here to rule.', 'smaller than your HAND.', 'Oxygen today', 'Cambrian'"
+    },
+    {
+      "t_start": 176,
+      "t_end": 192,
+      "shot_type": "danger state",
+      "visual_description": "Water tints red; shark recoloured orange (thermal) with draining oxygen bar; red-tinted dive with depth gauge",
+      "camera_motion": "colour grade shift",
+      "on_screen_text": "'runs', 'SPORTS CAR', 'even'"
+    },
+    {
+      "t_start": 192,
+      "t_end": 198,
+      "shot_type": "verdict card",
+      "visual_description": "Shark fades; dark card with skull icon and label; mini scoreboard top-right",
+      "camera_motion": "fade",
+      "on_screen_text": "'slowly STARVING.', 'STARVED'"
+    },
+    {
+      "t_start": 198,
+      "t_end": 206,
+      "shot_type": "era transition",
+      "visual_description": "Dial -> 'DT' wedge wipe -> Ordovician title card",
+      "camera_motion": "dial zoom wipe",
+      "on_screen_text": "'450 MILLION YEARS AGO ORDOVICIAN PERIOD'"
+    },
+    {
+      "t_start": 206,
+      "t_end": 244,
+      "shot_type": "world-building montage",
+      "visual_description": "Paleomap with seas rising (sea-level band), orthocones drifting, colourful first coral reefs, plankton/snails/clams, land with first plants circled, map with south-pole continent",
+      "camera_motion": "cuts between static set-ups, gentle drift",
+      "on_screen_text": "'seas have risen HIGHER', 'life POURS in', 'The first coral reefs', 'biggest EXTINCTIONS'"
+    },
+    {
+      "t_start": 244,
+      "t_end": 262,
+      "shot_type": "creature + myth-bust",
+      "visual_description": "Orthocone reveal; size-comparison panels shark vs 'The famous claim 9 m' then 'Largest real shells 5.5 m'",
+      "camera_motion": "static, bars animate",
+      "on_screen_text": "'The famous claim', 'Largest real shells'"
+    },
+    {
+      "t_start": 262,
+      "t_end": 290,
+      "shot_type": "feeding + snacks",
+      "visual_description": "Shark bites orthocone; green-tinted sea scorpion with human silhouette scale; shark dives past empty deep with gauge",
+      "camera_motion": "cuts",
+      "on_screen_text": "'GOOD news', 'a meal with a HANDLE.', 'Sea scorpion', 'fight BACK.', 'nothing WAITING.'"
+    },
+    {
+      "t_start": 290,
+      "t_end": 300,
+      "shot_type": "verdict + transition",
+      "visual_description": "Crown card; dial; Devonian title card",
+      "camera_motion": "dial wipe",
+      "on_screen_text": "'CROWN', 'DEVONIAN PERIOD'"
+    },
+    {
+      "t_start": 300,
+      "t_end": 336,
+      "shot_type": "world-building montage",
+      "visual_description": "Land with Archaeopteris trees and house-height comparison; 'Oxygen in the coastal sea' bar dropping; giant multicolour reef; Tiktaalik on mudflat",
+      "camera_motion": "slow pans",
+      "on_screen_text": "'taller than a HOUSE', 'hundreds of KILOMETRES', 'ANCESTORS'"
+    },
+    {
+      "t_start": 336,
+      "t_end": 352,
+      "shot_type": "creature intro",
+      "visual_description": "Age of fish; Cladoselache pair beside shark; size compare 1.8 m",
+      "camera_motion": "static",
+      "on_screen_text": "'the age of FISH.', 'is FAMILY.'"
+    },
+    {
+      "t_start": 352,
+      "t_end": 368,
+      "shot_type": "monster reveal",
+      "visual_description": "Dunkleosteus emerges from dark, heavy zoom to armoured head, gold rings highlight bone-blade jaws",
+      "camera_motion": "slow push-in to close-up",
+      "on_screen_text": "'Dunkleosteus'"
+    },
+    {
+      "t_start": 368,
+      "t_end": 380,
+      "shot_type": "myth-bust w/ photo",
+      "visual_description": "Size compare 'old reconstruction 10 m'; framed photo of real fossil skull with gold outline; 2023 study 4.1 m bar",
+      "camera_motion": "static, card slides in",
+      "on_screen_text": "'2023 study', '4.1 m'"
+    },
+    {
+      "t_start": 380,
+      "t_end": 398,
+      "shot_type": "face-off",
+      "visual_description": "Dunkleosteus and shark side by side with glowing eyes; highlights on armour and gills; shark circles",
+      "camera_motion": "static / small moves",
+      "on_screen_text": "'probably', 'FASTER'"
+    },
+    {
+      "t_start": 398,
+      "t_end": 406,
+      "shot_type": "verdict + scoreboard",
+      "visual_description": "Check icon 'STANDOFF'; full scoreboard crown 1 RULED / check 1 SURVIVED / skull 1 DIED",
+      "camera_motion": "pop-in counters",
+      "on_screen_text": "'STANDOFF', '1 RULED 1 SURVIVED 1 DIED'"
+    },
+    {
+      "t_start": 406,
+      "t_end": 446,
+      "shot_type": "transition + world-building",
+      "visual_description": "Dial wipe; 'CARBONIFEROUS & PERMIAN' title; land with giant dragonfly and millipede vs human; coal swamp; paleomaps animating into Pangaea; faded extinct Dunkleosteus",
+      "camera_motion": "dial wipe, map morph",
+      "on_screen_text": "'OXYGEN', 'Coal swamp forests', 'COAL.', 'Pangaea', 'Extinct at the end of the Devonian'"
+    },
+    {
+      "t_start": 446,
+      "t_end": 480,
+      "shot_type": "creature parade",
+      "visual_description": "'GAP' then 'GOLDEN AGE' with group of odd sharks; Stethacanthus with ironing-board fin circled; Edestus scissor jaws; Helicoprion with zoom on tooth whorl; photo card of ratfish",
+      "camera_motion": "cuts + punch-ins",
+      "on_screen_text": "'GAP', 'GOLDEN AGE', 'pair of SCISSORS.', 'circular SAW.', 'fun FACT.', 'Ratfish (chimaera)'"
+    },
+    {
+      "t_start": 480,
+      "t_end": 500,
+      "shot_type": "verdict + kicker",
+      "visual_description": "Great white among weird sharks 'perfectly built HUNTER.'; crown card; grey card big red '9 in 10'",
+      "camera_motion": "static",
+      "on_screen_text": "'perfectly built HUNTER.', 'CROWN', '9 in 10 species in the sea', 'nothing rules THAT.'"
+    },
+    {
+      "t_start": 500,
+      "t_end": 544,
+      "shot_type": "transition + world-building",
+      "visual_description": "Dial wipe; 'TRIASSIC PERIOD'; dark 'almost CLEAN'; Pangaea map; dead reef shapes crossed out with red X; desert with early archosaur 'NOT YET'; ammonites",
+      "camera_motion": "dial wipe, cuts",
+      "on_screen_text": "'almost CLEAN.', 'NOT YET.', 'Ammonites'"
+    },
+    {
+      "t_start": 544,
+      "t_end": 582,
+      "shot_type": "creature parade + size",
+      "visual_description": "Ichthyosaurs 'like DOLPHINS', Shonisaurus 15 m size compare, Thalattoarchon jaw close-up, '8 million years after' text card, group 'bounced back', size compare 'isn't the BIGGEST'",
+      "camera_motion": "cuts",
+      "on_screen_text": "'REPTILES', 'do NOT.', 'as large as ITSELF.', '8 million years', 'isn't the BIGGEST.'"
+    },
+    {
+      "t_start": 582,
+      "t_end": 590,
+      "shot_type": "escape + verdict",
+      "visual_description": "Shark dives with depth gauge; PASS card; dial",
+      "camera_motion": "tilt down",
+      "on_screen_text": "'PASS'"
+    },
+    {
+      "t_start": 590,
+      "t_end": 634,
+      "shot_type": "transition + world-building",
+      "visual_description": "'JURASSIC PERIOD'; Pangaea splitting map; land with sauropods and birds; ammonites and belemnites; shark 'ONE thing'",
+      "camera_motion": "dial wipe, pans",
+      "on_screen_text": "'JURASSIC PERIOD', 'Ammonites and belemnites', 'BIRDS', 'ONE thing'"
+    },
+    {
+      "t_start": 634,
+      "t_end": 660,
+      "shot_type": "monster reveal + myth-bust",
+      "visual_description": "Spotted pliosaur Liopleurodon; size compare old documentaries 25 m vs study 8 m; jaw close-up",
+      "camera_motion": "push-in",
+      "on_screen_text": "'Liopleurodon', 'Old documentaries', 'most powerful BITES'"
+    },
+    {
+      "t_start": 660,
+      "t_end": 676,
+      "shot_type": "food + threat",
+      "visual_description": "Leedsichthys 16 m size compare; pliosaur chasing shark",
+      "camera_motion": "tracking",
+      "on_screen_text": "'there's FOOD', 'Leedsichthys', 'serious TROUBLE.'"
+    },
+    {
+      "t_start": 676,
+      "t_end": 696,
+      "shot_type": "escape + verdict",
+      "visual_description": "Pliosaur at surface ('AIR breather'); shark dives to darkness; PASS (IT DIVED); scoreboard 2/3/1 dims",
+      "camera_motion": "tilt down, darken",
+      "on_screen_text": "'AIR breather', 'PASS (IT DIVED)', 'about to CHANGE'"
+    },
+    {
+      "t_start": 696,
+      "t_end": 736,
+      "shot_type": "transition + world-building",
+      "visual_description": "Dial; 'CRETACEOUS PERIOD'; modern-style world map with seaway highlighted; warm water; chalk layer; white cliff; land with T-rex silhouette; red-tinted shark",
+      "camera_motion": "dial wipe, cuts",
+      "on_screen_text": "'WARMER than any tropical sea', 'CHALK.', '12 MILLION years', 'nobody DOWN HERE'"
+    },
+    {
+      "t_start": 736,
+      "t_end": 768,
+      "shot_type": "monster parade",
+      "visual_description": "Mosasaur with double tooth rows 'monitor LIZARDS'; 13 m size compare; Tylosaurus with circled stomach; Cretoxyrhina 'GINSU shark' 7 m size compare",
+      "camera_motion": "cuts + push",
+      "on_screen_text": "'Tylosaurus', 'Cretoxyrhina', 'GINSU shark', 'read that AGAIN', 'ate the SEA MONSTERS.'"
+    },
+    {
+      "t_start": 768,
+      "t_end": 786,
+      "shot_type": "food chain + verdict",
+      "visual_description": "Chain of predators chasing; vertical food-chain diagram; red-tinted dive; silhouettes everywhere; skull 'EATEN'",
+      "camera_motion": "cuts",
+      "on_screen_text": "'nowhere QUIET', 'EATEN'"
+    },
+    {
+      "t_start": 786,
+      "t_end": 830,
+      "shot_type": "transition + world-building",
+      "visual_description": "Dial wipe; 'EOCENE EPOCH'; map 'no ICE'; palms and crocodile near Arctic; Tethys on map; Pakicetus walking on land; skeleton in desert (Valley of the Whales)",
+      "camera_motion": "dial wipe, pans",
+      "on_screen_text": "'EOCENE EPOCH', 'no ICE', 'FASTER', 'Pakicetus', 'Wadi Al-Hitan'"
+    },
+    {
+      "t_start": 830,
+      "t_end": 862,
+      "shot_type": "monster reveal",
+      "visual_description": "Red-tinted Basilosaurus serpentine whale; 16 m size compare; tiny back legs circled; skeleton photo card; whale calves",
+      "camera_motion": "cuts, push",
+      "on_screen_text": "'Basilosaurus', 'TINY back legs', 'Basilosaurus skeleton', 'whale CALVES'"
+    },
+    {
+      "t_start": 862,
+      "t_end": 876,
+      "shot_type": "escape + verdict",
+      "visual_description": "Shark stays deep (gauge); PASS card; red 'the WORST ocean' teaser",
+      "camera_motion": "tilt down",
+      "on_screen_text": "'stay DEEP', 'PASS', 'the WORST ocean'"
+    },
+    {
+      "t_start": 876,
+      "t_end": 928,
+      "shot_type": "transition + world-building",
+      "visual_description": "Dial; 'MIOCENE EPOCH'; world map zoom to Peru; upwelling food chain arrows; seals/penguins/whales; swimming sloth Thalassocnus; kelp; dual silhouettes 'biggest HUNTERS'",
+      "camera_motion": "dial wipe, map zoom",
+      "on_screen_text": "'plankton -> fish -> EVERYTHING', 'Thalassocnus, a swimming sloth', 'RICHEST', 'biggest HUNTERS'"
+    },
+    {
+      "t_start": 928,
+      "t_end": 962,
+      "shot_type": "monster parade",
+      "visual_description": "Megalodon 15 m vs great white; megalodon jaws 'a SNACK.'; photo of megalodon tooth beside great white tooth; whale with red circles on flipper/tail; Livyatan vs sperm whale; 'BOTH jaws'; Livyatan skull photo",
+      "camera_motion": "cuts + punch-ins",
+      "on_screen_text": "'Megalodon', 'a SNACK.', 'needed to ESCAPE.', 'Livyatan', 'Sperm whale (today)', 'BOTH jaws', 'in HALF.'"
+    },
+    {
+      "t_start": 962,
+      "t_end": 976,
+      "shot_type": "failed escape + verdict",
+      "visual_description": "Red-tinted dive with Livyatan following; skull card 'DEAD. TWICE.'",
+      "camera_motion": "tilt down",
+      "on_screen_text": "'DEAD. TWICE.'"
+    },
+    {
+      "t_start": 976,
+      "t_end": 1028,
+      "shot_type": "transition + twist evidence",
+      "visual_description": "Dial; 'PLIOCENE EPOCH'; map with Panama gap closing, Pacific/Atlantic labels; 'GIANT' megalodon fades; 'real great WHITES'; size compare; zinc tooth photo; trophic-level diagram with arrow 'SAME level'; hedging bars 'Climate change' 'Disappearing prey'",
+      "camera_motion": "dial wipe, map zoom, diagram builds",
+      "on_screen_text": "'PLIOCENE EPOCH', 'GIANT', 'real great WHITES', 'Zinc in fossil teeth (2022)', 'SAME level'"
+    },
+    {
+      "t_start": 1028,
+      "t_end": 1040,
+      "shot_type": "resolution",
+      "visual_description": "Megalodon fades to nothing beside great white; red X; great white alone",
+      "camera_motion": "fade",
+      "on_screen_text": "'Megalodon was GONE.'"
+    },
+    {
+      "t_start": 1040,
+      "t_end": 1072,
+      "shot_type": "transition + modern world",
+      "visual_description": "Dial; surface with sun; modern map with polar ice; whales and orca; seals 'BUFFET.'; orca silhouettes surround shark",
+      "camera_motion": "cuts",
+      "on_screen_text": "'WHALES and', 'BUFFET.', 'orcas are WAITING.'"
+    },
+    {
+      "t_start": 1072,
+      "t_end": 1102,
+      "shot_type": "evidence + callback",
+      "visual_description": "Aerial photo 'Farallon Islands, 1997'; orca with calf; shark flipped upside down; California coastline with sharks leaving; lineup of past rivals; orca 'a DOLPHIN.'",
+      "camera_motion": "cuts",
+      "on_screen_text": "'Farallon Islands, 1997', 'California', 'a DOLPHIN.'"
+    },
+    {
+      "t_start": 1102,
+      "t_end": 1124,
+      "shot_type": "final scoreboard",
+      "visual_description": "Check 'NOT THE KING'; final 2 RULED / 5 SURVIVED / 3 DIED with each column highlighted as narrated; three death-cause icons",
+      "camera_motion": "counter highlights",
+      "on_screen_text": "'NOT THE KING', '2 / 5 / 3', 'mostly by staying deep'"
+    },
+    {
+      "t_start": 1124,
+      "t_end": 1152,
+      "shot_type": "thesis montage",
+      "visual_description": "Crowned shark; lineup of extinct rivals crossed out with red X one by one; 'BIGGER, STRONGER, SCARIER.'; shark 'when to RUN / where to HIDE'; final dive with gauge; shark in deep",
+      "camera_motion": "cuts, tilt down",
+      "on_screen_text": "'to the END?', 'BIGGER, STRONGER, SCARIER.', 'when to RUN', 'where to HIDE.', 'that's what WINS.'"
+    },
+    {
+      "t_start": 1152,
+      "t_end": 1166,
+      "shot_type": "CTA",
+      "visual_description": "Mock comments box with typed suggestions under 'WHICH ANIMAL NEXT?'",
+      "camera_motion": "static, typing animation",
+      "on_screen_text": "'WHICH ANIMAL NEXT?', 'COMMENTS'"
+    },
+    {
+      "t_start": 1166,
+      "t_end": 1181,
+      "shot_type": "end screen",
+      "visual_description": "Dark underwater with shark silhouette, channel logo, 'WATCH NEXT' + orange play arrow + dashed placeholder box for YouTube end-screen element",
+      "camera_motion": "static",
+      "on_screen_text": "'WATCH NEXT', 'DEPTH THEORY'"
+    }
+  ],
+  "pacing": {
+    "words_per_minute": 151,
+    "word_count": 2972,
+    "avg_shot_length_s": {
+      "hard_cuts": 12.7,
+      "visual_changes": 4.8,
+      "note": "ffmpeg scene>0.3 found 93 cuts (~12.7 s); scene>0.12 found 244 changes (~4.8 s). Most change happens inside shots (caption words, pop-in labels, highlight rings, element moves), so the effective 'something new on screen' interval is ~1.5-2.5 s."
+    },
+    "segment_length": "~90-115 s per era, 10 eras + 88 s intro + ~80 s outro",
+    "structure_rhythm": "Each era repeats the same 6-part template: dial transition -> era title card -> 30-45 s world-building (land, map, oxygen/climate fact) -> monster reveal with size comparison and often a myth-bust -> escape test (dive + depth gauge) -> verdict card (+ scoreboard every 2-3 eras)."
+  },
+  "visual_style": {
+    "palette": "Deep teal/navy underwater gradient (#0d2a3a-ish to #1f5566) with soft god rays and particles; tan/khaki landmasses (#b5a67a) with teal outlines on maps; warm sand/peach land scenes; accent gold/orange (#f2a72e) for keywords and crown; red (#e0483d) for danger words and red-tint danger states; teal (#5cc6b8) for check/oxygen bars; creatures in flat grey/white with dark outlines.",
+    "per_era_tint": "Background hue shifts per era (Cambrian greener teal, Ordovician/Jurassic deeper navy, Cretaceous brighter cyan, Miocene blue) — cheap way to signal 'new world'.",
+    "typography": "Rounded geometric sans (Raleway/Montserrat-like). Captions: lowercase white small words + ONE keyword in bold uppercase orange (or red for threat). Era cards: tiny letter-spaced 'X MILLION YEARS AGO' above 'ERANAME' bold + 'PERIOD' light. Species labels: small white text top-left with thin underline.",
+    "characters": "Single consistent flat-vector shark rig (side view, slight shading, gill slits) reused in every scene; creatures are simple layered vector cut-outs with 2-3 parts animated (jaw, tail, fins)."
+  },
+  "techniques_worth_copying": [
+    "Game-show scoring frame: explicit rules + 3-icon legend (crown/check/skull) + recurring scoreboard turns a facts tour into a tournament with stakes; viewers stay to see the final tally.",
+    "Single recurring 'escape test' (can it dive deeper than the threat?) gives every segment the same decision logic and a satisfying payoff.",
+    "Era template: dial/time-machine transition -> title card -> world-building -> monster -> verdict. Very cheap to template in code and easy for viewers to follow.",
+    "Word-by-word captions with exactly one emphasised keyword per phrase (orange caps, red for danger) placed near the subject, not fixed at bottom.",
+    "Myth-bust beats: 'You might have heard it was 9 m / 25 m / 10 m... a 2023 study says 4 m' using two stacked size bars — feels smart, adds credibility.",
+    "Size-comparison panel: dark background, our hero always shown on top with a 5 m yellow ruler, challenger below with its own ruler — consistent reference object across the whole video.",
+    "Depth gauge overlay (0-1,200 m ruler with red marker) whenever the shark dives; background darkens with depth.",
+    "Colour-grade states: red tint = danger/oxygen crisis; orange 'thermal' recolour = metabolism; desaturate/fade = death.",
+    "Gold highlight rings/ellipses drawn around the anatomical detail being discussed (jaws, legs, liver).",
+    "Occasional framed real-photo cards (fossil skull, tooth, aerial photo) tilted slightly with white border to anchor claims in evidence.",
+    "Open/close bookend: hook's orca-liver twist returns at the end ('still running from a dolphin'), then a reflective thesis that reframes losing as winning.",
+    "Cliffhanger line at end of each verdict ('That's about to change', 'Now the worst ocean of all', 'But here's where the story turns around').",
+    "Comment-bait CTA with a mocked comment box: 'Which animal should we drop in next?' — feeds the series format."
+  ],
+  "code_only_remake_needs": {
+    "feasibility": "High. Everything is 2D flat vector with simple transforms; no camera 3D, no complex character animation. Ideal Remotion target.",
+    "assets": [
+      "One reusable side-view SVG shark rig (body, jaw, tail, pectoral fin groups) with swim cycle (tail sine + body bob) and pose variants: cruise, dive (rotate ~60 deg), bite (jaw open), upside-down.",
+      "~25 creature SVGs (original designs): rivals per era; each needs 2-3 animatable parts at most.",
+      "Paleomap SVG set (Cambrian, Ordovician, Devonian, Carboniferous, Pangaea, Jurassic, Cretaceous, modern) — simplified blobs; morph between them with flubber/path interpolation.",
+      "Landscape side-view layers (sky, mountains, ground, sea strip) with swappable props (trees by era, dinosaurs, palm, dragonfly, moon).",
+      "Icon set: crown, check, skull, red X, era icons.",
+      "Optional photo cards: must be original/licensed/public-domain or replaced with drawn 'specimen' cards (do not reuse their images)."
+    ],
+    "components": [
+      "UnderwaterBackground: vertical gradient + animated god-ray polygons + particle drift + per-era hue prop + depth darkening prop.",
+      "KaraokeCaption: word-timed reveal from TTS/whisper word timestamps, keyword styling (orange/red uppercase bold), position prop.",
+      "EraTitleCard: 'N MILLION YEARS AGO' + bold/light era name + icon, with fade/slide.",
+      "TimeDialTransition: SVG dial with needle sweep + orange wedge wipe and logo, ~2 s.",
+      "SizeComparePanel: stacked creatures scaled to metres with animated ruler bars and labels (keeps hero as fixed reference).",
+      "DepthGauge: vertical ruler 0-N m with animated marker + label, synced to shark dive.",
+      "HighlightRing: hand-drawn-feel ellipse stroke-dash draw-on around a target bbox.",
+      "VerdictCard + Scoreboard: icon pop-in with spring, counters, per-column highlight, mini scoreboard HUD top-right.",
+      "BarStat: horizontal labelled bars (oxygen today vs then).",
+      "MapScene: framed map panel with zoom-to-region, labels, highlight circles, path morph between eras.",
+      "ColorGrade wrapper: red-danger / thermal-orange / fade-to-dark overlays."
+    ],
+    "pipeline": "Script with per-beat storyboard JSON (era template x N) -> local TTS (Kokoro) at ~150 wpm -> word timestamps (faster-whisper) -> Remotion composition maps beats to the components above; 20-min video at 30 fps is long, so render per-era chunks on Spark CPU and concat.",
+    "hard_parts": "Volume of creature art (~25 originals) and keeping style consistency; engraved B&W thumbnail look (use SVG hatching filters or switch to flat style thumbnail); smooth map morphs."
+  }
+}

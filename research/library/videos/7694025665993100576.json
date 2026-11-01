@@ -1,0 +1,301 @@
+{
+ "id": "7694025665993100576",
+ "url": "https://www.tiktok.com/@man_ia_c/video/7694025665993100576",
+ "platform": "tiktok",
+ "niche": "whatif",
+ "channel": "@man_ia_c (display name 'What if?')",
+ "title": "What if a pop star was 100 times taller? In mice, switching off the H...",
+ "description": "What if a pop star was 100 times taller? In mice, switching off the Hippo pathway made livers four times bigger. Give a singer twenty extra rounds of cell division and she is 541 ft tall, heavier than the Titanic, with hips wider than a Manhattan avenue. Dancing at normal tempo, her hips move at 200 mph, and every hip swing hits like ten freight trains. You work on the 23rd floor. Right at hip height. Which WTF idea should we try next? Drop it in the comments 👇 #whatif #pov #simulation #science #fyp",
+ "upload_date": "2026-10-07",
+ "duration": 80,
+ "views": 4900000,
+ "likes": 443000,
+ "comments": 6026,
+ "shares": 33600,
+ "subs": null,
+ "channel_median_views": 624750,
+ "outlier_score": 7.84,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/whatif/7694025665993100576.{mp4,image,info.json}; frames, reading sheets, HUD crops, whisper.json in ~/studio/refs/whatif/work_7694025665993100576/",
+  "download": "576x1024 h264 30 fps, 12.8 MB, TikTok watermarked 'download' format (no <=480p rendition offered). Kept on Spark (<300 MB).",
+  "transcript_source": "No auto-subs. faster-whisper small (CPU, 2 threads) found no speech: the audio is a pop backing track plus SFX, no voice-over. Transcript = burned-in captions + HUD read visually from 1 fps frames and native-res crops; saved to research/library/transcripts/7694025665993100576.txt.",
+  "frames": "sampled every 1 s (80 frames). research/library/sheets/7694025665993100576.jpg = 8 cols x 10 rows, row-major, 1 s per tile, timestamp top-left.",
+  "audio_profile": "Per-second RMS: music steady around -15..-21 dB; deliberate dips at 0:33 (cut to office), 0:47-0:48, and a hush at 0:59-1:01 (-27 dB) right before the impact; loudest at 1:02-1:05 (-12.6 dB, crash); then fades to near silence by 1:12 and stays quiet (-38..-47 dB) under the end card.",
+  "render_style": "Low-poly real-time 3D (game-engine / Three.js look): procedural Manhattan grid of box buildings with tiled window textures, water towers, box trees, toy cars; a stylised blocky pop-star character (blonde, gold sequin minidress, brown belt with star buckle, handheld mic) with a looping dance animation. TikTok shows an 'AI-generated' label bottom-left.",
+  "metadata_snapshot": "yt-dlp on Spark 2026-11-01 ~09:17 UTC. Follower count not exposed (subs null). Sound: 'son original - What if?'."
+ },
+ "title_pattern": {
+  "template": "What if a <famous/relatable archetype> was <N> times <bigger>? <one real-science fact sentence> <compressed stat chain of the whole video> <'You' placed at the danger point> <CTA: which WTF idea next? comments> #whatif #pov #simulation #science",
+  "notes": "The on-cover question is the classic 'What if X was N times Y' (concrete multiplier, celebrity archetype not a named celebrity, avoids likeness issues). The caption then front-loads a REAL lab fact (Hippo pathway, mouse livers 4x) to give the absurd premise scientific permission, and literally lists every stat beat of the video, ending in second person ('You work on the 23rd floor. Right at hip height.') so the caption itself reads like a micro-story with a cliffhanger. Truncated TikTok title shows only the question plus the start of the science fact."
+ },
+ "thumbnail": {
+  "composition": "Cover = frame 0 (540x960). First-person POV from a rooftop: red-brick parapet + grey coping fill the bottom 25%, a canyon of low-poly Manhattan towers in the middle, sky in the top 30%. The giant pop star stands mid-frame just right of centre, framed between a red-brick tower (left) and a beige tower (right), visible from the knees up above the near rooftops.",
+  "text": "Centre-upper, two-line white serif (book-style, light weight, no outline, soft shadow): 'What if a pop star / was 100 times taller?'. Left-middle HUD: tiny tracked caps 'THE STAR', large serif '2,047 ft', tiny caps '541 FEET TALL'.",
+  "colours": "Muted daylight palette: pale grey-blue sky, beige/grey buildings, one saturated brick-red tower; the subject is the only saturated warm gold (sequin dress + blonde hair) so the eye lands on her instantly. Red brick ledge at the bottom echoes the red tower.",
+  "subject_scale_contrast": "She is the same height as 20-40-storey towers, with yellow taxis, buses and trees in the street below for real-world scale; the viewer's own rooftop ledge in the foreground makes it YOUR viewpoint. The HUD distance number (2,047 ft) quietly sets up a countdown.",
+  "why_it_works": "Instant read in <1 s: familiar human figure where a building should be. The understated serif title feels premium/documentary rather than meme, which separates it from loud yellow-text thumbnails; the HUD promises a data-driven 'simulation'. The foreground ledge = POV promise ('this is happening to you')."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "[on-screen, no voice] 'What if a pop star was 100 times taller?' (0:00-0:05) -> 'She is one hundred times taller than you.' (0:05). HUD: 'THE STAR 2,020 ft / 541 FEET TALL' already ticking down.",
+  "device": "Silent question-title over an already-in-progress POV scene (the giant is visible and dancing from frame 0, no intro), plus a live HUD distance counter that starts decreasing immediately: an implicit 'she is coming toward you' countdown that the viewer can only resolve by watching to 0 ft. Second line converts the premise to second person ('than YOU'). Music-only audio means it plays fully on mute, captions are the whole script."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 5,
+   "beat_type": "hook_question",
+   "summary": "Title question over rooftop POV; giant pop star already dancing between skyscrapers; HUD 'THE STAR 2,020 ft' starts counting down."
+  },
+  {
+   "t_start": 5,
+   "t_end": 10,
+   "beat_type": "premise_second_person",
+   "summary": "'She is one hundred times taller than you.' Camera pushes off the ledge toward her; HUD sublabel 541 FEET TALL."
+  },
+  {
+   "t_start": 10,
+   "t_end": 19,
+   "beat_type": "science_justification",
+   "summary": "Real mechanism planted: 'Her Hippo pathway never told her to stop.' / 'Twenty extra cell divisions did this.' First dust puff at her feet (0:17-0:18)."
+  },
+  {
+   "t_start": 19,
+   "t_end": 21,
+   "beat_type": "destruction_tease",
+   "summary": "1-2 s cutaway: low tilted angle over a brick ledge as her foot stomps a block in a dust cloud; HUD sublabel flips to 66,000 TONS."
+  },
+  {
+   "t_start": 21,
+   "t_end": 33,
+   "beat_type": "stat_escalation",
+   "summary": "Comparisons to known objects: 'She weighs more than the Titanic.', HUD 'WALKING AT 38 MPH', 'Her hips are wider than the avenue.' Arms-up dance; her hips clip a building and debris/dust bursts out (0:29-0:32)."
+  },
+  {
+   "t_start": 33,
+   "t_end": 38,
+   "beat_type": "pov_relocation",
+   "summary": "Hard cut inside an office (HUD now 'HER HIPS 1,241 ft / LEVEL WITH FLOOR 23'): you are on floor 23. 'At this tempo, her hips move at 200 mph.' Her silhouette appears through the window."
+  },
+  {
+   "t_start": 38,
+   "t_end": 50,
+   "beat_type": "sensory_consequences",
+   "summary": "Exterior, she dances closer past a tower: 'You can hear her from New Jersey.' / 'The windows hum along.' HUD counts 967 -> 293 ft."
+  },
+  {
+   "t_start": 50,
+   "t_end": 54,
+   "beat_type": "dark_humour_contrast",
+   "summary": "Office worker typing at a spreadsheet, oblivious: 'Someone still has a deadline.' HUD 242 -> 148 ft."
+  },
+  {
+   "t_start": 54,
+   "t_end": 62,
+   "beat_type": "impact_buildup",
+   "summary": "Extreme close-up of sequin hip swinging through concrete: 'Each hip swing hits like ten freight trains.' Back inside: gold hip fills the windows, 'Floor 23 is right at hip height.' HUD 104 -> 85 -> 32 -> 4 ft; audio hush."
+  },
+  {
+   "t_start": 62,
+   "t_end": 73,
+   "beat_type": "climax_impact_payoff",
+   "summary": "No caption. HUD reads 'HER HIPS / HERE'. Ceiling cracks in a spiderweb, dust and debris through the office, camera rolls 30-45 degrees as the floor collapses; screen-crack overlay; loudest audio then fade to dark."
+  },
+  {
+   "t_start": 73,
+   "t_end": 80,
+   "beat_type": "end_card_cta",
+   "summary": "Black end card: title repeated, mono footnote 'THE HIPPO PATHWAY IS REAL · SWITCHING IT OFF MADE MOUSE LIVERS FOUR TIMES BIGGER', italic 'What WTF idea should we try next?', gold 'TELL US IN THE COMMENTS ↓'."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 5,
+   "shot_type": "POV wide establishing",
+   "visual_description": "From behind a red-brick rooftop parapet: Manhattan street canyon with taxis and buses; giant blonde pop star in gold sequin dress dances among towers mid-frame.",
+   "camera_motion": "slow dolly-in / slight rise",
+   "on_screen_text": "What if a pop star / was 100 times taller? | HUD THE STAR 2,020->1,790 ft, 541 FEET TALL"
+  },
+  {
+   "t_start": 5,
+   "t_end": 8,
+   "shot_type": "POV wide",
+   "visual_description": "Same view, camera now just over the ledge; she sways, hand to hair.",
+   "camera_motion": "continuous push forward",
+   "on_screen_text": "She is one hundred times taller than you. | HUD 1,732->1,616 ft"
+  },
+  {
+   "t_start": 8,
+   "t_end": 15,
+   "shot_type": "wide, ledge out of frame",
+   "visual_description": "Camera has left the rooftop and floats above the street; birds cross sky; she sings into mic, starts raising arms.",
+   "camera_motion": "slow steady push in (drone-like)",
+   "on_screen_text": "Her Hippo pathway never told her to stop. | HUD 1,558->1,188 ft"
+  },
+  {
+   "t_start": 15,
+   "t_end": 19,
+   "shot_type": "wide",
+   "visual_description": "Arms-up dance pose; at 0:17-0:18 a white dust puff erupts at her feet as she steps on a building.",
+   "camera_motion": "push in",
+   "on_screen_text": "Twenty extra cell divisions did this. | HUD 1,186->1,146 ft"
+  },
+  {
+   "t_start": 19,
+   "t_end": 21,
+   "shot_type": "low-angle Dutch cutaway",
+   "visual_description": "Tilted shot over a brick ledge, looking up at her foot crashing into a building block with a dust cloud; her lower body fills the top of frame.",
+   "camera_motion": "quick handheld-style tilt, cut back at 0:21",
+   "on_screen_text": "HUD 1,083 ft, 66,000 TONS"
+  },
+  {
+   "t_start": 21,
+   "t_end": 27,
+   "shot_type": "medium-wide, slightly low",
+   "visual_description": "She walks/dances toward camera along the avenue, now cropped at the knees; traffic jam below.",
+   "camera_motion": "push in, slight upward tilt",
+   "on_screen_text": "She weighs more than the Titanic. | HUD 1,021->708 ft, WALKING AT 38 MPH"
+  },
+  {
+   "t_start": 27,
+   "t_end": 33,
+   "shot_type": "medium full body",
+   "visual_description": "Both arms up holding mic; at 0:29-0:32 her hip clips the building on the left, concrete chunks and white dust clouds burst out.",
+   "camera_motion": "push in, low angle",
+   "on_screen_text": "Her hips are wider than the avenue. | HUD 672->578 ft"
+  },
+  {
+   "t_start": 33,
+   "t_end": 37,
+   "shot_type": "interior wide (office)",
+   "visual_description": "Open-plan office on floor 23: blue carpet, white desks, black monitors, red mug in foreground, one worker standing by the windows, city outside.",
+   "camera_motion": "slow truck toward windows",
+   "on_screen_text": "At this tempo, her hips move at 200 mph. | HUD HER HIPS 1,241->1,077 ft, LEVEL WITH FLOOR 23"
+  },
+  {
+   "t_start": 37,
+   "t_end": 38,
+   "shot_type": "interior to window",
+   "visual_description": "Camera reaches the glass; her golden silhouette visible outside behind the mullions.",
+   "camera_motion": "push through window (transition)",
+   "on_screen_text": "At this tempo, her hips move at 200 mph. | HUD 1,017 ft"
+  },
+  {
+   "t_start": 38,
+   "t_end": 46,
+   "shot_type": "exterior medium, foreground tower wipe",
+   "visual_description": "Dark grey tower fills the left third; she dances beside it, water tower on a rooftop below for scale; hand on hip, then arm raised.",
+   "camera_motion": "slow lateral drift right + push",
+   "on_screen_text": "You can hear her from New Jersey. | HUD 967->579 ft"
+  },
+  {
+   "t_start": 46,
+   "t_end": 50,
+   "shot_type": "medium close, Dutch tilt",
+   "visual_description": "Her torso and face fill the right half; building edge and a dark overhang intrude top-left; frame rolls ~15 degrees by 0:50.",
+   "camera_motion": "push in with roll",
+   "on_screen_text": "The windows hum along. | HUD 518->293 ft"
+  },
+  {
+   "t_start": 50,
+   "t_end": 54,
+   "shot_type": "interior wide (office)",
+   "visual_description": "Large office floor, worker in blue shirt typing at a spreadsheet on his monitor, oblivious; colleagues in the background, potted plant.",
+   "camera_motion": "slow push toward the worker",
+   "on_screen_text": "Someone still has a deadline. | HUD 242->148 ft"
+  },
+  {
+   "t_start": 54,
+   "t_end": 56,
+   "shot_type": "extreme close-up",
+   "visual_description": "Gold sequin dress and brown belt fill the right of frame, swinging past a grey tower.",
+   "camera_motion": "tracking with the hip",
+   "on_screen_text": "Each hip swing hits like ten freight trains. | HUD 104 ft"
+  },
+  {
+   "t_start": 56,
+   "t_end": 58,
+   "shot_type": "extreme close-up impact",
+   "visual_description": "Concrete blocks and window chunks explode around the sequin hip, white dust puffs.",
+   "camera_motion": "shake, fast debris",
+   "on_screen_text": "Each hip swing hits like ten freight trains. | HUD 104->101 ft"
+  },
+  {
+   "t_start": 58,
+   "t_end": 62,
+   "shot_type": "interior POV at window wall",
+   "visual_description": "Inside floor 23: the giant gold sequin hip and belt slide across all the windows, filling them; dust outside; glass starts to break.",
+   "camera_motion": "static then slight push",
+   "on_screen_text": "Floor 23 is right at hip height. | HUD 85->32->4 ft"
+  },
+  {
+   "t_start": 62,
+   "t_end": 64,
+   "shot_type": "interior impact",
+   "visual_description": "Ceiling grid cracks in a radial web, room fills with grey dust, huge concrete chunks fly through the office.",
+   "camera_motion": "violent shake, begins rolling",
+   "on_screen_text": "HUD HER HIPS / HERE"
+  },
+  {
+   "t_start": 64,
+   "t_end": 72,
+   "shot_type": "interior collapse, tilted",
+   "visual_description": "Office seen at a 30-45 degree roll: desks, monitors and paper shards tumbling, floor slab tilting, dust haze; white spiderweb crack lines overlaid like a broken lens.",
+   "camera_motion": "slow continuous roll + drift, lens-crack overlay, darkening",
+   "on_screen_text": "HUD HER HIPS / HERE (fades out ~1:11)"
+  },
+  {
+   "t_start": 72,
+   "t_end": 74,
+   "shot_type": "fade to black",
+   "visual_description": "Collapse shot darkens to near-black #111.",
+   "camera_motion": "fade",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 74,
+   "t_end": 80,
+   "shot_type": "end card (graphic)",
+   "visual_description": "Flat near-black background, centred typographic stack; lines fade in sequentially (1:14 title, 1:15 footnote, 1:16 CTA).",
+   "camera_motion": "static, staggered fade-ins",
+   "on_screen_text": "What if a pop star was 100 times taller? / THE HIPPO PATHWAY IS REAL · SWITCHING IT OFF MADE MOUSE LIVERS FOUR TIMES BIGGER / What WTF idea should we try next? / TELL US IN THE COMMENTS ↓"
+  }
+ ],
+ "pacing": {
+  "spoken_words_total": 0,
+  "words_per_min": 0,
+  "on_screen_caption_words": 84,
+  "on_screen_words_per_min": 81.3,
+  "narration_density": "No voice-over at all. One short (4-8 word) serif caption roughly every 5-6 s, each held 3-4 s with a gap of 1-2 s of pure picture between captions; captions stop entirely for the 11 s climax. Music bed carries rhythm; audio dips (0:33, 0:47, 0:59-1:01) precede reveals.",
+  "caption_count": 12,
+  "avg_caption_interval_s": 5.2,
+  "avg_shot_length_s": 4.2,
+  "shot_count": 19,
+  "shot_rhythm": "Long continuous camera moves (5-12 s) rather than fast cuts; real cuts only at 0:19, 0:21, 0:33, 0:38, 0:46, 0:50, 0:54, 0:58, 1:02, 1:13. Cut rate accelerates in the last third (54-62 s: a cut every 2-4 s) then the climax is one long tumbling take. Motion never stops: the camera is always pushing toward her, matching the HUD countdown.",
+  "re_hook_interval_s": "~5-6 s (each new caption is a new stat/comparison); bigger re-hooks at 0:19 (first destruction), 0:33 (relocation to YOUR office), 0:50 (oblivious worker), 0:59 (floor 23 = hip height).",
+  "hud_countdown": "THE STAR distance 2,020 ft (0:00) -> 578 ft (0:32); switches target to HER HIPS 1,241 ft (0:33) -> 4 ft (1:01) -> 'HERE' (1:02). Sublabels: 541 FEET TALL, 66,000 TONS, WALKING AT 38 MPH, LEVEL WITH FLOOR 23."
+ },
+ "techniques_worth_copying": [
+  "Live HUD distance countdown (label / big serif number / tiny caps sublabel) that ticks down every frame: an always-visible progress bar toward the payoff, which drives retention without narration. Swap the tracked target mid-video (THE STAR -> HER HIPS) to re-arm the countdown.",
+  "Second-person POV escalation: start as a spectator on a rooftop, then relocate 'you' to the exact point of danger (floor 23 = hip height) so the climax happens to the viewer.",
+  "Real-science permission slip: one true, specific lab fact (Hippo pathway knockout, mouse livers 4x) early in the video and repeated as a footnote on the end card; makes an absurd premise feel like a simulation, not a meme.",
+  "Comparisons to famous known objects every 5-6 s (Titanic, avenue width, New Jersey, freight trains, 200 mph): each caption is one stat, one image, under 9 words.",
+  "Dark-humour mundane contrast right before the climax ('Someone still has a deadline.') with an oblivious office worker.",
+  "Climax with no text at all: caption stops, HUD says 'HERE', the loudest audio moment, then a long tumbling take and fade; silence and black give a beat to let it land before the CTA.",
+  "Premium, understated typography (light serif captions, tracked mono/sans caps for HUD and footnote, one gold CTA line) instead of loud meme text; reads as a 'simulation' brand.",
+  "Mute-proof and language-light: no voice-over, short captions, so it travels internationally and works on autoplay without sound.",
+  "End card asks 'What WTF idea should we try next?' -> comment bait that also sources the next premise; series identity 'What if?'."
+ ],
+ "code_only_remake_needs": {
+  "summary": "This one is real-time 3D, so the closest code-only remake is Remotion + @remotion/three (React Three Fiber) rendered on the Spark CPU (software GL/ANGLE), or a 2.5D SVG/Canvas parallax version. Both are pure code; no AI video.",
+  "scene": "Procedural city: instanced box buildings on a street grid with a canvas-generated window texture (rows of dark squares on beige/grey/brick-red), rooftop water towers (cylinder + cone), box trees, tiny instanced cars/taxis in lanes; flat sky gradient; light fog for depth. A rooftop ledge mesh for the opening POV and an office interior set (ceiling tile grid with light panels, blue floor, white desks, monitor boxes, low-poly worker figure, red mug).",
+  "giant_character": "A blocky stylised humanoid built from primitives (boxes/capsules) with a gold sequin material (noisy emissive sparkle texture), hair as stacked planes, a procedural dance loop (hip sway sine, arms-up keyframes, mic in hand). Must avoid any real-celebrity likeness: generic archetype. 2D alternative: layered SVG puppet at fixed scale with parallax buildings in front/behind.",
+  "camera": "Keyframed camera spline with constant forward push; cuts as separate sequences; Dutch roll and camera shake (noise) on impacts; a final roll-and-tumble take. 2.5D: scale/translate parallax layers + CSS rotate.",
+  "fx": "Dust puffs (white sphere/sprite particle bursts), debris chunks (instanced boxes with simple ballistic motion), ceiling crack radial web and lens-crack overlay as SVG paths drawn over frames, fade to black.",
+  "overlays": "HUD component: tracked small-caps label, large serif number interpolated per frame (Intl number format with commas), small-caps sublabel that swaps on keyframes; target switch and 'HERE' state. Caption component: centred light serif, 4-8 words, fade in/out, timed list. End card: staggered fade-in of title / mono footnote / italic question / gold CTA with arrow.",
+  "audio": "Licence-free upbeat pop-style bed (or self-made loop), ducking at reveals, impact SFX at 1:02, low rumble, fade-out; no TTS required (or optional TTS if we choose to narrate).",
+  "data": "A small 'scale calculator' JSON driving all numbers: multiplier, height, mass (cube law), walking speed, hip speed at tempo, impact energy comparison, floor number at hip height, so every caption stat is computed and consistent.",
+  "effort": "3D path is the heaviest of our kits (city generator + character rig + camera) but the city and HUD are reusable across every 'what if X was N times bigger' episode."
+ }
+}

@@ -1,0 +1,577 @@
+{
+  "id": "7665304797242821921",
+  "url": "https://www.tiktok.com/@mraevq/video/7665304797242821921",
+  "platform": "tiktok",
+  "niche": "horror",
+  "channel": "mraevq",
+  "title": "#chenjie #wangqiang",
+  "upload_date": "2026-07-22",
+  "duration": 422,
+  "views": 11400,
+  "likes": 253,
+  "comments": 14,
+  "shares": 66,
+  "subs": null,
+  "channel_median_views": 10750,
+  "outlier_score": 1.06,
+  "role": "control",
+  "analysis_notes": {
+    "source_files_spark": "~/studio/refs/horror/7665304797242821921.{mp4,jpg,image,eng-US.vtt,info.json,transcript.txt,sheet.jpg,cuts12.txt}",
+    "download": "yt-dlp 2026.10.26 with --impersonate chrome (curl_cffi in user site-packages); plain requests got 'Unexpected response from webpage request'. No <=480p rendition offered, so the smallest available h264_540p (576x1024, 30 fps, 12 MB) was kept.",
+    "transcript_source": "TikTok auto-captions (eng-US VTT), which match the burned-in captions word for word apart from minor punctuation; no whisper needed. Saved to research/library/transcripts/7665304797242821921.txt",
+    "frames": "sampled every 2 s (211 frames), cropped to the 576x430 picture band; contact sheet research/library/sheets/7665304797242821921.jpg is 8 columns x 27 rows, row-major, 2 s per tile (labels may lead the true time by up to ~1 s). Extra 2 fps strip of 0-48 s checked for camera motion.",
+    "hard_cuts_detected": "2 at scene>0.3, 95 at scene>0.12 (on 144px-wide frames); visual review suggests ~80 real shot changes",
+    "metadata_snapshot": "views/likes/comments/shares from yt-dlp at 2026-11-01 ~09:05 UTC; follower count not exposed by the extractor",
+    "format_quirks": "Vertical 9:16 canvas with a 566x412 landscape picture band centred at y=306-718 with rounded corners, black bars above and below (~30% each). The whole video is horizontally mirrored (the Chinese search-bar text at the end reads backwards), a re-upload trick to dodge duplicate detection. English narration over a Chinese 2D animated series (BRIEF: translated repost; do not copy story).",
+    "audio": "Single English narrator voice reads both narration and dialogue in first person, continuous, no pauses between cues (inferred from the 1500-word auto-caption track spanning 0.1-421 s); TikTok sound label 'original music'. Not listened to in detail."
+  },
+  "title_pattern": {
+    "template": "#<protagonist name> #<series character name>",
+    "notes": "No hook at all: the caption is just two character-name hashtags (Chen Jie is the narrator boy), the series tag a repost account uses so followers can find more episodes. It gets channel-median views, a good baseline: the video itself carries all the hook work. Our titles should NOT copy this; outliers in this niche use a one-line premise (e.g. 'On the train I saw a long-armed monster')."
+  },
+  "thumbnail": {
+    "composition": "Auto cover = the first frame of the video. Letterboxed landscape picture in the middle third of a 9:16 black frame. Boy in a neon-yellow jacket centre-left, medium shot, staring at camera with huge round black-ringed eyes; dad behind him at right, smirking; train window with night hills at left.",
+    "text": "None (no overlay, no title text).",
+    "colours": "Dominant neon yellow-green jacket against grey/brown/navy interior and heavy black bars; skin tones flat beige; overall dark with one loud colour.",
+    "subject_scale_contrast": "Low: two characters at similar scale, each about half the picture height, and the picture is only ~40% of the frame because of the bars. The expression contrast (terrified kid vs grinning dad) is the only tension.",
+    "why_it_works": "Mostly it doesn't, which suits a control. TikTok's For You feed autoplays, so the cover matters little. The neon jacket and the uncanny saucer eyes make the frame readable at small size, and the scared kid next to a smiling adult hints that something is off. For our videos, a text overlay with the premise and a full-bleed 9:16 frame would do better."
+  },
+  "hook": {
+    "verbatim_0_to_5s": "On the train, I saw a long-armed monster. It waved at me through the fog. As I wondered what it was, Dad went pale.",
+    "verbatim_5_to_12s": "Dad trembled and told Mom, \"It's here.\" \"What's here?\" \"That thing. It's here! It's on the mountain, watching us.\"",
+    "first_speech_at_s": 0.1,
+    "device": "In medias res, first-person sighting. The monster is named by its one wrong body part ('long-armed') and does something friendly-but-wrong (it waves). It cuts straight to an adult's fear reaction, which tells the viewer the threat is real and has a history ('it's been over ten years'). Three open loops in under 20 s: what is it, why does dad know it, why now.",
+    "visual_0_5s": "0-0.6 s boy and dad two-shot (cover frame); 0.6-3.5 s dark navy night sky, black mountain ridge, tiny long-armed silhouette on the peak (the only 'monster' image for the first minute); 3.5-5.6 s back on the boy, slow pan to dad's face draining. Captions in white at the bottom of the picture band from frame 1."
+  },
+  "beats": [
+    {
+      "t_start": 0,
+      "t_end": 3.5,
+      "beat_type": "cold_open_hook",
+      "summary": "First-person sighting line over a night-mountain silhouette: a long-armed monster waved at me through the fog."
+    },
+    {
+      "t_start": 3.5,
+      "t_end": 20.5,
+      "beat_type": "parent_recognition",
+      "summary": "Dad goes pale ('It's here'), mom remembers; reveal there is a history: 'it's been over ten years, how could it find us?'"
+    },
+    {
+      "t_start": 20.5,
+      "t_end": 46.4,
+      "beat_type": "denial_then_confirmation",
+      "summary": "Mom looks and sees nothing, dad insists, looks again and freezes, then mom sees it too: 'We're doomed... why is it still hunting us?'"
+    },
+    {
+      "t_start": 46.4,
+      "t_end": 61.2,
+      "beat_type": "forbidden_rule",
+      "summary": "Boy asks what it is; dad: don't ask, can't say its name or it will remember our voices (lore rule)."
+    },
+    {
+      "t_start": 61.2,
+      "t_end": 80.0,
+      "beat_type": "escalation_trap",
+      "summary": "It is closer and looks human; a landslide has stopped the train until tomorrow; family decides to move cars."
+    },
+    {
+      "t_start": 80.0,
+      "t_end": 95.5,
+      "beat_type": "false_safety",
+      "summary": "Crowded car, dad relaxes: it can't break the train, once we move we're safe; mom silent."
+    },
+    {
+      "t_start": 95.5,
+      "t_end": 132.5,
+      "beat_type": "victim_reveal",
+      "summary": "Ryan from their village screams at his phone: his parents were found as drained empty skins; passengers guess a bear; parents silent; boy blurts 'did that thing do this?'"
+    },
+    {
+      "t_start": 132.5,
+      "t_end": 183.5,
+      "beat_type": "evidence_photo",
+      "summary": "Ryan's earlier photo of his parents waving goodbye has a blurry long-armed figure in the corner; passenger debate dismantles the bear theory (hibernating, arms longer than legs)."
+    },
+    {
+      "t_start": 183.5,
+      "t_end": 229.9,
+      "beat_type": "moral_secret",
+      "summary": "Parents hide the truth: it tracks Ryan's scent, so Ryan is bait that keeps the family alive. Time skip to 9 pm, they relax."
+    },
+    {
+      "t_start": 229.9,
+      "t_end": 263.1,
+      "beat_type": "roof_attack_kill",
+      "summary": "Something heavy lands on the roof and walks; a man sticks his head out the window, his body shrinks to an empty skin."
+    },
+    {
+      "t_start": 263.1,
+      "t_end": 298.2,
+      "beat_type": "authority_false_calm",
+      "summary": "Train police fire at the roof, silence returns; dad says bullets can't hurt it and it can control minds."
+    },
+    {
+      "t_start": 298.2,
+      "t_end": 336.8,
+      "beat_type": "personal_scares",
+      "summary": "Bowl-sized glowing eyes stare at the boy through the window; later a hand strokes his head as he sleeps, mom says she didn't touch him."
+    },
+    {
+      "t_start": 336.8,
+      "t_end": 364.7,
+      "beat_type": "attack_and_gaslight",
+      "summary": "A pushed boulder smashes the car, a hairy hand drags a passenger out; police insist nobody is missing."
+    },
+    {
+      "t_start": 364.7,
+      "t_end": 389.1,
+      "beat_type": "group_split",
+      "summary": "Dad: it broke the train on purpose, we're the target. Passengers and Ryan flee into the dark; family stays."
+    },
+    {
+      "t_start": 389.1,
+      "t_end": 418.6,
+      "beat_type": "twist",
+      "summary": "Boy suddenly remembers Ryan died years ago (he went to the funeral feast); parents freeze, deny, ignore him; 'someone must be under its control'."
+    },
+    {
+      "t_start": 418.6,
+      "t_end": 422.8,
+      "beat_type": "cliffhanger_cta",
+      "summary": "Cuts off mid-story: download Yanyan Stories, search 'Fog Creature' for the ending (app-funnel repost)."
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0,
+      "t_end": 0.6,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Cold-open frame (also the TikTok cover): boy Chen Jie in neon-yellow jacket, saucer eyes, dad grinning behind him on brown train seat, night window left",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: On the train, I saw a long-armed monster."
+    },
+    {
+      "t_start": 0.6,
+      "t_end": 3.5,
+      "shot_type": "establishing_night_silhouette",
+      "visual_description": "Dark navy night sky over black mountain ridge; tiny thin silhouette with one long arm raised on the peak, haze/fog gradient",
+      "camera_motion": "very slow push-in",
+      "on_screen_text": "burned-in caption: ...long-armed monster. / It waved at me through the fog."
+    },
+    {
+      "t_start": 3.5,
+      "t_end": 5.6,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Boy (left, terrified) and dad (right) on train seat; dad's grin drops to pale fear",
+      "camera_motion": "slow pan right from boy to dad",
+      "on_screen_text": "burned-in caption: As I wondered what it was, Dad went pale."
+    },
+    {
+      "t_start": 5.6,
+      "t_end": 20.5,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Dad (black tee) and pregnant mom (purple top) side by side on seat, boy's yellow sleeve at left edge; mom's face gains purple under-eye shading and blush as fear rises; mouth flaps per line",
+      "camera_motion": "continuous slow push-in",
+      "on_screen_text": "burned-in caption: Dad trembled and told Mom, \"It's here.\" ... It's been over ten years."
+    },
+    {
+      "t_start": 20.5,
+      "t_end": 30.8,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Reverse angle: mom by the window (dark green hills outside) leaning to look, dad beside her; then mom single by window",
+      "camera_motion": "slow dolly toward mom / window",
+      "on_screen_text": "burned-in caption: You must be mistaken. ... Why appear now, during this trip?"
+    },
+    {
+      "t_start": 30.8,
+      "t_end": 39.5,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Dad with boy's pale face at right edge; dad looks outside, freezes",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Then his heart nearly stopped. ... I wasn't wrong!"
+    },
+    {
+      "t_start": 39.5,
+      "t_end": 44.2,
+      "shot_type": "single_medium",
+      "visual_description": "Mom alone against blue-framed window, night landscape; tears/blush, 'we're doomed' expression",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: This time, she saw it too. / We're doomed."
+    },
+    {
+      "t_start": 44.2,
+      "t_end": 46.4,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Dad + boy, dad wide-eyed",
+      "camera_motion": "slow drift",
+      "on_screen_text": "burned-in caption: Why is it still hunting us after ten years?"
+    },
+    {
+      "t_start": 46.4,
+      "t_end": 52.4,
+      "shot_type": "single_closeup",
+      "visual_description": "Boy close-up in yellow jacket, dark-haired passenger partly visible right",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Their conversation left me completely confused. / Mom, I saw that monster too."
+    },
+    {
+      "t_start": 52.4,
+      "t_end": 61.2,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Dad snaps at boy, boy's pale face right; mom's shoulder left",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Stop asking. / We can't say its name. / That will remember our voices."
+    },
+    {
+      "t_start": 61.2,
+      "t_end": 65.1,
+      "shot_type": "establishing_night_silhouette",
+      "visual_description": "Same mountain silhouette, figure now larger and closer, long arm extended sideways",
+      "camera_motion": "slow push-in (implies approach)",
+      "on_screen_text": "burned-in caption: It was too dark to see its face. / I only knew it looked human."
+    },
+    {
+      "t_start": 65.1,
+      "t_end": 80.0,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Alternating mom-by-window and dad two-shots; dad grabs mom's arm",
+      "camera_motion": "slow push-ins, cut every 2-7 s",
+      "on_screen_text": "burned-in caption: I didn't want to die either. / But a landslide has stopped the train..."
+    },
+    {
+      "t_start": 80.0,
+      "t_end": 81.0,
+      "shot_type": "three_shot",
+      "visual_description": "Family stands up from seats",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: We quickly stood up."
+    },
+    {
+      "t_start": 81.0,
+      "t_end": 95.5,
+      "shot_type": "wide_interior",
+      "visual_description": "New grey train car, full-figure family standing in aisle (dad, boy, mom alone at 90-93 s)",
+      "camera_motion": "slow lateral drift",
+      "on_screen_text": "burned-in caption: Seeing the other passengers, Dad relaxed slightly. ... She said nothing."
+    },
+    {
+      "t_start": 95.5,
+      "t_end": 106.7,
+      "shot_type": "two_shot_medium",
+      "visual_description": "New characters: Ryan (red hair, white/black hoodie) staring at phone, crying; blond man in red jacket beside him",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Just then, someone screamed inside the car. ... His name was Ryan."
+    },
+    {
+      "t_start": 106.7,
+      "t_end": 114.0,
+      "shot_type": "group_shot",
+      "visual_description": "Family approaches Ryan; dad reaches toward him",
+      "camera_motion": "cuts every ~2 s",
+      "on_screen_text": "burned-in caption: Ryan, what happened? / Why are you on this train?"
+    },
+    {
+      "t_start": 114.0,
+      "t_end": 119.4,
+      "shot_type": "insert_phone_photo",
+      "visual_description": "Phone-photo insert: Ryan's yard, red brick wall, parents lying flat as limp empty skins (no gore, flat colours)",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: The screen showed Ryan's yard. / His parents lay inside it. / Only their empty skins remained..."
+    },
+    {
+      "t_start": 119.4,
+      "t_end": 132.5,
+      "shot_type": "group_shot",
+      "visual_description": "Reaction shots: black-jacket passenger + blond man aghast; mom/dad/boy silent trio",
+      "camera_motion": "cuts every 2-6 s, slow push-ins",
+      "on_screen_text": "burned-in caption: Did a bear eat their insides? ... Only my parents stayed silent."
+    },
+    {
+      "t_start": 132.5,
+      "t_end": 149.8,
+      "shot_type": "single_medium",
+      "visual_description": "Ryan close, looks up; then Ryan holding phone out to dad",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Ryan heard me and suddenly looked up. ... He showed everyone another photo."
+    },
+    {
+      "t_start": 149.8,
+      "t_end": 153.1,
+      "shot_type": "insert_phone_photo",
+      "visual_description": "Photo of Ryan's parents waving in front of the red wall",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: His parents were waving in the photo. / They seemed to be saying goodbye."
+    },
+    {
+      "t_start": 153.1,
+      "t_end": 157.5,
+      "shot_type": "group_shot",
+      "visual_description": "Passenger points; family looks",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: Then someone pointed and shouted, \"Look!\""
+    },
+    {
+      "t_start": 157.5,
+      "t_end": 162.8,
+      "shot_type": "insert_photo_zoom",
+      "visual_description": "Zoom into photo corner: dark hill, blurry long-armed figure waving at camera",
+      "camera_motion": "push-in zoom on detail",
+      "on_screen_text": "burned-in caption: A blurry figure had been captured. / Its long arm seemed to wave at the camera."
+    },
+    {
+      "t_start": 162.8,
+      "t_end": 183.5,
+      "shot_type": "group_shot",
+      "visual_description": "Debate between black-haired passenger and blond man (bear or not), cuts back and forth",
+      "camera_motion": "cuts every 1-10 s",
+      "on_screen_text": "burned-in caption: Is it a bear? ... A bear's arms aren't that long."
+    },
+    {
+      "t_start": 183.5,
+      "t_end": 196.2,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Mom and dad exchange glances; dad squeezes her hand; Ryan comforted",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Mom and Dad exchanged glances. ... Then they took me to the corner."
+    },
+    {
+      "t_start": 196.2,
+      "t_end": 229.9,
+      "shot_type": "three_shot",
+      "visual_description": "Family huddle in corner: dad, mom, boy; dad lays out the 'use Ryan as bait' logic; time skip to 9 o'clock",
+      "camera_motion": "slow push-ins, cuts every 2-18 s",
+      "on_screen_text": "burned-in caption: Ryan still carries his parents' scent... / Our family's lives matter more. / Soon, it was nine o'clock."
+    },
+    {
+      "t_start": 229.9,
+      "t_end": 236.1,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Dad and boy look up at ceiling after the slam",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: As Dad finished, something slammed onto the roof. ... We changed cars, yet it still found us."
+    },
+    {
+      "t_start": 236.1,
+      "t_end": 244.8,
+      "shot_type": "group_shot",
+      "visual_description": "Ryan and blond man panic, speculating",
+      "camera_motion": "cuts",
+      "on_screen_text": "burned-in caption: Did a wild animal jump onto the train? / Maybe a tiger or wild boar."
+    },
+    {
+      "t_start": 244.8,
+      "t_end": 254.6,
+      "shot_type": "single_medium",
+      "visual_description": "Brown-haired man in vest opens window, shown from behind with head outside the frame",
+      "camera_motion": "static then slight push",
+      "on_screen_text": "burned-in caption: One man actually opened a window. / Then he stuck his head outside. ... Seconds slowly passed."
+    },
+    {
+      "t_start": 254.6,
+      "t_end": 263.1,
+      "shot_type": "insert_body",
+      "visual_description": "Man's body shrinks; limp skin slides to the floor; overhead of the flat skin on the car floor",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: The man's body began shrinking. / Finally, his limp skin slid to the floor."
+    },
+    {
+      "t_start": 263.1,
+      "t_end": 279.6,
+      "shot_type": "single_medium",
+      "visual_description": "Train police officer (green uniform, peaked cap) questions everyone, draws gun, aims out window and fires",
+      "camera_motion": "cuts every 2-7 s",
+      "on_screen_text": "burned-in caption: Everyone, stay calm. ... An officer aimed outside and fired several shots."
+    },
+    {
+      "t_start": 279.6,
+      "t_end": 298.2,
+      "shot_type": "group_shot",
+      "visual_description": "Calm returns: passengers wait; two officers standing guard with guns; dad + boy talk",
+      "camera_motion": "slow push-ins",
+      "on_screen_text": "burned-in caption: The roof fell silent. ... It can control people's minds."
+    },
+    {
+      "t_start": 298.2,
+      "t_end": 302.0,
+      "shot_type": "single_closeup",
+      "visual_description": "Boy close at window, senses something",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Just then, I sensed something. / I instinctively looked outside."
+    },
+    {
+      "t_start": 302.0,
+      "t_end": 310.3,
+      "shot_type": "jump_scare_window",
+      "visual_description": "Two huge glowing orange-red ringed eyes in the black window behind the boy's terrified face, then they vanish",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Two huge eyes stared at me through the darkness. / They glowed with eerie yellow light."
+    },
+    {
+      "t_start": 310.3,
+      "t_end": 319.5,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Boy shaking, dad looks outside, sees nothing",
+      "camera_motion": "cuts every 2-4 s",
+      "on_screen_text": "burned-in caption: I cried out in fear. ... Dad looked outside but saw nothing."
+    },
+    {
+      "t_start": 319.5,
+      "t_end": 323.1,
+      "shot_type": "two_shot_full",
+      "visual_description": "Two officers walk out of the car",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: Another hour passed. / Both officers left by 2 a.m."
+    },
+    {
+      "t_start": 323.1,
+      "t_end": 330.2,
+      "shot_type": "single_closeup",
+      "visual_description": "Boy dozing; a dark hairy hand silhouette strokes his head from top-left",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: Half asleep, I felt someone stroke my head."
+    },
+    {
+      "t_start": 330.2,
+      "t_end": 336.8,
+      "shot_type": "single_medium",
+      "visual_description": "Mom's face changes: 'Son, I didn't touch you.' Boy wakes",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Son, I didn't touch you. / Then a huge crash came from nearby."
+    },
+    {
+      "t_start": 336.8,
+      "t_end": 341.3,
+      "shot_type": "impact_shot",
+      "visual_description": "Grey boulder smashes through car wall; huge black spiky hairy silhouette fills the hole; woman in black dress beside it",
+      "camera_motion": "camera shake / static",
+      "on_screen_text": "burned-in caption: A boulder rolled down and smashed through the car."
+    },
+    {
+      "t_start": 341.3,
+      "t_end": 343.4,
+      "shot_type": "wide_interior",
+      "visual_description": "Passenger dragged out by hairy hand (small, low in frame)",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: A hairy hand grabbed a passenger and dragged him out."
+    },
+    {
+      "t_start": 343.4,
+      "t_end": 349.8,
+      "shot_type": "group_shot",
+      "visual_description": "Passengers shout to returning officers",
+      "camera_motion": "cuts",
+      "on_screen_text": "burned-in caption: There's a monster! I saw it! / Its eyes are bowl-sized."
+    },
+    {
+      "t_start": 349.8,
+      "t_end": 357.1,
+      "shot_type": "single_medium",
+      "visual_description": "Officer peers through the jagged black hole that now fills left half of frame",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: There's nothing outside. / Everyone, stay calm."
+    },
+    {
+      "t_start": 357.1,
+      "t_end": 364.7,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Blond passenger protests; officer flatly denies anyone is missing",
+      "camera_motion": "cuts",
+      "on_screen_text": "burned-in caption: Someone was dragged away. / No passenger is missing."
+    },
+    {
+      "t_start": 364.7,
+      "t_end": 378.0,
+      "shot_type": "three_shot",
+      "visual_description": "Dad grim, explains the boulder was pushed deliberately; mom and boy react",
+      "camera_motion": "slow push-ins",
+      "on_screen_text": "burned-in caption: That thing is terrifying. / It pushed a boulder down to break the train."
+    },
+    {
+      "t_start": 378.0,
+      "t_end": 383.7,
+      "shot_type": "group_shot",
+      "visual_description": "Passengers + Ryan decide to flee; Ryan invites family",
+      "camera_motion": "cuts",
+      "on_screen_text": "burned-in caption: We'll die if we stay here! / We should escape too."
+    },
+    {
+      "t_start": 383.7,
+      "t_end": 389.1,
+      "shot_type": "single_medium",
+      "visual_description": "Ryan walks off, back half-turned, out of the car",
+      "camera_motion": "slow drift",
+      "on_screen_text": "burned-in caption: Leave alone if you want. / He followed the others outside."
+    },
+    {
+      "t_start": 389.1,
+      "t_end": 406.1,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Boy and dad: boy recalls Ryan's funeral; dad's face stiffens",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: Didn't Ryan die several years ago? / You took me to his funeral feast."
+    },
+    {
+      "t_start": 406.1,
+      "t_end": 418.6,
+      "shot_type": "two_shot_medium",
+      "visual_description": "Mom and dad by the dark window watching outside, ignoring the boy",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "burned-in caption: It was still before dawn. ... Someone must be under its control."
+    },
+    {
+      "t_start": 418.6,
+      "t_end": 422.8,
+      "shot_type": "cta_endcard",
+      "visual_description": "Boy shouting; red-and-white search-bar sticker overlaid (red tab 'search' + white field 'Fog Creature' in Chinese, rendered mirrored because the whole video is flipped)",
+      "camera_motion": "static",
+      "on_screen_text": "burned-in caption: For the rest, download Yanyan Stories below. / Search \"Fog Creature\" to see the ending."
+    }
+  ],
+  "pacing": {
+    "words_total": 1500,
+    "speech_span_s": 421,
+    "words_per_minute": 214,
+    "caption_cues": 217,
+    "avg_cue_length_s": 1.94,
+    "hard_cuts_scene_gt_0.12": 95,
+    "avg_shot_length_s_estimate": 5.0,
+    "avg_shot_length_s_from_shot_list": 8.8,
+    "re_hook_interval_s": "new threat or reveal roughly every 30-45 s (monster sighting 0, confirmation 37, closer 61, victim 114, photo figure 158, secret 199, roof 223, kill 255, eyes 302, head stroke 326, boulder 337, twist 394)",
+    "notes": "Very fast, wall-to-wall narration (~214 wpm) with no pauses or music beats; dialogue and narration in the same voice, so lines alternate 'Dad said X' and quoted speech. Visual pace is slow: most shots are 3-15 s two-shots with a constant slow push-in or pan, mouth flaps and expression swaps carrying the change. Rare inserts (phone photo, eyes in window, boulder) are the visual peaks.",
+    "shot_list_note": "48 entries; long dialogue stretches with alternating two-shots are grouped into one entry (e.g. 196-230 s)."
+  },
+  "techniques_worth_copying": [
+    "Wrong-body-part monster naming: one physical anomaly ('long-armed', 'bowl-sized eyes', 'arms longer than legs') repeated as the creature's identity. Easy to draw as an SVG silhouette.",
+    "Adult-fear validation: the child sees it, but the parent's recognition ('it's been over ten years') is the real hook, because it creates backstory without exposition.",
+    "Lore rules spoken as warnings: 'can't say its name or it will remember our voices', 'tracks by scent', 'bullets can't hurt it', 'controls minds'. Each rule is a cheap re-hook and sets up later payoffs.",
+    "Contained setting plus a trap: a train stopped by a landslide until morning. It is one background set, reused for 7 minutes.",
+    "Evidence-in-a-photo insert: zoom into the corner of a phone photo to reveal the blurry figure. That is code-friendly (a rect frame, a blur filter, a push-in) and makes a strong mid-video peak.",
+    "Moral rot: the parents knowingly let an innocent be bait. The family-secret dilemma keeps viewers judging and commenting.",
+    "Authority gaslighting: police insist 'no passenger is missing' after everyone saw someone dragged out. That builds dread through denial.",
+    "Personal micro-scares between set pieces: eyes in the window, and a hand stroking the head while mom says 'I didn't touch you'.",
+    "Memory twist near the end: the friendly victim was dead years ago. It reframes everything and sets up the next part.",
+    "Hard cliffhanger + 'search X to see the ending' end card. For us: 'Part 2' or 'follow for the ending' instead of an app funnel.",
+    "Wall-to-wall caption track: one sentence per cue, white sans at the bottom, from frame 1, so it can be watched muted."
+  ],
+  "code_only_remake_requirements": {
+    "feasibility": "High. The visual language is limited 2D puppet animation: static backgrounds, characters as rigid cutouts with swappable mouths, eyes and blush layers, and a slow camera move on every shot. All of it is reproducible in Remotion with SVG character rigs. The creature is only ever a silhouette, eyes, a hand or a hairy black mass, which is ideal for code.",
+    "assets": [
+      "1 night-exterior SVG: gradient navy sky, layered black mountain ridges, fog gradient band, parametric long-armed silhouette (arm length and pose as props)",
+      "2 train-interior backgrounds: seat row with brown seats and a blue-framed window (night-hill parallax inside the window), and a grey aisle with a row of seats for wide shots",
+      "Character rigs (4-6): flat-colour chibi-proportion bodies, big head, pose variants (sit, stand, point, hold phone); face layers for eyes (normal, saucer/black-ringed fear, closed), mouths (closed, open, talk 3 frames), purple under-eye fear shading and blush toggles",
+      "Inserts: phone-photo frame (red brick wall yard, victims as flattened 'empty skin' shapes), photo-corner blur zoom, glowing ringed eyes in a black window (radial gradients + glow filter), shadow hand, boulder + jagged black hole mask, hairy spiky silhouette (noise-displaced path)",
+      "End card: 'search' pill sticker (red tab + white field) with series title"
+    ],
+    "components": [
+      "LetterboxFrame or full-bleed 9:16 option (we should go full-bleed; the letterbox is a repost artifact)",
+      "KenBurns camera: per-shot slow push-in/pan with easing; optional shake on impacts",
+      "CharacterRig with lip-flap driven by TTS word timings and expression keyframes",
+      "Shot sequencer from storyboard JSON: shot type, characters, expression and camera per caption cue (~1 shot per 2-3 cues)",
+      "Caption track: one sentence per cue, white sans with dark outline, bottom-centre of the picture",
+      "Insert/overlay components: PhonePhoto, GlowEyes, ShadowHand, ImpactHole"
+    ],
+    "audio": "Single local TTS voice (Kokoro) reading narration and dialogue at ~200-215 wpm with no gaps; low drone bed; SFX for the roof slam, gunshots and the boulder crash (synth/noise-generated or CC0).",
+    "typography": "Clean geometric sans (Montserrat/Inter Medium), white, ~3.2% of picture width, thin black stroke/shadow, max 2 lines, centred.",
+    "timing_data": "~215 caption cues over 7 min (avg 1.9 s), ~80 shots (avg ~5 s), a re-hook every 30-45 s, cold-open monster image within the first second, cliffhanger in the last 5 s."
+  }
+}

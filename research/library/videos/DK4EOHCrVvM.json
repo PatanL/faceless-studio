@@ -1,0 +1,716 @@
+{
+ "id": "DK4EOHCrVvM",
+ "url": "https://www.youtube.com/watch?v=DK4EOHCrVvM",
+ "platform": "youtube",
+ "niche": "whatif",
+ "channel": "ConChaser",
+ "title": "What If You Could See Everyone's Future Wealth?",
+ "upload_date": "2026-10-25",
+ "duration": 647,
+ "views": 1168738,
+ "likes": 6761,
+ "comments": 156,
+ "subs": 9570,
+ "channel_median_views": 134437,
+ "outlier_score": 8.68,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/whatif/DK4EOHCrVvM.{mp4 (854x480 AV1+opus, 20 MB, kept),jpg,info.json,en.json3,en-orig.json3,transcript.txt,scenes.txt,sheet.jpg,page_00..08.jpg} + DK4EOHCrVvM_frames/ (1 frame / 2 s, 324 frames)",
+  "transcript_source": "YouTube auto-subs en-orig (1,782 words). Full timestamped transcript: research/library/transcripts/DK4EOHCrVvM.txt",
+  "frames": "sampled every 2 s; research/library/sheets/DK4EOHCrVvM.jpg is 18 columns x 18 rows of 88px tiles, row-major, 2 s per tile (tile 1 = 0:00), labelled m:ss. Shot times below are +-2 s.",
+  "cut_detection": "ffmpeg scene>0.3: 250 cuts in 647 s (mean shot 2.6 s, median 1.9 s, longest 27 s). Flat-colour animation, so detection is reliable-ish; some 'cuts' are push-ins/blur-rack changes within one setup.",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:20 UTC, 7 days after upload (~167k views/day). Subs 9.57k: a ~9.5k-sub channel pulling 1.17M in a week = a true breakout; views/subs ~122x.",
+  "format_note": "Long-form 16:9 (10:47) second-person 'What if' narrative explainer. Flat 2D vector animation (Jaiden/'stickman with black ball head' style: black circular heads with white expressive eyes, blue hoodie protagonist), single male AI-sounding/neutral narrator, light background music. No burned-in subtitles; on-screen text is limited to glowing money tags above heads, location supers and occasional label chips. Thumbnail is a painterly AI-style illustration that does NOT match the in-video flat style (only the hero's black head + hoodie carry over).",
+  "description_hook": "Description restates the premise + a closing moral dilemma question ('Would you use this power to get rich, or change someone's life?')."
+ },
+ "title_pattern": {
+  "template": "What If You Could See Everyone's [HIDDEN NUMERIC ATTRIBUTE]?",
+  "notes": "Classic what-if superpower premise framed in second person ('You'). The hidden attribute (future wealth) is universally relatable, implies a visible number per person (perfect for visuals), and immediately suggests a social/moral twist. 9 words, no caps-lock, no number in the title; the giant number lives in the thumbnail instead. Siblings: '...Everyone's Lifespan / Death Date / IQ / Body Count / Remaining Luck'.",
+  "variables": [
+   "second-person superpower",
+   "hidden per-person number",
+   "'Everyone's' = scale"
+  ]
+ },
+ "thumbnail": {
+  "composition": "Wide street scene split left/right. Left third: hero (black ball head, side-eye, yellow hoodie, backpack, white sneakers) walking past. Right half: an old bearded homeless man sitting on cardboard against a dark wall, palm out, looking up. Glowing price tags with down-pointing triangles float above each head.",
+  "text": "'$150' (small, blue glow) above the hero; '$8,742,619,300' (huge, neon green glow, ~40% of frame width) above the homeless man. No title text.",
+  "colours": "Warm golden-hour backlight on the left (orange/amber), dark slate wall on the right; saturated yellow hoodie and neon green number pop against the dark wall; blue vs green tag colour coding.",
+  "subject_scale_contrast": "Status inversion: the poorest-looking person carries the biggest number, the 'normal' kid carries a tiny one. Number size itself encodes the contrast (small $150 vs a 13-character billions figure). The homeless man is rendered more realistically/detailed than the stylised hero.",
+  "why_it_works": "Instant curiosity gap readable in <1 s without words: 'why does the homeless guy have $8.7 billion?' The exact, oddly specific figure feels like real data. Glowing HUD tags look like a game overlay = 'superpower' visual shorthand. Note the thumb is a richer painterly render than the flat video; the hero's black head keeps brand continuity. The same exact number is the first shot's payoff in the video (thumbnail promise delivered at 0:08)."
+ },
+ "hook": {
+  "verbatim_0_5s": "\"Sir, you dropped this.\" You bend down to pick up a $5 bill. The homeless man turns around, and that's when you see it, floating above his head.",
+  "verbatim_5_15s": "$8,742,619,300. $8 billion. You blink, look at his ripped shoes, his cardboard sign, the half-eaten sandwich sitting beside him, then back at the number.",
+  "device": "Cold open in medias res with a line of dialogue, second-person POV ('you'), and an immediate visual payoff of the thumbnail promise (the exact thumbnail number appears at ~0:08 and is shown full-screen at 0:14). Then contrast stacking (ripped shoes, cardboard sign, half sandwich vs $8B), a self-deprecating comparison (your own number $43,217 at 0:27), and an explicit open loop + foreshadowing at 0:38-0:45: 'You have absolutely no idea what these numbers mean. And by the end of the week, you're going to wish you never found out.' Then a time rewind ('this morning, something very strange happened') to start the chronological story.",
+  "hook_length_s": 45
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 14,
+   "beat_type": "cold_open_hook",
+   "summary": "'Sir, you dropped this' - $5 bill, homeless man, $8,742,619,300 appears above his head; thumbnail number delivered."
+  },
+  {
+   "t_start": 14,
+   "t_end": 38,
+   "beat_type": "contrast_and_self_comparison",
+   "summary": "Ripped shoes / cardboard sign / half sandwich vs $8B; you check your own reflection: $43,217. Joke: he'll be richer than you by ~$8B (full-screen 'Daniel is richer by $8,742,576,083')."
+  },
+  {
+   "t_start": 38,
+   "t_end": 45,
+   "beat_type": "open_loop_foreshadow",
+   "summary": "'No idea what these numbers mean... by the end of the week you'll wish you never found out.'"
+  },
+  {
+   "t_start": 45,
+   "t_end": 82,
+   "beat_type": "origin_flashback",
+   "summary": "Rewind to this morning: mom $286,400, dad $91,200, dog nothing (joke); Google search 'why am I seeing floating numbers'; 'Thanks, Google.'"
+  },
+  {
+   "t_start": 82,
+   "t_end": 118,
+   "beat_type": "world_rules_montage",
+   "summary": "Street: everyone has a number - mailman $312k, jogger $1.4M, guy yelling at parking meter $27. Clue: Lamborghini neighbour $0, newspaper teen $16M."
+  },
+  {
+   "t_start": 118,
+   "t_end": 128,
+   "beat_type": "rule_reveal",
+   "summary": "It clicks: future wealth = highest net worth they'll ever reach (net-worth curve graphic with peak marked 'Highest net worth ever'). 'Most valuable superpower in human history.'"
+  },
+  {
+   "t_start": 128,
+   "t_end": 192,
+   "beat_type": "comic_exploitation_attempts",
+   "summary": "Goal: get rich. Mall: businessman $140k, janitor $3.2M - interrogation gag ('Kid, I'm trying to clean the floor'); 7-year-old bracelet seller $92M - 'She says she likes purple.'"
+  },
+  {
+   "t_start": 192,
+   "t_end": 216,
+   "beat_type": "strategy_pivot",
+   "summary": "New plan: don't learn how, just find someone who will. 3 days of watching numbers, notes card (Mailman $312K, Jogger $1.4M, Janitor $3.2M, Girl (purple) $92M)."
+  },
+  {
+   "t_start": 216,
+   "t_end": 253,
+   "beat_type": "big_target_found",
+   "summary": "College student in coffee shop: $64.8 billion (number counts up; bar chart vs 'famous billionaires'). 'Just an app.' 'It's always an app.' You understood 12%."
+  },
+  {
+   "t_start": 253,
+   "t_end": 268,
+   "beat_type": "alliance",
+   "summary": "You become his marketing partner; a month of building; daily number check: still 64B."
+  },
+  {
+   "t_start": 268,
+   "t_end": 300,
+   "beat_type": "fateful_decision",
+   "summary": "Investor offers $2M; you read investor $18M vs friend $64.8B and whisper 'Don't take the deal'. Friend rejects. 'Congratulations... Or so you think.'"
+  },
+  {
+   "t_start": 300,
+   "t_end": 335,
+   "beat_type": "twist_1_numbers_change",
+   "summary": "Number drops $64.8B -> $4.2M. Rule upgrade: numbers are predictions, actions change them (branching-path diagram). 'You may have just destroyed it.' Night of thinking; -$60,000,000,000 tag."
+  },
+  {
+   "t_start": 335,
+   "t_end": 370,
+   "beat_type": "consequence_low_point",
+   "summary": "Friend furious, investor was linked to a big tech company, launch in doubt; 'I trusted you' - you're out. Your own number drops $43,217 -> $12,600."
+  },
+  {
+   "t_start": 370,
+   "t_end": 380,
+   "beat_type": "question_reopens_mystery",
+   "summary": "If numbers can change, why did the homeless man still have $8B? Callback to the cold open."
+  },
+  {
+   "t_start": 380,
+   "t_end": 425,
+   "beat_type": "emotional_backstory",
+   "summary": "Daniel: construction injury, lost job, eviction, years lost; estranged daughter, old photograph. 'She thinks I abandoned her.' Shift: you stop thinking about money."
+  },
+  {
+   "t_start": 425,
+   "t_end": 456,
+   "beat_type": "mystery_clue",
+   "summary": "You help Daniel, search 2 days, find daughter (26, medical research lab) - SAME exact number $8,742,619,300 'to the dollar'."
+  },
+  {
+   "t_start": 456,
+   "t_end": 482,
+   "beat_type": "reunion_and_twist_2",
+   "summary": "Reunion hug; Daniel's number drops $8.7B -> $86,000 while hers stays."
+  },
+  {
+   "t_start": 482,
+   "t_end": 535,
+   "beat_type": "explanation_payoff",
+   "summary": "Numbers = highest wealth on current path. Without the reunion she'd quit her research; her fortune would have passed to Daniel via her will after her death ('Last will... goes to my father, Daniel'). Now a new path."
+  },
+  {
+   "t_start": 535,
+   "t_end": 543,
+   "beat_type": "personal_beat",
+   "summary": "He has no idea what he lost and couldn't look happier. Your number: still $12,600. 'Maybe you're just terrible at this superpower.'"
+  },
+  {
+   "t_start": 543,
+   "t_end": 592,
+   "beat_type": "action_climax",
+   "summary": "Man in suit with $0 above head; distracted truck driver; realization: the number is also about TIME (death = $0). 'LOOK OUT!' - truck swerves; $0 -> $2,800,000. You saved his life."
+  },
+  {
+   "t_start": 592,
+   "t_end": 612,
+   "beat_type": "theme_statement",
+   "summary": "Every number is a future that hasn't happened yet; billionaire may lose everything, homeless man may get rich, a $0 stranger may just need a warning."
+  },
+  {
+   "t_start": 612,
+   "t_end": 635,
+   "beat_type": "button_payoff",
+   "summary": "Walking home your number ticks up $1 at a time: $12,600 -> 12,601 -> 12,602. 'Investing in something that matters... people.'"
+  },
+  {
+   "t_start": 635,
+   "t_end": 647,
+   "beat_type": "engagement_question_cta",
+   "summary": "'If you could see exactly how rich everyone would become, would you use it to make yourself wealthy? Or would you change someone's future...?' end card text."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 2,
+   "shot_type": "wide",
+   "visual_description": "Street: blue-hoodie hero bends toward homeless man sitting in cardboard box with 'ANYTHING HELPS' sign",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 2,
+   "t_end": 4,
+   "shot_type": "insert/close-up",
+   "visual_description": "Gloved hand holds out green $5 bill",
+   "camera_motion": "slight push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 4,
+   "t_end": 8,
+   "shot_type": "medium close-up / reverse",
+   "visual_description": "Hero MCU holding bill; homeless man MS in box turns",
+   "camera_motion": "static, cut",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 8,
+   "t_end": 12,
+   "shot_type": "medium",
+   "visual_description": "Homeless man with glowing tag above head",
+   "camera_motion": "static",
+   "on_screen_text": "$8,742,619,300"
+  },
+  {
+   "t_start": 12,
+   "t_end": 14,
+   "shot_type": "close-up reaction",
+   "visual_description": "Hero shocked, wide white eyes",
+   "camera_motion": "quick push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 14,
+   "t_end": 16,
+   "shot_type": "full-screen number card",
+   "visual_description": "Dark navy card, glowing green big number with small caps label",
+   "camera_motion": "slow scale-up",
+   "on_screen_text": "EIGHT BILLION DOLLARS / $8,742,619,300"
+  },
+  {
+   "t_start": 16,
+   "t_end": 24,
+   "shot_type": "inserts",
+   "visual_description": "Hero reaction, cardboard sign close-up, half sandwich on napkin (shallow-focus blur bg), back to man + tag",
+   "camera_motion": "rack-focus blur",
+   "on_screen_text": "ANYTHING HELPS / $8,742,619,300"
+  },
+  {
+   "t_start": 24,
+   "t_end": 32,
+   "shot_type": "medium",
+   "visual_description": "Hero walks to electronics shop window, sees reflection with own tag",
+   "camera_motion": "pan/track",
+   "on_screen_text": "VOLT ELECTRONIC / $43,217"
+  },
+  {
+   "t_start": 32,
+   "t_end": 36,
+   "shot_type": "wide",
+   "visual_description": "Street wide: hero with $43,217 next to homeless man with $8.7B",
+   "camera_motion": "static",
+   "on_screen_text": "$43,217 / $8,742,619,300"
+  },
+  {
+   "t_start": 36,
+   "t_end": 38,
+   "shot_type": "full-screen number card",
+   "visual_description": "Navy card",
+   "camera_motion": "static",
+   "on_screen_text": "DANIEL IS RICHER BY $8,742,576,083"
+  },
+  {
+   "t_start": 38,
+   "t_end": 46,
+   "shot_type": "medium / wide",
+   "visual_description": "Hero shrug with '?' pop; street wide with both tags",
+   "camera_motion": "static",
+   "on_screen_text": "?"
+  },
+  {
+   "t_start": 46,
+   "t_end": 50,
+   "shot_type": "wide interior",
+   "visual_description": "Bedroom: hero asleep in bed, morning",
+   "camera_motion": "static",
+   "on_screen_text": "HOME (location super)"
+  },
+  {
+   "t_start": 50,
+   "t_end": 72,
+   "shot_type": "wide/medium interior",
+   "visual_description": "Kitchen: mum at stove ($286,400), dad at table ($91,200), dog (no tag), hero shrugging",
+   "camera_motion": "cuts between setups, gentle push-ins",
+   "on_screen_text": "$286,400 / $91,200"
+  },
+  {
+   "t_start": 72,
+   "t_end": 80,
+   "shot_type": "insert",
+   "visual_description": "Phone screen search bar",
+   "camera_motion": "static",
+   "on_screen_text": "Why am I seeing floating numbers above people's heads?"
+  },
+  {
+   "t_start": 80,
+   "t_end": 84,
+   "shot_type": "wide exterior",
+   "visual_description": "House + lawn, hero walks out",
+   "camera_motion": "static",
+   "on_screen_text": "YOUR STREET"
+  },
+  {
+   "t_start": 84,
+   "t_end": 104,
+   "shot_type": "montage of mediums",
+   "visual_description": "Street pedestrians each with tags: mailman, jogger in pink, man yelling at parking meter",
+   "camera_motion": "cuts, blur-bg close-ups",
+   "on_screen_text": "$58,300 $2,150,000 $940,000 / $312,000 / $1,400,000 / $27"
+  },
+  {
+   "t_start": 104,
+   "t_end": 112,
+   "shot_type": "medium",
+   "visual_description": "Neighbour with red car labelled LAMBORGHINI; tag $0; paperboy with $16,000,000",
+   "camera_motion": "static",
+   "on_screen_text": "LAMBORGHINI / $0 / $16,000,000"
+  },
+  {
+   "t_start": 112,
+   "t_end": 118,
+   "shot_type": "close-up",
+   "visual_description": "Hero big-head close-up, eyes narrowing (realisation)",
+   "camera_motion": "push-in, blurred bg",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 118,
+   "t_end": 122,
+   "shot_type": "motion graphic",
+   "visual_description": "Dark grid chart, line draws upward, peaks with circled point then dips",
+   "camera_motion": "line draw-on animation",
+   "on_screen_text": "NET WORTH / HIGHEST NET WORTH EVER"
+  },
+  {
+   "t_start": 122,
+   "t_end": 128,
+   "shot_type": "medium",
+   "visual_description": "Hero in front of bank, glow behind him, big title text",
+   "camera_motion": "glow pulse",
+   "on_screen_text": "THE MOST VALUABLE SUPERPOWER"
+  },
+  {
+   "t_start": 128,
+   "t_end": 140,
+   "shot_type": "wide/inserts",
+   "visual_description": "Hero walks to City Mall; gloved hand with watch insert; storefronts GADGETS / BOOKS",
+   "camera_motion": "track",
+   "on_screen_text": "CITY MALL / $140,000"
+  },
+  {
+   "t_start": 140,
+   "t_end": 170,
+   "shot_type": "two-shots / OTS",
+   "visual_description": "Janitor with cleaning cart ($3.2M); hero follows, questions him; reaction close-ups",
+   "camera_motion": "static, cuts on dialogue",
+   "on_screen_text": "$3,200,000"
+  },
+  {
+   "t_start": 170,
+   "t_end": 190,
+   "shot_type": "medium / inserts",
+   "visual_description": "Little girl at 'Homemade bracelets' table ($92M); hero shock CU with tag; hand pays cash; girl smiles",
+   "camera_motion": "static",
+   "on_screen_text": "OUTSIDE CITY MALL / HOMEMADE BRACELETS / $92,000,000"
+  },
+  {
+   "t_start": 190,
+   "t_end": 196,
+   "shot_type": "wide",
+   "visual_description": "Hero walks past bakery",
+   "camera_motion": "track",
+   "on_screen_text": "CITY MALL / BAKERY"
+  },
+  {
+   "t_start": 196,
+   "t_end": 198,
+   "shot_type": "motion graphic",
+   "visual_description": "Navy card, white line-drawn stick figure",
+   "camera_motion": "draw-on",
+   "on_screen_text": "HOW PEOPLE GET RICH"
+  },
+  {
+   "t_start": 198,
+   "t_end": 206,
+   "shot_type": "wide montage",
+   "visual_description": "Hero walking city streets, days passing",
+   "camera_motion": "pan",
+   "on_screen_text": "3 DAYS LATER / 3 DAYS"
+  },
+  {
+   "t_start": 206,
+   "t_end": 208,
+   "shot_type": "insert",
+   "visual_description": "Handwritten notes card on brown table",
+   "camera_motion": "static",
+   "on_screen_text": "MAILMAN $312K / JOGGER $1.4M / JANITOR $3.2M / GIRL (PURPLE) $92M"
+  },
+  {
+   "t_start": 208,
+   "t_end": 216,
+   "shot_type": "wide interior",
+   "visual_description": "Coffee shop 'Bean There Cafe'; green-hoodie student with afro alone at laptop",
+   "camera_motion": "static then push",
+   "on_screen_text": "BEAN THERE CAFE / MESSY HAIR (label chip)"
+  },
+  {
+   "t_start": 216,
+   "t_end": 220,
+   "shot_type": "insert + medium",
+   "visual_description": "Coffee cup labelled BEAN; student with tag",
+   "camera_motion": "static",
+   "on_screen_text": "$64,800,000,000"
+  },
+  {
+   "t_start": 220,
+   "t_end": 224,
+   "shot_type": "full-screen number card",
+   "visual_description": "Number rolls up like a counter to $64.8B",
+   "camera_motion": "counter roll",
+   "on_screen_text": "SIXTY-FOUR BILLION DOLLARS / $64,800,000,000"
+  },
+  {
+   "t_start": 224,
+   "t_end": 226,
+   "shot_type": "motion graphic",
+   "visual_description": "Bar chart: HIM $64.8B vs Grant Voss $41.5B, Elena Marr $33.2B, Derek Hale $27.9B (fictional billionaires)",
+   "camera_motion": "bars grow",
+   "on_screen_text": "$64.8B / $41.5B / $33.2B / $27.9B"
+  },
+  {
+   "t_start": 226,
+   "t_end": 250,
+   "shot_type": "two-shot / singles",
+   "visual_description": "Cafe conversation, laptop insert of 'TIDY' to-do app, reaction CUs",
+   "camera_motion": "cuts on dialogue",
+   "on_screen_text": "UNDERSTOOD: 12% / $64,800,000,000"
+  },
+  {
+   "t_start": 250,
+   "t_end": 260,
+   "shot_type": "montage",
+   "visual_description": "Month of work: night cafe, 'TIDY - ORGANIZE YOUR LIFE.' poster, handing flyers to friends",
+   "camera_motion": "cuts",
+   "on_screen_text": "NEXT MONTH / TIDY ORGANIZE YOUR LIFE."
+  },
+  {
+   "t_start": 260,
+   "t_end": 276,
+   "shot_type": "two-shot / insert",
+   "visual_description": "Investor in dark suit approaches; contract paper insert",
+   "camera_motion": "static",
+   "on_screen_text": "$2,000,000 OFFER / A PIECE OF THE COMPANY"
+  },
+  {
+   "t_start": 276,
+   "t_end": 300,
+   "shot_type": "singles / CU",
+   "visual_description": "Hero whispers; student hesitates; investor leaves; hero smug",
+   "camera_motion": "static, push-ins",
+   "on_screen_text": "$64,800,000,000"
+  },
+  {
+   "t_start": 300,
+   "t_end": 312,
+   "shot_type": "close-ups",
+   "visual_description": "Student's tag flips from $64.8B to $4.2M; hero double-takes, rubs eyes",
+   "camera_motion": "snap zoom on tag",
+   "on_screen_text": "$64,800,000,000 -> $4,200,000"
+  },
+  {
+   "t_start": 312,
+   "t_end": 322,
+   "shot_type": "medium",
+   "visual_description": "Hero frozen, wide eyes; two-shot with chip",
+   "camera_motion": "static",
+   "on_screen_text": "$4,200,000 / NOT GUARANTEED"
+  },
+  {
+   "t_start": 322,
+   "t_end": 330,
+   "shot_type": "motion graphic",
+   "visual_description": "Navy branching-paths diagram from TODAY to futures",
+   "camera_motion": "lines draw/branch",
+   "on_screen_text": "PREDICTIONS / TODAY / MOST LIKELY FUTURE / DEAL TAKEN $64.8 BILLION / ANOTHER FUTURE / DEAL REJECTED $4.2 MILLION / YOUR ACTIONS CAN CHANGE THEM"
+  },
+  {
+   "t_start": 330,
+   "t_end": 340,
+   "shot_type": "wide/insert",
+   "visual_description": "Hero lying awake in bed at night; clock insert; hero standing with tag",
+   "camera_motion": "static",
+   "on_screen_text": "HOME / -$60,000,000,000"
+  },
+  {
+   "t_start": 340,
+   "t_end": 350,
+   "shot_type": "two-shots",
+   "visual_description": "Morning cafe, friend angry; network diagram The Investor -> Orbiter Systems -> Your Friend's App",
+   "camera_motion": "cuts",
+   "on_screen_text": "MORNING - BEAN THERE CAFE / THE INVESTOR / ORBITER SYSTEMS / YOUR FRIEND'S APP"
+  },
+  {
+   "t_start": 350,
+   "t_end": 358,
+   "shot_type": "motion graphic + medium",
+   "visual_description": "Line chart rising then crashing; friend turns away",
+   "camera_motion": "draw-on",
+   "on_screen_text": "APP LAUNCH / LAUNCH IN DOUBT"
+  },
+  {
+   "t_start": 358,
+   "t_end": 372,
+   "shot_type": "medium",
+   "visual_description": "Walking home; reflection in shop window, tag drops",
+   "camera_motion": "static",
+   "on_screen_text": "LATER - WALKING HOME / $43,217 -> $12,600"
+  },
+  {
+   "t_start": 372,
+   "t_end": 384,
+   "shot_type": "split-screen / wide",
+   "visual_description": "Split: student $4.2M | hero $12,600; hero runs back to homeless man",
+   "camera_motion": "static / run cycle",
+   "on_screen_text": "$8,742,619,300"
+  },
+  {
+   "t_start": 384,
+   "t_end": 400,
+   "shot_type": "singles",
+   "visual_description": "Daniel close-ups with name chip, sign insert, hero sits beside him",
+   "camera_motion": "static",
+   "on_screen_text": "DANIEL / ANYTHING HELPS"
+  },
+  {
+   "t_start": 400,
+   "t_end": 410,
+   "shot_type": "flashback montage",
+   "visual_description": "Desaturated: Daniel as construction worker, injury, eviction notice insert, calendar with crossed days",
+   "camera_motion": "cuts",
+   "on_screen_text": "YEARS AGO / EVICTION NOTICE Rent is overdue. / DECEMBER / ANOTHER YEAR"
+  },
+  {
+   "t_start": 410,
+   "t_end": 428,
+   "shot_type": "inserts / singles",
+   "visual_description": "Old photo of girl with younger Daniel; Daniel sad; hero resolute; buys meal",
+   "camera_motion": "static",
+   "on_screen_text": "$8,742,619,300"
+  },
+  {
+   "t_start": 428,
+   "t_end": 436,
+   "shot_type": "insert / wide",
+   "visual_description": "Room-key in gloved hand; map grid search graphic; hero enters medical lab",
+   "camera_motion": "static / pan",
+   "on_screen_text": "ROOM KEY / MEDICAL RESEARCH"
+  },
+  {
+   "t_start": 436,
+   "t_end": 452,
+   "shot_type": "medium / split",
+   "visual_description": "Daughter in lab coat with same tag; hero shock; split-screen Daniel | daughter with identical tags; dark comparison card",
+   "camera_motion": "static",
+   "on_screen_text": "$8,742,619,300 / DANIEL $8,742,619,300 / DAUGHTER $8,742,619,300 / = TO THE DOLLAR"
+  },
+  {
+   "t_start": 452,
+   "t_end": 476,
+   "shot_type": "wide / inserts",
+   "visual_description": "Reunion in park: iris transition, photo insert, hug, hero watching",
+   "camera_motion": "iris wipe, static",
+   "on_screen_text": "$8,742,619,300"
+  },
+  {
+   "t_start": 476,
+   "t_end": 484,
+   "shot_type": "close-ups",
+   "visual_description": "Daniel's tag flips to $86,000; side-by-side tags",
+   "camera_motion": "snap zoom",
+   "on_screen_text": "$86,000 / $8,742,619,300"
+  },
+  {
+   "t_start": 484,
+   "t_end": 492,
+   "shot_type": "motion graphic",
+   "visual_description": "Navy: stick figure with ??? tag; path diagram NOW -> two curves",
+   "camera_motion": "draw-on",
+   "on_screen_text": "NOT WHAT THEY'LL EARN / HIGHEST - CURRENT PATH / NOW"
+  },
+  {
+   "t_start": 492,
+   "t_end": 520,
+   "shot_type": "mixed",
+   "visual_description": "Park bench two-shot; cash insert; night lab with daughter alone; company-funds falling chart; 'she keeps going' lab day",
+   "camera_motion": "cuts, labels",
+   "on_screen_text": "ABANDON THE RESEARCH / RUNNING OUT OF MONEY / SHE KEEPS GOING / YEARS LATER"
+  },
+  {
+   "t_start": 520,
+   "t_end": 532,
+   "shot_type": "inserts",
+   "visual_description": "Desaturated future lab; handwritten will card; lonely Daniel on bench",
+   "camera_motion": "static",
+   "on_screen_text": "LAST WILL / My whole estate goes to my father, Daniel."
+  },
+  {
+   "t_start": 532,
+   "t_end": 550,
+   "shot_type": "mixed",
+   "visual_description": "Diagram 'A NEW PATH'; Daniel and daughter laughing ($86,000); hero at shop window on Maple Avenue checking own tag",
+   "camera_motion": "static",
+   "on_screen_text": "A NEW PATH / MAPLE AVENUE / $12,600"
+  },
+  {
+   "t_start": 550,
+   "t_end": 570,
+   "shot_type": "wide/medium",
+   "visual_description": "Busy crosswalk; suited man on phone, tag $0; chip",
+   "camera_motion": "static",
+   "on_screen_text": "$0 / HEALTHY"
+  },
+  {
+   "t_start": 570,
+   "t_end": 584,
+   "shot_type": "inserts",
+   "visual_description": "Truck driver looking down at phone (orange); hero CU dread; dark card; clock",
+   "camera_motion": "static / push",
+   "on_screen_text": "NOT JUST MONEY / $ / TIME"
+  },
+  {
+   "t_start": 584,
+   "t_end": 600,
+   "shot_type": "wide action",
+   "visual_description": "Van approaches, hero shouts, man stumbles back onto sidewalk; tag flips $0 -> $2,800,000",
+   "camera_motion": "quick cuts",
+   "on_screen_text": "$0 -> $2,800,000"
+  },
+  {
+   "t_start": 600,
+   "t_end": 612,
+   "shot_type": "montage",
+   "visual_description": "Street of people with tags; navy card stick figure with arrow; rich man $9.4B; $0 man; Daniel $5,000,000",
+   "camera_motion": "cuts",
+   "on_screen_text": "$418,000 / $2,100,000 / NOT HAPPENED YET / $9,400,000,000 / $0 / $5,000,000"
+  },
+  {
+   "t_start": 612,
+   "t_end": 632,
+   "shot_type": "medium tracking",
+   "visual_description": "Night walk home; hero's tag ticks $12,600 -> $12,601 -> $12,602; callback cutaways to cafe friend, billionaire",
+   "camera_motion": "walk cycle, counter tick",
+   "on_screen_text": "WALKING HOME / $12,601 / $12,602 / COMPANIES / BILLIONAIRES"
+  },
+  {
+   "t_start": 632,
+   "t_end": 647,
+   "shot_type": "wide end card",
+   "visual_description": "Night street with big glowing title text; split callbacks (bracelet girl); final card: three characters in glowing ring",
+   "camera_motion": "slow push",
+   "on_screen_text": "IF YOU COULD SEE HOW RICH EVERYONE WOULD BECOME... / WOULD YOU CHANGE SOMEONE'S FUTURE?"
+  }
+ ],
+ "pacing": {
+  "words_total": 1782,
+  "words_per_min": 165,
+  "cuts_detected": 250,
+  "avg_shot_length_s": 2.6,
+  "median_shot_length_s": 1.9,
+  "longest_shot_s": 27,
+  "cuts_per_minute_by_minute": [
+   20,
+   21,
+   26,
+   33,
+   27,
+   29,
+   22,
+   12,
+   18,
+   26,
+   16
+  ],
+  "re_hook_interval_s": "~30-45 s: every half minute a new number reveal or rule change (0:08, 0:27, 1:28, 1:44, 1:52, 2:27, 2:54, 3:32, 5:05, 6:02, 7:24, 7:48, 9:07, 9:38, 10:15).",
+  "notes": "Fastest cutting in the comedic exploitation/cafe acts (min 3-5, ~30 cuts/min); slows during the emotional Daniel backstory (min 7, 12 cuts/min). Narration is wall-to-wall with short punchy sentences and frequent one-line deadpan jokes."
+ },
+ "techniques_worth_copying": [
+  "One visual mechanic carries the whole video: a glowing tag above every head. Each new character = a new number = a micro-reveal. Cheap to produce, endlessly reusable.",
+  "Numbers as characters: exact, oddly specific figures ($8,742,619,300, $43,217, $27) feel concrete and funny; full-screen number cards with a spelled-out label for the big ones.",
+  "Second-person 'you' protagonist - the viewer is the hero, so no voice acting or character intro needed.",
+  "Thumbnail number reused verbatim as the first reveal (promise paid in 8 s).",
+  "Escalating rule system: rule 1 (numbers = future wealth) -> rule 2 (they're predictions; actions change them) -> rule 3 (highest on CURRENT path) -> rule 4 (also about time/death). Each rule reveal is a twist that re-hooks and recontextualises earlier scenes.",
+  "Mystery set up in the cold open (why does the homeless man have $8B?) parked at 0:45 and paid off at 7:30-8:40 - holds viewers to the 2/3 mark.",
+  "Deadpan comedy beats every 15-20 s in Act 1-2 (dog has no financial future; 'Thanks, Google'; 'She says she likes purple'; 'It's always an app'; 'You understood 12%') then a tonal shift to sincerity (Daniel) for the emotional payoff.",
+  "Greedy-plan backfires -> moral turn arc; ends on a small earned reward (number ticking up $1 at a time) and a two-sided moral question for comments.",
+  "Explain abstract rules with clean navy-background motion graphics (line charts, branching paths, bar charts) between story scenes.",
+  "Label chips (NOT GUARANTEED, HEALTHY, MESSY HAIR, UNDERSTOOD: 12%) as visual punchlines instead of subtitles.",
+  "Status-inversion cast: homeless man / janitor / 7-year-old / paperboy get huge numbers; Lamborghini owner / suited man get $0."
+ ],
+ "code_only_remake_needs": {
+  "feasibility": "Very high - the in-video style is already flat vector and almost entirely reproducible in Remotion/SVG. Only the painterly thumbnail would need a stylised SVG equivalent.",
+  "characters": "SVG rig: black circle head with white almond eyes + eyebrows (expression set: neutral, side-eye, shock O-mouth, smug, sad, crying, determined), stick limbs in coloured hoodie/jacket body shapes, accessories (beanie, glasses, afro, cap, lab coat, suit+tie). Walk/run cycle, sit, point, shrug, hand-to-head poses. Gloved hand + object insert component.",
+  "environments": "~8 reusable flat backgrounds: shop-street with storefront signs (bank, electronics with chart screen, cafe awning), crosswalk at day/night, mall storefront row, kitchen, bedroom, coffee shop interior, park with hedges/bench, lab. Parallax layers + gaussian background blur for close-ups (depth-of-field look).",
+  "money_tag_component": "Rounded dark pill with glowing coloured text and down-pointer, anchored above a character head; props: value, colour (green/white/red), animate modes = pop-in, count-up/roll, flip/glitch change between values, tick +$1.",
+  "graphics": "Full-screen number card (navy gradient, small caps label + big glowing number, counter roll), line chart draw-on with highlighted peak, branching-path diagram, bar chart, network nodes diagram, handwritten note/letter cards (handwriting font), phone search UI, calendar with X's, label chips.",
+  "camera": "Hard cuts every ~2 s between wide / medium / close-up of the same scene (just re-framing one SVG scene at different scale + blur), slow push-ins on reactions, snap zoom on tag changes, iris wipe, split-screen.",
+  "audio": "Single TTS narrator (Kokoro) at ~165 wpm, light ambient music bed, whoosh/ding SFX on number reveals, cash-register/counter SFX on count-ups.",
+  "data": "Storyboard JSON per shot: scene id, framing preset, characters + expression + pose, tags with values, chips, text cards. Word-timed TTS to align reveals with the spoken number."
+ }
+}

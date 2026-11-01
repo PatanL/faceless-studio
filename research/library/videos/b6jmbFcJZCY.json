@@ -1,0 +1,770 @@
+{
+  "id": "b6jmbFcJZCY",
+  "url": "https://www.youtube.com/watch?v=b6jmbFcJZCY",
+  "platform": "youtube",
+  "niche": "whatif",
+  "channel": "OminiAM",
+  "title": "What If Every Human Disappeared Right Now?",
+  "upload_date": "2026-10-08",
+  "duration": 726,
+  "views": 1076628,
+  "likes": 4722,
+  "comments": 221,
+  "subs": 5620,
+  "channel_median_views": 10058,
+  "outlier_score": 107.01,
+  "role": "outlier",
+  "analysis_notes": {
+    "source_files_spark": "~/studio/refs/whatif/b6jmbFcJZCY.{mp4,webp,info.json,fw.txt,fw.json} (480p, 24 MB, kept)",
+    "transcript_source": "faster-whisper small, CPU int8, 2 threads (YouTube auto-subs exist but the download returned HTTP 429). Full text in research/library/transcripts/b6jmbFcJZCY.txt",
+    "frames": "sampled every 2 s (363 frames); contact sheet research/library/sheets/b6jmbFcJZCY.jpg is 12 cols x 31 rows, row-major, 2 s per tile, mm:ss label top-left",
+    "metadata_snapshot": "views/likes/comments from yt-dlp at 2026-11-01 ~09:25 UTC; brief listed views 1,076,314",
+    "upload_age_days": 24,
+    "views_per_sub": 191.6,
+    "tags": [
+      "every human disappeared",
+      "nature reclaiming cities",
+      "Earth without humans",
+      "aftermath of humanity",
+      "deep time"
+    ],
+    "chapters": [
+      {
+        "t": 0,
+        "title": "What if everyone vanished?"
+      },
+      {
+        "t": 51,
+        "title": "The First Day"
+      },
+      {
+        "t": 138,
+        "title": "The First Week"
+      },
+      {
+        "t": 230,
+        "title": "The First Year"
+      },
+      {
+        "t": 324,
+        "title": "10 to 100 Years"
+      },
+      {
+        "t": 434,
+        "title": "300 to 10,000 Years"
+      },
+      {
+        "t": 543,
+        "title": "Millions of Years"
+      },
+      {
+        "t": 641,
+        "title": "What It Really Means"
+      }
+    ],
+    "thumbnail_vs_video_mismatch": "Thumbnail is a thick-outline cartoon golden retriever before/after; the video itself is flat-vector infographic animation with stick figures. Dogs get only ~25 s of screen time (2:50-3:02, 6:32-6:40)."
+  },
+  "title_pattern": {
+    "template": "What If Every [Group] [Vanished/Disappeared] Right Now?",
+    "notes": "Classic universal-premise 'What If' with two amplifiers: 'Every Human' (total scale, includes the viewer) and 'Right Now' (present tense, makes it about the viewer's current moment; the hook literally opens with 'Right now'). No number or superlative; the payoff list (planes fall, subway floods, reactors) is held back for the hook. Evergreen topic (cf. Life After People) refreshed with a deep-time timeline structure ending in a billion years."
+  },
+  "thumbnail": {
+    "composition": "Pure white background split into two equal halves, no divider line. Left: happy golden retriever head-and-chest, tongue out, red collar with gold tag. Right: same dog feral: matted fur with leaves and twigs, red eyes, bared fangs, scar, torn collar. Each dog fills ~80% of its half's height; label text above each.",
+    "text": "'TODAY' (left) and '50 YEARS LATER' (right), black heavy rounded comic-style all caps across the top. Only 4 words in total.",
+    "colours": "White ground, golden-yellow fur, black thick outlines, red collar as the only accent. Very high contrast and readable small; stands out against dark space/earth thumbnails in the same niche.",
+    "subject_scale_contrast": "No scale contrast: it is a before/after (state) contrast of the same subject at the same size, the visual equivalent of the time-jump premise. Cute vs. menacing emotional flip.",
+    "why_it_works": "Pets are the most personal stake in an 'everyone vanishes' scenario: viewers immediately ask 'what happens to MY dog?'. The before/after split communicates the time-jump idea without needing the title, triggers curiosity and mild threat, and is legible at mobile size. It sells one emotional moment of the video rather than its actual art style (clickbait-adjacent but the topic is covered).",
+    "copyable_recipe": "Two-panel TODAY / N YEARS LATER of one relatable subject (pet, house, your street) on white, thick outlines, 3-4 words of label text, one red accent."
+  },
+  "hook": {
+    "t_end": 8,
+    "verbatim_first_5s": "Right now, there are about 10,000 planes in the sky. More than a million people, 35,000 feet above the ground.",
+    "verbatim_to_snap": "Right now, there are about 10,000 planes in the sky. More than a million people, 35,000 feet above the ground. Now watch what happens when I snap my fingers. Every person on Earth is gone. No war, no virus, no bodies, just gone.",
+    "device": "Present-tense concrete statistic ('Right now ... 10,000 planes') that puts the viewer in the real world this second, then a magic trigger ('watch what happens when I snap my fingers') with an on-screen vanish. Then rules-of-the-game in a triad ('No war, no virus, no bodies'), eerie continuity details (coffee still hot, cars still rolling, planes on autopilot), and a rapid escalating preview of three payoffs with timestamps ('In a few hours ... In two days ... In about a week, a countdown ends at more than 400 nuclear reactors'). Ends on an open loop ('the last trace of the human race ... isn't even on this planet') paid off at 9:44-10:41, and an explicit start signal 'Let's start the clock.'",
+    "visual_device": "Plane cabin cross-section with stick-figure passengers who blink out on the snap; big stat callouts (10,000 / 1,000,000+) on a dark world map; countdown timer ticking on a night map; clock face at 00:00:00 that launches the persistent HUD.",
+    "hook_length_s": 51,
+    "open_loops": [
+      "Planes fall in a few hours (paid 1:14)",
+      "NYC subway underwater in two days (paid 2:19)",
+      "Countdown at 400+ reactors (paid 3:22, explicitly: 'this is the countdown from the start of the video')",
+      "Last trace of humanity is not on this planet (paid 9:44 moon, 10:13 Voyager)"
+    ]
+  },
+  "beats": [
+    {
+      "t_start": 0,
+      "t_end": 13,
+      "beat_type": "hook_premise",
+      "summary": "Right-now stat (10,000 planes, 1M people airborne), snap of the fingers, everyone vanishes."
+    },
+    {
+      "t_start": 13,
+      "t_end": 30,
+      "beat_type": "rules_and_eerie_detail",
+      "summary": "No war, no virus, no bodies. Coffee still hot, cars rolling, planes on autopilot with nobody inside."
+    },
+    {
+      "t_start": 30,
+      "t_end": 51,
+      "beat_type": "preview_open_loops",
+      "summary": "Rapid preview of payoffs with deadlines (planes fall, subway floods in 2 days, 400+ reactor countdown) plus the 'last trace isn't on this planet' mystery; 'Let's start the clock.'"
+    },
+    {
+      "t_start": 51,
+      "t_end": 74,
+      "beat_type": "timeline_step: 10 seconds",
+      "summary": "1B+ cars lose drivers, highway chain crashes, engines idle and die, first silence in millennia."
+    },
+    {
+      "t_start": 74,
+      "t_end": 89,
+      "beat_type": "timeline_step: 3 hours",
+      "summary": "Planes run out of fuel, glide down over oceans, forests, cities. 'Nobody hears them land.'"
+    },
+    {
+      "t_start": 89,
+      "t_end": 138,
+      "beat_type": "mechanism_explainer: grid collapse",
+      "summary": "Power plants need people, safety shutdowns cascade like dominoes; Earth's night lights vanish by end of day one; wind farms and hydro dams hang on; tease 'a much bigger problem has started ticking'."
+    },
+    {
+      "t_start": 138,
+      "t_end": 169,
+      "beat_type": "timeline_step: day 2 (surprising fact)",
+      "summary": "NYC subway pumps 13M gallons a day; no power, no pumps, tunnels full in ~36 h; London, Tokyo, Paris drown from below."
+    },
+    {
+      "t_start": 169,
+      "t_end": 202,
+      "beat_type": "timeline_step: day 3 (emotional)",
+      "summary": "Hundreds of millions of pets waiting by the door; farms with 20B chickens and 1B cattle; some gates were open and animals walk out."
+    },
+    {
+      "t_start": 202,
+      "t_end": 255,
+      "beat_type": "payoff + peak stakes: day 7 reactors",
+      "summary": "Explicit callback to the opening countdown. Reactors scrammed fine; spent fuel pools need circulation; diesel backup lasts one week; pools heat, boil, dry; fires spread radiation at many plants: 'worst nuclear disaster in history, and nobody left to call it one'."
+    },
+    {
+      "t_start": 255,
+      "t_end": 284,
+      "beat_type": "twist / reframe",
+      "summary": "'Here's the strange part': for nature it's survivable. Chernobyl preview: expected dead zone, got wolves, lynx, bison, horses. Radiation is less dangerous to animals than we are."
+    },
+    {
+      "t_start": 284,
+      "t_end": 324,
+      "beat_type": "timeline_step: weeks to year 1",
+      "summary": "Fires with no fire department burn neighborhoods for weeks; first winter freeze-thaw splits cracks; seeds; grass through highways, weeds in Times Square. 'We're only getting started. Let's speed up.'"
+    },
+    {
+      "t_start": 324,
+      "t_end": 339,
+      "beat_type": "timeline_step: 10-50 years (personal)",
+      "summary": "'Your home' gets a roof hole, rain, rot, mold; 'the house you live in right now' collapses around year 50."
+    },
+    {
+      "t_start": 339,
+      "t_end": 359,
+      "beat_type": "spectacle",
+      "summary": "'Look up': satellites without ground control decay and burn up; ISS among the first; 'the greatest light show in history' watched by nothing that understands it."
+    },
+    {
+      "t_start": 359,
+      "t_end": 404,
+      "beat_type": "winners_and_losers list",
+      "summary": "Losers: cockroaches, rats, head lice. Winners: forests, fish, whales in quiet water. Pets: small dogs die, big dogs form packs, 'Cats are fine. Cats were always fine.' (comic relief)"
+    },
+    {
+      "t_start": 404,
+      "t_end": 427,
+      "beat_type": "timeline_step: 100 years",
+      "summary": "Bridges survive only via constant painting; bare steel rusts, cables snap; Golden Gate and Brooklyn Bridge fall into their rivers."
+    },
+    {
+      "t_start": 427,
+      "t_end": 488,
+      "beat_type": "timeline_step: 300 years (megastructures)",
+      "summary": "Towers, dams, 'things built to last forever': skyscraper = steel skeleton wearing glass, collapses ~year 300; NYC becomes forest with square hills, Dubai under sand, Amsterdam/New Orleans underwater; dams fail, wall of water, rivers return to old paths."
+    },
+    {
+      "t_start": 488,
+      "t_end": 543,
+      "beat_type": "timeline_step: 1,000+ years (what lasts)",
+      "summary": "'What's still standing? Not the newest, the oldest.' Pyramids, Great Wall, temples, Roman roads, tunnels; Mount Rushmore erodes 1 inch per 10,000 years, recognizable for ~7M years. Re-hook: 'something else lasts even longer than stone, and it's a lot less impressive.'"
+    },
+    {
+      "t_start": 543,
+      "t_end": 584,
+      "beat_type": "timeline_step: 1 million years",
+      "summary": "Air recovered (CO2 ~100k years); no surface trace; dig down to 'our line', a hand-thick rock layer of concrete, glass, metal, plastic: 'everything we ever fought over'."
+    },
+    {
+      "t_start": 584,
+      "t_end": 641,
+      "beat_type": "payoff of opening mystery",
+      "summary": "'But I told you ... it's up there.' Moon footprints from 1969 still sharp for millions of years, six landing sites, family photo; then Voyager's golden record (55 languages, music, a child laughing) built to last a billion years: 'a child's laugh will still be traveling between the stars'."
+    },
+    {
+      "t_start": 641,
+      "t_end": 666,
+      "beat_type": "recap via callback",
+      "summary": "'Let's go back to that snap.' Timeline recap: lights out in a day, cities flooded in a week, homes 50 years, towers 300, forgotten after 1,000."
+    },
+    {
+      "t_start": 666,
+      "t_end": 702,
+      "beat_type": "thesis / moral reframe",
+      "summary": "Everything permanent stands only because somebody maintains it; callbacks to painters, pumps, control room. 'The world we built isn't a thing. It's a job.' Earth doesn't need us; what makes it ours lasts as long as we keep showing up."
+    },
+    {
+      "t_start": 702,
+      "t_end": 726,
+      "beat_type": "cta",
+      "summary": "Comment prompt tied to theme (one building, one object, one message to survive a million years), 'I really want to read these', subscribe ('you're clearly curious ... it's free')."
+    }
+  ],
+  "shot_list": [
+    {
+      "t_start": 0,
+      "t_end": 2,
+      "shot_type": "illustration wide",
+      "visual_description": "Flat cartoon jets flying among white clouds on blue sky",
+      "camera_motion": "slow lateral drift",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 2,
+      "t_end": 4,
+      "shot_type": "map infographic",
+      "visual_description": "Dark world map covered in glowing flight dots",
+      "camera_motion": "static, number pop-in",
+      "on_screen_text": "10,000 / PLANES IN THE SKY"
+    },
+    {
+      "t_start": 4,
+      "t_end": 8,
+      "shot_type": "cutaway diagram",
+      "visual_description": "Plane cabin side cutaway: row of windows and seats with stick-figure passengers; on the snap they fade out and the plane flies on empty",
+      "camera_motion": "static, then crossfade",
+      "on_screen_text": "1,000,000+"
+    },
+    {
+      "t_start": 8,
+      "t_end": 16,
+      "shot_type": "illustration street side-view",
+      "visual_description": "Motion-blur whip into a city street full of stick-figure pedestrians and cars; snap, the crowd vanishes, leaving dropped bags; cars keep rolling",
+      "camera_motion": "whip-pan in, static",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 16,
+      "t_end": 20,
+      "shot_type": "kinetic text",
+      "visual_description": "Darkened skyline with stacked words appearing one by one",
+      "camera_motion": "static",
+      "on_screen_text": "NO WAR / NO VIRUS / NO BODIES"
+    },
+    {
+      "t_start": 20,
+      "t_end": 30,
+      "shot_type": "illustration montage",
+      "visual_description": "Steaming coffee mug at a window, cars rolling on empty street, flat jet, empty cockpit with autopilot screen, empty cabin seats",
+      "camera_motion": "crossfades, gentle drift",
+      "on_screen_text": "AUTOPILOT"
+    },
+    {
+      "t_start": 30,
+      "t_end": 34,
+      "shot_type": "silhouette",
+      "visual_description": "Plane silhouette nosing down against a purple-orange sunset",
+      "camera_motion": "plane animates downward",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 34,
+      "t_end": 36,
+      "shot_type": "illustration",
+      "visual_description": "Green SUBWAY entrance sign sinking into blue water",
+      "camera_motion": "water rises",
+      "on_screen_text": "SUBWAY"
+    },
+    {
+      "t_start": 36,
+      "t_end": 42,
+      "shot_type": "map infographic + countdown",
+      "visual_description": "Night world map with orange reactor dots and a large DD:HH:MM:SS countdown timer ticking",
+      "camera_motion": "static",
+      "on_screen_text": "06:20:50:53 ... 400+ NUCLEAR REACTORS"
+    },
+    {
+      "t_start": 42,
+      "t_end": 48,
+      "shot_type": "illustration night",
+      "visual_description": "Night skyline windows switch off until the frame is near-black blue",
+      "camera_motion": "static fade",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 48,
+      "t_end": 52,
+      "shot_type": "space / clock",
+      "visual_description": "Earth at night from space, then a white analog clock icon at 00:00:00; HUD appears",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "00:00:00"
+    },
+    {
+      "t_start": 52,
+      "t_end": 58,
+      "shot_type": "top-down diagram",
+      "visual_description": "Top-down multi-lane highway packed with tiny colored cars; persistent HUD starts: top-left clock '00:00:10 / SINCE THE SNAP' (later DAY n, YEAR n) and bottom timeline scrubber (NOW ... 1B)",
+      "camera_motion": "cars scroll",
+      "on_screen_text": "1,000,000,000+"
+    },
+    {
+      "t_start": 58,
+      "t_end": 62,
+      "shot_type": "POV interior",
+      "visual_description": "Car interior with empty driver seat and steering wheel, trees passing",
+      "camera_motion": "scrolling background",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 62,
+      "t_end": 74,
+      "shot_type": "illustration side-view",
+      "visual_description": "Side-view highway chain crash with smoke puffs, then dusk landscape with stopped cars and distant city",
+      "camera_motion": "static, crossfade",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 74,
+      "t_end": 78,
+      "shot_type": "cockpit interior",
+      "visual_description": "Empty cockpit seats facing clouds, A/P ON indicator and round fuel gauge needle dropping, red warning",
+      "camera_motion": "static",
+      "on_screen_text": "A/P ON / FUEL"
+    },
+    {
+      "t_start": 78,
+      "t_end": 90,
+      "shot_type": "illustration traveling",
+      "visual_description": "Jets gliding down; background scrolls from ocean to forest to city to smoke rising from a forest with a deer",
+      "camera_motion": "continuous horizontal pan",
+      "on_screen_text": "ENGINES QUIT"
+    },
+    {
+      "t_start": 90,
+      "t_end": 104,
+      "shot_type": "illustration + interior",
+      "visual_description": "Cooling towers and pylons; then a control room with monitor waveforms and stick-figure operators who vanish; room flashes red",
+      "camera_motion": "static, red alarm pulse",
+      "on_screen_text": "SOMEONE TO FEED IN THE FUEL / SOMEONE TO BALANCE THE GRID / AUTO SHUTDOWN"
+    },
+    {
+      "t_start": 104,
+      "t_end": 108,
+      "shot_type": "network diagram",
+      "visual_description": "Cyan node-link grid; one node goes offline and the network turns red",
+      "camera_motion": "static",
+      "on_screen_text": "OFFLINE / OVERLOAD"
+    },
+    {
+      "t_start": 108,
+      "t_end": 122,
+      "shot_type": "map / globe",
+      "visual_description": "Night world map lights dying in waves, then a night globe of Europe whose city lights fade to dark",
+      "camera_motion": "slow globe rotation",
+      "on_screen_text": "COUNTRY BY COUNTRY / FOR MORE THAN A CENTURY"
+    },
+    {
+      "t_start": 122,
+      "t_end": 134,
+      "shot_type": "illustration night",
+      "visual_description": "White wind turbines spinning at night; hydro dam beside a lit empty city that eventually goes dark",
+      "camera_motion": "static",
+      "on_screen_text": "NOBODY IN THEM"
+    },
+    {
+      "t_start": 134,
+      "t_end": 138,
+      "shot_type": "icon on black",
+      "visual_description": "Black screen with a dim pulsing yellow radiation symbol",
+      "camera_motion": "static pulse",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 138,
+      "t_end": 146,
+      "shot_type": "map zoom + street",
+      "visual_description": "Dark map zooms to New York label, then stick figure beside a SUBWAY entrance on a city street",
+      "camera_motion": "map zoom-in",
+      "on_screen_text": "NEW YORK / SUBWAY"
+    },
+    {
+      "t_start": 146,
+      "t_end": 160,
+      "shot_type": "cross-section diagram",
+      "visual_description": "Underground cutaway: soil layers, capsule-shaped subway tunnel with dripping water, pump at right; water level rises until the tunnel is full",
+      "camera_motion": "static, water fill animation",
+      "on_screen_text": "13,000,000 / NO POWER NO PUMPS / ~2 HOURS (elapsed-time tag; VO says tunnels full in ~36 h) / THE TUNNELS ARE FULL"
+    },
+    {
+      "t_start": 160,
+      "t_end": 170,
+      "shot_type": "map infographic",
+      "visual_description": "Blue world map with glowing city labels New York, London, Tokyo, Paris appearing",
+      "camera_motion": "slow pan",
+      "on_screen_text": "NEW YORK / LONDON / PARIS / TOKYO"
+    },
+    {
+      "t_start": 170,
+      "t_end": 184,
+      "shot_type": "illustration interior",
+      "visual_description": "Living room with door, dog and cat waiting; cut to house exterior with dog hunting; back inside, dimmer, dog lying down",
+      "camera_motion": "static, light dims",
+      "on_screen_text": "HUNDREDS OF MILLIONS OF PETS / HUNTERS"
+    },
+    {
+      "t_start": 184,
+      "t_end": 194,
+      "shot_type": "icon grid + interior",
+      "visual_description": "'ON FARMS' title on black, then grids of chicken and cow icons with ticking counters, then barn interior with rows of hens at stopped feeders",
+      "camera_motion": "static",
+      "on_screen_text": "ON FARMS, IT'S WORSE / 20,000,000,000+ / 1,000,000,000"
+    },
+    {
+      "t_start": 194,
+      "t_end": 202,
+      "shot_type": "illustration wide",
+      "visual_description": "Red barn at sunset, broken fence; a cow walks out into open field",
+      "camera_motion": "static, character walk",
+      "on_screen_text": ""
+    },
+    {
+      "t_start": 202,
+      "t_end": 214,
+      "shot_type": "map countdown + diagram",
+      "visual_description": "Callback: night map with the countdown near zero; reactor cross-section with control rods dropping and a green check",
+      "camera_motion": "static",
+      "on_screen_text": "00:04:52:22 / THE COUNTDOWN / AUTOMATIC SHUTDOWN"
+    },
+    {
+      "t_start": 214,
+      "t_end": 238,
+      "shot_type": "cross-section diagram",
+      "visual_description": "Spent-fuel pool cutaway with fuel rods, thermometer and circulation pipe; diesel generator with battery-style fuel gauge draining day 6 to day 7; pool heats, bubbles, steams, water level drops",
+      "camera_motion": "static, gauge/thermometer animations",
+      "on_screen_text": "USED FUEL / 1 WEEK OF FUEL / DAY 6 / DAY 7 EMPTY / HEATS UP / BOILS / GONE"
+    },
+    {
+      "t_start": 238,
+      "t_end": 250,
+      "shot_type": "illustration + map",
+      "visual_description": "Cooling towers at dusk, reactor dome on fire with green radioactive plume; night map with orange glows spreading",
+      "camera_motion": "static",
+      "on_screen_text": "RADIATION / NOT AT ONE PLANT / AT MANY / IN THE SAME FEW WEEKS"
+    },
+    {
+      "t_start": 250,
+      "t_end": 256,
+      "shot_type": "illustration interior",
+      "visual_description": "Empty dark living room, TV showing static",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "THE WORST NUCLEAR DISASTER IN HISTORY"
+    },
+    {
+      "t_start": 256,
+      "t_end": 264,
+      "shot_type": "character + map",
+      "visual_description": "Stick-figure narrator, a flower sprouts beside him; map zoom to Ukraine / Chernobyl",
+      "camera_motion": "map zoom-in",
+      "on_screen_text": "SURVIVABLE / CHERNOBYL"
+    },
+    {
+      "t_start": 264,
+      "t_end": 280,
+      "shot_type": "illustration wide (state change)",
+      "visual_description": "Pripyat-style apartment blocks and Ferris wheel: people leave, then trees grow over it and wolves, bison, horses walk through",
+      "camera_motion": "static, layered growth animation",
+      "on_screen_text": "1986 / DEAD ZONE? / WOLVES / LYNX BISON WILD HORSES"
+    },
+    {
+      "t_start": 280,
+      "t_end": 284,
+      "shot_type": "metaphor icon",
+      "visual_description": "Balance scale: radiation symbol vs stick-figure 'us'; tips toward us",
+      "camera_motion": "scale tilt",
+      "on_screen_text": "RADIATION / US / MORE DANGEROUS"
+    },
+    {
+      "t_start": 284,
+      "t_end": 300,
+      "shot_type": "illustration night montage",
+      "visual_description": "Burning skyline; lightning strike, gas leak pipe, spark panels; fire station 'NO FIRE DEPT.'; row of houses with fire spreading house to house",
+      "camera_motion": "split-panel reveals, fire spread animation",
+      "on_screen_text": "ONE LIGHTNING STRIKE / ONE GAS LEAK / ONE SPARK / NO FIRE DEPARTMENT / 1 HOUR / WEEKS"
+    },
+    {
+      "t_start": 300,
+      "t_end": 316,
+      "shot_type": "macro diagram",
+      "visual_description": "Snowy city; extreme close-up of a crack in asphalt: water fills, freezes, arrows push it wider, a seed falls in",
+      "camera_motion": "static, crack widening",
+      "on_screen_text": "IT FREEZES / IT EXPANDS / WIDER / SPRING"
+    },
+    {
+      "t_start": 316,
+      "t_end": 324,
+      "shot_type": "illustration wide",
+      "visual_description": "Highway with grass sprouting; Times Square towers with green weeds",
+      "camera_motion": "static",
+      "on_screen_text": "TIMES SQUARE"
+    },
+    {
+      "t_start": 324,
+      "t_end": 339,
+      "shot_type": "time-jump title + house state change",
+      "visual_description": "Whoosh into big '10 YEARS' title over a suburban house; zoom on roof hole; cutaway with rain, rot, mold patches; '50 YEARS' house overgrown and sagging",
+      "camera_motion": "push-in on house",
+      "on_screen_text": "10 YEARS / RAIN ROT MOLD / 50 YEARS"
+    },
+    {
+      "t_start": 339,
+      "t_end": 360,
+      "shot_type": "night sky / space",
+      "visual_description": "Stick figure looks up at streaking meteors; Earth with orbit rings of satellites drifting lower, ISS icon; meteor shower over a field with a deer",
+      "camera_motion": "slow push",
+      "on_screen_text": "NO GROUND CONTROL / LOWER EVERY YEAR / SPACE STATION / THE GREATEST LIGHT SHOW IN HISTORY"
+    },
+    {
+      "t_start": 360,
+      "t_end": 380,
+      "shot_type": "split screen + vignettes",
+      "visual_description": "Red LOSERS / green WINNERS split with stick figure in the middle; cockroaches in cold, rats with owl, head-louse icon crossed out with red X",
+      "camera_motion": "static",
+      "on_screen_text": "LOSERS / WINNERS / EVERYTHING THAT DEPENDED ON US / COCKROACHES NO HEATING / RATS SOMEONE ELSE'S DINNER / HEAD LICE ONLY ON HUMANS GONE WITHIN WEEKS"
+    },
+    {
+      "t_start": 380,
+      "t_end": 392,
+      "shot_type": "illustration",
+      "visual_description": "Overgrown houses under WINNERS; underwater scene full of fish with light rays; a whale swims through",
+      "camera_motion": "drift",
+      "on_screen_text": "WINNERS / FISH FILL THE OCEANS / 200 YEARS / QUIET WATER"
+    },
+    {
+      "t_start": 392,
+      "t_end": 404,
+      "shot_type": "illustration",
+      "visual_description": "Forest edge with small dog, then a dog pack running; cat sitting on a rock at sunset",
+      "camera_motion": "static, walk cycles",
+      "on_screen_text": "AND OUR PETS? / PACKS / CATS ARE FINE"
+    },
+    {
+      "t_start": 404,
+      "t_end": 420,
+      "shot_type": "illustration + macro",
+      "visual_description": "Golden Gate style bridge with tiny painters on cables; macro of red paint flaking to bare steel; cables sagging and snapping",
+      "camera_motion": "slow push-in",
+      "on_screen_text": "100 YEARS / A JOB THAT NEVER ENDS / PAINTING / BARE STEEL / THE CABLES SNAP"
+    },
+    {
+      "t_start": 420,
+      "t_end": 428,
+      "shot_type": "split screen",
+      "visual_description": "Golden Gate and Brooklyn Bridge side by side, both collapsing into the water with splash circles",
+      "camera_motion": "static",
+      "on_screen_text": "THE GOLDEN GATE / THE BROOKLYN BRIDGE"
+    },
+    {
+      "t_start": 428,
+      "t_end": 434,
+      "shot_type": "icon lineup",
+      "visual_description": "Dark title card then three icons: glass tower, dam, pyramid",
+      "camera_motion": "pop-ins",
+      "on_screen_text": "THE REALLY BIG THINGS / TOWERS / DAMS / FOREVER?"
+    },
+    {
+      "t_start": 434,
+      "t_end": 454,
+      "shot_type": "illustration state change",
+      "visual_description": "Single glass skyscraper with tiny stick figure for scale: glass panes drop to reveal steel skeleton, rust creeps floor by floor, then it collapses into a dust cloud",
+      "camera_motion": "static, progressive state animation",
+      "on_screen_text": "STEEL SKELETON / FLOOR BY FLOOR / 300 YEARS"
+    },
+    {
+      "t_start": 454,
+      "t_end": 466,
+      "shot_type": "illustration + map montage",
+      "visual_description": "New York as forest with square green hills; Dubai skyline swallowed by sand; map to Amsterdam; skyline sinking under rising water",
+      "camera_motion": "crossfades, water rise",
+      "on_screen_text": "NEW YORK / DUBAI / AMSTERDAM / UNDERWATER"
+    },
+    {
+      "t_start": 466,
+      "t_end": 484,
+      "shot_type": "cross-section + map",
+      "visual_description": "Dam between hills: cracks spread, gates jam, water bursts; wall of water floods a valley village; top-down river straightens back into meanders",
+      "camera_motion": "static, flood animation",
+      "on_screen_text": "CONCRETE CRACKS / GATES JAM / WATER FINDS A WAY / A WALL OF WATER / THE OLD PATHS"
+    },
+    {
+      "t_start": 484,
+      "t_end": 494,
+      "shot_type": "time-jump title + aerial",
+      "visual_description": "Big '1,000 YEARS' over a green landscape with clouds; tiny plane icon searching; cut to black",
+      "camera_motion": "slow pan",
+      "on_screen_text": "1,000 YEARS"
+    },
+    {
+      "t_start": 494,
+      "t_end": 502,
+      "shot_type": "character + text",
+      "visual_description": "Stick-figure narrator on dark background asking the question",
+      "camera_motion": "static",
+      "on_screen_text": "WHAT'S STILL STANDING? / NOT THE NEWEST. / THE OLDEST."
+    },
+    {
+      "t_start": 502,
+      "t_end": 526,
+      "shot_type": "illustration + triptych",
+      "visual_description": "Pyramids at sunset with a timeline bar overlay (Rome founded); Great Wall on hills; three-panel reveal of temple, Roman road, mountain tunnel",
+      "camera_motion": "panel slide-ins",
+      "on_screen_text": "NO STEEL / NO GLASS / STONE ON STONE / THE GREAT WALL"
+    },
+    {
+      "t_start": 526,
+      "t_end": 543,
+      "shot_type": "illustration + counter",
+      "visual_description": "Map of the US then a granite cliff with four cartoon faces above pines; label with ticking counter",
+      "camera_motion": "static, counter roll",
+      "on_screen_text": "SOLID GRANITE / 1 INCH EVERY 10,000 YEARS / 6,999,937 YEARS FROM NOW"
+    },
+    {
+      "t_start": 543,
+      "t_end": 552,
+      "shot_type": "space + chart",
+      "visual_description": "Stick figure on dark; Earth with '1,000,000 YEARS', then CO2 decay curve chart beside the globe",
+      "camera_motion": "static, line draw",
+      "on_screen_text": "1,000,000 YEARS / THE AIR HAS RECOVERED / CO2 IN THE AIR / 100,000 YEARS"
+    },
+    {
+      "t_start": 552,
+      "t_end": 584,
+      "shot_type": "geologic cross-section",
+      "visual_description": "Forest surface, camera descends through brown strata to a thin band packed with colored debris; labels appear per material; a white hand graphic slides in for thickness comparison",
+      "camera_motion": "vertical descent (tilt down), then static",
+      "on_screen_text": "OUR LINE / CONCRETE GLASS METALS PLASTIC / EVERYTHING WE EVER BUILT / EVERYTHING WE EVER FOUGHT OVER / AS THICK AS YOUR HAND"
+    },
+    {
+      "t_start": 584,
+      "t_end": 604,
+      "shot_type": "night sky / lunar surface",
+      "visual_description": "Stick figure on a night hill points up; full moon; grey lunar surface with Earth in the black sky and bootprints",
+      "camera_motion": "tilt up, push to moon",
+      "on_screen_text": "NO WIND. NO RAIN. / 1969 / STILL PERFECTLY SHARP / MILLIONS OF YEARS"
+    },
+    {
+      "t_start": 604,
+      "t_end": 610,
+      "shot_type": "illustration",
+      "visual_description": "Moon with six landing site dots; flag, rover and a small photo on the ground",
+      "camera_motion": "zoom-in",
+      "on_screen_text": "SIX LANDING SITES / ROVERS / A FAMILY PHOTO"
+    },
+    {
+      "t_start": 610,
+      "t_end": 628,
+      "shot_type": "space + icon",
+      "visual_description": "Black '1977', two Voyager probes; gold record disc with listed contents and music notes",
+      "camera_motion": "slow drift",
+      "on_screen_text": "1977 / OUR VOICES / 55 LANGUAGES / MUSIC / A CHILD LAUGHING"
+    },
+    {
+      "t_start": 628,
+      "t_end": 641,
+      "shot_type": "space diagram",
+      "visual_description": "Solar system orbit rings, probe leaving; large year counter; Voyager tiny against the Sun and Earth, drifting off into black",
+      "camera_motion": "slow zoom-out",
+      "on_screen_text": "THE SOLAR SYSTEM / ALMOST NOTHING OUT THERE / 996,498,450 YEARS"
+    },
+    {
+      "t_start": 641,
+      "t_end": 666,
+      "shot_type": "callback + recap timeline",
+      "visual_description": "The opening street crowd reappears (people back); then a dark horizontal timeline that fills with icons: bulb 1 DAY, drops 1 WEEK, house 50 YEARS, tower 300 YEARS, Earth 1,000 YEARS",
+      "camera_motion": "static, sequential pop-ins",
+      "on_screen_text": "LOOK AT WHAT ACTUALLY HAPPENED / 1 DAY / 1 WEEK / 50 YEARS / 300 YEARS / 1,000 YEARS"
+    },
+    {
+      "t_start": 666,
+      "t_end": 690,
+      "shot_type": "callback montage",
+      "visual_description": "Sunset city with crowd; bridge painters; subway pump; control room operators back at their posts; street crowd",
+      "camera_motion": "crossfades",
+      "on_screen_text": "SOMEBODY, SOMEWHERE / EVERY BRIDGE IS BEING PAINTED / EVERY TUNNEL IS BEING PUMPED / EVERY LIGHT IS ON / THE WORLD WE BUILT ISN'T A THING / IT'S A JOB / EVERY SINGLE DAY"
+    },
+    {
+      "t_start": 690,
+      "t_end": 704,
+      "shot_type": "globe",
+      "visual_description": "Daylight Earth, then night globe whose city lights switch back on (reverse of the 1:52 shot)",
+      "camera_motion": "slow rotation",
+      "on_screen_text": "THE EARTH DOESN'T NEED US / EVERY ROAD / EVERY CITY / AS LONG AS WE KEEP SHOWING UP"
+    },
+    {
+      "t_start": 704,
+      "t_end": 726,
+      "shot_type": "character + UI mock",
+      "visual_description": "Stick-figure narrator; icons pyramid / gold disc / speech bubble; mock comment box with typing; red SUBSCRIBE button clicked to grey SUBSCRIBED; black end card with title",
+      "camera_motion": "static",
+      "on_screen_text": "ONE THING / TO SURVIVE 1,000,000 YEARS / ONE BUILDING ONE OBJECT ONE MESSAGE / TELL ME IN THE COMMENTS / YOU'RE CLEARLY CURIOUS / SUBSCRIBE / IT'S FREE"
+    }
+  ],
+  "pacing": {
+    "words_total": 1773,
+    "words_per_min": 146.5,
+    "speech_coverage": "voice runs 0:00-12:03 with no music-only gaps longer than ~2 s; short punchy sentences (avg ~6.7 words per whisper segment, 266 segments)",
+    "avg_shot_length_s": 6,
+    "shot_notes": "~120 distinct scene setups over 726 s (avg ~6 s). Frame-diff at 2 s sampling flags a significant visual change every ~4.3 s (167 changes) because most setups animate internally (counters, water rising, figures vanishing). Hard cuts are rare (scene-detect 0.25 finds ~58, many in bursts); transitions are mostly crossfades, whooshes into time-jump titles and match-continuity (same street/cabin/globe reused).",
+    "re_hook_interval_s": "~30-45 s: each timeline stop opens with a time stamp ('Three hours in', 'Day two', 'Day three is the hard one', 'Day seven', '100 years') and most close with a forward tease ('a much bigger problem has just started ticking', 'we're only getting started', 'something else lasts even longer than stone').",
+    "hook_length_s": 51,
+    "time_allocation": "First week (0:51-4:15) gets ~28% of runtime; year 1 to 1,000 years ~36%; 1M+ years and space ~13%; recap/thesis/CTA ~12%. Front-loads the fast, concrete, high-stakes events and accelerates through deep time ('Let's speed up')."
+  },
+  "techniques_worth_copying": [
+    "Persistent HUD: top-left odometer 'DAY 2 / SINCE THE SNAP' (starts as HH:MM:SS clock e.g. 03:00:01, then DAY n, then YEAR n with comma formatting) plus a bottom timeline scrubber with labelled stops NOW, 10 SEC, 3 HRS, DAY 1, DAY 2, DAY 3, DAY 7, 1 YR, 10 YRS, 50, 100, 300, 1,000, 10,000, 1M, 1B that lights up as the video advances. Gives constant progress feedback and a reason to keep watching to the end of the bar.",
+    "'Right now' + snap trigger: open on a real present-tense statistic, then a single magic action that starts the scenario, shown as figures blinking out.",
+    "Preview payoffs with deadlines in the hook, then explicitly cash them in ('this is the countdown from the start of the video'). Countdown timer on screen is a literal ticking clock.",
+    "Mystery open loop held to the last 15% ('the last trace ... isn't even on this planet'), paid with an emotional image (a child's laugh between the stars).",
+    "Personalisation shots: 'your home', 'the house you live in right now', pets waiting by the door. The scenario is aimed at the viewer's own life.",
+    "Mechanism mini-explainers built from simple cutaways (subway pump, spent-fuel pool, freeze-thaw crack, rusting bridge cable): one cause-effect chain, 3-5 one-word captions ('IT FREEZES / IT EXPANDS / WIDER').",
+    "Staccato triads in VO and on-screen text ('No war, no virus, no bodies'; 'Rain gets in. Wood rots. Mold eats the walls.'; 'Concrete cracks, gates jam, water finds a way').",
+    "Same-scene state change: one illustration (house, skyscraper, Pripyat, street) re-shown at successive ages so decay reads instantly without new assets.",
+    "Comic relief and list format mid-video (winners vs losers; 'Cats are fine. Cats were always fine.') to reset attention around the 6-minute mark.",
+    "Big-number counters that roll (1,000,000,000+, 19,947,329,662+, 6,999,937 YEARS FROM NOW, 996,498,450 YEARS).",
+    "Circular structure: 'Let's go back to that snap', recap timeline with icons, then reverse earlier shots (lights back on, operators back at posts) to deliver the thesis 'The world we built isn't a thing. It's a job.'",
+    "Thematic comment CTA (choose one thing to survive a million years) with a mock comment box and an animated subscribe button."
+  ],
+  "code_only_remake": {
+    "feasibility": "Very high. Everything is flat 2D vector: no textures beyond subtle gradients/grain, no lip sync, minimal character animation. One of the most Remotion-friendly references in the library.",
+    "art_style": "Flat infographic vector with muted palette: navy/slate night scenes (#0f1726-ish), steel-blue building blocks with window grids, warm sunset gradients, cyan UI accents, orange/yellow highlight text. Condensed geometric sans (DIN-like) in tracked all caps for labels. Thin film-grain/vignette overlay.",
+    "components_needed": [
+      "HUD: elapsed counter (HH:MM:SS clock, then DAY n, then YEAR n; comma formatting; ease-out roll) with small 'SINCE THE SNAP' subtitle and cyan left bar + bottom timeline scrubber with labelled stops and progress glow, driven by storyboard time-stamps",
+      "Stick-figure character: circle head with big eyes, line body, 3-4 poses (idle, point, look up), plus crowd generator with random colored shirts; fade/blink-out vanish effect",
+      "Procedural skyline generator (rects with window grids, parallax layers, lights-on/off per window with staggered timing)",
+      "World map + globe: SVG world map (Natural Earth/topojson) with glowing dot layers (flights, cities, reactors), label pins, zoom to region; orthographic globe via d3-geo with night-lights dots that fade",
+      "Countdown timer DD:HH:MM:SS and big rolling number counters",
+      "Cross-section diagram kit: soil strata, tunnel capsule, pool with rods, thermometer, gauge, water level fill, bubbles/steam particles",
+      "State-change assets: house (intact, roof hole, mold, overgrown, collapsed), skyscraper (glass, skeleton, rust, dust collapse), bridge (cables snap), dam (cracks, burst)",
+      "Vegetation overlay (grass/vines/trees growing via scale/clip reveal) and simple animal silhouettes (dog, cat, cow, wolf, deer, whale, fish school, rats, cockroach, owl)",
+      "Weather/particles: rain, snow, fire (flicker shapes), smoke puffs, meteors with trails, light rays underwater",
+      "Space scenes: starfield, moon surface with craters and footprints, Voyager probe icon, golden record disc, solar system orbit rings",
+      "Split-screen and triptych panel transitions; balance-scale metaphor; LOSERS/WINNERS split; icon recap timeline",
+      "Kinetic text: stacked word reveals, big time-jump titles with whoosh-in scale, small tracked caption labels",
+      "UI mocks: comment box with typing cursor, subscribe button click state"
+    ],
+    "audio": "Calm male documentary VO (~146 wpm) via Kokoro/Piper; low ambient pad music; whooshes on time jumps; snap SFX; light ticking on countdowns.",
+    "effort_estimate": "Hardest pieces are the globe/map layers and the many unique scene props (~60 setups). Building the HUD + skyline + stick figure + map kit first covers ~40% of shots; state-change assets cover another ~25%."
+  }
+}

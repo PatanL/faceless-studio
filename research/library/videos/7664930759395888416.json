@@ -1,0 +1,706 @@
+{
+ "id": "7664930759395888416",
+ "url": "https://www.tiktok.com/@mraevq/video/7664930759395888416",
+ "platform": "tiktok",
+ "niche": "horror",
+ "channel": "mraevq",
+ "title": "#chenjie #wangqiang",
+ "upload_date": "2026-07-21",
+ "duration": 918,
+ "views": 428100,
+ "likes": 29200,
+ "comments": 431,
+ "shares": 2958,
+ "subs": null,
+ "channel_median_views": 10750,
+ "outlier_score": 39.82,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/7664930759395888416.{mp4,jpg,eng-US.vtt,info.json}; frames + sheets in ~/studio/refs/horror/work_7664930759395888416/",
+  "download": "576x1024 h264 30 fps, 41.9 MB (lowest format TikTok offers is 540p-class; no <=480p rendition exists). Kept on Spark (<300 MB). TikTok download variant carries a TikTok/@mraevq watermark that is not part of the original composition.",
+  "transcript_source": "TikTok auto-captions eng-US (482 cues, 3326 words); full text in research/library/transcripts/7664930759395888416.txt. Names are mis-transcribed in places (Chenji/Chen Jie, Wang Chung/Wang Qiang, Lin Fung/Lin Feng, Chen Dashing/Chen Dashan); the burned-in subtitles spell them Chen Jie, Wang Qiang, Lili, Chen Dashan, Lin Feng.",
+  "frames": "sampled every 2 s (459 frames). research/library/sheets/7664930759395888416.jpg = 10 cols x 46 rows, row-major, 2 s per tile, full 9:16 frame (story panel sits in the middle third).",
+  "visual_change_detection": "ffmpeg scdet (threshold 3) on the story panel minus captions, changes merged within 0.5 s: 309 visual changes (avg 2.9 s apart). Per minute: 18,26,16,22,21,14,22,27,25,18,17,27,22,22,11.",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:06 UTC. Follower count not exposed by the TikTok extractor (subs null). Audio track labelled 'original sound' (原創音樂).",
+  "originality_warning": "Translated repost of a Chinese 2D animated web-series (rule-horror / 规则怪谈 genre). Study structure and devices only; do not reuse plot (rule entities, cleaners, Zone Zero, anchor), characters or lines."
+ },
+ "title_pattern": {
+  "template": "#<protagonist name> #<side character name>",
+  "notes": "No descriptive title at all: the caption is two character-name hashtags, i.e. the account treats each upload as an episode of a recurring cast (series SEO / searchable names), and lets the cover frame plus the first 5 s do all the selling. On TikTok the title is barely visible, so this is not a pattern to copy for YouTube; for TikTok it signals 'this is part of a series you can binge'. For our use: keep a recurring named cast and tag them, but add a curiosity line for YouTube Shorts / long-form."
+ },
+ "thumbnail": {
+  "composition": "TikTok cover = the opening frame. 9:16 canvas that is ~60% black: a rounded ~4:3 story panel sits in the vertical middle. Inside it, a split interior: left half a doorway with the son (yellow-green jacket, pale face, worried brow) being pulled by the wrist; right half the father (black T-shirt, tan trousers) mid-stride toward the exit, looking back with wide white-ringed 'terror eyes'. Hands joined at the centre line.",
+  "text": "None (no title card on the cover; only the TikTok watermark in this download).",
+  "colours": "Desaturated greys and blue floor; the only saturated element is the son's neon yellow-green jacket. Black letterbox all around.",
+  "subject_scale_contrast": "Two full-body characters at equal scale; contrast is emotional rather than scale: calm-worried son vs. panicked father, joined hands = 'being dragged away'. The father's tiny pupils in big white eye rings are the focal point.",
+  "why_it_works": "Reads instantly as 'someone is fleeing from something' with zero text; the panic face is the hook. The neon jacket makes the protagonist recognisable across a whole series of covers. Cheap, consistent cutout-cartoon style signals 'animated story series' in the feed. Weak as a YouTube thumbnail (no text, tiny subject on black), fine as a TikTok cover where the video autoplays."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "Late one night, Dad dragged me outside. \"Run! It's coming!\" \"Don't look back.\" He drove us to another city.",
+  "verbatim_5_to_11s": "The next day, I checked the news. Everyone in our complex died in their sleep. Two families survived because they were away.",
+  "device": "In-medias-res night flight in first person, with an unnamed threat ('It') and a rule planted in the first 3 seconds ('Don't look back'), then a mass-casualty payoff at 7 s that proves the threat is real and makes the dad a suspect (he knew). Every line is <2 s, one action per line, no setup or intro. The planted rule is paid off in the final dialogue line of the climax (13:43 'Don't look back')."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 5,
+   "beat_type": "hook_in_medias_res",
+   "summary": "Night flight: dad drags narrator out, 'it's coming', 'don't look back', drives to another city."
+  },
+  {
+   "t_start": 5,
+   "t_end": 11,
+   "beat_type": "shock_proof",
+   "summary": "News: whole apartment complex died in their sleep; only two families (theirs + one other) were away."
+  },
+  {
+   "t_start": 11,
+   "t_end": 22,
+   "beat_type": "confrontation_withheld_answer",
+   "summary": "Son accuses dad of knowing; dad refuses: 'being alive is enough', 'it's beyond description'."
+  },
+  {
+   "t_start": 22,
+   "t_end": 43,
+   "beat_type": "escalation_call",
+   "summary": "Phone rings, caller ID terrifies dad, 'They found us', must leave; refuses to explain ('some things are safer left unknown')."
+  },
+  {
+   "t_start": 43,
+   "t_end": 61,
+   "beat_type": "procedure_ritual",
+   "summary": "Spycraft: new phone + SIM, smashes old phone, memorise a number then eat the note, 'if we get separated, call it'."
+  },
+  {
+   "t_start": 61,
+   "t_end": 97,
+   "beat_type": "lore_drop_1",
+   "summary": "Drive (dad never checks the mirror), backpacks with shovel, forest walk; dad reveals college research into unknown phenomena, ancient rules, shut-down project, secrecy agreements, 'once known a rule never lets you go'."
+  },
+  {
+   "t_start": 97,
+   "t_end": 145,
+   "beat_type": "rule_explained",
+   "summary": "Bare cabin safe house: 'we're marked like a candle in the dark'; the don't-look-back rule (noticing it marks you, it erases you and everyone nearby); warning-system alert; the elderly couple across the hall also survived."
+  },
+  {
+   "t_start": 145,
+   "t_end": 178,
+   "beat_type": "set_piece_imposter",
+   "summary": "Knocking at night: voice of 'Uncle Li' from across the hall, with a true personal detail (rice dumplings); son moves to open, dad stops him: 'You're the fake one!'"
+  },
+  {
+   "t_start": 178,
+   "t_end": 238,
+   "beat_type": "lore_drop_2_quest",
+   "summary": "Dawn: the thing copied memory and voice; dad admits there are many rules/'rule entities' from an ancient journal; Professor Chen's 7-person group, 3 vanished with the lab; quest set: find technician Lin Feng who found a place that blocks the rules."
+  },
+  {
+   "t_start": 238,
+   "t_end": 262,
+   "beat_type": "omen_mark",
+   "summary": "Eye-in-a-circle symbol carved on a tree ('it's marking its prey'); dad sees a shadow move: 'It's following us! Run!'"
+  },
+  {
+   "t_start": 262,
+   "t_end": 290,
+   "beat_type": "lore_on_the_move",
+   "summary": "While running: Lin Feng secretly kept the data, calls entities 'cosmic viruses', copying has limits (computer clogged with junk); destination = abandoned weather station in the NW wasteland."
+  },
+  {
+   "t_start": 290,
+   "t_end": 321,
+   "beat_type": "set_piece_second_threat",
+   "summary": "Deserted road, son wants to flag a car, dad yanks him into the weeds; the black SUV bears the same eye symbol; it idles 10 minutes, watching, then leaves."
+  },
+  {
+   "t_start": 321,
+   "t_end": 358,
+   "beat_type": "new_antagonist_lore",
+   "summary": "'Cleaners': humans who erase triggers, marked people and witnesses; 'worse because they're human'; 'prey between two monsters'."
+  },
+  {
+   "t_start": 358,
+   "t_end": 400,
+   "beat_type": "breather_transit",
+   "summary": "Mountains at dusk, exhaustion, bread, abandoned railway; dad relays Prof. Chen's 'immune system' theory (we are the virus)."
+  },
+  {
+   "t_start": 400,
+   "t_end": 415,
+   "beat_type": "omen_sign",
+   "summary": "Stone cairn + empty can by the tracks: someone was here recently. Friend or enemy?"
+  },
+  {
+   "t_start": 415,
+   "t_end": 472,
+   "beat_type": "set_piece_tunnel",
+   "summary": "Tunnel at night: flashlight reveals countless bat-like monsters hanging overhead, two shriek and drop, chase, battery dies, dad falls ('leave me, run'), scream behind; then dad reappears wounded (fake-out death)."
+  },
+  {
+   "t_start": 472,
+   "t_end": 495,
+   "beat_type": "new_location_camp",
+   "summary": "Abandoned train cars and a camp with a dead campfire and stone stove; someone has lived here."
+  },
+  {
+   "t_start": 495,
+   "t_end": 566,
+   "beat_type": "standoff",
+   "summary": "Armed man with rifle + young woman + scholarly man; cover story fails ('travelers carrying a military shovel'); admitting they came through the tunnel stuns them; 'we're all fleeing things that shouldn't exist'; rifle lowered, wounds treated."
+  },
+  {
+   "t_start": 566,
+   "t_end": 627,
+   "beat_type": "ally_backstory_second_rule",
+   "summary": "Introductions (Uncle Ma, Wang Qiang, daughter Lili); their rule = a sound from village loudspeakers at night; anyone who heard it vanished; cotton in ears, cellar for 3 days; village empty; helicopters + fire = cleaners."
+  },
+  {
+   "t_start": 627,
+   "t_end": 657,
+   "beat_type": "alliance_goal_alignment",
+   "summary": "Wang Qiang's map: NW wasteland has weak magnetic signal; dad: 'the weather station?'; join forces; Uncle Ma's terms (my orders, my daughter's safety)."
+  },
+  {
+   "t_start": 657,
+   "t_end": 703,
+   "beat_type": "journey_evidence",
+   "summary": "Marching order; burnt crater from an incendiary bomb (cleaners were here); abandoned cleaner vehicle with an advanced radio-like device, battery dead."
+  },
+  {
+   "t_start": 703,
+   "t_end": 739,
+   "beat_type": "tension_surveillance",
+   "summary": "Cave at dusk, '10 more days'; a drone hovers at the cave mouth then leaves: 'they're only marking us... like a cat playing with mice'; no one sleeps."
+  },
+  {
+   "t_start": 739,
+   "t_end": 767,
+   "beat_type": "trap_springs",
+   "summary": "Canyon with one wooden bridge; halfway across, cleaners in red hazmat suits appear behind, then ahead: planned trap."
+  },
+  {
+   "t_start": 767,
+   "t_end": 787,
+   "beat_type": "twist_identity",
+   "summary": "Lead cleaner: 'Target locked. Chen Dashan, sole Chimera survivor. Execute final cleanup protocol.' Dad shows no surprise; he always knew."
+  },
+  {
+   "t_start": 787,
+   "t_end": 826,
+   "beat_type": "climax_transformation_sacrifice",
+   "summary": "Blue-tipped weapons fire, dad's eyes glow the same blue, he deflects the beams ('he's not breaking down, he's awakening'); 'Jump! Find Lin Feng'; dad turns transparent, smiles, says the planted rule 'Don't look back.'; they jump."
+  },
+  {
+   "t_start": 826,
+   "t_end": 859,
+   "beat_type": "aftermath_loss",
+   "summary": "Sandy shore; Uncle Ma missing; Lili cries then recovers; a day later they reach the weather station: empty, dusty for decades."
+  },
+  {
+   "t_start": 859,
+   "t_end": 907,
+   "beat_type": "final_reveal_document",
+   "summary": "Lin Feng's journal: rule entities are the world's source code, self-aware life is the bug, cleaners are the repair program; Zone Zero is a blank zone outside the system that needs an anchor: 'Chen Dashan is that anchor.'"
+  },
+  {
+   "t_start": 907,
+   "t_end": 919,
+   "beat_type": "resolution_reframe",
+   "summary": "'Dad had never been fleeing. Every step led toward his destiny.' He became the anchor; his sacrifice left one final refuge. 'The end.'"
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 4,
+   "shot_type": "two-shot full body",
+   "visual_description": "Interior doorway split frame: father pulls son by the wrist toward exit; father has terror eyes.",
+   "camera_motion": "static, puppet walk cycle; cut at ~3.4 s",
+   "on_screen_text": "Late one night, Dad dragged me outside. / Run. It's coming."
+  },
+  {
+   "t_start": 4,
+   "t_end": 6,
+   "shot_type": "establishing exterior",
+   "visual_description": "Green Beetle-style car beside bushes at night.",
+   "camera_motion": "static, car slides out",
+   "on_screen_text": "Don't look back! He drove us to another city."
+  },
+  {
+   "t_start": 6,
+   "t_end": 10,
+   "shot_type": "insert POV",
+   "visual_description": "Hand holding a phone showing a Chinese news article (text blocks).",
+   "camera_motion": "static",
+   "on_screen_text": "Everyone in our complex died in their sleep. / Two families survived..."
+  },
+  {
+   "t_start": 10,
+   "t_end": 22,
+   "shot_type": "medium two-shot, alternating singles",
+   "visual_description": "Living room: son (neon jacket) and dad on a sofa, window behind; alternating framing on whoever speaks, eyebrow/mouth swaps.",
+   "camera_motion": "hard cuts between reframes every 2-4 s, slight push",
+   "on_screen_text": "dialogue lines (You knew they'd die... / Chen Jie, stop asking...)"
+  },
+  {
+   "t_start": 22,
+   "t_end": 33,
+   "shot_type": "medium on dad",
+   "visual_description": "Phone rings: red/yellow zigzag 'ringing' strokes beside the phone; dad answers, eyes go to white-ring terror.",
+   "camera_motion": "static with puppet arm move; zigzags flicker",
+   "on_screen_text": "His phone suddenly rang. / The caller ID terrified him..."
+  },
+  {
+   "t_start": 33,
+   "t_end": 43,
+   "shot_type": "shot/reverse-shot",
+   "visual_description": "Dad says they must leave; close-up of son's worried face at 0:36.",
+   "camera_motion": "cuts between singles, gentle push-in",
+   "on_screen_text": "They found us. / What is happening? / Somewhere completely safe."
+  },
+  {
+   "t_start": 43,
+   "t_end": 48,
+   "shot_type": "wide interior",
+   "visual_description": "Phone store with display tables; dad buys a phone (shop clerk in background).",
+   "camera_motion": "static",
+   "on_screen_text": "Dad drove us to a phone store. / He bought a new phone and SIM card."
+  },
+  {
+   "t_start": 48,
+   "t_end": 50,
+   "shot_type": "action micro-sequence",
+   "visual_description": "Dad's face, arm raised with phone, phone thrown, phone shattering on floor (4-5 cuts in ~1 s).",
+   "camera_motion": "rapid cuts, object motion",
+   "on_screen_text": "Then he smashed his old phone."
+  },
+  {
+   "t_start": 50,
+   "t_end": 61,
+   "shot_type": "insert + two-shot",
+   "visual_description": "Close insert of a paper note with a phone number (digits partially X'd out); son memorises; son's cheeks bulge eating a crumpled note (comic gag).",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "A phone number was written on it. / Then eat the note. / Then I swallowed the note."
+  },
+  {
+   "t_start": 61,
+   "t_end": 68,
+   "shot_type": "exterior + car interior",
+   "visual_description": "Green car on road; inside car, dad driving, son in passenger seat with seatbelt.",
+   "camera_motion": "static with background scroll",
+   "on_screen_text": "Dad never checked the rearview mirror. / But why couldn't I?"
+  },
+  {
+   "t_start": 68,
+   "t_end": 80,
+   "shot_type": "exterior forest",
+   "visual_description": "Car parked by forest; dad takes two backpacks from trunk; insert of open backpack with food, water, folding shovel.",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "They held food, water, and a folding shovel. / Chen Jie, stay close."
+  },
+  {
+   "t_start": 80,
+   "t_end": 90,
+   "shot_type": "flashback montage",
+   "visual_description": "Group of researchers in a lab with a whiteboard eye symbol; papers burned (big cartoon fire insert); dad signing a document with a grey-haired professor.",
+   "camera_motion": "hard cuts, flame animation",
+   "on_screen_text": "We found ancient rules never meant to be found. / All records were destroyed. / We signed lifelong secrecy agreements."
+  },
+  {
+   "t_start": 90,
+   "t_end": 99,
+   "shot_type": "walking two-shot",
+   "visual_description": "Dad and son walk through dark forest with backpacks.",
+   "camera_motion": "slow lateral drift / walk cycle",
+   "on_screen_text": "Those things never vanished. / We reached a wooden cabin."
+  },
+  {
+   "t_start": 99,
+   "t_end": 104,
+   "shot_type": "empty establishing interior",
+   "visual_description": "Bare cabin room: one table, two chairs, dim brown light.",
+   "camera_motion": "static, slow push",
+   "on_screen_text": "It had one table and two chairs."
+  },
+  {
+   "t_start": 104,
+   "t_end": 148,
+   "shot_type": "dialogue coverage",
+   "visual_description": "Cabin, dim amber light: dad and son seated by backpacks; long expository exchange covered by alternating singles and two-shots (~15 framings).",
+   "camera_motion": "cuts every 2-4 s, subtle push-ins",
+   "on_screen_text": "Why? Because rules spread. / We're marked, like a candle in the dark. / Remember when I said, 'Don't look back'?"
+  },
+  {
+   "t_start": 148,
+   "t_end": 158,
+   "shot_type": "insert + reveal",
+   "visual_description": "Son asleep slumped in chair; dark door with a hand knocking (impact starburst); dim figure of 'Uncle Li' (vest, grey hair) outside.",
+   "camera_motion": "static, impact flash",
+   "on_screen_text": "Knocking woke me. / Then a familiar voice came from outside."
+  },
+  {
+   "t_start": 158,
+   "t_end": 178,
+   "shot_type": "cross-cutting door standoff",
+   "visual_description": "Alternates between Uncle Li in near-darkness (red-tinted, face increasingly sinister in close-up) and dad blocking the son inside.",
+   "camera_motion": "cuts every ~2 s, push-in on Uncle Li",
+   "on_screen_text": "Don't open it! / You're the fake one! / I brought you egg yolk rice dumplings two days ago."
+  },
+  {
+   "t_start": 178,
+   "t_end": 190,
+   "shot_type": "dawn interior dialogue",
+   "visual_description": "Same cabin, lighter; dad explains he lied.",
+   "camera_motion": "cuts",
+   "on_screen_text": "Daylight drives it away briefly. / I lied to you."
+  },
+  {
+   "t_start": 190,
+   "t_end": 200,
+   "shot_type": "flashback inserts",
+   "visual_description": "Researcher group holding an old book; insert of an ancient journal with handwritten script; Professor Chen in grey.",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "We found an incomplete ancient journal. / Each rule corresponds to an unknown being."
+  },
+  {
+   "t_start": 200,
+   "t_end": 222,
+   "shot_type": "dialogue close-ups",
+   "visual_description": "Big close-ups of dad explaining (heavier brows, darker light), son reaction shots.",
+   "camera_motion": "cuts, push-ins",
+   "on_screen_text": "Break it, and its Rule Entity awakens. / It means copying and imitation."
+  },
+  {
+   "t_start": 222,
+   "t_end": 236,
+   "shot_type": "flashback + dialogue",
+   "visual_description": "Professor and two members; three silhouettes in a grey void ('vanished'); Lin Feng at a bookshelf with a journal.",
+   "camera_motion": "static",
+   "on_screen_text": "They triggered a rule worse than 'Don't look back'. / All three vanished with the lab."
+  },
+  {
+   "t_start": 236,
+   "t_end": 240,
+   "shot_type": "extreme close-up",
+   "visual_description": "Dad's face fills frame, terror eyes, as he opens the door.",
+   "camera_motion": "quick push-in",
+   "on_screen_text": "Dad opened the door."
+  },
+  {
+   "t_start": 240,
+   "t_end": 252,
+   "shot_type": "insert symbol",
+   "visual_description": "Forest tree with a carved white circle and red-pupilled eye; cuts to graphic close-up of the symbol on black.",
+   "camera_motion": "punch-in from wide to symbol",
+   "on_screen_text": "A strange symbol was carved into a tree. / The eye seemed to watch us."
+  },
+  {
+   "t_start": 252,
+   "t_end": 262,
+   "shot_type": "walking two-shot",
+   "visual_description": "Dad and son walk into forest; dad stops, looks off.",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "Soon, Dad suddenly stopped. / I saw a shadow move."
+  },
+  {
+   "t_start": 262,
+   "t_end": 290,
+   "shot_type": "running shot (held)",
+   "visual_description": "Dad dragging son through forest bushes at a run; flashback insert of Lin Feng with stacked books.",
+   "camera_motion": "looping run cycle, background parallax",
+   "on_screen_text": "It's following us! Run! / He called Rule Entities cosmic viruses. / Like a computer clogged with junk until it crashes."
+  },
+  {
+   "t_start": 290,
+   "t_end": 296,
+   "shot_type": "empty establishing",
+   "visual_description": "Deserted road with dashed lines, wall of weeds.",
+   "camera_motion": "slow pan",
+   "on_screen_text": "A deserted road lay ahead. / Weeds lined both sides."
+  },
+  {
+   "t_start": 296,
+   "t_end": 304,
+   "shot_type": "two-shot + dive",
+   "visual_description": "Son raises hand to flag car; dad yanks him down; dim green overlay as they lie in weeds.",
+   "camera_motion": "quick cuts, character slide",
+   "on_screen_text": "Great, a car. / Dad yanked me behind the weeds."
+  },
+  {
+   "t_start": 304,
+   "t_end": 321,
+   "shot_type": "vehicle inserts",
+   "visual_description": "Black SUV with circle-eye symbol on the door; symbol close-up; car halted; faces peeking from weeds (green tint).",
+   "camera_motion": "truck slides in/out, punch-in on symbol",
+   "on_screen_text": "A huge symbol covered the car. / No one got out or made a sound."
+  },
+  {
+   "t_start": 321,
+   "t_end": 360,
+   "shot_type": "dialogue coverage (dark forest)",
+   "visual_description": "Dad and son with backpacks; cleaner exposition; repeated close-ups of son's fearful reaction.",
+   "camera_motion": "cuts every 2-3 s",
+   "on_screen_text": "We call them Cleaners. / They don't save people. They erase all evidence. / We were prey between two monsters."
+  },
+  {
+   "t_start": 360,
+   "t_end": 380,
+   "shot_type": "walking / rest",
+   "visual_description": "Mountain path at dusk; son doubled over exhausted; dad hands bread; son eats.",
+   "camera_motion": "static, puppet gestures",
+   "on_screen_text": "I was completely exhausted. / Dad pulled bread from his pack."
+  },
+  {
+   "t_start": 380,
+   "t_end": 400,
+   "shot_type": "walking two-shot + dialogue",
+   "visual_description": "Following abandoned rail tracks; dad explains immune-system theory; son close-up with wide eyes.",
+   "camera_motion": "cuts",
+   "on_screen_text": "They're like nature's immune system. / Dad's explanation chilled me."
+  },
+  {
+   "t_start": 400,
+   "t_end": 406,
+   "shot_type": "insert",
+   "visual_description": "Brown stone cairn beside tracks, an empty tin can.",
+   "camera_motion": "static",
+   "on_screen_text": "Stones formed a marker beside the tracks."
+  },
+  {
+   "t_start": 406,
+   "t_end": 420,
+   "shot_type": "tunnel mouth + dialogue",
+   "visual_description": "Dark tunnel arch over the rails; dad and son debate going in.",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "We found a tunnel. / We have to."
+  },
+  {
+   "t_start": 420,
+   "t_end": 432,
+   "shot_type": "tunnel interior",
+   "visual_description": "Near-black; flashlight cone from dad's hand lighting the tracks; dad stops, listens, aims light upward.",
+   "camera_motion": "light cone moves",
+   "on_screen_text": "Dad led me inside with a flashlight. / Listen carefully."
+  },
+  {
+   "t_start": 432,
+   "t_end": 442,
+   "shot_type": "monster reveal",
+   "visual_description": "Grey ceiling covered with hanging dark bat-like creatures with white teeth, lit by the beam; two shriek and fall.",
+   "camera_motion": "slow tilt along ceiling, shake",
+   "on_screen_text": "Countless monsters hung upside down above us. / Two caught in the light suddenly shrieked."
+  },
+  {
+   "t_start": 442,
+   "t_end": 462,
+   "shot_type": "chase sequence",
+   "visual_description": "Running two-shot in the beam; swarm silhouette behind; dad falls clutching flashlight; son runs out in tears; black frame with yellow zigzag 'scream' graphic.",
+   "camera_motion": "fast cuts, run cycles",
+   "on_screen_text": "We've alerted them. Run! / Chen Jie, leave me! Run! / A scream echoed behind me."
+  },
+  {
+   "t_start": 462,
+   "t_end": 479,
+   "shot_type": "return + wound insert",
+   "visual_description": "Son crying at tunnel exit; dad reappears; insert of arm with red claw scratches; walking on at dusk.",
+   "camera_motion": "cuts",
+   "on_screen_text": "Dad suddenly appeared. / But his arm really had several wounds."
+  },
+  {
+   "t_start": 479,
+   "t_end": 494,
+   "shot_type": "location establishing",
+   "visual_description": "Orange/cream abandoned train carriage; inserts of dead campfire and stone stove; pair looking around.",
+   "camera_motion": "static, cuts",
+   "on_screen_text": "The train car stood in an abandoned camp. / There was a dead campfire."
+  },
+  {
+   "t_start": 494,
+   "t_end": 505,
+   "shot_type": "group reveal",
+   "visual_description": "Inside dark carriage: stout bald man in pink cardigan with rifle, red-haired youth, young woman; close-ups on rifle and faces.",
+   "camera_motion": "cuts, push-in on rifle",
+   "on_screen_text": "Three people were already inside. / He held a hunting rifle."
+  },
+  {
+   "t_start": 505,
+   "t_end": 566,
+   "shot_type": "standoff coverage",
+   "visual_description": "Alternating group shot (rifle pointed) and dad/son two-shot; extreme close-ups of Uncle Ma's face (heavy frown) during interrogation; shocked group reaction.",
+   "camera_motion": "cuts every 2 s, big face close-ups",
+   "on_screen_text": "Who are you? / Travelers carrying a military shovel. / You entered that tunnel and survived?"
+  },
+  {
+   "t_start": 566,
+   "t_end": 584,
+   "shot_type": "care + introductions",
+   "visual_description": "Insert of hands treating dad's arm wound with a swab; group shot with names.",
+   "camera_motion": "static",
+   "on_screen_text": "He treated Dad's wounds. / This is Lili. She's my daughter."
+  },
+  {
+   "t_start": 584,
+   "t_end": 625,
+   "shot_type": "flashback village",
+   "visual_description": "Night village rooftop with a loudspeaker emitting yellow zigzags; villager covering ears; people collapsed on floor; daytime empty village; back to group reactions.",
+   "camera_motion": "cuts, zigzag flicker",
+   "on_screen_text": "The village speakers activated at night. / Anyone hearing it at night vanished by morning."
+  },
+  {
+   "t_start": 625,
+   "t_end": 657,
+   "shot_type": "map + alliance coverage",
+   "visual_description": "Wang Qiang holds a folded map; group two-shots; Uncle Ma close-up sets conditions.",
+   "camera_motion": "cuts every 2-3 s",
+   "on_screen_text": "The northwest wasteland has weak magnetic signals. / Five are stronger than two."
+  },
+  {
+   "t_start": 657,
+   "t_end": 668,
+   "shot_type": "group walk",
+   "visual_description": "Five walk in a line through green forest; Uncle Ma with rifle in front.",
+   "camera_motion": "walk cycles, cuts",
+   "on_screen_text": "Uncle Ma led with his loaded rifle."
+  },
+  {
+   "t_start": 668,
+   "t_end": 690,
+   "shot_type": "evidence inserts",
+   "visual_description": "Faded platform sign; smoke columns from a crater; group reaction; abandoned black SUV with open door.",
+   "camera_motion": "static, smoke loop",
+   "on_screen_text": "Beside it was a huge smoking crater. / That afternoon, we found an abandoned car."
+  },
+  {
+   "t_start": 690,
+   "t_end": 703,
+   "shot_type": "device insert",
+   "visual_description": "Orange rugged radio-like device with green screen on car seat; Wang Qiang tries it.",
+   "camera_motion": "static",
+   "on_screen_text": "A device like a radio sat on the seat."
+  },
+  {
+   "t_start": 703,
+   "t_end": 722,
+   "shot_type": "sunset cave + drone",
+   "visual_description": "Orange sunset sky over hills; group in cave mouth; small black quadcopter flies across the sunset.",
+   "camera_motion": "drone moves across frame",
+   "on_screen_text": "At dusk, we found a cave for the night. / As he spoke, a drone reached the cave."
+  },
+  {
+   "t_start": 722,
+   "t_end": 739,
+   "shot_type": "reaction close-ups",
+   "visual_description": "Tight group close-ups, frightened faces in darkness.",
+   "camera_motion": "cuts",
+   "on_screen_text": "They're only marking us. / Fear held us in a tight net."
+  },
+  {
+   "t_start": 739,
+   "t_end": 752,
+   "shot_type": "bridge establishing",
+   "visual_description": "Orange sky, rope bridge spanning a canyon over blue water; group on bridge.",
+   "camera_motion": "static",
+   "on_screen_text": "Only one wooden bridge crossed it."
+  },
+  {
+   "t_start": 752,
+   "t_end": 770,
+   "shot_type": "trap reveal",
+   "visual_description": "Figures in red hazmat suits and gas masks with rifles behind, then ahead; wide shot of the group trapped mid-bridge.",
+   "camera_motion": "cuts, push-in on masks",
+   "on_screen_text": "They wore protective suits. / More Cleaners appeared ahead."
+  },
+  {
+   "t_start": 770,
+   "t_end": 787,
+   "shot_type": "twist dialogue",
+   "visual_description": "Lead cleaner close-ups (red suit, black mask) vs dad's calm sorrowful face.",
+   "camera_motion": "cuts",
+   "on_screen_text": "Target locked. Chen Dashan, sole Chimera survivor. / Execute final cleanup protocol."
+  },
+  {
+   "t_start": 787,
+   "t_end": 826,
+   "shot_type": "climax VFX",
+   "visual_description": "Blue-glowing weapon tips; dad shaking with white smoke; dad's eyes glow cyan; blue beams hit and deflect; dad turns translucent over the orange sky.",
+   "camera_motion": "cuts every ~2 s, glow pulses, opacity fade",
+   "on_screen_text": "His body deflected them all. / He's awakening. / Then he said three words: 'Don't look back.'"
+  },
+  {
+   "t_start": 826,
+   "t_end": 834,
+   "shot_type": "jump / water",
+   "visual_description": "Blue sky and water gradient (falling), then sandy shore.",
+   "camera_motion": "vertical pan",
+   "on_screen_text": "Jumping gave us one chance. / I woke on a sandy shore."
+  },
+  {
+   "t_start": 834,
+   "t_end": 856,
+   "shot_type": "beach aftermath",
+   "visual_description": "Lili unconscious on sand; Chen Jie and Wang Qiang with map; Lili crying, recovering.",
+   "camera_motion": "cuts",
+   "on_screen_text": "Uncle Ma was gone. / She broke down crying."
+  },
+  {
+   "t_start": 856,
+   "t_end": 862,
+   "shot_type": "interior establishing",
+   "visual_description": "Empty grey weather-station room with dusty sofa and table.",
+   "camera_motion": "slow pan",
+   "on_screen_text": "Inside, we found no one. / Thick dust covered every piece of furniture."
+  },
+  {
+   "t_start": 862,
+   "t_end": 907,
+   "shot_type": "held document insert (longest shot, ~42 s)",
+   "visual_description": "Hands holding an aged journal page covered in handwritten Chinese; held while the full reveal is read over it.",
+   "camera_motion": "near static, slight push",
+   "on_screen_text": "The journal began: 'I was wrong.' / They are the source code beneath our universe. / Chen Dashan is that anchor."
+  },
+  {
+   "t_start": 907,
+   "t_end": 919,
+   "shot_type": "final group shot",
+   "visual_description": "Chen Jie (crying, hand to face) holding the journal, Lili and Wang Qiang beside him, portrait on wall behind.",
+   "camera_motion": "static",
+   "on_screen_text": "At last, I understood everything. / His sacrifice left survivors one final refuge."
+  }
+ ],
+ "pacing": {
+  "words_total": 3326,
+  "words_per_min": 217,
+  "narration_density": "Continuous narration from 0.18 s to 15:16; almost no pauses, no music-only breaks. Lines average ~1.9 s (482 caption cues). First-person narrator voice reads both narration and the quoted dialogue.",
+  "avg_shot_length_s": 2.9,
+  "shot_count_detected": 309,
+  "shot_rhythm": "Visual change every ~2-3 s throughout (14-27 per minute), usually a reframe of the same 2D scene matched to each subtitle line; action moments compress to 4-5 cuts per second (phone smash 0:48). One deliberate exception: the 42 s static journal insert for the final reveal, where the words carry everything.",
+  "re_hook_interval_s": "New threat, reveal or set piece every ~30-60 s: 0:07 mass death, 0:22 phone call, 2:28 knocking imposter, 4:04 eye symbol, 5:04 cleaner car, 7:12 tunnel monsters, 8:16 rifle standoff, 12:00 drone, 12:34 trap, 13:15 transformation, 14:24 journal truth.",
+  "structure_timing_pct": "Hook 0-1%; inciting proof by 1%; quest objective set at 26% (3:56); second antagonist at 33%; midpoint ally group at 54%; trap/climax 82-90%; final reveal 94-99%."
+ },
+ "techniques_worth_copying": [
+  "Plant a one-line rule in the first 3 s ('Don't look back') and make it the last spoken line of the climax: a closed loop that rewards watching 15 minutes.",
+  "Hook = first-person in medias res + unnamed threat ('It') + proof via casualty count within 8 s; no intro, no title card.",
+  "Withheld-answer dialogue: the parent knows and refuses ('some things are safer left unknown'), releasing lore in 3-4 scheduled drops spaced through the walk.",
+  "Rule-horror logic: each rule = trigger + consequence + countermeasure (look back -> marked; hear the sound -> vanish; cotton in ears + cellar). Easy to invent original rules in the same shape.",
+  "Escalating two-front threat: supernatural entity plus a human 'cleaner' faction that is 'worse because they're human'; recurring visual sigil (eye-in-circle) ties both and becomes the series' mark.",
+  "Travel-quest skeleton: named destination + named mentor (Lin Feng, weather station) set at ~25%, then location-of-the-week set pieces (cabin, road, tunnel, train camp, cave, bridge) every ~60 s.",
+  "Concrete, homely detail sells the imposter scare (egg yolk rice dumplings two days ago).",
+  "Fake-out death (dad falls in tunnel, scream, reappears wounded) mid-video, then a real sacrifice at the climax.",
+  "Twist via antagonist reading the hero's file aloud ('Target locked. <full name>, sole <project> survivor').",
+  "Final reveal through a found document read verbatim over a single held insert; reframes the whole journey ('he had never been fleeing').",
+  "One shot per subtitle line: cheap reframes of the same puppet set keep visual change ~every 2.9 s.",
+  "Sound-effect graphics instead of animation: yellow/red zigzag lines for ringing, screaming, noise; starburst for knocks.",
+  "Neon-jacket protagonist = instant recognition across thumbnails and an episodic cast tagged by name in the caption."
+ ],
+ "code_only_remake_needs": {
+  "format": "1080x1920 canvas, black background, centred rounded-corner ~4:3 story panel (~1040x760, radius ~24 px) in the middle third; subtitle line inside the panel bottom. Leaves top/bottom black for the platform UI. Easy in Remotion.",
+  "characters": "Flat cutout puppets in SVG: big-head chibi proportions (head ~1/3 of height), pale or tan skin, black hair shapes, flat clothing fills with simple shading; swappable eye sets (normal, narrowed, white-ring terror eyes with tiny pupils, glowing cyan) and brows/mouths for expressions; jointed arms for point/pull/raise/hand-to-face; 2-3 frame walk/run cycle with body bob. Need ~5 characters with one signature colour each (neon jacket, black tee, pink cardigan, red hair, denim).",
+  "backgrounds": "~20 flat SVG sets with muted palettes: living room with window, phone store, car interior/exterior, forest (dark green layered bushes), cabin interior (amber), dark doorway, deserted road, rail tracks, tunnel (near black + light cone mask), train carriage, village rooftop with loudspeaker, cave/sunset (orange gradient), canyon bridge, beach, dusty station interior. Parallax layers for walking/running.",
+  "inserts_and_props": "Phone with article text, paper note, backpack contents, ancient journal page (procedural handwritten glyph rows on parchment), eye-in-circle sigil, black SUV, radio device, drone, hazmat figures, weapons with glowing tips, claw-scratch wound, campfire, stone cairn.",
+  "camera": "Virtual camera per shot: hard cut between reframes of the same scene on every subtitle line, slow 2-5% push-in during holds, punch-in to inserts, occasional slow pan; screen shake for impacts; fast 4-5 cut action bursts.",
+  "fx": "SVG zigzag 'sound' strokes (ringing, scream, noise) flickering at 6-8 fps; starburst impact; glow (feGaussianBlur) for cyan eyes/weapons and beams; opacity fade for the sacrifice; colour-tint overlays (green for hiding, red for the imposter, orange sky for climax); smoke loops; flashlight cone via radial mask.",
+  "audio_text": "Original first-person script ~3,300 words for 15 min (~217 wpm; Kokoro TTS at speed ~1.15-1.25), one subtitle line per TTS sentence with word timings driving cut points; light ambient drone + stingers on reveals. Captions small white sans with soft shadow (not karaoke style).",
+  "pipeline": "Storyboard JSON: list of shots {bg, characters with pose/expression/position, insert, camera move, fx, line}. Because shots are ~1 per line, the storyboard can be generated from the script automatically with a scene/location state machine; the key manual art cost is the puppet rig + ~20 backgrounds, then reuse across episodes."
+ }
+}

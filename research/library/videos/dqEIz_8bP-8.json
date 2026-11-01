@@ -1,0 +1,667 @@
+{
+ "id": "dqEIz_8bP-8",
+ "url": "https://www.youtube.com/watch?v=dqEIz_8bP-8",
+ "platform": "youtube",
+ "niche": "horror",
+ "channel": "lehwh7",
+ "title": "Late at night a note slid under my dorm door#chenjie #animereconmendations #scary #stories the real",
+ "upload_date": "2026-06-13",
+ "duration": 660.87,
+ "views": 17676,
+ "likes": 266,
+ "comments": 15,
+ "subs": 18500,
+ "channel_median_views": 17535,
+ "outlier_score": 1.01,
+ "role": "control",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/dqEIz_8bP-8.{mp4,jpg,webp,en-orig.vtt,en.vtt,info.json,cuts.txt,transcript.txt}, frames in fr_dqEIz_8bP-8/ (160px) and fr_dqEIz_8bP-8/big/ (240px)",
+  "transcript_source": "YouTube auto-captions en-orig (ASR of an English dub). Saved to research/library/transcripts/dqEIz_8bP-8.txt. Names are transcribed inconsistently (Wang Qiang = Wang Chang/Wang Xiao/Wang Xiu; Gao Shang = Gao Xiang/Gao Yang; Liu Meng = Lu Meng; Chen Jie = Chen Zhi). Narrator gender references also flip (her/him for Wang Qiang) - a dub/translation artefact.",
+  "frames": "sampled every 2 s (330 frames); contact sheet research/library/sheets/dqEIz_8bP-8.jpg is 15 cols x 22 rows, row-major, 2 s per tile, labelled m:ss",
+  "video": "Vertical 9:16 long-form upload (not a Short, 11 min), downloaded 480x854 h264 30fps (fmt 135) + opus->aac; 31 MB. Layout: ~1:1 square crop of a 16:9 animation centred at y~22-78% of the frame; burned-in caption sits on the black band above the picture (y~12-20%); cyan italic '@lehwh7' watermark bottom-right (y~95%).",
+  "hard_cuts_detected": "ffmpeg scene>0.3: 96 cuts (avg 6.9 s). Many further changes are reframes/zooms within the same background and pop-in inserts (phone screens, note close-ups), so the true visual-change count by inspection is ~130-150 (avg ~4.5-5 s).",
+  "audio": "Continuous bed: silencedetect (-35 dB, 0.4 s) finds zero silences. Single fast English dub narration, character dialogue read in-line without attribution tags, [music] tension bed throughout. Listened to via captions only; voice count not verified by ear.",
+  "metadata_snapshot": "yt-dlp on Spark 2026-11-01 ~09:10 UTC (no JS runtime; formats still available up to 1080p).",
+  "provenance": "English-dub repost of a Chinese 2D cut-out animated suspense series (Chinese text on notes/phone screens). Study structure only; do not reuse story, characters, art or audio."
+ },
+ "title_pattern": {
+  "template": "Late at night a [ordinary object] [did something] [to my private space] + #[protagonist-name] #[anime-recommendation tag] #scary #stories",
+  "notes": "First-person incident sentence (time-of-night + mundane object + intimate threshold: under my dorm door). No question, no number; the menace is implied by the ordinariness. Title equals the first spoken line and the thumbnail text, so title/thumb/hook are one promise. Hashtags include the protagonist's name (#chenjie) to tie into a series, plus a misspelled anime-recommendation tag and generic #scary #stories. Trailing 'the real' is a truncated/garbled tag - sloppy repost metadata. As a control (outlier 1.01) this is the channel's baseline formula, not a breakout."
+ },
+ "thumbnail": {
+  "composition": "16:9 YouTube thumb (1280x720), split ~40/60. Left: six stacked lines of headline text on dark wall. Centre: dark door with a glowing yellow light-line along the bottom gap, a lined paper note on the floor in front of it. Right: protagonist (yellow jacket, white tee) standing mid-shot, facing camera, looking sideways at the note.",
+  "text": "LATE AT / NIGHT / A NOTE GET / SLID / UNDER / MY DOOR - rough hand-brush all-caps; NIGHT in yellow with yellow brush underline, SLID in red, rest white. The note itself reads 'I'M WATCHING YOU.' in red (thumbnail-only line; the in-video note says something else). Grammar error 'GET' left in.",
+  "colours": "Near-black/charcoal greys for the room; saturated yellow (jacket, door-gap glow, NIGHT) and red (SLID, arrow, note text) as the only accents. Yellow ties the eye from headline to door gap to hero.",
+  "subject_scale_contrast": "Large hero (~85% of frame height) vs a tiny note at floor level; a thick red curved arrow bridges the text block to the note so the small object becomes the focal point. Hero's wide ringed eyes and tight mouth sell dread without showing a monster.",
+  "why_it_works": "Mundane-threat clarity: one object, one threshold, one scared face, readable at phone size. The thumb adds a scarier line than the video ('I'M WATCHING YOU') to raise stakes. Arrow + glowing gap is classic YouTube attention routing. Weakness: generic, nothing unseen/withheld, no face of the antagonist - consistent with a baseline (1.0x) performer."
+ },
+ "hook": {
+  "verbatim_0_5s": "Late at night, a note gets slipped under the dorm door. Don't make a sound. Your roommates are all faking sleep.",
+  "verbatim_5_10s": "I figure it's just someone's prank, so I don't pay it any mind. But right as I'm about to get some rest, a voice comes from the top bunk.",
+  "device": "Cold-open on the inciting object + the note read aloud as a direct imperative to the viewer ('Don't make a sound') - the warning doubles as second-person address. Paranoia premise in 5 s ('your roommates are faking sleep') with zero setup. Then dismissal-and-'But right as' turn at 7.8 s, and a new threat (voice from the top bunk calling her name) at ~10 s.",
+  "visual": "0-1.4 s protagonist standing by door in dark dorm, note slides in at floor; 2.4 s hard cut to full-frame insert of the note (red Chinese brush text on grid paper); 5 s protagonist holding note, wide eyes; 8-10 s cut to bottom-bunk lying shot. Caption appears phrase by phrase above the picture from frame 0."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 5.3,
+   "beat_type": "hook / cold open",
+   "summary": "Note slid under dorm door; its text read aloud: don't make a sound, your roommates are faking sleep."
+  },
+  {
+   "t_start": 5.3,
+   "t_end": 10,
+   "beat_type": "dismissal + turn",
+   "summary": "Protagonist shrugs it off as a prank; 'But right as I'm about to get some rest' - a voice from the top bunk."
+  },
+  {
+   "t_start": 10,
+   "t_end": 28,
+   "beat_type": "inciting threat",
+   "summary": "The voice calls Chen Jie's name; top-bunk owner Wang Qiang should be at an internet cafe all night and it doesn't sound like her; bed boards creak; she plays dead; creaking stops."
+  },
+  {
+   "t_start": 28,
+   "t_end": 60,
+   "beat_type": "escalation via phone evidence",
+   "summary": "Under the covers she checks the dorm group chat (Wang Qiang confirmed away) - so who is up there? Roommate Gao Shang texts 'so you aren't asleep?'; a breath blows on her scalp; imagined shot of a figure leaning down from the top bunk."
+  },
+  {
+   "t_start": 60,
+   "t_end": 84,
+   "beat_type": "near-miss + uneasy calm",
+   "summary": "Unknown caller - she declines; creaking resumes then stops; she listens to steady breathing, wonders who wrote the note, drifts off."
+  },
+  {
+   "t_start": 84,
+   "t_end": 97,
+   "beat_type": "shock reveal (body)",
+   "summary": "Next morning Liu Meng wakes her: Gao Shang is dead in bed in a pool of blood."
+  },
+  {
+   "t_start": 97,
+   "t_end": 118,
+   "beat_type": "procedural transition + comic beat",
+   "summary": "No signal; a roommate's satellite phone calls police (one-line comic relief); police arrive, rule homicide, take three roommates for statements."
+  },
+  {
+   "t_start": 118,
+   "t_end": 160,
+   "beat_type": "investigation / clue loss",
+   "summary": "Statements at the station: the note she pocketed has vanished. She waits outside, reasons through suspects: locked door, she's a light sleeper, so Liu Meng or her."
+  },
+  {
+   "t_start": 160,
+   "t_end": 200,
+   "beat_type": "misdirect",
+   "summary": "Liu Meng accuses Wang Qiang (gaming fight, red-faced). Police: CCTV shows Wang Qiang never went to the cafe and has no alibi; he's held as suspect."
+  },
+  {
+   "t_start": 200,
+   "t_end": 232,
+   "beat_type": "reinterpretation",
+   "summary": "Back in the dorm she rereads Gao Shang's text and decides Wang Qiang was testing her - had she made a sound she'd be dead too."
+  },
+  {
+   "t_start": 232,
+   "t_end": 258,
+   "beat_type": "twist (repeat motif)",
+   "summary": "A second note with the same words slides under the door - while Wang Qiang is in custody. Killer must be someone else; suspicion shifts to Liu Meng."
+  },
+  {
+   "t_start": 258,
+   "t_end": 298,
+   "beat_type": "reversal of premise",
+   "summary": "Sleepless night; morning at the station: autopsy says single wrist wound, blade in pocket, negative posts - suicide. Wang Qiang cleared but held for more questions."
+  },
+  {
+   "t_start": 298,
+   "t_end": 302,
+   "beat_type": "mid-video cliffhanger",
+   "summary": "At the bus stop the exact same voice from that night speaks behind her: 'Chen Jie, why are you still here?' - she turns and passes out."
+  },
+  {
+   "t_start": 302,
+   "t_end": 330,
+   "beat_type": "false relief",
+   "summary": "Wakes in hospital; it was Wang Qiang who brought her in, she misheard. Police call all three back."
+  },
+  {
+   "t_start": 330,
+   "t_end": 380,
+   "beat_type": "accusation flip",
+   "summary": "Wang Qiang admits he never went to the cafe but won't say where. Liu Meng reveals he heard someone calling her name that night, then accuses Chen Jie of staging everything: the note's handwriting matches hers."
+  },
+  {
+   "t_start": 380,
+   "t_end": 418,
+   "beat_type": "isolation + protagonist theory",
+   "summary": "Separated for questioning; she theorises Liu Meng drove Gao Shang to suicide and is framing her; police say no evidence, send her home."
+  },
+  {
+   "t_start": 418,
+   "t_end": 440,
+   "beat_type": "motif escalation",
+   "summary": "2 a.m. alone: a third identical note appears on her own bed."
+  },
+  {
+   "t_start": 440,
+   "t_end": 470,
+   "beat_type": "climax setup / suspense set-piece",
+   "summary": "Creaking from the empty top bunk; phone dead; she peeks - top bunk empty - leaps for the power bank; the door lock starts clicking."
+  },
+  {
+   "t_start": 470,
+   "t_end": 500,
+   "beat_type": "false safety",
+   "summary": "She texts Wang Qiang; his alert sounds right outside the door; relieved, she lets him in ('If it were Liu Meng, I wouldn't')."
+  },
+  {
+   "t_start": 500,
+   "t_end": 512,
+   "beat_type": "jump-scare reveal",
+   "summary": "Drifting off, creaking again: Wang Qiang is leaning over the top-bunk edge staring at her, holding a knife."
+  },
+  {
+   "t_start": 512,
+   "t_end": 570,
+   "beat_type": "villain monologue / backstory reveal",
+   "summary": "Motive: his sister Wang Lili, whom Chen Jie got pregnant, slandered and drove to suicide. He pushed the fragile Gao Shang to kill himself, wrote the first note to keep her hidden under the covers, took it back; Liu Meng forged the later notes in her handwriting after Wang Qiang lied to him."
+  },
+  {
+   "t_start": 570,
+   "t_end": 605,
+   "beat_type": "final threat",
+   "summary": "No cameras in the new building, Liu Meng's prints on the notes - he'll kill her and frame Liu Meng. Raises the knife."
+  },
+  {
+   "t_start": 605,
+   "t_end": 640,
+   "beat_type": "rescue + sting reveal",
+   "summary": "Police and Liu Meng break in. The back of the bed note read 'Wang Qiang is the one who pushed Gao Shang to suicide' - a hidden camera was installed to get his confession."
+  },
+  {
+   "t_start": 640,
+   "t_end": 661,
+   "beat_type": "explanation + bitter coda",
+   "summary": "Liu Meng explains his suspicion and the staged fight. Wang Qiang: the camera also caught Chen Jie admitting fault. Both face legal consequences. 'The end.'"
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 2.4,
+   "shot_type": "wide, establishing",
+   "visual_description": "Protagonist (yellow jacket) standing in dark dorm by the door; paper note slides in under the door at floor level",
+   "camera_motion": "static",
+   "on_screen_text": "a note gets slipped under the dorm door."
+  },
+  {
+   "t_start": 2.4,
+   "t_end": 5,
+   "shot_type": "insert close-up",
+   "visual_description": "Full-frame lined/grid paper note with red Chinese brush characters (the warning)",
+   "camera_motion": "slight push-in",
+   "on_screen_text": "Don't make a sound. / Your roommates are all faking sleep."
+  },
+  {
+   "t_start": 5,
+   "t_end": 8,
+   "shot_type": "medium close-up",
+   "visual_description": "Protagonist holding the note at chest height, wide ringed eyes",
+   "camera_motion": "static, alternating two framings",
+   "on_screen_text": "I figure it's just someone's prank. / So I don't pay it any mind."
+  },
+  {
+   "t_start": 8,
+   "t_end": 20,
+   "shot_type": "close-up, lying",
+   "visual_description": "Bottom-bunk side view: protagonist's head on pillow under the top-bunk board; eyes snap open; yellow jagged 'shock' burst at 0:18",
+   "camera_motion": "static, small punch-in on 'heart jumps'",
+   "on_screen_text": "My heart immediately jumps into my throat. / why aren't you answering me?"
+  },
+  {
+   "t_start": 20,
+   "t_end": 28,
+   "shot_type": "close-up, lying",
+   "visual_description": "Same bunk framing, eyes squeezed shut pretending to sleep",
+   "camera_motion": "static",
+   "on_screen_text": "pretending to be fast asleep / The creaking suddenly stops."
+  },
+  {
+   "t_start": 28,
+   "t_end": 32,
+   "shot_type": "medium, overhead-ish",
+   "visual_description": "Protagonist under translucent blanket, phone glowing in hand",
+   "camera_motion": "static",
+   "on_screen_text": "I pull my head under the covers"
+  },
+  {
+   "t_start": 32,
+   "t_end": 36,
+   "shot_type": "insert, phone UI",
+   "visual_description": "Phone screen pop-in (left half): dorm group chat with Chinese message, over blanket shot",
+   "camera_motion": "pop-in",
+   "on_screen_text": "the group that / internet cafe"
+  },
+  {
+   "t_start": 36,
+   "t_end": 42,
+   "shot_type": "medium",
+   "visual_description": "Under-blanket shot, worried face, phone held up",
+   "camera_motion": "static",
+   "on_screen_text": "And why does her voice sound different?"
+  },
+  {
+   "t_start": 42,
+   "t_end": 46,
+   "shot_type": "insert, phone UI",
+   "visual_description": "Private chat screen from Gao Shang pops in",
+   "camera_motion": "pop-in",
+   "on_screen_text": "my roommate Gao Xiang suddenly texts me."
+  },
+  {
+   "t_start": 46,
+   "t_end": 56,
+   "shot_type": "medium -> close-up",
+   "visual_description": "Under-blanket, wind/breath streaks across her hair; body trembles",
+   "camera_motion": "small shake",
+   "on_screen_text": "Suddenly I feel a gust of air / someone is blowing on me"
+  },
+  {
+   "t_start": 56,
+   "t_end": 60,
+   "shot_type": "imagined POV",
+   "visual_description": "Dark silhouette with red glowing eyes leaning down from the top-bunk edge over the sleeper",
+   "camera_motion": "static, darkened grade",
+   "on_screen_text": "I can picture it"
+  },
+  {
+   "t_start": 60,
+   "t_end": 72,
+   "shot_type": "close-up",
+   "visual_description": "Hand holding ringing phone (fruit-logo case) over blanket; she declines; top-board creaks",
+   "camera_motion": "static, slight shake on creak",
+   "on_screen_text": "Who's calling at a time like this? / I immediately decline the call."
+  },
+  {
+   "t_start": 72,
+   "t_end": 84,
+   "shot_type": "close-up, lying",
+   "visual_description": "Pillow close-up, eyes darting; phone pops up from frame edge",
+   "camera_motion": "static",
+   "on_screen_text": "I listen carefully / All I hear are even steady breaths."
+  },
+  {
+   "t_start": 84,
+   "t_end": 90,
+   "shot_type": "medium two-shot",
+   "visual_description": "Liu Meng (black jacket) standing by the bunk shaking her awake",
+   "camera_motion": "static",
+   "on_screen_text": "Chen Jie, wake up."
+  },
+  {
+   "t_start": 90,
+   "t_end": 96,
+   "shot_type": "wide, reveal",
+   "visual_description": "Body of Gao Shang lying on a bed, red-and-blue clothes, red blood pool",
+   "camera_motion": "slow pan",
+   "on_screen_text": "There lying in bed / A pool of blood under"
+  },
+  {
+   "t_start": 96,
+   "t_end": 108,
+   "shot_type": "medium two-shot",
+   "visual_description": "Protagonist with phone vs Liu Meng holding a satellite phone",
+   "camera_motion": "static, cuts between singles",
+   "on_screen_text": "Wasn't Gao Xiang fine just yesterday?"
+  },
+  {
+   "t_start": 108,
+   "t_end": 118,
+   "shot_type": "group shot",
+   "visual_description": "Two police officers in hi-vis vests with the roommates in the dorm",
+   "camera_motion": "static",
+   "on_screen_text": "Preliminary findings suggest the victim died"
+  },
+  {
+   "t_start": 118,
+   "t_end": 140,
+   "shot_type": "medium shots, station",
+   "visual_description": "Police desk (maroon desk, blue stripe wall); officer seated, protagonist standing; alternating singles",
+   "camera_motion": "cut between singles",
+   "on_screen_text": "I can't find it. / I clearly put it in"
+  },
+  {
+   "t_start": 140,
+   "t_end": 152,
+   "shot_type": "medium, corridor",
+   "visual_description": "Protagonist alone against station wall, hand to chin thinking",
+   "camera_motion": "static",
+   "on_screen_text": "the only suspects are"
+  },
+  {
+   "t_start": 152,
+   "t_end": 158,
+   "shot_type": "insert, location",
+   "visual_description": "Dorm door from inside, closed (flashback reasoning)",
+   "camera_motion": "static",
+   "on_screen_text": "Opening the door would"
+  },
+  {
+   "t_start": 158,
+   "t_end": 180,
+   "shot_type": "two-shot",
+   "visual_description": "Liu Meng and protagonist talking outside station; reaction cut-ins of protagonist's wide eyes",
+   "camera_motion": "cut between two-shot and singles",
+   "on_screen_text": "I suspect Wang Qiang is the killer. / Do you have any proof?"
+  },
+  {
+   "t_start": 180,
+   "t_end": 200,
+   "shot_type": "medium",
+   "visual_description": "Police officer comes out; close-ups on officer then on Liu Meng's smug reaction",
+   "camera_motion": "punch-ins",
+   "on_screen_text": "We've checked the internet cafe's / He's just a suspect for"
+  },
+  {
+   "t_start": 200,
+   "t_end": 236,
+   "shot_type": "medium, dorm",
+   "visual_description": "Protagonist in dorm by bunk, hand on chin; phone chat screen pops in to the left",
+   "camera_motion": "slow push-ins, pop-in insert",
+   "on_screen_text": "As for why I didn't wake up / What does that"
+  },
+  {
+   "t_start": 236,
+   "t_end": 240,
+   "shot_type": "medium",
+   "visual_description": "Protagonist looking at phone, realisation face",
+   "camera_motion": "static",
+   "on_screen_text": "If I had made any noise,"
+  },
+  {
+   "t_start": 240,
+   "t_end": 244,
+   "shot_type": "insert",
+   "visual_description": "Door bottom: a second note slides in",
+   "camera_motion": "static",
+   "on_screen_text": "another note gets slipped under the door."
+  },
+  {
+   "t_start": 244,
+   "t_end": 252,
+   "shot_type": "medium + insert",
+   "visual_description": "She holds the new note; full-frame insert of identical red Chinese warning text",
+   "camera_motion": "cut to insert",
+   "on_screen_text": "Don't make a sound."
+  },
+  {
+   "t_start": 252,
+   "t_end": 274,
+   "shot_type": "medium close-up",
+   "visual_description": "Holding note, back to wall; dorm at night, darker grade",
+   "camera_motion": "static, small zooms",
+   "on_screen_text": "My back goes cold. / I can't help but think of Liu Meng."
+  },
+  {
+   "t_start": 274,
+   "t_end": 296,
+   "shot_type": "medium, station",
+   "visual_description": "Station desk: officer explains autopsy, holds note; protagonist reaction singles",
+   "camera_motion": "cut between singles",
+   "on_screen_text": "(no caption on several shots)"
+  },
+  {
+   "t_start": 296,
+   "t_end": 302,
+   "shot_type": "medium, exterior",
+   "visual_description": "Protagonist at a blue bus-stop/doorway, startled turn",
+   "camera_motion": "quick push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 302,
+   "t_end": 318,
+   "shot_type": "medium, hospital",
+   "visual_description": "Hospital bed; Wang Qiang (red/orange hair, white-black hoodie) standing beside her",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 318,
+   "t_end": 336,
+   "shot_type": "medium, hospital",
+   "visual_description": "Phone call close-ups (phone with fruit logo held to face); Liu Meng enters",
+   "camera_motion": "cut between singles",
+   "on_screen_text": "WE / AND LIU MENG ALSO GET CALLS TO COME IN (caption style switches to ALL CAPS word-by-word from here)"
+  },
+  {
+   "t_start": 336,
+   "t_end": 360,
+   "shot_type": "medium, station",
+   "visual_description": "Liu Meng (black jacket) talking at station, gesturing",
+   "camera_motion": "static",
+   "on_screen_text": "I COULDN'T SLEEP BECAUSE / THEN I HEARD CHEN JIE TOSSING"
+  },
+  {
+   "t_start": 360,
+   "t_end": 380,
+   "shot_type": "medium two-shot",
+   "visual_description": "Protagonist defends; Liu Meng holds note out toward her; she takes it",
+   "camera_motion": "cut between singles",
+   "on_screen_text": "I REALLY WASN'T ASLEEP / THE HANDWRITING REALLY"
+  },
+  {
+   "t_start": 380,
+   "t_end": 392,
+   "shot_type": "medium",
+   "visual_description": "Interview room, protagonist seated; officer writes, smoke-puff exit effect",
+   "camera_motion": "static",
+   "on_screen_text": "THE POLICE SEPARATE US INTO DIFFERENT"
+  },
+  {
+   "t_start": 392,
+   "t_end": 410,
+   "shot_type": "medium close-up",
+   "visual_description": "Protagonist alone at table, hand to chin, reasoning",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "THAT LEAVES ONLY ONE POSSIBILITY."
+  },
+  {
+   "t_start": 410,
+   "t_end": 418,
+   "shot_type": "two-shot",
+   "visual_description": "Officer returns, stands facing her",
+   "camera_motion": "static",
+   "on_screen_text": "THERE'S NO EVIDENCE TO"
+  },
+  {
+   "t_start": 418,
+   "t_end": 424,
+   "shot_type": "close-up, lying",
+   "visual_description": "Back on bottom bunk at night; note appears near pillow",
+   "camera_motion": "static",
+   "on_screen_text": "BY CHANCE / IT'S"
+  },
+  {
+   "t_start": 424,
+   "t_end": 428,
+   "shot_type": "insert",
+   "visual_description": "Full-frame torn notebook page, red Chinese warning text",
+   "camera_motion": "slight push-in",
+   "on_screen_text": "CLEARLY WRITTEN, / YOUR ROOMMATES ARE"
+  },
+  {
+   "t_start": 428,
+   "t_end": 442,
+   "shot_type": "close-up, lying",
+   "visual_description": "Pillow close-up, note visible in corner; eyes wide",
+   "camera_motion": "static",
+   "on_screen_text": "THE NOTE APPEARED ON / AGAIN"
+  },
+  {
+   "t_start": 442,
+   "t_end": 460,
+   "shot_type": "close-up",
+   "visual_description": "Holding dead phone over face in bed, sweat",
+   "camera_motion": "static",
+   "on_screen_text": "MY PHONE IS DEAD BEFORE"
+  },
+  {
+   "t_start": 460,
+   "t_end": 464,
+   "shot_type": "insert",
+   "visual_description": "Power bank lying on a wooden desk",
+   "camera_motion": "static",
+   "on_screen_text": "MY POWER BANK IS ON THE"
+  },
+  {
+   "t_start": 464,
+   "t_end": 468,
+   "shot_type": "medium",
+   "visual_description": "Peeking up at empty top bunk; jumps out of bed",
+   "camera_motion": "tilt",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 468,
+   "t_end": 482,
+   "shot_type": "medium + insert",
+   "visual_description": "Standing by desk with phone; cut to closed door as lock clicks",
+   "camera_motion": "cut to door insert",
+   "on_screen_text": "SOMEONE IS TRYING TO OPEN"
+  },
+  {
+   "t_start": 482,
+   "t_end": 486,
+   "shot_type": "insert, phone UI",
+   "visual_description": "Green chat bubble (WeChat-style) sent to Wang Qiang",
+   "camera_motion": "pop-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 486,
+   "t_end": 494,
+   "shot_type": "insert",
+   "visual_description": "Door from inside; yellow jagged alert burst at the door (notification sound outside)",
+   "camera_motion": "static",
+   "on_screen_text": "THE NEXT SECOND / WHY IS THE DOOR LOCKED FROM"
+  },
+  {
+   "t_start": 494,
+   "t_end": 500,
+   "shot_type": "two-shot",
+   "visual_description": "Protagonist lets Wang Qiang in, smiling relief",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 500,
+   "t_end": 506,
+   "shot_type": "close-up, lying",
+   "visual_description": "Back in bed drifting off; eyes open on creak",
+   "camera_motion": "static",
+   "on_screen_text": "I HEAR THAT / IMMEDIATELY"
+  },
+  {
+   "t_start": 506,
+   "t_end": 516,
+   "shot_type": "low-angle close-up",
+   "visual_description": "Inverted framing: Wang Qiang's head hanging over the top-bunk rail, knife blade at top of frame, protagonist below",
+   "camera_motion": "static",
+   "on_screen_text": "THERE'S WANG / STARING RIGHT / AFTER WHAT YOU DID."
+  },
+  {
+   "t_start": 516,
+   "t_end": 548,
+   "shot_type": "medium",
+   "visual_description": "Wang Qiang standing with knife by bunk, scowling - long monologue single with occasional reaction cuts",
+   "camera_motion": "minimal; static hold",
+   "on_screen_text": "MY / IT ALL CLICKS."
+  },
+  {
+   "t_start": 548,
+   "t_end": 600,
+   "shot_type": "medium / two-shot",
+   "visual_description": "Alternating Wang Qiang monologue singles and protagonist's horrified ringed-eye reactions",
+   "camera_motion": "cut between singles",
+   "on_screen_text": "THE FIRST NIGHT'S NOTE WAS / HE COPIED YOUR HANDWRITING AND WROTE THOSE / SO SURVEILLANCE CAMERAS"
+  },
+  {
+   "t_start": 600,
+   "t_end": 608,
+   "shot_type": "medium",
+   "visual_description": "Wang Qiang raises the knife overhead",
+   "camera_motion": "quick push-in",
+   "on_screen_text": "YOU CAN APOLOGIZE PROPERLY / BUT"
+  },
+  {
+   "t_start": 608,
+   "t_end": 620,
+   "shot_type": "group shot",
+   "visual_description": "Police and Liu Meng in the room facing Wang Qiang; he holds the note",
+   "camera_motion": "static",
+   "on_screen_text": "THE POLICE AND LIU MENG / CHEN JIE,"
+  },
+  {
+   "t_start": 620,
+   "t_end": 634,
+   "shot_type": "two-shot + insert",
+   "visual_description": "Wang Qiang beside a large note: front with warning text, then back with dense red Chinese text (the sting message)",
+   "camera_motion": "flip reveal",
+   "on_screen_text": "YOUR ROOMMATES"
+  },
+  {
+   "t_start": 634,
+   "t_end": 650,
+   "shot_type": "medium",
+   "visual_description": "Liu Meng explaining, police at edge of frame",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 650,
+   "t_end": 661,
+   "shot_type": "medium / two-shot",
+   "visual_description": "Wang Qiang's sneer; final two-shot of Wang Qiang and Liu Meng",
+   "camera_motion": "static",
+   "on_screen_text": "(The end.)"
+  }
+ ],
+ "pacing": {
+  "words_per_minute": 263,
+  "word_count": 2893,
+  "duration_s": 660.87,
+  "hard_cuts_scene_0_3": 96,
+  "avg_shot_length_s_hard_cuts": 6.9,
+  "avg_visual_change_s_estimated": 4.7,
+  "re_hook_interval_s": "~25-45 s: new threat/clue roughly every half-minute (voice 10 s, text 44 s, breath 50 s, call 61 s, body 88 s, missing note 132 s, misdirect 166 s, second note 232 s, suicide ruling 276 s, voice at bus stop 298 s, handwriting 375 s, third note 420 s, knife 506 s)",
+  "silences": "none >0.4 s; narration and music never pause",
+  "notes": "Very dense narration (~263 wpm) carries everything; visuals are mostly held character poses with lip flaps and reaction swaps. Long monologue at 8:36-10:00 holds nearly the same shot for ~60 s - the weakest-retention stretch and consistent with baseline performance."
+ },
+ "techniques_worth_copying": [
+  "Single repeated motif object (the note with the same sentence) appearing three times, each in a more intimate place: under the door -> under the door while the suspect is in custody -> on the protagonist's own bed. Each repetition is a re-hook.",
+  "Read the motif text aloud as a second-person imperative in the first 3 s ('Don't make a sound') so the viewer feels addressed.",
+  "Title = thumbnail text = first spoken line: one promise across all three surfaces.",
+  "Phone-screen pop-ins (group chat, private text, call, outgoing message) as cheap clue delivery and a visual change every few seconds.",
+  "Sound-as-threat beats rendered visually: creak = small shake/punch-in, notification = yellow jagged burst, breath = wind streak lines.",
+  "Imagined-POV cutaway (red-eyed silhouette) to show the fear without committing to a supernatural answer.",
+  "Rotating suspicion: each roommate is suspected in turn (Wang Qiang -> Liu Meng -> protagonist -> Liu Meng -> Wang Qiang), with a police 'don't jump to conclusions' line to reset.",
+  "Mid-video cliffhanger at ~45% (same voice behind her -> she faints) followed by a false-relief explanation.",
+  "False-safety climax: she lets the trusted person in, then the creak returns and he is hanging over the bunk with a knife (upside-down framing).",
+  "Late twist that recontextualises the motif: the back of the note carried the real message (a sting by police + Liu Meng).",
+  "Morally grey protagonist reveal at the end (she caused the sister's death) so the ending is not a clean win.",
+  "Fixed layout: square picture centred in 9:16, caption on black above it, watermark below - easy to template and keeps captions off the art."
+ ],
+ "code_only_remake_needs": {
+  "layout": "1080x1920 canvas; black background; 1080x1080 picture window centred at y~420-1500; caption block above it (y~230-400) in a condensed bold orange (#E8742A-ish) font, Title Case phrase captions (first half) or ALL CAPS word-by-word karaoke (second half); small cyan italic handle bottom-right.",
+  "characters": "4 flat 2D cut-out SVG characters with chunky outlines: protagonist (yellow jacket, white tee, black hair), rival A (orange-red hair, white/black hoodie), rival B (black jacket), police officer (blue shirt, hi-vis vest). Each needs 3-4 expression states (neutral, ringed wide-eye fear, angry frown, eyes shut), 2-frame mouth flap, hand-to-chin pose, holding-note and holding-phone arm variants. Original designs, not these.",
+  "sets": "Dorm bunk side view (bottom bunk, top-bunk board overhead, ladder), dorm door interior, desk with power bank, police station desk (maroon desk, blue wall stripe), corridor, hospital bed, bus stop, crime-scene bed with blood pool. Flat vector backgrounds with dark night grade (multiply overlay) vs neutral day grade.",
+  "inserts": "Note close-up component (lined/grid paper, red brush-script text, flip to reveal back side), phone UI components (group chat, private chat bubble, incoming call, outgoing green bubble), red-eyed silhouette overlay.",
+  "fx": "Yellow jagged 'shock' burst sprite, wind/breath streak lines, camera shake on creak, punch-in zooms (1.0->1.15 over 6 frames), crossfade/pop-in for inserts, smoke puff exit, darken vignette for imagined POV, upside-down head-over-rail framing for the jump scare.",
+  "audio": "Local TTS narration at ~250-265 wpm with no gaps; characters' lines voiced in the same narration track; continuous low tension music bed; SFX: bed creak, phone buzz, notification ping, door lock click, door bang.",
+  "timing_data": "Storyboard JSON per shot (~4-7 s each) with character, expression, pose, set, insert, fx, caption chunks aligned to TTS word timestamps.",
+  "thumbnail": "16:9 thumb template: left stacked brush-caps headline with one yellow word and one red word + brush underline, red curved arrow to a small glowing object, scared protagonist at right ~85% height, dark set with one light leak."
+ }
+}

@@ -1,0 +1,322 @@
+{
+ "id": "6mRR91AbxjQ",
+ "url": "https://www.youtube.com/shorts/6mRR91AbxjQ",
+ "platform": "youtube_shorts",
+ "niche": "explainer",
+ "channel": "Zack D. Films",
+ "title": "How Horseflies Bite You 😨",
+ "upload_date": "2026-10-30",
+ "duration": 27.58,
+ "views": 13689674,
+ "likes": 332361,
+ "comments": 3800,
+ "subs": 29500000,
+ "channel_median_views": 7300000,
+ "outlier_score": 1.87,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/explainer/6mRR91AbxjQ.{mp4,jpg,en-orig.vtt,info.json} + 6mRR91AbxjQ_frames/ (1 fps) + 6mRR91AbxjQ_half_0[1-4].jpg (2 fps sheets)",
+  "transcript_source": "YouTube auto-subs (en-orig, word-timed); 'en' track returned HTTP 429 but en-orig is the same ASR",
+  "frames": "sampled every 1 s (28 frames); contact sheet research/library/sheets/6mRR91AbxjQ.jpg is 7x4 tiles, row-major, 1 s per tile (tile 1 = 0 s). Shot boundaries refined from a 2 fps pass.",
+  "source_resolution": "only 240x426 AV1 was fetched at <=480p; enough for structure, not fine texture",
+  "cut_detection": "ffmpeg scene-detect is unreliable here (continuous CG camera moves + low-bitrate AV1); shot times are from the 0.5 s frame pass, +-0.5 s",
+  "metadata_snapshot": "views/likes/comments from yt-dlp 2026-11-01 ~09:05 UTC (brief listed 13,674,369 views); 2 days after upload",
+  "audio": "single narrator voice-over (standard Zack D. Films delivery: calm, fast, matter-of-fact) under the 3D animation; audio track not separately analysed for music/SFX"
+ },
+ "title_pattern": {
+  "template": "How [Creature/Thing] [Verb] You [shock emoji]",
+  "notes": "4 words + emoji. Second-person ('You') makes a nature fact personal and slightly threatening; 'How ... Bite You' promises a mechanism (process explainer) not a list. No number, no superlative; the 😨 emoji supplies the emotion. Same family as the channel's 'What Happens When ...' / 'How X Works' Shorts. The script's first words literally restate the title ('When a horsefly bites you'), so title, first frame and first line all agree."
+ },
+ "thumbnail": {
+  "composition": "No custom thumbnail: the yt-dlp maxres thumbnail is an auto-picked mid-video frame (~16 s, bursting blood vessel in pink tissue cross-section with caption 'until they burst') pillarboxed in a blurred 16:9 frame. In the Shorts feed the effective 'thumbnail' is the first frame: a photoreal 3D horsefly, centred, front-on, standing on a giant orange skin plane against a flat sky-blue gradient.",
+  "text": "None designed. The burned-in caption ('When a horse fly' on frame 1; 'until they burst' on the auto thumb) is the only text, small white bold sans with dark shadow at ~78% height.",
+  "colours": "First frame: saturated cyan/sky-blue background, warm orange-peach skin floor, near-black insect - strong complementary blue/orange split. Auto thumb: monochrome reds/pinks with a glowing orange-yellow highlighted vessel.",
+  "subject_scale_contrast": "Insect rendered at human-head size against a horizon-flat skin 'landscape' - the macro-as-landscape trick makes a tiny fly read as a monster. At 1 s the camera reveals a whole man with the fly as a speck on his shoulder for the reverse scale hit.",
+  "why_it_works": "For Shorts the first frame does the thumbnail's job: one recognisable, slightly gross subject, centred, high-contrast against a clean background, readable at feed size; no clutter. The topic (being bitten) is universal and visceral, so the title + creature is enough of a hook."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "When a horsefly bites you, it presses six needle-like tools against your skin.",
+  "first_speech_at_s": 0.2,
+  "device": "Instant cold open with zero preamble: the first line restates the title in second person ('When a horsefly bites you') and pays it off with a specific, surprising number + unsettling image ('six needle-like tools'). Visual scale whiplash in the first 2 s (macro fly -> whole man with fly as a speck -> back to fly) followed by a dive under the fly where six golden stylets fan out toward the camera. Body-horror curiosity: viewer's own skin is the stage.",
+  "visual_0_5s": "0-0.9 s front-on CG horsefly on orange skin, sky-blue bg; 1.0-1.4 s cut to a 3D man in profile, fly tiny on his shoulder; 1.5-2 s back to fly; 2-4 s camera drops under the fly, six yellow/orange stylets fan out in extreme close-up; 4-4.5 s macro of compound eyes and red proboscis piercing skin."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 2.3,
+   "beat_type": "hook_title_restatement",
+   "summary": "'When a horsefly bites you' - title said back as a second-person scenario over a macro fly, with a 1-frame-ish scale reveal of the whole person."
+  },
+  {
+   "t_start": 2.3,
+   "t_end": 5.4,
+   "beat_type": "surprising_number",
+   "summary": "'it presses six needle-like tools against your skin' - number + weapon metaphor; camera dives under the fly to show six stylets fanning out, then piercing."
+  },
+  {
+   "t_start": 5.4,
+   "t_end": 9.8,
+   "beat_type": "mechanism_step_1_analogy",
+   "summary": "Two blades with sharp edges slice the skin 'like scissors' - skin plane morphs into a pink tissue cross-section, two blades scissor in, red pooling below."
+  },
+  {
+   "t_start": 9.8,
+   "t_end": 17.4,
+   "beat_type": "mechanism_step_2_analogy_escalation",
+   "summary": "Two more have 'tiny teeth like a saw' - blades briefly turn literal steel saw blades, then saw up and down, tearing a hole, rupturing a highlighted blood vessel 'until they burst and you start to bleed' (gore peak at ~16 s)."
+  },
+  {
+   "t_start": 17.4,
+   "t_end": 22.7,
+   "beat_type": "mechanism_step_3_new_tool",
+   "summary": "'Next, a hollow blade pumps in spit' - transition word 'Next'; hollow tube stylet seen end-on, white saliva droplet; macro of the cut glistening with saliva so it can't seal."
+  },
+  {
+   "t_start": 22.7,
+   "t_end": 25.3,
+   "beat_type": "consequence",
+   "summary": "'so the blood keeps flowing out' - blood bead forms and swells along the cut line."
+  },
+  {
+   "t_start": 25.3,
+   "t_end": 27.58,
+   "beat_type": "payoff_and_loop",
+   "summary": "'as its spongy tip laps it up' - spongy labellum presses on the blood bead, cutaway of blood drawn up; ends on a wide fly-on-skin shot matching the opening frame so the Short loops seamlessly into 'When a horsefly bites you'. No CTA, no outro."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 0.9,
+   "shot_type": "cg_macro_hero",
+   "visual_description": "Photoreal 3D horsefly front-on on a horizon-flat orange skin plane, flat sky-blue gradient bg, fly centred",
+   "camera_motion": "slight push/drift, fly shifts",
+   "on_screen_text": "When a horse fly"
+  },
+  {
+   "t_start": 0.9,
+   "t_end": 1.5,
+   "shot_type": "cg_wide_scale_reveal",
+   "visual_description": "3D man (stylised-real, short hair, beard) in profile, fly a tiny dot on his shoulder skin",
+   "camera_motion": "static / quick settle",
+   "on_screen_text": "bites you"
+  },
+  {
+   "t_start": 1.5,
+   "t_end": 2.0,
+   "shot_type": "cg_medium",
+   "visual_description": "Back to fly on skin at mid distance, front-on",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "bites you"
+  },
+  {
+   "t_start": 2.0,
+   "t_end": 4.0,
+   "shot_type": "cg_extreme_closeup",
+   "visual_description": "Camera under the fly's body: six golden/orange stylets fan out diagonally toward lens, black hairy legs, blue sky behind",
+   "camera_motion": "fast push under + slight rotate",
+   "on_screen_text": "it presses / six needle like tools"
+  },
+  {
+   "t_start": 4.0,
+   "t_end": 4.5,
+   "shot_type": "cg_macro",
+   "visual_description": "Fly head with huge compound eyes, red-orange proboscis pressed into skin",
+   "camera_motion": "quick push",
+   "on_screen_text": "against your skin"
+  },
+  {
+   "t_start": 4.5,
+   "t_end": 5.5,
+   "shot_type": "cg_low_angle_macro",
+   "visual_description": "Ground-level: bundle of stylets entering skin among giant hairs, bundle separates (yellow-highlighted parts)",
+   "camera_motion": "dolly in",
+   "on_screen_text": "against your skin"
+  },
+  {
+   "t_start": 5.5,
+   "t_end": 7.0,
+   "shot_type": "cg_low_angle_macro",
+   "visual_description": "Two blades isolated, close; tiny red cut where they enter skin",
+   "camera_motion": "push in",
+   "on_screen_text": "Two of them / have sharp edges"
+  },
+  {
+   "t_start": 7.0,
+   "t_end": 7.5,
+   "shot_type": "cg_macro",
+   "visual_description": "Single blade slicing a slit in skin surface",
+   "camera_motion": "track along cut",
+   "on_screen_text": "so they slice you"
+  },
+  {
+   "t_start": 7.5,
+   "t_end": 9.5,
+   "shot_type": "cg_cross_section_morph",
+   "visual_description": "Skin surface transitions into pink cellular tissue cutaway; two serrated golden blades meet like scissor halves, red pool below",
+   "camera_motion": "push down into tissue",
+   "on_screen_text": "so they slice you / open like scissors"
+  },
+  {
+   "t_start": 9.5,
+   "t_end": 10.5,
+   "shot_type": "cg_cross_section",
+   "visual_description": "Two more blades with yellow-highlighted teeth along edges, tissue cross-section with red top layer",
+   "camera_motion": "static, slight drift",
+   "on_screen_text": "while two more / have tiny teeth"
+  },
+  {
+   "t_start": 10.5,
+   "t_end": 11.5,
+   "shot_type": "visual_metaphor_swap",
+   "visual_description": "Blades re-skinned as shiny steel saw blades (literal 'like a saw'), same pose",
+   "camera_motion": "static",
+   "on_screen_text": "have tiny teeth / like a saw"
+  },
+  {
+   "t_start": 11.5,
+   "t_end": 13.5,
+   "shot_type": "cg_cross_section_action",
+   "visual_description": "Gold toothed blades plunge up and down, tearing a dark hole in tissue",
+   "camera_motion": "vertical shake with sawing motion, push in",
+   "on_screen_text": "like a saw / sawing up and down"
+  },
+  {
+   "t_start": 13.5,
+   "t_end": 14.5,
+   "shot_type": "cg_extreme_closeup",
+   "visual_description": "Blades inside torn hole, glowing gold",
+   "camera_motion": "push into hole",
+   "on_screen_text": "to tear open"
+  },
+  {
+   "t_start": 14.5,
+   "t_end": 16.0,
+   "shot_type": "cg_cross_section",
+   "visual_description": "Torn tissue surface, wound opens onto a blood vessel which ruptures",
+   "camera_motion": "slow push",
+   "on_screen_text": "your blood vessels / until they burst"
+  },
+  {
+   "t_start": 16.0,
+   "t_end": 17.5,
+   "shot_type": "cg_cross_section_highlight",
+   "visual_description": "Blood vessel shown as tube highlighted glowing yellow-orange, bursting and leaking red through tissue layers",
+   "camera_motion": "slight rotate",
+   "on_screen_text": "until they burst / and you start"
+  },
+  {
+   "t_start": 17.5,
+   "t_end": 18.0,
+   "shot_type": "cg_low_angle",
+   "visual_description": "Under fly: skin with hairs, cut line red",
+   "camera_motion": "quick move",
+   "on_screen_text": "to bleed"
+  },
+  {
+   "t_start": 18.0,
+   "t_end": 20.0,
+   "shot_type": "cg_closeup_object",
+   "visual_description": "Hollow tube stylet (yellow highlight fading to flesh tone) hangs down against blue sky, end-on reveal of its opening",
+   "camera_motion": "slow tilt to show hollow tip",
+   "on_screen_text": "Next a hollow blade"
+  },
+  {
+   "t_start": 20.0,
+   "t_end": 20.5,
+   "shot_type": "cg_closeup_fx",
+   "visual_description": "White saliva droplet bubbles out of the hollow tip",
+   "camera_motion": "static",
+   "on_screen_text": "pumps in spit"
+  },
+  {
+   "t_start": 20.5,
+   "t_end": 22.5,
+   "shot_type": "cg_macro_surface",
+   "visual_description": "Extreme macro of skin, diagonal cut coated with clear glossy saliva film, bubbles",
+   "camera_motion": "slow lateral drift / rotate to horizontal",
+   "on_screen_text": "pumps in spit / which stops the cut / from sealing"
+  },
+  {
+   "t_start": 22.5,
+   "t_end": 25.0,
+   "shot_type": "cg_macro_surface",
+   "visual_description": "Cut line now red, a blood bead forms and swells",
+   "camera_motion": "static, slight push",
+   "on_screen_text": "so the blood / keeps flowing out"
+  },
+  {
+   "t_start": 25.0,
+   "t_end": 25.5,
+   "shot_type": "cg_low_angle",
+   "visual_description": "Fly mouthparts above skin, blood bead below, giant hairs",
+   "camera_motion": "quick push down",
+   "on_screen_text": "keeps flowing out / as its spongy tip"
+  },
+  {
+   "t_start": 25.5,
+   "t_end": 26.0,
+   "shot_type": "cg_closeup",
+   "visual_description": "Spongy labellum pad presses onto blood bead, blood spreading in flower shape",
+   "camera_motion": "push in",
+   "on_screen_text": "as its spongy tip"
+  },
+  {
+   "t_start": 26.0,
+   "t_end": 27.0,
+   "shot_type": "cg_cutaway",
+   "visual_description": "Semi-transparent mouthpart cutaway, blood drawn up a channel",
+   "camera_motion": "tilt up",
+   "on_screen_text": "as its spongy tip / laps it up"
+  },
+  {
+   "t_start": 27.0,
+   "t_end": 27.58,
+   "shot_type": "cg_wide_loop_bookend",
+   "visual_description": "Wide: whole fly on skin, sky-blue background - matches opening composition for loop",
+   "camera_motion": "pull back",
+   "on_screen_text": "laps it up"
+  }
+ ],
+ "pacing": {
+  "words_total": 79,
+  "speech_span_s": 26.8,
+  "words_per_minute": 177,
+  "shots_in_list": 24,
+  "avg_shot_length_s": 1.15,
+  "caption_chunk": "2-4 words per caption card, changes every ~0.5-1 s, synced to word timing",
+  "re_hook_interval_s": "new visual idea every 1-2 s; a new analogy/escalation every ~4-5 s (scissors 7.5 s, saw 10.5 s, burst 16 s, spit 20 s, laps 26 s)",
+  "notes": "One unbroken sentence chain: no pauses, no intro, no CTA. Continuous camera through one CG world (skin plane + sky) with morph transitions into cross-sections rather than hard cuts. Escalation ladder: press -> slice -> saw -> burst -> bleed -> spit -> lap. Ends mid-motion on a shot that matches frame 1 so viewers re-watch (loop)."
+ },
+ "techniques_worth_copying": [
+  "Title restated as line 1 in second person ('When a X [does thing] you') - zero setup, the viewer is the victim from frame 1.",
+  "Specific counted inventory as the hook payoff ('six needle-like tools') then enumerate them in pairs (two... two more... a hollow one... spongy tip) - a built-in progress bar that keeps people for the next item.",
+  "One everyday-tool analogy per mechanism (scissors, saw, pump/spit, sponge) and SHOW the analogy literally for ~1 s (blades turn into steel saw blades).",
+  "Macro-as-landscape staging: a flat skin floor plane to the horizon and a flat sky-blue backdrop make an insect look monster-sized; one quick wide shot of the whole human gives the reverse scale shock.",
+  "Morph from surface view into a cross-section cutaway instead of cutting - keeps continuity and shows 'inside you'.",
+  "Glowing yellow highlight on the part being named (vessel, hollow stylet, teeth) - colour-coded attention pointer, no arrows or labels needed.",
+  "Escalating body-horror verbs (presses, slice, saw, tear, burst, bleed, laps) with a gore peak at ~60% runtime.",
+  "Seamless loop: last shot matches first shot and last clause flows grammatically into the first line; no outro/CTA, under 30 s.",
+  "Captions: small 2-4 word white bold sans with soft dark shadow at ~78% height, no karaoke highlight - unobtrusive so the visual carries."
+ ],
+ "code_only_remake_requirements": {
+  "feasibility": "Medium. The look is photoreal 3D (Blender-style) which pure SVG cannot match; the structure, pacing, scale tricks and cross-section storytelling are fully reproducible in a stylised flat/2.5D vector style.",
+  "assets": [
+   "Parametric SVG insect (body, head with compound-eye pattern, legs, mouthpart group whose stylets can fan out/retract individually)",
+   "Skin 'ground plane' with perspective (CSS 3D or a skewed gradient polygon) + scattered hair strokes, sky-blue radial gradient backdrop",
+   "Simple human silhouette/profile for the scale-reveal shot",
+   "Cross-section tissue panel: layered SVG (epidermis red band, pink dermis with noise/turbulence filter texture, vessel tube)",
+   "Blade components: smooth blade, serrated blade (path generator for teeth), steel-saw skin variant, hollow tube with end-cap opening",
+   "Fluid FX: blood bead that grows (metaball via feGaussianBlur+feColorMatrix goo filter), saliva droplet/bubbles, vessel burst particles"
+  ],
+  "motion_systems": [
+   "Virtual camera (scale/translate/rotate of a world group with spring easing) for push-ins, under-fly dives and pull-back loop",
+   "Morph transition surface -> cross-section (clip-path wipe or flubber path interpolation)",
+   "Highlight pulse (glow filter + colour lerp to yellow) bound to caption words",
+   "Sawing oscillation and tear-hole growth (animated path/mask)",
+   "Loop matcher: last frame composition identical to first"
+  ],
+  "audio_captions": "Local TTS (Kokoro) at ~175 wpm, word timestamps from TTS or faster-whisper; caption component chunking 2-4 words at bottom-third, white bold with shadow.",
+  "effort_estimate": "~15-20 storyboard shots per 30 s; reusable 'creature attacks you' kit (creature + skin plane + cross-section + fluids) would serve a whole series (mosquito, tick, leech, bed bug)."
+ }
+}

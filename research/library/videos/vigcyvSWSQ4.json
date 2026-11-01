@@ -1,0 +1,741 @@
+{
+ "id": "vigcyvSWSQ4",
+ "url": "https://www.youtube.com/watch?v=vigcyvSWSQ4",
+ "platform": "youtube",
+ "niche": "horror",
+ "channel": "Horror Shorts Party",
+ "title": "3 REALLY SCARY TRUE WALMART HORROR STORIES ANIMATED",
+ "upload_date": "2026-06-28",
+ "duration": 1141,
+ "views": 1121838,
+ "likes": 9588,
+ "comments": 571,
+ "subs": 1700000,
+ "channel_median_views": 316270,
+ "outlier_score": 3.55,
+ "role": "outlier",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/horror/vigcyvSWSQ4.{mp4 (854x480 AV1+opus, 48 MB, kept),jpg,info.json,en-orig.vtt,en.vtt,transcript.txt,scenes.txt} + vigcyvSWSQ4_frames/ (1 frame / 2 s, 571 frames) + vigcyvSWSQ4.page_00..09.jpg (60-frame review sheets, 10x6, 160px tiles)",
+  "transcript_source": "YouTube auto-subs en-orig (word-timed ASR, 3,263 spoken words). Full timestamped transcript: research/library/transcripts/vigcyvSWSQ4.txt",
+  "frames": "sampled every 2 s; research/library/sheets/vigcyvSWSQ4.jpg is 20 columns x 29 rows of 80px tiles, row-major, 2 s per tile (tile 1 = 0:00), each labelled m:ss. Shot times below are +-2 s.",
+  "cut_detection": "ffmpeg scene>0.3 found 529 'cuts', but ~390 of them are in the 3 real-news epilogues where a pulsing/flickering oval vignette fires every ~0.5 s - not real cuts. In the flat-colour animation scene-detect under-counts; shot lengths were cross-checked by eye on the 2 s sheets.",
+  "metadata_snapshot": "yt-dlp 2026-11-01 ~09:15 UTC; ~126 days after upload (~8.9k views/day average).",
+  "format_note": "Long-form 16:9 compilation (19:01), three separately animated 'true' stories by three different animators/narrators, each followed by a real-news epilogue using real mugshots, victim photos and surveillance stills. Persistent social-handle strip burned in along the bottom edge throughout. No burned-in captions.",
+  "credits_from_description": "writer + 2 animators + 4 narrators/voice actors credited; music is Creative Commons (Kevin MacLeod, CO.AG, Myuu, Repulsive).",
+  "content_warning": "Stories retell real killings with real victims' names and photos. Rule 5 applies: study structure only; our versions must be fictional and must not use real people, real crimes or real brand trademarks in the art."
+ },
+ "title_pattern": {
+  "template": "[NUMBER] REALLY SCARY TRUE [FAMOUS EVERYDAY PLACE/BRAND] HORROR STORIES ANIMATED",
+  "notes": "All caps. Number promises a compilation (value: 3 stories, 19 min). Intensifier 'REALLY SCARY' + credibility claim 'TRUE' + a hyper-familiar setting everyone has been inside (Walmart) = 'this could happen at your store'. Ends with format tag 'ANIMATED' so it ranks for 'animated horror stories'. Tags list mirrors it with sibling brands (McDonald's). The brand does the heavy lifting: a mundane, universally known location makes the horror relatable and searchable; this is the channel's recurring '[brand] horror stories' series."
+ },
+ "thumbnail": {
+  "composition": "16:9 split: left 55% a night exterior of a big-box store with a big glowing 'Walmart' + yellow spark sign over lit glass doors and a wet, reflective parking lot; right 45% a large bust of a grinning woman (story-2 villain: wild orange-blond curly hair, huge solid-black eyes with white ring and pupil dot, wide red-lipped grin of many sharp teeth, wrinkled tan skin, teal shirt, chest tattoo) cut off at the frame edge and towering over the store.",
+  "text": "No added text; the only 'text' is the brand sign itself, which reads as the title.",
+  "colours": "Dominant night blue/teal (sky, lot, shirt) vs warm yellow/orange (hair, sign spark, store windows). The brand's own blue+yellow palette is reused as the whole thumbnail's complementary scheme.",
+  "subject_scale_contrast": "The face is bigger than the building - giant-monster scale against a recognisable real-world landmark. Eyes are the highest-contrast element (black discs with white rings) and sit at the right-third intersection.",
+  "style_note": "Rendered in a far more detailed, glossy inked-and-painted illustration style than any of the three in-video animation styles (bait-up packaging; the character design matches story 2 only loosely).",
+  "why_it_works": "1) Instant setting recognition from the logo, zero reading needed. 2) Uncanny human face with wrong eyes + too many teeth = scroll-stopping. 3) Mundane-place + monster juxtaposition is the whole premise in one image. 4) Strong blue/orange complementary contrast reads at small size."
+ },
+ "hook": {
+  "verbatim_0_to_5s": "[no speech: 0:00-0:12 'NEW MERCH' ad card with music]",
+  "first_speech_at_s": 32.2,
+  "first_line": "Nights at Walmart are never the same as the last. Sometimes, my shift is so slow and boring that I'm struggling to stay awake. Other nights, it's a non-stop barrage of helpless customers, loiterers, shoplifters, and crackheads.",
+  "device": "Effectively no hook in the first 30 s: merch ad (0-12 s), 'inspired by actual events' disclaimer (12-14), logo sting (14-19), story card 'TRUE WALMART HORROR STORY 1 / narrated by...' (20-23), then fisheye POV real-store shopping-cart footage with a red horror title 'THE WALMART DEMON' (24-31). The real hook is the per-story chapter title over found-footage plus the narrator's 'nights are never the same' contrast line (slow vs chaotic) and a comedic list ending on 'crackheads'. Retention here is carried by the packaging (title/thumbnail promise + 'TRUE' disclaimer) and channel loyalty, not by an in-video cold open - do NOT copy the 32-second preamble.",
+  "visual_0_5s": "Black/red 'NEW MERCH' card with pumpkin icons and a product mock-up in a white box (0-12 s)."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 12,
+   "beat_type": "sponsor_merch_ad",
+   "summary": "'NEW MERCH' card for the channel's own merch over music."
+  },
+  {
+   "t_start": 12,
+   "t_end": 24,
+   "beat_type": "disclaimer_branding",
+   "summary": "'The following stories were inspired by or loosely based on actual events' disclaimer, orange pumpkin logo sting, story-1 card with narrator credits."
+  },
+  {
+   "t_start": 24,
+   "t_end": 32,
+   "beat_type": "chapter_title_found_footage",
+   "summary": "Fisheye real-store POV footage with red title 'THE WALMART DEMON' - promises the story's monster."
+  },
+  {
+   "t_start": 32,
+   "t_end": 51,
+   "beat_type": "setting_normal_world",
+   "summary": "Night-shift narrator: shifts are either dead-boring or chaos (list ending on a joke). Establishes routine + mild humour."
+  },
+  {
+   "t_start": 51,
+   "t_end": 72,
+   "beat_type": "emotional_stakes",
+   "summary": "Introduces Josie, the coworker he's falling for; managers keep them apart. Gives the victim a face before the attack."
+  },
+  {
+   "t_start": 72,
+   "t_end": 118,
+   "beat_type": "ordinary_shift_setup",
+   "summary": "Same shift, opposite ends of the store; he is excited she'll be free soon. Foreshadow line: 'a place in which even a fleeting moment of joy is easily destroyed'."
+  },
+  {
+   "t_start": 118,
+   "t_end": 158,
+   "beat_type": "inciting_stranger",
+   "summary": "Huge shirtless, wild-eyed man storms in; narrator tells him to put a shirt on; insulted, he backs off because the man is bigger."
+  },
+  {
+   "t_start": 158,
+   "t_end": 175,
+   "beat_type": "dread_realization",
+   "summary": "'A few seconds too late, it hit me' - Josie is running clothing alone. Josie screams."
+  },
+  {
+   "t_start": 175,
+   "t_end": 222,
+   "beat_type": "violent_climax",
+   "summary": "Runs over, arrives too late, watches the stabbing (censored blur). 'It all happened in five or six seconds.'"
+  },
+  {
+   "t_start": 222,
+   "t_end": 244,
+   "beat_type": "monster_reveal",
+   "summary": "Killer turns, mouth soaked in blood, eyes 'couldn't have been human'; speaks: 'She wouldn't stop following me'."
+  },
+  {
+   "t_start": 244,
+   "t_end": 282,
+   "beat_type": "chase",
+   "summary": "Killer charges; narrator flees, slides, a cop's bullet flies over his head, taser drops the killer."
+  },
+  {
+   "t_start": 282,
+   "t_end": 319,
+   "beat_type": "twist_explanation_and_grief",
+   "summary": "Killer stole the knife, believed Josie was a demon stalking him; narrator's grief line closes the story."
+  },
+  {
+   "t_start": 319,
+   "t_end": 408,
+   "beat_type": "real_news_epilogue",
+   "summary": "Newsreader-style recap of the real case (location, time, ages, charges) over real photos/footage with flicker-vignette. Credibility payoff for 'TRUE'."
+  },
+  {
+   "t_start": 408,
+   "t_end": 422,
+   "beat_type": "chapter_break",
+   "summary": "Logo sting, 'TRUE WALMART HORROR STORY 2' card, fisheye footage with red title 'MOST EVIL WALMART CUSTOMER'."
+  },
+  {
+   "t_start": 422,
+   "t_end": 444,
+   "beat_type": "setting_normal_world",
+   "summary": "New narrator/animator: dreads the shift, plans to get wasted - 'it will become obvious why' (forward hook)."
+  },
+  {
+   "t_start": 444,
+   "t_end": 478,
+   "beat_type": "inciting_stranger",
+   "summary": "10 pm a twitching woman enters with no cart; narrator's greeting gets an obscene reply (comic shock)."
+  },
+  {
+   "t_start": 478,
+   "t_end": 500,
+   "beat_type": "curiosity_game",
+   "summary": "Narrator tails her and plays 'what will the freaks steal' guessing game - list joke, then 'I was wrong in every regard'."
+  },
+  {
+   "t_start": 500,
+   "t_end": 570,
+   "beat_type": "mystery_escalation",
+   "summary": "At the bakery she pulls tiny objects from her hair and pants and slips them into bread - 'She wasn't stealing. She was adding to the shelves.' Repeated to confirm."
+  },
+  {
+   "t_start": 570,
+   "t_end": 612,
+   "beat_type": "confrontation_dialogue",
+   "summary": "Polite confrontation escalates line by line: 'You didn't see anything' -> 'And if I don't?' -> 'Take a good look.'"
+  },
+  {
+   "t_start": 612,
+   "t_end": 652,
+   "beat_type": "violent_climax",
+   "summary": "Rusty razor blade attack, she pins him, slashes everywhere (blur-censored)."
+  },
+  {
+   "t_start": 652,
+   "t_end": 665,
+   "beat_type": "rescue",
+   "summary": "Coworkers and customers drag her off; cops cuff her."
+  },
+  {
+   "t_start": 665,
+   "t_end": 708,
+   "beat_type": "reveal_and_aftermath",
+   "summary": "Razor blades were hidden in bread at several stores; bakeries purged; narrator's tetanus/hepatitis shots and pending bloodwork (lingering dread)."
+  },
+  {
+   "t_start": 708,
+   "t_end": 756,
+   "beat_type": "real_news_epilogue",
+   "summary": "Animated TV-news anchor then real mugshots, bread-with-blade photos, surveillance stills; charges and bond."
+  },
+  {
+   "t_start": 756,
+   "t_end": 770,
+   "beat_type": "chapter_break",
+   "summary": "Logo, 'TRUE WALMART HORROR STORY 3' card, fisheye title 'THE MOST DISTURBING WALMART SURPRISE'."
+  },
+  {
+   "t_start": 770,
+   "t_end": 790,
+   "beat_type": "framing_flashforward",
+   "summary": "'Without a doubt, this is the worst one' - ranks the story before telling it."
+  },
+  {
+   "t_start": 790,
+   "t_end": 846,
+   "beat_type": "sympathetic_stranger_dialogue",
+   "summary": "Frail woman begs to use the closed bathroom; long pleading dialogue; he reluctantly lets her into a single-use family restroom."
+  },
+  {
+   "t_start": 846,
+   "t_end": 894,
+   "beat_type": "false_calm",
+   "summary": "He finishes the shift, goes home, briefly wonders if she left, dismisses it."
+  },
+  {
+   "t_start": 894,
+   "t_end": 948,
+   "beat_type": "slow_build_out_of_order",
+   "summary": "Next day the bathroom is locked with an out-of-order sign; he resents being 'used'; days pass; on Monday he's assigned to clean it."
+  },
+  {
+   "t_start": 948,
+   "t_end": 996,
+   "beat_type": "dramatic_irony_then_reveal",
+   "summary": "'If only that were the case' -> key in the lock -> stench -> door swings open: her body has been there for days (blurred)."
+  },
+  {
+   "t_start": 996,
+   "t_end": 1052,
+   "beat_type": "guilt_resolution",
+   "summary": "Vomits, slams door; reflective guilt monologue: 'I was the last human face she ever saw'."
+  },
+  {
+   "t_start": 1052,
+   "t_end": 1104,
+   "beat_type": "real_news_epilogue",
+   "summary": "Real case recap over real surveillance stills, victim photos, out-of-order sign photo; cause of death."
+  },
+  {
+   "t_start": 1104,
+   "t_end": 1141,
+   "beat_type": "outro_cta",
+   "summary": "Patron/member credit roll beside a looping cartoon of the creator holding 'CHECK OUT MY MERCH PLEASE!'; no verbal CTA."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 12,
+   "shot_type": "ad_card",
+   "visual_description": "Red-black 'NEW MERCH' card, pumpkin icons both sides, product mock-up (hoodie/figure) cycling in a white box",
+   "camera_motion": "static, product swap every ~2 s",
+   "on_screen_text": "NEW MERCH / (LINK IN BIO)"
+  },
+  {
+   "t_start": 12,
+   "t_end": 14,
+   "shot_type": "text_card",
+   "visual_description": "Black screen, small white disclaimer text",
+   "camera_motion": "static",
+   "on_screen_text": "The following stories were inspired by or loosely based on actual events..."
+  },
+  {
+   "t_start": 14,
+   "t_end": 20,
+   "shot_type": "logo_sting",
+   "visual_description": "Orange jack-o-lantern-like circle with two black eyes slides/scales in; 'HORROR SHORTS PARTY' wordmark",
+   "camera_motion": "scale/slide in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 20,
+   "t_end": 24,
+   "shot_type": "title_card",
+   "visual_description": "Black card, white/cyan 'TRUE WALMART HORROR STORY 1', red credits",
+   "camera_motion": "static, colour flash on 'WALMART'",
+   "on_screen_text": "TRUE WALMART HORROR STORY 1 / NARRATED BY... / ADDITIONAL VOICE..."
+  },
+  {
+   "t_start": 24,
+   "t_end": 32,
+   "shot_type": "found_footage_title",
+   "visual_description": "Real POV shopping-cart footage down a store aisle in heavy fisheye + dark vignette; red distressed title fades in",
+   "camera_motion": "handheld drift forward",
+   "on_screen_text": "THE WALMART DEMON"
+  },
+  {
+   "t_start": 32,
+   "t_end": 44,
+   "shot_type": "medium_character",
+   "visual_description": "Style A (flat cel, grey store, navy uniform): narrator slumped at self-checkout register, hooded customer drifts past",
+   "camera_motion": "static; small character loops",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 44,
+   "t_end": 50,
+   "shot_type": "medium_action",
+   "visual_description": "Narrator leans over register, then back view waving at cyan glass windows",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 50,
+   "t_end": 60,
+   "shot_type": "two_shot",
+   "visual_description": "Narrator at cyan windows; Josie (auburn hair) slides in beside him; he scratches his head shyly",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 60,
+   "t_end": 74,
+   "shot_type": "over_shoulder_group",
+   "visual_description": "Backs of two managers in foreground, narrator and Josie behind; manager gestures them apart",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 74,
+   "t_end": 100,
+   "shot_type": "medium_alternating",
+   "visual_description": "Narrator near clothing racks with grey-haired customer head foreground; cut to Josie close in clothing dept, narrator tiny behind",
+   "camera_motion": "static, cuts every ~6-10 s",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 100,
+   "t_end": 118,
+   "shot_type": "medium_and_wide",
+   "visual_description": "Narrator arms crossed facing coworker; self-checkout kiosks (cyan screens) with a customer handing a receipt",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 118,
+   "t_end": 128,
+   "shot_type": "over_shoulder_reveal",
+   "visual_description": "Back of narrator's head foreground; huge shirtless man lumbers in through the far door",
+   "camera_motion": "static, figure walks toward camera",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 128,
+   "t_end": 158,
+   "shot_type": "shot_reverse_shot",
+   "visual_description": "Wide of small narrator vs giant dark silhouette back; then OTS close-ups alternating narrator / man's face (sunglasses, beard) during 'put a shirt on' exchange",
+   "camera_motion": "static, cuts on dialogue lines",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 158,
+   "t_end": 178,
+   "shot_type": "close_reaction",
+   "visual_description": "Narrator back at checkout, then close-up realisation: hands to face, eyes wide",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 178,
+   "t_end": 186,
+   "shot_type": "running",
+   "visual_description": "Narrator sprinting through clothing aisle, grabbing his head",
+   "camera_motion": "slight lateral move",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 186,
+   "t_end": 206,
+   "shot_type": "censored_violence",
+   "visual_description": "Stabbing among clothing racks rendered as heavy gaussian blur, tan pillar foreground framing",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 206,
+   "t_end": 222,
+   "shot_type": "reaction_insert",
+   "visual_description": "Narrator reaching out in horror; blurred close of Josie's face; narrator shocked close",
+   "camera_motion": "static, quick inserts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 222,
+   "t_end": 232,
+   "shot_type": "villain_turn",
+   "visual_description": "Killer from behind turning his head to camera, blood-red mouth",
+   "camera_motion": "slow head turn",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 232,
+   "t_end": 244,
+   "shot_type": "pov_push_in",
+   "visual_description": "POV with narrator's raised hands in foreground; killer's bloody face pushes into extreme close-up, then crawls up holding a red knife",
+   "camera_motion": "push-in / zoom toward face",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 244,
+   "t_end": 266,
+   "shot_type": "chase",
+   "visual_description": "POV fist pumping as he runs; narrator running foreground with killer chasing behind; wide toward two cops at the windows",
+   "camera_motion": "static frames, character run cycles",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 266,
+   "t_end": 288,
+   "shot_type": "close_and_wide",
+   "visual_description": "Narrator sliding on floor covering ears (gunshot); killer lying rigid, cop legs in frame",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 288,
+   "t_end": 319,
+   "shot_type": "flashback_inserts",
+   "visual_description": "Killer with knife in a darker aisle (theft), cops close with radio, killer clutching head with red hands (demon delusion), blurred victim, killer looking down",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 319,
+   "t_end": 334,
+   "shot_type": "found_footage",
+   "visual_description": "Real fisheye aisle footage, then blue/red police-light bokeh flashing",
+   "camera_motion": "drift; flashing",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 334,
+   "t_end": 408,
+   "shot_type": "photo_with_flicker_vignette",
+   "visual_description": "Real mugshot/booking photos and victim photo, each held 6-25 s inside an oval black vignette that pulses/flickers ~2x per second like an old projector",
+   "camera_motion": "slow zoom + vignette flicker",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 408,
+   "t_end": 416,
+   "shot_type": "logo_sting",
+   "visual_description": "Pumpkin logo sting, 'TRUE WALMART HORROR STORY 2' card with three credit lines",
+   "camera_motion": "scale in",
+   "on_screen_text": "TRUE WALMART HORROR STORY 2"
+  },
+  {
+   "t_start": 416,
+   "t_end": 422,
+   "shot_type": "found_footage_title",
+   "visual_description": "Fisheye real-store footage with red title",
+   "camera_motion": "drift",
+   "on_screen_text": "MOST EVIL WALMART CUSTOMER"
+  },
+  {
+   "t_start": 422,
+   "t_end": 428,
+   "shot_type": "establishing_exterior",
+   "visual_description": "Style B (thick ink outlines, grungy muted teal/brown palette): store entrance at night, purple sky",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 428,
+   "t_end": 448,
+   "shot_type": "inserts",
+   "visual_description": "Hands at cash drawer; aisle wide with narrator stocking; cardboard box close; narrator face-palm; wristwatch close-up",
+   "camera_motion": "static, quick inserts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 448,
+   "t_end": 468,
+   "shot_type": "entrance_and_wide",
+   "visual_description": "Twitching woman (orange hair, teal top) walks in through doors; aisle wide with narrator holding clipboard",
+   "camera_motion": "static, walk cycle",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 468,
+   "t_end": 476,
+   "shot_type": "villain_close_then_reaction",
+   "visual_description": "Woman's face jumps into close-up: solid-black eyes, many-toothed grin (greeting insult); cut to narrator's flat reaction",
+   "camera_motion": "hard cut / pop-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 476,
+   "t_end": 524,
+   "shot_type": "surveillance_tailing",
+   "visual_description": "Narrator with clipboard trailing her; thinking pose (hand on chin); dark side aisle with tiny figure",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 524,
+   "t_end": 560,
+   "shot_type": "wide_with_reaction_inserts",
+   "visual_description": "Bakery aisle wide (bread crates foreground), woman at shelf in background; cuts to narrator's suspicious close-ups",
+   "camera_motion": "static; alternating every ~4-8 s",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 560,
+   "t_end": 584,
+   "shot_type": "peek_shots",
+   "visual_description": "Narrator peeking from behind a cereal/bag shelf; bakery wide again",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 584,
+   "t_end": 608,
+   "shot_type": "confrontation_two_shot",
+   "visual_description": "Narrator gesturing at woman facing the bread shelves; she turns, her face pops to close-up, praying hands, grin",
+   "camera_motion": "static; pop-in close-ups",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 608,
+   "t_end": 624,
+   "shot_type": "attack",
+   "visual_description": "Woman lunges; narrator's cut arm close-up; woman's grin; extreme close-up of her eyes with a rusty razor blade held up",
+   "camera_motion": "quick cuts ~2 s",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 624,
+   "t_end": 642,
+   "shot_type": "censored_struggle",
+   "visual_description": "Woman on top of him holding razor to his face, lower frame blurred",
+   "camera_motion": "small shake",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 642,
+   "t_end": 658,
+   "shot_type": "rescue",
+   "visual_description": "Coworker shouting; coworker pulling her off; bearded manager close; group restraining her on floor",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 658,
+   "t_end": 666,
+   "shot_type": "police",
+   "visual_description": "Police car with officer; cartoon police-station exterior",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 666,
+   "t_end": 688,
+   "shot_type": "flashback_and_interview",
+   "visual_description": "Dark bakery flashback of her stuffing bread; hands opening a bread bag close; narrator giving statement to cop at desk",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 688,
+   "t_end": 704,
+   "shot_type": "aftermath",
+   "visual_description": "Loader dumping bakery goods outside store; night street exterior; narrator on couch with bandages",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 704,
+   "t_end": 712,
+   "shot_type": "tv_news_frame",
+   "visual_description": "Animated TV set showing a news anchor with red 'NEWS' lower-third",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 712,
+   "t_end": 756,
+   "shot_type": "photo_with_flicker_vignette",
+   "visual_description": "Real mugshots (incl. height-chart backdrop), bread with blade inside, surveillance stills - oval flickering vignette",
+   "camera_motion": "slow zoom + flicker",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 756,
+   "t_end": 770,
+   "shot_type": "chapter_break",
+   "visual_description": "Pumpkin sting, 'TRUE WALMART HORROR STORY 3' card, fisheye store footage with red title",
+   "camera_motion": "static / drift",
+   "on_screen_text": "THE MOST DISTURBING WALMART SURPRISE"
+  },
+  {
+   "t_start": 770,
+   "t_end": 784,
+   "shot_type": "establishing_exterior",
+   "visual_description": "Style C (clean vector, adult-sitcom look): bright daytime store front with big blue 'WALMART*' sign and shoppers",
+   "camera_motion": "slow pan/zoom",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 784,
+   "t_end": 800,
+   "shot_type": "medium_back_and_stocking",
+   "visual_description": "Narrator from behind (blue vest with spark logo) at shelves; stocking; woman with glasses appears close",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 800,
+   "t_end": 842,
+   "shot_type": "dialogue_two_shot",
+   "visual_description": "Narrator and pleading woman facing each other in the aisle - one held composition for ~37 s with lip-sync and small gestures",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 842,
+   "t_end": 872,
+   "shot_type": "walk_and_door",
+   "visual_description": "Isometric overhead of the two walking; narrator's back at restroom door; narrator in front of double restroom doors",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 872,
+   "t_end": 892,
+   "shot_type": "home_montage",
+   "visual_description": "Narrator finishing shift; store at night; house exterior; narrator sitting on bed thinking",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 892,
+   "t_end": 946,
+   "shot_type": "repeated_door_motif",
+   "visual_description": "Store exterior day; narrator's back at locked door with yellow wet-floor/out-of-order sign (same framing repeated 3x across days); narrator arms crossed annoyed; isometric walk; pushing a cart of supplies",
+   "camera_motion": "static; same composition recurs",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 946,
+   "t_end": 976,
+   "shot_type": "close_thinking_and_approach",
+   "visual_description": "Narrator close in front of shelves (inner monologue), isometric walk, hand turning key in lock close-up, door opening legs-only shot",
+   "camera_motion": "static; inserts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 976,
+   "t_end": 1002,
+   "shot_type": "slow_push_on_face",
+   "visual_description": "Narrator's face with dark sunken eyes (the smell) held and slowly pushed in; door swings open",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 1002,
+   "t_end": 1016,
+   "shot_type": "censored_reveal",
+   "visual_description": "OTS of narrator, blurred body on dark floor occupying right 2/3",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 1016,
+   "t_end": 1052,
+   "shot_type": "aftermath_close",
+   "visual_description": "Hand slamming door; narrator fallen back sitting; blurred body again; narrator close-up with sweaty face, slow push-in during guilt monologue",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 1052,
+   "t_end": 1104,
+   "shot_type": "photo_footage_with_flicker_vignette",
+   "visual_description": "Real surveillance footage of store/restroom, victim photos, photo of the actual out-of-order sign - oval flickering vignette",
+   "camera_motion": "slow zoom + flicker",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 1104,
+   "t_end": 1141,
+   "shot_type": "credits_outro",
+   "visual_description": "Scrolling patron names in columns left, cartoon creator holding 'CHECK OUT MY MERCH PLEASE!' sign blinking right; red banner top",
+   "camera_motion": "scroll",
+   "on_screen_text": "THANK YOU TO MY PATRONS AND YOUTUBE MEMBERS / CHECK OUT MY MERCH PLEASE!"
+  }
+ ],
+ "pacing": {
+  "words_total": 3263,
+  "speech_span_s": 1067.8,
+  "words_per_minute": {
+   "overall_including_gaps": 183,
+   "story_1_narration": 196,
+   "story_2_narration": 198,
+   "story_3_narration": 190,
+   "news_epilogues": "155-179"
+  },
+  "avg_shot_length_s": {
+   "story_1_anim": "~8 (scene-detect 9.0)",
+   "story_2_anim": "~4 (scene-detect 4.0)",
+   "story_3_anim": "~10 (longest single hold ~37 s on a dialogue two-shot)",
+   "news_epilogues": "image change every ~5-15 s, but the vignette flickers every ~0.5 s so it never feels static",
+   "overall_animation_estimate": "~6.5 s"
+  },
+  "segment_lengths_s": {
+   "preamble": 32,
+   "story_1": 287,
+   "epilogue_1": 89,
+   "break_2": 14,
+   "story_2": 282,
+   "epilogue_2": 52,
+   "break_3": 14,
+   "story_3": 282,
+   "epilogue_3": 52,
+   "outro": 37
+  },
+  "re_hook_interval_s": "Within a story a new reveal/foreshadow line roughly every 30-45 s ('a fleeting moment of joy is easily destroyed', 'a few seconds too late, it hit me', 'I was wrong in every regard', 'if only that were the case'). Every ~6 min a fresh story with a new red title card resets attention.",
+  "story_structure_timing_pct_of_each_story": "normal-world 0-10%, stakes/character 10-35%, inciting stranger ~35-45%, realization/escalation 45-60%, violent climax 60-80%, explanation/aftermath 80-100%, then a 50-90 s real-news epilogue.",
+  "notes": "Fast first-person narration (~195 wpm) over slow, limited animation - the voice carries the pace, visuals hold 4-10 s. Three different narrators and art styles, but an identical story template, keeps a 19-min compilation varied. Dialogue is voiced by additional actors (short exchanges of 2-6 lines)."
+ },
+ "techniques_worth_copying": [
+  "Brand-the-setting: a universally known everyday location in the title + thumbnail (big-box store, fast-food place, gas station). For us: a clearly generic fictional megastore/'24-hour superstore' so the premise is instantly familiar without trademarks.",
+  "Thumbnail = location sign glowing at night on one side + a giant uncanny face (solid black eyes, too many teeth) on the other, sized bigger than the building; blue/orange complementary palette.",
+  "'TRUE' + per-story news-style epilogue as a credibility device. Our fictional equivalent: an in-world 'incident report' / redacted police log / local-news ticker card at the end of each story (clearly fictional names), giving the same 'it really happened' chill without real victims.",
+  "Repeatable first-person workplace template: boring shift -> someone we care about or a sympathetic stranger -> odd customer -> narrator dismisses it -> 'a few seconds too late, it hit me' -> violence/horror reveal -> aftermath + guilt line.",
+  "Foreshadowing one-liners that promise worse to come ('it will become obvious why', 'If only that were the case', 'this is the worst one') every 30-45 s.",
+  "Comic-relief lists before the turn (customers list ending on 'crackheads'; 'what will they steal: food, tampons, deodorant...') - the laugh lowers guard right before the scare.",
+  "Line-by-line escalating confrontation dialogue with a short ominous payoff line ('Take a good look.').",
+  "Pop-in villain close-ups: hard cut from a wide to an extreme close of the uncanny face (black eyes, grin) on the creepiest line.",
+  "Gore handled by heavy gaussian blur on the violent region while the narration carries the detail - cheap, ad-safe, and arguably scarier.",
+  "POV hands in the foreground of the frame during the monster's approach + push-in zoom on its face.",
+  "Repeated identical framing (the locked door with out-of-order sign shown on successive days) to mark time passing and build dread.",
+  "Chapter cards between stories: black card with 'STORY 2' + red distressed title over fisheye found-footage; gives the compilation rhythm and makes each story a fresh hook.",
+  "Flickering oval-vignette 'old projector' treatment for documentary/epilogue imagery keeps static images alive."
+ ],
+ "code_only_remake_requirements": {
+  "feasibility": "High. The animation is limited 2D (static backgrounds, puppet characters with walk/run cycles, mouth flaps and pose swaps, 4-10 s holds). Everything except the real photos/footage maps directly to SVG + Remotion.",
+  "characters": "SVG cut-out puppet rig per character: head (2-3 angles), eyes (normal / wide / solid-black monster), mouth visemes (5-6 shapes, driven by TTS word timings), arms with 2-3 pose presets (wave, point, hands-on-face, crossed), torso + legs with 4-frame walk and run cycles. A 'monster face' variant layer (black eyes with white ring, many-toothed grin, blood-red mouth).",
+  "backgrounds": "Parametric store-interior generator in SVG: aisles of shelving with repeated product blocks (randomised colours), floor tiles with perspective, ceiling lights, cyan window walls, checkout counters/kiosks, bakery crates, restroom door, exterior storefront with a generic glowing sign at night/day; plus home bedroom, police desk, street at night.",
+  "camera": "Remotion transforms: static holds, slow push-ins on faces (scale 1.0->1.25 over 5-10 s), small shake on impacts, hard cut pop-ins to extreme close-ups, isometric overhead variant for walking shots.",
+  "fx": "CSS/SVG gaussian blur mask over violent regions (censor), red blood decals, blue/red police-light bokeh flashes, fisheye-ish barrel distortion + heavy vignette + grain for 'found footage' title plates (SVG feDisplacementMap or a radial-gradient approximation), flickering oval iris vignette for epilogue cards.",
+  "text_cards": "Black chapter cards (white + accent-colour 'TRUE ... STORY N' lines, small red credit lines), red distressed horror title over the fisheye plate, fictional 'incident report' / news-ticker epilogue cards replacing real mugshots.",
+  "audio": "Kokoro/Piper TTS narrator at ~190-200 wpm (first person, conversational), 1-2 extra voices for dialogue lines, CC0/self-made dark ambient bed, SFX: scream, stab/slash, gunshot, taser crackle, door slam, key in lock, crowd murmur.",
+  "structure_pipeline": "Storyboard JSON per story with beats from this file's template; 3 stories per long-form (~5 min each) or 1 story per 60-90 s Short with a hard cold open (skip the 32 s preamble).",
+  "not_to_copy": "Real brand logo/name in art, real people's photos/mugshots/footage, real crimes, the stories themselves, the channel's pumpkin logo and merch cards."
+ }
+}

@@ -1,0 +1,738 @@
+{
+ "id": "JGTawyfFG8g",
+ "url": "https://www.youtube.com/watch?v=JGTawyfFG8g",
+ "platform": "youtube",
+ "niche": "whatif",
+ "channel": "OminiAM",
+ "title": "What If Zombies Took Over the World? (Animated Short Film)",
+ "description": "What if a zombie outbreak started right now? We trace the chaos from the first emergency alert to total collapse. ... Subscribe for more What If stories and tell me in the comments: what is the first thing you would grab if the alarms started ringing? Chapters: 0:00 Day 1 / 0:52 How Fast It Spreads / 1:37 The Highway / 3:04 Valley Foods / 4:09 The First Night / 5:24 The Power Goes Out / 6:20 The Escape / 7:43 Cities Are Death Traps / 9:17 Greenhill Farm / 10:59 The Herd / 12:52 What Would Really Happen / 13:27 Day 100",
+ "upload_date": "2026-10-22",
+ "duration": 850,
+ "format": "16:9 long-form, 854x480 @24fps downloaded (<=480p), 14:10",
+ "views": 13606,
+ "views_at_selection": 13533,
+ "likes": 154,
+ "comments": 26,
+ "subs": 5620,
+ "channel_median_views": 10058,
+ "outlier_score": 1.35,
+ "role": "control",
+ "analysis_notes": {
+  "source_files_spark": "~/studio/refs/whatif/JGTawyfFG8g.{mp4,webp,thumb.jpg,info.json,en-orig.json3}; frames every 2 s (425), 2-min detail sheets, 0-12 s cold-open sheet at 0.5 s, scene-cut lists (thresholds 0.1/0.15/0.3) in ~/studio/refs/whatif/work_JGTawyfFG8g/",
+  "download": "854x480 h264 (fmt 397) + opus merged, 22 MB; kept on Spark (<300 MB).",
+  "transcript_source": "YouTube auto-subs (en-orig json3); 'en' track 429'd but en-orig succeeded. Saved to research/library/transcripts/JGTawyfFG8g.txt. 0:00-0:09.3 has no speech.",
+  "frames": "research/library/sheets/JGTawyfFG8g.jpg = 10 cols x 43 rows, row-major, 2 s per tile, m:ss timestamp top-left (1600x3870).",
+  "audio_profile": "Single calm male narrator, second person present tense ('you'), measured documentary delivery; a few lines voiced as other characters/quotes (auto-subs mark them with >>). Low ambient/cinematic music bed with [music] swells at the store intro; diegetic SFX implied (phone buzz, scream, shutter slam, shotgun BOOM, dock-door screech).",
+  "metadata_snapshot": "yt-dlp on Spark 2026-11-01 ~09:30 UTC; uploaded 10 days earlier; 13.6k views on a 5.6k-sub channel (control, 1.35x median).",
+  "cut_counting": "ffmpeg scene>0.3 finds only 47 cuts because the palette is dark low-contrast navy and most transitions are soft dissolves; scene>0.15 finds 135, scene>0.1 finds 178; consecutive 2 s frames differ visibly 224 times. Real visual changes are ~220-260 (avg ~3.5 s)."
+ },
+ "art_style": "Minimal flat-vector 'black-ball-head stickman' style in a moody, desaturated night palette: deep navy/indigo backgrounds (#141a3a-#2a3470 range) with soft vignettes, glow and light cones; characters are solid black circle heads with white oval eyes/eyebrow strokes and a thin rim-light outline, thin black limbs, one flat colour shirt per character (you = red/coral, Maya = teal with ponytail, Omar = yellow cap + dark, Leo = blue with spiky hair, Daniel = olive-green, Mr. Hale = green with glasses, Ruth = wide tan hat + grey). Zombies = same rig but grey-green skin, glowing white eyes, red wound spots. Environments are simple geometric silhouettes (skyline rectangles with lit windows, shelves made of coloured rectangles, red barn + water tower + chain-link). Second visual mode = line-art infographics: thin white/blue outline icons and pink/red neon stick figures on flat navy with spaced uppercase sans captions (Montserrat/Poppins-like, letter-spaced, small). Third mode = warm sunrise farm palette (lavender-to-peach gradient sky, sun glow). The 9 s cold open is in a richer textured illustrated style (warm street lights, detailed zombie faces) that does not reappear. Thumbnail uses a glossier, rendered-3D-ish version of the hero (goggles, big eyes) not seen in the video.",
+ "title_pattern": "'What If [Big Hypothetical] Took Over the World?' + parenthetical genre tag '(Animated Short Film)' - classic What-If question framing, global stakes, no number; the tag signals narrative story rather than a lecture explainer.",
+ "thumbnail": {
+  "composition": "Hard vertical split-screen before/after: left half bright sunny kitchen, right half dark blue boarded-up kitchen at night; same character centred in each half at the same scale; white divider line.",
+  "text": "Two labels at top: 'DAY 1' (white, heavy condensed sans, black outline) over the left; 'DAY 365' (red, same font) over the right. Only 2 words of text.",
+  "colours": "Left: warm cream/yellow light, red T-shirt, orange juice, colourful cereal. Right: deep navy/cyan shadows, desaturated torn red shirt, brown bat. Warm-vs-cold complementary contrast carries the story.",
+  "subject_scale_contrast": "Character fills ~60% height in both halves; left = huge grin, tongue out, eating Froot-Loops-style cereal; right = wide-eyed, bearded, ragged, gripping a nail bat while rotting zombie hands reach through the wooden boards behind him. Same goggles in both anchor identity.",
+  "why_it_works": "Time-jump transformation (Day 1 vs Day N) is an instant curiosity gap - viewer wants to know what happened in between; emotional flip (joy -> paranoia) readable at phone size; zombie hands give genre at a glance. Note: thumbnail promises DAY 365 and a goggled hero, but the video ends at Day 100 with a plain stickman - a mild mismatch (possible retention cost), and its art is far more detailed than the video."
+ },
+ "hook": {
+  "first_5s_verbatim": "[0:00-0:09 no voice, music only] ... 'What if a zombie outbreak started today? It's 7:42 in the morning. You're half asleep scrolling on your phone when it buzzes.'",
+  "device": "Silent cold-open flash-forward (9 s): visual tease of the scariest-but-funny image (hero trapped in a car, zombie faces smearing the glass, he smugly sips a soda) with no context, then the title question read verbatim over a title card, then an instant second-person 'you' drop into a precise mundane moment (timestamp 7:42 a.m.) that escalates in ~20 s to an emergency alert and a neighbour chewing something. Stakes and genre clear by 0:50 ('Welcome to day one').",
+  "notes": "The VO doesn't start until 9.3 s, which is late for YouTube; the cold-open image (car + window faces) pays off at 2:11-2:30, rewarding early viewers. Weakness: no stated promise of what the viewer will learn/see."
+ },
+ "beats": [
+  {
+   "t_start": 0,
+   "t_end": 9.3,
+   "beat_type": "cold_open_flash_forward",
+   "summary": "Music-only teaser in a richer, warmer illustrated style: a car stuck in a street of zombies, cut inside to the black-ball-head hero as rotting faces press against the window; he goes from scared to smug and sips a soda (a payoff of the 'the glass holds' moment at 2:24). No VO. Fades to black."
+  },
+  {
+   "t_start": 9.3,
+   "t_end": 12.9,
+   "beat_type": "title_question",
+   "summary": "VO asks the title question verbatim over a navy city-skyline title card."
+  },
+  {
+   "t_start": 12.9,
+   "t_end": 30,
+   "beat_type": "mundane_setup_second_person",
+   "summary": "'It's 7:42 in the morning' - you in bed scrolling, phone buzzes three times, EMERGENCY ALERT: stay indoors. Second-person present tense."
+  },
+  {
+   "t_start": 30,
+   "t_end": 50,
+   "beat_type": "inciting_incident_reveal",
+   "summary": "You laugh it off, a scream, look out the window: neighbour Mr. Collins standing in the road, head tilted too far, chewing. Ends on a zombie face close-up and a 'DAY 1' chapter card."
+  },
+  {
+   "t_start": 50,
+   "t_end": 97,
+   "beat_type": "explainer_interlude_science",
+   "summary": "'How fast it spreads': R number defined, flu ~1.3 vs measles 12-18 bar chart, infection grid filling a city of 1,000,000 in <24 h; then a TV news anchor whose feed cuts to bars + NO SIGNAL (story re-entry)."
+  },
+  {
+   "t_start": 97,
+   "t_end": 160,
+   "beat_type": "escalation_set_piece",
+   "summary": "You pack a bag (kitchen knife 'for tomatoes' joke, 'Bad idea'), everyone has the same thought, 20 MINUTES LATER gridlock; honking draws the dead; hands and a face smear the glass."
+  },
+  {
+   "t_start": 160,
+   "t_end": 184,
+   "beat_type": "suspense_hold_and_escape",
+   "summary": "You don't scream - the glass holds; wait for them to drift to louder cars, slip out the far door, run past burning bus and abandoned police car to Valley Foods; shutter slams a second behind you."
+  },
+  {
+   "t_start": 184,
+   "t_end": 210,
+   "beat_type": "ensemble_introduction",
+   "summary": "Five strangers introduced one by one with name + role lower-thirds (Maya nurse, Omar delivery driver with crowbar, Leo 16, Daniel Leo's dad, Mr. Hale 70 store manager with a shotgun 'for raccoons'). 'Now you're a team.'"
+  },
+  {
+   "t_start": 210,
+   "t_end": 249,
+   "beat_type": "explainer_interlude_logistics",
+   "summary": "Supermarket stock count-up (tens of thousands of items), '6 people = months of food', but cities hold only ~3 days of food on shelves; trucks every day... STOPPED. Re-hook: everyone left alive will want what you have."
+  },
+  {
+   "t_start": 249,
+   "t_end": 290,
+   "beat_type": "night_siege_tension",
+   "summary": "The first night: barricades, pharmacy-aisle hospital, Hale counting cans (counter ticking), DOZENS of infected pressed against the glass watching the lights."
+  },
+  {
+   "t_start": 290,
+   "t_end": 324,
+   "beat_type": "moral_dilemma_and_sacrifice",
+   "summary": "2 a.m. coughing: Daniel is bitten - 'Don't tell my son.' Explainer aside on real outbreaks failing because people hide symptoms out of fear/love. By morning Daniel walked out alone; Leo finds the note."
+  },
+  {
+   "t_start": 324,
+   "t_end": 360,
+   "beat_type": "systems_collapse_explainer",
+   "summary": "Day 5 the power goes out: nobody came to work, grid fails neighbourhood by neighbourhood (dot-grid of lights winking out), freezers stop, silence - then an engine."
+  },
+  {
+   "t_start": 360,
+   "t_end": 380,
+   "beat_type": "new_antagonist_human",
+   "summary": "Four masked survivors with bats and a rifle: 'They're not infected, they're worse.' Thesis line on text: THE SHUTTER CAN STOP THE DEAD / IT CAN'T STOP THE LIVING."
+  },
+  {
+   "t_start": 380,
+   "t_end": 412,
+   "beat_type": "plan_montage",
+   "summary": "Omar remembers the delivery truck at the loading dock; blueprint map, icons LOAD -> OPEN THE DOCK -> DRIVE; 'SIMPLE PLANS NEVER STAY SIMPLE.' (explicit foreshadow re-hook)."
+  },
+  {
+   "t_start": 412,
+   "t_end": 463,
+   "beat_type": "climax_1_escape_and_sacrifice",
+   "summary": "4 a.m. dock door screams, every head turns, GO!, engine dies twice, the dead run; Mr. Hale walks out alone, fires into the air (BOOM), leads the horde away without looking back; you drive out crying with his shells on the seat."
+  },
+  {
+   "t_start": 463,
+   "t_end": 500,
+   "beat_type": "explainer_interlude_strategy",
+   "summary": "'Cities are death traps': more people = more infected, nowhere to go, one blocked road = TRAPPED; countryside: fewer people, see danger miles away, grow food, find water."
+  },
+  {
+   "t_start": 500,
+   "t_end": 513,
+   "beat_type": "new_goal_radio_signal",
+   "summary": "Day 2 the truck radio crackles: Greenhill Farm, Route 9 - water, fences, room - loops every 10 minutes. Trust debate (could be a trap vs only chance)."
+  },
+  {
+   "t_start": 513,
+   "t_end": 557,
+   "beat_type": "road_survival_lessons_montage",
+   "summary": "'You learn...' list: gas stations are dangerous, noise is your enemy (a gunshot rings a dinner bell for a mile), crowbar > shotgun (quiet, never runs out of ammo, opens doors), sleep in shifts 2 on/2 off, check every car, most infected don't chase unless provoked."
+  },
+  {
+   "t_start": 557,
+   "t_end": 602,
+   "beat_type": "sanctuary_arrival",
+   "summary": "Vine-covered GREENHILL FARM sign, chain-link fence with car hoods welded on, Ruth in a wide hat with a hunting rifle: 'Anybody bit? Show me your arms.' Gate opens; Ruth's backstory (40 years, husband gone, kids in the city); first full night's sleep."
+  },
+  {
+   "t_start": 602,
+   "t_end": 659,
+   "beat_type": "found_family_competence_montage",
+   "summary": "Life on the farm: hand pump, potatoes, chickens ('protein that walks around on its own'), Omar fixes the generator, Maya's clinic, Leo rifle training ('Breathe out... then squeeze'), you become THE SCAVENGER (inventory icons: seeds, antibiotics, batteries, engine manual). 'For a while it almost feels normal.'"
+  },
+  {
+   "t_start": 659,
+   "t_end": 700,
+   "beat_type": "final_threat_reveal",
+   "summary": "'They don't sleep... they don't stop... like a river.' Leo runs from the water tower; fog on the horizon becomes THOUSANDS - a herd on Route 9 heading for the farm. MAYBE 6 HOURS."
+  },
+  {
+   "t_start": 700,
+   "t_end": 772,
+   "beat_type": "climax_2_redirect_the_herd",
+   "summary": "Ruth has done the math (fence holds a few hundred, not thousands). Plan: don't fight, redirect - car stereo on the generator 1 mile east, lights out, wait in the dark. The groan, fingers rattling chain link... music starts, the herd turns east 'like a tide going out', all night. Sunrise: fence bent in three places but it held. Ruth: 'We're going to need a bigger fence.' Everyone laughs."
+  },
+  {
+   "t_start": 772,
+   "t_end": 807,
+   "beat_type": "explainer_recap_takeaways",
+   "summary": "'So what would actually happen?' Infographic recap: cities fall first, supermarkets empty in days, grid fails in weeks, biggest danger = the living; survivors are not the strongest but the quiet ones who grow/fix/heal; don't try to survive alone."
+  },
+  {
+   "t_start": 807,
+   "t_end": 840,
+   "beat_type": "epilogue_day_100_twist",
+   "summary": "Day 100 on the barn roof with Leo, potatoes ready, everyone in their place - then an engine sound: a plane contrail. 'Somebody out there is still flying.' Open-loop sequel tease."
+  },
+  {
+   "t_start": 840,
+   "t_end": 850,
+   "beat_type": "cta_comment_question",
+   "summary": "'What's the first thing you'd grab if this happened tomorrow?' (italic on-screen text over the ensemble on the farm fence) + subscribe because 'this story isn't over yet'."
+  }
+ ],
+ "shot_list": [
+  {
+   "t_start": 0,
+   "t_end": 2.3,
+   "shot_type": "establishing_wide",
+   "visual_description": "Warm, more detailed illustrated night street: red-white barriers, teal car, green zombies shambling in from both sides (different, richer art style than the body of the video).",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 2.3,
+   "t_end": 5.5,
+   "shot_type": "interior_medium",
+   "visual_description": "Inside the car: black-ball-head hero (blue shirt, orange rim light) in foreground; rotten green faces and hands smear the window behind him; his expression flips smile -> panic.",
+   "camera_motion": "static, slight shake",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 5.5,
+   "t_end": 9.3,
+   "shot_type": "close_up_reaction_gag",
+   "visual_description": "Hero's face fills frame, smug half-lidded look; cut back as he raises a red soda can and sips while zombies rage; fade to black.",
+   "camera_motion": "punch-in then hold",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 9.3,
+   "t_end": 12.9,
+   "shot_type": "title_card",
+   "visual_description": "Navy gradient, faint city skyline silhouette and road lines; two-line white title text.",
+   "camera_motion": "slow drift",
+   "on_screen_text": "WHAT IF A ZOMBIE OUTBREAK / STARTED TODAY?"
+  },
+  {
+   "t_start": 12.9,
+   "t_end": 18,
+   "shot_type": "interior_wide",
+   "visual_description": "Dark navy bedroom, big window with skyline, tiny figure in bed lit by phone glow; clock text.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": "7:42 AM"
+  },
+  {
+   "t_start": 18,
+   "t_end": 24,
+   "shot_type": "insert_phone_and_face",
+   "visual_description": "Hand holding phone with notification list; window wide with 7:42 clock; circular close-up of a sleepy face (flat line eyes).",
+   "camera_motion": "cuts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 24,
+   "t_end": 30,
+   "shot_type": "insert_ui_alert",
+   "visual_description": "Lock screen 7:42 with red EMERGENCY ALERT card that grows and adds lines.",
+   "camera_motion": "zoom-in",
+   "on_screen_text": "EMERGENCY ALERT / STAY INDOORS / Do not approach anyone showing signs of aggression."
+  },
+  {
+   "t_start": 30,
+   "t_end": 36,
+   "shot_type": "interior_wide_flash",
+   "visual_description": "Hero (red shirt) sits up on bed; white flash frame on the scream; back to the room.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 36,
+   "t_end": 48,
+   "shot_type": "exterior_wide_reveal",
+   "visual_description": "POV through window to suburban street of houses at dawn; neighbour stands in road, tilts head - turns out to be a pale zombie with glowing eyes.",
+   "camera_motion": "slow pan / push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 48,
+   "t_end": 50,
+   "shot_type": "close_up_monster",
+   "visual_description": "Zombie face close-up: grey-green skin, stitches, red eyes, jagged teeth with blood.",
+   "camera_motion": "punch-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 50,
+   "t_end": 52,
+   "shot_type": "chapter_card",
+   "visual_description": "Black-navy frame with DAY 1 centered.",
+   "camera_motion": "static",
+   "on_screen_text": "DAY 1"
+  },
+  {
+   "t_start": 52,
+   "t_end": 58,
+   "shot_type": "establishing_city",
+   "visual_description": "Wide dense skyline of blue-navy towers with a full moon.",
+   "camera_motion": "slow pan",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 58,
+   "t_end": 70,
+   "shot_type": "infographic_explainer",
+   "visual_description": "Neon line-art stick figures (pink/red) branching 1->2->4 infection tree; bar chart FLU ~1.3 vs MEASLES 12-18 with bars growing.",
+   "camera_motion": "static with animated build",
+   "on_screen_text": "THE R NUMBER / how many people one sick person infects / ~1.3 FLU / 12-18 MEASLES"
+  },
+  {
+   "t_start": 70,
+   "t_end": 77,
+   "shot_type": "interior_wide",
+   "visual_description": "Corridor/hospital bed with IV drip, empty - 'they don't stay home in bed'.",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 77,
+   "t_end": 84,
+   "shot_type": "infographic_grid",
+   "visual_description": "Stick zombies walk across a street, then a full-frame grid of squares fills red with an infected counter rocketing 1 -> 20 -> 64,565.",
+   "camera_motion": "static, counter animation",
+   "on_screen_text": "CITY OF 1,000,000 / INFECTED / < 24 HOURS"
+  },
+  {
+   "t_start": 84,
+   "t_end": 96,
+   "shot_type": "interior_tv_news",
+   "visual_description": "You on the couch watching TV; TV news set with anchor woman, BREAKING chyron; lights flicker; colour-bar NO SIGNAL test screen.",
+   "camera_motion": "cuts, push-in on TV",
+   "on_screen_text": "BREAKING / CITY-WIDE EMERGENCY - STAY INDOORS / NO SIGNAL"
+  },
+  {
+   "t_start": 96,
+   "t_end": 108,
+   "shot_type": "insert_object_montage",
+   "visual_description": "You under a ceiling lamp with backpack; isolated object inserts on dark: hand packing a knife next to a tomato, keys dangling; pictogram stick figure + BAD IDEA.",
+   "camera_motion": "static inserts",
+   "on_screen_text": "BAD IDEA."
+  },
+  {
+   "t_start": 108,
+   "t_end": 116,
+   "shot_type": "aerial_grid_and_title",
+   "visual_description": "Top-down grid of car roofs on highways; '20 MINUTES LATER' card over you in a car.",
+   "camera_motion": "slow top-down drift",
+   "on_screen_text": "20 MINUTES LATER"
+  },
+  {
+   "t_start": 116,
+   "t_end": 126,
+   "shot_type": "pov_windshield",
+   "visual_description": "Windshield POV across a sea of red tail-lights; a woman crying in the next car through the window.",
+   "camera_motion": "slow pan",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 126,
+   "t_end": 136,
+   "shot_type": "wide_horde_approach",
+   "visual_description": "Close-up of worried face; side-scrolling highway of cars as green-eyed zombies weave between them, more and more.",
+   "camera_motion": "lateral track",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 136,
+   "t_end": 150,
+   "shot_type": "pov_window_jumpscare",
+   "visual_description": "Hands slam the window, a giant zombie face fills the glass and smears; cut to tiny you in the driver's seat; big circular reaction close-ups (wide eyes, wobbly mouth).",
+   "camera_motion": "punch-ins, shake",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 150,
+   "t_end": 158,
+   "shot_type": "pov_window_hands",
+   "visual_description": "Row of grasping hands against glass, then the empty dark car interior - waiting.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 158,
+   "t_end": 172,
+   "shot_type": "lateral_run",
+   "visual_description": "You climb out and run left-to-right past cars, burning bus with flame triangles, abandoned police car with spinning lights.",
+   "camera_motion": "lateral tracking parallax",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 172,
+   "t_end": 184,
+   "shot_type": "exterior_storefront",
+   "visual_description": "Glowing VALLEY FOODS storefront; silhouette waving in the bright door; shutter slams with zombies just behind.",
+   "camera_motion": "push-in",
+   "on_screen_text": "VALLEY FOODS"
+  },
+  {
+   "t_start": 184,
+   "t_end": 206,
+   "shot_type": "character_intro_lineup",
+   "visual_description": "Inside aisles of colourful shelves; each survivor steps in solo with a lower-third name card; NO SERVICE sign beside Leo; insert of the shotgun under the counter.",
+   "camera_motion": "cut per character, static",
+   "on_screen_text": "MAYA / OMAR delivery driver / LEO 16 / NO SERVICE / DANIEL Leo's dad / MR. HALE 70 - store manager / FOR RACCOONS"
+  },
+  {
+   "t_start": 206,
+   "t_end": 214,
+   "shot_type": "group_wide",
+   "visual_description": "Six tiny coloured figures standing in a line in front of shelves.",
+   "camera_motion": "slow push-in",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 214,
+   "t_end": 238,
+   "shot_type": "infographic_counter_and_icons",
+   "visual_description": "Blurred shelves with item counter 1,317+ -> 29,835+; icon inserts (canned food, batteries); '6 people = [crates] = months of food'; line-art city with depleting progress bar 3.0 -> 1.2 -> 0.0 DAYS; line trucks driving in.",
+   "camera_motion": "static, animated counters",
+   "on_screen_text": "TENS OF THOUSANDS OF ITEMS / CANNED FOOD / BATTERIES / 6 PEOPLE = MONTHS OF FOOD / 3 DAYS OF FOOD / EVERY DAY / STOPPED"
+  },
+  {
+   "t_start": 238,
+   "t_end": 250,
+   "shot_type": "interior_glass_doors",
+   "visual_description": "Glass storefront from inside, zombies outside moving toward you; exterior Valley Foods at night.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 250,
+   "t_end": 266,
+   "shot_type": "action_montage_interior",
+   "visual_description": "Omar drags shelf units against the glass; Maya at the pharmacy; close insert of cans being stacked with a ticking counter (428, 449) and Hale's green arm.",
+   "camera_motion": "static per shot",
+   "on_screen_text": "PHARMACY / 428 / 449"
+  },
+  {
+   "t_start": 266,
+   "t_end": 274,
+   "shot_type": "wide_siege",
+   "visual_description": "Exterior storefront with the dead gathering; dashed-circle close-up of nervous eyes peeking; glass packed with zombies pressed against it.",
+   "camera_motion": "push-in",
+   "on_screen_text": "DOZENS"
+  },
+  {
+   "t_start": 274,
+   "t_end": 300,
+   "shot_type": "interior_dark_reveal",
+   "visual_description": "Dark blurred shelves at 2 a.m.; Daniel sitting alone sweating; close insert of bandaged arm with blood spot (pill-shaped).",
+   "camera_motion": "slow push",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 300,
+   "t_end": 308,
+   "shot_type": "close_up_emotion",
+   "visual_description": "Circular close-ups: Daniel crying, then you - worried.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 308,
+   "t_end": 316,
+   "shot_type": "infographic_pictograms",
+   "visual_description": "Row of line stick figures turning red one by one; single figure coughing; heart between two figures.",
+   "camera_motion": "static, sequential reveal",
+   "on_screen_text": "REAL OUTBREAKS / HIDING SYMPTOMS / because they're scared / because they love someone"
+  },
+  {
+   "t_start": 316,
+   "t_end": 324,
+   "shot_type": "silhouette_departure",
+   "visual_description": "Back door opens with a slab of light; tiny figure walks alone on a foggy road; insert hand holding the note; Leo sitting with the note.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 324,
+   "t_end": 348,
+   "shot_type": "systems_explainer_dots",
+   "visual_description": "DAY 5: power-pylon silhouettes against a glowing horizon; worker grid empty; field of light dots switching off region by region.",
+   "camera_motion": "slow pan, dots animate off",
+   "on_screen_text": "DAY 5 / NOBODY CAME TO WORK / NEIGHBORHOOD BY NEIGHBORHOOD"
+  },
+  {
+   "t_start": 348,
+   "t_end": 356,
+   "shot_type": "interior_blackout",
+   "visual_description": "Shelves lose their light; store goes black.",
+   "camera_motion": "static, lights-off animation",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 356,
+   "t_end": 362,
+   "shot_type": "pov_shutter_gap",
+   "visual_description": "View through shutter slats; pickup headlights in the lot; four armed silhouettes with bats/rifle.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 362,
+   "t_end": 378,
+   "shot_type": "close_up_antagonists_and_thesis",
+   "visual_description": "Three hostile circular faces; masked raider shouting at shutter; shotgun insert; five survivors lined up; full-frame shutter slats with thesis caption.",
+   "camera_motion": "cuts, slow push",
+   "on_screen_text": "THEY'RE WORSE. / THE SHUTTER CAN STOP THE DEAD. / IT CAN'T STOP THE LIVING."
+  },
+  {
+   "t_start": 378,
+   "t_end": 400,
+   "shot_type": "plan_diagram",
+   "visual_description": "Paper blueprint: STORE -> TRUCK with dashed route; loading dock with white Valley Foods truck under a lamp; wall of water bottles; keys; icon flow LOAD -> OPEN THE DOCK -> DRIVE.",
+   "camera_motion": "rotating map, static",
+   "on_screen_text": "STORE / TRUCK / HALF FULL OF WATER / LOAD / OPEN THE DOCK / DRIVE"
+  },
+  {
+   "t_start": 400,
+   "t_end": 404,
+   "shot_type": "text_card",
+   "visual_description": "Plain navy card, two-line statement, second line in red.",
+   "camera_motion": "static",
+   "on_screen_text": "SIMPLE PLANS / NEVER STAY SIMPLE."
+  },
+  {
+   "t_start": 404,
+   "t_end": 416,
+   "shot_type": "action_sound_visual",
+   "visual_description": "Omar heaves up the dock door; concentric sound rings; macro of shutter rollers screaming; horde heads in the lot turn.",
+   "camera_motion": "push-in, ring pulses",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 416,
+   "t_end": 430,
+   "shot_type": "action_montage",
+   "visual_description": "Boxes thrown into truck, Maya grabs Leo, Omar on the cab; close insert of ignition key turning; truck with horde closing from both sides.",
+   "camera_motion": "fast cuts",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 430,
+   "t_end": 446,
+   "shot_type": "sacrifice_sequence",
+   "visual_description": "Mr. Hale (green shirt) walks into the lot alone; low-angle hero shot raising shotgun; white muzzle-flash bloom; horde turns and follows him away.",
+   "camera_motion": "low-angle, flash, lateral track",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 446,
+   "t_end": 463,
+   "shot_type": "emotional_exit",
+   "visual_description": "Truck pulls out with headlight beam; big circular close-up of you crying with shotgun shells beside.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 463,
+   "t_end": 478,
+   "shot_type": "infographic_line_city",
+   "visual_description": "Line-art city with captions; red X routes between towers; road diagram with one blocked car = TRAPPED.",
+   "camera_motion": "static, build-ons",
+   "on_screen_text": "CITIES ARE DEATH TRAPS / MORE PEOPLE = MORE INFECTED / NOWHERE TO GO / ONE BLOCKED ROAD / TRAPPED"
+  },
+  {
+   "t_start": 478,
+   "t_end": 488,
+   "shot_type": "landscape_wide",
+   "visual_description": "Sunrise countryside: rolling hills, tree silhouettes, truck small on the road, measurement line; water ribbon insert.",
+   "camera_motion": "slow pan",
+   "on_screen_text": "FEWER PEOPLE / MILES AWAY / FIND WATER"
+  },
+  {
+   "t_start": 488,
+   "t_end": 504,
+   "shot_type": "insert_radio",
+   "visual_description": "Truck dashboard radio, tuner reads 98.7 FM then GREENHILL; captions build.",
+   "camera_motion": "static, ring pulses",
+   "on_screen_text": "DAY 2 / GREENHILL FARM / ROUTE 9 / WATER / FENCES / ROOM / LOOP / EVERY 10 MINUTES"
+  },
+  {
+   "t_start": 504,
+   "t_end": 514,
+   "shot_type": "interior_cab_dialogue",
+   "visual_description": "Windshield view of night hills; two-shots of survivors in the cab debating; top-down map with N arrow.",
+   "camera_motion": "static",
+   "on_screen_text": ""
+  },
+  {
+   "t_start": 514,
+   "t_end": 556,
+   "shot_type": "road_lessons_montage",
+   "visual_description": "Truck on the road with 3 DAYS; gas station with lurkers; flock of birds + sound ring; DAY 10 crowbar insert; you at the gas pump with list; campfire at night; clock; you checking parked cars; infected wandering in sunset field.",
+   "camera_motion": "slow pans, inserts",
+   "on_screen_text": "3 DAYS / GAS STATIONS ARE DANGEROUS / NOISE IS YOUR ENEMY / A DINNER BELL FOR A MILE / DAY 10 / QUIET / NEVER RUNS OUT OF AMMO / OPENS DOORS / 2 HOURS ON - 2 HOURS OFF / UNLESS YOU GIVE THEM A REASON"
+  },
+  {
+   "t_start": 556,
+   "t_end": 578,
+   "shot_type": "exterior_location_reveal",
+   "visual_description": "Moonlit farm: red barn, water tower, chain-link fence with coloured car hoods; Ruth in wide hat holding a rifle at the gate; circular close-up of Ruth's stern face.",
+   "camera_motion": "slow pan",
+   "on_screen_text": "GREENHILL FARM / CAR HOODS WELDED ALONG THE BOTTOM / NOT POINTING IT AT YOU"
+  },
+  {
+   "t_start": 578,
+   "t_end": 602,
+   "shot_type": "dialogue_and_backstory",
+   "visual_description": "Group at the gate, arms raised; gate opens; hands on porch rail; framed photo insert of Ruth and husband; house at night; you asleep in bed under a lamp.",
+   "camera_motion": "static, slow push",
+   "on_screen_text": "40 YEARS ON THIS FARM"
+  },
+  {
+   "t_start": 602,
+   "t_end": 640,
+   "shot_type": "farm_life_montage",
+   "visual_description": "Dusk-sunrise farm palette (purple-peach sky): sunburst HARD, BUT REAL; hand pump; Ruth planting potatoes; chickens; Omar with generator in barn; Maya's clinic table; Leo rifle training; Leo spiky-hair close-up.",
+   "camera_motion": "static vignettes",
+   "on_screen_text": "HARD, BUT REAL / WHEN THE ELECTRIC ONE DIES / POTATOES GROW ALMOST ANYWHERE / PROTEIN THAT WALKS AROUND ON ITS OWN / BREATHE OUT... / THEN SQUEEZE."
+  },
+  {
+   "t_start": 640,
+   "t_end": 660,
+   "shot_type": "scavenger_montage",
+   "visual_description": "You walking out the gate; at a gas station at night; inventory icons pop in one by one; return to farm.",
+   "camera_motion": "static, icon pop-ins",
+   "on_screen_text": "THE SCAVENGER / SEEDS / ANTIBIOTICS / BATTERIES / ENGINE MANUAL"
+  },
+  {
+   "t_start": 660,
+   "t_end": 672,
+   "shot_type": "threat_explainer",
+   "visual_description": "Foggy pale field of zombies; marching row of close zombies; top-down diagonal river of thousands of dots.",
+   "camera_motion": "lateral track, top-down drift",
+   "on_screen_text": "THEY DON'T SLEEP / THEY DON'T STOP. / LIKE A RIVER"
+  },
+  {
+   "t_start": 672,
+   "t_end": 694,
+   "shot_type": "reveal_horizon",
+   "visual_description": "Leo runs down from the water tower; you on the tower; sunset horizon with fog band that resolves into a dark mass; top-down Route 9 packed with bodies.",
+   "camera_motion": "slow push to horizon",
+   "on_screen_text": "THOUSANDS / ROUTE 9"
+  },
+  {
+   "t_start": 694,
+   "t_end": 714,
+   "shot_type": "plan_infographic",
+   "visual_description": "Clock half shaded; Ruth at the table under a lamp; particle diagram of fence line vs herd, line breaks.",
+   "camera_motion": "static, particle animation",
+   "on_screen_text": "MAYBE 6 HOURS / SHE'S DONE THE MATH / A FEW HUNDRED / NOT THOUSANDS / ALL AT ONCE -> IT GOES DOWN"
+  },
+  {
+   "t_start": 714,
+   "t_end": 728,
+   "shot_type": "plan_execution",
+   "visual_description": "Omar wiring the generator to a stereo; empty field with distance line; speaker cone macro; house lights cut off one by one; close-up of your scared face.",
+   "camera_motion": "static",
+   "on_screen_text": "1 MILE EAST / INSIDE / IN THE DARK"
+  },
+  {
+   "t_start": 728,
+   "t_end": 748,
+   "shot_type": "siege_climax",
+   "visual_description": "Zombies reach the moonlit fence; close row of hands rattling the chain link; zombies turning their heads; top-down particle mass drifting right.",
+   "camera_motion": "slow push, particle drift",
+   "on_screen_text": "THAT LOW, ENDLESS GROAN / EAST ->"
+  },
+  {
+   "t_start": 748,
+   "t_end": 772,
+   "shot_type": "resolution",
+   "visual_description": "ALL NIGHT moonlit farm; sunrise sunburst with bent fence; Ruth on the porch; Ruth close-up with hat; ensemble on the porch.",
+   "camera_motion": "static",
+   "on_screen_text": "ALL NIGHT / BUT IT HELD. / WE'RE GONNA NEED A BIGGER FENCE."
+  },
+  {
+   "t_start": 772,
+   "t_end": 807,
+   "shot_type": "infographic_recap",
+   "visual_description": "Plain navy line-art infographics: city bars collapse (FAST.), five shelves emptying, power pylons, red 'dead' figure vs white 'living' trio, crowd of hands, 'who survives' lineup with one highlighted, GROW/FIX/HEAL icons, five figures together.",
+   "camera_motion": "static, build-ons",
+   "on_screen_text": "CITIES FALL FIRST / FAST. / SUPERMARKETS - EMPTY IN DAYS / POWER GRID - FAILS IN WEEKS / THE BIGGEST DANGER / THE DEAD? / THE LIVING / DESPERATE PEOPLE - DESPERATE THINGS / WHO SURVIVES? / NOT THE STRONGEST / GROW FIX HEAL / DON'T TRY TO SURVIVE ALONE"
+  },
+  {
+   "t_start": 807,
+   "t_end": 834,
+   "shot_type": "epilogue_vignettes",
+   "visual_description": "Two figures on the barn roof at sunset; field READY; Omar at the generator; Maya + Ruth laughing; big close-up of you smiling then startled; plane contrail crossing the peach sky over the tiny pair on the roof.",
+   "camera_motion": "slow push, slow pan up",
+   "on_screen_text": "DAY 100 / READY / SOMEBODY OUT THERE IS STILL FLYING."
+  },
+  {
+   "t_start": 834,
+   "t_end": 850,
+   "shot_type": "end_card_cta",
+   "visual_description": "Wide farm at dusk with the five survivors sitting on the fence; italic serif question at the top; fade to black.",
+   "camera_motion": "static",
+   "on_screen_text": "What's the first thing you'd grab?"
+  }
+ ],
+ "pacing": {
+  "words_per_min": 155,
+  "word_count": 2160,
+  "speech_span_s": 838,
+  "avg_shot_length_s": 3.5,
+  "approx_visual_changes": 240,
+  "cuts_scene_detect": {
+   "0.3": 47,
+   "0.15": 135,
+   "0.1": 178
+  },
+  "re_hook_interval_s": "~30-45 s: every chapter ends on a turn line ('Then the honking stops because the noise brought them', 'Simple plans never stay simple', 'which is exactly when you hear the engine', 'They're not infected, they're worse'); chapter cards / on-screen titles roughly every 60-90 s (12 YouTube chapters).",
+  "structure_ratio": "Story ~80% / explainer facts ~20%, alternating: story set piece (40-90 s) -> 15-40 s factual interlude that justifies the next story turn -> back to story.",
+  "notes": "Even, unhurried 155 wpm documentary pace; tension comes from short declarative sentences and pauses rather than speed. Visuals change every ~3-4 s with on-screen keyword captions reinforcing nearly every factual claim."
+ },
+ "techniques_worth_copying": [
+  "Second-person present tense ('You grab a backpack...') so the What-If is lived, not described - viewer is the protagonist.",
+  "Hybrid story + explainer: every factual interlude (R number, 3 days of food on shelves, grid failure, cities are death traps) directly sets up the next plot turn, so facts feel like stakes, not lectures.",
+  "Precise mundane anchors: '7:42 in the morning', 'kitchen knife you've never used for anything except tomatoes', 'shotgun for raccoons' - specificity + light humour humanise the dread.",
+  "Ensemble introduced with one-line name+role lower-thirds; each character gets one competence (nurse/clinic, driver/generator, kid/rifle) that pays off later.",
+  "Two sacrifice beats (Daniel walks out, Mr. Hale draws the horde) give emotional peaks at 5:10 and 7:15.",
+  "Thesis lines as full-frame text cards: 'THE SHUTTER CAN STOP THE DEAD. / IT CAN'T STOP THE LIVING.', 'SIMPLE PLANS NEVER STAY SIMPLE.'",
+  "Keyword captions in small letter-spaced caps on almost every factual shot (not word-by-word subtitles) - cheap to produce, reinforces retention.",
+  "Big circular face close-ups for reactions (wide eyes, wobbly mouth) cut between wide tiny-figure shots for scale contrast.",
+  "Counters and progress bars for numbers (infected 1 -> 64,565; items 29,835+; 3.0 -> 0.0 DAYS) - motion on data.",
+  "Sound visualised: concentric rings when the dock door screams, gun fires, radio broadcasts; noise is a plot mechanic.",
+  "Final 'So what would actually happen?' recap that turns the story into 5 takeaways, then an epilogue twist (plane contrail) as an open loop + comment-bait question ('first thing you'd grab').",
+  "Thumbnail: Day 1 vs Day N split-screen transformation with warm/cold colour split."
+ ],
+ "code_only_remake_needs": {
+  "feasibility": "High - the body of the video (0:09-14:10) is flat vector shapes, gradients, glows and line-art infographics, almost all achievable in Remotion + SVG. Only the 9 s cold open and the thumbnail use a richer painted/3D look that would need to be simplified.",
+  "character_rig": "One reusable SVG stickman component: circle head (black fill + 2px rim-light stroke in a light colour), eye/eyebrow/mouth expression presets (neutral, worried wobbly mouth, wide-eyed, smug half-lid, crying with tear drops, angry), thin limb strokes with simple 2-3 pose keyframes (stand, walk cycle, run, sit, arms up, holding prop), shirt-colour prop and accessory slots (cap, ponytail, spiky hair, glasses, wide hat). Zombie variant = grey-green fill, glowing white eyes, red wound dots, arms-forward shamble cycle.",
+  "environment_kit": "Parametric SVG backdrops: night skyline (random rect towers + lit windows), suburban house row, bedroom with window, supermarket aisles (procedural rows of coloured rectangles), storefront with sign + shutter, loading dock with lamp cone + box truck, highway of cars (top-down + side), gas station canopy, rolling-hill countryside with tree silhouettes, farm (red barn, water tower, chain-link pattern, house with lit windows). Three palettes: night navy, foggy pale blue, sunrise lavender-peach.",
+  "fx": "Radial vignette, light cones (gradient polygons), bloom/glow filters, white flash frame, muzzle flash, concentric sound rings, fog bands, particle crowds (hundreds of dots/mini-zombies flowing like a river; Canvas for the 'thousands' shots), grid that fills red cell by cell, lights switching off on a dot grid, camera push-ins/pans via a transform wrapper, soft cross-dissolves.",
+  "infographics": "Line-art components: neon stick-figure pictograms with highlight colour, branching infection tree, bar chart with growing bars + labels, animated counters, progress/depletion bar, icon flowchart (load -> dock -> drive), clock with shaded sector, top-down map with dashed route, inventory icon pop-ins.",
+  "typography": "Letter-spaced uppercase geometric sans (Montserrat-like) for captions at ~2-3% frame height, white with red emphasis line; chapter cards ('DAY 1', 'DAY 5', '20 MINUTES LATER'); italic serif for the final CTA question; lower-third name/role cards.",
+  "audio": "Local TTS narrator (calm male, ~155 wpm), ambient drone/piano bed, SFX library (buzz, scream, shutter slam, engine, BOOM, radio static, groan).",
+  "storyboard_density": "~240 shots over 14 min (avg 3.5 s) - needs a storyboard schema where each VO sentence maps to 1-2 shots with a backdrop id, actors + poses, caption text and a camera move, so the volume is template-driven rather than hand-animated."
+ },
+ "assets_paths": {
+  "sheet": "research/library/sheets/JGTawyfFG8g.jpg",
+  "thumb": "research/library/thumbs/JGTawyfFG8g.jpg",
+  "transcript": "research/library/transcripts/JGTawyfFG8g.txt",
+  "spark_video": "~/studio/refs/whatif/JGTawyfFG8g.mp4"
+ }
+}
