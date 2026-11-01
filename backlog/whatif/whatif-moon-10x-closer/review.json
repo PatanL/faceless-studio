@@ -1,0 +1,132 @@
+{
+  "episode": "whatif-moon-10x-closer",
+  "reviewed_at_utc": "2026-11-01T10:50Z",
+  "scores_before": {"retention": 6, "reference": 5, "originality": 8, "producibility": 5},
+  "scores_after_self_assessed": {"retention": 8, "reference": 8, "originality": 9, "producibility": 7},
+  "score_notes": {
+    "retention": "The tracker never stops. The approach counter (derived from the Moon's apparent size, 4x wider by 0:01) hands off at the event to the SEA BACK IN clock plus a live SEA LEVEL meter. The master loop runs 0:08-1:05 (71%). The ladder ends on 'you could walk to France'. S7 escalates by consequence (TV satellites -> GPS -> the ground itself) under a climbing number. The twist lands on the viewer's own spot, and the 0:00 plant reverses into the scariest idea, 'the Moon is falling toward us', with an EST. timescale. Remaining risks: the premise is familiar (PLAYBOOK 10C), and the 13 s wordless race leans entirely on three HUD meters.",
+    "reference": "The clock flip happens at 0:08 with an honest factor, as in NEUTRONS and ELECTRONS @0:08. The 'But' pivot is on the rule line. The implication line is 5 words, followed by a 3.7 s textless break. The ladder cadence is 3.5 s. The top rung is human-scale. A full-frame interrupt wipes to space. A live climbing number carries S7. Captions drop out during the race. 'SEA BACK' plus a false resolution, then the reversal 3 s later, plus one HUD equivalence (London). The plant pays off with a longer-timescale number, then black, the exact title and a 12-word fact held 5.2 s. Held at 8 because the 'YOU: 4 M ABOVE THE SEA' plant was dropped for the HUD word budget (see not_applied).",
+    "originality": "All 13 captions and every HUD line are new wording. The structure is borrowed and credited (man_ia_c template), and the story, place, physics chain and twist are our own. The gate passes with a max 5-gram share of 0.09% (vs the 2% limit) and no shared 8-word run.",
+    "producibility": "One hero set (Cliffs, used in 9 of 20 shots) replaces Cliffs + Boats + ShelfDrain. A single whatif/Ferry SVG replaces the boats and the harbour set. The bathymetry is three solid `zones` polygons inside explainer/Map, and the walking line is a Map `paths` entry, so nothing drifts during a zoom. Map zooms are re-specified for the 3 px/deg base (30 and 500). The London map and the street grid are dropped (London is a HUD line). The eclipse shot is dropped. OrbitView is a plain disc with a terminator. The drowned shot reuses explainer/Ocean `surface`. Captions are text layers. All beds sit in audio.music with loop, and no pitched variants are needed. One function (gen_storyboard.py) drives the clock, the HUD meter, the seaLevel track and the Moon's az/alt/phase, and storyboard.json validates. Held at 7 because the whatif kit still has to be built (Hud, Moon, Cliffs, Ferry, OrbitView, DiagramCard), along with the Map `channel` coastline, solid zones and paths, two fonts, and a core TextLayer italic flag."
+  },
+  "must_fix_applied": {
+    "retention": [
+      "The tracker no longer dies: the HUD flips at 0:08 to SEA BACK IN 57:00:00 / 1 HOUR PER SECOND, and a live SEA LEVEL meter starts at 0:08.5. The master loop is 0:08 -> 1:05 = 71% of 80 s.",
+      "The clock zero now means the sea is back at the old waterline: t = 57.0 h from the equilibrium model, in which the Moon arrives at the hour angle where the new tide equals today's level. The rise to +22 m (t = 66.8 h) follows SEA BACK. The tide is tied to the Moon's height in the sky: lowest water (0:36.5) comes as the Moon's centre crosses the eastern horizon; at the return and at high water the Moon is below the horizon, near lower transit (the 'opposite' bulge). The 1:05 callback reuses the 0:00 framing with the Moon gone; the 1:08 shot shows the same spot drowned.",
+      "On-screen text cut: captions 86 words, HUD 57 words, title/end 28 words = 171 words / 1.33 min = 128 wpm (PLAYBOOK 103-131). Sublines go from 16 to 10, each one claim (no 'X · Y' pairs); 2 are live meters and 1 is the callback stamp. The end fact is 12 words. Numbers/min is about 16.",
+      "S7 rewritten as escalating consequences: 'TV satellites are flung from orbit.' (GEO is 3,700 km outside the new orbit, within the Moon's 6,150 km Hill radius) -> 'GPS satellites get yanked off course.' -> 'Solid ground heaves like a tide.' (GROUND TIDE ~130 M, EST.). 'Rises in the west', the eclipse and the satellite-altitude trivia moved to the fact sheet.",
+      "The best twist is unburied. London stays as the 'return makes it worse' HUD line. The final twist caption is 'And the Moon is falling toward us.' with the MOON meter ticking down (from 0:55, 1.37 m per story hour) and TORN APART IN ~500 YEARS (EST.). The a^-5.5 scaling was checked: 3.8 cm/yr x 10^5.5 = 12 km/yr, and integrating gives ~490 yr to the fluid Roche limit and ~492 yr to the rigid one. That is hundreds of years, not thousands; the caveat on k2/Q is in the fact sheet.",
+      "The hook is no longer static: apparent size uses an ease-out on 1/d, and the counter is derived from the same curve. The disc is 4x wider at 0:01 and 6x at 0:02 (97,000 and 62,000 KM), starting at 19 px with a halo at fovH 30 and reaching 208 px.",
+      "The size numbers now agree: HUD '120× BRIGHTER' (area ratio 11.05² ≈ 122), and the wonder caption makes a new claim ('You can read a book by moonlight.', 30 lux) instead of repeating the HUD.",
+      "Factual error fixed: −120 m is tied to the ice age ('LAST THIS LOW: 20,000 YEARS AGO'); DOGGERLAND is a map tag, with its ~8,000-year date in the fact sheet.",
+      "'Strait runs dry at −50 m' removed. The map shows the strait dry at −117 m (mostly dry below ~−65 m, reached at 0:19.8), with the Fosses Dangeard pits as pools.",
+      "The 10 g body beat is replaced by a sensory POV beat backed by the 30-lux fact (your hands hold a book under the full giant Moon). The weight figure and its Dover caveat (heavier with the Moon low) moved to the fact sheet.",
+      "The payoff returns to the viewer: 'Then it climbs over where you stood.' over a drowned cutaway of the exact spot (18 M bar). The walk to France is promoted to the second-person top-rung caption."
+    ],
+    "reference": [
+      "Master loop flipped at 0:08, as in NEUTRONS/ELECTRONS @0:08 (honest 1 hour per second; 57 s = 57 h). The 0:20.8-0:24.5 break is now truly textless (no HUD flip inside it).",
+      "The clock value matches its label and the model. SEA BACK IN 57:00:00 is the time for the sea to return to today's level (not the 76.6 h high-to-high period). The stamps are 'DOVER, 57 HOURS LATER', then '67 HOURS LATER' at high water. The fact sheet's three times (28.5 h low, 57.0 h back, 66.8 h high) come from one formula.",
+      "Text load is in range (128 wpm all text, 64.5 wpm captions, ~16 numbers/min). The lux, inverse-cube formula, totality, new-moon and satellite-altitude sublines are cut.",
+      "Ladder order and the precedent are fixed. The rungs are visited in scale order (harbour -> North Sea -> you), and every state shown is true at its timestamp under the HUD meter (−91, −106, −117 m). −120 m is paired with the ice age 20,000 years ago, and the date typo 'TODAY'S RECORD 7.5' is gone with the eclipse beat.",
+      "The top rung is human-scale: 'You could walk to France from here.' at 0:31.5, with the YOU -> CAP GRIS-NEZ 33 KM line (the geography went to the map/HUD).",
+      "The body beat is a POV of your own hands reading by moonlight (ELECTRONS @0:15 device), not 10 g.",
+      "The twist is planted and lands on the viewer. The falling-Moon twist pays off the 0:00 subline. The flood payoff lands on 'where you stood' with an 18 M bar, and London is the single HUD equivalence (ELECTRONS @1:10 device).",
+      "False resolution split from the reversal: 1:05.3 'The tide is back at the old shoreline.', then 1:08.3 'Then it climbs over where you stood.'",
+      "'But' pivot added: 'But its tides are 1,000 times stronger.' (NEUTRONS @0:21). The implication line is 5 words.",
+      "S7 has live numbers: SEA LEVEL climbs from −121 M from 0:39.5, and the MOON distance meter ticks down from 0:55 (38,439.936 -> 38,439.908 KM), so the plant visibly reverses.",
+      "End fact cut to 12 words. Runtime extended to 80 s, so it holds 5.2 s (1:14.8-1:20). The title clears at 0:04.5, before the first caption at 0:05."
+    ],
+    "originality": [
+      "The walking line is pinned YOU (St Margaret's Bay / South Foreland) -> CAP GRIS-NEZ, '33 KM'. Calais is removed, and the fact sheet notes Dover-Calais ~40 km.",
+      "Satellite wording now matches the physics: 'TV satellites are flung from orbit.', with the GEO dots animated scattering off their ring (Hill radius 6,150 km; at closest pass the Moon's pull 0.35 m/s² beats Earth's 0.22).",
+      "The weight beat is removed from screen; the fact sheet gives the under-the-Moon −10 g and the Dover-with-Moon-low +5 g.",
+      "The high-water figure is given as the minimum case: 'SEA LEVEL +22 M OR MORE (EST.)'. The model gives +22.2 m at declination 0, not +25. The ±18-28° declination caveat (+25 to +150 m) is in the fact sheet.",
+      "'Strait runs dry at −50 m' removed (see reference).",
+      "Size numbers are consistent: 11× wider / ~120× the area and light throughout (HUD 120× BRIGHTER; fact sheet 5.78° vs 0.523°)."
+    ],
+    "producibility": [
+      "Kit scope cut: ShelfDrain is replaced by solid `zones` in explainer/Map; Boats and the harbour set by one whatif/Ferry SVG; the eclipse sky is dropped; OrbitView is a plain disc with a terminator (no continents); the London grid and Thames mask are dropped. Build order: Hud (18 of 20 scenes), Cliffs (10), Moon (7).",
+      "Map zooms re-specified for base 3 px/deg: North Sea zoom 30 -> 26, strait zoom 500 (frame ~50 km). The Thames shot is removed.",
+      "Coastline: a `channel` region for the existing `mapdetail.ts` mechanism (~150 hand-placed vertices: SE England, the Thames mouth, Pas-de-Calais, the Low Countries, Denmark, S Norway). Listed as a kit gap; used via `detailRegion: 'channel'`.",
+      "Bathymetry: 3 hand-drawn polygons as solid-style `zones` inside Map (no separate overlay that could drift during the zoom), with the Norwegian Trench kept blue.",
+      "Walking line: a Map `paths` prop (dotted, drawn 0 -> 1, labelled), so it stays locked to the pins during the zoom.",
+      "explainer/Ocean is no longer used for beach shots. whatif/Cliffs owns the frame (clock-driven sky, stars, chalk, shingle + wrack line, sea surface + glitter, seabed bands revealed by seaLevel). Ocean `surface` is used only for the drowned cutaway, which is exactly its underwater look.",
+      "Captions are text layers (13), with core captions disabled and duckOn 'none'. Kit gap: core TextLayer needs an `italic` flag.",
+      "Fonts: Source Serif 4 (with italics) + JetBrains Mono via @fontsource, npm on the Spark, loaded in waitForFonts.",
+      "The tide clock adds up: one function (gen_storyboard.py) drives the HUD clock (57:00:00 at 1 h/s, zero at 1:05.0), the SEA LEVEL meter and the Cliffs seaLevel track. The −20/−65/−100/−120 times are model outputs (0:12.1, 0:19.8, 0:26.5, 0:32.9), with low −123 m at 0:36.5.",
+      "The eclipse shot is removed. The interrupt is a moonset at lowest water followed by a black-with-stars frame, all inside the scene (no dipBlack over the scene).",
+      "Moon size and motion are tied to an FOV: whatif/Moon takes sizeDeg/az/alt plus each shot's bearing/fovH/horizonY and draws at sizeDeg x 1080 / fovH. Its motion (~2° per screen second) comes from the model, and every Cliffs shot states bearing and FOV.",
+      "The sky is derived from the clock (19:00 + t). Shot 0:52-0:58 crosses sunset on purpose, as a time-lapse. The 1:05 callback is night (04:00) with the Moon set, documented as a deliberate grade difference from 0:00.",
+      "Audio fits the schema: clock_ticking, drone-like underwater_rumble and both music beds are audio.music entries with loop and duckTo = volume. The music drop is done by splitting the entries (0:00-0:38.5 and 0:39.5-1:13.5). Ticks are fixed-rate one-shot cues (4 per second in the hook, 8 per second at 1:02-1:05). No pitched variants; the creak uses door_creak at low volume.",
+      "Hook ticks are 4 per second (not one per thousand km).",
+      "OrbitView layout specified for 9:16 (GEO ring 900 px, Earth 136 px, Moon 37 px, Moon ring 820 px), with tags on opposite sides and leader lines; no Map reuse for Earth.",
+      "London shot replaced by a HUD line; no Thames geometry or street grid is needed."
+    ]
+  },
+  "nice_to_have_applied": [
+    "One claim per caption; 86 caption words (64.5 wpm, inside PLAYBOOK's 43-65). Not the ≤80 suggested, because S7 needed three rungs to avoid a 20 s caption gap.",
+    "Ladder captions accelerate to 3.5 s gaps (0:24.5 / 0:28 / 0:31.5).",
+    "Eclipse beat dropped entirely, so there is no time-lapse contradiction and no unitless record.",
+    "Camera bearings fixed per shot (144° hero SSE, 125° sea view, 90° moonset). The Moon moves right -> left (west -> east) and down, consistent with the model.",
+    "The premise differentiators are front-loaded: the place, a live 1/d counter and an 11x disc by 0:01.",
+    "Post caption has one no-wrong-answer CTA built from shown options ('walk to France or run for the cliffs?').",
+    "The 'why Dover' loop is dropped from the loop count.",
+    "Originality gate rerun after every rewrite: PASS.",
+    "Premise kept, but the reference lens's 'Moon closer for one day' alternative is logged as a separate episode idea (titles.md option 8).",
+    "The place line reads instantly: 'You're under the White Cliffs of Dover.' (no 'shingle').",
+    "Rung 1 is unprecedented (ferries aground on bare seabed far offshore, not boats on mud at an ordinary low tide).",
+    "Pacing notes reconciled with the beat list (textless 0:20.8-0:24.5 / 0:34.5-0:39.5 / 0:52-1:05; 10 sublines listed and counted).",
+    "Solid-Earth tide added (GROUND TIDE ~130 M, EST., Love number h2 0.61).",
+    "Total lunar eclipses at nearly every full moon noted in the fact sheet.",
+    "'MOON ≈ 32,000 KM UP' clarified in the fact sheet (to the Moon's centre; the near side is ~30,300 km).",
+    "Seabed described as chalk and shingle, not mud.",
+    "HUD lines ≤ 32 characters, HUD width 640 px, clear of the Moon and of the right-side Shorts buttons.",
+    "The hook camera is static, so no pullOut works against the Moon's growth; the Moon sits on a depth-0 layer.",
+    "Moon glitter is drawn inside Cliffs as a dash band (no particles preset needed).",
+    "No explainer/Stat 70.000 -> 69.990 readout (the weight beat is removed).",
+    "Monetization notes carried into the post plan: vary the HUD look between episodes (silver accent here vs amber in friction-off), mark the description as AI-voiced if TTS is used, keep the cut above 61 s (80 s)."
+  ],
+  "not_applied": [
+    "Reference must-fix 7: the 'YOU: 4 M ABOVE THE SEA' HUD plant and the 'YOU: 21 M UNDER' payoff were dropped, because retention must-fix 3 (≤ ~50 HUD words, ~8 sublines) takes priority. The twist is still planted (the 0:00 'DRIFTS 3.8 CM AWAY' subline -> the falling Moon), and the flood payoff lands on the viewer through the caption plus an 18 M ScaleBar on the drowned cutaway of the exact 0:00 spot.",
+    "Second-person captions are 4/13 (31%), above the PLAYBOOK median of 18%, on purpose: two lenses asked for the top rung and the payoff to be personal.",
+    "End-card hold is 5.2 s, not 6 s; the twist stack needs 1:05-1:13.5.",
+    "HUD is 57 words, slightly above 'about 50'. The two live meters and the callback stamp are the PLAYBOOK's required devices.",
+    "Monetization re-check against research/R5 is still deferred (no R5 policy file yet)."
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/whatif/whatif-moon-10x-closer/script.md research/corpus research/library/transcripts",
+    "result": "PASS",
+    "exit_code": 0,
+    "longest_shared_run_words": "< 8 (no 8-word run with any source)",
+    "max_shared_5gram_share": "0.09% (research/corpus/whatif/7693494009494342945.md, beat-name phrases); every raw transcript ≤ 0.06%"
+  },
+  "pacing": {
+    "runtime_s": 80,
+    "captions": 13,
+    "caption_words": 86,
+    "caption_wpm": 64.5,
+    "hud_words": 57,
+    "title_end_words": 28,
+    "all_text_wpm": 128,
+    "numbers_per_min": 16,
+    "caption_gap_median_s": 4.5,
+    "title_clears_s": 4.5,
+    "event_s": 8.0,
+    "return_s": 65.0,
+    "false_resolution_s": 65.3,
+    "twist_caption_s": 68.3,
+    "plant_twist_caption_s": 71.0,
+    "black_s": 73.5,
+    "end_fact_hold_s": 5.2,
+    "master_loop_share": 0.71,
+    "tide_model": {"t_low_h": 28.5, "t_return_h": 57.0, "t_high_h": 66.8, "low_m": -123.2, "high_m": 22.2, "period_h": 76.6, "timelapse": "1 hour per second"}
+  },
+  "storyboard": {
+    "file": "backlog/whatif/whatif-moon-10x-closer/storyboard.json",
+    "generator": "backlog/whatif/whatif-moon-10x-closer/gen_storyboard.py (tide model + caption/HUD/shot tables)",
+    "validator": "studio/src/cli/validate.ts with the Mac working-tree schema.ts, run on the Spark (Node 22.22.0, nice 10)",
+    "result": "ok: 9:16 30fps 20 scenes 80.00s",
+    "unbuilt_components": ["whatif/Hud", "whatif/Moon", "whatif/Cliffs", "whatif/Ferry", "whatif/OrbitView", "whatif/DiagramCard (groundTide)"],
+    "kit_gaps_other": ["explainer/Map: 'channel' detail region in mapdetail.ts, solid zone style, paths prop, trench prop", "explainer/You: ghost/outline props", "explainer/ScaleBar: vertical mode", "core TextLayer: italic flag", "fonts: Source Serif 4 + JetBrains Mono via @fontsource on the Spark"]
+  }
+}
