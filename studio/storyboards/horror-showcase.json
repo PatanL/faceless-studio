@@ -1,0 +1,1383 @@
+{
+ "version": 1,
+ "id": "horror-showcase",
+ "title": "B4 horror kit showcase (20s, 9:16)",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "lock",
+   "duration": 2.2,
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.7,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "id": "hand",
+     "props": {
+      "phoneWidth": 0.66,
+      "cy": 0.585,
+      "tilt": -4,
+      "tremble": 1.5,
+      "phone": {
+       "mode": "lock",
+       "lock": {
+        "time": "2:09",
+        "date": "Tuesday, March 3",
+        "notifications": [
+         {
+          "at": 0.35,
+          "app": "Residents",
+          "title": "Building 7 Residents",
+          "text": "Mgr. Okafor: Nobody from management is doing door checks tonight."
+         },
+         {
+          "at": 1.15,
+          "app": "Residents",
+          "title": "Building 7 Residents",
+          "text": "Unit 5C: someone is knocking on every door on 5"
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 0.35,
+         "duration": 0.4
+        },
+        {
+         "at": 1.15,
+         "duration": 0.4
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.75
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.6
+   },
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 0.35,
+     "volume": 0.5
+    },
+    {
+     "src": "test/pop.wav",
+     "at": 1.15,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "id": "chat",
+   "duration": 3.8,
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
+   },
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/LivingRoom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.68,
+      "cy": 0.585,
+      "tilt": -2,
+      "tremble": 2.5,
+      "taps": [
+       {
+        "at": 2.05,
+        "x": 0.88,
+        "y": 0.95
+       }
+      ],
+      "phone": {
+       "members": {
+        "Mgr. Okafor": {
+         "color": "#4f7a73",
+         "initials": "MO"
+        },
+        "Unit 5C": {
+         "color": "#8f4a55",
+         "initials": "5C"
+        },
+        "Dev (4A)": {
+         "color": "#6b7a4a",
+         "initials": "D"
+        }
+       },
+       "mode": "chat",
+       "chat": {
+        "title": "Building 7 Residents",
+        "count": 48,
+        "unread": 9,
+        "unreadFrom": 0,
+        "dayLabel": "Today 2:09 AM",
+        "messages": [
+         {
+          "from": "Mgr. Okafor",
+          "text": "Reminder: management is NOT doing door checks tonight.",
+          "at": -1
+         },
+         {
+          "from": "Unit 5C",
+          "text": "someone just knocked on mine. said he was maintenance",
+          "at": 0.3
+         },
+         {
+          "from": "Unit 5C",
+          "text": "he knew my name",
+          "at": 1.55
+         },
+         {
+          "me": true,
+          "text": "what does he look like??",
+          "at": 2.15
+         },
+         {
+          "from": "Unit 5C",
+          "kind": "alert",
+          "text": "grey cardigan. he's taking the stairs up",
+          "at": 3.2
+         }
+        ],
+        "typing": [
+         {
+          "from": "Unit 5C",
+          "at": 0.85,
+          "until": 1.55
+         },
+         {
+          "from": "Unit 5C",
+          "at": 2.5,
+          "until": 3.2
+         }
+        ]
+       },
+       "vibrate": [
+        {
+         "at": 3.2,
+         "duration": 0.35
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.7
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 3.0,
+      "zoom": 1.03
+     },
+     {
+      "t": 3.3,
+      "zoom": 1.08,
+      "ease": "out"
+     }
+    ],
+    "shake": [
+     {
+      "at": 3.2,
+      "duration": 0.35,
+      "amplitude": 14
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "src": "test/pop.wav",
+     "at": 0.3,
+     "volume": 0.45
+    },
+    {
+     "src": "test/pop.wav",
+     "at": 1.55,
+     "volume": 0.45
+    },
+    {
+     "src": "test/pop.wav",
+     "at": 2.15,
+     "volume": 0.45
+    },
+    {
+     "src": "test/pop.wav",
+     "at": 3.2,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "id": "react",
+   "duration": 1.8,
+   "background": {
+    "type": "component",
+    "name": "horror/LivingRoom",
+    "props": {
+     "lamp": 0.5,
+     "tv": "off"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "50%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 860,
+     "height": 1307,
+     "props": {
+      "pose": "phone",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "worried"
+       },
+       {
+        "t": 0.95,
+        "e": "scared"
+       }
+      ],
+      "talk": [
+       [
+        0.15,
+        0.85
+       ]
+      ],
+      "lookY": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.5,
+      "y": 0.62,
+      "radius": 0.5,
+      "darkness": 0.55
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.6
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.2
+   },
+   "grade": {
+    "saturate": 0.85,
+    "brightness": 0.95
+   }
+  },
+  {
+   "id": "door",
+   "duration": 2.0,
+   "transitionIn": {
+    "type": "cut"
+   },
+   "background": {
+    "type": "component",
+    "name": "horror/FrontDoor",
+    "depth": 0.3,
+    "props": {
+     "knocks": [
+      0.35,
+      0.55,
+      0.75
+     ],
+     "feet": [
+      1.0,
+      9
+     ],
+     "hallLight": 0.9,
+     "chain": "on",
+     "handle": [
+      {
+       "at": 1.3,
+       "duration": 0.6
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "88%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 560,
+     "height": 851,
+     "depth": 1.3,
+     "flipX": true,
+     "props": {
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 0.36,
+        "e": "shocked"
+       }
+      ],
+      "lookX": 0.9,
+      "blink": false
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2,
+      "zoom": 1.16,
+      "x": "50%",
+      "y": "46%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 0.35,
+      "duration": 0.16,
+      "amplitude": 20
+     },
+     {
+      "at": 0.55,
+      "duration": 0.16,
+      "amplitude": 20
+     },
+     {
+      "at": 0.75,
+      "duration": 0.16,
+      "amplitude": 20
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "src": "test/impact.wav",
+     "at": 0.35,
+     "volume": 0.8
+    },
+    {
+     "src": "test/impact.wav",
+     "at": 0.55,
+     "volume": 0.8
+    },
+    {
+     "src": "test/impact.wav",
+     "at": 0.75,
+     "volume": 0.8
+    }
+   ]
+  },
+  {
+   "id": "peephole",
+   "duration": 2.0,
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "background": {
+    "type": "color",
+    "color": "#050506"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Peephole",
+     "depth": 0,
+     "props": {
+      "figure": "neighbour",
+      "exprs": [
+       {
+        "t": 0,
+        "e": "smile"
+       },
+       {
+        "t": 1.05,
+        "e": "grin"
+       }
+      ],
+      "lean": 0.45,
+      "flicker": 0.35,
+      "lookX": 0,
+      "lookY": 0.1,
+      "talk": [
+       [
+        0.3,
+        0.9
+       ]
+      ],
+      "glitch": [
+       {
+        "at": 1.0,
+        "duration": 0.18,
+        "amount": 0.9
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.35,
+      "seed": "pp"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 2.0,
+      "zoom": 1.1
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.0,
+      "duration": 0.25,
+      "amplitude": 16
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "src": "test/glitch.wav",
+     "at": 1.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "hallway",
+   "duration": 1.6,
+   "transitionIn": {
+    "type": "glitch",
+    "duration": 0.3
+   },
+   "background": {
+    "type": "color",
+    "color": "#000"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "end": 0.9,
+     "depth": 0.3,
+     "props": {
+      "flicker": 0.8,
+      "figure": 1,
+      "figureDepth": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Hallway",
+     "start": 0.9,
+     "depth": 0.3,
+     "props": {
+      "flicker": 0.9,
+      "figure": 1,
+      "figureDepth": 0.5,
+      "lights": 2
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.4,
+      "blackouts": [
+       {
+        "at": 0.78,
+        "duration": 0.22
+       }
+      ],
+      "seed": "hw"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.5
+   }
+  },
+  {
+   "id": "elevator",
+   "duration": 1.8,
+   "transitionIn": {
+    "type": "whip",
+    "duration": 0.3,
+    "direction": "up"
+   },
+   "background": {
+    "type": "component",
+    "name": "horror/ElevatorPanel",
+    "depth": 1,
+    "props": {
+     "from": 2,
+     "to": 7,
+     "at": 0.05,
+     "perFloor": 0.24,
+     "floors": 12
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 40,
+     "props": {
+      "text": "Nobody pressed 7",
+      "style": "neon",
+      "at": 1.0,
+      "fontSize": 120,
+      "strobe": 8
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.65
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "y": "25%"
+     },
+     {
+      "t": 1.8,
+      "zoom": 1.32,
+      "y": "26%"
+     }
+    ],
+    "shake": [
+     {
+      "at": 1.0,
+      "duration": 0.3,
+      "amplitude": 12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "src": "test/whoosh.wav",
+     "at": 0,
+     "volume": 0.4
+    },
+    {
+     "src": "test/impact.wav",
+     "at": 1.0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "stairs",
+   "duration": 1.2,
+   "background": {
+    "type": "component",
+    "name": "horror/Stairwell",
+    "depth": 0.3,
+    "props": {
+     "floor": "7",
+     "flicker": 0.6
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Neighbour",
+     "x": "62%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 760,
+     "height": 1155,
+     "depth": 1.1,
+     "keyframes": [
+      {
+       "t": 0,
+       "y": "112%"
+      },
+      {
+       "t": 1.2,
+       "y": "100%",
+       "ease": "out"
+      }
+     ],
+     "props": {
+      "expr": "blank",
+      "lookX": -0.4,
+      "lookY": -0.3,
+      "light": "red"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 110
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Flicker",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "strength": 0.3,
+      "seed": "st"
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0
+   }
+  },
+  {
+   "id": "call",
+   "duration": 1.6,
+   "transitionIn": {
+    "type": "cut"
+   },
+   "background": {
+    "type": "color",
+    "color": "#0b0d12"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Bedroom",
+     "depth": 0.2,
+     "blur": 10,
+     "opacity": 0.6,
+     "props": {
+      "lamp": 0
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/HandPhone",
+     "props": {
+      "phoneWidth": 0.66,
+      "cy": 0.585,
+      "tilt": 3,
+      "tremble": 7,
+      "side": "right",
+      "glitch": [
+       {
+        "at": 1.35,
+        "duration": 0.2,
+        "amount": 1
+       }
+      ],
+      "phone": {
+       "members": {
+        "Mgr. Okafor": {
+         "color": "#4f7a73",
+         "initials": "MO"
+        },
+        "Unit 5C": {
+         "color": "#8f4a55",
+         "initials": "5C"
+        },
+        "Dev (4A)": {
+         "color": "#6b7a4a",
+         "initials": "D"
+        }
+       },
+       "mode": "call",
+       "call": {
+        "name": "Unit 5C",
+        "sub": "Building 7 \u00b7 mobile",
+        "at": 0
+       },
+       "vibrate": [
+        {
+         "at": 0,
+         "duration": 1.6,
+         "amount": 0.7
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Heartbeat",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "bpm": 120,
+      "bpmTo": 160
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 1.35,
+        "duration": 0.2,
+        "amount": 1
+       }
+      ],
+      "seed": "call"
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 0.8
+   },
+   "sfx": [
+    {
+     "src": "test/glitch.wav",
+     "at": 1.35,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "id": "bedroom",
+   "duration": 2.0,
+   "transitionIn": {
+    "type": "dipBlack",
+    "duration": 0.3
+   },
+   "background": {
+    "type": "component",
+    "name": "horror/Bedroom",
+    "depth": 0.25,
+    "props": {
+     "lamp": 0,
+     "wardrobeOpen": 0.35,
+     "rain": true
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "horror/Protagonist",
+     "x": "30%",
+     "y": "100%",
+     "anchorY": 1,
+     "width": 640,
+     "height": 973,
+     "props": {
+      "exprs": [
+       {
+        "t": 0,
+        "e": "scared"
+       },
+       {
+        "t": 1.0,
+        "e": "terrified"
+       }
+      ],
+      "pose": "cover",
+      "lookX": 0.8,
+      "glitch": [
+       {
+        "at": 1.0,
+        "duration": 0.22
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/FeaturePhone",
+     "x": "74%",
+     "y": "63%",
+     "width": 440,
+     "height": 950,
+     "rotate": 8,
+     "depth": 1.2,
+     "props": {
+      "sms": {
+       "from": "UNKNOWN",
+       "text": "check your wardrobe",
+       "at": 0.15,
+       "cps": 16
+      },
+      "vibrate": [
+       {
+        "at": 0.0,
+        "duration": 0.5
+       }
+      ],
+      "clock": "02:17",
+      "glitch": [
+       {
+        "at": 1.0,
+        "duration": 0.22
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Darkness",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "x": 0.72,
+      "y": 0.5,
+      "radius": 0.55,
+      "darkness": 0.6,
+      "color": "rgba(160,190,150,0.16)"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/RedText",
+     "depth": 0,
+     "z": 55,
+     "props": {
+      "text": "Don't turn around",
+      "style": "flash",
+      "at": 1.05,
+      "fontSize": 140,
+      "strobe": 10
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Glitch",
+     "depth": 0,
+     "z": 60,
+     "props": {
+      "cues": [
+       {
+        "at": 1.0,
+        "duration": 0.25,
+        "amount": 1
+       }
+      ],
+      "seed": "bd"
+     }
+    },
+    {
+     "type": "component",
+     "name": "horror/Vignette",
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "amount": 0.8
+     }
+    }
+   ],
+   "camera": {
+    "preset": "pushIn",
+    "amount": 1.0,
+    "shake": [
+     {
+      "at": 1.0,
+      "duration": 0.4,
+      "amplitude": 24
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "src": "test/impact.wav",
+     "at": 1.0,
+     "volume": 0.9
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "At",
+    "start": 0.2,
+    "end": 0.309
+   },
+   {
+    "text": "2",
+    "start": 0.318,
+    "end": 0.399
+   },
+   {
+    "text": "a.m.",
+    "start": 0.407,
+    "end": 0.569
+   },
+   {
+    "text": "my",
+    "start": 0.584,
+    "end": 0.692
+   },
+   {
+    "text": "building",
+    "start": 0.702,
+    "end": 0.973
+   },
+   {
+    "text": "chat",
+    "start": 0.997,
+    "end": 1.16
+   },
+   {
+    "text": "would",
+    "start": 1.174,
+    "end": 1.364
+   },
+   {
+    "text": "not",
+    "start": 1.38,
+    "end": 1.516
+   },
+   {
+    "text": "stop",
+    "start": 1.528,
+    "end": 1.691
+   },
+   {
+    "text": "buzzing.",
+    "start": 1.705,
+    "end": 1.976
+   },
+   {
+    "text": "Management",
+    "start": 2.35,
+    "end": 2.75
+   },
+   {
+    "text": "swore",
+    "start": 2.785,
+    "end": 3.018
+   },
+   {
+    "text": "nobody",
+    "start": 3.038,
+    "end": 3.305
+   },
+   {
+    "text": "was",
+    "start": 3.328,
+    "end": 3.495
+   },
+   {
+    "text": "doing",
+    "start": 3.509,
+    "end": 3.742
+   },
+   {
+    "text": "door",
+    "start": 3.763,
+    "end": 3.963
+   },
+   {
+    "text": "checks.",
+    "start": 3.98,
+    "end": 4.28
+   },
+   {
+    "text": "Then",
+    "start": 4.306,
+    "end": 4.506
+   },
+   {
+    "text": "5C",
+    "start": 4.523,
+    "end": 4.657
+   },
+   {
+    "text": "said",
+    "start": 4.668,
+    "end": 4.868
+   },
+   {
+    "text": "the",
+    "start": 4.886,
+    "end": 5.052
+   },
+   {
+    "text": "man",
+    "start": 5.067,
+    "end": 5.233
+   },
+   {
+    "text": "knew",
+    "start": 5.248,
+    "end": 5.448
+   },
+   {
+    "text": "her",
+    "start": 5.465,
+    "end": 5.632
+   },
+   {
+    "text": "name.",
+    "start": 5.646,
+    "end": 5.88
+   },
+   {
+    "text": "Grey",
+    "start": 6.15,
+    "end": 6.332
+   },
+   {
+    "text": "cardigan.",
+    "start": 6.348,
+    "end": 6.682
+   },
+   {
+    "text": "That's",
+    "start": 6.711,
+    "end": 6.953
+   },
+   {
+    "text": "Mr.",
+    "start": 6.974,
+    "end": 7.126
+   },
+   {
+    "text": "Hale",
+    "start": 7.139,
+    "end": 7.321
+   },
+   {
+    "text": "from",
+    "start": 7.337,
+    "end": 7.519
+   },
+   {
+    "text": "6B.",
+    "start": 7.535,
+    "end": 7.687
+   },
+   {
+    "text": "Except",
+    "start": 7.95,
+    "end": 8.257
+   },
+   {
+    "text": "Mr.",
+    "start": 8.283,
+    "end": 8.475
+   },
+   {
+    "text": "Hale",
+    "start": 8.492,
+    "end": 8.722
+   },
+   {
+    "text": "moved",
+    "start": 8.742,
+    "end": 9.01
+   },
+   {
+    "text": "out",
+    "start": 9.033,
+    "end": 9.225
+   },
+   {
+    "text": "in",
+    "start": 9.242,
+    "end": 9.395
+   },
+   {
+    "text": "June.",
+    "start": 9.408,
+    "end": 9.677
+   },
+   {
+    "text": "And",
+    "start": 9.95,
+    "end": 10.142
+   },
+   {
+    "text": "he",
+    "start": 10.158,
+    "end": 10.312
+   },
+   {
+    "text": "was",
+    "start": 10.325,
+    "end": 10.517
+   },
+   {
+    "text": "smiling",
+    "start": 10.533,
+    "end": 10.878
+   },
+   {
+    "text": "at",
+    "start": 10.908,
+    "end": 11.062
+   },
+   {
+    "text": "my",
+    "start": 11.075,
+    "end": 11.228
+   },
+   {
+    "text": "peephole.",
+    "start": 11.242,
+    "end": 11.663
+   },
+   {
+    "text": "Then",
+    "start": 11.95,
+    "end": 12.163
+   },
+   {
+    "text": "the",
+    "start": 12.181,
+    "end": 12.359
+   },
+   {
+    "text": "hallway",
+    "start": 12.374,
+    "end": 12.694
+   },
+   {
+    "text": "lights",
+    "start": 12.721,
+    "end": 13.005
+   },
+   {
+    "text": "died.",
+    "start": 13.03,
+    "end": 13.278
+   },
+   {
+    "text": "The",
+    "start": 13.55,
+    "end": 13.728
+   },
+   {
+    "text": "elevator",
+    "start": 13.744,
+    "end": 14.1
+   },
+   {
+    "text": "climbed",
+    "start": 14.131,
+    "end": 14.452
+   },
+   {
+    "text": "to",
+    "start": 14.48,
+    "end": 14.623
+   },
+   {
+    "text": "my",
+    "start": 14.635,
+    "end": 14.778
+   },
+   {
+    "text": "floor.",
+    "start": 14.79,
+    "end": 15.075
+   },
+   {
+    "text": "Nobody",
+    "start": 15.3,
+    "end": 15.559
+   },
+   {
+    "text": "had",
+    "start": 15.581,
+    "end": 15.743
+   },
+   {
+    "text": "pressed",
+    "start": 15.757,
+    "end": 16.049
+   },
+   {
+    "text": "it.",
+    "start": 16.074,
+    "end": 16.236
+   },
+   {
+    "text": "Then",
+    "start": 16.5,
+    "end": 16.824
+   },
+   {
+    "text": "5C",
+    "start": 16.852,
+    "end": 17.068
+   },
+   {
+    "text": "called",
+    "start": 17.087,
+    "end": 17.519
+   },
+   {
+    "text": "me.",
+    "start": 17.557,
+    "end": 17.827
+   },
+   {
+    "text": "And",
+    "start": 18.15,
+    "end": 18.345
+   },
+   {
+    "text": "my",
+    "start": 18.362,
+    "end": 18.517
+   },
+   {
+    "text": "old",
+    "start": 18.531,
+    "end": 18.725
+   },
+   {
+    "text": "burner",
+    "start": 18.742,
+    "end": 19.054
+   },
+   {
+    "text": "phone",
+    "start": 19.081,
+    "end": 19.353
+   },
+   {
+    "text": "lit",
+    "start": 19.377,
+    "end": 19.572
+   },
+   {
+    "text": "up.",
+    "start": 19.588,
+    "end": 19.783
+   }
+  ],
+  "maxWords": 3,
+  "maxChars": 16,
+  "style": {
+   "font": "display",
+   "fontSize": 76,
+   "color": "#ffffff",
+   "highlight": "#ff4b55",
+   "highlightMode": "color",
+   "strokeWidth": 12,
+   "uppercase": false,
+   "y": 0.15
+  }
+ },
+ "overlays": {
+  "grain": 0.5,
+  "vignette": 0.0,
+  "fadeIn": 0.2,
+  "fadeOut": 0.35
+ }
+}
