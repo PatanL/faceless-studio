@@ -18,6 +18,8 @@
 #   --refs <id,id>          which reference columns to show (default: all 3 for the niche)
 #   --classes <c,c>         only these rows (default: all 12 classes in frames_spec.json)
 #   --cell <W>              cell width in px; cells are 9:16 (default 360 -> 360x640)
+#   --cell-aspect <W:H>     cell aspect (default: 9:16, or 1:1 at 640 px for a landscape pilot so a
+#                           16:9 cut gets 640x360 cells instead of 360x203)
 #   --out <file.jpg>        output (default: out/qa/<name>_vs_<niche>.jpg)
 #   --keep                  keep the temp folder with the individual cells
 #
@@ -34,7 +36,7 @@ usage() { sed -n '2,30p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-1}"; }
 [[ "$1" == "-h" || "$1" == "--help" ]] && usage 0
 
 PILOT="$1"; NICHE="$2"; shift 2
-SB=""; THUMB=""; REFS=""; CLASSES=""; CELL=360; OUT=""; KEEP=0
+SB=""; THUMB=""; REFS=""; CLASSES=""; CELL=""; CASPECT=""; OUT=""; KEEP=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --storyboard) SB="$2"; shift 2;;
@@ -42,6 +44,7 @@ while [[ $# -gt 0 ]]; do
     --refs) REFS="$2"; shift 2;;
     --classes) CLASSES="$2"; shift 2;;
     --cell) CELL="$2"; shift 2;;
+    --cell-aspect) CASPECT="$2"; shift 2;;
     --out) OUT="$2"; shift 2;;
     --keep) KEEP=1; shift;;
     -h|--help) usage 0;;
@@ -62,8 +65,10 @@ FFPROBE="${FFPROBE:-$(dirname "$FFMPEG")/ffprobe}"
 [[ -x "$FFPROBE" ]] || FFPROBE="$(command -v ffprobe)"
 
 NAME="$(basename "${PILOT%.*}")"
+SLUG="${NAME%_16x9}"; SLUG="${SLUG%_9x16}"      # <slug>_16x9.mp4 / <slug>_9x16.mp4 -> episodes/<slug>/
+SB16=""; [[ "$NAME" == *_16x9 ]] && SB16="$ROOT/episodes/$SLUG/storyboard_16x9.json"
 if [[ -z "$SB" ]]; then
-  for c in "$ROOT/episodes/$NAME/storyboard.json" "$(dirname "$PILOT")/storyboard.json" \
+  for c in $SB16 "$ROOT/episodes/$SLUG/storyboard.json" "$ROOT/episodes/$NAME/storyboard.json" "$(dirname "$PILOT")/storyboard.json" \
            "$(dirname "$PILOT")/$NAME.json" "$ROOT/studio/storyboards/$NAME.json"; do
     [[ -f "$c" ]] && { SB="$c"; break; }
   done
@@ -208,7 +213,12 @@ while IFS=$'\t' read -r kind cls a b c; do
   NCOLS=$((NCOLS+1))
 done < "$TMP/plan.tsv"
 NCOLS=$((NCOLS+1))
-CW="$CELL"; CH=$(( CELL * 16 / 9 )); CH=$(( CH / 2 * 2 ))
+if [[ -z "$CASPECT" ]]; then
+  PW_PH="$("$FFPROBE" -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$PILOT")"
+  if (( ${PW_PH%,*} > ${PW_PH#*,} )); then CASPECT="1:1"; CELL="${CELL:-640}"; else CASPECT="9:16"; fi
+fi
+CELL="${CELL:-360}"
+CW="$CELL"; CH=$(( CELL * ${CASPECT#*:} / ${CASPECT%:*} )); CH=$(( CH / 2 * 2 ))
 
 label() {  # $1 text, $2 colour -> drawtext filter fragment (or nothing)
   [[ $HAS_DT == 1 ]] || { echo ""; return; }

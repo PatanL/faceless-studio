@@ -35,7 +35,7 @@ ARGS=(--concurrency="$CONC" --log=error)
 echo "[render] waiting for render lock..."
 exec 9>~/studio/locks/render.lock; flock -w 5400 9
 START=$(date +%s.%N)
-npx remotion render "$ENTRY" "$COMP" "out/$NAME" "${ARGS[@]}" "$@"
+nice -n 10 npx remotion render "$ENTRY" "$COMP" "out/$NAME" "${ARGS[@]}" "$@"
 END=$(date +%s.%N)
 echo "[render] $COMP -> ~/studio/app/$PROJ/out/$NAME in $(echo "$END - $START" | bc) s (concurrency $CONC)"
 REMOTE
