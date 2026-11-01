@@ -8,15 +8,16 @@ a **visual parity** reviewer (does it look like the `research/library/review-ref
 Scores are given as each reviewer reported them. Most used /100; three used /10 (horror r1 visual 3/10, horror r2
 visual 6/10, blue-whale r3 viewer 7/10). Where a round's two sheet files are byte-identical, the sheet is shown once.
 
-Final verdicts at closeout (md5 = the exact file each verdict is for):
+Final verdicts after the explainer final QA (md5 = the exact file each verdict is for; md5s re-checked on disk ~14:07 UTC).
+Rule: a file is cleared only if that exact md5 passed every lens it was reviewed with. See "Explainer final QA (12:17-14:07 UTC)".
 
-| Pilot | Cut | Cleared file (md5) | Last review (visual / viewer) | Final verdict |
+| Pilot | Cut | Cleared file (md5) | Reviews of that md5 (visual / viewer) | Final verdict |
 |---|---|---|---|---|
 | horror-pinned-rules | 9:16, 65.2 s | `horror-pinned-rules_9x16.mp4` (`14376d5d76a453b9fcbf22c542915e87`) | closeout c1: 80 PASS / 84 PASS | **PASS**, cleared to post |
-| explainer-orca | 9:16, 75.1 s | none. Last reviewed `explainer-orca_9x16-prev.mp4` (`55793987a7dbd227e216683c22d5e0af`) | closeout regression: 72 FAIL | **FAIL**; `explainer-orca_9x16.mp4` (`8702a89c1e5e44ca4b4d9bf7ba737d2c`, fix pass 2) not reviewed |
-| explainer-orca | 16:9, 75.1 s | none. Last reviewed `explainer-orca_16x9-prev.mp4` (`355d0d72cdebf46ec19837e359f08d52`) | closeout 16:9: 68 FAIL | **FAIL**; `explainer-orca_16x9.mp4` (`3ac1cbad7f12d78c521b05c9f6a0e258`) not reviewed |
-| explainer-blue-whale | 9:16, 70.1 s | `explainer-blue-whale_9x16-prev.mp4` (`c1c5647ab05231848d86df6ce30f6cab`) | closeout regression: 77 PASS | **PASS** for that file; `explainer-blue-whale_9x16.mp4` (`491cdd4c60b0ee8ddf7030de8ff2c036`, fix pass 2) not reviewed |
-| explainer-blue-whale | 16:9, 70.1 s | none. Last reviewed `explainer-blue-whale_16x9-prev.mp4` (`6847ebcab12637f867c5c078ab24eff0`) | closeout 16:9: 66 FAIL | **FAIL**; `explainer-blue-whale_16x9.mp4` (`08093d1acb11c6b415da5130eb5be240`) not reviewed |
+| explainer-orca | 9:16, 75.1 s | `explainer-orca_9x16.mp4` (`8702a89c1e5e44ca4b4d9bf7ba737d2c`) | r1 76 / 82, r2 80 / 83, r3 78 / 80, all PASS | **PASS**, cleared to post |
+| explainer-orca | 16:9, 75.1 s | `explainer-orca_16x9.mp4` (`797d23d5c7b86758630cfad6e2f66b0c`) | r3 visual 76 PASS (visual only) | **PASS**, cleared to post |
+| explainer-blue-whale | 9:16, 70.1 s | `explainer-blue-whale_9x16.mp4` (`1a294416611b83ba925d33168f4651fc`) | r3 visual 79 PASS / final viewer 80 PASS | **PASS**, cleared to post |
+| explainer-blue-whale | 16:9, 70.1 s | `explainer-blue-whale_16x9.mp4` (`505c27a39299be564f5f41ef99ccf1f1`) | r3 visual 77 PASS (visual only) | **PASS**, cleared to post |
 
 Pre-closeout rounds: orca 2 rounds (round 2 74 / 80, recorded PASS, withdrawn in closeout as under the 75 bar), horror 3 rounds
 (round 3 72 FAIL / 82 PASS), blue whale 3 rounds (round 3 80 / 7 of 10 PASS, on `d859720c…`, now `-prev2.mp4`).
@@ -706,6 +707,67 @@ has seen them**, so they carry no verdict:
 Older cuts named earlier in this file (orca `79ef71a5…`, horror `ca79bba8…` and the 65.75 s round 2 copy, blue whale 72.9 s
 round 2 and `cc0959b6…`, the 16:9 cuts `ebd0a409…` / `da6d25f4…`) are no longer in the folders.
 
+### Explainer final QA (12:17-14:07 UTC)
+
+Three review rounds on the fix-pass cuts (visual parity on every cut; viewer / retention on the 9:16s), then a final viewer
+review of the blue whale r3 9:16. Pass bar 75 for both lenses.
+
+| Round | orca 9:16 (visual / viewer) | orca 16:9 (visual) | blue whale 9:16 (visual / viewer) | blue whale 16:9 (visual) |
+|---|---|---|---|---|
+| r1 | 76 PASS / 82 PASS (`8702a89c`) | 71 FAIL (`3ac1cbad`) | 74 FAIL / 78 PASS (`491cdd4c`) | 70 FAIL (`08093d1a`) |
+| r2 | 80 PASS / 83 PASS (`8702a89c`) | 71 FAIL (`c45cd14f`) | 72 FAIL / 77 PASS (`cfc57a46`) | 73 FAIL (`878d796d`) |
+| r3 | 78 PASS / 80 PASS (`8702a89c`) | 76 PASS (`797d23d5`) | 79 PASS (`1a294416`) | 77 PASS (`505c27a3`) |
+| final | | | viewer 80 PASS (`1a294416`) | |
+
+<details><summary>Blue whale 9:16 final viewer / retention, 80/100, PASS (md5 1a294416…)</summary>
+
+`explainer-blue-whale_9x16.mp4`, md5 `1a294416611b83ba925d33168f4651fc` (checked before review), 70.04 s, 1080x1920, 30 fps.
+ebur128, silencedetect, astats, scene and frame-difference passes ran niced on the Spark CPU (2-3 threads, `-t 71`) on a copy
+with the same md5; frame grabs were single-frame seeks. Scored independently of the earlier 78 / 77 viewer scores and the 79 visual.
+
+- **Hook (18/20):** frame 0 is the cover (YOU'RE TOO BIG TO EAT, red EAT and arrow, gaping whale with YOU inside); voice at 0.10 s;
+  "A blue whale's mouth" by ~1.5 s and "couldn't swallow you" done by 3.63 s, with the NO WAY DOWN header and diver slide at 3 s.
+  Slightly over the 3 s target; the 3.7 s cut to HOW BIG IS IT? opens on a thin vertical whale (weak frame).
+- **Visual change (14/15):** 47 hard changes; frame-difference above the caption band shows continuous motion and no gap over 2.4 s
+  between notable changes (longest 45.8-48.2 s, 11.8-14.0 s, 55.8-57.8 s).
+- **Captions (12/15):** 6 page onsets checked at ±0.12 s against `storyboard.json` (That's 8.23, about 20.305, of a golf cart 24.722,
+  hundreds 33.802, 40 million 45.537, decides 59.535): every page flips inside the window. Pages still dangle: "THAT'S / TWO AND A HALF",
+  "THE TONGUE ALONE WEIGHS", "THE HEART IS / THE SIZE", "WHEN / 200 TONNES".
+- **Audio (13/15):** I -14.1 LUFS, LRA 1.5 LU, TP -1.1 dBFS, sample peak -1.5 dB, flat factor 0 (no clipping); silence only in the last
+  0.41 s. Music bed ~-35.7 dB RMS under the voice (mix report), clearly under it. Both SFX still land a sentence late: heartbeat at
+  30.49 s over the call scene, whoosh at 63.89 s over the bookend line.
+- **Pacing and ending (13/20):** 225 words / ~69.3 s ≈ 194 wpm (PLAYBOOK Shorts 170-210); turnstile "So what happens to you" at 41.4 s
+  (59%, inside S4 45-60%); peak "decides to turn" at ~59.5 s (85%, inside the 65-91% band for 60-90 s ladders). "You" density is
+  low (~7/min vs 10-20) and 15-40 s is still a run of sideways size facts. Ending: "Room for you in its mouth / No room down its
+  throat" stinger, cut at 69.6 s, last frame = frame 0 (seamless loop), no CTA (S7).
+- **References / originality (10/10):** `script.md` cites jw6bS-WL4F4, JkAcCdqYJN0, fGcgWaswMns with a beat table;
+  `python3 scripts/originality_check.py episodes/explainer-blue-whale/script.md research/corpus research/library/transcripts` prints PASS.
+
+Non-blocking fixes for a later cut: move the heartbeat to ~24 s and the whoosh to ~62.9 s; re-page the four dangling caption pages;
+add "you" to rungs 2-6 (15-40 s); replace the thin vertical whale at 3.7-5 s.
+</details>
+
+**Final verdict:** every pilot / format is cleared on its current file (summary table at the top).
+
+MP4s on disk at ~14:07 UTC (renamed since the closeout table above; `491cdd4c…` and `3ac1cbad…` are no longer in the folders):
+
+| File | md5 | Status |
+|---|---|---|
+| `explainer-orca/explainer-orca_9x16.mp4` | `8702a89c1e5e44ca4b4d9bf7ba737d2c` | **cleared** (r1-r3) |
+| `explainer-orca/explainer-orca_9x16-prev.mp4` | `55793987a7dbd227e216683c22d5e0af` | round 2 cut; 72 FAIL |
+| `explainer-orca/explainer-orca_16x9.mp4` | `797d23d5c7b86758630cfad6e2f66b0c` | **cleared** (r3 76) |
+| `explainer-orca/explainer-orca_16x9-prev.mp4` | `c45cd14f66cd66db3a210361c4a8177a` | r2 71 FAIL |
+| `explainer-orca/explainer-orca_16x9-prev2.mp4` | `355d0d72cdebf46ec19837e359f08d52` | closeout 68 FAIL |
+| `explainer-blue-whale/explainer-blue-whale_9x16.mp4` | `1a294416611b83ba925d33168f4651fc` | **cleared** (r3 79 / final viewer 80) |
+| `explainer-blue-whale/explainer-blue-whale_9x16-prev.mp4` | `cfc57a46612fb649c6ab42e71427d804` | r2 72 FAIL / 77 PASS (not cleared) |
+| `explainer-blue-whale/explainer-blue-whale_9x16-prev2.mp4` | `c1c5647ab05231848d86df6ce30f6cab` | closeout regression 77 PASS (superseded) |
+| `explainer-blue-whale/explainer-blue-whale_9x16-prev3.mp4` | `d859720c289d1cc5047622d5da44f4d1` | round 3 cut (superseded) |
+| `explainer-blue-whale/explainer-blue-whale_16x9.mp4` | `505c27a39299be564f5f41ef99ccf1f1` | **cleared** (r3 77) |
+| `explainer-blue-whale/explainer-blue-whale_16x9-prev.mp4` | `878d796d5ac1a7e9272d8eccaa9aaba2` | r2 73 FAIL |
+| `explainer-blue-whale/explainer-blue-whale_16x9-prev2.mp4` | `08093d1acb11c6b415da5130eb5be240` | r1 70 FAIL |
+| `explainer-blue-whale/explainer-blue-whale_16x9-prev3.mp4` | `6847ebcab12637f867c5c078ab24eff0` | closeout 66 FAIL |
+| `horror-pinned-rules/horror-pinned-rules_9x16.mp4` | `14376d5d76a453b9fcbf22c542915e87` | **cleared** (c1 80 / 84) |
+
 ---
 
 ## Notes for whoever posts
@@ -713,8 +775,8 @@ round 2 and `cc0959b6…`, the 16:9 cuts `ebd0a409…` / `da6d25f4…`) are no l
 - **Disclosure:** every `description.md` now carries the R5 section checked against official pages (YouTube "AI use" = Yes,
   TikTok "AI-generated content" on, Meta AI label on, Made for kids = No, synthetic-voice caption line); see "Policy outcome"
   under Closeout and `research/R5/report.md`. Re-check the platform pages on publish day.
-- **What to post:** horror `horror-pinned-rules_9x16.mp4` and blue whale `explainer-blue-whale_9x16-prev.mp4` are cleared; the
-  orca cuts and both 16:9 cuts are not (see the summary table).
+- **What to post:** the current `_9x16.mp4` / `_16x9.mp4` in each pilot folder (md5s in the summary table); every `-prev*.mp4` is
+  superseded. Check the md5 before uploading.
 - **MP4s are not in git** (25-40 MB each, local only under `out/pilots/<slug>/`). Text files, thumbnails and QA sheets are committed.
 - **Fact checks before publishing:** `episodes/explainer-orca/script.md` (the "~7 boats sunk" count) and `episodes/explainer-blue-whale/script.md` "Facts to verify".
 - `episodes/README.md` lengths updated to the shipped cuts (orca 75.1 s, blue whale 70.1 s, horror 65.2 s).
