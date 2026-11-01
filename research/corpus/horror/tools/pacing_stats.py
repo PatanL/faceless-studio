@@ -20,7 +20,11 @@ LIB_V = ROOT / 'library/videos'
 CONTROLS = ['7696062340852190496', '7665304797242821921', 'xKgepVHATm4', 'epzTfKxp16E',
             'KJfJKo400b0', 'dqEIz_8bP-8', '0xzpKw7To98']
 # extra library outliers (not in the 12) for a bigger "hit" pool
-CHAT_IDS = {'T42u5xhrq-0', 'gzXY52lcAcI', '0xzpKw7To98', 'Xv32FAAUI-0'}  # one bubble = one sentence
+CHAT_IDS = {'T42u5xhrq-0', 'gzXY52lcAcI', '0xzpKw7To98', 'Xv32FAAUI-0', 'wh9ESTS69Dk'}  # one bubble = one sentence
+# expansion (12:08 UTC): corpus files that are controls, and the ids that came with the expansion
+CORPUS_CONTROLS = {'FDLk6TlVTq0'}
+EXPANSION = {'wh9ESTS69Dk', '8bo9yZvedUM', '7650872317119057168', 'gDNMSoGSZgQ', 'kJCVK8xTkPk', '7659482056656735521',
+             'x--ui6_mAxE', 'shTJ7_kRNJ8', '02nCBx8WqW0', '6WfCF7KsLaQ', 'hPWu7UAovxk', 'cWgSgd-QcOY', 'FDLk6TlVTq0'}
 EXTRA_HITS = ['7664930759395888416', '7666044652910316833', 'Xv32FAAUI-0', 'tB9Ln4eINus', 'CQKPC9MlciE']
 
 NUMWORDS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen '
@@ -118,7 +122,10 @@ def lib_entry(vid):
 def main():
     out = {'corpus': {}, 'alt': {}, 'extra_hits': {}, 'controls': {}}
     for p in sorted(CORP.glob('*.txt')):
-        out['corpus'][p.stem] = corpus_entry(p)
+        if p.stem in CORPUS_CONTROLS:
+            out['controls'][p.stem] = corpus_entry(p)
+        else:
+            out['corpus'][p.stem] = corpus_entry(p)
     for p in sorted((CORP / '_alt').glob('*.txt')):
         out['alt'][p.stem] = corpus_entry(p)
     for vid in EXTRA_HITS:
@@ -132,6 +139,11 @@ def main():
     for g, d in out.items():
         if not d:
             continue
+        summary[g] = {k: {'median': st.median([m[k] for m in d.values()]),
+                          'min': min(m[k] for m in d.values()), 'max': max(m[k] for m in d.values())} for k in keys}
+    # sub-groups of the corpus hits: the first 12 vs the expansion
+    for g, sel in [('corpus_orig12', lambda k: k not in EXPANSION), ('corpus_expansion', lambda k: k in EXPANSION)]:
+        d = {k: v for k, v in out['corpus'].items() if sel(k)}
         summary[g] = {k: {'median': st.median([m[k] for m in d.values()]),
                           'min': min(m[k] for m in d.values()), 'max': max(m[k] for m in d.values())} for k in keys}
     out['summary'] = summary

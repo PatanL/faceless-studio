@@ -1,0 +1,153 @@
+{
+ "episode": "whatif-everyone-born-same-day",
+ "reviewed_at_utc": "2026-11-01T10:55Z",
+ "scores_before": {
+  "retention": 6,
+  "reference": 6,
+  "originality": 6,
+  "producibility": 5
+ },
+ "scores_after_self_assessed": {
+  "retention": 8,
+  "reference": 8,
+  "originality": 8,
+  "producibility": 6
+ },
+ "score_notes": {
+  "retention": "Line 2 now says 'born', and the 2 BN carers appear once as an explicit concession, with a HUD reading BABIES 8 BN / ADULTS 2 BN (10 BN total). Frame 0 is the impossible crib field with a running birth counter. The Day-1 stake is non-lethal: a one-person rung (40 feeds + 40 diapers), a consequence chain (who runs power, farms and hospitals), then a 'we'll be kind' rule. The capacity ratios drop from 8 to 4 (births/day, teachers, university+jobs merged, retirees); milk, seats and gaokao are cut. The midpoint is a dated plant whose payoff flips the year-18 job shortage into every senior job opening at once. A second-stage reveal at 84-86% pays off line 1. The halving ladder now says its units. Pace is 150.9 wpm overall / 158.4 spoken, with 34% second person and 2.18 pivots/min. Held at 8 for two reasons: 75 shots at ~6.7 s median is dense, and the first trailer promise is paid at 1:18 (16%), not 10%.",
+  "reference": "The alignment table was rebuilt: every row cites an existing corpus timestamp, the y300HjYnHPw borrowings sit under secondary_references with timestamps, the L1c sensory row cites EVERY-HUMAN @0:20 and LAST-HUMAN @0:04, and the L9e two-stage row now has a real second reveal. The reversal has dated evidence (Japan's 1949 and 1973 peaks and the missing third wave), a checkable EST. number and a 'you' rung. The echo chapter (YEAR 24) comes before YEAR 30, and the HUD keyframes come from one model. Not a 9 because the YEAR 30 exit is a stated magic rule rather than real demography, which a few commenters may still poke at.",
+  "originality": "Gate PASS. The longest shared run with any source is 5 words and the highest 5-gram share is 0.04% (EVERY-HUMAN transcript). The '...the real problem' pivot was replaced with our own wording. Spain, surgeon and centenarian facts are corrected; the mixed candle metaphor is now 'birthdays'; front-matter metrics are computed by the generator, not typed by hand.",
+  "producibility": "Held at 6 because studio/src/kits/whatif still does not exist (13 components + the Person rig), so the script is marked BLOCKED-ON-KIT with a named gate shot. Fixed here: six reused sets instead of ~18; role hats on navy panels instead of cockpit/OR/court; map uses lon/lat pins + rings and continent-key highlights only; the pyramid scale and 2024 band data are in the storyboard; HUD fields and keyframes are specified; frame zones are assigned; SFX are existing names only with no pitch; music is documentary_pulse plus silence drops; there are no zoom presets and no grade blur; every stamp is >= 1.8 s; VO timings come from word counts, so no line overruns its shot; the storyboard validates."
+ },
+ "must_fix_applied": {
+  "retention": [
+   "Premise: line 2 is 'Now imagine you, and everyone alive, born on the same morning.' The 2 BN carers are stated once as a concession ('two billion borrowed adults are here to hold you'). HUD reads BABIES 8,000,000,000 / ADULTS 2,000,000,000, then TOTAL ALIVE 10 BN / YOUR AGE GROUP 8 BN. 'your grandmother' and 'same eight billion people' are cut.",
+   "Midpoint: the carers' exit is now a dated rule from the rules beat ('on your thirtieth birthday, they hand everything over and step out of the story', with a scrubber key tick 30 and a HANDOVER IN 30 YEARS chip). It is paid at YEAR 30 with 'The date from the rules.' The surprise payoff is the job shortage flipping: at 18 not enough jobs, at 30 every senior job is yours. Nobody claims they died of age at 50-75.",
+   "Day-1 stakes: the milk-vs-farms starvation stake is removed. It is replaced by a one-person rung (40 feeds + 40 diapers per adult per day, EST.), a consequence chain (who runs power stations, farms, hospitals with 2 BN adults on night feeds) and an explicit rule 'the lights stay on, and nobody goes hungry', ending on the button 'nobody on Earth sleeps for about a year'.",
+   "Halving ladder: 'At a hundred and ten, forty thousand of you. Twenty thousand at a hundred and eleven. Then ten thousand. Five thousand. By a hundred and twenty, a few dozen of you.'",
+   "First 3 seconds: frame 0 is the endless crib field to the horizon filling 4 a second under a live BIRTHS THIS SECOND counter. 'You' appears in line 2. The first 30 s have 7 you-words (up from 5).",
+   "Capacity ratios: milk vs farms, seats vs kids and gaokao x600 are cut. University is folded into the jobs sentence. New devices: one-person close-up (night feeds), consequence chain (Day 1), deadpan gags (8 BN cake order, year-group photo from orbit, golf courses), dated-plant payoff.",
+   "Reversal in the last 20%: a second-stage reveal at 7:04-7:14 (84-86%). Pull out to a family of every age, each born on a different day, and the 0:00 counter is back to four babies a second (pays line 1). 'Eight billion candles, down to one' is now 'Eight billion birthdays, down to one.'",
+   "Pace: 1242 words over 0:00-8:13 = 150.9 wpm overall (158.4 spoken); the front-matter numbers are computed by gen_storyboard.py (second person 34.0%).",
+   "CTA: binary dilemma from options the video showed throughout (the cohort vs the echo). The unset-up '30 / cradle' option is gone and one icon per milestone is used everywhere."
+  ],
+  "reference": [
+   "Midpoint factual error fixed with option (a): an explicit dated rule planted at 0:59, a scrubber countdown tick and an explicit callback ('The date from the rules', EVERY-HUMAN @3:22 device). The fact sheet notes ~1.7 BN carers would still be alive and the HUD drops TOTAL ALIVE 14.7 -> 13.0 BN at the handover.",
+   "Plant wording: the pivot is 'But exams and jobs turn out to be the easy part.' (no run with y300HjYnHPw).",
+   "First trailer promise: 'On day one, each adult gets four of you' (0:21), paid 1:18 with 'That's the first promise' and a lit DAY 1 bottle tick.",
+   "Hook no longer gives away the second stage: the master loop is a withheld question ('a birthday none of the other eight billion ever had'), answered at 6:51-6:55.",
+   "Reversal evidence: Japan's first boom peak 2.7 M (1949), echo peak 2.1 M (1973), the expected third wave around 2000 never came (planted at 3:36). Plus the checkable EST. number (8 BN in a day vs the echo's busiest day ~1.5 M) and a 'you' rung (your family has birthdays in every month). 39 s.",
+   "Premise hole (who runs the world, years 0-18) is now the Day-1 stake plus a stated rule; the hook's grandmother framing is removed.",
+   "Halving ladder states units (see retention).",
+   "Echo timing: YEAR 24 echo chapter before YEAR 30; the YEAR 30 pyramid shows echo bands at 0-12; HUD numbers recomputed from one model (11.8 BN at YEAR 24, 15.9 BN at YEAR 45, 21.2 BN at YEAR 65).",
+   "VO slot overruns: gaokao line cut; every timestamp is generated from word count at the stated per-section rate, so no line overruns its shot.",
+   "Metaphor and miscount: 'eight billion birthdays, down to one'; 'Half of that ninety-kid classroom'.",
+   "Alignment table: L1c now cites EVERY-HUMAN @0:20 and LAST-HUMAN @0:04 sensory traces (the hook has two: crying, the smell of warm milk); y300HjYnHPw is in secondary_references with @0:20-0:27 and @4:24-4:31; L9e is a real second reveal."
+  ],
+  "originality": [
+   "Midpoint premise fixed (dated rule; fact sheet updated)",
+   "Population count: 8 BN babies + 2 BN borrowed adults = 10 BN, consistent across VO, HUD and all ratios",
+   "Halving ladder units spoken",
+   "Spain: 'more than half of young Spaniards looking for work couldn't find any'; pill 'SPAIN, UNDER-25 UNEMPLOYMENT ~56%'; fact sheet explains labour-force share vs ~21-22% of all young people",
+   "Lifted pivot wording replaced",
+   "Surgeon: 'The most experienced surgeon alive is still finishing their training.'",
+   "Centenarians: ~722,000 (UN WPP 2024); VO 'more than fifty times'; pill 'TODAY ~0.72 M'",
+   "Front matter metrics generated from the VO by gen_storyboard.py; '~90 vs ~23' consistent everywhere"
+  ],
+  "producibility": [
+   "status: BLOCKED-ON-KIT in front matter, with the gate shot named (shots 10-11, the pyramid collapse + old-world bands) and a build order",
+   "whatif/Person rig specified: age baby|kid|teen|adult|elder, pose stand|walk|sit|hold|point, hat cap|scrubcap|wig|hardhat, color, you ring; no faces",
+   "Backdrops consolidated to six whatif/Set names (ward, classroom, office, park, porch, kitchen) with view/light variants; roles drawn as hatted figures on navy panels",
+   "Map: lon/lat pins + rings for Romania (25, 46) and Spain (-3.7, 40.4); 'whole planet' highlights all six continent keys; globe inset dropped",
+   "Pyramid scale: 0.7 BN = 40% of half-width, the 8 BN bar clips with an overflow chevron and '×12'; camera keyframe eases out; 21-band 2024 data in storyboard.json (approx. WPP 2024, swap in the exact CSV)",
+   "HUD: TOTAL ALIVE and YOUR AGE GROUP fields plus an odds line, with a keyframe table in script.md and states in storyboard.json",
+   "Frame zones: scrubber y 94-98%, captions y 0.82, pills top-centre with source top-right, HUD top-left, corner stamps top-right",
+   "Audio: documentary_pulse.m4a only, with silence drops; no pitched SFX; no layered-breath crowds; door_creak removed (whoosh/pop instead)",
+   "VO timing: generated from word counts; shot 36 holds 0.8 s past 'planet'; stamps >= 1.8 s with the next VO line starting under them"
+  ]
+ },
+ "nice_to_have_applied": [
+  "Hook trimmed of 'a few billion' and the long master-loop sentence (98 words / 0:38 vs 99 / 0:44)",
+  "0:04 board shows 60 rows of a year's dots (60 YEARS OF BIRTHS), matching the VO",
+  "Infrastructure rung added on Day 1",
+  "Personal thread: a ringed YOU figure at every act break, plus a HUD odds line 1 IN 8 BN -> 1 IN 1",
+  "Comedy buttons: 8 BN cake order, no sleep for a year, year-group photo from orbit, dating, golf courses (none after 4:53)",
+  "Reversal paired with an on-screen number (busiest birth day 8 BN -> ~1.5 M -> today ~360,000)",
+  "Verify notes kept for Romania (INS) and Spain (Eurostat monthly series) before render",
+  "'hand over' planted at 0:59 and 3:55; thesis uses a 3-callback anaphora (first steps, ninety kids, the keys)",
+  "Either/or question at the emotional floor before the 'but' turn",
+  "One-word false resolution kept as 'Fine.' before the Day-1 concession; 'fairest world... until you turn six' as the crack line",
+  "Title card 5 s",
+  "Second person raised to 34% of sentences",
+  "Ironic buttons on YEAR 6 (orbit photo) and YEAR 65 (golf)",
+  "One icon per milestone everywhere (bottle, desk, key, rocking chair, candle); explainer/Options used as a text-only PICK ONE list",
+  "Fonts: Anton for stamps and title (no new serif)",
+  "Clone vat / time machine drawings cut (strike-through Tags)",
+  "Crowd capped at 500 animated instances + static pattern fade",
+  "No zoom preset (camera keyframes) and no grade blur (layer blur on the end screen)",
+  "1:44 map uses plain pins; the baton is a glowing circle on a keyframed path; diaper pile is instanced icons next to explainer/Bus",
+  "Thumbnail B makes 'same year' visible (pyramid collapses into one bar)"
+ ],
+ "not_applied": [
+  "First trailer promise is paid at 1:18 (16% of runtime), not within 10%: the 5 s title card + rules beat sit in between. The reference critic's own suggestion was ~1:26.",
+  "Data-chapter TTS rates are 164-166 wpm, above the PLAYBOOK 145-155 band, to reach 150+ overall (RESTART's science section runs 164).",
+  "Shot count rose from 66 to 75 (more but simpler shots that reuse six sets and the board); a kit-building lane may merge some.",
+  "Music-box/marimba bed not synthesised (optional sox task on the Spark CPU noted in front matter).",
+  "WPP 2024 band values in storyboard.json are approximate (sum ~8.1 BN); swap in the exact CSV before render."
+ ],
+ "originality": {
+  "command": "python3 scripts/originality_check.py backlog/whatif/whatif-everyone-born-same-day/script.md research/corpus research/library/transcripts",
+  "result": "PASS",
+  "exit_code": 0,
+  "longest_shared_run_words": 5,
+  "max_shared_5gram_share": "0.04% (research/library/transcripts/b6jmbFcJZCY.txt and research/corpus/whatif/b6jmbFcJZCY.md: 'for the first time in')"
+ },
+ "pacing": {
+  "runtime_s": 504.5,
+  "narration_end_s": 493.93,
+  "vo_words": 1242,
+  "sentences": 147,
+  "wpm_overall": 150.9,
+  "wpm_spoken": 158.4,
+  "hook_words": 98,
+  "hook_end_s": 38.18,
+  "second_person_pct": 34.0,
+  "you_words_first_30s": 7,
+  "pivots_per_min": 2.19,
+  "punch_pct": 19.0,
+  "mean_sentence_words": 8.4,
+  "questions": 10,
+  "midpoint_rug_pull": "3:48 (45%)",
+  "master_payoff": "6:51 (82%)",
+  "second_stage_reveal": "7:04-7:14"
+ },
+ "storyboard": {
+  "file": "backlog/whatif/whatif-everyone-born-same-day/storyboard.json",
+  "generator": "backlog/whatif/whatif-everyone-born-same-day/gen_storyboard.py (also writes script.md from script.template.md, and timing.json)",
+  "validator": "studio/src/cli/validate.ts with the working-tree studio/src/core/schema.ts, run on the Spark with Node 22 (temp copy, removed after)",
+  "result": "ok: 16:9 30fps 75 scenes 504.70s captions=1242 words",
+  "unbuilt_components": [
+   "whatif/Set",
+   "whatif/Crowd",
+   "whatif/Pill",
+   "whatif/DotStrip",
+   "whatif/Hud",
+   "whatif/Person",
+   "whatif/Icon",
+   "whatif/Scrubber",
+   "whatif/Cake",
+   "whatif/Pyramid",
+   "whatif/IconRows",
+   "whatif/YearStamp",
+   "whatif/IconPile",
+   "whatif/GateCascade",
+   "whatif/IconRow",
+   "whatif/MiniPyramid",
+   "whatif/LineChart",
+   "whatif/MonthGrid",
+   "whatif/DateTags",
+   "whatif/RecapRow"
+  ],
+  "notes": "Captions use estimated word timings (char-weighted per line) until Kokoro TTS word timings replace them; audio.voice is empty until TTS runs."
+ }
+}

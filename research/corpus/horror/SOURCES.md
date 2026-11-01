@@ -118,3 +118,74 @@ Built 2026-11-01, about 09:05 to 09:25 UTC. All downloads, transcription and fra
   - Run the originality gate against this folder.
 - Whisper segment timestamps are the start of each spoken segment, accurate to about ±0.5 s. Chat-video timestamps are the second each bubble first appears in the 1 fps sampling.
 - The WrONG Rules channel tags some uploads with stablediffusion and midjourney. Only the script structure is used here.
+
+## Expansion (12:08 UTC)
+
+Added 2026-11-01, about 12:08 to 12:20 UTC: 13 more transcripts (12 outliers plus 1 marked control), all from channels that are not among the first 12 sources except two Wansee/Shorts-format picks noted below. Same rules as above: every listing, download, subtitle pull, whisper run and frame sample ran on the Spark CPU (`CUDA_VISIBLE_DEVICES=""`, `nice -n 10`, whisper `cpu_threads=4`, ffmpeg `-threads 2`). Only text is on the Mac.
+
+- **Pool.** The library (`research/library/library.json`, `candidates-horror.json`), `research/daily/latest.md` (11:08 UTC run), R2's channel listings (`dgx-spark:~/studio/refs/R2/meta/`) and the corpus search listings, plus two new YouTube searches ("scary text message story #shorts", "horror rules animated #shorts") and fresh channel listings for Luke Davidson, Mr. Nightmare, Llama Arts, Lighthouse Horror, Texty Stories, NightProtocol and Wansee Shorts. Working folder: `dgx-spark:~/studio/refs/corpus_horror/x2/` (`meta/`, `subs/`, `wh/`, `vid/`, `frames/wh9/`, scripts `dl.sh`, `subs.sh`, `whisper_np.py`).
+- **Outlier score.** Same definition: views / median views of that channel's recent uploads in the same tab (Videos, Shorts or TikTok). Each header names the median used.
+- **Transcripts.** YouTube auto-subs (`en-orig` VTT, cleaned with `tools/vtt2lines.py`, HTML entities and `>>` speaker marks stripped) for every YouTube video that had them; creator-uploaded captions for the Llama Arts video; faster-whisper `small` on CPU (int8, 4 threads, VAD, audio passed as a numpy array) for the TikToks and the no-subs YouTube video; bubble-by-bubble reading of 2 s contact sheets for the silent Texty Stories chat. Builder: `dgx-spark:~/studio/refs/corpus_horror/x2/build_x2.py` (with the hand-read chat in `manual_wh9ESTS69Dk.txt` next to it; it reuses `tools/vtt2lines.py` and writes the same two header lines as `tools/build_raw.py`).
+- **Not done here.** No `sheets/` overview JPGs, no INDEX.json entries and no line-by-line annotation for these yet.
+
+| # | id | channel | role | views | outlier | dur | transcript source |
+|---|---|---|---|---|---|---|---|
+| 13 | [wh9ESTS69Dk](https://www.youtube.com/watch?v=wh9ESTS69Dk) | Texty Stories | outlier | 248,728 | **165.8x** | 6:18 | on-screen chat (visual, 2 s frames) |
+| 14 | [8bo9yZvedUM](https://www.youtube.com/watch?v=8bo9yZvedUM) | Luke Davidson | outlier | 16,247,875 | **34.1x** | 10:21 | VTT |
+| 15 | [7650872317119057168](https://www.tiktok.com/@melovebz/video/7650872317119057168) | melovebz | outlier | 134,400 | **23.8x** | 9:26 | whisper |
+| 16 | [gDNMSoGSZgQ](https://www.youtube.com/shorts/gDNMSoGSZgQ) | The Story Vault | outlier (Short) | 19,845 | **19.8x** | 0:59 | VTT (whisper-checked) |
+| 17 | [kJCVK8xTkPk](https://www.youtube.com/watch?v=kJCVK8xTkPk) | Resident Guidance | outlier | 13,473 | **17.4x** | 5:14 | VTT |
+| 18 | [7659482056656735521](https://www.tiktok.com/@lehwh7/video/7659482056656735521) | lehwh7 | outlier | 1,900,000 | 11.2x | 9:45 | whisper |
+| 19 | [x--ui6_mAxE](https://www.youtube.com/shorts/x--ui6_mAxE) | Wansee Entertainment | outlier (Short) | 141,758 | 9.5x | 0:15 | VTT |
+| 20 | [shTJ7_kRNJ8](https://www.youtube.com/watch?v=shTJ7_kRNJ8) | NightProtocol | outlier (1 day old) | 3,201 | 7.6x | 10:33 | VTT |
+| 21 | [02nCBx8WqW0](https://www.youtube.com/watch?v=02nCBx8WqW0) | Llama Arts | outlier | 11,900,854 | 6.4x | 4:46 | creator captions |
+| 22 | [6WfCF7KsLaQ](https://www.youtube.com/watch?v=6WfCF7KsLaQ) | Horror Shorts Party | outlier | 1,282,475 | 5.1x | 5:25 | whisper (no subs) |
+| 23 | [hPWu7UAovxk](https://www.youtube.com/watch?v=hPWu7UAovxk) | Mr. Nightmare | outlier | 5,034,624 | 5.0x | 9:21 | VTT |
+| 24 | [cWgSgd-QcOY](https://www.youtube.com/watch?v=cWgSgd-QcOY) | Lighthouse Horror | outlier | 505,355 | 2.6x | 22:06 | VTT |
+| C1 | [FDLk6TlVTq0](https://www.youtube.com/watch?v=FDLk6TlVTq0) | Resident Guidance | **CONTROL** | 1,088 | 1.4x | 5:35 | VTT |
+
+### Why each was chosen
+
+13. **wh9ESTS69Dk: "My DEAD DAUGHTER Texted Me".** The biggest ratio in the pool. The score is against a quiet recent window (1,500 median, 2026 uploads); this 2023 upload is still the channel's top video by far.
+    - A silent iMessage recording, about 116 bubbles in 6:18, so roughly one bubble every 3 s with the typing animation shown. Slower than Textify (one per second) and still a hit.
+    - Beats: lock-screen notification "Hello mommy", denial ("My daughter died two years ago"), escalating ALL-CAPS warnings, "Please open the door", "I'm outside" while the door is empty, a photo bubble of the empty doorway, a chat-switch to the husband ("Not this again"), and the payoff that the whole Unknown thread has vanished.
+    - The vanishing-thread ending and the switch to a second chat are pure chat-UI devices our chat kit can do.
+14. **8bo9yZvedUM: Luke Davidson, "THE SCARIEST TEXT CHAT EVER!!!"** 16.2M views, 34x. A creator reads a 3 a.m. home-alone text chat aloud (little brother home alone, older brother at a party, someone in the house) and stops to react.
+    - Useful for which chat lines a narrator chooses to dwell on, and for the "don't tell Mom" guilt lever that keeps the victim from calling for help.
+    - The reaction asides are not part of the story; skip them when measuring pacing.
+15. **7650872317119057168: melovebz, fake-human roommate.** 23.8x. A 2 a.m. noise (pages turning) leads to an online stranger ("Exorcist") who says the roommate is a fake human cramming language before eating him.
+    - The online helper is the authority figure. The hero blocks him, unblocks him at the next scare, and the tells (clothes inside out, wrong words) build the case.
+    - It shares a template with #18, which suggests the format travels across reposting accounts.
+16. **gDNMSoGSZgQ: The Story Vault Short, "Never kill your own dog".** 19.8x on the Shorts tab, 59 s.
+    - It opens on a rule in the first 2 s ("we kill a dog every New Year's... never kill your own dog"), breaks it by 0:05, has a dying-whisper prophecy, then a hide-in-the-stove instruction from Grandma.
+    - The ending is a "Dad" voice at the door ("open the door, it's Dad"), which is our fake-authority-at-the-door beat squeezed into under a minute.
+17. **kJCVK8xTkPk: Resident Guidance, "If Your Neighbour Waves from Two Different Windows… Only Wave Once".** 17.4x. The closest match to our building-rules premise in the whole pool.
+    - A cold-open scene (two windows, same neighbor, both waving) and then "There are five rules", each one tied to a mundane chore (keys, shopping, the milk in the fridge).
+    - Calm second-person narration over still illustrations, which is exactly our code-only look. It ends on a softer re-hook ("They may not be waving at you").
+18. **7659482056656735521: lehwh7, "teeth grinding monster".** 1.9M views, 11.2x. It was dropped from the first 12 for running 9:45; it's here as the long-form TikTok example.
+    - A 2 a.m. sound outside the door for three nights, then an online stranger ("TimeHunter") explains the rules (seven days of grinding, then it eats you; it disguises itself as someone close).
+    - Trust flips between Grandpa and Dad ("he doesn't have a shadow"), and a neighbor in apartment 503 hands over a protective pendant.
+19. **x--ui6_mAxE: Wansee Short, "I gave her a ride, but she was....."** 9.5x on Wansee's Shorts tab. It's on an existing channel but in a format the first 12 lack: a 15 s, 4-line micro-story that ends on a smile. It shows the minimum viable horror Short.
+20. **shTJ7_kRNJ8: NightProtocol, "If Everyone On The Night Bus Stands Up At Your Stop… STAY SEATED".** 7.6x, uploaded the day before collection, so the score is still rising.
+    - The cold open states the rule and then three don'ts in 10 s. It promises "seven rules, and remember rule number four, it's the one almost everyone breaks" (an explicit open loop), and it's labeled "Night protocol file 015" (series framing).
+    - It ends with a text message from the friend who got off ("Same bus tonight. I told them you're coming").
+21. **02nCBx8WqW0: Llama Arts, "Disturbing True Snapchat Stories Animated".** 11.9M views, 6.4x on a 1.85M-median channel.
+    - A gym stranger gets the narrator's Snapchat. Each removal or block is answered by a new snap ("why did you remove me?", then a re-add from a new account), so the phone escalates on every beat.
+    - It ends with an unresolved worry ("any time somebody new adds me... I'll never know").
+22. **6WfCF7KsLaQ: Horror Shorts Party, "TRUE OMEGLE CHAT ROOM HORROR STORY".** 1.28M views, 5.1x. No subs, so whisper.
+    - A stranger on video chat says he is deaf, types in the chat box, then switches to a whiteboard because "my hands will be occupied" ("wanna play a game?").
+    - It's the best example in the pool of a chat-box UI as the main stage inside a narrated 2D story.
+23. **hPWu7UAovxk: Mr. Nightmare, "3 Text Conversations with Creepy Backstories".** 5M views, 5.0x on a 1M-median channel.
+    - The structure is to read the real-looking texts first (a girl hiding in a closet texting Mom) and then tell the backstory that makes them scary. One story ends with texts sent from a family member's phone by someone else.
+    - It's the clearest model for a screenshots-then-reveal format, and it's three stories in one.
+24. **cWgSgd-QcOY: Lighthouse Horror, "11 Rules For Idiots Who Bought A Haunted House".** 2.6x on a 192K-median channel. It's long (22 min) and is here as the long-form rules example.
+    - A sarcastic second-person host gives a numbered list framed as advice to the viewer. A friend ("Nathan") is the cautionary example, and it ends with a threat to the viewer ("I have a really good software for tracing IPs").
+- **C1. FDLk6TlVTq0: CONTROL.** Resident Guidance, "If the Pigeons Outside Your Building Stop Moving… Don't Feed Them", 1,088 views (1.4x). It uses the same narrator, the same five-rules template and the same length as #17.
+    - Compare the two to see what the outlier does differently: a human double rather than an animal, a cold open that puts the viewer in the act (waving), and a title that names an action to take.
+
+### Caveats (expansion)
+
+- #15, #16 and #18 are translated Chinese animation reposts like the TikTok seeds. BRIEF rule 5 applies: borrow structure and devices only.
+- #14 includes the creator's reaction asides mixed into the chat reading, and #24 includes channel intro and outro talk. #17, #20 and C1 auto-subs contain `[music]` tags.
+- The TikTok view counts are yt-dlp's rounded figures (1.9M, 134.4K). The melovebz account's display name is "mystoriess".
+- The #13 timings are the first 2 s frame where each bubble appears (+-2 s). Speaker labels: MOM = blue bubbles (phone owner), UNKNOWN and BABE = grey bubbles.

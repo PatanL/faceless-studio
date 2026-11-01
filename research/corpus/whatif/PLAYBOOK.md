@@ -1,6 +1,6 @@
 # What-if PLAYBOOK — viral skeleton, devices, pacing
 
-Built 2026-11-01 ~09:20 UTC from the 12 annotated scripts in this folder (`<id>.md`, `raw/<id>.txt`, `SOURCES.md`), the R3 teardown (`research/R3/report.md`) and **controls**: 29 IFOLOGY + 4 Awaken long-form transcripts in `research/R3/transcripts/` and 22 @man_ia_c TikTok post captions in `research/R3/raw/r3_videos.json`. Machine-readable index: `INDEX.json` (each video's `beat_sequence` uses the S1–S10 / L1–L11 tags from §1). Pacing numbers come from `tools/pacing_stats.py` (output `tools/pacing_stats.json`), not from memory.
+Built 2026-11-01 ~09:20 UTC from the 12 annotated scripts in this folder; **revised ~12:50 UTC with the 13-script expansion (25 annotated scripts, 10 channels)**. The changes are summarised in §14. Sources: `<id>.md`, `raw/<id>.txt`, `SOURCES.md`, the R3 teardown (`research/R3/report.md`) and **controls**: 29 IFOLOGY + 4 Awaken long-form transcripts in `research/R3/transcripts/` and 22 @man_ia_c TikTok post captions in `research/R3/raw/r3_videos.json`. Machine-readable index: `INDEX.json` (each video's `beat_sequence` uses the S1–S10 / L1–L11 tags from §1). Pacing numbers come from `tools/pacing_stats.py` (output `tools/pacing_stats.json`), not from memory.
 
 **Use rules.** Borrow structure, timing and devices only. Never borrow wording, characters, footage or audio (BRIEF rule 5). This file holds no source line longer than 6 words; everything below is an abstracted pattern with `[slots]`. Before writing, pick the 2–3 closest corpus scripts, cite them in front matter and fill a beat-alignment table (BRIEF Update 09:00). Run `scripts/originality_check.py` until PASS.
 
@@ -20,6 +20,22 @@ Source key (views, outlier = views ÷ channel's same-format median):
 | _lu85gSD39k | BILLION-YEARS (OminiAM) | 13:09 | 413K | 41.02 |
 | y300HjYnHPw | 10X-FASTER (IFOLOGY) | 10:19 | 868K | 8.38 |
 | YznR5NmI3bc | STOP-TIME (IFOLOGY) | 10:10 | 636K | 6.15 |
+| *Expansion (12:08 UTC)* | | | | |
+| 2d6Ciu3INeA | GROW-1CM (What If, narrated Short) | 2:52 9:16 | 3.32M | 69.27 |
+| VZ27faCr8UU | BLACK-HOLE-NS (What If, narrated Short) | 2:32 9:16 | 435K | 9.06 |
+| AV1zVKuEtFc | SUN-GONE (SolarBalls, character skit Short) | 1:21 9:16 | 7.77M | 5.97 |
+| 7693888660256722208 | IRON (@man_ia_c) | 80 s 9:16 | 2.7M | 4.32 |
+| YayPaipjNAM | SHRINK (What If Animations, caption-only long) | 6:45 | 873K | 622.86 |
+| 8fADp43wJwU | LAST-LIGHT (xkcd's What If?) | 5:04 | 10.4M | 4.34 |
+| Q9F0z4CR0gM | ASTEROIDS (What If) | 23:37 | 3.10M | 5.38 |
+| n1CYFTKR_B0 | NO-CLOTHES (OminiAM) | 10:58 | 297K | 30.27 |
+| DgftZCQe8sI | LAST-HUMAN-2 (OminiAM) | 12:40 | 243K | 24.79 |
+| K_56-ZqYviY | UNDERWATER (Oddly Elsewhere) | 10:02 | 709K | 4.76 |
+| eiBR6wlwPfA | WOMB (WatchData, text-card timeline) | 3:02 | 2.25M | 11.19 |
+| rzoq6AOgudA | NOCTURNAL (If Humans, wordless sketch) | 1:30 16:9 | 2.12M | 16.04 |
+| DOEQgRAFeI0 | HIBERNATE (If Humans, story sketch) | 4:43 | 1.67M | 12.64 |
+
+Outlier scores are channel-relative. The big established channels (What If 8.99M subs, SolarBalls, xkcd, WatchData) have large medians, so their 4–10× means far more reach than 25–600× on a weeks-old channel (OminiAM, What If Animations).
 
 ---
 
@@ -31,9 +47,9 @@ A what-if wins when **one rule of reality changes**, the viewer is **placed insi
 
 ## 1. Canonical viral skeleton
 
-### 1A. Shorts (9:16, 75–85 s, caption-led, optional light VO) — template of all five @man_ia_c hits
+### 1A. Shorts (9:16, 75–85 s, caption-led, optional light VO) — template of all six @man_ia_c hits
 
-Seconds assume 80 s. % are medians across the 5 Shorts (range in brackets).
+Seconds assume 80 s. % are medians across the 5 original Shorts (range in brackets). IRON (6th) fits every row, with two shifts: the return lands earlier (68%), and S9 becomes a **delayed consequence** with its own third clock (70–90%). The other Short variants are in §1A+.
 
 | # | Beat | % of runtime | Seconds (80 s) | What happens | Exemplars |
 |---|---|---|---|---|---|
@@ -44,39 +60,54 @@ Seconds assume 80 s. % are medians across the 5 Shorts (range in brackets).
 | S5 | **Rule, then the "but" turn** | 25–35% | 20–28 | One plain-science rule line, then a shorter line that implies the consequence without saying it, then 3–4 s with no text while the image breaks. | ELECTRONS, NEUTRONS, PI=3 |
 | S6 | **Scale-outward ladder** | 35–62% | 28–50 | 3–5 rungs: smallest everyday object → street → person/crowd → city. Each caption = one stat or one consequence. Caption cadence peaks (~3 s). Ends in a white-out or full-frame interrupt. | ELECTRONS, OXYGEN, PI=3, NEUTRONS |
 | S7 | **Planet/cosmic climb or race** | 55–80% | 44–64 | Wide/space view, a **live climbing number** in the HUD ("[thing] is now N [units]"), terse status lines. Optional second countdown racing the main clock. Captions thin out; the HUD carries re-hooks. | ELECTRONS, NEUTRONS (Moon race), OXYGEN (false calm) |
-| S8 | **Return (master loop closes)** | 78–82% | 62–66 | Clock reaches zero, HUD shows "[X] BACK", a reassuring line, a callback stamp "[place], [N] seconds later". | ELECTRONS, NEUTRONS, PI=3, OXYGEN |
-| S9 | **Twist** | 82–90% | 66–72 | The return does not fix it: it causes a second disaster, or the damage stays, or a planted by-product reacts. One caption + one HUD equivalence. | all 4 vanish/constant hits; POPSTAR uses "you are exactly where it lands" |
+| S8 | **Return (master loop closes)** | 78–82% (IRON 68%) | 62–66 | Clock reaches zero, HUD shows "[X] BACK", a reassuring line, a callback stamp "[place], [N] seconds later". | ELECTRONS, NEUTRONS, PI=3, OXYGEN, IRON |
+| S9 | **Twist** | 82–90% (IRON 70–90%) | 66–72 | The return does not fix it: it causes a second disaster, or the damage stays, or a planted by-product reacts. One caption + one HUD equivalence. Variant: cut back to the opening shot as false calm, one small permanent change, then a **third countdown** that time-skips to a delayed hit (IRON). | all 5 vanish/constant hits; POPSTAR uses "you are exactly where it lands" |
 | S10 | **Black + bookend + real fact** | 90–100% (8–13) | 72–80 | ~1–2 s black, the title repeats exactly (seamless loop), one small-caps **true, checkable fact** tying the premise to your body or to history. Comment CTA goes in the **post caption**, not on screen. | all 5 |
 
-Shape: hook + place ≈ 10%, event body ≈ 68–70% (median), return + twist ≈ 12.5%, outro ≈ 10%.
+Shape: hook + place ≈ 10%, event body ≈ 68–70% (median; IRON 58%), return + twist ≈ 12.5% (IRON 22%, because its twist has its own clock), outro ≈ 10%.
 
-### 1B. Long-form (16:9, 7–13 min; sweet spot 10–12 min)
+### 1A+. Other Short variants (from the expansion)
 
-% are medians across the 7 long-form scripts. Seconds given for a 10:00 (600 s) and a 7:00 (420 s) cut.
+| Variant | Length / pace | Spine | Beat timing | Sources |
+|---|---|---|---|---|
+| **Narrated size/time ladder** | 2:30–2:55, ~150–165 wpm, ~420 words, one narrator, "you" in 74–88% of sentences | premise line (12 words, ≤4 s) → two checkable maths rungs → honest real-science off-ramp that sounds like an ending (~8–20%) → "ignore that" pivot that opens the master loop → scale acts of ~11–17% each → biggest real number → sting cut mid-sentence so the replay finishes it | off-ramp by 20%; space/threshold crossing at ~50%; "keeps going" re-hooks at ~50% and ~70%; master loop 74–78% | GROW-1CM, BLACK-HOLE-NS |
+| **Character skit** | ~80 s, ~160 wpm dialogue, ~210 words, 4–5 personified objects | idle question + underselling answer → the subject overhears → real fact as a threat → third-character explainer over 2–3 s line-art diagrams → bluff → calm "until" sting with a real far-future version → silent end card | first turn 14%; threat peak 32%; false resolution 75%; sting 88% | SUN-GONE |
+| **Wordless gag montage** (16:9, 90 s) | ~27 wpm; a cut every ~3.5 s; 90% of the words in the last 18% | brand sting → premise shown by a time-lapse → 5 matched-frame inversions (same place, two lightings) → one short dialogue scene that flips idioms and pays a plant from 0:10 | first inversion 20%; payoff scene 76–98% | NOCTURNAL |
+
+### 1B. Long-form (16:9, 5–24 min; sweet spot still 10–13 min)
+
+% were measured across the original 7 long-form scripts. The 5 new narrated long-forms (LAST-LIGHT, ASTEROIDS, NO-CLOTHES, LAST-HUMAN-2, UNDERWATER) fit the same rows. They move three timings: the **first turn comes earlier** (13–22%), the **midpoint re-hook spreads later** (57–72%), and the **master payoff lands later** (87–95%). The bands below include them. Seconds are given for a 10:00 (600 s) and a 7:00 (420 s) cut.
 
 | # | Beat | % of runtime | s @600 | s @420 | What happens | Exemplars |
 |---|---|---|---|---|---|---|
-| L1 | **Cold open** | 0–6% (2–7) | 0–35 | 0–25 | Ordinary second-person moment (or a present-tense true fact with a big number) → the impossible change inside the first 1–2 sentences → 2–3 sensory traces → an exception ("everyone… except you") → stakes line. Opens the master loop; the best also run a **trailer** of dated payoffs. Premise stated by ~8 s. | LAST-HUMAN, STOP-TIME, 10X-FASTER, RESTART, EVERY-HUMAN, WEALTH |
+| L1 | **Cold open** | 0–6% (2–7) | 0–35 | 0–25 | Ordinary second-person moment (or a present-tense true fact with a big number) → the impossible change inside the first 1–2 sentences → 2–3 sensory traces → an exception ("everyone… except you") → stakes line. Opens the master loop; the best also run a **trailer** of dated payoffs. Premise stated by ~8 s. | LAST-HUMAN, STOP-TIME, 10X-FASTER, RESTART, EVERY-HUMAN, WEALTH, LAST-HUMAN-2, NO-CLOTHES. Variants: a riddle the viewer half-solves, premise never stated (UNDERWATER); a named reader's question read in full (LAST-LIGHT); a famous real benchmark before the premise (ASTEROIDS, premise at 34 s) |
 | L2 | **Title question + rules** | 6–9% (2–3% long) | 35–55 | 25–38 | Restate the title. State the one changed variable, the constraint (one-way, slow-motion, "this stays normal") and a plant: "remember this, it matters later". Optional silent title card (5–8 s). | 10X-FASTER, BILLION-YEARS, EVERY-HUMAN, RESTART |
 | L3 | **Grounding: real numbers** | 9–20% (~12) | 55–120 | 38–85 | "Here's how it works." Baseline number → multiplied number → 2–3 everyday comparisons → a famous real record or study. On-screen number for every stat. | RESTART (doubling ladder), 10X-FASTER (speed ladder), STOP-TIME (science ladder) |
 | L4 | **Honeymoon / wonder** | 15–28% (~9–12) | 90–170 | 63–118 | "At first…" montage of 4–6 perks rising in scale, with one early crack that foreshadows the real flaw. Or wonder beats in the new world. | 10X-FASTER, STOP-TIME, LAST-HUMAN, WEALTH (Plan A) |
-| L5 | **First turn** (false resolution → "except") | at ~20–30% | ~120–180 | ~85–125 | One-word false resolution, then the problem. Then a **numbered problem ladder** (problem one/two/three) or the first collapse with a mechanism + dated precedent. | RESTART, 10X-FASTER, STOP-TIME, LAST-HUMAN |
-| L6 | **Chapter ladder** | 25–60% | 150–360 | 105–250 | Chapters every 60–75 s, each opened by a stamp (DAY n / YEAR n / N YEARS / RULE n). Inside: stamp → mechanism → one big number → real precedent → one-line ironic button. One emotional chapter (animal, family). Pay the shortest hook promise first. | EVERY-HUMAN, LAST-HUMAN, BILLION-YEARS, WEALTH |
-| L7 | **Midpoint re-hook / rug pull** | ~45–60% | 270–360 | 190–250 | "None of that was the real problem", or an explicit return to the cold-open mystery, or the counter-intuitive twist chapter. The planted rule from L2 pays off here or soon after. | 10X-FASTER (43%), WEALTH (57%), EVERY-HUMAN (35%), RESTART (62%) |
+| L5 | **First turn** (false resolution → "except") | at ~13–30% (new five: 13–22%) | ~80–180 | ~55–125 | One-word false resolution, then the problem. Then a **numbered problem ladder** (problem one/two/three) or the first collapse with a mechanism + dated precedent. | RESTART, 10X-FASTER, STOP-TIME, LAST-HUMAN, LAST-LIGHT (nuclear hope crushed at 18%), LAST-HUMAN-2 (grid at 10%), UNDERWATER (inciting incident 17%) |
+| L6 | **Chapter ladder** | 25–60% | 150–360 | 105–250 | Chapters every 60–75 s, each opened by a stamp (DAY n / YEAR n / N YEARS / RULE n). Inside: stamp → mechanism → one big number → real precedent → one-line ironic button. One emotional chapter (animal, family). Pay the shortest hook promise first. Chapter length now 38–75 s (median ~50–55 s). | EVERY-HUMAN, LAST-HUMAN, BILLION-YEARS, WEALTH, LAST-HUMAN-2 (13 stamps, HOUR 1 → YEAR 57), NO-CLOTHES (10 chapters, each ending on a one-line button) |
+| L7 | **Midpoint re-hook / rug pull** | ~43–72% (median ~60%) | 270–360 | 190–250 | "None of that was the real problem", or an explicit return to the cold-open mystery, or the counter-intuitive twist chapter. The planted rule from L2 pays off here or soon after. | 10X-FASTER (43%), WEALTH (57%), EVERY-HUMAN (35%), RESTART (62%), UNDERWATER drowned town (59%), LAST-LIGHT front-runner (57%) then wildcard (71%), NO-CLOTHES cloth → computers (63–70%), ASTEROIDS cold-open loop closes (67%) |
 | L8 | **Low point → reversal** | 55–78% | 330–470 | 230–330 | Emotional floor (either/or question, moral low, loss), then a "but" turn toward hope or a solution: real-world analogue, survival cases of rising closeness to the viewer, or the hero's change of heart. | RESTART, WEALTH, STOP-TIME, 10X-FASTER |
-| L9 | **Climax / master payoff** | ~78–90% | 470–540 | 330–380 | The master loop from L1 closes with the biggest number or most human detail in the video; a planted rule/number is used to win (or the stranding rule bites). | EVERY-HUMAN, BILLION-YEARS, WEALTH, 10X-FASTER |
+| L9 | **Climax / master payoff** | ~78–95% (new five: 87–95%) | 470–540 | 330–380 | The master loop from L1 closes with the biggest number or most human detail in the video; a planted rule/number is used to win (or the stranding rule bites). | EVERY-HUMAN, BILLION-YEARS, WEALTH, 10X-FASTER, UNDERWATER (two-word reveal at 87%), LAST-HUMAN-2 (your death at 89%), LAST-LIGHT (answer at 94%) |
 | L10 | **Bookend + thesis** | ~88–97% | 530–580 | 370–405 | Return to the opening place/object, rapid recap of 4–5 milestones, a one-line reframe of what the video meant, or a bathos punchline. | EVERY-HUMAN, BILLION-YEARS, RESTART, LAST-HUMAN |
 | L11 | **CTA** | last 2–4% | 580–600 | 405–420 | A personal pick-one/choice question that restates the premise; optional series hook (open villain, "which stop/next"). No mid-roll asks. | all 7 |
 
-Ending stack (L9–L11) ≈ 11% median (range 6–24%; the 24% is 10X-FASTER's franchise act).
+Ending stack (L9–L11) ≈ 11% median (range 6–24%; the 24% is 10X-FASTER's franchise act). Measured after the master payoff only, the new five run 4–16% (median ~10%): it held.
 
-**Three long-form engines** share this skeleton but weight it differently:
+**Long-form engines** share this skeleton but weight it differently (the first three are from the original sample, the rest from the expansion):
 
 | Engine | Spine | L3–L6 is… | Sources |
 |---|---|---|---|
 | **Timeline** ("everything X stopped now", "you travel N years") | a time ladder on a log scale with a persistent clock/year badge | chapters = time stamps (~25–75 s each) | EVERY-HUMAN, BILLION-YEARS, LAST-HUMAN |
 | **Thought experiment** ("can N people/things do [huge]?") | a single number target, tested and broken | maths ladder → twist → mechanism → historical proof → reversal | RESTART |
 | **Power story** ("what if you could/were [power ×N]") | rules → honeymoon → cost → corruption/rescue | character story with blueprint science inserts every 15–40 s | 10X-FASTER, STOP-TIME, WEALTH |
+| **Candidate chase** ("when would the last [X]…?") | one exact question, candidates eliminated in order of lifespan | rapid rungs of 9–44 s, each "it dies of [cause] after [time]", then a hedged front-runner, a false ending and a wildcard that wins | LAST-LIGHT |
+| **Stack the extremes** ("every [X] at once") | 5 named cases, ordered by deadliness, combined at the end | repeated card (identity → size → history/odds → today → cascade → verdict), each card adds one new mechanism, "you know the drill" by card 5 | ASTEROIDS |
+| **Alt history** ("what if humans never [invented X]") | real science first (~20%), then the fork, then a ladder of what is lost | chapters of 38–75 s on a time spine, ending in thesis + callback montage | NO-CLOTHES |
+| **Worldbuilding story** (premise never said) | a hero's journey inside the changed world | dramatic-irony decodes every ~45 s (things from our world described by someone who doesn't know them), science folded into the story | UNDERWATER |
+| **Caption-only sim, long** | the @man_ia_c HUD + serif captions at 16:9 | one caption every ~7.7 s, a HUD comparison rung every ~22 s, black/white cuts between worlds, two fake deaths in the first 44% | SHRINK |
+| **Scrolling card timeline** (no narration) | fixed card rate, accelerating clock | ~50 cards at ~3.5 s; time unit jumps (hours → days → weeks → months → years → century); genre turn at ~52% | WOMB |
+| **Story sketch** (no narrator) | a three-act fable inside the premise | world rules by montage, plant, honeymoon montage, single-gesture turn at ~67%, countdown time cards, word-for-word bookend | HIBERNATE |
 
 ---
 

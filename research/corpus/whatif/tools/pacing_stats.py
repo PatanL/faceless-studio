@@ -64,12 +64,15 @@ def main():
     out = {}
     # corpus long-form
     for p in sorted(CORP.glob('*.txt')):
-        head = p.read_text(errors='ignore').splitlines()[0]
+        lines = p.read_text(errors='ignore').splitlines()
+        head = lines[0]
+        src = lines[1] if len(lines) > 1 else ''
         parts = [x.strip() for x in head.lstrip('# ').split('|')]
         dur = int(parts[5].rstrip('s'))
         segs = parse(p)
-        if 'tiktok' in parts[0]:
-            caps = [(t, re.sub(r'^(CAPTION|TITLE|END|END fact|HUD|HUD subline):\s*', '', s)) for t, s in segs if re.match(r'(CAPTION):', s)]
+        is_tt = 'tiktok' in parts[0]
+        if is_tt or 'caption-only' in src:
+            caps = [(t, re.sub(r'\(.*?\)', '', re.sub(r'^(CAPTION|TITLE|END|END fact|HUD|HUD subline):\s*', '', s)).strip()) for t, s in segs if re.match(r'(CAPTION):', s)]
             alltext = [(t, re.sub(r'\(.*?\)', '', re.sub(r'^[A-Z ]+?:\s*', '', s))) for t, s in segs if re.match(r'(CAPTION|TITLE|END|END fact|HUD|HUD subline):', s)]
             cw = [len(re.findall(r"[A-Za-z0-9π']+", s)) for _, s in caps]
             times = [t for t, _ in caps]
@@ -82,10 +85,30 @@ def main():
                           caption_gap_mean=round(st.mean(gaps), 1), caption_gap_median=st.median(gaps),
                           new_element_every_s=round(dur / len(elem_times), 1),
                           caption_you_pct=capm['pct_you_sent'], caption_nums=sum(1 for _, s in caps if re.search(r"\d", s))))
-            m['format'] = 'short'
+            m['format'] = 'short' if is_tt else 'long_caption'
+        elif 'on-screen text video' in src:
+            cards = [(t, s) for t, s in segs if s.startswith('CARD ')]
+            tw, bw = [], []
+            for _, s in cards:
+                f = [x.strip() for x in re.sub(r'\(icon:.*?\)', '', s[5:]).split('|')]
+                tw.append(len(re.findall(r"[A-Za-z0-9']+", f[1])) if len(f) > 1 else 0)
+                bw.append(len(re.findall(r"[A-Za-z0-9']+", f[2])) if len(f) > 2 else 0)
+            m = metrics([(t, ' '.join(re.sub(r'\(icon:.*?\)', '', s[5:]).split('|')[1:])) for t, s in cards], dur)
+            span = cards[-1][0] - cards[0][0]
+            m.update(dict(cards=len(cards), card_title_words_mean=round(st.mean(tw), 1), card_body_words_mean=round(st.mean(bw), 1),
+                          card_every_s=round(span / (len(cards) - 1), 2), card_words_per_min=round((sum(tw) + sum(bw)) / (dur / 60), 1),
+                          title_words_per_min=round(sum(tw) / (dur / 60), 1)))
+            m['format'] = 'long_cards'
+        elif any(s.startswith('VOICE:') for _, s in segs):
+            voice = [(t, s[6:].strip()) for t, s in segs if s.startswith('VOICE:')]
+            m = metrics(voice, dur)
+            m['scene_lines'] = sum(1 for _, s in segs if s.startswith('SCENE:'))
+            m['format'] = 'sketch'
         else:
             m = metrics(segs, dur)
-            m['format'] = 'long'
+            m['format'] = 'short_vo' if dur <= 180 else 'long'
+            if 'no punctuation' in src and 'MANUAL' not in src:
+                m['note'] = 'auto-subs without punctuation: sentence metrics invalid'
         m.update(id=p.stem, views=int(parts[3]), outlier=float(parts[4]), dur=dur, title=parts[1])
         out[p.stem] = m
     # controls (R3 transcripts)
@@ -106,8 +129,18 @@ def main():
     keys = ['wpm', 'sent_mean', 'sent_median', 'pct_you_sent', 'you_per100w', 'nums_per_min', 'q_per_min', 'pivots_per_min', 'punch_pct', 'f30_you', 'f30_nums']
     print('CORPUS')
     for k, m in out.items():
-        extra = '' if m['format'] == 'long' else ' caps=%d cw=%d capwpm=%.1f capmean=%.1f max=%d gap=%.1f/%s elem=%.1f capyou=%.0f capnums=%d' % (m['captions'], m['caption_words'], m['caption_wpm'], m['caption_len_mean'], m['caption_len_max'], m['caption_gap_mean'], m['caption_gap_median'], m['new_element_every_s'], m['caption_you_pct'], m['caption_nums'])
+        extra = '' if 'captions' not in m else ' caps=%d cw=%d capwpm=%.1f capmean=%.1f max=%d gap=%.1f/%s elem=%.1f capyou=%.0f capnums=%d' % (m['captions'], m['caption_words'], m['caption_wpm'], m['caption_len_mean'], m['caption_len_max'], m['caption_gap_mean'], m['caption_gap_median'], m['new_element_every_s'], m['caption_you_pct'], m['caption_nums'])
         print(k, m['format'], m['outlier'], m['dur'], m['words'], ' '.join('%s=%s' % (x, m[x]) for x in keys), extra)
+    print('GROUP MEDIANS (range)')
+    gk = ['wpm', 'words', 'sent_mean', 'pct_you_sent', 'you_per100w', 'nums_per_min', 'q_per_min', 'pivots_per_min', 'punch_pct', 'f30_you', 'f30_nums',
+          'captions', 'caption_wpm', 'caption_len_mean', 'caption_gap_median', 'new_element_every_s', 'caption_you_pct']
+    for fmt in sorted(set(m['format'] for m in out.values())):
+        g = [m for m in out.values() if m['format'] == fmt]
+        print('%s n=%d' % (fmt, len(g)))
+        for k in gk:
+            v = [m[k] for m in g if k in m and not (k in ('sent_mean', 'punch_pct', 'q_per_min', 'pct_you_sent') and 'note' in m)]
+            if v:
+                print('   %-20s %s (%s-%s)' % (k, round(st.median(v), 2), min(v), max(v)))
     print('CONTROLS')
     for k, m in sorted(ctrl.items(), key=lambda kv: -kv[1]['outlier']):
         print(k, m['channel'], m['outlier'], m['dur'], m['words'], ' '.join('%s=%s' % (x, m[x]) for x in keys), m['title'][:45])

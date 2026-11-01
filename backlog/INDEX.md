@@ -1,0 +1,115 @@
+# Backlog index
+
+Built 2026-11-01 ~12:50 UTC from every `backlog/<niche>/<slug>/` folder (30 episodes: 10 explainer, 10 horror, 10 what-if).
+Each row reads `script.md` front matter, `titles.md` (rank 1), `review.json` and `storyboard.json`. Readiness comes from
+`python3 scripts/check_storyboards.py backlog/*/*/storyboard*.json` and the Spark audio listing
+(`~/studio/app/studio/public/episodes/`). The originality gate was **rerun for all 30 scripts on the Spark CPU**
+(`scripts/originality_check.py <script.md> research/corpus research/library/transcripts`) at 12:45 UTC, and all 30 print PASS.
+
+## Playbooks (read before touching any script)
+
+- Explainer: [research/corpus/explainer/PLAYBOOK.md](../research/corpus/explainer/PLAYBOOK.md) (`INDEX.json`, `SOURCES.md` beside it)
+- Horror: [research/corpus/horror/PLAYBOOK.md](../research/corpus/horror/PLAYBOOK.md) (revised 12:40 UTC: 24 outliers + 8 controls)
+- What-if: [research/corpus/whatif/PLAYBOOK.md](../research/corpus/whatif/PLAYBOOK.md)
+- Topic selection evidence: [explainer/TOPICS.md](explainer/TOPICS.md), [horror/TOPICS.md](horror/TOPICS.md), what-if: `research/R3/report.md`
+
+## How "expected performance" (EP) is scored
+
+`EP = D + F + C + K + S` (max 9). It is a ranking aid, not a view forecast.
+
+| Part | Range | What it measures |
+|---|---|---|
+| **D** demand | 0-4 | Same-topic, same-format comparables in TOPICS.md / R3 (views and outlier multiple), plus the cited corpus references. A famous, feared subject scores higher (explainer PLAYBOOK §9.6). |
+| **F** format fit | 0-3 | 3 = a 60-95 s vertical Short in a format with proven outliers. 2.5 = a 100-195 s single horror story (PLAYBOOK story sweet spot 165-250 s). 2 = a 2-part series (Part 2 gets ~16% of Part 1, horror §5) or 7-10 min long-form on a 0-sub channel. |
+| **C** critique | 0-2 | `(Σ after-scores − 28) / 2.5` from `review.json` (retention, reference, originality, producibility, each /10). These are **self-assessed by the rewriting agent**, almost flat (30-33), so they only break ties. |
+| **K** kit proof | −2 to 0 | Can we ship it at the quality bar today? Horror kit passed pilot QA (0). Explainer 9:16 passed for blue whale, failed for orca (−0.5); no 10-min 16:9 explainer has been rendered and both 16:9 pilot cuts failed (−1). No `whatif` kit exists (−1.5; −2 for the 20-component long-form). |
+| **S** sameness | −0.5 to 0 | Overlap with something already on the channel or in `episodes/`: a pilot (pinned-rules, blue whale, orca), an older `episodes/` cut of the same premise, or a publish-spacing rule. |
+
+Column notes: **Critique** is before → after for R/Ref/O/P. **storyboard.json**: every one validates against `core/schema.ts`; "missing N" is unregistered kit components (they render as magenta boxes); "hold" is the longest visual hold (rubric line 6 wants ≤ 3.0 s). `[sec]` marks a secondary reference.
+
+## All episodes, sorted by expected performance
+
+| # | Niche | Slug | Format | Best title (titles.md rank 1) | Cited viral references (id, views, outlier) | Topic demand (TOPICS.md / R3) | Critique R/Ref/O/P before → after | Originality (rerun) | storyboard.json | EP | Audio / blockers |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | explainer | [`explainer-short-mariana-pressure`](explainer/explainer-short-mariana-pressure/) | Short 75 s | You Wouldn't Implode In The Mariana Trench | `fmZfphacPPQ` 14.71M (1.8x)<br>`XFFjxTllpoA` 7.93M (1.7x)<br>`mzeN0BXR4e0` 17.22M (12.9x) | Insider Tech depth 83.6M; atomic marvel 10.3M | 6/6/6/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 2.4 s | **8.1**<br><sub>D4 F3 C1.6 K-0.5</sub> | TTS not run |
+| 2 | horror | [`horror-delivery-photo-inside`](horror/horror-delivery-photo-inside/) | Short 84 s single | My Delivery Driver Won't Leave Until I Rate Him 5 Stars | `T42u5xhrq-0` 868K (25.5x)<br>`7659677578365537569` 376K (10.8x)<br>`Qz-TrB6W2SM` 1.52M (9.0x) | Mr. Nightmare delivery 5.45M / 4.31M | 6/6/7/5 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 5.1 s | **8.1**<br><sub>D3.5 F3 C1.6 K0</sub> | VO clips on Spark (29 wavs) |
+| 3 | horror | [`horror-mom-two-chats`](horror/horror-mom-two-chats/) | Story 193 s single | My Mom Texted Me Twice. Only One Said Don't Open The Door. | `7659677578365537569` 376K (10.8x)<br>`7670495663624408352` 194K (18.0x)<br>`gzXY52lcAcI` 353K (10.4x) | Textify Mom's Voice 2.74M (~140x) | 6/6/7/5 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 4.0 s | **8.1**<br><sub>D4 F2.5 C1.6 K0</sub> | VO clips on Spark; supersedes episodes/horror-mom-two-chats (75 s) |
+| 4 | explainer | [`explainer-short-box-jellyfish`](explainer/explainer-short-box-jellyfish/) | Short 78.5 s | You Have 2 Minutes After A Box Jellyfish Sting | `XFFjxTllpoA` 7.93M (1.7x)<br>`jw6bS-WL4F4` 6.72M (1.4x)<br>`fGcgWaswMns` 2.31M (14.7x)<br>`4QGQhaRv4Dw` 23.76M (3.0x) [sec] | TED-Ed sting 12.0M; Kourounis 8.2M | 7/6/6/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 2.5 s | **7.6**<br><sub>D3.5 F3 C1.6 K-0.5</sub> | TTS not run (estimate timings) |
+| 5 | horror | [`horror-two-emergency-alerts`](horror/horror-two-emergency-alerts/) | Story 125 s single | Every Phone On My Floor Got An Emergency Alert | `7654526047005723937` 717K (66.7x)<br>`7659677578365537569` 376K (10.8x)<br>`omuJBFs2L6c` 763K (18.6x) | EAS horror 2.48M; Mr. Creeps 492K | 7/6/6/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 4.7 s | **7.6**<br><sub>D3.5 F2.5 C1.6 K0</sub> | Kokoro-timed; VO clips to sync to Spark public/ |
+| 6 | horror | [`horror-text-from-tomorrow`](horror/horror-text-from-tomorrow/) | Short 95 s single | My Own Number Texted Me 39 Minutes Early | `gzXY52lcAcI` 353K (10.4x)<br>`T42u5xhrq-0` 868K (25.5x)<br>`7654526047005723937` 717K (66.7x) | mraevq Dad's warning 428K (61x) | 7/6/7/7 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 4.0 s | **7.6**<br><sub>D3 F3 C1.6 K0</sub> | Kokoro-timed; mix not built |
+| 7 | explainer | [`explainer-short-cookiecutter-shark`](explainer/explainer-short-cookiecutter-shark/) | Short 75 s | The Shark That Bites Perfect Circles Out Of You | `6mRR91AbxjQ` 13.69M (1.7x)<br>`jw6bS-WL4F4` 6.72M (1.4x)<br>`XFFjxTllpoA` 7.93M (1.7x) | Zack D. cookiecutter 57M (5.7x) | 6/6/7/6 → 8/8/7/8 (Σ31) | PASS | yes; 0 missing; hold 2.1 s | **7.2**<br><sub>D3.5 F3 C1.2 K-0.5</sub> | mix on Spark; MP4 built by studio-make in out/explainer-short-cookiecutter-shark/ (not QA-reviewed) |
+| 8 | horror | [`horror-night-doorman-rules`](horror/horror-night-doorman-rules/) | 2-part 112 + 120 s | I Broke Rule 3 of My Night Desk. The Owner Told Me To. (Part 1/2) | `7692268145888873760` 695K (19.9x)<br>`7702661541224566049` 2.20M (63.1x)<br>`7702661471641128224` 343K (9.8x)<br>`7659677578365537569` 376K (10.8x) | udhwkz trucker rules 2.2M (63x) | 6/6/6/5 → 8/8/8/7 (Σ31) | PASS | yes (+P2); 0 missing; hold 4.8 s | **7.2**<br><sub>D4 F2 C1.2 K0</sub> | VO clips on Spark (72 wavs), P1 + P2 boards |
+| 9 | horror | [`horror-roommate-texts-from-room`](horror/horror-roommate-texts-from-room/) | Short 82 s single | My Roommate Texted Me: Don't Come Out | `7670495663624408352` 194K (18.0x)<br>`T42u5xhrq-0` 868K (25.5x)<br>`7659677578365537569` 376K (10.8x) | mraevq roommate 194K (27.6x) | 6/6/6/5 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 3.8 s | **7.1**<br><sub>D3 F3 C1.6 K0 S-0.5</sub> | mix on Spark |
+| 10 | horror | [`horror-babysitter-parent-rules`](horror/horror-babysitter-parent-rules/) | Story 100.5 s single | The Parents Called. They Didn't Know Their Own Password. | `cVUJmsVkUW4` 291K (30.9x)<br>`7659677578365537569` 376K (10.8x)<br>`T42u5xhrq-0` 868K (25.5x) | babysitter texts 2.22M; Mom's Note 290K (31x) | 6/6/7/5 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 4.3 s | **6.8**<br><sub>D3 F2.5 C1.6 K0 S-0.25</sub> | Kokoro-timed; mix + 2 SFX not built |
+| 11 | whatif | [`whatif-calcium-gone-5-seconds`](whatif/whatif-calcium-gone-5-seconds/) | Short 84 s | What if calcium disappeared for 5 seconds? | `7693494009494342945` 18.20M (29.1x)<br>`7693617402180881697` 5.10M (8.2x)<br>`7693305573487562016` 13.40M (21.4x) | "element vanishes" cluster: electrons 18.2M (29x) | 6/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 8; hold 8.0 s | **6.7**<br><sub>D4 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 12 | explainer | [`explainer-short-blue-whale-scale`](explainer/explainer-short-blue-whale-scale/) | Short 61.5 s | 5 Rounds Against A Blue Whale (You Win One) | `6mRR91AbxjQ` 13.69M (1.7x)<br>`JkAcCdqYJN0` 332K (15.8x)<br>`XFFjxTllpoA` 7.93M (1.7x) | Global Data size 18.1M; heart size 5.1M | 5/5/7/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 2.9 s | **6.6**<br><sub>D3 F3 C1.6 K-0.5 S-0.5</sub> | mix on Spark |
+| 13 | horror | [`horror-group-chat-extra-member`](horror/horror-group-chat-extra-member/) | 2-part, P1 81 s | We Have No Night Security. Our Building Chat Does. (Part 1) | `7659677578365537569` 376K (10.8x)<br>`T42u5xhrq-0` 868K (25.5x)<br>`7654526047005723937` 717K (66.7x) | mraevq group chat 717K (66.7x) | 7/6/5/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 4.4 s | **6.6**<br><sub>D3.5 F2 C1.6 K0 S-0.5</sub> | mix on Spark; Part 2 not written |
+| 14 | explainer | [`explainer-short-moray-second-jaw`](explainer/explainer-short-moray-second-jaw/) | Short 71.7 s | How A Moray Eel Bites You | `6mRR91AbxjQ` 13.69M (1.7x)<br>`XFFjxTllpoA` 7.93M (1.7x)<br>`jw6bS-WL4F4` 6.72M (1.4x) | Zack D. moray jaws 9.9M (1.0x) | 6/6/7/5 → 8/8/8/7 (Σ31) | PASS | yes; 0 missing; hold 2.5 s | **6.2**<br><sub>D2.5 F3 C1.2 K-0.5</sub> | mix on Spark |
+| 15 | explainer | [`explainer-short-mantis-shrimp-punch`](explainer/explainer-short-mantis-shrimp-punch/) | Short 81.6 s | How A Mantis Shrimp Would Hit You Twice | `XFFjxTllpoA` 7.93M (1.7x)<br>`fmZfphacPPQ` 14.71M (1.8x)<br>`jw6bS-WL4F4` 6.72M (1.4x) | Jon Bondy 36.3M; corpus control MANTIS 1.06x | 6/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 1; hold 3.0 s | **6.2**<br><sub>D2.5 F3 C1.2 K-0.5</sub> | TTS not run; needs explainer/MantisShrimp |
+| 16 | explainer | [`explainer-sinking-every-1000m`](explainer/explainer-sinking-every-1000m/) | Long 9:42 16:9 | How Many Times Would The Ocean Kill You On The Way To The Bottom? | `nAWpLtG-kNs` 12.21M (114x)<br>`mzeN0BXR4e0` 17.22M (12.9x)<br>`fmZfphacPPQ` 14.71M (1.8x)<br>`fGcgWaswMns` 2.31M (14.7x) | Mr. Science 17.2M (12.9x); Insider 83.6M | 6/6/6/5 → 8/8/8/7 (Σ31) | PASS | yes; missing 6; hold 5.4 s | **6.2**<br><sub>D4 F2 C1.2 K-1</sub> | Kokoro-timed; 6 creatures/meters to build |
+| 17 | whatif | [`whatif-sun-gone-5-seconds`](whatif/whatif-sun-gone-5-seconds/) | Short 80 s | What if the Sun vanished for 5 seconds? | `7693494009494342945` 18.20M (29.1x)<br>`7693617402180881697` 5.10M (8.2x)<br>`7693305573487562016` 13.40M (21.4x)<br>`7694025665993100576` 4.90M (7.8x) [sec] | "vanishes for 5 s" formula, 18.2M / 13.4M | 7/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 4; hold 6.5 s | **6.2**<br><sub>D3.5 F3 C1.2 K-1.5</sub> | no whatif kit (fewest missing) |
+| 18 | whatif | [`whatif-you-100x-taller`](whatif/whatif-you-100x-taller/) | Short 82 s | What if you woke up 100 times taller? | `7694025665993100576` 4.90M (7.8x)<br>`7693617402180881697` 5.10M (8.2x)<br>`7693494009494342945` 18.20M (29.1x) | giant-human cluster: popstar 100x 4.9M (7.8x) | 7/6/7/5 → 8/8/8/7 (Σ31) | PASS | yes; missing 6; hold 6.4 s | **6.2**<br><sub>D3.5 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 19 | horror | [`horror-elevator-maintenance-chat`](horror/horror-elevator-maintenance-chat/) | 2-part, P1 123 s | The Elevator Stopped and Maintenance Texted First (Part 1) | `7659677578365537569` 376K (10.8x)<br>`T42u5xhrq-0` 868K (25.5x)<br>`7694996216505060641` 613K (17.6x) | Elevator Game 7.4M; Floor 13 95K (4.6x) | 7/6/7/6 → 8/8/8/8 (Σ32) | PASS | yes; 0 missing; hold 5.3 s | **6.1**<br><sub>D3 F2 C1.6 K0 S-0.5</sub> | Kokoro-timed; Part 2 not written |
+| 20 | horror | [`horror-new-building-rules`](horror/horror-new-building-rules/) | 2-part 79 + 83 s | Never Give Anyone Your Unit Number (Part 1/2) | `7659677578365537569` 376K (10.8x)<br>`cVUJmsVkUW4` 291K (30.9x)<br>`7670495663624408352` 194K (18.0x) | Mr. Creeps apt rules 873K; WrONG Rules 11x | 7/6/6/6 → 8/8/8/8 (Σ32) | PASS | yes (+P2); 0 missing; hold 2.7 s | **6.1**<br><sub>D3 F2 C1.6 K0 S-0.5</sub> | P1 + P2 voice on Spark |
+| 21 | whatif | [`whatif-moon-10x-closer`](whatif/whatif-moon-10x-closer/) | Short 80 s | What if the Moon was 10 times closer? | `7693494009494342945` 18.20M (29.1x)<br>`7693617402180881697` 5.10M (8.2x)<br>`7694025665993100576` 4.90M (7.8x) | constant-change / cosmic cluster | 6/5/8/5 → 8/8/9/7 (Σ32) | PASS | yes; missing 6; hold 7.0 s | **6.1**<br><sub>D3 F3 C1.6 K-1.5</sub> | no whatif kit |
+| 22 | whatif | [`whatif-friction-off-5-seconds`](whatif/whatif-friction-off-5-seconds/) | Short 78 s | What if friction switched off for 5 seconds? | `7693494009494342945` 18.20M (29.1x)<br>`7693305573487562016` 13.40M (21.4x)<br>`7693617402180881697` 5.10M (8.2x) | R3 pilot pick; constant-change cluster 0.5-6x | 6/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 13; hold 6.0 s | **5.7**<br><sub>D3 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 23 | whatif | [`whatif-light-walking-speed`](whatif/whatif-light-walking-speed/) | Short 78 s | What if light walked for 5 seconds? | `7693494009494342945` 18.20M (29.1x)<br>`7693305573487562016` 13.40M (21.4x)<br>`7696143265405488416` 3.90M (6.2x) | constant-change cluster: pi=3 3.9M (6.2x) | 6/6/6/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 6; hold 6.5 s | **5.7**<br><sub>D3 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 24 | whatif | [`whatif-earth-had-rings`](whatif/whatif-earth-had-rings/) | Short 79 s | What if Earth had rings like Saturn? | `7693494009494342945` 18.20M (29.1x)<br>`7694025665993100576` 4.90M (7.8x)<br>`7696143265405488416` 3.90M (6.2x)<br>`b6jmbFcJZCY` 1.08M (107x) | constant-change / cosmic cluster | 6/6/8/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 4; hold 4.5 s | **5.7**<br><sub>D3 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 25 | whatif | [`whatif-oceans-turn-fresh`](whatif/whatif-oceans-turn-fresh/) | Short 80 s | What if all the salt left the sea tonight? | `7693494009494342945` 18.20M (29.1x)<br>`7693305573487562016` 13.40M (21.4x)<br>`7696143265405488416` 3.90M (6.2x) | element-vanishes adjacent (salt) | 5/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 10; hold 6.0 s | **5.7**<br><sub>D3 F3 C1.2 K-1.5</sub> | no whatif kit |
+| 26 | explainer | [`explainer-never-meet-orca`](explainer/explainer-never-meet-orca/) | Long 9:59 16:9 | Orcas Could Hunt You. They Decided Not To. | `fGcgWaswMns` 2.31M (14.7x)<br>`VtrcKTkhDHU` 8.29M (319x)<br>`JkAcCdqYJN0` 332K (15.8x) | WILD VERSUS 56M (83x); OctoLab 8.3M (319x) | 7/6/7/6 → 8/8/9/7 (Σ32) | PASS | yes; 0 missing; hold 2.9 s | **5.6**<br><sub>D3.5 F2 C1.6 K-1 S-0.5</sub> | Kokoro-timed; check_storyboards "ready" |
+| 27 | explainer | [`explainer-every-animal-that-could-swallow-you`](explainer/explainer-every-animal-that-could-swallow-you/) | Long 9:54 16:9 | Could Any Ocean Giant Actually Swallow You? (The Shoulder Test) | `JkAcCdqYJN0` 332K (15.8x)<br>`fGcgWaswMns` 2.31M (14.7x)<br>`nAWpLtG-kNs` 12.21M (114x) | What If 16.4M; Meet Arnold 19.7M; Occam 16x | 7/6/6/5 → 8/8/8/7 (Σ31) | PASS | yes; missing 4; hold 3.0 s | **5.2**<br><sub>D3 F2 C1.2 K-1</sub> | Kokoro-timed; 4 creatures to build |
+| 28 | explainer | [`explainer-never-meet-leopard-seal`](explainer/explainer-never-meet-leopard-seal/) | Long 9:31 16:9 | Why You Should Never Swim With A Leopard Seal | `fGcgWaswMns` 2.31M (14.7x)<br>`VtrcKTkhDHU` 8.29M (319x)<br>`jw6bS-WL4F4` 6.72M (1.4x) | Animalogic 3.2M; Nat Geo 12.3M | 7/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 5; hold 16.3 s | **4.7**<br><sub>D2.5 F2 C1.2 K-1</sub> | Kokoro-timed; 5 components, 16 s hold |
+| 29 | whatif | [`whatif-breathe-underwater`](whatif/whatif-breathe-underwater/) | Long 7:24 16:9 | What If You Could Breathe Underwater, But Never Come Back Up? | `y300HjYnHPw` 868K (8.4x)<br>`_lu85gSD39k` 413K (41.0x)<br>`6oZ9fdM0n50` 4.22M (14.4x) | IFOLOGY powers 10x Faster 868K (10x) | 6/6/7/6 → 8/8/8/7 (Σ31) | PASS | yes; missing 4; hold 8.1 s | **4.7**<br><sub>D3 F2 C1.2 K-1.5</sub> | no whatif kit |
+| 30 | whatif | [`whatif-everyone-born-same-day`](whatif/whatif-everyone-born-same-day/) | Long 8:24 16:9 | What If Everyone On Earth Was Born On The Same Day? | `6oZ9fdM0n50` 4.22M (14.4x)<br>`b6jmbFcJZCY` 1.08M (107x)<br>`J3XahLkDEzU` 914K (6.1x)<br>`y300HjYnHPw` 868K (8.4x) [sec] | Awaken Restart Humanity 4.2M (23x) | 6/6/6/5 → 8/8/8/6 (Σ30) | PASS | yes; missing 20; hold 14.3 s | **4.3**<br><sub>D3.5 F2 C0.8 K-2</sub> | status BLOCKED-ON-KIT |
+
+## Recommended production order, Mon 2 - Sun 8 Nov 2026
+
+The order weighs EP against readiness: ready horror and explainer Shorts first, kit-blocked work in a parallel lane, and
+the spacing rules in the scripts' front matter. Every item goes through the same loop: fix holds over 3.0 s, voice (if
+missing), render, then a side-by-side QA review (`scripts/side_by_side.sh`, STUDIO.md rubric). It posts only after a
+PASS. Spark budget (BRIEF 09:06 / 11:30): one Remotion render at a time, `nice -n 10`, `--concurrency=4` (2 while TTS
+or whisper runs), CPU only. That allows about two Shorts a day plus one kit lane.
+
+**Day 0 (any time):** post the two pilot cuts already cleared in `out/pilots/QA.md`: `horror-pinned-rules_9x16.mp4`
+and `explainer-blue-whale_9x16-prev.mp4`. They start the clock on the spacing rules below.
+
+| Day | Render + QA (main lane) | EP rank | Why now | Parallel lane |
+|---|---|---|---|---|
+| Mon 2 | `horror-delivery-photo-inside` | 2 | Top horror EP. VO is already on the Spark. Only fix: holds (max 5.1 s). | QA the existing studio-make MP4 of `explainer-short-cookiecutter-shark` (#7, `out/explainer-short-cookiecutter-shark/`). No render is needed unless the review fails. |
+| Mon 2 | `explainer-short-mariana-pressure` | 1 | Highest EP. 0 missing components, max hold 2.4 s. Needs only TTS and a retime. | |
+| Tue 3 | `horror-mom-two-chats` | 3 | VO is on the Spark. This 193 s single **replaces** the older 75 s `episodes/horror-mom-two-chats` (Part 1). Don't post both. | |
+| Tue 3 | `explainer-short-box-jellyfish` | 4 | 0 missing, hold 2.5 s. Run TTS, then rerun `gen_storyboard.py` on the real `captions.json`. Confirm the 24-eyes fact is Chironex-specific first. | |
+| Wed 4 | `horror-two-emergency-alerts` | 5 | Kokoro-timed. Sync `vo/` to the Spark `public/`. Fix holds (4.7 s). | Start the **whatif kit** (`studio/src/kits/whatif/`): `Hud` + `TitleCard` first, because every what-if storyboard uses `Hud`. |
+| Wed 4 | `horror-text-from-tomorrow` | 6 | Kokoro-timed. Build the mix, fix holds (4.0 s). | |
+| Thu 5 | `horror-night-doorman-rules` P1 + P2 | 8 | VO is on the Spark for both parts. Post **Part 2 first, then Part 1** (horror PLAYBOOK §5). | whatif kit: `SolarMap`, `BeachNoon`, `Hand`. Then the 10-second gate shot of `whatif-sun-gone-5-seconds` (the fewest missing parts, 4). |
+| Fri 6 | `horror-roommate-texts-from-room` | 9 | Mix is on the Spark. This **supersedes** `episodes/horror-roommate-two-rooms` (same doppelganger-roommate idea). Render only this one. | |
+| Fri 6 | `explainer-short-moray-second-jaw` | 14 | Keeps the explainer cadence. Mix is on the Spark, 0 missing, hold 2.5 s. | |
+| Sat 7 | `whatif-sun-gone-5-seconds` | 17 | Only if Thursday's gate shot passed review (PLAN rule: one 10 s shot passes before scaling). | whatif kit: the 8 calcium components (`XrayFigure`, `Colosseum`, `Statue`, ...). |
+| Sat 7 | `whatif-calcium-gone-5-seconds` | 11 | The best what-if EP. R3's recommended pilot topic. | |
+| Sun 8 | `explainer-sinking-every-1000m` (long) | 16 | The best long-form EP. It needs 6 explainer parts (`AliveMeter`, `Snailfish`, `Amphipod`, `DumboOctopus`, `BeakedWhale`, `DeepFish`), built Thu-Sat in the explainer kit. Render overnight at concurrency 2-4 with nothing else running. | If those parts aren't ready, render `explainer-never-meet-orca` (long) instead. It is the only long-form that `check_storyboards` reports as "ready" today. |
+
+Week 1 output if every gate passes: 13 backlog episodes, which is 14 uploads (6 horror stories = 7 uploads with the doorman 2-parter,
+4 explainer Shorts + 1 long, 2 what-if), plus the 2 pilots.
+
+### Held for week 2 (and why)
+
+| Slug | EP rank | Hold reason / what unblocks it |
+|---|---|---|
+| `horror-babysitter-parent-rules` | 10 | Its front-matter `publish_spacing` asks for ≥ 10 uploads or 2 weeks after `horror-mom-two-chats` and `horror-night-doorman-rules`. The mix and 2 SFX aren't built yet. Earliest is ~Tue 17 Nov. |
+| `explainer-short-blue-whale-scale` | 12 | Same animal as the blue-whale pilot posted on Day 0. Space it at least a week. Mix is on the Spark, so it's quick to finish. |
+| `horror-group-chat-extra-member` | 13 | Part 2 isn't written. It's the third building-chat story after the pinned-rules pilot, and it overlaps `episodes/horror-member-41`. Write Part 2 first and retire member-41. |
+| `explainer-short-mantis-shrimp-punch` | 15 | Needs `explainer/MantisShrimp`. The corpus control `XffxtLGdXUQ` (a mantis Short) did only 1.06x, so it isn't urgent. |
+| `whatif-you-100x-taller`, `whatif-moon-10x-closer` | 18, 21 | Need 6 more whatif parts each. Next after calcium and sun if the first two what-ifs beat their channel median. |
+| `horror-elevator-maintenance-chat` | 19 | Part 2 isn't written. It supersedes `episodes/horror-elevator-maintenance`. |
+| `horror-new-building-rules` | 20 | Rules-in-the-building-chat, too close to the pinned-rules pilot. Wait ≥ 2 weeks after Day 0. Both parts are storyboarded and voiced, so it's cheap later. |
+| `whatif-friction-off-5-seconds`, `whatif-light-walking-speed`, `whatif-earth-had-rings`, `whatif-oceans-turn-fresh` | 22-25 | 4-13 whatif parts each. Friction has the most (13), even though R3 named it a pilot topic. |
+| `explainer-never-meet-orca` (long) | 26 | Ready, but the orca 9:16 pilot failed QA. Use it as the Sunday fallback or the week 2 long-form. |
+| `explainer-every-animal-that-could-swallow-you`, `explainer-never-meet-leopard-seal` | 27, 28 | 4 and 5 creature parts. Leopard seal also has a 16.3 s hold. |
+| `whatif-breathe-underwater`, `whatif-everyone-born-same-day` | 29, 30 | Long-form what-if needs the whatif kit plus 4 and 20 more parts. Born-same-day is marked `status: BLOCKED-ON-KIT`. |
+
+### Caveats
+
+- View counts and outlier scores are as written in each script's front matter (yt-dlp metadata, 2026-11-01). They aren't re-fetched.
+- Critique scores are self-assessed after the rewrite (`review.json` says so). No independent reviewer has scored the backlog yet. The side-by-side QA is the real gate.
+- Before posting anything, check `facts to verify` / `facts_to_recheck_before_posting` in each script, and the R5 policy notes (`research/R5` was empty when most scripts were written): AI-voice disclosure and the YouTube "inauthentic content" spacing between templated episodes.
+- STUDIO.md §5 also queues 7 non-pilot `episodes/` (saltwater croc, pressure ladder, anglerfish, ...). They compete for the same render slot. Two of them are superseded by this backlog (mom-two-chats and roommate-two-rooms, see above).

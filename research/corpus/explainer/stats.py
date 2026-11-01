@@ -47,7 +47,11 @@ def stats(id, path, dur, header=False, speech_end=None):
 corpus = {
  'fGcgWaswMns': 599, 'nAWpLtG-kNs': 970, 'VtrcKTkhDHU': 2022, 'mzeN0BXR4e0': 1077, 'JkAcCdqYJN0': 551,
  'QxM2Hu70tVk': 529, 'XFFjxTllpoA': 59, 'jw6bS-WL4F4': 58, 'Ky0XPonYDcc': 40, '4QGQhaRv4Dw': 37.5,
- 'fmZfphacPPQ': 33, '6mRR91AbxjQ': 27.6}
+ 'fmZfphacPPQ': 33, '6mRR91AbxjQ': 27.6,
+ # expansion 12:08 UTC (PoF_doh3NOE is a control, listed below)
+ '2d6Ciu3INeA': 172, 'V15wrmD5VFs': 29, 'ZZf1KBnH5iI': 90, 'LpUzg3Dc-m0': 52, '2cK8l5Yg5w8': 67,
+ 'UNPK8PNCCmQ': 1147, 'thtoMGvpWIU': 585, 'UfbYyHuVx5M': 495, 'lVV5ztC3CtI': 1211, 'SDs41Ke3v4Q': 1062,
+ 'qrfhhZ-Wvmk': 1057}
 out = {}
 for k, d in corpus.items():
     out[k] = stats(k, C + 'raw/' + k + '.txt', d)
@@ -59,6 +63,7 @@ controls = {
  'mg2YJ04Hl9k': (R + 'R1/subs/mg2YJ04Hl9k.transcript.txt', 1181, False),
  'JavhxLs3Cs8': (R + 'library/transcripts/JavhxLs3Cs8.txt', 600, True),
  'uH-hucq-dmA': (R + 'library/transcripts/uH-hucq-dmA.txt', 1920, True),
+ 'PoF_doh3NOE': (C + 'raw/PoF_doh3NOE.txt', 58, False),
 }
 for k, (p, d, h) in controls.items():
     out[k] = stats(k, p, d, header=h)
@@ -75,5 +80,16 @@ def loops(id):
 for k in corpus:
     L = loops(k); out[k]['loops'] = L
     if L: out[k]['loops_per_min'] = round(L / (corpus[k] / 60), 2)
-json.dump(out, open(sys.argv[1], 'w'), indent=1)
+SHORT = {'XFFjxTllpoA','jw6bS-WL4F4','Ky0XPonYDcc','4QGQhaRv4Dw','fmZfphacPPQ','6mRR91AbxjQ',
+         '2d6Ciu3INeA','V15wrmD5VFs','ZZf1KBnH5iI','LpUzg3Dc-m0','2cK8l5Yg5w8'}
+summary = {}
+for fmt in ('long', 'short'):
+    ids = [k for k in corpus if (k in SHORT) == (fmt == 'short')]
+    summary[fmt] = {'n': len(ids)}
+    for m in ('wpm', 'sent_avg', 'you_pct', 'you_sent_pct', 'you_per_min', 'nums_per_min', 'loops_per_min'):
+        v = [out[k][m] for k in ids if out[k].get(m) is not None]
+        if v: summary[fmt][m] = dict(median=st.median(v), lo=min(v), hi=max(v))
+out['_summary'] = summary
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else C + 'stats.json', 'w'), indent=1)
+print(json.dumps(summary, indent=1))
 for k, v in out.items(): print(v)
