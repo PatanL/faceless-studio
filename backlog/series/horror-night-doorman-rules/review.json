@@ -1,0 +1,66 @@
+{
+  "series": "horror-night-doorman-rules",
+  "reviewed": "2026-11-01T13:05Z",
+  "role": "horror series editor (writing only; no TTS, render, kit or pipeline edits)",
+  "files_changed": ["BIBLE.md", "part2/script.md"],
+  "scale": "1-10, 10 = best in the horror corpus",
+  "scores": {
+    "cliffhanger_escalation": {"before": 6, "after": 8.5},
+    "rule_system_consistency": {"before": 5.5, "after": 8.5},
+    "part2_rehook_3s": {"before": 5, "after": 8.5},
+    "originality_vs_corpus": {"before": 9, "after": 9},
+    "overall": {"before": 6.4, "after": 8.6}
+  },
+  "cliff_strength_by_part": {
+    "scale_note": "who gives the order, how close the threat is to her body, what obeying costs (BIBLE §4 cut-point rule)",
+    "P1": {"before": 6, "after": 6, "last_line": "Gus: \"Let it ring.\""},
+    "P2": {"before": 6.5, "after": 7.5, "last_line_before": "And rule five says, if the owner texts you, do what he says.", "last_line_after": "Rule five: do what he says. Rule three: send nobody up."},
+    "P3": {"before": 8, "after": 8, "last_line": "The Voice: \"Get in, kid.\""},
+    "P4": {"before": 8, "after": 8.5, "last_line_before": "You brought my key, kid.", "last_line_after": "You brought my key, kid. Give it here."},
+    "P5": {"before": 9, "after": 9, "last_line": "3. If 1903 calls, send nobody up. Even if it sounds like me."},
+    "monotonic_before": false,
+    "monotonic_after": true
+  },
+  "findings": [
+    {
+      "id": "F1", "area": "re-hook", "severity": "high",
+      "problem": "P2 line 1 was 18 spoken words (~3.8 s) and only restated P1's last frame, so a P1 viewer got no new information inside 3 s, and the contradiction landed at 3.8 s. P3/P4/P5 seam hooks were 18-22 words, yet the bible labelled them 'first 3 s'.",
+      "fix": "P2 L1 is now 'Rule three: nineteen-oh-three is empty. It rang my desk anyway. Nineteen times.' (14 words, ~3.0 s, contradiction by ~2.5 s, the 19-ring count is new to P1 viewers). Bible rule: seam hooks are at most 14 spoken words and carry one new fact. P3/P4/P5 hooks rewritten to 13-14 words.",
+      "grounds": ["PLAYBOOK §5 'hook cold viewers in ≤3 s'", "PLAYBOOK §6 BciSW_2VMZg 11.0x vs xKgepVHATm4 1.0x", "HEARSE-P2 7702661471641128224 16% sequel decay", "DOG-RULE gDNMSoGSZgQ hook 0:00-0:03.7"]
+    },
+    {
+      "id": "F2", "area": "cliffhangers", "severity": "medium",
+      "problem": "P2's last spoken line was a rule-5 paraphrase that only repeated the order Pell had just given, so it was barely above P1's 'Let it ring'. P4 ended on a statement ('You brought my key, kid.'), which broke the bible's own 'end on a new imperative' rule and did not outrank P3's 'Get in, kid.'",
+      "fix": "P2 now ends on two binding rules that contradict each other (5 vs 3) while the key is in her fist. The rule-3 card enters the last frame. P4 ends 'You brought my key, kid. Give it here.' with the figure's hand held out backwards. That sets up P5's 'Don't give it the key' and explains why it wants the key (the key locks 1903). The bible now requires each cliff to outrank the last on authority, proximity and cost.",
+      "grounds": ["DORM-RULES 7670495663624408352 two rival authorities (T3)", "PLAYBOOK §5 cut on one new imperative or diagnosis", "TEXT-FIGURE T42u5xhrq-0 threat turned on 'you'", "SIEGE-CHAT 7659677578365537569 cliff on an imperative 4:05-4:08"]
+    },
+    {
+      "id": "F3", "area": "rule consistency", "severity": "high",
+      "problem": "In P4 Lena rides the car up to 19 after 1903 has called. That breaks rule 3 ('send nobody up') a part early, but the tracker held rule 3 for the P5 finale, the series' pre-announced last stamp.",
+      "fix": "P4 adds the required hubris line 'Rule three said send nobody up. Nobody sent me. I went.' In P5 the loophole collapses: 1903 calling was the sending, via the log, 'Pell' and the voice. The stamp lands at the twist. Both are added to the ledger.",
+      "grounds": ["TRUCKER-RULES 7692268145888873760 hubris rule 0:25", "NIGHT-BUS shTJ7_kRNJ8 pre-announced failure + title rule re-read (T17)"]
+    },
+    {
+      "id": "F4", "area": "rule consistency", "severity": "medium",
+      "problem": "P2's handwritten line '3:04. 1903 called.' logged a call that never happens at 3:04, and the P4 payoff ('3:04 vs 4:12, early, not wrong') was muddy.",
+      "fix": "Her line now has an empty time box. In P4 the box reads 4:12, the minute she goes up. The P4 pinned comment is rewritten to match.",
+      "grounds": ["HEARSE-P1 7702661541224566049 mirror ritual 67-78% (T4)", "PLAYBOOK §4A hyper-specific plants"]
+    },
+    {
+      "id": "F5", "area": "rule consistency", "severity": "medium",
+      "problem": "The text 'Rule 5 is real; the contact was swapped' had no swapper, and 'who is Pell' was still open after the finale. Rules were spoken as paraphrases in places, against the bible's 'verbatim' rule. P2's 'Then the desk clock flipped to three' hid a 55-minute jump. Nothing explained why the board has 96 hooks and 95 keys.",
+      "fix": "The staff sheet now lists 555-0143 as the disconnected 1903 line, so the owner texts come from the empty apartment (paid in P3). Tonight's call is at 2:41, Gus's minute; P1/P2 clocks are re-set and a clocked 'Eighteen minutes later' line is added. 96 hooks = 24 floors x 4; 1903's key went up with Gus. Rule-quote convention: cards show the full rule, narration quotes a verbatim fragment only. P3/P5 open loops are updated.",
+      "grounds": ["SIEGE-CHAT 7659677578365537569 fake authority (T1)", "TWO-SUSPECTS 7659482056656735521 fair-play clue (T14)"]
+    }
+  ],
+  "originality": {
+    "command": "python3 scripts/originality_check.py backlog/series/horror-night-doorman-rules/part2/script.md research/corpus research/library/transcripts",
+    "before": "PASS",
+    "after": "PASS",
+    "story_level": "No corpus story uses a building night desk, a key-count rule, a blank log entry or an owner impersonated by an empty apartment's line. The structure and devices are borrowed with citations (HEARSE-P1/P2, TRUCKER-RULES, DOG-RULE, DORM-RULES); the wording is not."
+  },
+  "not_done": [
+    "Timings are still estimates at 4.7 words/s; re-measure with Kokoro on the Spark before building.",
+    "Only Part 2 has a full script; Parts 1, 3, 4 and 5 exist as bible outlines only, and their new hooks and lines need the originality gate when scripted."
+  ]
+}
