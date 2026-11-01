@@ -30,10 +30,9 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 	const T = cy - ph / 2;
 	const B = cy + ph / 2;
 	const u = pw;
-	// cool, desaturated night skin so the hand sits in the scene's palette
-	const skin = str(props.skin, '#b9aca8');
-	const shade = str(props.shade, '#8b7d7e');
-	const nail = str(props.nail, '#d6cdcb');
+	// Nora's skin (horror/Protagonist) so the hand reads as hers, with the characters' outline weight
+	const skin = str(props.skin, '#e8d9c4');
+	const nail = str(props.nail, '#f3eadc');
 	const outline = str(props.outline, P.line);
 	const ow = Math.max(4, u * 0.012);
 	const right = str(props.side, 'right') !== 'left';
@@ -98,10 +97,6 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 	const ang = Math.atan2(tdy, tdx);
 	const nailX = tipX + tdx * wTip * 0.15;
 	const nailY = tipY + tdy * wTip * 0.15;
-	const [jx, jy] = qp(0.62);
-	const [jdx, jdy] = qd(0.62);
-	const jw = halfW(0.62) * 0.7;
-	const crease = `M ${jx - jdy * jw} ${jy + jdx * jw} Q ${jx - jdx * jw * 0.3} ${jy - jdy * jw * 0.3} ${jx + jdy * jw} ${jy - jdx * jw}`;
 
 	const mirror = right ? undefined : `translate(${2 * cx} 0) scale(-1 1)`;
 	// one silhouette: outline pass (fat stroke) under a fill pass, so overlapping parts merge into one hand
@@ -116,18 +111,19 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 		`M ${L + 0.12 * u} ${T + ph * 0.5} C ${L - 0.15 * u} ${T + ph * 0.52} ${L - 0.19 * u} ${B - 0.08 * u} ${L + 0.02 * u} ${B + 0.1 * u} ` +
 		`C ${L + 0.25 * u} ${B + 0.28 * u} ${R - 0.1 * u} ${B + 0.3 * u} ${R + 0.12 * u} ${B + 0.08 * u} L ${R + 0.5 * u} ${H + 0.6 * u} L ${L + 0.3 * u} ${H + 0.6 * u} Z`;
 	const thenar = `M ${R - 0.12 * u} ${B + 0.02 * u} C ${R - 0.08 * u} ${B - 0.14 * u} ${R + 0.12 * u} ${B - 0.2 * u} ${R + 0.22 * u} ${B - 0.02 * u} L ${R + 0.3 * u} ${H + 0.5 * u} L ${R - 0.1 * u} ${H + 0.5 * u} Z`;
-	// three fingertips curl round the far edge onto the bezel
+	// four rounded finger lobes curl round the far edge onto the bezel (cartoon capsules, no knuckle ridges)
 	const tips = [
-		{fy: 0.6, w: 0.115},
-		{fy: 0.715, w: 0.11},
-		{fy: 0.825, w: 0.1},
+		{fy: 0.555, w: 0.112, x1: 0.05},
+		{fy: 0.65, w: 0.118, x1: 0.06},
+		{fy: 0.745, w: 0.114, x1: 0.055},
+		{fy: 0.835, w: 0.104, x1: 0.04},
 	];
-	const fingerPaths = tips.map(({fy, w}, i) => {
+	const fingerPaths = tips.map(({fy, w, x1: reach}, i) => {
 		const y = T + ph * fy + Math.sin(t * 1.1 + i) * 1.5;
 		const hw = (w * u) / 2;
-		const x0 = L - 0.14 * u;
-		const x1 = L + 0.055 * u;
-		return {y, hw, x0, x1, d: `M ${x0} ${y - hw} L ${x1 - hw} ${y - hw * 0.92} A ${hw} ${hw * 0.95} 0 0 1 ${x1 - hw} ${y + hw * 0.92} L ${x0} ${y + hw} Z`};
+		const x0 = L - 0.16 * u;
+		const x1 = L + reach * u;
+		return {y, hw, d: `M ${x0} ${y - hw} L ${x1 - hw} ${y - hw} A ${hw} ${hw} 0 0 1 ${x1 - hw} ${y + hw} L ${x0} ${y + hw} Z`};
 	});
 
 	const body = (
@@ -136,7 +132,6 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 			<svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
 				<g transform={mirror}>
 					{solid([backHand], 'back')}
-					<path d={`M ${L - 0.1 * u} ${T + ph * 0.66} Q ${L - 0.13 * u} ${T + ph * 0.78} ${L - 0.08 * u} ${T + ph * 0.9}`} stroke={shade} strokeWidth={ow} fill="none" strokeLinecap="round" />
 				</g>
 			</svg>
 			{/* phone */}
@@ -149,16 +144,9 @@ export const HandPhone: React.FC<KitComponentProps> = ({props, time: t, width: W
 			<svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
 				<g transform={mirror}>
 					{fingerPaths.map((f, i) => (
-						<g key={`ft${i}`}>
-							<path d={f.d} fill={skin} stroke={outline} strokeWidth={ow} strokeLinejoin="round" />
-							{/* knuckle crease where the finger bends round the edge, and a tip pad line */}
-							<path d={`M ${L - 0.045 * u} ${f.y - f.hw * 0.62} q ${0.018 * u} ${f.hw * 0.62} 0 ${f.hw * 1.24}`} stroke={shade} strokeWidth={ow * 0.75} fill="none" strokeLinecap="round" />
-							<path d={`M ${L - 0.075 * u} ${f.y - f.hw * 0.5} q ${0.012 * u} ${f.hw * 0.5} 0 ${f.hw}`} stroke={shade} strokeWidth={ow * 0.6} fill="none" strokeLinecap="round" opacity={0.8} />
-						</g>
+						<path key={`ft${i}`} d={f.d} fill={skin} stroke={outline} strokeWidth={ow * 1.4} strokeLinejoin="round" />
 					))}
 					{solid([thenar, thumbPath], 'thumb')}
-					<path d={crease} stroke={shade} strokeWidth={ow * 0.8} fill="none" strokeLinecap="round" />
-					<path d={`M ${R - 0.06 * u} ${B - 0.06 * u} q ${0.06 * u} ${-0.05 * u} ${0.14 * u} ${-0.03 * u}`} stroke={shade} strokeWidth={ow * 0.8} fill="none" strokeLinecap="round" opacity={0.7} />
 					<ellipse
 						cx={nailX}
 						cy={nailY}

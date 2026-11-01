@@ -232,7 +232,7 @@ export const GlitchOverlay: React.FC<KitComponentProps> = ({props, time, width, 
  * Red text flash, burned into the picture (not the caption track).
  * props: text, at (0), duration (until scene end), style 'flash' | 'neon' | 'scrawl' | 'stamp' (rubber-stamp card, e.g. PART 2),
  *        y (vertical centre as a fraction of the box, default 0.5), fontSize (130), color (P.red), strobe (Hz of white/red alternation, 0 = off),
- *        cps (typewriter chars/sec, 0 = all at once), shake (px jitter, 6), maxWidth (0.86 of box)
+ *        cps (typewriter chars/sec, 0 = all at once), shake (px jitter, 6), maxWidth (0.86 of box), glow (halo spread, 1)
  */
 export const RedText: React.FC<KitComponentProps> = ({props, time, width, height, sceneDuration}) => {
 	const at = num(props.at, 0);
@@ -293,7 +293,7 @@ export const RedText: React.FC<KitComponentProps> = ({props, time, width, height
 					fontWeight: 900,
 					fontSize: fs * 0.62,
 					padding: `${fs * 0.22}px ${fs * 0.3}px`,
-					background: 'rgba(8,6,12,0.82)',
+					background: 'rgba(6,4,8,0.95)', // opaque plate: chat text never shows through the headline
 					border: `${Math.max(4, fs * 0.04)}px solid ${color}`,
 					borderRadius: fs * 0.12,
 					boxShadow: `0 0 ${fs * 0.3}px ${P.redGlow}, inset 0 0 ${fs * 0.25}px rgba(255,40,50,0.35)`,
@@ -311,7 +311,8 @@ export const RedText: React.FC<KitComponentProps> = ({props, time, width, height
 					...base,
 					WebkitTextStroke: `${Math.max(3, fs * 0.05)}px #120406`,
 					paintOrder: 'stroke fill',
-					textShadow: `0 0 ${fs * 0.25}px ${P.redGlow}, 0 ${fs * 0.05}px 0 #000`,
+					// glow (1): spread of the red halo; ~0.3 keeps it tight to the letters so it doesn't smear a face behind
+					textShadow: `0 0 ${fs * 0.25 * num(props.glow, 1)}px ${P.redGlow}, 0 ${fs * 0.05}px 0 #000`,
 				}}
 			>
 				{text}

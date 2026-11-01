@@ -26,6 +26,7 @@ type Face = {
 	lines?: boolean; // shock lines over the head
 	shake?: boolean; // trembling pupils
 	stare?: boolean; // fixed, unblinking, pupils locked dead centre (ignores lookX/lookY)
+	talkAmp?: number; // how far the mouth opens while talking (1; a stare talks through barely-parted lips)
 };
 
 /** Expression library. Protagonist set: the first 8; neighbour set: neutral, smile, grin, blank, angry, sad, surprised, sly. */
@@ -40,6 +41,8 @@ export const EXPRESSIONS: Record<string, Face> = {
 	angry: {eye: 0.95, pupil: 0.8, lid: 0.32, lidTilt: 16, brow: 24, browY: 8, mouth: 'tight', blush: 0.25},
 	smile: {eye: 0.92, pupil: 0.9, lid: 0.28, lidTilt: -2, brow: -4, browY: -2, mouth: 'smile'},
 	grin: {eye: 1.25, pupil: 0.26, lid: 0, lidTilt: -3, brow: 16, browY: -2, mouth: 'grin', mouthW: 86, shadow: 0.95, pale: 0.3, stare: true},
+	// unblinking fixed stare that talks with barely moving lips (the "It's Management" voice at the door)
+	stare: {eye: 1.14, pupil: 0.3, lid: 0, lidTilt: 0, brow: 6, browY: -6, mouth: 'flat', mouthW: 50, shadow: 0.8, pale: 0.35, stare: true, talkAmp: 0.3},
 	blank: {eye: 1.08, pupil: 0.3, lid: 0.05, lidTilt: 0, brow: 0, browY: 0, mouth: 'flat', shadow: 0.75, pale: 0.35},
 	sad: {eye: 0.92, pupil: 0.9, lid: 0.32, lidTilt: -12, brow: -20, browY: -4, mouth: 'frown'},
 	surprised: {eye: 1.3, pupil: 0.8, lid: 0, lidTilt: 0, brow: -4, browY: -20, mouth: 'o'},
@@ -141,11 +144,19 @@ function mouthPath(m: Mouth, cx: number, cy: number, w: number): React.ReactNode
 				</g>
 			);
 		case 'scream':
+			// terror: a tall, narrow dark oval (a frozen gasp), slightly pinched at the top, no teeth (a teeth row
+			// curving under the top lip read as a laugh), a trembling wavy line under it. Stays inside the chin.
 			return (
 				<g>
-					<path d={`M ${cx - 32 * s} ${cy - 8} Q ${cx} ${cy - 22} ${cx + 32 * s} ${cy - 8} Q ${cx + 26 * s} ${cy + 62 * s} ${cx} ${cy + 64 * s} Q ${cx - 26 * s} ${cy + 62 * s} ${cx - 32 * s} ${cy - 8} Z`} fill="#22141a" stroke={L} strokeWidth={5} />
-					<path d={`M ${cx - 26 * s} ${cy - 6} Q ${cx} ${cy - 16} ${cx + 26 * s} ${cy - 6} L ${cx + 24 * s} ${cy + 4} Q ${cx} ${cy - 4} ${cx - 24 * s} ${cy + 4} Z`} fill="#efe9df" />
-					<ellipse cx={cx} cy={cy + 46 * s} rx={16 * s} ry={9 * s} fill="#9c4a55" />
+					<path
+						d={`M ${cx} ${cy - 6 * s} C ${cx + 11 * s} ${cy - 6 * s} ${cx + 15 * s} ${cy + 8 * s} ${cx + 14 * s} ${cy + 18 * s} C ${cx + 13 * s} ${cy + 30 * s} ${cx + 7 * s} ${cy + 36 * s} ${cx} ${cy + 36 * s} C ${cx - 7 * s} ${cy + 36 * s} ${cx - 13 * s} ${cy + 30 * s} ${cx - 14 * s} ${cy + 18 * s} C ${cx - 15 * s} ${cy + 8 * s} ${cx - 11 * s} ${cy - 6 * s} ${cx} ${cy - 6 * s} Z`}
+						fill="#1c1016"
+						stroke={L}
+						strokeWidth={5}
+						strokeLinejoin="round"
+					/>
+					<ellipse cx={cx} cy={cy + 28 * s} rx={7 * s} ry={4 * s} fill="#4a2129" />
+					<path d={`M ${cx - 15 * s} ${cy + 43 * s} q ${5 * s} ${-3.5 * s} ${10 * s} 0 t ${10 * s} 0 t ${10 * s} 0`} stroke={L} strokeWidth={3} fill="none" strokeLinecap="round" opacity={0.8} />
 				</g>
 			);
 		case 'grin': {
@@ -203,8 +214,10 @@ const NoraFront: React.FC<{c: Record<string, string>}> = ({c}) => (
 
 const NoraBody: React.FC<{c: Record<string, string>}> = ({c}) => (
 	<g>
-		{/* hood bunched behind the neck */}
-		<path d="M 150 452 Q 250 400 350 452 Q 360 500 250 506 Q 140 500 150 452 Z" fill={c.topShade} stroke={P.line} strokeWidth={6} />
+		{/* neck: joins the chin to the hood (no gap under the head) */}
+		<path d="M 212 352 L 208 478 L 292 478 L 288 352 Z" fill={c.skinShade} stroke={P.line} strokeWidth={6} strokeLinejoin="round" />
+		{/* hood bunched behind the neck, rising to meet the jaw */}
+		<path d="M 146 446 Q 250 380 354 446 Q 362 500 250 506 Q 138 500 146 446 Z" fill={c.topShade} stroke={P.line} strokeWidth={6} />
 		<path d="M 70 780 Q 66 560 150 488 Q 200 468 250 476 Q 300 468 350 488 Q 434 560 430 780 Z" fill={c.top} stroke={P.line} strokeWidth={6} strokeLinejoin="round" />
 		<path d="M 196 482 Q 250 520 304 482" stroke={P.line} strokeWidth={5} fill="none" />
 		<path d="M 226 500 L 222 590 M 274 500 L 278 590" stroke="#d8d2c2" strokeWidth={5} strokeLinecap="round" />
@@ -268,6 +281,20 @@ const Arms: React.FC<{pose: string; c: Record<string, string>; skin: string; t: 
 				</g>
 				{hand(206, 606 + b, 34, 'hl')}
 				{hand(294, 606 + b, 34, 'hr')}
+			</g>
+		);
+	}
+	if (pose === 'sit') {
+		// sitting on the floor with her back to the door: knees drawn up to the chest, arms locked round them
+		const b = Math.sin(t * 1.3) * 2;
+		return (
+			<g transform={`translate(0 ${b})`}>
+				<path d="M 96 790 Q 92 600 170 560 Q 236 532 262 600 Q 280 690 270 790 Z" fill="#2c3038" stroke={P.line} strokeWidth={6} strokeLinejoin="round" />
+				<path d="M 404 790 Q 408 600 330 560 Q 264 532 238 600 Q 220 690 230 790 Z" fill="#33373f" stroke={P.line} strokeWidth={6} strokeLinejoin="round" />
+				{sleeve('M 96 600 Q 150 690 250 676', 'l')}
+				{sleeve('M 404 600 Q 350 690 250 676', 'r')}
+				{hand(226, 676, 30, 'hl')}
+				{hand(274, 672, 30, 'hr')}
 			</g>
 		);
 	}
@@ -401,7 +428,7 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 			{!isNora ? (
 				<path d={`M ${250 - 40} ${mouthY - 22} Q 250 ${mouthY - 34} ${250 + 40} ${mouthY - 22}`} stroke="#3e3d45" strokeWidth={9} fill="none" strokeLinecap="round" />
 			) : null}
-			{tk >= 0 && f.mouth !== 'scream' && f.mouth !== 'grin' ? <TalkMouth cx={250} cy={mouthY} open={tk} w={60} /> : mouthPath(f.mouth, 250, mouthY, f.mouthW ?? 60)}
+			{tk >= 0 && f.mouth !== 'scream' && f.mouth !== 'grin' ? <TalkMouth cx={250} cy={mouthY} open={tk * (f.talkAmp ?? 1)} w={f.talkAmp !== undefined ? 46 : 60} /> : mouthPath(f.mouth, 250, mouthY, f.mouthW ?? 60)}
 			{isNora ? <NoraFront c={c} /> : <HaleFront c={c} />}
 			{f.sweat ? (
 				<path
@@ -420,7 +447,7 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
 				</g>
 			) : null}
 			{light === 'phone' ? (
-				<ellipse cx={250} cy={headCy + headRy * 0.8} rx={headRx * 1.1} ry={headRy * 0.9} fill={`url(#${uid}-glow)`} style={{mixBlendMode: 'screen'}} />
+				<ellipse cx={250} cy={headCy + headRy * 0.55} rx={headRx * 0.98} ry={headRy * 0.62} fill={`url(#${uid}-glow)`} style={{mixBlendMode: 'screen'}} />
 			) : null}
 			{light === 'red' ? (
 				<ellipse cx={250} cy={headCy + headRy * 0.95} rx={headRx * 1.25} ry={headRy * 0.85} fill={`url(#${uid}-under)`} style={{mixBlendMode: 'screen'}} />
@@ -474,7 +501,7 @@ const Puppet: React.FC<KitComponentProps & {spec: Spec; colors: Record<string, s
  * props (both characters):
  *   expr ('neutral') or exprs [{t, e}]   expression name(s) from EXPRESSIONS (scene seconds)
  *   talk [[from, to], ...] or [{at, until}]   mouth flap windows
- *   pose 'idle' | 'phone' (reading a glowing phone) | 'ear' (phone call) | 'cover' (hands over mouth)
+ *   pose 'idle' | 'phone' (reading a glowing phone) | 'ear' (phone call) | 'cover' (hands over mouth) | 'sit' (on the floor, hugging her knees)
  *   lookX, lookY (-1..1)   pupil direction        tilt (deg)
  *   light 'none' | 'phone' | 'red'                 silhouette (bool: black shape + eye glints)
  *   blink (true), blinkOffset, seed, colors {hair, top, topShade, skin, shirt}, glow, glitch

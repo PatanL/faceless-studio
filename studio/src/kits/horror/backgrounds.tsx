@@ -18,6 +18,21 @@ function lightLevel(seed: string, t: number, flicker: number): number {
 	return dip;
 }
 
+/** A number, or a [{t, v}] track (linear 0.25 s ramps into each key), at time t. */
+function trackAt(v: unknown, t: number, dflt: number): number {
+	if (!Array.isArray(v)) return num(v, dflt);
+	const keys = arr<{t?: number; v?: number}>(v).sort((a, b) => num(a.t, 0) - num(b.t, 0));
+	let cur = keys.length ? num(keys[0].v, dflt) : dflt;
+	for (let i = 1; i < keys.length; i++) {
+		const kt = num(keys[i].t, 0);
+		if (t < kt - 0.25) break;
+		const prev = cur;
+		cur = num(keys[i].v, dflt);
+		if (t < kt) cur = prev + (cur - prev) * (1 - (kt - t) / 0.25);
+	}
+	return cur;
+}
+
 const knockLevel = (knocks: unknown, t: number) => {
 	let k = 0;
 	for (const at of arr<number>(knocks)) {
@@ -31,14 +46,18 @@ const knockLevel = (knocks: unknown, t: number) => {
 
 /**
  * Apartment front door seen from inside.
- * props: knocks [t...] (door rattles + impact marks), chain ('on'|'off'), hallLight (0..1, light under the door),
+ * props: knocks [t...] (door rattles + impact marks), knockY (art y of the impact marks, 1160; e.g. ~820 = just above a seated person's head),
+ *        chain ('on'|'off'), hallLight (0..1, light under the door; or a track [{t, v}] eased 0.25 s between keys, e.g. the light going out),
+ *        dark (0..1 extra darkness over the room, e.g. after the switch goes off; the strip under the door stays lit),
  *        feet (bool or [from, to]: shadow of feet breaking the light strip), handle (deg, rattling lever: [{at, duration}] = jiggle cues),
  *        peepholeGlow (0..1), flicker
  */
 export const FrontDoor: React.FC<KitComponentProps> = ({props, time: t, width, height}) => {
 	const k = knockLevel(props.knocks, t);
 	const dx = k ? jitter('door-k', t, 1 / 40) * 8 * k : 0;
-	const hall = num(props.hallLight, 0.8) * lightLevel('door-hall', t, num(props.flicker, 0));
+	const hall = trackAt(props.hallLight, t, 0.8) * lightLevel('door-hall', t, num(props.flicker, 0));
+	const ky = num(props.knockY, 1160) - 1160;
+	const dark = clamp01(trackAt(props.dark, t, 0));
 	const feetP = props.feet;
 	const feet = Array.isArray(feetP) ? t >= num(feetP[0], 0) && t < num(feetP[1], 999) : Boolean(feetP);
 	const jig = arr<{at?: number; duration?: number}>(props.handle).some((c) => t >= num(c.at, 0) && t < num(c.at, 0) + num(c.duration, 0.8));
@@ -100,7 +119,7 @@ export const FrontDoor: React.FC<KitComponentProps> = ({props, time: t, width, h
 					<path d="M 720 812 Q 724 880 716 950" stroke="#b7b3aa" strokeWidth={9} fill="none" strokeDasharray="14 7" strokeLinecap="round" />
 				)}
 				{k > 0 ? (
-					<g stroke="#e8e2d4" strokeWidth={8} strokeLinecap="round" opacity={k}>
+					<g stroke="#e8e2d4" strokeWidth={8} strokeLinecap="round" opacity={k} transform={`translate(0 ${ky})`}>
 						<line x1={470} y1={1120} x2={410} y2={1080} />
 						<line x1={460} y1={1160} x2={390} y2={1165} />
 						<line x1={470} y1={1200} x2={410} y2={1240} />
@@ -110,13 +129,17 @@ export const FrontDoor: React.FC<KitComponentProps> = ({props, time: t, width, h
 					</g>
 				) : null}
 			</g>
+			{dark > 0 ? <rect width={1080} height={1920} fill="#020306" opacity={0.85 * dark} /> : null}
 			{/* light leaking under the door from the hallway */}
 			<rect x={290} y={1666} width={500} height={10} fill="#f1c37c" opacity={0.25 + 0.75 * hall} />
 			<rect x={250} y={1676} width={580} height={150} fill={`url(#${uid}under)`} transform="scale(1 -1) translate(0 -3352)" />
 			{feet ? (
-				<g fill="#0b0b0e">
+				<g fill="#050507">
 					<rect x={420} y={1664} width={80} height={14} />
 					<rect x={560} y={1664} width={80} height={14} />
+					{/* the two shadows fan out across the floor, cut out of the light spill */}
+					<path d="M 420 1678 L 500 1678 L 520 1800 L 380 1800 Z" opacity={0.75 * clamp01(hall * 1.5)} />
+					<path d="M 560 1678 L 640 1678 L 690 1800 L 550 1800 Z" opacity={0.75 * clamp01(hall * 1.5)} />
 				</g>
 			) : null}
 			{/* doormat */}
@@ -268,10 +291,48 @@ export const Hallway: React.FC<KitComponentProps> = ({props, time: t, width, hei
  * View through the door peephole: fisheye circle of the hallway with a visitor.
  * props: figure ('neighbour' | 'silhouette' | 'none'), expr / exprs (neighbour face), talk, lookX, lookY,
  *        surround (colour around the lens, default near-black; e.g. the door's grey for a brighter frame), exposure (1.5),
- *        lean (0..1 how close the visitor presses to the lens, 0.4), flicker (0.3), radius (fraction, 0.46)
+ *        lean (0..1 how close the visitor presses to the lens, 0.4), flicker (0.3), radius (fraction, 0.46),
+ *        fisheye (barrel distortion strength, 0.45; 0 = flat), vignette (0..1 circular falloff to black at the rim, 0.8)
  */
+/** Displacement map (R = dx, G = dy) for a barrel/fisheye lens: the centre is magnified, the rim squeezed.
+ * src = p * (1 - k (1 - r^2)) inside the unit circle; encoded for feDisplacementMap with scale = 2 k R. */
+const fisheyeMaps = new Map<number, string>();
+function fisheyeMap(k: number): string {
+	const key = Math.round(k * 100);
+	const hit = fisheyeMaps.get(key);
+	if (hit) return hit;
+	const N = 256;
+	if (typeof document === 'undefined') return '';
+	const cv = document.createElement('canvas');
+	cv.width = N;
+	cv.height = N;
+	const ctx = cv.getContext('2d');
+	if (!ctx) return '';
+	const img = ctx.createImageData(N, N);
+	for (let j = 0; j < N; j++) {
+		for (let i = 0; i < N; i++) {
+			const u = ((i + 0.5) / N) * 2 - 1;
+			const v = ((j + 0.5) / N) * 2 - 1;
+			const r2 = u * u + v * v;
+			const f = r2 < 1 ? -(1 - r2) : 0; // displacement / (k R), in units of the radius
+			const o = (j * N + i) * 4;
+			img.data[o] = Math.round(127.5 + 127.5 * u * f);
+			img.data[o + 1] = Math.round(127.5 + 127.5 * v * f);
+			img.data[o + 2] = 128;
+			img.data[o + 3] = 255;
+		}
+	}
+	ctx.putImageData(img, 0, 0);
+	const url = cv.toDataURL('image/png');
+	fisheyeMaps.set(key, url);
+	return url;
+}
+
 export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, height, fps, frame, sceneDuration}) => {
 	const uid = useUid('peep');
+	const fish = num(props.fisheye, 0.45); // barrel strength (0 = flat)
+	const vig = clamp01(num(props.vignette, 0.8)); // circular falloff toward the rim
+	const mapUrl = fish > 0 ? fisheyeMap(fish) : '';
 	const r = Math.min(width, height * 0.6) * num(props.radius, 0.46);
 	const cx = width / 2;
 	const cy = height * 0.47;
@@ -283,6 +344,14 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 	const fh = fw * (760 / 500);
 	return (
 		<div style={{width, height, position: 'relative', background: str(props.surround, '#050506'), overflow: 'hidden'}}>
+			{mapUrl ? (
+				<svg width={0} height={0} style={{position: 'absolute'}}>
+					<filter id={`${uid}-fish`} x={0} y={0} width={r * 2} height={r * 2} filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+						<feImage href={mapUrl} x={0} y={0} width={r * 2} height={r * 2} preserveAspectRatio="none" result="map" />
+						<feDisplacementMap in="SourceGraphic" in2="map" scale={2 * fish * r} xChannelSelector="R" yChannelSelector="G" />
+					</filter>
+				</svg>
+			) : null}
 			<div
 				style={{
 					position: 'absolute',
@@ -295,6 +364,7 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 					filter: `brightness(${(0.55 + 0.45 * fl) * num(props.exposure, 1.5)}) saturate(0.8) blur(0.6px)`,
 				}}
 			>
+				<div style={{position: 'absolute', inset: 0, filter: mapUrl ? `url(#${uid}-fish)` : undefined}}>
 				<svg width={r * 2} height={r * 2} viewBox="190 330 700 700" preserveAspectRatio="xMidYMid slice" style={{position: 'absolute', inset: 0, transform: 'scale(1.18)'}}>
 					<HallArt uid={uid} t={t} flicker={0} lights={2} endDoor runner="#3a2228" figure={figure === 'silhouette' ? 1 : 0} figureDepth={0.55} seed="peep" />
 				</svg>
@@ -303,8 +373,9 @@ export const Peephole: React.FC<KitComponentProps> = ({props, time: t, width, he
 						<Neighbour props={{...props, glitch: undefined}} time={t} frame={frame} fps={fps} width={fw} height={fh} sceneDuration={sceneDuration} />
 					</div>
 				) : null}
-				{/* fisheye falloff + warm hallway light */}
-				<div style={{position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 42%, rgba(240,200,140,0.12) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 78%, rgba(0,0,0,0.98) 100%)'}} />
+				</div>
+				{/* fisheye falloff + warm hallway light (vignette: how hard the rim falls to black) */}
+				<div style={{position: 'absolute', inset: 0, background: `radial-gradient(circle at 50% 44%, rgba(240,200,140,0.10) 0%, rgba(0,0,0,0) ${45 - 20 * vig}%, rgba(0,0,0,${0.55 + 0.35 * vig}) ${78 - 12 * vig}%, rgba(0,0,0,0.99) 100%)`}} />
 				<div style={{position: 'absolute', left: r * 0.35, top: r * 0.22, width: r * 0.5, height: r * 0.24, borderRadius: '50%', background: 'rgba(255,255,255,0.08)', transform: 'rotate(-25deg)'}} />
 			</div>
 			{/* lens rim */}
