@@ -110,9 +110,9 @@ PAT = {
   ("map_or_depth", r"\bmap\b|depthmeter|depth|globe"),
   ("stat_counter", r"\bstat\b|counter|meter|timer|speedbars|\bdb\b|gauge"),
   ("you_scale", r"scalebar|heightchart|\bbus\b|\bcar\b|elephant|explainer/you\b|scale|compar|\bvs\b"),
-  ("diagram_anatomy", r"anatomy|cutaway|diagram|x-?ray|sonar|organ|inside|cross"),
+  ("diagram_anatomy", r"anatomy|cutaway|diagram|x-?ray|sonar|organ|inside|cross|liver|heart"),
   ("title_question_card", r"headline|question|title|card|verdict|kinetic"),
-  ("stock_proof", r"proof|photo|real|stock|archiv"),
+  ("stock_proof", r"proof|photo|real|stock|archiv|sunk|sailboat"),
   ("hero_creature", r"spermwhale|colossalsquid|orca|greatwhite|bluewhale|anglerfish|octopus|crocodile|hippo|grizzly|creature|hero|reveal"),
  ],
  "horror": [
@@ -142,7 +142,7 @@ if sb_path and os.path.exists(sb_path):
     t = 0.0
     for s in sb.get("scenes", []):
         d = float(s.get("duration", 0))
-        scenes.append({"id": s.get("id", "?"), "start": t, "end": t + d, "text": scene_text(s)})
+        scenes.append({"id": s.get("id", "?"), "start": t, "end": t + d, "text": scene_text(s), "qa": s.get("qa_class")})
         t += d
     if t > 0 and abs(t - dur) > 1.0:
         # storyboard and MP4 disagree (e.g. a different cut): rescale scene times
@@ -151,8 +151,14 @@ if sb_path and os.path.exists(sb_path):
             s["start"] *= k; s["end"] *= k
 
 pilot_t, why, used = {}, {}, set()
+# explicit tags first: a builder can set scene["qa_class"] (pipeline/episodes/*_eps.py) to pin a scene to a class
+for i, s in enumerate(scenes):
+    if s.get("qa") in classes and s["qa"] not in pilot_t:
+        used.add(i)
+        pilot_t[s["qa"]] = round(s["start"] + 0.55 * (s["end"] - s["start"]), 2)
+        why[s["qa"]] = "scene " + s["id"] + " (qa_class)"
 for cls, pat in PAT:
-    if cls not in classes:
+    if cls not in classes or cls in pilot_t:
         continue
     for i, s in enumerate(scenes):
         if i in used or i == 0:  # scene 0 is the hook row
