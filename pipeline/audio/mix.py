@@ -68,6 +68,18 @@ def find_asset(kind: str, name: str) -> str:
     raise FileNotFoundError(f"{kind} '{name}' not found under {PUBLIC}/{kind}/")
 
 
+def last_voiced(voice: np.ndarray, floor_db=-40.0) -> int:
+    """Sample index just after the last 10 ms frame within floor_db of the voice's loudest frame."""
+    hop = int(FRAME * SR)
+    n = len(voice) // hop
+    if n == 0:
+        return len(voice)
+    rms = np.sqrt(np.mean(voice[: n * hop].reshape(n, hop) ** 2, axis=1) + 1e-12)
+    db = 20 * np.log10(rms)
+    idx = np.nonzero(db > db.max() + floor_db)[0]
+    return int((idx[-1] + 1) * hop) if len(idx) else len(voice)
+
+
 def speech_mask(voice: np.ndarray, hold=0.25):
     """Frame-level speech activity from the voice itself (the 'sidechain' signal)."""
     hop = int(FRAME * SR)
@@ -193,6 +205,10 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         except Exception:
             pass
     total = min(max(n_voice + int(0.4 * SR), cue_end), n_voice + int(cfg.get("max_tail", 3.0) * SR))
+    if cfg.get("loop_tail") is not None:  # loop ending: last voiced sample + loop_tail (ignores the padded TTS tail)
+        total = min(n_voice, last_voiced(voice) + int(float(cfg["loop_tail"]) * SR))
+        voice = voice[:total]
+        n_voice = total
     # --- voice: reference level -20 LUFS during the mix (headroom), stereo centre
     v_lufs = lufs(voice)
     vg = db2lin(-20.0 - v_lufs)
@@ -259,8 +275,8 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
             continue
         s[i:j] += x[: j - i, None]
         placed.append({**c, "dur": round(len(x) / SR, 3), "level_db": round(level - ref, 1)})
-    # --- gentle 0.8 s fade on music + sfx at the very end (voice has finished by then)
-    fl = min(total, int(0.8 * SR))
+    # --- gentle 0.8 s fade on music + sfx at the very end (voice has finished by then); loop endings: end_fade
+    fl = min(total, max(1, int(float(cfg.get("end_fade", 0.8)) * SR)))
     s[total - fl:] *= np.linspace(1, 0, fl)[:, None] ** 2
     m[total - fl:] *= np.linspace(1, 0, fl)[:, None] ** 2
     # --- sum, normalise to target, limit, iterate

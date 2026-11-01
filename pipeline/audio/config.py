@@ -22,6 +22,10 @@ NICHES = {
         "sfx_duck_db": -4.0, # lighter duck while an SFX plays (outside speech)
         "attack": 0.10, "release": 0.55, "lookahead": 0.08,
         "music_fade_in": 1.0, "music_fade_out": 2.0,
+        # script front matter `ending: loop` (Shorts whose last line feeds frame 0): the mix ends `loop_tail` s after the
+        # last voiced sample (not the padded TTS tail or SFX tails) and the bed plays through the seam (no 2 s fade to
+        # silence, orca review: 1.4 s of dead air at the replay seam)
+        "loop_ending": {"loop_tail": 0.3, "music_fade_out": 0.05, "music_fade_in": 0.15, "end_fade": 0.05},
         "auto_sfx": {
             r"\bsonar\b": "sonar_ping", r"\bbubbl": "bubbles", r"\bcrush(ed|es|ing)?\b": "impact",
             r"\bboom\b|\bexplod": "boom", r"\bsuddenly\b": "whoosh",

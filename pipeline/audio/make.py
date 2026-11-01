@@ -94,8 +94,11 @@ def main(argv=None):
         v = getattr(a, k) or sc.meta.get(k)
         if v:
             cfg[k] = float(v) if k == "speed" else v
-    if sc.meta.get("paragraph_pause") not in (None, ""):  # per-script override (front matter)
-        cfg["paragraph_pause"] = float(sc.meta["paragraph_pause"])
+    for k in ("paragraph_pause", "music_db", "duck_db"):  # per-script overrides (front matter)
+        if sc.meta.get(k) not in (None, ""):
+            cfg[k] = float(sc.meta[k])
+    if str(sc.meta.get("ending", "")).lower() == "loop":  # Shorts loop: cut ~0.3 s after the last word, bed not faded
+        cfg.update(cfg.get("loop_ending", {}))
     if cfg["voice"].startswith("b") and cfg["engine"] == "kokoro":
         cfg["lang"] = "b"
     elif cfg["engine"] == "kokoro":
