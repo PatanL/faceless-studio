@@ -29,3 +29,13 @@ Reference media on the Spark: ~/studio/refs/ig/ (De19SpSNL6v.mp4, antrofrog_2116
 - **Code-made explainers** keep the Bob-figures-it-out style of narration and premise (second person, literal escalation, punchline) as an option for the explainer channel.
 - **Cute cartoon couples/pets** (bim_and_tim, capisean_capisara and similar) need the AI-cartoon look. The owner is considering a GPU to run MiniMax H3 for that lane.
 - **Licence check (MiniMax H3 open weights, Hugging Face LICENSE, 2026-08-02):** the weights are licensed only for the "Applicable Territory", which excludes the United States, the EU, the UK and South Korea. Running the downloaded weights locally in the US isn't covered by that licence. The hosted API (platform.minimax.io; also on OpenRouter as minimax/hailuo-3, from about $0.13 per generated second) has its own terms; check them. Commercial use over $20M yearly revenue needs written permission, and products must display "MiniMax H3".
+
+## Channel direction candidate: RicksClips3000 (YouTube), 2026-11-01
+
+Owner is leaning toward Rick's Clips / Zack D. Films / Kurzgesagt-Shorts topics, made in our own animation style.
+
+- **Numbers (latest 60 Shorts):** median 497K views, 25 of 60 over 1M, top 30M ("The Ancient Jar That Warned an Empire"), then 15M ("The Job Nobody Wants in Japan"), 13M, 13M, 10M, 10M. Lowest 46K. Shorts run ~65 s.
+- **Topics:** clever true-ish stories with a twist or loophole, mostly history and odd rules: an ancient earthquake-warning jar, Japan's gambling-law window, sailors' storm oil, the grave bell, a mirror that rigged a horse race, why cashiers win the lottery, a knight's loophole, levels of pirate cannonballs, what-if teleportation.
+- **Look:** simple round-head stick-figure characters (dot eyes, small expressive mouths, thin line limbs, period hats and costumes) placed into rich, colourful 3D-rendered or painted environments (castles, rail yards, canyons), with fast camera moves, one or two words of caption at a time, and a narrator.
+- **Code fit:** the characters are the easiest thing we could build (simpler than the orca). The sets are the heavy part: our flat style A sets, or Codex-generated background plates animated with parallax and camera moves (stills, not video).
+- Frames: ~/studio/refs/ig/ricks_*.webm and ricks_*.jpg on the Spark.
