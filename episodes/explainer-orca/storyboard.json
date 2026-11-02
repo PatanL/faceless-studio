@@ -15,63 +15,43 @@
     "overscan": 1.2,
     "props": {
      "depth": 6,
-     "skyTop": "#041531",
-     "skyBottom": "#0c284f",
-     "surface": 0.12,
      "rays": 8,
      "snow": 60,
-     "key": "tide"
+     "key": "royal",
+     "surface": 0.12,
+     "sky": "temperate-day"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd0",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk0",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "54.2%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1759,
+     "depth": 0.3,
+     "z": -40,
      "props": {
-      "seed": "pd0",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
+      "n": 70,
+      "seed": "sp0afar",
+      "tints": [
+       "tide-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
      }
     },
     {
@@ -79,117 +59,23 @@
      "name": "explainer/FishSchool",
      "role": "dressing",
      "x": "50%",
-     "y": "58%",
+     "y": "85.0%",
      "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
+     "height": 192,
+     "depth": 0.3,
+     "z": -40,
+     "opacity": 0.55,
      "props": {
-      "n": 18,
-      "seed": "s0",
-      "scale": 0.5,
+      "n": 14,
+      "seed": "bf0a",
+      "scale": 0.32,
       "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk0",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk0b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j0",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "dir": 1,
+      "tints": [
+       "bone-1",
+       "sky-3",
+       "dusk-3"
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf0",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk0",
-      "n": 3,
-      "plane": "mid"
      }
     },
     {
@@ -297,6 +183,16 @@
     }
    ],
    "notes": "Wild killer whales could kill you easily. They never have.",
+   "setting": {
+    "kind": "place",
+    "biome": "open_ocean",
+    "place": "open ocean",
+    "depth": 6,
+    "waterline": 0.044,
+    "light": "day",
+    "cue": "Wild",
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -360,231 +256,18 @@
    "duration": 7.386,
    "background": {
     "type": "component",
-    "name": "explainer/Ocean",
+    "name": "explainer/Board",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 30,
-     "rays": 7,
-     "key": "mid",
-     "shiftTo": "warm",
-     "shiftAt": 2.069,
-     "shiftDur": 0.8
+     "field": "blue",
+     "seed": "bd1",
+     "floor": false,
+     "surface": 0.1083,
+     "rays": 5
     }
    },
    "layers": [
-    {
-     "type": "component",
-     "name": "explainer/Ridge",
-     "role": "dressing",
-     "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd1",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk1",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd1",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "27%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s1",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": -1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk1",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk1b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j1",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf1",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk1",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "102%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek1",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-3%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek1b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
-    },
     {
      "type": "component",
      "name": "explainer/Orca",
@@ -752,6 +435,13 @@
     }
    ],
    "notes": "Not because they can't. A big male is eight metres long, as heavy as four cars, and its fin alone is as tall as you.",
+   "setting": {
+    "kind": "board",
+    "board": "blue",
+    "surface": 0.03,
+    "rays": 5,
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -844,7 +534,6 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
@@ -863,187 +552,17 @@
    "duration": 8.63,
    "background": {
     "type": "component",
-    "name": "explainer/Ocean",
+    "name": "explainer/Board",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 20,
-     "rays": 8,
-     "key": "tide",
-     "shiftTo": "warm",
-     "shiftAt": 7.472,
-     "shiftDur": 0.8
+     "field": "blue",
+     "seed": "bd2",
+     "floor": false,
+     "lanes": 3
     }
    },
    "layers": [
-    {
-     "type": "component",
-     "name": "explainer/Ridge",
-     "role": "dressing",
-     "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd2",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk2",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd2",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "58%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s2",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk2",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk2b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j2",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf2",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk2",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
     {
      "type": "component",
      "name": "explainer/SpeedBars",
@@ -1242,9 +761,15 @@
    ],
    "notes": "It hits fifty-six kilometres an hour. An Olympic swimmer manages eight. You, maybe three. From fifty metres out, it reaches you in three seconds.",
    "transitionIn": {
-    "type": "whip",
-    "duration": 0.45,
+    "type": "wipe",
+    "duration": 0.5,
     "direction": "left"
+   },
+   "setting": {
+    "kind": "board",
+    "board": "blue",
+    "lanes": 3,
+    "at": 0.0
    },
    "camera": {
     "keyframes": [
@@ -1306,7 +831,6 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "tide-1",
     "sweep": 8
    },
    "grade": {
@@ -1324,222 +848,41 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 60,
+     "depth": 25,
      "rays": 6,
-     "key": "mid"
+     "key": "royal"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd3",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk3",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "52.0%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1843,
+     "depth": 0.3,
+     "z": -40,
      "props": {
-      "seed": "pd3",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "27%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s3",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": -1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk3",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
+      "n": 70,
+      "seed": "sp3afar",
+      "tints": [
+       "tide-4",
+       "bone-1"
       ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk3b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j3",
       "size": [
-       24,
-       44
+       2.0,
+       4.0
       ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf3",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk3",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "102%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek3",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-3%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek3b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
      }
     },
     {
@@ -1552,24 +895,27 @@
      "props": {
       "pose": "head"
      },
-     "end": 2.209,
+     "end": 2.509,
      "z": 3,
      "keyframes": [
       {
        "t": 0,
-       "scale": 0.55,
-       "opacity": 1
+       "x": "50%",
+       "y": "38%",
+       "scale": 0.55
       },
       {
        "t": 2.009,
+       "x": "50%",
+       "y": "40%",
        "scale": 1.2,
-       "opacity": 1,
        "ease": "in"
       },
       {
-       "t": 2.209,
-       "scale": 1.5,
-       "opacity": 0,
+       "t": 2.509,
+       "x": "30%",
+       "y": "95%",
+       "scale": 2.6,
        "ease": "in"
       }
      ],
@@ -1592,12 +938,7 @@
      "props": {
       "timeOffset": 0.0
      },
-     "start": 2.159,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.159,
-      "duration": 0.5
-     },
+     "start": 2.009,
      "flipX": false,
      "idle": [
       {
@@ -1609,7 +950,12 @@
      "keyframes": [
       {
        "t": 2.009,
-       "x": "18%"
+       "x": "-28%"
+      },
+      {
+       "t": 2.909,
+       "x": "18%",
+       "ease": "out"
       },
       {
        "t": 4.69,
@@ -1627,12 +973,7 @@
      "props": {
       "timeOffset": 0.6
      },
-     "start": 2.279,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.279,
-      "duration": 0.5
-     },
+     "start": 2.129,
      "flipX": true,
      "idle": [
       {
@@ -1644,7 +985,12 @@
      "keyframes": [
       {
        "t": 2.129,
-       "x": "82%"
+       "x": "128%"
+      },
+      {
+       "t": 3.029,
+       "x": "82%",
+       "ease": "out"
       },
       {
        "t": 4.69,
@@ -1662,12 +1008,7 @@
      "props": {
       "timeOffset": 1.1
      },
-     "start": 2.399,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.399,
-      "duration": 0.5
-     },
+     "start": 2.2489999999999997,
      "flipX": false,
      "idle": [
       {
@@ -1679,7 +1020,12 @@
      "keyframes": [
       {
        "t": 2.2489999999999997,
-       "x": "16%"
+       "x": "-28%"
+      },
+      {
+       "t": 3.1489999999999996,
+       "x": "16%",
+       "ease": "out"
       },
       {
        "t": 4.69,
@@ -1697,12 +1043,7 @@
      "props": {
       "timeOffset": 0.3
      },
-     "start": 2.5189999999999997,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.5189999999999997,
-      "duration": 0.5
-     },
+     "start": 2.3689999999999998,
      "flipX": true,
      "idle": [
       {
@@ -1714,7 +1055,12 @@
      "keyframes": [
       {
        "t": 2.3689999999999998,
-       "x": "84%"
+       "x": "128%"
+      },
+      {
+       "t": 3.2689999999999997,
+       "x": "84%",
+       "ease": "out"
       },
       {
        "t": 4.69,
@@ -1732,12 +1078,7 @@
      "props": {
       "timeOffset": 0.8
      },
-     "start": 2.639,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.639,
-      "duration": 0.5
-     },
+     "start": 2.489,
      "flipX": false,
      "idle": [
       {
@@ -1749,7 +1090,12 @@
      "keyframes": [
       {
        "t": 2.489,
-       "x": "52%"
+       "x": "-28%"
+      },
+      {
+       "t": 3.389,
+       "x": "52%",
+       "ease": "out"
       },
       {
        "t": 4.69,
@@ -1776,10 +1122,10 @@
        "speed": 0.35
       }
      ],
-     "start": 2.209,
+     "start": 2.359,
      "enter": {
       "type": "popSpring",
-      "at": 2.209,
+      "at": 2.359,
       "duration": 0.5
      }
     },
@@ -1792,7 +1138,7 @@
      "height": 76.8,
      "props": {
       "text": "YOU",
-      "at": 2.209,
+      "at": 2.359,
       "size": 32,
       "align": "center",
       "accent": "red",
@@ -1814,30 +1160,13 @@
     },
     {
      "type": "component",
-     "name": "explainer/Headline",
-     "x": "50%",
-     "y": "13%",
-     "width": 1000,
-     "height": 230.4,
-     "props": {
-      "text": "HUNTS AS A TEAM",
-      "at": 2.884,
-      "size": 72,
-      "color": "white",
-      "underline": true
-     },
-     "depth": 0,
-     "z": 20
-    },
-    {
-     "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "40%",
-     "width": 560,
+     "y": "13%",
+     "width": 640,
      "height": 115.19999999999999,
      "props": {
-      "text": "OUTNUMBERED",
+      "text": "5 ORCAS · 1 YOU",
       "at": 3.947,
       "size": 48,
       "align": "center",
@@ -1856,6 +1185,15 @@
     }
    ],
    "notes": "And you'd never meet just one. A pod hunts as a team, and you'd be outnumbered.",
+   "setting": {
+    "kind": "place",
+    "biome": "open_ocean",
+    "place": "open ocean",
+    "depth": 25,
+    "waterline": null,
+    "light": "day",
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -1916,7 +1254,7 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "tide-0",
+    "haze": "tide-1",
     "sweep": 8
    },
    "grade": {
@@ -1938,438 +1276,870 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 4,
-     "skyTop": "#041531",
-     "skyBottom": "#0c284f",
+     "depth": 3,
+     "rays": 4,
+     "glow": 0.2,
      "surface": 0.36,
-     "rays": 9,
-     "snow": 40,
-     "glow": 0.3,
-     "key": "tide",
-     "shiftTo": "warm",
-     "shiftAt": 5.457,
-     "shiftDur": 0.8
+     "sky": "polar-dusk",
+     "rayStrength": 0.45,
+     "specks": 90,
+     "key": "polar"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/IceField",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -40,
      "props": {
-      "seed": "rd4",
-      "plane": "far",
-      "y": 0.82
+      "waterline": 0.36,
+      "seed": "pl4a",
+      "bergs": 3,
+      "brash": 12,
+      "sun": 0.8
      }
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk4",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "68.6%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd4",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "58%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s4",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
+     "height": 1206,
      "depth": 0.6,
-     "z": -8,
+     "z": -40,
      "props": {
-      "seed": "mk4",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
+      "n": 60,
+      "seed": "sp4amid",
+      "tints": [
+       "coral-4",
+       "amber-4",
+       "bone-1"
       ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk4b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j4",
       "size": [
-       24,
-       44
+       2.0,
+       4.2
       ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "opacity": [
+       0.25,
+       0.55
+      ],
+      "drift": [
+       3,
+       -4
       ]
      }
     },
     {
      "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
+     "name": "explainer/IceFloe",
+     "x": "55.00%",
+     "y": "34.70%",
+     "width": 660,
+     "height": 360,
      "props": {
-      "seed": "rf4",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk4",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-2%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek4",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "103%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek4b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
-    },
-    {
-     "type": "svg",
-     "markup": "<svg viewBox=\"0 0 400 160\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 70 L60 30 L170 22 L260 34 L390 60 L360 92 L40 96 Z\" fill=\"#e8f3f6\"/><path d=\"M40 96 L360 92 L330 150 L70 150 Z\" fill=\"#9fc6d1\" opacity=\"0.55\"/></svg>",
-     "x": "72%",
-     "y": "36%",
-     "width": 420,
-     "height": 170,
-     "z": 2
-    },
-    {
-     "type": "svg",
-     "markup": "<svg viewBox=\"0 0 200 80\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 60 Q40 20 110 26 Q160 30 186 44 Q196 52 184 58 Q150 70 90 66 Q40 70 10 60 Z\" fill=\"#6f7f86\"/><circle cx=\"170\" cy=\"44\" r=\"4\" fill=\"#111\"/><path d=\"M60 64 L40 78 L70 70 Z\" fill=\"#5c6b71\"/></svg>",
-     "x": "70%",
-     "y": "31.2%",
-     "width": 240,
-     "height": 96,
-     "z": 3,
+      "seed": "floe4",
+      "waterline": 0.42
+     },
+     "depth": 0.12,
+     "z": 2,
      "keyframes": [
       {
        "t": 0,
-       "x": "70%",
-       "y": "31.2%",
-       "rotate": 0,
-       "opacity": 1
+       "rotate": 0.0,
+       "y": "34.70%"
       },
       {
-       "t": 4.293,
-       "x": "70%",
-       "y": "31.2%",
-       "rotate": 0,
-       "opacity": 1
+       "t": 1.6,
+       "rotate": -1.2,
+       "y": "34.54%",
+       "ease": "inOut"
       },
       {
-       "t": 4.993,
-       "x": "58%",
-       "y": "40%",
-       "rotate": -35,
-       "opacity": 1,
+       "t": 3.2,
+       "rotate": 1.0,
+       "y": "34.86%",
+       "ease": "inOut"
+      },
+      {
+       "t": 4.143,
+       "rotate": 0.0,
+       "y": "34.70%",
+       "ease": "inOut"
+      },
+      {
+       "t": 4.593,
+       "rotate": 13.0,
+       "y": "33.87%",
+       "ease": "inOut"
+      },
+      {
+       "t": 5.243,
+       "rotate": 9.0,
+       "y": "34.28%",
+       "ease": "inOut"
+      },
+      {
+       "t": 5.907,
+       "rotate": 1.0,
+       "y": "34.70%",
+       "ease": "out"
+      },
+      {
+       "t": 6.457,
+       "rotate": 15.0,
+       "y": "33.97%",
+       "ease": "inOut"
+      },
+      {
+       "t": 6.827,
+       "rotate": 12.0,
+       "y": "34.18%",
+       "ease": "inOut"
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Seal",
+     "x": "49.44%",
+     "y": "29.36%",
+     "width": 220,
+     "height": 54,
+     "props": {},
+     "depth": 0.12,
+     "z": 3,
+     "end": 6.493,
+     "keyframes": [
+      {
+       "t": 0.0,
+       "x": "49.44%",
+       "y": "29.36%",
+       "rotate": 0.0,
+       "ease": "linear"
+      },
+      {
+       "t": 0.101,
+       "x": "49.44%",
+       "y": "29.36%",
+       "rotate": -0.0,
+       "ease": "linear"
+      },
+      {
+       "t": 0.202,
+       "x": "49.44%",
+       "y": "29.36%",
+       "rotate": -0.01,
+       "ease": "linear"
+      },
+      {
+       "t": 0.302,
+       "x": "49.44%",
+       "y": "29.35%",
+       "rotate": -0.03,
+       "ease": "linear"
+      },
+      {
+       "t": 0.403,
+       "x": "49.43%",
+       "y": "29.35%",
+       "rotate": -0.08,
+       "ease": "linear"
+      },
+      {
+       "t": 0.504,
+       "x": "49.42%",
+       "y": "29.34%",
+       "rotate": -0.15,
+       "ease": "linear"
+      },
+      {
+       "t": 0.605,
+       "x": "49.40%",
+       "y": "29.34%",
+       "rotate": -0.26,
+       "ease": "linear"
+      },
+      {
+       "t": 0.706,
+       "x": "49.38%",
+       "y": "29.33%",
+       "rotate": -0.41,
+       "ease": "linear"
+      },
+      {
+       "t": 0.807,
+       "x": "49.34%",
+       "y": "29.31%",
+       "rotate": -0.61,
+       "ease": "linear"
+      },
+      {
+       "t": 0.907,
+       "x": "49.31%",
+       "y": "29.30%",
+       "rotate": -0.81,
+       "ease": "linear"
+      },
+      {
+       "t": 1.008,
+       "x": "49.29%",
+       "y": "29.28%",
+       "rotate": -0.96,
+       "ease": "linear"
+      },
+      {
+       "t": 1.109,
+       "x": "49.27%",
+       "y": "29.28%",
+       "rotate": -1.06,
+       "ease": "linear"
+      },
+      {
+       "t": 1.21,
+       "x": "49.26%",
+       "y": "29.27%",
+       "rotate": -1.13,
+       "ease": "linear"
+      },
+      {
+       "t": 1.311,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.17,
+       "ease": "linear"
+      },
+      {
+       "t": 1.412,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.19,
+       "ease": "linear"
+      },
+      {
+       "t": 1.512,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.2,
+       "ease": "linear"
+      },
+      {
+       "t": 1.613,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.2,
+       "ease": "linear"
+      },
+      {
+       "t": 1.714,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.2,
+       "ease": "linear"
+      },
+      {
+       "t": 1.815,
+       "x": "49.25%",
+       "y": "29.27%",
+       "rotate": -1.18,
+       "ease": "linear"
+      },
+      {
+       "t": 1.916,
+       "x": "49.26%",
+       "y": "29.27%",
+       "rotate": -1.13,
+       "ease": "linear"
+      },
+      {
+       "t": 2.017,
+       "x": "49.27%",
+       "y": "29.28%",
+       "rotate": -1.04,
+       "ease": "linear"
+      },
+      {
+       "t": 2.117,
+       "x": "49.30%",
+       "y": "29.29%",
+       "rotate": -0.9,
+       "ease": "linear"
+      },
+      {
+       "t": 2.218,
+       "x": "49.33%",
+       "y": "29.31%",
+       "rotate": -0.69,
+       "ease": "linear"
+      },
+      {
+       "t": 2.319,
+       "x": "49.38%",
+       "y": "29.34%",
+       "rotate": -0.4,
+       "ease": "linear"
+      },
+      {
+       "t": 2.42,
+       "x": "49.44%",
+       "y": "29.37%",
+       "rotate": -0.02,
+       "ease": "linear"
+      },
+      {
+       "t": 2.521,
+       "x": "49.50%",
+       "y": "29.40%",
+       "rotate": 0.33,
+       "ease": "linear"
+      },
+      {
+       "t": 2.622,
+       "x": "49.54%",
+       "y": "29.42%",
+       "rotate": 0.58,
+       "ease": "linear"
+      },
+      {
+       "t": 2.722,
+       "x": "49.57%",
+       "y": "29.44%",
+       "rotate": 0.77,
+       "ease": "linear"
+      },
+      {
+       "t": 2.823,
+       "x": "49.59%",
+       "y": "29.45%",
+       "rotate": 0.89,
+       "ease": "linear"
+      },
+      {
+       "t": 2.924,
+       "x": "49.60%",
+       "y": "29.45%",
+       "rotate": 0.95,
+       "ease": "linear"
+      },
+      {
+       "t": 3.025,
+       "x": "49.61%",
+       "y": "29.46%",
+       "rotate": 0.99,
+       "ease": "linear"
+      },
+      {
+       "t": 3.126,
+       "x": "49.61%",
+       "y": "29.46%",
+       "rotate": 1.0,
+       "ease": "linear"
+      },
+      {
+       "t": 3.226,
+       "x": "49.61%",
+       "y": "29.46%",
+       "rotate": 1.0,
+       "ease": "linear"
+      },
+      {
+       "t": 3.327,
+       "x": "49.61%",
+       "y": "29.46%",
+       "rotate": 0.99,
+       "ease": "linear"
+      },
+      {
+       "t": 3.428,
+       "x": "49.60%",
+       "y": "29.45%",
+       "rotate": 0.94,
+       "ease": "linear"
+      },
+      {
+       "t": 3.529,
+       "x": "49.58%",
+       "y": "29.44%",
+       "rotate": 0.83,
+       "ease": "linear"
+      },
+      {
+       "t": 3.63,
+       "x": "49.55%",
+       "y": "29.42%",
+       "rotate": 0.62,
+       "ease": "linear"
+      },
+      {
+       "t": 3.731,
+       "x": "49.50%",
+       "y": "29.39%",
+       "rotate": 0.33,
+       "ease": "linear"
+      },
+      {
+       "t": 3.831,
+       "x": "49.47%",
+       "y": "29.37%",
+       "rotate": 0.14,
+       "ease": "linear"
+      },
+      {
+       "t": 3.932,
+       "x": "49.45%",
+       "y": "29.36%",
+       "rotate": 0.04,
+       "ease": "linear"
+      },
+      {
+       "t": 4.033,
+       "x": "49.45%",
+       "y": "29.36%",
+       "rotate": 0.01,
+       "ease": "linear"
+      },
+      {
+       "t": 4.134,
+       "x": "49.44%",
+       "y": "29.36%",
+       "rotate": 0.0,
+       "ease": "linear"
+      },
+      {
+       "t": 4.235,
+       "x": "49.52%",
+       "y": "29.30%",
+       "rotate": 0.44,
+       "ease": "linear"
+      },
+      {
+       "t": 4.336,
+       "x": "50.13%",
+       "y": "28.89%",
+       "rotate": 4.07,
+       "ease": "linear"
+      },
+      {
+       "t": 4.436,
+       "x": "51.32%",
+       "y": "28.17%",
+       "rotate": 10.81,
+       "ease": "linear"
+      },
+      {
+       "t": 4.537,
+       "x": "51.71%",
+       "y": "27.97%",
+       "rotate": 12.9,
+       "ease": "linear"
+      },
+      {
+       "t": 4.638,
+       "x": "51.72%",
+       "y": "27.96%",
+       "rotate": 12.99,
+       "ease": "linear"
+      },
+      {
+       "t": 4.739,
+       "x": "52.66%",
+       "y": "28.11%",
+       "rotate": 12.82,
+       "ease": "linear"
+      },
+      {
+       "t": 4.84,
+       "x": "55.65%",
+       "y": "28.57%",
+       "rotate": 12.13,
+       "ease": "linear"
+      },
+      {
+       "t": 4.941,
+       "x": "60.69%",
+       "y": "29.28%",
+       "rotate": 10.61,
+       "ease": "linear"
+      },
+      {
+       "t": 5.041,
+       "x": "67.99%",
+       "y": "30.04%",
+       "rotate": 9.48,
+       "ease": "linear"
+      },
+      {
+       "t": 5.142,
+       "x": "77.59%",
+       "y": "30.89%",
+       "rotate": 9.06,
+       "ease": "linear"
+      },
+      {
+       "t": 5.243,
+       "x": "89.41%",
+       "y": "31.94%",
+       "rotate": 9.0,
+       "ease": "linear"
+      },
+      {
+       "t": 5.543,
+       "x": "95.41%",
+       "y": "36.70%",
+       "rotate": 38,
        "ease": "in"
       },
       {
-       "t": 5.693,
-       "x": "52%",
-       "y": "47%",
-       "rotate": -60,
-       "opacity": 0
+       "t": 6.443,
+       "x": "112%",
+       "y": "42.20%",
+       "rotate": 8,
+       "ease": "inOut"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "12%",
-     "y": "44%",
-     "width": 460,
-     "height": 160,
+     "x": "50%",
+     "y": "50%",
+     "width": 380,
+     "height": 140,
      "props": {
-      "speed": 1.5,
+      "speed": 1.6,
       "timeOffset": 0.0
      },
      "z": 1,
-     "opacity": 1.0,
+     "depth": 0.12,
+     "end": 5.343,
      "keyframes": [
       {
        "t": 0,
-       "x": "12%",
-       "scale": 1.0
+       "x": "-16.0%",
+       "y": "46.0%"
       },
       {
-       "t": 1.518,
-       "x": "18.0%",
-       "scale": 1.0
-      },
-      {
-       "t": 4.493,
-       "x": "48%",
-       "scale": 1.0,
+       "t": 1.818,
+       "x": "12.0%",
+       "y": "40.5%",
        "ease": "inOut"
-      }
-     ],
-     "idle": [
-      {
-       "type": "sway",
-       "amount": 0.7,
-       "speed": 0.22,
-       "phase": 4.8
-      }
-     ]
-    },
-    {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "8%",
-     "y": "52.6%",
-     "width": 460,
-     "height": 160,
-     "props": {
-      "speed": 1.5,
-      "timeOffset": 0.3
-     },
-     "z": 0,
-     "opacity": 0.85,
-     "keyframes": [
-      {
-       "t": 0,
-       "x": "8%",
-       "scale": 0.8
       },
       {
-       "t": 1.518,
-       "x": "14.0%",
-       "scale": 0.8
+       "t": 3.868,
+       "x": "42.0%",
+       "y": "37.0%",
+       "ease": "in"
       },
       {
-       "t": 4.493,
-       "x": "38%",
-       "scale": 0.8,
-       "ease": "inOut"
-      }
-     ],
-     "idle": [
-      {
-       "type": "sway",
-       "amount": 0.7,
-       "speed": 0.22,
-       "phase": 4.8
-      }
-     ]
-    },
-    {
-     "type": "component",
-     "name": "explainer/Orca",
-     "x": "14%",
-     "y": "61%",
-     "width": 460,
-     "height": 160,
-     "props": {
-      "speed": 1.5,
-      "timeOffset": 0.6
-     },
-     "z": -1,
-     "opacity": 0.85,
-     "keyframes": [
-      {
-       "t": 0,
-       "x": "14%",
-       "scale": 0.8
-      },
-      {
-       "t": 1.518,
-       "x": "20.0%",
-       "scale": 0.8
-      },
-      {
-       "t": 4.493,
-       "x": "29%",
-       "scale": 0.8,
-       "ease": "inOut"
-      }
-     ],
-     "idle": [
-      {
-       "type": "sway",
-       "amount": 0.7,
-       "speed": 0.22,
-       "phase": 4.8
-      }
-     ]
-    },
-    {
-     "type": "svg",
-     "markup": "<svg viewBox=\"0 0 900 300\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><path d=\"M0 300 L0 200 C 200 196 380 170 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128 C 770 112 740 112 724 130 C 760 150 820 180 900 196 L 900 300 Z\" fill=\"#9fd6e3\" opacity=\"0.88\"/><path d=\"M 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128\" stroke=\"#ffffff\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 300 182 C 380 170 450 150 520 120\" stroke=\"#e8f6fa\" stroke-width=\"6\" fill=\"none\" opacity=\"0.8\"/></svg>",
-     "x": "52%",
-     "y": "30.4%",
-     "width": 960,
-     "height": 320,
-     "z": 4,
-     "start": 3.843,
-     "end": 5.293,
-     "keyframes": [
-      {
-       "t": 3.843,
-       "scaleY": 0.2,
-       "opacity": 0,
-       "x": "36%"
-      },
-      {
-       "t": 4.293,
-       "scaleY": 1,
-       "opacity": 1,
-       "x": "50%",
+       "t": 4.543,
+       "x": "76.0%",
+       "y": "47.0%",
        "ease": "out"
       },
       {
        "t": 5.293,
-       "scaleY": 0.3,
-       "opacity": 0,
-       "x": "64%"
+       "x": "122.0%",
+       "y": "52.0%",
+       "ease": "in"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 4.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "50%",
+     "width": 380,
+     "height": 140,
+     "props": {
+      "speed": 1.6,
+      "timeOffset": 0.35
+     },
+     "z": 1,
+     "depth": 0.12,
+     "end": 5.343,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-30.0%",
+       "y": "43.8%"
+      },
+      {
+       "t": 1.818,
+       "x": "-2.0%",
+       "y": "38.3%",
+       "ease": "inOut"
+      },
+      {
+       "t": 3.868,
+       "x": "28.0%",
+       "y": "34.8%",
+       "ease": "in"
+      },
+      {
+       "t": 4.543,
+       "x": "62.0%",
+       "y": "44.8%",
+       "ease": "out"
+      },
+      {
+       "t": 5.293,
+       "x": "108.0%",
+       "y": "49.8%",
+       "ease": "in"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 4.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "50%",
+     "width": 380,
+     "height": 140,
+     "props": {
+      "speed": 1.6,
+      "timeOffset": 0.7
+     },
+     "z": 1,
+     "depth": 0.12,
+     "end": 5.343,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-24.0%",
+       "y": "52.5%"
+      },
+      {
+       "t": 1.818,
+       "x": "4.0%",
+       "y": "47.0%",
+       "ease": "inOut"
+      },
+      {
+       "t": 3.868,
+       "x": "34.0%",
+       "y": "43.5%",
+       "ease": "in"
+      },
+      {
+       "t": 4.543,
+       "x": "68.0%",
+       "y": "53.5%",
+       "ease": "out"
+      },
+      {
+       "t": 5.293,
+       "x": "114.0%",
+       "y": "58.5%",
+       "ease": "in"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 4.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "50%",
+     "width": 380,
+     "height": 140,
+     "props": {
+      "speed": 1.8,
+      "timeOffset": 0.2
+     },
+     "z": 1,
+     "depth": 0.12,
+     "start": 5.507,
+     "keyframes": [
+      {
+       "t": 5.507,
+       "x": "-22.0%",
+       "y": "41.0%"
+      },
+      {
+       "t": 6.407,
+       "x": "40.0%",
+       "y": "37.5%",
+       "ease": "in"
+      },
+      {
+       "t": 6.827,
+       "x": "62.0%",
+       "y": "44.0%",
+       "ease": "out"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 4.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "50%",
+     "width": 380,
+     "height": 140,
+     "props": {
+      "speed": 1.8,
+      "timeOffset": 0.55
+     },
+     "z": 1,
+     "depth": 0.12,
+     "start": 5.507,
+     "keyframes": [
+      {
+       "t": 5.507,
+       "x": "-36.0%",
+       "y": "38.8%"
+      },
+      {
+       "t": 6.407,
+       "x": "26.0%",
+       "y": "35.3%",
+       "ease": "in"
+      },
+      {
+       "t": 6.827,
+       "x": "48.0%",
+       "y": "41.8%",
+       "ease": "out"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 4.8
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 900 300\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><defs><linearGradient id=\"wvb\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#bfe9f5\" stop-opacity=\"0.55\"/><stop offset=\"1\" stop-color=\"#bfe9f5\" stop-opacity=\"0\"/></linearGradient></defs><path d=\"M 60 200 C 300 204 600 204 860 200 C 760 262 520 296 380 296 C 240 296 120 262 60 200 Z\" fill=\"url(#wvb)\"/><path d=\"M0 201 C 200 196 380 170 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128 C 770 112 740 112 724 130 C 760 150 820 180 900 196 L 900 201 Z\" fill=\"#d2f1f8\"/><path d=\"M 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128\" stroke=\"#ffffff\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 300 182 C 380 170 450 150 520 120\" stroke=\"#e8f6fa\" stroke-width=\"6\" fill=\"none\" opacity=\"0.8\"/></svg>",
+     "x": "30%",
+     "y": "33.20%",
+     "width": 760,
+     "height": 300,
+     "depth": 0.12,
+     "z": 4,
+     "start": 2.418,
+     "end": 5.793,
+     "anchorY": 0.6667,
+     "keyframes": [
+      {
+       "t": 2.418,
+       "x": "16%",
+       "scaleX": 0.8,
+       "scaleY": 0.04
+      },
+      {
+       "t": 3.9179999999999997,
+       "x": "30%",
+       "scaleX": 0.95,
+       "scaleY": 0.7,
+       "ease": "in"
+      },
+      {
+       "t": 4.393,
+       "x": "44%",
+       "scaleX": 1.0,
+       "scaleY": 1.0,
+       "ease": "linear"
+      },
+      {
+       "t": 5.043,
+       "x": "62%",
+       "scaleX": 1.0,
+       "scaleY": 0.55,
+       "ease": "linear"
+      },
+      {
+       "t": 5.743,
+       "x": "80%",
+       "scaleX": 1.0,
+       "scaleY": 0.03,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 900 300\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><defs><linearGradient id=\"wvb\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#bfe9f5\" stop-opacity=\"0.55\"/><stop offset=\"1\" stop-color=\"#bfe9f5\" stop-opacity=\"0\"/></linearGradient></defs><path d=\"M 60 200 C 300 204 600 204 860 200 C 760 262 520 296 380 296 C 240 296 120 262 60 200 Z\" fill=\"url(#wvb)\"/><path d=\"M0 201 C 200 196 380 170 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128 C 770 112 740 112 724 130 C 760 150 820 180 900 196 L 900 201 Z\" fill=\"#d2f1f8\"/><path d=\"M 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128\" stroke=\"#ffffff\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 300 182 C 380 170 450 150 520 120\" stroke=\"#e8f6fa\" stroke-width=\"6\" fill=\"none\" opacity=\"0.8\"/></svg>",
+     "x": "30%",
+     "y": "33.20%",
+     "width": 760,
+     "height": 300,
+     "depth": 0.12,
+     "z": 4,
+     "start": 5.707,
+     "end": 6.827,
+     "anchorY": 0.6667,
+     "keyframes": [
+      {
+       "t": 5.707,
+       "x": "14%",
+       "scaleX": 0.8,
+       "scaleY": 0.04
+      },
+      {
+       "t": 6.356999999999999,
+       "x": "34%",
+       "scaleX": 0.95,
+       "scaleY": 0.85,
+       "ease": "in"
+      },
+      {
+       "t": 6.827,
+       "x": "46%",
+       "scaleX": 1.0,
+       "scaleY": 1.0,
+       "ease": "linear"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/You",
-     "x": "80%",
-     "y": "27.5%",
+     "x": "55.42%",
+     "y": "24.65%",
      "width": 140,
      "height": 230,
      "props": {
@@ -2378,103 +2148,189 @@
       "style": "diver"
      },
      "z": 5,
-     "start": 5.657,
+     "depth": 0.12,
+     "start": 6.007,
      "enter": {
       "type": "popSpring",
-      "at": 5.657,
+      "at": 6.007,
       "duration": 0.5
      },
      "keyframes": [
       {
-       "t": 5.657,
-       "x": "80%",
-       "y": "27.5%",
-       "rotate": 0
+       "t": 6.007,
+       "x": "55.42%",
+       "y": "24.65%",
+       "rotate": 1.34,
+       "ease": "linear"
       },
       {
-       "t": 6.107,
-       "x": "80%",
-       "y": "27.5%",
-       "rotate": 0
+       "t": 6.089,
+       "x": "55.94%",
+       "y": "24.58%",
+       "rotate": 3.03,
+       "ease": "linear"
+      },
+      {
+       "t": 6.171,
+       "x": "57.23%",
+       "y": "24.43%",
+       "rotate": 7.19,
+       "ease": "linear"
+      },
+      {
+       "t": 6.253,
+       "x": "58.75%",
+       "y": "24.31%",
+       "rotate": 12.14,
+       "ease": "linear"
+      },
+      {
+       "t": 6.335,
+       "x": "59.43%",
+       "y": "24.29%",
+       "rotate": 14.39,
+       "ease": "linear"
+      },
+      {
+       "t": 6.417,
+       "x": "59.77%",
+       "y": "24.31%",
+       "rotate": 14.99,
+       "ease": "linear"
+      },
+      {
+       "t": 6.499,
+       "x": "60.51%",
+       "y": "24.42%",
+       "rotate": 16.0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.581,
+       "x": "61.73%",
+       "y": "24.62%",
+       "rotate": 18.18,
+       "ease": "linear"
+      },
+      {
+       "t": 6.663,
+       "x": "63.25%",
+       "y": "24.88%",
+       "rotate": 20.91,
+       "ease": "linear"
+      },
+      {
+       "t": 6.745,
+       "x": "65.56%",
+       "y": "25.19%",
+       "rotate": 25.84,
+       "ease": "linear"
       },
       {
        "t": 6.827,
-       "x": "72%",
-       "y": "40%",
-       "rotate": -80,
-       "ease": "in"
+       "x": "68.71%",
+       "y": "25.56%",
+       "rotate": 33.17,
+       "ease": "linear"
       }
-     ]
+     ],
+     "cue": "You'd"
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "80%",
-     "y": "19%",
+     "x": "55.42%",
+     "y": "17.15%",
      "width": 175,
      "height": 76.8,
      "props": {
       "text": "YOU",
-      "at": 5.657,
+      "at": 6.106999999999999,
       "size": 32,
       "bg": "#f3f6f7",
       "color": "#0b1a22",
       "align": "center",
       "accent": "#0b1a22"
      },
-     "depth": 1,
+     "depth": 0.12,
      "z": 6,
      "keyframes": [
       {
-       "t": 5.657,
-       "x": "80%",
-       "y": "19.00%",
-       "rotate": 0
+       "t": 6.007,
+       "x": "55.42%",
+       "y": "17.15%",
+       "rotate": 0,
+       "ease": "linear"
       },
       {
-       "t": 6.107,
-       "x": "80%",
-       "y": "19.00%",
-       "rotate": 0
+       "t": 6.089,
+       "x": "55.94%",
+       "y": "17.08%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.171,
+       "x": "57.23%",
+       "y": "16.93%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.253,
+       "x": "58.75%",
+       "y": "16.81%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.335,
+       "x": "59.43%",
+       "y": "16.79%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.417,
+       "x": "59.77%",
+       "y": "16.81%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.499,
+       "x": "60.51%",
+       "y": "16.92%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.581,
+       "x": "61.73%",
+       "y": "17.12%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.663,
+       "x": "63.25%",
+       "y": "17.38%",
+       "rotate": 0,
+       "ease": "linear"
+      },
+      {
+       "t": 6.745,
+       "x": "65.56%",
+       "y": "17.69%",
+       "rotate": 0,
+       "ease": "linear"
       },
       {
        "t": 6.827,
-       "x": "72%",
-       "y": "31.50%",
-       "rotate": -80,
-       "ease": "in"
-      }
-     ]
-    },
-    {
-     "type": "svg",
-     "markup": "<svg viewBox=\"0 0 900 300\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><path d=\"M0 300 L0 200 C 200 196 380 170 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128 C 770 112 740 112 724 130 C 760 150 820 180 900 196 L 900 300 Z\" fill=\"#9fd6e3\" opacity=\"0.88\"/><path d=\"M 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128\" stroke=\"#ffffff\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M 300 182 C 380 170 450 150 520 120\" stroke=\"#e8f6fa\" stroke-width=\"6\" fill=\"none\" opacity=\"0.8\"/></svg>",
-     "x": "58%",
-     "y": "30.4%",
-     "width": 960,
-     "height": 320,
-     "z": 4,
-     "start": 5.907,
-     "end": 6.827,
-     "keyframes": [
-      {
-       "t": 5.907,
-       "scaleY": 0.2,
-       "opacity": 0,
-       "x": "44%"
-      },
-      {
-       "t": 6.357,
-       "scaleY": 1,
-       "opacity": 1,
-       "x": "58%",
-       "ease": "out"
-      },
-      {
-       "t": 6.827,
-       "scaleY": 0.6,
-       "opacity": 0.5,
-       "x": "66%"
+       "x": "68.71%",
+       "y": "18.06%",
+       "rotate": 0,
+       "ease": "linear"
       }
      ]
     },
@@ -2497,9 +2353,18 @@
    ],
    "notes": "In Antarctica, a pod charges an ice floe together, and the wave washes the seal straight off. You'd go too.",
    "transitionIn": {
-    "type": "whip",
-    "duration": 0.45,
-    "direction": "left"
+    "type": "iris",
+    "duration": 0.5
+   },
+   "setting": {
+    "kind": "place",
+    "biome": "polar_ice",
+    "place": "Antarctic Peninsula",
+    "depth": 3,
+    "waterline": 0.332,
+    "light": "dusk",
+    "cue": "Antarctica",
+    "at": 0.0
    },
    "camera": {
     "keyframes": [
@@ -2510,40 +2375,22 @@
       "y": "50%"
      },
      {
-      "t": 1.818,
-      "zoom": 1.0213
-     },
-     {
-      "t": 2.038,
-      "zoom": 1.1775,
-      "ease": "backOut"
-     },
-     {
-      "t": 4.868,
-      "zoom": 1.2156
-     },
-     {
-      "t": 5.088,
-      "zoom": 1.0596,
-      "ease": "out"
-     },
-     {
       "t": 6.827,
-      "zoom": 1.08,
+      "zoom": 1.05,
       "x": "50%",
-      "y": "50%"
+      "y": "47%"
      }
     ],
     "shake": [
      {
-      "at": 4.293,
-      "duration": 0.6,
-      "amplitude": 16
+      "at": 4.343,
+      "duration": 0.5,
+      "amplitude": 8
      },
      {
-      "at": 6.357,
-      "duration": 0.4,
-      "amplitude": 10
+      "at": 6.477,
+      "duration": 0.35,
+      "amplitude": 6
      },
      {
       "at": 0,
@@ -2580,79 +2427,95 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 60,
+     "depth": 10,
      "rays": 4,
-     "key": "danger"
+     "surface": 0.225,
+     "sky": "temperate-day",
+     "key": "mid"
     }
    },
    "layers": [
     {
      "type": "component",
+     "name": "explainer/Coast",
+     "role": "dressing",
+     "x": "50%",
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -38,
+     "props": {
+      "waterline": 0.225,
+      "seed": "pl5b",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "cliffs",
+      "lighthouse": true
+     },
+     "start": 0.75
+    },
+    {
+     "type": "component",
      "name": "explainer/Ridge",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
+     "y": "82%",
      "width": 1500,
      "height": 700,
      "depth": 0.3,
-     "z": -12,
+     "z": -38,
      "props": {
-      "seed": "rd5",
+      "seed": "rd5b",
       "plane": "far",
-      "y": 0.82
-     }
+      "y": 0.84,
+      "spires": false
+     },
+     "start": 0.75
     },
     {
      "type": "component",
      "name": "explainer/Kelp",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
+     "y": "70%",
      "width": 1500,
-     "height": 1000,
+     "height": 1100,
      "depth": 0.3,
-     "z": -11,
+     "z": -38,
      "props": {
-      "seed": "fk5",
-      "n": 4,
+      "seed": "fk5b",
+      "n": 7,
       "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd5",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
+      "blade": 0.8,
+      "golden": true
+     },
+     "start": 0.75
     },
     {
      "type": "component",
      "name": "explainer/FishSchool",
      "role": "dressing",
      "x": "50%",
-     "y": "27%",
+     "y": "85.0%",
      "width": 1300,
-     "height": 260,
+     "height": 192,
      "depth": 0.35,
-     "z": -9,
+     "z": -38,
+     "opacity": 0.7,
      "props": {
-      "n": 18,
-      "seed": "s5",
-      "scale": 0.5,
+      "n": 16,
+      "seed": "kf5b",
+      "scale": 0.4,
       "plane": "far",
-      "dir": -1
-     }
+      "dir": -1,
+      "tints": [
+       "bone-0",
+       "sky-3",
+       "ochre-3"
+      ]
+     },
+     "start": 0.75
     },
     {
      "type": "component",
@@ -2663,17 +2526,19 @@
      "width": 320,
      "height": 1500,
      "depth": 0.6,
-     "z": -8,
+     "z": -37,
      "props": {
-      "seed": "mk5",
-      "n": 1,
+      "seed": "mk5b",
+      "n": 2,
       "plane": "mid",
       "height": [
        0.8,
        1.0
       ],
-      "blade": 1.1
-     }
+      "blade": 1.3,
+      "golden": true
+     },
+     "start": 0.75
     },
     {
      "type": "component",
@@ -2684,75 +2549,68 @@
      "width": 320,
      "height": 1400,
      "depth": 0.6,
-     "z": -8,
+     "z": -37,
      "props": {
-      "seed": "mk5b",
+      "seed": "mk5bb",
       "n": 1,
       "plane": "mid",
       "height": [
        0.65,
        0.9
       ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j5",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf5",
-      "plane": "mid",
-      "shelf": 0.35
-     }
+      "blade": 1.2,
+      "golden": true
+     },
+     "start": 0.75
     },
     {
      "type": "component",
      "name": "explainer/Rocks",
      "role": "dressing",
      "x": "50%",
-     "y": "97%",
+     "y": "96%",
      "width": 1300,
-     "height": 260,
+     "height": 300,
      "depth": 0.6,
-     "z": -5,
+     "z": -37,
      "props": {
-      "seed": "rk5",
-      "n": 3,
+      "seed": "rk5b",
+      "n": 4,
       "plane": "mid"
-     }
+     },
+     "start": 0.75
+    },
+    {
+     "type": "component",
+     "name": "explainer/Specks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "60.5%",
+     "width": 1300,
+     "height": 1517,
+     "depth": 0.3,
+     "z": -38,
+     "props": {
+      "n": 60,
+      "seed": "sp5bfar",
+      "tints": [
+       "kelp-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
+     },
+     "start": 0.75
     },
     {
      "type": "component",
@@ -2766,7 +2624,7 @@
      "z": 30,
      "blur": 9,
      "props": {
-      "seed": "ek5",
+      "seed": "ek5b",
       "n": 2,
       "plane": "fore",
       "height": [
@@ -2774,29 +2632,8 @@
        1.0
       ],
       "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-3%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek5b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
+     },
+     "start": 0.75
     },
     {
      "type": "component",
@@ -2829,7 +2666,8 @@
        }
       ],
       "labelSize": 48,
-      "pinSize": 1.4
+      "pinSize": 1.4,
+      "at": -0.5
      },
      "depth": 0,
      "z": 30,
@@ -3103,6 +2941,28 @@
     "duration": 0.6
    },
    "qa_class": "diagram_anatomy",
+   "setting": [
+    {
+     "kind": "map",
+     "place": "South Africa",
+     "cue": "South Africa",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "biome": "kelp_forest",
+     "place": "Gansbaai, South Africa",
+     "depth": 10,
+     "waterline": 0.17,
+     "light": "day",
+     "key": "mid",
+     "coast": {
+      "kind": "cliffs",
+      "lighthouse": true
+     },
+     "at": 1.45
+    }
+   ],
    "camera": {
     "keyframes": [
      {
@@ -3168,7 +3028,7 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "coral-0",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
@@ -3186,26 +3046,48 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 60,
+     "depth": 10,
      "rays": 4,
-     "key": "danger"
+     "surface": 0.225,
+     "sky": "temperate-day",
+     "key": "mid"
     }
    },
    "layers": [
     {
      "type": "component",
+     "name": "explainer/Coast",
+     "role": "dressing",
+     "x": "50%",
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -40,
+     "props": {
+      "waterline": 0.225,
+      "seed": "pl6a",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "cliffs",
+      "lighthouse": true
+     }
+    },
+    {
+     "type": "component",
      "name": "explainer/Ridge",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
+     "y": "82%",
      "width": 1500,
      "height": 700,
      "depth": 0.3,
-     "z": -12,
+     "z": -40,
      "props": {
-      "seed": "rd6",
+      "seed": "rd6a",
       "plane": "far",
-      "y": 0.82
+      "y": 0.84,
+      "spires": false
      }
     },
     {
@@ -3213,33 +3095,17 @@
      "name": "explainer/Kelp",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
+     "y": "70%",
      "width": 1500,
-     "height": 1000,
+     "height": 1100,
      "depth": 0.3,
-     "z": -11,
+     "z": -40,
      "props": {
-      "seed": "fk6",
-      "n": 4,
+      "seed": "fk6a",
+      "n": 7,
       "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd6",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
+      "blade": 0.8,
+      "golden": true
      }
     },
     {
@@ -3247,17 +3113,23 @@
      "name": "explainer/FishSchool",
      "role": "dressing",
      "x": "50%",
-     "y": "58%",
+     "y": "85.0%",
      "width": 1300,
-     "height": 260,
+     "height": 192,
      "depth": 0.35,
-     "z": -9,
+     "z": -40,
+     "opacity": 0.7,
      "props": {
-      "n": 18,
-      "seed": "s6",
-      "scale": 0.5,
+      "n": 16,
+      "seed": "kf6a",
+      "scale": 0.4,
       "plane": "far",
-      "dir": 1
+      "dir": 1,
+      "tints": [
+       "bone-0",
+       "sky-3",
+       "ochre-3"
+      ]
      }
     },
     {
@@ -3269,16 +3141,17 @@
      "width": 320,
      "height": 1500,
      "depth": 0.6,
-     "z": -8,
+     "z": -39,
      "props": {
-      "seed": "mk6",
-      "n": 1,
+      "seed": "mk6a",
+      "n": 2,
       "plane": "mid",
       "height": [
        0.8,
        1.0
       ],
-      "blade": 1.1
+      "blade": 1.3,
+      "golden": true
      }
     },
     {
@@ -3290,58 +3163,17 @@
      "width": 320,
      "height": 1400,
      "depth": 0.6,
-     "z": -8,
+     "z": -39,
      "props": {
-      "seed": "mk6b",
+      "seed": "mk6ab",
       "n": 1,
       "plane": "mid",
       "height": [
        0.65,
        0.9
       ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j6",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf6",
-      "plane": "mid",
-      "shelf": 0.35
+      "blade": 1.2,
+      "golden": true
      }
     },
     {
@@ -3349,15 +3181,46 @@
      "name": "explainer/Rocks",
      "role": "dressing",
      "x": "50%",
-     "y": "97%",
+     "y": "96%",
      "width": 1300,
-     "height": 260,
+     "height": 300,
      "depth": 0.6,
-     "z": -5,
+     "z": -39,
      "props": {
-      "seed": "rk6",
-      "n": 3,
+      "seed": "rk6a",
+      "n": 4,
       "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Specks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "60.5%",
+     "width": 1300,
+     "height": 1517,
+     "depth": 0.3,
+     "z": -40,
+     "props": {
+      "n": 60,
+      "seed": "sp6afar",
+      "tints": [
+       "kelp-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
      }
     },
     {
@@ -3372,7 +3235,7 @@
      "z": 30,
      "blur": 9,
      "props": {
-      "seed": "ek6",
+      "seed": "ek6a",
       "n": 2,
       "plane": "fore",
       "height": [
@@ -3380,28 +3243,6 @@
        1.0
       ],
       "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "103%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek6b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
      }
     },
     {
@@ -3619,6 +3460,20 @@
     }
    ],
    "notes": "The surviving great whites fled for months. If they run, what chance do you have?",
+   "setting": {
+    "kind": "place",
+    "biome": "kelp_forest",
+    "place": "Gansbaai, South Africa",
+    "depth": 10,
+    "waterline": 0.17,
+    "light": "day",
+    "key": "mid",
+    "coast": {
+     "kind": "cliffs",
+     "lighthouse": true
+    },
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -3670,7 +3525,7 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "coral-0",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
@@ -3692,179 +3547,45 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 40,
+     "depth": 8,
      "rays": 7,
-     "key": "mid"
+     "surface": 0.1667,
+     "sky": "temperate-day",
+     "key": "royal"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd7",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk7",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "57.0%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1651,
+     "depth": 0.3,
+     "z": -38,
      "props": {
-      "seed": "pd7",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "27%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s7",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": -1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk7",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
+      "n": 70,
+      "seed": "sp7bfar",
+      "tints": [
+       "tide-4",
+       "bone-1"
       ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk7b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j7",
       "size": [
-       24,
-       44
+       2.0,
+       4.0
       ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf7",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk7",
-      "n": 3,
-      "plane": "mid"
-     }
+     },
+     "start": 2.112
     },
     {
      "type": "component",
@@ -4121,8 +3842,8 @@
     {
      "type": "component",
      "name": "explainer/Orca",
-     "x": "50%",
-     "y": "-10%",
+     "x": "118%",
+     "y": "15%",
      "width": 300,
      "height": 110,
      "props": {
@@ -4131,33 +3852,33 @@
       "timeOffset": 1.6
      },
      "z": 2,
-     "flipX": false,
+     "flipX": true,
      "keyframes": [
       {
        "t": 0,
-       "x": "50%",
-       "y": "-10%"
+       "x": "118%",
+       "y": "15%"
       },
       {
        "t": 2.262,
-       "x": "50%",
-       "y": "-10%"
+       "x": "118%",
+       "y": "15%"
       },
       {
        "t": 3.875,
        "x": "52%",
-       "y": "32%",
+       "y": "30%",
        "ease": "out"
       },
       {
        "t": 4.475,
-       "x": "50.0%",
-       "y": "32%"
+       "x": "54.0%",
+       "y": "30%"
       },
       {
        "t": 8.726,
-       "x": "53.5%",
-       "y": "35.0%"
+       "x": "50.5%",
+       "y": "33.0%"
       }
      ],
      "idle": [
@@ -4198,6 +3919,49 @@
     },
     {
      "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": 128,
+        "lat": -26,
+        "zoom": 3.2
+       },
+       {
+        "t": 1.787,
+        "lon": 120.5,
+        "lat": -31.5,
+        "zoom": 5.0
+       }
+      ],
+      "pins": [
+       {
+        "lon": 119.4,
+        "lat": -34.42,
+        "at": 2.262,
+        "label": "Bremer Bay"
+       }
+      ],
+      "labelSize": 48,
+      "pinSize": 1.4,
+      "at": -0.5
+     },
+     "depth": 0,
+     "z": 30,
+     "end": 2.812,
+     "exit": {
+      "type": "fade",
+      "at": 2.2119999999999997,
+      "duration": 0.6
+     }
+    },
+    {
+     "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
      "y": "13%",
@@ -4212,7 +3976,7 @@
       "accent": "#6fd6e8"
      },
      "depth": 0,
-     "z": 20
+     "z": 31
     },
     {
      "type": "component",
@@ -4312,10 +4076,27 @@
    ],
    "notes": "In twenty nineteen, off Western Australia, a pod brought down the biggest animal on Earth. An adult blue whale, a thousand times your weight.",
    "transitionIn": {
-    "type": "whip",
-    "duration": 0.45,
+    "type": "wipe",
+    "duration": 0.5,
     "direction": "left"
    },
+   "setting": [
+    {
+     "kind": "map",
+     "place": "Western Australia",
+     "cue": "Western Australia",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "biome": "open_ocean",
+     "place": "Bremer Bay, Western Australia",
+     "depth": 8,
+     "waterline": 0.1,
+     "light": "day",
+     "at": 2.812
+    }
+   ],
    "camera": {
     "keyframes": [
      {
@@ -4381,7 +4162,7 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "tide-0",
+    "haze": "tide-1",
     "sweep": 8
    },
    "grade": {
@@ -4395,230 +4176,17 @@
    "duration": 3.52,
    "background": {
     "type": "component",
-    "name": "explainer/Ocean",
+    "name": "explainer/Board",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 500,
-     "bottomColor": "#06121c",
-     "rays": 3,
-     "snow": 50,
-     "key": "deep"
+     "field": "navy",
+     "seed": "bd8",
+     "floor": false,
+     "surface": 0.1042
     }
    },
    "layers": [
-    {
-     "type": "component",
-     "name": "explainer/Ridge",
-     "role": "dressing",
-     "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd8",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk8",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd8",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "58%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s8",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk8",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk8b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j8",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf8",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk8",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-2%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek8",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "103%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek8b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
-    },
     {
      "type": "component",
      "name": "explainer/Orca",
@@ -4720,6 +4288,12 @@
     "type": "fade",
     "duration": 0.6
    },
+   "setting": {
+    "kind": "board",
+    "board": "navy",
+    "surface": 0.025,
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -4761,8 +4335,7 @@
     ]
    },
    "light": {
-    "setup": "lantern",
-    "haze": "ink-3"
+    "setup": "lantern"
    },
    "grade": {
     "brightness": 1.02,
@@ -4775,229 +4348,17 @@
    "duration": 6.89,
    "background": {
     "type": "component",
-    "name": "explainer/Ocean",
+    "name": "explainer/Board",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 450,
-     "bottomColor": "#06121c",
-     "rays": 4,
-     "key": "dusk"
+     "field": "navy",
+     "seed": "bd9",
+     "floor": false,
+     "surface": 0.1042
     }
    },
    "layers": [
-    {
-     "type": "component",
-     "name": "explainer/Ridge",
-     "role": "dressing",
-     "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd9",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk9",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
-     "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
-     "props": {
-      "seed": "pd9",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "27%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s9",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": -1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk9",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk9b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j9",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf9",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk9",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "102%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek9",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-3%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek9b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
-    },
     {
      "type": "component",
      "name": "explainer/Headline",
@@ -5169,24 +4530,25 @@
      "props": {
       "pxPerM": 120
      },
-     "start": 3.283,
+     "start": 5.822,
      "enter": {
       "type": "popSpring",
-      "at": 3.283,
+      "at": 5.822,
       "duration": 0.5
      },
-     "z": 2
+     "z": 2,
+     "cue": "seals"
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "65%",
-     "y": "58%",
+     "x": "62%",
+     "y": "52.6%",
      "width": 400,
      "height": 110.39999999999999,
      "props": {
       "text": "SEAL 1.6 M",
-      "at": 3.433,
+      "at": 5.972,
       "size": 46,
       "align": "center",
       "accent": "#6fd6e8"
@@ -5223,6 +4585,12 @@
     }
    ],
    "notes": "Maybe you taste bad? Nobody's ever proven that. Too small to bother with? You're about the size of the seals they eat.",
+   "setting": {
+    "kind": "board",
+    "board": "navy",
+    "surface": 0.025,
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -5283,7 +4651,6 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "dusk-1",
     "sweep": 8
    },
    "grade": {
@@ -5302,228 +4669,121 @@
    "duration": 7.323,
    "background": {
     "type": "component",
-    "name": "explainer/Ocean",
+    "name": "explainer/Board",
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 450,
-     "bottomColor": "#06121c",
-     "rays": 5,
-     "key": "deep"
+     "field": "navy",
+     "seed": "bd10",
+     "floor": false,
+     "surface": 0.1042
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Ocean",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -58,
+     "start": 1.253,
+     "end": 7.323,
      "props": {
-      "seed": "rd10",
-      "plane": "far",
-      "y": 0.82
+      "depth": 8,
+      "surface": 0.1833,
+      "sky": "temperate-dusk",
+      "rays": 4,
+      "rayStrength": 0.45,
+      "glow": 0.35,
+      "key": "royal"
+     },
+     "setting_rig": true,
+     "enter": {
+      "type": "wipeDown",
+      "at": 1.253,
+      "duration": 0.45
      }
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
+     "name": "explainer/Coast",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -38,
      "props": {
-      "seed": "fk10",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
+      "waterline": 0.1833,
+      "seed": "pl10b",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "hills",
+      "sun": 0.62
+     },
+     "start": 1.253
     },
     {
      "type": "component",
-     "name": "explainer/Pod",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "24%",
+     "y": "58.0%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1613,
+     "depth": 0.3,
+     "z": -38,
      "props": {
-      "seed": "pd10",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
-     }
+      "n": 70,
+      "seed": "sp10bfar",
+      "tints": [
+       "tide-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
+     },
+     "start": 1.253
     },
     {
      "type": "component",
      "name": "explainer/FishSchool",
      "role": "dressing",
      "x": "50%",
-     "y": "58%",
+     "y": "85.0%",
      "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
+     "height": 192,
+     "depth": 0.3,
+     "z": -38,
+     "opacity": 0.55,
      "props": {
-      "n": 18,
-      "seed": "s10",
-      "scale": 0.5,
+      "n": 14,
+      "seed": "bf10b",
+      "scale": 0.32,
       "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk10",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk10b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j10",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "dir": 1,
+      "tints": [
+       "bone-1",
+       "sky-3",
+       "dusk-3"
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf10",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk10",
-      "n": 3,
-      "plane": "mid"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-2%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek10",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "103%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
-     "props": {
-      "seed": "ek10b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
+     },
+     "start": 1.253
     },
     {
      "type": "component",
@@ -5753,6 +5013,27 @@
     }
    ],
    "notes": "The best answer is culture. Orcas eat what their mothers taught them. And no orca mother has ever taught her calf to eat you.",
+   "setting": [
+    {
+     "kind": "board",
+     "board": "navy",
+     "surface": 0.025,
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "biome": "open_ocean",
+     "place": "open ocean at dusk",
+     "depth": 8,
+     "waterline": 0.12,
+     "light": "dusk",
+     "coast": {
+      "kind": "hills"
+     },
+     "at": 1.253,
+     "cue": "mothers"
+    }
+   ],
    "camera": {
     "keyframes": [
      {
@@ -5822,7 +5103,6 @@
    },
    "light": {
     "setup": "lantern",
-    "haze": "ink-3",
     "sweep": 8
    },
    "grade": {
@@ -5845,228 +5125,205 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 4,
-     "skyTop": "#041531",
-     "skyBottom": "#0c284f",
-     "surface": 0.3,
-     "rays": 8,
+     "depth": 8,
+     "rays": 4,
      "snow": 40,
      "glow": 0.3,
-     "key": "tide"
+     "surface": 0.1833,
+     "sky": "temperate-dusk",
+     "rayStrength": 0.45,
+     "key": "royal"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Coast",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -40,
      "props": {
-      "seed": "rd11",
-      "plane": "far",
-      "y": 0.82
-     }
+      "waterline": 0.1833,
+      "seed": "pl11a",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "hills",
+      "sun": 0.62
+     },
+     "end": 1.926
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk11",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "58.0%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1613,
+     "depth": 0.3,
+     "z": -40,
      "props": {
-      "seed": "pd11",
-      "n": 3,
-      "dir": 1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "27%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s11",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": -1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk11",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
+      "n": 70,
+      "seed": "sp11afar",
+      "tints": [
+       "tide-4",
+       "bone-1"
       ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk11b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j11",
       "size": [
-       24,
-       44
+       2.0,
+       4.0
       ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
       ]
-     }
+     },
+     "end": 1.926
     },
     {
      "type": "component",
-     "name": "explainer/Reef",
+     "name": "explainer/Ocean",
      "role": "dressing",
      "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -56,
+     "start": 4.239,
+     "end": 7.926,
      "props": {
-      "seed": "rf11",
-      "plane": "mid",
-      "shelf": 0.35
-     }
+      "depth": 2,
+      "rays": 4,
+      "snow": 40,
+      "glow": 0.3,
+      "sky": "temperate-day",
+      "rayStrength": 0.45,
+      "key": "tide",
+      "surface": 0.3
+     },
+     "setting_rig": true
     },
     {
      "type": "component",
-     "name": "explainer/Rocks",
+     "name": "explainer/Coast",
      "role": "dressing",
      "x": "50%",
-     "y": "97%",
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -36,
+     "props": {
+      "waterline": 0.3,
+      "seed": "pl11c",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "rock"
+     },
+     "start": 4.239
+    },
+    {
+     "type": "component",
+     "name": "explainer/Specks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "65.0%",
      "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
+     "height": 1344,
+     "depth": 0.3,
+     "z": -36,
      "props": {
-      "seed": "rk11",
-      "n": 3,
-      "plane": "mid"
-     }
+      "n": 60,
+      "seed": "sp11cfar",
+      "tints": [
+       "tide-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
+     },
+     "start": 4.239
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "102%",
-     "y": "80%",
-     "width": 420,
-     "height": 1500,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
+     "name": "explainer/Orca",
+     "x": "50%",
+     "y": "40%",
+     "width": 760,
+     "height": 270,
      "props": {
-      "seed": "ek11",
-      "n": 2,
-      "plane": "fore",
-      "height": [
-       0.75,
-       1.0
-      ],
-      "blade": 1.5
-     }
+      "timeOffset": 0.2
+     },
+     "z": 2,
+     "end": 1.426,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "50%"
+      },
+      {
+       "t": 1.426,
+       "x": "128%",
+       "ease": "in"
+      }
+     ],
+     "idle": [
+      {
+       "type": "float",
+       "amount": 8,
+       "speed": 0.3
+      }
+     ]
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "-3%",
-     "y": "84%",
-     "width": 360,
-     "height": 1300,
-     "depth": 1.45,
-     "z": 30,
-     "blur": 9,
+     "name": "explainer/Orca",
+     "x": "72%",
+     "y": "50%",
+     "width": 340,
+     "height": 120,
      "props": {
-      "seed": "ek11b",
-      "n": 1,
-      "plane": "fore",
-      "height": [
-       0.6,
-       0.85
-      ],
-      "blade": 1.6
-     }
+      "timeOffset": 0.9
+     },
+     "z": 2,
+     "end": 1.426,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "72%"
+      },
+      {
+       "t": 1.426,
+       "x": "125%",
+       "ease": "in"
+      }
+     ],
+     "idle": [
+      {
+       "type": "float",
+       "amount": 8,
+       "speed": 0.35
+      }
+     ]
     },
     {
      "type": "component",
@@ -6097,7 +5354,8 @@
       ]
      },
      "depth": 0.12,
-     "z": 1
+     "z": 1,
+     "start": 4.339
     },
     {
      "type": "component",
@@ -6364,7 +5622,15 @@
      "depth": 0,
      "z": 31,
      "start": 1.226,
-     "end": 4.939
+     "end": 4.939,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 8,
+       "speed": 0.3,
+       "phase": -0.3016
+      }
+     ]
     },
     {
      "type": "component",
@@ -6517,11 +5783,43 @@
    ],
    "notes": "Comforting, right? Except since twenty twenty, orcas off Spain and Portugal have been ramming sailboats and snapping off their rudders.",
    "transitionIn": {
-    "type": "whip",
-    "duration": 0.45,
-    "direction": "left"
+    "type": "fade",
+    "duration": 0.3
    },
    "qa_class": "stock_proof",
+   "setting": [
+    {
+     "kind": "place",
+     "biome": "open_ocean",
+     "place": "open ocean at dusk",
+     "depth": 8,
+     "waterline": 0.12,
+     "light": "dusk",
+     "coast": {
+      "kind": "hills"
+     },
+     "at": 0.0
+    },
+    {
+     "kind": "map",
+     "place": "Spain and Portugal",
+     "cue": "Spain",
+     "at": 1.226
+    },
+    {
+     "kind": "place",
+     "biome": "coastal_surface",
+     "place": "Strait of Gibraltar",
+     "depth": 2,
+     "waterline": 0.26,
+     "light": "day",
+     "cue": "sailboats",
+     "coast": {
+      "kind": "rock"
+     },
+     "at": 4.939
+    }
+   ],
    "camera": {
     "keyframes": [
      {
@@ -6610,68 +5908,63 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 4,
-     "skyTop": "#041531",
-     "skyBottom": "#0c284f",
-     "surface": 0.3,
+     "depth": 2,
      "rays": 8,
      "snow": 40,
      "glow": 0.3,
-     "key": "sky",
-     "shiftTo": "warm",
-     "shiftAt": 0.0,
-     "shiftDur": 0.8
+     "surface": 0.3,
+     "sky": "temperate-day",
+     "key": "tide"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Coast",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
+     "y": "50%",
+     "width": 1296,
+     "height": 2304,
+     "depth": 0.12,
+     "z": -40,
      "props": {
-      "seed": "rd12",
-      "plane": "far",
-      "y": 0.82
+      "waterline": 0.3,
+      "seed": "pl12a",
+      "bergs": 3,
+      "brash": 12,
+      "kind": "rock"
      }
     },
     {
      "type": "component",
-     "name": "explainer/Kelp",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk12",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "65.0%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1344,
+     "depth": 0.3,
+     "z": -40,
      "props": {
-      "seed": "pd12",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
+      "n": 60,
+      "seed": "sp12afar",
+      "tints": [
+       "tide-4",
+       "bone-1"
+      ],
+      "size": [
+       2.0,
+       4.0
+      ],
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
+      ]
      }
     },
     {
@@ -6679,117 +5972,23 @@
      "name": "explainer/FishSchool",
      "role": "dressing",
      "x": "50%",
-     "y": "58%",
+     "y": "85.0%",
      "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
+     "height": 192,
+     "depth": 0.3,
+     "z": -40,
+     "opacity": 0.55,
      "props": {
-      "n": 18,
-      "seed": "s12",
-      "scale": 0.5,
+      "n": 14,
+      "seed": "bf12a",
+      "scale": 0.32,
       "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk12",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
-      ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk12b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j12",
-      "size": [
-       24,
-       44
-      ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "dir": 1,
+      "tints": [
+       "bone-1",
+       "sky-3",
+       "dusk-3"
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf12",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk12",
-      "n": 3,
-      "plane": "mid"
      }
     },
     {
@@ -6882,6 +6081,18 @@
     }
    ],
    "notes": "About seven boats have sunk. Nobody knows why.",
+   "setting": {
+    "kind": "place",
+    "biome": "coastal_surface",
+    "place": "Strait of Gibraltar",
+    "depth": 2,
+    "waterline": 0.26,
+    "light": "day",
+    "coast": {
+     "kind": "rock"
+    },
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -6951,181 +6162,43 @@
     "overscan": 1.2,
     "props": {
      "depth": 6,
-     "skyTop": "#041531",
-     "skyBottom": "#0c284f",
-     "surface": 0.12,
      "rays": 8,
      "snow": 60,
-     "key": "tide"
+     "key": "royal",
+     "surface": 0.12,
+     "sky": "temperate-day"
     }
    },
    "layers": [
     {
      "type": "component",
-     "name": "explainer/Ridge",
+     "name": "explainer/Specks",
      "role": "dressing",
      "x": "50%",
-     "y": "80%",
-     "width": 1500,
-     "height": 700,
-     "depth": 0.3,
-     "z": -12,
-     "props": {
-      "seed": "rd0",
-      "plane": "far",
-      "y": 0.82
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "50%",
-     "y": "72%",
-     "width": 1500,
-     "height": 1000,
-     "depth": 0.3,
-     "z": -11,
-     "props": {
-      "seed": "fk0",
-      "n": 4,
-      "plane": "far",
-      "blade": 0.6
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Pod",
-     "role": "dressing",
-     "x": "50%",
-     "y": "24%",
+     "y": "54.2%",
      "width": 1300,
-     "height": 420,
-     "depth": 0.35,
-     "z": -10,
+     "height": 1759,
+     "depth": 0.3,
+     "z": -40,
      "props": {
-      "seed": "pd0",
-      "n": 3,
-      "dir": -1,
-      "plane": "far"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/FishSchool",
-     "role": "dressing",
-     "x": "50%",
-     "y": "58%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.35,
-     "z": -9,
-     "props": {
-      "n": 18,
-      "seed": "s0",
-      "scale": 0.5,
-      "plane": "far",
-      "dir": 1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
-     "height": 1500,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk0",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.8,
-       1.0
+      "n": 70,
+      "seed": "sp13afar",
+      "tints": [
+       "tide-4",
+       "bone-1"
       ],
-      "blade": 1.1
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Kelp",
-     "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
-     "depth": 0.6,
-     "z": -8,
-     "props": {
-      "seed": "mk0b",
-      "n": 1,
-      "plane": "mid",
-      "height": [
-       0.65,
-       0.9
-      ],
-      "blade": 1.0
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Jellies",
-     "role": "dressing",
-     "x": "50%",
-     "y": "30%",
-     "width": 1200,
-     "height": 620,
-     "depth": 0.6,
-     "z": -7,
-     "opacity": 0.9,
-     "props": {
-      "n": 3,
-      "seed": "j0",
       "size": [
-       24,
-       44
+       2.0,
+       4.0
       ],
-      "plane": "mid",
-      "colors": [
-       "amber-3",
-       "coral-3",
-       "tide-3"
+      "opacity": [
+       0.2,
+       0.45
+      ],
+      "drift": [
+       3,
+       -4
       ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Reef",
-     "role": "dressing",
-     "x": "50%",
-     "y": "90%",
-     "width": 1400,
-     "height": 560,
-     "depth": 0.6,
-     "z": -6,
-     "props": {
-      "seed": "rf0",
-      "plane": "mid",
-      "shelf": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Rocks",
-     "role": "dressing",
-     "x": "50%",
-     "y": "97%",
-     "width": 1300,
-     "height": 260,
-     "depth": 0.6,
-     "z": -5,
-     "props": {
-      "seed": "rk0",
-      "n": 3,
-      "plane": "mid"
      }
     },
     {
@@ -7234,6 +6307,15 @@
     }
    ],
    "notes": "Maybe they just haven't decided about you yet. And that matters, because...",
+   "setting": {
+    "kind": "place",
+    "biome": "open_ocean",
+    "place": "open ocean",
+    "depth": 6,
+    "waterline": 0.044,
+    "light": "day",
+    "at": 0.0
+   },
    "camera": {
     "keyframes": [
      {
@@ -8585,6 +7667,15 @@
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
   "audio": "studio/public/episodes/explainer-orca/mix.wav (Spark; rebuild with pipeline.audio.make)",
-  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py",
+  "settings": {
+   "runs": 14,
+   "distinct": 11,
+   "changes": 13,
+   "per_min": 9.22,
+   "max_hold": 11.66,
+   "total": 84.63,
+   "world_share": 0.579
+  }
  }
 }

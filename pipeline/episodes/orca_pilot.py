@@ -29,10 +29,14 @@ CHIP = 32                          # YOU chip size (70 % of the old 44 px), alwa
 ORCA_PERIOD = 1 / (0.6 * HOOK_SPEED)
 MENACE, MENACE_RIM = "#1f4d61", "0 0 3px #3f7f95"   # threat silhouettes: a looming shape on the #06121c water, cold rim   # swim-wave period of the hook orca (marine.tsx orca freq 0.6 * speed)
 
-# a broad swell that rises out of the waterline (y=200 of 300) and curls over toward the right
-WAVE = ('<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 300 L0 200 '
+# a broad swell that rises out of the waterline (y=200 of 300) and curls over toward the right. Only the swell is solid
+# (above the waterline); under it a soft bulge of pushed water fades out (v2 drew a hard rectangle there: frame review F866)
+WAVE = ('<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient '
+        'id="wvb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe9f5" stop-opacity="0.55"/><stop offset="1" '
+        'stop-color="#bfe9f5" stop-opacity="0"/></linearGradient></defs><path d="M 60 200 C 300 204 600 204 860 200 C 760 262 '
+        '520 296 380 296 C 240 296 120 262 60 200 Z" fill="url(#wvb)"/><path d="M0 201 '
         'C 200 196 380 170 520 120 C 600 92 660 70 720 76 C 760 80 790 100 800 128 C 770 112 740 112 724 130 C 760 150 '
-        '820 180 900 196 L 900 300 Z" fill="#9fd6e3" opacity="0.88"/><path d="M 520 120 C 600 92 660 70 720 76 C 760 80 '
+        '820 180 900 196 L 900 201 Z" fill="#d2f1f8"/><path d="M 520 120 C 600 92 660 70 720 76 C 760 80 '
         '790 100 800 128" stroke="#ffffff" stroke-width="14" fill="none" stroke-linecap="round"/>'
         '<path d="M 300 182 C 380 170 450 150 520 120" stroke="#e8f6fa" stroke-width="6" fill="none" opacity="0.8"/></svg>')
 FLASH = '<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><rect width="10" height="10" fill="#fff"/></svg>'
@@ -46,6 +50,28 @@ BAR = lambda label: ('<svg viewBox="0 0 400 70" xmlns="http://www.w3.org/2000/sv
                      '<line x1="392" y1="2" x2="392" y2="26" stroke="#f3f6f7" stroke-width="6"/><text x="200" y="64" '
                      'text-anchor="middle" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="40" '
                      f'fill="#f3f6f7">{label}</text></svg>')
+
+# ---------------------------------------------------------------- settings (pipeline/episodes/settings.py)
+# One setting per place the narration names; abstract facts (scale, speed, the "why not you?" options) on a board.
+# Sources for the places: the facts table in episodes/explainer-orca/script.md.
+OPEN = {"kind": "place", "biome": "open_ocean", "place": "open ocean", "depth": 25, "waterline": None, "light": "day"}
+HOOK_SET = {**OPEN, "depth": 6, "waterline": 0.044}            # hook / bookend: the surface line at the very top
+# boards: plain water fields (art direction experiments/asset-gen/gen/orca_set_01 size, 02 speed lanes, 07 reasons)
+SCALE_BOARD = {"kind": "board", "board": "blue", "surface": 0.03, "rays": 5}
+SPEED_BOARD = {"kind": "board", "board": "blue", "lanes": 3}
+WHY_BOARD = {"kind": "board", "board": "navy", "surface": 0.025}
+# wave-washing: Pitman & Durban 2012 (pack ice); look: experiments/asset-gen/gen/f_antarctic_v3.png (indigo dusk, low sun)
+ANTARCTICA = {"kind": "place", "biome": "polar_ice", "place": "Antarctic Peninsula", "depth": 3, "waterline": 0.332,
+              "light": "dusk", "cue": "Antarctica"}
+GANSBAAI = {"kind": "place", "biome": "kelp_forest", "place": "Gansbaai, South Africa", "depth": 10, "waterline": 0.17,
+            "light": "day", "key": "mid", "coast": {"kind": "cliffs", "lighthouse": True}}   # cold kelp + rocky coast (Towner et al. 2022; orca_set_03)
+MOTHERS = {**OPEN, "place": "open ocean at dusk", "depth": 8, "waterline": 0.12, "light": "dusk",
+           "coast": {"kind": "hills"}}                         # mother and calf (orca_set_05)
+BREMER = {"kind": "place", "biome": "open_ocean", "place": "Bremer Bay, Western Australia", "depth": 8, "waterline": 0.1,
+          "light": "day"}                                      # offshore, at the surface (Totterdell et al. 2022)
+IBERIA = {"kind": "place", "biome": "coastal_surface", "place": "Strait of Gibraltar", "depth": 2, "waterline": 0.26,
+          "light": "day", "cue": "sailboats", "coast": {"kind": "rock"}}   # Strait of Gibraltar (orca_set_06)
+WL4 = ANTARCTICA["waterline"] * 100                            # p04 waterline, % of the frame height
 
 # Iberian orca-boat interaction area (Atlantic Orca Working Group reports, 2020-2025): Strait of Gibraltar, the Gulf of
 # Cadiz, the Portuguese coast and Galicia. Inner edge sits inside the land (zones draw under the coast).
@@ -133,7 +159,7 @@ def cover_headline(at):
 def surface_bg():
     # surface line ~60 px from the top (no dark letterbox band on the cover)
     # key pinned: the hook (frame 0 = cover) and the bookend (last frame = cover) must share one key for the loop
-    return E.ocean(6, surface=0.12, rays=8, snow=60, key="tide")
+    return E.ocean(6, surface=0.12, rays=8, snow=60, key="royal")
 
 
 def deep_bg(depth, **kw):
@@ -166,7 +192,7 @@ def build(S_):
         hook_orca([{"t": 0, "x": HOOK_ORCA[0]}, {"t": s.dur, "x": "50%", "ease": "out"}]),
         *diver(*HOOK_DIVER, PPM0, z=3),
         cover_headline(E.COVER),
-    ], hook))
+    ], hook, setting={**HOOK_SET, "cue": "Wild"}))
     _ease_key(sc[-1], 1.0)
 
     # ------------------------------------------------------------ p01 scale: true-scale male, ~8 M bar, 4 cars, YOU on its back by the fin
@@ -191,7 +217,7 @@ def build(S_):
              allowOverlap=True),
         # left of the figure (QA: the centred chip met the raised arm after the punch-in)
         T("FIN = YOU", fin + 0.2, x="31%", y="13%", size=48, w=420, align="center"),
-    ], cam(s, punches=[at(s, "eight"), four, fin]), _house=house_mark))
+    ], cam(s, punches=[at(s, "eight"), four, fin]), _house=house_mark, setting=SCALE_BOARD))
 
     # ------------------------------------------------------------ p02 speed: bars over the orca, then 50 m chase (both in frame) -> 3 SECONDS
     s = S_[2]
@@ -213,7 +239,7 @@ def build(S_):
             end=reach + 0.3, z=1),
         T("50 M", chase + 0.5, x="55.5%", y="36%", size=48, w=260, align="center", end=reach + 0.3),
         S(3, "seconds to reach you", three, y="55.5%", size=124, duration=0.01),
-    ], cam(s, punches=[at(s, "Olympic"), at(s, "You,"), reach], ), trans=WHIP))
+    ], cam(s, punches=[at(s, "Olympic"), at(s, "You,"), reach], ), trans=WHIP, setting=SPEED_BOARD))
 
     # ------------------------------------------------------------ p03 never just one: head-on orca, then the pod circles YOU
     s = S_[3]
@@ -222,51 +248,32 @@ def build(S_):
     outn = at(s, "outnumbered.", off=-0.1)
     pod = [("18%", "31%", 420, 0.0, 0.0, False), ("82%", "34%", 400, 0.6, 0.12, True), ("16%", "55%", 380, 1.1, 0.24, False),
            ("84%", "57%", 360, 0.3, 0.36, True), ("52%", "24%", 320, 0.8, 0.48, False)]
-    sc.append(E.bw_scene(s, E.ocean(60, rays=6), [
-        # the head-on close-up pushes through and is gone before the pod pops in around it (staging: no pod orca inside it)
-        orca("50%", "38%", 720, 640, pose="head", end=pod_t + 0.2, z=3,
-             keyframes=[{"t": 0, "scale": 0.55, "opacity": 1}, {"t": pod_t, "scale": 1.2, "opacity": 1, "ease": "in"},
-                        {"t": pod_t + 0.2, "scale": 1.5, "opacity": 0, "ease": "in"}]),
-        *[orca(x, y, w, w * 0.36, timeOffset=to, start=pod_t + 0.15 + d, enter=pop(pod_t + 0.15 + d), flipX=fx,
+    sc.append(E.bw_scene(s, E.ocean(25, rays=6), [
+        # the head-on close-up swims on past the camera and out of the bottom of the frame (never an alpha fade:
+        # frame review F645), before the pod arrives around YOU
+        orca("50%", "38%", 720, 640, pose="head", end=pod_t + 0.5, z=3,
+             keyframes=[{"t": 0, "x": "50%", "y": "38%", "scale": 0.55}, {"t": pod_t, "x": "50%", "y": "40%", "scale": 1.2, "ease": "in"},
+                        {"t": pod_t + 0.5, "x": "30%", "y": "95%", "scale": 2.6, "ease": "in"}]),
+        # the pod swims in from both edges (no pop into open water) and circles slowly
+        *[orca(x, y, w, w * 0.36, timeOffset=to, start=pod_t + d, flipX=fx,
                idle=[{"type": "float", "amount": 10, "speed": 0.3}],
-               keyframes=[{"t": pod_t + d, "x": x}, {"t": s.dur, "x": f"{float(x[:-1]) + (-4 if fx else 4)}%"}])
+               keyframes=[{"t": pod_t + d, "x": "128%" if fx else "-28%"}, {"t": pod_t + d + 0.9, "x": x, "ease": "out"},
+                          {"t": s.dur, "x": f"{float(x[:-1]) + (-4 if fx else 4)}%"}])
           for x, y, w, to, d, fx in pod],
-        *diver("50%", "47%", 110, at=pod_t + 0.2),
-        E.headline("HUNTS AS A TEAM", at=team, y="13%", size=72),
-        T("OUTNUMBERED", outn, x="50%", y="40%", size=48, w=560, accent=RED, align="center"),
-    ], cam(s, punches=[at(s, "one."), team, outn])))
+        *diver("50%", "47%", 110, at=pod_t + 0.35),
+        # (no "HUNTS AS A TEAM" headline: it repeated the caption - frame review #10); the count instead
+        T("5 ORCAS · 1 YOU", outn, x="50%", y="13%", size=48, w=640, accent=RED, align="center"),
+    ], cam(s, punches=[at(s, "one."), team, outn]), setting=OPEN))
 
-    # ------------------------------------------------------------ p04 wave-washing: pod in from t=0, wave, seal off; YOU on the ice, washed off too
+    # ------------------------------------------------------------ p04 wave-washing (Antarctic pack ice, overcast day)
+    # The pod lines up under the surface, charges the floe together, and its bow wave breaks over the floe: the floe
+    # heaves and tilts (eased, ~13 frames), the seal slides off and swims away opaque; a second pass washes YOU off.
+    # Floe, riders, waves and orcas share the background plane (depth 0.12) so the waterline stays locked under them.
     s = S_[4]
-    ch = at(s, "charges")
-    wash = at(s, "washes")
-    youd = at(s, "You'd", off=-0.35)
-    pod4 = [("44%", 1.0, 1.0, "12%", "48%"), ("52.6%", 0.8, 0.85, "8%", "38%"), ("61%", 0.8, 0.85, "14%", "29%")]
-    you_kf = [{"t": youd, "x": "80%", "y": "27.5%", "rotate": 0}, {"t": youd + 0.45, "x": "80%", "y": "27.5%", "rotate": 0},
-              {"t": s.dur, "x": "72%", "y": "40%", "rotate": -80, "ease": "in"}]
-    sc.append(E.bw_scene(s, E.ocean(4, surface=0.36, rays=9, snow=40, glow=0.3), [
-        svg(E.ICE, "72%", "36%", 420, 170, z=2),
-        # opacity on every key: core sample() holds the first defined value before it, so a lone final opacity 0 hid the seal
-        svg(E.SEAL, "70%", "31.2%", 240, 96, z=3,
-            keyframes=[{"t": 0, "x": "70%", "y": "31.2%", "rotate": 0, "opacity": 1}, {"t": wash, "x": "70%", "y": "31.2%", "rotate": 0, "opacity": 1},
-                       {"t": wash + 0.7, "x": "58%", "y": "40%", "rotate": -35, "opacity": 1, "ease": "in"},
-                       {"t": wash + 1.4, "x": "52%", "y": "47%", "rotate": -60, "opacity": 0}]),
-        *[orca(x0, y, 460, 160, speed=1.5, timeOffset=i * 0.3, z=1 - i, opacity=op,
-               keyframes=[{"t": 0, "x": x0, "scale": sc_}, {"t": max(0.1, ch - 0.3), "x": f"{float(x0[:-1]) + 6}%", "scale": sc_},
-                          {"t": wash + 0.2, "x": x1, "scale": sc_, "ease": "inOut"}])
-          for i, (y, sc_, op, x0, x1) in enumerate(pod4)],
-        svg(WAVE, "52%", "30.4%", 960, 320, z=4, start=wash - 0.45, end=wash + 1.0,
-            keyframes=[{"t": wash - 0.45, "scaleY": 0.2, "opacity": 0, "x": "36%"}, {"t": wash, "scaleY": 1, "opacity": 1, "x": "50%", "ease": "out"},
-                       {"t": wash + 1.0, "scaleY": 0.3, "opacity": 0, "x": "64%"}]),
-        comp("explainer/You", "80%", "27.5%", 140, 230, {"pxPerM": 120, "pose": "panic", "style": "diver"}, z=5, start=youd, enter=pop(youd),
-             keyframes=you_kf),
-        E.you_chip(youd, "80%", "19%", [{**k, "y": f"{float(k['y'][:-1]) - 8.5:.2f}%"} for k in you_kf], size=CHIP),
-        svg(WAVE, "58%", "30.4%", 960, 320, z=4, start=youd + 0.25, end=s.dur,
-            keyframes=[{"t": youd + 0.25, "scaleY": 0.2, "opacity": 0, "x": "44%"}, {"t": youd + 0.7, "scaleY": 1, "opacity": 1, "x": "58%", "ease": "out"},
-                       {"t": s.dur, "scaleY": 0.6, "opacity": 0.5, "x": "66%"}]),
-        T("ANTARCTICA", 0.15, x="30%", y="12%", size=46, w=520),
-    ], _with_shake(cam(s, punches=[ch, at(s, "seal")], keys=[(0, 1.0, "50%", "50%"), (s.dur, 1.08, "50%", "50%")]),
-                   [(wash, 0.6, 16), (youd + 0.7, 0.4, 10)]), trans=WHIP))
+    sc.append(E.bw_scene(s, E.ocean(3, surface=0.36, rays=4, glow=0.2), p04_layers(s), _with_shake(
+        cam(s, keys=[(0, 1.0, "50%", "50%"), (s.dur, 1.05, "50%", "47%")], locked=[(0.0, s.dur)]),
+        [(at(s, "washes") + 0.05, 0.5, 8), (s.dur - 0.35, 0.35, 6)]),
+        trans={"type": "iris", "duration": 0.5}, setting=ANTARCTICA))
 
     # ------------------------------------------------------------ p05 livers: South Africa pin, shark, liver highlight, two orcas flip it
     s = S_[5]
@@ -279,7 +286,8 @@ def build(S_):
     sc.append(E.bw_scene(s, deep_bg(380, rays=4), [
         comp("explainer/Map", "50%", "50%", 1080, 1920, {
             "views": [{"t": 0, "lon": 22, "lat": -26, "zoom": 4.5}, {"t": shark, "lon": 20, "lat": -32, "zoom": 6.5}],
-            "pins": [{"lon": 19.35, "lat": -34.6, "at": 0.1, "label": "Gansbaai"}], "labelSize": 48, "pinSize": 1.4}, depth=0, z=30, end=shark),
+            "pins": [{"lon": 19.35, "lat": -34.6, "at": 0.1, "label": "Gansbaai"}], "labelSize": 48, "pinSize": 1.4, "at": -0.5},
+            depth=0, z=30, end=shark),
         T("SOUTH AFRICA", 0.1, x="50%", y="13%", size=48, w=800, align="center", end=shark, z=31),
         comp("explainer/GreatWhite", "50%", "40%", 900, 320, {"speed": 0.9}, start=shark, z=2,
              keyframes=[{"t": shark, "scaleY": 1, "rotate": 0, "x": "50%"}, {"t": flip - 0.25, "scaleY": 1, "rotate": 0, "x": "50%"},
@@ -297,7 +305,7 @@ def build(S_):
         orca("50%", "51%", 520, 190, speed=1.6, start=orcas, z=5, flipX=True,
              keyframes=[{"t": orcas, "x": "130%"}, {"t": flip, "x": "76%", "ease": "out"}, {"t": s.dur, "x": "70%", "y": "54%"}]),
     ], _with_shake(cam(s, punches=[shark, liver, flip]), [(flip + 0.1, 0.4, 12)]), trans=DIP, qa_class="diagram_anatomy",
-                        _house={"key": "danger"}))   # colour script: the kill beats re-key to coral sinking to ink
+                        setting=[{"kind": "map", "place": "South Africa", "cue": "South Africa"}, {**GANSBAAI, "at": shark}]))
 
     # ------------------------------------------------------------ p06 great whites flee; YOU alone, a shadow passes
     s = S_[6]
@@ -314,7 +322,7 @@ def build(S_):
              keyframes=[{"t": if_, "x": "110%", "opacity": 0, "scale": 1.0}, {"t": if_ + 0.3, "opacity": 0.95},
                         {"t": s.dur, "x": "60%", "opacity": 0.95, "scale": 1.06}], flipX=True),
         *diver("50%", "46%", 120, at=if_ + 0.05),
-    ], cam(s, punches=[fled, at(s, "you")]), trans=CUT, _house={"key": "danger"}))
+    ], cam(s, punches=[fled, at(s, "you")]), trans=CUT, setting=GANSBAAI))
 
     # ------------------------------------------------------------ p07 blue whale: orcas converge, whale slows and tilts, hit on "brought down"
     s = S_[7]
@@ -323,8 +331,10 @@ def build(S_):
     down = at(s, "down")
     adult = at(s, "adult", off=-0.1)
     thous = at(s, "thousand", off=-0.1)
+    # (the 5th orca comes in under the surface from the right: in v2 it entered from above the waterline)
     targets = [("-22%", "26%", "31%", "34%", False), ("122%", "28%", "71%", "36%", True), ("-26%", "56%", "37%", "47%", False),
-               ("126%", "58%", "63%", "49%", True), ("50%", "-10%", "52%", "32%", False)]
+               ("126%", "58%", "63%", "49%", True), ("118%", "15%", "52%", "30%", True)]
+    map_end = at(s, "pod", off=-0.45)
     sc.append(E.bw_scene(s, E.ocean(40, rays=7), [
         comp("explainer/BlueWhale", "50%", "41%", 1000, 300, {"pxPerM": PPM2, "speed": 0.7}, z=1,
              keyframes=[{"t": 0, "x": "48%", "y": "41%", "rotate": 0}, {"t": down, "x": "52%", "y": "41%", "rotate": 0},
@@ -336,13 +346,19 @@ def build(S_):
                           {"t": s.dur, "x": f"{float(x1[:-1]) + (-1.5 if fx else 1.5)}%", "y": f"{float(y1[:-1]) + 3}%"}])
           for i, (x0, y0, x1, y1, fx) in enumerate(targets)],
         flash(down - 0.04),
-        T("2019 · WESTERN AUSTRALIA", 0.15, y="13%", size=46, w=1040, align="center", out=adult - 0.3),  # gone before the next chip
+        comp("explainer/Map", "50%", "50%", 1080, 1920, {
+            "views": [{"t": 0, "lon": 128, "lat": -26, "zoom": 3.2}, {"t": at(s, "Western"), "lon": 120.5, "lat": -31.5, "zoom": 5.0}],
+            "pins": [{"lon": 119.4, "lat": -34.42, "at": at(s, "Australia,"), "label": "Bremer Bay"}], "labelSize": 48, "pinSize": 1.4,
+            "at": -0.5},   # fully up on the first frame: the place under it never shows before the map names it
+            depth=0, z=30, end=map_end),
+        T("2019 · WESTERN AUSTRALIA", 0.15, y="13%", size=46, w=1040, align="center", out=adult - 0.3, z=31),  # gone before the next chip
         # (no "ADULT BLUE WHALE" tag: it repeated the caption - staging [dup])
         # YOU below the belly, inside the frame (enlarged: true scale would be ~90 px; the label says so)
         *_not_to_scale(diver("58%", "53%", 90, at=thous, chip_dy=3.9)),
         svg(VBRACKET, "58%", "48.4%", 30, 120, start=thous + 0.1, enter={"type": "fade", "at": thous + 0.1, "duration": 0.2}, z=3),
         T("×1,000 YOUR WEIGHT", thous + 0.35, y="13%", size=50, w=900, align="center"),
-    ], _with_shake(cam(s, p=1.22, punches=[podt + 0.6, down, adult]), [(down, 0.6, 18)]), trans=WHIP))
+    ], _with_shake(cam(s, p=1.22, punches=[podt + 0.6, down, adult]), [(down, 0.6, 18)]), trans=WHIP,
+        setting=[{"kind": "map", "place": "Western Australia", "cue": "Western Australia"}, {**BREMER, "at": map_end}]))
 
     # ------------------------------------------------------------ p08 the question: YOU, a shadow behind, WHY NOT YOU?
     s = S_[8]
@@ -352,7 +368,7 @@ def build(S_):
              keyframes=[{"t": 0, "x": "-40%", "opacity": 0.95, "scale": 1.0}, {"t": s.dur, "x": "40%", "opacity": 0.95, "scale": 1.06}]),
         *diver("50%", "46%", 140),
         E.headline("WHY NOT YOU?", at=at(s, "why", off=-0.1), **why_head),
-    ], cam(s, z1=1.08, punches=[at(s, "smart"), at(s, "never")]), trans=DIP))
+    ], cam(s, z1=1.08, punches=[at(s, "smart"), at(s, "never")]), trans=DIP, setting=WHY_BOARD))
 
     # ------------------------------------------------------------ p09 options (hard cut): same WHY NOT YOU? header, orca pass + YOU vs seal shown
     s = S_[9]
@@ -360,6 +376,7 @@ def build(S_):
     too = at(s, "Too", off=-0.1)
     yr = at(s, "You're")
     size_ = at(s, "size", off=-0.25)
+    seals = at(s, "seals", off=-0.15)
     nob = at(s, "Nobody's")
     PPM3 = 120
     # the size rides in the YOU chip itself on "You're" (QA: a separate 1.75 M tag landed on the diver / the list)
@@ -379,11 +396,11 @@ def build(S_):
              keyframes=[{"t": 0, "x": "30%"}, {"t": too, "x": "52%"}, {"t": too + 0.9, "x": "135%", "ease": "in"}]),
         svg(YUCK, "71%", "41%", 230, 98, start=0.3, enter=pop(0.3), end=too, z=4),   # inside the safe area (was cut off at 80 %)
         *you9,
-        comp("explainer/Seal", "72%", "57.5%", 260, 90, {"pxPerM": PPM3}, start=too, enter=pop(too), z=2),
-        # size tags ride with their figures (depth 1, like the YOU chip), so camera punches never slide them onto the diver
-        T("SEAL 1.6 M", too + 0.15, x="65%", y="58%", size=44, w=400, align="center", depth=1),  # clear of the captions under the punch-ins
+        comp("explainer/Seal", "72%", "57.5%", 260, 90, {"pxPerM": PPM3}, start=seals, enter=pop(seals), z=2, cue="seals"),
+        # size tags ride with their figures (depth 1, like the YOU chip); above the seal, never on it (v2 I8)
+        T("SEAL 1.6 M", seals + 0.15, x="62%", y="52.6%", size=44, w=400, align="center", depth=1),
         you175,
-    ], cam(s, punches=[nob, too, yr, size_]), trans=CUT))
+    ], cam(s, punches=[nob, too, yr, size_]), trans=CUT, setting=WHY_BOARD))
 
     # ------------------------------------------------------------ p10 culture: reveal + select, then mother teaches calf; YOU not on the menu
     s = S_[10]
@@ -406,7 +423,8 @@ def build(S_):
         T("MOTHER  +  CALF", orc + 0.05, y="13%", size=48, w=800, align="center", out=no - 0.3),
         *diver("74%", "55%", 100, at=no + 0.1, chip_dy=4.2),   # tag clear of the caption band
         E.headline("NOT ON THE MENU", at=no + 0.1, y="13%", size=76, red="MENU"),
-    ], cam(s, punches=[cul, at(s, "mothers"), no]), trans=CUT))
+    ], cam(s, punches=[cul, at(s, "mothers"), no]), trans=CUT,
+        setting=[WHY_BOARD, {**MOTHERS, "at": round(cul + 0.25, 3), "cue": "mothers"}]))
 
     # ------------------------------------------------------------ p11 twist: sailboat from below; map of the interaction zone; ram + rudder snaps
     s = S_[11]
@@ -423,7 +441,13 @@ def build(S_):
     oy = lambda lat: f"{(960 - (lat - 39.0) * 3 * MZ) / 1920 * 100:.1f}%"
     tops = [(-7.2, 35.0, 10), (-11.2, 43.2, -95)]  # Gulf of Cadiz/Gibraltar + Galicia, open water off the coast
     sc.append(E.bw_scene(s, E.ocean(4, surface=0.3, rays=8, snow=40, glow=0.3), [
-        comp("explainer/Sailboat", "50%", BOAT_Y, 600, 900, boat_props, depth=0.12, z=1),
+        # "Comforting, right?": the mother and calf from p10 swim on out of frame (same place, no new set yet)
+        orca("50%", "40%", 760, 270, timeOffset=0.2, z=2, end=exc + 0.2,
+             keyframes=[{"t": 0, "x": "50%"}, {"t": exc + 0.2, "x": "128%", "ease": "in"}], idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
+        orca("72%", "50%", 340, 120, timeOffset=0.9, z=2, end=exc + 0.2,
+             keyframes=[{"t": 0, "x": "72%"}, {"t": exc + 0.2, "x": "125%", "ease": "in"}], idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
+        # the boat is there only once the map has named the place (it appears under the map's fade-out)
+        comp("explainer/Sailboat", "50%", BOAT_Y, 600, 900, boat_props, depth=0.12, z=1, start=round(ram - 0.6, 3)),
         orca("16%", "33%", 340, 120, speed=1.8, z=2, depth=0.12, start=ram - 0.3,
              keyframes=[{"t": ram - 0.3, "x": "-30%"}, {"t": hit1, "x": "14%", "ease": "in"}, {"t": hit1 + 0.3, "x": "8%", "ease": "out"},
                         {"t": snap, "x": "15%", "ease": "in"}, {"t": s.dur, "x": "4%", "y": "36%", "ease": "out"}]),
@@ -441,7 +465,10 @@ def build(S_):
         *[orca(ox(lon), oy(lat), 180, 68, pose="top", speed=1.4, timeOffset=i * 0.4, z=32, depth=0, start=spain - 0.3 + i * 0.15,
                end=ram, enter=pop(spain - 0.3 + i * 0.15), rotate=r, shadow="0 0 5px #ffffff")
           for i, (lon, lat, r) in enumerate(tops)],
-    ], _with_shake(cam(s, punches=[exc, spain, hit1]), [(hit1, 0.45, 18), (snap, 0.5, 14)]), trans=WHIP, qa_class="stock_proof"))
+    ], _with_shake(cam(s, punches=[exc, spain, hit1]), [(hit1, 0.45, 18), (snap, 0.5, 14)]), trans={"type": "fade", "duration": 0.3},
+        qa_class="stock_proof", setting=[dict(MOTHERS),
+                                         {"kind": "map", "place": "Spain and Portugal", "cue": "Spain", "at": exc},
+                                         {**IBERIA, "at": ram}]))
 
     # ------------------------------------------------------------ p12 boat lists and sinks; ~7 BOATS SUNK in at the cut, held to the end
     s = S_[12]
@@ -451,7 +478,8 @@ def build(S_):
              "sink": [{"t": 0, "v": 0}, {"t": s.dur, "v": 150, "ease": "in"}]}, depth=0.12, z=1),
         orca("40%", "40%", 340, 120, speed=1.0, z=2, depth=0.12, keyframes=[{"t": 0, "x": "14%"}, {"t": s.dur, "x": "42%"}]),
         S(7, "boats sunk since 2020", 0.05, y="50%", size=130, prefix="~", **{"from": 4}, duration=0.7),
-    ], _with_shake(cam(s, punches=[at(s, "sunk."), at(s, "Nobody")]), [(0.1, 0.4, 10)]), trans=CUT))
+    ], _with_shake(cam(s, punches=[at(s, "sunk."), at(s, "Nobody")]), [(0.1, 0.4, 10)]), trans=CUT,
+        setting={k: v for k, v in IBERIA.items() if k != "cue"}, _house={"proof": False}))
 
     # ------------------------------------------------------------ p13 bookend: the orca closes on the same YOU (pushed in) and lands on frame 0
     s = S_[13]
@@ -462,7 +490,7 @@ def build(S_):
         hook_orca([{"t": 0, "x": "18%"}, {"t": s.dur, "x": HOOK_ORCA[0], "ease": "out"}], timeOffset=round(toff, 3)),
         *diver(*HOOK_DIVER, PPM0, z=3),
         cover_headline(because),
-    ], cam(s, keys=keys, locked=[(0.0, s.dur)]), trans=CUT))
+    ], cam(s, keys=keys, locked=[(0.0, s.dur)]), trans=CUT, setting=HOOK_SET))
     return sc
 
 
@@ -480,3 +508,105 @@ def fade(at, d=0.4):
 def _with_shake(c, shakes):
     c.shake = [{"at": round(a, 3), "duration": d, "amplitude": amp} for a, d, amp in shakes]
     return c
+
+
+# ---------------------------------------------------------------- p04: wave-washing choreography
+
+FLOE_W, FLOE_H, FLOE_WL = 660, 360, 0.42      # IceFloe layer box and its waterline (fraction of the box height)
+FLOE_X = 0.55 * 1080                          # the seal's slide off the right edge stays inside the frame
+
+
+def _kf_at(keys, prop, t):
+    """value of an eased keyframe track at t (same easing as the core / staging sampler)"""
+    from .staging import sample
+    return sample(keys, prop, t, keys[0][prop])
+
+
+def _ride(floe, t_list, local, extra_rot=lambda t: 0.0):
+    """world keyframes (x %, y %, rotate) for a rider at floe-local offset local(t) = (dx, dy) px, densely sampled so
+    it sits exactly on the tilting, heaving floe"""
+    import math
+    out = []
+    for t in t_list:
+        th = math.radians(_kf_at(floe, "rotate", t))
+        cy = _kf_at(floe, "y_px", t)
+        dx, dy = local(t)
+        x = FLOE_X + dx * math.cos(th) - dy * math.sin(th)
+        y = cy + dx * math.sin(th) + dy * math.cos(th)
+        out.append({"t": round(t, 3), "x": f"{x / 10.8:.2f}%", "y": f"{y / 19.2:.2f}%",
+                    "rotate": round(_kf_at(floe, "rotate", t) + extra_rot(t), 2), "ease": "linear"})
+    return out
+
+
+def _span(a, b, step=0.1):
+    n = max(1, int(round((b - a) / step)))
+    return [a + (b - a) * i / n for i in range(n + 1)]
+
+
+def p04_layers(s):
+    wl = WL4 / 100 * H                                    # waterline, px
+    cy0 = wl - FLOE_WL * FLOE_H + FLOE_H / 2              # floe layer centre when level
+    ch, wave, wash, seal_w = s.at("charges"), s.at("wave"), s.at("washes"), s.at("seal")
+    youd = s.at("You'd")
+    dur = s.dur
+    # floe: slow swell bob, then the wave lifts its left edge (clockwise tilt), it settles, the second pass tilts it again
+    floe = [{"t": 0, "rotate": 0.0, "y_px": cy0}, {"t": 1.6, "rotate": -1.2, "y_px": cy0 - 3, "ease": "inOut"},
+            {"t": 3.2, "rotate": 1.0, "y_px": cy0 + 3, "ease": "inOut"}, {"t": wash - 0.15, "rotate": 0.0, "y_px": cy0, "ease": "inOut"},
+            {"t": wash + 0.3, "rotate": 13.0, "y_px": cy0 - 16, "ease": "inOut"}, {"t": wash + 0.95, "rotate": 9.0, "y_px": cy0 - 8, "ease": "inOut"},
+            {"t": youd - 0.1, "rotate": 1.0, "y_px": cy0, "ease": "out"}, {"t": youd + 0.45, "rotate": 15.0, "y_px": cy0 - 14, "ease": "inOut"},
+            {"t": dur, "rotate": 12.0, "y_px": cy0 - 10, "ease": "inOut"}]
+    floe_layer = comp("explainer/IceFloe", f"{FLOE_X / 10.8:.2f}%", f"{cy0 / 19.2:.2f}%", FLOE_W, FLOE_H,
+                      {"seed": "floe4", "waterline": FLOE_WL}, depth=0.12, z=2,
+                      keyframes=[{"t": k["t"], "rotate": k["rotate"], "y": f"{k['y_px'] / 19.2:.2f}%", **({"ease": k["ease"]} if "ease" in k else {})}
+                                 for k in floe])
+    # seal: lies on the top (local dy -85: its body on the snow), slides off the low right edge as the floe tilts,
+    # drops into the water nose first and swims away out of frame - opaque the whole time
+    top_dy = -(FLOE_H / 2 - (FLOE_WL - 0.17) * FLOE_H - 0.015 * FLOE_H)   # the snow surface riders stand on (IceFloe)
+    SEAL_DY, SEAL_W = top_dy - 18, 220
+    off0, off1 = wash + 0.35, wash + 0.95
+    slide = lambda t: (-60 + 420 * min(1.0, max(0.0, (t - off0) / (off1 - off0))) ** 2, SEAL_DY)
+    ride = _ride(floe, _span(0, off1), slide)
+    x_off = float(ride[-1]["x"][:-1])
+    seal_kf = ride + [{"t": round(off1 + 0.3, 3), "x": f"{x_off + 6:.2f}%", "y": f"{WL4 + 3.5:.2f}%", "rotate": 38, "ease": "in"},
+                      {"t": round(off1 + 1.2, 3), "x": "112%", "y": f"{WL4 + 9:.2f}%", "rotate": 8, "ease": "inOut"}]
+    seal = comp("explainer/Seal", ride[0]["x"], ride[0]["y"], SEAL_W, 54, {}, depth=0.12, z=3, end=round(off1 + 1.25, 3),
+                keyframes=seal_kf)
+    # the pod: line abreast under the surface, charging the floe (accelerating), diving under it, out of frame;
+    # a second pass from the left raises the wave that takes YOU
+    pod, pass2 = [], []
+    for i, (dx, dy, to) in enumerate([(0.0, 0.0, 0.0), (-14.0, -2.2, 0.35), (-8.0, 6.5, 0.7)]):   # line abreast, spread
+        kf = [{"t": 0, "x": f"{-16 + dx:.1f}%", "y": f"{46 + dy:.1f}%"},
+              {"t": ch, "x": f"{12 + dx:.1f}%", "y": f"{40.5 + dy:.1f}%", "ease": "inOut"},
+              {"t": wave, "x": f"{42 + dx:.1f}%", "y": f"{37 + dy:.1f}%", "ease": "in"},
+              {"t": wash + 0.25, "x": f"{76 + dx:.1f}%", "y": f"{47 + dy:.1f}%", "ease": "out"},
+              {"t": wash + 1.0, "x": f"{122 + dx:.1f}%", "y": f"{52 + dy:.1f}%", "ease": "in"}]
+        pod.append(orca("50%", "50%", 380, 140, speed=1.6, timeOffset=to, z=1, depth=0.12, end=round(wash + 1.05, 3), keyframes=kf))
+        if i < 2:
+            k2 = [{"t": youd - 0.5, "x": f"{-22 + dx:.1f}%", "y": f"{41 + dy:.1f}%"},
+                  {"t": youd + 0.4, "x": f"{40 + dx:.1f}%", "y": f"{37.5 + dy:.1f}%", "ease": "in"},
+                  {"t": dur, "x": f"{62 + dx:.1f}%", "y": f"{44 + dy:.1f}%", "ease": "out"}]
+            pass2.append(orca("50%", "50%", 380, 140, speed=1.8, timeOffset=to + 0.2, z=1, depth=0.12, start=round(youd - 0.5, 3), keyframes=k2))
+    # bow waves: rise out of the waterline ahead of the charging pod (anchored on the waterline), break across the
+    # floe, sink back flat - scale only, never an alpha fade
+    def wave_layer(keys, start, end):
+        return svg(WAVE, "30%", f"{WL4:.2f}%", 760, 300, depth=0.12, z=4, start=round(start, 3), end=round(end, 3),
+                   anchorY=round(200 / 300, 4), keyframes=keys)
+    w1 = wave_layer([{"t": ch + 0.6, "x": "16%", "scaleX": 0.8, "scaleY": 0.04},
+                     {"t": wave + 0.05, "x": "30%", "scaleX": 0.95, "scaleY": 0.7, "ease": "in"},
+                     {"t": wash + 0.1, "x": "44%", "scaleX": 1.0, "scaleY": 1.0, "ease": "linear"},
+                     {"t": wash + 0.75, "x": "62%", "scaleX": 1.0, "scaleY": 0.55, "ease": "linear"},
+                     {"t": wash + 1.45, "x": "80%", "scaleX": 1.0, "scaleY": 0.03, "ease": "out"}], ch + 0.6, wash + 1.5)
+    w2 = wave_layer([{"t": youd - 0.3, "x": "14%", "scaleX": 0.8, "scaleY": 0.04},
+                     {"t": youd + 0.35, "x": "34%", "scaleX": 0.95, "scaleY": 0.85, "ease": "in"},
+                     {"t": dur, "x": "46%", "scaleX": 1.0, "scaleY": 1.0, "ease": "linear"}], youd - 0.3, dur)
+    # YOU: on the floe exactly on "You'd" (not before), washed off by the second wave, opaque
+    YOU_DY = top_dy - 108
+    you_slide = lambda t: (0 + 180 * min(1.0, max(0.0, (t - youd - 0.35) / 0.6)) ** 2, YOU_DY)
+    you_kf = _ride(floe, _span(youd, dur, 0.08), you_slide, lambda t: 30 * min(1.0, max(0.0, (t - youd - 0.4) / 0.5)) ** 2)
+    you = comp("explainer/You", you_kf[0]["x"], you_kf[0]["y"], 140, 230, {"pxPerM": 120, "pose": "panic", "style": "diver"},
+               z=5, depth=0.12, start=youd, enter=pop(youd), keyframes=you_kf, cue="You'd")
+    chip_kf = [{**k, "y": f"{float(k['y'][:-1]) - 7.5:.2f}%", "rotate": 0} for k in you_kf]
+    chip = E.you_chip(youd + 0.1, you_kf[0]["x"], chip_kf[0]["y"], chip_kf, size=CHIP)
+    chip["depth"] = 0.12
+    return [floe_layer, seal, *pod, *pass2, w1, w2, you, chip,
+            T("ANTARCTICA", 0.15, x="30%", y="12%", size=46, w=520)]
