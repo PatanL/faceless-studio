@@ -34,6 +34,11 @@ def glitch_frames(path, ratio=2.5, floor=3.0):
     for i in range(1, len(small) - 1):
         if per[i] - max(per[i - 1], per[i + 1]) > 0.2:
             out.append(i)
+    # two mosaic frames in a row (story-vasa v14, frames 577-578 inside a whip): each one's neighbour is the other
+    for i in range(1, len(small) - 2):
+        edge = max(per[i - 1], per[i + 2])
+        if per[i] - edge > 0.2 and per[i + 1] - edge > 0.2:
+            out += [i, i + 1]
     if len(small) > 2:   # frame 0 has no left neighbour: compare it with frames 1 and 2
         a0 = np.abs(small[0] - small[1]).mean(); c0 = np.abs(small[1] - small[2]).mean()
         if a0 > floor and a0 > ratio * max(c0, 1.0):
