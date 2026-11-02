@@ -1,0 +1,381 @@
+{
+ "_doc": "explainer-p1 scene settings (pipeline/episodes/settings.py schema), one entry per narration paragraph = scene. Paste each 'setting' into storyboard scene s<n>. 'plate' / 'look' are art-plan keys for the builder (not settings fields): strip them or keep them under scene._house. Anchors are resolved against the TTS word timings by settings.fill(). See art_plan.md.",
+ "scenes": [
+  {
+   "id": "s1",
+   "text": "The ocean's scariest hunter was once as long as your arm.",
+   "setting": {
+    "kind": "place",
+    "biome": "prehistoric_shallows",
+    "place": "Cambrian sea, 508 million years ago",
+    "depth": 2,
+    "waterline": 0.385,
+    "light": "day",
+    "key": "tide",
+    "plate": "cambrian_split"
+   }
+  },
+  {
+   "id": "s2",
+   "text": "Then the ocean grew armour, then jaws, then teeth the size of your hand.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Cambrian sea, 508 million years ago",
+     "depth": 2,
+     "waterline": 0.385,
+     "light": "day",
+     "key": "tide",
+     "plate": "cambrian_split"
+    },
+    {
+     "at": "@armour",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Late Devonian sea",
+     "depth": 20,
+     "waterline": null,
+     "light": "overcast",
+     "key": "kelp",
+     "cue": "armour",
+     "plate": "devonian",
+     "look": "macro: plate at 1.35x behind the head shield"
+    },
+    {
+     "at": "@jaws",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Late Cretaceous sea",
+     "depth": 3,
+     "waterline": null,
+     "light": "dusk",
+     "key": "dusk",
+     "cue": "jaws",
+     "plate": null,
+     "look": "code: Ocean dusk key, warm surface glow at the top, jaws from below"
+    },
+    {
+     "at": "@teeth",
+     "kind": "board",
+     "board": "ink",
+     "cue": "teeth",
+     "look": "code: museum board, tooth beside a hand"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "text": "Drop into each ocean. No boat, just you, treading water. How long until something eats you?",
+   "setting": {
+    "kind": "place",
+    "biome": "prehistoric_shallows",
+    "place": "Cambrian sea, 508 million years ago",
+    "depth": 2,
+    "waterline": 0.385,
+    "light": "day",
+    "key": "tide",
+    "plate": "cambrian_split",
+    "look": "wide: camera pulled back to 1.0 inside the overscan"
+   }
+  },
+  {
+   "id": "s4",
+   "text": "Half a billion years ago? Nothing can. It probably couldn't even crack a shell. You last until your arms give out.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Cambrian sea, 508 million years ago",
+     "depth": 4,
+     "waterline": null,
+     "light": "day",
+     "key": "tide",
+     "plate": "cambrian_under",
+     "look": "dive: 0.35 s tilt down inside the split plate, then a bubble-curtain wipe"
+    },
+    {
+     "at": "@You",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Cambrian sea, 508 million years ago",
+     "depth": 2,
+     "waterline": 0.385,
+     "light": "day",
+     "key": "tide",
+     "plate": "cambrian_split",
+     "look": "rise: bubble wipe upward, back to the surface"
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "text": "Armour. Dunkleosteus, a fish as long as a car, with bone blades instead of teeth, built to crack other armoured fish. You're not armoured. Minutes.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Late Devonian sea, 360 million years ago",
+     "depth": 20,
+     "waterline": null,
+     "light": "overcast",
+     "key": "kelp",
+     "cue": "armour",
+     "plate": "devonian"
+    },
+    {
+     "at": "@as",
+     "kind": "analogy",
+     "biome": "prehistoric_shallows",
+     "place": "analogy",
+     "depth": 20,
+     "waterline": null,
+     "light": "overcast",
+     "plate": "devonian",
+     "look": "ghost car silhouette beside the fish, same plate"
+    },
+    {
+     "at": "@bone",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Late Devonian sea, 360 million years ago",
+     "depth": 20,
+     "waterline": null,
+     "light": "overcast",
+     "key": "kelp",
+     "plate": "devonian"
+    },
+    {
+     "at": "@You're",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Late Devonian sea, under you",
+     "depth": 6,
+     "waterline": null,
+     "light": "overcast",
+     "key": "mid",
+     "plate": "devonian",
+     "look": "CUT: camera looks up, plate shifted so its surface band is at the top; You's legs dangle into frame"
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "text": "Jaws. Mosasaurus, a sea lizard as long as a bus. It breathes air, so it keeps surfacing, right where you're treading water. Seconds.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Late Cretaceous sea at sunset, 70 million years ago",
+     "depth": 2,
+     "waterline": 0.325,
+     "light": "dusk",
+     "key": "dusk",
+     "cue": "jaws",
+     "plate": "cretaceous_dusk"
+    },
+    {
+     "at": "@as",
+     "kind": "analogy",
+     "biome": "prehistoric_open",
+     "place": "analogy",
+     "depth": 2,
+     "waterline": 0.325,
+     "light": "dusk",
+     "plate": "cretaceous_dusk",
+     "look": "ghost bus silhouette under the mosasaur, same plate"
+    },
+    {
+     "at": "@It",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Late Cretaceous sea at sunset, 70 million years ago",
+     "depth": 2,
+     "waterline": 0.325,
+     "light": "dusk",
+     "key": "dusk",
+     "plate": "cretaceous_dusk"
+    },
+    {
+     "at": "@Seconds",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Late Cretaceous sea, below",
+     "depth": 12,
+     "waterline": null,
+     "light": "night",
+     "key": "deep",
+     "plate": null,
+     "look": "CUT, code: one violet-indigo field, closing jaws as a silhouette, no rays"
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "text": "Teeth. Megalodon, longer than a bus. But it hunted whales. Would it even bother with a crumb like you?",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Miocene open ocean, 15 million years ago",
+     "depth": 40,
+     "waterline": null,
+     "light": "day",
+     "key": "royal",
+     "cue": "teeth",
+     "plate": "miocene"
+    },
+    {
+     "at": "@longer",
+     "kind": "analogy",
+     "biome": "prehistoric_open",
+     "place": "analogy",
+     "depth": 40,
+     "waterline": null,
+     "light": "day",
+     "plate": "miocene",
+     "look": "the same ghost bus, now shorter than the shark"
+    },
+    {
+     "at": "@But",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Miocene open ocean, 15 million years ago",
+     "depth": 40,
+     "waterline": null,
+     "light": "day",
+     "key": "royal",
+     "plate": "miocene"
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "text": "Nobody really knows. Hours, maybe.",
+   "setting": {
+    "kind": "place",
+    "biome": "prehistoric_open",
+    "place": "Miocene open ocean, 15 million years ago",
+    "depth": 40,
+    "waterline": null,
+    "light": "day",
+    "key": "royal",
+    "plate": "miocene",
+    "look": "wide"
+   }
+  },
+  {
+   "id": "s9",
+   "text": "Now jump to today. Sharks kill about six people a year. You'd last until your arms give out.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Miocene open ocean, 15 million years ago",
+     "depth": 40,
+     "waterline": null,
+     "light": "day",
+     "key": "royal",
+     "plate": "miocene",
+     "look": "scrubber races; plate whips right with motion streaks"
+    },
+    {
+     "at": "@today",
+     "kind": "place",
+     "biome": "coastal_surface",
+     "place": "a beach today",
+     "depth": 2,
+     "waterline": 0.34,
+     "light": "day",
+     "key": "sky",
+     "cue": "today",
+     "plate": "today_coast"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "text": "Meanwhile, we kill about a hundred million sharks a year.",
+   "setting": {
+    "kind": "place",
+    "biome": "coastal_surface",
+    "place": "a beach today, from below",
+    "depth": 12,
+    "waterline": null,
+    "light": "day",
+    "key": "mid",
+    "plate": "today_below",
+    "look": "CUT: shark's view up at a code fishing hull and longline"
+   }
+  },
+  {
+   "id": "s11",
+   "text": "Today, the ocean's scariest hunter is you.",
+   "setting": [
+    {
+     "at": 0,
+     "kind": "place",
+     "biome": "coastal_surface",
+     "place": "a beach today",
+     "depth": 2,
+     "waterline": 0.34,
+     "light": "day",
+     "key": "sky",
+     "plate": "today_coast"
+    },
+    {
+     "at": "@hunter",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Miocene open ocean, 15 million years ago",
+     "depth": 40,
+     "waterline": null,
+     "light": "day",
+     "key": "royal",
+     "plate": "miocene",
+     "look": "rewind: ~0.18 s per era while \"hunter is\" is spoken, scrubber handle sliding left; YOU pill already popped on \"scariest\""
+    },
+    {
+     "at": "@hunter+0.18",
+     "kind": "place",
+     "biome": "prehistoric_open",
+     "place": "Late Cretaceous sea at sunset, 70 million years ago",
+     "depth": 2,
+     "waterline": 0.325,
+     "light": "dusk",
+     "key": "dusk",
+     "plate": "cretaceous_dusk"
+    },
+    {
+     "at": "@hunter+0.36",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Late Devonian sea, 360 million years ago",
+     "depth": 20,
+     "waterline": null,
+     "light": "overcast",
+     "key": "kelp",
+     "plate": "devonian"
+    },
+    {
+     "at": "@you",
+     "kind": "place",
+     "biome": "prehistoric_shallows",
+     "place": "Cambrian sea, 508 million years ago",
+     "depth": 2,
+     "waterline": 0.385,
+     "light": "day",
+     "key": "tide",
+     "plate": "cambrian_split",
+     "look": "lands on the exact frame-0 composition"
+    }
+   ]
+  }
+ ]
+}

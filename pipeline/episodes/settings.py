@@ -78,6 +78,14 @@ BIOMES: dict[str, dict] = {
 for _b in ("home", "town", "city", "mountains", "sky", "space"):
     BIOMES[_b] = {"water": False, "floor": False, "depth": (0, 0), "keys": (), "dressing": set(), "ambient": set(),
                   "lights": LIGHTS}
+# prehistoric seas (explainer-p1 era ladder; research/pipeline/explainer-p1/art_plan.md): the era lives in `place` and
+# the plate. No modern dressing (reef coral, kelp, fish schools and jellies would be anachronisms): the plate is the set
+BIOMES["prehistoric_shallows"] = {"water": True, "floor": True, "depth": (0, 60), "keys": ("tide", "sky", "kelp", "mid"),
+                                  "dressing": {"Rocks", "Seabed", "Specks", "Ridge"}, "ambient": set(),
+                                  "lights": ("day", "overcast", "dusk")}
+BIOMES["prehistoric_open"] = {"water": True, "floor": False, "depth": (0, 200),
+                              "keys": ("royal", "tide", "mid", "dusk", "sky"), "dressing": {"Specks"}, "ambient": set(),
+                              "lights": LIGHTS}
 # water boards (blue, navy) are the owner's pick for the orca look (experiments/asset-gen/gen/orca_set_01/02/07)
 BOARD_FIELDS = ("navy", "blue", "cyan", "violet", "ink", "dusk", "kelp", "amber", "coral", "sky")
 
@@ -117,6 +125,15 @@ HABITAT: dict[str, dict] = {
 }
 # people and vehicles on land (lane C what-if Shorts)
 HABITAT["you"]["biomes"] |= {"home", "town", "city", "mountains", "sky", "space"}
+# prehistoric seas (explainer-p1): YOU is dropped into each era; extinct species live only there
+HABITAT["you"]["biomes"] |= {"prehistoric_shallows", "prehistoric_open"}
+HABITAT.update({
+    "anomalocaris": {"biomes": {"prehistoric_shallows", "prehistoric_open"}, "depth": (0, 200)},
+    "trilobite": {"biomes": {"prehistoric_shallows"}, "depth": (0, 200)},
+    "dunkleosteus": {"biomes": {"prehistoric_shallows", "prehistoric_open"}, "depth": (0, 200)},
+    "mosasaurus": {"biomes": {"prehistoric_shallows", "prehistoric_open"}, "depth": (0, 200)},
+    "megalodon": {"biomes": {"prehistoric_open"}, "depth": (0, 200)},
+})
 for _sp in ("car", "bus"):
     HABITAT[_sp]["biomes"] = HABITAT[_sp]["biomes"] | {"town", "city"}
 # kit pieces that only exist in one kind of place
