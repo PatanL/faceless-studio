@@ -14,7 +14,7 @@ write_var() {  # $1 = name, $2 = value (both via stdin to the remote side, never
   printf '%s\n%s\n' "$1" "$2" | ssh "$HOST" 'python3 -c "
 import os, re, sys
 name = sys.stdin.readline().rstrip(\"\n\")
-value = sys.stdin.readline().rstrip(\"\n\")
+value = sys.stdin.readline().rstrip(\"\n\").strip()
 if not re.fullmatch(r\"[A-Z][A-Z0-9_]*\", name) or \"\n\" in value:
     sys.exit(\"bad name or value\")
 p = os.path.expanduser(\"~/studio/.env\")
@@ -66,6 +66,11 @@ fi
 
 echo "Buffer setup. Get the key at Buffer > Settings > API (as the organization owner)."
 ask BUFFER_API_KEY 1
+if ! ssh "$HOST" 'grep -q "^BUFFER_API_KEY=." ~/studio/.env 2>/dev/null'; then
+  echo "BUFFER_API_KEY is not saved (the hidden paste may not have registered). Run this script again and paste the key"
+  echo "at the first, hidden prompt, then press Enter. Don't paste it at any of the later, visible prompts."
+  exit 1
+fi
 echo
 echo "Your Buffer organization and channels (from the Spark):"
 if ! ssh "$HOST" 'cd ~/studio/app && source scripts/spark_env.sh >/dev/null 2>&1; ~/studio/.venv/bin/python -m pipeline.publish.buffer channels'; then
