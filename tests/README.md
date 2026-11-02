@@ -18,6 +18,8 @@ the test guards the fix. Tests whose names have no `F` id are plain regression g
 | `test_reformat_camera.py` | F16 (`reformat.camera16`) | python3 only |
 | `test_spark_scripts.py` | F07, F08/F27, F25, F26, F28, F29 (`spark_sync.sh`, `spark_render.sh`) | bash |
 | `test_mix.py` | F14, F15 (`pipeline/audio/mix.py`) | numpy, scipy, soundfile, pyloudnorm: skipped on the Mac, runs in the Spark venv |
+| `test_house_style.py` | house pass (`pipeline/episodes/house.py`) and staging checker (`pipeline/episodes/staging.py`); every built house-style explainer passes the checker | python3 only |
+| `house_ts.test.mjs` | YOU-pop floor (never < 60 % width, both axes together) and the drop squash in `studio/src/core/anim.ts` | Node >= 23.2, no `node_modules` |
 | `core_ts.test.mjs` | F17-F21 (`studio/src/core` captions pager, `sceneTimings`, `SvgMarkup`) | Node >= 23.2 (`module.stripTypeScriptTypes`), no `node_modules` |
 
 `core_ts.test.mjs` slices the JSX-free functions out of the current `.ts`/`.tsx` sources, strips the types and
