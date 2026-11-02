@@ -96,10 +96,18 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
 - **Loops**: 0/24 loop the last line into the first. Videos end on the payoff image (rubble, wave, buckled train) within the last 2-3 s.
 - **Likes**: like rate doesn't track views. The emotional fiction (Memory) has the highest like rate (4.2%) and nearly the lowest views. As at Zack D., emotion earns likes and mechanism earns views.
 
-**S-env. The story happens in a place a camera can travel through.** (owner, 2026-11-02; check pending against the catalog)
+**S-env. The story happens in a place a camera can travel through.** (owner, 2026-11-02; checked against the catalog the same day; confidence: medium)
 - Owner's observation: RicksClips picks topics where a 3D environment makes sense, such as a town, bridge, ship, prison, mine or market. The set is part of the mechanism, and the camera moving through it is what makes the 3D look worth having.
+- **Check.** I went through the titles and the frame strips (0, 1, 2, 3 s and the last 2 s; `dgx-spark:~/studio/refs/lanes/ricks/strips/`) of all 24 story-style Shorts. Each was coded "travelable" when the story happens in a physical place the camera moves through or across (a street, ship and sea, canyon railway, palace and city, cemetery and village, harbour, racetrack, market), and "not" when it stays at one desk, counter, machine, room or abstract space.
+  - **Top 8: 7/8 travelable.** Jar (palace throne room, then the city in the quake), Japan job (office floors and corridors; the weakest yes), pachinko window (neon street, alley, parlour, exchange window), Storm Oil (galley, deck, open sea, the wave), Grave Bell (cemetery, village), Railroads (canyon line, bridge), Cannonballs (deck, harbour fort, sea). The one exception is Brain Idea Zone (one dark room with a chair).
+  - **Middle 8: 4/8.** Yes: Spear and Shield (a kingdom fair and fields), Burglar (a house, outside and in), Second Draw (a Western street), Time Test (a fairground tower). No: Random Numbers (an office desk), Teleportation (a booth and an abstract hall), Cashiers (a shop counter), Winning Tickets (a desk and a store).
+  - **Bottom 8: 3/8.** Yes: Mirror (racetrack, betting hall), Button (a town square), Knight (a village market and road). No: Upload Brain (a lab), Tree (one tree on a beach), Memory (a shop counter), Painkillers (a kitchen and the body), Slots (one machine).
+  - **Outliers vs the rest:** 7/8 of the top tier against 7/16 of the other 16. The median view count is 8.5M for the 14 travelable videos and 6.2M for the 10 that are not. Of the 10 non-travelable videos, only one reached the top tier.
+- **The place is part of the mechanism in the hits.** The sea is what the oil calms, the canyon heat is what buckles the rails, the city is what the quake hits, and the cemetery is where the bell rings. In the lower tiers a travelable place appears without a real mechanism: a parable fair, a legend market, a fictional town square. So the rule is necessary but not enough on its own. Combined with S1 (real and period-set), it covers 7/8 of the top tier and 1/16 of the rest (Mirror).
+- **Ordinary uploads.** The channel's 122 older Shorts are comedy clips in another format, so they are not a fair comparison and are left out. Every comparison above is within the 24 story-style Shorts (same look, voice and age).
+- **Caveats.** n = 24, and the rule is confounded with S1, because period settings tend to come with big places. Confidence is medium.
 - Chess Turk (v6) was a weak fit: one hall and a cabinet, so the judges saw too little change of setting (panel principle 3).
-- Screen every story premise with this rule before scripting. The story agent is counting how this splits outliers from ordinary videos in their catalog.
+- **Use.** Screen every story premise with this rule before scripting. The premise should need two to four connected places (for example a town, then the river, the bridge and the far bank), and the mechanism should be visible in the place itself.
 
 ### 10 story premises that fit S1-S6 (not in Rick's 146 titles, Zack D.'s last 400, or the TikTok lists)
 
