@@ -19,6 +19,8 @@
  *   pieces      true (default): pieces on the board
  *   char        0..1 burnt (darkens to indigo ash);  fire 0..1 flames over it
  *   dark        0..1 the inside is dark except the candle's pool of light
+ *   figureOnly  true: draw only the automaton (body, head, arm, smoke, fire), no cabinet, board or wheels - the 3D story
+ *               lane (experiments/three-lane/src/turk) seats this card behind a modelled cabinet
  *   smoke       0..1 the candle's smoke: a dotted trail from the hidden candle up the Turk's back to the neck (on the
  *               cutaway; it never crosses the face) and puffs curling out of the top of the turban
  */
@@ -116,6 +118,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 	const fire = clamp(track(props.fire, t, 0));
 	const dark = clamp(track(props.dark, t, 0));
 	const smoke = clamp(track(props.smoke, t, 0));
+	const fo = props.figureOnly === true;
 	const tint = (col: string) => (char > 0 ? mixOk(col, c('ink-0'), char * 0.85) : col);
 	const wood = tint(c('ochre-1'));
 	const woodSh = tint(c('ochre-0'));
@@ -194,7 +197,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 	return (
 		<svg viewBox="0 0 900 1000" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" style={{overflow: 'visible'}}>
 			<g {...inkG(props.ink)}>
-			<ellipse cx={450} cy={972} rx={400} ry={24} fill={c('ink-1')} opacity={0.25} stroke="none" />
+			{!fo && <ellipse cx={450} cy={972} rx={400} ry={24} fill={c('ink-1')} opacity={0.25} stroke="none" />}
 			{/* the automaton, seated behind the cabinet top */}
 			<g>
 				<path d="M 236 552 L 120 330" stroke={woodSh} strokeWidth={12} strokeLinecap="round" />
@@ -231,6 +234,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 					<path d="M 300 162 Q 318 92 352 72 Q 334 120 312 166 Z" fill={tint(c('violet-2'))} />
 				</g>
 			</g>
+			{!fo && (<>
 			{/* cabinet top with the board */}
 			<path d={`M 102 ${FRONT + 6} L 798 ${FRONT + 6} L 760 ${BACK - 4} L 140 ${BACK - 4} Z`} fill={wood} />
 			<rect x={102} y={FRONT + 4} width={696} height={22} rx={5} fill={woodLt} />
@@ -253,6 +257,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 						</g>
 					) : null,
 				)}
+			</>)}
 			{/* right arm over the board */}
 			<path d={`M ${sh[0]} ${sh[1]} L ${f(el[0])} ${f(el[1])} L ${f(hand[0])} ${f(hand[1])}`} stroke={tint(c('coral-1'))} strokeWidth={40}
 				strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -262,6 +267,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 			{[-16, -4, 8].map((dx, i) => (
 				<rect key={i} x={hand[0] + dx} y={hand[1] + 10} width={10} height={20} rx={5} fill={woodLt} />
 			))}
+			{!fo && (<>
 			{/* front */}
 			<rect x={120} y={FRONT + 26} width={660} height={268} fill={wood} />
 			<rect x={600} y={FRONT + 26} width={180} height={268} fill={woodSh} opacity={0.6} stroke="none" />
@@ -360,6 +366,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 					<circle cx={x} cy={950} r={7} fill={K.gold} />
 				</g>
 			))}
+			</>)}
 			{smoke > 0 && (
 				<g stroke="none">
 					{cut > 0.5 && (
