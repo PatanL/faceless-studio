@@ -7,7 +7,7 @@ title: The Warship That Sank in Its Own Harbour
 alt_titles: Why Thirty Sailors Ran Across the Deck | The Mightiest Ship in the World Sailed 1,300 Metres
 target_runtime_s: 58-63 (RicksClips Shorts run ~60-65 s; 3.8 words per second)
 target_words: ~240 spoken
-speed: 1.34
+speed: 1.33
 paragraph_pause: 0.08
 hook: strange act in frame 0 (thirty sailors running across a new warship), then the paradox (the admiral stopped the test, and it sailed anyway)
 voice: am_michael

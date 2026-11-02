@@ -10,7 +10,8 @@ rule="phrase" (per-episode opt-in, shots.json "caption_rule": "phrase"; default 
 a page may only end where a phrase ends - after punctuation, or before a word that starts a new phrase (a conjunction,
 preposition, relative word, subject pronoun or a finite verb / auxiliary). It never ends on a small connecting word
 (article, preposition, conjunction, auxiliary, possessive, intensifier) or a number, and never splits a noun phrase
-("museum | fire", "chess | board", "decks | of guns", "a hundred | and twenty") or a verb from its object ("play | it", "showed | him", "beat | nearly every player"). Pages
+("museum | fire", "chess | board", "decks | of guns", "a hundred | and twenty"), and a subject from its verb costs extra
+("the admiral | stopped the test") or a verb from its object ("play | it", "showed | him", "beat | nearly every player"). Pages
 may run to 32 characters / 6 words (7 when short) (two caption lines; the episode sets a smaller caption size) and 3.6 s so whole
 phrases fit; past 22 characters a page costs a little more, so short phrase pages win when nothing is split.
 """
@@ -35,7 +36,10 @@ NUMWORDS = set("one two three four five six seven eight nine ten eleven twelve t
 # rule="phrase": extra page-final words that connect forward, and words that may open a new phrase
 STRICT_WEAK = (WEAK_END - {"off"}) | set("nearly almost even right just over behind under every all both life-size "
                                           "wooden first third above below across through about".split())
-OBJ_ADVERB = set("about nearly almost just only over".split())   # "needed | about twice that ballast": opens the object
+OBJ_ADVERB = set("about nearly almost just only over back forth out up down away off".split())   # opens the object
+# irregular finite verbs the suffix test misses, and modals (the word after a modal is a verb: "would push | the ports")
+IRREG = set("ran sat got took made put beat built set let held stood sank went came saw gave found kept left said".split())
+MODALS = set("would could will can should might must may".split())
 PRONOUN_OBJ = set("it him her them me us".split())
 ARTICLES = set("a an the every each this these those his her its their my your our".split())
 PHRASE_START = GOOD_START | set("he she they we i you there then when where as after before until behind under "
@@ -70,7 +74,12 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
     if nxt is None:
         return c
     nn = _n(nxt)
-    prev_verb = n >= 2 and (_verbish(_n(ws[-2])) or _n(ws[-2]) in ("play", "beat", "put", "hit", "let", "set"))
+    prev_verb = n >= 2 and (_verbish(_n(ws[-2])) or _n(ws[-2]) in ("play", "beat", "put", "hit", "let", "set") or _n(ws[-2]) in IRREG)
+    # a word ending in -s after an article or a number on the same page is a plural noun ("the lower gun ports"), not a verb
+    in_np = any(_n(x) in ARTICLES or _n(x) in NUMWORDS for x in ws[:-1]) and ln.endswith("s") \
+        and not ln.endswith(("shes", "ches", "sses", "xes", "zes"))
+    lverb = (_verbish(ln) and not in_np) or ln in IRREG or ln in ("play", "beat", "put", "sits", "built", "rolled", "push") or (n >= 2 and _n(ws[-2]) in MODALS)
+    nverb = _verbish(nn) or nn in IRREG or nn in MODALS
     if ln in NUMWORDS or re.match(r"^\d", ln) or ("-" in ln and ln.split("-")[0] in NUMWORDS):
         c += 9                                   # a number never ends a page before what it counts ("seventy-two | cannons")
     if nn == "of" or (nn == "and" and ln in NUMWORDS):
@@ -79,17 +88,21 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
         c += 9                                   # never end on a connecting word ("play it" may end a page)
     if (ln, nn) in pairs:
         c += 9                                   # a glued phrase
-    if nn in OBJ_ADVERB and (_verbish(ln) or ln in ("play", "beat", "put", "sits", "built", "rolled")):
+    if nn in OBJ_ADVERB and lverb:
         c += 9                                   # verb | adverb that opens its object ("needed | about twice that ballast")
-    elif nn in PRONOUN_OBJ and (_verbish(ln) or ln in ("play", "beat", "put", "hit", "let", "set")):
+    elif nn in PRONOUN_OBJ and lverb:
         c += 9                                   # verb | object ("play | it", "showed | him")
     elif nn in ARTICLES:
-        c += 3 if (_verbish(ln) or ln in ("play", "beat", "put", "sits")) else -0.5   # verb | object NP, else a new NP
+        c += 9 if lverb else -0.5                # verb | object NP ("would push | the lower gun ports"), else a new NP
     elif nn in ("is", "are", "was", "were", "has", "have", "had"):
-        pass                                     # "the king | were home": an auxiliary after a noun continues the clause
-    elif nn in PHRASE_START or _verbish(nn):
+        c += 0 if ln in STRICT_WEAK else 3       # "the ship | was warning": an auxiliary after a noun continues the clause
+    elif nverb and ln not in STRICT_WEAK:
+        c += 3                                   # subject | verb ("the admiral | stopped the test", "every run | rocks it")
+    elif nn in PHRASE_START:
         c -= 0.8                                 # the next page opens a phrase
-    elif _verbish(ln) or ln in ("play", "beat", "put", "sits", "built", "rolled"):
+    elif nn in OBJ_ADVERB:
+        c -= 0.3                                 # an adverbial after a complete object ("the ports | down to the waterline")
+    elif lverb:
         c += 9                                   # verb | object ("beat | nearly every player", "beats | Benjamin")
     else:
         c += 6                                   # inside a noun phrase ("museum | fire", "chess | board")
