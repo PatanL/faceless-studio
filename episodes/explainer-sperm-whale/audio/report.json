@@ -1,0 +1,499 @@
+{
+ "id": "explainer-sperm-whale",
+ "niche": "explainer",
+ "script": "episodes/explainer-sperm-whale/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 1.1,
+  "synth_s": 24.13,
+  "duration_s": 64.884,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.07,
+  "true_peak_dbtp_4x": -2.1,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.0,
+   "LRA_lu": 1.8,
+   "true_peak_dbtp": -2.1
+  },
+  "duration_s": 64.57,
+  "music": "score",
+  "sfx_placed": [
+   {
+    "cue": "whoosh_long",
+    "at": 0.0,
+    "db": -4,
+    "rate": 0.85,
+    "why": "p01 pre-rolled pull-back from the cover",
+    "source": "storyboard",
+    "dur": 2.119,
+    "level_db": -14.0,
+    "mix_momentary_max": -10.4
+   },
+   {
+    "cue": "whoosh",
+    "at": 2.12,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.8
+   },
+   {
+    "cue": "whoosh",
+    "at": 3.182,
+    "db": -6,
+    "rate": 1.4,
+    "why": "p02 gauge draws out (zip)",
+    "source": "storyboard",
+    "dur": 0.847,
+    "level_db": -16.0,
+    "mix_momentary_max": -12.7
+   },
+   {
+    "cue": "click",
+    "at": 3.782,
+    "db": 1,
+    "rate": 1.0,
+    "why": "p02 gauge end rings land",
+    "source": "storyboard",
+    "dur": 0.04,
+    "level_db": -13.0
+   },
+   {
+    "cue": "pop",
+    "at": 4.857,
+    "db": -2,
+    "rate": 0.878,
+    "why": "p02 explainer/You pops in",
+    "source": "storyboard",
+    "dur": 0.137,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 5.017,
+    "db": -2,
+    "rate": 0.815,
+    "why": "p02 explainer/You pops in",
+    "source": "storyboard",
+    "dur": 0.147,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 5.177,
+    "db": -2,
+    "rate": 0.837,
+    "why": "p02 explainer/You pops in",
+    "source": "storyboard",
+    "dur": 0.143,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 5.337,
+    "db": -2,
+    "rate": 0.947,
+    "why": "p02 explainer/You pops in",
+    "source": "storyboard",
+    "dur": 0.127,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 5.497,
+    "db": -2,
+    "rate": 0.894,
+    "why": "p02 explainer/You pops in",
+    "source": "storyboard",
+    "dur": 0.134,
+    "level_db": -14.0
+   },
+   {
+    "cue": "tick",
+    "at": 6.995,
+    "db": 2,
+    "rate": 1.117,
+    "why": "p02 tag '1/3 HEAD' lands",
+    "source": "storyboard",
+    "dur": 0.054,
+    "level_db": -12.0
+   },
+   {
+    "cue": "bubbles",
+    "at": 7.74,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 2.818,
+    "level_db": -17.0,
+    "mix_momentary_max": -11.5
+   },
+   {
+    "cue": "tick",
+    "at": 10.104,
+    "db": 2,
+    "rate": 1.038,
+    "why": "p03 tag '\u2248 2,000 L OF OIL' lands",
+    "source": "storyboard",
+    "dur": 0.058,
+    "level_db": -12.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.504,
+    "db": -2,
+    "rate": 0.683,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.176,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.624,
+    "db": -2,
+    "rate": 1.003,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.12,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.744,
+    "db": -2,
+    "rate": 0.72,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.167,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.864,
+    "db": -2,
+    "rate": 0.977,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.123,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.984,
+    "db": -2,
+    "rate": 0.628,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.191,
+    "level_db": -14.0
+   },
+   {
+    "cue": "whoosh",
+    "at": 15.666,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.6
+   },
+   {
+    "cue": "whoosh_long",
+    "at": 22.033,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.802,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.9
+   },
+   {
+    "cue": "tick",
+    "at": 26.399,
+    "db": 2,
+    "rate": 0.964,
+    "why": "p05 tag 'NO SUNLIGHT' lands",
+    "source": "storyboard",
+    "dur": 0.062,
+    "level_db": -12.0
+   },
+   {
+    "cue": "whoosh",
+    "at": 27.779,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -13.7
+   },
+   {
+    "cue": "tick",
+    "at": 29.697,
+    "db": 2,
+    "rate": 1.073,
+    "why": "p06 tag 'ECHO' lands",
+    "source": "storyboard",
+    "dur": 0.056,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 32.315,
+    "db": 2,
+    "rate": 1.055,
+    "why": "p06 tag 'BUZZ' lands",
+    "source": "storyboard",
+    "dur": 0.057,
+    "level_db": -12.0
+   },
+   {
+    "cue": "impact",
+    "at": 33.803,
+    "db": -2,
+    "rate": 0.88,
+    "why": "p06 hard camera shake",
+    "source": "storyboard",
+    "dur": 2.892,
+    "level_db": -6.0,
+    "mix_momentary_max": -11.2
+   },
+   {
+    "cue": "bubbles",
+    "at": 34.105,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 2.818,
+    "level_db": -17.0,
+    "mix_momentary_max": -11.2
+   },
+   {
+    "cue": "tick",
+    "at": 34.455,
+    "db": 2,
+    "rate": 0.957,
+    "why": "p07 tag 'YOU?' lands",
+    "source": "storyboard",
+    "dur": 0.063,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 36.262,
+    "db": 2,
+    "rate": 1.132,
+    "why": "p07 tag 'CARIBBEAN' lands",
+    "source": "storyboard",
+    "dur": 0.053,
+    "level_db": -12.0
+   },
+   {
+    "cue": "pop",
+    "at": 36.862,
+    "db": -2,
+    "rate": 1.1,
+    "why": "p07 map pin",
+    "source": "storyboard",
+    "dur": 0.109,
+    "level_db": -14.0
+   },
+   {
+    "cue": "tick",
+    "at": 38.399,
+    "db": 2,
+    "rate": 0.984,
+    "why": "p07 tag 'THUMP' lands",
+    "source": "storyboard",
+    "dur": 0.061,
+    "level_db": -12.0
+   },
+   {
+    "cue": "pop",
+    "at": 39.774,
+    "db": -2,
+    "rate": 0.879,
+    "why": "p07 svg pops in",
+    "source": "storyboard",
+    "dur": 0.137,
+    "level_db": -14.0
+   },
+   {
+    "cue": "whoosh",
+    "at": 40.052,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.3
+   },
+   {
+    "cue": "tick",
+    "at": 40.302,
+    "db": 2,
+    "rate": 0.941,
+    "why": "p08 tag 'YOU' lands",
+    "source": "storyboard",
+    "dur": 0.064,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 43.681,
+    "db": 2,
+    "rate": 1.061,
+    "why": "p08 tag '1 M' lands",
+    "source": "storyboard",
+    "dur": 0.057,
+    "level_db": -12.0
+   },
+   {
+    "cue": "impact",
+    "at": 45.606,
+    "db": -2,
+    "rate": 0.769,
+    "why": "p08 hard camera shake",
+    "source": "storyboard",
+    "dur": 3.309,
+    "level_db": -6.0,
+    "mix_momentary_max": -12.1
+   },
+   {
+    "cue": "tick",
+    "at": 47.069,
+    "db": 2,
+    "rate": 0.919,
+    "why": "p08 tag 'UNTESTED' lands",
+    "source": "storyboard",
+    "dur": 0.065,
+    "level_db": -12.0
+   },
+   {
+    "cue": "whoosh_long",
+    "at": 48.542,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.802,
+    "level_db": -15.0,
+    "mix_momentary_max": -12.3
+   },
+   {
+    "cue": "tick",
+    "at": 48.992,
+    "db": 2,
+    "rate": 0.915,
+    "why": "p09 tag '1,000 M' lands",
+    "source": "storyboard",
+    "dur": 0.066,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 56.953,
+    "db": 2,
+    "rate": 0.975,
+    "why": "p09 tag 'FAMILY 1' lands",
+    "source": "storyboard",
+    "dur": 0.062,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 57.203,
+    "db": 2,
+    "rate": 1.027,
+    "why": "p09 tag 'FAMILY 2' lands",
+    "source": "storyboard",
+    "dur": 0.058,
+    "level_db": -12.0
+   },
+   {
+    "cue": "whoosh",
+    "at": 58.488,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.2
+   },
+   {
+    "cue": "whoosh",
+    "at": 63.384,
+    "db": -4,
+    "rate": 1.5,
+    "why": "p10 title plate '236 dB' wipes in",
+    "source": "storyboard",
+    "dur": 0.791,
+    "level_db": -14.0,
+    "mix_momentary_max": -14.7
+   }
+  ],
+  "music_rms_db_under_voice": -38.41,
+  "music_rms_db_in_gaps": -31.16,
+  "measured_duck_db": -7.25,
+  "bed_below_voice_db": 18.76,
+  "music_provenance": {
+   "generator": "pipeline.audio.score",
+   "soundfont": "GeneralUser-GS",
+   "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
+   "seed": 2190226706
+  },
+  "score": {
+   "cues": [
+    {
+     "t0": 0.0,
+     "t1": 15.816,
+     "mood": "board",
+     "intensity": 1,
+     "role": "hook"
+    },
+    {
+     "t0": 15.816,
+     "t1": 25.099,
+     "mood": "board",
+     "intensity": 2,
+     "role": ""
+    },
+    {
+     "t0": 25.099,
+     "t1": 40.202000000000005,
+     "mood": "deep",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 40.202000000000005,
+     "t1": 52.278000000000006,
+     "mood": "board",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 52.278000000000006,
+     "t1": 64.57,
+     "mood": "board",
+     "intensity": 1,
+     "role": "bookend"
+    }
+   ],
+   "stings": [],
+   "drops": [],
+   "risers": [
+    {
+     "t0": 14.796,
+     "t1": 15.816,
+     "len": 1.02,
+     "kind": "swell",
+     "jump": 1
+    }
+   ]
+  }
+ },
+ "words": 206,
+ "wall_s": 35.0
+}

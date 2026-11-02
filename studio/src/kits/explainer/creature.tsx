@@ -9,6 +9,7 @@ import {ORCA_KIT_FIGURES} from './orca_kit';
 import {SMALL_SHARKS} from './smallsharks';
 import {bool, num, safeId, str} from './util';
 import {houseDiver, houseOrcaV3} from './house/figures';
+import {houseSpermWhaleA} from './house/spermWhaleA';
 import {ShadeStack, shadeOpts} from './house/shadeFigure';
 
 export const FIGURES: Record<string, Figure> = {
@@ -21,6 +22,7 @@ export const FIGURES: Record<string, Figure> = {
 	// house style (Lantern & Ink) heroes replace the flat kit drawings; the flat ones stay as pose "flat"
 	orca: houseOrcaV3(MARINE.orca), // house style A hero (house/orcaV3Kit.tsx); houseOrca = the Lantern & Ink orca
 	diver: houseDiver(PEOPLE.diver),
+	spermWhale: houseSpermWhaleA(MARINE.spermWhale), // house style A (house/spermWhaleA.tsx); the grey drawing = pose "flat"
 };
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');

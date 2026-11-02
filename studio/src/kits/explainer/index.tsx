@@ -26,6 +26,7 @@ import {Sailboat} from './orca_kit';
 import {Jellies, KelpForest, Pod, Reef, RidgeLayer, Rocks, School, SeabedLayer} from './house/dressing';
 import {Glow, LightEvent, Specks} from './house/fx';
 import {Board, Coast, IceField, IceFloe} from './house/places';
+import './house/soundfx'; // explainer/ClickRings, explainer/Coda (sound made visible; registers itself)
 
 registerComponent('explainer/Ocean', Ocean);
 registerComponent('explainer/DepthMeter', DepthMeter);
