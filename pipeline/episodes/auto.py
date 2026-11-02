@@ -485,6 +485,9 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
         sb, e, w = house_pass(sb, shots.get("house"))
         errors += e
         warnings += w
+        if shots.get("story_camera") is not None:   # story lane: glide, never stop (pipeline/episodes/story_camera.py)
+            from .story_camera import apply as story_camera
+            sb = story_camera(sb, shots["story_camera"])
     else:
         for s in sb["scenes"]:
             s.pop("_house", None)
