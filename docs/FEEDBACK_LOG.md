@@ -21,3 +21,4 @@ Older files cite the previous numbering. It maps onto the current principles (P)
 - 2026-11-01: owner listened to the music A/B on orca v4 and kept the new scored soundtrack (pipeline/audio/score.py, GeneralUser GS) as the default for explainers; deep_ocean stays as the fallback.
 - 2026-11-01: owner: the score was too loud ("music should be background"); lowered ~6 dB (voice ~17 LU over the score). Owner confirmed the new level sounds right.
 - 2026-11-01: owner listened to the orca music A/B/C and picked B: the v2 score (Kurzgesagt Shorts study) with the current sound effects. sfx_mode stays "full"; the fewer-SFX "musical" mode (C) stays available but off.
+- 2026-11-01: owner rule: don't lock the channel to one style (e.g. round-head stick figures) until a video reaches 10K views; keep testing different styles and topic lanes until then.
