@@ -8,7 +8,8 @@ export type CamKey = { t: number; pos: [number, number, number]; look: [number, 
 type S = { pos: THREE.Vector3; look: THREE.Vector3; fov: number };
 
 // every hold travels steadily FRAC of the way to the next framing and pushes in PUSH of the distance
-const GLIDE = 0.9, LAND = 0.3, FRAC = 0.85, PUSH = 0.2;
+// ORBIT: each hold also swings the camera a few degrees around its subject (parallax: v7 still measured 4.6 px/f)
+const GLIDE = 0.9, LAND = 0.3, FRAC = 0.85, PUSH = 0.25, ORBIT = (9 * Math.PI) / 180;
 
 export class CamPath {
   private keys: CamKey[];
@@ -41,6 +42,9 @@ export class CamPath {
     // push in along the view direction (slow, saturating at PUSH of the distance)
     const toLook = look.clone().sub(pos);
     pos.addScaledVector(toLook, PUSH * sat);
+    // swing around the subject (alternate direction per key so consecutive holds don't drift one way)
+    const off = pos.clone().sub(look).applyAxisAngle(new THREE.Vector3(0, 1, 0), ORBIT * sat * (i % 2 ? -1 : 1));
+    pos.copy(look).add(off);
     return { pos, look, fov: k.fov ?? 40 };
   }
   private holdLen(i: number) {
