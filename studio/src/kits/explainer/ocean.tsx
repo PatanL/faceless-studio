@@ -6,6 +6,7 @@
 import React, {useId} from 'react';
 import type {KitComponent} from '../../core/registry';
 import {bool, C, clamp, fmtNum, num, rnd, safeId, str, arr, track} from './util';
+import {HouseOcean} from './house/oceanBg';
 
 const hex = (h: string): [number, number, number] => {
 	const s = h.replace('#', '');
@@ -21,7 +22,13 @@ export const mix = (a: string, b: string, t: number) => {
 /** Light level 0..1 at a depth (m). */
 export const lightAt = (depth: number, falloff: number) => Math.exp(-Math.max(0, depth) / falloff);
 
-export const Ocean: KitComponent = ({props, time, width: W, height: H}) => {
+/**
+ * explainer/Ocean: the house-style background (house/oceanBg.tsx: palette key ramp, colour shift, rays, caustics, marine
+ * snow) unless the storyboard asks for `look: "legacy"`, the previous flat-teal kit background below.
+ */
+export const Ocean: KitComponent = (p) => (p.props.look === 'legacy' ? <LegacyOcean {...p} /> : <HouseOcean {...p} />);
+
+export const LegacyOcean: KitComponent = ({props, time, width: W, height: H}) => {
 	const id = safeId(useId());
 	const depth = track(props.depth, time, 40);
 	const L = lightAt(depth, num(props.falloff, 260)) * num(props.brightness, 1);

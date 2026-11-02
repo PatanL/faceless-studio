@@ -8,8 +8,19 @@ import {ANATOMY} from './anatomy';
 import {ORCA_KIT_FIGURES} from './orca_kit';
 import {SMALL_SHARKS} from './smallsharks';
 import {bool, num, safeId, str} from './util';
+import {houseOrca} from './house/figures';
+import {ShadeStack, shadeOpts} from './house/shadeFigure';
 
-export const FIGURES: Record<string, Figure> = {...MARINE, ...LAND, ...PEOPLE, ...ANATOMY, ...ORCA_KIT_FIGURES, ...SMALL_SHARKS};
+export const FIGURES: Record<string, Figure> = {
+	...MARINE,
+	...LAND,
+	...PEOPLE,
+	...ANATOMY,
+	...ORCA_KIT_FIGURES,
+	...SMALL_SHARKS,
+	// house style (Lantern & Ink) heroes replace the flat kit drawings; the flat ones stay as pose "flat"
+	orca: houseOrca(MARINE.orca),
+};
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
 const ALIASES: Record<string, string> = {
@@ -60,7 +71,7 @@ export function getFigure(name: string, pose?: string): Figure | undefined {
 	const key = ALIASES[norm(name)] ?? name;
 	const f = FIGURES[key];
 	if (!f) return undefined;
-	if (pose && f.poses?.[pose]) return {...f, ...f.poses[pose]};
+	if (pose && f.poses?.[pose]) return {...f, selfShaded: false, ...f.poses[pose]};
 	return f;
 }
 
@@ -82,12 +93,23 @@ export function makeCtx(props: Record<string, unknown>, time: number, id: string
 	};
 }
 
+/**
+ * A figure's drawing with the house shading stack (STYLE_BIBLE §4.3) unless the layer says `shade: false`, the figure
+ * is a flat silhouette, or it shades itself. `upp` = figure units per screen px (sets rim width, dot size and LOD).
+ */
+export const ShadedDraw: React.FC<{f: Figure; ctx: DrawCtx; upp: number}> = ({f, ctx, upp}) => {
+	const opts = shadeOpts(ctx.p);
+	if (!opts || ctx.sil || f.selfShaded) return <>{f.draw(ctx)}</>;
+	return <ShadeStack f={f} ctx={ctx} upp={upp} opts={opts} />;
+};
+
 /** Draw a figure into a box (x, y, w, h) of an enclosing SVG, keeping its aspect. */
 export const FigureSVG: React.FC<{f: Figure; ctx: DrawCtx; x: number; y: number; w: number; h: number; align?: string}> = ({f, ctx, x, y, w, h, align = 'xMidYMax'}) => {
 	const [bx, by, bw, bh] = f.box;
+	const upp = 1 / Math.max(1e-6, Math.min(w / bw, h / bh));
 	return (
 		<svg x={x} y={y} width={w} height={h} viewBox={`${bx} ${by} ${bw} ${bh}`} preserveAspectRatio={`${align} meet`} overflow="visible">
-			{f.draw(ctx)}
+			<ShadedDraw f={f} ctx={ctx} upp={upp} />
 		</svg>
 	);
 };
@@ -117,13 +139,13 @@ export const Creature: KitComponent = ({props, time, width, height}) => {
 				height={H}
 				style={{position: 'absolute', left: (width - W) / 2, top: bottom ? height - H : (height - H) / 2, overflow: 'visible'}}
 			>
-				{f.draw(ctx)}
+				<ShadedDraw f={f} ctx={ctx} upp={bw / Math.max(1e-6, W)} />
 			</svg>
 		);
 	}
 	return (
 		<svg viewBox={`${bx} ${by} ${bw} ${bh}`} width="100%" height="100%" preserveAspectRatio={bottom ? 'xMidYMax meet' : 'xMidYMid meet'} style={{overflow: 'visible', display: 'block'}}>
-			{f.draw(ctx)}
+			<ShadedDraw f={f} ctx={ctx} upp={1 / Math.max(1e-6, Math.min((width || bw) / bw, (height || bh) / bh))} />
 		</svg>
 	);
 };

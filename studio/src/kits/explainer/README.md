@@ -1,5 +1,20 @@
 # Explainer kit ("you vs. X", ocean/animal style)
 
+**Default look: house style "Lantern & Ink"** (`experiments/kurz-style/STYLE_BIBLE.md`, engine ported from
+`experiments/kurz-style/engine/` into `house/`). Old storyboards validate and render unchanged in structure; they now
+render in the house look. `pipeline/episodes/house.py` adds the per-scene light, colour script, dressing and motion, and
+`pipeline/episodes/staging.py` fails the build on staging collisions.
+
+| house piece | where | what |
+|---|---|---|
+| shading stack (bible §4.3) | `house/shadeFigure.tsx`, used by `Creature`, every fixed figure and `FigureSVG` | form, core shadow (multiply toward a saturated ambient), stipple terminator, deep, bounce, highlight, marks, optional glint / cast; rim gated to the edges facing the back light. Light = `scene.light` in screen space (layer flipX/rotate undone). LOD from on-screen size. Opt out per layer: `"shade": false`; tune: `"shade": {"core", "hi", "rim", "marks", "cast", "glint", "lod"}` |
+| hero orca | `house/orca.tsx`, `house/figures.tsx` | the engine orca (jaw rig `jaw` 0..1, `detail`, `lid`, `look`, `finScale`); the old drawing is `pose: "flat"` |
+| scene light | `scene.light` (core schema) -> `house/light.tsx` | `{setup: lantern\|daylight\|cold\|stellar, angle, sweep, keyColor, rimColor, ambient, ground, haze}` |
+| background | `explainer/Ocean` -> `house/oceanBg.tsx` | palette key ramp `key` (tide, mid, deep, kelp, dusk, sky, warm), colour shift `shiftTo` / `shiftAt` / `shiftDur`, rays aimed from the key and faded above the captions, caustics, 170 marine-snow specks; `look: "legacy"` = old background |
+| set dressing | `house/dressing.tsx` | `explainer/Kelp`, `FishSchool`, `Jellies`, `Rocks`, `Reef`, `Seabed`, `Ridge`; all seeded (no two identical), `plane: far\|mid\|fore` hazes in colour math |
+| light / micro | `house/fx.tsx` | `explainer/Specks`, `Glow` (emitter), `LightEvent` (`lanternOn`, `spot`, `flash`, `dim`) |
+| motion | core `anim.ts`, `camera.ts` | enter types `popSpring` (uniform, never < 60 % width) and `dropSquash`; `camera.drift`, `camera.preroll` |
+
 Flat 2D vector kit for Depth Theory–style explainers: dark teal ocean, light rays, marine snow,
 grey/red creature silhouettes, bold white uppercase labels with red accents. All artwork is
 original code-drawn SVG (no traced frames). Works in 16:9 and 9:16; every piece fills its layer box.

@@ -24,6 +24,8 @@ export type Figure = {
 	axis: 'w' | 'h';
 	/** Optional alternative poses, e.g. grizzly "standing". */
 	poses?: Record<string, Omit<Figure, 'poses' | 'label'>>;
+	/** draws its own house shading (house/figures.tsx): the generic shade stack (house/shadeFigure.tsx) skips it */
+	selfShaded?: boolean;
 	draw: (c: DrawCtx) => React.ReactNode;
 };
 

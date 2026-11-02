@@ -9,6 +9,10 @@
  *               explainer/Seal Liver Sailboat, Orca pose "top" | "head" (orca_kit.tsx)
  * infographics  explainer/DepthMeter ScaleBar HeightChart Stat Map Timer Options SpeedBars Headline Tag
  *               explainer/Balance ECG (balance.tsx)
+ * house style   (Lantern & Ink, house/): every figure is shaded by the 9-layer stack from scene.light (house/shadeFigure.tsx;
+ *               `shade: false` opts out), the orca is the engine hero, explainer/Ocean is the palette background.
+ *               set dressing explainer/Kelp FishSchool Jellies Rocks Reef Seabed Ridge (house/dressing.tsx)
+ *               light + micro explainer/Specks Glow LightEvent (house/fx.tsx)
  *
  * See README.md in this folder for props.
  */
@@ -18,6 +22,8 @@ import {DepthMeter, Ocean} from './ocean';
 import {Headline, HeightChart, MapView, Options, ScaleBar, SpeedBars, Stat, Tag, Timer} from './ui';
 import {Balance, ECG} from './balance';
 import {Sailboat} from './orca_kit';
+import {Jellies, KelpForest, Reef, RidgeLayer, Rocks, School, SeabedLayer} from './house/dressing';
+import {Glow, LightEvent, Specks} from './house/fx';
 
 registerComponent('explainer/Ocean', Ocean);
 registerComponent('explainer/DepthMeter', DepthMeter);
@@ -64,3 +70,15 @@ registerComponent('explainer/Tag', Tag);
 registerComponent('explainer/Balance', Balance);
 registerComponent('explainer/ECG', ECG);
 registerComponent('explainer/Sailboat', Sailboat);
+
+// house style: set dressing, light and the micro layer
+registerComponent('explainer/Kelp', KelpForest);
+registerComponent('explainer/FishSchool', School);
+registerComponent('explainer/Jellies', Jellies);
+registerComponent('explainer/Rocks', Rocks);
+registerComponent('explainer/Reef', Reef);
+registerComponent('explainer/Seabed', SeabedLayer);
+registerComponent('explainer/Ridge', RidgeLayer);
+registerComponent('explainer/Specks', Specks);
+registerComponent('explainer/Glow', Glow);
+registerComponent('explainer/LightEvent', LightEvent);
