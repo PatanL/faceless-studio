@@ -38,7 +38,14 @@ Owner is leaning toward Rick's Clips / Zack D. Films / Kurzgesagt-Shorts topics,
 - **Topics:** clever true-ish stories with a twist or loophole, mostly history and odd rules: an ancient earthquake-warning jar, Japan's gambling-law window, sailors' storm oil, the grave bell, a mirror that rigged a horse race, why cashiers win the lottery, a knight's loophole, levels of pirate cannonballs, what-if teleportation.
 - **Look:** simple round-head stick-figure characters (dot eyes, small expressive mouths, thin line limbs, period hats and costumes) placed into rich, colourful 3D-rendered or painted environments (castles, rail yards, canyons), with fast camera moves, one or two words of caption at a time, and a narrator.
 - **Code fit:** the characters are the easiest thing we could build (simpler than the orca). The sets are the heavy part: our flat style A sets, or Codex-generated background plates animated with parallax and camera moves (stills, not video).
-- Frames: ~/studio/refs/ig/ricks_*.webm and ricks_*.jpg on the Spark.
+- Frames: ~/studio/refs/ig/ricks_*.webm and ricks_*.jpg on the Spark (360x640). 720p copies of 8 Shorts: ~/studio/refs/ig/ricks720_*.webm.
+- **Measured against the Mr omi tutorial (2026-11-02, 8 Shorts; details in `STORY_LANE_TUTORIAL_CHECK.md`):**
+  - Script: paradox hook in sentence 1 (8/8). Narration 3.33-3.89 words/s (median 3.75), ≤ 0.44 s of pauses. "You see," appears in 7/8 but does two jobs: in 4/8 it bridges into the backstory right after the hook (5-11 %), in 4/8 it pivots into the mechanism late (67-91 %).
+  - Camera: ≤ 1 hard cut in 7/8. Place changes are 6-8 frame dissolves or continuous camera travel. The camera is moving in 96-100 % of frames (median 5.8-11 px/f at 720p) and pushes in during 69-89 % of quiet frames (~0.2-0.47 %/f). Moves are eased, ~24-63 f (median ~40). The tutorial's "65 % moving" understates this.
+  - Look: a real 3D world (parallax) with flat stick-figure cards tinted by the scene light. Black ink on 54-66 % of strong edges. Mild background lens blur (4-15 % soft edges). Saturation 0.41-0.61. Non-ink black level 0.09-0.23. Shadows violet-blue (Lab hue ~300°) in 6/8. Night blue at the explanation in 2 of 4.
+  - Our story-chess-turk against this: 20 hard cuts; camera still 30 % of the time (median 0.58 px/f); ink on 17 % of edges; no lens blur; over-saturated (0.73, about 2x as colourful); 3.13 words/s with 3.6 s of pauses.
+  - Plan: camera grammar and narration pace first (they work in the current kit), then a WebGL feasibility test (the Spark is CPU-only), then one @remotion/three set with an ink pass, DOF and flat lit character cards.
+  - The tutorial's repo (github.com/mromidev/claude-animated-shorts) is MIT for code and docs. Its 58 reference images (not 5,000) are RicksClips frames: use them for study only, never reuse them.
 
 ## Owner note: couples niche (2026-11-01)
 
