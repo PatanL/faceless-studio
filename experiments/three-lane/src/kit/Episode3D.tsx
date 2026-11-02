@@ -118,17 +118,19 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
 const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }> = ({ g, from, total, nOut }) => {
   const frame = useCurrentFrame();
   const n = Math.round(g.xfade * 30);
-  const half = Math.floor(n / 2);
-  const outHalf = nOut - Math.floor(nOut / 2);
-  // the two shots overlap for three frames only, at the peak of the smear (blur >= 22 px: nothing is readable there,
-  // so it reads as the whip's motion blur, not a dissolve); outside that window only one shot is drawn
-  if (n > 0 && frame < half - 1) return null;
-  if (nOut > 0 && frame >= total - outHalf + 1) return null;
-  const uin = n > 0 ? Math.max(0, Math.min(1, (frame - half + 1) / Math.max(1, n - half))) : 1;           // 0..1 sharpening
-  const uout = nOut > 0 ? Math.max(0, Math.min(1, (frame - (total - nOut)) / Math.max(1, nOut - outHalf))) : 0;   // 0..1 smearing
-  const blur = Math.max((1 - uin) * 28, uout * 28);
-  const sc = 1 + Math.max((1 - uin) * 0.06, uout * 0.06);
-  const op = n > 0 && frame < half + 1 ? (frame - (half - 2)) / 3 : 1;                         // the incoming shot fades in over the 3 smeared frames
+  // a whip is n frames centred on the cut: blur rises to 28 px at the cut and falls after it; the two shots overlap
+  // only in the OV most-smeared frames around the cut (nothing is readable there, so it reads as motion blur), and the
+  // picture changes a little every frame instead of all at once (v5/v6: a 3-frame switch measured as cuts and jumps)
+  const OV = 6;
+  const half = Math.floor(n / 2), outHalf = nOut - Math.floor(nOut / 2);
+  if (n > 0 && frame < half - OV / 2) return null;
+  if (nOut > 0 && frame >= total - outHalf + OV / 2) return null;
+  const din = n > 0 ? Math.abs(frame - half) / Math.max(1, half) : 1;                 // 0 at the cut .. 1 at the whip's edge
+  const dout = nOut > 0 ? Math.abs(frame - (total - outHalf)) / Math.max(1, outHalf) : 1;
+  const inWhip = n > 0 && frame < n, outWhip = nOut > 0 && frame >= total - nOut;
+  const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);   // 0..1 smear
+  const blur = 28 * Math.sqrt(k), sc = 1 + 0.06 * k;
+  const op = n > 0 && frame < half + OV / 2 ? (frame - (half - OV / 2) + 1) / (OV + 1) : 1;  // the incoming shot fades in under the smear
   const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
   return (
     <AbsoluteFill style={style}>
