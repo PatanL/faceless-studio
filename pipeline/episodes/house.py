@@ -294,8 +294,15 @@ def set_layers(sc: dict, si: int, o: dict, fore: bool) -> list[dict]:
         if i != bgi and not same(s, segs[bgi]):
             prev_map = i and segs[i - 1]["kind"] == "map"
             enter = None if prev_map else {"type": "wipeDown", "at": round(float(s["at"]), 3), "duration": 0.45}
-            out.append(_rig_layer(rig_background(s, sc.get("background"), si * 10 + i, layer=True), a if prev_map else float(s["at"]), b,
-                                  Z_RIG + 2 * i, enter))
+            # a rig stays up under the next place's wipe-in (else the scene background flashes through the wipe), and
+            # the last one has no end, so it holds through the outgoing transition (lane B, sperm-whale dive)
+            nxt = segs[i + 1] if i + 1 < len(segs) else None
+            b_rig = min(dur, b + 0.5) if nxt and nxt["kind"] == "place" else b
+            rig = _rig_layer(rig_background(s, sc.get("background"), si * 10 + i, layer=True), a if prev_map else float(s["at"]),
+                             b_rig, Z_RIG + 2 * i, enter)
+            if b_rig >= dur - 0.01:
+                rig.pop("end", None)
+            out.append(rig)
         if s["kind"] == "place" and o["set"]:
             out += _timed(biome_set(s, si, i, o, fore and i == bgi, sc.get("notes") or ""), a, b, dur)
     return out

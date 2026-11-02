@@ -15,6 +15,7 @@ shots.json
     "niche": "explainer" | "horror",
     "emphasis": ["circles", ["forget", 2]],      # optional red caption words (content words; [word, nth] 1-based)
     "glue": ["great whites", "blue whale"],      # optional phrases a caption card never splits
+    "pages": ["What would", "a sperm whale's click", ...],  # optional: the whole narration as caption pages, in order
     "scenes": [                                   # exactly one per narration paragraph, in order
       {"p": 1, "beat": "hook",                    # p and beat are informational
        "background": {...},                       # optional; niche default (explainer: Ocean depth 30)
@@ -460,6 +461,12 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     if niche == "explainer":
         from .phrases import phrase_pages
         phrase_pages(words, glue=shots.get("glue", []))
+    if shots.get("pages"):   # hand-checked whole-phrase caption pages (like the hand builders' CAPTION_PAGES) win
+        from .build import mark_pages
+        try:
+            mark_pages(words, shots["pages"], slug)
+        except SystemExit as e:
+            errors.append(f"pages: {e}")
     variant = _read_json(os.path.join(ep, "variant.json")) or {}
     limit = float((variant.get("values") or {}).get("visual.max_hold_s") or 3.0)
     holds = check_holds(slug, built, limit) if limit != 3.0 else check_holds(slug, built)

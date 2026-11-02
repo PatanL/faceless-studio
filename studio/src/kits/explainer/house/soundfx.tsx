@@ -84,7 +84,8 @@ export const Coda: KitComponent = ({props: p, time, width, height}) => {
 	const r = num(p.r, 16);
 	const color = str(p.color, '#e9f4fc');
 	const accent = str(p.accent, color);
-	if (time < at || time > out) return null;
+	if (time < at || time > out + 0.3) return null;
+	const outFade = Math.max(0, Math.min(1, (out + 0.3 - time) / 0.3));
 	const n = gaps.length + 1;
 	const times = [0];
 	for (const g of gaps) times.push(times[times.length - 1] + g);
@@ -95,12 +96,15 @@ export const Coda: KitComponent = ({props: p, time, width, height}) => {
 	const usable = Math.max(0, width - 2 * r - 8);
 	const xs = times.map((s) => r + 4 + (usable * s) / span);
 	return (
-		<svg width={width} height={height} style={{display: 'block', overflow: 'visible'}}>
+		<svg width={width} height={height} style={{display: 'block', overflow: 'visible'}} opacity={outFade}>
 			{xs.map((x, i) => {
 				const d = local - times[i];
 				if (d < 0 || local > times[n - 1] + hold) return null;
 				const k = d < 0.12 ? 0.6 + (0.4 * d) / 0.12 + 0.25 * Math.sin((d / 0.12) * Math.PI) : 1;
-				return <circle key={i} cx={x} cy={height / 2} r={r * k} fill={i === n - 1 ? accent : color} />;
+				// the finished row drifts up and fades over its last 0.3 s (never snaps off)
+				const left = times[n - 1] + hold - local;
+				const f = Math.max(0, Math.min(1, left / 0.3));
+				return <circle key={i} cx={x} cy={height / 2 - (1 - f) * 18} r={r * k} fill={i === n - 1 ? accent : color} opacity={f} />;
 			})}
 		</svg>
 	);

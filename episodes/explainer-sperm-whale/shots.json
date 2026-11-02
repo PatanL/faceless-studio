@@ -16,6 +16,73 @@
   "full power",
   "two thousand litres"
  ],
+ "pages": [
+  "What would",
+  "a sperm whale's click",
+  "do to your body?",
+  "A big male",
+  "is sixteen metres long,",
+  "nine of you",
+  "laid head to toe,",
+  "and a third of it",
+  "is head.",
+  "That head",
+  "is a sound machine.",
+  "Nearly two thousand",
+  "litres of oil inside,",
+  "ten bathtubs' worth,",
+  "focus every click",
+  "into a beam.",
+  "And those clicks",
+  "hit over two hundred",
+  "and thirty decibels.",
+  "No animal on Earth",
+  "is louder,",
+  "not even the blue whale.",
+  "It needs that to hunt.",
+  "On one breath",
+  "it dives",
+  "a kilometre down,",
+  "where you couldn't",
+  "see your own hand.",
+  "There it clicks,",
+  "listens for the echo,",
+  "and closes in.",
+  "The clicks speed up",
+  "into a buzz,",
+  "and the squid is gone.",
+  "So what does that",
+  "feel like to you?",
+  "Swimmers off Dominica",
+  "say the clicks",
+  "thump through",
+  "their chest",
+  "like a drum.",
+  "And that's from",
+  "a polite distance.",
+  "On paper,",
+  "at point blank",
+  "and full power,",
+  "one click could",
+  "burst your eardrums.",
+  "Nobody's volunteered",
+  "to check.",
+  "Good news:",
+  "full power",
+  "is for hunting,",
+  "a kilometre down.",
+  "Near the surface,",
+  "they mostly trade",
+  "softer patterns",
+  "called codas,",
+  "and every family",
+  "has its own dialect.",
+  "So if one swims up",
+  "and starts clicking",
+  "at you, relax.",
+  "It's probably telling",
+  "its family about you."
+ ],
  "scenes": [
   {
    "p": 1,
@@ -32,14 +99,14 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "162.69%",
+     "x": "142.35%",
      "y": "46.00%",
-     "width": 2490,
-     "height": 645,
+     "width": 2158,
+     "height": 559,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 150
+      "pxPerM": 130
      },
      "z": 2,
      "idle": [
@@ -54,55 +121,79 @@
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "43.98%",
-     "y": "42.02%",
-     "width": 110,
-     "height": 380,
+     "x": "39.63%",
+     "y": "42.55%",
+     "width": 104,
+     "height": 420,
      "role": "fx",
      "z": 4,
      "props": {
       "at": -1.0,
       "rate": 3,
       "dir": -1,
-      "life": 0.8,
+      "life": 0.9,
       "arc": 40,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "19.91%",
-     "y": "42.02%",
-     "width": 410,
-     "height": 115,
+     "x": "18.61%",
+     "y": "42.86%",
+     "width": 358,
+     "height": 105,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 130,
       "arms": "side"
      },
      "z": 3,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "18.61%",
+       "rotate": 0
+      },
+      {
+       "t": "@click",
+       "x": "18.61%",
+       "rotate": 0
+      },
+      {
+       "t": "@click+0.34",
+       "x": "17.31%",
+       "rotate": -6,
+       "ease": "out"
+      },
+      {
+       "t": "@click+0.8",
+       "x": "18.61%",
+       "rotate": 0,
+       "ease": "inOut"
+      }
+     ]
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "19.91%",
-     "y": "35.77%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "18.61%",
+     "y": "36.35%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": 0,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
-       70
+       75
       ]
      }
     },
@@ -139,14 +230,14 @@
      {
       "t": "@click",
       "zoom": 1.03,
-      "x": "48%",
-      "y": "48%"
+      "x": "46%",
+      "y": "49%"
      },
      {
       "t": "@:end",
-      "zoom": 1.08,
-      "x": "44%",
-      "y": "46%",
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "47%",
       "ease": "inOut"
      }
     ]
@@ -159,248 +250,210 @@
     "kind": "board",
     "board": "cyan"
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "layers": [
     {
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "50.00%",
-     "y": "30.00%",
-     "width": 996,
-     "height": 258,
+     "y": "31.00%",
+     "width": 963,
+     "height": 249,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 60
+      "pxPerM": 58
      },
-     "z": 2,
-     "keyframes": [
-      {
-       "t": 0,
-       "x": "46%"
-      },
-      {
-       "t": "@:end",
-       "x": "50%"
-      }
-     ]
+     "z": 2
     },
     {
      "type": "component",
      "name": "explainer/ScaleBar",
      "x": "50%",
-     "y": "41.5%",
-     "width": 960,
+     "y": "42.5%",
+     "width": 928,
      "height": 140,
      "role": "label",
      "props": {
       "label": "~16 M",
       "at": "@sixteen-0.1",
-      "labelSize": 52
+      "labelSize": 56
      }
     },
     {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "11.11%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
+     "type": "svg",
+     "x": "12.41%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
      "start": "@nine+0.00",
      "enter": {
       "type": "pop",
       "at": "@nine+0.00",
-      "duration": 0.4
+      "duration": 0.35
      },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "20.83%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.08",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.08",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "30.56%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.16",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.16",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "40.28%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.24",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.24",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "50.00%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.32",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.32",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "59.72%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.40",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.40",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "69.44%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.48",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.48",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "79.17%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.56",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.56",
-      "duration": 0.4
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "88.89%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": "@nine+0.64",
-     "enter": {
-      "type": "pop",
-      "at": "@nine+0.64",
-      "duration": 0.4
-     },
-     "role": "prop",
      "z": 3
     },
     {
      "type": "svg",
-     "x": "79.50%",
-     "y": "21.6%",
-     "width": 320,
+     "x": "21.81%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.07",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.07",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "31.20%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.14",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.14",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "40.60%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.21",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.21",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "50.00%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.28",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.28",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "59.40%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.35",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.35",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "68.80%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.42",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.42",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "78.19%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.49",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.49",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "87.59%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/><rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": "@nine+0.56",
+     "enter": {
+      "type": "pop",
+      "at": "@nine+0.56",
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "55.5%",
+     "width": 261,
+     "height": 110,
+     "depth": 1,
+     "z": 20,
+     "role": "label",
+     "props": {
+      "text": "YOU ×9",
+      "at": "@toe",
+      "size": 46,
+      "align": "center",
+      "leader": [
+       0,
+       -70
+      ]
+     }
+    },
+    {
+     "type": "svg",
+     "x": "78.52%",
+     "y": "22.5%",
+     "width": 309,
      "height": 50,
      "markup": "<svg viewBox='0 0 400 60' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M 6 54 L 6 14 L 394 14 L 394 54' stroke='#e9f4fc' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>",
      "role": "label",
@@ -415,17 +468,17 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "79.50%",
-     "y": "15.5%",
-     "width": 328,
-     "height": 115,
-     "depth": 0,
+     "x": "78.52%",
+     "y": "17.6%",
+     "width": 338,
+     "height": 120,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "1/3 HEAD",
       "at": "@third+0.1",
-      "size": 48,
+      "size": 50,
       "align": "center"
      }
     }
@@ -445,43 +498,24 @@
       "y": "48%"
      },
      {
-      "t": "@sixteen+0.3",
-      "zoom": 1.08,
-      "x": "50%",
-      "y": "45%",
-      "ease": "out"
-     },
-     {
       "t": "@nine",
-      "zoom": 1.09,
+      "zoom": 1.05,
       "x": "50%",
-      "y": "46%"
-     },
-     {
-      "t": "@nine+0.4",
-      "zoom": 1.04,
-      "x": "50%",
-      "y": "48%",
-      "ease": "out"
+      "y": "47%",
+      "ease": "inOut"
      },
      {
       "t": "@third",
-      "zoom": 1.05,
-      "x": "52%",
-      "y": "46%"
-     },
-     {
-      "t": "@third+0.35",
-      "zoom": 1.16,
-      "x": "66%",
-      "y": "38%",
-      "ease": "out"
+      "zoom": 1.04,
+      "x": "54%",
+      "y": "47%"
      },
      {
       "t": "@:end",
-      "zoom": 1.19,
-      "x": "67%",
-      "y": "37%"
+      "zoom": 1.05,
+      "x": "60%",
+      "y": "46%",
+      "ease": "inOut"
      }
     ]
    }
@@ -492,6 +526,11 @@
    "setting": {
     "kind": "board",
     "board": "violet"
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
    },
    "layers": [
     {
@@ -511,8 +550,9 @@
         "v": 0
        },
        {
-        "t": "@Nearly+0.7",
-        "v": 1
+        "t": "@litres",
+        "v": 1,
+        "ease": "inOut"
        }
       ],
       "click": [
@@ -530,31 +570,53 @@
     },
     {
      "type": "component",
+     "name": "explainer/ClickRings",
+     "x": "82.45%",
+     "y": "31.34%",
+     "width": 369,
+     "height": 420,
+     "role": "fx",
+     "z": 4,
+     "props": {
+      "at": "@machine",
+      "rate": 2,
+      "dir": 1,
+      "life": 0.9,
+      "arc": 40,
+      "color": "#e9f4fc",
+      "width": 18,
+      "opacity": 1.0,
+      "out": "@machine+0.1"
+     }
+    },
+    {
+     "type": "component",
      "name": "explainer/Tag",
      "x": "42.59%",
      "y": "15%",
-     "width": 566,
-     "height": 115,
-     "depth": 0,
+     "width": 586,
+     "height": 120,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "≈ 2,000 L OF OIL",
       "at": "@two",
-      "size": 48,
+      "size": 50,
       "align": "center",
       "leader": [
        0,
        150
-      ]
+      ],
+      "out": "@focus"
      }
     },
     {
      "type": "svg",
-     "x": "25.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "22.22%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.00",
@@ -573,10 +635,10 @@
     },
     {
      "type": "svg",
-     "x": "37.50%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "36.11%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.06",
@@ -596,9 +658,9 @@
     {
      "type": "svg",
      "x": "50.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.12",
@@ -617,10 +679,10 @@
     },
     {
      "type": "svg",
-     "x": "62.50%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "63.89%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.18",
@@ -639,10 +701,10 @@
     },
     {
      "type": "svg",
-     "x": "75.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "77.78%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.24",
@@ -661,10 +723,10 @@
     },
     {
      "type": "svg",
-     "x": "25.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "22.22%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.30",
@@ -683,10 +745,10 @@
     },
     {
      "type": "svg",
-     "x": "37.50%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "36.11%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.36",
@@ -706,9 +768,9 @@
     {
      "type": "svg",
      "x": "50.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.42",
@@ -727,10 +789,10 @@
     },
     {
      "type": "svg",
-     "x": "62.50%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "63.89%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.48",
@@ -749,10 +811,10 @@
     },
     {
      "type": "svg",
-     "x": "75.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "77.78%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": "@ten+0.54",
@@ -775,34 +837,34 @@
      "x": "82.45%",
      "y": "31.34%",
      "width": 369,
-     "height": 300,
+     "height": 260,
      "role": "fx",
      "z": 4,
      "props": {
       "at": "@focus",
-      "rate": 4,
+      "rate": 6,
       "dir": 1,
-      "life": 0.7,
-      "arc": 20,
+      "life": 0.6,
+      "arc": 16,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 22,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "84%",
-     "y": "23%",
-     "width": 209,
-     "height": 115,
+     "x": "80%",
+     "y": "24%",
+     "width": 219,
+     "height": 125,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "BEAM",
-      "at": "@beam",
-      "size": 48,
+      "at": "@beam-0.2",
+      "size": 52,
       "align": "center"
      }
     }
@@ -816,49 +878,43 @@
       "y": "50%"
      },
      {
-      "t": "@Nearly",
+      "t": "@machine",
       "zoom": 1.03,
+      "x": "52%",
+      "y": "48%"
+     },
+     {
+      "t": "@Nearly",
+      "zoom": 1.04,
       "x": "48%",
       "y": "47%"
      },
      {
-      "t": "@Nearly+0.3",
-      "zoom": 1.12,
-      "x": "44%",
-      "y": "40%",
-      "ease": "out"
+      "t": "@litres",
+      "zoom": 1.1,
+      "x": "45%",
+      "y": "42%",
+      "ease": "inOut"
      },
      {
       "t": "@ten",
-      "zoom": 1.12,
-      "x": "45%",
-      "y": "42%"
-     },
-     {
-      "t": "@ten+0.3",
-      "zoom": 1.02,
-      "x": "50%",
-      "y": "48%",
-      "ease": "out"
+      "zoom": 1.08,
+      "x": "46%",
+      "y": "44%"
      },
      {
       "t": "@focus",
-      "zoom": 1.03,
+      "zoom": 1.06,
       "x": "52%",
-      "y": "47%"
-     },
-     {
-      "t": "@focus+0.3",
-      "zoom": 1.1,
-      "x": "62%",
-      "y": "42%",
-      "ease": "out"
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": "@:end",
       "zoom": 1.12,
-      "x": "63%",
-      "y": "41%"
+      "x": "62%",
+      "y": "42%",
+      "ease": "inOut"
      }
     ]
    }
@@ -870,25 +926,30 @@
     "kind": "board",
     "board": "blue"
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "layers": [
     {
      "type": "component",
      "name": "explainer/SpeedBars",
      "x": "50%",
-     "y": "24%",
-     "width": 940,
-     "height": 560,
+     "y": "25%",
+     "width": 980,
+     "height": 620,
      "role": "label",
      "depth": 0,
      "z": 15,
      "props": {
       "title": "Loudest animals",
       "max": 90,
-      "at": "@hit",
-      "stagger": 2.3,
+      "at": "@clicks",
+      "stagger": 2.6,
       "duration": 0.7,
-      "size": 52,
-      "labelWidth": 360,
+      "size": 62,
+      "labelWidth": 420,
       "rows": [
        {
         "label": "Sperm whale",
@@ -915,7 +976,7 @@
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "35.19%",
-     "y": "52.00%",
+     "y": "49.00%",
      "width": 498,
      "height": 129,
      "flipX": false,
@@ -939,19 +1000,19 @@
      "type": "component",
      "name": "explainer/ClickRings",
      "x": "77.94%",
-     "y": "51.20%",
+     "y": "48.20%",
      "width": 437,
-     "height": 320,
+     "height": 300,
      "role": "fx",
      "z": 4,
      "props": {
-      "at": "@hit",
+      "at": "@clicks",
       "rate": 3,
       "dir": 1,
       "life": 0.8,
       "arc": 34,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0
      }
     }
@@ -966,48 +1027,23 @@
      },
      {
       "t": "@decibels",
-      "zoom": 1.02,
+      "zoom": 1.03,
       "x": "50%",
       "y": "48%"
      },
      {
-      "t": "@decibels+0.3",
-      "zoom": 1.08,
-      "x": "50%",
-      "y": "40%",
-      "ease": "out"
-     },
-     {
       "t": "@louder",
-      "zoom": 1.09,
-      "x": "50%",
-      "y": "41%"
-     },
-     {
-      "t": "@louder+0.3",
-      "zoom": 1.03,
+      "zoom": 1.06,
       "x": "50%",
       "y": "46%",
-      "ease": "out"
-     },
-     {
-      "t": "@blue",
-      "zoom": 1.04,
-      "x": "50%",
-      "y": "46%"
-     },
-     {
-      "t": "@blue+0.3",
-      "zoom": 1.1,
-      "x": "50%",
-      "y": "38%",
-      "ease": "out"
+      "ease": "inOut"
      },
      {
       "t": "@:end",
-      "zoom": 1.11,
+      "zoom": 1.08,
       "x": "50%",
-      "y": "38%"
+      "y": "45%",
+      "ease": "inOut"
      }
     ]
    }
@@ -1015,6 +1051,11 @@
   {
    "p": 5,
    "beat": "dive",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "place",
@@ -1040,6 +1081,7 @@
      "depth": 1000,
      "waterline": null,
      "light": "night",
+     "key": "ink",
      "at": "@where"
     }
    ],
@@ -1047,7 +1089,7 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "43.52%",
+     "x": "57.41%",
      "y": "20.00%",
      "width": 598,
      "height": 155,
@@ -1060,33 +1102,33 @@
      "keyframes": [
       {
        "t": 0,
-       "x": "40%",
-       "y": "20%",
+       "x": "54%",
+       "y": "19%",
        "rotate": 0
       },
       {
        "t": "@breath",
-       "x": "44%",
-       "y": "21%",
-       "rotate": 8
+       "x": "57%",
+       "y": "20%",
+       "rotate": 10
       },
       {
        "t": "@dives",
-       "x": "46%",
-       "y": "28%",
+       "x": "60%",
+       "y": "27%",
        "rotate": 55,
        "ease": "inOut"
       },
       {
        "t": "@where",
-       "x": "46%",
-       "y": "42%",
-       "rotate": 70
+       "x": "62%",
+       "y": "40%",
+       "rotate": 68
       },
       {
        "t": "@:end",
-       "x": "46%",
-       "y": "50%",
+       "x": "63%",
+       "y": "48%",
        "rotate": 72
       }
      ]
@@ -1094,9 +1136,9 @@
     {
      "type": "component",
      "name": "explainer/DepthMeter",
-     "x": "86%",
-     "y": "38%",
-     "width": 220,
+     "x": "27%",
+     "y": "36%",
+     "width": 260,
      "height": 900,
      "depth": 0,
      "z": 15,
@@ -1119,24 +1161,24 @@
       ],
       "max": 1000,
       "step": 250,
-      "size": 44,
-      "side": "left"
+      "size": 54,
+      "side": "right"
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "40%",
+     "x": "56%",
      "y": "13%",
-     "width": 431,
-     "height": 120,
+     "width": 445,
+     "height": 125,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "NO SUNLIGHT",
       "at": "@where",
-      "size": 50,
+      "size": 52,
       "align": "center"
      }
     }
@@ -1152,26 +1194,26 @@
      {
       "t": "@breath",
       "zoom": 1.02,
-      "x": "50%",
+      "x": "52%",
       "y": "48%"
      },
      {
       "t": "@dives",
       "zoom": 1.04,
-      "x": "50%",
+      "x": "54%",
       "y": "50%"
      },
      {
-      "t": "@down",
-      "zoom": 1.1,
-      "x": "48%",
+      "t": "@where",
+      "zoom": 1.08,
+      "x": "56%",
       "y": "54%",
       "ease": "inOut"
      },
      {
       "t": "@:end",
-      "zoom": 1.14,
-      "x": "48%",
+      "zoom": 1.12,
+      "x": "56%",
       "y": "58%"
      }
     ]
@@ -1186,42 +1228,44 @@
     "place": "deep sea, 1,000 m",
     "depth": 1000,
     "waterline": null,
-    "light": "night"
+    "light": "night",
+    "key": "ink"
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
    },
    "layers": [
     {
      "type": "component",
      "name": "explainer/ColossalSquid",
-     "x": "84.00%",
-     "y": "44.00%",
-     "width": 440,
-     "height": 280,
+     "x": "80.00%",
+     "y": "46.00%",
+     "width": 220,
+     "height": 140,
      "flipX": true,
      "props": {
-      "pxPerM": 40
+      "pxPerM": 18
      },
      "z": 1,
-     "end": "@gone+0.1",
+     "end": "@gone+0.3",
      "allowOverlap": true,
      "keyframes": [
       {
        "t": 0,
-       "x": "84.00%"
+       "x": "80.00%"
       },
       {
        "t": "@buzz",
-       "x": "81.22%"
-      },
-      {
-       "t": "@gone",
-       "x": "80.30%"
+       "x": "82.00%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "28.00%",
+     "x": "26.00%",
      "y": "44.00%",
      "width": 664,
      "height": 172,
@@ -1243,7 +1287,7 @@
         "v": 1
        },
        {
-        "t": "@gone+0.35",
+        "t": "@gone+0.3",
         "v": 0
        }
       ]
@@ -1270,12 +1314,12 @@
       },
       {
        "t": "@gone",
-       "x": "58%",
+       "x": "58.93%",
        "ease": "in"
       },
       {
        "t": "@:end",
-       "x": "62%",
+       "x": "61.70%",
        "ease": "out"
       }
      ]
@@ -1283,9 +1327,9 @@
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "65.41%",
-     "y": "42.94%",
-     "width": 162,
+     "x": "64.72%",
+     "y": "44.44%",
+     "width": 190,
      "height": 300,
      "role": "fx",
      "z": 4,
@@ -1309,32 +1353,32 @@
       "life": 0.6,
       "arc": 30,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0,
       "out": "@squid"
      },
      "keyframes": [
       {
        "t": 0,
-       "x": "65.41%"
+       "x": "64.72%"
       },
       {
        "t": "@closes",
-       "x": "65.41%"
+       "x": "65.72%"
       },
       {
        "t": "@in.end",
-       "x": "69.39%"
+       "x": "69.72%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "65.69%",
-     "y": "42.96%",
-     "width": 116,
-     "height": 260,
+     "x": "66.46%",
+     "y": "44.96%",
+     "width": 132,
+     "height": 240,
      "role": "fx",
      "z": 4,
      "props": {
@@ -1344,25 +1388,25 @@
       "life": 0.6,
       "arc": 28,
       "color": "#0de9e0",
-      "width": 9,
-      "opacity": 0.85,
+      "width": 12,
+      "opacity": 1.0,
       "out": "@closes"
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "62%",
-     "y": "31%",
-     "width": 204,
-     "height": 110,
+     "x": "60%",
+     "y": "33%",
+     "width": 209,
+     "height": 115,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "ECHO",
       "at": "@echo",
-      "size": 46,
+      "size": 48,
       "align": "center",
       "out": "@closes"
      }
@@ -1370,20 +1414,20 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "66%",
-     "y": "30%",
-     "width": 219,
-     "height": 125,
+     "x": "64%",
+     "y": "33%",
+     "width": 224,
+     "height": 130,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "BUZZ",
       "at": "@buzz",
-      "size": 52,
+      "size": 54,
       "align": "center",
       "accent": "red",
-      "out": "@gone+0.2"
+      "out": "@gone"
      }
     }
    ],
@@ -1397,41 +1441,36 @@
      },
      {
       "t": "@echo",
-      "zoom": 1.02,
+      "zoom": 1.03,
       "x": "52%",
       "y": "48%"
      },
      {
-      "t": "@echo+0.3",
-      "zoom": 1.08,
+      "t": "@closes",
+      "zoom": 1.06,
       "x": "56%",
-      "y": "44%",
-      "ease": "out"
+      "y": "47%",
+      "ease": "inOut"
      },
      {
       "t": "@buzz",
-      "zoom": 1.09,
-      "x": "58%",
-      "y": "44%"
-     },
-     {
-      "t": "@buzz+0.25",
-      "zoom": 1.16,
-      "x": "62%",
-      "y": "42%",
-      "ease": "out"
+      "zoom": 1.12,
+      "x": "60%",
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": "@gone",
-      "zoom": 1.17,
-      "x": "62%",
-      "y": "42%"
+      "zoom": 1.18,
+      "x": "64%",
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": "@:end",
-      "zoom": 1.1,
-      "x": "60%",
-      "y": "44%"
+      "zoom": 1.14,
+      "x": "62%",
+      "y": "47%"
      }
     ],
     "shake": [
@@ -1446,6 +1485,11 @@
   {
    "p": 7,
    "beat": "turnstile",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "board",
@@ -1476,11 +1520,11 @@
      "type": "component",
      "name": "explainer/Diver",
      "x": "50.00%",
-     "y": "36.00%",
-     "width": 410,
-     "height": 115,
+     "y": "41.00%",
+     "width": 592,
+     "height": 150,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 220,
       "arms": "side"
      },
      "end": "@Swimmers+0.3",
@@ -1490,20 +1534,20 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "27%",
-     "width": 229,
-     "height": 134,
-     "depth": 0,
+     "y": "29.5%",
+     "width": 239,
+     "height": 144,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU?",
-      "at": 0.2,
-      "size": 56,
+      "at": 0.15,
+      "size": 60,
       "align": "center",
       "leader": [
        0,
-       80
+       90
       ],
       "out": "@Swimmers"
      }
@@ -1519,12 +1563,22 @@
      "z": 30,
      "start": "@Swimmers",
      "end": "@say",
+     "enter": {
+      "type": "fade",
+      "at": "@Swimmers",
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "at": "@say-0.3",
+      "duration": 0.3
+     },
      "props": {
       "views": [
        {
         "t": "@Swimmers",
         "lon": -66,
-        "lat": 16,
+        "lat": 15,
         "zoom": 3.2
        },
        {
@@ -1542,8 +1596,8 @@
         "label": "Dominica"
        }
       ],
-      "labelSize": 48,
-      "pinSize": 1.4,
+      "labelSize": 52,
+      "pinSize": 1.5,
       "at": -0.5
      }
     },
@@ -1552,144 +1606,153 @@
      "name": "explainer/Tag",
      "x": "50%",
      "y": "13%",
-     "width": 358,
-     "height": 115,
+     "width": 493,
+     "height": 120,
      "depth": 0,
      "z": 31,
      "role": "label",
      "props": {
-      "text": "CARIBBEAN",
+      "text": "CARIBBEAN SEA",
       "at": "@Swimmers",
-      "size": 48,
+      "size": 50,
       "align": "center",
-      "out": "@say"
+      "out": "@say-0.3"
      }
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "125.80%",
-     "y": "42.00%",
-     "width": 1162,
-     "height": 301,
+     "x": "142.58%",
+     "y": "43.00%",
+     "width": 1411,
+     "height": 366,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 70
+      "pxPerM": 85
      },
      "z": 2,
-     "start": "@say-0.7",
+     "start": "@say-0.6",
      "keyframes": [
       {
-       "t": "@say-0.7",
-       "x": "125.80%"
+       "t": "@say-0.6",
+       "x": "142.58%"
+      },
+      {
+       "t": "@thump",
+       "x": "118.51%",
+       "ease": "out"
       },
       {
        "t": "@:end",
-       "x": "101.72%"
+       "x": "114.81%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "26.02%",
-     "y": "40.14%",
-     "width": 202,
-     "height": 75,
+     "x": "27.60%",
+     "y": "41.05%",
+     "width": 241,
+     "height": 82,
      "props": {
-      "pxPerM": 70,
+      "pxPerM": 85,
       "arms": "side"
      },
      "z": 3,
-     "start": "@say-0.7",
+     "start": "@say-0.6",
      "keyframes": [
       {
        "t": "@thump",
-       "x": "26.02%"
+       "x": "27.60%",
+       "rotate": 0
       },
       {
-       "t": "@thump+0.08",
-       "x": "25.46%"
+       "t": "@thump+0.34",
+       "x": "26.49%",
+       "rotate": -6,
+       "ease": "out"
       },
       {
-       "t": "@thump+0.2",
-       "x": "26.02%"
+       "t": "@thump+0.66",
+       "x": "27.60%",
+       "rotate": 0,
+       "ease": "inOut"
       },
       {
-       "t": "@drum",
-       "x": "26.02%"
+       "t": "@chest",
+       "x": "27.60%",
+       "rotate": 0
       },
       {
-       "t": "@drum+0.08",
-       "x": "25.46%"
+       "t": "@chest+0.34",
+       "x": "26.49%",
+       "rotate": -6,
+       "ease": "out"
       },
       {
-       "t": "@drum+0.2",
-       "x": "26.02%"
+       "t": "@chest+0.66",
+       "x": "27.60%",
+       "rotate": 0,
+       "ease": "inOut"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "49.12%",
-     "y": "40.14%",
-     "width": 419,
-     "height": 280,
+     "x": "46.77%",
+     "y": "40.74%",
+     "width": 193,
+     "height": 320,
      "role": "fx",
      "z": 4,
      "props": {
       "at": "@say",
-      "rate": 2.2,
+      "rate": 2.4,
       "dir": -1,
-      "life": 0.9,
+      "life": 0.8,
       "arc": 36,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
-     },
-     "keyframes": [
-      {
-       "t": "@say",
-       "x": "49.12%"
-      },
-      {
-       "t": "@:end",
-       "x": "37.08%"
-      }
-     ]
+     }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "26.02%",
-     "y": "29%",
-     "width": 245,
-     "height": 120,
-     "depth": 0,
+     "x": "27.60%",
+     "y": "30.5%",
+     "width": 257,
+     "height": 130,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "THUMP",
       "at": "@thump",
-      "size": 50,
+      "size": 54,
       "align": "center",
-      "accent": "red"
+      "accent": "red",
+      "leader": [
+       0,
+       70
+      ]
      }
     },
     {
      "type": "svg",
-     "x": "14.91%",
-     "y": "44%",
-     "width": 100,
-     "height": 92,
+     "x": "30.38%",
+     "y": "48%",
+     "width": 170,
+     "height": 156,
      "markup": "<svg viewBox='0 0 120 110' xmlns='http://www.w3.org/2000/svg'><rect x='14' y='30' width='92' height='64' rx='10' fill='#fa302a'/><rect x='14' y='30' width='92' height='18' rx='9' fill='#fc6e0e'/><ellipse cx='60' cy='30' rx='46' ry='14' fill='#e9f4fc'/><path d='M 20 52 L 40 92 L 60 52 L 80 92 L 100 52' stroke='#fddf35' stroke-width='6' fill='none'/><rect x='70' y='0' width='8' height='34' rx='4' fill='#fddf35' transform='rotate(30 74 17)'/></svg>",
      "role": "prop",
-     "start": "@drum",
+     "start": "@like#2",
      "enter": {
       "type": "pop",
-      "at": "@drum",
+      "at": "@like#2",
       "duration": 0.35
      },
      "z": 4
@@ -1707,7 +1770,7 @@
       "t": "@you",
       "zoom": 1.06,
       "x": "50%",
-      "y": "44%",
+      "y": "47%",
       "ease": "inOut"
      },
      {
@@ -1718,22 +1781,17 @@
      },
      {
       "t": "@thump",
-      "zoom": 1.02,
-      "x": "46%",
-      "y": "48%"
-     },
-     {
-      "t": "@thump+0.3",
-      "zoom": 1.12,
-      "x": "38%",
-      "y": "42%",
-      "ease": "out"
+      "zoom": 1.03,
+      "x": "44%",
+      "y": "48%",
+      "ease": "inOut"
      },
      {
       "t": "@:end",
-      "zoom": 1.14,
-      "x": "37%",
-      "y": "42%"
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "45%",
+      "ease": "inOut"
      }
     ]
    }
@@ -1745,72 +1803,107 @@
     "kind": "board",
     "board": "ink"
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "layers": [
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "178.67%",
-     "y": "45.19%",
-     "width": 1992,
-     "height": 516,
+     "x": "145.41%",
+     "y": "45.08%",
+     "width": 1494,
+     "height": 387,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 120
+      "pxPerM": 90
      },
      "z": 2,
      "keyframes": [
       {
        "t": 0,
-       "x": "184.22%"
+       "x": "145.41%"
       },
       {
        "t": "@distance",
-       "x": "178.67%"
+       "x": "121.33%",
+       "ease": "out"
       },
       {
        "t": "@point",
-       "x": "178.67%"
+       "x": "121.33%"
       },
       {
        "t": "@blank.end",
-       "x": "135.22%",
+       "x": "104.67%",
        "ease": "inOut"
       },
       {
        "t": "@:end",
-       "x": "134.30%"
+       "x": "103.93%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "21.00%",
-     "y": "42.00%",
-     "width": 332,
-     "height": 100,
+     "x": "19.00%",
+     "y": "43.00%",
+     "width": 254,
+     "height": 85,
      "props": {
-      "pxPerM": 120,
+      "pxPerM": 90,
       "arms": "side"
      },
      "z": 3,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": "@burst",
+       "x": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": "@burst+0.34",
+       "x": "16.22%",
+       "rotate": -14,
+       "ease": "out"
+      },
+      {
+       "t": "@eardrums+0.3",
+       "x": "15.67%",
+       "rotate": -10
+      },
+      {
+       "t": "@Nobody's",
+       "x": "17.15%",
+       "rotate": -4,
+       "ease": "inOut"
+      }
+     ]
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "21.00%",
-     "y": "35.75%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "19.00%",
+     "y": "37.01%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": 0.1,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
@@ -1820,44 +1913,67 @@
     },
     {
      "type": "svg",
-     "x": "62.72%",
-     "y": "46.69%",
-     "width": 559,
+     "x": "42.33%",
+     "y": "47.17%",
+     "width": 250,
      "height": 30,
      "markup": "<svg viewBox='0 0 600 40' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><line x1='10' y1='20' x2='590' y2='20' stroke='#e9f4fc' stroke-width='7' stroke-dasharray='24 18' stroke-linecap='round'/></svg>",
      "role": "prop",
      "start": "@polite",
-     "end": "@point",
+     "end": "@point+0.2",
      "enter": {
       "type": "fade",
       "at": "@polite",
       "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "at": "@point-0.1",
+      "duration": 0.3
      },
      "z": 4
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "41.00%",
-     "y": "52.42%",
+     "x": "42.33%",
+     "y": "51.33%",
      "width": 176,
      "height": 110,
      "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
+      "text": "3 M",
+      "at": "@distance",
+      "size": 46,
+      "align": "center",
+      "out": "@point"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "34.00%",
+     "y": "51.33%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
+     "z": 20,
+     "role": "label",
+     "props": {
       "text": "1 M",
       "at": "@blank.end",
-      "size": 46,
+      "size": 48,
       "align": "center"
      }
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "41.00%",
-     "y": "42.00%",
-     "width": 100,
+     "x": "33.72%",
+     "y": "43.00%",
+     "width": 76,
      "height": 420,
      "role": "fx",
      "z": 4,
@@ -1868,17 +1984,17 @@
       "life": 0.5,
       "arc": 45,
       "color": "#e9f4fc",
-      "width": 16,
+      "width": 20,
       "opacity": 1.0,
       "out": "@Nobody's"
      }
     },
     {
      "type": "svg",
-     "x": "32.11%",
-     "y": "41.79%",
-     "width": 190,
-     "height": 190,
+     "x": "27.98%",
+     "y": "42.69%",
+     "width": 200,
+     "height": 200,
      "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='92' fill='#fa302a' opacity='0.25'/><circle cx='100' cy='100' r='60' fill='none' stroke='#fa302a' stroke-width='10'/></svg>",
      "role": "prop",
      "start": "@burst",
@@ -1887,7 +2003,12 @@
       "at": "@burst",
       "duration": 0.3
      },
-     "end": "@Nobody's+0.3",
+     "end": "@Nobody's+0.4",
+     "exit": {
+      "type": "fade",
+      "at": "@Nobody's",
+      "duration": 0.4
+     },
      "z": 5,
      "idle": [
       {
@@ -1902,15 +2023,15 @@
      "name": "explainer/Tag",
      "x": "50%",
      "y": "14%",
-     "width": 368,
-     "height": 134,
+     "width": 388,
+     "height": 144,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "UNTESTED",
       "at": "@Nobody's",
-      "size": 56,
+      "size": 60,
       "align": "center",
       "accent": "red"
      }
@@ -1920,7 +2041,7 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.04,
+      "zoom": 1.02,
       "x": "50%",
       "y": "50%"
      },
@@ -1938,42 +2059,30 @@
      },
      {
       "t": "@blank.end",
-      "zoom": 1.1,
-      "x": "36%",
-      "y": "42%",
+      "zoom": 1.08,
+      "x": "40%",
+      "y": "46%",
       "ease": "inOut"
      },
      {
       "t": "@burst",
-      "zoom": 1.12,
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "46%"
+     },
+     {
+      "t": "@eardrums",
+      "zoom": 1.16,
       "x": "34%",
-      "y": "42%"
-     },
-     {
-      "t": "@burst+0.25",
-      "zoom": 1.22,
-      "x": "30%",
-      "y": "40%",
-      "ease": "out"
-     },
-     {
-      "t": "@Nobody's",
-      "zoom": 1.18,
-      "x": "36%",
-      "y": "42%"
-     },
-     {
-      "t": "@Nobody's+0.4",
-      "zoom": 1.04,
-      "x": "48%",
-      "y": "46%",
-      "ease": "out"
+      "y": "45%",
+      "ease": "inOut"
      },
      {
       "t": "@:end",
-      "zoom": 1.03,
-      "x": "48%",
-      "y": "46%"
+      "zoom": 1.06,
+      "x": "44%",
+      "y": "47%",
+      "ease": "inOut"
      }
     ],
     "shake": [
@@ -1988,6 +2097,11 @@
   {
    "p": 9,
    "beat": "twist",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "place",
@@ -1995,7 +2109,8 @@
      "place": "deep sea, 1,000 m",
      "depth": 1000,
      "waterline": null,
-     "light": "night"
+     "light": "night",
+     "key": "ink"
     },
     {
      "kind": "place",
@@ -2004,6 +2119,7 @@
      "depth": 8,
      "waterline": 0.14,
      "light": "dusk",
+     "key": "royal",
      "at": "@Near"
     }
    ],
@@ -2011,7 +2127,7 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "40.00%",
+     "x": "30.00%",
      "y": "42.00%",
      "width": 664,
      "height": 172,
@@ -2021,24 +2137,53 @@
       "pxPerM": 40
      },
      "z": 2,
-     "end": "@Near+0.1",
+     "end": "@Near+0.45",
      "keyframes": [
       {
        "t": 0,
-       "x": "34%"
+       "x": "28%"
       },
       {
-       "t": "@Near+0.1",
-       "x": "46%"
+       "t": "@Near+0.45",
+       "x": "40%"
       }
      ]
     },
     {
      "type": "component",
+     "name": "explainer/ColossalSquid",
+     "x": "86%",
+     "y": "43.98%",
+     "width": 160,
+     "height": 110,
+     "flipX": true,
+     "props": {
+      "pxPerM": 12
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "84%"
+      },
+      {
+       "t": "@down",
+       "x": "88%"
+      },
+      {
+       "t": "@Near-0.05",
+       "x": "112%",
+       "ease": "in"
+      }
+     ],
+     "end": "@Near"
+    },
+    {
+     "type": "component",
      "name": "explainer/ClickRings",
-     "x": "85.01%",
+     "x": "70.00%",
      "y": "40.96%",
-     "width": 314,
+     "width": 206,
      "height": 260,
      "role": "fx",
      "z": 4,
@@ -2049,36 +2194,36 @@
       "life": 0.5,
       "arc": 26,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0,
       "out": "@down"
      },
      "keyframes": [
       {
        "t": 0,
-       "x": "78%"
+       "x": "67.99%"
       },
       {
        "t": "@Near",
-       "x": "86%"
+       "x": "76.99%"
       }
      ],
-     "end": "@Near"
+     "end": "@Near+0.45"
     },
     {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
      "y": "14%",
-     "width": 298,
-     "height": 115,
+     "width": 462,
+     "height": 120,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
-      "text": "1,000 M",
+      "text": "1,000 M DEEP",
       "at": 0.3,
-      "size": 48,
+      "size": 50,
       "align": "center",
       "out": "@Near-0.3"
      }
@@ -2086,48 +2231,58 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "27.00%",
-     "y": "30.00%",
-     "width": 365,
-     "height": 95,
+     "x": "-33.81%",
+     "y": "33.00%",
+     "width": 571,
+     "height": 148,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 22,
+      "pxPerM": 34.375,
       "timeOffset": 0.0
      },
      "z": 2,
-     "start": "@Near",
+     "start": "@Near+0.4",
      "keyframes": [
       {
-       "t": "@Near",
-       "x": "18.67%"
+       "t": "@Near+0.4",
+       "x": "-33.81%"
+      },
+      {
+       "t": "@trade",
+       "x": "31.00%",
+       "ease": "out"
       },
       {
        "t": "@:end",
-       "x": "29.78%"
+       "x": "33.78%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "22.00%",
-     "y": "37.00%",
-     "width": 149,
-     "height": 39,
+     "x": "-42.81%",
+     "y": "38.50%",
+     "width": 233,
+     "height": 60,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 9,
+      "pxPerM": 14.0625,
       "timeOffset": 0.7
      },
      "z": 2,
-     "start": "@Near",
+     "start": "@Near+0.4",
      "keyframes": [
       {
-       "t": "@Near",
-       "x": "13.67%"
+       "t": "@Near+0.4",
+       "x": "-42.81%"
+      },
+      {
+       "t": "@trade",
+       "x": "22.00%",
+       "ease": "out"
       },
       {
        "t": "@:end",
@@ -2138,48 +2293,58 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "74.00%",
-     "y": "47.00%",
-     "width": 365,
-     "height": 95,
+     "x": "133.81%",
+     "y": "49.00%",
+     "width": 571,
+     "height": 148,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 22,
+      "pxPerM": 34.375,
       "timeOffset": 0.4
      },
      "z": 2,
-     "start": "@Near",
+     "start": "@Near+0.4",
      "keyframes": [
       {
-       "t": "@Near",
-       "x": "82.33%"
+       "t": "@Near+0.4",
+       "x": "133.81%"
+      },
+      {
+       "t": "@trade",
+       "x": "69.00%",
+       "ease": "out"
       },
       {
        "t": "@:end",
-       "x": "71.22%"
+       "x": "66.22%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "79.00%",
-     "y": "54.00%",
-     "width": 149,
-     "height": 39,
+     "x": "143.81%",
+     "y": "54.50%",
+     "width": 233,
+     "height": 60,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 9,
+      "pxPerM": 14.0625,
       "timeOffset": 1.1
      },
      "z": 2,
-     "start": "@Near",
+     "start": "@Near+0.4",
      "keyframes": [
       {
-       "t": "@Near",
-       "x": "87.33%"
+       "t": "@Near+0.4",
+       "x": "143.81%"
+      },
+      {
+       "t": "@trade",
+       "x": "79.00%",
+       "ease": "out"
       },
       {
        "t": "@:end",
@@ -2190,14 +2355,14 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "27%",
-     "y": "23%",
+     "x": "33%",
+     "y": "25.5%",
      "width": 300,
      "height": 60,
      "z": 6,
      "role": "fx",
      "props": {
-      "at": "@codas",
+      "at": "@trade",
       "gaps": [
        0.18,
        0.18,
@@ -2211,14 +2376,14 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "73%",
-     "y": "40%",
+     "x": "67%",
+     "y": "41.5%",
      "width": 300,
      "height": 60,
      "z": 6,
      "role": "fx",
      "props": {
-      "at": "@codas+0.5",
+      "at": "@trade+0.5",
       "gaps": [
        0.4,
        0.12,
@@ -2232,34 +2397,34 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "27%",
-     "y": "16.5%",
-     "width": 308,
-     "height": 106,
-     "depth": 0,
+     "x": "33%",
+     "y": "19.5%",
+     "width": 318,
+     "height": 110,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "FAMILY 1",
       "at": "@family",
-      "size": 44,
+      "size": 46,
       "align": "center"
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "73%",
-     "y": "33.5%",
-     "width": 308,
-     "height": 106,
-     "depth": 0,
+     "x": "67%",
+     "y": "35.5%",
+     "width": 318,
+     "height": 110,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "FAMILY 2",
-      "at": "@family+0.25",
-      "size": 44,
+      "at": "@family",
+      "size": 46,
       "align": "center"
      }
     }
@@ -2268,7 +2433,7 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.06,
+      "zoom": 1.04,
       "x": "50%",
       "y": "50%"
      },
@@ -2288,7 +2453,8 @@
       "t": "@trade",
       "zoom": 1.02,
       "x": "50%",
-      "y": "46%"
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": "@codas",
@@ -2323,19 +2489,24 @@
     "waterline": 0.05,
     "light": "day"
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "layers": [
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "162.69%",
+     "x": "142.35%",
      "y": "46.00%",
-     "width": 2490,
-     "height": 645,
+     "width": 2158,
+     "height": 559,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 150,
-      "timeOffset": 1.568
+      "pxPerM": 130,
+      "timeOffset": 1.601
      },
      "z": 2,
      "idle": [
@@ -2343,55 +2514,58 @@
        "type": "sway",
        "amount": 0.5,
        "speed": 0.2,
-       "phase": -7.0544
+       "phase": -7.0125
       }
      ],
      "keyframes": [
       {
        "t": 0,
-       "x": "201.57%"
+       "x": "212.72%"
       },
       {
-       "t": "@up",
-       "x": "177.50%",
+       "t": "@swims",
+       "x": "212.72%"
+      },
+      {
+       "t": "@relax",
+       "x": "144.20%",
        "ease": "out"
       },
       {
-       "t": "@:end",
-       "x": "162.69%",
-       "ease": "out"
+       "t": 5.899,
+       "x": "142.35%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "43.98%",
-     "y": "42.02%",
-     "width": 110,
-     "height": 380,
+     "x": "39.63%",
+     "y": "42.55%",
+     "width": 104,
+     "height": 420,
      "role": "fx",
      "z": 4,
      "props": {
-      "at": 4.932,
+      "at": 4.899,
       "rate": 3,
       "dir": -1,
-      "life": 0.8,
+      "life": 0.9,
       "arc": 40,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "19.91%",
-     "y": "42.02%",
-     "width": 410,
-     "height": 115,
+     "x": "18.61%",
+     "y": "42.86%",
+     "width": 358,
+     "height": 105,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 130,
       "arms": "side"
      },
      "z": 3,
@@ -2400,21 +2574,21 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "19.91%",
-     "y": "35.77%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "18.61%",
+     "y": "36.35%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": -1,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
-       70
+       75
       ]
      }
     },
@@ -2442,15 +2616,15 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "54.63%",
-     "y": "31.08%",
+     "x": "48.15%",
+     "y": "30.57%",
      "width": 260,
      "height": 56,
      "z": 6,
      "role": "fx",
      "props": {
       "at": "@clicking",
-      "out": "@about-0.4",
+      "out": "@about-0.6",
       "gaps": [
        0.18,
        0.18,
@@ -2466,18 +2640,18 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.1,
-      "x": "46%",
-      "y": "46%"
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "48%"
      },
      {
       "t": "@relax",
-      "zoom": 1.08,
-      "x": "47%",
-      "y": "47%"
+      "zoom": 1.06,
+      "x": "48%",
+      "y": "48%"
      },
      {
-      "t": "@:end",
+      "t": 5.899,
       "zoom": 1.0,
       "x": "50%",
       "y": "50%",
