@@ -1,5 +1,7 @@
 // Framing check for the 3D story (our own code): replays every frame's camera from story.ts (pure math, no render)
 // and reports figures cut by the frame edge, figures looming in front of the lens and (Turk) the cabinet cut by the edge. Run: node scripts/framing.mjs <storyboard.json> (bundled with esbuild).
+// Then the caption gate and the kit gates (src/kit/gates.ts: holds <= 4 s, no speck figures, nothing cut by the edge,
+// HUD readouts never backwards); any failure exits 1.
 import fs from "fs";
 import * as THREE from "three";
 import { Timing } from "../src/kit/timing";
@@ -11,6 +13,8 @@ import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
 import { parseStoryboard, sceneTimings } from "../../../studio/src/core/schema";
 import { paginate } from "../../../studio/src/core/captions";
 import { hudRects } from "../src/vasa/Vasa3D";
+import { runGates, type HudTrack } from "../src/kit/gates";
+import type { GroupSpec } from "../src/kit/Stage";
 
 const W = 1080, H = 1920, FPS = 30;
 const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least this many frames
@@ -129,4 +133,16 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
   });
   console.log(`caption gate (band over faces or busy bands > ${(100 * CAP_MAX).toFixed(0)}%): ${bad.length ? "\n  " + bad.join("\n  ") : "clean"}`);
   if (bad.length) process.exitCode = 1;
+}
+
+// kit gates (src/kit/gates.ts, from the src/next integration): the same checks Episode3D runs before a render
+{
+  const vs = sb.id === "story-vasa" ? vasaStory(T) : null;
+  const hud: HudTrack[] = vs ? [
+    { name: "DISTANCE panel", kind: "progress", value: vs.dist },
+    { name: "HEEL gauge", kind: "gauge", tol: 2, value: (t) => { const h = vs.heel(t); return h === null ? null : Math.abs((h * 180) / Math.PI); } },
+  ] : [];
+  const r = runGates(groups as unknown as GroupSpec[], T.words, { fps: FPS, hud });
+  console.log(`kit gates: ${r.failures.length ? r.failures.length + " failure(s)\n  " + r.failures.join("\n  ") : "clean"}\n  ${r.notes.join("\n  ")}`);
+  if (r.failures.length) process.exitCode = 1;
 }

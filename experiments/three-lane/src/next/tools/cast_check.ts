@@ -9,7 +9,7 @@ import { Timing } from "../../kit/timing";
 import { buildStory } from "../../vasa/story";
 import { synthWords } from "../kitlab/script";
 import { buildLab } from "../kitlab/story";
-import { castCheck, peopleCast } from "../castframe";
+import { castCheck, peopleCast } from "../../kit/castframe";
 import type { GroupSpec, V3 } from "../../kit/Stage";
 
 const [which, sbPath] = process.argv.slice(2);

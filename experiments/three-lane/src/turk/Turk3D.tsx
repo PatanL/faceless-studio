@@ -45,6 +45,6 @@ const Overlays: React.FC<{ tags: TagSpec[]; headlineOut: number; paperAt: number
 };
 
 export const Turk3D: React.FC<StoryboardInput> = (props) => (
-  <Episode3D storyboard={props} build={build}
+  <Episode3D storyboard={props} build={build} gates="warn"
     overlays={(s) => <Overlays tags={s.tags} headlineOut={s.headlineOut} paperAt={s.paperAt} paperOut={s.paperOut} />} />
 );

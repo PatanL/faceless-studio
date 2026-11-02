@@ -6,7 +6,7 @@ import { NOINK } from "../../ink";
 import { rng, plaster } from "../../paint";
 import { lambert, basic, box, cyl, plane, glowSprite, skyDome, makeKey, type SetBuild } from "../../kit/sets";
 import { brass, darkBoards, tex } from "../../kit/paint2";
-import { grainPlanks, stoneCourses, richWater, dress, clouds, crate, barrel, ropeCoil, net, sack } from "../dressing";
+import { grainPlanks, stoneCourses, richWater, dress, clouds, crate, barrel, ropeCoil, net, sack } from "../../kit/dressing";
 
 const INK = "#1b1240";
 const canvas = (w: number, h: number) => { const c = document.createElement("canvas"); c.width = w; c.height = h; return [c, c.getContext("2d")!] as const; };

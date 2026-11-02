@@ -5,8 +5,8 @@
 // povKey() for the camera.
 import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import type { CamKey } from "../kit/campath";
-import type { V3 } from "../kit/Stage";
+import type { CamKey } from "./campath";
+import type { V3 } from "./Stage";
 
 export type PovKind = "spyglass" | "keyhole" | "binoculars";
 const sm = (u: number) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };

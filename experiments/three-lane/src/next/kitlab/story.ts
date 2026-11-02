@@ -7,15 +7,16 @@ import { fit, personBox, setRoom, sm, type Box } from "../../kit/framing";
 import { lambert, box as mkBox } from "../../kit/sets";
 import { NOINK } from "../../ink";
 import { Rising } from "../../kit/fx";
-import { actorRig } from "../actorCard";
-import { castKey } from "../castframe";
+import { actorRig, actorsToPeople } from "../../kit/actorCard";
+import { castKey } from "../../kit/castframe";
 import type { CamKey } from "../../kit/campath";
-import { faceTrack, poseTrack, wordT, markAt, fillAt, checkFaceTrack, type Word, type FaceKey } from "../acting";
-import { crossSectionSet, macroSet, mapSet, routeRig, blueprintSet, drawOnRig, xraySet, xrayPanel } from "../cutaways";
-import { glints, burst, debris, counter, scan } from "../fx2";
-import { lightArc } from "../lightarc";
-import { boxRect, matchKey, quadPortal, circlePortal, quadAt } from "../match";
-import type { NextGroup, NextStory } from "../EpisodeNext";
+import { faceTrack, poseTrack, wordT, markAt, fillAt, checkFaceTrack, type Word, type FaceKey } from "../../kit/acting";
+import { crossSectionSet, macroSet, mapSet, routeRig, blueprintSet, drawOnRig, xraySet, xrayPanel } from "../../kit/cutaways";
+import { glints, burst, debris, counter, scan } from "../../kit/fx2";
+import { lightArc } from "../../kit/lightarc";
+import { boxRect, matchKey, quadPortal, circlePortal, quadAt } from "../../kit/match";
+import type { GroupSpec as NextGroup } from "../../kit/Stage";
+import type { Story as NextStory } from "../../kit/Episode3D";
 import { SENTENCES } from "./script";
 import { roomSet, gearRoomSet, seaSet, deckSet, xrayCanvases, gear, brassKey, weight, photoQuad, windowQuad, clockHands, ROOM } from "./sets";
 
@@ -65,7 +66,7 @@ export function buildLab(T: Timing): LabStory {
   {
     const t0 = S[1], t1 = S[2];
     groups.push({
-      id: "macro-key", place: "macro", insert: true, t0, t1, xfade: 0.4, set: () => macroSet({ surface: "cloth" }), light: "golden",
+      id: "macro-key", place: "macro", insert: true, lens: { cInf: 22 }, t0, t1, xfade: 0.4, set: () => macroSet({ surface: "cloth" }), light: "golden",
       cam: [fit(t0, [[-0.07, 0, -0.07, 0.24, 0.05, 0.1]], 24, 32, 30, { b: 0.36, t: 0.2, x: 0.1 }), fit(w("older"), [[-0.07, 0, -0.07, 0.12, 0.05, 0.07]], -14, 40, 28, { b: 0.42, t: 0.24, x: 0.14 })],
       people: [],
       rigs: [meshRig((root) => { const k = brassKey(1); k.rotation.y = -0.35; k.position.y = 0.012; root.add(k); return () => {}; }),
@@ -169,7 +170,7 @@ export function buildLab(T: Timing): LabStory {
     groups.push({
       id: "room-night", place: "room", t0, t1, xfade: 0.4, set: () => roomSet({ night: true }),
       light: lightArc([[t0, "night"]], [{ kind: "alarm", t: w("stopped."), dur: 1.0, every: 6 }]),
-      cam: [room(() => castKey(t0, [A6], "medium", 16, 8, 40, 1, [CLOCKBOX], ROOMBOX)), k1, k2],
+      cam: [room(() => castKey(t0, [A6], "medium", 12, 8, 40, 1, [], ROOMBOX)), k1, k2],
       people: [],
       rigs: [actorRig({ id: "ada", at: () => A6, billboard: false, yaw: YAW6, props: () => ({ ...ada, face: faces, blinks: [t0 + 0.6], pose: poseTrack(words, "stand", [["stopped.", "shrug"], ["terrified.", "cheeks"]], t0),
         marks: [markAt(words, "stopped.", "sweat")], fill: [fillAt(words, "terrified.", "#8a63d2")] }) }),
@@ -225,7 +226,7 @@ export function buildLab(T: Timing): LabStory {
     const faces = faceTrack(words, "focus", [{ word: "saw", face: "worried" }], t0);
     adaFaces.push(...faces); heads.push({ t0, t1, at: A });
     groups.push({
-      id: "room-window", place: "room", t0, t1, xfade: 0.4, set: () => roomSet({ night: true }), light: "night",
+      id: "room-window", place: "room", establishing: true, t0, t1, xfade: 0.4, set: () => roomSet({ night: true }), light: "night",
       cam: [{ t: t0, pos: [0.4, 1.55, 1.3], look: [-3.0, 1.15, -2.4], fov: 40 }, { t: t1, pos: [-4.7, 2.05, -2.6], look: [-9, 2.05, -2.6], fov: 40, glide: 1.0 }],
       people: [],
       rigs: [actorRig({ id: "ada", at: () => A, faceTo: () => ROOM.window, props: () => ({ ...ada, face: faces, item: "lantern", pose: poseTrack(words, "hold", [["window,", "holdHigh"]], t0) }) })],
@@ -275,7 +276,7 @@ export function buildLab(T: Timing): LabStory {
     adaFaces.push(...faces); heads.push({ t0, t1, at: A });
     const photoBox: Box = [PHOTO_C[0] - 0.12, PHOTO_C[1] - 0.2, PHOTO_C[2] - 0.05, PHOTO_C[0] + 0.12, PHOTO_C[1] + 0.2, PHOTO_C[2] + 0.05];
     groups.push({
-      id: "room-photo", place: "room", t0, t1, xfade: 0.4, set: () => roomSet(), light: "day",
+      id: "room-photo", place: "room", insert: true, t0, t1, xfade: 0.4, set: () => roomSet(), light: "day",
       cam: [room(() => castKey(t0, [A], "medium", 12, 10, 38, 1, [photoBox], ROOMBOX)), { ...roomFit(w("photograph") - 0.15, [photoBox], 0, 6, 30, { b: 0.42, t: 0.3, x: 0.3 }), glide: 0.8 }],
       people: [],
       rigs: [actorRig({ id: "ada", at: () => A, faceTo: () => PHOTO_C, props: () => ({ ...ada, face: faces, pose: poseTrack(words, "hips", [["photograph", "point"]], t0), marks: [markAt(words, "photograph", "blush")] }) }),
@@ -330,5 +331,6 @@ export function buildLab(T: Timing): LabStory {
   const adaHead = (t: number): Box | null => { const h = heads.find((x) => t >= x.t0 && t < x.t1); return h ? headBox(h.at) : null; };
   void NOINK;
   for (const h of heads) { const g = groups.find((q) => q.t0 <= h.t0 + 1e-6 && q.t1 >= h.t1 - 1e-6); if (g && !cast[g.id]) cast[g.id] = () => [h.at]; }
+  actorsToPeople(groups);
   return { groups, cast, pov: povT, faceReport: checkFaceTrack(lead, 0, END), adaHead };
 }

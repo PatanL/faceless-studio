@@ -79,5 +79,6 @@ export const hudRects = (s: VasaStory, t: number): ScreenRect[] => [
 ];
 
 export const Vasa3D: React.FC<StoryboardInput> = (props) => (
-  <Episode3D storyboard={props} build={buildStory} overlays={(s) => <Overlays s={s} />} screenAvoid={hudRects} />
+  // gates "warn": Vasa was finished before the kit gates existed (its gate report is in docs/RND_LOG.md)
+  <Episode3D storyboard={props} build={buildStory} overlays={(s) => <Overlays s={s} />} screenAvoid={hudRects} gates="warn" />
 );

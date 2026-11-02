@@ -1,10 +1,11 @@
 // DressLab (our own code): an A/B of dressing.ts. The same four KitLab sets with the same cameras and no actors,
 // rendered bare (flat colour, no props or clouds: the look before) and dressed, for look_density.py.
 import React from "react";
-import { EpisodeNext, type NextGroup } from "../EpisodeNext";
-import { setBare } from "../dressing";
+import { Episode3D } from "../../kit/Episode3D";
+import type { GroupSpec as NextGroup } from "../../kit/Stage";
+import { setBare } from "../../kit/dressing";
 import { roomSet, gearRoomSet, seaSet, deckSet } from "./sets";
-import { castKey } from "../castframe";
+import { castKey } from "../../kit/castframe";
 import type { V3 } from "../../kit/Stage";
 
 const CREW: V3[] = [[0, 0, -1.6], [-0.9, 0, -1.85], [0.9, 0, -1.85]];
@@ -19,5 +20,5 @@ const groups = (): NextGroup[] => {
 };
 export const DressLab: React.FC<{ bare?: boolean }> = ({ bare = false }) => {
   setBare(bare);
-  return <EpisodeNext words={[]} durations={[4]} build={() => ({ groups: groups() })} captions="none" />;
+  return <Episode3D words={[]} durations={[4]} build={() => ({ groups: groups() })} captions="none" />;
 };

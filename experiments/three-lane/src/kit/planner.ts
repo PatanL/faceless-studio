@@ -7,8 +7,8 @@
 //                        distinct places, inserts, first transition; and for each flagged hold the caption-word
 //                        starts where a cutaway / angle change could go (every ~3 s inside it)
 import * as THREE from "three";
-import type { GroupSpec } from "../kit/Stage";
-import type { CamKey } from "../kit/campath";
+import type { GroupSpec } from "./Stage";
+import type { CamKey } from "./campath";
 
 export type PlanGroup = GroupSpec & { place?: string; insert?: boolean; join?: { kind: string } };
 export type Change = { t: number; kind: "place" | "view"; group: string; why: string };

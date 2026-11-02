@@ -19,6 +19,8 @@ import { SvgTex, svgMarkup } from "./svgtex";
 import { Card3D, CARD_TONE } from "./card3d";
 import { CamKey, CamPath } from "./campath";
 import { PRESETS, Preset } from "./presets";
+import { actorCard } from "./actorCard";
+import { skyLife, waterLife, minLabel, type Life } from "./ambient";
 import type { SetBuild } from "./sets";
 
 export type V3 = [number, number, number];
@@ -32,6 +34,9 @@ export type PersonSpec = {
   props: (t: number) => Record<string, unknown>;
   visible?: (t: number) => boolean;
   char?: (t: number) => number;
+  /** draw with the old stick/Person (idle breathing, regular blinks) instead of the Actor (the default since the
+   * src/next integration: whole-face swaps, still body, rare short blinks, marks, prop follow-through) */
+  classic?: boolean;
 };
 /** an SVG card a rig draws every frame (markup null = keep the last drawing) */
 export type CardRec = { tex: SvgTex; card: Card3D; markup: (t: number) => string | null };
@@ -40,7 +45,8 @@ export type Rig = (ctx: Ctx) => (t: number, cam: THREE.PerspectiveCamera) => voi
 export type GroupSpec = {
   id: string; t0: number; t1: number; xfade: number;
   set: () => SetBuild;
-  light: string | ((t: number) => string);
+  /** a preset name or object, or a function of time returning either (kit/lightarc.ts blends presets) */
+  light: string | Preset | ((t: number) => string | Preset);
   cam: CamKey[];
   people: PersonSpec[];
   rigs?: Rig[];
@@ -49,7 +55,22 @@ export type GroupSpec = {
   // busy bands captions must stay off (rigging, rows of ports): weighted above avoid in caption placement and checked by
   // the caption gate in scripts/framing.ts (story-vasa v15)
   busy?: (t: number, cam: [number, number, number]) => [number, number, number, number, number, number][];
+  /** lens blur strength: cInf = blur radius (px at 1080x1920) at infinity; default LENS.cInf (macro shots ~22) */
+  lens?: { cInf?: number; maxCoC?: number };
+  /** kit life: drifting clouds round a sky dome and wave detail over extra.water (default on) */
+  clouds?: boolean; waves?: boolean;
+  /** how the group is entered (Episode3D joins; default from xfade: whip, or cut when 0) */
+  join?: import("./Episode3D").Join;
+  /** gates: place name (same string for revisits), an insert (cutaway), an establishing wide (allowed small figures) */
+  place?: string; insert?: boolean; establishing?: boolean;
+  /** world boxes that must stay whole in frame (a banner, a mast top); figures are checked anyway */
+  keepInFrame?: (t: number) => [number, number, number, number, number, number][];
 };
+
+/** kit-wide lens default (src/next integration): cInf 10 left KitLab's soft-edge share at 2.6 % (refs 4-15 % at 720p) */
+export const LENS = { cInf: 12, maxCoC: 24 };
+/** a light value -> a preset */
+export const presetOf = (v: string | Preset): Preset => (typeof v === "string" ? PRESETS[v] : v);
 
 export const PERSON_VB = { w: 600, h: 700, padT: 40, padL: 0, padR: 0, padB: 0 };
 export const PERSON_K = 0.0025;                     // m per Person svg unit (a standing adult ~1.75 m)
@@ -74,13 +95,14 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     root.add(set.root);
     const cards: CardRec[] = [];
     const people = g.people.map((p) => {
-      const rec = personCard((t) => (p.visible && !p.visible(t) ? null : p.props(t)), { flip: p.flip, scale: p.scale, billboard: p.billboard,
+      const rec = (p.classic ? personCard : actorCard)((t) => (p.visible && !p.visible(t) ? null : p.props(t)), { flip: p.flip, scale: p.scale, billboard: p.billboard,
         contact: p.billboard === false ? 0 : undefined });
       root.add(rec.card.group); cards.push(rec); return rec;
     });
     const ctx: Ctx = { root, set, addCard: (c) => cards.push(c) };
     const rigs = (g.rigs ?? []).map((r) => r(ctx));
-    return { root, set, cards, people, rigs, path: new CamPath(g.cam, g.t0, g.t1) };
+    const life = [g.clouds === false ? null : skyLife(set.root), g.waves === false ? null : waterLife(set.extra.water)].filter(Boolean) as Life[];
+    return { root, set, cards, people, rigs, life, path: new CamPath(g.cam, g.t0, g.t1) };
   }, [g]);
 
   const { width: vw, height: vh } = useVideoConfig();
@@ -88,14 +110,14 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const composer = new EffectComposer(gl, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, cam));
     composer.addPass(new InkPass(scene, cam, { color: "#0b0a0c", fadeNear: 140, fadeFar: 420, distFar: 160, widthNear: 5.8, widthFar: 3.9 }));
-    const lens = new LensBlur({ maxCoC: 24, nearScale: 1.2 });
+    const lens = new LensBlur({ maxCoC: g.lens?.maxCoC ?? LENS.maxCoC, nearScale: 1.2 });
     composer.addPass(new EffectPass(cam, lens.pre));
     composer.addPass(new EffectPass(cam, lens.main));
     const grade = new GradeEffect(PRESETS.day.grade, 1);
     composer.addPass(new EffectPass(cam, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
     composer.setSize(vw, vh);       // explicit: a first frame rendered before the canvas settled came out tiled (v1 review)
     return { composer, lens, grade };
-  }, [gl, scene, cam, vw, vh]);
+  }, [gl, scene, cam, vw, vh, g]);
   const mounted = React.useRef(false);
   useEffect(() => () => fx.composer.dispose(), [fx]);
 
@@ -103,7 +125,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
 
   const t = tOf(frame);
   // ---- pose everything for this frame (during render, before ThreeCanvas advances)
-  const P: Preset = PRESETS[typeof g.light === "function" ? g.light(t) : g.light];
+  const P: Preset = presetOf(typeof g.light === "function" ? g.light(t) : g.light);
   const c = world.path.at(t);
   cam.position.copy(c.pos); cam.lookAt(c.look); cam.fov = c.fov; cam.near = 0.05; cam.far = 400; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
   g.people.forEach((p, i) => {
@@ -122,17 +144,19 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     rec.card.char = p.char ? p.char(t) : 0;
   });
   for (const r of world.rigs) r(t, cam);
+  minLabel(world.root, cam);
   TONE.uLitCol.value.set(...P.lit); TONE.uShadeCol.value.set(...P.shade); TONE.uSat.value = P.sat;
   CARD_TONE.uLitTint.value.set(...P.cardLit); CARD_TONE.uShadeTint.value.set(...P.cardShade);
   world.set.key.color.set(P.key); world.set.key.intensity = P.keyI;
   const fs = world.set.fogScale ?? 1;
   scene.fog = new THREE.Fog(P.fog, P.fogNear * fs, P.fogFar * fs);
   scene.background = new THREE.Color(P.bg);
+  for (const l of world.life) l(t, scene.background as THREE.Color);
   for (const o of world.set.glows) o.visible = P.glow > 0.05, o.scale.setScalar((o.userData.base ??= o.scale.x) * (0.6 + 0.4 * P.glow));
   fx.grade.set(P.grade);
   const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
   fx.lens.focus = Math.max(0.3, c.look.clone().sub(cam.position).dot(fwd));
-  fx.lens.cInf = 10;
+  fx.lens.cInf = g.lens?.cInf ?? LENS.cInf;
 
   useFrame(() => { fx.composer.render(); }, 1);
 

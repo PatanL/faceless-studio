@@ -2,7 +2,7 @@
 // word timings are synthesised at the references' pace (3.7 words/s, short pauses at commas and full stops, rule P5)
 // so every word-anchored piece (faces, marks, effects, light events, captions) can be proven against real-looking
 // timings. Deterministic.
-import type { Word } from "../acting";
+import type { Word } from "../../kit/acting";
 
 export const SENTENCES = [
   "Every night for forty years, Ada climbed the lighthouse to wind its giant clock by hand.",

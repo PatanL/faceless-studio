@@ -10,8 +10,8 @@
 import * as THREE from "three";
 import { NOINK } from "../ink";
 import { rng } from "../paint";
-import { lambert, glowSprite } from "../kit/sets";
-import type { Box } from "../kit/framing";
+import { lambert, glowSprite } from "./sets";
+import type { Box } from "./framing";
 
 /** A/B switch for measurement (DressLab): when bare, the painters return one flat colour and dress / clouds add
  * nothing - the look our sets had before these pieces */

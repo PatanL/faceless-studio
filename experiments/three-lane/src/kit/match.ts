@@ -3,9 +3,9 @@
 // spot and size (match dissolves), portals for push-throughs, and the CSS homography that maps a full frame onto a
 // prop's quad (frame-in-frame).
 import * as THREE from "three";
-import { CamPath, type CamKey } from "../kit/campath";
-import type { GroupSpec, V3 } from "../kit/Stage";
-import type { Box } from "../kit/framing";
+import { CamPath, type CamKey } from "./campath";
+import type { GroupSpec, V3 } from "./Stage";
+import type { Box } from "./framing";
 
 export const W = 1080, H = 1920;
 const paths = new WeakMap<GroupSpec, CamPath>();

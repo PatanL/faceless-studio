@@ -10,7 +10,7 @@
 import * as THREE from "three";
 import { NOINK } from "../ink";
 import { rng } from "../paint";
-import type { Rig, V3 } from "../kit/Stage";
+import type { Rig, V3 } from "./Stage";
 
 const FPS = 30;
 const frames = (t: number, t0: number) => Math.floor((t - t0) * FPS + 1e-6);

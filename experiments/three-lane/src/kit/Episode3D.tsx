@@ -6,7 +6,7 @@
 // the episode. Video only: the narration mix is muxed afterwards.
 import React, { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
-import { AbsoluteFill, Sequence, continueRender, delayRender, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Freeze, Sequence, continueRender, delayRender, useCurrentFrame, useVideoConfig } from "remotion";
 import { parseStoryboard, sceneTimings, type StoryboardInput } from "../../../../studio/src/core/schema";
 import { CaptionTrack, paginate, type CaptionCue } from "../../../../studio/src/core/captions";
 import { waitForFonts } from "../../../../studio/src/core/fonts";
@@ -14,6 +14,9 @@ import { Stage, type GroupSpec } from "./Stage";
 import { CamPath } from "./campath";
 import { Timing } from "./timing";
 import { personBox } from "./framing";
+import { RicksCaptions, type CapWord } from "./captions";
+import { clipCss, covers, homography, type Shape } from "./match";
+import { runGates, type HudTrack } from "./gates";
 
 const W = 1080, H = 1920;
 // phrase pages run to two lines (caption_rule "phrase"), so 3D episodes use a slightly smaller caption than the house 84
@@ -82,15 +85,146 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
   return pages.map((p) => ({ at: p.start - 0.001, y: choice.get(groupAt((p.start + p.end) / 2))! }));
 }
 
-export type Story = { groups: GroupSpec[] };
+// ------------------------------------------------------------------------------------------------ joins
+// How two groups meet, chosen per group by `join` (how the group is ENTERED; default from xfade: a whip, or a cut).
+// None of them ever draws two places semi-transparently over each other (rule book 1.2: keep the dissolve's
+// function, leave its ghost):
+//   whip   blur + sideways travel; in its overlap frames the incoming shot is revealed by a hard (blurred) wipe that
+//          follows the travel, not faded in under the outgoing one (the opacity overlap left 2-3 blend frames per whip)
+//   cut    a hard cut
+//   match  the incoming shot (framed by match.matchKey so its anchor sits where the outgoing anchor was) is revealed
+//          by a hard-edged disc growing from the anchor over 6-8 f; only a 40 px feathered rim is ever mixed
+//   push   the camera pushes through an opening of the outgoing shot (window: quadPortal, eye: circlePortal); the
+//          incoming shot shows through the opening's outline (a clip) until it fills the frame
+//   into   the outgoing shot freezes and shrinks into a prop of the incoming shot (homography onto its projected quad)
+//   outOf  the incoming shot starts frozen inside a prop of the outgoing shot and grows out of it, then moves
+export type Join =
+  | { kind: "whip"; dur?: number }
+  | { kind: "cut" }
+  | { kind: "match"; frames?: number; anchor: (t: number) => [number, number]; feather?: number }
+  | { kind: "push"; frames: number; portal: (t: number) => Shape }
+  | { kind: "into"; frames: number; quad: (t: number) => [number, number][]; until?: number }
+  | { kind: "outOf"; frames: number; quad: (t: number) => [number, number][]; pre?: number };
 
-export function Episode3D<S extends Story>({ storyboard, build, overlays, screenAvoid }: {
-  storyboard: StoryboardInput; build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
+const sm = (u: number) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
+const joinOf = (g: GroupSpec | undefined): Join | null => (!g ? null : g.join ?? (g.xfade > 0 ? { kind: "whip", dur: g.xfade } : { kind: "cut" }));
+const whipF = (j: Join | null, fps: number) => (j && j.kind === "whip" ? Math.round((j.dur ?? 0.4) * fps) : 0);
+const FULL: [number, number][] = [[0, 0], [W, 0], [W, H], [0, H]];
+const lerpQuad = (a: [number, number][], b: [number, number][], u: number) => a.map(([x, y], i) => [x + (b[i][0] - x) * u, y + (b[i][1] - y) * u] as [number, number]);
+/** whip overlap: the frames at the cut where both shots are drawn (both under the heaviest smear) */
+export const WHIP_OV = 3;
+
+type Style = (abs: number) => React.CSSProperties | null;
+/** host: the style of the shot this layer lives inside (a push's opening, a prop's picture), so the host's whip carries
+ * the inner shot with it; only its transform / filter / opacity / clip are taken */
+type Layer = { key: string; g: GroupSpec; from: number; to: number; kind: "main" | "inset"; freezeAt?: number; style: Style; host?: Style };
+const carry = (s: React.CSSProperties | null): React.CSSProperties | null => (s ? { transform: s.transform, filter: s.filter, opacity: s.opacity, clipPath: s.clipPath, WebkitClipPath: s.WebkitClipPath } : null);
+
+/** frame ranges and per-frame styles of every layer (main shots, then the frozen frame-in-frame insets on top) */
+export function layersOf(groups: GroupSpec[], fps: number, endFrame?: number): Layer[] {
+  const L: Layer[] = [], insets: Layer[] = [];
+  groups.forEach((g, i) => {
+    const inJ = i === 0 ? null : joinOf(g), outJ = joinOf(groups[i + 1]);
+    const T = Math.round(g.t0 * fps), T1 = Math.round(g.t1 * fps);
+    const nIn = whipF(inJ, fps), nOut = whipF(outJ, fps);
+    let from = T, to = T1;
+    if (inJ?.kind === "whip") from = Math.round((g.t0 - nIn / fps / 2) * fps);
+    if (inJ?.kind === "match") from = T - Math.floor((inJ.frames ?? 7) / 2);
+    if (inJ?.kind === "push") from = T - inJ.frames;
+    if (outJ?.kind === "whip") to = Math.round((g.t1 + nOut / fps / 2) * fps);
+    if (outJ?.kind === "match") to = T1 + ((outJ.frames ?? 7) - Math.floor((outJ.frames ?? 7) / 2));
+    if (i === groups.length - 1 && endFrame) to = Math.max(to, endFrame);       // the last shot runs to the last frame
+    const total = Math.max(1, to - from);
+    const outgoing = L[L.length - 1];
+    L.push({
+      key: `m-${g.id}-${i}`, g, from, to, kind: "main",
+      host: inJ?.kind === "push" && outgoing ? (abs) => (abs < T ? carry(outgoing.style(abs)) : {}) : undefined,
+      style: (abs) => {
+        const frame = abs - from;
+        // ---- whip: a frames centred on the cut; blur and travel rise to the cut and fall after it
+        const OV = WHIP_OV, half = Math.floor(nIn / 2), outHalf = nOut - Math.floor(nOut / 2);
+        if (nIn > 0 && frame < half - OV / 2) return null;
+        if (nOut > 0 && frame >= total - outHalf + OV / 2) return null;
+        const din = nIn > 0 ? Math.abs(frame - half) / Math.max(1, half) : 1;
+        const dout = nOut > 0 ? Math.abs(frame - (total - outHalf)) / Math.max(1, outHalf) : 1;
+        const inWhip = nIn > 0 && frame < nIn, outWhip = nOut > 0 && frame >= total - nOut;
+        const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);
+        const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
+        const blur = 16 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
+        const st: React.CSSProperties = blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {};
+        // the overlap frames: the incoming shot wipes in from the right, the way the whip travels (hard edge, no fade)
+        if (nIn > 0 && frame < half + OV / 2) {
+          const u = (frame - (half - OV / 2) + 1) / (OV + 1);
+          const x = Math.round(W * (1 - u));
+          Object.assign(st, { clipPath: `inset(0 0 0 ${x}px)`, WebkitClipPath: `inset(0 0 0 ${x}px)` });
+        }
+        const t = abs / fps;
+        // ---- match: a growing hard-edged disc from the anchor
+        if (inJ?.kind === "match" && abs < T + ((inJ.frames ?? 7) - Math.floor((inJ.frames ?? 7) / 2))) {
+          const m = inJ.frames ?? 7, u = (abs - from + 1) / m;
+          const [ax, ay] = inJ.anchor(t), fe = inJ.feather ?? 40;
+          const R = Math.max(...FULL.map(([x, y]) => Math.hypot(x - ax, y - ay))) + fe;
+          const r = Math.max(0, sm(u) * R - fe);
+          const mask = `radial-gradient(circle at ${ax.toFixed(1)}px ${ay.toFixed(1)}px, #000 ${r.toFixed(1)}px, transparent ${(r + fe).toFixed(1)}px)`;
+          Object.assign(st, { WebkitMaskImage: mask, maskImage: mask });
+        }
+        // ---- push: clipped to the opening's outline until it covers the frame
+        if (inJ?.kind === "push" && abs < T) {
+          const shp = inJ.portal(t);
+          const clip = covers(shp) ? undefined : clipCss(shp);
+          if (clip) Object.assign(st, { clipPath: clip, WebkitClipPath: clip });
+        }
+        return st;
+      },
+    });
+    if (outJ?.kind === "into") {
+      const nx = groups[i + 1], until = Math.round((outJ.until ?? nx.t1) * fps);
+      const self = L.length;
+      insets.push({ key: `i-${g.id}`, g, from: T1, to: until, kind: "inset", freezeAt: T1 - 1, host: (abs) => carry(L[self].style(abs)),
+        style: (abs) => { const u = sm((abs - T1 + 1) / outJ.frames); const q = lerpQuad(FULL, outJ.quad(abs / fps), u); return { transformOrigin: "0 0", transform: homography(q) }; } });
+    }
+    if (inJ?.kind === "outOf") {
+      const s = T - inJ.frames - Math.round((inJ.pre ?? 0.6) * fps);
+      const og = L[L.length - 2];
+      insets.push({ key: `o-${g.id}`, g, from: s, to: T, kind: "inset", freezeAt: T, host: (abs) => carry(og.style(abs)),
+        style: (abs) => { const u = sm((abs - (T - inJ.frames) + 1) / inJ.frames); const q = lerpQuad(inJ.quad(abs / fps), FULL, abs < T - inJ.frames ? 0 : u); return { transformOrigin: "0 0", transform: homography(q) }; } });
+    }
+  });
+  return [...L, ...insets];
+}
+
+const LayerView: React.FC<{ l: Layer }> = ({ l }) => {
+  const f = useCurrentFrame();
+  const st = l.style(l.from + f);
+  const hs = l.host ? l.host(l.from + f) : {};
+  if (!st || !hs) return null;
+  return (
+    <AbsoluteFill style={hs}>
+      <AbsoluteFill style={st}>
+        {l.kind === "inset" ? <Freeze frame={0}><Stage g={l.g} fromFrame={l.freezeAt!} /></Freeze> : <Stage g={l.g} fromFrame={l.from} />}
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------ the episode
+export type Story = { groups: GroupSpec[]; hud?: HudTrack[] };
+
+/** A 3D story episode. Props: the episode storyboard (scene durations, Kokoro word timings, the caption style), or for
+ * a lab reel bare `words` + `durations`. captions: "house" (default: the studio CaptionTrack placed off faces, HUD
+ * panels and busy bands), "ricks" (the reference style: opt-in, the owner has not chosen it), "none".
+ * gates (kit/gates.ts: holds <= 4 s, no speck figures, nothing cut by the edge, HUD never backwards): "fail" (default)
+ * stops the render with the list, "warn" logs it, "off". */
+export function Episode3D<S extends Story>({ storyboard, words: wordsIn, durations, build, overlays, screenAvoid, captions = "house", gates = "fail" }: {
+  storyboard?: StoryboardInput; words?: CapWord[]; durations?: number[];
+  build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
   screenAvoid?: (s: S, t: number) => ScreenRect[];
+  captions?: "house" | "ricks" | "none"; gates?: "fail" | "warn" | "off";
 }) {
   waitForFonts();
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames } = useVideoConfig();
   const sb = useMemo(() => {
+    if (!storyboard) return null;
     const s = parseStoryboard(storyboard);
     if (s.captions) {
       const words = s.captions.words.map((w, i) => (i === 0 && w.start < 0.4 ? { ...w, start: 0 } : w));   // frame 0 is the cover: it carries the first words
@@ -98,66 +232,41 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays, screen
     }
     return s;
   }, [storyboard]);
-  const { timings } = useMemo(() => sceneTimings(sb), [sb]);
-  const story = useMemo(() => build(new Timing(sb.scenes.map((s) => s.duration), sb.captions?.words ?? [])), [sb, build]);
+  const words: CapWord[] = useMemo(() => wordsIn ?? (sb?.captions?.words ?? []), [wordsIn, sb]);
+  const durs = useMemo(() => durations ?? (sb ? sb.scenes.map((s) => s.duration) : [words.length ? words[words.length - 1].end + 0.5 : 1]), [durations, sb, words]);
+  const story = useMemo(() => build(new Timing(durs, words)), [durs, words, build]);
+  useMemo(() => {
+    if (gates === "off") return;
+    const r = runGates(story.groups, words, { fps, hud: story.hud });
+    const msg = `[three-lane gates] ${r.failures.length} failure(s)\n  ${r.failures.join("\n  ")}\n  ${r.notes.join("\n  ")}`;
+    if (r.failures.length && gates === "fail") throw new Error(msg + "\n(pass gates=\"warn\" to render anyway)");
+    if (r.failures.length) console.warn(msg);
+  }, [story, words, fps, gates]);
+  const layers = useMemo(() => layersOf(story.groups, fps, durationInFrames), [story, fps, durationInFrames]);
+  const timings = useMemo(() => (sb ? sceneTimings(sb).timings : []), [sb]);
   const cuts = useMemo(() => timings.slice(1).map((tm) => tm.start / fps), [timings, fps]);
-  const placement = useMemo(() => (sb.captions ? captionCues(story.groups, paginate(sb.captions.words, sb.captions, cuts), fps, sb.captions.style.y ?? 0.72, screenAvoid ? (t) => screenAvoid(story, t) : undefined) : []),
-    [sb, story, cuts, fps]);
+  const placement = useMemo(() => (sb?.captions && captions === "house" ? captionCues(story.groups, paginate(sb.captions.words, sb.captions, cuts), fps, sb.captions.style.y ?? 0.72, screenAvoid ? (t) => screenAvoid(story, t) : undefined) : []),
+    [sb, story, cuts, fps, captions]);   // eslint-disable-line react-hooks/exhaustive-deps
   // the 3D worlds draw text into canvases (labels, tags): build them only once the fonts are in
   const [fontsReady, setReady] = useState(false);
   const [handle] = useState(() => delayRender("three-lane fonts"));
   useEffect(() => {
-    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"')])
+    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"'), document.fonts.load('800 64px "Montserrat"')])
       .catch(() => null).finally(() => { setReady(true); continueRender(handle); });
   }, [handle]);
-  const groups = story.groups;
   return (
-    <AbsoluteFill style={{ background: "#000" }}>
-      {fontsReady && groups.map((g, i) => {
-        const nx = groups[i + 1]?.xfade ?? 0;
-        const from = Math.round((g.t0 - g.xfade / 2) * fps);
-        const to = Math.round((g.t1 + nx / 2) * fps);
-        return (
-          <Sequence key={g.id} from={from} durationInFrames={Math.max(1, to - from)} name={g.id} layout="none">
-            <Fade g={g} from={from} total={Math.max(1, to - from)} nOut={Math.round(nx * fps)} />
-          </Sequence>
-        );
-      })}
+    <AbsoluteFill style={{ background: "#120d24" }}>
+      {fontsReady && layers.map((l) => (
+        <Sequence key={l.key} from={l.from} durationInFrames={Math.max(1, l.to - l.from)} name={l.key} layout="none">
+          <LayerView l={l} />
+        </Sequence>
+      ))}
       {overlays ? overlays(story) : null}
-      {sb.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} cuts={cuts} /> : null}
+      {captions === "house" && sb?.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} cuts={cuts} /> : null}
+      {captions === "ricks" ? <RicksCaptions words={words} /> : null}
     </AbsoluteFill>
   );
 }
-
-/** place changes are whip pans, never dissolves (v1/v4 review: any opacity blend ghosted one place over the other):
- * the outgoing shot smears out (blur rising, a slight push) up to the cut point, the incoming shot starts there fully
- * smeared and sharpens. The two are never drawn at once, so no frame mixes two places. */
-const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }> = ({ g, from, total, nOut }) => {
-  const frame = useCurrentFrame();
-  const n = Math.round(g.xfade * 30);
-  // a whip is n frames centred on the cut: blur and sideways travel rise to the cut and fall after it; the two shots
-  // overlap only in the OV most-smeared frames at the cut (v8 review: a 6-frame overlap still read as a dissolve)
-  // v11 measured 15 one-frame jumps (ref 0-12) with 2: three overlap frames under a heavier smear split each place change
-  // into smaller steps without reading as a dissolve
-  const OV = 3;
-  const half = Math.floor(n / 2), outHalf = nOut - Math.floor(nOut / 2);
-  if (n > 0 && frame < half - OV / 2) return null;
-  if (nOut > 0 && frame >= total - outHalf + OV / 2) return null;
-  const din = n > 0 ? Math.abs(frame - half) / Math.max(1, half) : 1;                 // 0 at the cut .. 1 at the whip's edge
-  const dout = nOut > 0 ? Math.abs(frame - (total - outHalf)) / Math.max(1, outHalf) : 1;
-  const inWhip = n > 0 && frame < n, outWhip = nOut > 0 && frame >= total - nOut;
-  const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);   // 0..1 smear
-  // directional travel: the outgoing shot whips off to the left, the incoming one arrives from the right
-  const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
-  const blur = 16 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
-  const op = n > 0 && frame < half + OV / 2 ? (frame - (half - OV / 2) + 1) / (OV + 1) : 1;  // the incoming shot fades in under the smear
-  const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
-  return (
-    <AbsoluteFill style={style}>
-      <Stage g={g} fromFrame={from} />
-    </AbsoluteFill>
-  );
-};
 
 /** the overlay clock (global seconds) for episode overlays */
 export const useStoryTime = () => { const f = useCurrentFrame(); const { fps } = useVideoConfig(); return f / fps; };

@@ -5,9 +5,9 @@
 //   actorCard(props, opts)  -> CardRec, the drop-in replacement for personCard (see INTEGRATION.md: one line in Stage)
 //   actorRig(spec)          -> a Rig, usable TODAY in any GroupSpec.rigs without touching the kit
 import * as THREE from "three";
-import { SvgTex, svgMarkup } from "../kit/svgtex";
-import { Card3D } from "../kit/card3d";
-import { PERSON_K, type CardRec, type PersonSpec, type Rig } from "../kit/Stage";
+import { SvgTex, svgMarkup } from "./svgtex";
+import { Card3D } from "./card3d";
+import { PERSON_K, type CardRec, type PersonSpec, type Rig } from "./Stage";
 import { Actor } from "./actor";
 
 export const ACTOR_VB = { w: 600, h: 700, padT: 120, padL: 0, padR: 0, padB: 0 };
@@ -25,8 +25,8 @@ export function actorCard(props: (t: number) => Record<string, unknown> | null, 
 }
 
 /** an Actor placed exactly as Stage places its people (visible, at, faceTo mirroring, char) */
-export function actorRig(p: PersonSpec): Rig {
-  return (ctx) => {
+export function actorRig(p: PersonSpec): Rig & { spec: PersonSpec } {
+  const rig: Rig = (ctx) => {
     const rec = actorCard((t) => (p.visible && !p.visible(t) ? null : p.props(t)), { flip: p.flip, scale: p.scale, billboard: p.billboard, contact: p.billboard === false ? 0 : undefined });
     ctx.root.add(rec.card.group); ctx.addCard(rec);
     const right = new THREE.Vector3();
@@ -43,4 +43,17 @@ export function actorRig(p: PersonSpec): Rig {
       rec.card.char = p.char ? p.char(t) : 0;
     };
   };
+  return Object.assign(rig, { spec: p });
+}
+
+/** move actor rigs into each group's people (Stage draws people as Actors), so captions, gates and the framing
+ * replay see them */
+export function actorsToPeople<G extends { people: PersonSpec[]; rigs?: Rig[] }>(groups: G[]): G[] {
+  for (const g of groups) {
+    const rigs = g.rigs ?? [];
+    const specs = rigs.filter((r) => (r as Rig & { spec?: PersonSpec }).spec).map((r) => (r as Rig & { spec: PersonSpec }).spec);
+    g.people = [...g.people, ...specs];
+    g.rigs = rigs.filter((r) => !(r as Rig & { spec?: PersonSpec }).spec);
+  }
+  return groups;
 }

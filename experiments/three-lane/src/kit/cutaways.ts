@@ -11,10 +11,10 @@
 import * as THREE from "three";
 import { NOINK } from "../ink";
 import { rng } from "../paint";
-import { lambert, basic, box, cyl, plane, glowSprite, skyDome, makeKey, type SetBuild } from "../kit/sets";
-import { tex, darkBoards, brass, parchment, stoneWall } from "../kit/paint2";
+import { lambert, basic, box, cyl, plane, glowSprite, skyDome, makeKey, type SetBuild } from "./sets";
+import { tex, darkBoards, brass, parchment, stoneWall } from "./paint2";
 import { scanPanel } from "./fx2";
-import type { Rig } from "../kit/Stage";
+import type { Rig } from "./Stage";
 
 const canvas = (w: number, h: number) => { const c = document.createElement("canvas"); c.width = w; c.height = h; return [c, c.getContext("2d")!] as const; };
 const ctex = (c: HTMLCanvasElement) => { const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; };

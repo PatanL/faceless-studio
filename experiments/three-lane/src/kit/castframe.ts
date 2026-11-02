@@ -12,9 +12,9 @@
 //   castCheck(groups, castOf, words?)  per group: median of the largest head on screen; flags groups whose cast is
 //     present but smaller than `min` (0.05) for more than half the group, and the overall share >= 0.07
 import * as THREE from "three";
-import { fit, type Box } from "../kit/framing";
-import type { CamKey } from "../kit/campath";
-import type { GroupSpec, V3 } from "../kit/Stage";
+import { fit, type Box } from "./framing";
+import type { CamKey } from "./campath";
+import type { GroupSpec, V3 } from "./Stage";
 import { camAt, project, H } from "./match";
 
 export type CastPreset = "close" | "medium" | "wide";

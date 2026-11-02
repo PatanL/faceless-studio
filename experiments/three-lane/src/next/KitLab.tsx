@@ -4,8 +4,8 @@
 // Composition "KitLab" lives in its own entry (src/next/index.ts) so the shared kit's Root.tsx is untouched.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EpisodeNext } from "./EpisodeNext";
-import { PovMask } from "./pov";
+import { Episode3D } from "../kit/Episode3D";
+import { PovMask } from "../kit/pov";
 import { synthWords } from "./kitlab/script";
 import { buildLab, type LabStory } from "./kitlab/story";
 
@@ -19,5 +19,5 @@ const Overlays: React.FC<{ s: LabStory }> = ({ s }) => (
 );
 
 export const KitLab: React.FC<{ captions?: "ricks" | "none" }> = ({ captions = "ricks" }) => (
-  <EpisodeNext words={LAB.words} durations={[LAB_FRAMES / 30]} build={buildLab} overlays={(s) => <Overlays s={s} />} captions={captions} />
+  <Episode3D words={LAB.words} durations={[LAB_FRAMES / 30]} build={buildLab} overlays={(s) => <Overlays s={s} />} captions={captions} />
 );

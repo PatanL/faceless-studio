@@ -9,7 +9,7 @@
 //   flash (1-4 f pop), alarm wash
 //   (red pulses every 6 f), glow ramp (6-25 f), each anchored to a caption word by the story file
 // Blends are quantised to 1/48 steps so the table stays small (a whole Short registers well under 200 keys).
-import { PRESETS, type Preset } from "../kit/presets";
+import { PRESETS, type Preset } from "./presets";
 import type { GradeParams } from "../grade";
 
 const lerp = (a: number, b: number, u: number) => a + (b - a) * u;

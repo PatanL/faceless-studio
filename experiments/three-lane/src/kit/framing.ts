@@ -150,5 +150,6 @@ export function tagSprite(text: string, h = 0.07) {
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, fog: false, transparent: true }));
   s.scale.set(h * (w / 110), h, 1); s.layers.set(NOINK); s.renderOrder = 10;
+  s.userData.minPx = 64;          // never shorter than 64 px on a 1920 frame (text cap ~36 px; Vasa panel: labels too small)
   return s;
 }

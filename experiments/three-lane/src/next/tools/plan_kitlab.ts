@@ -7,10 +7,11 @@
 import { Timing } from "../../kit/timing";
 import { synthWords } from "../kitlab/script";
 import { buildLab } from "../kitlab/story";
-import { planReport, planText } from "../planner";
-import { ricksPages, ricksCaptionStats, RICKS_Y } from "../captions";
-import { boxRect, covers, W, H } from "../match";
-import { layersOf, type NextGroup } from "../EpisodeNext";
+import { planReport, planText } from "../../kit/planner";
+import { ricksPages, ricksCaptionStats, RICKS_Y } from "../../kit/captions";
+import { boxRect, covers, W, H } from "../../kit/match";
+import { layersOf } from "../../kit/Episode3D";
+import type { GroupSpec as NextGroup } from "../../kit/Stage";
 
 const lab = synthWords();
 const words = lab.words;

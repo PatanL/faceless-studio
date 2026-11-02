@@ -62,6 +62,7 @@ export function skyDome(root: THREE.Object3D, top: string, mid: string, bottom: 
   const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 16), new THREE.MeshBasicMaterial({ map: t, side: THREE.BackSide, fog: false, depthWrite: false }));
   // SphereGeometry uv.y is 1 at the zenith, so the canvas top (flipY) paints the zenith and its middle the horizon
   m.layers.set(NOINK); m.renderOrder = -10; root.add(m);
+  m.userData.skyDome = { r };                                       // Stage adds drifting clouds round it (ambient.ts)
   return m;
 }
 export function arch(w: number, h: number) {
