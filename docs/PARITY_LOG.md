@@ -281,3 +281,115 @@ The owner had already posted the Chess Turk, so v7 is only used to check the 3D 
 - **What the 3D pipeline gets right.** Camera motion and pace now land inside every reference range: moves per 10 s fell from 10.9 to 8.3 because the 3D glides are longer and smoother. Ink and blur also match.
 - **What to fix in the kit.** The night and fire presets crush the darks. The next episode lifts the black point in the grade (shadow floor) and keeps the shadows violet, to bring non-ink p5, luma and colourfulness back into range.
 - **Also noted.** `camera_motion.py` cannot fit a 2D similarity to 3D parallax on 152 frames ("unfit"). This is expected for real 3D and is not a fault.
+
+## 2026-11-02 · story lane · story-vasa v1-v14: the first episode built on the 3D kit, with three blind panel rounds
+
+- **Topic.** The Vasa (Stockholm, 1628).
+- **Script.** The adopted narration from `research/library/STORY_SCRIPT_REVIEWS.md`: 62 s at 3.8 words/s, with "You see" at 43.8 s (70 %). The script judge scores it 95.3.
+- **Build.** `experiments/three-lane/src/vasa` on the kit, rendered on the Mac (`RENDER_SLOT=mac`, `--gl=angle`, concurrency 4). Each render passes through `scripts/repair_frames.py` to remove the GPU's tiled "mosaic" frames.
+- **Final.** `out/story-vasa/story-vasa_v14.mp4` (sha 6afb1cc7…). The phone copy, `story-vasa_v14_phone.mp4`, is 25.9 MB.
+
+### Measured (same tools and flags as above, every frame; v14 is the final)
+
+| Metric (refs' range) | v9 | v10 | v11 | **v14** |
+|---|---|---|---|---|
+| words/s · pauses ≥ 0.8 s (3.33-3.89 · 0-1) | 3.8 · 0 | 3.8 · 0 | 3.8 · 0 | **3.8 · 0** |
+| hard cuts · one-frame jumps (0-3 · 0-12) | 2 · 12 | 2 · 13 | 2 · **15** | **1 · 6** |
+| moving % · median px/f (96-100 · 5.8-11.1) | — | — | 99 · 6.6 | **100 · 6.3** |
+| moves / 10 s (5.1-9.6) | **10.96** | — | 9.67 | **9.34** |
+| quiet-frame zoom (69-88 %) | — | — | 78 | **79** |
+| saturation · colourfulness (0.41-0.61 · 23-34) | — | — | 0.557 · 29 | **0.563 · 29** |
+| luma p50 · non-ink p5 (0.31-0.58 · 0.09-0.23) | — | 0.321 · — | 0.364 · 0.146 | **0.350 · 0.144** |
+| shadow chroma · hue (9-35 · 36-306) | — | — | 21 · 56 | **21 · 56** |
+| ink edge · soft edge · acutance (0.54-0.66 · 3.8-14.6 % · 0.32-0.42) | — | 0.517 (low) | 0.597 · 5.7 · 0.374 | **0.584 · 6.5 · 0.367** |
+
+v14 is inside every reference range. Two changes brought the last two rows in:
+- **Jumps (15 → 6).** Whips now overlap 3 frames under a 16 px smear, instead of 2 frames under 13 px.
+- **Moves.** The ending runs four slower rolls instead of six quick ones.
+
+Checks from `research/library/RICKSCLIPS_RULEBOOK.md` §4 that the existing outputs already cover (v14):
+
+| Check | v14 | Reference range |
+|---|---|---|
+| shot length, median · max | 3.3 · 8.0 s | 1.67-3.6 · 4.7-14.9 s |
+| transitions per minute | 16.4 | 9.2-24.8 |
+| first transition | 3.37 s | 0.7-12.4 s |
+| move attack · release (median) | 11 · 11.5 f | 4.5-20.5 · 4.5-34 f |
+| snap moves | 4 | 0-14 |
+| hold | 0 % | 0-4.7 % |
+| jump flags per minute | 5.8 | — |
+| shot groups (17 joins) | 18 in 62 s | — |
+| distinct places | 7: harbour/deck, camp, quay, gun deck, hall, explanation room, ballast quay | 5-17 |
+
+**Still open from the rulebook** (not built in this episode):
+- caption pages of 1-3 words in mixed case (an owner decision, because FEEDBACK.md principle 5 asks for whole-phrase captions);
+- match transitions (0);
+- face swaps anchored to caption words;
+- glints and an fx library;
+- ambient movers;
+- tweened relights.
+
+### Every-frame review
+Each render was reviewed on 30 fps sheets, along with a camera-replay framing check (`scripts/framing.ts`). Fixes, by version:
+
+- **v11**
+  - The ending is filmed over open water with no sheds.
+  - The wobble crew stays whole beside the rocking hull, then the masts swing on "wobbles".
+  - The hearing room has no throne.
+  - The guns run out before "two".
+  - The sails are fuller and the ink is wider.
+- **v14**
+  - The gun decks are framed a few ports at a time, so the bronze guns read.
+  - The launch is split into two whip-joined shots, so the camera no longer flies through the rigging or sits inside a shed.
+  - The camp and letters close-ups keep every figure whole.
+  - The hearing captions are moved clear of the king's portrait.
+  - `repair_frames` now also catches two mosaic frames in a row.
+- **Kit additions**
+  - `CamKey.drift`;
+  - `hallSet({throne})`;
+  - `harbourSet({sheds})`.
+
+### Blind side-by-side panel (PARITY.md §2): three rounds, 3 judges, 8 pairs each
+Each cell is the number of pairs, out of 8, in which a judge rated ours same-or-better.
+
+| Principle | Round 1 (v9) | Round 2 (v10) | **Round 3 (v14)** |
+|---|---|---|---|
+| 1 Hook | pass | 8 · 8 · 7 | **8 · 8 · 8** |
+| 2 World | pass | 8 · 8 · 8 | **8 · 8 · 8** |
+| 3 Show what's said | fail (flaws) | 8 · 8 · 4 | **8 · 8 · 8** |
+| 4 Smooth | pass | 8 · 8 · 8 | **8 · 8 · 8** |
+| 5 Readable | fail (flaws) | 8 · 8 · 8 | **8 · 8 · 8** |
+| 6 Sound | pass | 8 · 8 · 8 | **8 · 8 · 8** |
+| 7 Craft | fail (flaws) | 4 · 8 · 0 | **8 · 0 · 8** |
+| 8 Payoff | pass | 8 · 8 · 3 | **8 · 8 · 8** |
+
+**Verdict after the last allowed round: FAIL by the flaw rule on principles 1, 2, 3, 4, 5 and 7. Principles 6 and 8 pass outright.**
+- **On ratings, it passes.** All 8 principles pass at ≥ 5/8 for ≥ 2 of 3 judges; craft is 2 of 3.
+- **Why judges preferred ours.** Whole-phrase captions, a world that stays in one place and era, a progress gauge, and a payoff that lands. The references lost on one-word captions over faces, edge cuts, ghosted dissolves and world slips.
+- **What fails it.** The flaw rule fails a principle whenever any judge names a concrete defect in ours, and every judge named some. Full data: `research/references/data/story_lane_vasa_panel.json`.
+
+The named defects, by principle:
+- **1 Hook.** The thirty sailors are tiny on the far rail at 0-3 s. All 3 judges named this.
+- **2 World.** The heel gauge peaks at 9° in the opening dock test but at 19-20° when the ending replays the same test, and it climbs while the visible tilt barely changes.
+- **3 Show what's said.**
+  - At 12.4 s the ports are still closed on "mightiest warship".
+  - At 18.6 s the wobble does not read in a still.
+  - At 49.6 s "built upside down" plays over the bottle tank.
+- **4 Smooth.** The opening holds one side-on framing for about 5 s.
+- **5 Readable.**
+  - Captions over the rigging (18.6 s), the gun-port row (2-3 s) and legs (37.2 s).
+  - Small HUD labels.
+- **7 Craft.**
+  - Edge cuts: the stern banner (60.6 s), a sailor (61.9 s), the bow (18.6 s) and the crowd (24.8 s).
+  - A glow over the cross-section at 55.9 s.
+  - A flat, low-detail look, named by judge 2.
+
+**Next fixes (cheap ones first):**
+1. One heel scale for the dock test (the opening and the callback must match).
+2. Hook framed on the runners at mid-deck.
+3. Ports open from 12.0 s.
+4. A caption gate that keeps captions off rigging and gun-port rows (the rulebook's `caption_on_face_frames`, extended to the busy bands).
+5. The solver keeps the stern inside the frame in the last shot.
+6. The rulebook's build order for craft: faces on the word, an fx library, insert sets, match transitions.
+
+**Not run:** the owner's phone check (§3), which waits for a version that passes §2.
