@@ -78,7 +78,7 @@ function Door({hx, y0, y1, w, open, dir, wood, shade, ghost}: {hx: number; y0: n
 	const k = 26 * Math.sin(th);
 	const back = open > 0.55;
 	const d = `M ${f(hx)} ${f(y0)} L ${f(ex)} ${f(y0 - k)} L ${f(ex)} ${f(y1 + k)} L ${f(hx)} ${f(y1)} Z`;
-	if (ghost) return <path d={d} fill="none" stroke={c('bone-2')} strokeWidth={5} strokeDasharray="14 10" opacity={0.9} />;
+	if (ghost) return <path d={d} fill={c('bone-2')} fillOpacity={0.08} stroke={c('bone-2')} strokeWidth={7} strokeDasharray="16 10" />;
 	const ix0 = hx + dir * 16 * Math.cos(th);
 	const ix1 = hx + dir * (w - 16) * Math.cos(th);
 	const inset = `M ${f(ix0)} ${f(y0 + 18)} L ${f(ix1)} ${f(y0 + 18 - k * 0.9)} L ${f(ix1)} ${f(y1 - 18 + k * 0.9)} L ${f(ix0)} ${f(y1 - 18)} Z`;
@@ -173,7 +173,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 		item: props.masterCandle ? 'candle' : 'none', seated: true, seed: 7, look: 0.5, crouch: 1,
 	};
 	const mx = lerp(150, 470, seat);
-	const candleXY: P2 = [mx - 20 + 452 * 0.42, 553 + (236 + 50) * 0.42];
+	const candleXY: P2 = [mx - 20 + 452 * 0.4, 609 + (236 + 170) * 0.4];
 
 	const gears = (
 		<g>
@@ -263,15 +263,24 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 				<rect x={400} y={642} width={360} height={180} fill={tint(c('ink-1'))} />
 				{candle > 0 && (
 					<g opacity={candle}>
-						<circle cx={260} cy={730} r={110} fill={c('amber-3')} opacity={0.28} />
-						<circle cx={580} cy={730} r={150} fill={c('amber-3')} opacity={0.3} />
-						<circle cx={580} cy={730} r={70} fill={c('amber-4')} opacity={0.35} />
+						<rect x={140} y={642} width={240} height={180} fill={c('amber-3')} opacity={0.3} />
+						<rect x={400} y={642} width={360} height={180} fill={c('amber-3')} opacity={0.32} />
+						<rect x={430} y={672} width={300} height={120} rx={40} fill={c('amber-4')} opacity={0.3} />
 					</g>
 				)}
 				{cut <= 0 && gears}
-				{/* right side: two thin rods only (it looks empty) */}
-				<rect x={470} y={660} width={8} height={150} fill={tint(c('amber-2'))} opacity={1 - cut} />
-				<rect x={680} y={660} width={8} height={150} fill={tint(c('amber-2'))} opacity={1 - cut} />
+				{/* right side: a brass drum and small gears (machinery, no room for a person, it seems) */}
+				{cut <= 0 && (
+					<g>
+						<rect x={470} y={660} width={8} height={150} fill={tint(c('amber-2'))} />
+						<rect x={680} y={660} width={8} height={150} fill={tint(c('amber-2'))} />
+						<rect x={474} y={724} width={210} height={8} fill={tint(c('amber-2'))} />
+						<Gear x={560} y={700} r={40} teeth={9} rot={-gAng * 1.2} fill={tint(c('amber-4'))} shade={tint(c('amber-2'))} />
+						<Gear x={636} y={770} r={34} teeth={8} rot={gAng * 1.4 + 10} fill={tint(c('amber-3'))} shade={tint(c('amber-1'))} />
+						<Gear x={720} y={690} r={26} teeth={7} rot={-gAng * 1.9} fill={tint(c('ochre-2'))} shade={tint(c('ochre-0'))} />
+						<Gear x={440} y={780} r={24} teeth={6} rot={gAng * 1.6} fill={tint(c('amber-3'))} shade={tint(c('amber-1'))} />
+					</g>
+				)}
 				{cut > 0 && (
 					<g opacity={clamp(cut * 1.6)}>
 						{/* board underside: iron markers on threads under the squares */}
@@ -290,26 +299,27 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 								</g>
 							);
 						})}
-						<rect x={140} y={808} width={620} height={10} fill={c('amber-2')} />
-						<rect x={mx + 50} y={794} width={170} height={18} rx={8} fill={c('coral-1')} />
+						<rect x={140} y={822} width={620} height={66} fill={c('ink-1')} />
+						<rect x={140} y={876} width={620} height={10} fill={c('amber-2')} />
+						<rect x={mx + 40} y={862} width={170} height={16} rx={8} fill={c('coral-1')} />
 						{lever > 0 && (
 							<g opacity={lever}>
-								<path d={`M ${f(mx + 170)} 742 L ${f(mx + 220)} 660 L 372 ${FRONT} L ${f(sh[0])} ${f(sh[1] + 40)}`} stroke={c('amber-3')}
+								<path d={`M ${f(mx + 160)} 790 L ${f(mx + 210)} 680 L 372 ${FRONT} L ${f(sh[0])} ${f(sh[1] + 40)}`} stroke={c('amber-3')}
 									strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-								<circle cx={mx + 220} cy={660} r={10} fill={c('amber-1')} />
+								<circle cx={mx + 210} cy={680} r={10} fill={c('amber-1')} />
 							</g>
 						)}
-						{dark > 0 && <rect x={140} y={642} width={620} height={176} fill={c('ink-0')} opacity={0.6 * dark} />}
+						{dark > 0 && <rect x={140} y={642} width={620} height={246} fill={c('ink-0')} opacity={0.6 * dark} />}
 						{props.masterCandle === true && (
 							<circle cx={candleXY[0]} cy={candleXY[1]} r={95 + 6 * Math.sin(t * 9)} fill={c('amber-4')} opacity={0.18 + 0.3 * dark} />
 						)}
-						<g transform={`translate(${f(mx - 20)} 553) scale(0.42)`}>
+						<g transform={`translate(${f(mx - 20)} 609) scale(0.4)`}>
 							<PersonBody props={masterProps} t={t} />
 						</g>
 						{/* the false gear panel: in front of him when he slides left */}
-						<rect x={140} y={642} width={240} height={176} fill={c('ink-1')} opacity={0.72} />
+						<rect x={140} y={642} width={244} height={246} fill={c('ink-1')} opacity={0.78} />
 						{gears}
-						<path d="M 384 644 V 820" stroke={c('bone-2')} strokeWidth={5} strokeDasharray="12 10" />
+						<path d="M 384 644 V 886" stroke={c('amber-4')} strokeWidth={6} strokeDasharray="14 10" />
 					</g>
 				)}
 			</g>

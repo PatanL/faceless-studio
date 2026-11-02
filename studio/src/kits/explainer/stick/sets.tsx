@@ -213,7 +213,7 @@ function Facade({t}: {t: number}) {
 				</g>
 			))}
 			{/* gate pillars in the foreground */}
-			{[1].map((i) => {
+			{([] as number[]).map((i) => {
 				const x = i ? 960 : 0;
 				return (
 					<g key={i}>

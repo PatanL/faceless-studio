@@ -151,7 +151,7 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 			const d = proj(u, v + 1).p;
 			squares.push(
 				<path key={`${u}${v}`} d={`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])} L ${f(cc[0])} ${f(cc[1])} L ${f(d[0])} ${f(d[1])} Z`}
-					fill={(u + v) % 2 === 0 ? c('ochre-0') : c('ochre-3')} />,
+					fill={(u + v) % 2 === 0 ? c('ink-2') : c('bone-1')} />,
 			);
 		}
 	const glowSq = step<string>(props.glow, t, '');
