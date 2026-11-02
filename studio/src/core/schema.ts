@@ -299,9 +299,9 @@ export type Callout = z.infer<typeof Callout>;
 // ---------------------------------------------------------------- transitions / grade
 
 export const Transition = z.object({
-	type: z.enum(['cut', 'fade', 'dipBlack', 'whip', 'glitch']).default('cut'),
+	type: z.enum(['cut', 'fade', 'dipBlack', 'whip', 'glitch', 'iris', 'wipe']).default('cut'),
 	duration: z.number().min(0).default(0.4),
-	direction: z.enum(['left', 'right', 'up', 'down']).default('left').describe('whip only'),
+	direction: z.enum(['left', 'right', 'up', 'down']).default('left').describe('whip; wipe (the edge travels this way)'),
 });
 export type Transition = z.infer<typeof Transition>;
 

@@ -68,6 +68,33 @@ export function transitionLook(
 				}
 				return;
 			}
+			case 'iris': {
+				// incoming opens from a soft circle at the frame's upper-middle focus (a light/lens reveal); outgoing holds
+				if (!incoming) return;
+				const e = ease('inOut', p);
+				const r = 2 + e * 118;
+				look.style.clipPath = p >= 1 ? undefined : `circle(${r.toFixed(2)}% at 50% 42%)`;
+				return;
+			}
+			case 'wipe': {
+				// incoming rises behind a wavy water-line edge (a swell / bubble wipe); outgoing holds underneath
+				if (!incoming) return;
+				const e = ease('inOut', p);
+				if (p >= 1) return;
+				const pts: string[] = [];
+				const n = 14;
+				const dir = tr.direction;
+				for (let i = 0; i <= n; i++) {
+					const u = (i / n) * 100;
+					const wv = Math.sin(i * 1.3 + p * 9) * 2.2 + Math.sin(i * 0.55 - p * 5) * 1.4;
+					const edge = (1 - e) * 112 - 6 + wv;
+					if (dir === 'left' || dir === 'right') pts.push(dir === 'left' ? `${edge.toFixed(2)}% ${u}%` : `${(100 - edge).toFixed(2)}% ${u}%`);
+					else pts.push(dir === 'up' ? `${u}% ${edge.toFixed(2)}%` : `${u}% ${(100 - edge).toFixed(2)}%`);
+				}
+				const far = dir === 'left' ? ['120% 100%', '120% 0%'] : dir === 'right' ? ['-20% 100%', '-20% 0%'] : dir === 'up' ? ['100% 120%', '0% 120%'] : ['100% -20%', '0% -20%'];
+				look.style.clipPath = `polygon(${[...pts, ...far].join(', ')})`;
+				return;
+			}
 			case 'glitch': {
 				// outgoing glitches up to the midpoint, incoming takes over glitching back down
 				const amt = incoming ? 1 - clamp01((p - 0.5) * 2) : clamp01(p * 2);
