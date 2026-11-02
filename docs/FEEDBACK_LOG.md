@@ -27,3 +27,4 @@ Older files cite the previous numbering. It maps onto the current principles (P)
 - Focus on one channel for quality and technique parity: RicksClips3000 (story lane). Other lanes keep posting finished videos but get no new parity work until it passes.
 - Choose story topics where a 3D environment makes sense, i.e. places the camera can travel through.
 - Don't rework a video once it's posted (Turk went out as v4); its lessons go into the next topic.
+- The Spark overheated (89 °C) running our CPU renders and analysis, so heavy work moves to the Mac. The Spark only takes light jobs, and none while it is above 80 °C.

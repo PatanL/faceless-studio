@@ -16,9 +16,9 @@ GOAL 2: grow the channel. Keep testing lanes until one video reaches 10K views, 
 
 RULES:
 - Never publish or schedule anything without the owner's yes in chat for that video.
-- Renders, TTS and heavy ffmpeg run on the DGX Spark, CPU only (never the GPU), nice -n 10, one Remotion render at a time, concurrency 2.
+- Heavy work runs on the Mac (owner, 2026-11-02, after the Spark hit 89 °C): Remotion renders (RENDER_SLOT=mac scripts/render.sh; the Mac GPU is allowed, e.g. --gl=angle), every-frame sheets and measurement batches, all niced and one render at a time. The DGX Spark gets only light jobs (TTS, ffprobe), CPU only (never the GPU), nice -n 10, one at a time, and nothing while its hottest thermal zone (/sys/class/thermal/thermal_zone*/temp) is above 80 °C.
 - Never delete anything; never spend money or use paid APIs; never enter credentials.
-- Keep the Mac's free disk above 15 GB; if it drops below, stop rendering and say so.
+- Keep the Mac's free disk above 15 GB and at least 5 GB of RAM available before starting a render; if either drops below, stop rendering and say so.
 - Keep FEEDBACK.md general; put dated notes in docs/FEEDBACK_LOG.md.
 - Commit each working step to main with a clear message.
 - If usage runs low, stop starting new agents and write status; resume after usage resets (check usage, not the clock).
