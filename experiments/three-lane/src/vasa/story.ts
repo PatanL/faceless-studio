@@ -382,7 +382,7 @@ export function buildStory(T: Timing): VasaStory {
     const only = w(9, "only"), nobody = w(9, "nobody"), man = w(9, "man");
     groups.push({ id: "hearing", t0, t1, xfade: 0.4, set: () => hallSet(false), light: "day",
       cam: [
-        fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)], 4, 10, 44, { b: 0.42 }, [personBox(B), personBox(A)]),
+        fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)], 8, 10, 44, { b: 0.42 }, [personBox(B), personBox(A), [PORT[0] - 1.1, PORT[1], PORT[2] - 0.1, PORT[0] + 1.1, PORT[1] + 2.6, PORT[2] + 0.1]]),
         fit(only, [personBox(B, false, true)], 22, 4, 36, { b: 0.55 }, [personBox(A), ...judges.map((j) => personBox(j, true))]),
         fit(nobody, [...judges.map((j) => personBox(j, true))], 0, 8, 40, { b: 0.45 }, [personBox(B), personBox(A)]),
         fit(man, [[PORT[0] - 1.5, PORT[1] - 1.4, PORT[2] - 0.1, PORT[0] + 1.5, PORT[1] + 2.4, PORT[2] + 0.6]], -12, 10, 32, { b: 0.42 },   // the king, and his cannons
