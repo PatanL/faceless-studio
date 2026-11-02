@@ -27,25 +27,29 @@ function cloudTextures() {
   return cloudTx;
 }
 
-export type Life = (t: number, bg: THREE.Color) => void;
+export type Life = (t: number, bg: THREE.Color, cam: THREE.PerspectiveCamera) => void;
 
-/** clouds round the first sky dome found under root (radius from its geometry), between 4 and 22 degrees up */
+/** the first sky dome found under root follows the camera, scaled inside the camera's far plane (Stage: 400 m; a
+ * 1200 m dome was clipped, so the sky read as the flat background colour), and a ring of clouds 3-18 degrees above
+ * the horizon goes with it */
 export function skyLife(root: THREE.Object3D, seed = 7): Life | null {
   let dome: THREE.Mesh | null = null;
   root.traverse((o: THREE.Object3D) => { if (!dome && (o as THREE.Mesh).isMesh && o.userData.skyDome) dome = o as THREE.Mesh; });
   if (!dome) return null;
-  // inside the camera far plane (Stage: 400 m), well in front of the dome
-  const R = Math.min((dome as THREE.Mesh).userData.skyDome.r * 0.55, 320), r = rng(seed), tx = cloudTextures();
-  const g = new THREE.Group(); (dome as THREE.Mesh).parent!.add(g);
+  const D = dome as THREE.Mesh, domeR = D.userData.skyDome.r as number;
+  const R = 280, r = rng(seed), tx = cloudTextures();
+  const g = new THREE.Group(); D.parent!.add(g);
   const mats: THREE.SpriteMaterial[] = [];
   for (let i = 0; i < 14; i++) {
-    const a = (i / 14) * Math.PI * 2 + r() * 0.3, el = ((4 + r() * 18) * Math.PI) / 180, w = R * (0.16 + r() * 0.14);
+    const a = (i / 14) * Math.PI * 2 + r() * 0.3, el = ((3 + r() * 15) * Math.PI) / 180, w = R * (0.14 + r() * 0.12);
     const m = new THREE.SpriteMaterial({ map: tx[i % 3], fog: false, transparent: true, depthWrite: false });
     const s = new THREE.Sprite(m); s.scale.set(w, w / 2, 1);
     s.position.set(Math.sin(a) * Math.cos(el) * R, Math.sin(el) * R, Math.cos(a) * Math.cos(el) * R);
     s.layers.set(NOINK); s.renderOrder = -9; g.add(s); mats.push(m);
   }
-  return (t, bg) => {
+  return (t, bg, cam) => {
+    D.position.copy(cam.position); D.scale.setScalar(360 / domeR);
+    g.position.copy(cam.position);
     g.rotation.y = t * 0.006;                                       // a slow drift across the sky
     const k = new THREE.Color(1, 1, 1).lerp(bg, 0.35);              // clouds take the sky's colour at night
     for (const m of mats) m.color.copy(k);

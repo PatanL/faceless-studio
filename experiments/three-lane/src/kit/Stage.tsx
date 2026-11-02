@@ -151,7 +151,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   const fs = world.set.fogScale ?? 1;
   scene.fog = new THREE.Fog(P.fog, P.fogNear * fs, P.fogFar * fs);
   scene.background = new THREE.Color(P.bg);
-  for (const l of world.life) l(t, scene.background as THREE.Color);
+  for (const l of world.life) l(t, scene.background as THREE.Color, cam);
   for (const o of world.set.glows) o.visible = P.glow > 0.05, o.scale.setScalar((o.userData.base ??= o.scale.x) * (0.6 + 0.4 * P.glow));
   fx.grade.set(P.grade);
   const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
