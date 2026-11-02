@@ -12,8 +12,10 @@ RED = "#e5483d"
 
 # Plain white captions (stroke + soft shadow). No active-word karaoke: red is the one danger accent, so the only red
 # caption words are the explicit per-episode EMPHASIS threat words (at most one every ~8-10 s).
-CAPTIONS = {"font": "display", "fontSize": 84, "color": "#ffffff", "highlight": "#ff5a4a", "highlightMode": "none",
-            "strokeWidth": 12, "uppercase": True, "y": 0.72}
+# House (Lantern & Ink) caption colours: lantern-cream fill amber-5 (pure white failed P6/P7; a bone fill counted as grey
+# under P4) and an ink-blue stroke instead of black (a black stroke read as outline ink: D5 0.106 on orca_full_v2a).
+CAPTIONS = {"font": "display", "fontSize": 84, "color": "#fff2c0", "highlight": "#ff5a4a", "highlightMode": "none",
+            "strokeWidth": 12, "strokeColor": "#0b2c3a", "uppercase": True, "y": 0.72}
 # 9:16 Shorts loop: no fade at either end (frame 0 is the cover, the last frame is the loop bookend). A 16:9 cut that
 # wants a fade-out sets it in pipeline/episodes/reformat.py.
 # grain 0: the live feTurbulence grain was invisible after x264 and cost ~20 % render time (polish-2d NOTES)
@@ -23,7 +25,7 @@ OVERLAYS = {"grain": 0, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
 # collisions. HOUSE_SKIP = {slug} opts an episode out; HOUSE_OPTS = {slug: {"dressing": False, ...}} tunes the pass.
 HOUSE_STYLE = True
 HOUSE_SKIP: set[str] = set()
-HOUSE_OPTS: dict[str, dict] = {}
+HOUSE_OPTS: dict[str, dict] = {"explainer-orca": {"pod": "orca"}}   # background pod of far orcas in every set
 EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             # red = threat words only, about one every 8-10 s (orca review: not "alone"/"culture")
             "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
@@ -688,10 +690,10 @@ def blue_whale(S):
         t46("JET ENGINE", jet + 0.35, x="50%", y="13%", size=46, w=1000, align="center", out=carry),
         t46("HEARD 100s OF KM AWAY", s.at("hundreds"), x="50%", y="13%", size=46, w=1000, align="center"),
         # "...could reach you": a tiny YOU far out on the left edge as the camera pulls out; the rings reach it
-        comp("explainer/Diver", "12%", "62%", 180, 42, {"arms": "side"}, z=3, start=far, enter=pop(far, 0.3),
+        comp("explainer/Diver", "17%", "62%", 180, 42, {"arms": "side"}, z=3, start=far, enter=pop(far, 0.3),
              idle=[{"type": "float", "amount": 6, "speed": 0.4}]),
-        you_chip(far, "12%", "57.5%"),
-        ring("12%", "62%", far + 0.25, d0=0.1, d1=0.7, life=0.9, size=300, color="rgba(111,214,232,0.9)"),
+        you_chip(far, "17%", "57.5%"),
+        ring("17%", "62%", far + 0.25, d0=0.1, d1=0.7, life=0.9, size=300, color="rgba(111,214,232,0.9)"),
     ], cam, captionY=0.8))
 
     # ---------------------------------------------------------------- p06 gulp: head enters the krill swarm, pouch balloons
@@ -747,7 +749,7 @@ def blue_whale(S):
     sc.append(bw_scene(s, ocean(60, rays=4, snow=30), [
         comp("explainer/Krill", "50%", "46%", 640, 280, {"speed": 0.8}, end=cut,
              keyframes=[{"t": 0, "scale": 1}, {"t": tiny, "scale": 1}, {"t": tiny + 0.35, "scale": 0.22, "ease": "inOut"}]),
-        t46("≈ 6 CM LONG", 0.9, y="58.5%", size=48, w=1000, align="center", end=cut),
+        t46("≈ 6 CM LONG", 0.9, y="38%", size=48, w=1000, align="center", end=cut),  # above the krill (under it sat on the legs: staging [cover]),
         wstat(40000000, "krill a day", s.at("forty", off=-0.1), y="22%", size=100, duration=1.4, end=cut),
         {"type": "particles", "preset": "dust", "count": 300, "color": "rgba(255,140,105,0.85)", "size": [4, 8], "speed": 0.4,
          "z": 1, "start": tiny + 0.2, "end": cut},
@@ -1099,7 +1101,7 @@ def pressure(S):
     s = S[2]
     sc.append(_depth_scene(s, 10, 30, [
         you("42%", "38%", 300, "shrug", idle=[{"type": "sway", "amount": 10, "speed": 0.6}]),
-        tag("RAPTURE OF THE DEEP", s.at("rapture", off=-0.1), x="42%", y="58%", size=38, w=720, accent=RED),
+        tag("NITROGEN NARCOSIS", s.at("rapture", off=-0.1), x="42%", y="58%", size=38, w=720, accent=RED),
     ], camera={"preset": "drift", "amount": 1.5}))
     s = S[3]
     sc.append(_depth_scene(s, 30, 100, [
@@ -1212,7 +1214,7 @@ def croc(S):
     sc.append(scene(s, ocean(60, rays=3), [
         comp("explainer/Crocodile", "50%", "40%", 900, 270, {}, idle=[{"type": "spin", "speed": 0.5}]),
         you("50%", "60%", 160, "panic", idle=[{"type": "spin", "speed": 0.5}]),
-        headline("WHICH WAY IS UP?", at=s.at("which", off=-0.1), y="15%", size=62, color="red"),
+        headline("THE DEATH ROLL", at=s.at("which", off=-0.1), y="15%", size=62, color="red"),
     ], camera=push(0.8), trans=DIP))
     opts = ["Swim for the shore", "Run zigzag", "Play dead", "Stay off the water's edge"]
 
@@ -1221,7 +1223,7 @@ def croc(S):
              "strikes": strikes}
         if select:
             p["select"] = select
-        return scene(s, ocean(30, rays=6), [comp("explainer/Options", "50%", "36%", 1000, 760, p, depth=0)], trans=trans)
+        return scene(s, ocean(30, rays=6), [comp("explainer/Options", "50%", "36%", 960, 760, p, depth=0)], trans=trans)
 
     s = S[6]
     sc.append(opt_scene(s, [{"index": 0, "at": s.at("faster", off=0.1)}]))
@@ -1290,12 +1292,12 @@ def anglerfish(S):
     s = S[5]
     sc.append(scene(s, ocean(1100, rays=0, snow=40), [
         comp("explainer/Anglerfish", "50%", "42%", 1100, 720, {}),
-        headline("ONE-WAY DOOR", at=s.at("one-way", off=-0.1), y="14%", size=76, color="red"),
+        headline("TEETH POINT INWARD", at=s.at("one-way", off=-0.1), y="14%", size=76, color="red"),
     ], camera=push(0.9), trans=FADE))
     s = S[6]
     sc.append(scene(s, ocean(1100, rays=0, snow=40), [
         comp("explainer/Anglerfish", "50%", "40%", 900, 600, {}, idle=[{"type": "breathe", "amount": 0.06, "speed": 0.5}]),
-        stat(2, "x its own length", s.at("twice", off=-0.2), y="60%", size=130, suffix="x", duration=0.3, color=RED),
+        stat(2, "x its own length", s.at("twice", off=-0.2), y="55%", size=130, suffix="x", duration=0.3, color=RED),
     ], trans=FADE))
     s = S[7]
     car_at = s.at("car", off=-0.3)
@@ -1307,7 +1309,7 @@ def anglerfish(S):
     ], camera={"shake": [{"at": s.at("bite", off=0.1), "duration": 0.4, "amplitude": 20}]}, trans=WHIP))
     s = S[8]
     sc.append(scene(s, ocean(1500, rays=0, snow=50), [
-        headline("NOT EVEN THE STRANGEST PART", at=0.1, y="36%", size=70, color="red"),
+        headline("NOT EVEN THE\nSTRANGEST PART", at=0.1, y="36%", size=70, color="red"),
     ], camera=push(1.0), trans=DIP))
     s = S[9]
     bite = s.at("bites", off=0)
@@ -1316,7 +1318,7 @@ def anglerfish(S):
         comp("explainer/Anglerfish", "90%", "46%", 110, 72, {"speed": 1.6}, z=3, allowOverlap=True,  # the male bites on: contact
              keyframes=[{"t": 0, "x": "110%", "y": "30%"}, {"t": bite, "x": "62%", "y": "46%", "ease": "out"}]),
         tag("MALE", s.at("males", off=-0.1), x="78%", y="58%", size=34, w=260),
-        tag("NEVER LETS GO", s.at("never", off=-0.1), y="14%", size=40, accent=RED),
+        tag("FUSED FOR LIFE", s.at("never", off=-0.1), y="14%", size=40, accent=RED),
     ], camera={"shake": [{"at": bite, "duration": 0.3, "amplitude": 10}]}, trans=FADE))
     s = S[10]
     sc.append(scene(s, ocean(1500, rays=0, snow=50), [
@@ -1338,7 +1340,7 @@ def anglerfish(S):
     sc.append(scene(s, ocean(1000, rays=0, snow=60), [
         svg(GLOW, "50%", "38%", 160, 160, idle=[{"type": "pulse", "amount": 0.25, "speed": 0.6}]),
         tag("WHO SHOULD I SCALE UP NEXT?", s.at("Which", off=-0.1), y="60%", size=36, accent=RED),
-        headline("DON'T SWIM TOWARD IT", at=0.2, y="15%", size=62),
+        headline("LIGHT IN THE DEEP\n= A TRAP", at=0.2, y="15%", size=62),
     ], camera=push(0.6), trans=DIP))
     return sc
 

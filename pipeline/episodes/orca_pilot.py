@@ -99,6 +99,15 @@ def diver(x, y, ppm, at=0.0, kf=None, chip=True, chip_dy=4.6, **kw):
     return out
 
 
+def _not_to_scale(layers):
+    """the YOU tag says the diver is enlarged (a separate "YOU NOT TO SCALE" tag sat on an orca and the diver)"""
+    for l in layers:
+        if l.get("name") == "explainer/Tag":
+            l["props"]["text"] = "YOU · NOT TO SCALE"
+            l["width"] = 440
+    return layers
+
+
 def flash(at, peak=0.25):
     """impact hit: a short (~3 frame) low white flash, not a full-frame wash-out (QA: read as a render glitch at 0.55)"""
     return {"type": "rect", "fill": "#ffffff", "x": "50%", "y": "50%", "width": 4000, "height": 4000, "depth": 0, "z": 40,
@@ -173,7 +182,7 @@ def build(S_):
     house_mark = {"shift": {"at": at(s, "eight", off=-0.3), "to": "warm"}, "wide": True}
     sc.append(E.bw_scene(s, E.ocean(30, rays=7), [
         orca("50%", "35%", 1000, 360, pxPerM=PPM, finScale=1.5, amp=0.35, idle=[{"type": "bob", "amount": 4, "speed": 0.4}]),
-        E.headline("NOT BECAUSE THEY CAN'T", at=0.1, y="12%", size=64, out=at(s, "eight", off=-0.2)),
+        # (no "NOT BECAUSE THEY CAN'T" headline: it repeated the caption under it - staging [dup])
         comp("explainer/ScaleBar", "50%", "46%", 8 * PPM, 140, {"label": "~8 M", "at": at(s, "eight", off=-0.1), "labelSize": 52}),
         *cars,
         T("≈ 6 TONNES", at(s, "cars,"), y="13%", size=48, w=600, align="center", out=fin - 0.3),
@@ -190,7 +199,7 @@ def build(S_):
     reach = at(s, "reaches")
     three = at(s, "three", 1, off=-0.1)
     sc.append(E.bw_scene(s, E.ocean(20, rays=8), [
-        comp("explainer/SpeedBars", "50%", "23%", 1000, 560, {
+        comp("explainer/SpeedBars", "50%", "23%", 960, 560, {
             "title": "Top speed", "max": 60, "at": 0.3, "stagger": 1.85, "duration": 0.6, "size": 56, "labelWidth": 330,
             "out": chase, "rows": [{"label": "Orca", "value": 56, "unit": "km/h", "color": "red"},
                                    {"label": "Olympic swimmer", "value": 8, "unit": "km/h", "color": CYAN},
@@ -287,7 +296,8 @@ def build(S_):
              keyframes=[{"t": orcas, "x": "-30%"}, {"t": flip, "x": "26%", "ease": "out"}, {"t": s.dur, "x": "-5%", "y": "33%", "ease": "in"}]),
         orca("50%", "51%", 520, 190, speed=1.6, start=orcas, z=5, flipX=True,
              keyframes=[{"t": orcas, "x": "130%"}, {"t": flip, "x": "76%", "ease": "out"}, {"t": s.dur, "x": "70%", "y": "54%"}]),
-    ], _with_shake(cam(s, punches=[shark, liver, flip]), [(flip + 0.1, 0.4, 12)]), trans=DIP, qa_class="diagram_anatomy"))
+    ], _with_shake(cam(s, punches=[shark, liver, flip]), [(flip + 0.1, 0.4, 12)]), trans=DIP, qa_class="diagram_anatomy",
+                        _house={"key": "danger"}))   # colour script: the kill beats re-key to coral sinking to ink
 
     # ------------------------------------------------------------ p06 great whites flee; YOU alone, a shadow passes
     s = S_[6]
@@ -295,15 +305,16 @@ def build(S_):
     if_ = at(s, "If", off=-0.1)
     sc.append(E.bw_scene(s, deep_bg(420, rays=4), [
         *[comp("explainer/GreatWhite", x, y, w, w * 0.36, {"speed": 1.6, "timeOffset": i * 0.3}, flipX=True, end=if_,
-               keyframes=[{"t": 0, "x": x}, {"t": if_, "x": f"{-30 - i * 10}%", "ease": "in"}])
-          for i, (x, y, w) in enumerate([("62%", "34%", 640), ("86%", "48%", 500), ("40%", "52%", 360)])],
+               # flee into the distance (shrink + drift left) so "fled for months" shows the sharks, not a tail sliver
+               keyframes=[{"t": 0, "x": x, "scale": 1}, {"t": if_, "x": f"{float(x[:-1]) - 32 - i * 4:.0f}%", "scale": 0.55, "ease": "inOut"}])
+          for i, (x, y, w) in enumerate([("66%", "34%", 640), ("80%", "50%", 500), ("52%", "54%", 360)])],
         E.headline("GONE FOR MONTHS", at=fled, y="14%", size=72, out=if_),
         # menace shape: lifted off the #06121c water with a cold rim, head in frame by if_+0.3, slow push (QA: #0a2531 was invisible)
         orca("50%", "40%", 1500, 540, silhouette=MENACE, shadow=MENACE_RIM, speed=0.7, start=if_, z=0, depth=0.6,
              keyframes=[{"t": if_, "x": "110%", "opacity": 0, "scale": 1.0}, {"t": if_ + 0.3, "opacity": 0.95},
                         {"t": s.dur, "x": "60%", "opacity": 0.95, "scale": 1.06}], flipX=True),
         *diver("50%", "46%", 120, at=if_ + 0.05),
-    ], cam(s, punches=[fled, at(s, "you")]), trans=CUT))
+    ], cam(s, punches=[fled, at(s, "you")]), trans=CUT, _house={"key": "danger"}))
 
     # ------------------------------------------------------------ p07 blue whale: orcas converge, whale slows and tilts, hit on "brought down"
     s = S_[7]
@@ -326,12 +337,11 @@ def build(S_):
           for i, (x0, y0, x1, y1, fx) in enumerate(targets)],
         flash(down - 0.04),
         T("2019 · WESTERN AUSTRALIA", 0.15, y="13%", size=46, w=1040, align="center", out=adult - 0.3),  # gone before the next chip
-        T("ADULT BLUE WHALE", adult, y="13%", size=52, w=800, accent=RED, align="center", out=thous),
+        # (no "ADULT BLUE WHALE" tag: it repeated the caption - staging [dup])
         # YOU below the belly, inside the frame (enlarged: true scale would be ~90 px; the label says so)
-        *diver("70%", "53%", 90, at=thous, chip_dy=3.9),
-        svg(VBRACKET, "70%", "48.4%", 30, 120, start=thous + 0.1, enter={"type": "fade", "at": thous + 0.1, "duration": 0.2}, z=3),
+        *_not_to_scale(diver("58%", "53%", 90, at=thous, chip_dy=3.9)),
+        svg(VBRACKET, "58%", "48.4%", 30, 120, start=thous + 0.1, enter={"type": "fade", "at": thous + 0.1, "duration": 0.2}, z=3),
         T("×1,000 YOUR WEIGHT", thous + 0.35, y="13%", size=50, w=900, align="center"),
-        T("YOU NOT TO SCALE", thous + 0.2, x="30%", y="53%", size=44, w=520, align="center", accent="#8fa3ab"),
     ], _with_shake(cam(s, p=1.22, punches=[podt + 0.6, down, adult]), [(down, 0.6, 18)]), trans=WHIP))
 
     # ------------------------------------------------------------ p08 the question: YOU, a shadow behind, WHY NOT YOU?
@@ -360,18 +370,18 @@ def build(S_):
     you175["width"] = 360
     sc.append(E.bw_scene(s, deep_bg(450, rays=4), [
         E.headline("WHY NOT YOU?", at=-1, **why_head),
-        comp("explainer/Options", "50%", "30.5%", 1040, 520, {
+        comp("explainer/Options", "50%", "30.5%", 960, 520, {
             "title": "", "items": items, "at": 0.0, "itemAt": [0.1, too, too], "size": 68, "stamp": True,
             "hidden": [{"index": 2, "until": 999, "text": "???"}],
             "strikes": [{"index": 0, "at": nob}, {"index": 1, "at": yr}]}, depth=0),
         # passes under the list (never over "3. ???") and leaves before the YOU-vs-seal row
         orca("50%", "48.5%", 560, 200, speed=1.0, z=1, timeOffset=0.4,
              keyframes=[{"t": 0, "x": "30%"}, {"t": too, "x": "52%"}, {"t": too + 0.9, "x": "135%", "ease": "in"}]),
-        svg(YUCK, "80%", "41%", 230, 98, start=0.3, enter=pop(0.3), end=too, z=4, depth=0.6),
+        svg(YUCK, "71%", "41%", 230, 98, start=0.3, enter=pop(0.3), end=too, z=4),   # inside the safe area (was cut off at 80 %)
         *you9,
         comp("explainer/Seal", "72%", "57.5%", 260, 90, {"pxPerM": PPM3}, start=too, enter=pop(too), z=2),
         # size tags ride with their figures (depth 1, like the YOU chip), so camera punches never slide them onto the diver
-        T("SEAL 1.6 M", too + 0.15, x="75%", y="58%", size=44, w=400, align="center", depth=1),  # clear of the captions under the punch-ins
+        T("SEAL 1.6 M", too + 0.15, x="65%", y="58%", size=44, w=400, align="center", depth=1),  # clear of the captions under the punch-ins
         you175,
     ], cam(s, punches=[nob, too, yr, size_]), trans=CUT))
 
@@ -381,17 +391,20 @@ def build(S_):
     orc = at(s, "Orcas", off=-0.15)
     no = at(s, "no", off=-0.1)
     sc.append(E.bw_scene(s, deep_bg(450, rays=5), [
-        E.headline("WHY NOT YOU?", at=-1, out=orc - 0.3, **why_head),  # out before MOTHER + CALF (no double text)
-        comp("explainer/Options", "50%", "30.5%", 1040, 520, {
+        E.headline("WHY NOT YOU?", at=-1, out=cul + 0.5, **why_head),  # out before MOTHER + CALF (no double text)
+        comp("explainer/Options", "50%", "30.5%", 960, 520, {
             "title": "", "items": items, "at": -1, "itemAt": [-1, -1, -1], "size": 68, "stamp": True,
             "hidden": [{"index": 2, "until": cul, "text": "???"}],
-            "strikes": [{"index": 0, "at": -1}, {"index": 1, "at": -1}], "select": {"index": 2, "at": cul + 0.05}}, depth=0, end=orc),
-        orca("44%", "40%", 760, 270, timeOffset=0.2, start=orc, z=2,
-             keyframes=[{"t": orc, "x": "36%"}, {"t": s.dur, "x": "50%"}], idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
-        orca("66%", "50%", 340, 120, timeOffset=0.9, start=orc + 0.25, enter=pop(orc + 0.25), z=2,
-             keyframes=[{"t": orc + 0.25, "x": "60%"}, {"t": s.dur, "x": "72%"}], idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
+            "strikes": [{"index": 0, "at": -1}, {"index": 1, "at": -1}], "select": {"index": 2, "at": cul + 0.05}}, depth=0, end=cul + 0.75),
+        # mother + calf swim in as "culture" lands (the list alone was a text card), the list wipes off under them
+        orca("44%", "40%", 760, 270, timeOffset=0.2, start=cul + 0.3, z=2,
+             keyframes=[{"t": cul + 0.3, "x": "-25%"}, {"t": orc + 0.4, "x": "36%", "ease": "out"}, {"t": s.dur, "x": "50%"}],
+             idle=[{"type": "float", "amount": 8, "speed": 0.3}]),
+        orca("66%", "50%", 340, 120, timeOffset=0.9, start=cul + 0.45, z=2,
+             keyframes=[{"t": cul + 0.45, "x": "-12%"}, {"t": orc + 0.55, "x": "60%", "ease": "out"}, {"t": s.dur, "x": "72%"}],
+             idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
         T("MOTHER  +  CALF", orc + 0.05, y="13%", size=48, w=800, align="center", out=no - 0.3),
-        *diver("74%", "58%", 100, at=no + 0.1, chip_dy=4.2),
+        *diver("74%", "55%", 100, at=no + 0.1, chip_dy=4.2),   # tag clear of the caption band
         E.headline("NOT ON THE MENU", at=no + 0.1, y="13%", size=76, red="MENU"),
     ], cam(s, punches=[cul, at(s, "mothers"), no]), trans=CUT))
 
