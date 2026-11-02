@@ -15,7 +15,7 @@ export const Paper: React.FC<KitComponentProps> = ({props, time}) => {
 	const font = '"Anton", "Arial Narrow", sans-serif';
 	return (
 		<svg viewBox="0 0 700 900" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{overflow: 'visible'}}>
-			<g transform={`translate(0 ${(1 - k) * 900}) rotate(${(1 - k) * 14 - 3} 350 450)`} opacity={k > 0 ? 1 : 0}>
+			<g transform={`translate(0 ${-(1 - k) * 1100}) rotate(${(1 - k) * 14 - 3} 350 450)`} opacity={k > 0 ? 1 : 0}>
 				<rect x={24} y={30} width={660} height={860} fill={c('ink-1')} opacity={0.3} />
 				<rect x={10} y={10} width={660} height={860} fill={c('bone-1')} />
 				<rect x={360} y={10} width={310} height={860} fill={c('bone-0')} opacity={0.6} />

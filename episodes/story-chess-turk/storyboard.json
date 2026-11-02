@@ -7,7 +7,7 @@
  "scenes": [
   {
    "id": "p01",
-   "duration": 6.41,
+   "duration": 6.39,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -22,17 +22,11 @@
      "type": "component",
      "name": "stick/Turk",
      "x": "60%",
-     "y": "41%",
-     "width": 980,
-     "height": 1089,
+     "y": "43%",
+     "width": 900,
+     "height": 1000,
      "props": {
       "doorL": [
-       {
-        "t": 0,
-        "v": 0.9
-       }
-      ],
-      "doorR": [
        {
         "t": 0,
         "v": 0
@@ -42,7 +36,22 @@
         "v": 0
        },
        {
-        "t": 5.112,
+        "t": 5.062,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.938,
+        "v": 0
+       },
+       {
+        "t": 5.388,
         "v": 1,
         "ease": "out"
        }
@@ -57,7 +66,7 @@
         "v": 0
        },
        {
-        "t": 5.513,
+        "t": 5.463,
         "v": 1,
         "ease": "out"
        }
@@ -65,10 +74,14 @@
       "candle": [
        {
         "t": 0,
-        "v": 0.7
+        "v": 0
        },
        {
         "t": 5.338,
+        "v": 0
+       },
+       {
+        "t": 5.638,
         "v": 1
        }
       ],
@@ -76,39 +89,35 @@
       "arm": [
        {
         "t": 0,
-        "v": 0
+        "v": 0.6
        },
        {
         "t": 1.738,
-        "v": 0
-       },
-       {
-        "t": 2.188,
         "v": 1
-       },
-       {
-        "t": 3.825,
-        "v": 0
        }
       ],
       "reach": [
        {
         "t": 0,
-        "v": 0
+        "v": 0.2
+       },
+       {
+        "t": 1.738,
+        "v": 0.2
        },
        {
         "t": 2.013,
-        "v": 0.7
+        "v": 0.8
        }
       ],
       "look": [
        {
         "t": 0,
-        "v": 0.6
+        "v": -0.8
        },
        {
-        "t": 0.1,
-        "v": -0.6
+        "t": 2.95,
+        "v": 0.6
        }
       ]
      },
@@ -117,10 +126,39 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "17%",
-     "y": 826,
-     "width": 572,
-     "height": 667,
+     "x": "18%",
+     "y": 959,
+     "width": 430,
+     "height": 502,
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "worried"
+       },
+       {
+        "t": 2.013,
+        "v": "shock"
+       },
+       {
+        "t": 3.487,
+        "v": "frown"
+       }
+      ],
+      "pose": "reach",
+      "seated": true,
+      "seed": 13
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "84%",
+     "y": 965,
+     "width": 420,
+     "height": 490,
      "props": {
       "costume": "kempelen",
       "face": [
@@ -133,29 +171,42 @@
         "v": "grin"
        }
       ],
-      "pose": "holdHigh",
+      "pose": [
+       {
+        "t": 0,
+        "v": "holdHigh"
+       },
+       {
+        "t": 4.612,
+        "v": "reach"
+       },
+       {
+        "t": 5.338,
+        "v": "holdHigh"
+       }
+      ],
       "item": "candle",
-      "talk": [],
       "seed": 2
      },
-     "role": "hero"
+     "role": "hero",
+     "flipX": true
     },
     {
      "type": "component",
      "name": "explainer/Headline",
      "x": "50%",
-     "y": "14%",
+     "y": "10%",
      "width": 960,
-     "height": 260,
+     "height": 240,
      "props": {
       "text": "UNBEATABLE ROBOT",
       "red": "ROBOT",
       "at": -0.6,
-      "size": 92,
+      "size": 88,
       "out": 3.062
      },
      "role": "label",
-     "z": 40,
+     "z": 60,
      "depth": 0
     }
    ],
@@ -173,34 +224,34 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.1,
+      "x": "52%",
+      "y": "47%"
      },
      {
       "t": 3.062,
-      "zoom": 1.08,
-      "x": "52%",
-      "y": "50%"
+      "zoom": 1.16,
+      "x": "54%",
+      "y": "48%"
      },
      {
       "t": 4.612,
-      "zoom": 1.2,
-      "x": "56%",
-      "y": "56%"
+      "zoom": 1.3,
+      "x": "61.9%",
+      "y": "52%"
      },
      {
       "t": 5.888,
-      "zoom": 1.75,
-      "x": "46%",
-      "y": "64%",
+      "zoom": 2.0,
+      "x": "61.9%",
+      "y": "55.0%",
       "ease": "inOut"
      },
      {
-      "t": 6.41,
-      "zoom": 1.85,
-      "x": "45%",
-      "y": "65%"
+      "t": 6.39,
+      "zoom": 2.08,
+      "x": "61.9%",
+      "y": "55.0%"
      }
     ],
     "preroll": 0.3,
@@ -212,7 +263,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 6.41,
+      "duration": 6.39,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -247,12 +298,12 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "20%",
+     "y": "14%",
      "width": 472,
      "height": 130,
      "props": {
       "text": "VIENNA, 1770",
-      "at": 0.912,
+      "at": 0.913,
       "size": 46,
       "out": 5.188
      },
@@ -263,27 +314,29 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "40%",
-     "y": "57%",
-     "width": 430,
-     "height": 478,
+     "x": "46%",
+     "y": "55%",
+     "width": 380,
+     "height": 422,
      "props": {
-      "doorL": 0,
-      "spin": 0
+      "doorL": 0
      },
      "role": "hero",
      "keyframes": [
       {
        "t": 0,
-       "x": "-30%"
+       "x": "-30%",
+       "y": "60%"
       },
       {
        "t": 2.65,
-       "x": "-30%"
+       "x": "-30%",
+       "y": "60%"
       },
       {
        "t": 5.125,
-       "x": "40%",
+       "x": "46%",
+       "y": "55%",
        "ease": "out"
       }
      ],
@@ -292,8 +345,8 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "40%",
-     "y": 1075,
+     "x": "20%",
+     "y": 1060,
      "width": 300,
      "height": 350,
      "props": {
@@ -313,22 +366,25 @@
       "seed": 2
      },
      "role": "hero",
+     "end": 5.488,
      "keyframes": [
       {
        "t": 0,
-       "x": "-52%"
+       "x": "-55%",
+       "y": 1150
       },
       {
        "t": 2.65,
-       "x": "-52%"
+       "x": "-55%",
+       "y": 1150
       },
       {
        "t": 5.125,
-       "x": "18%",
+       "x": "22%",
+       "y": 1060,
        "ease": "out"
       }
-     ],
-     "end": 5.488
+     ]
     },
     {
      "type": "component",
@@ -343,19 +399,15 @@
      "z": -5,
      "start": 5.488,
      "role": "dressing",
-     "depth": 0.3,
-     "enter": {
-      "type": "wipeRight",
-      "duration": 0.4
-     }
+     "depth": 0.3
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "76%",
-     "y": 886,
-     "width": 546,
-     "height": 637,
+     "x": "80%",
+     "y": 939,
+     "width": 430,
+     "height": 502,
      "props": {
       "costume": "empress",
       "face": [
@@ -373,28 +425,37 @@
      },
      "role": "hero",
      "flipX": true,
-     "start": 5.488,
-     "enter": {
-      "type": "fade",
-      "duration": 0.3
-     }
+     "start": 5.488
     },
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "36%",
-     "y": "50%",
-     "width": 600,
-     "height": 667,
+     "x": "42%",
+     "y": "45%",
+     "width": 760,
+     "height": 844,
      "props": {
-      "doorL": 0
+      "doorL": 0,
+      "look": 0.8
      },
      "role": "hero",
-     "start": 5.488,
-     "enter": {
-      "type": "fade",
-      "duration": 0.3
-     }
+     "start": 5.488
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "14%",
+     "y": 980,
+     "width": 360,
+     "height": 420,
+     "props": {
+      "costume": "kempelen",
+      "face": "grin",
+      "pose": "point",
+      "seed": 2
+     },
+     "role": "hero",
+     "start": 5.488
     }
    ],
    "notes": "You see, it's 1770, and an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.",
@@ -424,25 +485,37 @@
       "t": 0,
       "zoom": 1.0,
       "x": "50%",
+      "y": "44%"
+     },
+     {
+      "t": 2.65,
+      "zoom": 1.06,
+      "x": "50%",
       "y": "48%"
      },
      {
-      "t": 4.587,
-      "zoom": 1.06,
-      "x": "45%",
+      "t": 5.125,
+      "zoom": 1.14,
+      "x": "48%",
+      "y": "52%"
+     },
+     {
+      "t": 5.478,
+      "zoom": 1.15,
+      "x": "48%",
       "y": "52%"
      },
      {
       "t": 5.488,
-      "zoom": 1.0,
+      "zoom": 1.05,
       "x": "50%",
-      "y": "50%"
+      "y": "48%"
      },
      {
       "t": 7.24,
-      "zoom": 1.1,
-      "x": "55%",
-      "y": "50%"
+      "zoom": 1.12,
+      "x": "54%",
+      "y": "47%"
      }
     ],
     "drift": {
@@ -469,11 +542,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -492,10 +560,10 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "56%",
-     "y": "75%",
-     "width": 1600,
-     "height": 1778,
+     "x": "50%",
+     "y": "62%",
+     "width": 1500,
+     "height": 1667,
      "props": {
       "look": [
        {
@@ -507,57 +575,19 @@
         "v": 0.9
        }
       ],
-      "arm": 0
+      "arm": 0.2,
+      "reach": 0.3
      },
      "role": "hero",
-     "end": 4.676,
-     "keyframes": [
-      {
-       "t": 0,
-       "scale": 1.0
-      },
-      {
-       "t": 2.337,
-       "scale": 1.08
-      },
-      {
-       "t": 4.676,
-       "scale": 1.12
-      }
-     ]
+     "end": 4.676
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "22%",
-     "y": 932,
-     "width": 494,
-     "height": 576,
-     "props": {
-      "costume": "courtier",
-      "face": [
-       {
-        "t": 0,
-        "v": "laugh"
-       }
-      ],
-      "pose": "laugh",
-      "seed": 11
-     },
-     "role": "hero",
-     "start": 4.676,
-     "enter": {
-      "type": "popSpring",
-      "duration": 0.35
-     }
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "52%",
-     "y": 890,
-     "width": 520,
-     "height": 607,
+     "x": "10%",
+     "y": 1007,
+     "width": 380,
+     "height": 443,
      "props": {
       "costume": "courtier2",
       "face": "laugh",
@@ -565,19 +595,15 @@
       "seed": 12
      },
      "role": "hero",
-     "start": 4.776,
-     "enter": {
-      "type": "popSpring",
-      "duration": 0.35
-     }
+     "start": 4.676
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "82%",
-     "y": 932,
-     "width": 494,
-     "height": 576,
+     "x": "34%",
+     "y": 973,
+     "width": 340,
+     "height": 397,
      "props": {
       "costume": "count",
       "face": "laugh",
@@ -585,12 +611,41 @@
       "seed": 13
      },
      "role": "hero",
-     "start": 4.901,
-     "flipX": true,
-     "enter": {
-      "type": "popSpring",
-      "duration": 0.35
-     }
+     "start": 4.676
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "58%",
+     "y": 988,
+     "width": 380,
+     "height": 443,
+     "props": {
+      "costume": "courtier",
+      "face": "laugh",
+      "pose": "laugh",
+      "seed": 11
+     },
+     "role": "hero",
+     "start": 4.676,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "86%",
+     "y": 945,
+     "width": 420,
+     "height": 490,
+     "props": {
+      "costume": "empress",
+      "face": "laugh",
+      "pose": "laugh",
+      "seed": 4
+     },
+     "role": "hero",
+     "start": 4.676,
+     "flipX": true
     }
    ],
    "notes": "On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.",
@@ -609,31 +664,51 @@
       "t": 0,
       "zoom": 1.0,
       "x": "50%",
-      "y": "50%"
+      "y": "48%"
      },
      {
-      "t": 2.337,
-      "zoom": 1.08,
-      "x": "52%",
+      "t": 0.925,
+      "zoom": 1.04,
+      "x": "50%",
       "y": "47%"
      },
      {
+      "t": 1.562,
+      "zoom": 1.5,
+      "x": "26.9%",
+      "y": "40.3%",
+      "ease": "backOut"
+     },
+     {
+      "t": 2.337,
+      "zoom": 1.58,
+      "x": "26.9%",
+      "y": "40.3%"
+     },
+     {
       "t": 3.112,
-      "zoom": 1.16,
-      "x": "56%",
-      "y": "50%"
+      "zoom": 1.6,
+      "x": "65.4%",
+      "y": "68.5%",
+      "ease": "inOut"
+     },
+     {
+      "t": 4.666,
+      "zoom": 1.62,
+      "x": "65.4%",
+      "y": "68.5%"
      },
      {
       "t": 4.676,
-      "zoom": 1.0,
+      "zoom": 1.1,
       "x": "50%",
-      "y": "50%"
+      "y": "48%"
      },
      {
       "t": 5.806,
-      "zoom": 1.06,
+      "zoom": 1.16,
       "x": "50%",
-      "y": "48%"
+      "y": "47%"
      }
     ],
     "drift": {
@@ -660,10 +735,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -682,10 +753,10 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "57%",
-     "y": "48%",
-     "width": 1080,
-     "height": 1200,
+     "x": "58%",
+     "y": "46%",
+     "width": 1000,
+     "height": 1111,
      "props": {
       "doorL": [
        {
@@ -697,7 +768,7 @@
         "v": 0
        },
        {
-        "t": 0.938,
+        "t": 0.888,
         "v": 1,
         "ease": "out"
        }
@@ -732,20 +803,6 @@
         "ease": "out"
        }
       ],
-      "drawer": [
-       {
-        "t": 0,
-        "v": 0
-       },
-       {
-        "t": 2.5,
-        "v": 0
-       },
-       {
-        "t": 2.9,
-        "v": 1
-       }
-      ],
       "candle": [
        {
         "t": 0,
@@ -767,17 +824,29 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "14%",
-     "y": 798,
-     "width": 494,
-     "height": 576,
+     "x": "15%",
+     "y": 984,
+     "width": 420,
+     "height": 490,
      "props": {
       "costume": "kempelen",
       "face": "smug",
       "pose": [
        {
         "t": 0,
-        "v": "point"
+        "v": "stand"
+       },
+       {
+        "t": 0.438,
+        "v": "reach"
+       },
+       {
+        "t": 1.65,
+        "v": "stand"
+       },
+       {
+        "t": 1.863,
+        "v": "reach"
        },
        {
         "t": 2.65,
@@ -797,6 +866,23 @@
       "seed": 2
      },
      "role": "hero"
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2800,
+     "fill": "#140a50",
+     "z": -1,
+     "depth": 0,
+     "role": "fx",
+     "start": 3.038,
+     "opacity": 0.35,
+     "enter": {
+      "type": "fade",
+      "duration": 0.5
+     }
     }
    ],
    "notes": "So he opens the doors one by one and holds a candle behind them. Nothing but gears.",
@@ -813,34 +899,34 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
-      "x": "50%",
+      "zoom": 1.08,
+      "x": "48%",
       "y": "50%"
      },
      {
       "t": 1.413,
-      "zoom": 1.05,
-      "x": "52%",
-      "y": "52%"
+      "zoom": 1.14,
+      "x": "46%",
+      "y": "51%"
      },
      {
       "t": 3.038,
-      "zoom": 1.12,
-      "x": "48%",
-      "y": "54%"
+      "zoom": 1.18,
+      "x": "45%",
+      "y": "52%"
      },
      {
       "t": 4.492,
-      "zoom": 2.0,
-      "x": "38%",
-      "y": "60%",
+      "zoom": 2.3,
+      "x": "38.5%",
+      "y": "59.3%",
       "ease": "inOut"
      },
      {
       "t": 5.687,
-      "zoom": 2.1,
-      "x": "37%",
-      "y": "60%"
+      "zoom": 2.4,
+      "x": "38.5%",
+      "y": "59.3%"
      }
     ],
     "drift": {
@@ -867,10 +953,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -889,10 +971,10 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "50%",
-     "y": "48%",
-     "width": 1080,
-     "height": 1200,
+     "x": "46%",
+     "y": "46%",
+     "width": 1000,
+     "height": 1111,
      "props": {
       "doorL": 1,
       "spin": [
@@ -917,9 +999,9 @@
         "v": 0
        },
        {
-        "t": 3.15,
+        "t": 3.35,
         "v": 1,
-        "ease": "out"
+        "ease": "linear"
        }
       ],
       "look": [
@@ -938,24 +1020,15 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "86%",
-     "y": 955,
-     "width": 468,
-     "height": 546,
+     "x": "88%",
+     "y": 995,
+     "width": 400,
+     "height": 467,
      "props": {
       "costume": "kempelen",
       "face": "focus",
       "pose": "wind",
-      "item": [
-       {
-        "t": 0,
-        "v": "none"
-       },
-       {
-        "t": 0.25,
-        "v": "key"
-       }
-      ],
+      "item": "key",
       "seed": 2
      },
      "role": "hero",
@@ -976,35 +1049,41 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.3,
-      "x": "70%",
+      "zoom": 1.45,
+      "x": "74%",
       "y": "50%"
      },
      {
       "t": 0.637,
-      "zoom": 1.3,
-      "x": "72%",
+      "zoom": 1.45,
+      "x": "75%",
       "y": "50%"
      },
      {
       "t": 1.562,
-      "zoom": 1.9,
-      "x": "35%",
-      "y": "60%",
+      "zoom": 2.3,
+      "x": "25.4%",
+      "y": "59.3%",
       "ease": "inOut"
      },
      {
+      "t": 2.15,
+      "zoom": 2.3,
+      "x": "25.4%",
+      "y": "59.3%"
+     },
+     {
       "t": 2.35,
-      "zoom": 1.5,
-      "x": "45%",
-      "y": "35%",
+      "zoom": 1.45,
+      "x": "38.8%",
+      "y": "41.4%",
       "ease": "inOut"
      },
      {
       "t": 3.52,
-      "zoom": 1.6,
-      "x": "48%",
-      "y": "33%"
+      "zoom": 1.5,
+      "x": "38.8%",
+      "y": "41.4%"
      }
     ],
     "drift": {
@@ -1030,11 +1109,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "left"
    }
   },
   {
@@ -1053,10 +1127,10 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "26%",
-     "y": 925,
-     "width": 546,
-     "height": 637,
+     "x": "22%",
+     "y": 953,
+     "width": 440,
+     "height": 513,
      "props": {
       "costume": "count",
       "face": [
@@ -1069,7 +1143,7 @@
         "v": "worried"
        }
       ],
-      "pose": "hold",
+      "pose": "reach",
       "seated": true,
       "seed": 13
      },
@@ -1079,8 +1153,8 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "72%",
-     "y": "49%",
+     "x": "64%",
+     "y": "46%",
      "width": 760,
      "height": 844,
      "props": {
@@ -1113,27 +1187,33 @@
         "from": "d8",
         "to": "h4",
         "hand": "turk",
-        "dur": 0.6
+        "dur": 0.5
        }
       ],
-      "glow": "e1",
-      "glowAt": "@loses"
+      "topple": [
+       {
+        "t": 1.895,
+        "v": "e1"
+       }
+      ],
+      "glow": [
+       {
+        "t": 1.895,
+        "v": "e1"
+       }
+      ]
      },
      "start": 1.57,
-     "enter": {
-      "type": "fade",
-      "duration": 0.25
-     },
      "end": 2.586,
      "role": "hero"
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "26%",
-     "y": 932,
-     "width": 494,
-     "height": 576,
+     "x": "16%",
+     "y": 995,
+     "width": 400,
+     "height": 467,
      "props": {
       "costume": "courtier",
       "face": "shock",
@@ -1146,10 +1226,26 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "74%",
-     "y": 932,
-     "width": 494,
-     "height": 576,
+     "x": "50%",
+     "y": 957,
+     "width": 400,
+     "height": 467,
+     "props": {
+      "costume": "empress",
+      "face": "shock",
+      "pose": "stand",
+      "seed": 4
+     },
+     "role": "hero",
+     "start": 2.586
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "84%",
+     "y": 995,
+     "width": 400,
+     "height": 467,
      "props": {
       "costume": "courtier2",
       "face": "shock",
@@ -1159,69 +1255,81 @@
      "role": "hero",
      "start": 2.586,
      "flipX": true
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "50%",
-     "y": 881,
-     "width": 442,
-     "height": 516,
-     "props": {
-      "costume": "empress",
-      "face": "shock",
-      "pose": "stand",
-      "seed": 4
-     },
-     "role": "hero",
-     "start": 2.736,
-     "enter": {
-      "type": "popSpring",
-      "duration": 0.3
-     }
     }
    ],
    "notes": "The first count brave enough to play it loses. Nobody's laughing now.",
-   "setting": {
-    "kind": "place",
-    "depth": 0,
-    "waterline": null,
-    "biome": "home",
-    "place": "Schönbrunn Palace hall, Vienna",
-    "light": "day",
-    "at": 0.0
-   },
+   "setting": [
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall, Vienna",
+     "light": "day",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "the chessboard (close-up)",
+     "light": "day",
+     "at": 1.57
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall, Vienna",
+     "light": "day",
+     "at": 2.586
+    }
+   ],
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.25,
+      "x": "44%",
+      "y": "47%"
+     },
+     {
+      "t": 1.56,
+      "zoom": 1.32,
+      "x": "44%",
+      "y": "47%"
      },
      {
       "t": 1.57,
-      "zoom": 1.05,
+      "zoom": 1.0,
       "x": "50%",
-      "y": "48%"
+      "y": "47%"
      },
      {
       "t": 1.895,
-      "zoom": 1.12,
-      "x": "52%",
+      "zoom": 1.1,
+      "x": "50%",
+      "y": "46%"
+     },
+     {
+      "t": 2.576,
+      "zoom": 1.1,
+      "x": "50%",
       "y": "46%"
      },
      {
       "t": 2.586,
-      "zoom": 1.0,
+      "zoom": 1.12,
       "x": "50%",
-      "y": "50%"
+      "y": "48%"
      },
      {
       "t": 3.846,
-      "zoom": 1.08,
+      "zoom": 1.2,
       "x": "50%",
-      "y": "48%"
+      "y": "47%"
      }
     ],
     "drift": {
@@ -1247,16 +1355,11 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
    "id": "p07",
-   "duration": 3.826,
+   "duration": 3.806,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -1278,15 +1381,21 @@
       "views": [
        {
         "t": 0,
-        "lon": 12,
+        "lon": 9,
         "lat": 49,
-        "zoom": 4.2
+        "zoom": 6
+       },
+       {
+        "t": 1.35,
+        "lon": 9,
+        "lat": 49,
+        "zoom": 6
        },
        {
         "t": 1.575,
-        "lon": -30,
-        "lat": 46,
-        "zoom": 2.2
+        "lon": -40,
+        "lat": 45,
+        "zoom": 2.4
        }
       ],
       "pins": [
@@ -1303,32 +1412,22 @@
         "at": 0.6
        },
        {
-        "lon": -0.12,
-        "lat": 51.5,
-        "label": "LONDON",
-        "at": 1.05
-       },
-       {
         "lon": -74,
         "lat": 40.7,
         "label": "NEW YORK",
         "at": 1.575
        }
-      ]
+      ],
+      "labelSize": 60
      },
      "end": 2.186,
-     "role": "hero",
-     "exit": {
-      "type": "fade",
-      "at": 1.5859999999999999,
-      "duration": 0.6
-     }
+     "role": "hero"
     },
     {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "16%",
+     "y": "14%",
      "width": 586,
      "height": 130,
      "props": {
@@ -1344,11 +1443,28 @@
     },
     {
      "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "14%",
+     "width": 444,
+     "height": 130,
+     "props": {
+      "text": "PARIS, 1783",
+      "at": 2.186,
+      "size": 46
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
      "name": "stick/Person",
-     "x": "28%",
-     "y": 883,
-     "width": 572,
-     "height": 667,
+     "x": "26%",
+     "y": 941,
+     "width": 460,
+     "height": 537,
      "props": {
       "costume": "franklin",
       "face": [
@@ -1357,7 +1473,7 @@
         "v": "focus"
        },
        {
-        "t": 3.194,
+        "t": 3.174,
         "v": "shock"
        }
       ],
@@ -1371,24 +1487,19 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "74%",
-     "y": "48%",
+     "x": "70%",
+     "y": "46%",
      "width": 760,
      "height": 844,
      "props": {
-      "arm": [
-       {
-        "t": 0,
-        "v": 1
-       }
-      ],
+      "arm": 1,
       "reach": [
        {
         "t": 0,
         "v": 0
        },
        {
-        "t": 2.306,
+        "t": 2.286,
         "v": 1
        }
       ],
@@ -1415,6 +1526,10 @@
      "at": 2.186
     }
    ],
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
    "camera": {
     "keyframes": [
      {
@@ -1424,15 +1539,21 @@
       "y": "50%"
      },
      {
-      "t": 2.186,
+      "t": 2.176,
       "zoom": 1.0,
       "x": "50%",
       "y": "50%"
      },
      {
-      "t": 3.826,
-      "zoom": 1.1,
-      "x": "48%",
+      "t": 2.186,
+      "zoom": 1.22,
+      "x": "46%",
+      "y": "48%"
+     },
+     {
+      "t": 3.806,
+      "zoom": 1.3,
+      "x": "46%",
       "y": "47%"
      }
     ],
@@ -1444,7 +1565,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 3.826,
+      "duration": 3.806,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -1459,10 +1580,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -1482,14 +1599,14 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "17%",
+     "y": "14%",
      "width": 472,
      "height": 130,
      "props": {
       "text": "VIENNA, 1809",
       "at": 0.363,
       "size": 46,
-      "out": 1.488
+      "out": 1.088
      },
      "role": "label",
      "z": 30,
@@ -1498,10 +1615,10 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "27%",
-     "y": 922,
-     "width": 572,
-     "height": 667,
+     "x": "26%",
+     "y": 941,
+     "width": 460,
+     "height": 537,
      "props": {
       "costume": "napoleon",
       "face": "smug",
@@ -1510,20 +1627,20 @@
       "seed": 31
      },
      "role": "hero",
-     "end": 1.288
+     "end": 1.238
     },
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "74%",
-     "y": "49%",
+     "x": "70%",
+     "y": "46%",
      "width": 760,
      "height": 844,
      "props": {
       "look": -0.8
      },
      "role": "hero",
-     "end": 1.288
+     "end": 1.238
     },
     {
      "type": "component",
@@ -1533,53 +1650,52 @@
      "width": 1300,
      "height": 1040,
      "props": {
+      "setup": "napoleon",
+      "room": "ink-1",
       "moves": [
        {
-        "t": 1.288,
+        "t": 1.238,
         "from": "d1",
-        "to": "h5",
+        "to": "f5",
         "hand": "human",
-        "dur": 0.5
+        "dur": 0.5,
+        "illegal": true
        },
        {
         "t": 2.2,
-        "from": "h5",
+        "from": "f5",
         "to": "d1",
         "hand": "turk",
         "dur": 0.5
        },
        {
-        "t": 3.487,
+        "t": 3.337,
         "from": "d1",
-        "to": "h5",
+        "to": "f5",
         "hand": "human",
-        "dur": 0.35
+        "dur": 0.35,
+        "illegal": true
        },
        {
-        "t": 3.907,
-        "from": "h5",
+        "t": 4.107,
+        "from": "f5",
         "to": "d1",
         "hand": "turk",
         "dur": 0.35
        }
-      ],
-      "sweepAt": "@sweeps"
+      ]
      },
-     "start": 1.288,
+     "start": 1.238,
      "end": 4.391,
-     "enter": {
-      "type": "fade",
-      "duration": 0.2
-     },
      "role": "hero"
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "27%",
-     "y": 922,
-     "width": 572,
-     "height": 667,
+     "x": "26%",
+     "y": 941,
+     "width": 460,
+     "height": 537,
      "props": {
       "costume": "napoleon",
       "face": [
@@ -1588,7 +1704,7 @@
         "v": "angry"
        },
        {
-        "t": 5.603,
+        "t": 5.553,
         "v": "shock"
        }
       ],
@@ -1602,13 +1718,18 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "74%",
-     "y": "49%",
+     "x": "70%",
+     "y": "46%",
      "width": 760,
      "height": 844,
      "props": {
       "look": -0.8,
-      "sweepAt": "@sweeps",
+      "sweep": [
+       {
+        "t": 5.303,
+        "v": 1
+       }
+      ],
       "arm": 0
      },
      "role": "hero",
@@ -1616,46 +1737,95 @@
     }
    ],
    "notes": "And when Napoleon tries to cheat, it puts his piece back. Twice. The third time, it sweeps every piece off the board.",
-   "setting": {
-    "kind": "place",
-    "depth": 0,
-    "waterline": null,
-    "biome": "home",
-    "place": "Schönbrunn Palace hall at night, 1809",
-    "light": "night",
-    "at": 0.0
+   "setting": [
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall at night, 1809",
+     "light": "night",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "the chessboard (close-up)",
+     "light": "day",
+     "at": 1.238
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall at night, 1809",
+     "light": "night",
+     "at": 4.391
+    }
+   ],
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.25
    },
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.2,
+      "x": "46%",
+      "y": "47%"
      },
      {
-      "t": 1.488,
-      "zoom": 1.04,
+      "t": 1.228,
+      "zoom": 1.25,
+      "x": "46%",
+      "y": "47%"
+     },
+     {
+      "t": 1.238,
+      "zoom": 1.0,
       "x": "50%",
-      "y": "48%"
+      "y": "47%"
+     },
+     {
+      "t": 3.487,
+      "zoom": 1.08,
+      "x": "52%",
+      "y": "46%"
+     },
+     {
+      "t": 4.381,
+      "zoom": 1.1,
+      "x": "52%",
+      "y": "46%"
      },
      {
       "t": 4.391,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.2,
+      "x": "48%",
+      "y": "47%"
      },
      {
       "t": 5.303,
-      "zoom": 1.12,
-      "x": "55%",
-      "y": "47%",
+      "zoom": 1.3,
+      "x": "54%",
+      "y": "45%",
       "ease": "backOut"
      },
      {
+      "t": 6.553,
+      "zoom": 1.3,
+      "x": "40%",
+      "y": "47%",
+      "ease": "inOut"
+     },
+     {
       "t": 6.95,
-      "zoom": 1.16,
-      "x": "55%",
+      "zoom": 1.32,
+      "x": "40%",
       "y": "47%"
      }
     ],
@@ -1683,10 +1853,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -1721,32 +1887,80 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "17%",
+     "y": "14%",
      "width": 643,
      "height": 130,
      "props": {
       "text": "PHILADELPHIA, 1854",
       "at": 0.4,
       "size": 46,
-      "out": 4.238
+      "out": 2.725
      },
      "role": "label",
      "z": 30,
      "depth": 0
     },
     {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2800,
+     "fill": "#140a50",
+     "z": -1,
+     "depth": 0,
+     "role": "fx",
+     "start": 2.825,
+     "end": 4.038,
+     "opacity": 0.85
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "44%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "fire": [
+       {
+        "t": 0,
+        "v": 0.6
+       },
+       {
+        "t": 3.263,
+        "v": 1
+       }
+      ],
+      "char": [
+       {
+        "t": 0,
+        "v": 0.2
+       },
+       {
+        "t": 3.263,
+        "v": 1,
+        "ease": "inOut"
+       }
+      ]
+     },
+     "role": "hero",
+     "start": 2.825,
+     "end": 4.038
+    },
+    {
      "type": "component",
      "name": "stick/Paper",
      "x": "50%",
-     "y": "42%",
+     "y": "36%",
      "width": 640,
      "height": 823,
      "props": {
       "headline": "THE TURK'S\nSECRET",
-      "at": 4.238,
+      "at": 4.038,
       "masthead": "THE CHESS MONTHLY"
      },
-     "start": 4.238,
+     "start": 4.038,
      "role": "prop",
      "z": 20
     }
@@ -1761,31 +1975,59 @@
     "light": "night",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.3
+   },
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
+      "zoom": 1.08,
       "x": "50%",
-      "y": "52%"
+      "y": "46%"
      },
      {
       "t": 1.95,
-      "zoom": 1.06,
+      "zoom": 1.14,
       "x": "50%",
-      "y": "50%"
+      "y": "44%"
      },
      {
-      "t": 4.238,
+      "t": 2.815,
+      "zoom": 1.2,
+      "x": "50%",
+      "y": "44%"
+     },
+     {
+      "t": 2.825,
+      "zoom": 1.15,
+      "x": "50%",
+      "y": "44%"
+     },
+     {
+      "t": 3.263,
+      "zoom": 1.3,
+      "x": "50%",
+      "y": "40%"
+     },
+     {
+      "t": 4.028,
+      "zoom": 1.3,
+      "x": "50%",
+      "y": "40%"
+     },
+     {
+      "t": 4.038,
       "zoom": 1.0,
       "x": "50%",
-      "y": "48%"
+      "y": "44%"
      },
      {
       "t": 5.72,
-      "zoom": 1.08,
+      "zoom": 1.1,
       "x": "50%",
-      "y": "45%"
+      "y": "40%"
      }
     ],
     "drift": {
@@ -1812,11 +2054,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "left"
    }
   },
   {
@@ -1836,11 +2073,11 @@
      "type": "component",
      "name": "stick/Turk",
      "x": "50%",
-     "y": "45%",
+     "y": "42%",
      "width": 1080,
      "height": 1200,
      "props": {
-      "cut": [
+      "doorL": [
        {
         "t": 0,
         "v": 0
@@ -1850,14 +2087,58 @@
         "v": 0
        },
        {
-        "t": 0.828,
+        "t": 0.778,
         "v": 1,
         "ease": "out"
        }
       ],
-      "seat": 0.6,
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.478,
+        "v": 0
+       },
+       {
+        "t": 0.778,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.478,
+        "v": 0
+       },
+       {
+        "t": 0.778,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "cut": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.678,
+        "v": 0
+       },
+       {
+        "t": 0.928,
+        "v": 1
+       }
+      ],
+      "seat": 1,
       "masterFace": "shock",
-      "doorL": 0
+      "masterCandle": true
      },
      "role": "hero"
     }
@@ -1877,20 +2158,20 @@
      {
       "t": 0,
       "zoom": 1.25,
-      "x": "50%",
-      "y": "58%"
+      "x": "50.0%",
+      "y": "52%"
      },
      {
       "t": 0.478,
-      "zoom": 1.3,
-      "x": "50%",
-      "y": "60%"
+      "zoom": 1.35,
+      "x": "50.0%",
+      "y": "54%"
      },
      {
       "t": 1.44,
-      "zoom": 1.55,
-      "x": "52%",
-      "y": "64%"
+      "zoom": 1.7,
+      "x": "50.0%",
+      "y": "56.4%"
      }
     ],
     "drift": {
@@ -1916,11 +2197,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -1940,12 +2216,13 @@
      "type": "component",
      "name": "stick/Turk",
      "x": "50%",
-     "y": "45%",
+     "y": "42%",
      "width": 1080,
      "height": 1200,
      "props": {
       "cut": 1,
       "xray": 1,
+      "masterCandle": true,
       "masterFace": [
        {
         "t": 0,
@@ -1954,16 +2231,20 @@
        {
         "t": 4.154,
         "v": "worried"
+       },
+       {
+        "t": 6.229,
+        "v": "smug"
        }
       ],
       "seat": [
        {
         "t": 0,
-        "v": 0.7
+        "v": 1
        },
        {
         "t": 4.154,
-        "v": 0.7
+        "v": 1
        },
        {
         "t": 5.329,
@@ -1981,6 +2262,14 @@
        },
        {
         "t": 3.267,
+        "v": 1
+       },
+       {
+        "t": 3.992,
+        "v": 1
+       },
+       {
+        "t": 4.154,
         "v": 0
        }
       ],
@@ -1990,20 +2279,12 @@
         "v": 0
        },
        {
-        "t": 3.017,
-        "v": 0
-       },
-       {
-        "t": 3.267,
-        "v": 1
-       },
-       {
         "t": 5.329,
-        "v": 1
+        "v": 0
        },
        {
         "t": 5.779,
-        "v": 0
+        "v": 1
        }
       ],
       "doorR2": [
@@ -2012,29 +2293,22 @@
         "v": 0
        },
        {
-        "t": 3.017,
-        "v": 0
-       },
-       {
-        "t": 3.267,
-        "v": 1
-       },
-       {
         "t": 5.329,
-        "v": 1
+        "v": 0
        },
        {
         "t": 5.779,
-        "v": 0
+        "v": 1
        }
-      ]
+      ],
+      "spin": 0.2
      },
      "role": "hero"
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "30%",
+     "x": "40%",
      "y": "40%",
      "width": 444,
      "height": 130,
@@ -2043,8 +2317,8 @@
       "at": 6.229,
       "size": 46,
       "leader": [
-       40,
-       170
+       -20,
+       190
       ]
      },
      "role": "label",
@@ -2067,33 +2341,34 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.45,
-      "x": "50%",
-      "y": "62%"
+      "zoom": 1.7,
+      "x": "50.0%",
+      "y": "56.4%"
      },
      {
       "t": 1.213,
-      "zoom": 1.6,
-      "x": "52%",
-      "y": "64%"
+      "zoom": 1.8,
+      "x": "50.0%",
+      "y": "56.4%"
      },
      {
       "t": 2.667,
-      "zoom": 1.25,
-      "x": "50%",
-      "y": "58%"
+      "zoom": 1.4,
+      "x": "50.0%",
+      "y": "50%"
      },
      {
       "t": 6.229,
-      "zoom": 1.4,
-      "x": "40%",
-      "y": "60%"
+      "zoom": 1.55,
+      "x": "38%",
+      "y": "50%",
+      "ease": "inOut"
      },
      {
       "t": 7.132,
-      "zoom": 1.45,
-      "x": "40%",
-      "y": "60%"
+      "zoom": 1.6,
+      "x": "38%",
+      "y": "50%"
      }
     ],
     "drift": {
@@ -2120,10 +2395,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -2143,16 +2414,17 @@
      "type": "component",
      "name": "stick/Turk",
      "x": "50%",
-     "y": "45%",
+     "y": "42%",
      "width": 1080,
      "height": 1200,
      "props": {
       "cut": 1,
       "seat": 0.7,
       "masterFace": "focus",
+      "masterCandle": true,
       "magnets": [
        {
-        "t": 0.625,
+        "t": 0.15,
         "i": 2
        },
        {
@@ -2194,7 +2466,7 @@
        {
         "t": 4.05,
         "v": 1,
-        "ease": "out"
+        "ease": "linear"
        }
       ],
       "reach": [
@@ -2213,8 +2485,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "62%",
-     "y": "24%",
+     "x": "52%",
+     "y": "37%",
      "width": 330,
      "height": 130,
      "props": {
@@ -2223,20 +2495,20 @@
       "size": 46,
       "out": 2.95,
       "leader": [
-       -20,
-       150
+       0,
+       230
       ]
      },
      "role": "label",
      "z": 30,
-     "depth": 0,
+     "depth": 1,
      "allowOverlap": true
     },
     {
      "type": "component",
      "name": "explainer/Tag",
      "x": "26%",
-     "y": "28%",
+     "y": "30%",
      "width": 273,
      "height": 130,
      "props": {
@@ -2244,13 +2516,13 @@
       "at": 2.95,
       "size": 46,
       "leader": [
-       60,
+       200,
        160
       ]
      },
      "role": "label",
      "z": 30,
-     "depth": 0,
+     "depth": 1,
      "allowOverlap": true
     }
    ],
@@ -2268,22 +2540,28 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.6,
-      "x": "55%",
-      "y": "57%"
+      "zoom": 1.9,
+      "x": "62.2%",
+      "y": "53.9%"
+     },
+     {
+      "t": 1.687,
+      "zoom": 1.95,
+      "x": "62.2%",
+      "y": "53.9%"
      },
      {
       "t": 2.95,
-      "zoom": 1.25,
+      "zoom": 1.3,
       "x": "48%",
-      "y": "50%",
+      "y": "44%",
       "ease": "inOut"
      },
      {
       "t": 4.415,
-      "zoom": 1.3,
-      "x": "46%",
-      "y": "48%"
+      "zoom": 1.35,
+      "x": "48%",
+      "y": "43%"
      }
     ],
     "drift": {
@@ -2310,10 +2588,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -2332,13 +2606,22 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "22%",
-     "y": 925,
-     "width": 546,
-     "height": 637,
+     "x": "20%",
+     "y": 941,
+     "width": 460,
+     "height": 537,
      "props": {
       "costume": "napoleon",
-      "face": "frown",
+      "face": [
+       {
+        "t": 0,
+        "v": "focus"
+       },
+       {
+        "t": 1.145,
+        "v": "smug"
+       }
+      ],
       "pose": "reach",
       "seated": true,
       "seed": 31
@@ -2349,7 +2632,7 @@
      "type": "component",
      "name": "stick/Turk",
      "x": "64%",
-     "y": "47%",
+     "y": "45%",
      "width": 980,
      "height": 1089,
      "props": {
@@ -2368,23 +2651,40 @@
        }
       ],
       "xray": 1,
-      "seat": 0.35,
-      "masterCandle": true,
-      "masterFace": "smug",
-      "arm": 1,
-      "reach": 0.3,
-      "candle": [
+      "dark": [
        {
         "t": 0,
         "v": 0
        },
        {
-        "t": 3.882,
-        "v": 0.8
+        "t": 3.257,
+        "v": 1
        }
-      ]
+      ],
+      "seat": 0.35,
+      "masterCandle": true,
+      "masterFace": "smug",
+      "arm": 1,
+      "reach": 0.3
      },
      "role": "hero"
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2800,
+     "fill": "#140a50",
+     "z": -1,
+     "depth": 0,
+     "role": "fx",
+     "start": 2.02,
+     "opacity": 0.45,
+     "enter": {
+      "type": "fade",
+      "duration": 0.5
+     }
     }
    ],
    "notes": "The robot that beat Napoleon was a man in a box, playing by candlelight.",
@@ -2401,28 +2701,29 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.0,
-      "x": "50%",
-      "y": "50%"
+      "zoom": 1.12,
+      "x": "48%",
+      "y": "48%"
      },
      {
       "t": 2.02,
-      "zoom": 1.15,
-      "x": "58%",
-      "y": "56%"
+      "zoom": 1.2,
+      "x": "56%",
+      "y": "52%"
      },
      {
-      "t": 3.257,
-      "zoom": 2.2,
-      "x": "56%",
-      "y": "60%",
+      "t": 2.482,
+      "zoom": 1.5,
+      "x": "62.2%",
+      "y": "54.8%",
       "ease": "inOut"
      },
      {
       "t": 4.808,
-      "zoom": 2.4,
-      "x": "55%",
-      "y": "60%"
+      "zoom": 2.7,
+      "x": "62.2%",
+      "y": "54.8%",
+      "ease": "inOut"
      }
     ]
    },
@@ -2434,10 +2735,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   }
  ],
@@ -2560,1012 +2857,1012 @@
    {
     "text": "empty.",
     "start": 5.888,
-    "end": 6.41,
+    "end": 6.39,
     "emph": true
    },
    {
     "text": "You",
-    "start": 6.56,
-    "end": 6.71,
+    "start": 6.54,
+    "end": 6.69,
     "br": true
    },
    {
     "text": "see,",
-    "start": 6.71,
-    "end": 7.06
+    "start": 6.69,
+    "end": 7.04
    },
    {
     "text": "it's",
-    "start": 7.135,
-    "end": 7.322,
+    "start": 7.115,
+    "end": 7.303,
     "br": true
    },
    {
     "text": "1770,",
-    "start": 7.322,
-    "end": 8.735
+    "start": 7.303,
+    "end": 8.715
    },
    {
     "text": "and",
-    "start": 8.86,
-    "end": 8.973,
+    "start": 8.84,
+    "end": 8.953,
     "br": true
    },
    {
     "text": "an",
-    "start": 8.973,
-    "end": 9.06
+    "start": 8.953,
+    "end": 9.04
    },
    {
     "text": "inventor",
-    "start": 9.06,
-    "end": 9.635
+    "start": 9.04,
+    "end": 9.615
    },
    {
     "text": "has",
-    "start": 9.635,
-    "end": 9.835,
+    "start": 9.615,
+    "end": 9.815,
     "br": true
    },
    {
     "text": "just",
-    "start": 9.835,
-    "end": 10.122
+    "start": 9.815,
+    "end": 10.102
    },
    {
     "text": "rolled",
-    "start": 10.122,
-    "end": 10.535
+    "start": 10.102,
+    "end": 10.515
    },
    {
     "text": "a",
-    "start": 10.535,
-    "end": 10.648,
+    "start": 10.515,
+    "end": 10.628,
     "br": true
    },
    {
     "text": "wooden",
-    "start": 10.648,
-    "end": 10.997
+    "start": 10.628,
+    "end": 10.977
    },
    {
     "text": "cabinet",
-    "start": 10.997,
-    "end": 11.535
+    "start": 10.977,
+    "end": 11.515
    },
    {
     "text": "into",
-    "start": 11.535,
-    "end": 11.747,
+    "start": 11.515,
+    "end": 11.727,
     "br": true
    },
    {
     "text": "the",
-    "start": 11.747,
-    "end": 11.898
+    "start": 11.727,
+    "end": 11.878
    },
    {
     "text": "Empress's",
-    "start": 11.898,
-    "end": 12.497
+    "start": 11.878,
+    "end": 12.477
    },
    {
     "text": "palace",
-    "start": 12.497,
-    "end": 13.01,
+    "start": 12.477,
+    "end": 12.99,
     "br": true
    },
    {
     "text": "in",
-    "start": 13.01,
-    "end": 13.16
+    "start": 12.99,
+    "end": 13.14
    },
    {
     "text": "Vienna.",
-    "start": 13.16,
-    "end": 13.65
+    "start": 13.14,
+    "end": 13.63
    },
    {
     "text": "On",
-    "start": 13.8,
-    "end": 13.95,
+    "start": 13.78,
+    "end": 13.93,
     "br": true
    },
    {
     "text": "top",
-    "start": 13.95,
-    "end": 14.25
+    "start": 13.93,
+    "end": 14.23
    },
    {
     "text": "sits",
-    "start": 14.25,
-    "end": 14.475,
+    "start": 14.23,
+    "end": 14.455,
     "br": true
    },
    {
     "text": "a",
-    "start": 14.475,
-    "end": 14.575
+    "start": 14.455,
+    "end": 14.555
    },
    {
     "text": "life-size",
-    "start": 14.575,
-    "end": 15.212
+    "start": 14.555,
+    "end": 15.192
    },
    {
     "text": "wooden",
-    "start": 15.212,
-    "end": 15.525,
+    "start": 15.192,
+    "end": 15.505,
     "br": true
    },
    {
     "text": "man",
-    "start": 15.525,
-    "end": 15.812,
+    "start": 15.505,
+    "end": 15.792,
     "emph": true
    },
    {
     "text": "in",
-    "start": 15.812,
-    "end": 15.887,
+    "start": 15.792,
+    "end": 15.867,
     "br": true
    },
    {
     "text": "a",
-    "start": 15.887,
-    "end": 15.987
+    "start": 15.867,
+    "end": 15.967
    },
    {
     "text": "turban,",
-    "start": 15.987,
-    "end": 16.625
+    "start": 15.967,
+    "end": 16.605
    },
    {
     "text": "staring",
-    "start": 16.762,
-    "end": 17.25,
+    "start": 16.742,
+    "end": 17.23,
     "br": true
    },
    {
     "text": "at",
-    "start": 17.25,
-    "end": 17.337,
+    "start": 17.23,
+    "end": 17.317,
     "br": true
    },
    {
     "text": "a",
-    "start": 17.337,
-    "end": 17.412
+    "start": 17.317,
+    "end": 17.392
    },
    {
     "text": "chessboard.",
-    "start": 17.412,
-    "end": 18.35
+    "start": 17.392,
+    "end": 18.33
    },
    {
     "text": "The",
-    "start": 18.256,
-    "end": 18.326,
+    "start": 18.236,
+    "end": 18.306,
     "br": true
    },
    {
     "text": "whole",
-    "start": 18.326,
-    "end": 18.551
+    "start": 18.306,
+    "end": 18.531
    },
    {
     "text": "court",
-    "start": 18.551,
-    "end": 18.851,
+    "start": 18.531,
+    "end": 18.831,
     "br": true
    },
    {
     "text": "laughs.",
-    "start": 18.851,
-    "end": 19.456,
+    "start": 18.831,
+    "end": 19.436,
     "emph": true
    },
    {
     "text": "So",
-    "start": 19.606,
-    "end": 19.744,
+    "start": 19.586,
+    "end": 19.724,
     "br": true
    },
    {
     "text": "he",
-    "start": 19.744,
-    "end": 19.894
+    "start": 19.724,
+    "end": 19.874
    },
    {
     "text": "opens",
-    "start": 19.894,
-    "end": 20.306
+    "start": 19.874,
+    "end": 20.286
    },
    {
     "text": "the",
-    "start": 20.306,
-    "end": 20.444,
+    "start": 20.286,
+    "end": 20.424,
     "br": true
    },
    {
     "text": "doors",
-    "start": 20.444,
-    "end": 20.869
+    "start": 20.424,
+    "end": 20.849
    },
    {
     "text": "one",
-    "start": 20.869,
-    "end": 21.106,
+    "start": 20.849,
+    "end": 21.086,
     "br": true
    },
    {
     "text": "by",
-    "start": 21.106,
-    "end": 21.319
+    "start": 21.086,
+    "end": 21.299
    },
    {
     "text": "one",
-    "start": 21.319,
-    "end": 21.956
+    "start": 21.299,
+    "end": 21.936
    },
    {
     "text": "and",
-    "start": 21.956,
-    "end": 22.106
+    "start": 21.936,
+    "end": 22.086
    },
    {
     "text": "holds",
-    "start": 22.106,
-    "end": 22.394
+    "start": 22.086,
+    "end": 22.374
    },
    {
     "text": "a",
-    "start": 22.394,
-    "end": 22.494,
+    "start": 22.374,
+    "end": 22.474,
     "br": true
    },
    {
     "text": "candle",
-    "start": 22.494,
-    "end": 22.981
+    "start": 22.474,
+    "end": 22.961
    },
    {
     "text": "behind",
-    "start": 22.981,
-    "end": 23.431,
+    "start": 22.961,
+    "end": 23.411,
     "br": true
    },
    {
     "text": "them.",
-    "start": 23.431,
-    "end": 23.981
+    "start": 23.411,
+    "end": 23.961
    },
    {
     "text": "Nothing",
-    "start": 23.948,
-    "end": 24.323,
+    "start": 23.928,
+    "end": 24.303,
     "br": true
    },
    {
     "text": "but",
-    "start": 24.323,
-    "end": 24.498
+    "start": 24.303,
+    "end": 24.478
    },
    {
     "text": "gears.",
-    "start": 24.498,
-    "end": 25.143
+    "start": 24.478,
+    "end": 25.123
    },
    {
     "text": "He",
-    "start": 25.293,
-    "end": 25.393,
+    "start": 25.273,
+    "end": 25.373,
     "br": true
    },
    {
     "text": "winds",
-    "start": 25.393,
-    "end": 25.68
+    "start": 25.373,
+    "end": 25.66
    },
    {
     "text": "a",
-    "start": 25.68,
-    "end": 25.78,
+    "start": 25.66,
+    "end": 25.76,
     "br": true
    },
    {
     "text": "key,",
-    "start": 25.78,
-    "end": 26.118
+    "start": 25.76,
+    "end": 26.098
    },
    {
     "text": "the",
-    "start": 26.193,
-    "end": 26.318,
+    "start": 26.173,
+    "end": 26.298,
     "br": true
    },
    {
     "text": "gears",
-    "start": 26.318,
-    "end": 26.705
+    "start": 26.298,
+    "end": 26.685
    },
    {
     "text": "tick,",
-    "start": 26.705,
-    "end": 27.193
+    "start": 26.685,
+    "end": 27.173
    },
    {
     "text": "and",
-    "start": 27.293,
-    "end": 27.405,
+    "start": 27.273,
+    "end": 27.385,
     "br": true
    },
    {
     "text": "the",
-    "start": 27.405,
-    "end": 27.493
+    "start": 27.385,
+    "end": 27.473
    },
    {
     "text": "Turk",
-    "start": 27.493,
-    "end": 27.793
+    "start": 27.473,
+    "end": 27.773
    },
    {
     "text": "lifts",
-    "start": 27.793,
-    "end": 28.08,
+    "start": 27.773,
+    "end": 28.06,
     "br": true
    },
    {
     "text": "its",
-    "start": 28.08,
-    "end": 28.28
+    "start": 28.06,
+    "end": 28.26
    },
    {
     "text": "arm.",
-    "start": 28.28,
-    "end": 28.663
+    "start": 28.26,
+    "end": 28.643
    },
    {
     "text": "The",
-    "start": 28.813,
-    "end": 28.895,
+    "start": 28.793,
+    "end": 28.875,
     "br": true
    },
    {
     "text": "first",
-    "start": 28.895,
-    "end": 29.208
+    "start": 28.875,
+    "end": 29.188
    },
    {
     "text": "count",
-    "start": 29.208,
-    "end": 29.52
+    "start": 29.188,
+    "end": 29.5
    },
    {
     "text": "brave",
-    "start": 29.52,
-    "end": 29.845,
+    "start": 29.5,
+    "end": 29.825,
     "br": true
    },
    {
     "text": "enough",
-    "start": 29.845,
-    "end": 30.133
+    "start": 29.825,
+    "end": 30.113
    },
    {
     "text": "to",
-    "start": 30.133,
-    "end": 30.233,
+    "start": 30.113,
+    "end": 30.213,
     "br": true
    },
    {
     "text": "play",
-    "start": 30.233,
-    "end": 30.47
+    "start": 30.213,
+    "end": 30.45
    },
    {
     "text": "it",
-    "start": 30.47,
-    "end": 30.558,
+    "start": 30.45,
+    "end": 30.538,
     "br": true
    },
    {
     "text": "loses.",
-    "start": 30.558,
-    "end": 31.358
+    "start": 30.538,
+    "end": 31.338
    },
    {
     "text": "Nobody's",
-    "start": 31.249,
-    "end": 31.774,
+    "start": 31.229,
+    "end": 31.754,
     "br": true
    },
    {
     "text": "laughing",
-    "start": 31.774,
-    "end": 32.199
+    "start": 31.754,
+    "end": 32.179
    },
    {
     "text": "now.",
-    "start": 32.199,
-    "end": 32.509
+    "start": 32.179,
+    "end": 32.489
    },
    {
     "text": "For",
-    "start": 32.659,
-    "end": 32.797,
+    "start": 32.639,
+    "end": 32.777,
     "br": true
    },
    {
     "text": "eighty",
-    "start": 32.797,
-    "end": 33.109
+    "start": 32.777,
+    "end": 33.089
    },
    {
     "text": "years",
-    "start": 33.109,
-    "end": 33.459
+    "start": 33.089,
+    "end": 33.439
    },
    {
     "text": "the",
-    "start": 33.459,
-    "end": 33.559,
+    "start": 33.439,
+    "end": 33.539,
     "br": true
    },
    {
     "text": "Turk",
-    "start": 33.559,
-    "end": 33.859
+    "start": 33.539,
+    "end": 33.839
    },
    {
     "text": "tours",
-    "start": 33.859,
-    "end": 33.997,
+    "start": 33.839,
+    "end": 33.977,
     "br": true
    },
    {
     "text": "the",
-    "start": 33.997,
-    "end": 34.084
+    "start": 33.977,
+    "end": 34.064
    },
    {
     "text": "world.",
-    "start": 34.084,
-    "end": 34.759
+    "start": 34.064,
+    "end": 34.739
    },
    {
     "text": "It",
-    "start": 34.695,
-    "end": 34.815,
+    "start": 34.675,
+    "end": 34.775,
     "br": true
    },
    {
     "text": "beats",
-    "start": 34.815,
-    "end": 35.153
+    "start": 34.775,
+    "end": 35.113
    },
    {
     "text": "Benjamin",
-    "start": 35.153,
-    "end": 35.703,
+    "start": 35.113,
+    "end": 35.663,
     "br": true
    },
    {
     "text": "Franklin.",
-    "start": 35.703,
-    "end": 36.335
+    "start": 35.663,
+    "end": 36.295
    },
    {
     "text": "And",
-    "start": 36.485,
-    "end": 36.573,
+    "start": 36.445,
+    "end": 36.533,
     "br": true
    },
    {
     "text": "when",
-    "start": 36.573,
-    "end": 36.698
+    "start": 36.533,
+    "end": 36.658
    },
    {
     "text": "Napoleon",
-    "start": 36.698,
-    "end": 37.335,
+    "start": 36.658,
+    "end": 37.295,
     "emph": true,
     "br": true
    },
    {
     "text": "tries",
-    "start": 37.335,
-    "end": 37.685
+    "start": 37.295,
+    "end": 37.645
    },
    {
     "text": "to",
-    "start": 37.685,
-    "end": 37.823,
+    "start": 37.645,
+    "end": 37.783,
     "br": true
    },
    {
     "text": "cheat,",
-    "start": 37.823,
-    "end": 38.31,
+    "start": 37.783,
+    "end": 38.27,
     "emph": true
    },
    {
     "text": "it",
-    "start": 38.41,
-    "end": 38.535,
+    "start": 38.37,
+    "end": 38.495,
     "br": true
    },
    {
     "text": "puts",
-    "start": 38.535,
-    "end": 38.748
+    "start": 38.495,
+    "end": 38.708
    },
    {
     "text": "his",
-    "start": 38.748,
-    "end": 38.923,
+    "start": 38.708,
+    "end": 38.883,
     "br": true
    },
    {
     "text": "piece",
-    "start": 38.923,
-    "end": 39.26
+    "start": 38.883,
+    "end": 39.22
    },
    {
     "text": "back.",
-    "start": 39.26,
-    "end": 39.86
+    "start": 39.22,
+    "end": 39.82
    },
    {
     "text": "Twice.",
-    "start": 39.822,
-    "end": 40.442,
+    "start": 39.782,
+    "end": 40.402,
     "br": true
    },
    {
     "text": "The",
-    "start": 40.638,
-    "end": 40.726,
+    "start": 40.598,
+    "end": 40.686,
     "br": true
    },
    {
     "text": "third",
-    "start": 40.726,
-    "end": 41.013
+    "start": 40.686,
+    "end": 40.973
    },
    {
     "text": "time,",
-    "start": 41.013,
-    "end": 41.463
+    "start": 40.973,
+    "end": 41.423
    },
    {
     "text": "it",
-    "start": 41.538,
-    "end": 41.638,
+    "start": 41.498,
+    "end": 41.598,
     "br": true
    },
    {
     "text": "sweeps",
-    "start": 41.638,
-    "end": 41.976,
+    "start": 41.598,
+    "end": 41.936,
     "emph": true
    },
    {
     "text": "every",
-    "start": 41.976,
-    "end": 42.301,
+    "start": 41.936,
+    "end": 42.261,
     "br": true
    },
    {
     "text": "piece",
-    "start": 42.301,
-    "end": 42.613
+    "start": 42.261,
+    "end": 42.573
    },
    {
     "text": "off",
-    "start": 42.613,
-    "end": 42.801,
+    "start": 42.573,
+    "end": 42.761,
     "br": true
    },
    {
     "text": "the",
-    "start": 42.801,
-    "end": 42.888
+    "start": 42.761,
+    "end": 42.848
    },
    {
     "text": "board.",
-    "start": 42.888,
-    "end": 43.285
+    "start": 42.848,
+    "end": 43.245
    },
    {
     "text": "Then",
-    "start": 43.435,
-    "end": 43.56,
+    "start": 43.395,
+    "end": 43.52,
     "br": true
    },
    {
     "text": "in",
-    "start": 43.56,
-    "end": 43.685
+    "start": 43.52,
+    "end": 43.645
    },
    {
     "text": "1854,",
-    "start": 43.685,
-    "end": 44.96
+    "start": 43.645,
+    "end": 44.92
    },
    {
     "text": "a",
-    "start": 45.098,
-    "end": 45.235,
+    "start": 45.058,
+    "end": 45.195,
     "br": true
    },
    {
     "text": "fire",
-    "start": 45.235,
-    "end": 45.673,
+    "start": 45.195,
+    "end": 45.633,
     "emph": true
    },
    {
     "text": "burns",
-    "start": 45.673,
-    "end": 46.023,
+    "start": 45.633,
+    "end": 45.983,
     "br": true
    },
    {
     "text": "the",
-    "start": 46.023,
-    "end": 46.11
+    "start": 45.983,
+    "end": 46.07
    },
    {
     "text": "Turk",
-    "start": 46.11,
-    "end": 46.41
+    "start": 46.07,
+    "end": 46.37
    },
    {
     "text": "to",
-    "start": 46.41,
-    "end": 46.548,
+    "start": 46.37,
+    "end": 46.508,
     "br": true
    },
    {
     "text": "ash,",
-    "start": 46.548,
-    "end": 47.16
+    "start": 46.508,
+    "end": 47.12
    },
    {
     "text": "and",
-    "start": 47.285,
-    "end": 47.398,
+    "start": 47.245,
+    "end": 47.358,
     "br": true
    },
    {
     "text": "its",
-    "start": 47.398,
-    "end": 47.523
+    "start": 47.358,
+    "end": 47.483
    },
    {
     "text": "secret",
-    "start": 47.523,
-    "end": 47.973
+    "start": 47.483,
+    "end": 47.933
    },
    {
     "text": "finally",
-    "start": 47.973,
-    "end": 48.41,
+    "start": 47.933,
+    "end": 48.37,
     "br": true
    },
    {
     "text": "comes",
-    "start": 48.41,
-    "end": 48.735
+    "start": 48.37,
+    "end": 48.695
    },
    {
     "text": "out.",
-    "start": 48.735,
-    "end": 49.005
+    "start": 48.695,
+    "end": 48.965
    },
    {
     "text": "There",
-    "start": 49.155,
-    "end": 49.258,
+    "start": 49.115,
+    "end": 49.218,
     "br": true
    },
    {
     "text": "was",
-    "start": 49.258,
-    "end": 49.383
+    "start": 49.218,
+    "end": 49.343
    },
    {
     "text": "a",
-    "start": 49.383,
-    "end": 49.483
+    "start": 49.343,
+    "end": 49.443
    },
    {
     "text": "man",
-    "start": 49.483,
-    "end": 49.87
+    "start": 49.443,
+    "end": 49.83
    },
    {
     "text": "inside.",
-    "start": 49.87,
-    "end": 50.445,
+    "start": 49.83,
+    "end": 50.405,
     "br": true
    },
    {
     "text": "A",
-    "start": 50.595,
-    "end": 50.683,
+    "start": 50.555,
+    "end": 50.643,
     "br": true
    },
    {
     "text": "chess",
-    "start": 50.683,
-    "end": 50.97
+    "start": 50.643,
+    "end": 50.93
    },
    {
     "text": "master,",
-    "start": 50.97,
-    "end": 51.545
+    "start": 50.93,
+    "end": 51.505
    },
    {
     "text": "folded",
-    "start": 51.658,
-    "end": 52.083,
+    "start": 51.618,
+    "end": 52.043,
     "br": true
    },
    {
     "text": "into",
-    "start": 52.083,
-    "end": 52.258
+    "start": 52.043,
+    "end": 52.218
    },
    {
     "text": "the",
-    "start": 52.258,
-    "end": 52.345
+    "start": 52.218,
+    "end": 52.305
    },
    {
     "text": "cabinet.",
-    "start": 52.345,
-    "end": 53.17
+    "start": 52.305,
+    "end": 53.13
    },
    {
     "text": "When",
-    "start": 53.112,
-    "end": 53.212,
+    "start": 53.072,
+    "end": 53.172,
     "br": true
    },
    {
     "text": "each",
-    "start": 53.212,
-    "end": 53.462
+    "start": 53.172,
+    "end": 53.422
    },
    {
     "text": "door",
-    "start": 53.462,
-    "end": 53.712
+    "start": 53.422,
+    "end": 53.672
    },
    {
     "text": "opened,",
-    "start": 53.712,
-    "end": 54.337,
+    "start": 53.672,
+    "end": 54.297,
     "br": true
    },
    {
     "text": "he",
-    "start": 54.437,
-    "end": 54.599
+    "start": 54.397,
+    "end": 54.559
    },
    {
     "text": "slid",
-    "start": 54.599,
-    "end": 54.874
+    "start": 54.559,
+    "end": 54.834
    },
    {
     "text": "his",
-    "start": 54.874,
-    "end": 55.024,
+    "start": 54.834,
+    "end": 54.984,
     "br": true
    },
    {
     "text": "seat",
-    "start": 55.024,
-    "end": 55.262
+    "start": 54.984,
+    "end": 55.222
    },
    {
     "text": "to",
-    "start": 55.262,
-    "end": 55.349,
+    "start": 55.222,
+    "end": 55.309,
     "br": true
    },
    {
     "text": "the",
-    "start": 55.349,
-    "end": 55.487
+    "start": 55.309,
+    "end": 55.447
    },
    {
     "text": "other",
-    "start": 55.487,
-    "end": 55.774
+    "start": 55.447,
+    "end": 55.734
    },
    {
     "text": "side,",
-    "start": 55.774,
-    "end": 56.187
+    "start": 55.734,
+    "end": 56.147
    },
    {
     "text": "behind",
-    "start": 56.224,
-    "end": 56.674,
+    "start": 56.184,
+    "end": 56.634,
     "br": true
    },
    {
     "text": "fake",
-    "start": 56.674,
-    "end": 56.962
+    "start": 56.634,
+    "end": 56.922
    },
    {
     "text": "gears.",
-    "start": 56.962,
-    "end": 57.552
+    "start": 56.922,
+    "end": 57.512
    },
    {
     "text": "Magnets",
-    "start": 57.727,
-    "end": 58.202,
+    "start": 57.687,
+    "end": 58.162,
     "emph": true,
     "br": true
    },
    {
     "text": "under",
-    "start": 58.202,
-    "end": 58.389
+    "start": 58.162,
+    "end": 58.349
    },
    {
     "text": "the",
-    "start": 58.389,
-    "end": 58.477,
+    "start": 58.349,
+    "end": 58.437,
     "br": true
    },
    {
     "text": "board",
-    "start": 58.477,
-    "end": 58.839
+    "start": 58.437,
+    "end": 58.799
    },
    {
     "text": "showed",
-    "start": 58.839,
-    "end": 59.089
+    "start": 58.799,
+    "end": 59.049
    },
    {
     "text": "him",
-    "start": 59.089,
-    "end": 59.264,
+    "start": 59.049,
+    "end": 59.224,
     "br": true
    },
    {
     "text": "every",
-    "start": 59.264,
-    "end": 59.602
+    "start": 59.224,
+    "end": 59.562
    },
    {
     "text": "move,",
-    "start": 59.602,
-    "end": 60.227
+    "start": 59.562,
+    "end": 60.187
    },
    {
     "text": "and",
-    "start": 60.327,
-    "end": 60.439,
+    "start": 60.287,
+    "end": 60.399,
     "br": true
    },
    {
     "text": "a",
-    "start": 60.439,
-    "end": 60.527
+    "start": 60.399,
+    "end": 60.487
    },
    {
     "text": "lever",
-    "start": 60.527,
-    "end": 60.864,
+    "start": 60.487,
+    "end": 60.824,
     "emph": true
    },
    {
     "text": "moved",
-    "start": 60.864,
-    "end": 61.189
+    "start": 60.824,
+    "end": 61.149
    },
    {
     "text": "the",
-    "start": 61.189,
-    "end": 61.277,
+    "start": 61.149,
+    "end": 61.237,
     "br": true
    },
    {
     "text": "Turk's",
-    "start": 61.277,
-    "end": 61.627
+    "start": 61.237,
+    "end": 61.587
    },
    {
     "text": "hand.",
-    "start": 61.627,
-    "end": 61.992
+    "start": 61.587,
+    "end": 61.952
    },
    {
     "text": "The",
-    "start": 62.142,
-    "end": 62.237,
+    "start": 62.102,
+    "end": 62.197,
     "br": true
    },
    {
     "text": "robot",
-    "start": 62.237,
-    "end": 62.687
+    "start": 62.197,
+    "end": 62.647
    },
    {
     "text": "that",
-    "start": 62.687,
-    "end": 62.899,
+    "start": 62.647,
+    "end": 62.859,
     "br": true
    },
    {
     "text": "beat",
-    "start": 62.899,
-    "end": 63.137
+    "start": 62.859,
+    "end": 63.097
    },
    {
     "text": "Napoleon",
-    "start": 63.137,
-    "end": 63.787
+    "start": 63.097,
+    "end": 63.747
    },
    {
     "text": "was",
-    "start": 63.787,
-    "end": 63.924,
+    "start": 63.747,
+    "end": 63.884,
     "br": true
    },
    {
     "text": "a",
-    "start": 63.924,
-    "end": 64.012
+    "start": 63.884,
+    "end": 63.972
    },
    {
     "text": "man",
-    "start": 64.012,
-    "end": 64.299
+    "start": 63.972,
+    "end": 64.259
    },
    {
     "text": "in",
-    "start": 64.299,
-    "end": 64.374,
+    "start": 64.259,
+    "end": 64.334,
     "br": true
    },
    {
     "text": "a",
-    "start": 64.374,
-    "end": 64.474
+    "start": 64.334,
+    "end": 64.434
    },
    {
     "text": "box,",
-    "start": 64.474,
-    "end": 65.137
+    "start": 64.434,
+    "end": 65.097
    },
    {
     "text": "playing",
-    "start": 65.249,
-    "end": 65.687
+    "start": 65.209,
+    "end": 65.647
    },
    {
     "text": "by",
-    "start": 65.687,
-    "end": 65.874,
+    "start": 65.647,
+    "end": 65.834,
     "br": true
    },
    {
     "text": "candlelight.",
-    "start": 65.874,
-    "end": 66.512
+    "start": 65.834,
+    "end": 66.472
    }
   ],
   "maxWords": 4,
@@ -3588,7 +3885,7 @@
     "src": "episodes/story-chess-turk/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 66.8
+    "duration": 66.76
    }
   ],
   "music": [],

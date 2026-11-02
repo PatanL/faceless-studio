@@ -11,7 +11,7 @@
  *             (constant or [{t, v}] held from t)
  *   pose      stand | point | hold | holdHigh | armsUp | laugh | shrug | push | reach | handIn | wind | hips | sweep
  *             (constant or [{t, v}]; poses blend over 0.22 s)
- *   seated    true: legs bent forward (behind a table)
+ *   seated    true: legs bent forward, on a chair (chair: false for none)
  *   crouch    0..1 track: folds the body down (the hidden chess master)
  *   walk      0..1 track: leg swing + bob
  *   talk      [[t0, t1], ...] mouth flaps inside the windows
@@ -400,8 +400,8 @@ export const PersonBody: React.FC<{props: Record<string, unknown>; t: number}> =
 	let legs: [P2, P2, P2][] = [];
 	if (seated) {
 		legs = [
-			[HIP_L, [392, 486], [398, 640]],
-			[HIP_R, [430, 478], [440, 640]],
+			[HIP_L, [392, 486], [398, 672]],
+			[HIP_R, [430, 478], [440, 672]],
 		];
 	} else {
 		const sw = walk * Math.sin(t * 9) * 0.38;
@@ -416,6 +416,17 @@ export const PersonBody: React.FC<{props: Record<string, unknown>; t: number}> =
 
 	return (
 		<g>
+			{/* chair behind a seated figure */}
+			{seated && props.chair !== false && (
+				<g>
+					<rect x={150} y={250} width={40} height={250} rx={12} fill={c('coral-0')} />
+					<rect x={160} y={262} width={20} height={200} rx={8} fill={c('coral-1')} />
+					<rect x={150} y={486} width={300} height={34} rx={10} fill={c('amber-0')} />
+					<rect x={150} y={486} width={300} height={14} rx={7} fill={c('coral-1')} />
+					<rect x={168} y={516} width={20} height={174} fill={c('amber-0')} />
+					<rect x={412} y={516} width={20} height={174} fill={c('amber-0')} />
+				</g>
+			)}
 			{/* ground shadow */}
 			{!seated && <ellipse cx={300} cy={688} rx={150} ry={14} fill={c('ink-1')} opacity={0.22} />}
 			{/* legs */}

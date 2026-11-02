@@ -35,6 +35,52 @@ function Chandelier({x, y, t, lit}: {x: number; y: number; t: number; lit: boole
 	);
 }
 
+/** Paris salon dressing: checkered marble floor, fireplace with a mirror, bookcase, a sofa */
+function Salon({t, horizon}: {t: number; horizon: number}) {
+	const rows = 7;
+	const tiles: React.ReactNode[] = [];
+	for (let r = 0; r < rows; r++) {
+		const y0 = horizon + (Math.pow((r) / rows, 1.6)) * (H - horizon);
+		const y1 = horizon + (Math.pow((r + 1) / rows, 1.6)) * (H - horizon);
+		for (let i = -8; i < 9; i++) {
+			if ((i + r) % 2) continue;
+			const sx = (y: number) => 540 + (i * 130) * (0.45 + 0.55 * (y - horizon) / (H - horizon)) * 1.4;
+			const sx2 = (y: number) => 540 + ((i + 1) * 130) * (0.45 + 0.55 * (y - horizon) / (H - horizon)) * 1.4;
+			tiles.push(<path key={`${r}_${i}`} d={`M ${f(sx(y0))} ${f(y0)} L ${f(sx2(y0))} ${f(y0)} L ${f(sx2(y1))} ${f(y1)} L ${f(sx(y1))} ${f(y1)} Z`} fill={c('sky-3')} />);
+		}
+	}
+	const fl = 1 + 0.1 * Math.sin(t * 13);
+	return (
+		<g>
+			{tiles}
+			{/* bookcase (left) */}
+			<rect x={0} y={420} width={150} height={horizon - 420} fill={c('amber-0')} />
+			{[0, 1, 2, 3].map((r) => (
+				<g key={r}>
+					<rect x={10} y={450 + r * 140} width={130} height={110} fill={c('ochre-0')} />
+					{[0, 1, 2, 3, 4, 5].map((b) => (
+						<rect key={b} x={16 + b * 21} y={470 + r * 140 + (b % 3) * 8} width={17} height={90 - (b % 3) * 8} fill={[c('coral-1'), c('tide-0'), c('kelp-1'), c('amber-3'), c('violet-1'), c('bone-0')][(b + r) % 6]} />
+					))}
+				</g>
+			))}
+			{/* fireplace + mirror (centre-right) */}
+			<rect x={620} y={300} width={300} height={360} rx={20} fill={c('amber-3')} />
+			<rect x={640} y={320} width={260} height={320} rx={12} fill={c('sky-3')} />
+			<path d="M 660 340 L 720 340 L 660 420 Z" fill={c('bone-2')} opacity={0.7} />
+			<rect x={600} y={horizon - 330} width={340} height={40} fill={c('bone-1')} />
+			<rect x={620} y={horizon - 290} width={300} height={290} fill={c('bone-0')} />
+			<rect x={680} y={horizon - 230} width={180} height={230} rx={70} fill={c('ink-1')} />
+			<g transform={`translate(770 ${horizon - 10}) scale(${0.6 * fl} ${0.6 * fl})`}>
+				<path d="M -60 0 Q -80 -70 -30 -120 Q -36 -70 0 -60 Q -10 -130 30 -190 Q 30 -110 60 -90 Q 90 -50 60 0 Z" fill={c('coral-2')} />
+				<path d="M -16 0 Q -20 -30 0 -54 Q 8 -30 24 -26 Q 30 -10 20 0 Z" fill={c('amber-4')} />
+			</g>
+			{/* sofa (back right) */}
+			<rect x={330} y={horizon - 120} width={250} height={90} rx={30} fill={c('magenta-1')} />
+			<rect x={320} y={horizon - 50} width={270} height={60} rx={24} fill={c('magenta-2')} />
+		</g>
+	);
+}
+
 function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 	const wall = night ? c('violet-0') : salon ? c('kelp-3') : c('violet-4');
 	const wallSh = night ? c('ink-1') : salon ? c('kelp-2') : c('violet-3');
@@ -55,7 +101,7 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 			<rect y={100} width={W} height={46} fill={pil} />
 			<rect y={136} width={W} height={14} fill={pilSh} />
 			{/* windows between pilasters */}
-			{[150, 470, 790].map((x, i) => (
+			{(salon ? [270] : [150, 470, 790]).map((x, i) => (
 				<g key={i}>
 					<path d={`M ${x} ${horizon - 170} V 420 A 80 80 0 0 1 ${x + 160} 420 V ${horizon - 170} Z`} fill={salon ? c('bone-2') : panel} />
 					<path d={`M ${x + 14} ${horizon - 184} V 424 A 66 66 0 0 1 ${x + 146} 424 V ${horizon - 184} Z`} fill={glass} />
@@ -78,7 +124,7 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 				</g>
 			))}
 			{/* pilasters */}
-			{[40, 360, 680, 1000].map((x) => (
+			{(salon ? [] : [40, 360, 680, 1000]).map((x) => (
 				<g key={x}>
 					<rect x={x} y={150} width={60} height={horizon - 150} fill={pil} />
 					<rect x={x + 34} y={150} width={26} height={horizon - 150} fill={pilSh} />
@@ -92,17 +138,17 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 			))}
 			<rect y={horizon - 18} width={W} height={18} fill={pilSh} />
 			{/* floor: parquet planks toward the vanishing point */}
-			<rect y={horizon} width={W} height={H - horizon} fill={floor} />
-			{Array.from({length: 13}, (_, i) => {
+			<rect y={horizon} width={W} height={H - horizon} fill={salon ? c('bone-1') : floor} />
+			{!salon && Array.from({length: 13}, (_, i) => {
 				const xb = -900 + i * 240;
 				const xt = vx + (xb - vx) * ((horizon - vy) / (H - vy));
 				return <path key={i} d={`M ${f(xt)} ${horizon} L ${f(xb)} ${H} L ${f(xb + 90)} ${H} L ${f(xt + 90 * ((horizon - vy) / (H - vy)))} ${horizon} Z`} fill={floorSh} />;
 			})}
-			{/* carpet runner */}
-			<path d={`M 440 ${horizon} L 640 ${horizon} L 1000 ${H} L 80 ${H} Z`} fill={night ? c('coral-0') : c('coral-1')} />
-			<path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill={night ? c('coral-1') : c('coral-2')} />
-			<path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill="none" stroke={c('amber-4')} strokeWidth={8} opacity={0.8} />
-			<Chandelier x={540} y={310} t={t} lit={night} />
+			{/* carpet runner (royal blue: the red caption accent stays readable over it) */}
+			{!salon && <path d={`M 440 ${horizon} L 640 ${horizon} L 1000 ${H} L 80 ${H} Z`} fill={night ? c('ink-1') : c('dusk-1')} />}
+			{!salon && <path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill={night ? c('dusk-1') : c('dusk-2')} />}
+			{!salon && <path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill="none" stroke={c('amber-4')} strokeWidth={8} opacity={0.8} />}
+			{salon ? <Salon t={t} horizon={horizon} /> : <Chandelier x={540} y={310} t={t} lit={night} />}
 			{night && <rect width={W} height={H} fill={c('ink-1')} opacity={0.18} />}
 		</g>
 	);
@@ -153,7 +199,8 @@ function Facade({t}: {t: number}) {
 				}),
 			)}
 			{/* door */}
-			<path d={`M 490 ${base} V 1000 A 50 50 0 0 1 590 1000 V ${base} Z`} fill={c('ink-1')} />
+			<path d={`M 470 ${base} V 860 A 70 70 0 0 1 610 860 V ${base} Z`} fill={c('ink-1')} />
+			<path d={`M 450 ${base} H 630 L 660 ${base + 40} H 420 Z`} fill={c('bone-0')} />
 			{/* courtyard */}
 			<rect y={base} width={W} height={H - base} fill={c('ochre-4')} />
 			<path d={`M 470 ${base} L 610 ${base} L 900 ${H} L 180 ${H} Z`} fill={c('ochre-3')} />
@@ -166,7 +213,7 @@ function Facade({t}: {t: number}) {
 				</g>
 			))}
 			{/* gate pillars in the foreground */}
-			{[0, 1].map((i) => {
+			{[1].map((i) => {
 				const x = i ? 960 : 0;
 				return (
 					<g key={i}>
@@ -228,9 +275,9 @@ function Museum({t, fire}: {t: number; fire: number}) {
 			{/* windows glowing with the fire */}
 			{[220, 360, 500, 640, 780].map((x, i) => (
 				<g key={x}>
-					<rect x={x} y={700} width={60} height={150} rx={6} fill={fire > 0 ? c('amber-2') : c('ink-2')} />
-					<rect x={x} y={930} width={60} height={150} rx={6} fill={fire > 0 ? c('amber-3') : c('ink-2')} />
-					{fire > 0.2 && <Flame x={x + 30} y={850} s={0.55 * fire} t={t} k={i} />}
+					<rect x={x} y={700} width={60} height={150} rx={6} fill={fire > 0.05 + i * 0.1 ? c('amber-2') : c('ink-2')} />
+					<rect x={x} y={930} width={60} height={150} rx={6} fill={fire > 0.1 + i * 0.12 ? c('amber-3') : c('ink-2')} />
+					{fire > 0.3 + i * 0.08 && <Flame x={x + 30} y={850} s={0.55 * fire} t={t} k={i} />}
 				</g>
 			))}
 			<rect x={70} y={base - 20} width={940} height={30} fill={c('dusk-4')} />

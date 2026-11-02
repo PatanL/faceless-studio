@@ -74,7 +74,7 @@ on the candle inside the same cabinet.
 
 You see, it's 1770, and an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.
 
-On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.
+[sfx: whoosh] On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.
 
 [sfx: door_creak] So he opens the doors one by one and holds a candle behind them. Nothing but gears.
 
