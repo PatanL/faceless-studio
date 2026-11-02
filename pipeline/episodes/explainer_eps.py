@@ -16,7 +16,14 @@ CAPTIONS = {"font": "display", "fontSize": 84, "color": "#ffffff", "highlight": 
             "strokeWidth": 12, "uppercase": True, "y": 0.72}
 # 9:16 Shorts loop: no fade at either end (frame 0 is the cover, the last frame is the loop bookend). A 16:9 cut that
 # wants a fade-out sets it in pipeline/episodes/reformat.py.
-OVERLAYS = {"grain": 0.04, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
+# grain 0: the live feTurbulence grain was invisible after x264 and cost ~20 % render time (polish-2d NOTES)
+OVERLAYS = {"grain": 0, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
+# House style "Lantern & Ink" (experiments/kurz-style/STYLE_BIBLE.md) is the default look of every explainer:
+# build.py runs pipeline/episodes/house.py on the storyboard, then pipeline/episodes/staging.py fails the build on staging
+# collisions. HOUSE_SKIP = {slug} opts an episode out; HOUSE_OPTS = {slug: {"dressing": False, ...}} tunes the pass.
+HOUSE_STYLE = True
+HOUSE_SKIP: set[str] = set()
+HOUSE_OPTS: dict[str, dict] = {}
 EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             # red = threat words only, about one every 8-10 s (orca review: not "alone"/"culture")
             "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
@@ -109,7 +116,7 @@ CAPTION_GLUE = {"explainer-blue-whale": ["golf cart", "beach ball", "jet engine"
 
 def ocean(depth, **props):
     if "surface" in props:  # keep the sky dark navy (kit default is a pale sky)
-        props = {"skyTop": "#071620", "skyBottom": "#1b3b4a", **props}
+        props = {"skyTop": "#041531", "skyBottom": "#0c284f", **props}   # house palette dusk-0 / dusk-1
     return {"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2, "props": {"depth": depth, **props}}
 
 
@@ -1104,8 +1111,8 @@ def pressure(S):
     sc.append(_depth_scene(s, 100, 332, [
         comp("explainer/Diver", "42%", "34%", 640, 130, {"torch": True, "beam": 300}),
         tag("SCUBA RECORD · 332 M", 0.3, x="42%", y="14%", size=36, w=720),
-        stat(12, "minutes down", s.at("Minutes", off=-0.2), x="30%", y="54%", size=96, prefix="~", duration=0.6),
-        stat(15, "hours back up", s.at("fifteen", off=-0.2), x="30%", y="64%", size=96, prefix="~", duration=0.6, color=RED),
+        stat(12, "minutes down", s.at("Minutes", off=-0.2), x="30%", y="50%", size=96, prefix="~", duration=0.6),
+        stat(15, "hours back up", s.at("fifteen", off=-0.2), x="30%", y="60%", size=96, prefix="~", duration=0.6, color=RED),
     ], rays=4))
     s = S[5]
     sc.append(_depth_scene(s, 332, 1000, [
@@ -1134,7 +1141,7 @@ def pressure(S):
             "views": [{"t": 0, "lon": 150, "lat": 15, "zoom": 1.4}, {"t": min(s.dur - 0.5, 2.0), "place": "marianaTrench", "zoom": 10}],
             "rings": [{"place": "marianaTrench", "r": 0.8, "at": 1.6, "label": "Challenger Deep"}]}, depth=0),
         stat(10900, "metres down", 0.3, y="14%", size=90, duration=1.4),
-        stat(1086, "bar of pressure", s.at("thousand", off=-0.2), y="62%", size=110, duration=0.8, color=RED),
+        stat(1086, "bar of pressure", s.at("thousand", off=-0.2), y="60%", size=104, duration=0.8, color=RED),
     ], trans=DIP))
     s = S[9]
     car_at = s.at("car", off=-0.3)
@@ -1306,7 +1313,7 @@ def anglerfish(S):
     bite = s.at("bites", off=0)
     sc.append(scene(s, ocean(1500, rays=0, snow=50), [
         comp("explainer/Anglerfish", "40%", "40%", 800, 520, {}),
-        comp("explainer/Anglerfish", "90%", "46%", 110, 72, {"speed": 1.6}, z=3,
+        comp("explainer/Anglerfish", "90%", "46%", 110, 72, {"speed": 1.6}, z=3, allowOverlap=True,  # the male bites on: contact
              keyframes=[{"t": 0, "x": "110%", "y": "30%"}, {"t": bite, "x": "62%", "y": "46%", "ease": "out"}]),
         tag("MALE", s.at("males", off=-0.1), x="78%", y="58%", size=34, w=260),
         tag("NEVER LETS GO", s.at("never", off=-0.1), y="14%", size=40, accent=RED),
@@ -1325,7 +1332,7 @@ def anglerfish(S):
     sc.append(scene(s, ocean(1500, rays=0, snow=50), [
         comp("explainer/Anglerfish", "50%", "34%", 760, 500, {}),
         *males,
-        stat(8, "males on one female", s.at("eight", off=-0.2), y="64%", size=110, duration=0.4, color=RED),
+        stat(8, "males on one female", s.at("eight", off=-0.2), y="61%", size=100, duration=0.4, color=RED),  # clear of the captions
     ], trans=WHIP))
     s = S[12]
     sc.append(scene(s, ocean(1000, rays=0, snow=60), [

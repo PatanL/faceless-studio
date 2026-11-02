@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from . import explainer_eps, horror_eps
+from . import explainer_eps, horror_eps, house, staging
 from .common import ROOT, load, norm, storyboard, visual_events
 
 MAX_HOLD = 3.0  # s: longest stretch with no visual event (cut, layer in/out, keyframe, camera key, shake)
@@ -146,6 +146,16 @@ def build(slug: str) -> str:
     if slug in getattr(mod, "CAPTION_GLUE", {}):  # phrases a caption page never splits
         paging["glue"] = mod.CAPTION_GLUE[slug]
     sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
+    if getattr(mod, "HOUSE_STYLE", False) and slug not in getattr(mod, "HOUSE_SKIP", ()):
+        # the Lantern & Ink look (pipeline/episodes/house.py), then the staging/collision check: violations fail the build
+        sb = house.apply(sb, getattr(mod, "HOUSE_OPTS", {}).get(slug))
+        sb["_built"]["style"] = "house (Lantern & Ink): pipeline/episodes/house.py"
+        bad = staging.check(sb)
+        if bad:
+            raise SystemExit(f"{slug}: {len(bad)} staging violation(s) (pipeline/episodes/staging.py):\n  " + "\n  ".join(bad))
+    else:
+        for s in sb["scenes"]:
+            s.pop("_house", None)
     out = os.path.join(ROOT, "episodes", slug, "storyboard.json")
     with open(out, "w") as f:
         json.dump(sb, f, indent=1, ensure_ascii=False)

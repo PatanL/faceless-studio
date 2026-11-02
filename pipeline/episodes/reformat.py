@@ -186,6 +186,9 @@ def camera16(cam: dict, m: Map) -> dict:
     for sh in c.get("shake", []):
         if "amplitude" in sh:
             sh["amplitude"] = m.s(sh["amplitude"])
+    dr = c.get("drift")
+    if isinstance(dr, dict):  # house drift is in world px/s
+        c["drift"] = {**dr, "x": m.s(dr.get("x", 0)), "y": m.s(dr.get("y", 0))}
     return c
 
 
@@ -213,9 +216,16 @@ def reformat(sb: dict, k: float = 0.78, native: dict | None = None, zoom: dict |
             nat = copy.deepcopy(native[i])
             if abs(nat["duration"] - sc["duration"]) > 1e-3:
                 raise SystemExit(f"16:9 scene {i}: duration {nat['duration']} != 9:16 {sc['duration']}")
-            for key in ("transitionIn", "id"):
+            for key in ("transitionIn", "id", "light"):
                 if key in sc:
                     nat[key] = sc[key]
+            if "grade" in sc:  # house grade (pipeline/episodes/house.py) unless the native scene sets its own
+                nat.setdefault("grade", sc["grade"])
+            src_bg, nat_bg = sc.get("background") or {}, nat.get("background") or {}
+            if src_bg.get("name") == nat_bg.get("name") == "explainer/Ocean":  # keep the house colour script (key + shift)
+                for k in ("key", "shiftTo", "shiftAt", "shiftDur"):
+                    if k in (src_bg.get("props") or {}):
+                        nat_bg.setdefault("props", {}).setdefault(k, src_bg["props"][k])
             out["scenes"][i] = nat
             continue
         sc["layers"] = [layer16(l, m, cap_font) for l in sc["layers"]]

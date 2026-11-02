@@ -123,7 +123,8 @@ def cover_headline(at):
 
 def surface_bg():
     # surface line ~60 px from the top (no dark letterbox band on the cover)
-    return E.ocean(6, surface=0.12, rays=8, snow=60)
+    # key pinned: the hook (frame 0 = cover) and the bookend (last frame = cover) must share one key for the loop
+    return E.ocean(6, surface=0.12, rays=8, snow=60, key="tide")
 
 
 def deep_bg(depth, **kw):
@@ -154,7 +155,7 @@ def build(S_):
                punches=[at(s, "never")], locked=[(0.0, 1.1)])
     sc.append(E.bw_scene(s, surface_bg(), [
         hook_orca([{"t": 0, "x": HOOK_ORCA[0]}, {"t": s.dur, "x": "50%", "ease": "out"}]),
-        *diver(*HOOK_DIVER, PPM0),
+        *diver(*HOOK_DIVER, PPM0, z=3),
         cover_headline(E.COVER),
     ], hook))
     _ease_key(sc[-1], 1.0)
@@ -167,16 +168,21 @@ def build(S_):
     cars = [comp("explainer/Car", 255 + i * 190, "59%", 190, 95, {"color": c}, start=four + i * 0.12,
                  enter={"type": "drop", "at": four + i * 0.12, "duration": 0.3, "distance": 60}, depth=0.9)
             for i, c in enumerate(["#d8d8d8", "#c8453a", "#3a8fd6", "#e3b04b"])]
+    # house style: the colour shift lands on the scale beat ("eight metres") and this is the episode's hero wide shot
+    # (opt-in depth planes: far ridge + kelp, warm mid reef, cropped ink foreground kelp)
+    house_mark = {"shift": {"at": at(s, "eight", off=-0.3), "to": "warm"}, "wide": True}
     sc.append(E.bw_scene(s, E.ocean(30, rays=7), [
         orca("50%", "35%", 1000, 360, pxPerM=PPM, finScale=1.5, amp=0.35, idle=[{"type": "bob", "amount": 4, "speed": 0.4}]),
         E.headline("NOT BECAUSE THEY CAN'T", at=0.1, y="12%", size=64, out=at(s, "eight", off=-0.2)),
         comp("explainer/ScaleBar", "50%", "46%", 8 * PPM, 140, {"label": "~8 M", "at": at(s, "eight", off=-0.1), "labelSize": 52}),
         *cars,
         T("≈ 6 TONNES", at(s, "cars,"), y="13%", size=48, w=600, align="center", out=fin - 0.3),
-        comp("explainer/You", "67%", "28.1%", 150, 230, {"pxPerM": PPM, "pose": "wave", "style": "diver"}, start=fin, enter=pop(fin), z=3),
+        # YOU stands on the orca's back by the fin: an intended contact beat (staging.py hero check waived)
+        comp("explainer/You", "67%", "28.1%", 150, 230, {"pxPerM": PPM, "pose": "wave", "style": "diver"}, start=fin, enter=pop(fin), z=3,
+             allowOverlap=True),
         # left of the figure (QA: the centred chip met the raised arm after the punch-in)
         T("FIN = YOU", fin + 0.2, x="31%", y="13%", size=48, w=420, align="center"),
-    ], cam(s, punches=[at(s, "eight"), four, fin])))
+    ], cam(s, punches=[at(s, "eight"), four, fin]), _house=house_mark))
 
     # ------------------------------------------------------------ p02 speed: bars over the orca, then 50 m chase (both in frame) -> 3 SECONDS
     s = S_[2]
@@ -208,10 +214,11 @@ def build(S_):
     pod = [("18%", "31%", 420, 0.0, 0.0, False), ("82%", "34%", 400, 0.6, 0.12, True), ("16%", "55%", 380, 1.1, 0.24, False),
            ("84%", "57%", 360, 0.3, 0.36, True), ("52%", "24%", 320, 0.8, 0.48, False)]
     sc.append(E.bw_scene(s, E.ocean(60, rays=6), [
-        orca("50%", "38%", 720, 640, pose="head", end=pod_t + 0.3, z=3,
+        # the head-on close-up pushes through and is gone before the pod pops in around it (staging: no pod orca inside it)
+        orca("50%", "38%", 720, 640, pose="head", end=pod_t + 0.2, z=3,
              keyframes=[{"t": 0, "scale": 0.55, "opacity": 1}, {"t": pod_t, "scale": 1.2, "opacity": 1, "ease": "in"},
-                        {"t": pod_t + 0.3, "scale": 1.5, "opacity": 0, "ease": "in"}]),
-        *[orca(x, y, w, w * 0.36, timeOffset=to, start=pod_t + d, enter=pop(pod_t + d), flipX=fx,
+                        {"t": pod_t + 0.2, "scale": 1.5, "opacity": 0, "ease": "in"}]),
+        *[orca(x, y, w, w * 0.36, timeOffset=to, start=pod_t + 0.15 + d, enter=pop(pod_t + 0.15 + d), flipX=fx,
                idle=[{"type": "float", "amount": 10, "speed": 0.3}],
                keyframes=[{"t": pod_t + d, "x": x}, {"t": s.dur, "x": f"{float(x[:-1]) + (-4 if fx else 4)}%"}])
           for x, y, w, to, d, fx in pod],
@@ -271,7 +278,7 @@ def build(S_):
         T("GREAT WHITE", shark + 0.1, x="50%", y="13%", size=48, w=700, align="center", out=miss),
         svg(GLOW_RED, "56%", "43%", 300, 300, z=3, start=miss, enter=fade(miss, 0.3),
             idle=[{"type": "pulse", "amount": 0.2, "speed": 1.2}], keyframes=[{"t": miss, "opacity": 0.8}, {"t": took, "opacity": 0.8}, {"t": took + 0.4, "opacity": 0}]),
-        comp("explainer/Liver", "56%", "43%", 210, 112, {}, start=liver, enter=pop(liver, 0.3), z=4,
+        comp("explainer/Liver", "56%", "43%", 210, 112, {}, start=liver, enter=pop(liver, 0.3), z=4, allowOverlap=True,  # inside the shark
              shadow="0 0 26px rgba(255,90,74,0.9)", idle=[{"type": "pulse", "amount": 0.08, "speed": 1.4}],
              keyframes=[{"t": liver, "x": "56%", "y": "43%"}, {"t": took, "x": "56%", "y": "43%"},
                         {"t": s.dur, "x": "8%", "y": "33%", "ease": "in"}]),
@@ -364,7 +371,7 @@ def build(S_):
         *you9,
         comp("explainer/Seal", "72%", "57.5%", 260, 90, {"pxPerM": PPM3}, start=too, enter=pop(too), z=2),
         # size tags ride with their figures (depth 1, like the YOU chip), so camera punches never slide them onto the diver
-        T("SEAL 1.6 M", too + 0.15, x="75%", y="62%", size=44, w=400, align="center", depth=1),
+        T("SEAL 1.6 M", too + 0.15, x="75%", y="58%", size=44, w=400, align="center", depth=1),  # clear of the captions under the punch-ins
         you175,
     ], cam(s, punches=[nob, too, yr, size_]), trans=CUT))
 
@@ -440,7 +447,7 @@ def build(S_):
     keys = [(0, 1.3, cx0, cy0), (s.dur * 0.35, 1.38, cx0, cy0), (s.dur * 0.7, 1.5, cx0, cy0), (s.dur, z0, cx0, cy0)]
     sc.append(E.bw_scene(s, surface_bg(), [
         hook_orca([{"t": 0, "x": "18%"}, {"t": s.dur, "x": HOOK_ORCA[0], "ease": "out"}], timeOffset=round(toff, 3)),
-        *diver(*HOOK_DIVER, PPM0),
+        *diver(*HOOK_DIVER, PPM0, z=3),
         cover_headline(because),
     ], cam(s, keys=keys, locked=[(0.0, s.dur)]), trans=CUT))
     return sc
