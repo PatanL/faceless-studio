@@ -56,7 +56,10 @@ VARIANT = {"tide": "sky", "sky": "tide", "mid": "kelp", "kelp": "mid", "deep": "
 # between ink and dusk (a temperature change without inventing daylight at 1,500 m)
 AUTO_SHIFT = {"tide": "warm", "sky": "warm", "mid": "tide", "kelp": "tide", "deep": "dusk", "ink": "dusk", "dusk": "deep",
               "warm": "tide"}
-GRADE = {"brightness": 1.02, "contrast": 1.04, "saturate": 0.94}
+# house style A (docs/HOUSE_STYLE.md; kit switch studio/src/kits/explainer/house/style.ts): flat layered depth, never
+# blur; saturated colour. FLAT = False restores the Lantern & Ink grade and the blurred ink foreground.
+FLAT = True
+GRADE = {"brightness": 1.0, "contrast": 1.0, "saturate": 1.0} if FLAT else {"brightness": 1.02, "contrast": 1.04, "saturate": 0.94}
 LIGHT = {"setup": "lantern"}
 # plane haze per key ramp (dressing.tsx far/mid planes mix toward it)
 HAZE = {"tide": "tide-1", "sky": "tide-1", "warm": "tide-1", "mid": "tide-0", "kelp": "kelp-1", "deep": "ink-3",
@@ -227,22 +230,25 @@ def biome_set(seg: dict, si: int, k: int, o: dict, fore: bool, notes: str) -> li
         out += [
             {"type": "component", "name": "explainer/Ridge", "role": "dressing", "x": "50%", "y": "82%", "width": 1500,
              "height": 700, "depth": 0.3, "z": z, "props": {"seed": f"rd{s}", "plane": "far", "y": 0.84, "spires": False}},
+            # far: a pale sea-green kelp layer (golden on the far plane hazed to grey); mid: golden giant-kelp columns at
+            # the frame sides, each in a full-scale box (a narrow box scaled the design space down to thin sticks)
             {"type": "component", "name": "explainer/Kelp", "role": "dressing", "x": "50%", "y": "70%", "width": 1500,
-             "height": 1100, "depth": 0.3, "z": z, "props": {"seed": f"fk{s}", "n": 7, "plane": "far", "blade": 0.8, "golden": True}},
+             "height": 1100, "depth": 0.3, "z": z, "props": {"seed": f"fk{s}", "n": 4, "plane": "far", "blade": 0.8,
+                                                             "golden": not FLAT}},
             {"type": "component", "name": "explainer/FishSchool", "role": "dressing", **water(0.8, 0.9), "depth": 0.35,
              "z": z, "opacity": 0.7, "props": {"n": 16, "seed": f"kf{s}", "scale": 0.4, "plane": "far", "dir": flip,
                                                "tints": SCHOOL_TINTS[b]}},
-            {"type": "component", "name": "explainer/Kelp", "role": "dressing", "x": "5%", "y": "66%", "width": 320,
-             "height": 1500, "depth": 0.6, "z": z + 1, "props": {"seed": f"mk{s}", "n": 2, "plane": "mid", "height": [0.8, 1.0], "blade": 1.3, "golden": True}},
-            {"type": "component", "name": "explainer/Kelp", "role": "dressing", "x": "95%", "y": "68%", "width": 320,
-             "height": 1400, "depth": 0.6, "z": z + 1, "props": {"seed": f"mk{s}b", "n": 1, "plane": "mid", "height": [0.65, 0.9], "blade": 1.2, "golden": True}},
+            *[{"type": "component", "name": "explainer/Kelp", "role": "dressing", "x": x, "y": "62%", "width": 1080,
+               "height": 1500, "depth": 0.6, "z": z + 1, "props": {"seed": f"mk{s}{j}", "n": 1, "plane": "mid",
+                                                                    "height": hr, "blade": 1.3, "golden": True}}
+              for j, (x, hr) in enumerate([("6%", [0.85, 1.0]), ("26%", [0.6, 0.75]), ("95%", [0.7, 0.85])])],
             {"type": "component", "name": "explainer/Rocks", "role": "dressing", "x": "50%", "y": "96%", "width": 1300,
              "height": 300, "depth": 0.6, "z": z + 1, "props": {"seed": f"rk{s}", "n": 4, "plane": "mid"}},
             specks(SPECKS[b], "far", 0.3, ["kelp-4", "bone-1"], [2.0, 4.0], [0.2, 0.45]),
         ]
         if fore:
             out += [{"type": "component", "name": "explainer/Kelp", "role": "dressing", "x": "-2%" if flip > 0 else "102%",
-                     "y": "80%", "width": 420, "height": 1500, "depth": 1.45, "z": 30, "blur": 9,
+                     "y": "80%", "width": 420, "height": 1500, "depth": 1.45, "z": 30, **({} if FLAT else {"blur": 9}),
                      "props": {"seed": f"ek{s}", "n": 2, "plane": "fore", "height": [0.75, 1.0], "blade": 1.5}}]
     elif b == "tropical_reef":
         out += [

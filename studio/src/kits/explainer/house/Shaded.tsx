@@ -33,6 +33,7 @@ import {pathBox, type Box} from './geom';
 import {norm, useLight, useTint, type SceneLight, type Vec} from './light';
 import {rng} from './rng';
 import {useLayerXf, type LayerXf} from '../../../core/light';
+import {FLAT} from './style';
 
 export type Draw = (fill: string) => React.ReactNode;
 
@@ -84,6 +85,9 @@ export type Layers = {
 	cast: boolean;
 	innerGlow: boolean;
 };
+
+/** style A (house/style.ts): one flat shadow shape (L1) + a few small glints; every other layer stays coded but off */
+export const FLAT_LAYERS: Partial<Layers> = {form: false, stipple: false, deep: false, bounce: false, highlight: false, rim: false, marks: false, cast: false, innerGlow: false};
 
 export const ALL_LAYERS: Layers = {
 	form: true,
@@ -158,7 +162,7 @@ export const Shaded: React.FC<ShadedProps> = (p) => {
 	const layerXf = useLayerXf();
 	const L: SceneLight = {...scene, ...p.light};
 	const tint = useTint();
-	const on: Layers = {...ALL_LAYERS, ...LOD[p.lod ?? 'hero'], ...p.layers};
+	const on: Layers = {...ALL_LAYERS, ...LOD[p.lod ?? 'hero'], ...p.layers, ...(FLAT ? FLAT_LAYERS : {})};
 
 	const k = toLocal(L.key, p.xf, layerXf);
 	const r = toLocal(L.rim, p.xf, layerXf);

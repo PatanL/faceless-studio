@@ -6,17 +6,20 @@ import {random} from 'remotion';
 
 // ---------------------------------------------------------------- palette
 
+import {FLAT} from './house/style';
+
+// style A (house/style.ts): plates and the accent red come from the docs/HOUSE_STYLE.md palette
 export const C = {
 	oceanTop: '#1f6077',
 	oceanMid: '#0d3344',
 	oceanDeep: '#051720',
 	abyss: '#02080c',
 	ink: '#061017',
-	panel: 'rgba(4, 16, 23, 0.82)',
+	panel: FLAT ? 'rgba(20, 9, 79, 0.9)' : 'rgba(4, 16, 23, 0.82)',
 	panelLine: 'rgba(190, 230, 240, 0.16)',
 	white: '#f3f6f7',
 	muted: 'rgba(225, 238, 242, 0.62)',
-	red: '#e5483d',
+	red: FLAT ? '#fa302a' : '#e5483d',
 	redDeep: '#a32a22',
 	yellow: '#f5c02e',
 	green: '#4cd07d',

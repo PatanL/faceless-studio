@@ -25,11 +25,90 @@
 import React, {useId} from 'react';
 import type {KitComponent} from '../../../core/registry';
 import {c, mixOk} from './color';
-import {PlaneTintProvider, useLight} from './light';
+import {PlaneTintProvider, useLight, useTint} from './light';
 import {rand, rng} from './rng';
 import {FishSchool, Jelly, Kelp, Ridge, Rock, Seabed, Anemone, Urchin, Shell, SeaGrass, SeaFan} from './sea';
 import {BrainCoral, FanCoral, ReefShelf, Spire, Staghorn, TableCoral, TubeSponge} from './reef';
-import {Orca} from './orca';
+import {Orca, ORCA_BOX} from './orcaV3Kit';
+import {FLAT} from './style';
+
+// ---------------------------------------------------------------- style A (house/style.ts): flat set pieces
+
+/** style A kelp: a thick wavy ribbon stalk with broad rounded blades and round bladders; one flat shadow strip on the
+ * side away from the light. golden = giant / bamboo kelp (orca_set_03_gansbaai_A), else sea-green ribbons. */
+const FlatKelp: React.FC<{seed: string; x: number; y: number; h: number; t: number; w: number; golden: boolean; silhouette: boolean}> = ({seed, x, y, h, t, w, golden, silhouette}) => {
+	const tint = useTint();
+	const base = tint(silhouette ? 'ink-1' : golden ? (rand(seed, 1) > 0.5 ? 'amber-3' : 'ochre-2') : rand(seed, 1) > 0.5 ? 'kelp-2' : 'kelp-3');
+	const shade = tint(silhouette ? 'ink-1' : golden ? 'ochre-0' : 'kelp-0');
+	const bladder = tint(silhouette ? 'ink-1' : golden ? 'amber-1' : 'kelp-1');
+	const N = 14;
+	const ph = rand(seed, 2) * 6;
+	const amp = w * 1.6;
+	const pt = (u: number): [number, number] => [x + Math.sin(t * 0.55 + u * 3.2 + ph) * amp * u + Math.sin(u * 5 + ph) * w * 0.35, y - h * u];
+	const ribbon = (dx: number, k: number) => {
+		const l: string[] = [];
+		const r: string[] = [];
+		for (let i = 0; i <= N; i++) {
+			const u = i / N;
+			const [px, py] = pt(u);
+			const hw = (w / 2) * k * (1 - 0.55 * u);
+			l.push(`${(px - hw + dx).toFixed(1)} ${py.toFixed(1)}`);
+			r.unshift(`${(px + hw + dx).toFixed(1)} ${py.toFixed(1)}`);
+		}
+		return `M ${l.join(' L ')} L ${r.join(' L ')} Z`;
+	};
+	const blades: React.ReactNode[] = [];
+	// broad wavy fronds all along the stalk (giant kelp reads as a column of leaves, not leaves on a stick)
+	const nb = 6 + Math.floor(rand(seed, 3) * 4);
+	for (let i = 0; i < nb; i++) {
+		const u = 0.12 + (0.86 * (i + rand(seed, 10 + i) * 0.6)) / nb;
+		const [px, py] = pt(u);
+		const side = i % 2 ? 1 : -1;
+		const L = w * (5.5 + rand(seed, 20 + i) * 2.5) * (1 - 0.35 * u);
+		const B = w * (1.5 + rand(seed, 30 + i) * 0.6) * (1 - 0.3 * u);
+		const sw = Math.sin(t * 0.8 + i * 0.7 + ph) * 9;
+		const ang = side * (58 + sw) - 90 + 20 * (u - 0.5);
+		const wv = B * 0.35;
+		blades.push(
+			<g key={i} transform={`translate(${px.toFixed(1)} ${py.toFixed(1)}) rotate(${ang.toFixed(1)})`}>
+				<path d={`M 0 0 C ${B} ${-L * 0.2} ${B - wv} ${-L * 0.45} ${B * 0.8} ${-L * 0.62} C ${B * 0.6} ${-L * 0.8} ${B * 0.2} ${-L * 0.95} 0 ${-L} C ${-B * 0.5} ${-L * 0.75} ${-B * 0.25} ${-L * 0.5} ${-B * 0.55} ${-L * 0.3} C ${-B * 0.6} ${-L * 0.15} ${-B * 0.2} ${-L * 0.05} 0 0 Z`} fill={base} />
+				<path d={`M 0 0 C ${B} ${-L * 0.2} ${B - wv} ${-L * 0.45} ${B * 0.8} ${-L * 0.62} C ${B * 0.6} ${-L * 0.8} ${B * 0.2} ${-L * 0.95} 0 ${-L} C ${B * 0.25} ${-L * 0.7} ${B * 0.35} ${-L * 0.4} 0 0 Z`} fill={shade} opacity={0.6} />
+				{!silhouette ? <circle cx={0} cy={-w * 0.2} r={w * 0.5} fill={bladder} /> : null}
+			</g>,
+		);
+	}
+	return (
+		<g>
+			<path d={ribbon(w * 0.28, 1)} fill={shade} />
+			<path d={ribbon(-w * 0.08, 0.86)} fill={base} />
+			{blades}
+		</g>
+	);
+};
+
+/** style A rock: a rounded violet/indigo boulder with one flat shadow shape on the side away from the light */
+const FlatRock: React.FC<{id: string; x: number; y: number; rx: number; ry: number; tone: number}> = ({id, x, y, rx, ry, tone}) => {
+	const tint = useTint();
+	const base = tint(tone > 0.5 ? 'violet-1' : 'ink-3');
+	const shade = tint(tone > 0.5 ? 'violet-0' : 'ink-1');
+	const r = rng(`${id}-fr`);
+	const pts: [number, number][] = [];
+	for (let i = 0; i < 9; i++) {
+		const a = Math.PI + (i / 8) * Math.PI;
+		const k = 0.82 + r() * 0.3;
+		pts.push([x + Math.cos(a) * rx * k, y + Math.sin(a) * ry * k * (i === 0 || i === 8 ? 0 : 1)]);
+	}
+	const d = `M ${pts.map((q) => `${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(' L ')} Z`;
+	return (
+		<g>
+			<clipPath id={`${id}-c`}>
+				<path d={d} />
+			</clipPath>
+			<path d={d} fill={base} strokeLinejoin="round" stroke={base} strokeWidth={rx * 0.12} />
+			<ellipse cx={x + rx * 0.55} cy={y} rx={rx * 0.75} ry={ry * 1.1} fill={shade} clipPath={`url(#${id}-c)`} />
+		</g>
+	);
+};
 
 /** document-unique prefix for mask/gradient ids (two layers may share a seed) */
 const useUid = () => 'd' + useId().replace(/[^a-zA-Z0-9_-]/g, '');
@@ -39,11 +118,18 @@ const pair = (v: unknown, d: [number, number]): [number, number] =>
 	Array.isArray(v) && v.length === 2 && typeof v[0] === 'number' && typeof v[1] === 'number' ? [v[0], v[1]] : d;
 const strs = (v: unknown, d: string[]) => (Array.isArray(v) && v.every((x) => typeof x === 'string') && v.length ? (v as string[]) : d);
 
-export const PLANE_TINTS: Record<string, {amount: number; desat: number; haze?: string}> = {
-	far: {amount: 0.62, desat: 0.15},
-	mid: {amount: 0.32, desat: 0.05},
-	fore: {amount: 0.8, desat: 0, haze: 'ink-0'},
-};
+export const PLANE_TINTS: Record<string, {amount: number; desat: number; haze?: string}> = FLAT
+	? {
+			// style A: flat layered depth (HOUSE_STYLE.md): far layers paler and less saturated, never hazed or blurred
+			far: {amount: 0.45, desat: 0.25},
+			mid: {amount: 0.15, desat: 0.05},
+			fore: {amount: 0.85, desat: 0, haze: 'ink-1'},
+		}
+	: {
+			far: {amount: 0.62, desat: 0.15},
+			mid: {amount: 0.32, desat: 0.05},
+			fore: {amount: 0.8, desat: 0, haze: 'ink-0'},
+		};
 
 /** design space: 1080 units wide, layer-box aspect; plane tint from `plane` */
 export const Space: React.FC<{w: number; h: number; plane?: unknown; hazeAmt?: unknown; children: (H: number) => React.ReactNode}> = ({w, h, plane, hazeAmt, children}) => {
@@ -71,6 +157,11 @@ export const KelpForest: KitComponent = ({props: p, time, width, height}) => {
 				Array.from({length: n}, (_, i) => {
 					const x = ((i + 0.5 + (rand(`${seed}x`, i) - 0.5) * 0.7) / n) * 1080;
 					const hh = H * (h0 + (h1 - h0) * rand(`${seed}h`, i));
+					if (FLAT)
+						return (
+							<FlatKelp key={i} seed={`${seed}-${i}`} x={x} y={H + 10} h={hh} t={time + rand(`${seed}t`, i) * 7}
+								w={34 * num(p.blade, 1) * (0.8 + rand(`${seed}b`, i) * 0.4)} golden={p.golden === true} silhouette={p.silhouette === true} />
+						);
 					return (
 						<Kelp
 							key={i}
@@ -150,7 +241,8 @@ export const Rocks: KitComponent = ({props: p, time, width, height}) => {
 					const rx = 70 + r() * 120;
 					const ry = rx * (0.45 + r() * 0.35);
 					const base = mixOk(c(r() > 0.5 ? 'ochre-1' : 'ochre-2'), c(r() > 0.5 ? 'tide-0' : 'kelp-1'), 0.25 + r() * 0.2);
-					out.push(<Rock key={`r${i}`} id={`${uid}${seed}-rk${i}`} x={x} y={H - ry * 0.4} rx={rx} ry={ry} base={base} moss={r() > 0.4} barnacles={Math.floor(r() * 8)} />);
+					if (FLAT) out.push(<FlatRock key={`r${i}`} id={`${uid}${seed}-rk${i}`} x={x} y={H} rx={rx} ry={ry * 1.3} tone={r()} />);
+					else out.push(<Rock key={`r${i}`} id={`${uid}${seed}-rk${i}`} x={x} y={H - ry * 0.4} rx={rx} ry={ry} base={base} moss={r() > 0.4} barnacles={Math.floor(r() * 8)} />);
 					if (life) {
 						const k = r();
 						const lx = x + (r() - 0.5) * rx * 1.4;
@@ -243,7 +335,7 @@ export const Pod: KitComponent = ({props: p, time, width, height}) => {
 					const x = ((((x0 + dir * speed * (0.8 + 0.4 * rand(`${seed}v`, i)) * time) % span) + span) % span) - 990 * s;
 					const y = H * (0.2 + 0.6 * rand(`${seed}y`, i)) + 8 * Math.sin(time * 0.5 + i * 2);
 					return (
-						<g key={i} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${(dir * s).toFixed(4)} ${s.toFixed(4)}) translate(-500 -200)`}>
+						<g key={i} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${(dir * s * 0.7).toFixed(4)} ${(s * 0.7).toFixed(4)}) translate(${-(ORCA_BOX[0] + ORCA_BOX[2] / 2)} ${-(ORCA_BOX[1] + ORCA_BOX[3] / 2)})`}>
 							<Orca id={`${uid}${seed}${i}`} t={time + i * 0.7} lod="far" />
 						</g>
 					);

@@ -25,6 +25,8 @@ import {useLight} from './light';
 import {Bokeh, Caustics, Rays, Specks} from './atmosphere';
 import {ease, prog} from './motion';
 import {num, str, track} from '../util';
+import {FLAT} from './style';
+import {rand} from './rng';
 
 export const KEYS: Record<string, string[]> = {
 	tide: ['tide-4', 'tide-3', 'tide-2', 'tide-1', 'tide-0', 'ink-4'],
@@ -39,17 +41,31 @@ export const KEYS: Record<string, string[]> = {
 KEYS.ink = KEYS.deep;
 // open ocean (art direction experiments/asset-gen/gen/orca_set_01/04/05: flat bold royal blue, owner's pick): cyan under
 // the surface sinking to deep navy
-KEYS.royal = ['#38b6f4', '#1f78e6', '#1652d4', '#1240b4', '#0c2c8a', '#071a5c'];
+KEYS.royal = FLAT ? ['sky-1', 'tide-1', 'tide-0', 'dusk-1', 'ink-2', 'ink-1'] : ['#38b6f4', '#1f78e6', '#1652d4', '#1240b4', '#0c2c8a', '#071a5c'];
 // polar sea (settings biome polar_ice; art direction experiments/asset-gen/gen/f_antarctic_v3.png): clear cold water,
 // bright blue under the surface sinking to deep indigo, no seabed, no warm stops
-KEYS.polar = [mixOk('sky-1', 'dusk-4', 0.4), 'dusk-4', mixOk('dusk-3', 'dusk-2', 0.4), 'dusk-2', 'dusk-1', 'dusk-0'];
+KEYS.polar = FLAT
+	? ['dusk-3', 'dusk-2', 'dusk-1', 'ink-2', 'ink-1', 'ink-0'] // style A (f_antarctic_A): deep indigo water, no seabed
+	: [mixOk('sky-1', 'dusk-4', 0.4), 'dusk-4', mixOk('dusk-3', 'dusk-2', 0.4), 'dusk-2', 'dusk-1', 'dusk-0'];
 // danger re-key (shark / kill beats, colour script carries meaning): coral water sinking to ink; every stop is a
 // coral -> dusk/ink mix, so it stays inside the palette (P1)
 KEYS.danger = [mixOk('coral-3', 'dusk-2', 0.5), mixOk('coral-2', 'dusk-1', 0.55), mixOk('coral-1', 'dusk-1', 0.62), mixOk('coral-0', 'ink-1', 0.62), mixOk('coral-0', 'ink-0', 0.8), 'ink-0'];
 const OFFS = [0, 0.12, 0.32, 0.55, 0.8, 1];
 // sky by place + light (house.py names it from the scene's setting: `sky` = "<temperate|polar>-<day|overcast|dusk|night>");
 // explicit skyTop / skyBottom props still win. Polar dusk: art direction experiments/asset-gen/gen/f_antarctic_v3.png
-export const SKIES: Record<string, [string, string]> = {
+export const SKIES: Record<string, string[]> = FLAT
+	? {
+			// style A: flat sky bands (top -> horizon), e.g. orca_set_05_calf_A dusk = violet, magenta, orange
+			'temperate-day': ['sky-1', 'sky-2', 'sky-3'],
+			'temperate-overcast': ['sky-3', 'sky-4', 'bone-1'],
+			'temperate-dusk': ['violet-1', 'magenta-2', 'amber-1'],
+			'temperate-night': ['ink-0', 'ink-1', 'ink-2'],
+			'polar-day': ['sky-1', 'sky-3', 'sky-4'],
+			'polar-overcast': ['sky-3', 'sky-4', 'bone-1'],
+			'polar-dusk': ['ink-1', 'violet-0', 'violet-1'],
+			'polar-night': ['ink-0', 'ink-1', 'ink-2'],
+		}
+	: {
 	'temperate-day': ['sky-2', 'sky-4'],
 	'temperate-overcast': ['#b9cdd8', '#dfe8ec'],
 	'temperate-dusk': ['dusk-2', 'coral-4'],
@@ -58,7 +74,7 @@ export const SKIES: Record<string, [string, string]> = {
 	'polar-overcast': ['#9fb4c6', '#d4e0e8'],
 	'polar-dusk': ['#160c5c', '#3a3cb0'],
 	'polar-night': ['dusk-0', 'dusk-2'],
-};
+		};
 
 /** light level 0..1 at a depth (m); same curve as the legacy ocean */
 const lightAt = (depth: number, falloff: number) => Math.exp(-Math.max(0, depth) / falloff);
@@ -106,6 +122,77 @@ export const HouseOcean: KitComponent = ({props, time, width: W, height: H}) => 
 		wave = pts.join(' ');
 	}
 	const glowA = Math.pow(lit, 0.8) * num(props.glow, 1);
+
+	if (FLAT) {
+		// style A: flat colour bands, a few hard-edged translucent rays, flat ripple pills under the surface, flat sky
+		// bands with rounded clouds. No gradients, glow, bokeh or vignette.
+		const sky = (typeof props.sky === 'string' && SKIES[props.sky]) || ['sky-1', 'sky-2', 'sky-3'];
+		const skyCols = typeof props.skyTop === 'string' ? [props.skyTop, mixOk(props.skyTop, str(props.skyBottom, props.skyTop), 0.5), str(props.skyBottom, props.skyTop)] : sky.map((x) => c(x));
+		const bandTop = surface !== null ? sy : 0;
+		const span = H - bandTop;
+		const nR = Math.min(5, nRays);
+		const rays: React.ReactNode[] = [];
+		if (nR > 0 && rayA > 0.01) {
+			const dx = Math.cos((trav * Math.PI) / 180);
+			const dy = Math.sin((trav * Math.PI) / 180);
+			for (let i = 0; i < nR; i++) {
+				const x0 = sunX + (i - (nR - 1) / 2) * W * 0.17 + 18 * Math.sin(time * 0.25 + i * 1.9);
+				const w0 = 40 + 50 * rand(`${seed}rw`, i);
+				const w1 = w0 * 2.2;
+				const len = rayLen * (0.75 + 0.25 * rand(`${seed}rl`, i));
+				const ex = x0 + dx * len;
+				const ey = bandTop + dy * len;
+				rays.push(<polygon key={i} points={`${x0 - w0 / 2},${bandTop} ${x0 + w0 / 2},${bandTop} ${ex + w1 / 2},${ey} ${ex - w1 / 2},${ey}`} fill={c('bone-2')} opacity={0.075 * Math.min(1, rayA * 1.4)} />);
+			}
+		}
+		const ripples: React.ReactNode[] = [];
+		if (shallow) {
+			for (let i = 0; i < 14; i++) {
+				const w = 60 + 110 * rand(`${seed}pw`, i);
+				const x = ((rand(`${seed}px`, i) * (W + 200) + time * 14 * (0.5 + rand(`${seed}pv`, i))) % (W + 200)) - 100;
+				const y = bandTop + 14 + 150 * rand(`${seed}py`, i) * rand(`${seed}pq`, i);
+				ripples.push(<rect key={i} x={x - w / 2} y={y} width={w} height={11 + 6 * rand(`${seed}ph`, i)} rx={8} fill={c(i % 3 ? 'tide-4' : 'bone-2')} opacity={(0.35 + 0.25 * rand(`${seed}po`, i)) * lit} />);
+			}
+		}
+		const clouds: React.ReactNode[] = [];
+		if (surface !== null && props.clouds !== false && (str(props.sky, '').endsWith('-day'))) {
+			for (let i = 0; i < 3; i++) {
+				const cw = 150 + 110 * rand(`${seed}cw`, i);
+				const cx = ((rand(`${seed}cx`, i) * W + time * 6) % (W + cw)) - cw / 2;
+				const cy = Math.max(30, sy * (0.25 + 0.4 * rand(`${seed}cy`, i)));
+				clouds.push(
+					<g key={i}>
+						<rect x={cx - cw / 2} y={cy - cw * 0.12} width={cw} height={cw * 0.24} rx={cw * 0.12} fill={c('bone-2')} />
+						<circle cx={cx - cw * 0.12} cy={cy - cw * 0.12} r={cw * 0.2} fill={c('bone-2')} />
+						<circle cx={cx + cw * 0.14} cy={cy - cw * 0.16} r={cw * 0.25} fill={c('bone-2')} />
+						<rect x={cx - cw / 2} y={cy + cw * 0.04} width={cw} height={cw * 0.08} rx={cw * 0.04} fill={c('sky-4')} />
+					</g>,
+				);
+			}
+		}
+		const bounds = [0, 0.14, 0.32, 0.52, 0.74, 1];
+		return (
+			<svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{display: 'block'}}>
+				{stops.slice(0, 5).map((col, i) => (
+					<rect key={i} x={0} y={bandTop + bounds[i] * span - 1} width={W} height={(bounds[i + 1] - bounds[i]) * span + 2} fill={i === 4 ? stops[5] : col} />
+				))}
+				{rays}
+				{ripples}
+				{nSpecks > 0 ? <Specks t={time} seed={`${seed}s`} n={Math.round(nSpecks * 0.35)} area={[0, bandTop, W, span]} size={[3, 6]} tints={['tide-4', 'bone-1']} opacity={[0.35, 0.6]} twinkleAmt={0} /> : null}
+				{surface !== null ? (
+					<g>
+						{[0, 1, 2].map((i) => (
+							<rect key={i} x={0} y={(sy * i) / 3 - 1} width={W} height={sy / 3 + 2} fill={skyCols[i] ?? skyCols[skyCols.length - 1]} />
+						))}
+						{clouds}
+						<polygon points={`-20,${sy - 2} ${wave.split(' ').reverse().join(' ')} ${W + 20},${sy - 2}`} fill={skyCols[2] ?? skyCols[0]} />
+						<rect x={0} y={sy} width={W} height={10} fill={c('tide-4')} opacity={0.75} />
+						<polyline points={wave} fill="none" stroke={c('bone-2')} strokeWidth={4} />
+					</g>
+				) : null}
+			</svg>
+		);
+	}
 
 	return (
 		<svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{display: 'block'}}>

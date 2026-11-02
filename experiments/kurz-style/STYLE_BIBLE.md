@@ -1,6 +1,11 @@
 # House style bible: "Lantern & Ink"
 
-> **Owner override (2026-11-01), supersedes anything below that conflicts:** don't be different just to be different. Pick every technique on what looks best at phone size, including standard Kurzgesagt-tier craft (hard flat shadow crescents, violet/magenta in night/space scenes, thin wide-tracked titles where they read better, faces on objects when the story wants it). The **stipple terminator is off by default**: use a clean hard core-shadow terminator (it reads crisper and survives video compression better than fine dots); stipple is an opt-in accent at most. "Ours" means our own characters, assets, compositions and branding only (JUDGE_RUBRIC §4); the "distinctness gate" and P2 cap below no longer apply.
+> **Owner override (2026-11-01, house style locked): the live look is house style A, `docs/HOUSE_STYLE.md` (reference
+> `experiments/asset-gen/gen/style_board_A.png`).** Flat 2D, one flat shadow shape per object, flat layered depth with no
+> haze or blur, flat water bands with hard-edged rays, the A palette. Where this bible conflicts with HOUSE_STYLE.md,
+> HOUSE_STYLE.md wins. The Lantern & Ink stack below (gradients, rim, bounce, stipple, micro-marks, haze) stays in the
+> code behind the switch `studio/src/kits/explainer/house/style.ts` (LOOK) and `house/palette.ts` (PALETTE), off by
+> default. Earlier override, still in force: don't be different just to be different. Pick every technique on what looks best at phone size, including standard Kurzgesagt-tier craft (hard flat shadow crescents, violet/magenta in night/space scenes, thin wide-tracked titles where they read better, faces on objects when the story wants it). The **stipple terminator is off by default**: use a clean hard core-shadow terminator (it reads crisper and survives video compression better than fine dots); stipple is an opt-in accent at most. "Ours" means our own characters, assets, compositions and branding only (JUDGE_RUBRIC §4); the "distinctness gate" and P2 cap below no longer apply.
 
 
 Our own house style. The bar is the Kurzgesagt **quality tier**, while the **look** stays clearly ours. Every number here comes from the three measured studies in this folder, `study-kurz-space.md` (**KS**), `study-kurz-bio.md` (**KB**) and `study-infographics.md` (**TIS**), or from our own orca pilot measured with the same tools (**ours**). Section numbers such as "KB §3" point into those studies.

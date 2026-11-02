@@ -11,6 +11,7 @@ import {DETAIL as MAP_DETAIL} from './mapdetail';
 import {arr, backOut, bool, C, clamp, easeInOut, easeOut, fmtNum, num, prog, safeId, smooth, str, track, type Pt} from './util';
 import {c as tok, rgba} from './house/color';
 import {ease as hEase, popIn, springAt, SETTLE} from './house/motion';
+import {FLAT} from './house/style';
 
 /** house look (Lantern & Ink, STYLE_BIBLE §11) unless the layer says look: "legacy" */
 const houseLook = (props: Record<string, unknown>) => str(props.look, 'house') !== 'legacy';
@@ -727,7 +728,8 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 	const base = W / 360; // px per degree at zoom 1
 	const k = base * view.zoom;
 	const proj = (lon: number, lat: number): Pt => [W / 2 + (lon - view.lon) * k, H / 2 - (lat - view.lat) * k];
-	const land = str(props.landColor, '#2d5a55');
+	// style A (house/style.ts): flat sea-green land on a flat indigo sea
+	const land = str(props.landColor, FLAT ? tok('kelp-2') : '#2d5a55');
 	const hl = arr<string>(props.highlight);
 	const paths: React.ReactNode[] = [];
 	// zoomed views: hi-res regional coastlines replace the coarse outlines inside each region's bbox
@@ -859,8 +861,8 @@ export const MapView: KitComponent = ({props, time, width: W, height: H}) => {
 		<svg width={W} height={H} style={{display: 'block', opacity: o}}>
 			<defs>
 				<radialGradient id={`${id}-sea`} cx="0.5" cy="0.45" r="0.8">
-					<stop offset="0" stopColor={str(props.oceanColor, '#0f3a4a')} />
-					<stop offset="1" stopColor="#04121a" />
+					<stop offset="0" stopColor={str(props.oceanColor, FLAT ? tok('ink-2') : '#0f3a4a')} />
+					<stop offset="1" stopColor={FLAT ? tok('ink-2') : '#04121a'} />
 				</radialGradient>
 				<pattern id={`${id}-hatch`} width={22} height={22} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 					<rect width={8} height={22} fill="rgba(255,255,255,0.10)" />

@@ -15,6 +15,8 @@ import React from 'react';
 import type {KitComponent} from '../../core/registry';
 import {paint, type DrawCtx, type Figure} from './figure';
 import {arr, clamp, easeIn, easeOut, num, str, swimWarp, track, warp} from './util';
+import {c as tok} from './house/color';
+import {FLAT} from './house/style';
 
 // ---------------------------------------------------------------- orca, top-down
 
@@ -188,9 +190,10 @@ export const Sailboat: KitComponent = ({props, time, width: W, height: H}) => {
 		const p = time - h;
 		if (p >= 0 && p < 0.5) jolt += Math.sin(p * 60) * 9 * (1 - p / 0.5);
 	}
-	const hull = str(props.hullColor, '#e9eef0');
-	const bottom = str(props.bottomColor, '#2b3440');
-	const sail = str(props.sailColor, '#f4f1ea');
+	// style A (house/style.ts; style_board_A sailboat): red hull, indigo bottom, white sails with a magenta band
+	const hull = tok(str(props.hullColor, FLAT ? 'coral-2' : '#e9eef0'));
+	const bottom = tok(str(props.bottomColor, FLAT ? 'ink-1' : '#2b3440'));
+	const sail = tok(str(props.sailColor, FLAT ? 'bone-2' : '#f4f1ea'));
 	// rudder: pivot at its stock under the stern; after snapAt it swings back, then tumbles down and fades
 	const rx = 112;
 	const ry = wl + 34;
@@ -213,7 +216,11 @@ export const Sailboat: KitComponent = ({props, time, width: W, height: H}) => {
 				<rect x={296} y={60} width={9} height={wl - 70} fill="#c8cfd3" />
 				<path d={`M 292 76 L 292 ${wl - 46} L 132 ${wl - 46} Z`} fill={sail} />
 				<path d={`M 312 92 L 312 ${wl - 42} L 470 ${wl - 42} Z`} fill={sail} opacity={0.92} />
-				<path d={`M 292 76 L 292 ${wl - 46} L 132 ${wl - 46} Z`} fill="none" stroke="#c9c2b4" strokeWidth={3} />
+				{FLAT ? (
+					<path d={`M 312 ${92 + (wl - 134) * 0.55} L 312 ${92 + (wl - 134) * 0.75} L ${312 + 158 * 0.75} ${92 + (wl - 134) * 0.75} L ${312 + 158 * 0.55} ${92 + (wl - 134) * 0.55} Z`} fill={tok('magenta-2')} />
+				) : (
+					<path d={`M 292 76 L 292 ${wl - 46} L 132 ${wl - 46} Z`} fill="none" stroke="#c9c2b4" strokeWidth={3} />
+				)}
 				<rect x={128} y={wl - 48} width={168} height={7} rx={3} fill="#9aa3a9" />
 				{/* keel fin + bulb */}
 				<path d={`M 270 ${wl + 50} L 336 ${wl + 50} L 322 ${wl + 230} L 286 ${wl + 230} Z`} fill={bottom} />
@@ -227,7 +234,7 @@ export const Sailboat: KitComponent = ({props, time, width: W, height: H}) => {
 				{/* hull: topsides above the waterline, antifouling below */}
 				<path d={`M 60 ${wl - 40} L 540 ${wl - 40} C 520 ${wl + 10} 480 ${wl + 44} 400 ${wl + 54} L 150 ${wl + 54} C 110 ${wl + 48} 86 ${wl + 30} 74 ${wl} Z`} fill={hull} />
 				<path d={`M 72 ${wl} L 528 ${wl} C 506 ${wl + 30} 470 ${wl + 48} 400 ${wl + 56} L 150 ${wl + 56} C 112 ${wl + 50} 88 ${wl + 30} 72 ${wl} Z`} fill={bottom} />
-				<rect x={66} y={wl - 18} width={468} height={7} fill="#3a8fd6" opacity={0.85} />
+				<rect x={66} y={wl - 18} width={468} height={7} fill={FLAT ? tok('amber-1') : '#3a8fd6'} opacity={0.85} />
 				<rect x={210} y={wl - 64} width={130} height={24} rx={6} fill="#dfe5e8" />
 			</g>
 		</svg>

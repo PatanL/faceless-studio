@@ -30,6 +30,7 @@ import {c, mixOk, rgba} from './color';
 import {useLight, useTint} from './light';
 import {rng} from './rng';
 import {toLocal} from './Shaded';
+import {FLAT} from './style';
 
 export type ShadeOpts = {
 	/** 'hero' | 'support' | 'far' (default from on-screen size) */
@@ -223,8 +224,15 @@ export const ShadeStack: React.FC<{f: Figure; ctx: DrawCtx; upp: number; opts: S
 				) : null}
 			</defs>
 
-			{opts.cast ? <ellipse cx={cx - k[0] * R * 0.5} cy={castY} rx={castRx} ry={Math.max(6 * upp, castRx * 0.12)} fill={`url(#${id}-cast)`} /> : null}
+			{!FLAT && opts.cast ? <ellipse cx={cx - k[0] * R * 0.5} cy={castY} rx={castRx} ry={Math.max(6 * upp, castRx * 0.12)} fill={`url(#${id}-cast)`} /> : null}
 			{f.draw(ctx)}
+			{FLAT ? (
+				// style A (house/style.ts): one flat shadow shape on the side away from the light; nothing else
+				<g mask={`url(#${id}-sil)`} style={{mixBlendMode: 'multiply'}} opacity={strength}>
+					<g mask={`url(#${id}-core)`}>{React.cloneElement(full, {fill: shadeMul})}</g>
+				</g>
+			) : null}
+			{FLAT ? null : <>
 			{/* L0 form (normal alpha) */}
 			<g mask={`url(#${id}-sil)`}>{React.cloneElement(full, {fill: `url(#${id}-form)`})}</g>
 			{/* L1 core + L2 stipple + L3 deep + shadow-side marks: one MULTIPLY group. The blend sits on the masked element
@@ -270,6 +278,7 @@ export const ShadeStack: React.FC<{f: Figure; ctx: DrawCtx; upp: number; opts: S
 					</g>
 				) : null}
 			</g>
+			</>}
 		</g>
 	);
 };

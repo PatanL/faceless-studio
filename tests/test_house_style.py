@@ -80,7 +80,8 @@ class HouseTest(unittest.TestCase):
         fore = [any(l.get("depth") == 1.45 for l in sc["layers"]) for sc in out["scenes"]]
         self.assertFalse(fore[0] or fore[-1], fore)
         self.assertGreaterEqual(sum(fore[1:-1]) / 4, 0.6, fore)
-        self.assertTrue(all(l.get("blur") and l["role"] == "dressing" for sc in out["scenes"] for l in sc["layers"] if l.get("depth") == 1.45))
+        # style A: the foreground is a flat dark layer, never blurred (docs/HOUSE_STYLE.md)
+        self.assertTrue(all(bool(l.get("blur")) != house.FLAT and l["role"] == "dressing" for sc in out["scenes"] for l in sc["layers"] if l.get("depth") == 1.45))
         # opt out per scene
         out = house.apply(sb([scene(0, [orca()], _house={"set": False}, setting=kelp), scene(1, [orca()], setting=kelp)]))
         self.assertFalse(any(l.get("name") == "explainer/Kelp" for l in out["scenes"][0]["layers"]))

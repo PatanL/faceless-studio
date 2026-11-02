@@ -7,6 +7,7 @@
  * <Shaded>, which adds the whole light stack from the scene light. Motion: travelling-wave tail beat (vertical,
  * whale-style), flipper follow-through lagging the body, breathing, seeded blinks.
  */
+import {FLAT} from './style';
 import React from 'react';
 import {c, mixOk, shadowOf} from './color';
 import {swimBend, warp} from './geom';
@@ -121,7 +122,8 @@ export const Orca: React.FC<{
 		);
 	}
 
-	const skin = 'ink-1';
+	// style A: near-navy skin (style_board_A orca); Lantern: ink-1
+	const skin = FLAT ? 'ink-0' : 'ink-1';
 	const br = breathe(t, id, 0.01, 3.6);
 	const blink = blinkAt(t, id);
 	const farPec = shadowOf(tint(skin), tint(L.ambient), 0.25);

@@ -1,5 +1,17 @@
-/** House palette tokens (generated from experiments/kurz-style/house/palette.json by tools/house/make_palette.py; STYLE_BIBLE §2.1). */
-export const TOKENS: Record<string, string> = {
+/**
+ * House palette tokens. TOKENS is the live palette, selected by PALETTE.
+ *
+ * STYLE_A_TOKENS: house style A (docs/HOUSE_STYLE.md). The board's ten base swatches (indigo-ink #250192, royal blue
+ * #0024fd, sky cyan #01aefd, aqua #0de9e0, sea green #0bd4a4, sun yellow #fddf35, orange #fc6e0e, red #fa302a,
+ * magenta #fb17b8, violet #932efc) plus bone white, each with darker shadow tones and lighter tints, laid onto the
+ * existing ramp names so every kit piece re-skins without code changes:
+ *   ink = indigo-ink (deep water, night, the orca's dark skin; never black)   dusk = royal blue -> indigo
+ *   tide = royal -> sky cyan -> aqua (water)   sky = sky cyan   kelp = sea green   coral = red   amber = sun yellow/orange
+ *   ochre = sand   bone = white   signal = red   + violet, magenta (new ramps: rocks, accents)
+ * LANTERN_TOKENS: the Lantern & Ink palette (generated from experiments/kurz-style/house/palette.json by
+ * tools/house/make_palette.py; STYLE_BIBLE §2.1), kept so the look can be switched back (house/style.ts).
+ */
+export const LANTERN_TOKENS: Record<string, string> = {
  "ink-0": "#01121a",
  "ink-1": "#01212d",
  "ink-2": "#013041",
@@ -48,3 +60,68 @@ export const TOKENS: Record<string, string> = {
  "signal-0": "#9e1421",
  "signal-1": "#dd2534"
 };
+
+
+export const STYLE_A_TOKENS: Record<string, string> = {
+ "ink-0": "#140a50",
+ "ink-1": "#250192",
+ "ink-2": "#2a12b4",
+ "ink-3": "#1c25d0",
+ "ink-4": "#1640e6",
+ "tide-0": "#0024fd",
+ "tide-1": "#0a62fd",
+ "tide-2": "#01aefd",
+ "tide-3": "#0de9e0",
+ "tide-4": "#7ff2ec",
+ "tide-5": "#c8fbf8",
+ "kelp-0": "#047056",
+ "kelp-1": "#08a07e",
+ "kelp-2": "#0bd4a4",
+ "kelp-3": "#46e6bd",
+ "kelp-4": "#95f3d8",
+ "dusk-0": "#170a74",
+ "dusk-1": "#1f12a8",
+ "dusk-2": "#0b2ee8",
+ "dusk-3": "#3b5cff",
+ "dusk-4": "#7090ff",
+ "sky-0": "#0082dc",
+ "sky-1": "#01aefd",
+ "sky-2": "#3cc4fe",
+ "sky-3": "#86dcff",
+ "sky-4": "#c8f0ff",
+ "coral-0": "#a10f18",
+ "coral-1": "#d52120",
+ "coral-2": "#fa302a",
+ "coral-3": "#fc6650",
+ "coral-4": "#fe9d88",
+ "amber-0": "#b44a04",
+ "amber-1": "#fc6e0e",
+ "amber-2": "#fd9b1c",
+ "amber-3": "#fdc126",
+ "amber-4": "#fddf35",
+ "amber-5": "#fff3a8",
+ "ochre-0": "#a2620c",
+ "ochre-1": "#d48d16",
+ "ochre-2": "#f0b52a",
+ "ochre-3": "#f8d258",
+ "ochre-4": "#fce9a0",
+ "bone-0": "#d6e2f2",
+ "bone-1": "#eaf2fc",
+ "bone-2": "#fbfdff",
+ "signal-0": "#b80e24",
+ "signal-1": "#fa302a",
+ "violet-0": "#3a0f96",
+ "violet-1": "#5a1cd2",
+ "violet-2": "#932efc",
+ "violet-3": "#b46cfd",
+ "violet-4": "#d8afff",
+ "magenta-0": "#900a6c",
+ "magenta-1": "#c80f94",
+ "magenta-2": "#fb17b8",
+ "magenta-3": "#fc63cf",
+ "magenta-4": "#fdafe7"
+};
+
+/** which palette is live ('A' = docs/HOUSE_STYLE.md, 'lantern' = the previous look) */
+export const PALETTE: 'A' | 'lantern' = 'A';
+export const TOKENS: Record<string, string> = PALETTE === 'A' ? STYLE_A_TOKENS : {...LANTERN_TOKENS};

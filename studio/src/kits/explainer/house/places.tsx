@@ -28,6 +28,7 @@ import {c, mixOk, rgba} from './color';
 import {closedSpline, openSpline} from './geom';
 import {noise1, rand, rng} from './rng';
 import {Specks as SpeckField} from './atmosphere';
+import {FLAT} from './style';
 
 const num = (v: unknown, d: number) => (typeof v === 'number' && Number.isFinite(v) ? v : d);
 const str = (v: unknown, d: string) => (typeof v === 'string' ? v : d);
@@ -35,8 +36,11 @@ const uid = (s: string) => 'p' + s.replace(/[^a-zA-Z0-9_-]/g, '');
 
 // board fields: [top, middle, bottom, glow, mote tints]
 const FIELDS: Record<string, [string, string, string, string, string[]]> = {
-	blue: ['#2a8ff0', '#1650d2', '#0a2a8c', 'tide-5', ['tide-5', 'sky-4']],
-	navy: ['#13328e', '#0b1f66', '#050f3c', 'sky-3', ['sky-4', 'tide-5']],
+	blue: FLAT ? ['tide-0', 'tide-0', 'tide-0', 'tide-5', ['tide-4', 'sky-4']] : ['#2a8ff0', '#1650d2', '#0a2a8c', 'tide-5', ['tide-5', 'sky-4']],
+	navy: FLAT ? ['ink-1', 'ink-1', 'ink-1', 'sky-3', ['sky-3', 'violet-3']] : ['#13328e', '#0b1f66', '#050f3c', 'sky-3', ['sky-4', 'tide-5']],
+	// style A: a flat sky-cyan board (reads clearly apart from the royal open water around it)
+	cyan: ['sky-1', 'sky-1', 'sky-1', 'bone-2', ['bone-2', 'sky-4']],
+	violet: ['violet-1', 'violet-1', 'violet-1', 'violet-3', ['violet-4', 'bone-1']],
 	ink: [mixOk('ink-3', 'ink-2', 0.5), 'ink-2', 'ink-0', 'tide-4', ['bone-1', 'tide-5']],
 	dusk: ['dusk-3', 'dusk-2', 'dusk-0', 'sky-3', ['bone-1', 'sky-4']],
 	kelp: [mixOk('kelp-2', 'kelp-1', 0.4), 'kelp-1', 'kelp-0', 'kelp-4', ['bone-1', 'amber-5']],
@@ -68,8 +72,8 @@ export const Board: KitComponent = ({props: p, time, width: W, height: H}) => {
 					<stop offset="1" stopColor={rgba('ink-0', 0.45)} />
 				</radialGradient>
 			</defs>
-			<rect width={W} height={H} fill={`url(#${id}f)`} />
-			<rect width={W} height={H} fill={`url(#${id}g)`} />
+			{FLAT ? <rect width={W} height={H} fill={c(f[1])} /> : <rect width={W} height={H} fill={`url(#${id}f)`} />}
+			{FLAT ? null : <rect width={W} height={H} fill={`url(#${id}g)`} />}
 			{typeof p.surface === 'number' ? (
 				<g>
 					{Array.from({length: Math.round(num(p.rays, 0))}, (_, i) => {
@@ -77,8 +81,8 @@ export const Board: KitComponent = ({props: p, time, width: W, height: H}) => {
 						const w = 50 + 40 * rand(`${seed}r`, i);
 						return <path key={i} d={`M ${x - w / 2} ${(p.surface as number) * H} L ${x + w / 2} ${(p.surface as number) * H} L ${x + w * 1.6 + 120} ${H * 0.62} L ${x + w * 0.4 + 120} ${H * 0.62} Z`} fill={rgba('tide-5', 0.07 + 0.04 * Math.sin(time * 0.7 + i))} />;
 					})}
-					<rect x={0} y={0} width={W} height={(p.surface as number) * H} fill={c('tide-4')} />
-					<rect x={0} y={(p.surface as number) * H - 4} width={W} height={8} fill={c('tide-5')} opacity={0.85} />
+					<rect x={0} y={0} width={W} height={(p.surface as number) * H} fill={c(FLAT ? 'sky-1' : 'tide-4')} />
+					<rect x={0} y={(p.surface as number) * H - 4} width={W} height={8} fill={c(FLAT ? 'bone-2' : 'tide-5')} opacity={0.85} />
 				</g>
 			) : null}
 			{Array.from({length: Math.round(num(p.lanes, 0))}, (_, i) => {
@@ -99,8 +103,8 @@ export const Board: KitComponent = ({props: p, time, width: W, height: H}) => {
 					<line x1={W * 0.06} y1={floor} x2={W * 0.94} y2={floor} stroke={rgba('bone-1', 0.28)} strokeWidth={4} strokeLinecap="round" />
 				</g>
 			) : null}
-			<SpeckField t={time} seed={`${seed}m`} n={Math.round(num(p.motes, 70))} area={[0, 0, W, H]} size={[2.5, 6]} tints={f[4]} drift={[3, -4]} opacity={[0.1, 0.32]} />
-			<rect width={W} height={H} fill={`url(#${id}v)`} />
+			<SpeckField t={time} seed={`${seed}m`} n={Math.round(num(p.motes, FLAT ? 26 : 70))} area={[0, 0, W, H]} size={FLAT ? [4, 8] : [2.5, 6]} tints={f[4]} drift={[3, -4]} opacity={FLAT ? [0.25, 0.45] : [0.1, 0.32]} />
+			{FLAT ? null : <rect width={W} height={H} fill={`url(#${id}v)`} />}
 		</svg>
 	);
 };
@@ -153,8 +157,8 @@ export const IceField: KitComponent = ({props: p, time: t, width: W, height: H})
 			</defs>
 			{sun !== null ? (
 				<g>
-					<circle cx={sun} cy={wl - 70} r={150} fill={`url(#${id}h)`} />
-					<circle cx={sun} cy={wl - 70} r={52} fill={c('amber-5')} />
+					{FLAT ? <circle cx={sun} cy={wl - 70} r={84} fill={c('amber-4')} opacity={0.28} /> : <circle cx={sun} cy={wl - 70} r={150} fill={`url(#${id}h)`} />}
+					<circle cx={sun} cy={wl - 70} r={52} fill={c(FLAT ? 'amber-4' : 'amber-5')} />
 					{[0, 1, 2, 3, 4].map((i) => {
 						const w = 150 - i * 24 + 10 * Math.sin(t * 1.3 + i);
 						return <rect key={i} x={sun - w / 2} y={wl + 8 + i * 13} width={w} height={4} rx={2} fill={c('amber-4')} opacity={0.7 - i * 0.11} />;
@@ -166,7 +170,7 @@ export const IceField: KitComponent = ({props: p, time: t, width: W, height: H})
 				<g key={b.k}>
 					<path d={tabular(b.k, b.x, wl, b.w, b.h)} fill={far} />
 					<path d={tabular(b.k, b.x + b.w * 0.18, wl, b.w * 0.64, b.h * 0.72)} fill={farSide} opacity={0.75} />
-					<rect x={b.x - b.w * 0.45} y={wl + 3} width={b.w * 0.9} height={b.h * 2.4} fill={`url(#${id}k)`} />
+					{FLAT ? <rect x={b.x - b.w * 0.42} y={wl + 3} width={b.w * 0.84} height={b.h * 1.4} rx={b.h * 0.5} fill={c('dusk-3')} opacity={0.45} /> : <rect x={b.x - b.w * 0.45} y={wl + 3} width={b.w * 0.9} height={b.h * 2.4} fill={`url(#${id}k)`} />}
 				</g>
 			))}
 			{/* brash ice and pancake floes on the surface, each with its pale underwater part, bobbing */}
@@ -224,8 +228,17 @@ export const IceFloe: KitComponent = ({props: p, width: W, height: H}) => {
 					<stop offset="1" stopColor={rgba('tide-4', 0.08)} />
 				</linearGradient>
 			</defs>
-			<path d={keel} fill={`url(#${id}k)`} />
-			<path d={front} fill={`url(#${id}f)`} />
+			<path d={keel} fill={FLAT ? c('dusk-3') : `url(#${id}k)`} opacity={FLAT ? 0.55 : 1} />
+			<path d={front} fill={FLAT ? c('tide-4') : `url(#${id}f)`} />
+			{FLAT ? (
+				// one flat shadow shape: the face away from the (upper-left) light
+				<g>
+					<clipPath id={`${id}fc`}>
+						<path d={front} />
+					</clipPath>
+					<rect x={x0 + (x1 - x0) * 0.6} y={0} width={(x1 - x0) * 0.45} height={H} fill={c('sky-2')} clipPath={`url(#${id}fc)`} />
+				</g>
+			) : null}
 			{cracks.map((d, i) => (
 				<path key={i} d={d} stroke={c('sky-2')} strokeWidth={3} opacity={0.55} fill="none" strokeLinecap="round" />
 			))}
@@ -250,9 +263,9 @@ export const Coast: KitComponent = ({props: p, time: t, width: W, height: H}) =>
 		}
 		return `${openSpline(pts)} L ${x1} ${wl + 2} L ${x0} ${wl + 2} Z`;
 	};
-	const far = mixOk('sky-3', 'dusk-3', 0.25);
-	const mid = mixOk('kelp-1', 'dusk-2', 0.55);
-	const head = mixOk('ochre-1', 'kelp-0', 0.45);
+	const far = FLAT ? c('dusk-4') : mixOk('sky-3', 'dusk-3', 0.25);
+	const mid = FLAT ? c('violet-2') : mixOk('kelp-1', 'dusk-2', 0.55);
+	const head = FLAT ? c('violet-1') : mixOk('ochre-1', 'kelp-0', 0.45);
 	const kind = str(p.kind, 'cliffs');
 	const sun = typeof p.sun === 'number' ? p.sun * W : null;
 	const hx = cliffs ? W * 0.08 : W * 0.02;
@@ -269,16 +282,17 @@ export const Coast: KitComponent = ({props: p, time: t, width: W, height: H}) =>
 			</defs>
 			{sun !== null ? (
 				<g>
-					<circle cx={sun} cy={wl - 10} r={170} fill={`url(#${seed.replace(/[^a-zA-Z0-9]/g, '')}sh)`} />
+					{FLAT ? <circle cx={sun} cy={wl - 10} r={92} fill={c('amber-4')} opacity={0.3} /> : <circle cx={sun} cy={wl - 10} r={170} fill={`url(#${seed.replace(/[^a-zA-Z0-9]/g, '')}sh)`} />}
 					<circle cx={sun} cy={wl - 10} r={58} fill={c('amber-4')} />
+					{FLAT ? [0, 1, 2, 3].map((i) => <rect key={i} x={sun - (120 - i * 24) / 2} y={wl + 10 + i * 14} width={120 - i * 24} height={5} rx={2.5} fill={c('amber-4')} opacity={0.8 - i * 0.15} />) : null}
 				</g>
 			) : null}
 			<path d={range(`${seed}f`, W * 0.25, W * 1.1, H * 0.035, 0.6)} fill={far} />
 			{kind === 'rock' ? (
 				<g>
 					{/* one tall limestone rock on the right, a white town strip along the shore under it */}
-					<path d={`M ${W * 0.62} ${wl + 2} C ${W * 0.66} ${wl - H * 0.03} ${W * 0.7} ${wl - H * 0.075} ${W * 0.76} ${wl - H * 0.09} C ${W * 0.79} ${wl - H * 0.095} ${W * 0.81} ${wl - H * 0.06} ${W * 0.86} ${wl - H * 0.035} C ${W * 0.9} ${wl - H * 0.02} ${W * 0.95} ${wl - H * 0.01} ${W * 0.99} ${wl + 2} Z`} fill={mixOk('ochre-2', 'sky-2', 0.45)} />
-					<path d={`M ${W * 0.76} ${wl - H * 0.09} C ${W * 0.79} ${wl - H * 0.095} ${W * 0.81} ${wl - H * 0.06} ${W * 0.86} ${wl - H * 0.035} L ${W * 0.84} ${wl + 2} L ${W * 0.74} ${wl + 2} Z`} fill={mixOk('ochre-1', 'sky-1', 0.5)} />
+					<path d={`M ${W * 0.62} ${wl + 2} C ${W * 0.66} ${wl - H * 0.03} ${W * 0.7} ${wl - H * 0.075} ${W * 0.76} ${wl - H * 0.09} C ${W * 0.79} ${wl - H * 0.095} ${W * 0.81} ${wl - H * 0.06} ${W * 0.86} ${wl - H * 0.035} C ${W * 0.9} ${wl - H * 0.02} ${W * 0.95} ${wl - H * 0.01} ${W * 0.99} ${wl + 2} Z`} fill={FLAT ? c('violet-2') : mixOk('ochre-2', 'sky-2', 0.45)} />
+					<path d={`M ${W * 0.76} ${wl - H * 0.09} C ${W * 0.79} ${wl - H * 0.095} ${W * 0.81} ${wl - H * 0.06} ${W * 0.86} ${wl - H * 0.035} L ${W * 0.84} ${wl + 2} L ${W * 0.74} ${wl + 2} Z`} fill={FLAT ? c('violet-1') : mixOk('ochre-1', 'sky-1', 0.5)} />
 					{Array.from({length: 26}, (_, i) => {
 						const x = W * (0.04 + 0.6 * rand(`${seed}t`, i));
 						const h = 8 + 14 * rand(`${seed}th`, i);
@@ -292,13 +306,17 @@ export const Coast: KitComponent = ({props: p, time: t, width: W, height: H}) =>
 			{cliffs ? (
 				<g>
 					<path d={`M ${hx - 40} ${wl + 2} L ${hx - 40} ${wl - hh * 0.7} C ${hx + hw * 0.2} ${wl - hh * 1.05} ${hx + hw * 0.6} ${wl - hh} ${hx + hw * 0.82} ${wl - hh * 0.82} L ${hx + hw * 0.9} ${wl - hh * 0.2} L ${hx + hw} ${wl + 2} Z`} fill={head} />
-					<path d={`M ${hx + hw * 0.82} ${wl - hh * 0.82} L ${hx + hw * 0.9} ${wl - hh * 0.2} L ${hx + hw} ${wl + 2} L ${hx + hw * 0.86} ${wl + 2} Z`} fill={mixOk(head, 'ink-1', 0.35)} />
-					<path d={`M ${hx - 40} ${wl - hh * 0.7} C ${hx + hw * 0.2} ${wl - hh * 1.05} ${hx + hw * 0.6} ${wl - hh} ${hx + hw * 0.82} ${wl - hh * 0.82}`} stroke={mixOk('kelp-2', 'ochre-2', 0.5)} strokeWidth={6} fill="none" />
+					<path d={`M ${hx + hw * 0.82} ${wl - hh * 0.82} L ${hx + hw * 0.9} ${wl - hh * 0.2} L ${hx + hw} ${wl + 2} L ${hx + hw * 0.86} ${wl + 2} Z`} fill={FLAT ? c('violet-0') : mixOk(head, 'ink-1', 0.35)} />
+					<path d={`M ${hx - 40} ${wl - hh * 0.7} C ${hx + hw * 0.2} ${wl - hh * 1.05} ${hx + hw * 0.6} ${wl - hh} ${hx + hw * 0.82} ${wl - hh * 0.82}`} stroke={FLAT ? c('kelp-2') : mixOk('kelp-2', 'ochre-2', 0.5)} strokeWidth={FLAT ? 16 : 6} strokeLinecap="round" fill="none" />
 					{lighthouse ? (
 						<g>
-							<rect x={hx + hw * 0.3} y={wl - hh * 1.0 - 46} width={14} height={46} fill={c('bone-2')} />
-							<rect x={hx + hw * 0.3} y={wl - hh * 1.0 - 34} width={14} height={8} fill={c('signal-1')} />
-							<rect x={hx + hw * 0.3 - 3} y={wl - hh * 1.0 - 54} width={20} height={9} fill={c('ink-2')} />
+							<rect x={hx + hw * 0.3} y={wl - hh * 1.0 - 70} width={24} height={70} rx={4} fill={c('bone-2')} />
+							<rect x={hx + hw * 0.3} y={wl - hh * 1.0 - 52} width={24} height={13} fill={c('signal-1')} />
+							<rect x={hx + hw * 0.3} y={wl - hh * 1.0 - 26} width={24} height={13} fill={c('signal-1')} />
+							<rect x={hx + hw * 0.3 - 4} y={wl - hh * 1.0 - 84} width={32} height={15} rx={4} fill={c('amber-4')} />
+							<path d={`M ${hx + hw * 0.3 - 6} ${wl - hh * 1.0 - 84} L ${hx + hw * 0.3 + 12} ${wl - hh * 1.0 - 100} L ${hx + hw * 0.3 + 30} ${wl - hh * 1.0 - 84} Z`} fill={c('coral-2')} />
+							<rect x={hx + hw * 0.45} y={wl - hh * 1.0 - 30} width={52} height={30} fill={c('bone-2')} />
+							<path d={`M ${hx + hw * 0.45 - 6} ${wl - hh * 1.0 - 30} L ${hx + hw * 0.45 + 26} ${wl - hh * 1.0 - 50} L ${hx + hw * 0.45 + 58} ${wl - hh * 1.0 - 30} Z`} fill={c('magenta-2')} />
 						</g>
 					) : null}
 				</g>

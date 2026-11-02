@@ -22,7 +22,7 @@ place it names):
   cue        the narration word that motivates the setting (named place / implied place); the segment may start at
              most CUE_EARLY s before that word is spoken (nothing appears before the narration names it)
   at         scene-local start (seconds, or "@word" / "@word#2" / "@word+0.3" resolved against the scene's words)
-  board      board field colour (navy | blue | ink | dusk | kelp | amber | coral | sky); default chosen by fill();
+  board      board field colour (navy | blue | cyan | violet | ink | dusk | kelp | amber | coral | sky); default by fill();
              boards also take surface (0..1 y of a water-surface band), rays, lanes (swim-lane ropes), floor
   key        preferred Ocean key ramp for a place (must be one of the biome's keys)
   coast      {"kind": "cliffs" | "hills" | "rock", "lighthouse": bool} a coastline on the horizon (needs a waterline)
@@ -74,7 +74,7 @@ BIOMES: dict[str, dict] = {
             "lights": LIGHTS},
 }
 # water boards (blue, navy) are the owner's pick for the orca look (experiments/asset-gen/gen/orca_set_01/02/07)
-BOARD_FIELDS = ("navy", "blue", "ink", "dusk", "kelp", "amber", "coral", "sky")
+BOARD_FIELDS = ("navy", "blue", "cyan", "violet", "ink", "dusk", "kelp", "amber", "coral", "sky")
 
 # where a dressing component may sit relative to the waterline: water (fully under it), floor (under it, a seabed
 # biome), surface (straddles it, locked to the background plane), sky (above it), any (boards: full frame)
