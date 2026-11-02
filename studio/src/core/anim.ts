@@ -1,4 +1,4 @@
-import {Easing, random} from 'remotion';
+import {Easing, random, spring} from 'remotion';
 import type {Anim, Coord, EaseName, Idle, Keyframe} from './schema';
 
 export const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
@@ -63,9 +63,41 @@ export type AnimState = {
 	scale: number;
 	opacity: number;
 	clip?: string;
+	/** extra per-axis scale (squash & stretch); 1 = none */
+	sx?: number;
+	sy?: number;
+	/** squash pivot as a fraction of the layer height (1 = bottom edge stays put) */
+	pivotY?: number;
 };
 
 const NEUTRAL: AnimState = {dx: 0, dy: 0, scale: 1, opacity: 1};
+
+// house-style springs (STYLE_BIBLE §9.2): pop = 10-25 % overshoot, landing = a settle with one small overshoot
+const POP_SPRING = {damping: 10, stiffness: 220, mass: 0.5};
+const LAND_SPRING = {damping: 11, stiffness: 180, mass: 0.6};
+/** narrowest a popping layer may draw, as a fraction of its rest width (the YOU-pop fix: no pencil-thin frames) */
+export const POP_MIN_WIDTH = 0.6;
+
+/**
+ * popSpring scale at `ts` seconds after the pop starts: both axes together (never one axis leading the other), floored
+ * at POP_MIN_WIDTH so the first visible frame is already a recognisable shape, then a spring with overshoot.
+ */
+export function popSpringScale(ts: number): number {
+	if (ts <= 0) return POP_MIN_WIDTH;
+	return Math.max(POP_MIN_WIDTH, spring({frame: ts * 30, fps: 30, config: POP_SPRING}));
+}
+
+/** dropSquash state at `ts` seconds after release: gravity fall over `fall` s, stretch, then a landing squash. */
+export function dropSquashAt(ts: number, distance: number, fall = 0.22, squash = 0.2): {dy: number; sx: number; sy: number} {
+	if (ts < fall) {
+		const u = Math.max(0, ts) / fall;
+		const sy = 1 + Math.min(0.12, 0.12 * u); // stretch along the fall
+		return {dy: -distance * (1 - u * u), sx: 1 / Math.sqrt(sy), sy};
+	}
+	const s = spring({frame: (ts - fall) * 30, fps: 30, config: LAND_SPRING});
+	const sy = 1 - squash * (1 - s);
+	return {dy: 0, sx: 1 / Math.sqrt(Math.max(0.5, sy)), sy};
+}
 
 /** p = 0 means hidden, 1 means fully shown. */
 function animAt(a: Anim, p: number): AnimState {
@@ -94,6 +126,17 @@ function animAt(a: Anim, p: number): AnimState {
 			return {...NEUTRAL, clip: `inset(0 0 ${(1 - e) * 100}% 0)`};
 		case 'drop':
 			return {...NEUTRAL, opacity: clamp01(p * 4), dy: -(1 - ease('bounce', p)) * d};
+		case 'popSpring': {
+			const ts = p * a.duration;
+			const k = popSpringScale(ts);
+			return {...NEUTRAL, opacity: p <= 0 ? 0 : clamp01(ts / 0.1), sx: k, sy: k};
+		}
+		case 'dropSquash': {
+			const ts = p * a.duration;
+			const fall = Math.min(0.22, a.duration * 0.4);
+			const st = dropSquashAt(ts, d, fall);
+			return {...NEUTRAL, opacity: p <= 0 ? 0 : clamp01(ts / 0.066), dy: st.dy, sx: st.sx, sy: st.sy, pivotY: 1};
+		}
 	}
 }
 
@@ -120,6 +163,9 @@ export function enterExit(
 				scale: s.scale * x.scale,
 				opacity: s.opacity * x.opacity,
 				clip: x.clip ?? s.clip,
+				sx: (s.sx ?? 1) * (x.sx ?? 1),
+				sy: (s.sy ?? 1) * (x.sy ?? 1),
+				pivotY: x.pivotY ?? s.pivotY,
 			};
 		}
 	}

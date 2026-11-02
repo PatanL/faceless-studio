@@ -4,6 +4,7 @@ import {enterExit, idleAt, px, sample, sortByT} from './anim';
 import {asset, getComponent, MissingComponent} from './registry';
 import type {Layer, Theme} from './schema';
 import {fontFamily} from './fonts';
+import {LayerXfProvider} from './light';
 
 export type LayerCtx = {
 	t: number; // scene-local seconds
@@ -48,6 +49,11 @@ export const LayerView: React.FC<{layer: Layer; ctx: LayerCtx; index: number}> =
 	const finalOpacity = opacity * ee.opacity;
 	if (finalOpacity <= 0.001) return null;
 
+	// squash & stretch (popSpring / dropSquash): per-axis scale, optionally about the layer's bottom edge
+	const esx = ee.sx ?? 1;
+	const esy = ee.sy ?? 1;
+	const pivotDy = ee.pivotY !== undefined && h ? (ee.pivotY - ay) * h * scale * ee.scale * sy * (1 - esy) : 0;
+
 	const filters: string[] = [];
 	if (layer.blur) filters.push(`blur(${layer.blur}px)`);
 	if (layer.shadow) filters.push(`drop-shadow(${layer.shadow})`);
@@ -62,16 +68,20 @@ export const LayerView: React.FC<{layer: Layer; ctx: LayerCtx; index: number}> =
 		transformOrigin: `${ax * 100}% ${ay * 100}%`,
 		transform: [
 			`translate(${-ax * 100}%, ${-ay * 100}%)`,
-			`translate(${ee.dx + idle.dx}px, ${ee.dy + idle.dy}px)`,
+			`translate(${ee.dx + idle.dx}px, ${ee.dy + idle.dy + pivotDy}px)`,
 			`rotate(${rotate + idle.rotate}deg)`,
-			`scale(${scale * ee.scale * sx * idle.sx * fx}, ${scale * ee.scale * sy * idle.sy})`,
+			`scale(${scale * ee.scale * sx * esx * idle.sx * fx}, ${scale * ee.scale * sy * esy * idle.sy})`,
 		].join(' '),
 		filter: filters.length ? filters.join(' ') : undefined,
 		mixBlendMode: layer.blend as React.CSSProperties['mixBlendMode'],
 		clipPath: ee.clip,
 	};
 
-	return <div style={style}>{renderBody(layer, ctx, w ?? 0, h ?? 0)}</div>;
+	return (
+		<div style={style}>
+			<LayerXfProvider value={{flipX: layer.flipX, rotate: rotate + idle.rotate}}>{renderBody(layer, ctx, w ?? 0, h ?? 0)}</LayerXfProvider>
+		</div>
+	);
 };
 
 function renderBody(layer: Layer, ctx: LayerCtx, w: number, h: number): React.ReactNode {

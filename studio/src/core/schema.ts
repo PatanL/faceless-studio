@@ -63,6 +63,10 @@ export const AnimType = z.enum([
 	'wipeRight',
 	'wipeDown',
 	'drop',
+	// house-style motion (STYLE_BIBLE §9.2): a uniform spring pop that never draws thinner than 60 % of rest width
+	// (fixes the polish-2d YOU glitch), and a gravity drop with a volume-keeping landing squash about the layer bottom
+	'popSpring',
+	'dropSquash',
 ]);
 export const Anim = z.object({
 	type: AnimType.default('fade'),
@@ -108,6 +112,11 @@ const layerBase = {
 	blur: z.number().min(0).optional().describe('px'),
 	shadow: z.string().optional().describe('CSS drop-shadow() arguments, e.g. "0 20px 30px rgba(0,0,0,.5)"'),
 	blend: z.string().optional().describe('CSS mix-blend-mode'),
+	role: z
+		.enum(['hero', 'prop', 'label', 'dressing', 'fx'])
+		.optional()
+		.describe('Staging role for the build checker (pipeline/episodes/staging.py); ignored by the renderer. Default: inferred'),
+	allowOverlap: z.boolean().optional().describe('Staging checker: this layer may touch the hero on purpose (contact beats)'),
 };
 
 export const RectLayer = z.object({
@@ -245,6 +254,12 @@ export const Shake = z.object({
 	decay: z.boolean().default(true),
 });
 
+export const CameraDrift = z.object({
+	zoom: z.number().default(0).describe('Zoom change per second (0.008 = +0.8 %/s)'),
+	x: z.number().default(0).describe('World px per second'),
+	y: z.number().default(0).describe('World px per second'),
+});
+
 export const Camera = z.object({
 	preset: z
 		.enum(['none', 'pushIn', 'pullOut', 'panLeft', 'panRight', 'panUp', 'panDown', 'drift'])
@@ -253,6 +268,12 @@ export const Camera = z.object({
 	amount: z.number().default(1).describe('Preset strength multiplier'),
 	keyframes: z.array(CameraKeyframe).default([]),
 	shake: z.array(Shake).default([]),
+	drift: CameraDrift.optional().describe('Never-still drift added on top of keyframes (STYLE_BIBLE §9.4)'),
+	preroll: z
+		.number()
+		.min(0)
+		.optional()
+		.describe('Seconds: the first keyframe move is already under way at its first key (eased as if it began this much earlier)'),
 });
 export type Camera = z.infer<typeof Camera>;
 
@@ -384,6 +405,22 @@ export const Captions = z.object({
 });
 export type Captions = z.infer<typeof Captions>;
 
+// ---------------------------------------------------------------- light (explainer house style, STYLE_BIBLE §4.1 / §5.1)
+
+const Token = z.string().describe('House palette token ("amber-4") or #hex');
+export const SceneLight = z.object({
+	setup: z.enum(['lantern', 'daylight', 'cold', 'stellar']).default('lantern'),
+	angle: z.number().optional().describe('Degrees of the direction TOWARD the key, screen space (0 = right, -90 = up). Default by setup'),
+	sweep: z.number().default(0).describe('Degrees the key turns over the scene (light as an actor, <= 15)'),
+	rimAngle: z.number().optional().describe('Direction toward the back (rim) light; default opposite-ish to the key'),
+	keyColor: Token.optional(),
+	rimColor: Token.optional(),
+	ambient: Token.optional(),
+	ground: Token.optional(),
+	haze: Token.optional(),
+});
+export type SceneLight = z.infer<typeof SceneLight>;
+
 // ---------------------------------------------------------------- scene / storyboard
 
 export const Scene = z.object({
@@ -397,6 +434,7 @@ export const Scene = z.object({
 	grade: Grade.optional(),
 	sfx: z.array(SfxCue).default([]).describe('Scene-local sound cues'),
 	notes: z.string().optional().describe('Narration / intent, ignored by the renderer'),
+	light: SceneLight.optional().describe('One light model for every shaded object in the scene (explainer house style)'),
 	captionY: z.number().min(0).max(1).optional().describe('Caption centre (fraction of height) while this scene plays; overrides captions.style.y'),
 	captionYAt: z
 		.array(z.object({at: z.number().describe('Scene-local seconds'), y: z.number().min(0).max(1)}))

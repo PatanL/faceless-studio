@@ -6,6 +6,7 @@ import {LayerView, type LayerCtx} from './layers';
 import {asset, getComponent, MissingComponent} from './registry';
 import type {Background, Format, Scene, SceneTiming, Theme} from './schema';
 import {transitionLook} from './transitions';
+import {SceneLightProvider} from './light';
 
 const plane: React.CSSProperties = {position: 'absolute', left: 0, top: 0, transformOrigin: '0 0'};
 
@@ -44,6 +45,7 @@ export const SceneView: React.FC<{
 	}
 
 	return (
+		<SceneLightProvider value={{spec: scene.light ?? null, t, duration: scene.duration}}>
 		<AbsoluteFill style={{overflow: 'hidden', ...look.style}}>
 			{look.filter ? (
 				<svg width={0} height={0} style={{position: 'absolute'}}>
@@ -75,6 +77,7 @@ export const SceneView: React.FC<{
 			{look.flash > 0 ? <AbsoluteFill style={{background: '#fff', opacity: look.flash}} /> : null}
 			{look.black > 0 ? <AbsoluteFill style={{background: '#000', opacity: look.black}} /> : null}
 		</AbsoluteFill>
+		</SceneLightProvider>
 	);
 };
 
