@@ -1,0 +1,19 @@
+{
+  "name": "three-lane",
+  "private": true,
+  "version": "0.0.1",
+  "description": "3D render-cost feasibility test for the story lane (@remotion/three, toon set, ink + lens blur)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "@remotion/cli": "4.0.539",
+    "@remotion/three": "4.0.539",
+    "postprocessing": "6.39.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539",
+    "three": "0.186.1"
+  }
+}
