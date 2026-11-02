@@ -3,9 +3,9 @@
 // the caption band over the cabinet. Run: node scripts/framing.mjs <storyboard.json> (bundled with esbuild).
 import fs from "fs";
 import * as THREE from "three";
-import { Timing } from "../src/turk/timing";
+import { Timing } from "../src/kit/timing";
 import { buildStory } from "../src/turk/story";
-import { CamPath } from "../src/turk/campath";
+import { CamPath } from "../src/kit/campath";
 
 const W = 1080, H = 1920, FPS = 30;
 const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least this many frames

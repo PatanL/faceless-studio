@@ -4,8 +4,8 @@
 // slides behind the false gear panel, reads iron markers under the board and works a lever up to the Turk's arm.
 // The automaton itself is a stick-kit card (Turk figureOnly) seated behind the board; anchors for it are below.
 import * as THREE from "three";
-import { lambert, glowSprite } from "./sets";
-import { cabinetWood, brass } from "./paint2";
+import { lambert, glowSprite } from "../kit/sets";
+import { cabinetWood, brass } from "../kit/paint2";
 import { NOINK } from "../ink";
 import { Chess3D } from "./chess3d";
 

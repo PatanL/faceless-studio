@@ -3,7 +3,7 @@
 // every piece off the board to the floor. Hands (the Turk's wooden glove, a player's glove) are cards that come in
 // from the player's side, carry the piece and leave with a slow start (no snaps).
 import * as THREE from "three";
-import { lambert } from "./sets";
+import { lambert } from "../kit/sets";
 import { NOINK } from "../ink";
 
 export const SQ = 0.06;                        // square size, m
