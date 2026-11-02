@@ -158,3 +158,165 @@ python3 -I scripts/orca_sbs.py ../../out/detail-pass/sbs.jpg ../../out/kurz-engi
 ```
 
 `remotion.config.ts` aliases `react` and `react-dom` to this project's copy, and `tsconfig.json` maps their types. That way the JSON and any code imported from outside the entry folder never pull in a second React.
+
+---
+
+# Judge verdict: `orca_open_detail.mp4` (r3) vs v3 (59)
+
+Strict pass with `kurz-style/JUDGE_RUBRIC.md` (revised identity gate), 2026-11-01. Judged from frames, not descriptions:
+- full-res frames of both clips at 0, 1, 2, 3.5, 5, 6.5, 8 and 9.6 s, side by side;
+- 2× crops of the hero head (3.5 s) and tail (5 s) next to v3's;
+- 0.25 s strips over 2.0–4.0 s and 6.5–8.5 s;
+- the Kurzgesagt targets `D_0126_reef`, `D_0056_shallows-sub`, `W_0222_whale` and `D_0630_dumbo-octopus`.
+
+The metrics are `data/orca_r3/` and `data/orca_v3ref/`. I did not re-run them.
+
+**Checks I did re-run:**
+- Both clips decode to **291 frames / 9.7 s**, not 292 / 9.733 s. They match each other, so the A/B is still fair.
+- The audio MD5 is identical (`621ed4f7…`).
+- Not re-run: the D5 "type only" ablation and `motion_pair.sh`.
+
+## Score: **59 / 100, the same as v3. TIS tier.**
+
+| category | max | v3 | **detail r3** | why |
+|---|---|---|---|---|
+| 2.1 illustration | 20 | 12 | **13** | **Better than v3:**<ul><li>The hero now has a head mass, a socketed eye, a gum line with teeth, a throat patch, a grey saddle and 187 marks that read as rake texture.</li></ul>**Defects at 2×:**<ul><li>The cyan rim is an even-width line around the jaw, throat, belly and near flipper. It reads as an **outline**.</li><li>The throat patch is a hard polygon.</li><li>The flipper root shows a pale cuff with a ring seam.</li><li>The dorsal root has a notch sliver (5 s).</li><li>The edge-on fluke at 5–6.5 s reads as a **needle**, with a step where it joins the peduncle.</li><li>Supporting objects are weak: the kelp blades are flat, unshaded olive lozenges, and the boulders are loaves with camo-sticker colour patches.</li></ul> |
+| 2.2 lighting | 12 | 8 | **8** | One key from the upper left; the rays agree with it. The kelp blades take no light. The light event still can't be read at phone size. |
+| 2.3 depth | 12 | 8 | **8** | The upper frame is now filled: kelp columns on 2–3 hazed planes, plus herring. But the lower third is big flat teal rock slabs. The soft cropped foreground appears in < 60 % of frames. |
+| 2.4 colour | 10 | 5 | **4** | Capped at 6: P4 0.065 (worse than v3's 0.055) and P5 2. The frame is almost all teal and olive. The warm masses (coral, tube sponges) that v3 had are mostly gone or below the caption line. Next to `D_0126` it reads as desaturated. |
+| 2.5 detail | 10 | 6 | **6** | Capped at 6 because D5 fails (0.052). Without the cap I would give 7: ≥ 15 named objects, ≥ 150 specks, and the densest detail sits on the hero. It stays short of 8 because the kelp blades are stamped from one lozenge and detail is spread across the frame rather than concentrated. |
+| 2.6 motion | 14 | 8 | **8** | Same blocking as v3, so the same defects:<ul><li>a near-hold at 2.25–3.0 s;</li><li>**cars still pass through the orca** at 6.75 s and 7.25 s.</li></ul>The swim wave and blinks are fine. |
+| 2.7 camera | 8 | 5 | **5** | Capped at 5: M3 is 8.0 s per new composition (it fails on v3 too). There is only one transition kind. |
+| 2.8 type | 6 | 4 | **4** | Identical to v3. The YOU tag touches the caption at about 1 s. |
+| 2.9 sound | 8 | 3 | **3** | Identical mix. A1–A3 pass; there are no SFX. |
+| **total** | 100 | **59** | **59** | |
+
+**Identity gate: PASS.**
+- P1 is 1.0 and P2 is 0.
+- The orca is our own design, from our own Codex reference. The YOU figure and the kelp set are ours.
+- No reference composition coincides.
+
+**Tier gaps (all unchanged from v3):**
+
+| role | time | reference | gap |
+|---|---|---|---|
+| H | 1.0 s | `W_0000` | 2 |
+| X | 3.5 s | `D_0630` | 2 |
+| E | 0 s | `D_0126` | 2 |
+| P | 6.5 s | `W_0222` | 1 |
+
+**Net.** The hero gained a point and colour lost one. The detail work is real, but it doesn't move the score:
+- it is hidden by the D5 cap;
+- it is offset by colour loss;
+- and §8 density was never what made Kurzgesagt frames look more crafted.
+
+## §8 metrics vs Kurzgesagt (2 s grid unless noted)
+
+| metric | Kurzgesagt W / D | v3 | r3 | reading |
+|---|---|---|---|---|
+| D1 shapes | 137 / 112 | 203 | 199 | Passes the floor, but **1.5–1.8× above** Kurzgesagt, not "in range" |
+| D2 micro | 633 / 658 | 1891 | 2000 | **3× above** Kurzgesagt |
+| D3 specks | 124 / 134 (165–371 env) | 288 | 404 (227–471 per frame) | About 10 % above the env top. Yes, this is in or near range |
+| D4 edge density | 0.047 / 0.042 | 0.070 | 0.069 | Passes the 0.04–0.08 band, but **1.5× Kurzgesagt** |
+| D5 outline | 0.004 / 0.025 | 0.037 | **0.052 FAIL** | 2–13× Kurzgesagt.<ul><li>The type ablation (0.016–0.022 without type) is plausible but not re-verified.</li><li>The bright cyan rim on the orca reads as an outline by eye, but blackhat D5 doesn't count bright lines, so the metric understates this.</li></ul> |
+| named objects / env frame | 15–60 | – | 124 by manifest; about 25–35 legible by eye | PASS. Most herring are dim darts that the eye doesn't count as objects |
+| hero marks | dozens–hundreds | about 40 | 187 | PASS. In the Kurzgesagt range |
+| calm field top cluster | 33–41 % | 0.187 | 0.254 | Below range. Better than v3 |
+| P4 grey / P5 families | | 0.055 / 2 | 0.065 / 2 | Both fail, and P4 is worse |
+
+**In short:** we now exceed Kurzgesagt on edges and micro detail and match it on specks and hero marks. The remaining gap is not density: Kurzgesagt is **fewer, larger, saturated, colour-separated masses with a few crisp marks**. We are more edges at lower chroma.
+
+## What now reads at Kurzgesagt level, and what doesn't
+
+- **Reads at the tier:**
+  - The hero's mark density and rake texture at 1×.
+  - The head construction: socket, teeth and saddle.
+  - The world logic: a cold kelp forest with prey fish, no tropical corals, no shark-like far pod.
+  - The micro layer and specks.
+  - The filled upper frame.
+- **Doesn't read at the tier:**
+  - Colour breadth and saturation, which is the biggest visible gap against `D_0126`.
+  - The rim drawn as an outline.
+  - The edge-on fluke.
+  - The part seams.
+  - Kelp that reads as bamboo: no floats, no ruffle, no shading.
+  - Boulders with sticker patches.
+  - The empty slab lower third.
+  - The inherited staging and type defects.
+
+## Did the Codex assets help? Which path goes into the kit?
+
+- **Yes, for the hero, through path B (structured).** Path B gave the visible gains:
+  - the head mass, socket, throat patch and teeth;
+  - 187 measured marks that read as texture.
+  
+  It is also relightable and rigged, and the push-in held up once the eye-socket fork fix was in. **Put path B into the kit for heroes and characters**, after:
+  - tapering the rim by N·L and capping its width, so it stops reading as an outline;
+  - opening the fluke's planform with a slight yaw, or a bent pose at 5–6.5 s;
+  - closing the flipper-root cuff and the dorsal-root sliver.
+- **Path A (vectorized) was not used here and should not go into the kit as is.**
+  - Its light is baked, so it can't be relit or rigged.
+  - Its edge density is about 4× Kurzgesagt (asset-gen reef 0.17 vs 0.042–0.047), which would push D4 out of band.
+- **Where Codex can still help is the set's art direction,** not its density. The procedural set's weakness is colour and silhouette design, so a Codex plane-split reference can serve as a colour and composition target. That is untested.
+
+## Top 5 remaining gaps (can code close them?)
+
+1. **Colour script and saturation (P4 0.065, P5 2): yes, in code.**
+   - Add a sunlit golden-kelp canopy mass in the top third.
+   - Add coralline-pink crust and purple urchins as large masses above the caption line.
+   - Raise the chroma of the set to a ≥ 4-family ramp.
+   - Shift the key at the proof beat.
+2. **Hero finish at 2×: yes, in the OrcaB rig.**
+   - The rim is drawn as an outline.
+   - The fluke reads as a needle edge-on.
+   - The flipper-root cuff, the dorsal-root sliver and the polygonal throat patch need fixing.
+3. **Set-piece drawing: mostly yes, in code.**
+   - Kelp: blades need pneumatocysts, ruffled edges and the shading stack, with varied blade shapes.
+   - Boulders: the crust should be clustered marks and an edge-hugging crust band, not blobs.
+   - The lower third needs a mid-value reef mass instead of flat slabs.
+   - Codex plane references would help art direction.
+4. **Detail distribution vs Kurzgesagt (D2 3×, D4 1.5×, calm 0.25 vs 0.33–0.41): yes, in code.**
+   - Trade herring darts and thin stalks for fewer, larger colour masses.
+   - Widen the open-water gradient.
+   - Concentrate marks on the hero and at the frame edges.
+5. **Inherited staging, type and sound: mostly yes, in code.**
+   - Cars pass through the orca at 6.75–7.25 s.
+   - There is a near-hold at 2.25–3.0 s.
+   - The YOU tag touches the caption at about 1 s.
+   - The caption stroke pushes D5 to 0.052; a softer plate or halo fixes it.
+   - M3 is 8.0 s; add a composition change or a second transition kind.
+   - SFX need a licensed or CC0 library. Their placement is code.
+
+```json
+{
+  "video": "out/detail-pass/orca_open_detail.mp4",
+  "judge_date": "2026-11-01",
+  "metrics_file": "experiments/detail-pass/data/orca_r3/JUDGE_METRICS.txt",
+  "sheet": "out/detail-pass/sbs.jpg",
+  "motion_strips": [],
+  "scores": {"illustration": 13, "lighting": 8, "depth": 8, "colour": 4, "detail": 6,
+             "motion": 8, "camera": 5, "type": 4, "sound": 3},
+  "caps_applied": ["2.4 <= 6 (P4 0.065, P5 2)", "2.5 <= 6 (D5 0.052)", "2.7 <= 5 (M3 8.0 s)"],
+  "total": 59,
+  "baseline_v3_total": 59,
+  "pairs": [
+    {"role": "H", "ours_t": "0:01", "ref": "kurz-bio/stills/W_0000_tumor-creature.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:01", "bible": "§11", "note": "YOU tag touches caption"},
+                 {"t": "0:01", "bible": "§2.5", "note": "teal/olive only, low chroma"}]},
+    {"role": "X", "ours_t": "0:03.5", "ref": "kurz-bio/stills/D_0630_dumbo-octopus.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:03.5", "bible": "§4", "note": "cyan rim reads as even-width outline on jaw/throat/flipper; flipper-root cuff seam; polygonal throat patch"},
+                 {"t": "0:05", "bible": "§4", "note": "edge-on fluke reads as a needle; dorsal-root sliver"}]},
+    {"role": "E", "ours_t": "0:00", "ref": "kurz-bio/stills/D_0126_reef.jpg", "tier_gap": 2,
+     "defects": [{"t": "0:00-0:10", "bible": "§2.5", "note": "P5 2, warm masses lost vs v3"},
+                 {"t": "0:00-0:10", "bible": "§8", "note": "stamped flat kelp lozenges; sticker-patch boulders; flat slab lower third"}]},
+    {"role": "P", "ours_t": "0:06.5", "ref": "kurz-bio/stills/W_0222_whale.jpg", "tier_gap": 1,
+     "defects": [{"t": "0:06.75-0:07.25", "bible": "§9", "note": "cars pass through the orca (inherited from v3)"}]}
+  ],
+  "identity_gate": {"P1": 1.0, "P2": 0.0, "no_borrowed_designs": true, "no_tracing": true, "pass": true},
+  "tier": "TIS",
+  "codex_assets": {"helped": true, "kit_path": "B structured (heroes)", "vectorized_A": "not for kit as is: baked light, about 4x Kurzgesagt edge density"},
+  "top_fixes": ["colour script and saturated warm masses above the caption line (§2.5)",
+                "OrcaB rim taper, fluke planform, root seams (§4)",
+                "fewer, larger, shaded set masses instead of edge density (§8)"]
+}
+```
