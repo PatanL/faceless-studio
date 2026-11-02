@@ -248,3 +248,99 @@ references' ranges? The coordinator added two more on the v14 panel: set detail 
 - **frames30 jumps** are 16 (inside the 0-26 range, above the newer refs' 0-11). They come from the fast X-ray glide
   (673-678), the eye push's last frames and the match reveals.
 - **Detail:** dressing lifts a set to the refs' median, but rooms and night seas need more props than KitLab gives them.
+
+## 2026-11-02 ~15:50 UTC: kit integration of src/next, gates, and the story-vasa v15 regression
+
+**What changed in the kit.** Commits b87637b, ad1d196 and be61972; details are in
+`experiments/three-lane/src/next/INTEGRATION.md`.
+- **The Actor** is Stage's default character (`classic: true` keeps stick/Person).
+- **Lens:** `GroupSpec.lens` sets the blur per group, and the kit default goes from cInf 10 to 12.
+- **Light** accepts preset objects.
+- **Joins:** the match, push, into and outOf joins live in Episode3D.
+- **The whip** no longer fades the incoming shot in during its overlap frames. It wipes the shot in behind a feathered
+  edge over 5 frames (60 %-wide band).
+- **Reference captions** stay opt-in (`captions="ricks"`). The owner hasn't decided.
+- **Sky and water:**
+  - The sky dome and a ring of inked clouds follow the camera inside the 400 m far plane. A 1200 m dome had been
+    clipped all along, so Vasa's skies were the flat background colour.
+  - Wave strokes scroll over any `extra.water`.
+- **Labels:** world labels are kept at least 64 px tall.
+- **Gates** (`kit/gates.ts`): no hold over 4 s, no speck figures, nothing cut by the edge, and HUD readouts never
+  backwards (`kit/hud.ts` has `progress` / `steadyGauge` to build them).
+  - They fail the render in Episode3D; Vasa3D and Turk3D are set to warn.
+  - `scripts/framing.ts` runs the same gates and exits 1 on a failure.
+
+**Is the 240p ink / soft-edge miss real?** A resolution and encoder check says it isn't a real look gap. I measured
+look_stats on the same video three ways:
+
+| Copy | Vasa v15 ink · soft · acutance | KitLab v4 ink · soft |
+|---|---|---|
+| 720p | 0.585 · 6.7 % · 0.369 (8 refs: 0.54-0.66 · 3.8-14.6 % · 0.32-0.42) | 0.66 · 2.6 % |
+| Clean 240p | 0.36 · 0.22 | — |
+| YouTube-like 240p (bicubic, 120 kb/s) | 0.28 · 0.46 · 0.185 (24 refs at 240p: ≤ 0.34 · 0.26-0.55 · ~0.19) | 0.42 · 0.42 |
+
+- The 24 references only exist as YouTube 240p encodes, so ink and soft edge are compared at 720p against the 8 refs.
+- There, Vasa is in range. KitLab still has too little lens blur (soft edge 2.4 %); the per-group lens is its fix.
+
+**Regression: story-vasa v15 re-rendered on the integrated kit.**
+- Mac, 1862 frames, about 7 min (0.22 s/frame), niced 15, under the render lock. No mosaic frames.
+- Its storyboard and story file are unchanged; `episodes/*` was only read.
+- File: `experiments/three-lane/out/kitlab/vasa_v15kr.mp4` (not committed).
+- Both videos were measured with the same tools:
+  - 720p copy against the 8 refs (the PARITY_LOG method);
+  - 240p copy against the 24 refs (the rule book method).
+
+| Check (720p, 8 refs) | Range | v15 original | v15 on the kit |
+|---|---|---|---|
+| hard cuts | 0-3 | 1 | 1 |
+| frames30 jumps | 0-12 | 7 | 12 |
+| moving % · median px/f | 96.4-100 · 5.8-11.1 | 99.9 · 6.35 | 100 · 6.96 |
+| moves / 10 s | 5.1-9.6 | 9.83 (high by this measure; PARITY_LOG's method read 8.86) | 10.6 (high) |
+| quiet zoom % | 69-88 | 82.2 | 82.9 |
+| saturation · colourfulness | 0.41-0.61 · 23-34 | 0.564 · 29.2 | 0.563 · 27.9 |
+| luma p50 · non-ink p5 | 0.31-0.58 · 0.09-0.23 | 0.316 · 0.138 | 0.321 · 0.141 |
+| shadow chroma | 9-35 | 20.5 | 20.5 |
+| ink · soft · acutance | 0.54-0.66 · 3.8-14.6 % · 0.32-0.42 | 0.585 · 6.7 % · 0.369 | 0.556 · 6.6 % · 0.368 |
+| blend (dissolve) frames | — | 4 (two kit whips) | **0** |
+
+- **At 240p** against the 24 refs, the regression is in range on every camera, pace and look check:
+  - transitions 15.5/min;
+  - shot length median 3.3 s, longest 8.0 s;
+  - moves 9.99 per 10 s;
+  - snaps 3;
+  - jumps 12.
+
+  The exceptions are ink and soft edge, as above.
+- **Whip tuning, measured on Vasa:**
+  - a hard 3-frame wipe gave 16 jumps;
+  - a 40 % feather over 3 frames gave 15;
+  - the shipped 60 % feather over 5 frames gives 12.
+
+  Per-frame change at the 9.07 s whip: the opacity fade gave 35 / 23 / 23, the hard wipe 27 / 40 / 31, so the
+  change has to be spread over more frames.
+- **Gates on Vasa** (the warn report). Vasa is final, so it was not changed:
+  - **cast:** 9 speck groups — test, guns, wobble, launch, gusts, sinking, ballast, warning, warning2 (median head
+    0.023, 29 % ≥ 0.07);
+  - **edge:** 10 cuts — the launch crowd at 22.2 s, gusts at 26.0 s, the hearing figures at 37.7-40.3 s, the admiral
+    at 61.7 s;
+  - **hud:** the heel gauge reverses 19 times;
+  - **hold:** clean.
+
+  These are the round-4 panel's own flaws: small sailors, the crowd cut, the gauge reading backwards.
+- **KitLab passes every gate.**
+
+**KitLab v7 on the finished kit.**
+- **File:** `experiments/three-lane/out/kitlab/kitlab_v7r.mp4`, with phone copy `kitlab_v7_phone.mp4`. One mosaic
+  frame was repaired.
+- **Against the 24 refs (240p):** in range on transitions (22.8/min), shot median (2.3 s), moves (8.9 per 10 s) and
+  jumps (15). The longest shot is 4.3 s, just under the refs' minimum of 4.7 s: the 4 s rule does that.
+- **Against the 8 refs (720p):** five checks are out:
+  - jumps 15 (max 12);
+  - colourfulness 22.9 (min 23.3);
+  - luma 0.31 (min 0.314);
+  - ink 0.658 (max 0.657);
+  - soft edge 2.5 % (min 3.8 %).
+
+  These are lab-content effects (night rooms, flat inserts, close-ups at a fixed focus), not kit regressions. Vasa on
+  the same kit is in range on all of them.
+- **0 blend frames.** The whips' mixed-pixel share fell from 0.37-0.67 to 0.19-0.30.
