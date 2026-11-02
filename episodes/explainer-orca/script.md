@@ -9,8 +9,6 @@ pilot: true
 template: pipeline/templates/explainer.md (Short)
 builder: pipeline/episodes/orca_pilot.py (fix round 2 + side-by-side fix round 1)
 voice: am_michael
-speed: 1.3
-paragraph_pause: 0.3
 music: deep_ocean
 ending: loop
 music_db: -8.5

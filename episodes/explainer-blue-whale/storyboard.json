@@ -22,6 +22,157 @@
    "layers": [
     {
      "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd0",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk0",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s0",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk0",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk0b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j0",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf0",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk0",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
      "name": "explainer/BlueWhale",
      "x": "162%",
      "y": "40%",
@@ -220,12 +371,13 @@
     ]
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "haze": "tide-0"
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
    }
   },
   {
@@ -243,6 +395,201 @@
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd1",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk1",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s1",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk1",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk1b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j1",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf1",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk1",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "102%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek1",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-3%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek1b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
@@ -538,12 +885,18 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "kelp-1",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
    }
   },
   {
@@ -564,6 +917,157 @@
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd2",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk2",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s2",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk2",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk2b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j2",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf2",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk2",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
@@ -748,12 +1252,17 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
    }
   },
   {
@@ -767,10 +1276,208 @@
     "props": {
      "depth": 50,
      "rays": 7,
-     "key": "mid"
+     "key": "mid",
+     "shiftTo": "warm",
+     "shiftAt": 3.47,
+     "shiftDur": 0.8
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd3",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk3",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s3",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk3",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk3b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j3",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf3",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk3",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "102%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek3",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-3%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek3b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Balance",
@@ -1687,12 +2394,17 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
    }
   },
   {
@@ -1711,6 +2423,201 @@
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd4",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk4",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s4",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk4",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk4b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j4",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf4",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk4",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-2%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek4",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "103%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek4b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/WhaleHeart",
@@ -2108,12 +3015,18 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "ink-3",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
    }
   },
   {
@@ -2127,10 +3040,208 @@
     "props": {
      "depth": 40,
      "rays": 6,
-     "key": "mid"
+     "key": "mid",
+     "shiftTo": "warm",
+     "shiftAt": 0.725,
+     "shiftDur": 0.8
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd5",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk5",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s5",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk5",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk5b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j5",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf5",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk5",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "102%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek5",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-3%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek5b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
@@ -2400,7 +3511,7 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "12%",
+     "x": "17%",
      "y": "62%",
      "width": 180,
      "height": 42,
@@ -2425,7 +3536,7 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "12%",
+     "x": "17%",
      "y": "57.5%",
      "width": 240,
      "height": 105.6,
@@ -2452,7 +3563,7 @@
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"none\" stroke=\"rgba(111,214,232,0.9)\" stroke-width=\"5\"/></svg>",
-     "x": "12%",
+     "x": "17%",
      "y": "62%",
      "width": 300,
      "height": 300,
@@ -2539,12 +3650,17 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
    }
   },
   {
@@ -2562,6 +3678,201 @@
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd6",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk6",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s6",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk6",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk6b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j6",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf6",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk6",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-2%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek6",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "103%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek6b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "particles",
      "preset": "dust",
@@ -2792,12 +4103,18 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-1",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
    }
   },
   {
@@ -2815,6 +4132,157 @@
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd7",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk7",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s7",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk7",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk7b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j7",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf7",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk7",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
     {
      "type": "particles",
      "preset": "dust",
@@ -2988,12 +4456,17 @@
     ]
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "haze": "tide-1"
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
    }
   },
   {
@@ -3008,10 +4481,208 @@
      "depth": 60,
      "rays": 4,
      "snow": 30,
-     "key": "mid"
+     "key": "mid",
+     "shiftTo": "warm",
+     "shiftAt": 0.507,
+     "shiftDur": 0.8
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd8",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk8",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s8",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk8",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk8b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j8",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf8",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk8",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-2%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek8",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "103%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek8b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Krill",
@@ -3043,7 +4714,7 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "58.5%",
+     "y": "38%",
      "width": 1000,
      "height": 115.19999999999999,
      "props": {
@@ -3368,12 +5039,17 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
    }
   },
   {
@@ -3387,10 +5063,205 @@
     "props": {
      "depth": 30,
      "rays": 8,
-     "key": "kelp"
+     "key": "mid"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd9",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk9",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s9",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk9",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk9b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j9",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf9",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk9",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "102%",
+     "y": "80%",
+     "width": 420,
+     "height": 1500,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek9",
+      "n": 2,
+      "plane": "fore",
+      "height": [
+       0.75,
+       1.0
+      ],
+      "blade": 1.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "-3%",
+     "y": "84%",
+     "width": 360,
+     "height": 1300,
+     "depth": 1.45,
+     "z": 30,
+     "blur": 9,
+     "props": {
+      "seed": "ek9b",
+      "n": 1,
+      "plane": "fore",
+      "height": [
+       0.6,
+       0.85
+      ],
+      "blade": 1.6
+     }
+    },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
@@ -3755,12 +5626,18 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "tide-0",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
    }
   },
   {
@@ -3774,10 +5651,161 @@
     "props": {
      "depth": 30,
      "rays": 8,
-     "key": "mid"
+     "key": "kelp"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Ridge",
+     "role": "dressing",
+     "x": "50%",
+     "y": "80%",
+     "width": 1500,
+     "height": 700,
+     "depth": 0.3,
+     "z": -12,
+     "props": {
+      "seed": "rd0",
+      "plane": "far",
+      "y": 0.82
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "50%",
+     "y": "72%",
+     "width": 1500,
+     "height": 1000,
+     "depth": 0.3,
+     "z": -11,
+     "props": {
+      "seed": "fk0",
+      "n": 4,
+      "plane": "far",
+      "blade": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "58%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -9,
+     "props": {
+      "n": 18,
+      "seed": "s0",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "5%",
+     "y": "66%",
+     "width": 320,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk0",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.8,
+       1.0
+      ],
+      "blade": 1.1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "68%",
+     "width": 320,
+     "height": 1400,
+     "depth": 0.6,
+     "z": -8,
+     "props": {
+      "seed": "mk0b",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.65,
+       0.9
+      ],
+      "blade": 1.0
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 620,
+     "depth": 0.6,
+     "z": -7,
+     "opacity": 0.9,
+     "props": {
+      "n": 3,
+      "seed": "j0",
+      "size": [
+       24,
+       44
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Reef",
+     "role": "dressing",
+     "x": "50%",
+     "y": "90%",
+     "width": 1400,
+     "height": 560,
+     "depth": 0.6,
+     "z": -6,
+     "props": {
+      "seed": "rf0",
+      "plane": "mid",
+      "shelf": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Rocks",
+     "role": "dressing",
+     "x": "50%",
+     "y": "97%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.6,
+     "z": -5,
+     "props": {
+      "seed": "rk0",
+      "n": 3,
+      "plane": "mid"
+     }
+    },
     {
      "type": "component",
      "name": "explainer/BlueWhale",
@@ -3972,12 +6000,17 @@
    },
    "light": {
     "setup": "lantern",
+    "haze": "kelp-1",
     "sweep": 8
    },
    "grade": {
     "brightness": 1.02,
-    "contrast": 1.05,
-    "saturate": 1.12
+    "contrast": 1.04,
+    "saturate": 0.94
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
    }
   }
  ],
@@ -5018,10 +7051,11 @@
   "style": {
    "font": "display",
    "fontSize": 84,
-   "color": "#ffffff",
+   "color": "#fff2c0",
    "highlight": "#ff5a4a",
    "highlightMode": "none",
    "strokeWidth": 12,
+   "strokeColor": "#0b2c3a",
    "uppercase": true,
    "y": 0.72
   }

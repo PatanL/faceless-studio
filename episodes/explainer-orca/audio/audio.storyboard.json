@@ -1,6 +1,6 @@
 {
  "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
- "duration_s": 75.12,
+ "duration_s": 84.63,
  "captions": {
   "src": "episodes/explainer-orca/captions.json"
  },
@@ -10,7 +10,7 @@
     "src": "episodes/explainer-orca/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 75.12
+    "duration": 84.63
    }
   ],
   "music": [],
@@ -23,7 +23,7 @@
     "src": "episodes/explainer-orca/voice.wav",
     "start": 0,
     "volume": 1,
-    "duration": 75.12
+    "duration": 84.63
    }
   ],
   "music": [
@@ -48,64 +48,328 @@
  },
  "cues": [
   {
+   "cue": "whoosh_long",
+   "at": 0.0
+  },
+  {
    "cue": "whoosh",
-   "at": 2.91
+   "at": 2.499
+  },
+  {
+   "cue": "whoosh",
+   "at": 3.18
+  },
+  {
+   "cue": "sonar_ping",
+   "at": 5.399
+  },
+  {
+   "cue": "whoosh",
+   "at": 5.599
+  },
+  {
+   "cue": "click",
+   "at": 6.199
+  },
+  {
+   "cue": "knock",
+   "at": 7.761
+  },
+  {
+   "cue": "knock",
+   "at": 7.881
+  },
+  {
+   "cue": "knock",
+   "at": 8.001
+  },
+  {
+   "cue": "knock",
+   "at": 8.121
+  },
+  {
+   "cue": "pop",
+   "at": 8.874
+  },
+  {
+   "cue": "tick",
+   "at": 9.074
   },
   {
    "cue": "bubbles",
-   "at": 9.48
+   "at": 10.566
   },
   {
    "cue": "whoosh",
-   "at": 17.25
+   "at": 13.228
+  },
+  {
+   "cue": "pop",
+   "at": 16.195
+  },
+  {
+   "cue": "tick",
+   "at": 16.695
+  },
+  {
+   "cue": "whoosh",
+   "at": 17.75
+  },
+  {
+   "cue": "sonar_ping",
+   "at": 18.188
+  },
+  {
+   "cue": "click",
+   "at": 18.388
+  },
+  {
+   "cue": "whoosh",
+   "at": 19.196
+  },
+  {
+   "cue": "whoosh",
+   "at": 20.734
+  },
+  {
+   "cue": "pop",
+   "at": 21.505
+  },
+  {
+   "cue": "pop",
+   "at": 21.625
+  },
+  {
+   "cue": "pop",
+   "at": 21.745
+  },
+  {
+   "cue": "pop",
+   "at": 21.865
+  },
+  {
+   "cue": "pop",
+   "at": 21.985
+  },
+  {
+   "cue": "whoosh",
+   "at": 22.23
+  },
+  {
+   "cue": "whoosh",
+   "at": 23.243
   },
   {
    "cue": "whoosh_long",
-   "at": 21.58
+   "at": 23.886
+  },
+  {
+   "cue": "tick",
+   "at": 24.186
   },
   {
    "cue": "whoosh",
-   "at": 27.475
+   "at": 25.804
   },
   {
    "cue": "impact",
-   "at": 31.7
+   "at": 28.329
   },
   {
-   "cue": "bubbles",
-   "at": 33.84
+   "cue": "sonar_ping",
+   "at": 29.493
+  },
+  {
+   "cue": "pop",
+   "at": 29.693
+  },
+  {
+   "cue": "impact",
+   "at": 30.393
   },
   {
    "cue": "whoosh",
-   "at": 38.09
+   "at": 30.713
+  },
+  {
+   "cue": "pop",
+   "at": 30.963
+  },
+  {
+   "cue": "whoosh",
+   "at": 32.263
+  },
+  {
+   "cue": "tick",
+   "at": 32.413
+  },
+  {
+   "cue": "impact",
+   "at": 35.889
+  },
+  {
+   "cue": "whoosh",
+   "at": 37.188
+  },
+  {
+   "cue": "impact",
+   "at": 37.338
+  },
+  {
+   "cue": "bubbles",
+   "at": 38.123
+  },
+  {
+   "cue": "whoosh",
+   "at": 39.53
+  },
+  {
+   "cue": "pop",
+   "at": 40.889
+  },
+  {
+   "cue": "whoosh",
+   "at": 42.553
+  },
+  {
+   "cue": "tick",
+   "at": 42.853
+  },
+  {
+   "cue": "whoosh",
+   "at": 45.515
+  },
+  {
+   "cue": "impact",
+   "at": 46.638
+  },
+  {
+   "cue": "whoosh",
+   "at": 48.574
+  },
+  {
+   "cue": "pop",
+   "at": 50.037
+  },
+  {
+   "cue": "tick",
+   "at": 50.387
   },
   {
    "cue": "whoosh_long",
-   "at": 45.7
+   "at": 51.279
   },
   {
    "cue": "whoosh",
-   "at": 48.79
+   "at": 51.629
+  },
+  {
+   "cue": "whoosh",
+   "at": 53.617
+  },
+  {
+   "cue": "whoosh",
+   "at": 54.799
+  },
+  {
+   "cue": "pop",
+   "at": 55.249
+  },
+  {
+   "cue": "whoosh",
+   "at": 56.47
+  },
+  {
+   "cue": "pop",
+   "at": 58.232
+  },
+  {
+   "cue": "tick",
+   "at": 58.382
+  },
+  {
+   "cue": "whoosh",
+   "at": 59.858
   },
   {
    "cue": "bubbles",
-   "at": 54.96
+   "at": 61.689
   },
   {
    "cue": "whoosh",
-   "at": 61.37
+   "at": 62.792
+  },
+  {
+   "cue": "ding",
+   "at": 62.892
+  },
+  {
+   "cue": "tick",
+   "at": 63.665
+  },
+  {
+   "cue": "whoosh",
+   "at": 65.992
+  },
+  {
+   "cue": "pop",
+   "at": 66.142
+  },
+  {
+   "cue": "whoosh",
+   "at": 69.012
+  },
+  {
+   "cue": "whoosh",
+   "at": 70.338
+  },
+  {
+   "cue": "tick",
+   "at": 70.938
+  },
+  {
+   "cue": "pop",
+   "at": 72.451
+  },
+  {
+   "cue": "pop",
+   "at": 72.601
+  },
+  {
+   "cue": "tick",
+   "at": 72.751
+  },
+  {
+   "cue": "tick",
+   "at": 74.101
   },
   {
    "cue": "impact",
-   "at": 67.082
+   "at": 74.551
+  },
+  {
+   "cue": "impact",
+   "at": 75.563
   },
   {
    "cue": "stinger",
-   "at": 68.38
+   "at": 77.138
+  },
+  {
+   "cue": "whoosh",
+   "at": 78.321
   },
   {
    "cue": "whoosh_long",
-   "at": 70.99
+   "at": 79.924
+  },
+  {
+   "cue": "whoosh",
+   "at": 81.619
+  },
+  {
+   "cue": "whoosh",
+   "at": 83.508
   }
  ]
 }
