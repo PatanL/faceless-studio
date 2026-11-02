@@ -5,19 +5,15 @@ Paste the block below into a new Claude Code session opened on `~/Documents/face
 ```
 You are running the faceless studio unattended while the owner is at work. Read BRIEF.md, FEEDBACK.md, docs/HOUSE_STYLE.md, docs/FEEDBACK_LOG.md and research/references/OWNER_REFERENCES.md before doing anything.
 
-GOAL: keep testing formats until one video reaches 10K views; only then lock the channel to one style (owner's rule). Until then, don't commit to one character style or topic lane. In order:
-1. Make three different ~60 s test Shorts, each a different style and topic lane, all in house style A colours with the scored soundtrack at the approved level:
-   a. A RicksClips/Zack D.-type story (a clever trick or loophole from history) with simple round-head stick-figure characters (build a minimal character kit only as far as this Short needs).
-   b. A Kurzgesagt-Shorts/ocean-type explainer with the existing kit (orca hero, settings, maps, boards).
-   c. A third lane of your choice from research/references/OWNER_REFERENCES.md that our code can make (for example a Zack D.-style second-person "what happens if" Short).
-   Pick each topic from a proven viral source with pipeline/ingest and write our own script. For one of them, also try Codex background plates (experiments/asset-gen, style A board attached) animated with parallax, against our flat sets.
-2. Review every frame of each (pipeline/qa/frames30.py, REVIEW_PROMPT section 3, frame reviewers per ~10 s), compare with that lane's references side by side, fix what a viewer would notice most, rebuild. Up to 3 rounds per Short or until the ship bar in FEEDBACK.md is met.
-3. If time remains, make one more Short in whichever lane looks strongest so far.
-4. For the two best finished Shorts, write a caption modelled on the proven viral references in that lane (hook line, share prompt, hashtags; research/R4/report.md and the lane's corpus show what works). If ~/studio/.env on the Spark has a working BUFFER_API_KEY and channel ids, add each as a Buffer DRAFT for YouTube and Instagram with pipeline/publish (APPROVAL_MODE=drafts): never publish or schedule. Otherwise put the caption next to the MP4 in out/ and send both to the owner.
-5. If YouTube Studio or Instagram insight screenshots or CSVs are in data/inbox/, read them (pipeline/analytics), note where viewers drop off and why, and apply the lessons to the next Short.
+GOAL: grow the channel. Keep testing lanes until one video reaches 10K views, then lock to that style (owner's rule). Work on the highest-ROI parts with specialist agents, continuously:
+
+1. VIDEOS (main lane): make every new Short with the specialist workflow: Workflow({scriptPath: "scripts/workflows/video_pipeline.js", args: {lane, slug, brief, refs}}). It runs research (reference breakdowns, comment mining, fact check), a 3-writer script panel with 3 judges and an editor, a shot planner and art director, a builder and audio specialist, then every-frame review plus hook/logic/motion/readability/sound critics and an adversarial final judge, with fix rounds until the ship bar or 3 rounds, then a caption. Rotate lanes (kurz explainer in style A; zackd what-if in the realistic variant; story/stick figures) and aim for 2 finished Shorts a day. Read each run's result, check the frames yourself, and send the phone MP4 + caption to the owner.
+2. VISUAL R&D (in parallel, one agent at a time): the biggest quality gaps are realistic Zack D.-style visuals, camera angles/staging and cut rate. Test approaches head to head on the same 10 s shot and adopt what wins: Codex plates with 2.5D motion, Blender on the Mac (EEVEE, CC0 assets), better kit components. Write results to docs/RND_LOG.md and port winners into the pipeline.
+3. LEARNING: when posted videos have data (data/inbox/ screenshots or CSVs, or the analytics APIs once connected), find where viewers drop off and feed the lessons into FEEDBACK.md principles (general, not incidents) and the workflow prompts.
+4. POSTING: when a Short is finished, send it with its caption and ask the owner; publish to Instagram and YouTube through pipeline/publish only after the owner says yes in chat.
 
 RULES:
-- Never publish or schedule anything. Buffer drafts (unpublished, APPROVAL_MODE=drafts) are allowed; the owner approves and publishes.
+- Never publish or schedule anything without the owner's yes in chat for that video.
 - Renders, TTS and heavy ffmpeg run on the DGX Spark, CPU only (never the GPU), nice -n 10, one Remotion render at a time, concurrency 2.
 - Never delete anything; never spend money or use paid APIs; never enter credentials.
 - Keep the Mac's free disk above 15 GB; if it drops below, stop rendering and say so.
@@ -25,5 +21,5 @@ RULES:
 - Commit each working step to main with a clear message.
 - If usage runs low, stop starting new agents and write status; resume after usage resets (check usage, not the clock).
 
-EACH ITERATION: pick the next unfinished step, do it, verify by looking at the frames yourself, then append 3-5 lines to docs/OVERNIGHT_LOG.md (what changed, what still looks wrong, file paths). Send finished videos and comparison sheets with SendUserFile so they reach the owner's phone. Stop the loop when step 5 is done or nothing useful is left, and write a short summary at the top of docs/OVERNIGHT_LOG.md.
+EACH ITERATION: pick the next unfinished step, do it, verify by looking at the frames yourself, then append 3-5 lines to docs/OVERNIGHT_LOG.md (what changed, what still looks wrong, file paths). Send finished videos and comparison sheets with SendUserFile so they reach the owner's phone. Keep going while there is useful work; if nothing useful is left, and write a short summary at the top of docs/OVERNIGHT_LOG.md.
 ```
