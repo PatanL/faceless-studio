@@ -3,7 +3,8 @@
 usage: python -m pipeline.qa.gate <slug> [--root DIR] [--last-n 10] [--against s1,s2] [--mp4 PATH]
                                   [--source-frames auto|none] [--no-sheets] [--json]
 
-Writes out/<slug>/qa/{gate.json, fingerprint.json, sbs.jpg, stills.jpg, gate.log}.
+Writes out/<slug>/qa/{gate.json, fingerprint.json, sbs.jpg, stills.jpg, gate.log} (+ house/house_metrics.json for
+explainers: the house-style checks `staging` and `house_style`, pipeline/qa/house_style.py).
 Exit 0 = PASS (WARNs allowed), 6 = FAIL (any check FAIL), 1 = error (gate.json verdict ERROR).
 Runs on the Spark CPU: nice 10, ffmpeg -threads 2, one ffmpeg at a time.
 """
@@ -17,7 +18,7 @@ import time
 import traceback
 
 from . import fingerprint as fpmod
-from . import frames, sameness, textsim
+from . import frames, house_style, sameness, textsim
 from .util import (REPO, be_nice, find_mp4, front_matter, hook_text, narration_paragraphs, now_iso,
                    originality_module, probe_duration, qa_dir, read_json, refs_dir, rel, root, rules, run, sha256,
                    tool, write_json)
@@ -556,6 +557,12 @@ def gate(slug: str, r, last_n=None, against=None, mp4=None, sheets=True, source_
 
     checks["captions"] = check_captions(sb, bm)
     checks["safe_area"] = check_safe_area(sb)
+
+    # house style (Lantern & Ink, explainers only): staging/collision checker on the storyboard + the JUDGE_RUBRIC
+    # automatic metrics on the video (pipeline/qa/house_style.py has the thresholds and their calibration)
+    checks["staging"] = house_style.check_staging(sb, niche)
+    log("house-style metrics")
+    checks["house_style"] = house_style.check_house_style(r, mp4, qa_dir(r, slug), niche, sb, log)
 
     paras = narration_paragraphs(script)
     hook = hook_text(paras)
