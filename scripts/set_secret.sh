@@ -47,6 +47,13 @@ ask() {  # $1 = name, $2 = hidden (1) or shown (0)
   else
     IFS= read -r -p "$1 (empty to skip): " v
   fi
+  case "$1" in BUFFER_ORG_ID|BUFFER_CHANNEL_*)
+    if [ -n "$v" ] && ! [[ "$v" =~ ^[0-9a-f]{24}$ ]]; then
+      local yn
+      read -r -p "That doesn't look like a Buffer id (usually 24 characters, 0-9 and a-f). Save it anyway? [y/N] " yn
+      [ "$yn" = y ] || { echo "not saved"; return; }
+    fi ;;
+  esac
   [ -n "$v" ] && write_var "$1" "$v" || echo "skipped $1"
 }
 
@@ -61,7 +68,10 @@ echo "Buffer setup. Get the key at Buffer > Settings > API (as the organization 
 ask BUFFER_API_KEY 1
 echo
 echo "Your Buffer organization and channels (from the Spark):"
-ssh "$HOST" 'cd ~/studio/app && source scripts/spark_env.sh >/dev/null 2>&1; ~/studio/.venv/bin/python -m pipeline.publish.buffer channels' || true
+if ! ssh "$HOST" 'cd ~/studio/app && source scripts/spark_env.sh >/dev/null 2>&1; ~/studio/.venv/bin/python -m pipeline.publish.buffer channels'; then
+  echo "Couldn't list channels (is BUFFER_API_KEY set and valid?). Stopping before asking for ids."
+  exit 1
+fi
 echo
 echo "Copy the ids from the list above (they aren't secret, so they're shown as you type)."
 ask BUFFER_ORG_ID 0
