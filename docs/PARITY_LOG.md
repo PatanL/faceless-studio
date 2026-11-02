@@ -255,3 +255,29 @@ There were four every-frame rounds on v6 (3 reviewers each, frames30 sheets), pl
   the caption paging: the map label collision, the edge-cropped court at 23.6 s, and captions over the cabinet art.
 
 **Not run:** the owner's phone check (§3), which waits for a version that passes §2.
+
+## 2026-11-02 · story lane · story-chess-turk v7: the 3D pipeline check (no review, no panel)
+
+The owner had already posted the Chess Turk, so v7 is only used to check the 3D story pipeline
+(`experiments/three-lane/src/turk`, composition `Turk3D`). There was no frame review, no panel and no further rounds.
+
+- **Render.** 1768 frames at 1080×1920 took 3123 s on the Spark CPU (SwiftShader, concurrency 4, niced), about 1.8 s per frame.
+- **Output.** `out/story-chess-turk/story-chess-turk_v7.mp4` (sha 1d5077c8…).
+- **Shots.** 10 shot groups: hall, courtyard, the hall from 14 solved angles, map, Paris, Napoleon at night, museum fire, gallery burn, workshop cutaway, hall at night. They join with 7-frame dissolves between places, with 2 hard cuts (fire, reveal).
+
+| Metric (refs' range) | v6 (2D) | v7 (3D) | |
+|---|---|---|---|
+| moving % · median px/f (≥95 · ≥5) | 99.5 · 5.46 | 99.1 · **11.38** | in |
+| quiet-frame zoom (≥70 %) | 74 % | 70 % | in, at the edge |
+| hard cuts · one-frame jumps (≤3 · ≤12) | 2 · 3 | 3 · 6 | in |
+| moves / 10 s (5.1-9.6) | 10.9 | **8.3** | now in |
+| saturation p50 (0.41-0.61) | 0.448 | 0.585 | in |
+| colourfulness (23-34) | 30.1 | **22.1** | just low |
+| luma p50 (0.31-0.58) | 0.408 | **0.292** | just low |
+| non-ink p5 (0.09-0.23) | 0.22 | **0.045** | low: crushed darks, 6 % black area |
+| shadow chroma (≤35) | 29 (violet) | 20 (hue drifts warm) | in, but not violet |
+| ink edge · soft edge · acutance (0.54-0.66 · 4-15 % · 0.32-0.42) | 0.60 · 5.3 % · 0.39 | 0.66 · 5.2 % · 0.36 | in (ink at the top edge) |
+
+- **What the 3D pipeline gets right.** Camera motion and pace now land inside every reference range: moves per 10 s fell from 10.9 to 8.3 because the 3D glides are longer and smoother. Ink and blur also match.
+- **What to fix in the kit.** The night and fire presets crush the darks. The next episode lifts the black point in the grade (shadow floor) and keeps the shadows violet, to bring non-ink p5, luma and colourfulness back into range.
+- **Also noted.** `camera_motion.py` cannot fit a 2D similarity to 3D parallax on 152 frames ("unfit"). This is expected for real 3D and is not a fault.
