@@ -13,7 +13,8 @@
  *             out by `fadeAt` (0.62 of the height) so they never cross the caption band.
  *   caustics  light net under the surface (default on when shallow or `surface`)
  *   specks    marine snow count (default 170; the legacy `snow` prop is ignored here)
- *   surface   true or 0..1 y: sky + waterline;  skyTop / skyBottom, vignette (0.5, toward ink-0, never black), glow
+ *   surface   true or 0..1 y: sky + waterline;  sky (SKIES key, e.g. "polar-dusk") or skyTop / skyBottom, vignette
+ *             (0.5, toward ink-0, never black), glow
  *   topColor / midColor / bottomColor   explicit overrides of the first / middle / last stops
  * Everything is gradients and flat shapes, normal alpha (one SVG): no filters, no blend layers.
  */
@@ -46,6 +47,18 @@ KEYS.polar = [mixOk('sky-1', 'dusk-4', 0.4), 'dusk-4', mixOk('dusk-3', 'dusk-2',
 // coral -> dusk/ink mix, so it stays inside the palette (P1)
 KEYS.danger = [mixOk('coral-3', 'dusk-2', 0.5), mixOk('coral-2', 'dusk-1', 0.55), mixOk('coral-1', 'dusk-1', 0.62), mixOk('coral-0', 'ink-1', 0.62), mixOk('coral-0', 'ink-0', 0.8), 'ink-0'];
 const OFFS = [0, 0.12, 0.32, 0.55, 0.8, 1];
+// sky by place + light (house.py names it from the scene's setting: `sky` = "<temperate|polar>-<day|overcast|dusk|night>");
+// explicit skyTop / skyBottom props still win. Polar dusk: art direction experiments/asset-gen/gen/f_antarctic_v3.png
+export const SKIES: Record<string, [string, string]> = {
+	'temperate-day': ['sky-2', 'sky-4'],
+	'temperate-overcast': ['#b9cdd8', '#dfe8ec'],
+	'temperate-dusk': ['dusk-2', 'coral-4'],
+	'temperate-night': ['dusk-0', 'dusk-1'],
+	'polar-day': ['sky-1', 'sky-4'],
+	'polar-overcast': ['#9fb4c6', '#d4e0e8'],
+	'polar-dusk': ['#160c5c', '#3a3cb0'],
+	'polar-night': ['dusk-0', 'dusk-2'],
+};
 
 /** light level 0..1 at a depth (m); same curve as the legacy ocean */
 const lightAt = (depth: number, falloff: number) => Math.exp(-Math.max(0, depth) / falloff);
@@ -112,8 +125,8 @@ export const HouseOcean: KitComponent = ({props, time, width: W, height: H}) => 
 					<stop offset="1" stopColor={rgba(c('ink-0'), num(props.vignette, 0.5))} />
 				</radialGradient>
 				<linearGradient id={`${id}-sky`} x1="0" y1="0" x2="0" y2="1">
-					<stop offset="0" stopColor={c(str(props.skyTop, 'dusk-1'))} />
-					<stop offset="1" stopColor={c(str(props.skyBottom, 'dusk-3'))} />
+					<stop offset="0" stopColor={c(str(props.skyTop, (SKIES[str(props.sky, '')] ?? ['dusk-1', 'dusk-3'])[0]))} />
+					<stop offset="1" stopColor={c(str(props.skyBottom, (SKIES[str(props.sky, '')] ?? ['dusk-1', 'dusk-3'])[1]))} />
 				</linearGradient>
 			</defs>
 			<rect x={0} y={sy} width={W} height={H - sy} fill={`url(#${id}-bg)`} />

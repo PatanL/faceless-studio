@@ -94,11 +94,7 @@ def _first_at(layer: dict) -> float:
 OVERSCAN = 1.2
 BG_DEPTH = 0.12
 Z_RIG, Z_SET = -60, -40          # rig layers (a new place inside a scene), then its dressing, all under the content
-SKY = {"day": ("sky-2", "sky-4"), "overcast": ("#b9cdd8", "#dfe8ec"), "dusk": ("dusk-2", "coral-4"),
-       "night": ("dusk-0", "dusk-1")}
-# polar sky (art direction experiments/asset-gen/gen/f_antarctic_v3.png): night-indigo with a low pale sun at dusk
-SKY_POLAR = {"day": ("sky-1", "sky-4"), "overcast": ("#9fb4c6", "#d4e0e8"), "dusk": ("#160c5c", "#3a3cb0"),
-             "night": ("dusk-0", "dusk-2")}
+# sky colours live in the kit (house/oceanBg.tsx SKIES, one place to re-skin): the pass only names the sky
 SPECKS = {"open_ocean": 70, "polar_ice": 0, "kelp_forest": 60, "tropical_reef": 60, "coastal_surface": 60,
           "twilight": 0, "deep": 0}
 
@@ -145,9 +141,7 @@ def rig_background(seg: dict, old: dict | None, si: int, layer: bool = False) ->
     sp = surface_prop(seg.get("waterline"))
     if sp is not None:
         p["surface"] = sp
-        sky = SKY_POLAR if seg["biome"] == "polar_ice" else SKY
-        top, bot = sky.get(light, sky["day"])
-        p["skyTop"], p["skyBottom"] = top, bot
+        p["sky"] = f"{'polar' if seg['biome'] == 'polar_ice' else 'temperate'}-{light}"
     d = float(p["depth"])
     if light in ("night",) or d >= 200:
         p["rays"], p["glow"], p["caustics"] = 0, 0, False

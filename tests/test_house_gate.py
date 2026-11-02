@@ -100,7 +100,10 @@ class AutoVocabulary(unittest.TestCase):
               "captions": {"words": []}, "overlays": {}, "_built": {}}
         out, errs, warns = auto.house_pass(sb, None)
         self.assertTrue(all(s.get("light") for s in out["scenes"]))
-        self.assertTrue(any(l.get("name") == "explainer/Reef" for l in out["scenes"][0]["layers"]))
+        # set dressing comes from the scene's (inferred) setting: open ocean gets specks, never the old reef
+        self.assertTrue(any(l.get("role") == "dressing" for l in out["scenes"][0]["layers"]))
+        self.assertFalse(any(l.get("name") == "explainer/Reef" for l in out["scenes"][0]["layers"]))
+        self.assertTrue(all(s.get("setting") for s in out["scenes"]))
         self.assertIn("house", out["_built"]["style"])
         self.assertTrue(any("[hero]" in e and "shots scenes[0].layers[1]" in e for e in errs), errs)
         self.assertFalse(any("_src" in l for s in out["scenes"] for l in s["layers"]))

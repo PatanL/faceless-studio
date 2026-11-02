@@ -82,7 +82,7 @@ export const Board: KitComponent = ({props: p, time, width: W, height: H}) => {
 				</g>
 			) : null}
 			{Array.from({length: Math.round(num(p.lanes, 0))}, (_, i) => {
-				const y = H * (0.4 + (0.32 * (i + 0.5)) / Math.max(1, num(p.lanes, 1)));   // under the speed bars
+				const y = H * (0.38 + (0.2 * (i + 0.5)) / Math.max(1, num(p.lanes, 1)));   // under the speed bars, above the captions
 				return (
 					<g key={`l${i}`}>
 						<rect x={0} y={y - 9} width={W} height={18} rx={9} fill={rgba('tide-4', 0.55)} />
