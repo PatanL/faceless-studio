@@ -1,0 +1,99 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 58.61,
+ "captions": {
+  "src": "episodes/story-barca-shield/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/story-barca-shield/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 58.61
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/story-barca-shield/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 58.61
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/story-barca-shield/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/story-barca-shield/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "impact",
+   "at": 0.1
+  },
+  {
+   "cue": "whoosh",
+   "at": 5.31
+  },
+  {
+   "cue": "whoosh",
+   "at": 8.12
+  },
+  {
+   "cue": "impact",
+   "at": 14.19
+  },
+  {
+   "cue": "footsteps",
+   "at": 19.27
+  },
+  {
+   "cue": "knock",
+   "at": 25.76
+  },
+  {
+   "cue": "knock",
+   "at": 29.65
+  },
+  {
+   "cue": "tick",
+   "at": 32.79
+  },
+  {
+   "cue": "stinger",
+   "at": 38.16
+  },
+  {
+   "cue": "impact",
+   "at": 42.19
+  },
+  {
+   "cue": "whoosh",
+   "at": 48.78
+  },
+  {
+   "cue": "underwater_rumble",
+   "at": 53.08
+  }
+ ]
+}
