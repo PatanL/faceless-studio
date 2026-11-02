@@ -316,8 +316,8 @@ export function buildStory(T: Timing): VasaStory {
         fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.45 }),
         fit(w(5, "sails") + 0.3, [[voyage(w(5, "sails")).x! - 14, 12, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.45 }),   // her sails go up
         fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], 90, 4, 42, { b: 0.42 }),          // the first gust leans her over
-        fit(waving, [crowdBox()], 25, 6, 40, { b: 0.45 }),                                        // the crowd keeps waving
-        fit(gust2 + 0.2, [hullBox(voyage(gust2 + 0.2), true)], 50, 2, 42, { b: 0.42 }),
+        { ...fit(waving, [crowdBox()], 25, 6, 40, { b: 0.45 }), glide: 1.6 },                     // the crowd keeps waving (a long, eased swing)
+        { ...fit(gust2 + 0.2, [hullBox(voyage(gust2 + 0.2), true)], 50, 2, 42, { b: 0.42 }), glide: 1.4 },
         fit(dip, [[voyage(dip).x! - 16, -0.5, voyage(dip).z! + 3, voyage(dip).x! + 14, 9, voyage(dip).z! + 7]], 20, 3, 36, { b: 0.3 }),   // the ports dip under
       ],
       people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9, (t) => { const v = voyage(t); return [v.x!, 0, v.z!]; }),

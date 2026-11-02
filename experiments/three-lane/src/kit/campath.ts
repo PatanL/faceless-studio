@@ -4,11 +4,11 @@
 // toward the next framing (saturating, so it never overshoots a checked framing). Velocity is continuous.
 import * as THREE from "three";
 
-export type CamKey = { t: number; pos: [number, number, number]; look: [number, number, number]; fov?: number };
+export type CamKey = { t: number; pos: [number, number, number]; look: [number, number, number]; fov?: number; glide?: number };
 type S = { pos: THREE.Vector3; look: THREE.Vector3; fov: number };
 
 // every hold travels steadily FRAC of the way to the next framing and pushes in PUSH of the distance
-const GLIDE = 0.9, LAND = 0.3, FRAC = 0.6, PUSH = 0.12;
+const GLIDE = 0.9, LAND = 0.3, FRAC = 0.85, PUSH = 0.2;
 
 export class CamPath {
   private keys: CamKey[];
@@ -17,8 +17,9 @@ export class CamPath {
     this.keys = [...keys].sort((a, b) => a.t - b.t);
     let prevEnd = t0;
     for (let i = 1; i < this.keys.length; i++) {
-      let s = Math.max(this.keys[i].t - (1 - LAND) * GLIDE, prevEnd + 1 / 30);
-      let e = s + GLIDE;
+      const G = this.keys[i].glide ?? GLIDE;                       // a long move (a big swing) can take longer than GLIDE
+      let s = Math.max(this.keys[i].t - (1 - LAND) * G, prevEnd + 1 / 30);
+      let e = s + G;
       if (e > t1 + 0.1) { e = t1 + 0.1; s = Math.max(prevEnd + 1 / 30, e - GLIDE); }
       if (e - s < 0.5) e = s + 0.5;
       this.glides.push({ s, e }); prevEnd = e;

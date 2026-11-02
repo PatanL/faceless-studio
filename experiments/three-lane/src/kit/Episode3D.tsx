@@ -120,14 +120,16 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const n = Math.round(g.xfade * 30);
   const half = Math.floor(n / 2);
   const outHalf = nOut - Math.floor(nOut / 2);
-  // incoming: hidden for its first half (the outgoing shot is still smearing), then sharpens over the second half
-  if (n > 0 && frame < half) return null;
-  if (nOut > 0 && frame >= total - outHalf) return null;
-  const uin = n > 0 ? Math.min(1, (frame - half + 1) / Math.max(1, n - half)) : 1;           // 0..1 sharpening
-  const uout = nOut > 0 ? Math.max(0, (frame - (total - nOut)) / Math.max(1, nOut - outHalf)) : 0;   // 0..1 smearing
-  const blur = Math.max((1 - uin) * 26, uout * 26);
+  // the two shots overlap for three frames only, at the peak of the smear (blur >= 22 px: nothing is readable there,
+  // so it reads as the whip's motion blur, not a dissolve); outside that window only one shot is drawn
+  if (n > 0 && frame < half - 1) return null;
+  if (nOut > 0 && frame >= total - outHalf + 1) return null;
+  const uin = n > 0 ? Math.max(0, Math.min(1, (frame - half + 1) / Math.max(1, n - half))) : 1;           // 0..1 sharpening
+  const uout = nOut > 0 ? Math.max(0, Math.min(1, (frame - (total - nOut)) / Math.max(1, nOut - outHalf))) : 0;   // 0..1 smearing
+  const blur = Math.max((1 - uin) * 28, uout * 28);
   const sc = 1 + Math.max((1 - uin) * 0.06, uout * 0.06);
-  const style: React.CSSProperties = blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `scale(${sc.toFixed(3)})` } : {};
+  const op = n > 0 && frame < half + 1 ? (frame - (half - 2)) / 3 : 1;                         // the incoming shot fades in over the 3 smeared frames
+  const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
   return (
     <AbsoluteFill style={style}>
       <Stage g={g} fromFrame={from} />
