@@ -129,4 +129,6 @@ while (round < MAX_ROUNDS) {
 phase('Final')
 const final = await agent(`${COMMON}\n${commentsBrief?.summary}\n\nYou are the caption writer and closer for ${SLUG}. 1) Make a phone-sized copy (< 30 MB) of the final MP4 in out/. 2) Write a caption for Instagram and a title + description for YouTube Shorts modelled on the proven viral references (hook line, share prompt, 3-6 hashtags; no clickbait the video doesn't pay off); save as out/${SLUG}/caption.md. 3) Append 3-5 lines to docs/OVERNIGHT_LOG.md: rounds ${JSON.stringify(history)}, what's still wrong, paths. Do not publish. Return JSON in summary: {"phone_mp4": path, "caption_file": path, "judge": score, "still_wrong": [..]}.`,
   { label: 'final:caption', phase: 'Final', schema: TEXT })
-return { slug: SLUG, lane: LANE, rounds: history, final: final?.summary }
+const parity = await agent(`${COMMON}\nYou run the parity check for ${SLUG} exactly as docs/PARITY.md defines it: (1) the measured checks for ours and 3 lane references (research/pipeline/${SLUG}/refs/), (2) a blind side-by-side panel of three judges given unlabeled matched-moment pairs (order from a coin derived from the file hashes), (3) leave the owner check open. Append the results to docs/PARITY_LOG.md. Return JSON in summary: {"pass": true|false, "failed_checks": [..], "panel": {...}}.`,
+  { label: 'final:parity', phase: 'Final', schema: TEXT })
+return { slug: SLUG, lane: LANE, rounds: history, final: final?.summary, parity: parity?.summary }
