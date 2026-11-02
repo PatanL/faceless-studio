@@ -66,36 +66,8 @@
         "ease": "out"
        }
       ],
-      "doorR": [
-       {
-        "t": 0,
-        "v": 0
-       },
-       {
-        "t": "@it",
-        "v": 0
-       },
-       {
-        "t": "@it+0.45",
-        "v": 1,
-        "ease": "out"
-       }
-      ],
-      "doorR2": [
-       {
-        "t": 0,
-        "v": 0
-       },
-       {
-        "t": "@up",
-        "v": 0
-       },
-       {
-        "t": "@up+0.45",
-        "v": 1,
-        "ease": "out"
-       }
-      ],
+      "doorR": 0,
+      "doorR2": 0,
       "candle": [
        {
         "t": 0,
@@ -183,8 +155,8 @@
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "18%",
-     "y": 984,
+     "x": "23%",
+     "y": 1009,
      "width": 420,
      "height": 490,
      "props": {
@@ -202,14 +174,14 @@
       "pose": [
        {
         "t": 0,
-        "v": "holdHigh"
+        "v": "point"
        },
        {
-        "t": "@opened",
+        "t": "@opened-0.15",
         "v": "reach"
        }
       ],
-      "item": "candle",
+      "item": "none",
       "seed": 2,
       "ink": 6
      },
@@ -442,65 +414,38 @@
      "y": "50%",
      "width": 1300,
      "height": 2311,
+     "z": -5,
+     "role": "dressing",
+     "depth": 0.3,
      "props": {
       "place": "hall",
       "ink": 5
      },
-     "z": -5,
-     "start": "@Empress's",
-     "role": "dressing",
-     "depth": 0.3,
-     "blur": 2.2
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "74%",
-     "y": 939,
-     "width": 430,
-     "height": 502,
-     "props": {
-      "costume": "empress",
-      "face": [
-       {
-        "t": 0,
-        "v": "smile"
-       },
-       {
-        "t": "@Vienna",
-        "v": "smug"
-       }
-      ],
-      "pose": "hips",
-      "seed": 4,
-      "ink": 6
-     },
-     "role": "hero",
-     "flipX": true,
      "start": "@Empress's"
     },
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "36%",
-     "y": "45%",
-     "width": 760,
-     "height": 844,
-     "props": {
-      "doorL": 0,
-      "look": 0.8,
-      "ink": 4.5
-     },
+     "x": "44%",
+     "y": "46%",
+     "width": 900,
+     "height": 1000,
      "role": "hero",
+     "props": {
+      "ink": 4.5,
+      "doorL": 0,
+      "look": 0.8
+     },
      "start": "@Empress's"
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "14%",
-     "y": 992,
-     "width": 340,
-     "height": 397,
+     "x": "16%",
+     "y": 1068,
+     "width": 400,
+     "height": 467,
+     "role": "hero",
      "props": {
       "costume": "kempelen",
       "face": "grin",
@@ -508,7 +453,74 @@
       "seed": 2,
       "ink": 6
      },
+     "start": "@Empress's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "72%",
+     "y": 1000,
+     "width": 430,
+     "height": 502,
      "role": "hero",
+     "props": {
+      "costume": "empress",
+      "face": "smug",
+      "pose": "hips",
+      "seed": 4,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -1,
+     "start": "@Empress's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "64%",
+     "y": 960,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "courtier2",
+      "face": "smug",
+      "pose": "stand",
+      "seed": 12,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -2,
+     "start": "@Empress's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "90%",
+     "y": 1040,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "count",
+      "face": "smug",
+      "pose": "stand",
+      "seed": 13,
+      "ink": 6
+     },
+     "flipX": true,
+     "start": "@Empress's"
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 60 110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#1b1240\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"98\" width=\"44\" height=\"10\" rx=\"5\" fill=\"#d9b35c\"/><rect x=\"21\" y=\"48\" width=\"18\" height=\"52\" rx=\"4\" fill=\"#f4eee1\"/><path d=\"M30 6 Q42 30 30 44 Q18 30 30 6 Z\" fill=\"#f2b13b\"/><path d=\"M30 22 Q35 32 30 40 Q25 32 30 22 Z\" fill=\"#fff3c4\" stroke=\"none\"/></g></svg>",
+     "x": "25.4%",
+     "y": 940,
+     "width": 60,
+     "height": 110,
+     "z": 1,
+     "role": "dressing",
+     "allowOverlap": true,
      "start": "@Empress's"
     }
    ],
@@ -531,15 +543,16 @@
      {
       "t": "@Empress's",
       "x": "50%",
-      "y": "48%",
-      "zoom": 1.05
+      "y": "50%",
+      "zoom": 1.02,
+      "push": 0.03
      },
      {
       "t": "@Vienna",
-      "x": "38%",
-      "y": "42.5%",
-      "zoom": 2.0,
-      "push": 0.02
+      "x": "52%",
+      "y": "50%",
+      "zoom": 1.06,
+      "push": 0.03
      }
     ]
    },
@@ -572,98 +585,187 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "50%",
-     "y": "55%",
-     "width": 1500,
-     "height": 1667,
+     "x": "44%",
+     "y": "46%",
+     "width": 900,
+     "height": 1000,
+     "role": "hero",
      "props": {
+      "ink": 4.5,
       "look": [
        {
         "t": 0,
-        "v": 0
+        "v": 0.8
        },
        {
         "t": "@staring",
         "v": 0.9
        }
       ],
-      "arm": 0.2,
-      "reach": 0.3,
-      "ink": 4.5
-     },
-     "role": "hero",
-     "end": "@whole-0.233"
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@wooden",
+        "v": 0.2
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@wooden",
+        "v": 0.3
+       }
+      ],
+      "doorL": 0
+     }
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "15%",
-     "y": 1007,
-     "width": 380,
-     "height": 443,
+     "x": "16%",
+     "y": 1068,
+     "width": 400,
+     "height": 467,
+     "role": "hero",
      "props": {
-      "costume": "courtier2",
-      "face": "laugh",
+      "costume": "kempelen",
+      "face": [
+       {
+        "t": 0,
+        "v": "grin"
+       },
+       {
+        "t": "@wooden",
+        "v": "smug"
+       }
+      ],
       "pose": "point",
-      "seed": 12,
+      "seed": 2,
       "ink": 6
-     },
-     "role": "hero",
-     "start": "@whole",
-     "flipX": true
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 60 110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#1b1240\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"98\" width=\"44\" height=\"10\" rx=\"5\" fill=\"#d9b35c\"/><rect x=\"21\" y=\"48\" width=\"18\" height=\"52\" rx=\"4\" fill=\"#f4eee1\"/><path d=\"M30 6 Q42 30 30 44 Q18 30 30 6 Z\" fill=\"#f2b13b\"/><path d=\"M30 22 Q35 32 30 40 Q25 32 30 22 Z\" fill=\"#fff3c4\" stroke=\"none\"/></g></svg>",
+     "x": "25.4%",
+     "y": 940,
+     "width": 60,
+     "height": 110,
+     "z": 1,
+     "role": "dressing",
+     "allowOverlap": true
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "37%",
-     "y": 973,
-     "width": 340,
-     "height": 397,
-     "props": {
-      "costume": "count",
-      "face": "laugh",
-      "pose": "laugh",
-      "seed": 13,
-      "ink": 6
-     },
+     "x": "72%",
+     "y": 1000,
+     "width": 430,
+     "height": 502,
      "role": "hero",
-     "start": "@whole",
-     "flipX": true
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "61%",
-     "y": 988,
-     "width": 380,
-     "height": 443,
-     "props": {
-      "costume": "courtier",
-      "face": "laugh",
-      "pose": "laugh",
-      "seed": 11,
-      "ink": 6
-     },
-     "role": "hero",
-     "start": "@whole",
-     "flipX": true
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "84%",
-     "y": 945,
-     "width": 420,
-     "height": 490,
      "props": {
       "costume": "empress",
-      "face": "laugh",
-      "pose": "laugh",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@whole",
+        "v": "laugh"
+       }
+      ],
+      "pose": [
+       {
+        "t": 0,
+        "v": "hips"
+       },
+       {
+        "t": "@whole",
+        "v": "laugh"
+       }
+      ],
       "seed": 4,
       "ink": 6
      },
+     "flipX": true,
+     "z": -1
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "64%",
+     "y": 960,
+     "width": 340,
+     "height": 397,
      "role": "hero",
-     "start": "@whole",
+     "props": {
+      "costume": "courtier2",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@whole",
+        "v": "laugh"
+       }
+      ],
+      "pose": [
+       {
+        "t": 0,
+        "v": "stand"
+       },
+       {
+        "t": "@whole",
+        "v": "point"
+       }
+      ],
+      "seed": 12,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -2
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "90%",
+     "y": 1040,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@whole",
+        "v": "laugh"
+       }
+      ],
+      "pose": [
+       {
+        "t": 0,
+        "v": "stand"
+       },
+       {
+        "t": "@whole",
+        "v": "laugh"
+       }
+      ],
+      "seed": 13,
+      "ink": 6
+     },
      "flipX": true
     }
    ],
@@ -671,37 +773,39 @@
     "keyframes": [
      {
       "t": 0,
-      "x": "50%",
+      "x": "52%",
       "y": "50%",
-      "zoom": 1.02
-     },
-     {
-      "t": "@wooden",
-      "x": "28%",
-      "y": "34%",
-      "zoom": 1.45,
-      "push": 0.05
-     },
-     {
-      "t": "@turban",
-      "x": "36%",
-      "y": "38%",
-      "zoom": 1.3,
-      "push": 0.04
-     },
-     {
-      "t": "@staring",
-      "x": "44%",
-      "y": "49%",
-      "zoom": 1.2,
+      "zoom": 1.06,
+      "cont": true,
       "push": 0.03
      },
      {
+      "t": "@wooden",
+      "x": "27.8%",
+      "y": "45.8%",
+      "zoom": 2.0,
+      "push": 0.02
+     },
+     {
+      "t": "@turban",
+      "x": "30.6%",
+      "y": "44.5%",
+      "zoom": 1.6,
+      "push": 0.02
+     },
+     {
+      "t": "@staring",
+      "x": "44.4%",
+      "y": "43.2%",
+      "zoom": 1.35,
+      "push": 0.02
+     },
+     {
       "t": "@whole",
-      "x": "50%",
-      "y": "48%",
-      "zoom": 1.04,
-      "push": 0.06
+      "x": "52%",
+      "y": "50%",
+      "zoom": 1.02,
+      "push": 0.04
      }
     ]
    },
@@ -734,22 +838,24 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "52%",
+     "x": "44%",
      "y": "46%",
-     "width": 1000,
-     "height": 1111,
+     "width": 900,
+     "height": 1000,
+     "role": "hero",
      "props": {
+      "ink": 4.5,
       "doorL": [
        {
         "t": 0,
         "v": 0
        },
        {
-        "t": "@opens",
+        "t": "@opens+0.12",
         "v": 0
        },
        {
-        "t": "@opens+0.45",
+        "t": "@opens+0.6",
         "v": 1,
         "ease": "out"
        }
@@ -760,11 +866,11 @@
         "v": 0
        },
        {
-        "t": "@one",
+        "t": "@one+0.12",
         "v": 0
        },
        {
-        "t": "@one+0.45",
+        "t": "@one+0.55",
         "v": 1,
         "ease": "out"
        }
@@ -775,11 +881,11 @@
         "v": 0
        },
        {
-        "t": "@one#2",
+        "t": "@one#2+0.12",
         "v": 0
        },
        {
-        "t": "@one#2+0.45",
+        "t": "@one#2+0.55",
         "v": 1,
         "ease": "out"
        }
@@ -798,28 +904,42 @@
         "v": 1
        }
       ],
-      "spin": 0.3,
-      "ink": 4.5
-     },
-     "role": "hero"
+      "spin": 0,
+      "look": 0.9,
+      "arm": 0.2,
+      "reach": 0.3
+     }
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "20%",
-     "y": 995,
+     "x": "16%",
+     "y": 1068,
      "width": 400,
      "height": 467,
+     "role": "hero",
      "props": {
       "costume": "kempelen",
       "face": "smug",
       "pose": [
        {
         "t": 0,
+        "v": "point"
+       },
+       {
+        "t": 0.05,
         "v": "stand"
        },
        {
-        "t": "@opens",
+        "t": "@opens-0.15",
+        "v": "reach"
+       },
+       {
+        "t": "@opens+0.3",
+        "v": "stand"
+       },
+       {
+        "t": "@one-0.1",
         "v": "reach"
        },
        {
@@ -827,32 +947,99 @@
         "v": "stand"
        },
        {
-        "t": "@one#2",
+        "t": "@one#2-0.1",
         "v": "reach"
        },
        {
-        "t": "@holds",
+        "t": "@and",
+        "v": "stand"
+       },
+       {
+        "t": "@candle-0.32",
         "v": "holdHigh"
+       },
+       {
+        "t": "@behind",
+        "v": "reach"
        }
       ],
-      "item": "candle",
       "seed": 2,
-      "ink": 6
+      "ink": 6,
+      "item": [
+       {
+        "t": 0,
+        "v": "none"
+       },
+       {
+        "t": "@candle",
+        "v": "candle"
+       }
+      ],
+      "walk": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@opens+0.3",
+        "v": 1
+       },
+       {
+        "t": "@one-0.1",
+        "v": 0
+       },
+       {
+        "t": "@and",
+        "v": 1
+       },
+       {
+        "t": "@a",
+        "v": 0
+       }
+      ]
      },
-     "role": "hero"
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "16%"
+      },
+      {
+       "t": "@opens+0.3",
+       "x": "16%"
+      },
+      {
+       "t": "@one-0.1",
+       "x": "42.4%",
+       "ease": "inOut"
+      },
+      {
+       "t": "@and",
+       "x": "42.4%"
+      },
+      {
+       "t": "@a",
+       "x": "16%",
+       "ease": "inOut"
+      }
+     ]
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "74%",
-     "y": 930,
-     "width": 400,
-     "height": 467,
+     "x": "72%",
+     "y": 1000,
+     "width": 430,
+     "height": 502,
+     "role": "hero",
      "props": {
       "costume": "empress",
       "face": [
        {
         "t": 0,
+        "v": "laugh"
+       },
+       {
+        "t": "@one",
         "v": "smug"
        },
        {
@@ -864,9 +1051,81 @@
       "seed": 4,
       "ink": 6
      },
-     "role": "hero",
      "flipX": true,
      "z": -1
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "64%",
+     "y": 960,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "courtier2",
+      "face": [
+       {
+        "t": 0,
+        "v": "laugh"
+       },
+       {
+        "t": "@one",
+        "v": "smug"
+       },
+       {
+        "t": "@Nothing",
+        "v": "shock"
+       }
+      ],
+      "pose": "stand",
+      "seed": 12,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -2
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "90%",
+     "y": 1040,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "laugh"
+       },
+       {
+        "t": "@one",
+        "v": "smug"
+       },
+       {
+        "t": "@Nothing",
+        "v": "shock"
+       }
+      ],
+      "pose": "stand",
+      "seed": 13,
+      "ink": 6
+     },
+     "flipX": true
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 60 110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#1b1240\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"98\" width=\"44\" height=\"10\" rx=\"5\" fill=\"#d9b35c\"/><rect x=\"21\" y=\"48\" width=\"18\" height=\"52\" rx=\"4\" fill=\"#f4eee1\"/><path d=\"M30 6 Q42 30 30 44 Q18 30 30 6 Z\" fill=\"#f2b13b\"/><path d=\"M30 22 Q35 32 30 40 Q25 32 30 22 Z\" fill=\"#fff3c4\" stroke=\"none\"/></g></svg>",
+     "x": "25.4%",
+     "y": 940,
+     "width": 60,
+     "height": 110,
+     "z": 1,
+     "role": "dressing",
+     "allowOverlap": true,
+     "end": "@candle"
     },
     {
      "type": "rect",
@@ -890,37 +1149,39 @@
     "keyframes": [
      {
       "t": 0,
-      "x": "50%",
+      "x": "52%",
       "y": "50%",
-      "zoom": 1.06
+      "zoom": 1.02,
+      "cont": true,
+      "push": 0.03
      },
      {
       "t": "@doors",
-      "x": "46%",
-      "y": "52%",
-      "zoom": 1.18,
-      "push": 0.04
+      "x": "43.5%",
+      "y": "46.9%",
+      "zoom": 1.2,
+      "push": 0.03
      },
      {
       "t": "@one#2",
       "x": "48%",
-      "y": "51%",
-      "zoom": 1.12,
-      "push": 0.04
+      "y": "48.4%",
+      "zoom": 1.25,
+      "push": 0.03
      },
      {
       "t": "@candle",
-      "x": "45%",
-      "y": "53%",
-      "zoom": 1.22,
-      "push": 0.04
+      "x": "35%",
+      "y": "48.4%",
+      "zoom": 1.25,
+      "push": 0.03
      },
      {
       "t": "@Nothing",
-      "x": "46%",
-      "y": "55%",
+      "x": "43.5%",
+      "y": "49.5%",
       "zoom": 1.3,
-      "push": 0.04
+      "push": 0.03
      }
     ]
    },
@@ -953,12 +1214,16 @@
     {
      "type": "component",
      "name": "stick/Turk",
-     "x": "52%",
+     "x": "44%",
      "y": "46%",
-     "width": 1000,
-     "height": 1111,
+     "width": 900,
+     "height": 1000,
+     "role": "hero",
      "props": {
+      "ink": 4.5,
       "doorL": 1,
+      "doorR": 1,
+      "doorR2": 1,
       "spin": [
        {
         "t": 0,
@@ -970,7 +1235,30 @@
        }
       ],
       "tick": true,
-      "candle": 0.6,
+      "candle": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 0.12,
+        "v": 1
+       },
+       {
+        "t": "@key",
+        "v": 0.25
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0.3
+       },
+       {
+        "t": "@key",
+        "v": 0
+       }
+      ],
       "arm": [
        {
         "t": 0,
@@ -989,58 +1277,208 @@
       "look": [
        {
         "t": 0,
+        "v": 0.9
+       },
+       {
+        "t": "@key",
         "v": 0
        },
        {
         "t": "@Turk",
         "v": 0.8
        }
-      ],
-      "ink": 4.5
-     },
-     "role": "hero"
+      ]
+     }
     },
     {
      "type": "component",
      "name": "stick/Person",
-     "x": "20%",
-     "y": 995,
+     "x": "16%",
+     "y": 1068,
      "width": 400,
      "height": 467,
+     "role": "hero",
      "props": {
       "costume": "kempelen",
-      "face": "focus",
-      "pose": "wind",
-      "item": "key",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@winds",
+        "v": "focus"
+       }
+      ],
+      "pose": [
+       {
+        "t": 0,
+        "v": "reach"
+       },
+       {
+        "t": 0.04,
+        "v": "holdHigh"
+       },
+       {
+        "t": 0.36,
+        "v": "stand"
+       },
+       {
+        "t": 0.62,
+        "v": "wind"
+       }
+      ],
       "seed": 2,
+      "ink": 6,
+      "item": [
+       {
+        "t": 0,
+        "v": "candle"
+       },
+       {
+        "t": 0.3,
+        "v": "none"
+       },
+       {
+        "t": 0.62,
+        "v": "key"
+       }
+      ]
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 60 110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#1b1240\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"98\" width=\"44\" height=\"10\" rx=\"5\" fill=\"#d9b35c\"/><rect x=\"21\" y=\"48\" width=\"18\" height=\"52\" rx=\"4\" fill=\"#f4eee1\"/><path d=\"M30 6 Q42 30 30 44 Q18 30 30 6 Z\" fill=\"#f2b13b\"/><path d=\"M30 22 Q35 32 30 40 Q25 32 30 22 Z\" fill=\"#fff3c4\" stroke=\"none\"/></g></svg>",
+     "x": "25.4%",
+     "y": 940,
+     "width": 60,
+     "height": 110,
+     "z": 1,
+     "role": "dressing",
+     "allowOverlap": true,
+     "start": 0.3
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "72%",
+     "y": 1000,
+     "width": 430,
+     "height": 502,
+     "role": "hero",
+     "props": {
+      "costume": "empress",
+      "face": [
+       {
+        "t": 0,
+        "v": "shock"
+       },
+       {
+        "t": "@key",
+        "v": "worried"
+       }
+      ],
+      "pose": "hips",
+      "seed": 4,
       "ink": 6
      },
-     "role": "hero"
+     "flipX": true,
+     "z": -1
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "64%",
+     "y": 960,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "courtier2",
+      "face": [
+       {
+        "t": 0,
+        "v": "shock"
+       },
+       {
+        "t": "@key",
+        "v": "worried"
+       }
+      ],
+      "pose": "stand",
+      "seed": 12,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -2
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "90%",
+     "y": 1040,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "shock"
+       },
+       {
+        "t": "@key",
+        "v": "focus"
+       }
+      ],
+      "pose": "stand",
+      "seed": 13,
+      "ink": 6
+     },
+     "flipX": true
+    },
+    {
+     "type": "rect",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2800,
+     "fill": "#140a50",
+     "z": -1,
+     "depth": 0,
+     "role": "fx",
+     "opacity": 0.35,
+     "exit": {
+      "type": "fade",
+      "at": "@key",
+      "duration": 0.6
+     }
     }
    ],
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "x": "46%",
-      "y": "55%",
+      "x": "43.5%",
+      "y": "49.5%",
       "zoom": 1.3,
       "cont": true,
       "push": 0.03
      },
      {
       "t": "@gears",
-      "x": "29%",
-      "y": "53.5%",
+      "x": "34%",
+      "y": "49.5%",
       "zoom": 1.4,
       "push": 0.02
      },
      {
       "t": "@Turk",
-      "x": "43%",
-      "y": "41%",
-      "zoom": 1.45,
-      "push": 0.06
+      "x": "36%",
+      "y": "44%",
+      "zoom": 1.35,
+      "push": 0.03
      }
     ]
    },
@@ -1092,57 +1530,18 @@
    "layers": [
     {
      "type": "component",
-     "name": "stick/Person",
-     "x": "20%",
-     "y": 995,
-     "width": 400,
-     "height": 467,
-     "props": {
-      "costume": "kempelen",
-      "face": "smug",
-      "pose": "stand",
-      "seed": 2,
-      "ink": 6
-     },
-     "role": "hero",
-     "end": "@play"
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "78%",
-     "y": 953,
-     "width": 440,
-     "height": 513,
-     "props": {
-      "costume": "count",
-      "face": [
-       {
-        "t": 0,
-        "v": "smug"
-       },
-       {
-        "t": "@brave",
-        "v": "worried"
-       }
-      ],
-      "pose": "reach",
-      "seated": true,
-      "seed": 13,
-      "ink": 6
-     },
-     "role": "hero",
-     "end": "@play",
-     "flipX": true
-    },
-    {
-     "type": "component",
      "name": "stick/Turk",
-     "x": "38%",
+     "x": "44%",
      "y": "46%",
-     "width": 760,
-     "height": 844,
+     "width": 900,
+     "height": 1000,
+     "role": "hero",
      "props": {
+      "ink": 4.5,
+      "doorL": 1,
+      "doorR": 1,
+      "doorR2": 1,
+      "candle": 0.6,
       "arm": [
        {
         "t": 0,
@@ -1153,12 +1552,158 @@
         "v": 1
        }
       ],
-      "reach": 0.5,
-      "look": 0.8,
-      "ink": 4.5
-     },
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@enough",
+        "v": 0.5
+       }
+      ],
+      "look": 0.8
+     }
+    },
+    {
+     "type": "svg",
+     "markup": "<svg viewBox=\"0 0 60 110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"#1b1240\" stroke-width=\"3\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"98\" width=\"44\" height=\"10\" rx=\"5\" fill=\"#d9b35c\"/><rect x=\"21\" y=\"48\" width=\"18\" height=\"52\" rx=\"4\" fill=\"#f4eee1\"/><path d=\"M30 6 Q42 30 30 44 Q18 30 30 6 Z\" fill=\"#f2b13b\"/><path d=\"M30 22 Q35 32 30 40 Q25 32 30 22 Z\" fill=\"#fff3c4\" stroke=\"none\"/></g></svg>",
+     "x": "25.4%",
+     "y": 940,
+     "width": 60,
+     "height": 110,
+     "z": 1,
+     "role": "dressing",
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "16%",
+     "y": 1068,
+     "width": 400,
+     "height": 467,
      "role": "hero",
-     "end": "@play"
+     "props": {
+      "costume": "kempelen",
+      "face": "focus",
+      "pose": [
+       {
+        "t": 0,
+        "v": "wind"
+       },
+       {
+        "t": 0.3,
+        "v": "stand"
+       }
+      ],
+      "seed": 2,
+      "ink": 6,
+      "item": [
+       {
+        "t": 0,
+        "v": "key"
+       },
+       {
+        "t": 0.3,
+        "v": "none"
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "72%",
+     "y": 1000,
+     "width": 430,
+     "height": 502,
+     "role": "hero",
+     "props": {
+      "costume": "empress",
+      "face": [
+       {
+        "t": 0,
+        "v": "worried"
+       },
+       {
+        "t": "@first",
+        "v": "smug"
+       },
+       {
+        "t": "@No",
+        "v": "shock"
+       }
+      ],
+      "pose": "hips",
+      "seed": 4,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -1
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "64%",
+     "y": 960,
+     "width": 340,
+     "height": 397,
+     "role": "hero",
+     "props": {
+      "costume": "courtier2",
+      "face": [
+       {
+        "t": 0,
+        "v": "worried"
+       },
+       {
+        "t": "@first",
+        "v": "smug"
+       },
+       {
+        "t": "@No",
+        "v": "shock"
+       }
+      ],
+      "pose": "stand",
+      "seed": 12,
+      "ink": 6
+     },
+     "flipX": true,
+     "z": -2
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "88%",
+     "y": 1040,
+     "width": 440,
+     "height": 513,
+     "role": "hero",
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@brave",
+        "v": "worried"
+       },
+       {
+        "t": "@No",
+        "v": "shock"
+       }
+      ],
+      "pose": "reach",
+      "seed": 13,
+      "ink": 6,
+      "seated": true
+     },
+     "flipX": true,
+     "start": "@first"
     },
     {
      "type": "component",
@@ -1194,75 +1739,25 @@
      },
      "start": "@play",
      "end": "@No",
-     "role": "hero"
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "20%",
-     "y": 995,
-     "width": 400,
-     "height": 467,
-     "props": {
-      "costume": "courtier",
-      "face": "shock",
-      "pose": "armsUp",
-      "seed": 11,
-      "ink": 6
-     },
      "role": "hero",
-     "start": "@No"
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "50%",
-     "y": 957,
-     "width": 400,
-     "height": 467,
-     "props": {
-      "costume": "empress",
-      "face": "shock",
-      "pose": "stand",
-      "seed": 4,
-      "ink": 6
-     },
-     "role": "hero",
-     "start": "@No"
-    },
-    {
-     "type": "component",
-     "name": "stick/Person",
-     "x": "80%",
-     "y": 995,
-     "width": 400,
-     "height": 467,
-     "props": {
-      "costume": "courtier2",
-      "face": "shock",
-      "pose": "stand",
-      "seed": 12,
-      "ink": 6
-     },
-     "role": "hero",
-     "start": "@No",
-     "flipX": true
+     "z": 20
     }
    ],
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "x": "31%",
-      "y": "42.2%",
-      "zoom": 2.03,
+      "x": "36%",
+      "y": "44%",
+      "zoom": 1.35,
+      "cont": true,
       "push": 0.02
      },
      {
       "t": "@count",
-      "x": "58%",
-      "y": "47%",
-      "zoom": 1.12,
+      "x": "54%",
+      "y": "49%",
+      "zoom": 1.06,
       "push": 0.03
      },
      {
@@ -1280,16 +1775,16 @@
      },
      {
       "t": "@No",
-      "x": "50%",
-      "y": "48%",
-      "zoom": 1.06,
+      "x": "54%",
+      "y": "49%",
+      "zoom": 1.04,
       "push": 0.04
      },
      {
       "t": "@laughing",
-      "x": "53%",
-      "y": "46%",
-      "zoom": 1.15,
+      "x": "52%",
+      "y": "47%",
+      "zoom": 1.1,
       "push": 0.04
      }
     ]
@@ -1614,40 +2109,40 @@
       "room": "ink-1",
       "moves": [
        {
-        "t": "@tries+0.11",
+        "t": "@tries+0.06",
         "from": "d1",
         "to": "f5",
         "hand": "human",
-        "dur": 0.45,
+        "dur": 0.4,
         "illegal": true
        },
        {
-        "t": "@puts-0.21",
+        "t": "@tries+1.06",
         "from": "f5",
         "to": "d1",
         "hand": "turk",
-        "dur": 0.45
+        "dur": 0.4
        },
        {
-        "t": "@right-0.09",
+        "t": "@tries+2.06",
         "from": "d1",
         "to": "f5",
         "hand": "human",
-        "dur": 0.45,
+        "dur": 0.4,
         "illegal": true
        },
        {
-        "t": "@Twice-0.05",
+        "t": "@tries+3.06",
         "from": "f5",
         "to": "d1",
         "hand": "turk",
-        "dur": 0.45
+        "dur": 0.4
        }
       ],
       "ink": 4
      },
      "start": "@tries",
-     "end": "@third",
+     "end": "@third+0.55",
      "role": "hero"
     },
     {
@@ -1779,16 +2274,16 @@
      "fire": [
       {
        "t": 0,
-       "v": 0.08
+       "v": 0.06
       },
       {
-       "t": "@fire",
+       "t": "@fire-0.2",
        "v": 0.1
       },
       {
-       "t": "@burns",
+       "t": "@ash",
        "v": 1,
-       "ease": "out"
+       "ease": "inOut"
       }
      ],
      "ink": 5
@@ -1823,7 +2318,6 @@
      "depth": 0,
      "role": "fx",
      "start": "@Turk",
-     "end": "@secret-0.2",
      "opacity": 0.85
     },
     {
@@ -1863,7 +2357,8 @@
      },
      "role": "hero",
      "start": "@Turk",
-     "end": "@secret-0.2"
+     "end": "@secret+0.3",
+     "allowOverlap": true
     },
     {
      "type": "component",
@@ -1880,7 +2375,8 @@
      },
      "start": "@secret-0.2",
      "role": "prop",
-     "z": 20
+     "z": 20,
+     "allowOverlap": true
     }
    ],
    "camera": {
@@ -2060,11 +2556,11 @@
         "v": 1
        },
        {
-        "t": "@When",
+        "t": "@slid",
         "v": 1
        },
        {
-        "t": "@opened.end",
+        "t": "@side.end",
         "v": 0,
         "ease": "inOut"
        }
@@ -2075,11 +2571,11 @@
         "v": 0
        },
        {
-        "t": "@door",
+        "t": "@side.end",
         "v": 0
        },
        {
-        "t": "@opened.end+0.3",
+        "t": "@behind+0.2",
         "v": 1
        }
       ],
@@ -2089,16 +2585,37 @@
         "v": 0
        },
        {
+        "t": "@side.end",
+        "v": 0
+       },
+       {
+        "t": "@behind+0.2",
+        "v": 1
+       }
+      ],
+      "ink": 4.5,
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
         "t": "@door",
         "v": 0
        },
        {
-        "t": "@opened.end+0.3",
+        "t": "@opened.end",
         "v": 1
+       },
+       {
+        "t": "@he",
+        "v": 1
+       },
+       {
+        "t": "@slid",
+        "v": 0
        }
-      ],
-      "spin": 0.2,
-      "ink": 4.5
+      ]
      },
      "role": "hero"
     },
@@ -2111,7 +2628,7 @@
      "height": 130,
      "props": {
       "text": "FALSE PANEL",
-      "at": "@fake",
+      "at": "@behind",
       "size": 46,
       "leader": [
        0,
@@ -2121,7 +2638,13 @@
      "role": "label",
      "z": 30,
      "depth": 1,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "end": "@gears+0.3",
+     "exit": {
+      "type": "fade",
+      "at": "@gears",
+      "duration": 0.3
+     }
     }
    ],
    "camera": {
@@ -2217,6 +2740,10 @@
       "masterFace": [
        {
         "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@Magnets",
         "v": "focus"
        },
        {
@@ -2249,11 +2776,11 @@
         "v": 0
        },
        {
-        "t": "@lever",
+        "t": "@lever-0.1",
         "v": 0
        },
        {
-        "t": "@lever+0.3",
+        "t": "@lever+0.4",
         "v": 1
        }
       ],
@@ -2299,7 +2826,8 @@
         "t": "@smoke",
         "v": 1
        }
-      ]
+      ],
+      "doorL": 0
      },
      "role": "hero"
     },
@@ -2314,7 +2842,6 @@
       "text": "MAGNETS",
       "at": "@board",
       "size": 46,
-      "out": "@move",
       "leader": [
        10,
        130
@@ -2323,7 +2850,13 @@
      "role": "label",
      "z": 30,
      "depth": 1,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "end": "@move+0.3",
+     "exit": {
+      "type": "fade",
+      "at": "@move",
+      "duration": 0.3
+     }
     },
     {
      "type": "component",
@@ -2339,13 +2872,18 @@
       "leader": [
        20,
        140
-      ],
-      "out": "@hand.end"
+      ]
      },
      "role": "label",
      "z": 30,
      "depth": 1,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "end": "@hand.end+0.3",
+     "exit": {
+      "type": "fade",
+      "at": "@hand.end",
+      "duration": 0.3
+     }
     }
    ],
    "camera": {
@@ -2575,7 +3113,6 @@
  ],
  "story_camera": {
   "cuts": [
-   4,
    9,
    10
   ],
