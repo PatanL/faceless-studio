@@ -20,3 +20,4 @@ Older files cite the previous numbering. It maps onto the current principles (P)
 - 2026-11-01: owner: don't keep growing FEEDBACK.md with specific incidents. Condensed it into 8 general principles; reviewers now do a second-by-second critical-viewer pass (`pipeline/qa/REVIEW_PROMPT.md` §3, `timeline.jpg`) instead of checking a list of past bugs.
 - 2026-11-01: owner listened to the music A/B on orca v4 and kept the new scored soundtrack (pipeline/audio/score.py, GeneralUser GS) as the default for explainers; deep_ocean stays as the fallback.
 - 2026-11-01: owner: the score was too loud ("music should be background"); lowered ~6 dB (voice ~17 LU over the score). Owner confirmed the new level sounds right.
+- 2026-11-01: owner listened to the orca music A/B/C and picked B: the v2 score (Kurzgesagt Shorts study) with the current sound effects. sfx_mode stays "full"; the fewer-SFX "musical" mode (C) stays available but off.
