@@ -61,9 +61,17 @@ ask() {  # $1 = name, $2 = hidden (1) or shown (0)
 hidden_for() { case "$1" in *KEY*|*TOKEN*|*SECRET*|*PASSWORD*) echo 1 ;; *) echo 0 ;; esac; }
 
 if [ "${1:-}" = "--clipboard" ]; then  # value = what's on the Mac clipboard (never shown); NAME defaults to BUFFER_API_KEY
-  v=$(pbpaste)
+  n=BUFFER_API_KEY; v=$(pbpaste)
+  if [[ "${2:-}" =~ ^[A-Z][A-Z0-9_]*$ ]]; then n=$2
+  elif [ -n "${2:-}" ]; then v=$2  # the key itself was given after --clipboard
+  fi
+  v=$(printf '%s' "$v" | tr -d '[:space:]')
   [ -n "$v" ] || { echo "clipboard is empty"; exit 1; }
-  write_var "${2:-BUFFER_API_KEY}" "$v"
+  if [ "$n" = BUFFER_API_KEY ] && ! [[ "$v" =~ ^[A-Za-z0-9_-]{20,}$ ]]; then
+    echo "That isn't just a Buffer key (it has other characters; maybe the clipboard holds a terminal line). Copy only the key and run again."
+    exit 1
+  fi
+  write_var "$n" "$v"
   exit 0
 fi
 for n in "$@"; do
