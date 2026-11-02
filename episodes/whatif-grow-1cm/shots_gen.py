@@ -58,7 +58,7 @@ def setting(kind, biome=None, place=None, light="day", cue=None):
 
 
 def shake(at, amp=12, dur=0.45):
-    return {"at": at, "duration": dur, "amplitude": amp, "frequency": 9, "rotate": 0.2, "decay": True}
+    return {"at": at, "duration": dur, "amplitude": amp, "frequency": 9, "rotate": 0, "decay": True}
 
 
 def street(x0, x1, seed):
@@ -87,99 +87,93 @@ FIG_W = 152 / 344          # kit YOU: box width / height
 
 def scenes():
     S = []
+    SUN = {"kind": "sun", "sx": 0.18, "sy": 0.2, "r": 0.055}     # one sun, upper left: the light every shadow agrees with
 
-    # P1 hook: the bedroom, YOU sprouting toward the ceiling (frame 0 = the cover)
+    # P1 hook: the bedroom, YOU sprouting toward the ceiling (frame 0 = the cover); the plate counts from 0
     room1 = [{"kind": "room", "ceiling": 2.4, "at": "@hits"}]
     clk = [k(0, 0), k("@hits", 65, "linear")]
     S.append({"p": 1, "beat": "hook", "setting": setting("place", "home", "your bedroom"),
               "background": world(clk, room1, lin=True, seed="room",
-                                  lppm=[k(0, 2.49), k("@hits", 2.57, "out")], gy=0.64, cx=0.52,
+                                  lppm=[k(0, 2.49), k("@one", 2.52), k("@hits", 2.8, "inOut")],
+                                  focusAlt=[k(0, 0.0), k("@one", 0.0), k("@hits", 0.88, "inOut")],
+                                  focusY=[k(0, 0.64), k("@one", 0.64), k("@hits", 0.42, "inOut")], cx=0.52,
                                   face=[{"at": 0, "face": "calm"}, {"at": "@minute", "face": "worried"},
                                         {"at": "@hits", "face": "strain"}],
-                                  pose=[{"at": 0, "pose": "stand"}, {"at": "@hits+0.15", "pose": "shrug"}]),
-              "layers": [hud(clk, lin=True, title="+1 CM EVERY SECOND", titleUntil="@and")],
-              "camera": {"keyframes": [{"t": 0, "zoom": 1.0}, {"t": "@hits", "zoom": 1.03, "ease": "inOut"}],
-                         "shake": [shake("@hits", 16)]}})
+                                  sy=[k(0, 1), k("@hits", 1), k("@hits+0.12", 0.95, "out"), k("@hits+0.5", 0.97)]),
+              "layers": [hud(clk, lin=True)],
+              "camera": {"shake": [shake("@hits", 16)]}})
 
-    # P2 street: grow past houses and a ten-storey block, then push down to a car beside the shoe
-    items = street(-120, -12, "s2a") + street(48, 160, "s2b") + [
-        {"kind": "skyline", "x0": -900, "x1": 900, "seed": "sk2"},
-        {"kind": "sun", "sx": 0.82, "sy": 0.22, "r": 0.06},
-        {"kind": "block", "x": 26, "w": 16, "floors": 10, "color": "magenta-1", "seed": "b2"},
+    # P2 street: in front of your house, outgrow the rooflines and a ten-storey block, then down to a car by the shoe
+    items = [SUN, {"kind": "house", "x": -1.5, "w": 11, "h": 6.2, "color": "coral-2", "roof": "dusk-1"}] + \
+        street(-130, -12, "s2a") + street(14, 170, "s2b") + [
+        {"kind": "block", "x": 30, "w": 16, "floors": 10, "color": "magenta-1", "seed": "b2"},
+        {"kind": "level", "alt": 33, "text": "10 FLOORS", "at": "@ten-storey", "color": "amber-4"},
         {"kind": "car", "x": 9.6, "color": "coral-2"},
         {"kind": "car", "x": -48, "color": "amber-2"},
+        {"kind": "marker", "x": 9.6, "alt": 1.5, "dx": 150, "dy": -330, "text": "CAR 4.5 M", "at": "@car", "front": True},
     ]
-    # skyline is far: draw it first (items draw in order)
-    items = [items[-4]] + [i for i in items if i["kind"] not in ("skyline", "sun")]
-    clk = [k(0, 65), k("@metres", 3600, "inOut"), k("@:end", 3750)]
+    clk = [k(0, 65), k("@metres", 3600, "inOut"), k("@:end", 3900)]
     S.append({"p": 2, "beat": "rung1", "setting": setting("place", "town", "your street"),
               "background": world(clk, items, seed="st",
-                                  lppm=[k(0, 2.35), k("@metres", 1.1, "inOut"), k("@building.end", 1.12),
-                                        k("@car", 1.62, "inOut")],
-                                  gy=[k(0, 0.62), k("@car", 0.6, "inOut")],
-                                  cx=[k(0, 0.5), k("@metres", 0.36), k("@building.end", 0.36), k("@car", 0.22, "inOut")],
+                                  lppm=[k(0, 2.2), k("@metres", 1.1, "inOut"), k("@taller", 1.1), k("@building", 1.2),
+                                        k("@building.end", 1.2), k("@smaller", 1.75, "inOut")],
+                                  gy=[k(0, 0.64), k("@building.end", 0.64), k("@smaller", 0.6, "inOut")],
+                                  cx=[k(0, 0.5), k("@metres", 0.34), k("@building.end", 0.34), k("@smaller", 0.2, "inOut")],
                                   face=[{"at": 0, "face": "strain"}, {"at": "@added", "face": "wow"},
-                                        {"at": "@car", "face": "smile"}],
-                                  pose=[{"at": 0, "pose": "stand"}, {"at": "@car", "pose": "point"}]),
+                                        {"at": "@car", "face": "smile"}]),
               "layers": [hud(clk)]})
 
-    # P3 board: the square-cube law
-    S.append({"p": 3, "beat": "science", "setting": {"kind": "board", "board": "navy"},
-              "layers": [{"type": "component", "name": "explainer/CubeLaw", "role": "label", "x": "50%", "y": "37%",
-                          "width": 900, "height": 1000, "depth": 0.6, "z": 10,
-                          "props": {"k": 20, "itemAt": ["@twenty", "@eight", "@four"], "top": 0.02, "rowH": 0.28}}],
-              "camera": {"keyframes": [{"t": 0, "zoom": 1.0}, {"t": "@:end", "zoom": 1.025, "ease": "inOut"}]}})
+    # P3 the square-cube law on YOU in the street: x20 bracket, x8,000 weight arrows, x400 glowing bones
+    clk = [k(0, 3900), k("@:end", 4100)]
+    S.append({"p": 3, "beat": "science", "setting": setting("place", "town", "your street (x-ray)"),
+              "background": world(clk, [SUN, {"kind": "block", "x": 34, "w": 16, "floors": 10, "color": "violet-2",
+                                              "seed": "b3"}] + street(-150, -14, "s3a") + street(48, 200, "s3b"),
+                                  seed="x3", lppm=[k(0, 1.3), k("@bones", 1.32), k("@stronger", 1.64, "inOut")],
+                                  gy=[k(0, 0.71), k("@bones", 0.71), k("@stronger", 0.64, "inOut")],
+                                  cx=[k(0, 0.5), k("@bones", 0.5), k("@stronger", 0.4, "inOut")],
+                                  face=[{"at": 0, "face": "calm"}, {"at": "@heavier", "face": "strain"},
+                                        {"at": "@bones", "face": "worried"}],
+                                  sy=[k(0, 1), k("@heavier", 1), k("@heavier+0.3", 0.97, "out")],
+                                  xray={"times": ["@twenty", "@eight", "@bones"]}),
+              "layers": [hud(clk)],
+              "camera": {"shake": [shake("@heavier", 8, 0.35)]}})
 
-    # P4 street again: a step cracks the road, the knees dip and hold, the clock runs on toward Paris
-    foot = 3.0  # right foot centre ~ x = (140-100)/152 * width
-    clk = [k(0, 3750), k("@keep", 4200), k("@:end", 12000, "in")]
-    items4 = street(-160, -14, "s4a") + street(30, 200, "s4b") + [
-        {"kind": "skyline", "x0": -1500, "x1": 1500, "seed": "sk4"},
-        {"kind": "sun", "sx": 0.18, "sy": 0.2, "r": 0.06},
+    # P4 street: close on the leg, the step cracks the road, the knees dip and hold, then pull back as you grow
+    clk = [k(0, 4100), k("@keep", 4400), k("@:end", 14000, "in")]
+    items4 = [SUN] + street(-160, -14, "s4a") + street(30, 200, "s4b") + [
         {"kind": "block", "x": 44, "w": 16, "floors": 10, "color": "violet-2", "seed": "b4"},
         {"kind": "car", "x": 14, "color": "tide-2"},
-        {"kind": "crack", "x": 4.2, "w": 14, "at": "@cracks"},
+        {"kind": "crack", "x": 4.2, "w": 16, "at": "@cracks"},
     ]
-    items4 = [items4[-4]] + [i for i in items4 if i["kind"] not in ("skyline", "sun")]
     S.append({"p": 4, "beat": "turn", "setting": setting("place", "town", "your street"),
               "background": world(clk, items4, seed="st4",
-                                  lppm=[k(0, 1.5), k("@knees", 1.5), k("@fold", 1.18, "inOut"), k("@keep", 1.15),
-                                        k("@:end", 0.55, "in")],
-                                  gy=[k(0, 0.58), k("@fold", 0.64, "inOut")],
-                                  focusXH=None, cx=[k(0, 0.3), k("@fold", 0.45, "inOut")],
-                                  sy=[k(0, 1), k("@fold", 1), k("@here", 0.9, "out"), k("@don't", 0.9),
+                                  lppm=[k(0, 1.72), k("@keep", 1.72), k("@:end", 0.5, "in")],
+                                  gy=[k(0, 0.62), k("@keep", 0.62), k("@:end", 0.66, "in")],
+                                  cx=[k(0, 0.36), k("@keep", 0.36), k("@:end", 0.45, "inOut")],
+                                  sy=[k(0, 1), k("@fold", 1), k("@here", 0.88, "out"), k("@don't", 0.88),
                                       k("@don't+0.35", 1.0, "backOut")],
                                   face=[{"at": 0, "face": "calm"}, {"at": "@fold", "face": "strain"},
-                                        {"at": "@don't", "face": "smile"}],
-                                  pose=[{"at": 0, "pose": "stand"}, {"at": "@don't", "pose": "wave"}]),
+                                        {"at": "@don't", "face": "smile"}]),
               "layers": [hud(clk)],
-              "camera": {"shake": [shake("@cracks", 18, 0.5)]}})
-    S[-1]["background"]["props"].pop("focusXH")
+              "camera": {"shake": [shake("@cracks", 18, 0.5), shake("@don't", 6, 0.3)]}})
 
     # P5 Paris: eye to eye with the top of the Eiffel Tower
-    h9 = 1.75 + 0.01 * 9 * 3600
     clk = [k(0, 9 * 3600), k("@:end", 9.4 * 3600)]
-    items5 = [{"kind": "skyline", "x0": -4000, "x1": 4000, "seed": "pa"},
-              {"kind": "sun", "sx": 0.84, "sy": 0.19, "r": 0.055},
+    items5 = [SUN, {"kind": "skyline", "x0": -4000, "x1": 4000, "seed": "pa"},
               {"kind": "paris", "x0": -2500, "x1": -80, "seed": "pr1"},
               {"kind": "paris", "x0": 80, "x1": 2500, "seed": "pr2"},
-              {"kind": "eiffel", "x": 158}]
+              {"kind": "eiffel", "x": 158},
+              {"kind": "level", "alt": 290, "at": "@eye#2", "color": "amber-4"}]
     S.append({"p": 5, "beat": "landmark", "setting": setting("place", "city", "Paris"),
               "background": world(clk, items5, ground="street", seed="pa",
-                                  lppm=[k(0, 0.42), k("@eye", 0.42), k("@top", 0.62, "inOut")],
-                                  gy=[k(0, 0.64), k("@eye", 0.64), k("@top", 0.64 + 0.4 * 0 + 0.0, "inOut")],
-                                  focusXH=None,
-                                  cx=[k(0, 0.42), k("@eye", 0.42), k("@top", 0.24, "inOut")],
+                                  lppm=[k(0, 0.42), k("@hours", 0.42), k("@top", 0.6, "inOut")],
+                                  focusAlt=[k(0, 0.0), k("@hours", 0.0), k("@top", 0.86, "inOut")],
+                                  focusY=[k(0, 0.66), k("@hours", 0.66), k("@top", 0.4, "inOut")],
+                                  cx=[k(0, 0.4), k("@hours", 0.4), k("@top", 0.24, "inOut")],
                                   face=[{"at": 0, "face": "calm"}, {"at": "@eye", "face": "wow"}]),
               "layers": [hud(clk)]})
-    bg = S[-1]["background"]["props"]
-    bg.pop("focusXH")
-    # push to the face: keep eye level (~0.86 of YOU) at screen y 0.36
-    bg.pop("gy")
-    bg["focusAlt"] = [k(0, 0.0), k("@eye", 0.0), k("@top", 0.86, "inOut")]
-    bg["focusY"] = [k(0, 0.64), k("@eye", 0.64), k("@top", 0.38, "inOut")]
 
-    # P6 the clouds at your shoulders on day two
+    # P6 the clouds at your head on day two
     clk = [k(0, 1.05 * DAY), k("@:end", 1.6 * DAY)]
     clouds = []
     deck = [(-1500, 1300, 700, False), (1400, 1400, 650, False), (-1300, 900, 620, True), (-650, 860, 560, True),
@@ -189,103 +183,122 @@ def scenes():
         clouds.append({"kind": "cloud", "x": x, "alt": alt, "w": w, "seed": f"c6{i}", "front": front,
                        "drift": 70 if i % 2 else -70})
     S.append({"p": 6, "beat": "rung", "setting": setting("place", "sky", "above the clouds"),
-              "background": world(clk, [{"kind": "sun", "sx": 0.2, "sy": 0.2, "r": 0.06},
-                                        {"kind": "hills", "x0": -4000, "x1": 4000, "h": 160, "seed": "h6"}] + clouds, ground="land",
-                                  seed="cl", lppm=[k(0, L(0.85)), k("@clouds", L(0.6), "inOut")],
+              "background": world(clk, [SUN, {"kind": "hills", "x0": -4000, "x1": 4000, "h": 160, "seed": "h6"}] + clouds,
+                                  ground="land", seed="cl", lppm=[k(0, L(0.85)), k("@clouds", L(0.6), "inOut")],
                                   focusAlt=[k(0, 0.55), k("@clouds", 0.62, "inOut")], focusY=0.44, cx=0.5,
                                   face=[{"at": 0, "face": "wow"}, {"at": "@clouds", "face": "smile"}]),
               "layers": [hud(clk)]})
 
-    # P7 Everest: pass the summit, then the thin air at your face
-    clk = [k(0, 8.2e5), k("@Everest", 8.9e5, "inOut"), k("@:end", 9.05e5)]
+    # P7 Everest: the head passes the summit line on "top", then the thin air at your face
+    clk = [k(0, 8.2e5), k("@top", 8.85e5, "inOut"), k("@Everest", 8.95e5), k("@:end", 9.05e5)]
     mts = [{"kind": "mountain", "x": -5200, "h": 7000, "w": 13000, "far": True, "seed": "m1"},
            {"kind": "mountain", "x": 13500, "h": 7400, "w": 13000, "far": True, "seed": "m2"},
            {"kind": "mountain", "x": 6600, "h": 8849, "w": 13000, "seed": "ev"},
+           {"kind": "level", "alt": 8849, "text": "EVEREST 8,849 M", "at": "@pass", "labelX": 0.97},
+           {"kind": "hills", "x0": -9000, "x1": 16000, "h": 900, "seed": "fh", "color": "violet-1",
+            "color2": "violet-0", "front": True},
            {"kind": "cloud", "x": -2500, "alt": 1600, "w": 2600, "seed": "c71", "front": True, "drift": 80},
            {"kind": "cloud", "x": 3000, "alt": 1400, "w": 2400, "seed": "c72", "front": True, "drift": -80}]
     S.append({"p": 7, "beat": "body", "setting": setting("place", "mountains", "Himalayas"),
-              "background": world(clk, [{"kind": "sun", "sx": 0.15, "sy": 0.22, "r": 0.055}] + mts, ground="land",
-                                  seed="ev", lppm=[k(0, L(0.075)), k("@air", L(0.08)), k("@face", L(0.2), "inOut")],
+              "background": world(clk, [SUN] + mts, ground="land", seed="ev",
+                                  lppm=[k(0, L(0.08)), k("@air", L(0.08)), k("@face", L(0.2), "inOut")],
                                   focusAlt=[k(0, 0.0), k("@air", 0.0), k("@face", 0.86, "inOut")],
-                                  focusY=[k(0, 0.69), k("@air", 0.69), k("@face", 0.4, "inOut")],
+                                  focusY=[k(0, 0.74), k("@air", 0.74), k("@face", 0.42, "inOut")],
                                   cx=[k(0, 0.26), k("@air", 0.26), k("@face", 0.5, "inOut")],
-                                  face=[{"at": 0, "face": "calm"}, {"at": "@Everest", "face": "wow"},
+                                  face=[{"at": 0, "face": "calm"}, {"at": "@pass", "face": "wow"},
                                         {"at": "@thin", "face": "gasp"}],
-                                  puffs=[{"at": "@thin"}, {"at": "@breathe"}, {"at": "@breathe+0.6"}]),
+                                  pose=[{"at": 0, "pose": "stand"}],
+                                  puffs=[{"at": "@thin"}, {"at": "@thin+0.3"}, {"at": "@breathe"},
+                                         {"at": "@breathe+0.3"}]),
               "layers": [hud(clk)]})
 
-    # P8 airliners cross under your chin
+    # P8 airliners cross under your chin (planes drawn 5x so they read)
     clk = [k(0, 14 * DAY), k("@:end", 14.4 * DAY)]
     yh = 1.75 + 0.01 * 14 * DAY
     chin = yh * (1 - (92 + 4 - 12) / 344)
-    planes = [{"kind": "plane", "x": -1150, "alt": chin - 120, "v": 900, "at": "@airliners", "dir": 1, "scale": 5,
-               "trail": 2500, "front": True},
-              {"kind": "plane", "x": 1150, "alt": chin - 380, "v": 850, "at": "@cruise", "dir": -1, "scale": 5,
-               "trail": 2200, "front": True}]
+    planes = [{"kind": "plane", "x": -1300, "alt": chin - 70, "v": 1500, "at": "@airliners", "dir": 1, "scale": 5,
+               "trail": 3000, "front": True},
+              {"kind": "plane", "x": 1400, "alt": chin - 260, "v": 1400, "at": "@cruise", "dir": -1, "scale": 5,
+               "trail": 2600, "front": True}]
     S.append({"p": 8, "beat": "rung", "setting": setting("place", "sky", "cruising altitude"),
-              "background": world(clk, [{"kind": "sun", "sx": 0.82, "sy": 0.2, "r": 0.05},
-                                        {"kind": "cloud", "x": -3000, "alt": 7000, "w": 3000, "seed": "c81"},
+              "background": world(clk, [SUN, {"kind": "cloud", "x": -3000, "alt": 7000, "w": 3000, "seed": "c81"},
                                         {"kind": "cloud", "x": 4200, "alt": 6400, "w": 2600, "seed": "c82"}] + planes,
-                                  ground="land", seed="pl", lppm=[k(0, L(0.36)), k("@:end", L(0.4))],
-                                  focusAlt=0.8, focusY=0.46, cx=0.5,
-                                  face=[{"at": 0, "face": "calm"}, {"at": "@airliners", "face": "shock"}]),
+                                  ground="land", seed="pl", lppm=[k(0, L(0.25)), k("@:end", L(0.28))],
+                                  focusAlt=0.8, focusY=0.5, cx=0.5,
+                                  face=[{"at": 0, "face": "gasp"}, {"at": "@airliners", "face": "shock"}]),
               "layers": [hud(clk)]})
 
-    # P9 the edge of space, then one dive down to the feet still on your street
-    clk = [k(0, 9.0e6), k("@space", 1.02e7, "inOut"), k("@while", 1.04e7)]
+    # P9 the edge of space: mountains and clouds at your feet, the 100 km line, then one dive to the street
+    clk = [k(0, 9.6e6), k("@space", 1.02e7, "inOut"), k("@while", 1.04e7)]
     yh = 1.75 + 0.01 * 1.04e7
     toe = (164 - 100) / 344 * yh            # toe tip x (m)
-    st = [dict(i, x=i["x"] + toe) for i in street(60, 900, "s9")]
-    items9 = [{"kind": "karman"}] + st + [{"kind": "block", "x": toe + 300, "w": 16, "floors": 10, "color": "magenta-1",
-                                           "seed": "b9"}]
+    items9 = [{"kind": "level", "alt": 100000, "text": "SPACE: 100 KM", "at": "@edge", "labelX": 0.97},
+              {"kind": "mountain", "x": -16000, "h": 7500, "w": 14000, "far": True, "seed": "m91"},
+              {"kind": "mountain", "x": 26000, "h": 8000, "w": 15000, "far": True, "seed": "m92"},
+              {"kind": "cloud", "x": -14000, "alt": 2500, "w": 9000, "seed": "c91", "front": True},
+              {"kind": "cloud", "x": 33000, "alt": 2200, "w": 8000, "seed": "c92", "front": True},
+              {"kind": "town", "x0": toe + 120, "n": 9, "px": 16},
+              {"kind": "marker", "x": toe + 700, "alt": 0, "dx": 40, "dy": -420, "text": "YOUR STREET", "at": "@still",
+               "front": True}]
     S.append({"p": 9, "beat": "threshold", "setting": setting("place", "space", "edge of space", light="night"),
-              "background": world(clk, items9, ground="street", seed="sp",
-                                  lppm=[k(0, L(0.0098)), k("@while", L(0.0098)), k("@street", L(0.06), "inOut")],
-                                  gy=0.66, focusXH=[k(0, 0.0), k("@while", 0.0), k("@street", 0.14, "inOut")],
-                                  focusSX=0.5,
+              "background": world(clk, items9, ground="land", seed="sp",
+                                  lppm=[k(0, L(0.0092)), k("@there's", L(0.0092)), k("@all", L(0.02), "inOut"),
+                                        k("@while", L(0.02)), k("@street", L(0.06), "inOut")],
+                                  focusAlt=[k(0, 0.5), k("@there's", 0.5), k("@all", 0.88, "inOut"), k("@while", 0.88),
+                                            k("@street", 0.0, "inOut")],
+                                  focusY=[k(0, 0.42), k("@there's", 0.42), k("@all", 0.4, "inOut"), k("@while", 0.4),
+                                          k("@street", 0.66, "inOut")],
+                                  focusXH=[k(0, 0.0), k("@while", 0.0), k("@street", 0.14, "inOut")], focusSX=0.5,
                                   face=[{"at": 0, "face": "calm"}, {"at": "@space", "face": "wow"},
-                                        {"at": "@no", "face": "gasp"}]),
-              "layers": [hud(clk),
-                         tag("EDGE OF SPACE", "28%", "21%", "@edge", out="@while"),
-                         tag("YOUR HOUSE", "80%", "41%", "@street", leader=[0, 470])]})
+                                        {"at": "@no", "face": "strain"}, {"at": "@feet", "face": "calm"}]),
+              "layers": [hud(clk)]})
 
-    # P10 the Moon beside you, Earth a ball under your feet
-    clk = [k(0, 3.2e8), k("@wide", 3.47e8, "inOut"), k("@:end", 3.48e8)]
+    # P10 the Moon beside you, then pull back: Earth a ball under your feet
+    clk = [k(0, 3.36e8), k("@wide", 3.47e8, "inOut"), k("@:end", 3.48e8)]
     yh = 1.75 + 0.01 * 3.47e8
     mx = 0.22 * yh + 1737400 + 300000
     S.append({"p": 10, "beat": "top", "setting": setting("place", "space", "Earth orbit", light="night"),
-              "background": world(clk, [{"kind": "moon", "x": mx, "alt": 1737400, "from": "@Moon"}], ground="land",
-                                  seed="mo", lppm=[k(0, L(1.55e-4)), k("@Earth", L(1.55e-4)), k("@ball", L(7.2e-5), "inOut")],
-                                  gy=[k(0, 0.62), k("@Earth", 0.62), k("@ball", 0.36, "inOut")],
-                                  cx=[k(0, 0.32), k("@Earth", 0.32), k("@ball", 0.42, "inOut")],
+              "background": world(clk, [{"kind": "moon", "x": mx, "alt": 1737400, "from": "@Moon"},
+                                        {"kind": "marker", "x": 0, "alt": -6371000, "dx": 0, "dy": 0,
+                                         "text": "EARTH 12,742 KM", "at": "@height", "front": True, "size": 44}],
+                                  ground="land", seed="mo",
+                                  lppm=[k(0, L(1.55e-4)), k("@wide.end", L(1.55e-4)), k("@ball.end", L(7.4e-5), "inOut")],
+                                  gy=[k(0, 0.62), k("@wide.end", 0.62), k("@ball.end", 0.34, "inOut")],
+                                  cx=[k(0, 0.32), k("@wide.end", 0.32), k("@ball.end", 0.5, "inOut")],
                                   face=[{"at": 0, "face": "calm"}, {"at": "@Moon", "face": "wow"}]),
-              "layers": [hud(clk), tag("3,475 KM ACROSS", "70%", "24%", "@Moon+0.2", out="@Earth")]})
+              "layers": [hud(clk)]})
 
     # P11 the reframe: the clock turns on the viewer; the bedroom again (loop to frame 0)
     room11 = [{"kind": "room", "ceiling": 2.4, "at": "@ceiling"}]
     clk = [k(0, 0), k("@ceiling", 65, "inOut")]
     S.append({"p": 11, "beat": "loop", "setting": setting("place", "home", "your bedroom"),
               "background": world(clk, room11, lin=True, seed="room",
-                                  lppm=[k(0, 2.49), k("@ceiling", 2.57, "out")], gy=0.64, cx=0.52,
+                                  lppm=[k(0, 2.49), k("@taller", 2.52), k("@ceiling", 2.8, "inOut")],
+                                  focusAlt=[k(0, 0.0), k("@taller", 0.0), k("@ceiling", 0.88, "inOut")],
+                                  focusY=[k(0, 0.64), k("@taller", 0.64), k("@ceiling", 0.42, "inOut")], cx=0.52,
                                   face=[{"at": 0, "face": "calm"}, {"at": "@taller", "face": "worried"},
                                         {"at": "@ceiling", "face": "strain"}],
-                                  pose=[{"at": 0, "pose": "stand"}, {"at": "@ceiling+0.15", "pose": "shrug"}]),
-              "layers": [hud(clk, lin=True, title="SINCE YOU PRESSED PLAY", titleUntil="@already")],
-              "camera": {"keyframes": [{"t": 0, "zoom": 1.0}, {"t": "@ceiling", "zoom": 1.03, "ease": "inOut"}],
-                         "shake": [shake("@ceiling", 12)]}})
+                                  sy=[k(0, 1), k("@ceiling", 1), k("@ceiling+0.12", 0.95, "out"), k("@ceiling+0.5", 0.97)]),
+              "layers": [hud(clk, lin=True)],
+              "camera": {"shake": [shake("@ceiling", 12)]}})
 
-    # remove helper Nones (tag cue)
     for s in S:
         for l in s.get("layers", []):
             if l.get("cue", 1) is None:
                 l.pop("cue")
         s["_house"] = {"set": False}
+        if s["p"] > 1:
+            s["transitionIn"] = {"type": "cut"}      # Zack-style hard cuts (house "cuts": false keeps them)
     return S
 
 
 def main():
-    shots = {"niche": "explainer", "emphasis": ["ceiling.", "thousand", "Everest,", "space,", "Moon"],
-             "glue": ["Eiffel Tower", "Mount Everest", "ten-storey building"], "scenes": scenes()}
+    shots = {"niche": "explainer", "house": {"cuts": False},
+             "emphasis": ["ceiling.", "thousand", "Everest,", "space,", "Moon"],
+             "glue": ["one minute later", "Eiffel Tower", "Mount Everest", "ten-storey building", "eye to eye",
+                      "the second day", "ten days in", "two weeks in", "four months", "eleven years in",
+                      "pressed play", "sixty centimetres", "four hundred", "eight thousand"],
+             "scenes": scenes()}
     with open(os.path.join(HERE, "shots.json"), "w") as f:
         json.dump(shots, f, indent=1)
     print("shots.json:", len(shots["scenes"]), "scenes")

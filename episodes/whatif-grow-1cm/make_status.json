@@ -5,17 +5,23 @@
  "steps_done": [
   "script",
   "tts",
-  "storyboard"
+  "storyboard",
+  "render"
  ],
  "usage": {},
  "usage_total": {
   "weighted_tokens": 0,
   "cost_usd": 0.0
  },
- "outputs": {},
+ "outputs": {
+  "mp4": "out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4",
+  "sheet": "out/whatif-grow-1cm/whatif-grow-1cm_sheet.jpg",
+  "duration_s": 62.38,
+  "mp4_sha256": "1346a829bec6ed30c048a1678ce71c6acd74a70d81dc91c5de0f322393b83a69"
+ },
  "status": "done",
- "started_at": "2026-11-02T08:27:36Z",
- "finished_at": "2026-11-02T08:28:28Z",
+ "started_at": "2026-11-02T08:42:54Z",
+ "finished_at": "2026-11-02T08:44:28Z",
  "exit_code": 0,
  "error": null,
  "budget_tokens": null,

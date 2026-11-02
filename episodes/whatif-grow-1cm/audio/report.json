@@ -15,7 +15,7 @@
  },
  "mix": {
   "target_lufs": -14.0,
-  "pyloudnorm_lufs": -14.18,
+  "pyloudnorm_lufs": -14.17,
   "true_peak_dbtp_4x": -2.02,
   "ffmpeg_ebur128": {
    "I_lufs": -14.1,
@@ -59,7 +59,7 @@
     "source": "marker",
     "dur": 3.5,
     "level_db": -4.0,
-    "mix_momentary_max": -10.7
+    "mix_momentary_max": -10.6
    },
    {
     "cue": "whoosh",
@@ -77,7 +77,7 @@
     "source": "cut",
     "dur": 1.802,
     "level_db": -15.0,
-    "mix_momentary_max": -11.3
+    "mix_momentary_max": -11.4
    },
    {
     "cue": "breath",
@@ -86,7 +86,7 @@
     "source": "marker",
     "dur": 1.402,
     "level_db": -10.0,
-    "mix_momentary_max": -11.2
+    "mix_momentary_max": -11.3
    },
    {
     "cue": "whoosh_long",
@@ -116,10 +116,10 @@
     "mix_momentary_max": -11.0
    }
   ],
-  "music_rms_db_under_voice": -38.59,
-  "music_rms_db_in_gaps": -50.88,
-  "measured_duck_db": 12.29,
-  "bed_below_voice_db": 18.94,
+  "music_rms_db_under_voice": -38.78,
+  "music_rms_db_in_gaps": -51.53,
+  "measured_duck_db": 12.75,
+  "bed_below_voice_db": 19.13,
   "music_provenance": {
    "generator": "pipeline.audio.score",
    "soundfont": "GeneralUser-GS",
@@ -138,23 +138,16 @@
     },
     {
      "t0": 12.676,
-     "t1": 20.336,
-     "mood": "board",
-     "intensity": 1,
-     "role": ""
-    },
-    {
-     "t0": 20.336,
-     "t1": 32.754,
-     "mood": "curious",
-     "intensity": 1,
-     "role": ""
-    },
-    {
-     "t0": 32.754,
-     "t1": 41.718999999999994,
+     "t1": 26.284,
      "mood": "curious",
      "intensity": 2,
+     "role": ""
+    },
+    {
+     "t0": 26.284,
+     "t1": 41.718999999999994,
+     "mood": "curious",
+     "intensity": 3,
      "role": ""
     },
     {
@@ -183,7 +176,7 @@
      "t": 26.434,
      "why": "marker boom",
      "prio": 3.0,
-     "on_boundary": false
+     "on_boundary": true
     }
    ],
    "drops": [
@@ -195,9 +188,9 @@
    ],
    "risers": [
     {
-     "t0": 31.724,
-     "t1": 32.754,
-     "len": 1.03,
+     "t0": 11.666,
+     "t1": 12.676,
+     "len": 1.01,
      "kind": "swell",
      "jump": 1
     }
@@ -205,5 +198,5 @@
   }
  },
  "words": 198,
- "wall_s": 35.1
+ "wall_s": 38.5
 }

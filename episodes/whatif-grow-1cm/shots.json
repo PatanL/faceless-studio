@@ -1,5 +1,8 @@
 {
  "niche": "explainer",
+ "house": {
+  "cuts": false
+ },
  "emphasis": [
   "ceiling.",
   "thousand",
@@ -8,9 +11,20 @@
   "Moon"
  ],
  "glue": [
+  "one minute later",
   "Eiffel Tower",
   "Mount Everest",
-  "ten-storey building"
+  "ten-storey building",
+  "eye to eye",
+  "the second day",
+  "ten days in",
+  "two weeks in",
+  "four months",
+  "eleven years in",
+  "pressed play",
+  "sixty centimetres",
+  "four hundred",
+  "eight thousand"
  ],
  "scenes": [
   {
@@ -56,12 +70,45 @@
        "v": 2.49
       },
       {
+       "t": "@one",
+       "v": 2.52
+      },
+      {
        "t": "@hits",
-       "v": 2.57,
-       "ease": "out"
+       "v": 2.8,
+       "ease": "inOut"
       }
      ],
-     "gy": 0.64,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@one",
+       "v": 0.0
+      },
+      {
+       "t": "@hits",
+       "v": 0.88,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": "@one",
+       "v": 0.64
+      },
+      {
+       "t": "@hits",
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
      "cx": 0.52,
      "face": [
       {
@@ -77,14 +124,23 @@
        "face": "strain"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": "@hits+0.15",
-       "pose": "shrug"
+       "t": "@hits",
+       "v": 1
+      },
+      {
+       "t": "@hits+0.12",
+       "v": 0.95,
+       "ease": "out"
+      },
+      {
+       "t": "@hits+0.5",
+       "v": 0.97
       }
      ],
      "clockScale": "lin"
@@ -113,31 +169,18 @@
         "ease": "linear"
        }
       ],
-      "title": "+1 CM EVERY SECOND",
-      "titleUntil": "@and",
       "clockScale": "lin"
      }
     }
    ],
    "camera": {
-    "keyframes": [
-     {
-      "t": 0,
-      "zoom": 1.0
-     },
-     {
-      "t": "@hits",
-      "zoom": 1.03,
-      "ease": "inOut"
-     }
-    ],
     "shake": [
      {
       "at": "@hits",
       "duration": 0.45,
       "amplitude": 16,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
       "decay": true
      }
     ]
@@ -175,19 +218,27 @@
       },
       {
        "t": "@:end",
-       "v": 3750
+       "v": 3900
       }
      ],
      "items": [
       {
        "kind": "sun",
-       "sx": 0.82,
-       "sy": 0.22,
-       "r": 0.06
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
       },
       {
        "kind": "house",
-       "x": -120,
+       "x": -1.5,
+       "w": 11,
+       "h": 6.2,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": -130,
        "w": 9,
        "h": 5.5,
        "color": "coral-2",
@@ -195,12 +246,12 @@
       },
       {
        "kind": "tree",
-       "x": -107,
+       "x": -117,
        "h": 9
       },
       {
        "kind": "house",
-       "x": -100,
+       "x": -110,
        "w": 9,
        "h": 5.5,
        "color": "tide-2",
@@ -208,11 +259,11 @@
       },
       {
        "kind": "lamp",
-       "x": -87
+       "x": -97
       },
       {
        "kind": "house",
-       "x": -82,
+       "x": -92,
        "w": 9,
        "h": 5.5,
        "color": "kelp-2",
@@ -220,12 +271,12 @@
       },
       {
        "kind": "tree",
-       "x": -69,
+       "x": -79,
        "h": 10
       },
       {
        "kind": "house",
-       "x": -62,
+       "x": -72,
        "w": 9,
        "h": 5.5,
        "color": "coral-2",
@@ -233,12 +284,12 @@
       },
       {
        "kind": "tree",
-       "x": -49,
+       "x": -59,
        "h": 9
       },
       {
        "kind": "house",
-       "x": -42,
+       "x": -52,
        "w": 9,
        "h": 5.5,
        "color": "tide-2",
@@ -246,15 +297,421 @@
       },
       {
        "kind": "lamp",
-       "x": -29
+       "x": -39
       },
       {
        "kind": "house",
-       "x": -24,
+       "x": -34,
        "w": 9,
        "h": 5.5,
        "color": "kelp-2",
        "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -21,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -14,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 14,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 27,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 34,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 47
+      },
+      {
+       "kind": "house",
+       "x": 52,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 65,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 72,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 85,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 92,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 105
+      },
+      {
+       "kind": "house",
+       "x": 110,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 123,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 130,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 143,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 150,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 163
+      },
+      {
+       "kind": "house",
+       "x": 168,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "block",
+       "x": 30,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b2"
+      },
+      {
+       "kind": "level",
+       "alt": 33,
+       "text": "10 FLOORS",
+       "at": "@ten-storey",
+       "color": "amber-4"
+      },
+      {
+       "kind": "car",
+       "x": 9.6,
+       "color": "coral-2"
+      },
+      {
+       "kind": "car",
+       "x": -48,
+       "color": "amber-2"
+      },
+      {
+       "kind": "marker",
+       "x": 9.6,
+       "alt": 1.5,
+       "dx": 150,
+       "dy": -330,
+       "text": "CAR 4.5 M",
+       "at": "@car",
+       "front": true
+      }
+     ],
+     "ground": "street",
+     "seed": "st",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.2
+      },
+      {
+       "t": "@metres",
+       "v": 1.1,
+       "ease": "inOut"
+      },
+      {
+       "t": "@taller",
+       "v": 1.1
+      },
+      {
+       "t": "@building",
+       "v": 1.2
+      },
+      {
+       "t": "@building.end",
+       "v": 1.2
+      },
+      {
+       "t": "@smaller",
+       "v": 1.75,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": "@building.end",
+       "v": 0.64
+      },
+      {
+       "t": "@smaller",
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": "@metres",
+       "v": 0.34
+      },
+      {
+       "t": "@building.end",
+       "v": 0.34
+      },
+      {
+       "t": "@smaller",
+       "v": 0.2,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "strain"
+      },
+      {
+       "at": "@added",
+       "face": "wow"
+      },
+      {
+       "at": "@car",
+       "face": "smile"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 65
+       },
+       {
+        "t": "@metres",
+        "v": 3600,
+        "ease": "inOut"
+       },
+       {
+        "t": "@:end",
+        "v": 3900
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
+   }
+  },
+  {
+   "p": 3,
+   "beat": "science",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street (x-ray)"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 3900
+      },
+      {
+       "t": "@:end",
+       "v": 4100
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
+      },
+      {
+       "kind": "block",
+       "x": 34,
+       "w": 16,
+       "floors": 10,
+       "color": "violet-2",
+       "seed": "b3"
+      },
+      {
+       "kind": "house",
+       "x": -150,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -137,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -130,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -117
+      },
+      {
+       "kind": "house",
+       "x": -112,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -99,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -92,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -79,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -72,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -59
+      },
+      {
+       "kind": "house",
+       "x": -54,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -41,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -34,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -21,
+       "h": 9
       },
       {
        "kind": "house",
@@ -333,54 +790,60 @@
        "h": 10
       },
       {
-       "kind": "block",
-       "x": 26,
-       "w": 16,
-       "floors": 10,
-       "color": "magenta-1",
-       "seed": "b2"
+       "kind": "house",
+       "x": 164,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
       },
       {
-       "kind": "car",
-       "x": 9.6,
-       "color": "coral-2"
+       "kind": "tree",
+       "x": 177,
+       "h": 9
       },
       {
-       "kind": "car",
-       "x": -48,
-       "color": "amber-2"
+       "kind": "house",
+       "x": 184,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 197
       }
      ],
      "ground": "street",
-     "seed": "st",
+     "seed": "x3",
      "lppm": [
       {
        "t": 0,
-       "v": 2.35
+       "v": 1.3
       },
       {
-       "t": "@metres",
-       "v": 1.1,
-       "ease": "inOut"
+       "t": "@bones",
+       "v": 1.32
       },
       {
-       "t": "@building.end",
-       "v": 1.12
-      },
-      {
-       "t": "@car",
-       "v": 1.62,
+       "t": "@stronger",
+       "v": 1.64,
        "ease": "inOut"
       }
      ],
      "gy": [
       {
        "t": 0,
-       "v": 0.62
+       "v": 0.71
       },
       {
-       "t": "@car",
-       "v": 0.6,
+       "t": "@bones",
+       "v": 0.71
+      },
+      {
+       "t": "@stronger",
+       "v": 0.64,
        "ease": "inOut"
       }
      ],
@@ -390,43 +853,51 @@
        "v": 0.5
       },
       {
-       "t": "@metres",
-       "v": 0.36
+       "t": "@bones",
+       "v": 0.5
       },
       {
-       "t": "@building.end",
-       "v": 0.36
-      },
-      {
-       "t": "@car",
-       "v": 0.22,
+       "t": "@stronger",
+       "v": 0.4,
        "ease": "inOut"
       }
      ],
      "face": [
       {
        "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@heavier",
        "face": "strain"
       },
       {
-       "at": "@added",
-       "face": "wow"
-      },
-      {
-       "at": "@car",
-       "face": "smile"
+       "at": "@bones",
+       "face": "worried"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": "@car",
-       "pose": "point"
+       "t": "@heavier",
+       "v": 1
+      },
+      {
+       "t": "@heavier+0.3",
+       "v": 0.97,
+       "ease": "out"
       }
-     ]
+     ],
+     "xray": {
+      "times": [
+       "@twenty",
+       "@eight",
+       "@bones"
+      ]
+     }
     }
    },
    "layers": [
@@ -444,70 +915,33 @@
       "clock": [
        {
         "t": 0,
-        "v": 65
-       },
-       {
-        "t": "@metres",
-        "v": 3600,
-        "ease": "inOut"
+        "v": 3900
        },
        {
         "t": "@:end",
-        "v": 3750
+        "v": 4100
        }
       ]
      }
     }
    ],
-   "_house": {
-    "set": false
-   }
-  },
-  {
-   "p": 3,
-   "beat": "science",
-   "setting": {
-    "kind": "board",
-    "board": "navy"
-   },
-   "layers": [
-    {
-     "type": "component",
-     "name": "explainer/CubeLaw",
-     "role": "label",
-     "x": "50%",
-     "y": "37%",
-     "width": 900,
-     "height": 1000,
-     "depth": 0.6,
-     "z": 10,
-     "props": {
-      "k": 20,
-      "itemAt": [
-       "@twenty",
-       "@eight",
-       "@four"
-      ],
-      "top": 0.02,
-      "rowH": 0.28
-     }
-    }
-   ],
    "camera": {
-    "keyframes": [
+    "shake": [
      {
-      "t": 0,
-      "zoom": 1.0
-     },
-     {
-      "t": "@:end",
-      "zoom": 1.025,
-      "ease": "inOut"
+      "at": "@heavier",
+      "duration": 0.35,
+      "amplitude": 8,
+      "frequency": 9,
+      "rotate": 0,
+      "decay": true
      }
     ]
    },
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -530,15 +964,15 @@
      "clock": [
       {
        "t": 0,
-       "v": 3750
+       "v": 4100
       },
       {
        "t": "@keep",
-       "v": 4200
+       "v": 4400
       },
       {
        "t": "@:end",
-       "v": 12000,
+       "v": 14000,
        "ease": "in"
       }
      ],
@@ -547,7 +981,7 @@
        "kind": "sun",
        "sx": 0.18,
        "sy": 0.2,
-       "r": 0.06
+       "r": 0.055
       },
       {
        "kind": "house",
@@ -776,7 +1210,7 @@
       {
        "kind": "crack",
        "x": 4.2,
-       "w": 14,
+       "w": 16,
        "at": "@cracks"
       }
      ],
@@ -785,45 +1219,44 @@
      "lppm": [
       {
        "t": 0,
-       "v": 1.5
-      },
-      {
-       "t": "@knees",
-       "v": 1.5
-      },
-      {
-       "t": "@fold",
-       "v": 1.18,
-       "ease": "inOut"
+       "v": 1.72
       },
       {
        "t": "@keep",
-       "v": 1.15
+       "v": 1.72
       },
       {
        "t": "@:end",
-       "v": 0.55,
+       "v": 0.5,
        "ease": "in"
       }
      ],
      "gy": [
       {
        "t": 0,
-       "v": 0.58
+       "v": 0.62
       },
       {
-       "t": "@fold",
-       "v": 0.64,
-       "ease": "inOut"
+       "t": "@keep",
+       "v": 0.62
+      },
+      {
+       "t": "@:end",
+       "v": 0.66,
+       "ease": "in"
       }
      ],
      "cx": [
       {
        "t": 0,
-       "v": 0.3
+       "v": 0.36
       },
       {
-       "t": "@fold",
+       "t": "@keep",
+       "v": 0.36
+      },
+      {
+       "t": "@:end",
        "v": 0.45,
        "ease": "inOut"
       }
@@ -839,12 +1272,12 @@
       },
       {
        "t": "@here",
-       "v": 0.9,
+       "v": 0.88,
        "ease": "out"
       },
       {
        "t": "@don't",
-       "v": 0.9
+       "v": 0.88
       },
       {
        "t": "@don't+0.35",
@@ -865,16 +1298,6 @@
        "at": "@don't",
        "face": "smile"
       }
-     ],
-     "pose": [
-      {
-       "at": 0,
-       "pose": "stand"
-      },
-      {
-       "at": "@don't",
-       "pose": "wave"
-      }
      ]
     }
    },
@@ -893,15 +1316,15 @@
       "clock": [
        {
         "t": 0,
-        "v": 3750
+        "v": 4100
        },
        {
         "t": "@keep",
-        "v": 4200
+        "v": 4400
        },
        {
         "t": "@:end",
-        "v": 12000,
+        "v": 14000,
         "ease": "in"
        }
       ]
@@ -915,13 +1338,24 @@
       "duration": 0.5,
       "amplitude": 18,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
+      "decay": true
+     },
+     {
+      "at": "@don't",
+      "duration": 0.3,
+      "amplitude": 6,
+      "frequency": 9,
+      "rotate": 0,
       "decay": true
      }
     ]
    },
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -953,16 +1387,16 @@
      ],
      "items": [
       {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
+      },
+      {
        "kind": "skyline",
        "x0": -4000,
        "x1": 4000,
        "seed": "pa"
-      },
-      {
-       "kind": "sun",
-       "sx": 0.84,
-       "sy": 0.19,
-       "r": 0.055
       },
       {
        "kind": "paris",
@@ -979,6 +1413,12 @@
       {
        "kind": "eiffel",
        "x": 158
+      },
+      {
+       "kind": "level",
+       "alt": 290,
+       "at": "@eye#2",
+       "color": "amber-4"
       }
      ],
      "ground": "street",
@@ -989,23 +1429,53 @@
        "v": 0.42
       },
       {
-       "t": "@eye",
+       "t": "@hours",
        "v": 0.42
       },
       {
        "t": "@top",
-       "v": 0.62,
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@hours",
+       "v": 0.0
+      },
+      {
+       "t": "@top",
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.66
+      },
+      {
+       "t": "@hours",
+       "v": 0.66
+      },
+      {
+       "t": "@top",
+       "v": 0.4,
        "ease": "inOut"
       }
      ],
      "cx": [
       {
        "t": 0,
-       "v": 0.42
+       "v": 0.4
       },
       {
-       "t": "@eye",
-       "v": 0.42
+       "t": "@hours",
+       "v": 0.4
       },
       {
        "t": "@top",
@@ -1021,36 +1491,6 @@
       {
        "at": "@eye",
        "face": "wow"
-      }
-     ],
-     "focusAlt": [
-      {
-       "t": 0,
-       "v": 0.0
-      },
-      {
-       "t": "@eye",
-       "v": 0.0
-      },
-      {
-       "t": "@top",
-       "v": 0.86,
-       "ease": "inOut"
-      }
-     ],
-     "focusY": [
-      {
-       "t": 0,
-       "v": 0.64
-      },
-      {
-       "t": "@eye",
-       "v": 0.64
-      },
-      {
-       "t": "@top",
-       "v": 0.38,
-       "ease": "inOut"
       }
      ]
     }
@@ -1082,6 +1522,9 @@
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -1114,9 +1557,9 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.2,
+       "sx": 0.18,
        "sy": 0.2,
-       "r": 0.06
+       "r": 0.055
       },
       {
        "kind": "hills",
@@ -1290,6 +1733,9 @@
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -1315,9 +1761,13 @@
        "v": 820000.0
       },
       {
-       "t": "@Everest",
-       "v": 890000.0,
+       "t": "@top",
+       "v": 885000.0,
        "ease": "inOut"
+      },
+      {
+       "t": "@Everest",
+       "v": 895000.0
       },
       {
        "t": "@:end",
@@ -1327,8 +1777,8 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.15,
-       "sy": 0.22,
+       "sx": 0.18,
+       "sy": 0.2,
        "r": 0.055
       },
       {
@@ -1355,6 +1805,23 @@
        "seed": "ev"
       },
       {
+       "kind": "level",
+       "alt": 8849,
+       "text": "EVEREST 8,849 M",
+       "at": "@pass",
+       "labelX": 0.97
+      },
+      {
+       "kind": "hills",
+       "x0": -9000,
+       "x1": 16000,
+       "h": 900,
+       "seed": "fh",
+       "color": "violet-1",
+       "color2": "violet-0",
+       "front": true
+      },
+      {
        "kind": "cloud",
        "x": -2500,
        "alt": 1600,
@@ -1378,7 +1845,7 @@
      "lppm": [
       {
        "t": 0,
-       "v": -1.1249387366083
+       "v": -1.0969100130080565
       },
       {
        "t": "@air",
@@ -1408,15 +1875,15 @@
      "focusY": [
       {
        "t": 0,
-       "v": 0.69
+       "v": 0.74
       },
       {
        "t": "@air",
-       "v": 0.69
+       "v": 0.74
       },
       {
        "t": "@face",
-       "v": 0.4,
+       "v": 0.42,
        "ease": "inOut"
       }
      ],
@@ -1441,7 +1908,7 @@
        "face": "calm"
       },
       {
-       "at": "@Everest",
+       "at": "@pass",
        "face": "wow"
       },
       {
@@ -1449,15 +1916,24 @@
        "face": "gasp"
       }
      ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      }
+     ],
      "puffs": [
       {
        "at": "@thin"
       },
       {
+       "at": "@thin+0.3"
+      },
+      {
        "at": "@breathe"
       },
       {
-       "at": "@breathe+0.6"
+       "at": "@breathe+0.3"
       }
      ]
     }
@@ -1480,9 +1956,13 @@
         "v": 820000.0
        },
        {
-        "t": "@Everest",
-        "v": 890000.0,
+        "t": "@top",
+        "v": 885000.0,
         "ease": "inOut"
+       },
+       {
+        "t": "@Everest",
+        "v": 895000.0
        },
        {
         "t": "@:end",
@@ -1494,6 +1974,9 @@
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -1526,9 +2009,9 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.82,
+       "sx": 0.18,
        "sy": 0.2,
-       "r": 0.05
+       "r": 0.055
       },
       {
        "kind": "cloud",
@@ -1546,24 +2029,24 @@
       },
       {
        "kind": "plane",
-       "x": -1150,
-       "alt": 9023.648255813954,
-       "v": 900,
+       "x": -1300,
+       "alt": 9073.648255813954,
+       "v": 1500,
        "at": "@airliners",
        "dir": 1,
        "scale": 5,
-       "trail": 2500,
+       "trail": 3000,
        "front": true
       },
       {
        "kind": "plane",
-       "x": 1150,
-       "alt": 8763.648255813954,
-       "v": 850,
+       "x": 1400,
+       "alt": 8883.648255813954,
+       "v": 1400,
        "at": "@cruise",
        "dir": -1,
        "scale": 5,
-       "trail": 2200,
+       "trail": 2600,
        "front": true
       }
      ],
@@ -1572,20 +2055,20 @@
      "lppm": [
       {
        "t": 0,
-       "v": -0.44369749923271273
+       "v": -0.6020599913279624
       },
       {
        "t": "@:end",
-       "v": -0.3979400086720376
+       "v": -0.5528419686577808
       }
      ],
      "focusAlt": 0.8,
-     "focusY": 0.46,
+     "focusY": 0.5,
      "cx": 0.5,
      "face": [
       {
        "at": 0,
-       "face": "calm"
+       "face": "gasp"
       },
       {
        "at": "@airliners",
@@ -1621,6 +2104,9 @@
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -1643,7 +2129,7 @@
      "clock": [
       {
        "t": 0,
-       "v": 9000000.0
+       "v": 9600000.0
       },
       {
        "t": "@space",
@@ -1657,580 +2143,80 @@
      ],
      "items": [
       {
-       "kind": "karman"
-      },
-      {
-       "kind": "house",
-       "x": 19409.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19422.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19429.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19442.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19447.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19460.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19467.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19480.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19487.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19500.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19505.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19518.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19525.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19538.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19545.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19558.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19563.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19576.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19583.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19596.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19603.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19616.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19621.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19634.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19641.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19654.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19661.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19674.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19679.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19692.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19699.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19712.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19719.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19732.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19737.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19750.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19757.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19770.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19777.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19790.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19795.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19808.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19815.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19828.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19835.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19848.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19853.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19866.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19873.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19886.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19893.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19906.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19911.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19924.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19931.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19944.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19951.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19964.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19969.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19982.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19989.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20002.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20009.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20022.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20027.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20040.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20047.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20060.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20067.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20080.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20085.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20098.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20105.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20118.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20125.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20138.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20143.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20156.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20163.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20176.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20183.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20196.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20201.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20214.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20221.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20234.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20241.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "block",
-       "x": 19649.162790697676,
-       "w": 16,
-       "floors": 10,
-       "color": "magenta-1",
-       "seed": "b9"
+       "kind": "level",
+       "alt": 100000,
+       "text": "SPACE: 100 KM",
+       "at": "@edge",
+       "labelX": 0.97
+      },
+      {
+       "kind": "mountain",
+       "x": -16000,
+       "h": 7500,
+       "w": 14000,
+       "far": true,
+       "seed": "m91"
+      },
+      {
+       "kind": "mountain",
+       "x": 26000,
+       "h": 8000,
+       "w": 15000,
+       "far": true,
+       "seed": "m92"
+      },
+      {
+       "kind": "cloud",
+       "x": -14000,
+       "alt": 2500,
+       "w": 9000,
+       "seed": "c91",
+       "front": true
+      },
+      {
+       "kind": "cloud",
+       "x": 33000,
+       "alt": 2200,
+       "w": 8000,
+       "seed": "c92",
+       "front": true
+      },
+      {
+       "kind": "town",
+       "x0": 19469.162790697676,
+       "n": 9,
+       "px": 16
+      },
+      {
+       "kind": "marker",
+       "x": 20049.162790697676,
+       "alt": 0,
+       "dx": 40,
+       "dy": -420,
+       "text": "YOUR STREET",
+       "at": "@still",
+       "front": true
       }
      ],
-     "ground": "street",
+     "ground": "land",
      "seed": "sp",
      "lppm": [
       {
        "t": 0,
-       "v": -2.0087739243075053
+       "v": -2.036212172654445
+      },
+      {
+       "t": "@there's",
+       "v": -2.036212172654445
+      },
+      {
+       "t": "@all",
+       "v": -1.6989700043360187,
+       "ease": "inOut"
       },
       {
        "t": "@while",
-       "v": -2.0087739243075053
+       "v": -1.6989700043360187
       },
       {
        "t": "@street",
@@ -2238,7 +2224,54 @@
        "ease": "inOut"
       }
      ],
-     "gy": 0.66,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": "@there's",
+       "v": 0.5
+      },
+      {
+       "t": "@all",
+       "v": 0.88,
+       "ease": "inOut"
+      },
+      {
+       "t": "@while",
+       "v": 0.88
+      },
+      {
+       "t": "@street",
+       "v": 0.0,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": "@there's",
+       "v": 0.42
+      },
+      {
+       "t": "@all",
+       "v": 0.4,
+       "ease": "inOut"
+      },
+      {
+       "t": "@while",
+       "v": 0.4
+      },
+      {
+       "t": "@street",
+       "v": 0.66,
+       "ease": "inOut"
+      }
+     ],
      "focusXH": [
       {
        "t": 0,
@@ -2266,7 +2299,11 @@
       },
       {
        "at": "@no",
-       "face": "gasp"
+       "face": "strain"
+      },
+      {
+       "at": "@feet",
+       "face": "calm"
       }
      ]
     }
@@ -2286,7 +2323,7 @@
       "clock": [
        {
         "t": 0,
-        "v": 9000000.0
+        "v": 9600000.0
        },
        {
         "t": "@space",
@@ -2299,45 +2336,13 @@
        }
       ]
      }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "28%",
-     "y": "21%",
-     "width": 364,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "EDGE OF SPACE",
-      "accent": "amber",
-      "size": 34,
-      "at": "@edge",
-      "out": "@while"
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "80%",
-     "y": "41%",
-     "width": 301,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "YOUR HOUSE",
-      "accent": "amber",
-      "size": 34,
-      "at": "@street",
-      "leader": [
-       0,
-       470
-      ]
-     }
     }
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -2360,7 +2365,7 @@
      "clock": [
       {
        "t": 0,
-       "v": 320000000.0
+       "v": 336000000.0
       },
       {
        "t": "@wide",
@@ -2378,6 +2383,17 @@
        "x": 2800800.385,
        "alt": 1737400,
        "from": "@Moon"
+      },
+      {
+       "kind": "marker",
+       "x": 0,
+       "alt": -6371000,
+       "dx": 0,
+       "dy": 0,
+       "text": "EARTH 12,742 KM",
+       "at": "@height",
+       "front": true,
+       "size": 44
       }
      ],
      "ground": "land",
@@ -2388,12 +2404,12 @@
        "v": -3.8096683018297086
       },
       {
-       "t": "@Earth",
+       "t": "@wide.end",
        "v": -3.8096683018297086
       },
       {
-       "t": "@ball",
-       "v": -4.142667503568732,
+       "t": "@ball.end",
+       "v": -4.130768280269024,
        "ease": "inOut"
       }
      ],
@@ -2403,12 +2419,12 @@
        "v": 0.62
       },
       {
-       "t": "@Earth",
+       "t": "@wide.end",
        "v": 0.62
       },
       {
-       "t": "@ball",
-       "v": 0.36,
+       "t": "@ball.end",
+       "v": 0.34,
        "ease": "inOut"
       }
      ],
@@ -2418,12 +2434,12 @@
        "v": 0.32
       },
       {
-       "t": "@Earth",
+       "t": "@wide.end",
        "v": 0.32
       },
       {
-       "t": "@ball",
-       "v": 0.42,
+       "t": "@ball.end",
+       "v": 0.5,
        "ease": "inOut"
       }
      ],
@@ -2454,7 +2470,7 @@
       "clock": [
        {
         "t": 0,
-        "v": 320000000.0
+        "v": 336000000.0
        },
        {
         "t": "@wide",
@@ -2467,26 +2483,13 @@
        }
       ]
      }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "70%",
-     "y": "24%",
-     "width": 406,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "3,475 KM ACROSS",
-      "accent": "amber",
-      "size": 34,
-      "at": "@Moon+0.2",
-      "out": "@Earth"
-     }
     }
    ],
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   },
   {
@@ -2532,12 +2535,45 @@
        "v": 2.49
       },
       {
+       "t": "@taller",
+       "v": 2.52
+      },
+      {
        "t": "@ceiling",
-       "v": 2.57,
-       "ease": "out"
+       "v": 2.8,
+       "ease": "inOut"
       }
      ],
-     "gy": 0.64,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@taller",
+       "v": 0.0
+      },
+      {
+       "t": "@ceiling",
+       "v": 0.88,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": "@taller",
+       "v": 0.64
+      },
+      {
+       "t": "@ceiling",
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
      "cx": 0.52,
      "face": [
       {
@@ -2553,14 +2589,23 @@
        "face": "strain"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": "@ceiling+0.15",
-       "pose": "shrug"
+       "t": "@ceiling",
+       "v": 1
+      },
+      {
+       "t": "@ceiling+0.12",
+       "v": 0.95,
+       "ease": "out"
+      },
+      {
+       "t": "@ceiling+0.5",
+       "v": 0.97
       }
      ],
      "clockScale": "lin"
@@ -2589,37 +2634,27 @@
         "ease": "inOut"
        }
       ],
-      "title": "SINCE YOU PRESSED PLAY",
-      "titleUntil": "@already",
       "clockScale": "lin"
      }
     }
    ],
    "camera": {
-    "keyframes": [
-     {
-      "t": 0,
-      "zoom": 1.0
-     },
-     {
-      "t": "@ceiling",
-      "zoom": 1.03,
-      "ease": "inOut"
-     }
-    ],
     "shake": [
      {
       "at": "@ceiling",
       "duration": 0.45,
       "amplitude": 12,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
       "decay": true
      }
     ]
    },
    "_house": {
     "set": false
+   },
+   "transitionIn": {
+    "type": "cut"
    }
   }
  ]

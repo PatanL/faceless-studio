@@ -50,94 +50,66 @@
   },
   {
    "t0": 12.676,
-   "t1": 20.336,
-   "mood": "board",
-   "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     12.676,
-     20.336,
-     "board"
-    ]
-   ],
-   "text": "That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger.",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     12.676,
-     16.7613,
-     2,
-     "add9",
-     0.5106666666666666
-    ],
-    [
-     16.7613,
-     20.336,
-     9,
-     "min7",
-     0.5106666666666666
-    ]
-   ]
-  },
-  {
-   "t0": 20.336,
-   "t1": 32.754,
-   "mood": "curious",
-   "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     20.336,
-     26.284,
-     "place"
-    ],
-    [
-     26.284,
-     29.918999999999997,
-     "place"
-    ],
-    [
-     29.918999999999997,
-     32.754,
-     "place"
-    ]
-   ],
-   "text": "Every step cracks the road, and your knees should fold right here. They don't. You keep growing. Nine hours in, you're eye to eye with the top of the Eiffel Tower. By the second day, your head is up in the clouds.",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     20.336,
-     24.4753,
-     2,
-     "sus2",
-     0.5174166666666666
-    ],
-    [
-     24.4753,
-     28.6147,
-     2,
-     "maj7",
-     0.5174166666666666
-    ],
-    [
-     28.6147,
-     32.754,
-     10,
-     "maj7",
-     0.5174166666666666
-    ]
-   ]
-  },
-  {
-   "t0": 32.754,
-   "t1": 41.718999999999994,
+   "t1": 26.284,
    "mood": "curious",
    "intensity": 2,
    "variant": 1,
    "segs": [
+    [
+     12.676,
+     20.336,
+     "place"
+    ],
+    [
+     20.336,
+     26.284,
+     "place"
+    ]
+   ],
+   "text": "That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger. Every step cracks the road, and your knees should fold right here. They don't. You keep growing.",
+   "role": "",
+   "key": 2,
+   "chords": [
+    [
+     12.676,
+     16.708,
+     2,
+     "maj7",
+     0.504
+    ],
+    [
+     16.708,
+     22.252,
+     8,
+     "maj7",
+     0.504
+    ],
+    [
+     22.252,
+     26.284,
+     2,
+     "maj7",
+     0.504
+    ]
+   ]
+  },
+  {
+   "t0": 26.284,
+   "t1": 41.718999999999994,
+   "mood": "curious",
+   "intensity": 3,
+   "variant": 2,
+   "segs": [
+    [
+     26.284,
+     29.918999999999997,
+     "place"
+    ],
+    [
+     29.918999999999997,
+     32.754,
+     "place"
+    ],
     [
      32.754,
      39.028999999999996,
@@ -149,23 +121,37 @@
      "place"
     ]
    ],
-   "text": "About ten days in, you pass the top of Mount Everest, and the air around your face is too thin to breathe. Two weeks in, airliners cruise past your chin.",
+   "text": "Nine hours in, you're eye to eye with the top of the Eiffel Tower. By the second day, your head is up in the clouds. About ten days in, you pass the top of Mount Everest, and the air around your face is too thin to breathe. Two weeks in, airliners cruise past your chin.",
    "role": "",
    "key": 2,
    "chords": [
     [
-     32.754,
-     37.7346,
+     26.284,
+     30.4,
      2,
-     "maj7",
-     0.49805555555555536
+     "sus2",
+     0.5144999999999998
     ],
     [
-     37.7346,
-     41.719,
-     8,
+     30.4,
+     34.516,
+     2,
      "maj7",
-     0.49805555555555536
+     0.5144999999999998
+    ],
+    [
+     34.516,
+     38.632,
+     10,
+     "maj7",
+     0.5144999999999998
+    ],
+    [
+     38.632,
+     41.719,
+     0,
+     "add9",
+     0.5144999999999998
     ]
    ]
   },
@@ -249,7 +235,7 @@
   }
  ],
  "motif_cues": [
-  3
+  2
  ],
  "transition_hits": [],
  "reveals": [
@@ -287,7 +273,7 @@
    "t": 26.434,
    "why": "marker boom",
    "prio": 3.0,
-   "on_boundary": false
+   "on_boundary": true
   }
  ],
  "drops": [
@@ -299,17 +285,16 @@
  ],
  "risers": [
   {
-   "t0": 31.724,
-   "t1": 32.754,
-   "len": 1.03,
+   "t0": 11.666,
+   "t1": 12.676,
+   "len": 1.01,
    "kind": "swell",
    "jump": 1
   }
  ],
  "boundaries": [
   12.676,
-  20.336,
-  32.754,
+  26.284,
   41.718999999999994,
   55.11899999999999
  ],
@@ -331,9 +316,9 @@
   {
    "t0": 12.676,
    "t1": 20.336,
-   "kind": "board",
-   "mood": "board",
-   "place": "board"
+   "kind": "place",
+   "mood": "curious",
+   "place": "your street (x-ray)"
   },
   {
    "t0": 20.336,
@@ -399,7 +384,7 @@
   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
   "seed": 604039798
  },
- "n_notes": 449,
+ "n_notes": 623,
  "tracks": [
   "arp:halopad",
   "arp:harp",
@@ -407,16 +392,15 @@
   "arp:warmpad",
   "bass:contrabass",
   "bass:fingerbass",
-  "bass:pizz",
   "bells:celesta",
   "motif:celesta",
   "motif:piano",
   "pad:atmosphere",
   "pad:halopad",
-  "pad:soundtrack",
   "pad:warmpad",
   "perc:timpani",
   "pulse:harp",
+  "shaker:stdkit",
   "stab:strings"
  ]
 }

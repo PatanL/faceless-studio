@@ -40,12 +40,45 @@
        "v": 2.49
       },
       {
+       "t": 0.9,
+       "v": 2.52
+      },
+      {
        "t": 4.6,
-       "v": 2.57,
-       "ease": "out"
+       "v": 2.8,
+       "ease": "inOut"
       }
      ],
-     "gy": 0.64,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 0.9,
+       "v": 0.0
+      },
+      {
+       "t": 4.6,
+       "v": 0.88,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": 0.9,
+       "v": 0.64
+      },
+      {
+       "t": 4.6,
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
      "cx": 0.52,
      "face": [
       {
@@ -61,14 +94,23 @@
        "face": "strain"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": 4.75,
-       "pose": "shrug"
+       "t": 4.6,
+       "v": 1
+      },
+      {
+       "t": 4.72,
+       "v": 0.95,
+       "ease": "out"
+      },
+      {
+       "t": 5.1,
+       "v": 0.97
       }
      ],
      "clockScale": "lin"
@@ -97,8 +139,6 @@
         "ease": "linear"
        }
       ],
-      "title": "+1 CM EVERY SECOND",
-      "titleUntil": "@and",
       "clockScale": "lin"
      }
     }
@@ -114,24 +154,13 @@
     "at": 0.0
    },
    "camera": {
-    "keyframes": [
-     {
-      "t": 0,
-      "zoom": 1.0
-     },
-     {
-      "t": 4.6,
-      "zoom": 1.03,
-      "ease": "inOut"
-     }
-    ],
     "shake": [
      {
       "at": 4.6,
       "duration": 0.45,
       "amplitude": 16,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
       "decay": true
      },
      {
@@ -143,7 +172,6 @@
       "decay": false
      }
     ],
-    "preroll": 0.3,
     "drift": {
      "zoom": 0.006,
      "x": 5,
@@ -181,19 +209,27 @@
       },
       {
        "t": 7.246,
-       "v": 3750
+       "v": 3900
       }
      ],
      "items": [
       {
        "kind": "sun",
-       "sx": 0.82,
-       "sy": 0.22,
-       "r": 0.06
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
       },
       {
        "kind": "house",
-       "x": -120,
+       "x": -1.5,
+       "w": 11,
+       "h": 6.2,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": -130,
        "w": 9,
        "h": 5.5,
        "color": "coral-2",
@@ -201,12 +237,12 @@
       },
       {
        "kind": "tree",
-       "x": -107,
+       "x": -117,
        "h": 9
       },
       {
        "kind": "house",
-       "x": -100,
+       "x": -110,
        "w": 9,
        "h": 5.5,
        "color": "tide-2",
@@ -214,11 +250,11 @@
       },
       {
        "kind": "lamp",
-       "x": -87
+       "x": -97
       },
       {
        "kind": "house",
-       "x": -82,
+       "x": -92,
        "w": 9,
        "h": 5.5,
        "color": "kelp-2",
@@ -226,12 +262,12 @@
       },
       {
        "kind": "tree",
-       "x": -69,
+       "x": -79,
        "h": 10
       },
       {
        "kind": "house",
-       "x": -62,
+       "x": -72,
        "w": 9,
        "h": 5.5,
        "color": "coral-2",
@@ -239,12 +275,12 @@
       },
       {
        "kind": "tree",
-       "x": -49,
+       "x": -59,
        "h": 9
       },
       {
        "kind": "house",
-       "x": -42,
+       "x": -52,
        "w": 9,
        "h": 5.5,
        "color": "tide-2",
@@ -252,15 +288,447 @@
       },
       {
        "kind": "lamp",
-       "x": -29
+       "x": -39
       },
       {
        "kind": "house",
-       "x": -24,
+       "x": -34,
        "w": 9,
        "h": 5.5,
        "color": "kelp-2",
        "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -21,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -14,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 14,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 27,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 34,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 47
+      },
+      {
+       "kind": "house",
+       "x": 52,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 65,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 72,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 85,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 92,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 105
+      },
+      {
+       "kind": "house",
+       "x": 110,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 123,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 130,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 143,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 150,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 163
+      },
+      {
+       "kind": "house",
+       "x": 168,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "block",
+       "x": 30,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b2"
+      },
+      {
+       "kind": "level",
+       "alt": 33,
+       "text": "10 FLOORS",
+       "at": 3.761,
+       "color": "amber-4"
+      },
+      {
+       "kind": "car",
+       "x": 9.6,
+       "color": "coral-2"
+      },
+      {
+       "kind": "car",
+       "x": -48,
+       "color": "amber-2"
+      },
+      {
+       "kind": "marker",
+       "x": 9.6,
+       "alt": 1.5,
+       "dx": 150,
+       "dy": -330,
+       "text": "CAR 4.5 M",
+       "at": 5.324,
+       "front": true
+      }
+     ],
+     "ground": "street",
+     "seed": "st",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.2
+      },
+      {
+       "t": 2.25,
+       "v": 1.1,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.224,
+       "v": 1.1
+      },
+      {
+       "t": 4.361,
+       "v": 1.2
+      },
+      {
+       "t": 5.011,
+       "v": 1.2
+      },
+      {
+       "t": 6.086,
+       "v": 1.75,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": 5.011,
+       "v": 0.64
+      },
+      {
+       "t": 6.086,
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": 2.25,
+       "v": 0.34
+      },
+      {
+       "t": 5.011,
+       "v": 0.34
+      },
+      {
+       "t": 6.086,
+       "v": 0.2,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "strain"
+      },
+      {
+       "at": 1.312,
+       "face": "wow"
+      },
+      {
+       "at": 5.324,
+       "face": "smile"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 65
+       },
+       {
+        "t": 2.25,
+        "v": 3600,
+        "ease": "inOut"
+       },
+       {
+        "t": 7.246,
+        "v": 3900
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "After an hour, you've added thirty-six metres. You're taller than a ten-storey building, and a car is now smaller than your shoe.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street",
+    "at": 0.0
+   },
+   "transitionIn": {
+    "type": "cut"
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.246,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 7.66,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 3900
+      },
+      {
+       "t": 7.66,
+       "v": 4100
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
+      },
+      {
+       "kind": "block",
+       "x": 34,
+       "w": 16,
+       "floors": 10,
+       "color": "violet-2",
+       "seed": "b3"
+      },
+      {
+       "kind": "house",
+       "x": -150,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -137,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -130,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -117
+      },
+      {
+       "kind": "house",
+       "x": -112,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -99,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -92,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -79,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -72,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -59
+      },
+      {
+       "kind": "house",
+       "x": -54,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -41,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -34,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -21,
+       "h": 9
       },
       {
        "kind": "house",
@@ -339,54 +807,60 @@
        "h": 10
       },
       {
-       "kind": "block",
-       "x": 26,
-       "w": 16,
-       "floors": 10,
-       "color": "magenta-1",
-       "seed": "b2"
+       "kind": "house",
+       "x": 164,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
       },
       {
-       "kind": "car",
-       "x": 9.6,
-       "color": "coral-2"
+       "kind": "tree",
+       "x": 177,
+       "h": 9
       },
       {
-       "kind": "car",
-       "x": -48,
-       "color": "amber-2"
+       "kind": "house",
+       "x": 184,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 197
       }
      ],
      "ground": "street",
-     "seed": "st",
+     "seed": "x3",
      "lppm": [
       {
        "t": 0,
-       "v": 2.35
+       "v": 1.3
       },
       {
-       "t": 2.25,
-       "v": 1.1,
-       "ease": "inOut"
+       "t": 5.083,
+       "v": 1.32
       },
       {
-       "t": 5.011,
-       "v": 1.12
-      },
-      {
-       "t": 5.324,
-       "v": 1.62,
+       "t": 7.07,
+       "v": 1.64,
        "ease": "inOut"
       }
      ],
      "gy": [
       {
        "t": 0,
-       "v": 0.62
+       "v": 0.71
       },
       {
-       "t": 5.324,
-       "v": 0.6,
+       "t": 5.083,
+       "v": 0.71
+      },
+      {
+       "t": 7.07,
+       "v": 0.64,
        "ease": "inOut"
       }
      ],
@@ -396,43 +870,51 @@
        "v": 0.5
       },
       {
-       "t": 2.25,
-       "v": 0.36
+       "t": 5.083,
+       "v": 0.5
       },
       {
-       "t": 5.011,
-       "v": 0.36
-      },
-      {
-       "t": 5.324,
-       "v": 0.22,
+       "t": 7.07,
+       "v": 0.4,
        "ease": "inOut"
       }
      ],
      "face": [
       {
        "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 3.92,
        "face": "strain"
       },
       {
-       "at": 1.312,
-       "face": "wow"
-      },
-      {
-       "at": 5.324,
-       "face": "smile"
+       "at": 5.083,
+       "face": "worried"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": 5.324,
-       "pose": "point"
+       "t": 3.92,
+       "v": 1
+      },
+      {
+       "t": 4.22,
+       "v": 0.97,
+       "ease": "out"
       }
-     ]
+     ],
+     "xray": {
+      "times": [
+       0.658,
+       2.833,
+       5.083
+      ]
+     }
     }
    },
    "layers": [
@@ -450,125 +932,36 @@
       "clock": [
        {
         "t": 0,
-        "v": 65
+        "v": 3900
        },
        {
-        "t": 2.25,
-        "v": 3600,
-        "ease": "inOut"
-       },
-       {
-        "t": 7.246,
-        "v": 3750
+        "t": 7.66,
+        "v": 4100
        }
       ]
      }
     }
    ],
-   "notes": "After an hour, you've added thirty-six metres. You're taller than a ten-storey building, and a car is now smaller than your shoe.",
+   "notes": "That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger.",
    "setting": {
     "kind": "place",
     "light": "day",
     "biome": "town",
     "depth": 0,
     "waterline": null,
-    "place": "your street",
+    "place": "your street (x-ray)",
     "at": 0.0
    },
-   "light": {
-    "setup": "lantern",
-    "sweep": 8
-   },
-   "grade": {
-    "brightness": 1.0,
-    "contrast": 1.0,
-    "saturate": 1.0
-   },
    "camera": {
-    "keyframes": [],
-    "drift": {
-     "zoom": 0.006,
-     "x": -5,
-     "y": 0
-    },
     "shake": [
      {
-      "at": 0,
-      "duration": 7.246,
-      "amplitude": 3,
-      "frequency": 0.22,
+      "at": 3.92,
+      "duration": 0.35,
+      "amplitude": 8,
+      "frequency": 9,
       "rotate": 0,
-      "decay": false
-     }
-    ]
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
-   }
-  },
-  {
-   "id": "p03",
-   "duration": 7.66,
-   "background": {
-    "type": "component",
-    "name": "explainer/Board",
-    "depth": 0.12,
-    "overscan": 1.2,
-    "props": {
-     "field": "navy",
-     "seed": "bd2",
-     "floor": false
-    }
-   },
-   "layers": [
-    {
-     "type": "component",
-     "name": "explainer/CubeLaw",
-     "role": "label",
-     "x": "50%",
-     "y": "37%",
-     "width": 900,
-     "height": 1000,
-     "depth": 0.6,
-     "z": 10,
-     "props": {
-      "k": 20,
-      "itemAt": [
-       0.658,
-       2.833,
-       6.045
-      ],
-      "top": 0.02,
-      "rowH": 0.28
-     }
-    }
-   ],
-   "notes": "That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger.",
-   "setting": {
-    "kind": "board",
-    "board": "navy",
-    "at": 0.0
-   },
-   "camera": {
-    "keyframes": [
-     {
-      "t": 0,
-      "zoom": 1.0
+      "decay": true
      },
-     {
-      "t": 7.66,
-      "zoom": 1.025,
-      "ease": "inOut"
-     }
-    ],
-    "drift": {
-     "zoom": 0.006,
-     "x": 5,
-     "y": 0
-    },
-    "shake": [
      {
       "at": 0,
       "duration": 7.66,
@@ -577,7 +970,15 @@
       "rotate": 0,
       "decay": false
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    }
+   },
+   "transitionIn": {
+    "type": "cut"
    },
    "light": {
     "setup": "lantern",
@@ -587,10 +988,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -605,15 +1002,15 @@
      "clock": [
       {
        "t": 0,
-       "v": 3750
+       "v": 4100
       },
       {
        "t": 5.083,
-       "v": 4200
+       "v": 4400
       },
       {
        "t": 5.948,
-       "v": 12000,
+       "v": 14000,
        "ease": "in"
       }
      ],
@@ -622,7 +1019,7 @@
        "kind": "sun",
        "sx": 0.18,
        "sy": 0.2,
-       "r": 0.06
+       "r": 0.055
       },
       {
        "kind": "house",
@@ -851,7 +1248,7 @@
       {
        "kind": "crack",
        "x": 4.2,
-       "w": 14,
+       "w": 16,
        "at": 0.7
       }
      ],
@@ -860,45 +1257,44 @@
      "lppm": [
       {
        "t": 0,
-       "v": 1.5
-      },
-      {
-       "t": 2.2,
-       "v": 1.5
-      },
-      {
-       "t": 2.738,
-       "v": 1.18,
-       "ease": "inOut"
+       "v": 1.72
       },
       {
        "t": 5.083,
-       "v": 1.15
+       "v": 1.72
       },
       {
        "t": 5.948,
-       "v": 0.55,
+       "v": 0.5,
        "ease": "in"
       }
      ],
      "gy": [
       {
        "t": 0,
-       "v": 0.58
+       "v": 0.62
       },
       {
-       "t": 2.738,
-       "v": 0.64,
-       "ease": "inOut"
+       "t": 5.083,
+       "v": 0.62
+      },
+      {
+       "t": 5.948,
+       "v": 0.66,
+       "ease": "in"
       }
      ],
      "cx": [
       {
        "t": 0,
-       "v": 0.3
+       "v": 0.36
       },
       {
-       "t": 2.738,
+       "t": 5.083,
+       "v": 0.36
+      },
+      {
+       "t": 5.948,
        "v": 0.45,
        "ease": "inOut"
       }
@@ -914,12 +1310,12 @@
       },
       {
        "t": 3.4,
-       "v": 0.9,
+       "v": 0.88,
        "ease": "out"
       },
       {
        "t": 4.149,
-       "v": 0.9
+       "v": 0.88
       },
       {
        "t": 4.499,
@@ -940,16 +1336,6 @@
        "at": 4.149,
        "face": "smile"
       }
-     ],
-     "pose": [
-      {
-       "at": 0,
-       "pose": "stand"
-      },
-      {
-       "at": 4.149,
-       "pose": "wave"
-      }
      ]
     }
    },
@@ -968,15 +1354,15 @@
       "clock": [
        {
         "t": 0,
-        "v": 3750
+        "v": 4100
        },
        {
         "t": 5.083,
-        "v": 4200
+        "v": 4400
        },
        {
         "t": 5.948,
-        "v": 12000,
+        "v": 14000,
         "ease": "in"
        }
       ]
@@ -1000,7 +1386,15 @@
       "duration": 0.5,
       "amplitude": 18,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
+      "decay": true
+     },
+     {
+      "at": 4.149,
+      "duration": 0.3,
+      "amplitude": 6,
+      "frequency": 9,
+      "rotate": 0,
       "decay": true
      },
      {
@@ -1018,6 +1412,9 @@
      "y": 0
     }
    },
+   "transitionIn": {
+    "type": "cut"
+   },
    "light": {
     "setup": "lantern",
     "sweep": 8
@@ -1026,10 +1423,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -1053,16 +1446,16 @@
      ],
      "items": [
       {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.055
+      },
+      {
        "kind": "skyline",
        "x0": -4000,
        "x1": 4000,
        "seed": "pa"
-      },
-      {
-       "kind": "sun",
-       "sx": 0.84,
-       "sy": 0.19,
-       "r": 0.055
       },
       {
        "kind": "paris",
@@ -1079,6 +1472,12 @@
       {
        "kind": "eiffel",
        "x": 158
+      },
+      {
+       "kind": "level",
+       "alt": 290,
+       "at": 1.863,
+       "color": "amber-4"
       }
      ],
      "ground": "street",
@@ -1089,23 +1488,53 @@
        "v": 0.42
       },
       {
-       "t": 1.6,
+       "t": 0.463,
        "v": 0.42
       },
       {
        "t": 2.313,
-       "v": 0.62,
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 0.463,
+       "v": 0.0
+      },
+      {
+       "t": 2.313,
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.66
+      },
+      {
+       "t": 0.463,
+       "v": 0.66
+      },
+      {
+       "t": 2.313,
+       "v": 0.4,
        "ease": "inOut"
       }
      ],
      "cx": [
       {
        "t": 0,
-       "v": 0.42
+       "v": 0.4
       },
       {
-       "t": 1.6,
-       "v": 0.42
+       "t": 0.463,
+       "v": 0.4
       },
       {
        "t": 2.313,
@@ -1121,36 +1550,6 @@
       {
        "at": 1.6,
        "face": "wow"
-      }
-     ],
-     "focusAlt": [
-      {
-       "t": 0,
-       "v": 0.0
-      },
-      {
-       "t": 1.6,
-       "v": 0.0
-      },
-      {
-       "t": 2.313,
-       "v": 0.86,
-       "ease": "inOut"
-      }
-     ],
-     "focusY": [
-      {
-       "t": 0,
-       "v": 0.64
-      },
-      {
-       "t": 1.6,
-       "v": 0.64
-      },
-      {
-       "t": 2.313,
-       "v": 0.38,
-       "ease": "inOut"
       }
      ]
     }
@@ -1190,6 +1589,9 @@
     "place": "Paris",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "cut"
+   },
    "light": {
     "setup": "lantern"
    },
@@ -1215,11 +1617,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "left"
    }
   },
   {
@@ -1244,9 +1641,9 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.2,
+       "sx": 0.18,
        "sy": 0.2,
-       "r": 0.06
+       "r": 0.055
       },
       {
        "kind": "hills",
@@ -1428,6 +1825,9 @@
     "place": "above the clouds",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "cut"
+   },
    "light": {
     "setup": "lantern"
    },
@@ -1453,11 +1853,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -1475,9 +1870,13 @@
        "v": 820000.0
       },
       {
-       "t": 2.763,
-       "v": 890000.0,
+       "t": 2.125,
+       "v": 885000.0,
        "ease": "inOut"
+      },
+      {
+       "t": 2.763,
+       "v": 895000.0
       },
       {
        "t": 6.275,
@@ -1487,8 +1886,8 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.15,
-       "sy": 0.22,
+       "sx": 0.18,
+       "sy": 0.2,
        "r": 0.055
       },
       {
@@ -1515,6 +1914,23 @@
        "seed": "ev"
       },
       {
+       "kind": "level",
+       "alt": 8849,
+       "text": "EVEREST 8,849 M",
+       "at": 1.7,
+       "labelX": 0.97
+      },
+      {
+       "kind": "hills",
+       "x0": -9000,
+       "x1": 16000,
+       "h": 900,
+       "seed": "fh",
+       "color": "violet-1",
+       "color2": "violet-0",
+       "front": true
+      },
+      {
        "kind": "cloud",
        "x": -2500,
        "alt": 1600,
@@ -1538,7 +1954,7 @@
      "lppm": [
       {
        "t": 0,
-       "v": -1.1249387366083
+       "v": -1.0969100130080565
       },
       {
        "t": 3.913,
@@ -1568,15 +1984,15 @@
      "focusY": [
       {
        "t": 0,
-       "v": 0.69
+       "v": 0.74
       },
       {
        "t": 3.913,
-       "v": 0.69
+       "v": 0.74
       },
       {
        "t": 4.663,
-       "v": 0.4,
+       "v": 0.42,
        "ease": "inOut"
       }
      ],
@@ -1601,7 +2017,7 @@
        "face": "calm"
       },
       {
-       "at": 2.763,
+       "at": 1.7,
        "face": "wow"
       },
       {
@@ -1609,15 +2025,24 @@
        "face": "gasp"
       }
      ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      }
+     ],
      "puffs": [
       {
        "at": 5.45
       },
       {
+       "at": 5.75
+      },
+      {
        "at": 5.85
       },
       {
-       "at": 6.225
+       "at": 6.15
       }
      ]
     }
@@ -1640,9 +2065,13 @@
         "v": 820000.0
        },
        {
-        "t": 2.763,
-        "v": 890000.0,
+        "t": 2.125,
+        "v": 885000.0,
         "ease": "inOut"
+       },
+       {
+        "t": 2.763,
+        "v": 895000.0
        },
        {
         "t": 6.275,
@@ -1661,6 +2090,9 @@
     "waterline": null,
     "place": "Himalayas",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "cut"
    },
    "light": {
     "setup": "lantern",
@@ -1688,10 +2120,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -1716,9 +2144,9 @@
      "items": [
       {
        "kind": "sun",
-       "sx": 0.82,
+       "sx": 0.18,
        "sy": 0.2,
-       "r": 0.05
+       "r": 0.055
       },
       {
        "kind": "cloud",
@@ -1736,24 +2164,24 @@
       },
       {
        "kind": "plane",
-       "x": -1150,
-       "alt": 9023.648255813954,
-       "v": 900,
+       "x": -1300,
+       "alt": 9073.648255813954,
+       "v": 1500,
        "at": 0.95,
        "dir": 1,
        "scale": 5,
-       "trail": 2500,
+       "trail": 3000,
        "front": true
       },
       {
        "kind": "plane",
-       "x": 1150,
-       "alt": 8763.648255813954,
-       "v": 850,
+       "x": 1400,
+       "alt": 8883.648255813954,
+       "v": 1400,
        "at": 1.538,
        "dir": -1,
        "scale": 5,
-       "trail": 2200,
+       "trail": 2600,
        "front": true
       }
      ],
@@ -1762,20 +2190,20 @@
      "lppm": [
       {
        "t": 0,
-       "v": -0.44369749923271273
+       "v": -0.6020599913279624
       },
       {
        "t": 2.69,
-       "v": -0.3979400086720376
+       "v": -0.5528419686577808
       }
      ],
      "focusAlt": 0.8,
-     "focusY": 0.46,
+     "focusY": 0.5,
      "cx": 0.5,
      "face": [
       {
        "at": 0,
-       "face": "calm"
+       "face": "gasp"
       },
       {
        "at": 0.95,
@@ -1819,6 +2247,9 @@
     "place": "cruising altitude",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "cut"
+   },
    "light": {
     "setup": "lantern"
    },
@@ -1844,10 +2275,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -1862,7 +2289,7 @@
      "clock": [
       {
        "t": 0,
-       "v": 9000000.0
+       "v": 9600000.0
       },
       {
        "t": 2.613,
@@ -1876,580 +2303,80 @@
      ],
      "items": [
       {
-       "kind": "karman"
-      },
-      {
-       "kind": "house",
-       "x": 19409.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19422.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19429.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19442.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19447.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19460.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19467.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19480.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19487.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19500.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19505.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19518.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19525.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19538.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19545.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19558.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19563.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19576.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19583.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19596.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19603.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19616.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19621.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19634.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19641.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19654.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19661.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19674.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19679.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19692.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19699.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19712.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19719.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19732.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19737.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19750.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19757.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19770.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19777.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19790.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19795.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19808.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19815.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19828.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19835.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19848.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19853.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19866.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19873.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19886.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19893.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19906.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19911.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19924.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19931.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19944.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 19951.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 19964.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 19969.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 19982.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 19989.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20002.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20009.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20022.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20027.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20040.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20047.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20060.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20067.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20080.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20085.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20098.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20105.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20118.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20125.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20138.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20143.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20156.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20163.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20176.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20183.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "lamp",
-       "x": 20196.162790697676
-      },
-      {
-       "kind": "house",
-       "x": 20201.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "kelp-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20214.162790697676,
-       "h": 10
-      },
-      {
-       "kind": "house",
-       "x": 20221.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "coral-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "tree",
-       "x": 20234.162790697676,
-       "h": 9
-      },
-      {
-       "kind": "house",
-       "x": 20241.162790697676,
-       "w": 9,
-       "h": 5.5,
-       "color": "tide-2",
-       "roof": "dusk-1"
-      },
-      {
-       "kind": "block",
-       "x": 19649.162790697676,
-       "w": 16,
-       "floors": 10,
-       "color": "magenta-1",
-       "seed": "b9"
+       "kind": "level",
+       "alt": 100000,
+       "text": "SPACE: 100 KM",
+       "at": 2.238,
+       "labelX": 0.97
+      },
+      {
+       "kind": "mountain",
+       "x": -16000,
+       "h": 7500,
+       "w": 14000,
+       "far": true,
+       "seed": "m91"
+      },
+      {
+       "kind": "mountain",
+       "x": 26000,
+       "h": 8000,
+       "w": 15000,
+       "far": true,
+       "seed": "m92"
+      },
+      {
+       "kind": "cloud",
+       "x": -14000,
+       "alt": 2500,
+       "w": 9000,
+       "seed": "c91",
+       "front": true
+      },
+      {
+       "kind": "cloud",
+       "x": 33000,
+       "alt": 2200,
+       "w": 8000,
+       "seed": "c92",
+       "front": true
+      },
+      {
+       "kind": "town",
+       "x0": 19469.162790697676,
+       "n": 9,
+       "px": 16
+      },
+      {
+       "kind": "marker",
+       "x": 20049.162790697676,
+       "alt": 0,
+       "dx": 40,
+       "dy": -420,
+       "text": "YOUR STREET",
+       "at": 5.775,
+       "front": true
       }
      ],
-     "ground": "street",
+     "ground": "land",
      "seed": "sp",
      "lppm": [
       {
        "t": 0,
-       "v": -2.0087739243075053
+       "v": -2.036212172654445
+      },
+      {
+       "t": 3.575,
+       "v": -2.036212172654445
+      },
+      {
+       "t": 4.4,
+       "v": -1.6989700043360187,
+       "ease": "inOut"
       },
       {
        "t": 5.075,
-       "v": -2.0087739243075053
+       "v": -1.6989700043360187
       },
       {
        "t": 6.763,
@@ -2457,7 +2384,54 @@
        "ease": "inOut"
       }
      ],
-     "gy": 0.66,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": 3.575,
+       "v": 0.5
+      },
+      {
+       "t": 4.4,
+       "v": 0.88,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.075,
+       "v": 0.88
+      },
+      {
+       "t": 6.763,
+       "v": 0.0,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": 3.575,
+       "v": 0.42
+      },
+      {
+       "t": 4.4,
+       "v": 0.4,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.075,
+       "v": 0.4
+      },
+      {
+       "t": 6.763,
+       "v": 0.66,
+       "ease": "inOut"
+      }
+     ],
      "focusXH": [
       {
        "t": 0,
@@ -2485,7 +2459,11 @@
       },
       {
        "at": 3.8,
-       "face": "gasp"
+       "face": "strain"
+      },
+      {
+       "at": 5.45,
+       "face": "calm"
       }
      ]
     }
@@ -2505,7 +2483,7 @@
       "clock": [
        {
         "t": 0,
-        "v": 9000000.0
+        "v": 9600000.0
        },
        {
         "t": 2.613,
@@ -2516,41 +2494,6 @@
         "t": 5.075,
         "v": 10400000.0
        }
-      ]
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "28%",
-     "y": "21%",
-     "width": 364,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "EDGE OF SPACE",
-      "accent": "amber",
-      "size": 34,
-      "at": 2.238,
-      "out": 5.075
-     }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "80%",
-     "y": "41%",
-     "width": 301,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "YOUR HOUSE",
-      "accent": "amber",
-      "size": 34,
-      "at": 6.763,
-      "leader": [
-       0,
-       470
       ]
      }
     }
@@ -2564,6 +2507,9 @@
     "waterline": null,
     "place": "edge of space",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "cut"
    },
    "light": {
     "setup": "lantern",
@@ -2591,11 +2537,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "left"
    }
   },
   {
@@ -2610,7 +2551,7 @@
      "clock": [
       {
        "t": 0,
-       "v": 320000000.0
+       "v": 336000000.0
       },
       {
        "t": 2.713,
@@ -2628,6 +2569,17 @@
        "x": 2800800.385,
        "alt": 1737400,
        "from": 2.263
+      },
+      {
+       "kind": "marker",
+       "x": 0,
+       "alt": -6371000,
+       "dx": 0,
+       "dy": 0,
+       "text": "EARTH 12,742 KM",
+       "at": 5.85,
+       "front": true,
+       "size": 44
       }
      ],
      "ground": "land",
@@ -2638,12 +2590,12 @@
        "v": -3.8096683018297086
       },
       {
-       "t": 3.663,
+       "t": 3.4,
        "v": -3.8096683018297086
       },
       {
-       "t": 4.188,
-       "v": -4.142667503568732,
+       "t": 4.525,
+       "v": -4.130768280269024,
        "ease": "inOut"
       }
      ],
@@ -2653,12 +2605,12 @@
        "v": 0.62
       },
       {
-       "t": 3.663,
+       "t": 3.4,
        "v": 0.62
       },
       {
-       "t": 4.188,
-       "v": 0.36,
+       "t": 4.525,
+       "v": 0.34,
        "ease": "inOut"
       }
      ],
@@ -2668,12 +2620,12 @@
        "v": 0.32
       },
       {
-       "t": 3.663,
+       "t": 3.4,
        "v": 0.32
       },
       {
-       "t": 4.188,
-       "v": 0.42,
+       "t": 4.525,
+       "v": 0.5,
        "ease": "inOut"
       }
      ],
@@ -2704,7 +2656,7 @@
       "clock": [
        {
         "t": 0,
-        "v": 320000000.0
+        "v": 336000000.0
        },
        {
         "t": 2.713,
@@ -2717,22 +2669,6 @@
        }
       ]
      }
-    },
-    {
-     "type": "component",
-     "name": "explainer/Tag",
-     "x": "70%",
-     "y": "24%",
-     "width": 406,
-     "height": 80,
-     "z": 40,
-     "props": {
-      "text": "3,475 KM ACROSS",
-      "accent": "amber",
-      "size": 34,
-      "at": 2.463,
-      "out": 3.663
-     }
     }
    ],
    "notes": "Eleven years in, you're as tall as the Moon is wide, and Earth is a ball not even four times your height.",
@@ -2744,6 +2680,9 @@
     "waterline": null,
     "place": "Earth orbit",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "cut"
    },
    "light": {
     "setup": "lantern",
@@ -2771,11 +2710,6 @@
       "decay": false
      }
     ]
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -2813,12 +2747,45 @@
        "v": 2.49
       },
       {
+       "t": 4.313,
+       "v": 2.52
+      },
+      {
        "t": 5.813,
-       "v": 2.57,
-       "ease": "out"
+       "v": 2.8,
+       "ease": "inOut"
       }
      ],
-     "gy": 0.64,
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 4.313,
+       "v": 0.0
+      },
+      {
+       "t": 5.813,
+       "v": 0.88,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": 4.313,
+       "v": 0.64
+      },
+      {
+       "t": 5.813,
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
      "cx": 0.52,
      "face": [
       {
@@ -2834,14 +2801,23 @@
        "face": "strain"
       }
      ],
-     "pose": [
+     "sy": [
       {
-       "at": 0,
-       "pose": "stand"
+       "t": 0,
+       "v": 1
       },
       {
-       "at": 5.963,
-       "pose": "shrug"
+       "t": 5.813,
+       "v": 1
+      },
+      {
+       "t": 5.933,
+       "v": 0.95,
+       "ease": "out"
+      },
+      {
+       "t": 6.313,
+       "v": 0.97
       }
      ],
      "clockScale": "lin"
@@ -2870,8 +2846,6 @@
         "ease": "inOut"
        }
       ],
-      "title": "SINCE YOU PRESSED PLAY",
-      "titleUntil": "@already",
       "clockScale": "lin"
      }
     }
@@ -2887,27 +2861,19 @@
     "at": 0.0
    },
    "camera": {
-    "keyframes": [
-     {
-      "t": 0,
-      "zoom": 1.0
-     },
-     {
-      "t": 5.813,
-      "zoom": 1.03,
-      "ease": "inOut"
-     }
-    ],
     "shake": [
      {
       "at": 5.813,
       "duration": 0.45,
       "amplitude": 12,
       "frequency": 9,
-      "rotate": 0.2,
+      "rotate": 0,
       "decay": true
      }
     ]
+   },
+   "transitionIn": {
+    "type": "cut"
    },
    "light": {
     "setup": "lantern",
@@ -2917,10 +2883,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   }
  ],
@@ -2983,13 +2945,13 @@
    {
     "text": "later,",
     "start": 3.45,
-    "end": 4.025,
-    "br": true
+    "end": 4.025
    },
    {
     "text": "your",
     "start": 4.15,
-    "end": 4.35
+    "end": 4.35,
+    "br": true
    },
    {
     "text": "head",
@@ -2999,13 +2961,13 @@
    {
     "text": "hits",
     "start": 4.6,
-    "end": 4.875,
-    "br": true
+    "end": 4.875
    },
    {
     "text": "the",
     "start": 4.875,
-    "end": 5.013
+    "end": 5.013,
+    "br": true
    },
    {
     "text": "ceiling.",
@@ -3369,8 +3331,7 @@
    {
     "text": "to",
     "start": 28.022,
-    "end": 28.147,
-    "br": true
+    "end": 28.147
    },
    {
     "text": "eye",
@@ -3433,13 +3394,13 @@
    {
     "text": "day,",
     "start": 30.664,
-    "end": 31.089,
-    "br": true
+    "end": 31.089
    },
    {
     "text": "your",
     "start": 31.189,
-    "end": 31.389
+    "end": 31.389,
+    "br": true
    },
    {
     "text": "head",
@@ -3492,24 +3453,24 @@
    {
     "text": "in,",
     "start": 33.729,
-    "end": 34.204,
-    "br": true
+    "end": 34.204
    },
    {
     "text": "you",
     "start": 34.304,
-    "end": 34.454
+    "end": 34.454,
+    "br": true
    },
    {
     "text": "pass",
     "start": 34.454,
-    "end": 34.779,
-    "br": true
+    "end": 34.779
    },
    {
     "text": "the",
     "start": 34.779,
-    "end": 34.879
+    "end": 34.879,
+    "br": true
    },
    {
     "text": "top",

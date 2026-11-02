@@ -26,7 +26,7 @@ import React from 'react';
 import type {KitComponent} from '../../core/registry';
 import type {DrawCtx} from './figure';
 import {PEOPLE} from './people';
-import {arr, C, clamp, num, obj, str, track} from './util';
+import {arr, backOut, C, clamp, num, obj, str, track} from './util';
 import {c} from './house/color';
 
 const R_EARTH = 6371000;
@@ -54,10 +54,18 @@ export const clockText = (s: number): string => {
 	const plural = (n: number, u: string) => `${n} ${u}${n === 1 ? '' : 'S'}`;
 	if (s < 60) return plural(Math.floor(s), 'SECOND');
 	if (s < 3600) return plural(Math.floor(s / 60), 'MINUTE');
-	if (s < 86400 * 2) return plural(Math.floor(s / 3600), 'HOUR');
-	if (s < 86400 * 61) return plural(Math.floor(s / 86400), 'DAY');
-	if (s < 86400 * 365) return plural(Math.floor(s / (86400 * 30.44)), 'MONTH');
-	return plural(Math.floor(s / (86400 * 365.25)), 'YEAR');
+	if (s < 86400 * 1.5) return plural(Math.max(1, Math.round(s / 3600)), 'HOUR');
+	if (s < 86400 * 61) return plural(Math.round(s / 86400), 'DAY');
+	if (s < 86400 * 365) return plural(Math.round(s / (86400 * 30.44)), 'MONTH');
+	return plural(Math.round(s / (86400 * 365.25)), 'YEAR');
+};
+
+/** height added since the start: "+65 CM", "+36 M", "+8.8 KM" (the voice says "you've added ...") */
+export const addedText = (m: number): string => {
+	if (m < 1) return `+${Math.round(m * 100)} CM`;
+	if (m < 1000) return `+${Math.round(m).toLocaleString('en-US')} M`;
+	if (m < 100000) return `+${(m / 1000).toFixed(1)} KM`;
+	return `+${Math.round(m / 1000).toLocaleString('en-US')} KM`;
 };
 
 export const heightText = (m: number): string => {
@@ -175,9 +183,6 @@ const Ground: React.FC<{v: View; kind: string}> = ({v, kind}) => {
 				<g clipPath="url(#growEarth)">
 					{blobs.map(([bx, by, br], i) => (
 						<ellipse key={i} cx={ex + bx * r} cy={ey + by * r} rx={br * r * 1.25} ry={br * r * 0.8} fill={c('kelp-1')} />
-					))}
-					{[[-0.4, -0.75, 0.3], [0.3, -0.1, 0.36], [-0.5, 0.35, 0.28]].map(([bx, by, w], i) => (
-						<rect key={`c${i}`} x={ex + bx * r} y={ey + by * r} width={w * r} height={0.05 * r} rx={0.025 * r} fill={c('bone-2')} opacity={0.9} />
 					))}
 					{/* one flat shadow shape: the night side, away from the light (upper left) */}
 					<circle cx={ex + r * 0.42} cy={ey + r * 0.28} r={r * 1.02} fill={c('ink-1')} opacity={0.42} />
@@ -437,17 +442,17 @@ const Crack: React.FC<{v: View; it: Item}> = ({v, it}) => {
 		const out: string[] = [];
 		for (let s = 0; s <= 5; s++) {
 			const u = (s / 5) * (w / 2) * k * (0.6 + 0.4 * hash('rd', i));
-			const depth = 0.3 + (hash('rd', i * 7 + s) * 7.5) * (s / 5);
-			out.push(`${f1(X(v, x + side * u))} ${f1(Y(v, -Math.min(10, depth * k)))}`);
+			const depth = 0.25 + hash('rd', i * 7 + s) * 1.6 * (s / 5);
+			out.push(`${f1(X(v, x + side * u))} ${f1(Y(v, -Math.min(2.2, depth * k)))}`);
 		}
 		return out.join(' ');
 	};
 	const dt = v.t - at;
 	return (
 		<g>
-			<path d={`M ${f1(X(v, x - w * 0.32 * k))} ${f1(Y(v, -0.1))} L ${f1(X(v, x - w * 0.12 * k))} ${f1(Y(v, -1.4 * k))} L ${f1(X(v, x - w * 0.02))} ${f1(Y(v, -0.5 * k))} L ${f1(X(v, x + w * 0.1 * k))} ${f1(Y(v, -1.9 * k))} L ${f1(X(v, x + w * 0.3 * k))} ${f1(Y(v, -0.1))} Z`} fill={c('ink-0')} />
+			<path d={`M ${f1(X(v, x - w * 0.32 * k))} ${f1(Y(v, -0.1))} L ${f1(X(v, x - w * 0.12 * k))} ${f1(Y(v, -0.7 * k))} L ${f1(X(v, x - w * 0.02))} ${f1(Y(v, -0.3 * k))} L ${f1(X(v, x + w * 0.1 * k))} ${f1(Y(v, -0.9 * k))} L ${f1(X(v, x + w * 0.3 * k))} ${f1(Y(v, -0.1))} Z`} fill={c('ink-0')} />
 			{[-1, 1, -1, 1, 1, -1].map((s, i) => (
-				<polyline key={i} points={pts(s, i)} fill="none" stroke={c('ink-0')} strokeWidth={Math.max(4, 0.35 * v.ppm)} strokeLinecap="round" strokeLinejoin="round" />
+				<polyline key={i} points={pts(s, i)} fill="none" stroke={c('ink-0')} strokeWidth={Math.max(3, 0.12 * v.ppm)} strokeLinecap="round" strokeLinejoin="round" />
 			))}
 			{dt < 1.2
 				? Array.from({length: 7}, (_, i) => {
@@ -467,7 +472,7 @@ const Crack: React.FC<{v: View; it: Item}> = ({v, it}) => {
 						const u = clamp(dt / 1.4);
 						const px = x + side * (w * 0.3 + i * 0.6) * (0.4 + u);
 						const r = (0.9 + 0.4 * i) * (0.5 + u);
-						return <circle key={`p${i}`} cx={X(v, px)} cy={Y(v, r * 0.6 + u * 1.5)} r={r * v.ppm} fill={c('bone-1')} opacity={0.85 * (1 - u)} />;
+						return <circle key={`p${i}`} cx={X(v, px)} cy={Y(v, r * 0.6 + u * 1.5)} r={r * v.ppm} fill={c(i % 2 ? 'ochre-4' : 'ochre-3')} opacity={0.85 * (1 - u)} />;
 					})
 				: null}
 		</g>
@@ -624,7 +629,8 @@ const Karman: React.FC<{v: View}> = ({v}) => {
 };
 
 const Moon: React.FC<{v: View; it: Item}> = ({v, it}) => {
-	const r = (MOON_D / 2) * v.ppm;
+	const pop = typeof it.from === 'number' ? backOut(clamp((v.t - it.from) / 0.4)) : 1;
+	const r = (MOON_D / 2) * v.ppm * Math.max(0.001, pop);
 	const cx = X(v, num(it.x, 2600000));
 	const cy = Y(v, num(it.alt, MOON_D / 2));
 	const craters: [number, number, number][] = [[-0.35, -0.3, 0.16], [0.25, -0.45, 0.1], [0.1, 0.2, 0.22], [-0.45, 0.35, 0.12], [0.5, 0.15, 0.09]];
@@ -664,15 +670,90 @@ const Hills: React.FC<{v: View; it: Item}> = ({v, it}) => {
 	while (x < x1 && i < 120) {
 		const w = h * (3 + hash(seed, i) * 4);
 		const hh = h * (0.5 + hash(seed, i + 50) * 0.7);
-		out.push(<ellipse key={i} cx={X(v, x + w / 2)} cy={v.gy} rx={(w / 2) * v.ppm} ry={hh * v.ppm} fill={c(i % 2 ? 'kelp-3' : 'kelp-2')} />);
+		out.push(<ellipse key={i} cx={X(v, x + w / 2)} cy={v.gy} rx={(w / 2) * v.ppm} ry={hh * v.ppm} fill={c(i % 2 ? str(it.color2, 'kelp-3') : str(it.color, 'kelp-2'))} />);
 		x += w * 0.7;
 		i++;
 	}
 	return <g>{out}</g>;
 };
 
+const FONT_A = C.condensed;
+
+/** a dashed level line at an altitude with a label plate on the right ("8,849 M", "100 KM: SPACE") */
+const Level: React.FC<{v: View; it: Item}> = ({v, it}) => {
+	const y = Y(v, num(it.alt, 0));
+	if (y < -20 || y > v.H + 20) return null;
+	const k = typeof it.at === 'number' ? clamp((v.t - it.at) / 0.3) : 1;
+	if (k <= 0) return null;
+	const text = str(it.text, '');
+	const tw = text.length * 26 + 40;
+	const lx = num(it.labelX, 0.94) * v.W - tw;
+	return (
+		<g opacity={k}>
+			<line x1={0} x2={v.W * k} y1={y} y2={y} stroke={c(str(it.color, 'amber-4'))} strokeWidth={6} strokeDasharray="26 18" />
+			{text ? (
+				<g>
+					<rect x={lx} y={y - 64} width={tw} height={52} rx={14} fill={C.panel} />
+					<text x={lx + tw / 2} y={y - 25} fontFamily={FONT_A} fontSize={40} fill={c(str(it.color, 'amber-4'))} textAnchor="middle" letterSpacing={1}>
+						{text}
+					</text>
+				</g>
+			) : null}
+		</g>
+	);
+};
+
+/** a label plate with a leader to a world point (ring on the point): legible at any scale */
+const Marker: React.FC<{v: View; it: Item}> = ({v, it}) => {
+	const k = typeof it.at === 'number' ? backOut(clamp((v.t - it.at) / 0.35)) : 1;
+	if (k <= 0.01) return null;
+	const px = X(v, num(it.x, 0));
+	const py = Y(v, num(it.alt, 0));
+	const lx = px + num(it.dx, 0);
+	const ly = py + num(it.dy, -260);
+	const text = str(it.text, '');
+	const fs = num(it.size, 46);
+	const tw = text.length * fs * 0.52 + 50;
+	const col = c(str(it.color, 'amber-4'));
+	return (
+		<g opacity={Math.min(1, k)}>
+			<line x1={px} y1={py} x2={lx} y2={ly} stroke={col} strokeWidth={5} />
+			<circle cx={px} cy={py} r={18 * k} fill="none" stroke={col} strokeWidth={6} />
+			<rect x={lx - (tw * k) / 2} y={ly - fs * 0.9} width={tw * k} height={fs * 1.3} rx={16} fill={C.panel} />
+			<text x={lx} y={ly + fs * 0.12} fontFamily={FONT_A} fontSize={fs * k} fill={col} textAnchor="middle" letterSpacing={1}>
+				{text}
+			</text>
+		</g>
+	);
+};
+
+/** a town drawn as pixel-size house icons (a legibility cue where real houses would be sub-pixel) */
+const Town: React.FC<{v: View; it: Item}> = ({v, it}) => {
+	const x0 = X(v, num(it.x0, 0));
+	const n = Math.round(num(it.n, 9));
+	const sz = num(it.px, 16);
+	const cols = ['coral-2', 'amber-2', 'tide-2', 'magenta-2', 'bone-1'];
+	return (
+		<g>
+			{Array.from({length: n}, (_, i) => {
+				const x = x0 + i * sz * 1.25;
+				const h = sz * (0.8 + 0.5 * hash('twn', i));
+				return (
+					<g key={i}>
+						<rect x={x} y={v.gy - h} width={sz} height={h} fill={c(cols[i % cols.length])} />
+						<path d={`M ${x - 2} ${v.gy - h} L ${x + sz / 2} ${v.gy - h - sz * 0.55} L ${x + sz + 2} ${v.gy - h} Z`} fill={c(i % 2 ? 'violet-1' : 'dusk-1')} />
+					</g>
+				);
+			})}
+		</g>
+	);
+};
+
 const ITEM: Record<string, React.FC<{v: View; it: Item}>> = {
 	hills: Hills,
+	level: Level,
+	marker: Marker,
+	town: Town,
 	room: Room,
 	house: House,
 	block: Block,
@@ -691,6 +772,16 @@ const ITEM: Record<string, React.FC<{v: View; it: Item}>> = {
 	sun: Sun,
 };
 
+/** x-ray beat times: props.xray.times = [bracket, weight, bones] (a time list, so @word anchors resolve) */
+const xrayTimes = (p: Record<string, unknown>): Record<string, number> => {
+	const t = arr<number>(obj(p.xray).times);
+	const out: Record<string, number> = {};
+	if (typeof t[0] === 'number') out.bracketAt = t[0];
+	if (typeof t[1] === 'number') out.weightAt = t[1];
+	if (typeof t[2] === 'number') out.bonesAt = t[2];
+	return out;
+};
+
 // ------------------------------------------------------------------ YOU (the kit's figure, people.tsx)
 
 const YOU_FIG = PEOPLE.you;
@@ -704,6 +795,7 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	const W = (bw / bh) * H;
 	const pose = sched(p.pose, v.t, 'pose', 'stand');
 	const face = sched(p.face, v.t, 'face', 'calm');
+	const blink = arr<Record<string, unknown>>(p.face).some((e) => typeof e.at === 'number' && e.at > 0 && v.t >= e.at - 0.04 && v.t < e.at + 0.08);
 	const top = str(p.color, c('amber-1'));
 	const ctx: DrawCtx = {t: v.t, p: {pose, color: top, outline: top, style: 'filled'}, id: 'growYou', idle: true, speed: 1, amp: 1};
 	const ctxSh: DrawCtx = {...ctx, sil: c('amber-0')};
@@ -766,10 +858,34 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	}
 	const puffs = arr<Record<string, unknown>>(p.puffs).map((e, i) => {
 		const dt = v.t - num(e.at, 0);
-		if (dt < 0 || dt > 1.1) return null;
-		const u = dt / 1.1;
-		return <circle key={i} cx={112 + u * 40} cy={hy + 12 - u * 10} r={5 + u * 10} fill={c('bone-2')} opacity={0.9 * (1 - u)} />;
+		if (dt < 0 || dt > 0.9) return null;
+		const u = dt / 0.9;
+		return (
+			<g key={i} opacity={0.95 * (1 - u * u)}>
+				<circle cx={108 + u * 46} cy={hy + 14 + u * 4} r={7 + u * 12} fill={c('bone-2')} />
+				<circle cx={100 + u * 34} cy={hy + 20 + u * 10} r={5 + u * 8} fill={c('bone-1')} />
+			</g>
+		);
 	});
+	const xr = xrayTimes(p);
+	const kB = typeof xr.bonesAt === 'number' ? clamp((v.t - xr.bonesAt) / 0.3) : 0;
+	const bones = kB > 0 ? (
+		<g opacity={kB}>
+			{[
+				[88, 214, 74, 272],
+				[74, 278, 69, 332],
+				[112, 214, 126, 272],
+				[126, 278, 131, 332],
+			].map(([a, b, c2, d], i) => (
+				<g key={i}>
+					<line x1={a} y1={b} x2={c2} y2={d} stroke={c('tide-3')} strokeWidth={17} strokeLinecap="round" />
+					<line x1={a} y1={b} x2={c2} y2={d} stroke={c('bone-2')} strokeWidth={9} strokeLinecap="round" />
+					<circle cx={a} cy={b} r={6.5} fill={c('bone-2')} />
+					<circle cx={c2} cy={d} r={6.5} fill={c('bone-2')} />
+				</g>
+			))}
+		</g>
+	) : null;
 	return (
 		// a group transform, not a nested <svg>: a nested viewport a million px tall (the dive to the feet) never paints
 		<g transform={`translate(${x0.toFixed(3)} ${y0.toFixed(3)}) scale(${(W / bw).toPrecision(9)} ${((H * sy) / bh).toPrecision(9)}) translate(${-bx} ${-by})`}>
@@ -787,12 +903,66 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 			<circle cx={100} cy={hy} r={40} fill={c('coral-4')} />
 			<path d={`M 114 ${hy - 37.4} A 40 40 0 0 1 114 ${hy + 37.4} A 30 40 0 0 0 114 ${hy - 37.4} Z`} fill={c('coral-3')} opacity={0.7} />
 			<path d={`M 60 ${hy - 2} C 58 ${hy - 48} 142 ${hy - 48} 140 ${hy - 2} C 133 ${hy - 22} 110 ${hy - 28} 92 ${hy - 22} C 80 ${hy - 19} 68 ${hy - 13} 60 ${hy - 2} Z`} fill={c('ink-1')} />
-			{eyesN}
+			{blink ? <path d={`M 82 ${hy - 2} Q 88 ${hy + 2} 94 ${hy - 2} M 106 ${hy - 2} Q 112 ${hy + 2} 118 ${hy - 2}`} stroke={ink} strokeWidth={3.4} strokeLinecap="round" fill="none" /> : eyesN}
 			{brows}
 			{mouth}
 			{puffs}
+			{bones}
 		</g>
 	);
+};
+
+/** screen-space labels for the square-cube beat, placed around YOU's on-screen box */
+const XrayLabels: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
+	const xr = xrayTimes(p);
+	if (!Object.keys(xr).length) return null;
+	const topSafe = 0.17 * v.H;
+	const H = v.youH * v.ppm;
+	const cx = X(v, 0);
+	const top = v.gy - H;
+	const W = (152 / 344) * H;
+	const out: React.ReactNode[] = [];
+	const big = (x: number, y: number, text: string, sub: string, col: string, k: number, anchor = 'middle') => (
+		<g key={text} opacity={Math.min(1, k)} transform={`translate(${x} ${y}) scale(${Math.max(0.01, k)})`}>
+			<text x={0} y={0} fontFamily={FONT_A} fontSize={124} fill={c(col)} textAnchor={anchor} letterSpacing={2} stroke={c('ink-0')} strokeWidth={10} paintOrder="stroke">
+				{text}
+			</text>
+			<text x={0} y={52} fontFamily={C.font} fontWeight={800} fontSize={40} fill={c('bone-2')} textAnchor={anchor} letterSpacing={4} stroke={c('ink-0')} strokeWidth={8} paintOrder="stroke">
+				{sub}
+			</text>
+		</g>
+	);
+	if (typeof xr.bracketAt === 'number') {
+		const k = backOut(clamp((v.t - xr.bracketAt) / 0.4));
+		if (k > 0) {
+			const bx = cx - W * 0.62;
+			out.push(
+				<g key="br" opacity={Math.min(1, k)}>
+					<line x1={bx} x2={bx} y1={v.gy} y2={v.gy - (v.gy - top) * Math.min(1, k)} stroke={c('bone-2')} strokeWidth={8} />
+					<line x1={bx - 22} x2={bx + 22} y1={v.gy} y2={v.gy} stroke={c('bone-2')} strokeWidth={8} />
+					<line x1={bx - 22} x2={bx + 22} y1={top} y2={top} stroke={c('bone-2')} strokeWidth={8} />
+				</g>,
+				big(bx - 24, top + H * 0.42, '×20', 'TALLER', 'bone-2', k, 'end'),
+			);
+		}
+	}
+	if (typeof xr.weightAt === 'number') {
+		const k = backOut(clamp((v.t - xr.weightAt) / 0.4));
+		if (k > 0) {
+			const bob = Math.sin((v.t - xr.weightAt) * 9) * 10;
+			for (let i = 0; i < 3; i++) {
+				const ax = cx + (i - 1) * W * 0.32;
+				const ay = Math.max(topSafe + 130, top - 30) - (i === 1 ? 20 : 0) + bob * (i === 1 ? 1 : 0.6);
+				out.push(<path key={`ar${i}`} d={`M ${ax - 40} ${ay - 120} L ${ax + 40} ${ay - 120} L ${ax + 40} ${ay - 60} L ${ax + 70} ${ay - 60} L ${ax} ${ay} L ${ax - 70} ${ay - 60} L ${ax - 40} ${ay - 60} Z`} fill={c('coral-2')} opacity={Math.min(1, k)} />);
+			}
+			out.push(big(v.W * 0.955, Math.max(topSafe + 110, top + H * 0.14), '×8,000', 'HEAVIER', 'coral-2', k, 'end'));
+		}
+	}
+	if (typeof xr.bonesAt === 'number') {
+		const k = backOut(clamp((v.t - xr.bonesAt) / 0.4));
+		if (k > 0) out.push(big(Math.min(cx + W * 0.62 + 330, v.W * 0.955), v.gy - H * 0.2, '×400', 'STRONGER', 'tide-3', k, 'end'));
+	}
+	return <g>{out}</g>;
 };
 
 // ------------------------------------------------------------------ components
@@ -821,6 +991,7 @@ export const GrowWorld: KitComponent = ({props: p, time, width: W, height: H}) =
 			{cracks.map(draw)}
 			<You v={v} p={p} />
 			{front.map(draw)}
+			<XrayLabels v={v} p={p} />
 		</svg>
 	);
 };
@@ -857,7 +1028,7 @@ export const GrowHud: KitComponent = ({props: p, time, width: W, height: H}) => 
 			{/* height icon: an up-down arrow */}
 			<path d={`M ${x + pw / 2 + 52} ${y + 28} L ${x + pw / 2 + 52} ${y + ph - 28} M ${x + pw / 2 + 40} ${y + 40} L ${x + pw / 2 + 52} ${y + 26} L ${x + pw / 2 + 64} ${y + 40} M ${x + pw / 2 + 40} ${y + ph - 40} L ${x + pw / 2 + 52} ${y + ph - 26} L ${x + pw / 2 + 64} ${y + ph - 40}`} stroke={c('tide-3')} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" fill="none" />
 			<text x={x + pw / 2 + 88} y={y + ph / 2 + 22} fontFamily={font} fontSize={62} fill={c('bone-2')} letterSpacing={1}>
-				{heightText(youH)}
+				{p.absolute === true ? heightText(youH) : addedText(youH - 1.75)}
 			</text>
 						</g>
 			)}
