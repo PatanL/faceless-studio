@@ -6,7 +6,8 @@
  * use the layer's flipX to face left. Draws in a 600 x 700 box, feet on the bottom edge (seated: on a chair line).
  *
  * props
- *   costume   kempelen | empress | courtier | courtier2 | count | franklin | napoleon | master | plain
+ *   costume   kempelen | empress | courtier | courtier2 | count | franklin | napoleon | master | plain |
+ *             sailor | sailor2 | admiral | captain | king | shipwright | citizen | citizen2 (1620s Sweden)
  *   face      neutral | smile | grin | smug | laugh | shock | worried | frown | angry | focus | sleepy
  *             (constant or [{t, v}] held from t)
  *   pose      stand | point | hold | holdHigh | armsUp | laugh | shrug | push | reach | handIn | wind | hips | sweep
@@ -16,7 +17,7 @@
  *   walk      0..1 track: leg swing + bob
  *   talk      [[t0, t1], ...] mouth flaps inside the windows
  *   look      -1..1 track: eyes left/right
- *   item      none | candle | key | piece  (in the front hand)
+ *   item      none | candle | key | piece | letter  (in the front hand)
  *   seed      blink phase
  */
 import React from 'react';
@@ -32,7 +33,7 @@ type Costume = {
 	cravat?: string;
 	legs: string;
 	shoes: string;
-	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'none';
+	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'none';
 	hair?: 'wig' | 'wigTall' | 'updo' | 'side' | 'short' | 'messy' | 'none';
 	hairColor?: string;
 	gown?: string;
@@ -59,6 +60,21 @@ const COSTUMES: Record<string, Costume> = {
 		shoes: c('ink-0'), hat: 'bicorne', hair: 'short', hairColor: c('ink-1'), epaulettes: true, buttons: true},
 	master: {coat: c('sky-1'), coatShade: c('sky-0'), legs: K.ink, shoes: c('ink-0'), hair: 'messy', hairColor: c('ink-1')},
 	plain: {coat: c('coral-2'), coatShade: c('coral-0'), legs: K.ink, shoes: c('ink-0'), hair: 'short', hairColor: c('ink-1')},
+	// 1620s Sweden (story-vasa): knit caps and broad felt hats, falling collars, no wigs
+	sailor: {coat: c('sky-1'), coatShade: c('sky-0'), legs: c('bone-0'), shoes: c('ink-0'), hat: 'cap', hair: 'short', hairColor: c('ochre-0')},
+	sailor2: {coat: c('coral-1'), coatShade: c('coral-0'), legs: c('bone-0'), shoes: c('ink-0'), hat: 'cap', hair: 'messy', hairColor: c('ink-1')},
+	admiral: {coat: c('ink-1'), coatShade: c('ink-0'), vest: c('amber-4'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'),
+		hat: 'brim', hair: 'side', hairColor: c('ochre-0'), buttons: true, epaulettes: true},
+	captain: {coat: c('tide-0'), coatShade: c('dusk-1'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'brim',
+		hair: 'side', hairColor: c('ink-1'), buttons: true},
+	king: {coat: c('sky-0'), coatShade: c('dusk-1'), vest: c('amber-4'), cravat: c('bone-2'), legs: c('amber-2'), shoes: c('ink-0'),
+		hat: 'crown', hair: 'side', hairColor: c('ochre-1'), epaulettes: true, buttons: true},
+	shipwright: {coat: c('ochre-0'), coatShade: c('amber-0'), legs: K.ink, shoes: c('ink-0'), hat: 'brim', hair: 'short',
+		hairColor: c('bone-0')},
+	citizen: {coat: c('kelp-1'), coatShade: c('kelp-0'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'bonnet',
+		hair: 'updo', hairColor: c('ochre-0'), gown: c('kelp-1'), gownShade: c('kelp-0')},
+	citizen2: {coat: c('amber-1'), coatShade: c('amber-0'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'brim',
+		hair: 'short', hairColor: c('ink-1')},
 };
 
 // ------------------------------------------------------------------ geometry (600 x 700 box)
@@ -302,6 +318,29 @@ function Hat({kind}: {kind?: string}) {
 				<circle cx={300} cy={28} r={7} fill={c('coral-2')} />
 			</g>
 		);
+	if (kind === 'brim')
+		return (
+			<g>
+				<ellipse cx={300} cy={66} rx={176} ry={30} fill={c('ink-1')} />
+				<path d="M 214 66 Q 210 -6 300 -14 Q 390 -6 386 66 Z" fill={c('ink-1')} />
+				<path d="M 214 60 Q 300 74 386 60 L 386 46 Q 300 60 214 46 Z" fill={c('amber-3')} />
+				<path d="M 330 -12 Q 386 -2 386 66 L 352 66 Q 356 10 330 -12 Z" fill={c('ink-0')} />
+			</g>
+		);
+	if (kind === 'cap')
+		return (
+			<g>
+				<path d="M 192 92 Q 186 18 300 4 Q 404 14 410 70 Q 430 40 470 58 Q 436 80 408 96 Z" fill={c('coral-1')} />
+				<rect x={186} y={78} width={226} height={26} rx={12} fill={c('coral-0')} />
+			</g>
+		);
+	if (kind === 'bonnet')
+		return (
+			<g>
+				<path d="M 186 110 Q 176 10 300 2 Q 424 10 414 110 Q 380 60 300 56 Q 220 60 186 110 Z" fill={c('bone-2')} />
+				<path d="M 340 6 Q 424 10 414 110 Q 400 80 380 66 Q 380 30 340 6 Z" fill={c('bone-0')} />
+			</g>
+		);
 	if (kind === 'furcap')
 		return (
 			<g>
@@ -335,6 +374,15 @@ function Item({kind, at, t}: {kind: string; at: P2; t: number}) {
 				<rect x={x - 6} y={y - 40} width={12} height={46} rx={5} fill={K.gold} />
 				<ellipse cx={x} cy={y - 44} rx={22} ry={13} fill={K.gold} />
 				<ellipse cx={x} cy={y - 44} rx={10} ry={5} fill={K.goldShade} />
+			</g>
+		);
+	}
+	if (kind === 'letter') {
+		return (
+			<g transform={`rotate(-12 ${x} ${y})`}>
+				<rect x={x - 34} y={y - 58} width={68} height={86} rx={4} fill={c('bone-2')} />
+				{[0, 1, 2, 3].map((i) => <rect key={i} x={x - 24} y={y - 44 + i * 16} width={i === 3 ? 30 : 48} height={6} rx={3} fill={c('bone-0')} />)}
+				<circle cx={x + 14} cy={y + 14} r={10} fill={c('coral-2')} />
 			</g>
 		);
 	}
