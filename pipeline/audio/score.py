@@ -867,6 +867,221 @@ def compose(sb: dict, words: list | None, total: float, loop: bool, out_dir: str
     return {"audio": out.astype(np.float32), "plan": pl, "provenance": prov, "path": os.path.join(out_dir, "score.wav")}
 
 
+# ----------------------------------------------------------------------------- story lane (audio profile story_ricks)
+# A continuous, plucky storybook track for the story lane, from the RicksClips3000 measurements
+# (research/music/RICKS_SOUND.md): music from frame 0 to the end with no drop-outs or stings, a different track per
+# Short (episode-seeded key, tempo and melody), mostly minor, 100-116 BPM with a soft pulse and no drum kit, plucked
+# strings + harp with a celesta octave double (palette.py: the reference note events sit closest to pizz+harp, harp in
+# a room, piano/celesta), a plucked (finger) bass about 8 dB under the music, ~1.6-2 melody notes a second, a bright top (no
+# low-pass), sections of 4 bars (~9 s) that add or drop a layer (2-4 dB level steps) on the music's own clock, not on the
+# cuts or the "You see" turn. Every note is generated here; the instruments are the cleared SoundFont's presets.
+
+STORY_BPMS = [100, 104, 108, 112, 116]
+STORY_TONICS = [2, 4, 9, 11, 7]  # D E A B G (the references: D minor in 4 of 8, then E, A, B)
+STORY_PROGS = {
+    "min": {"A": [(0, "min"), (8, "maj"), (3, "maj"), (10, "maj")],   # i VI III VII
+            "B": [(5, "min"), (0, "min"), (8, "maj"), (7, "maj")],    # iv i VI V
+            "C": [(0, "min"), (5, "min"), (10, "maj"), (3, "maj")]},  # i iv VII III
+    "maj": {"A": [(0, "maj"), (7, "maj"), (9, "min"), (5, "maj")],    # I V vi IV
+            "B": [(5, "maj"), (0, "maj"), (7, "maj"), (9, "min")],    # IV I V vi
+            "C": [(0, "maj"), (9, "min"), (5, "maj"), (7, "maj")]},   # I vi IV V
+}
+# section kinds: progression, layers, level (dB); the form cycles A A2 B A3 C A2 B2 ...
+STORY_SECTIONS = {
+    "A": ("A", {"melody", "bass"}, 0.0), "A2": ("A", {"melody", "bass", "double"}, 1.5),
+    "B": ("B", {"melody", "bass", "arp", "pad"}, 2.5), "A3": ("A", {"melody", "bass"}, -0.5),
+    "C": ("C", {"melody", "bass", "arp", "pad", "double"}, 2.0), "B2": ("B", {"melody", "bass", "arp", "double"}, 2.5),
+}
+STORY_FORM = ["A", "A2", "B", "A3", "C", "A2", "B2", "A3"]
+STORY_RHYTHMS = [  # 2-bar melody rhythms (beat onsets, 8 beats): 6-9 notes, ~1.6-2 a second at 100-116 BPM
+    [0, 1, 1.5, 2, 3, 4, 5, 6],
+    [0, 0.5, 1, 2, 3.5, 4, 4.5, 5, 6],
+    [0, 1, 2, 2.5, 3, 4, 6, 6.5],
+    [0, 1.5, 2, 3, 4, 4.5, 5.5, 6],
+]
+STORY_STEM_DB = {"keys": 0.0, "bass": 10.0, "pad": -11.0}  # refs: bass ~8 dB under the music, bright top
+
+
+def _story_scale(tonic: int, mode: str) -> list[int]:
+    steps = [0, 2, 3, 5, 7, 8, 10] if mode == "min" else [0, 2, 4, 5, 7, 9, 11]
+    return [(tonic + s) % 12 for s in steps]
+
+
+def plan_story(total: float, loop: bool, seed: int) -> dict:
+    rng = np.random.default_rng(seed)
+    bpm = float(STORY_BPMS[int(rng.integers(len(STORY_BPMS)))])
+    tonic = int(STORY_TONICS[int(rng.integers(len(STORY_TONICS)))])
+    mode = "min" if rng.random() < 0.8 else "maj"
+    bar = 4 * 60 / bpm
+    n_bars = int(np.ceil(total / bar))
+    sec_bars = 4
+    cues, t, i = [], 0.0, 0
+    while t < total - 1e-6:
+        kind = STORY_FORM[i % len(STORY_FORM)]
+        t1 = min(total, t + sec_bars * bar)
+        cues.append({"t0": round(t, 3), "t1": round(t1, 3), "mood": f"story_{kind}", "kind": kind,
+                     "intensity": {0.0: 1, 1.5: 2, 2.5: 3, -0.5: 0, 2.0: 3}.get(STORY_SECTIONS[kind][2], 1),
+                     "role": "hook" if i == 0 else ""})
+        t, i = t1, i + 1
+    if loop and len(cues) > 1:
+        cues[-1]["role"] = "bookend"
+    # one pad swell into the first B-type section (the references: 1-4 swells per Short, none on a cue)
+    risers = []
+    for c in cues[1:]:
+        if STORY_SECTIONS[c["kind"]][0] == "B":
+            risers.append({"t0": round(max(0.0, c["t0"] - bar), 3), "t1": c["t0"], "len": round(bar, 3), "kind": "swell",
+                           "jump": 1})
+            break
+    return {"total": round(total, 3), "loop": loop, "style": "story_ricks", "bpm": bpm, "tonic": tonic, "mode": mode,
+            "bar_s": round(bar, 4), "n_bars": n_bars, "cues": cues, "stings": [], "drops": [], "risers": risers,
+            "rhythm": int(rng.integers(len(STORY_RHYTHMS))), "contour_seed": int(rng.integers(1 << 30))}
+
+
+def arrange_story(pl: dict, seed: int) -> "Tracks":
+    tr = Tracks(seed)
+    rng = np.random.default_rng(pl["contour_seed"])
+    beat = 60 / pl["bpm"]
+    bar = 4 * beat
+    tonic, mode = pl["tonic"], pl["mode"]
+    scale = _story_scale(tonic, mode)
+    rhythm = STORY_RHYTHMS[pl["rhythm"]]
+    # a melody contour in scale steps (2 bars), reused across sections and re-fitted to each chord
+    contour = np.cumsum(rng.choice([-2, -1, -1, 0, 1, 1, 2], size=len(rhythm)))
+    contour -= int(np.round(contour.mean()))
+    prev_pad = None
+    total = pl["total"] + (bar if pl["loop"] else 0.0)  # loop: one more bar renders into the wrapped tail
+    for c in pl["cues"]:
+        prog_key, layers, _ = STORY_SECTIONS[c["kind"]]
+        prog = STORY_PROGS[mode][prog_key]
+        b0 = int(round(c["t0"] / bar))
+        b1 = int(np.ceil(min(c["t1"], total) / bar - 1e-6))
+        if c is pl["cues"][-1] and pl["loop"]:
+            b1 += 1
+        for b in range(b0, b1):
+            tb = b * bar
+            deg, q = prog[(b - b0) % 4]
+            root = (tonic + deg) % 12
+            chord_pcs = [(root + iv) % 12 for iv in QUAL[q]]
+            # melody: the 2-bar rhythm; even bars play the first half, odd bars the second
+            half = [x for x in rhythm if (x < 4) == ((b - b0) % 2 == 0)]
+            for x in half:
+                idx = rhythm.index(x)
+                step = int(contour[idx])
+                # anchor on a chord tone near the 5th octave, then walk the contour in scale steps
+                base = min([k for k in range(74, 86) if k % 12 in chord_pcs], key=lambda k: abs(k - 79))
+                ladder = [kk for kk in range(60, 97) if kk % 12 in scale]
+                j0 = min(range(len(ladder)), key=lambda j: abs(ladder[j] - base))
+                k = ladder[int(np.clip(j0 + step, 0, len(ladder) - 1))]
+                on_beat = float(x).is_integer()
+                if on_beat and k % 12 not in chord_pcs:  # strong beats land on chord tones
+                    k = min([kk for kk in range(k - 3, k + 4) if kk % 12 in chord_pcs] or [k], key=lambda kk: abs(kk - k))
+                k = int(np.clip(k, 69, 91))
+                t = tb + (x % 4) * beat
+                nxt = [y for y in half if y > x]
+                ioi = ((nxt[0] - x) if nxt else (4 - x % 4)) * beat
+                vel = 96 if on_beat else 82
+                if "melody" in layers:
+                    tr.add("motif", "pizz", t, min(ioi, 1.2 * beat) * 0.95, k, vel)
+                    tr.add("bells", "harp", t, min(ioi, 2 * beat), k, vel - 8)
+                if "double" in layers and on_beat:
+                    tr.add("bells", "celesta", t, beat * 0.9, k + 12, vel - 20)
+            # bass: root on 1, fifth on 3, a pickup on the "and" of 4 every other bar
+            rk = 36 + (root - 36) % 12
+            if "bass" in layers:
+                tr.add("bass", "fingerbass", tb, beat * 0.8, rk, 96)
+                tr.add("bass", "fingerbass", tb + 2 * beat, beat * 0.8, rk + 7 if rk + 7 <= 52 else rk - 5, 88)
+                if b % 2 == 1:
+                    tr.add("bass", "fingerbass", tb + 3.5 * beat, beat * 0.4, rk + 12 if rk + 12 <= 55 else rk, 74)
+            if "arp" in layers:
+                tones = arp_tones(root, q, 60, 14)
+                for j in range(8):
+                    tr.add("arp", "harp", tb + j * beat / 2, beat * 0.9, tones[j % len(tones)], 58 + (8 if j % 4 == 0 else 0))
+            if "pad" in layers:
+                v = voicing(prev_pad, root, q, 52, 68, 3)
+                prev_pad = v
+                for k in v:
+                    tr.add("pad", "halopad", tb, bar * 1.02, k, 64, jitter=0)
+    return tr
+
+
+def compose_story(sb: dict, words: list | None, total: float, loop: bool, out_dir: str, sfx_cues: list | None = None,
+                  seed_key: str = "", log=print, transitions: bool = False) -> dict:
+    """the story_ricks track for `total` seconds; same outputs and return value as compose()"""
+    import pedalboard as pb
+    from scipy.ndimage import uniform_filter1d
+    seed = int(hashlib.sha256(("story:" + (seed_key or sb.get("id", "score"))).encode()).hexdigest()[:8], 16)
+    pl = plan_story(total, loop, seed)
+    tr = arrange_story(pl, seed)
+    tail = 4.0
+    n = int((total + tail) * SR)
+    stems = render_tracks(tr, total + (pl["bar_s"] if loop else 0.0), tail, log)
+    stems = {k: np.pad(v, ((0, max(0, n - len(v))), (0, 0)))[:n] for k, v in stems.items()}
+    t = np.arange(n) / SR
+    g_db = np.zeros(n, np.float32)
+    for c in pl["cues"]:
+        g_db[(t >= c["t0"]) & (t < c["t1"])] = STORY_SECTIONS[c["kind"]][2]
+    g_db[t >= pl["total"]] = g_db[min(n - 1, int(pl["total"] * SR) - 1)]
+    g_db = uniform_filter1d(g_db, size=int(0.3 * SR))
+    pad_swell = np.zeros(n, np.float32)
+    for r in pl["risers"]:
+        sel = (t >= r["t0"]) & (t < r["t1"])
+        pad_swell[sel] = 8.0 * ((t[sel] - r["t0"]) / max(1e-3, r["len"])) ** 2
+    chains = {
+        "keys": [pb.HighpassFilter(180), pb.HighShelfFilter(4000, 4.0, 0.7),
+                 pb.Reverb(room_size=0.55, damping=0.35, wet_level=0.2, dry_level=0.9, width=1.0)],
+        "bass": [pb.HighpassFilter(40), pb.LowpassFilter(3500),
+                 pb.Compressor(threshold_db=-24, ratio=2.5, attack_ms=10, release_ms=120)],
+        "pad": [pb.HighpassFilter(150), pb.Reverb(room_size=0.8, damping=0.5, wet_level=0.3, dry_level=0.8, width=1.0)],
+    }
+    out = np.zeros((n, 2), np.float32)
+    wet = {}
+    for name, x in stems.items():
+        gdb = g_db + STORY_STEM_DB.get(name, 0.0) + (pad_swell if name == "pad" else 0.0)
+        y = x * (10 ** (gdb / 20))[:, None]
+        y = pb.Pedalboard(chains.get(name, []))(y.T.astype(np.float32), SR).T
+        wet[name] = y
+        out += y
+    bus = pb.Pedalboard([pb.Compressor(threshold_db=-20, ratio=1.8, attack_ms=20, release_ms=200),
+                         pb.HighShelfFilter(8000, 1.0, 0.7)])
+    out = bus(out.T.astype(np.float32), SR).T
+    N = int(round(total * SR))
+    if loop:
+        tail_part = out[N:]
+        out = out[:N].copy()
+        out[: len(tail_part)] += tail_part
+        for k in wet:
+            tp = wet[k][N:]
+            wet[k] = wet[k][:N].copy()
+            wet[k][: len(tp)] += tp
+    else:
+        out = out[: N + int(2.0 * SR)]
+        for k in wet:
+            wet[k] = wet[k][: len(out)]
+    import pyloudnorm as pyln
+    lv = pyln.Meter(SR).integrated_loudness(out)
+    g = 10 ** ((-20.0 - lv) / 20)
+    pk = np.abs(out).max() * g
+    if pk > 10 ** (-3 / 20):
+        g *= 10 ** (-3 / 20) / pk
+    out *= g
+    os.makedirs(os.path.join(out_dir, "score_stems"), exist_ok=True)
+    sf.write(os.path.join(out_dir, "score.wav"), out, SR, subtype="PCM_24")
+    for k, y in wet.items():
+        sf.write(os.path.join(out_dir, "score_stems", f"{k}.wav"), y * g, SR, subtype="PCM_24")
+    write_midi(tr, os.path.join(out_dir, "score.mid"))
+    from .sf2 import soundfont
+    sfm = soundfont()
+    prov = {"generator": "pipeline.audio.score", "arrangement": "story_ricks", "soundfont": sfm["name"],
+            "soundfont_sha256": sfm["sha256"], "soundfont_licence": sfm["licence"], "seed": seed}
+    pl["provenance"] = prov
+    pl["n_notes"] = sum(len(v) for v in tr.notes.values())
+    pl["tracks"] = sorted(f"{r}:{p}" for r, p in tr.notes)
+    json.dump(pl, open(os.path.join(out_dir, "score_plan.json"), "w"), indent=1)
+    log(f"[score] story_ricks: {pl['bpm']:.0f} BPM, tonic {pl['tonic']} {pl['mode']}, {len(pl['cues'])} sections "
+        f"({' '.join(c['kind'] for c in pl['cues'])}), {pl['n_notes']} notes")
+    return {"audio": out.astype(np.float32), "plan": pl, "provenance": prov, "path": os.path.join(out_dir, "score.wav")}
+
+
 def write_midi(tr: Tracks, path: str):
     try:
         import pretty_midi

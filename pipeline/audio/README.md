@@ -113,6 +113,26 @@ plays an in-chord harp and celesta figure at each setting change. The default st
 - `research/music/tools/measure_ab.py` measures an old-vs-new pair: loudness, voice gap on a phone model, the
   1–4 kHz SNR, cue timing, drop-out depth and the loop seam.
 
+## Audio profiles (`config.PROFILES`, opt-in per episode)
+
+A profile overlays a niche's settings when the script's front matter says `audio_profile: <name>`, or when make is run
+with `--profile <name>`. Front-matter keys such as `speed:` still win over the profile. Episodes without a profile mix
+exactly as before.
+
+**`story_ricks`** is the story lane, matched to the 8 RicksClips3000 references (`research/music/RICKS_SOUND.md`; A/B
+in `out/rnd-sound/`). It sets the following:
+
+- **Music.** `score.compose_story`: a continuous, plucky, mostly minor track at 100–116 BPM, in pizz, harp, celesta and
+  finger bass with no drums. It has its own 4-bar sections and no stings or drop-outs. It sits about 21 LU under the
+  voice (`music_db −13`, `duck −2.5`).
+- **Voice.** `voicefx.tighten` cuts pauses to 0.10 s at TTS time, before caching. `voicefx.process` runs at mix time:
+  HPF 90 Hz, EQ, parallel compression, a limiter and an air exciter.
+- **SFX.** Storyboard action cues are on (`action_sfx`). Whooshes are shorter (`sfx_rate`) and per-cue levels sit
+  15–21 LU under the voice (`sfx_db`).
+
+`report.json` records `audio_profile`. The score's provenance keeps `generator: pipeline.audio.score` and adds
+`arrangement: story_ricks`.
+
 ## Proof (2026-11-01)
 
 `samples/b5_horror_30s.md` produced 52 words and 6 cues (4 from markers, 2 automatic) in a 33.2 s file: 30.2 s of voice plus a 3 s stinger tail. Results:

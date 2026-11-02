@@ -226,6 +226,11 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         score_fn=None) -> dict:
     """score_fn(seconds, loop) -> {"audio": (n, 2) float32, "provenance": {...}, "plan": {...}} composes the bed when
     music is config.SCORE (pipeline.audio.make builds it from the storyboard)."""
+    if cfg.get("voice_fx"):  # profile voice chain (pipeline/audio/voicefx.py); niches without one are unchanged
+        from .voicefx import process
+        voice = process(voice, cfg["voice_fx"])
+    sfx_db = {**SFX_DB, **cfg.get("sfx_db", {})}
+    sfx_rate = cfg.get("sfx_rate", {})
     n_voice = len(voice)
     fade_out = cfg.get("music_fade_out", 2.0)
     # length: voice + 0.4 s, extended so SFX tails (e.g. a final stinger) ring out, capped at max_tail
@@ -274,7 +279,8 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         env_s = np.pad(env_s, (0, total - n_voice))
         gain_db = cfg["duck_db"] * env_s
         # SFX are a second, lighter sidechain so knocks/stingers punch through the bed
-        sfx_bus = _sfx_bus(cues, total, log)
+        sfx_bus = _sfx_bus([{**c, "rate": float(c.get("rate") or 1.0) * float(sfx_rate.get(c["cue"], 1.0))} for c in cues],
+                           total, log)
         if sfx_bus is not None and cfg.get("sfx_duck_db", 0):
             env_x = frames_to_samples(duck_envelope(speech_mask(sfx_bus, hold=0.1), 0.02, 0.35, 0.03), total)
             gain_db = gain_db + cfg["sfx_duck_db"] * env_x * (1 - env_s)
@@ -310,7 +316,7 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         except FileNotFoundError as e:
             log(f"[mix] WARNING {e}")
             continue
-        x = _rate(x, c.get("rate", 1.0))
+        x = _rate(x, float(c.get("rate") or 1.0) * float(sfx_rate.get(c["cue"], 1.0)))
         sq = cfg.get("sfx_squash", {}).get(c["cue"], 0)
         if sq:  # pre-limit the transients (dB) so a featured hit can be loud without slamming the true-peak ceiling
             x = limiter((x / (np.abs(x).max() + 1e-9))[:, None], -float(sq))[:, 0]
@@ -319,7 +325,7 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
             level = ref + loud[c["cue"]] + c.get("db", 0.0)
             x = x * db2lin(level - max_momentary(x))
         else:
-            level = ref + SFX_DB.get(c["cue"], -6.0) + c.get("db", 0.0)
+            level = ref + sfx_db.get(c["cue"], -6.0) + c.get("db", 0.0)
             x = x * db2lin(level - active_rms_db(x))
         i = int(round(c["at"] * SR))
         j = min(total, i + len(x))

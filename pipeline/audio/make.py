@@ -36,7 +36,9 @@ import time
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-from .config import NICHES, SCORE
+import copy
+
+from .config import NICHES, PROFILES, SCORE
 from .mix import PUBLIC, ROOT, mix
 from .script import parse
 from .tts import auto_cues, synthesize
@@ -117,6 +119,8 @@ def main(argv=None):
     ap.add_argument("--extra-cues", help="JSON list of extra SFX cues [{cue, at, db?, rate?}] (storyboard action SFX)")
     ap.add_argument("--reuse-tts", action="store_true", help="reuse the cached voice/timings from the previous run in --out")
     ap.add_argument("--storyboard", help="storyboard.json the score is composed from (default episodes/<id>/storyboard.json)")
+    ap.add_argument("--profile", choices=sorted(PROFILES),
+                    help="audio profile overlaid on the niche (config.PROFILES; default: front matter audio_profile)")
     ap.add_argument("--sfx-mode", choices=["full", "musical"],
                     help="full: every cut/action SFX; musical (R14, needs the score): no whoosh per cut, far fewer "
                          "action SFX, tonal transition hits played by the score (default config sfx_mode / front matter)")
@@ -127,6 +131,11 @@ def main(argv=None):
     sc = parse(src)
     niche = a.niche or sc.meta.get("niche") or "explainer"
     cfg = dict(NICHES[niche])
+    profile = a.profile or sc.meta.get("audio_profile") or None
+    if profile:  # a named overlay (e.g. story_ricks); front matter below still wins over it
+        if profile not in PROFILES:
+            raise SystemExit(f"audio_profile {profile!r} is not in config.PROFILES {sorted(PROFILES)}")
+        cfg.update(copy.deepcopy(PROFILES[profile]))
     for k in ("voice", "speed", "engine"):
         v = getattr(a, k) or sc.meta.get(k)
         if v:
@@ -158,6 +167,11 @@ def main(argv=None):
     else:
         tts = synthesize(sc, cfg, force_whisper=a.whisper)
         import numpy as np
+        if cfg.get("tighten_gaps"):  # before caching, so captions and the storyboard use the tightened timings
+            from .voicefx import tighten
+            tts["audio"], tts["words"], tts["cues"], st = tighten(tts["audio"], tts["words"], tts["cues"],
+                                                                   cfg["tighten_gaps"])
+            tts["stats"]["tighten"] = st
         np.savez_compressed(cache_a, audio=tts["audio"])
         json.dump({k: tts[k] for k in ("words", "cues", "stats")}, open(cache_j, "w"))
     cues = sorted(tts["cues"], key=lambda c: c["at"])
@@ -171,6 +185,13 @@ def main(argv=None):
         # an action cue never doubles a script/auto cue already within 0.25 s
         extra = [c for c in extra if not any(abs(c["at"] - o["at"]) < 0.25 for o in cues)]
         cues = sorted(cues + [{**c, "source": c.get("source", "storyboard")} for c in extra], key=lambda c: c["at"])
+    if cfg.get("action_sfx") and not a.extra_cues:  # profile: the storyboard's action SFX (pops, ticks, impacts)
+        sb_path = a.storyboard or os.path.join(ROOT, "episodes", ep, "storyboard.json")
+        if os.path.exists(sb_path):
+            from pipeline.episodes.sfx_events import events
+            extra = [c for c in events(json.load(open(sb_path))) if c.get("cue")]
+            extra = [c for c in extra if not any(abs(c["at"] - o["at"]) < 0.25 for o in cues)]
+            cues = sorted(cues + [{**c, "source": c.get("source", "storyboard")} for c in extra], key=lambda c: c["at"])
     score_fn, fallback = None, None
     if music == SCORE:
         sb_path = a.storyboard or os.path.join(ROOT, "episodes", ep, "storyboard.json")
@@ -179,7 +200,9 @@ def main(argv=None):
         if not os.path.exists(sb_path):
             ok, why = False, f"no storyboard yet ({os.path.relpath(sb_path, ROOT)})"
         if ok:
-            from .score import compose
+            from .score import compose, compose_story
+            if cfg.get("score_style") == "story_ricks":
+                compose = compose_story
             sb = json.load(open(sb_path))
             for k, v in (cfg.get("score_mix") or {}).items():  # score levels win over bed-tuned front matter
                 if sc.meta.get(f"score_{k}") in (None, ""):
@@ -226,7 +249,7 @@ def main(argv=None):
         waveform_png(mx["paths"], os.path.join(out, "waveform.png"), mx["report"]["sfx_placed"], dur)
     except subprocess.CalledProcessError as e:
         print("[make] waveform.png failed:", e, file=sys.stderr)
-    report = {"id": ep, "niche": niche, "script": os.path.relpath(os.path.abspath(a.script), ROOT),
+    report = {"id": ep, "niche": niche, "audio_profile": profile, "script": os.path.relpath(os.path.abspath(a.script), ROOT),
               "tts": tts["stats"], "mix": mx["report"], "words": len(tts["words"]),
               "wall_s": round(time.time() - t0, 1)}
     json.dump(report, open(os.path.join(out, "report.json"), "w"), indent=1)

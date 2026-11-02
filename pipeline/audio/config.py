@@ -100,6 +100,40 @@ NICHES = {
     },
 }
 
+# Audio profiles: named overlays on a niche's settings that an episode opts into (script front matter
+# `audio_profile: <name>`, or `python -m pipeline.audio.make --profile <name>`). An episode that names none mixes exactly
+# as before; the explainer and horror defaults above are untouched by them.
+PROFILES = {
+    # Story lane, matched to the RicksClips3000 measurements (research/music/RICKS_SOUND.md,
+    # research/references/data/ricks24_audio.json; A/B in out/rnd-sound/). Per rule:
+    "story_ricks": {
+        # music: our scored track in the story arrangement (score.compose_story): continuous from frame 0, plucky
+        # pizz/harp/celesta + finger bass, no drums, 100-116 BPM, mostly minor, its own 4-bar sections, no stings or
+        # drop-outs; ~20.7 LU under the talking voice (refs 19.5-22.4, momentary median), a light duck only
+        "music": SCORE, "score_style": "story_ricks",
+        "score_mix": {"music_db": -13.0, "duck_db": -2.5, "duck_band": {"lo": 1500, "hi": 5000, "db": -2.0},
+                      "true_peak_db": -1.5},
+        "attack": 0.08, "release": 0.4, "lookahead": 0.05, "music_fade_in": 0.05,
+        # voice: run-on delivery (refs: a speech gap >= 120 ms about once a minute; ours had ~25/min of 0.26-0.32 s)
+        "sentence_gap": 0.04, "paragraph_pause": 0.0, "tighten_gaps": {"max_gap": 0.10, "floor_db": 35.0},
+        # voice chain at mix time (voicefx.process): low cut, de-box the presence a touch, parallel compression and a
+        # limiter for crest ~12 dB and momentary spread ~5.5 LU, an exciter for air above 8 kHz (Kokoro stops at 12 kHz)
+        "voice_fx": {"hpf": 90, "hpf_order": 4, "eq": [[2500, -2.5, 0.8], [5500, -3.0, 0.9]],
+                     "comp": {"threshold_db": -30, "ratio": 4, "attack_ms": 3, "release_ms": 60, "mix": 0.35},
+                     "limit": {"threshold_db": -7.5, "release_ms": 30},
+                     "air": {"hp_in": 3000, "drive": 10, "hp_out": 8000, "db": 15}},
+        # SFX: ~10-13 a minute, mostly short swishes and small pops, impacts rare, all well under the voice (refs, peak
+        # 100 ms vs the voice's momentary median: whoosh -15.5, impact -17, pop -21 LU); storyboard action cues on
+        "action_sfx": True,
+        "sfx_db": {"whoosh": -16.0, "whoosh_long": -16.0, "impact": -20.0, "boom": -20.0, "stinger": -18.0,
+                   "pop": -15.0, "message_pop": -15.0, "tick": -16.0, "click": -16.0, "ding": -16.0,
+                   "door_creak": -18.0, "clock_ticking": -20.0, "knock": -14.0, "footsteps": -16.0, "riser": -18.0},
+        "sfx_rate": {"whoosh": 2.0, "whoosh_long": 2.6},   # our whooshes are 1.2-1.8 s swells; the refs' are 0.1-0.3 s
+        "cut_sfx": {"cues": ["whoosh"], "lead": 0.12, "db": 0.0},
+        "sfx_duck_db": -1.0,
+    },
+}
+
 # Default level of each SFX relative to the voice loudness (dB). Unknown cues use -6.
 SFX_DB = {
     "knock": -3, "knock3": -3, "knock3_slow": -3, "phone_buzz": -7, "phone_buzz_long": -7,
