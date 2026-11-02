@@ -112,16 +112,20 @@ DRUM = ("<svg viewBox='0 0 120 110' xmlns='http://www.w3.org/2000/svg'><rect x='
         "ry='14' fill='#e9f4fc'/><path d='M 20 52 L 40 92 L 60 52 L 80 92 L 100 52' stroke='#fddf35' stroke-width='6' "
         "fill='none'/><rect x='70' y='0' width='8' height='34' rx='4' fill='#fddf35' transform='rotate(30 74 17)'/></svg>")
 
-PERSON = ("<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='14' cy='20' r='12' fill='#e9f4fc'/>"
-          "<rect x='26' y='9' width='52' height='22' rx='11' fill='#fc6e0e'/><rect x='70' y='12' width='38' height='16' rx='8' "
+PERSON = ("<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/>"
+          "<rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' "
           "fill='#250192'/></svg>")
 WIPE_UP = {"type": "wipe", "duration": 0.5, "direction": "up"}
+GRID = ("<svg viewBox='0 0 1300 1500' xmlns='http://www.w3.org/2000/svg'>"
+        + "".join(f"<line x1='{x}' y1='0' x2='{x}' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for x in range(0, 1301, 100))
+        + "".join(f"<line x1='0' y1='{y}' x2='1300' y2='{y}' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for y in range(0, 1501, 100))
+        + "</svg>")
 WIPE_LEFT = {"type": "wipe", "duration": 0.5, "direction": "left"}
 FRAME = 1 / 30
 
 # ------------------------------------------------------------------ settings
 SURFACE = {"kind": "place", "biome": "open_ocean", "place": "open ocean", "depth": 8, "waterline": 0.05, "light": "day"}
-DEEP = {"kind": "place", "biome": "deep", "place": "deep sea, 1,000 m", "depth": 1000, "waterline": None, "light": "night",
+DEEP = {"kind": "place", "biome": "deep", "place": "deep sea, 1,000 m", "depth": 2000, "waterline": None, "light": "night",
         "key": "ink"}
 DOMINICA = {"kind": "place", "biome": "open_ocean", "place": "off Dominica", "depth": 4, "waterline": 0.2, "light": "day",
             "coast": {"kind": "hills"}, "cue": "Dominica"}
@@ -195,8 +199,9 @@ def build():
                        enter={"type": "fade", "at": "@third", "duration": 0.25}, z=4, role="label"),
                    tag("1/3 HEAD", "@third+0.1", pct(head0 + 2.66 * P1), "17.6%", size=50, depth=1),
                ],
-               "camera": cam((0, 1.0, "50%", "50%"), ("@sixteen", 1.02, "50%", "48%"), ("@nine", 1.05, "50%", "47%", "inOut"),
-                             ("@third", 1.04, "54%", "47%"), ("@:end", 1.05, "60%", "46%", "inOut"))})
+               "camera": cam((0, 1.0, "50%", "50%"), ("@sixteen", 1.02, "50%", "48%"), ("@nine", 1.03, "50%", "48%"),
+                             ("@laid", 1.75, "32%", "50%", "inOut"), ("@toe.end", 1.75, "40%", "50%"),
+                             ("@third", 1.04, "54%", "47%", "inOut"), ("@:end", 1.05, "60%", "46%", "inOut"))})
 
     # p02 the organ: one click on "machine", the oil level rises, ten bathtubs, then the focused beam
     P2 = 100
@@ -211,14 +216,14 @@ def build():
                         exit={"type": "fade", "at": "@focus-0.1", "duration": 0.4}, z=3))
     sc.append({"p": 3, "beat": "mechanism", "setting": {"kind": "board", "board": "violet"}, "transitionIn": WIPE_LEFT,
                "layers": [
-                   whale(wcx, sy, P2, z=2, organ=[{"t": "@Nearly", "v": 0}, {"t": "@litres", "v": 1, "ease": "inOut"}],
+                   whale(wcx, sy, P2, z=2, organ=[{"t": "@head", "v": 0}, {"t": "@machine", "v": 0.1}, {"t": "@Nearly", "v": 0.1}, {"t": "@litres", "v": 1, "ease": "inOut"}],
                          click=[{"t": "@focus", "v": 0}, {"t": "@focus+0.2", "v": 1}]),
-                   rings(sx + 6, 1075, sy - 0.51 * P2, "@machine", out="@machine+0.1", rate=2, dir=1, life=0.9, arc=40, h=420,
-                         width=18),
+                   rings(sx + 6, 1075, sy - 0.51 * P2, "@sound", out="@machine+0.5", rate=2.5, dir=1, life=1.0, arc=45, h=560,
+                         width=24),
                    tag("≈ 2,000 L OF OIL", "@two", pct(sx - 2.6 * P2 + 20), "15%", size=50, leader=[0, 150], depth=1, out="@focus"),
                    *tubs,
-                   rings(sx + 6, 1075, sy - 0.51 * P2, "@focus", rate=6, dir=1, life=0.6, arc=16, h=260, width=22),
-                   tag("BEAM", "@beam-0.2", "80%", "24%", size=52),
+                   rings(sx + 6, 1075, sy - 0.51 * P2, "@focus", rate=8, dir=1, life=0.55, arc=10, h=200, width=26, color=YELLOW),
+                   tag("BEAM", "@beam-0.2", "80%", "23%", size=52, leader=[0, 110]),
                ],
                "camera": cam((0, 1.0, "50%", "50%"), ("@machine", 1.03, "52%", "48%"), ("@Nearly", 1.04, "48%", "47%"),
                              ("@litres", 1.1, "45%", "42%", "inOut"), ("@ten", 1.08, "46%", "44%"),
@@ -228,10 +233,10 @@ def build():
     P3 = 30
     sc.append({"p": 4, "beat": "record", "setting": {"kind": "board", "board": "blue"}, "transitionIn": WIPE_UP,
                "layers": [
-                   {"type": "component", "name": "explainer/SpeedBars", "x": "50%", "y": "25%", "width": 980, "height": 620,
+                   {"type": "component", "name": "explainer/SpeedBars", "x": "50%", "y": "26%", "width": 960, "height": 640,
                     "role": "label", "depth": 0, "z": 15, "props": {
-                        "title": "Loudest animals", "max": 90, "at": "@clicks", "stagger": 2.6, "duration": 0.7, "size": 62,
-                        "labelWidth": 420,
+                        "title": "Loudest animals", "max": 90, "at": "@hit", "stagger": 2.6, "duration": 0.7, "size": 56,
+                        "labelWidth": 280, "valueWidth": 190, "titleSize": 76,
                         "rows": [{"label": "Sperm whale", "value": 86, "text": "236 dB", "color": "red"},
                                  {"label": "Snapping shrimp", "value": 39, "text": "189 dB", "color": CYAN},
                                  {"label": "Blue whale", "value": 38, "text": "188 dB", "color": BONE}]}},
@@ -301,7 +306,7 @@ def build():
     snx6 = 0.52 * W
     sw = (snx6 + 7.98 * P6, 0.43 * H)
     dv6 = (snx6 - 1.8 * P6 - 1.3 * P6, sw[1] - 0.51 * P6 + 6)
-    jolt = lambda w: [{"t": w, "x": pct(dv6[0]), "rotate": 0}, {"t": f"{w}+0.34", "x": pct(dv6[0] - 12), "rotate": -6, "ease": "out"},
+    jolt = lambda w: [{"t": w, "x": pct(dv6[0]), "rotate": 0}, {"t": f"{w}+0.34", "x": pct(dv6[0] - 34), "rotate": -14, "ease": "out"},
                       {"t": f"{w}+0.66", "x": pct(dv6[0]), "rotate": 0, "ease": "inOut"}]
     sc.append({"p": 7, "beat": "turnstile", "transitionIn": WIPE_LEFT,
                "setting": [{"kind": "board", "board": "navy"},
@@ -312,8 +317,8 @@ def build():
                    tag("YOU?", 0.15, "50%", "29.5%", size=60, leader=[0, 90], out="@Swimmers", depth=1),
                    {"type": "component", "name": "explainer/Map", "x": "50%", "y": "50%", "width": 1080, "height": 1920,
                     "depth": 0, "z": 30, "start": "@Swimmers", "end": "@say",
-                    "enter": {"type": "fade", "at": "@Swimmers", "duration": 0.25},
-                    "exit": {"type": "fade", "at": "@say-0.3", "duration": 0.3},
+                    "enter": {"type": "wipeDown", "at": "@Swimmers", "duration": 0.35},
+                    "exit": {"type": "fade", "at": "@say-0.15", "duration": 0.15},
                     "props": {"views": [{"t": "@Swimmers", "lon": -66, "lat": 15, "zoom": 3.2},
                                         {"t": "@Dominica", "lon": -61.4, "lat": 15.4, "zoom": 6}],
                               "pins": [{"lon": -61.35, "lat": 15.42, "at": "@Dominica", "label": "Dominica"}],
@@ -325,6 +330,9 @@ def build():
                    diver(*dv6, P6, z=3, start="@say-0.6", keyframes=jolt("@thump") + jolt("@chest")),
                    rings(snx6 + 40, dv6[0] + 1.3 * P6, dv6[1] - 6, "@say", rate=2.4, dir=-1, life=0.8, arc=36, h=320, width=18),
                    tag("THUMP", "@thump", pct(dv6[0]), "30.5%", size=54, accent=RED, leader=[0, 70], depth=1),
+                   *[svg(HIT, pct(dv6[0] + 30), pct(dv6[1] + 4, H), 150, 150, start=w, end=f"{w}+0.6", z=5,
+                         enter={"type": "pop", "at": w, "duration": 0.3}, exit={"type": "fade", "at": f"{w}+0.3", "duration": 0.3})
+                     for w in ("@thump", "@chest")],
                    svg(DRUM, pct(dv6[0] + 30), "48%", 170, 156, start="@like#2",
                        enter={"type": "pop", "at": "@like#2", "duration": 0.35}, z=4),
                ],
@@ -354,7 +362,12 @@ def build():
                        start="@polite", end="@point+0.2", enter={"type": "fade", "at": "@polite", "duration": 0.25},
                        exit={"type": "fade", "at": "@point-0.1", "duration": 0.3}, z=4),
                    tag("3 M", "@distance", pct((dv_end + far) / 2), pct(dv7[1] + 160, H), size=46, depth=1, out="@point"),
+                   svg(DASH, pct((dv_end + near) / 2), pct(dv7[1] + 80, H), round(near - dv_end - 16), 30, start="@blank.end",
+                       enter={"type": "fade", "at": "@blank.end", "duration": 0.25}, z=4),
                    tag("1 M", "@blank.end", pct((dv_end + near) / 2), pct(dv7[1] + 160, H), size=48, depth=1),
+                   svg(GRID, "50%", "45%", 1300, 1500, start="@On", end="@Nobody's+0.6", depth=0.3, z=-5, role="dressing",
+                       enter={"type": "fade", "at": "@On", "duration": 0.4},
+                       exit={"type": "fade", "at": "@Nobody's", "duration": 0.6}),
                    rings(near - 10, dv_end + 4, dv7[1], "@full", out="@Nobody's", rate=3.5, dir=-1, life=0.5, arc=45, h=420,
                          width=20),
                    svg(HIT, pct(dv_end - 20), pct(dv7[1] - 6, H), 200, 200, start="@burst",
@@ -370,32 +383,32 @@ def build():
 
     # p08 twist: full power is for hunting 1 km down (whale + squid); then two families trade codas near the surface
     s = 50                                         # px per metre for the families: adult females ~11 m, calves ~4.5 m
-    fam = [(0.31 * W, 0.33 * H, 11, False, 0.0), (0.22 * W, 0.385 * H, 4.5, False, 0.7),
+    fam = [(0.35 * W, 0.33 * H, 11, False, 0.0), (0.26 * W, 0.385 * H, 4.5, False, 0.7),
            (0.69 * W, 0.49 * H, 11, True, 0.4), (0.79 * W, 0.545 * H, 4.5, True, 1.1)]
     sc.append({"p": 9, "beat": "twist", "transitionIn": WIPE_LEFT,
                "setting": [dict(DEEP), {**DUSK, "at": "@Near"}],
                "layers": [
-                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near+0.45",
+                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near+0.22",
                          keyframes=[{"t": 0, "x": "28%"}, {"t": "@Near+0.45", "x": "40%"}]),
                    {"type": "component", "name": "explainer/ColossalSquid", "x": "86%", "y": pct(0.42 * H + 38, H), "width": 160,
-                    "height": 110, "flipX": True, "props": {"pxPerM": 12}, "z": 1,
+                    "height": 140, "flipX": True, "props": {"pxPerM": 18}, "z": 1,
                     "keyframes": [{"t": 0, "x": "84%"}, {"t": "@down", "x": "88%"}, {"t": "@Near-0.05", "x": "112%", "ease": "in"}], "end": "@Near"},
                    rings(0.3 * W + 7.98 * 40 + 10, 0.86 * W - 70, 0.42 * H - 20, 0.2, out="@down", rate=6, dir=1, life=0.5,
                          arc=26, h=260, width=16, keyframes=[{"t": 0, "x": pct((0.28 * W + 319 + 0.84 * W - 60) / 2)},
                                                               {"t": "@Near", "x": pct((0.4 * W + 319 + 0.9 * W - 60) / 2)}],
-                         end="@Near+0.45"),
+                         end="@Near+0.22"),
                    tag("1,000 M DEEP", 0.3, "50%", "14%", size=50, out="@Near-0.3"),
                    *[whale(x + (-700 if not fl else 700), y, s * m / 16, flip=fl, z=2, start="@Near+0.4", timeOffset=to,
                            keyframes=[{"t": "@Near+0.4", "x": pct(x + (-700 if not fl else 700))},
                                       {"t": "@trade", "x": pct(x), "ease": "out"},
                                       {"t": "@:end", "x": pct(x + (-30 if fl else 30))}])
                      for x, y, m, fl, to in fam],
-                   {"type": "component", "name": "explainer/Coda", "x": "33%", "y": "25.5%", "width": 300, "height": 60,
+                   {"type": "component", "name": "explainer/Coda", "x": "37%", "y": "25.5%", "width": 300, "height": 60,
                     "z": 6, "role": "fx", "props": {"at": "@trade", "gaps": [0.18, 0.18, 0.18, 0.42], "r": 15, "color": YELLOW}},
-                   {"type": "component", "name": "explainer/Coda", "x": "67%", "y": "41.5%", "width": 300, "height": 60,
+                   {"type": "component", "name": "explainer/Coda", "x": "68%", "y": "57%", "width": 300, "height": 60,
                     "z": 6, "role": "fx", "props": {"at": "@trade+0.5", "gaps": [0.4, 0.12, 0.12, 0.12], "r": 15, "color": MAGENTA}},
-                   tag("FAMILY 1", "@family", "33%", "19.5%", size=46, depth=1),
-                   tag("FAMILY 2", "@family", "67%", "35.5%", size=46, depth=1),
+                   tag("FAMILY 1", "@family", "37%", "19.5%", size=46, depth=1),
+                   tag("FAMILY 2", "@family", "72%", "41.5%", size=46, depth=1),
                ],
                "camera": cam((0, 1.04, "50%", "50%"), ("@down", 1.0, "50%", "50%"), ("@Near", 1.0, "50%", "48%"),
                              ("@trade", 1.02, "50%", "46%", "inOut"), ("@codas", 1.05, "50%", "44%", "inOut"),
@@ -406,6 +419,10 @@ def build():
          {"t": "@relax", "x": pct(C_WHALE[0] + 20), "ease": "out"}, {"t": round(d[9] - FRAME, 3), "x": pct(C_WHALE[0])}]
     sc.append({"p": 10, "beat": "bookend", "setting": SURFACE, "transitionIn": WIPE_UP,
                "layers": [*cover_layers(d[9], "@about-0.3", swim_in=k),
+                          *[whale(x, y, 9, flip=True, z=1, start="@telling", timeOffset=to,
+                                  keyframes=[{"t": "@telling", "x": pct(x + 420)}, {"t": "@you#2", "x": pct(x), "ease": "out"},
+                                             {"t": round(d[9] - FRAME, 3), "x": pct(x - 10)}], end=round(d[9] - FRAME / 2, 3))
+                            for x, y, to in [(0.8 * W, 0.58 * H, 0.3), (0.9 * W, 0.6 * H, 1.0)]],
                           {"type": "component", "name": "explainer/Coda", "x": pct(C_SNOUT[0] + 20), "y": pct(C_SNOUT[1] - 230, H),
                            "width": 260, "height": 56, "z": 6, "role": "fx",
                            "props": {"at": "@clicking", "out": "@about-0.6", "gaps": [0.18, 0.18, 0.18, 0.42], "r": 14,
@@ -416,22 +433,22 @@ def build():
     sc[-1]["layers"][1]["props"]["at"] = round(d[9] - FRAME - 1.0, 3)
 
     pages = [
-        "What would", "a sperm whale's click", "do to your body?",
-        "A big male", "is sixteen metres long,", "nine of you", "laid head to toe,", "and a third of it", "is head.",
-        "That head", "is a sound machine.", "Nearly two thousand", "litres of oil inside,", "ten bathtubs' worth,",
+        "What would a", "sperm whale's click", "do to your body?",
+        "A big male", "is sixteen metres long,", "nine of you", "laid head to toe,", "and a third", "of it is head.",
+        "That head is", "a sound machine.", "Nearly two thousand", "litres of oil inside,", "ten bathtubs' worth,",
         "focus every click", "into a beam.",
         "And those clicks", "hit over two hundred", "and thirty decibels.", "No animal on Earth", "is louder,",
         "not even the blue whale.",
-        "It needs that to hunt.", "On one breath", "it dives", "a kilometre down,", "where you couldn't", "see your own hand.",
+        "It needs that to hunt.", "On one breath", "it dives a kilometre down,", "where you couldn't", "see your own hand.",
         "There it clicks,", "listens for the echo,", "and closes in.", "The clicks speed up", "into a buzz,",
         "and the squid is gone.",
-        "So what does that", "feel like to you?", "Swimmers off Dominica", "say the clicks", "thump through", "their chest",
+        "So what does that", "feel like to you?", "Swimmers off Dominica", "say the clicks thump", "through their chest",
         "like a drum.",
         "And that's from", "a polite distance.", "On paper,", "at point blank", "and full power,", "one click could",
         "burst your eardrums.", "Nobody's volunteered", "to check.",
-        "Good news:", "full power", "is for hunting,", "a kilometre down.", "Near the surface,", "they mostly trade",
+        "Good news:", "full power is for hunting,", "a kilometre down.", "Near the surface,", "they mostly trade",
         "softer patterns", "called codas,", "and every family", "has its own dialect.",
-        "So if one swims up", "and starts clicking", "at you, relax.", "It's probably telling", "its family about you.",
+        "So if one swims up", "and starts", "clicking at you,", "relax.", "It's probably telling", "its family about you.",
     ]
     shots = {"niche": "explainer",
              "emphasis": ["click", "third", "decibels.", "buzz,", "thump", "eardrums.", "dialect."],

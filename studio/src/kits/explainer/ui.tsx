@@ -559,7 +559,7 @@ export const Options: KitComponent = ({props, time}) => {
 
 // ---------------------------------------------------------------- speed bars
 
-/** Horizontal bar comparison. props: title, rows [{label, value, unit, color, text}], max, at, duration, stagger, size */
+/** Horizontal bar comparison. props: title, rows [{label, value, unit, color, text}], max, at, duration, stagger, size, labelWidth, valueWidth */
 export const SpeedBars: KitComponent = ({props, time, width: W}) => {
 	const at = num(props.at, 0);
 	const dur = num(props.duration, 0.9);
@@ -570,7 +570,7 @@ export const SpeedBars: KitComponent = ({props, time, width: W}) => {
 	const o = easeOut(prog(time, at, 0.3)) * fadeOut(props, time);
 	if (o <= 0) return null;
 	const labelW = num(props.labelWidth, W * 0.3);
-	const valueW = size * 6;
+	const valueW = num(props.valueWidth, size * 6); // room kept for the value text after the longest bar
 	const barMax = W - labelW - valueW - size;
 	return (
 		<div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: o, fontFamily: C.font}}>

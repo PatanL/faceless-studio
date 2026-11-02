@@ -156,10 +156,12 @@ export const SpermWhaleA: React.FC<SpermWhaleAProps> = ({id, t, amp = 1, freq = 
 					{organ > 0.01 ? (
 						// cutaway: the tank outlines show at once (darker body tone), then the oil level rises from the bottom
 						<g>
-							<path d={smooth(ORGAN.map(W))} fill={C('dark')} />
-							<path d={smooth(JUNK.map(W))} fill={C('dark')} />
+							<g opacity={Math.min(1, organ * 10)}>
+								<path d={smooth(ORGAN.map(W))} fill={C('dark')} />
+								<path d={smooth(JUNK.map(W))} fill={C('dark')} />
+							</g>
 							<clipPath id={`${clip}-lv`}>
-								<rect x={1200} y={-170 + (1 - Math.min(1, organ)) * 260} width={460} height={420} />
+								<rect x={1200} y={-170 + (1 - Math.min(1, Math.max(0, (organ - 0.1) / 0.9))) * 260} width={460} height={420} />
 							</clipPath>
 							<g clipPath={`url(#${clip}-lv)`}>
 								<path d={smooth(ORGAN.map(W))} fill={C('oil')} />
