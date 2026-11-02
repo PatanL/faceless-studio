@@ -22,3 +22,8 @@ Older files cite the previous numbering. It maps onto the current principles (P)
 - 2026-11-01: owner: the score was too loud ("music should be background"); lowered ~6 dB (voice ~17 LU over the score). Owner confirmed the new level sounds right.
 - 2026-11-01: owner listened to the orca music A/B/C and picked B: the v2 score (Kurzgesagt Shorts study) with the current sound effects. sfx_mode stays "full"; the fewer-SFX "musical" mode (C) stays available but off.
 - 2026-11-01: owner rule: don't lock the channel to one style (e.g. round-head stick figures) until a video reaches 10K views; keep testing different styles and topic lanes until then.
+
+## 2026-11-02
+- Focus on one channel for quality and technique parity: RicksClips3000 (story lane). Other lanes keep posting finished videos but get no new parity work until it passes.
+- Choose story topics where a 3D environment makes sense, i.e. places the camera can travel through.
+- Don't rework a video once it's posted (Turk went out as v4); its lessons go into the next topic.

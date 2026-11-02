@@ -35,6 +35,8 @@ The owner watches ours next to one reference on a phone and agrees they're the s
 
 ## Order of work
 
+Focus (owner, 2026-11-02): one channel first, **RicksClips3000** (story lane), compared against the same 8 reference Shorts. Other lanes follow once it passes.
+
 Parity first, per lane, with the specialist workflow (`scripts/workflows/video_pipeline.js`). Record each attempt's
 check results in `docs/PARITY_LOG.md`. Posting and view experiments (docs/EXPERIMENTS.md) run alongside but don't
 replace this goal.
