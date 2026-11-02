@@ -52,7 +52,9 @@ CLIP_SHARE = 0.08        # share of a number's box covered by a prop drawn above
 
 # ------------------------------------------------------------------ figure metadata (parsed from the kit sources)
 
-HOUSE_BOXES = {"orca": ([14, -58, 990, 470], 8.0, "w"),    # house/figures.tsx (selfShaded engine assets)
+# house/orcaV3Kit.tsx (style A hero, geom_v3.json boxes): side 8 m along w; front / head 3.4 m along w; below 8 m along h
+HOUSE_BOXES = {"orca": ([74, 171, 1387, 673], 8.0, "w"), "orca:front": ([149, 88, 1236, 784], 3.4, "w"), "orca:head": ([149, 88, 1236, 784], 3.4, "w"),
+               "orca:below": ([406, 36, 723, 905], 8.0, "h"),
                "diver": ([-95, 22, 630, 150], 2.6, "w")}
 FIXED = {"SpermWhale": "spermWhale", "ColossalSquid": "colossalSquid", "Orca": "orca", "GreatWhite": "greatWhite",
          "BlueWhale": "blueWhale", "Anglerfish": "anglerfish", "Octopus": "octopus", "Crocodile": "crocodile",

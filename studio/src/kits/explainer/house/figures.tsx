@@ -14,6 +14,8 @@ import React from 'react';
 import type {Figure} from '../figure';
 import {num, bool} from '../util';
 import {Orca, ORCA_BOX} from './orca';
+// house style A hero (experiments/asset-gen/orca-v3, ported): the one line that picks the live orca is creature.tsx
+export {houseOrcaV3} from './orcaV3Kit';
 import {Diver} from './diver';
 
 const arr2 = (v: unknown, d: [number, number]): [number, number] =>
