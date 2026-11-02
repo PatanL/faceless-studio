@@ -15,13 +15,61 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.42,
-     "rays": 8
+     "rays": 8,
+     "key": "tide",
+     "shiftTo": "warm",
+     "shiftAt": 0.0,
+     "shiftDur": 0.8
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s0",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j0",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/You",
@@ -84,7 +132,32 @@
       "zoom": 1.12,
       "x": "60%"
      }
+    ],
+    "preroll": 0.3,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.155,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -97,7 +170,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 10,
-     "rays": 7
+     "rays": 7,
+     "key": "tide"
     }
    },
    "layers": [
@@ -157,11 +231,35 @@
    "notes": "The saltwater crocodile is the biggest reptile alive. Big males pass six metres and weigh a full tonne.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.005,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -236,6 +334,33 @@
     "type": "whip",
     "duration": 0.3,
     "direction": "left"
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.93,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -248,10 +373,11 @@
     "overscan": 1.2,
     "props": {
      "depth": 8,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.25,
-     "rays": 7
+     "rays": 7,
+     "key": "tide"
     }
    },
    "layers": [
@@ -308,11 +434,35 @@
    "notes": "It can rest underwater for over an hour. Only its eyes and nostrils need to break the surface.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.5
+    "amount": 0.5,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.555,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -325,7 +475,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 20,
-     "rays": 6
+     "rays": 6,
+     "key": "sky"
     }
    },
    "layers": [
@@ -397,13 +548,35 @@
       "at": 1.3199999999999998,
       "duration": 0.4,
       "amplitude": 24
+     },
+     {
+      "at": 0,
+      "duration": 8.08,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    }
    },
    "transitionIn": {
     "type": "whip",
     "duration": 0.3,
     "direction": "left"
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -416,7 +589,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 60,
-     "rays": 3
+     "rays": 3,
+     "key": "mid"
     }
    },
    "layers": [
@@ -473,11 +647,35 @@
    "notes": "Then it drags you under and spins, until you can't tell which way is up.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.8
+    "amount": 0.8,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 4.905,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -490,7 +688,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 6
+     "rays": 6,
+     "key": "kelp"
     }
    },
    "layers": [
@@ -526,6 +725,33 @@
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.705,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -538,7 +764,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 6
+     "rays": 6,
+     "key": "mid"
     }
    },
    "layers": [
@@ -574,7 +801,34 @@
      "depth": 0
     }
    ],
-   "notes": "Run zigzag on land? That one's a myth. Just run straight. Crocs rarely chase you far from the water."
+   "notes": "Run zigzag on land? That one's a myth. Just run straight. Crocs rarely chase you far from the water.",
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.855,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   }
   },
   {
    "id": "p08",
@@ -586,7 +840,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 6
+     "rays": 6,
+     "key": "kelp"
     }
    },
    "layers": [
@@ -626,7 +881,33 @@
      "depth": 0
     }
    ],
-   "notes": "Play dead? It was going to drag you under anyway."
+   "notes": "Play dead? It was going to drag you under anyway.",
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.605,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   }
   },
   {
    "id": "p09",
@@ -638,7 +919,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 6
+     "rays": 6,
+     "key": "mid"
     }
    },
    "layers": [
@@ -682,7 +964,34 @@
      "depth": 0
     }
    ],
-   "notes": "The only option that works is the boring one. Stay away from the water's edge. That's where nearly every attack begins."
+   "notes": "The only option that works is the boring one. Stay away from the water's edge. That's where nearly every attack begins.",
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.93,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   }
   },
   {
    "id": "p10",
@@ -694,10 +1003,11 @@
     "overscan": 1.2,
     "props": {
      "depth": 3,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.4,
-     "rays": 7
+     "rays": 7,
+     "key": "tide"
     }
    },
    "layers": [
@@ -761,11 +1071,35 @@
       "zoom": 1.15,
       "x": "40%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 9.68,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -778,13 +1112,58 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.42,
-     "rays": 8
+     "rays": 8,
+     "key": "sky"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s11",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j11",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 240 60\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"60\" cy=\"38\" rx=\"44\" ry=\"16\" fill=\"#3d4a2e\"/><ellipse cx=\"180\" cy=\"38\" rx=\"44\" ry=\"16\" fill=\"#3d4a2e\"/><ellipse cx=\"60\" cy=\"32\" rx=\"16\" ry=\"10\" fill=\"#d9c25a\"/><ellipse cx=\"180\" cy=\"32\" rx=\"16\" ry=\"10\" fill=\"#d9c25a\"/><rect x=\"57\" y=\"23\" width=\"6\" height=\"18\" fill=\"#111\"/><rect x=\"177\" y=\"23\" width=\"6\" height=\"18\" fill=\"#111\"/></svg>",
@@ -841,6 +1220,15 @@
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   }
  ],
@@ -2059,7 +2447,7 @@
   "duckOn": "none"
  },
  "overlays": {
-  "grain": 0.04,
+  "grain": 0,
   "vignette": 0.2,
   "fadeIn": 0,
   "fadeOut": 0
@@ -2067,6 +2455,7 @@
  "_built": {
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
-  "audio": "studio/public/episodes/explainer-saltwater-croc/mix.wav (Spark; rebuild with pipeline.audio.make)"
+  "audio": "studio/public/episodes/explainer-saltwater-croc/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
  }
 }

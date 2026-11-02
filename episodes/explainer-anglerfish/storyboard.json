@@ -16,10 +16,55 @@
     "props": {
      "depth": 1000,
      "rays": 0,
-     "snow": 60
+     "snow": 60,
+     "key": "deep"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s0",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j0",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Diver",
@@ -84,7 +129,32 @@
       "zoom": 1.1,
       "x": "58%"
      }
+    ],
+    "preroll": 0.3,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.255,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -99,7 +169,8 @@
      "depth": 1000,
      "rays": 0,
      "snow": 110,
-     "drift": 0.5
+     "drift": 0.5,
+     "key": "dusk"
     }
    },
    "layers": [
@@ -152,11 +223,35 @@
    "notes": "There's no sunlight down here. So when anything glows, everything in the dark comes over to look.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.5
+    "amount": 0.5,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.18,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -170,10 +265,55 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 60
+     "snow": 60,
+     "key": "deep"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s2",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j2",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Anglerfish",
@@ -232,11 +372,35 @@
    "notes": "That light is bait. It hangs off an anglerfish's head, on a fishing rod grown from the first spine of its fin.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.5
+    "amount": 0.5,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.33,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -250,7 +414,8 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 40
+     "snow": 40,
+     "key": "dusk"
     }
    },
    "layers": [
@@ -309,12 +474,36 @@
       "x": "62%",
       "y": "44%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.03,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
    },
    "transitionIn": {
     "type": "whip",
     "duration": 0.3,
     "direction": "left"
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -328,7 +517,11 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "deep",
+     "shiftTo": "dusk",
+     "shiftAt": 0.0,
+     "shiftDur": 0.8
     }
    },
    "layers": [
@@ -390,12 +583,34 @@
       "at": 4.2,
       "duration": 0.4,
       "amplitude": 14
+     },
+     {
+      "at": 0,
+      "duration": 5.28,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    }
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -409,10 +624,55 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 40
+     "snow": 40,
+     "key": "deep"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s5",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j5",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Anglerfish",
@@ -443,11 +703,35 @@
    "notes": "Its teeth point backwards, like a one-way door. Anything that goes in can only go further in.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.9
+    "amount": 0.9,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.43,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -461,10 +745,55 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 40
+     "snow": 40,
+     "key": "dusk"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s6",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j6",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Anglerfish",
@@ -505,6 +834,33 @@
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.83,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -518,7 +874,8 @@
     "props": {
      "depth": 1100,
      "rays": 0,
-     "snow": 40
+     "snow": 40,
+     "key": "deep"
     }
    },
    "layers": [
@@ -543,9 +900,9 @@
      },
      "start": 1.838,
      "enter": {
-      "type": "drop",
+      "type": "dropSquash",
       "at": 1.838,
-      "duration": 0.35,
+      "duration": 0.5,
       "distance": 400
      }
     },
@@ -572,13 +929,43 @@
       "at": 3.35,
       "duration": 0.4,
       "amplitude": 20
+     },
+     {
+      "at": 0,
+      "duration": 4.58,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     },
+     {
+      "at": 2.038,
+      "duration": 0.3,
+      "amplitude": 3.5,
+      "frequency": 11,
+      "rotate": 0.12,
+      "decay": true
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    }
    },
    "transitionIn": {
     "type": "whip",
     "duration": 0.3,
     "direction": "left"
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -592,10 +979,55 @@
     "props": {
      "depth": 1500,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "dusk"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s8",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j8",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Headline",
@@ -617,11 +1049,34 @@
    "notes": "And that's not even the strangest thing about it.",
    "camera": {
     "preset": "pushIn",
-    "amount": 1.0
+    "amount": 1.0,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.38,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -635,7 +1090,8 @@
     "props": {
      "depth": 1500,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "deep"
     }
    },
    "layers": [
@@ -659,6 +1115,7 @@
       "speed": 1.6
      },
      "z": 3,
+     "allowOverlap": true,
      "keyframes": [
       {
        "t": 0,
@@ -712,12 +1169,34 @@
       "at": 5.15,
       "duration": 0.3,
       "amplitude": 10
+     },
+     {
+      "at": 0,
+      "duration": 8.305,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    }
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -731,7 +1210,8 @@
     "props": {
      "depth": 1500,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "dusk"
     }
    },
    "layers": [
@@ -801,11 +1281,35 @@
    "notes": "His body fuses with hers. They share the same blood. His eyes and most of his organs fade away, until he's basically part of her.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.7
+    "amount": 0.7,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 8.805,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -819,7 +1323,8 @@
     "props": {
      "depth": 1500,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "deep"
     }
    },
    "layers": [
@@ -845,9 +1350,9 @@
      },
      "start": 1.488,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.488,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -864,9 +1369,9 @@
      },
      "start": 1.568,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.568,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -883,9 +1388,9 @@
      },
      "start": 1.648,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.648,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -902,9 +1407,9 @@
      },
      "start": 1.728,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.728,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -921,9 +1426,9 @@
      },
      "start": 1.808,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.808,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -940,9 +1445,9 @@
      },
      "start": 1.888,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.888,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -959,9 +1464,9 @@
      },
      "start": 1.968,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 1.968,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -978,9 +1483,9 @@
      },
      "start": 2.048,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 2.048,
-      "duration": 0.35
+      "duration": 0.5
      },
      "z": 3
     },
@@ -988,14 +1493,14 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "64%",
+     "y": "61%",
      "width": 900,
-     "height": 286.0,
+     "height": 260.0,
      "props": {
       "value": 8,
       "label": "males on one female",
       "at": 1.688,
-      "size": 110,
+      "size": 100,
       "duration": 0.4,
       "color": "#e5483d"
      },
@@ -1008,6 +1513,32 @@
     "type": "whip",
     "duration": 0.3,
     "direction": "left"
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.955,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -1021,10 +1552,55 @@
     "props": {
      "depth": 1000,
      "rays": 0,
-     "snow": 60
+     "snow": 60,
+     "key": "dusk"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s12",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": 1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j12",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#d8fff6\"/><stop offset=\"0.25\" stop-color=\"#6ff0d8\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#6ff0d8\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#g)\"/></svg>",
@@ -1082,6 +1658,15 @@
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   }
  ],
@@ -2335,7 +2920,7 @@
   "duckOn": "none"
  },
  "overlays": {
-  "grain": 0.04,
+  "grain": 0,
   "vignette": 0.2,
   "fadeIn": 0,
   "fadeOut": 0
@@ -2343,6 +2928,7 @@
  "_built": {
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
-  "audio": "studio/public/episodes/explainer-anglerfish/mix.wav (Spark; rebuild with pipeline.audio.make)"
+  "audio": "studio/public/episodes/explainer-anglerfish/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
  }
 }

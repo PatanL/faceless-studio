@@ -15,7 +15,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 8
+     "rays": 8,
+     "key": "mid"
     }
    },
    "layers": [
@@ -192,7 +193,7 @@
      {
       "t": 1.795,
       "zoom": 1.1178,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.63,
@@ -200,7 +201,31 @@
       "x": "48%",
       "y": "46%"
      }
+    ],
+    "preroll": 0.3,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.63,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -213,7 +238,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 60,
-     "rays": 7
+     "rays": 7,
+     "key": "kelp"
     }
    },
    "layers": [
@@ -240,6 +266,14 @@
        "y": "39.06%",
        "opacity": 1,
        "ease": "out"
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 1.8
       }
      ]
     },
@@ -338,9 +372,9 @@
      "rotate": -90,
      "start": 0.662,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 0.662,
-      "duration": 0.35
+      "duration": 0.5
      }
     },
     {
@@ -432,7 +466,7 @@
      {
       "t": 0.882,
       "zoom": 1.184,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 1.912,
@@ -450,7 +484,7 @@
      {
       "t": 3.382,
       "zoom": 1.1954,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 4.888,
@@ -468,7 +502,7 @@
      {
       "t": 6.845,
       "zoom": 1.2112,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 7.975,
@@ -485,7 +519,31 @@
       "x": "50%",
       "y": "50%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 10.34,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -498,7 +556,11 @@
     "overscan": 1.2,
     "props": {
      "depth": 80,
-     "rays": 6
+     "rays": 6,
+     "key": "mid",
+     "shiftTo": "tide",
+     "shiftAt": 0.632,
+     "shiftDur": 0.8
     }
    },
    "layers": [
@@ -650,7 +712,7 @@
      {
       "t": 1.252,
       "zoom": 1.195,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.245,
@@ -667,7 +729,31 @@
       "x": "50%",
       "y": "50%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 4.94,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -680,7 +766,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 50,
-     "rays": 7
+     "rays": 7,
+     "key": "mid"
     }
    },
    "layers": [
@@ -772,9 +859,9 @@
      },
      "start": 3.67,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.67,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -791,9 +878,9 @@
      },
      "start": 3.6879999999999997,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.6879999999999997,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -810,9 +897,9 @@
      },
      "start": 3.706,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.706,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -829,9 +916,9 @@
      },
      "start": 3.7239999999999998,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.7239999999999998,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -848,9 +935,9 @@
      },
      "start": 3.742,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.742,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -867,9 +954,9 @@
      },
      "start": 3.76,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.76,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -886,9 +973,9 @@
      },
      "start": 3.778,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.778,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -905,9 +992,9 @@
      },
      "start": 3.796,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.796,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -924,9 +1011,9 @@
      },
      "start": 3.814,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.814,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -943,9 +1030,9 @@
      },
      "start": 3.832,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.832,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -962,9 +1049,9 @@
      },
      "start": 3.85,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.85,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -981,9 +1068,9 @@
      },
      "start": 3.868,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.868,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1000,9 +1087,9 @@
      },
      "start": 3.886,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.886,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1019,9 +1106,9 @@
      },
      "start": 3.904,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.904,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1038,9 +1125,9 @@
      },
      "start": 3.9219999999999997,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.9219999999999997,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1057,9 +1144,9 @@
      },
      "start": 3.94,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.94,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1076,9 +1163,9 @@
      },
      "start": 3.9579999999999997,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.9579999999999997,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1095,9 +1182,9 @@
      },
      "start": 3.976,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.976,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1114,9 +1201,9 @@
      },
      "start": 3.9939999999999998,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.9939999999999998,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1133,9 +1220,9 @@
      },
      "start": 4.012,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.012,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1152,9 +1239,9 @@
      },
      "start": 4.03,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.03,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1171,9 +1258,9 @@
      },
      "start": 4.048,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.048,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1190,9 +1277,9 @@
      },
      "start": 4.066,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.066,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1209,9 +1296,9 @@
      },
      "start": 4.084,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.084,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1228,9 +1315,9 @@
      },
      "start": 4.102,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.102,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1247,9 +1334,9 @@
      },
      "start": 4.12,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.12,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1266,9 +1353,9 @@
      },
      "start": 4.138,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.138,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1285,9 +1372,9 @@
      },
      "start": 4.156,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.156,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1304,9 +1391,9 @@
      },
      "start": 4.1739999999999995,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.1739999999999995,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1323,9 +1410,9 @@
      },
      "start": 4.192,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.192,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1342,9 +1429,9 @@
      },
      "start": 4.21,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.21,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1361,9 +1448,9 @@
      },
      "start": 4.228,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.228,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1380,9 +1467,9 @@
      },
      "start": 4.2459999999999996,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.2459999999999996,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1399,9 +1486,9 @@
      },
      "start": 4.264,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.264,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1418,9 +1505,9 @@
      },
      "start": 4.282,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.282,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1437,9 +1524,9 @@
      },
      "start": 4.3,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.3,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1456,9 +1543,9 @@
      },
      "start": 4.318,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.318,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1475,9 +1562,9 @@
      },
      "start": 4.336,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.336,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1494,9 +1581,9 @@
      },
      "start": 4.354,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.354,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1513,9 +1600,9 @@
      },
      "start": 4.372,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 4.372,
-      "duration": 0.2
+      "duration": 0.5
      },
      "depth": 0.2,
      "z": 8
@@ -1555,7 +1642,7 @@
      {
       "t": 0.378,
       "zoom": 1.1858,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 2.257,
@@ -1573,7 +1660,7 @@
      {
       "t": 3.89,
       "zoom": 1.2401,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 4.58,
@@ -1581,7 +1668,31 @@
       "x": "50%",
       "y": "50%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 4.58,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -1595,7 +1706,8 @@
     "props": {
      "depth": 200,
      "rays": 3,
-     "snow": 40
+     "snow": 40,
+     "key": "deep"
     }
    },
    "layers": [
@@ -1674,9 +1786,9 @@
      "start": 0.732,
      "end": 4.007,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 0.732,
-      "duration": 0.35
+      "duration": 0.5
      }
     },
     {
@@ -1933,7 +2045,7 @@
      {
       "t": 0.465,
       "zoom": 1.1848,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 2.27,
@@ -1951,7 +2063,7 @@
      {
       "t": 4.227,
       "zoom": 1.224,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 5.132,
@@ -1969,7 +2081,7 @@
      {
       "t": 6.002,
       "zoom": 1.2425,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 6.8,
@@ -1977,7 +2089,31 @@
       "x": "50%",
       "y": "50%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.8,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -1990,7 +2126,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 40,
-     "rays": 6
+     "rays": 6,
+     "key": "mid"
     }
    },
    "layers": [
@@ -2273,9 +2410,9 @@
      "z": 3,
      "start": 3.25,
      "enter": {
-      "type": "pop",
+      "type": "popSpring",
       "at": 3.25,
-      "duration": 0.3
+      "duration": 0.5
      },
      "idle": [
       {
@@ -2302,7 +2439,15 @@
       "accent": "#0b1a22"
      },
      "depth": 1,
-     "z": 6
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.4,
+       "phase": -0.4021
+      }
+     ]
     },
     {
      "type": "svg",
@@ -2327,6 +2472,14 @@
        "opacity": 0,
        "ease": "out"
       }
+     ],
+     "idle": [
+      {
+       "type": "float",
+       "amount": 6,
+       "speed": 0.4,
+       "phase": -0.1759
+      }
      ]
     }
    ],
@@ -2347,7 +2500,7 @@
      {
       "t": 1.145,
       "zoom": 1.198,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.0,
@@ -2367,7 +2520,31 @@
       "x": "50%",
       "y": "48%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.17,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -2380,7 +2557,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 25,
-     "rays": 9
+     "rays": 9,
+     "key": "tide"
     }
    },
    "layers": [
@@ -2516,6 +2694,14 @@
        "x": "-65.7%",
        "ease": "out"
       }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 6.8
+      }
      ]
     },
     {
@@ -2570,7 +2756,7 @@
      {
       "t": 1.007,
       "zoom": 1.1964,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.637,
@@ -2587,7 +2773,31 @@
       "x": "52%",
       "y": "44%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.79,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -2600,7 +2810,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 25,
-     "rays": 8
+     "rays": 8,
+     "key": "sky"
     }
    },
    "layers": [
@@ -2652,6 +2863,14 @@
        "x": "118%",
        "ease": "out"
       }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 7.8
+      }
      ]
     },
     {
@@ -2690,7 +2909,15 @@
       "accent": "#0b1a22"
      },
      "depth": 1,
-     "z": 6
+     "z": 6,
+     "idle": [
+      {
+       "type": "float",
+       "amount": 10,
+       "speed": 0.4,
+       "phase": -0.4021
+      }
+     ]
     },
     {
      "type": "component",
@@ -2726,7 +2953,7 @@
      {
       "t": 1.807,
       "zoom": 1.2535,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 2.475,
@@ -2743,7 +2970,30 @@
       "x": "50%",
       "y": "44%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.48,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -2757,7 +3007,8 @@
     "props": {
      "depth": 60,
      "rays": 4,
-     "snow": 30
+     "snow": 30,
+     "key": "mid"
     }
    },
    "layers": [
@@ -3039,7 +3290,7 @@
      {
       "t": 1.027,
       "zoom": 1.18,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.282,
@@ -3098,7 +3349,31 @@
       "x": "38%",
       "y": "40%"
      }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 10.36,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -3111,7 +3386,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 8
+     "rays": 8,
+     "key": "kelp"
     }
    },
    "layers": [
@@ -3168,6 +3444,14 @@
        "x": "18%",
        "rotate": -4,
        "opacity": 0
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 9.8
       }
      ]
     },
@@ -3407,7 +3691,7 @@
      {
       "t": 0.752,
       "zoom": 1.1849,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 2.695,
@@ -3425,7 +3709,7 @@
      {
       "t": 4.277,
       "zoom": 1.2081,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 6.107,
@@ -3453,8 +3737,30 @@
       "at": 7.707,
       "duration": 0.7,
       "amplitude": 16
+     },
+     {
+      "at": 0,
+      "duration": 8.975,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    }
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -3467,7 +3773,8 @@
     "overscan": 1.2,
     "props": {
      "depth": 30,
-     "rays": 8
+     "rays": 8,
+     "key": "mid"
     }
    },
    "layers": [
@@ -3641,7 +3948,7 @@
      {
       "t": 1.807,
       "zoom": 1.4873,
-      "ease": "out"
+      "ease": "backOut"
      },
      {
       "t": 3.575,
@@ -3662,6 +3969,15 @@
       "y": "46%"
      }
     ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   }
  ],
@@ -4724,7 +5040,7 @@
   "duckOn": "none"
  },
  "overlays": {
-  "grain": 0.04,
+  "grain": 0,
   "vignette": 0.2,
   "fadeIn": 0,
   "fadeOut": 0
@@ -4732,6 +5048,7 @@
  "_built": {
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
-  "audio": "studio/public/episodes/explainer-blue-whale/mix.wav (Spark; rebuild with pipeline.audio.make)"
+  "audio": "studio/public/episodes/explainer-blue-whale/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
  }
 }

@@ -15,10 +15,14 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.3,
-     "rays": 9
+     "rays": 9,
+     "key": "tide",
+     "shiftTo": "warm",
+     "shiftAt": 0.0,
+     "shiftDur": 0.8
     }
    },
    "layers": [
@@ -92,7 +96,31 @@
    "notes": "Every ten metres you sink, the ocean piles another sky's worth of weight on top of you. Let's see how far you get.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.855,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -116,7 +144,8 @@
       }
      ],
      "rays": 6,
-     "snow": 70
+     "snow": 70,
+     "key": "tide"
     }
    },
    "layers": [
@@ -240,7 +269,31 @@
    "notes": "Ten metres. The pressure has doubled. The air in your lungs is squeezed to half its size.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.78,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -264,7 +317,8 @@
       }
      ],
      "rays": 6,
-     "snow": 70
+     "snow": 70,
+     "key": "sky"
     }
    },
    "layers": [
@@ -332,11 +386,35 @@
    "notes": "Thirty metres. Normal air starts to make you feel drunk. Divers call it the rapture of the deep.",
    "camera": {
     "preset": "drift",
-    "amount": 1.5
+    "amount": 1.5,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.38,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -360,7 +438,8 @@
       }
      ],
      "rays": 6,
-     "snow": 70
+     "snow": 70,
+     "key": "mid"
     }
    },
    "layers": [
@@ -438,11 +517,35 @@
    "notes": "One hundred metres. Eleven times the surface pressure. Free divers come back from here on one breath. Most people wouldn't.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.98,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -466,7 +569,8 @@
       }
      ],
      "rays": 4,
-     "snow": 70
+     "snow": 70,
+     "key": "kelp"
     }
    },
    "layers": [
@@ -501,7 +605,7 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "30%",
-     "y": "54%",
+     "y": "50%",
      "width": 900,
      "height": 249.60000000000002,
      "props": {
@@ -519,7 +623,7 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "30%",
-     "y": "64%",
+     "y": "60%",
      "width": 900,
      "height": 249.60000000000002,
      "props": {
@@ -564,11 +668,35 @@
    "notes": "Three hundred and thirty-two metres. The deepest scuba dive ever. Minutes to get down. About fifteen hours to come back up.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 8.155,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -592,10 +720,55 @@
       }
      ],
      "rays": 2,
-     "snow": 70
+     "snow": 70,
+     "key": "deep"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s5",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j5",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "svg",
      "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"g\"><stop offset=\"0\" stop-color=\"#d8fff6\"/><stop offset=\"0.25\" stop-color=\"#6ff0d8\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#6ff0d8\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#g)\"/></svg>",
@@ -686,11 +859,35 @@
    "notes": "One thousand metres. The sunlight is gone for good. From here on, the only light is the kind animals make themselves.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.78,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -714,7 +911,8 @@
       }
      ],
      "rays": 1,
-     "snow": 70
+     "snow": 70,
+     "key": "dusk"
     }
    },
    "layers": [
@@ -739,7 +937,15 @@
        "ease": "linear"
       }
      ],
-     "flipX": true
+     "flipX": true,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 6.8
+      }
+     ]
     },
     {
      "type": "component",
@@ -802,11 +1008,35 @@
    "notes": "Two thousand metres. A sperm whale glides past on its way to hunt. It holds its breath for over an hour. You'd get about two minutes.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 8.63,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -830,10 +1060,55 @@
       }
      ],
      "rays": 0,
-     "snow": 70
+     "snow": 70,
+     "key": "deep"
     }
    },
    "layers": [
+    {
+     "type": "component",
+     "name": "explainer/FishSchool",
+     "role": "dressing",
+     "x": "50%",
+     "y": "27%",
+     "width": 1300,
+     "height": 260,
+     "depth": 0.35,
+     "z": -6,
+     "props": {
+      "n": 18,
+      "seed": "s7",
+      "scale": 0.5,
+      "plane": "far",
+      "dir": -1
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Jellies",
+     "role": "dressing",
+     "x": "50%",
+     "y": "30%",
+     "width": 1200,
+     "height": 520,
+     "depth": 0.6,
+     "z": -5,
+     "opacity": 0.85,
+     "props": {
+      "n": 2,
+      "seed": "j7",
+      "size": [
+       26,
+       46
+      ],
+      "plane": "mid",
+      "colors": [
+       "amber-3",
+       "coral-3",
+       "tide-3"
+      ]
+     }
+    },
     {
      "type": "component",
      "name": "explainer/Headline",
@@ -915,11 +1190,35 @@
    "notes": "Three thousand eight hundred metres. This is where the Titanic rests. Every square centimetre of you now carries the weight of a grand piano.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.4
+    "amount": 0.4,
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 8.805,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -983,14 +1282,14 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "62%",
+     "y": "60%",
      "width": 900,
-     "height": 286.0,
+     "height": 270.40000000000003,
      "props": {
       "value": 1086,
       "label": "bar of pressure",
       "at": 0.175,
-      "size": 110,
+      "size": 104,
       "duration": 0.8,
       "color": "#e5483d"
      },
@@ -1002,6 +1301,33 @@
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.405,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -1015,7 +1341,8 @@
     "props": {
      "depth": 10900,
      "rays": 0,
-     "snow": 50
+     "snow": 50,
+     "key": "deep"
     }
    },
    "layers": [
@@ -1039,9 +1366,9 @@
      },
      "start": 0.863,
      "enter": {
-      "type": "drop",
+      "type": "dropSquash",
       "at": 0.863,
-      "duration": 0.35,
+      "duration": 0.5,
       "distance": 600
      }
     },
@@ -1069,12 +1396,42 @@
       "at": 1.213,
       "duration": 0.5,
       "amplitude": 20
+     },
+     {
+      "at": 0,
+      "duration": 6.755,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     },
+     {
+      "at": 1.063,
+      "duration": 0.3,
+      "amplitude": 3.5,
+      "frequency": 11,
+      "rotate": 0.12,
+      "decay": true
      }
-    ]
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    }
    },
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -1089,7 +1446,8 @@
      "depth": 8300,
      "rays": 0,
      "snow": 90,
-     "drift": 0.4
+     "drift": 0.4,
+     "key": "dusk"
     }
    },
    "layers": [
@@ -1138,11 +1496,35 @@
    "notes": "And yet, fish have been filmed more than eight kilometres down, drifting around like it's nothing.",
    "camera": {
     "preset": "pushIn",
-    "amount": 0.6
+    "amount": 0.6,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.88,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    },
    "transitionIn": {
     "type": "dipBlack",
     "duration": 0.35
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   },
   {
@@ -1155,10 +1537,11 @@
     "overscan": 1.2,
     "props": {
      "depth": 2,
-     "skyTop": "#071620",
-     "skyBottom": "#1b3b4a",
+     "skyTop": "#041531",
+     "skyBottom": "#0c284f",
      "surface": 0.3,
-     "rays": 9
+     "rays": 9,
+     "key": "tide"
     }
    },
    "layers": [
@@ -1241,6 +1624,15 @@
    "transitionIn": {
     "type": "fade",
     "duration": 0.3
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.02,
+    "contrast": 1.05,
+    "saturate": 1.12
    }
   }
  ],
@@ -2524,7 +2916,7 @@
   "duckOn": "none"
  },
  "overlays": {
-  "grain": 0.04,
+  "grain": 0,
   "vignette": 0.2,
   "fadeIn": 0,
   "fadeOut": 0
@@ -2532,6 +2924,7 @@
  "_built": {
   "by": "pipeline/episodes/build.py",
   "timing": "kokoro captions.json",
-  "audio": "studio/public/episodes/explainer-pressure-ladder/mix.wav (Spark; rebuild with pipeline.audio.make)"
+  "audio": "studio/public/episodes/explainer-pressure-ladder/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
  }
 }
