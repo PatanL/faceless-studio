@@ -10,8 +10,9 @@ rule="phrase" (per-episode opt-in, shots.json "caption_rule": "phrase"; default 
 a page may only end where a phrase ends - after punctuation, or before a word that starts a new phrase (a conjunction,
 preposition, relative word, subject pronoun or a finite verb / auxiliary). It never ends on a small connecting word
 (article, preposition, conjunction, auxiliary, possessive, intensifier) and never splits a noun phrase ("museum |
-fire", "chess | board") or a verb from its object ("play | it", "showed | him"). Pages may run to 26 characters / 6
-words (two caption lines) and 3.6 s so whole phrases fit.
+fire", "chess | board") or a verb from its object ("play | it", "showed | him", "beat | nearly every player"). Pages
+may run to 32 characters / 6 words (two caption lines; the episode sets a smaller caption size) and 3.6 s so whole
+phrases fit; past 22 characters a page costs a little more, so short phrase pages win when nothing is split.
 """
 from __future__ import annotations
 
@@ -59,6 +60,7 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
     if n > 6 or chars > max_chars:
         return float("inf")
     c = 2.0 + (0.3 if n == 5 else 0.9 if n == 6 else 0) + (2.0 if n == 1 and not SENT_END.search(ws[-1]) else 0)
+    c += 0.25 * max(0, chars - 22)
     last, ln = ws[-1], _n(ws[-1])
     if SENT_END.search(last):
         return c - 1.0
@@ -78,6 +80,8 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
         c += 3 if (_verbish(ln) or ln in ("play", "beat", "put", "sits")) else -0.5   # verb | object NP, else a new NP
     elif nn in PHRASE_START or _verbish(nn):
         c -= 0.8                                 # the next page opens a phrase
+    elif _verbish(ln) or ln in ("play", "beat", "put", "sits", "built", "rolled"):
+        c += 9                                   # verb | object ("beat | nearly every player", "beats | Benjamin")
     else:
         c += 6                                   # inside a noun phrase ("museum | fire", "chess | board")
     return c
@@ -125,7 +129,7 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
     rule: "default" (the live behaviour) or "phrase" (opt-in, module doc)."""
     strict = rule == "phrase"
     if strict:
-        max_chars, max_card_s = max(max_chars, 26), max(max_card_s, 3.6)
+        max_chars, max_card_s = max(max_chars, 32), max(max_card_s, 3.6)
     pairs, ends = set(), set()
     for ph in [*GLUE, *glue]:
         ws = [_n(x) for x in ph.split()]
@@ -145,7 +149,7 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
         best = [0.0] + [float("inf")] * m
         back = [0] * (m + 1)
         for j in range(1, m + 1):
-            for i in range(max(0, j - 5), j):
+            for i in range(max(0, j - (6 if strict else 5)), j):
                 c = _cost_phrase(toks[i:j], toks[j] if j < m else None, max_chars, pairs) if strict else \
                     _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs, ends)
                 if j - i > 1 and words[a + j - 1]["end"] - words[a + i]["start"] > max_card_s:
