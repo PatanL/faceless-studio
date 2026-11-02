@@ -6,41 +6,53 @@
  "render": "3D: experiments/three-lane composition Vasa3D (this storyboard supplies timings, captions and the mix only)",
  "emphasis": [
   "anyway.",
-  "Vasa.",
-  "sinks.",
-  "opposite.",
-  "warning"
+  "king.",
+  "sinks",
+  "upside",
+  "sink."
  ],
  "glue": [
   "thirty sailors",
   "brand-new warship",
-  "heavy cannons",
+  "heavy bronze cannons",
+  "two decks",
   "gun ports",
   "lower gun ports",
-  "four sails",
+  "open lower gun ports",
   "second gust",
-  "gun deck",
-  "bronze cannons",
-  "weighted toy",
-  "thirty men",
-  "back and forth",
-  "thirteen hundred meters",
-  "get her to sea",
-  "120 tons",
-  "twice as much",
-  "wishes the king were home"
+  "light gust",
+  "huge crowd",
+  "whole city",
+  "own harbour",
+  "Only God knows",
+  "bottle with sand",
+  "heavy low",
+  "light on top",
+  "upside down",
+  "too little stone",
+  "the king were here",
+  "Get her to sea",
+  "sent her to sea",
+  "leans her over",
+  "tips her further",
+  "rolled her over",
+  "off at war",
+  "in front of the whole city",
+  "the mightiest warship afloat",
+  "If only the king were here",
+  "stops the test"
  ],
  "caption_rule": "phrase",
  "scenes": [
   {
    "p": 1,
-   "beat": "hook",
+   "beat": "b1",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "Vasa's upper deck at the shipyard quay, Stockholm 1628",
+    "place": "the Vasa's deck at the shipyard quay (the running test), then the ship under sail",
     "light": "day"
    },
    "background": {
@@ -60,13 +72,13 @@
   },
   {
    "p": 2,
-   "beat": "setup",
+   "beat": "b2",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "Stockholm harbour and the king's war tent in Poland",
+    "place": "the admiral on the deck",
     "light": "day"
    },
    "background": {
@@ -86,13 +98,13 @@
   },
   {
    "p": 3,
-   "beat": "guns",
+   "beat": "b3",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the shipyard quay: cannons hoisted aboard, the gun-port rows, the stern carvings",
+    "place": "the king's war camp in Poland",
     "light": "day"
    },
    "background": {
@@ -112,13 +124,13 @@
   },
   {
    "p": 4,
-   "beat": "test",
+   "beat": "b4",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Vasa's deck during the stability test",
+    "place": "the shipyard quay: guns swung aboard, two rows of gun ports at the waterline",
     "light": "day"
    },
    "background": {
@@ -138,13 +150,13 @@
   },
   {
    "p": 5,
-   "beat": "launch",
+   "beat": "b5",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Stockholm shore crowd and the harbour",
+    "place": "the deck rocking, then the king's camp with a letter",
     "light": "day"
    },
    "background": {
@@ -164,14 +176,14 @@
   },
   {
    "p": 6,
-   "beat": "gust",
+   "beat": "b6",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the harbour water: the Vasa heeling in the gusts",
-    "light": "day"
+    "place": "the crowd on the quay, the sails",
+    "light": "dusk"
    },
    "background": {
     "type": "component",
@@ -190,14 +202,14 @@
   },
   {
    "p": 7,
-   "beat": "sinking",
+   "beat": "b7",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the flooding lower gun deck, then the sinking seen from the shore",
-    "light": "day"
+    "place": "the harbour: the first gust",
+    "light": "dusk"
    },
    "background": {
     "type": "component",
@@ -216,14 +228,14 @@
   },
   {
    "p": 8,
-   "beat": "inquiry",
+   "beat": "b8",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the inquiry hall",
-    "light": "day"
+    "place": "the harbour: the second gust, the ports under",
+    "light": "dusk"
    },
    "background": {
     "type": "component",
@@ -242,14 +254,14 @@
   },
   {
    "p": 9,
-   "beat": "pivot",
+   "beat": "b9",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "an explanation room at night (weighted toys)",
-    "light": "night"
+    "place": "the flooding gun deck, then the sinking seen from the quay",
+    "light": "dusk"
    },
    "background": {
     "type": "component",
@@ -268,14 +280,14 @@
   },
   {
    "p": 10,
-   "beat": "reveal",
+   "beat": "b10",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Vasa hull cross-section",
-    "light": "night"
+    "place": "the inquiry hall and the king's portrait",
+    "light": "day"
    },
    "background": {
     "type": "component",
@@ -294,7 +306,59 @@
   },
   {
    "p": 11,
-   "beat": "ballast",
+   "beat": "b11",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "an explanation room at night: bottles with sand",
+    "light": "night"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 12,
+   "beat": "b12",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "the hull cross-section; the ballast at the quay",
+    "light": "night"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 13,
+   "beat": "b13",
    "setting": {
     "kind": "place",
     "depth": 0,
@@ -319,41 +383,15 @@
    }
   },
   {
-   "p": 12,
-   "beat": "warning",
+   "p": 14,
+   "beat": "b14",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the deck in cross-section with the running men",
-    "light": "night"
-   },
-   "background": {
-    "type": "component",
-    "name": "stick/Set",
-    "depth": 0.3,
-    "overscan": 1.2,
-    "props": {
-     "place": "hall",
-     "ink": 5
-    }
-   },
-   "layers": [],
-   "_house": {
-    "set": false
-   }
-  },
-  {
-   "p": 13,
-   "beat": "payoff",
-   "setting": {
-    "kind": "place",
-    "depth": 0,
-    "waterline": null,
-    "biome": "home",
-    "place": "the sea bed in 1961, then the Vasa Museum",
-    "light": "night"
+    "place": "the deck at the dock, rolling",
+    "light": "day"
    },
    "background": {
     "type": "component",

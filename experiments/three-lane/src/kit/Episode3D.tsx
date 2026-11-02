@@ -122,9 +122,10 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const ein = n > 0 ? Math.min(1, (frame + 1) / (n + 1)) : 1;                       // 0..1 through the incoming whip
   const eout = nOut > 0 ? Math.max(0, (frame - (total - nOut)) / nOut) : 0;          // 0..1 through the outgoing whip
   const easeIn = 1 - Math.pow(1 - ein, 3), easeOut = eout * eout;
-  const x = (1 - easeIn) * width * 0.35 - easeOut * width * 0.35;
-  const blur = Math.max((1 - easeIn) * 22, easeOut * 22);
-  const o = n > 0 ? Math.min(1, ein * 2.2) : 1;
+  // a short travel with a heavy smear: the eye reads a whip, the frame-difference reads a transition, not a jump
+  const x = (1 - easeIn) * width * 0.16 - easeOut * width * 0.16;
+  const blur = Math.max((1 - easeIn) * 30, easeOut * 30);
+  const o = n > 0 ? Math.min(1, ein * 1.6) : 1;
   return (
     <AbsoluteFill style={{ opacity: o, transform: x ? `translateX(${x.toFixed(1)}px)` : undefined, filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined }}>
       <Stage g={g} fromFrame={from} />

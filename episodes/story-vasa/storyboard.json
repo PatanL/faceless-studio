@@ -7,7 +7,7 @@
  "scenes": [
   {
    "id": "p01",
-   "duration": 6.54,
+   "duration": 5.8,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -19,13 +19,13 @@
     }
    },
    "layers": [],
-   "notes": "Thirty sailors ran back and forth across a brand-new warship. After the third run, the admiral stopped the test, and the ship sailed anyway.",
+   "notes": "Thirty sailors ran across a brand-new warship until she nearly rolled over, and the navy sent her to sea anyway.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "Vasa's upper deck at the shipyard quay, Stockholm 1628",
+    "place": "the Vasa's deck at the shipyard quay (the running test), then the ship under sail",
     "light": "day",
     "at": 0.0
    },
@@ -48,7 +48,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 6.54,
+      "duration": 5.8,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -59,7 +59,7 @@
   },
   {
    "id": "p02",
-   "duration": 6.235,
+   "duration": 3.27,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -71,19 +71,18 @@
     }
    },
    "layers": [],
-   "notes": "It's 1628 in Stockholm. The king, away at war, orders seventy-two heavy cannons for his new warship, the Vasa.",
+   "notes": "The admiral stops the test and mutters, \"If only the king were here.\"",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "Stockholm harbour and the king's war tent in Poland",
+    "place": "the admiral on the deck",
     "light": "day",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern",
-    "sweep": 8
+    "setup": "lantern"
    },
    "grade": {
     "brightness": 1.0,
@@ -100,7 +99,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 6.235,
+      "duration": 3.27,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -111,7 +110,7 @@
   },
   {
    "id": "p03",
-   "duration": 4.03,
+   "duration": 3.31,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -123,19 +122,18 @@
     }
    },
    "layers": [],
-   "notes": "So it gets two decks of guns, stacked high above the water, and hundreds of carvings.",
+   "notes": "But the king is off at war, and he wants the mightiest warship afloat.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the shipyard quay: cannons hoisted aboard, the gun-port rows, the stern carvings",
+    "place": "the king's war camp in Poland",
     "light": "day",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern",
-    "sweep": 8
+    "setup": "lantern"
    },
    "grade": {
     "brightness": 1.0,
@@ -152,7 +150,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 4.03,
+      "duration": 3.31,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -163,7 +161,7 @@
   },
   {
    "id": "p04",
-   "duration": 5.111,
+   "duration": 4.05,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -175,13 +173,13 @@
     }
    },
    "layers": [],
-   "notes": "But every run rocks it harder. The admiral wishes the king were home. The king's letters say: get her to sea.",
+   "notes": "So the Vasa gets two decks of heavy bronze cannons, stacked high above the water.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Vasa's deck during the stability test",
+    "place": "the shipyard quay: guns swung aboard, two rows of gun ports at the waterline",
     "light": "day",
     "at": 0.0
    },
@@ -204,7 +202,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 5.111,
+      "duration": 4.05,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -215,7 +213,7 @@
   },
   {
    "id": "p05",
-   "duration": 2.95,
+   "duration": 4.88,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -227,18 +225,19 @@
     }
    },
    "layers": [],
-   "notes": "On August tenth, a huge crowd watches four sails go up.",
+   "notes": "Nobody wants to tell the king his masterpiece wobbles. His letters keep arriving: \"Get her to sea.\"",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Stockholm shore crowd and the harbour",
+    "place": "the deck rocking, then the king's camp with a letter",
     "light": "day",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "sweep": 8
    },
    "grade": {
     "brightness": 1.0,
@@ -255,7 +254,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 2.95,
+      "duration": 4.88,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -266,7 +265,7 @@
   },
   {
    "id": "p06",
-   "duration": 5.3,
+   "duration": 2.79,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -278,19 +277,18 @@
     }
    },
    "layers": [],
-   "notes": "A gust tips the Vasa over. It rights itself. Then a second gust pushes the lower gun ports under the water.",
+   "notes": "On launch day, a huge crowd watches her sails go up.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the harbour water: the Vasa heeling in the gusts",
-    "light": "day",
+    "place": "the crowd on the quay, the sails",
+    "light": "dusk",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern",
-    "sweep": 8
+    "setup": "lantern"
    },
    "grade": {
     "brightness": 1.0,
@@ -307,7 +305,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 5.3,
+      "duration": 2.79,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -318,7 +316,7 @@
   },
   {
    "id": "p07",
-   "duration": 5.67,
+   "duration": 3.76,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -330,19 +328,18 @@
     }
    },
    "layers": [],
-   "notes": "The gun deck floods, and thirteen hundred meters out, in front of everyone, the Vasa sinks. About thirty people die.",
+   "notes": "One light gust leans her over. She shakes it off, and the crowd keeps waving.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the flooding lower gun deck, then the sinking seen from the shore",
-    "light": "day",
+    "place": "the harbour: the first gust",
+    "light": "dusk",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern",
-    "sweep": 8
+    "setup": "lantern"
    },
    "grade": {
     "brightness": 1.0,
@@ -359,7 +356,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 5.67,
+      "duration": 3.76,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -370,7 +367,7 @@
   },
   {
    "id": "p08",
-   "duration": 3.276,
+   "duration": 4.25,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -382,18 +379,19 @@
     }
    },
    "layers": [],
-   "notes": "The inquiry punishes no one. Only God knows, one builder says.",
+   "notes": "Then a second gust tips her further, and her open lower gun ports dip under the water.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the inquiry hall",
-    "light": "day",
+    "place": "the harbour: the second gust, the ports under",
+    "light": "dusk",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "sweep": 8
    },
    "grade": {
     "brightness": 1.0,
@@ -410,7 +408,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 3.276,
+      "duration": 4.25,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -421,7 +419,7 @@
   },
   {
    "id": "p09",
-   "duration": 3.99,
+   "duration": 4.33,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -433,18 +431,19 @@
     }
    },
    "layers": [],
-   "notes": "You see, a ship stays upright like a weighted toy: heavy at the bottom, light at the top.",
+   "notes": "The sea pours in, and in front of the whole city, the Vasa sinks inside her own harbour.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "an explanation room at night (weighted toys)",
-    "light": "night",
+    "place": "the flooding gun deck, then the sinking seen from the quay",
+    "light": "dusk",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "sweep": 8
    },
    "grade": {
     "brightness": 1.0,
@@ -461,7 +460,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 3.99,
+      "duration": 4.33,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -472,7 +471,7 @@
   },
   {
    "id": "p10",
-   "duration": 5.555,
+   "duration": 7.2,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -484,14 +483,14 @@
     }
    },
    "layers": [],
-   "notes": "The Vasa was the opposite. Its bronze cannons sat high on two decks, over just 120 tons of stone.",
+   "notes": "At the hearing, one builder's best explanation is, \"Only God knows.\" Nobody is punished. The man who ordered the cannons was the king.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the Vasa hull cross-section",
-    "light": "night",
+    "place": "the inquiry hall and the king's portrait",
+    "light": "day",
     "at": 0.0
    },
    "light": {
@@ -513,7 +512,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 5.555,
+      "duration": 7.2,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -524,7 +523,7 @@
   },
   {
    "id": "p11",
-   "duration": 4.575,
+   "duration": 4.71,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -536,13 +535,13 @@
     }
    },
    "layers": [],
-   "notes": "It needed about twice as much, but more weight would push the lower gun ports down to the waterline.",
+   "notes": "You see, a ship stays upright like a bottle with sand in the bottom: heavy low, light on top.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the hull cross-section and the waterline",
+    "place": "an explanation room at night: bottles with sand",
     "light": "night",
     "at": 0.0
    },
@@ -565,7 +564,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 4.575,
+      "duration": 4.71,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -576,7 +575,7 @@
   },
   {
    "id": "p12",
-   "duration": 3.425,
+   "duration": 4.51,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -588,18 +587,19 @@
     }
    },
    "layers": [],
-   "notes": "So when thirty men ran across the deck, the ship was already warning them.",
+   "notes": "The Vasa was built upside down, with tons of bronze up high and too little stone below.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the deck in cross-section with the running men",
+    "place": "the hull cross-section; the ballast at the quay",
     "light": "night",
     "at": 0.0
    },
    "light": {
-    "setup": "lantern"
+    "setup": "lantern",
+    "sweep": 8
    },
    "grade": {
     "brightness": 1.0,
@@ -616,7 +616,7 @@
     "shake": [
      {
       "at": 0,
-      "duration": 3.425,
+      "duration": 4.51,
       "amplitude": 3,
       "frequency": 0.22,
       "rotate": 0,
@@ -627,7 +627,7 @@
   },
   {
    "id": "p13",
-   "duration": 6.766,
+   "duration": 3.35,
    "background": {
     "type": "component",
     "name": "stick/Set",
@@ -639,14 +639,65 @@
     }
    },
    "layers": [],
-   "notes": "In 1961, they raised it from the mud, almost whole. It sits in Stockholm today, never sailing again.",
+   "notes": "And more stone would only have pushed those gun ports down to the waterline.",
    "setting": {
     "kind": "place",
     "depth": 0,
     "waterline": null,
     "biome": "home",
-    "place": "the sea bed in 1961, then the Vasa Museum",
+    "place": "the hull cross-section and the waterline",
     "light": "night",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.35,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "p14",
+   "duration": 6.44,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "notes": "So when thirty sailors nearly rolled her over at the dock, the Vasa was showing them exactly how she would sink.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "the deck at the dock, rolling",
+    "light": "day",
     "at": 0.0
    },
    "light": {
@@ -668,1219 +719,1233 @@
    {
     "text": "Thirty",
     "start": 0.1,
-    "end": 0.318,
+    "end": 0.378,
     "br": true
    },
    {
     "text": "sailors",
-    "start": 0.318,
-    "end": 0.755
+    "start": 0.378,
+    "end": 0.84
    },
    {
     "text": "ran",
-    "start": 0.755,
-    "end": 0.98,
-    "br": true
-   },
-   {
-    "text": "back",
-    "start": 0.98,
-    "end": 1.193
-   },
-   {
-    "text": "and",
-    "start": 1.193,
-    "end": 1.318
-   },
-   {
-    "text": "forth",
-    "start": 1.318,
-    "end": 1.843
+    "start": 0.84,
+    "end": 1.052
    },
    {
     "text": "across",
-    "start": 1.843,
-    "end": 2.168,
+    "start": 1.052,
+    "end": 1.353,
     "br": true
    },
    {
     "text": "a",
-    "start": 2.168,
-    "end": 2.23
+    "start": 1.353,
+    "end": 1.415
    },
    {
     "text": "brand-new",
-    "start": 2.23,
-    "end": 2.58
+    "start": 1.415,
+    "end": 1.915
    },
    {
-    "text": "warship.",
-    "start": 2.58,
-    "end": 3.23
+    "text": "warship",
+    "start": 1.915,
+    "end": 2.565
    },
    {
-    "text": "After",
-    "start": 3.205,
-    "end": 3.403,
+    "text": "until",
+    "start": 2.565,
+    "end": 2.84,
+    "br": true
+   },
+   {
+    "text": "she",
+    "start": 2.84,
+    "end": 2.99
+   },
+   {
+    "text": "nearly",
+    "start": 2.99,
+    "end": 3.315
+   },
+   {
+    "text": "rolled",
+    "start": 3.315,
+    "end": 3.64
+   },
+   {
+    "text": "over,",
+    "start": 3.64,
+    "end": 4.215
+   },
+   {
+    "text": "and",
+    "start": 4.315,
+    "end": 4.428,
     "br": true
    },
    {
     "text": "the",
-    "start": 3.403,
-    "end": 3.49
+    "start": 4.428,
+    "end": 4.515
    },
    {
-    "text": "third",
-    "start": 3.49,
-    "end": 3.74
+    "text": "navy",
+    "start": 4.515,
+    "end": 4.803
    },
    {
-    "text": "run,",
-    "start": 3.74,
-    "end": 3.915
+    "text": "sent",
+    "start": 4.803,
+    "end": 5.027,
+    "br": true
    },
    {
-    "text": "the",
-    "start": 3.953,
-    "end": 4.078,
+    "text": "her",
+    "start": 5.027,
+    "end": 5.128
+   },
+   {
+    "text": "to",
+    "start": 5.128,
+    "end": 5.215
+   },
+   {
+    "text": "sea",
+    "start": 5.215,
+    "end": 5.415
+   },
+   {
+    "text": "anyway.",
+    "start": 5.415,
+    "end": 5.87,
+    "emph": true
+   },
+   {
+    "text": "The",
+    "start": 5.95,
+    "end": 6.047,
     "br": true
    },
    {
     "text": "admiral",
-    "start": 4.078,
-    "end": 4.415
+    "start": 6.047,
+    "end": 6.46
    },
    {
-    "text": "stopped",
-    "start": 4.415,
-    "end": 4.678
+    "text": "stops",
+    "start": 6.46,
+    "end": 6.772
    },
    {
     "text": "the",
-    "start": 4.678,
-    "end": 4.765
+    "start": 6.772,
+    "end": 6.86
    },
    {
-    "text": "test,",
-    "start": 4.765,
-    "end": 5.315
+    "text": "test",
+    "start": 6.86,
+    "end": 7.172
    },
    {
     "text": "and",
-    "start": 5.415,
-    "end": 5.528,
+    "start": 7.172,
+    "end": 7.285,
+    "br": true
+   },
+   {
+    "text": "mutters,",
+    "start": 7.285,
+    "end": 7.86
+   },
+   {
+    "text": "\"If",
+    "start": 7.96,
+    "end": 8.11,
+    "br": true
+   },
+   {
+    "text": "only",
+    "start": 8.11,
+    "end": 8.397
+   },
+   {
+    "text": "the",
+    "start": 8.397,
+    "end": 8.485
+   },
+   {
+    "text": "king",
+    "start": 8.485,
+    "end": 8.723,
+    "emph": true
+   },
+   {
+    "text": "were",
+    "start": 8.723,
+    "end": 8.835
+   },
+   {
+    "text": "here.\"",
+    "start": 8.835,
+    "end": 9.14
+   },
+   {
+    "text": "But",
+    "start": 9.22,
+    "end": 9.227,
     "br": true
    },
    {
     "text": "the",
-    "start": 5.528,
-    "end": 5.628
+    "start": 9.227,
+    "end": 9.34
    },
    {
-    "text": "ship",
-    "start": 5.628,
-    "end": 5.865
+    "text": "king",
+    "start": 9.34,
+    "end": 9.59
    },
    {
-    "text": "sailed",
-    "start": 5.865,
-    "end": 6.19
+    "text": "is",
+    "start": 9.59,
+    "end": 9.715
    },
    {
-    "text": "anyway.",
-    "start": 6.19,
-    "end": 6.61,
-    "emph": true
-   },
-   {
-    "text": "It's",
-    "start": 6.69,
-    "end": 6.775,
-    "br": true
-   },
-   {
-    "text": "1628",
-    "start": 6.775,
-    "end": 7.637
-   },
-   {
-    "text": "in",
-    "start": 7.637,
-    "end": 7.725
-   },
-   {
-    "text": "Stockholm.",
-    "start": 7.725,
-    "end": 8.525
-   },
-   {
-    "text": "The",
-    "start": 8.505,
-    "end": 8.505,
-    "br": true
-   },
-   {
-    "text": "king,",
-    "start": 8.505,
-    "end": 8.78
-   },
-   {
-    "text": "away",
-    "start": 8.83,
-    "end": 9.118
+    "text": "off",
+    "start": 9.715,
+    "end": 9.927
    },
    {
     "text": "at",
-    "start": 9.118,
-    "end": 9.205
+    "start": 9.927,
+    "end": 10.04
    },
    {
     "text": "war,",
-    "start": 9.205,
-    "end": 9.68
+    "start": 10.04,
+    "end": 10.565
    },
    {
-    "text": "orders",
-    "start": 9.78,
-    "end": 10.068,
+    "text": "and",
+    "start": 10.665,
+    "end": 10.777,
     "br": true
    },
    {
-    "text": "seventy-two",
-    "start": 10.068,
-    "end": 10.605
+    "text": "he",
+    "start": 10.777,
+    "end": 10.89
    },
    {
-    "text": "heavy",
-    "start": 10.605,
-    "end": 10.855
-   },
-   {
-    "text": "cannons",
-    "start": 10.855,
-    "end": 11.243
-   },
-   {
-    "text": "for",
-    "start": 11.243,
-    "end": 11.343,
-    "br": true
-   },
-   {
-    "text": "his",
-    "start": 11.343,
-    "end": 11.455
-   },
-   {
-    "text": "new",
-    "start": 11.455,
-    "end": 11.63
-   },
-   {
-    "text": "warship,",
-    "start": 11.63,
-    "end": 12.18
+    "text": "wants",
+    "start": 10.89,
+    "end": 11.14
    },
    {
     "text": "the",
-    "start": 12.268,
-    "end": 12.355,
+    "start": 11.14,
+    "end": 11.24,
     "br": true
    },
    {
-    "text": "Vasa.",
-    "start": 12.355,
-    "end": 12.845,
-    "emph": true
+    "text": "mightiest",
+    "start": 11.24,
+    "end": 11.665
+   },
+   {
+    "text": "warship",
+    "start": 11.665,
+    "end": 12.052
+   },
+   {
+    "text": "afloat.",
+    "start": 12.052,
+    "end": 12.45
    },
    {
     "text": "So",
-    "start": 12.925,
-    "end": 12.958,
+    "start": 12.53,
+    "end": 12.582,
     "br": true
    },
    {
-    "text": "it",
-    "start": 12.958,
-    "end": 13.033
+    "text": "the",
+    "start": 12.582,
+    "end": 12.67
+   },
+   {
+    "text": "Vasa",
+    "start": 12.67,
+    "end": 12.995
    },
    {
     "text": "gets",
-    "start": 13.033,
+    "start": 12.995,
     "end": 13.245
    },
    {
     "text": "two",
     "start": 13.245,
-    "end": 13.42
+    "end": 13.445
    },
    {
     "text": "decks",
-    "start": 13.42,
-    "end": 13.658
+    "start": 13.445,
+    "end": 13.707
    },
    {
     "text": "of",
-    "start": 13.658,
-    "end": 13.745
+    "start": 13.707,
+    "end": 13.795,
+    "br": true
    },
    {
-    "text": "guns,",
-    "start": 13.745,
-    "end": 14.32
+    "text": "heavy",
+    "start": 13.795,
+    "end": 14.07
+   },
+   {
+    "text": "bronze",
+    "start": 14.07,
+    "end": 14.42
+   },
+   {
+    "text": "cannons,",
+    "start": 14.42,
+    "end": 15.02
    },
    {
     "text": "stacked",
-    "start": 14.42,
-    "end": 14.77,
+    "start": 15.133,
+    "end": 15.495,
     "br": true
    },
    {
     "text": "high",
-    "start": 14.77,
-    "end": 14.983
+    "start": 15.495,
+    "end": 15.77
    },
    {
     "text": "above",
-    "start": 14.983,
-    "end": 15.158
-   },
-   {
-    "text": "the",
-    "start": 15.158,
-    "end": 15.245
-   },
-   {
-    "text": "water,",
-    "start": 15.245,
-    "end": 15.695
-   },
-   {
-    "text": "and",
     "start": 15.77,
-    "end": 15.895,
-    "br": true
-   },
-   {
-    "text": "hundreds",
-    "start": 15.895,
-    "end": 16.333
-   },
-   {
-    "text": "of",
-    "start": 16.333,
-    "end": 16.42
-   },
-   {
-    "text": "carvings.",
-    "start": 16.42,
-    "end": 16.875
-   },
-   {
-    "text": "But",
-    "start": 16.955,
-    "end": 17.035,
-    "br": true
-   },
-   {
-    "text": "every",
-    "start": 17.035,
-    "end": 17.373
-   },
-   {
-    "text": "run",
-    "start": 17.373,
-    "end": 17.66
-   },
-   {
-    "text": "rocks",
-    "start": 17.66,
-    "end": 17.898
-   },
-   {
-    "text": "it",
-    "start": 17.898,
-    "end": 17.985
-   },
-   {
-    "text": "harder.",
-    "start": 17.985,
-    "end": 18.56
-   },
-   {
-    "text": "The",
-    "start": 18.591,
-    "end": 18.668,
-    "br": true
-   },
-   {
-    "text": "admiral",
-    "start": 18.668,
-    "end": 19.056
-   },
-   {
-    "text": "wishes",
-    "start": 19.056,
-    "end": 19.343,
-    "br": true
+    "end": 16.008
    },
    {
     "text": "the",
-    "start": 19.343,
-    "end": 19.431
+    "start": 16.008,
+    "end": 16.095
+   },
+   {
+    "text": "water.",
+    "start": 16.095,
+    "end": 16.5
+   },
+   {
+    "text": "Nobody",
+    "start": 16.58,
+    "end": 16.9,
+    "br": true
+   },
+   {
+    "text": "wants",
+    "start": 16.9,
+    "end": 17.112
+   },
+   {
+    "text": "to",
+    "start": 17.112,
+    "end": 17.2,
+    "br": true
+   },
+   {
+    "text": "tell",
+    "start": 17.2,
+    "end": 17.438
+   },
+   {
+    "text": "the",
+    "start": 17.438,
+    "end": 17.525
    },
    {
     "text": "king",
-    "start": 19.431,
-    "end": 19.668
+    "start": 17.525,
+    "end": 18.0
    },
    {
-    "text": "were",
-    "start": 19.668,
-    "end": 19.781
-   },
-   {
-    "text": "home.",
-    "start": 19.781,
-    "end": 20.356
-   },
-   {
-    "text": "The",
-    "start": 20.326,
-    "end": 20.361,
+    "text": "his",
+    "start": 18.0,
+    "end": 18.2,
     "br": true
    },
    {
-    "text": "king's",
-    "start": 20.361,
-    "end": 20.661
+    "text": "masterpiece",
+    "start": 18.2,
+    "end": 18.8
+   },
+   {
+    "text": "wobbles.",
+    "start": 18.8,
+    "end": 19.475
+   },
+   {
+    "text": "His",
+    "start": 19.36,
+    "end": 19.475,
+    "br": true
    },
    {
     "text": "letters",
-    "start": 20.661,
-    "end": 20.911
+    "start": 19.475,
+    "end": 19.825
    },
    {
-    "text": "say:",
-    "start": 20.911,
-    "end": 21.236
+    "text": "keep",
+    "start": 19.825,
+    "end": 20.012
    },
    {
-    "text": "get",
-    "start": 21.336,
-    "end": 21.474,
+    "text": "arriving:",
+    "start": 20.012,
+    "end": 20.575
+   },
+   {
+    "text": "\"Get",
+    "start": 20.7,
+    "end": 20.812,
     "br": true
    },
    {
     "text": "her",
-    "start": 21.474,
-    "end": 21.574
+    "start": 20.812,
+    "end": 20.912
    },
    {
     "text": "to",
-    "start": 21.574,
-    "end": 21.674
+    "start": 20.912,
+    "end": 21.037
    },
    {
-    "text": "sea.",
-    "start": 21.674,
-    "end": 21.986
+    "text": "sea.\"",
+    "start": 21.037,
+    "end": 21.38
    },
    {
     "text": "On",
-    "start": 22.066,
-    "end": 22.151,
+    "start": 21.46,
+    "end": 21.545,
     "br": true
    },
    {
-    "text": "August",
-    "start": 22.151,
-    "end": 22.476
+    "text": "launch",
+    "start": 21.545,
+    "end": 21.82
    },
    {
-    "text": "tenth,",
-    "start": 22.476,
-    "end": 22.951
+    "text": "day,",
+    "start": 21.82,
+    "end": 22.195
    },
    {
     "text": "a",
-    "start": 23.051,
-    "end": 23.126,
+    "start": 22.295,
+    "end": 22.37,
     "br": true
    },
    {
     "text": "huge",
-    "start": 23.126,
-    "end": 23.426
+    "start": 22.37,
+    "end": 22.67
    },
    {
     "text": "crowd",
-    "start": 23.426,
-    "end": 23.739
+    "start": 22.67,
+    "end": 23.02
    },
    {
     "text": "watches",
-    "start": 23.739,
-    "end": 24.051,
+    "start": 23.02,
+    "end": 23.307,
     "br": true
    },
    {
-    "text": "four",
-    "start": 24.051,
-    "end": 24.276
+    "text": "her",
+    "start": 23.307,
+    "end": 23.432
    },
    {
     "text": "sails",
-    "start": 24.276,
-    "end": 24.576
+    "start": 23.432,
+    "end": 23.77
    },
    {
     "text": "go",
-    "start": 24.576,
-    "end": 24.739
+    "start": 23.77,
+    "end": 23.945
    },
    {
     "text": "up.",
-    "start": 24.739,
-    "end": 24.936
+    "start": 23.945,
+    "end": 24.17
    },
    {
-    "text": "A",
-    "start": 25.016,
-    "end": 25.076,
+    "text": "One",
+    "start": 24.25,
+    "end": 24.445,
     "br": true
+   },
+   {
+    "text": "light",
+    "start": 24.445,
+    "end": 24.67
    },
    {
     "text": "gust",
-    "start": 25.076,
-    "end": 25.351
+    "start": 24.67,
+    "end": 24.97
    },
    {
-    "text": "tips",
-    "start": 25.351,
-    "end": 25.539
+    "text": "leans",
+    "start": 24.97,
+    "end": 25.232
    },
    {
-    "text": "the",
-    "start": 25.539,
-    "end": 25.626
-   },
-   {
-    "text": "Vasa",
-    "start": 25.626,
-    "end": 25.951
+    "text": "her",
+    "start": 25.232,
+    "end": 25.345
    },
    {
     "text": "over.",
-    "start": 25.951,
-    "end": 26.476
+    "start": 25.345,
+    "end": 25.87
    },
    {
-    "text": "It",
-    "start": 26.512,
-    "end": 26.617,
+    "text": "She",
+    "start": 25.91,
+    "end": 25.98,
     "br": true
    },
    {
-    "text": "rights",
-    "start": 26.617,
-    "end": 26.879
+    "text": "shakes",
+    "start": 25.98,
+    "end": 26.242
    },
    {
-    "text": "itself.",
-    "start": 26.879,
-    "end": 27.517
+    "text": "it",
+    "start": 26.242,
+    "end": 26.33
+   },
+   {
+    "text": "off,",
+    "start": 26.33,
+    "end": 26.655
+   },
+   {
+    "text": "and",
+    "start": 26.692,
+    "end": 26.792,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 26.792,
+    "end": 26.88
+   },
+   {
+    "text": "crowd",
+    "start": 26.88,
+    "end": 27.205
+   },
+   {
+    "text": "keeps",
+    "start": 27.205,
+    "end": 27.48
+   },
+   {
+    "text": "waving.",
+    "start": 27.48,
+    "end": 27.93
    },
    {
     "text": "Then",
-    "start": 27.567,
-    "end": 27.687,
+    "start": 28.01,
+    "end": 28.107,
     "br": true
    },
    {
     "text": "a",
-    "start": 27.687,
-    "end": 27.762
+    "start": 28.107,
+    "end": 28.17
    },
    {
     "text": "second",
-    "start": 27.762,
-    "end": 28.062
+    "start": 28.17,
+    "end": 28.495
    },
    {
     "text": "gust",
-    "start": 28.062,
-    "end": 28.412
+    "start": 28.495,
+    "end": 28.77
    },
    {
-    "text": "pushes",
-    "start": 28.412,
-    "end": 28.7,
+    "text": "tips",
+    "start": 28.77,
+    "end": 28.982,
     "br": true
    },
    {
-    "text": "the",
-    "start": 28.7,
-    "end": 28.787
+    "text": "her",
+    "start": 28.982,
+    "end": 29.107
    },
    {
-    "text": "lower",
-    "start": 28.787,
-    "end": 29.037
-   },
-   {
-    "text": "gun",
-    "start": 29.037,
-    "end": 29.287
-   },
-   {
-    "text": "ports",
-    "start": 29.287,
-    "end": 29.625
-   },
-   {
-    "text": "under",
-    "start": 29.625,
-    "end": 29.8,
-    "br": true
-   },
-   {
-    "text": "the",
-    "start": 29.8,
-    "end": 29.887
-   },
-   {
-    "text": "water.",
-    "start": 29.887,
-    "end": 30.236
-   },
-   {
-    "text": "The",
-    "start": 30.316,
-    "end": 30.316,
-    "br": true
-   },
-   {
-    "text": "gun",
-    "start": 30.316,
-    "end": 30.551
-   },
-   {
-    "text": "deck",
-    "start": 30.551,
-    "end": 30.789
-   },
-   {
-    "text": "floods,",
-    "start": 30.789,
-    "end": 31.401
+    "text": "further,",
+    "start": 29.107,
+    "end": 29.695
    },
    {
     "text": "and",
-    "start": 31.476,
-    "end": 31.601,
+    "start": 29.795,
+    "end": 29.907,
     "br": true
    },
    {
-    "text": "thirteen",
-    "start": 31.601,
-    "end": 31.951
+    "text": "her",
+    "start": 29.907,
+    "end": 30.057
    },
    {
-    "text": "hundred",
-    "start": 31.951,
-    "end": 32.201
+    "text": "open",
+    "start": 30.057,
+    "end": 30.407
    },
    {
-    "text": "meters",
-    "start": 32.201,
-    "end": 32.526
+    "text": "lower",
+    "start": 30.407,
+    "end": 30.695
    },
    {
-    "text": "out,",
-    "start": 32.526,
-    "end": 32.701
+    "text": "gun",
+    "start": 30.695,
+    "end": 30.97
    },
    {
-    "text": "in",
-    "start": 32.739,
-    "end": 32.826,
+    "text": "ports",
+    "start": 30.97,
+    "end": 31.332
+   },
+   {
+    "text": "dip",
+    "start": 31.332,
+    "end": 31.557
+   },
+   {
+    "text": "under",
+    "start": 31.557,
+    "end": 31.732,
     "br": true
-   },
-   {
-    "text": "front",
-    "start": 32.826,
-    "end": 33.014
-   },
-   {
-    "text": "of",
-    "start": 33.014,
-    "end": 33.101
-   },
-   {
-    "text": "everyone,",
-    "start": 33.101,
-    "end": 33.576
    },
    {
     "text": "the",
-    "start": 33.614,
-    "end": 33.701,
+    "start": 31.732,
+    "end": 31.82
+   },
+   {
+    "text": "water.",
+    "start": 31.82,
+    "end": 32.18
+   },
+   {
+    "text": "The",
+    "start": 32.26,
+    "end": 32.287,
+    "br": true
+   },
+   {
+    "text": "sea",
+    "start": 32.287,
+    "end": 32.5
+   },
+   {
+    "text": "pours",
+    "start": 32.5,
+    "end": 32.85
+   },
+   {
+    "text": "in,",
+    "start": 32.85,
+    "end": 33.125
+   },
+   {
+    "text": "and",
+    "start": 33.187,
+    "end": 33.287,
+    "br": true
+   },
+   {
+    "text": "in",
+    "start": 33.287,
+    "end": 33.375
+   },
+   {
+    "text": "front",
+    "start": 33.375,
+    "end": 33.562
+   },
+   {
+    "text": "of",
+    "start": 33.562,
+    "end": 33.637
+   },
+   {
+    "text": "the",
+    "start": 33.637,
+    "end": 33.725
+   },
+   {
+    "text": "whole",
+    "start": 33.725,
+    "end": 33.962
+   },
+   {
+    "text": "city,",
+    "start": 33.962,
+    "end": 34.45
+   },
+   {
+    "text": "the",
+    "start": 34.55,
+    "end": 34.65,
     "br": true
    },
    {
     "text": "Vasa",
-    "start": 33.701,
-    "end": 34.039
+    "start": 34.65,
+    "end": 35.012
    },
    {
-    "text": "sinks.",
-    "start": 34.039,
-    "end": 34.626,
+    "text": "sinks",
+    "start": 35.012,
+    "end": 35.375,
     "emph": true
    },
    {
-    "text": "About",
-    "start": 34.742,
-    "end": 34.969,
+    "text": "inside",
+    "start": 35.375,
+    "end": 35.787,
     "br": true
    },
    {
-    "text": "thirty",
-    "start": 34.969,
-    "end": 35.257
+    "text": "her",
+    "start": 35.787,
+    "end": 35.9
    },
    {
-    "text": "people",
-    "start": 35.257,
-    "end": 35.607
+    "text": "own",
+    "start": 35.9,
+    "end": 36.1
    },
    {
-    "text": "die.",
-    "start": 35.607,
-    "end": 35.906
+    "text": "harbour.",
+    "start": 36.1,
+    "end": 36.51
    },
    {
-    "text": "The",
-    "start": 35.986,
-    "end": 36.046,
+    "text": "At",
+    "start": 36.59,
+    "end": 36.662,
     "br": true
    },
    {
-    "text": "inquiry",
-    "start": 36.046,
-    "end": 36.446
+    "text": "the",
+    "start": 36.662,
+    "end": 36.75
    },
    {
-    "text": "punishes",
-    "start": 36.446,
-    "end": 36.846
-   },
-   {
-    "text": "no",
-    "start": 36.846,
-    "end": 37.046
-   },
-   {
-    "text": "one.",
-    "start": 37.046,
-    "end": 37.521
-   },
-   {
-    "text": "Only",
-    "start": 37.522,
-    "end": 37.687,
-    "br": true
-   },
-   {
-    "text": "God",
-    "start": 37.687,
-    "end": 37.949
-   },
-   {
-    "text": "knows,",
-    "start": 37.949,
-    "end": 38.312
+    "text": "hearing,",
+    "start": 36.75,
+    "end": 37.05
    },
    {
     "text": "one",
-    "start": 38.387,
-    "end": 38.587,
+    "start": 37.1,
+    "end": 37.325,
     "br": true
    },
    {
-    "text": "builder",
-    "start": 38.587,
-    "end": 38.887
+    "text": "builder's",
+    "start": 37.325,
+    "end": 37.7
    },
    {
-    "text": "says.",
-    "start": 38.887,
-    "end": 39.182
+    "text": "best",
+    "start": 37.7,
+    "end": 37.937
+   },
+   {
+    "text": "explanation",
+    "start": 37.937,
+    "end": 38.6
+   },
+   {
+    "text": "is,",
+    "start": 38.6,
+    "end": 39.0,
+    "br": true
+   },
+   {
+    "text": "\"Only",
+    "start": 39.175,
+    "end": 39.45
+   },
+   {
+    "text": "God",
+    "start": 39.45,
+    "end": 39.8
+   },
+   {
+    "text": "knows.\"",
+    "start": 39.8,
+    "end": 40.45
+   },
+   {
+    "text": "Nobody",
+    "start": 40.55,
+    "end": 40.915,
+    "br": true
+   },
+   {
+    "text": "is",
+    "start": 40.915,
+    "end": 41.065
+   },
+   {
+    "text": "punished.",
+    "start": 41.065,
+    "end": 41.715
+   },
+   {
+    "text": "The",
+    "start": 41.81,
+    "end": 41.845,
+    "br": true
+   },
+   {
+    "text": "man",
+    "start": 41.845,
+    "end": 42.107
+   },
+   {
+    "text": "who",
+    "start": 42.107,
+    "end": 42.257,
+    "br": true
+   },
+   {
+    "text": "ordered",
+    "start": 42.257,
+    "end": 42.532
+   },
+   {
+    "text": "the",
+    "start": 42.532,
+    "end": 42.62
+   },
+   {
+    "text": "cannons",
+    "start": 42.62,
+    "end": 43.12
+   },
+   {
+    "text": "was",
+    "start": 43.12,
+    "end": 43.307,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 43.307,
+    "end": 43.395
+   },
+   {
+    "text": "king.",
+    "start": 43.395,
+    "end": 43.71
    },
    {
     "text": "You",
-    "start": 39.262,
-    "end": 39.347,
+    "start": 43.79,
+    "end": 43.875,
     "br": true
    },
    {
     "text": "see,",
-    "start": 39.347,
-    "end": 39.497
+    "start": 43.875,
+    "end": 44.05
    },
    {
     "text": "a",
-    "start": 39.534,
-    "end": 39.609,
+    "start": 44.087,
+    "end": 44.187,
     "br": true
    },
    {
     "text": "ship",
-    "start": 39.609,
-    "end": 39.847
+    "start": 44.187,
+    "end": 44.425
    },
    {
     "text": "stays",
-    "start": 39.847,
-    "end": 40.147
+    "start": 44.425,
+    "end": 44.75
    },
    {
     "text": "upright",
-    "start": 40.147,
-    "end": 40.484
+    "start": 44.75,
+    "end": 45.087
    },
    {
     "text": "like",
-    "start": 40.484,
-    "end": 40.609,
+    "start": 45.087,
+    "end": 45.212,
     "br": true
    },
    {
     "text": "a",
-    "start": 40.609,
-    "end": 40.672
+    "start": 45.212,
+    "end": 45.275
    },
    {
-    "text": "weighted",
-    "start": 40.672,
-    "end": 41.022
+    "text": "bottle",
+    "start": 45.275,
+    "end": 45.612
    },
    {
-    "text": "toy:",
-    "start": 41.022,
-    "end": 41.522
+    "text": "with",
+    "start": 45.612,
+    "end": 45.775
+   },
+   {
+    "text": "sand",
+    "start": 45.775,
+    "end": 46.062
+   },
+   {
+    "text": "in",
+    "start": 46.062,
+    "end": 46.137,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 46.137,
+    "end": 46.225
+   },
+   {
+    "text": "bottom:",
+    "start": 46.225,
+    "end": 46.825
    },
    {
     "text": "heavy",
-    "start": 41.647,
-    "end": 41.884,
+    "start": 46.925,
+    "end": 47.2,
     "br": true
    },
    {
-    "text": "at",
-    "start": 41.884,
-    "end": 41.959
-   },
-   {
-    "text": "the",
-    "start": 41.959,
-    "end": 42.047
-   },
-   {
-    "text": "bottom,",
-    "start": 42.047,
-    "end": 42.447
+    "text": "low,",
+    "start": 47.2,
+    "end": 47.625
    },
    {
     "text": "light",
-    "start": 42.522,
-    "end": 42.709,
-    "br": true
+    "start": 47.725,
+    "end": 47.937
    },
    {
-    "text": "at",
-    "start": 42.709,
-    "end": 42.784
-   },
-   {
-    "text": "the",
-    "start": 42.784,
-    "end": 42.872
+    "text": "on",
+    "start": 47.937,
+    "end": 48.125
    },
    {
     "text": "top.",
-    "start": 42.872,
-    "end": 43.172
+    "start": 48.125,
+    "end": 48.42
    },
    {
     "text": "The",
-    "start": 43.252,
-    "end": 43.287,
+    "start": 48.5,
+    "end": 48.515,
     "br": true
    },
    {
     "text": "Vasa",
-    "start": 43.287,
-    "end": 43.712
+    "start": 48.515,
+    "end": 48.865
    },
    {
     "text": "was",
-    "start": 43.712,
-    "end": 43.849
+    "start": 48.865,
+    "end": 49.015
    },
    {
-    "text": "the",
-    "start": 43.849,
-    "end": 43.974
+    "text": "built",
+    "start": 49.015,
+    "end": 49.24
    },
    {
-    "text": "opposite.",
-    "start": 43.974,
-    "end": 44.612,
+    "text": "upside",
+    "start": 49.24,
+    "end": 49.64,
     "emph": true
    },
    {
-    "text": "Its",
-    "start": 44.667,
-    "end": 44.777,
+    "text": "down,",
+    "start": 49.64,
+    "end": 50.14
+   },
+   {
+    "text": "with",
+    "start": 50.227,
+    "end": 50.39,
     "br": true
-   },
-   {
-    "text": "bronze",
-    "start": 44.777,
-    "end": 45.102
-   },
-   {
-    "text": "cannons",
-    "start": 45.102,
-    "end": 45.502
-   },
-   {
-    "text": "sat",
-    "start": 45.502,
-    "end": 45.702
-   },
-   {
-    "text": "high",
-    "start": 45.702,
-    "end": 45.915
-   },
-   {
-    "text": "on",
-    "start": 45.915,
-    "end": 46.09,
-    "br": true
-   },
-   {
-    "text": "two",
-    "start": 46.09,
-    "end": 46.302
-   },
-   {
-    "text": "decks,",
-    "start": 46.302,
-    "end": 46.852
-   },
-   {
-    "text": "over",
-    "start": 46.952,
-    "end": 47.177,
-    "br": true
-   },
-   {
-    "text": "just",
-    "start": 47.177,
-    "end": 47.34
-   },
-   {
-    "text": "120",
-    "start": 47.34,
-    "end": 47.977
    },
    {
     "text": "tons",
-    "start": 47.977,
-    "end": 48.24
+    "start": 50.39,
+    "end": 50.652
    },
    {
     "text": "of",
-    "start": 48.24,
-    "end": 48.327
+    "start": 50.652,
+    "end": 50.74
    },
    {
-    "text": "stone.",
-    "start": 48.327,
-    "end": 48.727
+    "text": "bronze",
+    "start": 50.74,
+    "end": 51.102
    },
    {
-    "text": "It",
-    "start": 48.807,
-    "end": 48.9,
+    "text": "up",
+    "start": 51.102,
+    "end": 51.265
+   },
+   {
+    "text": "high",
+    "start": 51.265,
+    "end": 51.665
+   },
+   {
+    "text": "and",
+    "start": 51.665,
+    "end": 51.802,
     "br": true
    },
    {
-    "text": "needed",
-    "start": 48.9,
-    "end": 49.125
+    "text": "too",
+    "start": 51.802,
+    "end": 52.002
    },
    {
-    "text": "about",
-    "start": 49.125,
-    "end": 49.362
+    "text": "little",
+    "start": 52.002,
+    "end": 52.19
    },
    {
-    "text": "twice",
-    "start": 49.362,
-    "end": 49.675
+    "text": "stone",
+    "start": 52.19,
+    "end": 52.515
    },
    {
-    "text": "as",
-    "start": 49.675,
-    "end": 49.812
+    "text": "below.",
+    "start": 52.515,
+    "end": 52.93
    },
    {
-    "text": "much,",
-    "start": 49.812,
-    "end": 50.337
-   },
-   {
-    "text": "but",
-    "start": 50.437,
-    "end": 50.587,
+    "text": "And",
+    "start": 53.01,
+    "end": 53.095,
     "br": true
    },
    {
     "text": "more",
-    "start": 50.587,
-    "end": 50.812
+    "start": 53.095,
+    "end": 53.32
    },
    {
-    "text": "weight",
-    "start": 50.812,
-    "end": 51.05
+    "text": "stone",
+    "start": 53.32,
+    "end": 53.745
    },
    {
     "text": "would",
-    "start": 51.05,
-    "end": 51.162,
+    "start": 53.745,
+    "end": 53.87
+   },
+   {
+    "text": "only",
+    "start": 53.87,
+    "end": 54.132
+   },
+   {
+    "text": "have",
+    "start": 54.132,
+    "end": 54.27,
     "br": true
    },
    {
-    "text": "push",
-    "start": 51.162,
-    "end": 51.412
+    "text": "pushed",
+    "start": 54.27,
+    "end": 54.545
    },
    {
-    "text": "the",
-    "start": 51.412,
-    "end": 51.512
-   },
-   {
-    "text": "lower",
-    "start": 51.512,
-    "end": 51.787
+    "text": "those",
+    "start": 54.545,
+    "end": 54.77
    },
    {
     "text": "gun",
-    "start": 51.787,
-    "end": 52.012
+    "start": 54.77,
+    "end": 55.02
    },
    {
     "text": "ports",
-    "start": 52.012,
-    "end": 52.362
+    "start": 55.02,
+    "end": 55.37
    },
    {
     "text": "down",
-    "start": 52.362,
-    "end": 52.637,
+    "start": 55.37,
+    "end": 55.62,
     "br": true
    },
    {
     "text": "to",
-    "start": 52.637,
-    "end": 52.725
+    "start": 55.62,
+    "end": 55.707
    },
    {
     "text": "the",
-    "start": 52.725,
-    "end": 52.812
+    "start": 55.707,
+    "end": 55.795
    },
    {
     "text": "waterline.",
-    "start": 52.812,
-    "end": 53.297
+    "start": 55.795,
+    "end": 56.28
    },
    {
     "text": "So",
-    "start": 53.382,
-    "end": 53.47,
+    "start": 56.36,
+    "end": 56.412,
     "br": true
    },
    {
     "text": "when",
-    "start": 53.47,
-    "end": 53.645
+    "start": 56.412,
+    "end": 56.587
    },
    {
     "text": "thirty",
-    "start": 53.645,
-    "end": 53.982
+    "start": 56.587,
+    "end": 56.937
    },
    {
-    "text": "men",
-    "start": 53.982,
-    "end": 54.232
+    "text": "sailors",
+    "start": 56.937,
+    "end": 57.375
    },
    {
-    "text": "ran",
-    "start": 54.232,
-    "end": 54.42,
+    "text": "nearly",
+    "start": 57.375,
+    "end": 57.7,
     "br": true
    },
    {
-    "text": "across",
-    "start": 54.42,
-    "end": 54.72
+    "text": "rolled",
+    "start": 57.7,
+    "end": 57.987
    },
    {
-    "text": "the",
-    "start": 54.72,
-    "end": 54.807
+    "text": "her",
+    "start": 57.987,
+    "end": 58.125
    },
    {
-    "text": "deck,",
-    "start": 54.807,
-    "end": 55.282
-   },
-   {
-    "text": "the",
-    "start": 55.382,
-    "end": 55.495,
+    "text": "over",
+    "start": 58.125,
+    "end": 58.362,
     "br": true
    },
    {
-    "text": "ship",
-    "start": 55.495,
-    "end": 55.695
+    "text": "at",
+    "start": 58.362,
+    "end": 58.437
+   },
+   {
+    "text": "the",
+    "start": 58.437,
+    "end": 58.525
+   },
+   {
+    "text": "dock,",
+    "start": 58.525,
+    "end": 59.075
+   },
+   {
+    "text": "the",
+    "start": 59.175,
+    "end": 59.275,
+    "br": true
+   },
+   {
+    "text": "Vasa",
+    "start": 59.275,
+    "end": 59.65
    },
    {
     "text": "was",
-    "start": 55.695,
-    "end": 55.845,
+    "start": 59.65,
+    "end": 59.787
+   },
+   {
+    "text": "showing",
+    "start": 59.787,
+    "end": 60.137
+   },
+   {
+    "text": "them",
+    "start": 60.137,
+    "end": 60.3
+   },
+   {
+    "text": "exactly",
+    "start": 60.3,
+    "end": 60.85,
     "br": true
    },
    {
-    "text": "already",
-    "start": 55.845,
-    "end": 56.245
+    "text": "how",
+    "start": 60.85,
+    "end": 61.025
    },
    {
-    "text": "warning",
-    "start": 56.245,
-    "end": 56.595,
+    "text": "she",
+    "start": 61.025,
+    "end": 61.175
+   },
+   {
+    "text": "would",
+    "start": 61.175,
+    "end": 61.362
+   },
+   {
+    "text": "sink.",
+    "start": 61.362,
+    "end": 61.65,
     "emph": true
-   },
-   {
-    "text": "them.",
-    "start": 56.595,
-    "end": 56.727
-   },
-   {
-    "text": "In",
-    "start": 56.807,
-    "end": 56.835,
-    "br": true
-   },
-   {
-    "text": "1961,",
-    "start": 56.835,
-    "end": 57.972
-   },
-   {
-    "text": "they",
-    "start": 58.072,
-    "end": 58.222
-   },
-   {
-    "text": "raised",
-    "start": 58.222,
-    "end": 58.51
-   },
-   {
-    "text": "it",
-    "start": 58.51,
-    "end": 58.585
-   },
-   {
-    "text": "from",
-    "start": 58.585,
-    "end": 58.71,
-    "br": true
-   },
-   {
-    "text": "the",
-    "start": 58.71,
-    "end": 58.797
-   },
-   {
-    "text": "mud,",
-    "start": 58.797,
-    "end": 59.097
-   },
-   {
-    "text": "almost",
-    "start": 59.172,
-    "end": 59.547,
-    "br": true
-   },
-   {
-    "text": "whole.",
-    "start": 59.547,
-    "end": 60.097
-   },
-   {
-    "text": "It",
-    "start": 60.083,
-    "end": 60.168,
-    "br": true
-   },
-   {
-    "text": "sits",
-    "start": 60.168,
-    "end": 60.355
-   },
-   {
-    "text": "in",
-    "start": 60.355,
-    "end": 60.443
-   },
-   {
-    "text": "Stockholm",
-    "start": 60.443,
-    "end": 60.968
-   },
-   {
-    "text": "today,",
-    "start": 60.968,
-    "end": 61.418
-   },
-   {
-    "text": "never",
-    "start": 61.518,
-    "end": 61.73,
-    "br": true
-   },
-   {
-    "text": "sailing",
-    "start": 61.73,
-    "end": 62.068
-   },
-   {
-    "text": "again.",
-    "start": 62.068,
-    "end": 62.423
    }
   ],
   "maxWords": 4,
@@ -1903,7 +1968,7 @@
     "src": "episodes/story-vasa/mix.wav",
     "start": 0,
     "volume": 1,
-    "duration": 63.423
+    "duration": 62.65
    }
   ],
   "music": [],

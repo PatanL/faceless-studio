@@ -1,13 +1,14 @@
 {
  "id": "story-vasa",
  "niche": "explainer",
+ "audio_profile": null,
  "script": "episodes/story-vasa/script.md",
  "tts": {
   "engine": "kokoro",
   "voice": "am_michael",
-  "speed": 1.33,
-  "synth_s": 20.69,
-  "duration_s": 63.023,
+  "speed": 1.3,
+  "synth_s": 18.03,
+  "duration_s": 62.25,
   "timing_source": [
    "kokoro"
   ],
@@ -15,14 +16,14 @@
  },
  "mix": {
   "target_lufs": -14.0,
-  "pyloudnorm_lufs": -14.17,
-  "true_peak_dbtp_4x": -2.09,
+  "pyloudnorm_lufs": -14.14,
+  "true_peak_dbtp_4x": -2.03,
   "ffmpeg_ebur128": {
    "I_lufs": -14.1,
    "LRA_lu": 1.5,
-   "true_peak_dbtp": -2.1
+   "true_peak_dbtp": -2.0
   },
-  "duration_s": 63.423,
+  "duration_s": 62.65,
   "music": "score",
   "sfx_placed": [
    {
@@ -32,47 +33,65 @@
     "source": "marker",
     "dur": 2.917,
     "level_db": -8.0,
-    "mix_momentary_max": -11.1
+    "mix_momentary_max": -12.2
    },
    {
     "cue": "whoosh",
-    "at": 6.69,
+    "at": 5.95,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -12.3
+    "mix_momentary_max": -11.7
+   },
+   {
+    "cue": "whoosh",
+    "at": 9.22,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.186,
+    "level_db": -10.0,
+    "mix_momentary_max": -11.3
    },
    {
     "cue": "impact",
-    "at": 12.925,
+    "at": 12.53,
     "db": 0.0,
     "source": "marker",
     "dur": 2.545,
     "level_db": -4.0,
-    "mix_momentary_max": -12.9
+    "mix_momentary_max": -11.8
    },
    {
-    "cue": "door_creak",
-    "at": 16.955,
+    "cue": "knock",
+    "at": 16.58,
     "db": 0.0,
     "source": "marker",
-    "dur": 3.008,
-    "level_db": -8.0,
-    "mix_momentary_max": -11.5
+    "dur": 0.708,
+    "level_db": -3.0,
+    "mix_momentary_max": -11.3
    },
    {
     "cue": "whoosh",
-    "at": 22.066,
+    "at": 21.46,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -10.9
+    "mix_momentary_max": -11.0
+   },
+   {
+    "cue": "whoosh",
+    "at": 24.25,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.186,
+    "level_db": -10.0,
+    "mix_momentary_max": -11.7
    },
    {
     "cue": "whoosh_long",
-    "at": 25.016,
+    "at": 28.01,
     "db": 0.0,
     "source": "marker",
     "dur": 1.802,
@@ -81,43 +100,43 @@
    },
    {
     "cue": "bubbles",
-    "at": 30.316,
+    "at": 32.26,
     "db": 0.0,
     "source": "marker",
     "dur": 2.818,
     "level_db": -12.0,
-    "mix_momentary_max": -11.4
+    "mix_momentary_max": -11.9
    },
    {
     "cue": "knock",
-    "at": 35.986,
+    "at": 36.59,
     "db": 0.0,
     "source": "marker",
     "dur": 0.708,
     "level_db": -3.0,
-    "mix_momentary_max": -12.3
+    "mix_momentary_max": -12.7
    },
    {
     "cue": "stinger",
-    "at": 39.262,
+    "at": 43.79,
     "db": 0.0,
     "source": "marker",
     "dur": 4.026,
     "level_db": -5.0,
-    "mix_momentary_max": -10.6
+    "mix_momentary_max": -10.7
    },
    {
     "cue": "impact",
-    "at": 43.252,
+    "at": 48.5,
     "db": 0.0,
     "source": "marker",
     "dur": 2.545,
     "level_db": -4.0,
-    "mix_momentary_max": -11.3
+    "mix_momentary_max": -11.5
    },
    {
     "cue": "click",
-    "at": 48.807,
+    "at": 53.01,
     "db": 0.0,
     "source": "marker",
     "dur": 0.04,
@@ -125,27 +144,18 @@
    },
    {
     "cue": "footsteps",
-    "at": 53.382,
+    "at": 56.36,
     "db": 0.0,
     "source": "marker",
     "dur": 2.917,
     "level_db": -8.0,
-    "mix_momentary_max": -10.8
-   },
-   {
-    "cue": "underwater_rumble",
-    "at": 56.807,
-    "db": 0.0,
-    "source": "marker",
-    "dur": 4.969,
-    "level_db": -8.0,
-    "mix_momentary_max": -11.4
+    "mix_momentary_max": -12.6
    }
   ],
-  "music_rms_db_under_voice": -38.7,
-  "music_rms_db_in_gaps": -51.43,
-  "measured_duck_db": 12.73,
-  "bed_below_voice_db": 19.04,
+  "music_rms_db_under_voice": -38.73,
+  "music_rms_db_in_gaps": -46.43,
+  "measured_duck_db": 7.7,
+  "bed_below_voice_db": 19.05,
   "music_provenance": {
    "generator": "pipeline.audio.score",
    "soundfont": "GeneralUser-GS",
@@ -157,55 +167,62 @@
    "cues": [
     {
      "t0": 0.0,
-     "t1": 16.805,
+     "t1": 12.53,
      "mood": "curious",
      "intensity": 1,
      "role": "hook"
     },
     {
-     "t0": 16.805,
-     "t1": 30.166,
+     "t0": 12.53,
+     "t1": 21.31,
      "mood": "curious",
      "intensity": 2,
      "role": ""
     },
     {
-     "t0": 30.166,
-     "t1": 39.111999999999995,
-     "mood": "tense",
-     "intensity": 3,
-     "role": ""
-    },
-    {
-     "t0": 39.111999999999995,
-     "t1": 56.657,
+     "t0": 21.31,
+     "t1": 32.11,
      "mood": "deep",
      "intensity": 1,
      "role": ""
     },
     {
-     "t0": 56.657,
-     "t1": 63.422875,
-     "mood": "warm",
+     "t0": 32.11,
+     "t1": 43.64,
+     "mood": "curious",
      "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 43.64,
+     "t1": 56.21,
+     "mood": "deep",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 56.21,
+     "t1": 62.65,
+     "mood": "tense",
+     "intensity": 3,
      "role": ""
     }
    ],
    "stings": [
     {
-     "t": 12.925,
+     "t": 12.53,
      "why": "marker impact",
      "prio": 3.0,
-     "on_boundary": false
+     "on_boundary": true
     },
     {
-     "t": 27.567,
+     "t": 28.01,
      "why": "pivot 'Then'",
      "prio": 2.5,
      "on_boundary": false
     },
     {
-     "t": 39.262,
+     "t": 43.79,
      "why": "marker stinger",
      "prio": 3.0,
      "on_boundary": true
@@ -213,34 +230,27 @@
    ],
    "drops": [
     {
-     "t0": 12.325,
-     "t1": 12.905,
+     "t0": 11.93,
+     "t1": 12.51,
      "why": "marker impact"
     },
     {
-     "t0": 38.662,
-     "t1": 39.242,
+     "t0": 43.19,
+     "t1": 43.77,
      "why": "marker stinger"
     }
    ],
    "risers": [
     {
-     "t0": 15.785,
-     "t1": 16.805,
-     "len": 1.02,
-     "kind": "swell",
-     "jump": 1
-    },
-    {
-     "t0": 28.106,
-     "t1": 30.166,
-     "len": 2.06,
+     "t0": 54.2,
+     "t1": 56.21,
+     "len": 2.01,
      "kind": "cymbal",
-     "jump": 3
+     "jump": 4
     }
    ]
   }
  },
- "words": 231,
- "wall_s": 42.2
+ "words": 234,
+ "wall_s": 36.9
 }

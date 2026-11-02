@@ -7,7 +7,8 @@ import * as THREE from "three";
 export type CamKey = { t: number; pos: [number, number, number]; look: [number, number, number]; fov?: number };
 type S = { pos: THREE.Vector3; look: THREE.Vector3; fov: number };
 
-const GLIDE = 0.9, LAND = 0.3, TAU = 1.3, FRAC = 0.55, PUSH = 0.05;
+// every hold travels steadily FRAC of the way to the next framing and pushes in PUSH of the distance
+const GLIDE = 0.9, LAND = 0.3, FRAC = 0.6, PUSH = 0.12;
 
 export class CamPath {
   private keys: CamKey[];
@@ -28,15 +29,23 @@ export class CamPath {
     const pos = new THREE.Vector3(...k.pos), look = new THREE.Vector3(...k.look);
     // before the group starts (inside an incoming transition) the camera holds its first framing: extrapolating back
     // toward a far next key made the transition frames lurch (v1 review: jumps in every dissolve)
-    const sat = tau >= 0 ? 1 - Math.exp(-tau / TAU) : 0;
+    // steady travel toward the next framing across the whole hold (eased in over 0.4 s) instead of a saturating drift:
+    // story-vasa v2/v3 measured 3.8-4.5 px/f median motion against the refs' 5.8-11
+    const len = Math.max(0.6, this.holdLen(i));
+    const sat = tau >= 0 ? Math.min(1, (tau < 0.4 ? (tau * tau) / 0.8 : tau - 0.2) / len) : 0;
     if (n) {
       pos.addScaledVector(new THREE.Vector3(...n.pos).sub(pos), FRAC * sat);
       look.addScaledVector(new THREE.Vector3(...n.look).sub(look), FRAC * sat);
     }
     // push in along the view direction (slow, saturating at PUSH of the distance)
     const toLook = look.clone().sub(pos);
-    pos.addScaledVector(toLook, PUSH * (tau >= 0 ? 1 - Math.exp(-tau / (TAU * 2)) : 0));
+    pos.addScaledVector(toLook, PUSH * sat);
     return { pos, look, fov: k.fov ?? 40 };
+  }
+  private holdLen(i: number) {
+    const start = i === 0 ? this.t0 : this.glides[i - 1].e;
+    const end = i < this.glides.length ? this.glides[i].s : this.t1;
+    return end - start;
   }
   at(t: number): S {
     const holdStart = (i: number) => (i === 0 ? this.t0 : this.glides[i - 1].e);

@@ -125,7 +125,10 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const h = delayRender(`cards ${g.id} ${frame}`, { timeoutInMilliseconds: 60000 });
     const jobs = world.cards.map((r) => { const m = r.card.group.visible ? r.markup(t) : null; return m ? r.tex.draw(m) : Promise.resolve(false); });
     // the first frame after a mount renders twice (targets, shadow maps and card textures settle on the first pass)
-    Promise.all(jobs).then(() => { if (!mounted.current) { advance(performance.now()); mounted.current = true; } advance(performance.now()); continueRender(h); })
+    // release the frame two animation frames after the last draw: on the Mac GPU path a screenshot taken straight after
+    // the WebGL draw sometimes came back as a tiled mosaic (story-vasa v2/v3)
+    Promise.all(jobs).then(() => { if (!mounted.current) { advance(performance.now()); mounted.current = true; } advance(performance.now());
+      requestAnimationFrame(() => requestAnimationFrame(() => continueRender(h))); })
       .catch((e) => { console.error(e); continueRender(h); });
   }, [frame]); // eslint-disable-line react-hooks/exhaustive-deps
 

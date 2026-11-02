@@ -35,14 +35,15 @@ NUMWORDS = set("one two three four five six seven eight nine ten eleven twelve t
                "seventy eighty ninety hundred thousand million billion".split())
 # rule="phrase": extra page-final words that connect forward, and words that may open a new phrase
 STRICT_WEAK = (WEAK_END - {"off"}) | set("nearly almost even right just over behind under every all both life-size "
-                                          "wooden first third above below across through about".split())
+                                          "wooden first third above below across through about only".split())
 OBJ_ADVERB = set("about nearly almost just only over back forth out up down away off".split())   # opens the object
 # irregular finite verbs the suffix test misses, and modals (the word after a modal is a verb: "would push | the ports")
-IRREG = set("ran sat got took made put beat built set let held stood sank went came saw gave found kept left said".split())
+IRREG = set("ran sat got took made put beat built set let held stood sank went came saw gave found kept left said sent told "
+            "brought bought thought felt lost won hit cut shut".split())
 MODALS = set("would could will can should might must may".split())
 PRONOUN_OBJ = set("it him her them me us".split())
 ARTICLES = set("a an the every each this these those his her its their my your our".split())
-PHRASE_START = GOOD_START | set("he she they we i you there then when where as after before until behind under "
+PHRASE_START = GOOD_START | set("he she they we i you there then when where as after before until behind under inside "
                                 "through by into onto one".split())
 SENT_END = re.compile(r"[.!?…]+[\"')\]]?$")
 SOFT_END = re.compile(r"[,;:]+[\"')\]]?$")
@@ -62,7 +63,7 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
     """rule="phrase": a page ends only at a phrase boundary"""
     n = len(ws)
     chars = sum(len(w) for w in ws) + n - 1
-    if n > (7 if chars <= 30 else 6) or chars > max_chars:
+    if n > (7 if chars <= 32 else 6) or chars > max_chars:
         return float("inf")
     c = 2.0 + (0.3 if n == 5 else 0.9 if n == 6 else 1.4 if n == 7 else 0) + (2.0 if n == 1 and not SENT_END.search(ws[-1]) else 0)
     c += 0.25 * max(0, chars - 24)
@@ -85,7 +86,7 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
     if nn == "of" or (nn == "and" and ln in NUMWORDS):
         c += 6                                   # "decks | of guns", "a hundred | and twenty": the phrase goes on
     if ln in STRICT_WEAK and not (ln in PRONOUN_OBJ and prev_verb):
-        c += 9                                   # never end on a connecting word ("play it" may end a page)
+        c += 9.5                                 # never end on a connecting word ("play it" may end a page)
     if (ln, nn) in pairs:
         c += 9                                   # a glued phrase
     if nn in OBJ_ADVERB and lverb:
