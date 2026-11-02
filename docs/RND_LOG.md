@@ -122,3 +122,129 @@ production load (crossfades, 2 characters, captions).
   - In v5 the set moves at depth 0.9 against 1.0 for the characters.
   - Every hold must drift between checked framings so that nobody gets cut by an edge.
   - In 3D the dolly would move the world while the subject stays framed. That is the case for plan step 4 (one 3D set, end to end).
+
+## 2026-11-02 ~14:10 UTC: src/next parity pieces for the 3D story kit, proven in KitLab (visuals track)
+
+**Question.** Can the RicksClips rule book's gaps 1-6 be closed with new kit pieces, measured against the 24
+references' ranges? The coordinator added two more on the v14 panel: set detail density and character framing.
+
+**Setup**
+- The pieces live in `experiments/three-lane/src/next/`, new files only (the kit was shared with the story-vasa pass).
+  Wiring is in `src/next/INTEGRATION.md`.
+- **Proving reel:** composition `KitLab` (entry `src/next/index.ts`).
+  - 36.9 s, 14 shot groups, 9 places.
+  - The narration is our own lab text (a lighthouse keeper's clock), with word timings synthesised at 3.7 wps.
+    There is no voice track.
+- **Render:** Mac slot, niced 15, one render at a time, gated on ≥ 5.2 GB RAM and ≥ 15 GB disk, under the Mac
+  render lock. 1107 frames at 1080x1920 took 2:09 (**0.12 s/frame**, ANGLE Metal, concurrency 2).
+  - `repair_frames.py` replaced 1 tiled-mosaic frame.
+  - Nothing ran on the Spark.
+- **Files:**
+  - render: `experiments/three-lane/out/kitlab/kitlab_v4r.mp4` (sha 2454f4ee…, not committed);
+  - phone copy: `out/kitlab/kitlab_v4_phone.mp4` (720p, 9.0 MB).
+  - All numbers below are in `research/references/data/kitlab_v4_measure.json`.
+- **Measurement:** ours at 240x426, like the references in `ricks24_metrics.json`, with `frame_metrics`,
+  `camera_motion`, `look_stats` and `frames30`. New tools:
+  - `src/next/tools/ghost_check.py`
+  - `src/next/tools/look_density.py`
+  - `src/next/tools/plan_kitlab.ts`
+  - `src/next/tools/cast_check.ts`
+
+**KitLab v4 against the 24 references (240p; min / median / max)**
+
+| Check | Refs | KitLab v4 | |
+|---|---|---|---|
+| transitions / min | 9.2 / 18 / 24.8 | 21.1 | in |
+| hard cuts | 0 / 1 / 3 | 0 | in |
+| shot length median · max (s) | 1.67 / 2.45 / 7.47 · 4.7 / 7.8 / 14.9 | 2.8 · 4.3 | median in; max just under the refs' min (the 4 s rule does that) |
+| first transition (s) | 0.03 / 0.65 / 8.5 | 3.4 | in |
+| moving % · dead-still % | 95.3 / 99.7 / 100 · 0 / 0.3 / 4.7 | 97.3 · 2.7 | in |
+| median speed · moves / 10 s (px/f) | 3.1 / 5.6 / 17.2 · 3.8 / 6.2 / 13.4 | 9.8 · 7.6 | in |
+| attack · release · peak (f, f, px/f) | 4.5 / 11.8 / 20.5 · 4.5 / 10.8 / 34 · 10.8 / 19.3 / 29.3 | 12 · 10 · 25.6 | in |
+| snaps | 0 / 5 / 14 | 4 | in |
+| quiet zoom % · push-in share % | 68 / 82 / 97 · 48 / 69 / 88 | 83 · 62 | in |
+| frames30 jumps · frozen | 0 / 4 / 26 · 0 | 16 · 0 | in (above the newer refs' 0-11) |
+| luma · saturation · colourfulness | 0.15 / 0.44 / 0.66 · 0.26 / 0.46 / 0.62 · 15 / 26 / 35 | 0.31 · 0.45 · 22 | in |
+| non-ink p5 · black area · shadow chroma | 0.04 / 0.17 / 0.27 · 0 / 0 / 0.10 · 6 / 16 / 34 | 0.12 · 0 · 15.5 | in |
+| ink edge · soft edge (240p) | 0.04 / 0.18 / 0.34 · 0.26 / 0.41 / 0.55 | 0.47 · 0.16 | **out** (kit-wide: see below) |
+
+**Per piece**
+
+1. **Cutaways + planner** (`cutaways.ts`, `pov.tsx`, `planner.ts`).
+   - Six insert sets are in the reel: macro, cross-section, blueprint, map with route, X-ray scan room, spyglass POV.
+   - Plan check: 25 place or view changes (40.7 / min), place changes **21.2 / min** (refs 7.5 / 15 / 24), 9 places
+     (refs 5 / 9 / 17).
+   - Longest hold 2.9 s, median 1.43 s, **0 holds over 4 s**.
+   - The planner names the word starts to cut on when a hold is flagged.
+2. **Set detail density** (coordinator; `dressing.ts`, `tools/look_density.py`). Measured on frames30 tiles
+   (caption band masked), refs min / median / max:
+
+   | | Edge density | Flat 6x6 blocks | Texture (mean abs Laplacian) |
+   |---|---|---|---|
+   | 24 refs | 0.054 / 0.092 / 0.167 | 0.13 / 0.40 / 0.58 | 7.9 / 14.7 / 24.8 |
+   | Vasa v14 | 0.073 | 0.48 | 13.4 |
+
+   - **A/B** (DressLab: the same 4 sets and cameras, bare against dressed):
+     - edge density 0.045 → **0.074** (+63 %);
+     - texture 6.9 → 10.4;
+     - flat share 0.72 → **0.55**.
+   - The deck (0.061 → 0.096, flat 0.64 → 0.50) and the gear room (0.071 → 0.130, flat 0.54 → 0.24) reach the refs'
+     median.
+   - The lamp room (0.044 → 0.060) and the night sea (0.005 → 0.009) stay short: they need more set dressing, not
+     just texture.
+   - The KitLab reel overall stays at 0.075 / flat 0.51, because it is mostly inserts and big character close-ups.
+3. **Character framing** (coordinator; `castframe.ts`, `tools/cast_check.ts`). Measure: lead head height ÷ frame height.
+   - **Refs:** marked by hand on 120 gridded frames30 samples (5 per ref). With a character on screen the median is
+     **0.08** (per-video medians 0.035 / 0.08 / 0.25); 47 % of samples are ≥ 0.07; 29 % have no character.
+   - **Vasa v14:**
+     - by hand, 10 samples: 0.015;
+     - projected from its story file: median **0.028**, 29 % ≥ 0.07;
+     - 8 of 14 groups are specks (< 0.05): test, guns, wobble, launch, gusts, sinking, ballast, warning.
+   - **KitLab v4 with `castKey` presets** (close 0.20, medium 0.11, wide 0.06): median **0.137**, 82 % ≥ 0.07.
+   - An automatic head finder was tried and dropped: it found only about half of KitLab's projected heads.
+4. **Acting on the word** (`actor.tsx`, `acting.ts`).
+   - The Actor has 27 whole-face drawings swapped on one frame, no idle breathing, and no lip-sync.
+   - Lead face track: 14 held swaps in 15.8 s on screen = **8.8 per 10 s** (rule-book estimate 3-10). Holds are a
+     median 36 f, min 6 f (refs typical 6-40). There are 2 reaction runs of 2 f, and no 5-frame strays.
+   - Blinks are closed 2 f (refs 1 / 2 / 4), 2.1-7.2 s apart and irregular (refs about 2-10 s).
+   - Marks seen on screen: sweat, tears, steam, blush and a purple head fill (rises over 6 f).
+   - Prop follow-through: the dangling key and lantern swing, the hammer, a sailor's hat pop, and the bell-rope tassel.
+5. **Ghost-free joins** (`EpisodeNext.tsx`, `match.ts`). The reel has 7 whips, 2 match dissolves, 2 push-throughs
+   (eye → X-ray, window → sea) and 2 frame-in-frame joins (outOf, into).
+   - **Global blend detector** (frame j ≈ a·F(j−5) + (1−a)·F(j+5)): **0 blend frames in v4**. As controls,
+     story-vasa v1 (opacity dissolves) gives 37 and v10 (kit whips) gives 3.
+   - **Pixel "mixed" share** inside each join window:
+     - match dissolves max 0.04 / 0.30;
+     - push max 0.19 / 0.27;
+     - frame-in-frame max 0.13 / 0.16;
+     - kit whips max 0.37-0.67 (their blur);
+     - a synthetic 7-frame cross-dissolve of the same frames reads 1.00.
+   - Match anchors land on the same screen spot within 1 px (key bow → stone; drawn gear → gear).
+6. **Effects** (`fx2.ts`). There are 11 cued effects in 37 s:
+   - 4 glints (grow 2 f, shrink 2 f);
+   - 2 bursts;
+   - 1 debris throw (28 splinters, gravity and a bounce);
+   - 2 rolling counters;
+   - 1 scan-line reveal (9 f);
+   - 1 puff.
+
+   That is about 18 per minute, above the rule book's 3-10 estimate, as befits a lab. No screen shake.
+7. **Reference captions, opt-in** (`captions.tsx`; the default stays the house style).
+   - 76 pages, 100 % with ≤ 3 words (1.78 on average: 27 one-word, 39 two-word and 10 three-word pages).
+   - Page length 6 / 12 / 28 f (refs 1 / ~10 / 35). 0 pages end on a function word.
+   - Fixed y 0.71, mixed case, hard swaps from frame 0 to the end.
+   - Caption over the lead's face: 19 frames. 17 of them are the push into her eye, where the face *is* the frame;
+     2 are at the window.
+8. **Light arc** (`lightarc.ts`).
+   - 6 light states: golden, day, museum, night, explain (night-blue X-ray), dawn.
+   - 2 in-shot relights: night → dawn over 24 f, day → golden over 15 f.
+   - Keyword events: an alarm wash on "stopped." (pulsing every 6 f for 1 s), a 2-frame flash on "hammered", and a
+     glow ramp on "dawn.".
+
+**Verdict.** Every piece works and measures inside the reference ranges where a range exists. Open items:
+- **Ink and soft edge** are out of range kit-wide (ink 0.47 against ≤ 0.34; soft 0.16 against ≥ 0.26 at 240p): the
+  Stage's lens blur is fixed at cInf 10 and the ink is wide. This needs the kit change in INTEGRATION.md (per-group
+  lens strength) once the kit is free.
+- **frames30 jumps** are 16 (inside the 0-26 range, above the newer refs' 0-11). They come from the fast X-ray glide
+  (673-678), the eye push's last frames and the match reveals.
+- **Detail:** dressing lifts a set to the refs' median, but rooms and night seas need more props than KitLab gives them.

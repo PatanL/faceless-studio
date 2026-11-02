@@ -1,0 +1,1842 @@
+{
+ "note": "KitLab v4 (experiments/three-lane/src/next, composition KitLab) measured 2026-11-02 on the Mac with research/frame-analysis/tools (240x426 copy), pipeline/qa/frames30, src/next/tools/ghost_check.py and look_density.py; ref ranges from research/references/data/ricks24_metrics.json (24 refs, 240p).",
+ "video": "experiments/three-lane/out/kitlab/kitlab_v4r.mp4 (not committed)",
+ "compare": [
+  {
+   "check": "transitions / min (fm)",
+   "ref": [
+    9.214230867673406,
+    18.00900900900901,
+    24.793388429752067
+   ],
+   "ours": 21.138211382113823,
+   "verdict": "in"
+  },
+  {
+   "check": "hard cuts",
+   "ref": [
+    0,
+    1.0,
+    3
+   ],
+   "ours": 0,
+   "verdict": "in"
+  },
+  {
+   "check": "shot len median s",
+   "ref": [
+    1.67,
+    2.45,
+    7.47
+   ],
+   "ours": 2.8,
+   "verdict": "in"
+  },
+  {
+   "check": "shot len max s",
+   "ref": [
+    4.73,
+    7.800000000000001,
+    14.87
+   ],
+   "ours": 4.3,
+   "verdict": "low"
+  },
+  {
+   "check": "first transition s",
+   "ref": [
+    0.033,
+    0.65,
+    8.533
+   ],
+   "ours": 3.433,
+   "verdict": "in"
+  },
+  {
+   "check": "moving %",
+   "ref": [
+    95.3,
+    99.7,
+    100.0
+   ],
+   "ours": 97.3,
+   "verdict": "in"
+  },
+  {
+   "check": "hold (dead-still) %",
+   "ref": [
+    0.0,
+    0.3,
+    4.7
+   ],
+   "ours": 2.7,
+   "verdict": "in"
+  },
+  {
+   "check": "median speed px/f",
+   "ref": [
+    3.1,
+    5.59,
+    17.24
+   ],
+   "ours": 9.81,
+   "verdict": "in"
+  },
+  {
+   "check": "moves / 10 s",
+   "ref": [
+    3.82,
+    6.1850000000000005,
+    13.36
+   ],
+   "ours": 7.59,
+   "verdict": "in"
+  },
+  {
+   "check": "move attack f",
+   "ref": [
+    4.5,
+    11.75,
+    20.5
+   ],
+   "ours": 12.0,
+   "verdict": "in"
+  },
+  {
+   "check": "move release f",
+   "ref": [
+    4.5,
+    10.75,
+    34.0
+   ],
+   "ours": 10.0,
+   "verdict": "in"
+  },
+  {
+   "check": "move peak px/f (p50)",
+   "ref": [
+    10.8,
+    19.3,
+    29.3
+   ],
+   "ours": 25.6,
+   "verdict": "in"
+  },
+  {
+   "check": "snaps (attack<=3, peak>=25)",
+   "ref": [
+    0,
+    5.0,
+    14
+   ],
+   "ours": 4,
+   "verdict": "in"
+  },
+  {
+   "check": "quiet-frame zoom active %",
+   "ref": [
+    67.60000000000001,
+    82.05,
+    96.8
+   ],
+   "ours": 83.2,
+   "verdict": "in"
+  },
+  {
+   "check": "quiet push-in share %",
+   "ref": [
+    47.599999999999994,
+    68.6,
+    87.8
+   ],
+   "ours": 61.8,
+   "verdict": "in"
+  },
+  {
+   "check": "frames30 one-frame jumps",
+   "ref": [
+    0,
+    4.0,
+    26
+   ],
+   "ours": 16,
+   "verdict": "in"
+  },
+  {
+   "check": "frames30 frozen",
+   "ref": [
+    0,
+    0.0,
+    0
+   ],
+   "ours": 0,
+   "verdict": "in"
+  },
+  {
+   "check": "luma p50",
+   "ref": [
+    0.153,
+    0.4365,
+    0.656
+   ],
+   "ours": 0.308,
+   "verdict": "in"
+  },
+  {
+   "check": "saturation p50",
+   "ref": [
+    0.264,
+    0.4615,
+    0.621
+   ],
+   "ours": 0.451,
+   "verdict": "in"
+  },
+  {
+   "check": "colourfulness",
+   "ref": [
+    15.28,
+    26.0475,
+    34.68
+   ],
+   "ours": 22.16,
+   "verdict": "in"
+  },
+  {
+   "check": "non-ink p5 (p50)",
+   "ref": [
+    0.04,
+    0.1665,
+    0.268
+   ],
+   "ours": 0.12,
+   "verdict": "in"
+  },
+  {
+   "check": "black area share med",
+   "ref": [
+    0.0,
+    0.0,
+    0.099
+   ],
+   "ours": 0.0,
+   "verdict": "in"
+  },
+  {
+   "check": "shadow hue deg (p50)",
+   "ref": [
+    31.103,
+    285.6055,
+    314.771
+   ],
+   "ours": 51.116,
+   "verdict": "in"
+  },
+  {
+   "check": "shadow chroma",
+   "ref": [
+    6.079712164239357,
+    15.894643984830083,
+    33.859629354143856
+   ],
+   "ours": 15.544445953458746,
+   "verdict": "in"
+  },
+  {
+   "check": "ink edge 240p (p50)",
+   "ref": [
+    0.041,
+    0.1775,
+    0.344
+   ],
+   "ours": 0.474,
+   "verdict": "high"
+  },
+  {
+   "check": "soft edge 240p (p50)",
+   "ref": [
+    0.26,
+    0.40700000000000003,
+    0.549
+   ],
+   "ours": 0.156,
+   "verdict": "low"
+  }
+ ],
+ "plan": {
+  "duration": 36.87,
+  "words": 135,
+  "wps": 3.7,
+  "plan": {
+   "duration": 36.87,
+   "changes": [
+    "2.21 view room-golden: angle 47 deg",
+    "4.26 place macro-key: room -> macro (whip)",
+    "5.08 view macro-key: angle 32 deg",
+    "6.52 place xsection: macro -> cross-section (match)",
+    "9.41 view xsection: size x0.13",
+    "10.34 view xsection: size x2.84",
+    "11.45 place blueprint: cross-section -> blueprint (match)",
+    "12.96 view blueprint: size x0.30",
+    "15.20 place map: blueprint -> map (whip)",
+    "15.91 view map: angle 21 deg",
+    "17.34 place room-night: map -> room (whip)",
+    "19.43 view room-night: size x3.63",
+    "20.59 place xray: room -> x-ray (push)",
+    "22.32 view xray: size x2.27",
+    "23.25 place gears: x-ray -> inside clock (whip)",
+    "24.62 view gears: angle 34 deg",
+    "26.59 place room-window: inside clock -> room (whip)",
+    "28.01 place sea-pov: room -> sea (push)",
+    "29.56 place bell: sea -> room (whip)",
+    "30.79 view bell: angle 36 deg",
+    "31.52 place room-photo: room -> room (whip)",
+    "32.58 view room-photo: size x7.04",
+    "33.12 place deck: room -> deck (outOf)",
+    "35.07 place room-wall: deck -> room (into)",
+    "35.68 view room-wall: size x0.21"
+   ],
+   "holds": [
+    "0-2.208 (2.21) room-golden",
+    "2.208-4.259 (2.05) room-golden",
+    "4.259-5.082 (0.82) macro-key",
+    "5.082-6.516 (1.43) macro-key",
+    "6.516-9.413 (2.9) xsection",
+    "9.413-10.336 (0.92) xsection",
+    "10.336-11.451 (1.12) xsection",
+    "11.451-12.963 (1.51) blueprint",
+    "12.963-15.199 (2.24) blueprint",
+    "15.199-15.908 (0.71) map",
+    "15.908-17.342 (1.43) map",
+    "17.342-19.43 (2.09) room-night",
+    "19.43-20.595 (1.16) room-night",
+    "20.595-22.32 (1.73) xray",
+    "22.32-23.249 (0.93) xray",
+    "23.249-24.617 (1.37) gears",
+    "24.617-26.586 (1.97) gears",
+    "26.586-28.013 (1.43) room-window",
+    "28.013-29.559 (1.55) sea-pov",
+    "29.559-30.794 (1.23) bell",
+    "30.794-31.518 (0.72) bell",
+    "31.518-32.581 (1.06) room-photo",
+    "32.581-33.122 (0.54) room-photo",
+    "33.122-35.067 (1.95) deck",
+    "35.067-35.684 (0.62) room-wall",
+    "35.684-36.87 (1.19) room-wall"
+   ],
+   "flagged": [],
+   "medianHold": 1.43,
+   "longestHold": 2.9,
+   "placeChangesPerMin": 21.2,
+   "viewChangesPerMin": 40.7,
+   "distinctPlaces": 9,
+   "inserts": 6,
+   "firstTransition": 4.26,
+   "matchJoins": 6
+  },
+  "planText": "duration 36.87 s; 25 changes (40.7/min), place changes 21.2/min, 9 places, 6 inserts\nholds: median 1.43 s, longest 2.9 s; first transition 4.26 s; match/push/frame joins 6",
+  "acting": {
+   "swaps": 16,
+   "perTenS": 3.8,
+   "heldSwaps": 14,
+   "holdsF": {
+    "median": 36,
+    "min": 6,
+    "max": 405
+   },
+   "reactionRuns": 2,
+   "shortHolds": [],
+   "leadOnScreenS": 15.83,
+   "heldSwapsPer10sOnScreen": 8.84
+  },
+  "captions": {
+   "pages": 76,
+   "shareLe3": 1,
+   "wordsPerPage": {
+    "mean": 1.78,
+    "one": 27,
+    "two": 39,
+    "three": 10
+   },
+   "pageF": {
+    "min": 6,
+    "median": 12,
+    "max": 28
+   },
+   "endsOnFunctionWord": 0,
+   "ySpread": 0,
+   "case": "mixed",
+   "sample": [
+    "Every",
+    "night",
+    "for forty years,",
+    "Ada climbed",
+    "the lighthouse",
+    "to wind",
+    "its giant",
+    "clock",
+    "by hand.",
+    "The brass",
+    "key",
+    "was older",
+    "than the town",
+    "itself."
+   ]
+  },
+  "captionOnFace": {
+   "leadFrames": 420,
+   "framesUnderCaption": 19,
+   "at": [
+    20.03,
+    20.07,
+    20.1,
+    20.13,
+    20.17,
+    20.2,
+    20.23,
+    20.27,
+    20.3,
+    20.33,
+    20.37,
+    20.4,
+    20.43,
+    20.47,
+    20.5,
+    20.53,
+    20.57,
+    27.2,
+    27.23
+   ]
+  },
+  "joins": [
+   {
+    "group": "xsection",
+    "kind": "match",
+    "anchorAt": [
+     399,
+     907
+    ]
+   },
+   {
+    "group": "blueprint",
+    "kind": "match",
+    "anchorAt": [
+     353,
+     1024
+    ]
+   },
+   {
+    "group": "xray",
+    "kind": "push",
+    "coversAtSwitch": true,
+    "shape": "full"
+   },
+   {
+    "group": "sea-pov",
+    "kind": "push",
+    "coversAtSwitch": true,
+    "shape": "full"
+   },
+   {
+    "group": "deck",
+    "kind": "outOf",
+    "from": "room-photo"
+   },
+   {
+    "group": "room-wall",
+    "kind": "into",
+    "from": "deck"
+   }
+  ],
+  "rigCount": 31,
+  "windows": [
+   {
+    "group": "macro-key",
+    "kind": "whip",
+    "from": 122,
+    "to": 134,
+    "t0f": 128
+   },
+   {
+    "group": "xsection",
+    "kind": "match",
+    "from": 192,
+    "to": 199,
+    "t0f": 195
+   },
+   {
+    "group": "blueprint",
+    "kind": "match",
+    "from": 341,
+    "to": 348,
+    "t0f": 344
+   },
+   {
+    "group": "map",
+    "kind": "whip",
+    "from": 450,
+    "to": 462,
+    "t0f": 456
+   },
+   {
+    "group": "room-night",
+    "kind": "whip",
+    "from": 514,
+    "to": 526,
+    "t0f": 520
+   },
+   {
+    "group": "xray",
+    "kind": "push",
+    "from": 602,
+    "to": 618,
+    "t0f": 618
+   },
+   {
+    "group": "gears",
+    "kind": "whip",
+    "from": 691,
+    "to": 703,
+    "t0f": 697
+   },
+   {
+    "group": "room-window",
+    "kind": "whip",
+    "from": 792,
+    "to": 804,
+    "t0f": 798
+   },
+   {
+    "group": "sea-pov",
+    "kind": "push",
+    "from": 803,
+    "to": 840,
+    "t0f": 840
+   },
+   {
+    "group": "bell",
+    "kind": "whip",
+    "from": 881,
+    "to": 893,
+    "t0f": 887
+   },
+   {
+    "group": "room-photo",
+    "kind": "whip",
+    "from": 940,
+    "to": 952,
+    "t0f": 946
+   },
+   {
+    "group": "deck",
+    "kind": "outOf",
+    "from": 971,
+    "to": 994,
+    "t0f": 994
+   },
+   {
+    "group": "room-wall",
+    "kind": "into",
+    "from": 1052,
+    "to": 1066,
+    "t0f": 1052
+   }
+  ]
+ },
+ "ghost": {
+  "frames": 1107,
+  "windows": [
+   {
+    "group": "macro-key",
+    "kind": "whip",
+    "frames": [
+     122,
+     133
+    ],
+    "n": 12,
+    "mixed_max": 0.437,
+    "mixed_mean": 0.128,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "xsection",
+    "kind": "match",
+    "frames": [
+     192,
+     198
+    ],
+    "n": 7,
+    "mixed_max": 0.036,
+    "mixed_mean": 0.017,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "blueprint",
+    "kind": "match",
+    "frames": [
+     341,
+     347
+    ],
+    "n": 7,
+    "mixed_max": 0.299,
+    "mixed_mean": 0.1,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "map",
+    "kind": "whip",
+    "frames": [
+     450,
+     461
+    ],
+    "n": 12,
+    "mixed_max": 0.665,
+    "mixed_mean": 0.189,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "room-night",
+    "kind": "whip",
+    "frames": [
+     514,
+     525
+    ],
+    "n": 12,
+    "mixed_max": 0.665,
+    "mixed_mean": 0.172,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "xray",
+    "kind": "push",
+    "frames": [
+     602,
+     617
+    ],
+    "n": 16,
+    "mixed_max": 0.185,
+    "mixed_mean": 0.066,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "gears",
+    "kind": "whip",
+    "frames": [
+     691,
+     702
+    ],
+    "n": 12,
+    "mixed_max": 0.576,
+    "mixed_mean": 0.168,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "room-window",
+    "kind": "whip",
+    "frames": [
+     792,
+     803
+    ],
+    "n": 12,
+    "mixed_max": 0.374,
+    "mixed_mean": 0.204,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "sea-pov",
+    "kind": "push",
+    "frames": [
+     803,
+     839
+    ],
+    "n": 37,
+    "mixed_max": 0.273,
+    "mixed_mean": 0.045,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "bell",
+    "kind": "whip",
+    "frames": [
+     881,
+     892
+    ],
+    "n": 12,
+    "mixed_max": 0.586,
+    "mixed_mean": 0.195,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "room-photo",
+    "kind": "whip",
+    "frames": [
+     940,
+     951
+    ],
+    "n": 12,
+    "mixed_max": 0.404,
+    "mixed_mean": 0.159,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "deck",
+    "kind": "outOf",
+    "frames": [
+     971,
+     993
+    ],
+    "n": 23,
+    "mixed_max": 0.126,
+    "mixed_mean": 0.069,
+    "control_dissolve_max": 1.0
+   },
+   {
+    "group": "room-wall",
+    "kind": "into",
+    "frames": [
+     1052,
+     1065
+    ],
+    "n": 14,
+    "mixed_max": 0.155,
+    "mixed_mean": 0.108,
+    "control_dissolve_max": 1.0
+   }
+  ],
+  "global_blend_frames": [],
+  "n_global_blend": 0
+ },
+ "density_refs_vs_ours": {
+  "refs_pooled": {
+   "frames": 120,
+   "with_char": 0.71,
+   "head_med_when_present": 0.08,
+   "share_head_ge_0.07": 0.47,
+   "share_head_ge_0.04": 0.59
+  },
+  "refs_per_video_head_med": [
+   0.035,
+   0.0825,
+   0.25
+  ],
+  "refs_per_video_share_ge_0.07": [
+   0.0,
+   0.6,
+   1.0
+  ],
+  "vasa14": {
+   "frames": 10,
+   "with_char": 0.5,
+   "head_med_when_present": 0.015,
+   "share_head_ge_0.07": 0.0,
+   "share_head_ge_0.04": 0.1
+  },
+  "kitlab1": {
+   "frames": 10,
+   "with_char": 0.5,
+   "head_med_when_present": 0.12,
+   "share_head_ge_0.07": 0.5,
+   "share_head_ge_0.04": 0.5
+  },
+  "marks": {
+   "0m6G": [
+    0.06,
+    0,
+    0.17,
+    0.16,
+    0.2
+   ],
+   "5WMQ": [
+    0.12,
+    0.1,
+    0,
+    0.02,
+    0.03
+   ],
+   "7xS8": [
+    0,
+    0.08,
+    0.15,
+    0.12,
+    0.05
+   ],
+   "CJwg": [
+    0.2,
+    0.17,
+    0.2,
+    0,
+    0
+   ],
+   "DEe0": [
+    0,
+    0,
+    0.22,
+    0.08,
+    0.18
+   ],
+   "GM9U": [
+    0.05,
+    0,
+    0.04,
+    0.12,
+    0
+   ],
+   "LC8h": [
+    0.01,
+    0.12,
+    0.03,
+    0.2,
+    0.18
+   ],
+   "Mz72": [
+    0.07,
+    0,
+    0.1,
+    0.08,
+    0
+   ],
+   "PL-Y": [
+    0.2,
+    0.15,
+    0.2,
+    0.35,
+    0.08
+   ],
+   "PLe2": [
+    0.07,
+    0.03,
+    0,
+    0.07,
+    0.15
+   ],
+   "TgyH": [
+    0.03,
+    0,
+    0.08,
+    0,
+    0.05
+   ],
+   "VKsa": [
+    0.3,
+    0.02,
+    0.12,
+    0.08,
+    0
+   ],
+   "VS1Z": [
+    0.09,
+    0.08,
+    0.03,
+    0.1,
+    0
+   ],
+   "WbRd": [
+    0.04,
+    0.05,
+    0.03,
+    0,
+    0.03
+   ],
+   "ZDy3": [
+    0,
+    0,
+    0.1,
+    0.03,
+    0
+   ],
+   "_sUA": [
+    0.25,
+    0.25,
+    0,
+    0,
+    0
+   ],
+   "eQR3": [
+    0,
+    0.06,
+    0.13,
+    0.05,
+    0.02
+   ],
+   "eSRn": [
+    0.12,
+    0.08,
+    0,
+    0.12,
+    0.08
+   ],
+   "hdhg": [
+    0.08,
+    0.04,
+    0,
+    0.08,
+    0.12
+   ],
+   "jpFJ": [
+    0.04,
+    0.01,
+    0,
+    0.05,
+    0.05
+   ],
+   "lnYL": [
+    0,
+    0,
+    0,
+    0.04,
+    0.05
+   ],
+   "nzbk": [
+    0.09,
+    0.15,
+    0.07,
+    0,
+    0.07
+   ],
+   "t3OX": [
+    0.08,
+    0,
+    0.03,
+    0.2,
+    0.14
+   ],
+   "uRkL": [
+    0,
+    0,
+    0.08,
+    0.1,
+    0
+   ]
+  },
+  "ours_marks": {
+   "vasa14": [
+    0.015,
+    0.02,
+    0,
+    0.015,
+    0,
+    0,
+    0.05,
+    0,
+    0,
+    0.015
+   ],
+   "kitlab1": [
+    0.12,
+    0,
+    0,
+    0,
+    0,
+    0.5,
+    0.12,
+    0,
+    0.18,
+    0.08
+   ]
+  },
+  "edge": {
+   "refs": [
+    0.0535,
+    0.0918,
+    0.1665
+   ],
+   "vasa14": 0.0734,
+   "kitlab1": 0.0718
+  },
+  "tex": {
+   "refs": [
+    7.8763,
+    14.6949,
+    24.8483
+   ],
+   "vasa14": 13.4215,
+   "kitlab1": 11.4087
+  },
+  "flat": {
+   "refs": [
+    0.1308,
+    0.3962,
+    0.5769
+   ],
+   "vasa14": 0.4824,
+   "kitlab1": 0.5165
+  }
+ },
+ "density_kitlab_v4": {
+  "v4": {
+   "tiles": 370,
+   "edge": [
+    0.035,
+    0.0747,
+    0.0973
+   ],
+   "tex": [
+    6.0648,
+    11.5396,
+    17.187
+   ],
+   "flat": [
+    0.4266,
+    0.5055,
+    0.6143
+   ],
+   "head_share": 0.278,
+   "head_h": [
+    0.0243,
+    0.0278,
+    0.1406
+   ]
+  }
+ },
+ "density_per_ref": {
+  "r_0m6G": {
+   "tiles": 606,
+   "edge": [
+    0.0581,
+    0.0719,
+    0.089
+   ],
+   "tex": [
+    13.7858,
+    16.8882,
+    20.6565
+   ],
+   "flat": [
+    0.3824,
+    0.4582,
+    0.5247
+   ],
+   "head_share": 0.606,
+   "head_h": [
+    0.0174,
+    0.0312,
+    0.1024
+   ]
+  },
+  "r_5WMQ": {
+   "tiles": 643,
+   "edge": [
+    0.0798,
+    0.1226,
+    0.1625
+   ],
+   "tex": [
+    16.7971,
+    24.8483,
+    29.934
+   ],
+   "flat": [
+    0.1434,
+    0.311,
+    0.4291
+   ],
+   "head_share": 0.896,
+   "head_h": [
+    0.0278,
+    0.0625,
+    0.1354
+   ]
+  },
+  "r_7xS8": {
+   "tiles": 653,
+   "edge": [
+    0.0769,
+    0.11,
+    0.1615
+   ],
+   "tex": [
+    13.9166,
+    18.3184,
+    24.1949
+   ],
+   "flat": [
+    0.1264,
+    0.311,
+    0.4549
+   ],
+   "head_share": 0.813,
+   "head_h": [
+    0.0243,
+    0.0486,
+    0.0903
+   ]
+  },
+  "r_CJwg": {
+   "tiles": 310,
+   "edge": [
+    0.1197,
+    0.1665,
+    0.1896
+   ],
+   "tex": [
+    15.0533,
+    22.9585,
+    25.7318
+   ],
+   "flat": [
+    0.1033,
+    0.1308,
+    0.2745
+   ],
+   "head_share": 0.555,
+   "head_h": [
+    0.0174,
+    0.0243,
+    0.0486
+   ]
+  },
+  "r_DEe0": {
+   "tiles": 633,
+   "edge": [
+    0.0909,
+    0.1181,
+    0.1364
+   ],
+   "tex": [
+    12.8147,
+    20.4103,
+    25.1567
+   ],
+   "flat": [
+    0.2418,
+    0.3407,
+    0.4363
+   ],
+   "head_share": 0.654,
+   "head_h": [
+    0.0208,
+    0.0451,
+    0.1076
+   ]
+  },
+  "r_GM9U": {
+   "tiles": 596,
+   "edge": [
+    0.0753,
+    0.0942,
+    0.1164
+   ],
+   "tex": [
+    13.2987,
+    18.6209,
+    23.6944
+   ],
+   "flat": [
+    0.2253,
+    0.3275,
+    0.4695
+   ],
+   "head_share": 0.693,
+   "head_h": [
+    0.0174,
+    0.0243,
+    0.0417
+   ]
+  },
+  "r_LC8h": {
+   "tiles": 563,
+   "edge": [
+    0.0642,
+    0.0786,
+    0.1015
+   ],
+   "tex": [
+    9.4321,
+    11.4722,
+    13.8493
+   ],
+   "flat": [
+    0.3247,
+    0.4297,
+    0.5044
+   ],
+   "head_share": 0.666,
+   "head_h": [
+    0.0174,
+    0.0243,
+    0.0417
+   ]
+  },
+  "r_Mz72": {
+   "tiles": 646,
+   "edge": [
+    0.0647,
+    0.1001,
+    0.1166
+   ],
+   "tex": [
+    10.0865,
+    23.5288,
+    28.2284
+   ],
+   "flat": [
+    0.2717,
+    0.3681,
+    0.5151
+   ],
+   "head_share": 0.698,
+   "head_h": [
+    0.0278,
+    0.0694,
+    0.1076
+   ]
+  },
+  "r_PL-Y": {
+   "tiles": 393,
+   "edge": [
+    0.0435,
+    0.0535,
+    0.0653
+   ],
+   "tex": [
+    6.5631,
+    7.8763,
+    9.7574
+   ],
+   "flat": [
+    0.4945,
+    0.5769,
+    0.6253
+   ],
+   "head_share": 0.784,
+   "head_h": [
+    0.0278,
+    0.0312,
+    0.0451
+   ]
+  },
+  "r_PLe2": {
+   "tiles": 450,
+   "edge": [
+    0.0665,
+    0.0801,
+    0.0939
+   ],
+   "tex": [
+    8.1221,
+    9.7961,
+    13.0225
+   ],
+   "flat": [
+    0.3706,
+    0.4198,
+    0.4604
+   ],
+   "head_share": 0.824,
+   "head_h": [
+    0.0243,
+    0.0347,
+    0.066
+   ]
+  },
+  "r_TgyH": {
+   "tiles": 473,
+   "edge": [
+    0.0694,
+    0.1187,
+    0.1369
+   ],
+   "tex": [
+    9.5275,
+    14.8684,
+    20.8736
+   ],
+   "flat": [
+    0.2407,
+    0.3055,
+    0.5121
+   ],
+   "head_share": 0.833,
+   "head_h": [
+    0.0243,
+    0.0486,
+    0.0903
+   ]
+  },
+  "r_VKsa": {
+   "tiles": 580,
+   "edge": [
+    0.0742,
+    0.0997,
+    0.1109
+   ],
+   "tex": [
+    11.0059,
+    14.5215,
+    19.4592
+   ],
+   "flat": [
+    0.3239,
+    0.3852,
+    0.5033
+   ],
+   "head_share": 0.836,
+   "head_h": [
+    0.0278,
+    0.0694,
+    0.1111
+   ]
+  },
+  "r_VS1Z": {
+   "tiles": 650,
+   "edge": [
+    0.1015,
+    0.1251,
+    0.1683
+   ],
+   "tex": [
+    15.9451,
+    19.1471,
+    24.306
+   ],
+   "flat": [
+    0.1593,
+    0.2286,
+    0.3854
+   ],
+   "head_share": 0.711,
+   "head_h": [
+    0.0312,
+    0.0521,
+    0.0868
+   ]
+  },
+  "r_WbRd": {
+   "tiles": 543,
+   "edge": [
+    0.0434,
+    0.0562,
+    0.0782
+   ],
+   "tex": [
+    6.8535,
+    8.3078,
+    11.5963
+   ],
+   "flat": [
+    0.4637,
+    0.5077,
+    0.5857
+   ],
+   "head_share": 0.796,
+   "head_h": [
+    0.0208,
+    0.0417,
+    0.0556
+   ]
+  },
+  "r_ZDy3": {
+   "tiles": 656,
+   "edge": [
+    0.0654,
+    0.0999,
+    0.1303
+   ],
+   "tex": [
+    13.7509,
+    17.064,
+    24.9169
+   ],
+   "flat": [
+    0.2393,
+    0.328,
+    0.4516
+   ],
+   "head_share": 0.636,
+   "head_h": [
+    0.0208,
+    0.0312,
+    0.0486
+   ]
+  },
+  "r__sUA": {
+   "tiles": 346,
+   "edge": [
+    0.0595,
+    0.0717,
+    0.0866
+   ],
+   "tex": [
+    8.0089,
+    9.7353,
+    11.5654
+   ],
+   "flat": [
+    0.3728,
+    0.4445,
+    0.5143
+   ],
+   "head_share": 0.598,
+   "head_h": [
+    0.0174,
+    0.0417,
+    0.099
+   ]
+  },
+  "r_eQR3": {
+   "tiles": 453,
+   "edge": [
+    0.0632,
+    0.0784,
+    0.1157
+   ],
+   "tex": [
+    7.8323,
+    10.5701,
+    17.1388
+   ],
+   "flat": [
+    0.2813,
+    0.3978,
+    0.444
+   ],
+   "head_share": 0.876,
+   "head_h": [
+    0.0243,
+    0.0382,
+    0.0694
+   ]
+  },
+  "r_eSRn": {
+   "tiles": 570,
+   "edge": [
+    0.0569,
+    0.0744,
+    0.0972
+   ],
+   "tex": [
+    9.2262,
+    13.4708,
+    15.7935
+   ],
+   "flat": [
+    0.3451,
+    0.5203,
+    0.5879
+   ],
+   "head_share": 0.858,
+   "head_h": [
+    0.0347,
+    0.0625,
+    0.125
+   ]
+  },
+  "r_hdhg": {
+   "tiles": 400,
+   "edge": [
+    0.0753,
+    0.0958,
+    0.112
+   ],
+   "tex": [
+    11.3897,
+    13.8823,
+    17.6465
+   ],
+   "flat": [
+    0.3272,
+    0.4022,
+    0.5055
+   ],
+   "head_share": 0.912,
+   "head_h": [
+    0.0382,
+    0.0556,
+    0.0903
+   ]
+  },
+  "r_jpFJ": {
+   "tiles": 406,
+   "edge": [
+    0.09,
+    0.1284,
+    0.1449
+   ],
+   "tex": [
+    15.3552,
+    21.7094,
+    29.7309
+   ],
+   "flat": [
+    0.1412,
+    0.2621,
+    0.3755
+   ],
+   "head_share": 0.867,
+   "head_h": [
+    0.0347,
+    0.059,
+    0.1007
+   ]
+  },
+  "r_lnYL": {
+   "tiles": 636,
+   "edge": [
+    0.071,
+    0.0857,
+    0.1081
+   ],
+   "tex": [
+    8.044,
+    10.6021,
+    13.2527
+   ],
+   "flat": [
+    0.3231,
+    0.417,
+    0.5245
+   ],
+   "head_share": 0.621,
+   "head_h": [
+    0.0208,
+    0.0382,
+    0.066
+   ]
+  },
+  "r_nzbk": {
+   "tiles": 586,
+   "edge": [
+    0.0672,
+    0.0894,
+    0.1058
+   ],
+   "tex": [
+    10.6547,
+    16.6785,
+    18.774
+   ],
+   "flat": [
+    0.3376,
+    0.4264,
+    0.5154
+   ],
+   "head_share": 0.811,
+   "head_h": [
+    0.0278,
+    0.0694,
+    0.1111
+   ]
+  },
+  "r_t3OX": {
+   "tiles": 780,
+   "edge": [
+    0.0632,
+    0.0777,
+    0.09
+   ],
+   "tex": [
+    7.6454,
+    9.814,
+    12.0511
+   ],
+   "flat": [
+    0.3613,
+    0.4165,
+    0.489
+   ],
+   "head_share": 0.631,
+   "head_h": [
+    0.0208,
+    0.0312,
+    0.0729
+   ]
+  },
+  "r_uRkL": {
+   "tiles": 683,
+   "edge": [
+    0.0362,
+    0.067,
+    0.118
+   ],
+   "tex": [
+    6.0621,
+    10.4163,
+    17.5601
+   ],
+   "flat": [
+    0.2286,
+    0.3945,
+    0.5011
+   ],
+   "head_share": 0.669,
+   "head_h": [
+    0.0208,
+    0.0382,
+    0.1215
+   ]
+  },
+  "vasa14": {
+   "tiles": 623,
+   "edge": [
+    0.0514,
+    0.0734,
+    0.0962
+   ],
+   "tex": [
+    9.7254,
+    13.4215,
+    15.5689
+   ],
+   "flat": [
+    0.389,
+    0.4824,
+    0.5797
+   ],
+   "head_share": 0.526,
+   "head_h": [
+    0.0174,
+    0.0278,
+    0.0833
+   ]
+  },
+  "kitlab1": {
+   "tiles": 370,
+   "edge": [
+    0.0314,
+    0.0718,
+    0.0891
+   ],
+   "tex": [
+    5.7753,
+    11.4087,
+    17.5448
+   ],
+   "flat": [
+    0.4475,
+    0.5165,
+    0.6143
+   ],
+   "head_share": 0.673,
+   "head_h": [
+    0.0208,
+    0.0243,
+    0.0521
+   ]
+  }
+ },
+ "dressing_ab": {
+  "dress_bare": {
+   "edge": [
+    0.061,
+    0.044,
+    0.071,
+    0.005
+   ],
+   "tex": [
+    9.174,
+    7.572,
+    9.815,
+    1.237
+   ],
+   "flat": [
+    0.638,
+    0.757,
+    0.537,
+    0.94
+   ],
+   "mean": {
+    "edge": 0.0452,
+    "tex": 6.9494,
+    "flat": 0.7181
+   }
+  },
+  "dress_on": {
+   "edge": [
+    0.096,
+    0.06,
+    0.13,
+    0.009
+   ],
+   "tex": [
+    14.102,
+    9.211,
+    15.691,
+    2.625
+   ],
+   "flat": [
+    0.499,
+    0.618,
+    0.236,
+    0.844
+   ],
+   "mean": {
+    "edge": 0.0737,
+    "tex": 10.4072,
+    "flat": 0.5492
+   }
+  }
+ },
+ "cast_vasa_v14_story": {
+  "rows": [
+   {
+    "group": "test",
+    "frames": 43,
+    "median": 0.03,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "admiral",
+    "frames": 33,
+    "median": 0.214,
+    "shareGe007": 1,
+    "small": false
+   },
+   {
+    "group": "camp",
+    "frames": 30,
+    "median": 0.059,
+    "shareGe007": 0.43,
+    "small": false
+   },
+   {
+    "group": "guns",
+    "frames": 44,
+    "median": 0,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "wobble",
+    "frames": 29,
+    "median": 0.01,
+    "shareGe007": 0.1,
+    "small": true
+   },
+   {
+    "group": "letters",
+    "frames": 21,
+    "median": 0.154,
+    "shareGe007": 1,
+    "small": false
+   },
+   {
+    "group": "launch",
+    "frames": 28,
+    "median": 0.031,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "gusts",
+    "frames": 80,
+    "median": 0.004,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "gundeck",
+    "frames": 11,
+    "median": 0.073,
+    "shareGe007": 0.55,
+    "small": false
+   },
+   {
+    "group": "sinking",
+    "frames": 33,
+    "median": 0,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "hearing",
+    "frames": 52,
+    "median": 0.134,
+    "shareGe007": 1,
+    "small": false
+   },
+   {
+    "group": "portrait",
+    "frames": 21,
+    "median": 0.076,
+    "shareGe007": 0.81,
+    "small": false
+   },
+   {
+    "group": "ballast",
+    "frames": 13,
+    "median": 0.028,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "warning",
+    "frames": 65,
+    "median": 0.022,
+    "shareGe007": 0,
+    "small": true
+   }
+  ],
+  "median": 0.028,
+  "shareGe007": 0.29,
+  "flagged": [
+   "test",
+   "guns",
+   "wobble",
+   "launch",
+   "gusts",
+   "sinking",
+   "ballast",
+   "warning"
+  ]
+ },
+ "cast_kitlab_v4": {
+  "rows": [
+   {
+    "group": "room-golden",
+    "frames": 43,
+    "median": 0.205,
+    "shareGe007": 1,
+    "small": false
+   },
+   {
+    "group": "room-night",
+    "frames": 33,
+    "median": 0.212,
+    "shareGe007": 0.85,
+    "small": false
+   },
+   {
+    "group": "gears",
+    "frames": 34,
+    "median": 0.112,
+    "shareGe007": 0.88,
+    "small": false
+   },
+   {
+    "group": "room-window",
+    "frames": 14,
+    "median": 0,
+    "shareGe007": 0,
+    "small": true
+   },
+   {
+    "group": "bell",
+    "frames": 20,
+    "median": 0.288,
+    "shareGe007": 1,
+    "small": false
+   },
+   {
+    "group": "room-photo",
+    "frames": 16,
+    "median": 0,
+    "shareGe007": 0.44,
+    "small": true
+   },
+   {
+    "group": "deck",
+    "frames": 20,
+    "median": 0.117,
+    "shareGe007": 1,
+    "small": false
+   }
+  ],
+  "median": 0.137,
+  "shareGe007": 0.82,
+  "flagged": [
+   "room-window",
+   "room-photo"
+  ]
+ }
+}
