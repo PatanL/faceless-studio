@@ -2,3 +2,4 @@
 import './demo';
 import './horror';
 import './explainer';
+import './explainer/stick';

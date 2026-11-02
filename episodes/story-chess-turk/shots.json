@@ -1,0 +1,2118 @@
+{
+ "niche": "explainer",
+ "emphasis": [
+  "empty.",
+  "laughs.",
+  "Napoleon",
+  "cheat,",
+  "sweeps",
+  "fire",
+  "man",
+  "Magnets",
+  "lever"
+ ],
+ "glue": [
+  "Benjamin Franklin",
+  "chess master",
+  "fake gears",
+  "wooden man"
+ ],
+ "scenes": [
+  {
+   "p": 1,
+   "beat": "hook",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "60%",
+     "y": "41%",
+     "width": 980,
+     "height": 1089,
+     "props": {
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0.9
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@opened",
+        "v": 0
+       },
+       {
+        "t": "@opened+0.5",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@up",
+        "v": 0
+       },
+       {
+        "t": "@up+0.5",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "candle": [
+       {
+        "t": 0,
+        "v": 0.7
+       },
+       {
+        "t": "@prove",
+        "v": 1
+       }
+      ],
+      "spin": 0.35,
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@beat",
+        "v": 0
+       },
+       {
+        "t": "@beat+0.45",
+        "v": 1
+       },
+       {
+        "t": "@game",
+        "v": 0
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@anyone",
+        "v": 0.7
+       }
+      ],
+      "look": [
+       {
+        "t": 0,
+        "v": 0.6
+       },
+       {
+        "t": "@he",
+        "v": -0.6
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "17%",
+     "y": 826,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "kempelen",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@empty",
+        "v": "grin"
+       }
+      ],
+      "pose": "holdHigh",
+      "item": "candle",
+      "talk": [],
+      "seed": 2
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "14%",
+     "width": 960,
+     "height": 260,
+     "props": {
+      "text": "UNBEATABLE ROBOT",
+      "red": "ROBOT",
+      "at": -0.6,
+      "size": 92,
+      "out": "@before"
+     },
+     "role": "label",
+     "z": 40,
+     "depth": 0
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@before",
+      "zoom": 1.08,
+      "x": "52%",
+      "y": "50%"
+     },
+     {
+      "t": "@opened",
+      "zoom": 1.2,
+      "x": "56%",
+      "y": "56%"
+     },
+     {
+      "t": "@empty",
+      "zoom": 1.75,
+      "x": "46%",
+      "y": "64%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.85,
+      "x": "45%",
+      "y": "65%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 2,
+   "beat": "setup",
+   "setting": [
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "town",
+     "place": "Schönbrunn Palace, Vienna",
+     "light": "day"
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall, Vienna",
+     "light": "day",
+     "at": "@Empress's"
+    }
+   ],
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "facade"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "20%",
+     "width": 472,
+     "height": 130,
+     "props": {
+      "text": "VIENNA, 1770",
+      "at": "@1770",
+      "size": 46,
+      "out": "@Empress's-0.3"
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "40%",
+     "y": "57%",
+     "width": 430,
+     "height": 478,
+     "props": {
+      "doorL": 0,
+      "spin": 0
+     },
+     "role": "hero",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-30%"
+      },
+      {
+       "t": "@inventor",
+       "x": "-30%"
+      },
+      {
+       "t": "@cabinet.end",
+       "x": "40%",
+       "ease": "out"
+      }
+     ],
+     "end": "@Empress's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "40%",
+     "y": 1075,
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "kempelen",
+      "face": "smile",
+      "pose": "push",
+      "walk": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": "@cabinet.end",
+        "v": 0
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-52%"
+      },
+      {
+       "t": "@inventor",
+       "x": "-52%"
+      },
+      {
+       "t": "@cabinet.end",
+       "x": "18%",
+       "ease": "out"
+      }
+     ],
+     "end": "@Empress's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Set",
+     "x": "50%",
+     "y": "50%",
+     "width": 1300,
+     "height": 2311,
+     "props": {
+      "place": "hall"
+     },
+     "z": -5,
+     "start": "@Empress's",
+     "role": "dressing",
+     "depth": 0.3,
+     "enter": {
+      "type": "wipeRight",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "76%",
+     "y": 886,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "empress",
+      "face": [
+       {
+        "t": 0,
+        "v": "smile"
+       },
+       {
+        "t": "@Vienna",
+        "v": "smug"
+       }
+      ],
+      "pose": "hips",
+      "seed": 4
+     },
+     "role": "hero",
+     "flipX": true,
+     "start": "@Empress's",
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "36%",
+     "y": "50%",
+     "width": 600,
+     "height": 667,
+     "props": {
+      "doorL": 0
+     },
+     "role": "hero",
+     "start": "@Empress's",
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": "@cabinet",
+      "zoom": 1.06,
+      "x": "45%",
+      "y": "52%"
+     },
+     {
+      "t": "@Empress's",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.1,
+      "x": "55%",
+      "y": "50%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 3,
+   "beat": "device + doubters",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "56%",
+     "y": "75%",
+     "width": 1600,
+     "height": 1778,
+     "props": {
+      "look": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@staring",
+        "v": 0.9
+       }
+      ],
+      "arm": 0
+     },
+     "role": "hero",
+     "end": "@whole",
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": "@turban",
+       "scale": 1.08
+      },
+      {
+       "t": "@whole",
+       "scale": 1.12
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "22%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier",
+      "face": [
+       {
+        "t": 0,
+        "v": "laugh"
+       }
+      ],
+      "pose": "laugh",
+      "seed": 11
+     },
+     "role": "hero",
+     "start": "@whole",
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "52%",
+     "y": 890,
+     "width": 520,
+     "height": 607,
+     "props": {
+      "costume": "courtier2",
+      "face": "laugh",
+      "pose": "point",
+      "seed": 12
+     },
+     "role": "hero",
+     "start": "@whole+0.1",
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "82%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "count",
+      "face": "laugh",
+      "pose": "laugh",
+      "seed": 13
+     },
+     "role": "hero",
+     "start": "@court",
+     "flipX": true,
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@turban",
+      "zoom": 1.08,
+      "x": "52%",
+      "y": "47%"
+     },
+     {
+      "t": "@staring",
+      "zoom": 1.16,
+      "x": "56%",
+      "y": "50%"
+     },
+     {
+      "t": "@whole",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "48%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 4,
+   "beat": "proof ritual",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "57%",
+     "y": "48%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@opens",
+        "v": 0
+       },
+       {
+        "t": "@opens+0.5",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@one",
+        "v": 0
+       },
+       {
+        "t": "@one+0.45",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@one#2",
+        "v": 0
+       },
+       {
+        "t": "@one#2+0.45",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "drawer": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@and",
+        "v": 0
+       },
+       {
+        "t": "@and+0.4",
+        "v": 1
+       }
+      ],
+      "candle": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@candle",
+        "v": 0
+       },
+       {
+        "t": "@behind",
+        "v": 1
+       }
+      ],
+      "spin": 0.3
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "14%",
+     "y": 798,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "kempelen",
+      "face": "smug",
+      "pose": [
+       {
+        "t": 0,
+        "v": "point"
+       },
+       {
+        "t": "@holds",
+        "v": "holdHigh"
+       }
+      ],
+      "item": [
+       {
+        "t": 0,
+        "v": "none"
+       },
+       {
+        "t": "@holds",
+        "v": "candle"
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero"
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@one",
+      "zoom": 1.05,
+      "x": "52%",
+      "y": "52%"
+     },
+     {
+      "t": "@candle",
+      "zoom": 1.12,
+      "x": "48%",
+      "y": "54%"
+     },
+     {
+      "t": "@Nothing",
+      "zoom": 2.0,
+      "x": "38%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 2.1,
+      "x": "37%",
+      "y": "60%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 5,
+   "beat": "it moves",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "48%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "doorL": 1,
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@winds",
+        "v": 0.5
+       }
+      ],
+      "tick": true,
+      "candle": 0.6,
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@lifts",
+        "v": 0
+       },
+       {
+        "t": "@lifts+0.5",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "look": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@Turk",
+        "v": -0.8
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "86%",
+     "y": 955,
+     "width": 468,
+     "height": 546,
+     "props": {
+      "costume": "kempelen",
+      "face": "focus",
+      "pose": "wind",
+      "item": [
+       {
+        "t": 0,
+        "v": "none"
+       },
+       {
+        "t": "@winds",
+        "v": "key"
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero",
+     "flipX": true
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.3,
+      "x": "70%",
+      "y": "50%"
+     },
+     {
+      "t": "@key",
+      "zoom": 1.3,
+      "x": "72%",
+      "y": "50%"
+     },
+     {
+      "t": "@tick",
+      "zoom": 1.9,
+      "x": "35%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@Turk",
+      "zoom": 1.5,
+      "x": "45%",
+      "y": "35%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.6,
+      "x": "48%",
+      "y": "33%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 6,
+   "beat": "turn",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "26%",
+     "y": 925,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": "@brave",
+        "v": "worried"
+       }
+      ],
+      "pose": "hold",
+      "seated": true,
+      "seed": 13
+     },
+     "role": "hero",
+     "end": "@play"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "72%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@enough",
+        "v": 1
+       }
+      ],
+      "look": -0.8
+     },
+     "role": "hero",
+     "end": "@play"
+    },
+    {
+     "type": "component",
+     "name": "stick/Chess",
+     "x": "50%",
+     "y": "44%",
+     "width": 1300,
+     "height": 1040,
+     "props": {
+      "moves": [
+       {
+        "t": "@play",
+        "from": "d8",
+        "to": "h4",
+        "hand": "turk",
+        "dur": 0.6
+       }
+      ],
+      "glow": "e1",
+      "glowAt": "@loses"
+     },
+     "start": "@play",
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "end": "@Nobody's",
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "26%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier",
+      "face": "shock",
+      "pose": "armsUp",
+      "seed": 11
+     },
+     "role": "hero",
+     "start": "@Nobody's"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "74%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier2",
+      "face": "shock",
+      "pose": "stand",
+      "seed": 12
+     },
+     "role": "hero",
+     "start": "@Nobody's",
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "50%",
+     "y": 881,
+     "width": 442,
+     "height": 516,
+     "props": {
+      "costume": "empress",
+      "face": "shock",
+      "pose": "stand",
+      "seed": 4
+     },
+     "role": "hero",
+     "start": "@Nobody's+0.15",
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.3
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@play",
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": "@loses",
+      "zoom": 1.12,
+      "x": "52%",
+      "y": "46%"
+     },
+     {
+      "t": "@Nobody's",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "48%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 7,
+   "beat": "escalation 1",
+   "setting": [
+    {
+     "kind": "map",
+     "place": "Europe and America"
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Paris salon",
+     "light": "day",
+     "at": "@It"
+    }
+   ],
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "salon"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "50%",
+     "width": 1300,
+     "height": 2311,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": 12,
+        "lat": 49,
+        "zoom": 4.2
+       },
+       {
+        "t": "@world",
+        "lon": -30,
+        "lat": 46,
+        "zoom": 2.2
+       }
+      ],
+      "pins": [
+       {
+        "lon": 16.37,
+        "lat": 48.2,
+        "label": "VIENNA",
+        "at": 0
+       },
+       {
+        "lon": 2.35,
+        "lat": 48.85,
+        "label": "PARIS",
+        "at": "@years"
+       },
+       {
+        "lon": -0.12,
+        "lat": 51.5,
+        "label": "LONDON",
+        "at": "@Turk"
+       },
+       {
+        "lon": -74,
+        "lat": 40.7,
+        "label": "NEW YORK",
+        "at": "@world"
+       }
+      ]
+     },
+     "end": "@It",
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "16%",
+     "width": 586,
+     "height": 130,
+     "props": {
+      "text": "80 YEARS ON TOUR",
+      "at": "@eighty",
+      "size": 46,
+      "out": "@It-0.2"
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "28%",
+     "y": 883,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "franklin",
+      "face": [
+       {
+        "t": 0,
+        "v": "focus"
+       },
+       {
+        "t": "@Franklin",
+        "v": "shock"
+       }
+      ],
+      "pose": "reach",
+      "seated": true,
+      "seed": 21
+     },
+     "role": "hero",
+     "start": "@It"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "48%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "arm": [
+       {
+        "t": 0,
+        "v": 1
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@beats",
+        "v": 1
+       }
+      ],
+      "look": -0.8
+     },
+     "role": "hero",
+     "start": "@It"
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@It",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.1,
+      "x": "48%",
+      "y": "47%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 8,
+   "beat": "escalation 2 (rule of three)",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall at night, 1809",
+    "light": "night"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hallNight"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "17%",
+     "width": 472,
+     "height": 130,
+     "props": {
+      "text": "VIENNA, 1809",
+      "at": "@Napoleon",
+      "size": 46,
+      "out": "@cheat"
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "27%",
+     "y": 922,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "napoleon",
+      "face": "smug",
+      "pose": "handIn",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero",
+     "end": "@cheat-0.2"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "look": -0.8
+     },
+     "role": "hero",
+     "end": "@cheat-0.2"
+    },
+    {
+     "type": "component",
+     "name": "stick/Chess",
+     "x": "50%",
+     "y": "44%",
+     "width": 1300,
+     "height": 1040,
+     "props": {
+      "moves": [
+       {
+        "t": "@cheat-0.2",
+        "from": "d1",
+        "to": "h5",
+        "hand": "human",
+        "dur": 0.5
+       },
+       {
+        "t": "@puts",
+        "from": "h5",
+        "to": "d1",
+        "hand": "turk",
+        "dur": 0.5
+       },
+       {
+        "t": "@Twice",
+        "from": "d1",
+        "to": "h5",
+        "hand": "human",
+        "dur": 0.35
+       },
+       {
+        "t": "@Twice+0.42",
+        "from": "h5",
+        "to": "d1",
+        "hand": "turk",
+        "dur": 0.35
+       }
+      ],
+      "sweepAt": "@sweeps"
+     },
+     "start": "@cheat-0.2",
+     "end": "@third",
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "27%",
+     "y": 922,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "napoleon",
+      "face": [
+       {
+        "t": 0,
+        "v": "angry"
+       },
+       {
+        "t": "@sweeps+0.3",
+        "v": "shock"
+       }
+      ],
+      "pose": "reach",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero",
+     "start": "@third"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "look": -0.8,
+      "sweepAt": "@sweeps",
+      "arm": 0
+     },
+     "role": "hero",
+     "start": "@third"
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@cheat",
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": "@third",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@sweeps",
+      "zoom": 1.12,
+      "x": "55%",
+      "y": "47%",
+      "ease": "backOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.16,
+      "x": "55%",
+      "y": "47%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 9,
+   "beat": "disaster",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "town",
+    "place": "museum, Philadelphia",
+    "light": "night"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "museum",
+     "fire": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": "@fire",
+       "v": 0
+      },
+      {
+       "t": "@burns",
+       "v": 1,
+       "ease": "out"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "17%",
+     "width": 643,
+     "height": 130,
+     "props": {
+      "text": "PHILADELPHIA, 1854",
+      "at": "@1854",
+      "size": 46,
+      "out": "@secret"
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Paper",
+     "x": "50%",
+     "y": "42%",
+     "width": 640,
+     "height": 823,
+     "props": {
+      "headline": "THE TURK'S\nSECRET",
+      "at": "@secret",
+      "masthead": "THE CHESS MONTHLY"
+     },
+     "start": "@secret",
+     "role": "prop",
+     "z": 20
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "52%"
+     },
+     {
+      "t": "@fire",
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@secret",
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "45%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 10,
+   "beat": "reveal",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@man",
+        "v": 0
+       },
+       {
+        "t": "@man+0.35",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "seat": 0.6,
+      "masterFace": "shock",
+      "doorL": 0
+     },
+     "role": "hero"
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "x": "50%",
+      "y": "58%"
+     },
+     {
+      "t": "@man",
+      "zoom": 1.3,
+      "x": "50%",
+      "y": "60%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.55,
+      "x": "52%",
+      "y": "64%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 11,
+   "beat": "mechanism 1",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": 1,
+      "xray": 1,
+      "masterFace": [
+       {
+        "t": 0,
+        "v": "focus"
+       },
+       {
+        "t": "@slid",
+        "v": "worried"
+       }
+      ],
+      "seat": [
+       {
+        "t": 0,
+        "v": 0.7
+       },
+       {
+        "t": "@slid",
+        "v": 0.7
+       },
+       {
+        "t": "@side",
+        "v": 0.0
+       }
+      ],
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@When",
+        "v": 0
+       },
+       {
+        "t": "@opened",
+        "v": 0
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@door",
+        "v": 0
+       },
+       {
+        "t": "@opened",
+        "v": 1
+       },
+       {
+        "t": "@side",
+        "v": 1
+       },
+       {
+        "t": "@behind",
+        "v": 0
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@door",
+        "v": 0
+       },
+       {
+        "t": "@opened",
+        "v": 1
+       },
+       {
+        "t": "@side",
+        "v": 1
+       },
+       {
+        "t": "@behind",
+        "v": 0
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "40%",
+     "width": 444,
+     "height": 130,
+     "props": {
+      "text": "FALSE PANEL",
+      "at": "@fake",
+      "size": 46,
+      "leader": [
+       40,
+       170
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.45,
+      "x": "50%",
+      "y": "62%"
+     },
+     {
+      "t": "@folded",
+      "zoom": 1.6,
+      "x": "52%",
+      "y": "64%"
+     },
+     {
+      "t": "@When",
+      "zoom": 1.25,
+      "x": "50%",
+      "y": "58%"
+     },
+     {
+      "t": "@fake",
+      "zoom": 1.4,
+      "x": "40%",
+      "y": "60%"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.45,
+      "x": "40%",
+      "y": "60%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 12,
+   "beat": "mechanism 2",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": 1,
+      "seat": 0.7,
+      "masterFace": "focus",
+      "magnets": [
+       {
+        "t": "@under",
+        "i": 2
+       },
+       {
+        "t": "@showed",
+        "i": 5
+       },
+       {
+        "t": "@every",
+        "i": 3
+       },
+       {
+        "t": "@move",
+        "i": 6
+       }
+      ],
+      "lever": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@lever",
+        "v": 0
+       },
+       {
+        "t": "@lever+0.3",
+        "v": 1
+       }
+      ],
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@moved",
+        "v": 0
+       },
+       {
+        "t": "@hand",
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@hand",
+        "v": 0.6
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "62%",
+     "y": "24%",
+     "width": 330,
+     "height": 130,
+     "props": {
+      "text": "MAGNETS",
+      "at": "@Magnets",
+      "size": 46,
+      "out": "@lever",
+      "leader": [
+       -20,
+       150
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "26%",
+     "y": "28%",
+     "width": 273,
+     "height": 130,
+     "props": {
+      "text": "LEVER",
+      "at": "@lever",
+      "size": 46,
+      "leader": [
+       60,
+       160
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.6,
+      "x": "55%",
+      "y": "57%"
+     },
+     {
+      "t": "@lever",
+      "zoom": 1.25,
+      "x": "48%",
+      "y": "50%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.3,
+      "x": "46%",
+      "y": "48%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 13,
+   "beat": "stinger + loop",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall at night, 1809",
+    "light": "night"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hallNight"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "22%",
+     "y": 925,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "napoleon",
+      "face": "frown",
+      "pose": "reach",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "64%",
+     "y": "47%",
+     "width": 980,
+     "height": 1089,
+     "props": {
+      "cut": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@man",
+        "v": 0
+       },
+       {
+        "t": "@man+0.4",
+        "v": 1
+       }
+      ],
+      "xray": 1,
+      "seat": 0.35,
+      "masterCandle": true,
+      "masterFace": "smug",
+      "arm": 1,
+      "reach": 0.3,
+      "candle": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@candlelight",
+        "v": 0.8
+       }
+      ]
+     },
+     "role": "hero"
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": "@man",
+      "zoom": 1.15,
+      "x": "58%",
+      "y": "56%"
+     },
+     {
+      "t": "@playing",
+      "zoom": 2.2,
+      "x": "56%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": "@:end",
+      "zoom": 2.4,
+      "x": "55%",
+      "y": "60%"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  }
+ ]
+}

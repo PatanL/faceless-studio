@@ -15,15 +15,15 @@
  },
  "mix": {
   "target_lufs": -14.0,
-  "pyloudnorm_lufs": -14.11,
-  "true_peak_dbtp_4x": -1.13,
+  "pyloudnorm_lufs": -14.07,
+  "true_peak_dbtp_4x": -2.02,
   "ffmpeg_ebur128": {
-   "I_lufs": -14.1,
-   "LRA_lu": 2.0,
-   "true_peak_dbtp": -1.1
+   "I_lufs": -14.0,
+   "LRA_lu": 1.9,
+   "true_peak_dbtp": -2.0
   },
   "duration_s": 66.8,
-  "music": "deep_ocean",
+  "music": "score",
   "sfx_placed": [
    {
     "cue": "tick",
@@ -40,7 +40,7 @@
     "source": "cut",
     "dur": 1.186,
     "level_db": -15.0,
-    "mix_momentary_max": -11.4
+    "mix_momentary_max": -11.2
    },
    {
     "cue": "bubbles",
@@ -49,7 +49,7 @@
     "source": "cut",
     "dur": 2.818,
     "level_db": -17.0,
-    "mix_momentary_max": -12.8
+    "mix_momentary_max": -13.1
    },
    {
     "cue": "door_creak",
@@ -58,7 +58,7 @@
     "source": "marker",
     "dur": 3.008,
     "level_db": -8.0,
-    "mix_momentary_max": -11.6
+    "mix_momentary_max": -12.1
    },
    {
     "cue": "clock_ticking",
@@ -67,7 +67,7 @@
     "source": "marker",
     "dur": 3.349,
     "level_db": -12.0,
-    "mix_momentary_max": -11.2
+    "mix_momentary_max": -11.3
    },
    {
     "cue": "click",
@@ -84,7 +84,7 @@
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -11.3
+    "mix_momentary_max": -11.4
    },
    {
     "cue": "whoosh",
@@ -93,7 +93,7 @@
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -11.0
+    "mix_momentary_max": -11.3
    },
    {
     "cue": "whoosh_long",
@@ -102,7 +102,7 @@
     "source": "marker",
     "dur": 1.802,
     "level_db": -10.0,
-    "mix_momentary_max": -13.3
+    "mix_momentary_max": -12.9
    },
    {
     "cue": "stinger",
@@ -111,7 +111,7 @@
     "source": "marker",
     "dur": 4.026,
     "level_db": -5.0,
-    "mix_momentary_max": -10.9
+    "mix_momentary_max": -11.1
    },
    {
     "cue": "whoosh",
@@ -120,7 +120,7 @@
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -11.1
+    "mix_momentary_max": -11.0
    },
    {
     "cue": "click",
@@ -137,15 +137,104 @@
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -9.2
+    "mix_momentary_max": -9.9
    }
   ],
-  "music_rms_db_under_voice": -40.14,
-  "music_rms_db_in_gaps": -49.77,
-  "measured_duck_db": 9.63,
-  "bed_below_voice_db": 20.48,
-  "music_fallback_reason": "no storyboard yet (episodes/story-chess-turk/storyboard.json)"
+  "music_rms_db_under_voice": -38.72,
+  "music_rms_db_in_gaps": -34.82,
+  "measured_duck_db": -3.9,
+  "bed_below_voice_db": 19.06,
+  "music_provenance": {
+   "generator": "pipeline.audio.score",
+   "soundfont": "GeneralUser-GS",
+   "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
+   "seed": 2958785605
+  },
+  "score": {
+   "cues": [
+    {
+     "t0": 0.0,
+     "t1": 11.898,
+     "mood": "curious",
+     "intensity": 1,
+     "role": "hook"
+    },
+    {
+     "t0": 11.898,
+     "t1": 23.948,
+     "mood": "curious",
+     "intensity": 2,
+     "role": ""
+    },
+    {
+     "t0": 23.948,
+     "t1": 32.509,
+     "mood": "curious",
+     "intensity": 3,
+     "role": ""
+    },
+    {
+     "t0": 32.509,
+     "t1": 49.005,
+     "mood": "deep",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 49.005,
+     "t1": 61.992,
+     "mood": "curious",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 61.992,
+     "t1": 66.8,
+     "mood": "curious",
+     "intensity": 1,
+     "role": "bookend"
+    }
+   ],
+   "stings": [
+    {
+     "t": 23.948,
+     "why": "punch 'Nothing but gears.'",
+     "prio": 1.5,
+     "on_boundary": true
+    },
+    {
+     "t": 49.155,
+     "why": "marker stinger",
+     "prio": 3.0,
+     "on_boundary": true
+    }
+   ],
+   "drops": [
+    {
+     "t0": 48.555,
+     "t1": 49.135,
+     "why": "marker stinger"
+    }
+   ],
+   "risers": [
+    {
+     "t0": 10.868,
+     "t1": 11.898,
+     "len": 1.03,
+     "kind": "swell",
+     "jump": 1
+    },
+    {
+     "t0": 22.948,
+     "t1": 23.948,
+     "len": 1.0,
+     "kind": "swell",
+     "jump": 1
+    }
+   ]
+  }
  },
  "words": 207,
- "wall_s": 27.8
+ "wall_s": 41.5
 }

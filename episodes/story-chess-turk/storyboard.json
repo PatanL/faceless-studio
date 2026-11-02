@@ -1,0 +1,3610 @@
+{
+ "version": 1,
+ "id": "story-chess-turk",
+ "title": "The Chess Robot That Fooled Napoleon",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p01",
+   "duration": 6.41,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "60%",
+     "y": "41%",
+     "width": 980,
+     "height": 1089,
+     "props": {
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0.9
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.612,
+        "v": 0
+       },
+       {
+        "t": 5.112,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 5.013,
+        "v": 0
+       },
+       {
+        "t": 5.513,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "candle": [
+       {
+        "t": 0,
+        "v": 0.7
+       },
+       {
+        "t": 5.338,
+        "v": 1
+       }
+      ],
+      "spin": 0.35,
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 1.738,
+        "v": 0
+       },
+       {
+        "t": 2.188,
+        "v": 1
+       },
+       {
+        "t": 3.825,
+        "v": 0
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.013,
+        "v": 0.7
+       }
+      ],
+      "look": [
+       {
+        "t": 0,
+        "v": 0.6
+       },
+       {
+        "t": 0.1,
+        "v": -0.6
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "17%",
+     "y": 826,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "kempelen",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": 5.888,
+        "v": "grin"
+       }
+      ],
+      "pose": "holdHigh",
+      "item": "candle",
+      "talk": [],
+      "seed": 2
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Headline",
+     "x": "50%",
+     "y": "14%",
+     "width": 960,
+     "height": 260,
+     "props": {
+      "text": "UNBEATABLE ROBOT",
+      "red": "ROBOT",
+      "at": -0.6,
+      "size": 92,
+      "out": 3.062
+     },
+     "role": "label",
+     "z": 40,
+     "depth": 0
+    }
+   ],
+   "notes": "He built a chess robot that could beat anyone, and before every game, he opened it up to prove it was empty.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 3.062,
+      "zoom": 1.08,
+      "x": "52%",
+      "y": "50%"
+     },
+     {
+      "t": 4.612,
+      "zoom": 1.2,
+      "x": "56%",
+      "y": "56%"
+     },
+     {
+      "t": 5.888,
+      "zoom": 1.75,
+      "x": "46%",
+      "y": "64%",
+      "ease": "inOut"
+     },
+     {
+      "t": 6.41,
+      "zoom": 1.85,
+      "x": "45%",
+      "y": "65%"
+     }
+    ],
+    "preroll": 0.3,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.41,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 7.24,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "facade"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "20%",
+     "width": 472,
+     "height": 130,
+     "props": {
+      "text": "VIENNA, 1770",
+      "at": 0.912,
+      "size": 46,
+      "out": 5.188
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "40%",
+     "y": "57%",
+     "width": 430,
+     "height": 478,
+     "props": {
+      "doorL": 0,
+      "spin": 0
+     },
+     "role": "hero",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-30%"
+      },
+      {
+       "t": 2.65,
+       "x": "-30%"
+      },
+      {
+       "t": 5.125,
+       "x": "40%",
+       "ease": "out"
+      }
+     ],
+     "end": 5.488
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "40%",
+     "y": 1075,
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "kempelen",
+      "face": "smile",
+      "pose": "push",
+      "walk": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 5.125,
+        "v": 0
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero",
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "-52%"
+      },
+      {
+       "t": 2.65,
+       "x": "-52%"
+      },
+      {
+       "t": 5.125,
+       "x": "18%",
+       "ease": "out"
+      }
+     ],
+     "end": 5.488
+    },
+    {
+     "type": "component",
+     "name": "stick/Set",
+     "x": "50%",
+     "y": "50%",
+     "width": 1300,
+     "height": 2311,
+     "props": {
+      "place": "hall"
+     },
+     "z": -5,
+     "start": 5.488,
+     "role": "dressing",
+     "depth": 0.3,
+     "enter": {
+      "type": "wipeRight",
+      "duration": 0.4
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "76%",
+     "y": 886,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "empress",
+      "face": [
+       {
+        "t": 0,
+        "v": "smile"
+       },
+       {
+        "t": 6.75,
+        "v": "smug"
+       }
+      ],
+      "pose": "hips",
+      "seed": 4
+     },
+     "role": "hero",
+     "flipX": true,
+     "start": 5.488,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "36%",
+     "y": "50%",
+     "width": 600,
+     "height": 667,
+     "props": {
+      "doorL": 0
+     },
+     "role": "hero",
+     "start": 5.488,
+     "enter": {
+      "type": "fade",
+      "duration": 0.3
+     }
+    }
+   ],
+   "notes": "You see, it's 1770, and an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.",
+   "setting": [
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "town",
+     "place": "Schönbrunn Palace, Vienna",
+     "light": "day",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Schönbrunn Palace hall, Vienna",
+     "light": "day",
+     "at": 5.488
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": 4.587,
+      "zoom": 1.06,
+      "x": "45%",
+      "y": "52%"
+     },
+     {
+      "t": 5.488,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 7.24,
+      "zoom": 1.1,
+      "x": "55%",
+      "y": "50%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.24,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 5.806,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "56%",
+     "y": "75%",
+     "width": 1600,
+     "height": 1778,
+     "props": {
+      "look": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.112,
+        "v": 0.9
+       }
+      ],
+      "arm": 0
+     },
+     "role": "hero",
+     "end": 4.676,
+     "keyframes": [
+      {
+       "t": 0,
+       "scale": 1.0
+      },
+      {
+       "t": 2.337,
+       "scale": 1.08
+      },
+      {
+       "t": 4.676,
+       "scale": 1.12
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "22%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier",
+      "face": [
+       {
+        "t": 0,
+        "v": "laugh"
+       }
+      ],
+      "pose": "laugh",
+      "seed": 11
+     },
+     "role": "hero",
+     "start": 4.676,
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "52%",
+     "y": 890,
+     "width": 520,
+     "height": 607,
+     "props": {
+      "costume": "courtier2",
+      "face": "laugh",
+      "pose": "point",
+      "seed": 12
+     },
+     "role": "hero",
+     "start": 4.776,
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "82%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "count",
+      "face": "laugh",
+      "pose": "laugh",
+      "seed": 13
+     },
+     "role": "hero",
+     "start": 4.901,
+     "flipX": true,
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.35
+     }
+    }
+   ],
+   "notes": "On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.337,
+      "zoom": 1.08,
+      "x": "52%",
+      "y": "47%"
+     },
+     {
+      "t": 3.112,
+      "zoom": 1.16,
+      "x": "56%",
+      "y": "50%"
+     },
+     {
+      "t": 4.676,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 5.806,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "48%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.806,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 5.687,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "57%",
+     "y": "48%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.438,
+        "v": 0
+       },
+       {
+        "t": 0.938,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 1.413,
+        "v": 0
+       },
+       {
+        "t": 1.863,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 1.863,
+        "v": 0
+       },
+       {
+        "t": 2.313,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "drawer": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.5,
+        "v": 0
+       },
+       {
+        "t": 2.9,
+        "v": 1
+       }
+      ],
+      "candle": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.038,
+        "v": 0
+       },
+       {
+        "t": 3.525,
+        "v": 1
+       }
+      ],
+      "spin": 0.3
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "14%",
+     "y": 798,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "kempelen",
+      "face": "smug",
+      "pose": [
+       {
+        "t": 0,
+        "v": "point"
+       },
+       {
+        "t": 2.65,
+        "v": "holdHigh"
+       }
+      ],
+      "item": [
+       {
+        "t": 0,
+        "v": "none"
+       },
+       {
+        "t": 2.65,
+        "v": "candle"
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero"
+    }
+   ],
+   "notes": "So he opens the doors one by one and holds a candle behind them. Nothing but gears.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.413,
+      "zoom": 1.05,
+      "x": "52%",
+      "y": "52%"
+     },
+     {
+      "t": 3.038,
+      "zoom": 1.12,
+      "x": "48%",
+      "y": "54%"
+     },
+     {
+      "t": 4.492,
+      "zoom": 2.0,
+      "x": "38%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": 5.687,
+      "zoom": 2.1,
+      "x": "37%",
+      "y": "60%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.687,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 3.52,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "48%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "doorL": 1,
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.25,
+        "v": 0.5
+       }
+      ],
+      "tick": true,
+      "candle": 0.6,
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.65,
+        "v": 0
+       },
+       {
+        "t": 3.15,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "look": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.35,
+        "v": -0.8
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "86%",
+     "y": 955,
+     "width": 468,
+     "height": 546,
+     "props": {
+      "costume": "kempelen",
+      "face": "focus",
+      "pose": "wind",
+      "item": [
+       {
+        "t": 0,
+        "v": "none"
+       },
+       {
+        "t": 0.25,
+        "v": "key"
+       }
+      ],
+      "seed": 2
+     },
+     "role": "hero",
+     "flipX": true
+    }
+   ],
+   "notes": "He winds a key, the gears tick, and the Turk lifts its arm.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.3,
+      "x": "70%",
+      "y": "50%"
+     },
+     {
+      "t": 0.637,
+      "zoom": 1.3,
+      "x": "72%",
+      "y": "50%"
+     },
+     {
+      "t": 1.562,
+      "zoom": 1.9,
+      "x": "35%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": 2.35,
+      "zoom": 1.5,
+      "x": "45%",
+      "y": "35%",
+      "ease": "inOut"
+     },
+     {
+      "t": 3.52,
+      "zoom": 1.6,
+      "x": "48%",
+      "y": "33%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.52,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 3.846,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "26%",
+     "y": 925,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "count",
+      "face": [
+       {
+        "t": 0,
+        "v": "smug"
+       },
+       {
+        "t": 0.857,
+        "v": "worried"
+       }
+      ],
+      "pose": "hold",
+      "seated": true,
+      "seed": 13
+     },
+     "role": "hero",
+     "end": 1.57
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "72%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 1.182,
+        "v": 1
+       }
+      ],
+      "look": -0.8
+     },
+     "role": "hero",
+     "end": 1.57
+    },
+    {
+     "type": "component",
+     "name": "stick/Chess",
+     "x": "50%",
+     "y": "44%",
+     "width": 1300,
+     "height": 1040,
+     "props": {
+      "moves": [
+       {
+        "t": 1.57,
+        "from": "d8",
+        "to": "h4",
+        "hand": "turk",
+        "dur": 0.6
+       }
+      ],
+      "glow": "e1",
+      "glowAt": "@loses"
+     },
+     "start": 1.57,
+     "enter": {
+      "type": "fade",
+      "duration": 0.25
+     },
+     "end": 2.586,
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "26%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier",
+      "face": "shock",
+      "pose": "armsUp",
+      "seed": 11
+     },
+     "role": "hero",
+     "start": 2.586
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "74%",
+     "y": 932,
+     "width": 494,
+     "height": 576,
+     "props": {
+      "costume": "courtier2",
+      "face": "shock",
+      "pose": "stand",
+      "seed": 12
+     },
+     "role": "hero",
+     "start": 2.586,
+     "flipX": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "50%",
+     "y": 881,
+     "width": 442,
+     "height": 516,
+     "props": {
+      "costume": "empress",
+      "face": "shock",
+      "pose": "stand",
+      "seed": 4
+     },
+     "role": "hero",
+     "start": 2.736,
+     "enter": {
+      "type": "popSpring",
+      "duration": 0.3
+     }
+    }
+   ],
+   "notes": "The first count brave enough to play it loses. Nobody's laughing now.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall, Vienna",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.57,
+      "zoom": 1.05,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": 1.895,
+      "zoom": 1.12,
+      "x": "52%",
+      "y": "46%"
+     },
+     {
+      "t": 2.586,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 3.846,
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "48%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.846,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 3.826,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "salon"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "50%",
+     "width": 1300,
+     "height": 2311,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": 12,
+        "lat": 49,
+        "zoom": 4.2
+       },
+       {
+        "t": 1.575,
+        "lon": -30,
+        "lat": 46,
+        "zoom": 2.2
+       }
+      ],
+      "pins": [
+       {
+        "lon": 16.37,
+        "lat": 48.2,
+        "label": "VIENNA",
+        "at": 0
+       },
+       {
+        "lon": 2.35,
+        "lat": 48.85,
+        "label": "PARIS",
+        "at": 0.6
+       },
+       {
+        "lon": -0.12,
+        "lat": 51.5,
+        "label": "LONDON",
+        "at": 1.05
+       },
+       {
+        "lon": -74,
+        "lat": 40.7,
+        "label": "NEW YORK",
+        "at": 1.575
+       }
+      ]
+     },
+     "end": 2.186,
+     "role": "hero",
+     "exit": {
+      "type": "fade",
+      "at": 1.5859999999999999,
+      "duration": 0.6
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "16%",
+     "width": 586,
+     "height": 130,
+     "props": {
+      "text": "80 YEARS ON TOUR",
+      "at": 0.288,
+      "size": 46,
+      "out": 1.986
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "28%",
+     "y": 883,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "franklin",
+      "face": [
+       {
+        "t": 0,
+        "v": "focus"
+       },
+       {
+        "t": 3.194,
+        "v": "shock"
+       }
+      ],
+      "pose": "reach",
+      "seated": true,
+      "seed": 21
+     },
+     "role": "hero",
+     "start": 2.186
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "48%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "arm": [
+       {
+        "t": 0,
+        "v": 1
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.306,
+        "v": 1
+       }
+      ],
+      "look": -0.8
+     },
+     "role": "hero",
+     "start": 2.186
+    }
+   ],
+   "notes": "For eighty years the Turk tours the world. It beats Benjamin Franklin.",
+   "setting": [
+    {
+     "kind": "map",
+     "place": "Europe and America",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "depth": 0,
+     "waterline": null,
+     "biome": "home",
+     "place": "Paris salon",
+     "light": "day",
+     "at": 2.186
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.186,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 3.826,
+      "zoom": 1.1,
+      "x": "48%",
+      "y": "47%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.826,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 6.95,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hallNight"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "17%",
+     "width": 472,
+     "height": 130,
+     "props": {
+      "text": "VIENNA, 1809",
+      "at": 0.363,
+      "size": 46,
+      "out": 1.488
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "27%",
+     "y": 922,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "napoleon",
+      "face": "smug",
+      "pose": "handIn",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero",
+     "end": 1.288
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "look": -0.8
+     },
+     "role": "hero",
+     "end": 1.288
+    },
+    {
+     "type": "component",
+     "name": "stick/Chess",
+     "x": "50%",
+     "y": "44%",
+     "width": 1300,
+     "height": 1040,
+     "props": {
+      "moves": [
+       {
+        "t": 1.288,
+        "from": "d1",
+        "to": "h5",
+        "hand": "human",
+        "dur": 0.5
+       },
+       {
+        "t": 2.2,
+        "from": "h5",
+        "to": "d1",
+        "hand": "turk",
+        "dur": 0.5
+       },
+       {
+        "t": 3.487,
+        "from": "d1",
+        "to": "h5",
+        "hand": "human",
+        "dur": 0.35
+       },
+       {
+        "t": 3.907,
+        "from": "h5",
+        "to": "d1",
+        "hand": "turk",
+        "dur": 0.35
+       }
+      ],
+      "sweepAt": "@sweeps"
+     },
+     "start": 1.288,
+     "end": 4.391,
+     "enter": {
+      "type": "fade",
+      "duration": 0.2
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "27%",
+     "y": 922,
+     "width": 572,
+     "height": 667,
+     "props": {
+      "costume": "napoleon",
+      "face": [
+       {
+        "t": 0,
+        "v": "angry"
+       },
+       {
+        "t": 5.603,
+        "v": "shock"
+       }
+      ],
+      "pose": "reach",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero",
+     "start": 4.391
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "74%",
+     "y": "49%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "look": -0.8,
+      "sweepAt": "@sweeps",
+      "arm": 0
+     },
+     "role": "hero",
+     "start": 4.391
+    }
+   ],
+   "notes": "And when Napoleon tries to cheat, it puts his piece back. Twice. The third time, it sweeps every piece off the board.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall at night, 1809",
+    "light": "night",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 1.488,
+      "zoom": 1.04,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": 4.391,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 5.303,
+      "zoom": 1.12,
+      "x": "55%",
+      "y": "47%",
+      "ease": "backOut"
+     },
+     {
+      "t": 6.95,
+      "zoom": 1.16,
+      "x": "55%",
+      "y": "47%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.95,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 5.72,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "museum",
+     "fire": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 1.95,
+       "v": 0
+      },
+      {
+       "t": 2.388,
+       "v": 1,
+       "ease": "out"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "50%",
+     "y": "17%",
+     "width": 643,
+     "height": 130,
+     "props": {
+      "text": "PHILADELPHIA, 1854",
+      "at": 0.4,
+      "size": 46,
+      "out": 4.238
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0
+    },
+    {
+     "type": "component",
+     "name": "stick/Paper",
+     "x": "50%",
+     "y": "42%",
+     "width": 640,
+     "height": 823,
+     "props": {
+      "headline": "THE TURK'S\nSECRET",
+      "at": 4.238,
+      "masthead": "THE CHESS MONTHLY"
+     },
+     "start": 4.238,
+     "role": "prop",
+     "z": 20
+    }
+   ],
+   "notes": "Then in 1854, a fire burns the Turk to ash, and its secret finally comes out.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "town",
+    "place": "museum, Philadelphia",
+    "light": "night",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "52%"
+     },
+     {
+      "t": 1.95,
+      "zoom": 1.06,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 4.238,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "48%"
+     },
+     {
+      "t": 5.72,
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "45%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.72,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 1.44,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 0.478,
+        "v": 0
+       },
+       {
+        "t": 0.828,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "seat": 0.6,
+      "masterFace": "shock",
+      "doorL": 0
+     },
+     "role": "hero"
+    }
+   ],
+   "notes": "There was a man inside.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.25,
+      "x": "50%",
+      "y": "58%"
+     },
+     {
+      "t": 0.478,
+      "zoom": 1.3,
+      "x": "50%",
+      "y": "60%"
+     },
+     {
+      "t": 1.44,
+      "zoom": 1.55,
+      "x": "52%",
+      "y": "64%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 1.44,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 7.132,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": 1,
+      "xray": 1,
+      "masterFace": [
+       {
+        "t": 0,
+        "v": "focus"
+       },
+       {
+        "t": 4.154,
+        "v": "worried"
+       }
+      ],
+      "seat": [
+       {
+        "t": 0,
+        "v": 0.7
+       },
+       {
+        "t": 4.154,
+        "v": 0.7
+       },
+       {
+        "t": 5.329,
+        "v": 0.0
+       }
+      ],
+      "doorL": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.667,
+        "v": 0
+       },
+       {
+        "t": 3.267,
+        "v": 0
+       }
+      ],
+      "doorR": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.017,
+        "v": 0
+       },
+       {
+        "t": 3.267,
+        "v": 1
+       },
+       {
+        "t": 5.329,
+        "v": 1
+       },
+       {
+        "t": 5.779,
+        "v": 0
+       }
+      ],
+      "doorR2": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.017,
+        "v": 0
+       },
+       {
+        "t": 3.267,
+        "v": 1
+       },
+       {
+        "t": 5.329,
+        "v": 1
+       },
+       {
+        "t": 5.779,
+        "v": 0
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "30%",
+     "y": "40%",
+     "width": 444,
+     "height": 130,
+     "props": {
+      "text": "FALSE PANEL",
+      "at": 6.229,
+      "size": 46,
+      "leader": [
+       40,
+       170
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    }
+   ],
+   "notes": "A chess master, folded into the cabinet. When each door opened, he slid his seat to the other side, behind fake gears.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.45,
+      "x": "50%",
+      "y": "62%"
+     },
+     {
+      "t": 1.213,
+      "zoom": 1.6,
+      "x": "52%",
+      "y": "64%"
+     },
+     {
+      "t": 2.667,
+      "zoom": 1.25,
+      "x": "50%",
+      "y": "58%"
+     },
+     {
+      "t": 6.229,
+      "zoom": 1.4,
+      "x": "40%",
+      "y": "60%"
+     },
+     {
+      "t": 7.132,
+      "zoom": 1.45,
+      "x": "40%",
+      "y": "60%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.132,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  },
+  {
+   "id": "p12",
+   "duration": 4.415,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "45%",
+     "width": 1080,
+     "height": 1200,
+     "props": {
+      "cut": 1,
+      "seat": 0.7,
+      "masterFace": "focus",
+      "magnets": [
+       {
+        "t": 0.625,
+        "i": 2
+       },
+       {
+        "t": 1.262,
+        "i": 5
+       },
+       {
+        "t": 1.687,
+        "i": 3
+       },
+       {
+        "t": 2.025,
+        "i": 6
+       }
+      ],
+      "lever": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.95,
+        "v": 0
+       },
+       {
+        "t": 3.25,
+        "v": 1
+       }
+      ],
+      "arm": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.287,
+        "v": 0
+       },
+       {
+        "t": 4.05,
+        "v": 1,
+        "ease": "out"
+       }
+      ],
+      "reach": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.05,
+        "v": 0.6
+       }
+      ]
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "62%",
+     "y": "24%",
+     "width": 330,
+     "height": 130,
+     "props": {
+      "text": "MAGNETS",
+      "at": 0.15,
+      "size": 46,
+      "out": 2.95,
+      "leader": [
+       -20,
+       150
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "26%",
+     "y": "28%",
+     "width": 273,
+     "height": 130,
+     "props": {
+      "text": "LEVER",
+      "at": 2.95,
+      "size": 46,
+      "leader": [
+       60,
+       160
+      ]
+     },
+     "role": "label",
+     "z": 30,
+     "depth": 0,
+     "allowOverlap": true
+    }
+   ],
+   "notes": "Magnets under the board showed him every move, and a lever moved the Turk's hand.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "inside the cabinet (cutaway)",
+    "light": "day",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.6,
+      "x": "55%",
+      "y": "57%"
+     },
+     {
+      "t": 2.95,
+      "zoom": 1.25,
+      "x": "48%",
+      "y": "50%",
+      "ease": "inOut"
+     },
+     {
+      "t": 4.415,
+      "zoom": 1.3,
+      "x": "46%",
+      "y": "48%"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 4.415,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
+   }
+  },
+  {
+   "id": "p13",
+   "duration": 4.808,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hallNight"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "22%",
+     "y": 925,
+     "width": 546,
+     "height": 637,
+     "props": {
+      "costume": "napoleon",
+      "face": "frown",
+      "pose": "reach",
+      "seated": true,
+      "seed": 31
+     },
+     "role": "hero"
+    },
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "64%",
+     "y": "47%",
+     "width": 980,
+     "height": 1089,
+     "props": {
+      "cut": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.02,
+        "v": 0
+       },
+       {
+        "t": 2.42,
+        "v": 1
+       }
+      ],
+      "xray": 1,
+      "seat": 0.35,
+      "masterCandle": true,
+      "masterFace": "smug",
+      "arm": 1,
+      "reach": 0.3,
+      "candle": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.882,
+        "v": 0.8
+       }
+      ]
+     },
+     "role": "hero"
+    }
+   ],
+   "notes": "The robot that beat Napoleon was a man in a box, playing by candlelight.",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "Schönbrunn Palace hall at night, 1809",
+    "light": "night",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0,
+      "x": "50%",
+      "y": "50%"
+     },
+     {
+      "t": 2.02,
+      "zoom": 1.15,
+      "x": "58%",
+      "y": "56%"
+     },
+     {
+      "t": 3.257,
+      "zoom": 2.2,
+      "x": "56%",
+      "y": "60%",
+      "ease": "inOut"
+     },
+     {
+      "t": 4.808,
+      "zoom": 2.4,
+      "x": "55%",
+      "y": "60%"
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "He",
+    "start": 0.1,
+    "end": 0.188,
+    "br": true
+   },
+   {
+    "text": "built",
+    "start": 0.188,
+    "end": 0.475
+   },
+   {
+    "text": "a",
+    "start": 0.475,
+    "end": 0.6,
+    "br": true
+   },
+   {
+    "text": "chess",
+    "start": 0.6,
+    "end": 0.938
+   },
+   {
+    "text": "robot",
+    "start": 0.938,
+    "end": 1.425
+   },
+   {
+    "text": "that",
+    "start": 1.425,
+    "end": 1.55,
+    "br": true
+   },
+   {
+    "text": "could",
+    "start": 1.55,
+    "end": 1.738
+   },
+   {
+    "text": "beat",
+    "start": 1.738,
+    "end": 2.013
+   },
+   {
+    "text": "anyone,",
+    "start": 2.013,
+    "end": 2.85,
+    "br": true
+   },
+   {
+    "text": "and",
+    "start": 2.95,
+    "end": 3.062
+   },
+   {
+    "text": "before",
+    "start": 3.062,
+    "end": 3.487
+   },
+   {
+    "text": "every",
+    "start": 3.487,
+    "end": 3.825,
+    "br": true
+   },
+   {
+    "text": "game,",
+    "start": 3.825,
+    "end": 4.375
+   },
+   {
+    "text": "he",
+    "start": 4.45,
+    "end": 4.612,
+    "br": true
+   },
+   {
+    "text": "opened",
+    "start": 4.612,
+    "end": 4.938
+   },
+   {
+    "text": "it",
+    "start": 4.938,
+    "end": 5.013,
+    "br": true
+   },
+   {
+    "text": "up",
+    "start": 5.013,
+    "end": 5.2
+   },
+   {
+    "text": "to",
+    "start": 5.2,
+    "end": 5.338,
+    "br": true
+   },
+   {
+    "text": "prove",
+    "start": 5.338,
+    "end": 5.638
+   },
+   {
+    "text": "it",
+    "start": 5.638,
+    "end": 5.713,
+    "br": true
+   },
+   {
+    "text": "was",
+    "start": 5.713,
+    "end": 5.888
+   },
+   {
+    "text": "empty.",
+    "start": 5.888,
+    "end": 6.41,
+    "emph": true
+   },
+   {
+    "text": "You",
+    "start": 6.56,
+    "end": 6.71,
+    "br": true
+   },
+   {
+    "text": "see,",
+    "start": 6.71,
+    "end": 7.06
+   },
+   {
+    "text": "it's",
+    "start": 7.135,
+    "end": 7.322,
+    "br": true
+   },
+   {
+    "text": "1770,",
+    "start": 7.322,
+    "end": 8.735
+   },
+   {
+    "text": "and",
+    "start": 8.86,
+    "end": 8.973,
+    "br": true
+   },
+   {
+    "text": "an",
+    "start": 8.973,
+    "end": 9.06
+   },
+   {
+    "text": "inventor",
+    "start": 9.06,
+    "end": 9.635
+   },
+   {
+    "text": "has",
+    "start": 9.635,
+    "end": 9.835,
+    "br": true
+   },
+   {
+    "text": "just",
+    "start": 9.835,
+    "end": 10.122
+   },
+   {
+    "text": "rolled",
+    "start": 10.122,
+    "end": 10.535
+   },
+   {
+    "text": "a",
+    "start": 10.535,
+    "end": 10.648,
+    "br": true
+   },
+   {
+    "text": "wooden",
+    "start": 10.648,
+    "end": 10.997
+   },
+   {
+    "text": "cabinet",
+    "start": 10.997,
+    "end": 11.535
+   },
+   {
+    "text": "into",
+    "start": 11.535,
+    "end": 11.747,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 11.747,
+    "end": 11.898
+   },
+   {
+    "text": "Empress's",
+    "start": 11.898,
+    "end": 12.497
+   },
+   {
+    "text": "palace",
+    "start": 12.497,
+    "end": 13.01,
+    "br": true
+   },
+   {
+    "text": "in",
+    "start": 13.01,
+    "end": 13.16
+   },
+   {
+    "text": "Vienna.",
+    "start": 13.16,
+    "end": 13.65
+   },
+   {
+    "text": "On",
+    "start": 13.8,
+    "end": 13.95,
+    "br": true
+   },
+   {
+    "text": "top",
+    "start": 13.95,
+    "end": 14.25
+   },
+   {
+    "text": "sits",
+    "start": 14.25,
+    "end": 14.475,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 14.475,
+    "end": 14.575
+   },
+   {
+    "text": "life-size",
+    "start": 14.575,
+    "end": 15.212
+   },
+   {
+    "text": "wooden",
+    "start": 15.212,
+    "end": 15.525,
+    "br": true
+   },
+   {
+    "text": "man",
+    "start": 15.525,
+    "end": 15.812,
+    "emph": true
+   },
+   {
+    "text": "in",
+    "start": 15.812,
+    "end": 15.887,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 15.887,
+    "end": 15.987
+   },
+   {
+    "text": "turban,",
+    "start": 15.987,
+    "end": 16.625
+   },
+   {
+    "text": "staring",
+    "start": 16.762,
+    "end": 17.25,
+    "br": true
+   },
+   {
+    "text": "at",
+    "start": 17.25,
+    "end": 17.337,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 17.337,
+    "end": 17.412
+   },
+   {
+    "text": "chessboard.",
+    "start": 17.412,
+    "end": 18.35
+   },
+   {
+    "text": "The",
+    "start": 18.256,
+    "end": 18.326,
+    "br": true
+   },
+   {
+    "text": "whole",
+    "start": 18.326,
+    "end": 18.551
+   },
+   {
+    "text": "court",
+    "start": 18.551,
+    "end": 18.851,
+    "br": true
+   },
+   {
+    "text": "laughs.",
+    "start": 18.851,
+    "end": 19.456,
+    "emph": true
+   },
+   {
+    "text": "So",
+    "start": 19.606,
+    "end": 19.744,
+    "br": true
+   },
+   {
+    "text": "he",
+    "start": 19.744,
+    "end": 19.894
+   },
+   {
+    "text": "opens",
+    "start": 19.894,
+    "end": 20.306
+   },
+   {
+    "text": "the",
+    "start": 20.306,
+    "end": 20.444,
+    "br": true
+   },
+   {
+    "text": "doors",
+    "start": 20.444,
+    "end": 20.869
+   },
+   {
+    "text": "one",
+    "start": 20.869,
+    "end": 21.106,
+    "br": true
+   },
+   {
+    "text": "by",
+    "start": 21.106,
+    "end": 21.319
+   },
+   {
+    "text": "one",
+    "start": 21.319,
+    "end": 21.956
+   },
+   {
+    "text": "and",
+    "start": 21.956,
+    "end": 22.106
+   },
+   {
+    "text": "holds",
+    "start": 22.106,
+    "end": 22.394
+   },
+   {
+    "text": "a",
+    "start": 22.394,
+    "end": 22.494,
+    "br": true
+   },
+   {
+    "text": "candle",
+    "start": 22.494,
+    "end": 22.981
+   },
+   {
+    "text": "behind",
+    "start": 22.981,
+    "end": 23.431,
+    "br": true
+   },
+   {
+    "text": "them.",
+    "start": 23.431,
+    "end": 23.981
+   },
+   {
+    "text": "Nothing",
+    "start": 23.948,
+    "end": 24.323,
+    "br": true
+   },
+   {
+    "text": "but",
+    "start": 24.323,
+    "end": 24.498
+   },
+   {
+    "text": "gears.",
+    "start": 24.498,
+    "end": 25.143
+   },
+   {
+    "text": "He",
+    "start": 25.293,
+    "end": 25.393,
+    "br": true
+   },
+   {
+    "text": "winds",
+    "start": 25.393,
+    "end": 25.68
+   },
+   {
+    "text": "a",
+    "start": 25.68,
+    "end": 25.78,
+    "br": true
+   },
+   {
+    "text": "key,",
+    "start": 25.78,
+    "end": 26.118
+   },
+   {
+    "text": "the",
+    "start": 26.193,
+    "end": 26.318,
+    "br": true
+   },
+   {
+    "text": "gears",
+    "start": 26.318,
+    "end": 26.705
+   },
+   {
+    "text": "tick,",
+    "start": 26.705,
+    "end": 27.193
+   },
+   {
+    "text": "and",
+    "start": 27.293,
+    "end": 27.405,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 27.405,
+    "end": 27.493
+   },
+   {
+    "text": "Turk",
+    "start": 27.493,
+    "end": 27.793
+   },
+   {
+    "text": "lifts",
+    "start": 27.793,
+    "end": 28.08,
+    "br": true
+   },
+   {
+    "text": "its",
+    "start": 28.08,
+    "end": 28.28
+   },
+   {
+    "text": "arm.",
+    "start": 28.28,
+    "end": 28.663
+   },
+   {
+    "text": "The",
+    "start": 28.813,
+    "end": 28.895,
+    "br": true
+   },
+   {
+    "text": "first",
+    "start": 28.895,
+    "end": 29.208
+   },
+   {
+    "text": "count",
+    "start": 29.208,
+    "end": 29.52
+   },
+   {
+    "text": "brave",
+    "start": 29.52,
+    "end": 29.845,
+    "br": true
+   },
+   {
+    "text": "enough",
+    "start": 29.845,
+    "end": 30.133
+   },
+   {
+    "text": "to",
+    "start": 30.133,
+    "end": 30.233,
+    "br": true
+   },
+   {
+    "text": "play",
+    "start": 30.233,
+    "end": 30.47
+   },
+   {
+    "text": "it",
+    "start": 30.47,
+    "end": 30.558,
+    "br": true
+   },
+   {
+    "text": "loses.",
+    "start": 30.558,
+    "end": 31.358
+   },
+   {
+    "text": "Nobody's",
+    "start": 31.249,
+    "end": 31.774,
+    "br": true
+   },
+   {
+    "text": "laughing",
+    "start": 31.774,
+    "end": 32.199
+   },
+   {
+    "text": "now.",
+    "start": 32.199,
+    "end": 32.509
+   },
+   {
+    "text": "For",
+    "start": 32.659,
+    "end": 32.797,
+    "br": true
+   },
+   {
+    "text": "eighty",
+    "start": 32.797,
+    "end": 33.109
+   },
+   {
+    "text": "years",
+    "start": 33.109,
+    "end": 33.459
+   },
+   {
+    "text": "the",
+    "start": 33.459,
+    "end": 33.559,
+    "br": true
+   },
+   {
+    "text": "Turk",
+    "start": 33.559,
+    "end": 33.859
+   },
+   {
+    "text": "tours",
+    "start": 33.859,
+    "end": 33.997,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 33.997,
+    "end": 34.084
+   },
+   {
+    "text": "world.",
+    "start": 34.084,
+    "end": 34.759
+   },
+   {
+    "text": "It",
+    "start": 34.695,
+    "end": 34.815,
+    "br": true
+   },
+   {
+    "text": "beats",
+    "start": 34.815,
+    "end": 35.153
+   },
+   {
+    "text": "Benjamin",
+    "start": 35.153,
+    "end": 35.703,
+    "br": true
+   },
+   {
+    "text": "Franklin.",
+    "start": 35.703,
+    "end": 36.335
+   },
+   {
+    "text": "And",
+    "start": 36.485,
+    "end": 36.573,
+    "br": true
+   },
+   {
+    "text": "when",
+    "start": 36.573,
+    "end": 36.698
+   },
+   {
+    "text": "Napoleon",
+    "start": 36.698,
+    "end": 37.335,
+    "emph": true,
+    "br": true
+   },
+   {
+    "text": "tries",
+    "start": 37.335,
+    "end": 37.685
+   },
+   {
+    "text": "to",
+    "start": 37.685,
+    "end": 37.823,
+    "br": true
+   },
+   {
+    "text": "cheat,",
+    "start": 37.823,
+    "end": 38.31,
+    "emph": true
+   },
+   {
+    "text": "it",
+    "start": 38.41,
+    "end": 38.535,
+    "br": true
+   },
+   {
+    "text": "puts",
+    "start": 38.535,
+    "end": 38.748
+   },
+   {
+    "text": "his",
+    "start": 38.748,
+    "end": 38.923,
+    "br": true
+   },
+   {
+    "text": "piece",
+    "start": 38.923,
+    "end": 39.26
+   },
+   {
+    "text": "back.",
+    "start": 39.26,
+    "end": 39.86
+   },
+   {
+    "text": "Twice.",
+    "start": 39.822,
+    "end": 40.442,
+    "br": true
+   },
+   {
+    "text": "The",
+    "start": 40.638,
+    "end": 40.726,
+    "br": true
+   },
+   {
+    "text": "third",
+    "start": 40.726,
+    "end": 41.013
+   },
+   {
+    "text": "time,",
+    "start": 41.013,
+    "end": 41.463
+   },
+   {
+    "text": "it",
+    "start": 41.538,
+    "end": 41.638,
+    "br": true
+   },
+   {
+    "text": "sweeps",
+    "start": 41.638,
+    "end": 41.976,
+    "emph": true
+   },
+   {
+    "text": "every",
+    "start": 41.976,
+    "end": 42.301,
+    "br": true
+   },
+   {
+    "text": "piece",
+    "start": 42.301,
+    "end": 42.613
+   },
+   {
+    "text": "off",
+    "start": 42.613,
+    "end": 42.801,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 42.801,
+    "end": 42.888
+   },
+   {
+    "text": "board.",
+    "start": 42.888,
+    "end": 43.285
+   },
+   {
+    "text": "Then",
+    "start": 43.435,
+    "end": 43.56,
+    "br": true
+   },
+   {
+    "text": "in",
+    "start": 43.56,
+    "end": 43.685
+   },
+   {
+    "text": "1854,",
+    "start": 43.685,
+    "end": 44.96
+   },
+   {
+    "text": "a",
+    "start": 45.098,
+    "end": 45.235,
+    "br": true
+   },
+   {
+    "text": "fire",
+    "start": 45.235,
+    "end": 45.673,
+    "emph": true
+   },
+   {
+    "text": "burns",
+    "start": 45.673,
+    "end": 46.023,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 46.023,
+    "end": 46.11
+   },
+   {
+    "text": "Turk",
+    "start": 46.11,
+    "end": 46.41
+   },
+   {
+    "text": "to",
+    "start": 46.41,
+    "end": 46.548,
+    "br": true
+   },
+   {
+    "text": "ash,",
+    "start": 46.548,
+    "end": 47.16
+   },
+   {
+    "text": "and",
+    "start": 47.285,
+    "end": 47.398,
+    "br": true
+   },
+   {
+    "text": "its",
+    "start": 47.398,
+    "end": 47.523
+   },
+   {
+    "text": "secret",
+    "start": 47.523,
+    "end": 47.973
+   },
+   {
+    "text": "finally",
+    "start": 47.973,
+    "end": 48.41,
+    "br": true
+   },
+   {
+    "text": "comes",
+    "start": 48.41,
+    "end": 48.735
+   },
+   {
+    "text": "out.",
+    "start": 48.735,
+    "end": 49.005
+   },
+   {
+    "text": "There",
+    "start": 49.155,
+    "end": 49.258,
+    "br": true
+   },
+   {
+    "text": "was",
+    "start": 49.258,
+    "end": 49.383
+   },
+   {
+    "text": "a",
+    "start": 49.383,
+    "end": 49.483
+   },
+   {
+    "text": "man",
+    "start": 49.483,
+    "end": 49.87
+   },
+   {
+    "text": "inside.",
+    "start": 49.87,
+    "end": 50.445,
+    "br": true
+   },
+   {
+    "text": "A",
+    "start": 50.595,
+    "end": 50.683,
+    "br": true
+   },
+   {
+    "text": "chess",
+    "start": 50.683,
+    "end": 50.97
+   },
+   {
+    "text": "master,",
+    "start": 50.97,
+    "end": 51.545
+   },
+   {
+    "text": "folded",
+    "start": 51.658,
+    "end": 52.083,
+    "br": true
+   },
+   {
+    "text": "into",
+    "start": 52.083,
+    "end": 52.258
+   },
+   {
+    "text": "the",
+    "start": 52.258,
+    "end": 52.345
+   },
+   {
+    "text": "cabinet.",
+    "start": 52.345,
+    "end": 53.17
+   },
+   {
+    "text": "When",
+    "start": 53.112,
+    "end": 53.212,
+    "br": true
+   },
+   {
+    "text": "each",
+    "start": 53.212,
+    "end": 53.462
+   },
+   {
+    "text": "door",
+    "start": 53.462,
+    "end": 53.712
+   },
+   {
+    "text": "opened,",
+    "start": 53.712,
+    "end": 54.337,
+    "br": true
+   },
+   {
+    "text": "he",
+    "start": 54.437,
+    "end": 54.599
+   },
+   {
+    "text": "slid",
+    "start": 54.599,
+    "end": 54.874
+   },
+   {
+    "text": "his",
+    "start": 54.874,
+    "end": 55.024,
+    "br": true
+   },
+   {
+    "text": "seat",
+    "start": 55.024,
+    "end": 55.262
+   },
+   {
+    "text": "to",
+    "start": 55.262,
+    "end": 55.349,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 55.349,
+    "end": 55.487
+   },
+   {
+    "text": "other",
+    "start": 55.487,
+    "end": 55.774
+   },
+   {
+    "text": "side,",
+    "start": 55.774,
+    "end": 56.187
+   },
+   {
+    "text": "behind",
+    "start": 56.224,
+    "end": 56.674,
+    "br": true
+   },
+   {
+    "text": "fake",
+    "start": 56.674,
+    "end": 56.962
+   },
+   {
+    "text": "gears.",
+    "start": 56.962,
+    "end": 57.552
+   },
+   {
+    "text": "Magnets",
+    "start": 57.727,
+    "end": 58.202,
+    "emph": true,
+    "br": true
+   },
+   {
+    "text": "under",
+    "start": 58.202,
+    "end": 58.389
+   },
+   {
+    "text": "the",
+    "start": 58.389,
+    "end": 58.477,
+    "br": true
+   },
+   {
+    "text": "board",
+    "start": 58.477,
+    "end": 58.839
+   },
+   {
+    "text": "showed",
+    "start": 58.839,
+    "end": 59.089
+   },
+   {
+    "text": "him",
+    "start": 59.089,
+    "end": 59.264,
+    "br": true
+   },
+   {
+    "text": "every",
+    "start": 59.264,
+    "end": 59.602
+   },
+   {
+    "text": "move,",
+    "start": 59.602,
+    "end": 60.227
+   },
+   {
+    "text": "and",
+    "start": 60.327,
+    "end": 60.439,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 60.439,
+    "end": 60.527
+   },
+   {
+    "text": "lever",
+    "start": 60.527,
+    "end": 60.864,
+    "emph": true
+   },
+   {
+    "text": "moved",
+    "start": 60.864,
+    "end": 61.189
+   },
+   {
+    "text": "the",
+    "start": 61.189,
+    "end": 61.277,
+    "br": true
+   },
+   {
+    "text": "Turk's",
+    "start": 61.277,
+    "end": 61.627
+   },
+   {
+    "text": "hand.",
+    "start": 61.627,
+    "end": 61.992
+   },
+   {
+    "text": "The",
+    "start": 62.142,
+    "end": 62.237,
+    "br": true
+   },
+   {
+    "text": "robot",
+    "start": 62.237,
+    "end": 62.687
+   },
+   {
+    "text": "that",
+    "start": 62.687,
+    "end": 62.899,
+    "br": true
+   },
+   {
+    "text": "beat",
+    "start": 62.899,
+    "end": 63.137
+   },
+   {
+    "text": "Napoleon",
+    "start": 63.137,
+    "end": 63.787
+   },
+   {
+    "text": "was",
+    "start": 63.787,
+    "end": 63.924,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 63.924,
+    "end": 64.012
+   },
+   {
+    "text": "man",
+    "start": 64.012,
+    "end": 64.299
+   },
+   {
+    "text": "in",
+    "start": 64.299,
+    "end": 64.374,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 64.374,
+    "end": 64.474
+   },
+   {
+    "text": "box,",
+    "start": 64.474,
+    "end": 65.137
+   },
+   {
+    "text": "playing",
+    "start": 65.249,
+    "end": 65.687
+   },
+   {
+    "text": "by",
+    "start": 65.687,
+    "end": 65.874,
+    "br": true
+   },
+   {
+    "text": "candlelight.",
+    "start": 65.874,
+    "end": 66.512
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 20,
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#fff2c0",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "strokeColor": "#0b2c3a",
+   "uppercase": true,
+   "y": 0.72
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/story-chess-turk/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 66.8
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "pipeline/episodes/auto.py (shots.json)",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/story-chess-turk/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
+ }
+}

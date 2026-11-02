@@ -1,0 +1,259 @@
+{
+ "version": 1,
+ "id": "lookdev",
+ "title": "stick lookdev",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "a",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "hall"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "58%",
+     "y": "52%",
+     "width": 760,
+     "height": 844,
+     "props": {
+      "doorL": 1,
+      "doorR": 0.6,
+      "candle": 1,
+      "spin": 0.3,
+      "arm": 0.5
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "20%",
+     "y": "56%",
+     "width": 420,
+     "height": 490,
+     "props": {
+      "costume": "kempelen",
+      "face": "smug",
+      "pose": "holdHigh",
+      "item": "candle"
+     }
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "hallNight"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "25%",
+     "y": "55%",
+     "width": 380,
+     "height": 443,
+     "props": {
+      "costume": "napoleon",
+      "face": "angry",
+      "pose": "handIn"
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "72%",
+     "y": "55%",
+     "width": 380,
+     "height": 443,
+     "flipX": true,
+     "props": {
+      "costume": "empress",
+      "face": "laugh",
+      "pose": "laugh"
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "50%",
+     "y": "60%",
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "franklin",
+      "face": "shock",
+      "pose": "armsUp"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "facade"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "35%",
+     "y": "62%",
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "courtier",
+      "face": "grin",
+      "pose": "point"
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "65%",
+     "y": "62%",
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "courtier2",
+      "face": "worried",
+      "pose": "shrug"
+     }
+    },
+    {
+     "type": "component",
+     "name": "stick/Person",
+     "x": "50%",
+     "y": "40%",
+     "width": 300,
+     "height": 350,
+     "props": {
+      "costume": "count",
+      "face": "frown",
+      "pose": "hips"
+     }
+    }
+   ]
+  },
+  {
+   "id": "d",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "museum",
+     "fire": 1
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Paper",
+     "x": "50%",
+     "y": "40%",
+     "width": 560,
+     "height": 720,
+     "props": {
+      "headline": "THE TURK'S\nSECRET",
+      "at": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "e",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "blueprint"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Turk",
+     "x": "50%",
+     "y": "40%",
+     "width": 1000,
+     "height": 1111,
+     "props": {
+      "cut": 1,
+      "seat": 0.6,
+      "lever": 1,
+      "masterCandle": true,
+      "magnets": [
+       {
+        "t": 0,
+        "i": 3
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "f",
+   "duration": 1,
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "props": {
+     "place": "salon"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "stick/Chess",
+     "x": "50%",
+     "y": "45%",
+     "width": 1000,
+     "height": 800,
+     "props": {
+      "moves": [
+       {
+        "t": 0.0,
+        "from": "e5",
+        "to": "e4",
+        "hand": "turk",
+        "dur": 1.2
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "captions": {
+  "enabled": false,
+  "words": []
+ },
+ "audio": {
+  "music": [],
+  "sfx": [],
+  "voice": []
+ },
+ "overlays": {
+  "grain": 0
+ }
+}
