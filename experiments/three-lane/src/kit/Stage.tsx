@@ -24,6 +24,8 @@ import type { SetBuild } from "./sets";
 export type V3 = [number, number, number];
 export type PersonSpec = {
   id: string; flip?: boolean; scale?: number;
+  /** false: a flat card facing +z turned by yaw (a portrait, a sign), no contact shadow */
+  billboard?: boolean; yaw?: number;
   at: (t: number) => V3;
   props: (t: number) => Record<string, unknown>;
   visible?: (t: number) => boolean;
@@ -67,7 +69,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     root.add(set.root);
     const cards: CardRec[] = [];
     const people = g.people.map((p) => {
-      const rec = personCard((t) => (p.visible && !p.visible(t) ? null : p.props(t)), { flip: p.flip, scale: p.scale });
+      const rec = personCard((t) => (p.visible && !p.visible(t) ? null : p.props(t)), { flip: p.flip, scale: p.scale, billboard: p.billboard,
+        contact: p.billboard === false ? 0 : undefined });
       root.add(rec.card.group); cards.push(rec); return rec;
     });
     const ctx: Ctx = { root, set, addCard: (c) => cards.push(c) };
@@ -102,7 +105,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const rec = world.people[i];
     rec.card.visible = p.visible ? p.visible(t) : true;
     const [x, y, z] = p.at(t);
-    rec.card.place(x, y, z, cam);
+    rec.card.place(x, y, z, cam, p.yaw ?? 0);
     rec.card.char = p.char ? p.char(t) : 0;
   });
   for (const r of world.rigs) r(t, cam);

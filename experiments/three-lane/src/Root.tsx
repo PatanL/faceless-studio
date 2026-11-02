@@ -19,11 +19,16 @@ export const Root: React.FC = () => (
       calculateMetadata={({ props }) => {
         try { return { durationInFrames: sceneTimings(parseStoryboard(props)).totalFrames }; } catch { return {}; }
       }} />
-    {/* story-vasa v1: props = episodes/story-vasa/storyboard.json */}
+    {/* story-vasa: props = episodes/story-vasa/storyboard.json; the video ends 0.4 s after the last spoken word */}
     <Composition id="Vasa3D" component={Vasa3D} width={1080} height={1920} fps={30} durationInFrames={1770}
       defaultProps={{} as never}
       calculateMetadata={({ props }) => {
-        try { return { durationInFrames: sceneTimings(parseStoryboard(props)).totalFrames }; } catch { return {}; }
+        try {
+          const sb = parseStoryboard(props);
+          const ws = sb.captions?.words ?? [];
+          const end = ws.length ? Math.ceil((ws[ws.length - 1].end + 0.4) * 30) : sceneTimings(sb).totalFrames;
+          return { durationInFrames: Math.min(end, sceneTimings(sb).totalFrames) };
+        } catch { return {}; }
       }} />
     <Composition id="GLInfo" component={GLInfo} width={1080} height={1920} fps={30} durationInFrames={1} />
   </>
