@@ -5,6 +5,7 @@
 # usage (on the Mac, in your own terminal):
 #   scripts/set_secret.sh                 # Buffer setup: API key, then lists your channel ids and asks for them
 #   scripts/set_secret.sh NAME [NAME...]  # set specific variables, e.g. scripts/set_secret.sh IG_ACCESS_TOKEN
+#   scripts/set_secret.sh --clipboard NAME  # set NAME from the Mac clipboard without showing it
 #
 # Values are sent over ssh on stdin to a small Python writer on the Spark that replaces or appends NAME=value.
 set -euo pipefail
@@ -58,6 +59,13 @@ ask() {  # $1 = name, $2 = hidden (1) or shown (0)
 }
 
 hidden_for() { case "$1" in *KEY*|*TOKEN*|*SECRET*|*PASSWORD*) echo 1 ;; *) echo 0 ;; esac; }
+
+if [ "${1:-}" = "--clipboard" ] && [ -n "${2:-}" ]; then  # value = what's on the Mac clipboard (never shown)
+  v=$(pbpaste)
+  [ -n "$v" ] || { echo "clipboard is empty"; exit 1; }
+  write_var "$2" "$v"
+  exit 0
+fi
 
 if [ $# -gt 0 ]; then
   for n in "$@"; do ask "$n" "$(hidden_for "$n")"; done
