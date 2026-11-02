@@ -39,3 +39,8 @@ Owner is leaning toward Rick's Clips / Zack D. Films / Kurzgesagt-Shorts topics,
 - **Look:** simple round-head stick-figure characters (dot eyes, small expressive mouths, thin line limbs, period hats and costumes) placed into rich, colourful 3D-rendered or painted environments (castles, rail yards, canyons), with fast camera moves, one or two words of caption at a time, and a narrator.
 - **Code fit:** the characters are the easiest thing we could build (simpler than the orca). The sets are the heavy part: our flat style A sets, or Codex-generated background plates animated with parallax and camera moves (stills, not video).
 - Frames: ~/studio/refs/ig/ricks_*.webm and ricks_*.jpg on the Spark.
+
+## Owner note: couples niche (2026-11-01)
+
+- The owner already covers relatable couples content a little on their Harry Potter AI shipping account, so this studio doesn't need to start there.
+- For the future: a **cartoon-style** couples/relatable channel could reach a broader audience than a fandom-specific one (relatable to everyone, not just Harry Potter fans). Parked, not planned.
