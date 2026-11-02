@@ -14,6 +14,13 @@ GOAL 2: grow the channel. Keep testing lanes until one video reaches 10K views, 
 3. LEARNING: references are evidence too: for each lane, compare the reference channels' outliers with their own ordinary videos to extract first principles (hook, premise, pacing, length, payoff), and feed them into the workflow prompts. Log every posted Short as an experiment in docs/EXPERIMENTS.md (variable tested, expectation, then 48 h / 7 d numbers). When posted videos have data (data/inbox/ screenshots or CSVs, or the analytics APIs once connected), find where viewers drop off and feed the lessons into FEEDBACK.md principles (general, not incidents) and the workflow prompts.
 4. POSTING: when a Short is finished, send it with its caption and ask the owner; publish to Instagram and YouTube through pipeline/publish only after the owner says yes in chat.
 
+PARITY TRACKS (owner, 2026-11-02): one owner per part of RicksClips parity. Each owns its own files, so two agents never edit the same ones. Keep these running, restart one when it finishes, and route each track's output to the integrator.
+- TOPIC: catalog scoring (hits vs ordinary) and a fact-checked queue of 10 topics. Owns research/library/STORY_TOPIC_QUEUE.md and the story-lane findings it adds to LANE_PRINCIPLES.md.
+- SCRIPT AND PACING: beat maps of the 24 references, research/library/STORY_SCRIPT_SPEC.md, pipeline/qa/script_judge.py, drafts in research/library/drafts/.
+- VISUALS: the 3D story kit (experiments/three-lane), working through research/library/RICKSCLIPS_RULEBOOK.md (from the every-frame 30 fps study of 24 Shorts) gap by gap, each fix measured.
+- SOUND: research/music/RICKS_SOUND.md and the "story_ricks" audio profile in pipeline/audio. Existing defaults stay as they are.
+- INTEGRATOR (story agent): builds each episode from the tracks' outputs and runs the every-frame review, the measurements and the blind panel (PARITY.md). Owns episodes/story-*.
+
 RULES:
 - Never publish or schedule anything without the owner's yes in chat for that video.
 - Heavy work runs on the Mac (owner, 2026-11-02, after the Spark hit 89 °C): Remotion renders (RENDER_SLOT=mac scripts/render.sh; the Mac GPU is allowed, e.g. --gl=angle), every-frame sheets and measurement batches, all niced and one render at a time. The DGX Spark gets only light jobs (TTS, ffprobe), CPU only (never the GPU), nice -n 10, one at a time, and nothing while its hottest thermal zone (/sys/class/thermal/thermal_zone*/temp) is above 80 °C.
