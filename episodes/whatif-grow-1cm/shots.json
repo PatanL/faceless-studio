@@ -51,14 +51,14 @@
       },
       {
        "t": "@hits",
-       "v": 65,
+       "v": 60,
        "ease": "linear"
       }
      ],
      "items": [
       {
        "kind": "room",
-       "ceiling": 2.4,
+       "ceiling": 2.35,
        "at": "@hits"
       }
      ],
@@ -143,7 +143,17 @@
        "v": 0.97
       }
      ],
-     "clockScale": "lin"
+     "clockScale": "lin",
+     "shake": [
+      {
+       "at": "@hits",
+       "duration": 0.45,
+       "amplitude": 16,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -165,26 +175,15 @@
        },
        {
         "t": "@hits",
-        "v": 65,
+        "v": 60,
         "ease": "linear"
        }
       ],
+      "ff": true,
       "clockScale": "lin"
      }
     }
    ],
-   "camera": {
-    "shake": [
-     {
-      "at": "@hits",
-      "duration": 0.45,
-      "amplitude": 16,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     }
-    ]
-   },
    "_house": {
     "set": false
    }
@@ -441,7 +440,7 @@
        "kind": "level",
        "alt": 33,
        "text": "10 FLOORS",
-       "at": "@ten-storey",
+       "at": "@taller",
        "color": "amber-4"
       },
       {
@@ -478,12 +477,12 @@
        "ease": "inOut"
       },
       {
-       "t": "@taller",
+       "t": "@you're",
        "v": 1.1
       },
       {
        "t": "@building",
-       "v": 1.2
+       "v": 1.22
       },
       {
        "t": "@building.end",
@@ -618,7 +617,7 @@
       },
       {
        "kind": "block",
-       "x": 34,
+       "x": 24,
        "w": 16,
        "floors": 10,
        "color": "violet-2",
@@ -823,43 +822,19 @@
        "v": 1.3
       },
       {
-       "t": "@bones",
-       "v": 1.32
-      },
-      {
-       "t": "@stronger",
-       "v": 1.64,
-       "ease": "inOut"
+       "t": "@:end",
+       "v": 1.36
       }
      ],
-     "gy": [
-      {
-       "t": 0,
-       "v": 0.71
-      },
-      {
-       "t": "@bones",
-       "v": 0.71
-      },
-      {
-       "t": "@stronger",
-       "v": 0.64,
-       "ease": "inOut"
-      }
-     ],
+     "gy": 0.665,
      "cx": [
       {
        "t": 0,
        "v": 0.5
       },
       {
-       "t": "@bones",
-       "v": 0.5
-      },
-      {
-       "t": "@stronger",
-       "v": 0.4,
-       "ease": "inOut"
+       "t": "@:end",
+       "v": 0.47
       }
      ],
      "face": [
@@ -897,7 +872,17 @@
        "@eight",
        "@bones"
       ]
-     }
+     },
+     "shake": [
+      {
+       "at": "@heavier",
+       "duration": 0.35,
+       "amplitude": 8,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -925,18 +910,6 @@
      }
     }
    ],
-   "camera": {
-    "shake": [
-     {
-      "at": "@heavier",
-      "duration": 0.35,
-      "amplitude": 8,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     }
-    ]
-   },
    "_house": {
     "set": false
    },
@@ -1222,8 +1195,17 @@
        "v": 1.72
       },
       {
-       "t": "@keep",
+       "t": "@and",
        "v": 1.72
+      },
+      {
+       "t": "@knees",
+       "v": 1.68,
+       "ease": "inOut"
+      },
+      {
+       "t": "@keep",
+       "v": 1.68
       },
       {
        "t": "@:end",
@@ -1237,13 +1219,17 @@
        "v": 0.62
       },
       {
-       "t": "@keep",
+       "t": "@and",
        "v": 0.62
       },
       {
-       "t": "@:end",
+       "t": "@knees",
        "v": 0.66,
-       "ease": "in"
+       "ease": "inOut"
+      },
+      {
+       "t": "@keep",
+       "v": 0.66
       }
      ],
      "cx": [
@@ -1252,13 +1238,46 @@
        "v": 0.36
       },
       {
-       "t": "@keep",
+       "t": "@and",
        "v": 0.36
+      },
+      {
+       "t": "@knees",
+       "v": 0.5,
+       "ease": "inOut"
+      },
+      {
+       "t": "@keep",
+       "v": 0.5
       },
       {
        "t": "@:end",
        "v": 0.45,
        "ease": "inOut"
+      }
+     ],
+     "fold": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": "@fold",
+       "v": 0
+      },
+      {
+       "t": "@here",
+       "v": 1,
+       "ease": "out"
+      },
+      {
+       "t": "@don't",
+       "v": 1
+      },
+      {
+       "t": "@don't+0.35",
+       "v": 0,
+       "ease": "backOut"
       }
      ],
      "sy": [
@@ -1298,6 +1317,24 @@
        "at": "@don't",
        "face": "smile"
       }
+     ],
+     "shake": [
+      {
+       "at": "@cracks",
+       "duration": 0.5,
+       "amplitude": 18,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      },
+      {
+       "at": "@don't",
+       "duration": 0.3,
+       "amplitude": 6,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
      ]
     }
    },
@@ -1331,26 +1368,6 @@
      }
     }
    ],
-   "camera": {
-    "shake": [
-     {
-      "at": "@cracks",
-      "duration": 0.5,
-      "amplitude": 18,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     },
-     {
-      "at": "@don't",
-      "duration": 0.3,
-      "amplitude": 6,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     }
-    ]
-   },
    "_house": {
     "set": false
    },
@@ -1378,11 +1395,16 @@
      "clock": [
       {
        "t": 0,
-       "v": 32400
+       "v": 30700
+      },
+      {
+       "t": "@top",
+       "v": 31100,
+       "ease": "inOut"
       },
       {
        "t": "@:end",
-       "v": 33840.0
+       "v": 31150
       }
      ],
      "items": [
@@ -1416,9 +1438,13 @@
       },
       {
        "kind": "level",
-       "alt": 290,
+       "alt": 276,
        "at": "@eye#2",
-       "color": "amber-4"
+       "text": "TOP DECK 276 M",
+       "hits": [
+        "@top"
+       ],
+       "labelX": 0.97
       }
      ],
      "ground": "street",
@@ -1510,11 +1536,16 @@
       "clock": [
        {
         "t": 0,
-        "v": 32400
+        "v": 30700
+       },
+       {
+        "t": "@top",
+        "v": 31100,
+        "ease": "inOut"
        },
        {
         "t": "@:end",
-        "v": 33840.0
+        "v": 31150
        }
       ]
      }
@@ -1758,20 +1789,20 @@
      "clock": [
       {
        "t": 0,
-       "v": 820000.0
+       "v": 830000.0
+      },
+      {
+       "t": "@pass",
+       "v": 862000.0
       },
       {
        "t": "@top",
-       "v": 885000.0,
+       "v": 907000.0,
        "ease": "inOut"
       },
       {
-       "t": "@Everest",
-       "v": 895000.0
-      },
-      {
        "t": "@:end",
-       "v": 905000.0
+       "v": 908000.0
       }
      ],
      "items": [
@@ -1808,8 +1839,11 @@
        "kind": "level",
        "alt": 8849,
        "text": "EVEREST 8,849 M",
-       "at": "@pass",
-       "labelX": 0.97
+       "labelX": 0.97,
+       "hits": [
+        "@top"
+       ],
+       "until": "@air"
       },
       {
        "kind": "hills",
@@ -1840,7 +1874,7 @@
        "drift": -80
       }
      ],
-     "ground": "land",
+     "ground": "rock",
      "seed": "ev",
      "lppm": [
       {
@@ -1848,8 +1882,17 @@
        "v": -1.0969100130080565
       },
       {
-       "t": "@air",
+       "t": "@you",
        "v": -1.0969100130080565
+      },
+      {
+       "t": "@top",
+       "v": -0.3979400086720376,
+       "ease": "inOut"
+      },
+      {
+       "t": "@and",
+       "v": -0.3979400086720376
       },
       {
        "t": "@face",
@@ -1863,8 +1906,17 @@
        "v": 0.0
       },
       {
-       "t": "@air",
+       "t": "@you",
        "v": 0.0
+      },
+      {
+       "t": "@top",
+       "v": 0.96,
+       "ease": "inOut"
+      },
+      {
+       "t": "@and",
+       "v": 0.96
       },
       {
        "t": "@face",
@@ -1878,8 +1930,17 @@
        "v": 0.74
       },
       {
-       "t": "@air",
+       "t": "@you",
        "v": 0.74
+      },
+      {
+       "t": "@top",
+       "v": 0.36,
+       "ease": "inOut"
+      },
+      {
+       "t": "@and",
+       "v": 0.36
       },
       {
        "t": "@face",
@@ -1893,8 +1954,17 @@
        "v": 0.26
       },
       {
-       "t": "@air",
+       "t": "@you",
        "v": 0.26
+      },
+      {
+       "t": "@top",
+       "v": 0.45,
+       "ease": "inOut"
+      },
+      {
+       "t": "@and",
+       "v": 0.45
       },
       {
        "t": "@face",
@@ -1953,20 +2023,20 @@
       "clock": [
        {
         "t": 0,
-        "v": 820000.0
+        "v": 830000.0
+       },
+       {
+        "t": "@pass",
+        "v": 862000.0
        },
        {
         "t": "@top",
-        "v": 885000.0,
+        "v": 907000.0,
         "ease": "inOut"
        },
        {
-        "t": "@Everest",
-        "v": 895000.0
-       },
-       {
         "t": "@:end",
-        "v": 905000.0
+        "v": 908000.0
        }
       ]
      }
@@ -2129,11 +2199,15 @@
      "clock": [
       {
        "t": 0,
-       "v": 9600000.0
+       "v": 9500000.0
+      },
+      {
+       "t": "@crosses",
+       "v": 9750000.0
       },
       {
        "t": "@space",
-       "v": 10200000.0,
+       "v": 10300000.0,
        "ease": "inOut"
       },
       {
@@ -2146,8 +2220,10 @@
        "kind": "level",
        "alt": 100000,
        "text": "SPACE: 100 KM",
-       "at": "@edge",
-       "labelX": 0.97
+       "labelX": 0.97,
+       "hits": [
+        "@space"
+       ]
       },
       {
        "kind": "mountain",
@@ -2194,7 +2270,7 @@
        "dx": 40,
        "dy": -420,
        "text": "YOUR STREET",
-       "at": "@still",
+       "at": "@your#2",
        "front": true
       }
      ],
@@ -2203,11 +2279,11 @@
      "lppm": [
       {
        "t": 0,
-       "v": -2.036212172654445
+       "v": -2.0555173278498313
       },
       {
        "t": "@there's",
-       "v": -2.036212172654445
+       "v": -1.978810700930062
       },
       {
        "t": "@all",
@@ -2323,11 +2399,15 @@
       "clock": [
        {
         "t": 0,
-        "v": 9600000.0
+        "v": 9500000.0
+       },
+       {
+        "t": "@crosses",
+        "v": 9750000.0
        },
        {
         "t": "@space",
-        "v": 10200000.0,
+        "v": 10300000.0,
         "ease": "inOut"
        },
        {
@@ -2386,14 +2466,26 @@
       },
       {
        "kind": "marker",
+       "x": 2800800.385,
+       "alt": 3624800,
+       "dx": 0,
+       "dy": -170,
+       "text": "3,475 KM WIDE",
+       "at": "@wide",
+       "until": "@Earth",
+       "front": true,
+       "size": 44
+      },
+      {
+       "kind": "marker",
        "x": 0,
        "alt": -6371000,
        "dx": 0,
        "dy": 0,
        "text": "EARTH 12,742 KM",
-       "at": "@height",
+       "at": "@ball+0.2",
        "front": true,
-       "size": 44
+       "size": 46
       }
      ],
      "ground": "land",
@@ -2515,15 +2607,19 @@
        "v": 0
       },
       {
+       "t": "@sixty",
+       "v": 58
+      },
+      {
        "t": "@ceiling",
-       "v": 65,
-       "ease": "inOut"
+       "v": 60,
+       "ease": "out"
       }
      ],
      "items": [
       {
        "kind": "room",
-       "ceiling": 2.4,
+       "ceiling": 2.35,
        "at": "@ceiling"
       }
      ],
@@ -2608,7 +2704,17 @@
        "v": 0.97
       }
      ],
-     "clockScale": "lin"
+     "clockScale": "lin",
+     "shake": [
+      {
+       "at": "@ceiling",
+       "duration": 0.45,
+       "amplitude": 12,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -2629,27 +2735,20 @@
         "v": 0
        },
        {
+        "t": "@sixty",
+        "v": 58
+       },
+       {
         "t": "@ceiling",
-        "v": 65,
-        "ease": "inOut"
+        "v": 60,
+        "ease": "out"
        }
       ],
+      "ff": true,
       "clockScale": "lin"
      }
     }
    ],
-   "camera": {
-    "shake": [
-     {
-      "at": "@ceiling",
-      "duration": 0.45,
-      "amplitude": 12,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     }
-    ]
-   },
    "_house": {
     "set": false
    },

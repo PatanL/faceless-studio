@@ -21,14 +21,14 @@
       },
       {
        "t": 4.6,
-       "v": 65,
+       "v": 60,
        "ease": "linear"
       }
      ],
      "items": [
       {
        "kind": "room",
-       "ceiling": 2.4,
+       "ceiling": 2.35,
        "at": 4.6
       }
      ],
@@ -113,7 +113,17 @@
        "v": 0.97
       }
      ],
-     "clockScale": "lin"
+     "clockScale": "lin",
+     "shake": [
+      {
+       "at": 4.6,
+       "duration": 0.45,
+       "amplitude": 16,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -135,10 +145,11 @@
        },
        {
         "t": 4.6,
-        "v": 65,
+        "v": 60,
         "ease": "linear"
        }
       ],
+      "ff": true,
       "clockScale": "lin"
      }
     }
@@ -153,31 +164,6 @@
     "place": "your bedroom",
     "at": 0.0
    },
-   "camera": {
-    "shake": [
-     {
-      "at": 4.6,
-      "duration": 0.45,
-      "amplitude": 16,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     },
-     {
-      "at": 0,
-      "duration": 5.43,
-      "amplitude": 3,
-      "frequency": 0.22,
-      "rotate": 0,
-      "decay": false
-     }
-    ],
-    "drift": {
-     "zoom": 0.006,
-     "x": 5,
-     "y": 0
-    }
-   },
    "light": {
     "setup": "lantern",
     "sweep": 8
@@ -186,6 +172,24 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.43,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -432,7 +436,7 @@
        "kind": "level",
        "alt": 33,
        "text": "10 FLOORS",
-       "at": 3.761,
+       "at": 3.224,
        "color": "amber-4"
       },
       {
@@ -469,12 +473,12 @@
        "ease": "inOut"
       },
       {
-       "t": 3.224,
+       "t": 3.086,
        "v": 1.1
       },
       {
        "t": 4.361,
-       "v": 1.2
+       "v": 1.22
       },
       {
        "t": 5.011,
@@ -635,7 +639,7 @@
       },
       {
        "kind": "block",
-       "x": 34,
+       "x": 24,
        "w": 16,
        "floors": 10,
        "color": "violet-2",
@@ -840,43 +844,19 @@
        "v": 1.3
       },
       {
-       "t": 5.083,
-       "v": 1.32
-      },
-      {
-       "t": 7.07,
-       "v": 1.64,
-       "ease": "inOut"
+       "t": 7.66,
+       "v": 1.36
       }
      ],
-     "gy": [
-      {
-       "t": 0,
-       "v": 0.71
-      },
-      {
-       "t": 5.083,
-       "v": 0.71
-      },
-      {
-       "t": 7.07,
-       "v": 0.64,
-       "ease": "inOut"
-      }
-     ],
+     "gy": 0.665,
      "cx": [
       {
        "t": 0,
        "v": 0.5
       },
       {
-       "t": 5.083,
-       "v": 0.5
-      },
-      {
-       "t": 7.07,
-       "v": 0.4,
-       "ease": "inOut"
+       "t": 7.66,
+       "v": 0.47
       }
      ],
      "face": [
@@ -914,7 +894,17 @@
        2.833,
        5.083
       ]
-     }
+     },
+     "shake": [
+      {
+       "at": 3.92,
+       "duration": 0.35,
+       "amplitude": 8,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -952,31 +942,6 @@
     "place": "your street (x-ray)",
     "at": 0.0
    },
-   "camera": {
-    "shake": [
-     {
-      "at": 3.92,
-      "duration": 0.35,
-      "amplitude": 8,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     },
-     {
-      "at": 0,
-      "duration": 7.66,
-      "amplitude": 3,
-      "frequency": 0.22,
-      "rotate": 0,
-      "decay": false
-     }
-    ],
-    "drift": {
-     "zoom": 0.006,
-     "x": 5,
-     "y": 0
-    }
-   },
    "transitionIn": {
     "type": "cut"
    },
@@ -988,6 +953,24 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.66,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -1260,8 +1243,17 @@
        "v": 1.72
       },
       {
-       "t": 5.083,
+       "t": 1.9,
        "v": 1.72
+      },
+      {
+       "t": 2.2,
+       "v": 1.68,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.083,
+       "v": 1.68
       },
       {
        "t": 5.948,
@@ -1275,13 +1267,17 @@
        "v": 0.62
       },
       {
-       "t": 5.083,
+       "t": 1.9,
        "v": 0.62
       },
       {
-       "t": 5.948,
+       "t": 2.2,
        "v": 0.66,
-       "ease": "in"
+       "ease": "inOut"
+      },
+      {
+       "t": 5.083,
+       "v": 0.66
       }
      ],
      "cx": [
@@ -1290,13 +1286,46 @@
        "v": 0.36
       },
       {
-       "t": 5.083,
+       "t": 1.9,
        "v": 0.36
+      },
+      {
+       "t": 2.2,
+       "v": 0.5,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.083,
+       "v": 0.5
       },
       {
        "t": 5.948,
        "v": 0.45,
        "ease": "inOut"
+      }
+     ],
+     "fold": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 2.738,
+       "v": 0
+      },
+      {
+       "t": 3.4,
+       "v": 1,
+       "ease": "out"
+      },
+      {
+       "t": 4.149,
+       "v": 1
+      },
+      {
+       "t": 4.499,
+       "v": 0,
+       "ease": "backOut"
       }
      ],
      "sy": [
@@ -1335,6 +1364,24 @@
       {
        "at": 4.149,
        "face": "smile"
+      }
+     ],
+     "shake": [
+      {
+       "at": 0.7,
+       "duration": 0.5,
+       "amplitude": 18,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      },
+      {
+       "at": 4.149,
+       "duration": 0.3,
+       "amplitude": 6,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
       }
      ]
     }
@@ -1379,39 +1426,6 @@
     "place": "your street",
     "at": 0.0
    },
-   "camera": {
-    "shake": [
-     {
-      "at": 0.7,
-      "duration": 0.5,
-      "amplitude": 18,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     },
-     {
-      "at": 4.149,
-      "duration": 0.3,
-      "amplitude": 6,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     },
-     {
-      "at": 0,
-      "duration": 5.948,
-      "amplitude": 3,
-      "frequency": 0.22,
-      "rotate": 0,
-      "decay": false
-     }
-    ],
-    "drift": {
-     "zoom": 0.006,
-     "x": -5,
-     "y": 0
-    }
-   },
    "transitionIn": {
     "type": "cut"
    },
@@ -1423,6 +1437,24 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 5.948,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
    }
   },
   {
@@ -1437,11 +1469,16 @@
      "clock": [
       {
        "t": 0,
-       "v": 32400
+       "v": 30700
+      },
+      {
+       "t": 2.313,
+       "v": 31100,
+       "ease": "inOut"
       },
       {
        "t": 3.635,
-       "v": 33840.0
+       "v": 31150
       }
      ],
      "items": [
@@ -1475,9 +1512,13 @@
       },
       {
        "kind": "level",
-       "alt": 290,
+       "alt": 276,
        "at": 1.863,
-       "color": "amber-4"
+       "text": "TOP DECK 276 M",
+       "hits": [
+        2.313
+       ],
+       "labelX": 0.97
       }
      ],
      "ground": "street",
@@ -1569,11 +1610,16 @@
       "clock": [
        {
         "t": 0,
-        "v": 32400
+        "v": 30700
+       },
+       {
+        "t": 2.313,
+        "v": 31100,
+        "ease": "inOut"
        },
        {
         "t": 3.635,
-        "v": 33840.0
+        "v": 31150
        }
       ]
      }
@@ -1867,20 +1913,20 @@
      "clock": [
       {
        "t": 0,
-       "v": 820000.0
+       "v": 830000.0
+      },
+      {
+       "t": 1.7,
+       "v": 862000.0
       },
       {
        "t": 2.125,
-       "v": 885000.0,
+       "v": 907000.0,
        "ease": "inOut"
       },
       {
-       "t": 2.763,
-       "v": 895000.0
-      },
-      {
        "t": 6.275,
-       "v": 905000.0
+       "v": 908000.0
       }
      ],
      "items": [
@@ -1917,8 +1963,11 @@
        "kind": "level",
        "alt": 8849,
        "text": "EVEREST 8,849 M",
-       "at": 1.7,
-       "labelX": 0.97
+       "labelX": 0.97,
+       "hits": [
+        2.125
+       ],
+       "until": 3.913
       },
       {
        "kind": "hills",
@@ -1949,7 +1998,7 @@
        "drift": -80
       }
      ],
-     "ground": "land",
+     "ground": "rock",
      "seed": "ev",
      "lppm": [
       {
@@ -1957,8 +2006,17 @@
        "v": -1.0969100130080565
       },
       {
-       "t": 3.913,
+       "t": 1.55,
        "v": -1.0969100130080565
+      },
+      {
+       "t": 2.125,
+       "v": -0.3979400086720376,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.675,
+       "v": -0.3979400086720376
       },
       {
        "t": 4.663,
@@ -1972,8 +2030,17 @@
        "v": 0.0
       },
       {
-       "t": 3.913,
+       "t": 1.55,
        "v": 0.0
+      },
+      {
+       "t": 2.125,
+       "v": 0.96,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.675,
+       "v": 0.96
       },
       {
        "t": 4.663,
@@ -1987,8 +2054,17 @@
        "v": 0.74
       },
       {
-       "t": 3.913,
+       "t": 1.55,
        "v": 0.74
+      },
+      {
+       "t": 2.125,
+       "v": 0.36,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.675,
+       "v": 0.36
       },
       {
        "t": 4.663,
@@ -2002,8 +2078,17 @@
        "v": 0.26
       },
       {
-       "t": 3.913,
+       "t": 1.55,
        "v": 0.26
+      },
+      {
+       "t": 2.125,
+       "v": 0.45,
+       "ease": "inOut"
+      },
+      {
+       "t": 3.675,
+       "v": 0.45
       },
       {
        "t": 4.663,
@@ -2062,20 +2147,20 @@
       "clock": [
        {
         "t": 0,
-        "v": 820000.0
+        "v": 830000.0
+       },
+       {
+        "t": 1.7,
+        "v": 862000.0
        },
        {
         "t": 2.125,
-        "v": 885000.0,
+        "v": 907000.0,
         "ease": "inOut"
        },
        {
-        "t": 2.763,
-        "v": 895000.0
-       },
-       {
         "t": 6.275,
-        "v": 905000.0
+        "v": 908000.0
        }
       ]
      }
@@ -2289,11 +2374,15 @@
      "clock": [
       {
        "t": 0,
-       "v": 9600000.0
+       "v": 9500000.0
+      },
+      {
+       "t": 1.638,
+       "v": 9750000.0
       },
       {
        "t": 2.613,
-       "v": 10200000.0,
+       "v": 10300000.0,
        "ease": "inOut"
       },
       {
@@ -2306,8 +2395,10 @@
        "kind": "level",
        "alt": 100000,
        "text": "SPACE: 100 KM",
-       "at": 2.238,
-       "labelX": 0.97
+       "labelX": 0.97,
+       "hits": [
+        2.613
+       ]
       },
       {
        "kind": "mountain",
@@ -2354,7 +2445,7 @@
        "dx": 40,
        "dy": -420,
        "text": "YOUR STREET",
-       "at": 5.775,
+       "at": 5.275,
        "front": true
       }
      ],
@@ -2363,11 +2454,11 @@
      "lppm": [
       {
        "t": 0,
-       "v": -2.036212172654445
+       "v": -2.0555173278498313
       },
       {
        "t": 3.575,
-       "v": -2.036212172654445
+       "v": -1.978810700930062
       },
       {
        "t": 4.4,
@@ -2483,11 +2574,15 @@
       "clock": [
        {
         "t": 0,
-        "v": 9600000.0
+        "v": 9500000.0
+       },
+       {
+        "t": 1.638,
+        "v": 9750000.0
        },
        {
         "t": 2.613,
-        "v": 10200000.0,
+        "v": 10300000.0,
         "ease": "inOut"
        },
        {
@@ -2572,14 +2667,26 @@
       },
       {
        "kind": "marker",
+       "x": 2800800.385,
+       "alt": 3624800,
+       "dx": 0,
+       "dy": -170,
+       "text": "3,475 KM WIDE",
+       "at": 2.713,
+       "until": 3.663,
+       "front": true,
+       "size": 44
+      },
+      {
+       "kind": "marker",
        "x": 0,
        "alt": -6371000,
        "dx": 0,
        "dy": 0,
        "text": "EARTH 12,742 KM",
-       "at": 5.85,
+       "at": 4.388,
        "front": true,
-       "size": 44
+       "size": 46
       }
      ],
      "ground": "land",
@@ -2727,15 +2834,19 @@
        "v": 0
       },
       {
+       "t": 3.213,
+       "v": 58
+      },
+      {
        "t": 5.813,
-       "v": 65,
-       "ease": "inOut"
+       "v": 60,
+       "ease": "out"
       }
      ],
      "items": [
       {
        "kind": "room",
-       "ceiling": 2.4,
+       "ceiling": 2.35,
        "at": 5.813
       }
      ],
@@ -2820,7 +2931,17 @@
        "v": 0.97
       }
      ],
-     "clockScale": "lin"
+     "clockScale": "lin",
+     "shake": [
+      {
+       "at": 5.813,
+       "duration": 0.45,
+       "amplitude": 12,
+       "frequency": 9,
+       "rotate": 0,
+       "decay": true
+      }
+     ]
     }
    },
    "layers": [
@@ -2841,11 +2962,16 @@
         "v": 0
        },
        {
+        "t": 3.213,
+        "v": 58
+       },
+       {
         "t": 5.813,
-        "v": 65,
-        "ease": "inOut"
+        "v": 60,
+        "ease": "out"
        }
       ],
+      "ff": true,
       "clockScale": "lin"
      }
     }
@@ -2860,18 +2986,6 @@
     "place": "your bedroom",
     "at": 0.0
    },
-   "camera": {
-    "shake": [
-     {
-      "at": 5.813,
-      "duration": 0.45,
-      "amplitude": 12,
-      "frequency": 9,
-      "rotate": 0,
-      "decay": true
-     }
-    ]
-   },
    "transitionIn": {
     "type": "cut"
    },
@@ -2883,6 +2997,9 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": []
    }
   }
  ],

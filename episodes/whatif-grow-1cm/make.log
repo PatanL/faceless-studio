@@ -330,3 +330,113 @@ ad576de4f8380faf978d70013f69d95059e8d98dd064da0c54c428bf31288d46  /home/dzliu/st
 [08:44:22] render: out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4 (17.5 MB) in 88s
 62.379000
 [08:44:28] === done in 1.6 min -> out/whatif-grow-1cm/ (0 weighted tokens, $0.00)
+[08:47:56] === studio-make whatif-grow-1cm (explainer) steps=storyboard
+[sync] code -> dgx-spark:~/studio/app
+ok   /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json.tmp: 9:16 30fps 11 scenes 62.37s captions=198 words components=explainer/GrowWorld,explainer/GrowHud
+whatif-grow-1cm: 11 scenes, 62.4s, 198 words, timing=kokoro -> episodes/whatif-grow-1cm/storyboard.json
+whatif-grow-1cm: beatmap.json (11 scenes, beats from timing)
+WARN visual holds over 3 s (add a layer/keyframe/camera key in that window): p01 0.0-4.6s (4.6s); p02 7.7-12.7s (5.0s); p03 12.7-20.3s (7.7s); p04 20.3-25.4s (5.1s); p07 34.9-39.0s (4.2s); p10 51.7-55.1s (3.5s); p11 55.1-58.3s (3.2s)
+PASS
+>f....... storyboard.json
+458f6e5d59775a0d0623fa243872f6b6ff86a2d5bd6d4fe7bcac63181af6d37f  /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json
+>f....... beatmap.json
+07ae65b1de103a61c2aa81989f12521f00fe7c3dd3656dbaa16018d05a3c1a01  /home/dzliu/studio/app/episodes/whatif-grow-1cm/beatmap.json
+[08:48:08] storyboard: PASS (1 warnings)
+[make] reusing cached voice (198 words) from /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm
+[score] track arp    halopad        10 notes  ref  -30.8 -> -26.0 LUFS, track  -33.2
+[score] track arp    harp           70 notes  ref  -29.4 -> -26.0 LUFS, track  -26.5
+[score] track arp    piano         221 notes  ref  -29.4 -> -26.0 LUFS, track  -25.6
+[score] track arp    warmpad        96 notes  ref  -38.8 -> -26.0 LUFS, track  -26.1
+[score] track bass   contrabass      3 notes  ref  -23.9 -> -25.0 LUFS, track  -29.2
+[score] track bass   fingerbass     12 notes  ref  -24.3 -> -25.0 LUFS, track  -33.1
+[score] track bells  celesta        12 notes  ref  -29.4 -> -28.0 LUFS, track  -34.7
+[score] track motif  celesta        10 notes  ref  -29.0 -> -24.5 LUFS, track  -30.4
+[score] track motif  piano           5 notes  ref  -29.4 -> -24.5 LUFS, track  -30.9
+[score] track pad    atmosphere     11 notes  ref  -23.7 -> -22.0 LUFS, track  -29.2
+[score] track pad    halopad        12 notes  ref  -26.2 -> -22.0 LUFS, track  -21.8
+[score] track pad    warmpad        33 notes  ref  -26.7 -> -22.0 LUFS, track  -23.5
+[score] track perc   timpani         5 notes  ref  -28.5 -> -26.0 LUFS, track  -28.2
+[score] track pulse  harp           57 notes  ref  -25.3 -> -27.0 LUFS, track  -29.7
+[score] track shaker stdkit         60 notes  ref  -32.4 -> -39.0 LUFS, track  -49.3
+[score] track stab   strings         6 notes  ref  -27.3 -> -30.0 LUFS, track  -26.7
+[score] 5 cues (curious1, curious2, curious3, deep1, curious1), 2 stings, 1 drop-outs, 1 risers, 623 notes
+[mix] -14.1 LUFS (ffmpeg), TP -2.0 dBTP, LRA 1.6, duck 12.75 dB, 10 sfx
+[make] whatif-grow-1cm: 62.379s, 198 words, 10 cues -> /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm (38.9s)
+[08:48:52] score: music=score 5 cues, 2 stings, 1 drop-outs, -14.1 LUFS in 44s
+[08:48:52] === done in 0.9 min -> out/whatif-grow-1cm/ (0 weighted tokens, $0.00)
+[08:49:29] === studio-make whatif-grow-1cm (explainer) steps=storyboard
+[sync] code -> dgx-spark:~/studio/app
+ok   /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json.tmp: 9:16 30fps 11 scenes 62.37s captions=198 words components=explainer/GrowWorld,explainer/GrowHud
+whatif-grow-1cm: 11 scenes, 62.4s, 198 words, timing=kokoro -> episodes/whatif-grow-1cm/storyboard.json
+whatif-grow-1cm: beatmap.json (11 scenes, beats from timing)
+WARN visual holds over 3 s (add a layer/keyframe/camera key in that window): p01 0.0-4.6s (4.6s); p02 7.7-12.7s (5.0s); p03 12.7-20.3s (7.7s); p04 20.3-25.4s (5.1s); p07 34.9-39.0s (4.2s); p10 51.7-55.1s (3.5s); p11 55.1-58.3s (3.2s)
+PASS
+>f....... storyboard.json
+d1f16aef3acf195533be487295aa06f1ee184194ec50107c626524cf73892884  /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json
+>f....... beatmap.json
+07ae65b1de103a61c2aa81989f12521f00fe7c3dd3656dbaa16018d05a3c1a01  /home/dzliu/studio/app/episodes/whatif-grow-1cm/beatmap.json
+[08:49:42] storyboard: PASS (1 warnings)
+[make] reusing cached voice (198 words) from /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm
+[score] track arp    halopad        10 notes  ref  -30.8 -> -26.0 LUFS, track  -33.2
+[score] track arp    harp           70 notes  ref  -29.4 -> -26.0 LUFS, track  -26.5
+[score] track arp    piano         221 notes  ref  -29.4 -> -26.0 LUFS, track  -25.6
+[score] track arp    warmpad        96 notes  ref  -38.8 -> -26.0 LUFS, track  -26.1
+[score] track bass   contrabass      3 notes  ref  -23.9 -> -25.0 LUFS, track  -29.2
+[score] track bass   fingerbass     12 notes  ref  -24.3 -> -25.0 LUFS, track  -33.1
+[score] track bells  celesta        12 notes  ref  -29.4 -> -28.0 LUFS, track  -34.7
+[score] track motif  celesta        10 notes  ref  -29.0 -> -24.5 LUFS, track  -30.4
+[score] track motif  piano           5 notes  ref  -29.4 -> -24.5 LUFS, track  -30.9
+[score] track pad    atmosphere     11 notes  ref  -23.7 -> -22.0 LUFS, track  -29.2
+[score] track pad    halopad        12 notes  ref  -26.2 -> -22.0 LUFS, track  -21.8
+[score] track pad    warmpad        33 notes  ref  -26.7 -> -22.0 LUFS, track  -23.5
+[score] track perc   timpani         5 notes  ref  -28.5 -> -26.0 LUFS, track  -28.2
+[score] track pulse  harp           57 notes  ref  -25.3 -> -27.0 LUFS, track  -29.7
+[score] track shaker stdkit         60 notes  ref  -32.4 -> -39.0 LUFS, track  -49.3
+[score] track stab   strings         6 notes  ref  -27.3 -> -30.0 LUFS, track  -26.7
+[score] 5 cues (curious1, curious2, curious3, deep1, curious1), 2 stings, 1 drop-outs, 1 risers, 623 notes
+[mix] -14.1 LUFS (ffmpeg), TP -2.0 dBTP, LRA 1.6, duck 12.75 dB, 10 sfx
+[make] whatif-grow-1cm: 62.379s, 198 words, 10 cues -> /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm (38.0s)
+[08:50:25] score: music=score 5 cues, 2 stings, 1 drop-outs, -14.1 LUFS in 43s
+[08:50:25] === done in 0.9 min -> out/whatif-grow-1cm/ (0 weighted tokens, $0.00)
+[08:50:49] === studio-make whatif-grow-1cm (explainer) steps=storyboard
+[sync] code -> dgx-spark:~/studio/app
+ok   /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json.tmp: 9:16 30fps 11 scenes 62.37s captions=198 words components=explainer/GrowWorld,explainer/GrowHud
+whatif-grow-1cm: 11 scenes, 62.4s, 198 words, timing=kokoro -> episodes/whatif-grow-1cm/storyboard.json
+whatif-grow-1cm: beatmap.json (11 scenes, beats from timing)
+WARN visual holds over 3 s (add a layer/keyframe/camera key in that window): p01 0.0-4.6s (4.6s); p02 7.7-12.7s (5.0s); p03 12.7-20.3s (7.7s); p04 20.3-25.4s (5.1s); p07 34.9-39.0s (4.2s); p10 51.7-55.1s (3.5s); p11 55.1-58.3s (3.2s)
+PASS
+>f....... storyboard.json
+6d385f812ba26010818d9fb61a0395f5395863678d3aed292175d1c99c4d9a0b  /home/dzliu/studio/app/episodes/whatif-grow-1cm/storyboard.json
+>f....... beatmap.json
+07ae65b1de103a61c2aa81989f12521f00fe7c3dd3656dbaa16018d05a3c1a01  /home/dzliu/studio/app/episodes/whatif-grow-1cm/beatmap.json
+[08:51:03] storyboard: PASS (1 warnings)
+[make] reusing cached voice (198 words) from /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm
+[score] track arp    halopad        10 notes  ref  -30.8 -> -26.0 LUFS, track  -33.2
+[score] track arp    harp           70 notes  ref  -29.4 -> -26.0 LUFS, track  -26.5
+[score] track arp    piano         221 notes  ref  -29.4 -> -26.0 LUFS, track  -25.6
+[score] track arp    warmpad        96 notes  ref  -38.8 -> -26.0 LUFS, track  -26.1
+[score] track bass   contrabass      3 notes  ref  -23.9 -> -25.0 LUFS, track  -29.2
+[score] track bass   fingerbass     12 notes  ref  -24.3 -> -25.0 LUFS, track  -33.1
+[score] track bells  celesta        12 notes  ref  -29.4 -> -28.0 LUFS, track  -34.7
+[score] track motif  celesta        10 notes  ref  -29.0 -> -24.5 LUFS, track  -30.4
+[score] track motif  piano           5 notes  ref  -29.4 -> -24.5 LUFS, track  -30.9
+[score] track pad    atmosphere     11 notes  ref  -23.7 -> -22.0 LUFS, track  -29.2
+[score] track pad    halopad        12 notes  ref  -26.2 -> -22.0 LUFS, track  -21.8
+[score] track pad    warmpad        33 notes  ref  -26.7 -> -22.0 LUFS, track  -23.5
+[score] track perc   timpani         5 notes  ref  -28.5 -> -26.0 LUFS, track  -28.2
+[score] track pulse  harp           57 notes  ref  -25.3 -> -27.0 LUFS, track  -29.7
+[score] track shaker stdkit         60 notes  ref  -32.4 -> -39.0 LUFS, track  -49.3
+[score] track stab   strings         6 notes  ref  -27.3 -> -30.0 LUFS, track  -26.7
+[score] 5 cues (curious1, curious2, curious3, deep1, curious1), 2 stings, 1 drop-outs, 1 risers, 623 notes
+[mix] -14.1 LUFS (ffmpeg), TP -2.0 dBTP, LRA 1.6, duck 12.75 dB, 10 sfx
+[make] whatif-grow-1cm: 62.379s, 198 words, 10 cues -> /home/dzliu/studio/app/studio/public/episodes/whatif-grow-1cm (38.2s)
+[08:51:46] score: music=score 5 cues, 2 stings, 1 drop-outs, -14.1 LUFS in 43s
+[08:51:46] === done in 0.9 min -> out/whatif-grow-1cm/ (0 weighted tokens, $0.00)
+[08:51:46] === studio-make whatif-grow-1cm (explainer) steps=render
+[sync] code -> dgx-spark:~/studio/app
+[render] waiting for render lock...
+[render] Storyboard -> /home/dzliu/studio/app/studio/out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4 in 81.567328098 s (concurrency 2)
+[render] pulled -> /Users/patrickliu/Documents/faceless-studio/out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4
+[08:53:15] render: out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4 (17.3 MB) in 89s
+62.379000
+[08:53:22] === done in 1.6 min -> out/whatif-grow-1cm/ (0 weighted tokens, $0.00)

@@ -54,7 +54,7 @@ export const clockText = (s: number): string => {
 	const plural = (n: number, u: string) => `${n} ${u}${n === 1 ? '' : 'S'}`;
 	if (s < 60) return plural(Math.floor(s), 'SECOND');
 	if (s < 3600) return plural(Math.floor(s / 60), 'MINUTE');
-	if (s < 86400 * 1.5) return plural(Math.max(1, Math.round(s / 3600)), 'HOUR');
+	if (s < 86400 * 2) return plural(Math.max(1, Math.round(s / 3600)), 'HOUR');
 	if (s < 86400 * 61) return plural(Math.round(s / 86400), 'DAY');
 	if (s < 86400 * 365) return plural(Math.round(s / (86400 * 30.44)), 'MONTH');
 	return plural(Math.round(s / (86400 * 365.25)), 'YEAR');
@@ -213,9 +213,11 @@ const Ground: React.FC<{v: View; kind: string}> = ({v, kind}) => {
 				[2.45, 10.5, 'violet-0'], // road
 				[10.5, 12.5, 'kelp-1'], // verge
 			]
-		: [[0, 2.0, 'kelp-2']];
+		: kind === 'rock'
+			? [[0, 400, 'violet-1']]
+			: [[0, 2.0, 'kelp-2']];
 	let y = y0;
-	const out: React.ReactNode[] = [<rect key="soil" x={0} y={y0} width={v.W} height={Math.max(0, v.H - y0)} fill={c('kelp-0')} />];
+	const out: React.ReactNode[] = [<rect key="soil" x={0} y={y0} width={v.W} height={Math.max(0, v.H - y0)} fill={c(kind === 'rock' ? 'violet-0' : 'kelp-0')} />];
 	for (const [a, b, col] of bands) {
 		const h = m(b - a);
 		out.push(<rect key={col + a} x={0} y={y0 + m(a)} width={v.W} height={h} fill={c(col)} />);
@@ -688,13 +690,15 @@ const Level: React.FC<{v: View; it: Item}> = ({v, it}) => {
 	const text = str(it.text, '');
 	const tw = text.length * 26 + 40;
 	const lx = num(it.labelX, 0.94) * v.W - tw;
+	const below = y - 64 < 0.16 * v.H ? 76 : 0; // the label hangs under the line when the plate would hide it
+	const pulse = arr<number>(it.hits).reduce((m, h) => Math.max(m, typeof h === 'number' && v.t >= h ? Math.max(0, 1 - (v.t - h) / 0.5) : 0), 0);
 	return (
 		<g opacity={k}>
-			<line x1={0} x2={v.W * k} y1={y} y2={y} stroke={c(str(it.color, 'amber-4'))} strokeWidth={6} strokeDasharray="26 18" />
+			<line x1={0} x2={v.W * k} y1={y} y2={y} stroke={c(str(it.color, 'amber-4'))} strokeWidth={6 + 10 * pulse} strokeDasharray="26 18" />
 			{text ? (
 				<g>
-					<rect x={lx} y={y - 64} width={tw} height={52} rx={14} fill={C.panel} />
-					<text x={lx + tw / 2} y={y - 25} fontFamily={FONT_A} fontSize={40} fill={c(str(it.color, 'amber-4'))} textAnchor="middle" letterSpacing={1}>
+					<rect x={lx} y={y - 64 + below} width={tw} height={52} rx={14} fill={C.panel} />
+					<text x={lx + tw / 2} y={y - 25 + below} fontFamily={FONT_A} fontSize={40} fill={c(str(it.color, 'amber-4'))} textAnchor="middle" letterSpacing={1}>
 						{text}
 					</text>
 				</g>
@@ -795,7 +799,7 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	const W = (bw / bh) * H;
 	const pose = sched(p.pose, v.t, 'pose', 'stand');
 	const face = sched(p.face, v.t, 'face', 'calm');
-	const blink = arr<Record<string, unknown>>(p.face).some((e) => typeof e.at === 'number' && e.at > 0 && v.t >= e.at - 0.04 && v.t < e.at + 0.08);
+	const blink = arr<Record<string, unknown>>(p.face).some((e) => typeof e.at === 'number' && e.at > 0 && v.t >= e.at - 0.03 && v.t < e.at + 0.04);
 	const top = str(p.color, c('amber-1'));
 	const ctx: DrawCtx = {t: v.t, p: {pose, color: top, outline: top, style: 'filled'}, id: 'growYou', idle: true, speed: 1, amp: 1};
 	const ctxSh: DrawCtx = {...ctx, sil: c('amber-0')};
@@ -803,9 +807,11 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	const y0 = v.gy - H * sy;
 	const breathe = Math.sin(v.t * 2) * 1.5;
 	const hy = 52 + breathe;
+	const fold = clamp(track(p.fold, v.t, 0));
+	const kx = 16 + 30 * fold;
 	const legs = (
 		<g>
-			{['M 88 206 L 72 274 L 68 336', 'M 112 206 L 128 274 L 132 336'].map((d, i) => (
+			{[`M 88 206 L ${88 - kx} ${274 + 6 * fold} L 68 336`, `M 112 206 L ${112 + kx} ${274 + 6 * fold} L 132 336`].map((d, i) => (
 				<path key={i} d={d} stroke={c(i ? 'dusk-0' : 'dusk-1')} strokeWidth={36} strokeLinecap="round" strokeLinejoin="round" fill="none" />
 			))}
 			<path d="M 78 166 L 122 166 L 121 214 C 112 222 88 222 79 214 Z" fill={c('dusk-1')} />
@@ -889,7 +895,10 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	return (
 		// a group transform, not a nested <svg>: a nested viewport a million px tall (the dive to the feet) never paints
 		<g transform={`translate(${x0.toFixed(3)} ${y0.toFixed(3)}) scale(${(W / bw).toPrecision(9)} ${((H * sy) / bh).toPrecision(9)}) translate(${-bx} ${-by})`}>
-			{YOU_FIG.draw(ctx)}
+			<clipPath id="growYouHip">
+				<rect x={-200} y={-200} width={600} height={412} />
+			</clipPath>
+			<g clipPath="url(#growYouHip)">{YOU_FIG.draw(ctx)}</g>
 			<rect x={80} y={145} width={40} height={10} fill={top} />
 			{legs}
 			{/* one flat shadow shape: the body's right side, away from the upper-left light */}
@@ -935,14 +944,21 @@ const XrayLabels: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => 
 	if (typeof xr.bracketAt === 'number') {
 		const k = backOut(clamp((v.t - xr.bracketAt) / 0.4));
 		if (k > 0) {
-			const bx = cx - W * 0.62;
+			const bx = Math.max(60, cx - W * 0.62);
 			out.push(
 				<g key="br" opacity={Math.min(1, k)}>
 					<line x1={bx} x2={bx} y1={v.gy} y2={v.gy - (v.gy - top) * Math.min(1, k)} stroke={c('bone-2')} strokeWidth={8} />
 					<line x1={bx - 22} x2={bx + 22} y1={v.gy} y2={v.gy} stroke={c('bone-2')} strokeWidth={8} />
 					<line x1={bx - 22} x2={bx + 22} y1={top} y2={top} stroke={c('bone-2')} strokeWidth={8} />
 				</g>,
-				big(bx - 24, top + H * 0.42, '×20', 'TALLER', 'bone-2', k, 'end'),
+				big(bx + (bx - 24 > 260 ? -24 : 30), top + H * 0.42, '×20', 'TALLER', 'bone-2', k, bx - 24 > 260 ? 'end' : 'start'),
+			);
+			const h1 = 1.75 * v.ppm * Math.min(1, k);
+			const [fbx, fby, fbw, fbh] = YOU_FIG.box;
+			out.push(
+				<g key="one" transform={`translate(${(cx - W * 0.5 - (fbw / fbh) * h1 - 10).toFixed(2)} ${(v.gy - h1).toFixed(2)}) scale(${(h1 / fbh).toFixed(5)}) translate(${-fbx} ${-fby})`}>
+					{YOU_FIG.draw({t: v.t, p: {pose: 'wave'}, id: 'one', sil: c('amber-1'), idle: true, speed: 1, amp: 1})}
+				</g>,
 			);
 		}
 	}
@@ -950,9 +966,11 @@ const XrayLabels: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => 
 		const k = backOut(clamp((v.t - xr.weightAt) / 0.4));
 		if (k > 0) {
 			const bob = Math.sin((v.t - xr.weightAt) * 9) * 10;
+			// arrows ride the head; they leave with it when the camera pushes past (never pinned to the screen)
 			for (let i = 0; i < 3; i++) {
+				if (top - 30 < topSafe + 130) break;
 				const ax = cx + (i - 1) * W * 0.32;
-				const ay = Math.max(topSafe + 130, top - 30) - (i === 1 ? 20 : 0) + bob * (i === 1 ? 1 : 0.6);
+				const ay = top - 30 - (i === 1 ? 20 : 0) + bob * (i === 1 ? 1 : 0.6);
 				out.push(<path key={`ar${i}`} d={`M ${ax - 40} ${ay - 120} L ${ax + 40} ${ay - 120} L ${ax + 40} ${ay - 60} L ${ax + 70} ${ay - 60} L ${ax} ${ay} L ${ax - 70} ${ay - 60} L ${ax - 40} ${ay - 60} Z`} fill={c('coral-2')} opacity={Math.min(1, k)} />);
 			}
 			out.push(big(v.W * 0.955, Math.max(topSafe + 110, top + H * 0.14), '×8,000', 'HEAVIER', 'coral-2', k, 'end'));
@@ -983,8 +1001,18 @@ export const GrowWorld: KitComponent = ({props: p, time, width: W, height: H}) =
 	const front = items.filter((it) => it.front === true);
 	const room = items.find((it) => it.kind === 'room');
 	const cracks = items.filter((it) => it.kind === 'crack');
+	let sx = 0;
+	let sy2 = 0;
+	for (const sh of arr<Record<string, unknown>>(p.shake)) {
+		const dt = time - num(sh.at, -9);
+		const d = num(sh.duration, 0.45);
+		if (dt < 0 || dt > d) continue;
+		const a = num(sh.amplitude, 12) * (1 - dt / d);
+		sx += a * Math.sin(dt * 71);
+		sy2 += a * Math.cos(dt * 53);
+	}
 	return (
-		<svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{display: 'block', overflow: 'hidden'}}>
+		<svg width={W} height={H} viewBox={`${-sx} ${-sy2} ${W} ${H}`} style={{display: 'block', overflow: 'hidden'}}>
 			{room ? <Room v={v} it={room} /> : <Sky v={v} seed={seed} />}
 			{back.map(draw)}
 			<Ground v={v} kind={room ? 'room' : kind} />
@@ -1019,9 +1047,15 @@ export const GrowHud: KitComponent = ({props: p, time, width: W, height: H}) => 
 			) : (
 				<g>
 			<rect x={x + pw / 2 - 2} y={y + 22} width={4} height={ph - 44} fill={c('dusk-3')} />
-			{/* clock icon */}
-			<circle cx={x + 62} cy={y + ph / 2} r={26} fill="none" stroke={c('amber-4')} strokeWidth={6} />
-			<path d={`M ${x + 62} ${y + ph / 2 - 15} L ${x + 62} ${y + ph / 2} L ${x + 73} ${y + ph / 2 + 7}`} stroke={c('amber-4')} strokeWidth={6} strokeLinecap="round" fill="none" />
+			{/* clock icon, or fast-forward when the first minute plays sped up */}
+			{p.ff === true ? (
+				<path d={`M ${x + 36} ${y + ph / 2 - 22} L ${x + 60} ${y + ph / 2} L ${x + 36} ${y + ph / 2 + 22} Z M ${x + 62} ${y + ph / 2 - 22} L ${x + 86} ${y + ph / 2} L ${x + 62} ${y + ph / 2 + 22} Z`} fill={c('amber-4')} />
+			) : (
+				<g>
+					<circle cx={x + 62} cy={y + ph / 2} r={26} fill="none" stroke={c('amber-4')} strokeWidth={6} />
+					<path d={`M ${x + 62} ${y + ph / 2 - 15} L ${x + 62} ${y + ph / 2} L ${x + 73} ${y + ph / 2 + 7}`} stroke={c('amber-4')} strokeWidth={6} strokeLinecap="round" fill="none" />
+				</g>
+			)}
 			<text x={x + 104} y={y + ph / 2 + 22} fontFamily={font} fontSize={62} fill={c('bone-2')} letterSpacing={1}>
 				{clockText(clock)}
 			</text>
