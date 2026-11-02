@@ -460,7 +460,7 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
         errors.append(f"emphasis on stopwords {stray}: red is for content words only")
     if niche == "explainer":
         from .phrases import phrase_pages
-        phrase_pages(words, glue=shots.get("glue", []))
+        phrase_pages(words, glue=shots.get("glue", []), rule=shots.get("caption_rule", "default"))   # opt-in rule
     if shots.get("pages"):   # hand-checked whole-phrase caption pages (like the hand builders' CAPTION_PAGES) win
         from .build import mark_pages
         try:

@@ -5,6 +5,13 @@ by dynamic programming over a small cost model: 1-3 words (4 when short), <= max
 word ('a', 'the', 'has', 'ever', 'her'...) or a number word ('one | organ'), never splitting a capitalised name
 ('Western | Australia'), preferring breaks after commas and before conjunctions / prepositions. The renderer
 (studio/src/core/captions.tsx paginate) breaks only at br words when any are present.
+
+rule="phrase" (per-episode opt-in, shots.json "caption_rule": "phrase"; default off so other episodes are unchanged):
+a page may only end where a phrase ends - after punctuation, or before a word that starts a new phrase (a conjunction,
+preposition, relative word, subject pronoun or a finite verb / auxiliary). It never ends on a small connecting word
+(article, preposition, conjunction, auxiliary, possessive, intensifier) and never splits a noun phrase ("museum |
+fire", "chess | board") or a verb from its object ("play | it", "showed | him"). Pages may run to 26 characters / 6
+words (two caption lines) and 3.6 s so whole phrases fit.
 """
 from __future__ import annotations
 
@@ -24,12 +31,56 @@ GOOD_START = set("and but or because with to of in on at off from for since that
                  "about so except while is are was were has have had".split())
 NUMWORDS = set("one two three four five six seven eight nine ten eleven twelve twenty thirty forty fifty sixty "
                "seventy eighty ninety hundred thousand million billion".split())
+# rule="phrase": extra page-final words that connect forward, and words that may open a new phrase
+STRICT_WEAK = (WEAK_END - {"off"}) | set("nearly almost even right just over behind under every all both life-size "
+                                          "wooden first third".split())
+PRONOUN_OBJ = set("it him her them me us".split())
+ARTICLES = set("a an the every each this these those his her its their my your our".split())
+PHRASE_START = GOOD_START | set("he she they we i you there then when where as after before until behind under "
+                                "through by into onto one".split())
 SENT_END = re.compile(r"[.!?…]+[\"')\]]?$")
 SOFT_END = re.compile(r"[,;:]+[\"')\]]?$")
 
 
 def _n(w: str) -> str:
     return re.sub(r"[^a-z0-9'-]", "", w.lower().replace("’", "'"))
+
+
+def _verbish(w: str) -> bool:
+    """a finite verb that starts a predicate ('gets', 'moved', 'showed', 'slipped'): cheap suffix test"""
+    return bool(re.match(r"^[a-z]+(ed|es|s)$", w)) and w not in ("is", "was", "has", "his", "its", "this", "us", "gears",
+                                                               "pieces", "magnets", "doors", "years", "moves")
+
+
+def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset()) -> float:
+    """rule="phrase": a page ends only at a phrase boundary"""
+    n = len(ws)
+    chars = sum(len(w) for w in ws) + n - 1
+    if n > 6 or chars > max_chars:
+        return float("inf")
+    c = 2.0 + (0.3 if n == 5 else 0.9 if n == 6 else 0) + (2.0 if n == 1 and not SENT_END.search(ws[-1]) else 0)
+    last, ln = ws[-1], _n(ws[-1])
+    if SENT_END.search(last):
+        return c - 1.0
+    if SOFT_END.search(last):
+        return c - 1.5
+    if nxt is None:
+        return c
+    nn = _n(nxt)
+    prev_verb = n >= 2 and (_verbish(_n(ws[-2])) or _n(ws[-2]) in ("play", "beat", "put", "hit", "let", "set"))
+    if ln in STRICT_WEAK and not (ln in PRONOUN_OBJ and prev_verb):
+        c += 9                                   # never end on a connecting word ("play it" may end a page)
+    if (ln, nn) in pairs:
+        c += 9                                   # a glued phrase
+    if nn in PRONOUN_OBJ and (_verbish(ln) or ln in ("play", "beat", "put", "hit", "let", "set")):
+        c += 9                                   # verb | object ("play | it", "showed | him")
+    elif nn in ARTICLES:
+        c += 3 if (_verbish(ln) or ln in ("play", "beat", "put", "sits")) else -0.5   # verb | object NP, else a new NP
+    elif nn in PHRASE_START or _verbish(nn):
+        c -= 0.8                                 # the next page opens a phrase
+    else:
+        c += 6                                   # inside a noun phrase ("museum | fire", "chess | board")
+    return c
 
 
 def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, pairs=frozenset(), ends=frozenset()) -> float:
@@ -67,9 +118,14 @@ def _cost(ws: list[str], nxt: str | None, sentence_start: bool, max_chars: int, 
     return c
 
 
-def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45, glue=(), max_card_s: float = 3.0) -> list[dict]:
+def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45, glue=(), max_card_s: float = 3.0,
+                 rule: str = "default") -> list[dict]:
     """Mark word["br"] on caption page starts (in place); returns words. glue: extra phrases never split.
-    max_card_s: a card never stays up longer than this (first word start -> last word end)."""
+    max_card_s: a card never stays up longer than this (first word start -> last word end).
+    rule: "default" (the live behaviour) or "phrase" (opt-in, module doc)."""
+    strict = rule == "phrase"
+    if strict:
+        max_chars, max_card_s = max(max_chars, 26), max(max_card_s, 3.6)
     pairs, ends = set(), set()
     for ph in [*GLUE, *glue]:
         ws = [_n(x) for x in ph.split()]
@@ -90,7 +146,8 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
         back = [0] * (m + 1)
         for j in range(1, m + 1):
             for i in range(max(0, j - 5), j):
-                c = _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs, ends)
+                c = _cost_phrase(toks[i:j], toks[j] if j < m else None, max_chars, pairs) if strict else \
+                    _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs, ends)
                 if j - i > 1 and words[a + j - 1]["end"] - words[a + i]["start"] > max_card_s:
                     c = float("inf")
                 if best[i] + c < best[j]:
