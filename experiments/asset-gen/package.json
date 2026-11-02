@@ -1,0 +1,10 @@
+{
+  "name": "asset-gen",
+  "private": true,
+  "description": "Codex image refs -> vtracer (path A) vs structured React/SVG redraw (path B)",
+  "scripts": {
+    "render-b": "esbuild orca-b/render.tsx --bundle --platform=node --format=cjs --outfile=build/render.cjs --log-level=warning && node build/render.cjs"
+  },
+  "dependencies": {"react": "19.1.0", "react-dom": "19.1.0"},
+  "devDependencies": {"esbuild": "0.25.5", "@types/react": "19.1.8"}
+}
