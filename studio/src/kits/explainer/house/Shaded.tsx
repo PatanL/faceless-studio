@@ -88,7 +88,7 @@ export type Layers = {
 export const ALL_LAYERS: Layers = {
 	form: true,
 	core: true,
-	stipple: true,
+	stipple: false, // owner 2026-11-01: clean hard terminator by default (crisper, survives compression); stipple is opt-in
 	deep: true,
 	bounce: true,
 	highlight: true,
