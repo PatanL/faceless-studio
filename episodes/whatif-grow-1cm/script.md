@@ -93,27 +93,27 @@ the length of the video. The last frame is the frame-0 composition (the bedroom,
 ## Narration block (pipeline input: one paragraph = one scene)
 
 ```narration
-[music: score] You start growing one centimetre every second, and one minute later, your head hits the ceiling. [sfx: impact]
+[music: score] You start growing one centimetre every second, and one minute later, your head [sfx: impact] hits the ceiling.
 
 After an hour, you've added thirty-six metres. You're taller than a ten-storey building, and a car is now smaller than your shoe.
 
 That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger.
 
-Every step cracks the road, and your knees should fold right here. They don't. You keep growing. [sfx: boom]
+Every step [sfx: boom] cracks the road, and your knees should fold right here. They don't. You keep growing.
 
 Nine hours in, you're eye to eye with the top of the Eiffel Tower.
 
 By the second day, your head is up in the clouds.
 
-About ten days in, you pass the top of Mount Everest, and the air around your face is too thin to breathe. [sfx: breath]
+About ten days in, you pass the top of Mount Everest, and the air around your face is too thin to [sfx: breath] breathe.
 
-Two weeks in, airliners cruise past your chin. [sfx: whoosh_long]
+Two weeks in, [sfx: whoosh_long] airliners cruise past your chin.
 
-After four months, your head crosses the edge of space, where there's no air at all, while your feet are still standing in your street. [sfx: riser]
+After four months, [sfx: riser] your head crosses the edge of space, where there's no air at all, while your feet are still standing in your street.
 
 Eleven years in, you're as tall as the Moon is wide, and Earth is a ball not even four times your height.
 
-And if this started when you pressed play, you'd already be sixty centimetres taller, with your head on the ceiling.
+And if this started when you pressed play, you'd already be sixty centimetres taller, with your head on the [sfx: impact vol=-6] ceiling.
 ```
 
 ## Shot notes

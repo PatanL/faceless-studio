@@ -1,0 +1,2626 @@
+{
+ "niche": "explainer",
+ "emphasis": [
+  "ceiling.",
+  "thousand",
+  "Everest,",
+  "space,",
+  "Moon"
+ ],
+ "glue": [
+  "Eiffel Tower",
+  "Mount Everest",
+  "ten-storey building"
+ ],
+ "scenes": [
+  {
+   "p": 1,
+   "beat": "hook",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "home",
+    "depth": 0,
+    "waterline": null,
+    "place": "your bedroom"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": "@hits",
+       "v": 65,
+       "ease": "linear"
+      }
+     ],
+     "items": [
+      {
+       "kind": "room",
+       "ceiling": 2.4,
+       "at": "@hits"
+      }
+     ],
+     "ground": "street",
+     "seed": "room",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.49
+      },
+      {
+       "t": "@hits",
+       "v": 2.57,
+       "ease": "out"
+      }
+     ],
+     "gy": 0.64,
+     "cx": 0.52,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@minute",
+       "face": "worried"
+      },
+      {
+       "at": "@hits",
+       "face": "strain"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": "@hits+0.15",
+       "pose": "shrug"
+      }
+     ],
+     "clockScale": "lin"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@hits",
+        "v": 65,
+        "ease": "linear"
+       }
+      ],
+      "title": "+1 CM EVERY SECOND",
+      "titleUntil": "@and",
+      "clockScale": "lin"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": "@hits",
+      "zoom": 1.03,
+      "ease": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "at": "@hits",
+      "duration": 0.45,
+      "amplitude": 16,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 2,
+   "beat": "rung1",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 65
+      },
+      {
+       "t": "@metres",
+       "v": 3600,
+       "ease": "inOut"
+      },
+      {
+       "t": "@:end",
+       "v": 3750
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.82,
+       "sy": 0.22,
+       "r": 0.06
+      },
+      {
+       "kind": "house",
+       "x": -120,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -107,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -100,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -87
+      },
+      {
+       "kind": "house",
+       "x": -82,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -69,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -62,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -49,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -42,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -29
+      },
+      {
+       "kind": "house",
+       "x": -24,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 48,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 61,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 68,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 81
+      },
+      {
+       "kind": "house",
+       "x": 86,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 99,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 106,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 119,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 126,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 139
+      },
+      {
+       "kind": "house",
+       "x": 144,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 157,
+       "h": 10
+      },
+      {
+       "kind": "block",
+       "x": 26,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b2"
+      },
+      {
+       "kind": "car",
+       "x": 9.6,
+       "color": "coral-2"
+      },
+      {
+       "kind": "car",
+       "x": -48,
+       "color": "amber-2"
+      }
+     ],
+     "ground": "street",
+     "seed": "st",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.35
+      },
+      {
+       "t": "@metres",
+       "v": 1.1,
+       "ease": "inOut"
+      },
+      {
+       "t": "@building.end",
+       "v": 1.12
+      },
+      {
+       "t": "@car",
+       "v": 1.62,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.62
+      },
+      {
+       "t": "@car",
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": "@metres",
+       "v": 0.36
+      },
+      {
+       "t": "@building.end",
+       "v": 0.36
+      },
+      {
+       "t": "@car",
+       "v": 0.22,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "strain"
+      },
+      {
+       "at": "@added",
+       "face": "wow"
+      },
+      {
+       "at": "@car",
+       "face": "smile"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": "@car",
+       "pose": "point"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 65
+       },
+       {
+        "t": "@metres",
+        "v": 3600,
+        "ease": "inOut"
+       },
+       {
+        "t": "@:end",
+        "v": 3750
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 3,
+   "beat": "science",
+   "setting": {
+    "kind": "board",
+    "board": "navy"
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/CubeLaw",
+     "role": "label",
+     "x": "50%",
+     "y": "37%",
+     "width": 900,
+     "height": 1000,
+     "depth": 0.6,
+     "z": 10,
+     "props": {
+      "k": 20,
+      "itemAt": [
+       "@twenty",
+       "@eight",
+       "@four"
+      ],
+      "top": 0.02,
+      "rowH": 0.28
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": "@:end",
+      "zoom": 1.025,
+      "ease": "inOut"
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 4,
+   "beat": "turn",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 3750
+      },
+      {
+       "t": "@keep",
+       "v": 4200
+      },
+      {
+       "t": "@:end",
+       "v": 12000,
+       "ease": "in"
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.06
+      },
+      {
+       "kind": "house",
+       "x": -160,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -147,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -140,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -127
+      },
+      {
+       "kind": "house",
+       "x": -122,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -109,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -102,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -89,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -82,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -69
+      },
+      {
+       "kind": "house",
+       "x": -64,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -51,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -44,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -31,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -24,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 30,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 43,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 50,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 63
+      },
+      {
+       "kind": "house",
+       "x": 68,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 81,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 88,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 101,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 108,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 121
+      },
+      {
+       "kind": "house",
+       "x": 126,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 139,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 146,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 159,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 166,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 179
+      },
+      {
+       "kind": "house",
+       "x": 184,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 197,
+       "h": 10
+      },
+      {
+       "kind": "block",
+       "x": 44,
+       "w": 16,
+       "floors": 10,
+       "color": "violet-2",
+       "seed": "b4"
+      },
+      {
+       "kind": "car",
+       "x": 14,
+       "color": "tide-2"
+      },
+      {
+       "kind": "crack",
+       "x": 4.2,
+       "w": 14,
+       "at": "@cracks"
+      }
+     ],
+     "ground": "street",
+     "seed": "st4",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 1.5
+      },
+      {
+       "t": "@knees",
+       "v": 1.5
+      },
+      {
+       "t": "@fold",
+       "v": 1.18,
+       "ease": "inOut"
+      },
+      {
+       "t": "@keep",
+       "v": 1.15
+      },
+      {
+       "t": "@:end",
+       "v": 0.55,
+       "ease": "in"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.58
+      },
+      {
+       "t": "@fold",
+       "v": 0.64,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.3
+      },
+      {
+       "t": "@fold",
+       "v": 0.45,
+       "ease": "inOut"
+      }
+     ],
+     "sy": [
+      {
+       "t": 0,
+       "v": 1
+      },
+      {
+       "t": "@fold",
+       "v": 1
+      },
+      {
+       "t": "@here",
+       "v": 0.9,
+       "ease": "out"
+      },
+      {
+       "t": "@don't",
+       "v": 0.9
+      },
+      {
+       "t": "@don't+0.35",
+       "v": 1.0,
+       "ease": "backOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@fold",
+       "face": "strain"
+      },
+      {
+       "at": "@don't",
+       "face": "smile"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": "@don't",
+       "pose": "wave"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 3750
+       },
+       {
+        "t": "@keep",
+        "v": 4200
+       },
+       {
+        "t": "@:end",
+        "v": 12000,
+        "ease": "in"
+       }
+      ]
+     }
+    }
+   ],
+   "camera": {
+    "shake": [
+     {
+      "at": "@cracks",
+      "duration": 0.5,
+      "amplitude": 18,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 5,
+   "beat": "landmark",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "city",
+    "depth": 0,
+    "waterline": null,
+    "place": "Paris"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 32400
+      },
+      {
+       "t": "@:end",
+       "v": 33840.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "skyline",
+       "x0": -4000,
+       "x1": 4000,
+       "seed": "pa"
+      },
+      {
+       "kind": "sun",
+       "sx": 0.84,
+       "sy": 0.19,
+       "r": 0.055
+      },
+      {
+       "kind": "paris",
+       "x0": -2500,
+       "x1": -80,
+       "seed": "pr1"
+      },
+      {
+       "kind": "paris",
+       "x0": 80,
+       "x1": 2500,
+       "seed": "pr2"
+      },
+      {
+       "kind": "eiffel",
+       "x": 158
+      }
+     ],
+     "ground": "street",
+     "seed": "pa",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": "@eye",
+       "v": 0.42
+      },
+      {
+       "t": "@top",
+       "v": 0.62,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": "@eye",
+       "v": 0.42
+      },
+      {
+       "t": "@top",
+       "v": 0.24,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@eye",
+       "face": "wow"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@eye",
+       "v": 0.0
+      },
+      {
+       "t": "@top",
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": "@eye",
+       "v": 0.64
+      },
+      {
+       "t": "@top",
+       "v": 0.38,
+       "ease": "inOut"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 32400
+       },
+       {
+        "t": "@:end",
+        "v": 33840.0
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 6,
+   "beat": "rung",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "sky",
+    "depth": 0,
+    "waterline": null,
+    "place": "above the clouds"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 90720.0
+      },
+      {
+       "t": "@:end",
+       "v": 138240.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.2,
+       "sy": 0.2,
+       "r": 0.06
+      },
+      {
+       "kind": "hills",
+       "x0": -4000,
+       "x1": 4000,
+       "h": 160,
+       "seed": "h6"
+      },
+      {
+       "kind": "cloud",
+       "x": -1500,
+       "alt": 1300,
+       "w": 700,
+       "seed": "c60",
+       "front": false,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 1400,
+       "alt": 1400,
+       "w": 650,
+       "seed": "c61",
+       "front": false,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": -1300,
+       "alt": 900,
+       "w": 620,
+       "seed": "c62",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": -650,
+       "alt": 860,
+       "w": 560,
+       "seed": "c63",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 0,
+       "alt": 980,
+       "w": 520,
+       "seed": "c64",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 650,
+       "alt": 880,
+       "w": 600,
+       "seed": "c65",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 1300,
+       "alt": 930,
+       "w": 640,
+       "seed": "c66",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": -950,
+       "alt": 760,
+       "w": 640,
+       "seed": "c67",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 350,
+       "alt": 740,
+       "w": 700,
+       "seed": "c68",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 1050,
+       "alt": 780,
+       "w": 660,
+       "seed": "c69",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": -1500,
+       "alt": 720,
+       "w": 620,
+       "seed": "c610",
+       "front": true,
+       "drift": -70
+      }
+     ],
+     "ground": "land",
+     "seed": "cl",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -0.07058107428570728
+      },
+      {
+       "t": "@clouds",
+       "v": -0.2218487496163564,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.55
+      },
+      {
+       "t": "@clouds",
+       "v": 0.62,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": 0.44,
+     "cx": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "wow"
+      },
+      {
+       "at": "@clouds",
+       "face": "smile"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 90720.0
+       },
+       {
+        "t": "@:end",
+        "v": 138240.0
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 7,
+   "beat": "body",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "mountains",
+    "depth": 0,
+    "waterline": null,
+    "place": "Himalayas"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 820000.0
+      },
+      {
+       "t": "@Everest",
+       "v": 890000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": "@:end",
+       "v": 905000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.15,
+       "sy": 0.22,
+       "r": 0.055
+      },
+      {
+       "kind": "mountain",
+       "x": -5200,
+       "h": 7000,
+       "w": 13000,
+       "far": true,
+       "seed": "m1"
+      },
+      {
+       "kind": "mountain",
+       "x": 13500,
+       "h": 7400,
+       "w": 13000,
+       "far": true,
+       "seed": "m2"
+      },
+      {
+       "kind": "mountain",
+       "x": 6600,
+       "h": 8849,
+       "w": 13000,
+       "seed": "ev"
+      },
+      {
+       "kind": "cloud",
+       "x": -2500,
+       "alt": 1600,
+       "w": 2600,
+       "seed": "c71",
+       "front": true,
+       "drift": 80
+      },
+      {
+       "kind": "cloud",
+       "x": 3000,
+       "alt": 1400,
+       "w": 2400,
+       "seed": "c72",
+       "front": true,
+       "drift": -80
+      }
+     ],
+     "ground": "land",
+     "seed": "ev",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -1.1249387366083
+      },
+      {
+       "t": "@air",
+       "v": -1.0969100130080565
+      },
+      {
+       "t": "@face",
+       "v": -0.6989700043360187,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@air",
+       "v": 0.0
+      },
+      {
+       "t": "@face",
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.69
+      },
+      {
+       "t": "@air",
+       "v": 0.69
+      },
+      {
+       "t": "@face",
+       "v": 0.4,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.26
+      },
+      {
+       "t": "@air",
+       "v": 0.26
+      },
+      {
+       "t": "@face",
+       "v": 0.5,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@Everest",
+       "face": "wow"
+      },
+      {
+       "at": "@thin",
+       "face": "gasp"
+      }
+     ],
+     "puffs": [
+      {
+       "at": "@thin"
+      },
+      {
+       "at": "@breathe"
+      },
+      {
+       "at": "@breathe+0.6"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 820000.0
+       },
+       {
+        "t": "@Everest",
+        "v": 890000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": "@:end",
+        "v": 905000.0
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 8,
+   "beat": "rung",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "sky",
+    "depth": 0,
+    "waterline": null,
+    "place": "cruising altitude"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 1209600
+      },
+      {
+       "t": "@:end",
+       "v": 1244160.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.82,
+       "sy": 0.2,
+       "r": 0.05
+      },
+      {
+       "kind": "cloud",
+       "x": -3000,
+       "alt": 7000,
+       "w": 3000,
+       "seed": "c81"
+      },
+      {
+       "kind": "cloud",
+       "x": 4200,
+       "alt": 6400,
+       "w": 2600,
+       "seed": "c82"
+      },
+      {
+       "kind": "plane",
+       "x": -1150,
+       "alt": 9023.648255813954,
+       "v": 900,
+       "at": "@airliners",
+       "dir": 1,
+       "scale": 5,
+       "trail": 2500,
+       "front": true
+      },
+      {
+       "kind": "plane",
+       "x": 1150,
+       "alt": 8763.648255813954,
+       "v": 850,
+       "at": "@cruise",
+       "dir": -1,
+       "scale": 5,
+       "trail": 2200,
+       "front": true
+      }
+     ],
+     "ground": "land",
+     "seed": "pl",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -0.44369749923271273
+      },
+      {
+       "t": "@:end",
+       "v": -0.3979400086720376
+      }
+     ],
+     "focusAlt": 0.8,
+     "focusY": 0.46,
+     "cx": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@airliners",
+       "face": "shock"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 1209600
+       },
+       {
+        "t": "@:end",
+        "v": 1244160.0
+       }
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 9,
+   "beat": "threshold",
+   "setting": {
+    "kind": "place",
+    "light": "night",
+    "biome": "space",
+    "depth": 0,
+    "waterline": null,
+    "place": "edge of space"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 9000000.0
+      },
+      {
+       "t": "@space",
+       "v": 10200000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": "@while",
+       "v": 10400000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "karman"
+      },
+      {
+       "kind": "house",
+       "x": 19409.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19422.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19429.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19442.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19447.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19460.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19467.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19480.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19487.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19500.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19505.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19518.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19525.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19538.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19545.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19558.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19563.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19576.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19583.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19596.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19603.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19616.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19621.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19634.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19641.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19654.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19661.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19674.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19679.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19692.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19699.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19712.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19719.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19732.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19737.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19750.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19757.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19770.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19777.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19790.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19795.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19808.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19815.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19828.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19835.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19848.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19853.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19866.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19873.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19886.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19893.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19906.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19911.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19924.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19931.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19944.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19951.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19964.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19969.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19982.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19989.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20002.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20009.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20022.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20027.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20040.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20047.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20060.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20067.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20080.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20085.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20098.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20105.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20118.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20125.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20138.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20143.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20156.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20163.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20176.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20183.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20196.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20201.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20214.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20221.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20234.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20241.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "block",
+       "x": 19649.162790697676,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b9"
+      }
+     ],
+     "ground": "street",
+     "seed": "sp",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -2.0087739243075053
+      },
+      {
+       "t": "@while",
+       "v": -2.0087739243075053
+      },
+      {
+       "t": "@street",
+       "v": -1.2218487496163564,
+       "ease": "inOut"
+      }
+     ],
+     "gy": 0.66,
+     "focusXH": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": "@while",
+       "v": 0.0
+      },
+      {
+       "t": "@street",
+       "v": 0.14,
+       "ease": "inOut"
+      }
+     ],
+     "focusSX": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@space",
+       "face": "wow"
+      },
+      {
+       "at": "@no",
+       "face": "gasp"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 9000000.0
+       },
+       {
+        "t": "@space",
+        "v": 10200000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": "@while",
+        "v": 10400000.0
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "28%",
+     "y": "21%",
+     "width": 364,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "EDGE OF SPACE",
+      "accent": "amber",
+      "size": 34,
+      "at": "@edge",
+      "out": "@while"
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "80%",
+     "y": "41%",
+     "width": 301,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "YOUR HOUSE",
+      "accent": "amber",
+      "size": 34,
+      "at": "@street",
+      "leader": [
+       0,
+       470
+      ]
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 10,
+   "beat": "top",
+   "setting": {
+    "kind": "place",
+    "light": "night",
+    "biome": "space",
+    "depth": 0,
+    "waterline": null,
+    "place": "Earth orbit"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 320000000.0
+      },
+      {
+       "t": "@wide",
+       "v": 347000000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": "@:end",
+       "v": 348000000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "moon",
+       "x": 2800800.385,
+       "alt": 1737400,
+       "from": "@Moon"
+      }
+     ],
+     "ground": "land",
+     "seed": "mo",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -3.8096683018297086
+      },
+      {
+       "t": "@Earth",
+       "v": -3.8096683018297086
+      },
+      {
+       "t": "@ball",
+       "v": -4.142667503568732,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.62
+      },
+      {
+       "t": "@Earth",
+       "v": 0.62
+      },
+      {
+       "t": "@ball",
+       "v": 0.36,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.32
+      },
+      {
+       "t": "@Earth",
+       "v": 0.32
+      },
+      {
+       "t": "@ball",
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@Moon",
+       "face": "wow"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 320000000.0
+       },
+       {
+        "t": "@wide",
+        "v": 347000000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": "@:end",
+        "v": 348000000.0
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": "24%",
+     "width": 406,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "3,475 KM ACROSS",
+      "accent": "amber",
+      "size": 34,
+      "at": "@Moon+0.2",
+      "out": "@Earth"
+     }
+    }
+   ],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 11,
+   "beat": "loop",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "home",
+    "depth": 0,
+    "waterline": null,
+    "place": "your bedroom"
+   },
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": "@ceiling",
+       "v": 65,
+       "ease": "inOut"
+      }
+     ],
+     "items": [
+      {
+       "kind": "room",
+       "ceiling": 2.4,
+       "at": "@ceiling"
+      }
+     ],
+     "ground": "street",
+     "seed": "room",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.49
+      },
+      {
+       "t": "@ceiling",
+       "v": 2.57,
+       "ease": "out"
+      }
+     ],
+     "gy": 0.64,
+     "cx": 0.52,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": "@taller",
+       "face": "worried"
+      },
+      {
+       "at": "@ceiling",
+       "face": "strain"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": "@ceiling+0.15",
+       "pose": "shrug"
+      }
+     ],
+     "clockScale": "lin"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@ceiling",
+        "v": 65,
+        "ease": "inOut"
+       }
+      ],
+      "title": "SINCE YOU PRESSED PLAY",
+      "titleUntil": "@already",
+      "clockScale": "lin"
+     }
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": "@ceiling",
+      "zoom": 1.03,
+      "ease": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "at": "@ceiling",
+      "duration": 0.45,
+      "amplitude": 12,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     }
+    ]
+   },
+   "_house": {
+    "set": false
+   }
+  }
+ ]
+}

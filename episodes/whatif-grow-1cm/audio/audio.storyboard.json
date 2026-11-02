@@ -1,0 +1,91 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 62.379,
+ "captions": {
+  "src": "episodes/whatif-grow-1cm/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/whatif-grow-1cm/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 62.379
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/whatif-grow-1cm/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 62.379
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/whatif-grow-1cm/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/whatif-grow-1cm/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "impact",
+   "at": 5.43
+  },
+  {
+   "cue": "whoosh",
+   "at": 12.526
+  },
+  {
+   "cue": "bubbles",
+   "at": 20.186
+  },
+  {
+   "cue": "boom",
+   "at": 26.259
+  },
+  {
+   "cue": "whoosh",
+   "at": 29.769
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 32.604
+  },
+  {
+   "cue": "breath",
+   "at": 39.019
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 41.699
+  },
+  {
+   "cue": "riser",
+   "at": 48.919
+  },
+  {
+   "cue": "whoosh",
+   "at": 54.969
+  }
+ ]
+}

@@ -238,8 +238,24 @@ class Make:
                     continue
                 raise Fail(f"pull {r} failed: {e}", e.exit_code)
             changed = [l for l in diff.splitlines() if l[:1] in (">", "c") or l.startswith("*deleting")]
+            # macOS openrsync lists every file in a -c -n dry run even when it is identical: confirm by sha256
+            changed = [l for l in changed if not self._same_bytes(r, l)]
             if changed:
                 raise Fail(f"pull {r}: local copy differs from the Spark after pulling ({changed[:3]})")
+
+    def _same_bytes(self, r: str, line: str) -> bool:
+        """True when an rsync itemize line names a file whose local and Spark copies have the same sha256"""
+        if line.startswith("*deleting") or len(line.split(None, 1)) < 2:
+            return False
+        name = line.split(None, 1)[1].strip()
+        rel = r if not r.endswith("/") else r + name
+        if r.endswith("/") is False and os.path.basename(r) != name:
+            return False
+        loc = sha256_file(self.local_path(rel))
+        if loc is None:
+            return False
+        out = self.run(["ssh", HOST, f"sha256sum {REMOTE}/{shlex.quote(rel)}"], check=False, quiet=True) or ""
+        return out.split()[:1] == [loc]
 
     @contextlib.contextmanager
     def code_lock(self):

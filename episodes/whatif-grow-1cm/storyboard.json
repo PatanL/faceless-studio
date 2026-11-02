@@ -1,0 +1,4043 @@
+{
+ "version": 1,
+ "id": "whatif-grow-1cm",
+ "title": "What Happens If You Never Stop Growing? 😱",
+ "format": "9:16",
+ "fps": 30,
+ "scenes": [
+  {
+   "id": "p01",
+   "duration": 5.43,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 4.6,
+       "v": 65,
+       "ease": "linear"
+      }
+     ],
+     "items": [
+      {
+       "kind": "room",
+       "ceiling": 2.4,
+       "at": 4.6
+      }
+     ],
+     "ground": "street",
+     "seed": "room",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.49
+      },
+      {
+       "t": 4.6,
+       "v": 2.57,
+       "ease": "out"
+      }
+     ],
+     "gy": 0.64,
+     "cx": 0.52,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 3.175,
+       "face": "worried"
+      },
+      {
+       "at": 4.6,
+       "face": "strain"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": 4.75,
+       "pose": "shrug"
+      }
+     ],
+     "clockScale": "lin"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.6,
+        "v": 65,
+        "ease": "linear"
+       }
+      ],
+      "title": "+1 CM EVERY SECOND",
+      "titleUntil": "@and",
+      "clockScale": "lin"
+     }
+    }
+   ],
+   "notes": "You start growing one centimetre every second, and one minute later, your head hits the ceiling.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "home",
+    "depth": 0,
+    "waterline": null,
+    "place": "your bedroom",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 4.6,
+      "zoom": 1.03,
+      "ease": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "at": 4.6,
+      "duration": 0.45,
+      "amplitude": 16,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     },
+     {
+      "at": 0,
+      "duration": 5.43,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ],
+    "preroll": 0.3,
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    }
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   }
+  },
+  {
+   "id": "p02",
+   "duration": 7.246,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 65
+      },
+      {
+       "t": 2.25,
+       "v": 3600,
+       "ease": "inOut"
+      },
+      {
+       "t": 7.246,
+       "v": 3750
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.82,
+       "sy": 0.22,
+       "r": 0.06
+      },
+      {
+       "kind": "house",
+       "x": -120,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -107,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -100,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -87
+      },
+      {
+       "kind": "house",
+       "x": -82,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -69,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -62,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -49,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -42,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -29
+      },
+      {
+       "kind": "house",
+       "x": -24,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 48,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 61,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 68,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 81
+      },
+      {
+       "kind": "house",
+       "x": 86,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 99,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 106,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 119,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 126,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 139
+      },
+      {
+       "kind": "house",
+       "x": 144,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 157,
+       "h": 10
+      },
+      {
+       "kind": "block",
+       "x": 26,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b2"
+      },
+      {
+       "kind": "car",
+       "x": 9.6,
+       "color": "coral-2"
+      },
+      {
+       "kind": "car",
+       "x": -48,
+       "color": "amber-2"
+      }
+     ],
+     "ground": "street",
+     "seed": "st",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.35
+      },
+      {
+       "t": 2.25,
+       "v": 1.1,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.011,
+       "v": 1.12
+      },
+      {
+       "t": 5.324,
+       "v": 1.62,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.62
+      },
+      {
+       "t": 5.324,
+       "v": 0.6,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.5
+      },
+      {
+       "t": 2.25,
+       "v": 0.36
+      },
+      {
+       "t": 5.011,
+       "v": 0.36
+      },
+      {
+       "t": 5.324,
+       "v": 0.22,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "strain"
+      },
+      {
+       "at": 1.312,
+       "face": "wow"
+      },
+      {
+       "at": 5.324,
+       "face": "smile"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": 5.324,
+       "pose": "point"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 65
+       },
+       {
+        "t": 2.25,
+        "v": 3600,
+        "ease": "inOut"
+       },
+       {
+        "t": 7.246,
+        "v": 3750
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "After an hour, you've added thirty-six metres. You're taller than a ten-storey building, and a car is now smaller than your shoe.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.246,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p03",
+   "duration": 7.66,
+   "background": {
+    "type": "component",
+    "name": "explainer/Board",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "field": "navy",
+     "seed": "bd2",
+     "floor": false
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/CubeLaw",
+     "role": "label",
+     "x": "50%",
+     "y": "37%",
+     "width": 900,
+     "height": 1000,
+     "depth": 0.6,
+     "z": 10,
+     "props": {
+      "k": 20,
+      "itemAt": [
+       0.658,
+       2.833,
+       6.045
+      ],
+      "top": 0.02,
+      "rowH": 0.28
+     }
+    }
+   ],
+   "notes": "That's about twenty times taller, which makes you eight thousand times heavier, but your bones only get four hundred times stronger.",
+   "setting": {
+    "kind": "board",
+    "board": "navy",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 7.66,
+      "zoom": 1.025,
+      "ease": "inOut"
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.66,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  },
+  {
+   "id": "p04",
+   "duration": 5.948,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 3750
+      },
+      {
+       "t": 5.083,
+       "v": 4200
+      },
+      {
+       "t": 5.948,
+       "v": 12000,
+       "ease": "in"
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.18,
+       "sy": 0.2,
+       "r": 0.06
+      },
+      {
+       "kind": "house",
+       "x": -160,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -147,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -140,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -127
+      },
+      {
+       "kind": "house",
+       "x": -122,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -109,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -102,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -89,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -82,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": -69
+      },
+      {
+       "kind": "house",
+       "x": -64,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -51,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": -44,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": -31,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": -24,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "house",
+       "x": 30,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 43,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 50,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 63
+      },
+      {
+       "kind": "house",
+       "x": 68,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 81,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 88,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 101,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 108,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 121
+      },
+      {
+       "kind": "house",
+       "x": 126,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 139,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 146,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 159,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 166,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 179
+      },
+      {
+       "kind": "house",
+       "x": 184,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 197,
+       "h": 10
+      },
+      {
+       "kind": "block",
+       "x": 44,
+       "w": 16,
+       "floors": 10,
+       "color": "violet-2",
+       "seed": "b4"
+      },
+      {
+       "kind": "car",
+       "x": 14,
+       "color": "tide-2"
+      },
+      {
+       "kind": "crack",
+       "x": 4.2,
+       "w": 14,
+       "at": 0.7
+      }
+     ],
+     "ground": "street",
+     "seed": "st4",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 1.5
+      },
+      {
+       "t": 2.2,
+       "v": 1.5
+      },
+      {
+       "t": 2.738,
+       "v": 1.18,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.083,
+       "v": 1.15
+      },
+      {
+       "t": 5.948,
+       "v": 0.55,
+       "ease": "in"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.58
+      },
+      {
+       "t": 2.738,
+       "v": 0.64,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.3
+      },
+      {
+       "t": 2.738,
+       "v": 0.45,
+       "ease": "inOut"
+      }
+     ],
+     "sy": [
+      {
+       "t": 0,
+       "v": 1
+      },
+      {
+       "t": 2.738,
+       "v": 1
+      },
+      {
+       "t": 3.4,
+       "v": 0.9,
+       "ease": "out"
+      },
+      {
+       "t": 4.149,
+       "v": 0.9
+      },
+      {
+       "t": 4.499,
+       "v": 1.0,
+       "ease": "backOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 2.738,
+       "face": "strain"
+      },
+      {
+       "at": 4.149,
+       "face": "smile"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": 4.149,
+       "pose": "wave"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 3750
+       },
+       {
+        "t": 5.083,
+        "v": 4200
+       },
+       {
+        "t": 5.948,
+        "v": 12000,
+        "ease": "in"
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "Every step cracks the road, and your knees should fold right here. They don't. You keep growing.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "town",
+    "depth": 0,
+    "waterline": null,
+    "place": "your street",
+    "at": 0.0
+   },
+   "camera": {
+    "shake": [
+     {
+      "at": 0.7,
+      "duration": 0.5,
+      "amplitude": 18,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     },
+     {
+      "at": 0,
+      "duration": 5.948,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    }
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
+   }
+  },
+  {
+   "id": "p05",
+   "duration": 3.635,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 32400
+      },
+      {
+       "t": 3.635,
+       "v": 33840.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "skyline",
+       "x0": -4000,
+       "x1": 4000,
+       "seed": "pa"
+      },
+      {
+       "kind": "sun",
+       "sx": 0.84,
+       "sy": 0.19,
+       "r": 0.055
+      },
+      {
+       "kind": "paris",
+       "x0": -2500,
+       "x1": -80,
+       "seed": "pr1"
+      },
+      {
+       "kind": "paris",
+       "x0": 80,
+       "x1": 2500,
+       "seed": "pr2"
+      },
+      {
+       "kind": "eiffel",
+       "x": 158
+      }
+     ],
+     "ground": "street",
+     "seed": "pa",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": 1.6,
+       "v": 0.42
+      },
+      {
+       "t": 2.313,
+       "v": 0.62,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.42
+      },
+      {
+       "t": 1.6,
+       "v": 0.42
+      },
+      {
+       "t": 2.313,
+       "v": 0.24,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 1.6,
+       "face": "wow"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 1.6,
+       "v": 0.0
+      },
+      {
+       "t": 2.313,
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.64
+      },
+      {
+       "t": 1.6,
+       "v": 0.64
+      },
+      {
+       "t": 2.313,
+       "v": 0.38,
+       "ease": "inOut"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 32400
+       },
+       {
+        "t": 3.635,
+        "v": 33840.0
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "Nine hours in, you're eye to eye with the top of the Eiffel Tower.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "city",
+    "depth": 0,
+    "waterline": null,
+    "place": "Paris",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 3.635,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p06",
+   "duration": 2.835,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 90720.0
+      },
+      {
+       "t": 2.835,
+       "v": 138240.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.2,
+       "sy": 0.2,
+       "r": 0.06
+      },
+      {
+       "kind": "hills",
+       "x0": -4000,
+       "x1": 4000,
+       "h": 160,
+       "seed": "h6"
+      },
+      {
+       "kind": "cloud",
+       "x": -1500,
+       "alt": 1300,
+       "w": 700,
+       "seed": "c60",
+       "front": false,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 1400,
+       "alt": 1400,
+       "w": 650,
+       "seed": "c61",
+       "front": false,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": -1300,
+       "alt": 900,
+       "w": 620,
+       "seed": "c62",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": -650,
+       "alt": 860,
+       "w": 560,
+       "seed": "c63",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 0,
+       "alt": 980,
+       "w": 520,
+       "seed": "c64",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 650,
+       "alt": 880,
+       "w": 600,
+       "seed": "c65",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 1300,
+       "alt": 930,
+       "w": 640,
+       "seed": "c66",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": -950,
+       "alt": 760,
+       "w": 640,
+       "seed": "c67",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": 350,
+       "alt": 740,
+       "w": 700,
+       "seed": "c68",
+       "front": true,
+       "drift": -70
+      },
+      {
+       "kind": "cloud",
+       "x": 1050,
+       "alt": 780,
+       "w": 660,
+       "seed": "c69",
+       "front": true,
+       "drift": 70
+      },
+      {
+       "kind": "cloud",
+       "x": -1500,
+       "alt": 720,
+       "w": 620,
+       "seed": "c610",
+       "front": true,
+       "drift": -70
+      }
+     ],
+     "ground": "land",
+     "seed": "cl",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -0.07058107428570728
+      },
+      {
+       "t": 2.12,
+       "v": -0.2218487496163564,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.55
+      },
+      {
+       "t": 2.12,
+       "v": 0.62,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": 0.44,
+     "cx": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "wow"
+      },
+      {
+       "at": 2.12,
+       "face": "smile"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 90720.0
+       },
+       {
+        "t": 2.835,
+        "v": 138240.0
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "By the second day, your head is up in the clouds.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "sky",
+    "depth": 0,
+    "waterline": null,
+    "place": "above the clouds",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 2.835,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p07",
+   "duration": 6.275,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 820000.0
+      },
+      {
+       "t": 2.763,
+       "v": 890000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": 6.275,
+       "v": 905000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.15,
+       "sy": 0.22,
+       "r": 0.055
+      },
+      {
+       "kind": "mountain",
+       "x": -5200,
+       "h": 7000,
+       "w": 13000,
+       "far": true,
+       "seed": "m1"
+      },
+      {
+       "kind": "mountain",
+       "x": 13500,
+       "h": 7400,
+       "w": 13000,
+       "far": true,
+       "seed": "m2"
+      },
+      {
+       "kind": "mountain",
+       "x": 6600,
+       "h": 8849,
+       "w": 13000,
+       "seed": "ev"
+      },
+      {
+       "kind": "cloud",
+       "x": -2500,
+       "alt": 1600,
+       "w": 2600,
+       "seed": "c71",
+       "front": true,
+       "drift": 80
+      },
+      {
+       "kind": "cloud",
+       "x": 3000,
+       "alt": 1400,
+       "w": 2400,
+       "seed": "c72",
+       "front": true,
+       "drift": -80
+      }
+     ],
+     "ground": "land",
+     "seed": "ev",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -1.1249387366083
+      },
+      {
+       "t": 3.913,
+       "v": -1.0969100130080565
+      },
+      {
+       "t": 4.663,
+       "v": -0.6989700043360187,
+       "ease": "inOut"
+      }
+     ],
+     "focusAlt": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 3.913,
+       "v": 0.0
+      },
+      {
+       "t": 4.663,
+       "v": 0.86,
+       "ease": "inOut"
+      }
+     ],
+     "focusY": [
+      {
+       "t": 0,
+       "v": 0.69
+      },
+      {
+       "t": 3.913,
+       "v": 0.69
+      },
+      {
+       "t": 4.663,
+       "v": 0.4,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.26
+      },
+      {
+       "t": 3.913,
+       "v": 0.26
+      },
+      {
+       "t": 4.663,
+       "v": 0.5,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 2.763,
+       "face": "wow"
+      },
+      {
+       "at": 5.45,
+       "face": "gasp"
+      }
+     ],
+     "puffs": [
+      {
+       "at": 5.45
+      },
+      {
+       "at": 5.85
+      },
+      {
+       "at": 6.225
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 820000.0
+       },
+       {
+        "t": 2.763,
+        "v": 890000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": 6.275,
+        "v": 905000.0
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "About ten days in, you pass the top of Mount Everest, and the air around your face is too thin to breathe.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "mountains",
+    "depth": 0,
+    "waterline": null,
+    "place": "Himalayas",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.275,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  },
+  {
+   "id": "p08",
+   "duration": 2.69,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 1209600
+      },
+      {
+       "t": 2.69,
+       "v": 1244160.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "sun",
+       "sx": 0.82,
+       "sy": 0.2,
+       "r": 0.05
+      },
+      {
+       "kind": "cloud",
+       "x": -3000,
+       "alt": 7000,
+       "w": 3000,
+       "seed": "c81"
+      },
+      {
+       "kind": "cloud",
+       "x": 4200,
+       "alt": 6400,
+       "w": 2600,
+       "seed": "c82"
+      },
+      {
+       "kind": "plane",
+       "x": -1150,
+       "alt": 9023.648255813954,
+       "v": 900,
+       "at": 0.95,
+       "dir": 1,
+       "scale": 5,
+       "trail": 2500,
+       "front": true
+      },
+      {
+       "kind": "plane",
+       "x": 1150,
+       "alt": 8763.648255813954,
+       "v": 850,
+       "at": 1.538,
+       "dir": -1,
+       "scale": 5,
+       "trail": 2200,
+       "front": true
+      }
+     ],
+     "ground": "land",
+     "seed": "pl",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -0.44369749923271273
+      },
+      {
+       "t": 2.69,
+       "v": -0.3979400086720376
+      }
+     ],
+     "focusAlt": 0.8,
+     "focusY": 0.46,
+     "cx": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 0.95,
+       "face": "shock"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 1209600
+       },
+       {
+        "t": 2.69,
+        "v": 1244160.0
+       }
+      ]
+     }
+    }
+   ],
+   "notes": "Two weeks in, airliners cruise past your chin.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "sky",
+    "depth": 0,
+    "waterline": null,
+    "place": "cruising altitude",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern"
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 2.69,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "iris",
+    "duration": 0.55
+   }
+  },
+  {
+   "id": "p09",
+   "duration": 7.22,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 9000000.0
+      },
+      {
+       "t": 2.613,
+       "v": 10200000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": 5.075,
+       "v": 10400000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "karman"
+      },
+      {
+       "kind": "house",
+       "x": 19409.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19422.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19429.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19442.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19447.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19460.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19467.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19480.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19487.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19500.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19505.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19518.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19525.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19538.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19545.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19558.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19563.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19576.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19583.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19596.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19603.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19616.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19621.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19634.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19641.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19654.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19661.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19674.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19679.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19692.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19699.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19712.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19719.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19732.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19737.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19750.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19757.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19770.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19777.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19790.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19795.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19808.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19815.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19828.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19835.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19848.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19853.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19866.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19873.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19886.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19893.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19906.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19911.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19924.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19931.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19944.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 19951.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 19964.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 19969.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 19982.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 19989.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20002.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20009.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20022.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20027.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20040.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20047.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20060.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20067.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20080.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20085.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20098.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20105.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20118.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20125.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20138.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20143.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20156.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20163.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20176.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20183.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "lamp",
+       "x": 20196.162790697676
+      },
+      {
+       "kind": "house",
+       "x": 20201.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "kelp-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20214.162790697676,
+       "h": 10
+      },
+      {
+       "kind": "house",
+       "x": 20221.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "coral-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "tree",
+       "x": 20234.162790697676,
+       "h": 9
+      },
+      {
+       "kind": "house",
+       "x": 20241.162790697676,
+       "w": 9,
+       "h": 5.5,
+       "color": "tide-2",
+       "roof": "dusk-1"
+      },
+      {
+       "kind": "block",
+       "x": 19649.162790697676,
+       "w": 16,
+       "floors": 10,
+       "color": "magenta-1",
+       "seed": "b9"
+      }
+     ],
+     "ground": "street",
+     "seed": "sp",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -2.0087739243075053
+      },
+      {
+       "t": 5.075,
+       "v": -2.0087739243075053
+      },
+      {
+       "t": 6.763,
+       "v": -1.2218487496163564,
+       "ease": "inOut"
+      }
+     ],
+     "gy": 0.66,
+     "focusXH": [
+      {
+       "t": 0,
+       "v": 0.0
+      },
+      {
+       "t": 5.075,
+       "v": 0.0
+      },
+      {
+       "t": 6.763,
+       "v": 0.14,
+       "ease": "inOut"
+      }
+     ],
+     "focusSX": 0.5,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 2.613,
+       "face": "wow"
+      },
+      {
+       "at": 3.8,
+       "face": "gasp"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 9000000.0
+       },
+       {
+        "t": 2.613,
+        "v": 10200000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": 5.075,
+        "v": 10400000.0
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "28%",
+     "y": "21%",
+     "width": 364,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "EDGE OF SPACE",
+      "accent": "amber",
+      "size": 34,
+      "at": 2.238,
+      "out": 5.075
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "80%",
+     "y": "41%",
+     "width": 301,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "YOUR HOUSE",
+      "accent": "amber",
+      "size": 34,
+      "at": 6.763,
+      "leader": [
+       0,
+       470
+      ]
+     }
+    }
+   ],
+   "notes": "After four months, your head crosses the edge of space, where there's no air at all, while your feet are still standing in your street.",
+   "setting": {
+    "kind": "place",
+    "light": "night",
+    "biome": "space",
+    "depth": 0,
+    "waterline": null,
+    "place": "edge of space",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": 5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 7.22,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "left"
+   }
+  },
+  {
+   "id": "p10",
+   "duration": 6.18,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 320000000.0
+      },
+      {
+       "t": 2.713,
+       "v": 347000000.0,
+       "ease": "inOut"
+      },
+      {
+       "t": 6.18,
+       "v": 348000000.0
+      }
+     ],
+     "items": [
+      {
+       "kind": "moon",
+       "x": 2800800.385,
+       "alt": 1737400,
+       "from": 2.263
+      }
+     ],
+     "ground": "land",
+     "seed": "mo",
+     "lppm": [
+      {
+       "t": 0,
+       "v": -3.8096683018297086
+      },
+      {
+       "t": 3.663,
+       "v": -3.8096683018297086
+      },
+      {
+       "t": 4.188,
+       "v": -4.142667503568732,
+       "ease": "inOut"
+      }
+     ],
+     "gy": [
+      {
+       "t": 0,
+       "v": 0.62
+      },
+      {
+       "t": 3.663,
+       "v": 0.62
+      },
+      {
+       "t": 4.188,
+       "v": 0.36,
+       "ease": "inOut"
+      }
+     ],
+     "cx": [
+      {
+       "t": 0,
+       "v": 0.32
+      },
+      {
+       "t": 3.663,
+       "v": 0.32
+      },
+      {
+       "t": 4.188,
+       "v": 0.42,
+       "ease": "inOut"
+      }
+     ],
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 2.263,
+       "face": "wow"
+      }
+     ]
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 320000000.0
+       },
+       {
+        "t": 2.713,
+        "v": 347000000.0,
+        "ease": "inOut"
+       },
+       {
+        "t": 6.18,
+        "v": 348000000.0
+       }
+      ]
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "70%",
+     "y": "24%",
+     "width": 406,
+     "height": 80,
+     "z": 40,
+     "props": {
+      "text": "3,475 KM ACROSS",
+      "accent": "amber",
+      "size": 34,
+      "at": 2.463,
+      "out": 3.663
+     }
+    }
+   ],
+   "notes": "Eleven years in, you're as tall as the Moon is wide, and Earth is a ball not even four times your height.",
+   "setting": {
+    "kind": "place",
+    "light": "night",
+    "biome": "space",
+    "depth": 0,
+    "waterline": null,
+    "place": "Earth orbit",
+    "at": 0.0
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "camera": {
+    "keyframes": [],
+    "drift": {
+     "zoom": 0.006,
+     "x": -5,
+     "y": 0
+    },
+    "shake": [
+     {
+      "at": 0,
+      "duration": 6.18,
+      "amplitude": 3,
+      "frequency": 0.22,
+      "rotate": 0,
+      "decay": false
+     }
+    ]
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.55,
+    "direction": "up"
+   }
+  },
+  {
+   "id": "p11",
+   "duration": 7.26,
+   "background": {
+    "type": "component",
+    "name": "explainer/GrowWorld",
+    "depth": 0.12,
+    "overscan": 1.06,
+    "props": {
+     "clock": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 5.813,
+       "v": 65,
+       "ease": "inOut"
+      }
+     ],
+     "items": [
+      {
+       "kind": "room",
+       "ceiling": 2.4,
+       "at": 5.813
+      }
+     ],
+     "ground": "street",
+     "seed": "room",
+     "lppm": [
+      {
+       "t": 0,
+       "v": 2.49
+      },
+      {
+       "t": 5.813,
+       "v": 2.57,
+       "ease": "out"
+      }
+     ],
+     "gy": 0.64,
+     "cx": 0.52,
+     "face": [
+      {
+       "at": 0,
+       "face": "calm"
+      },
+      {
+       "at": 4.313,
+       "face": "worried"
+      },
+      {
+       "at": 5.813,
+       "face": "strain"
+      }
+     ],
+     "pose": [
+      {
+       "at": 0,
+       "pose": "stand"
+      },
+      {
+       "at": 5.963,
+       "pose": "shrug"
+      }
+     ],
+     "clockScale": "lin"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/GrowHud",
+     "role": "fx",
+     "x": "50%",
+     "y": "50%",
+     "width": 1080,
+     "height": 1920,
+     "depth": 0,
+     "z": 50,
+     "props": {
+      "clock": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 5.813,
+        "v": 65,
+        "ease": "inOut"
+       }
+      ],
+      "title": "SINCE YOU PRESSED PLAY",
+      "titleUntil": "@already",
+      "clockScale": "lin"
+     }
+    }
+   ],
+   "notes": "And if this started when you pressed play, you'd already be sixty centimetres taller, with your head on the ceiling.",
+   "setting": {
+    "kind": "place",
+    "light": "day",
+    "biome": "home",
+    "depth": 0,
+    "waterline": null,
+    "place": "your bedroom",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1.0
+     },
+     {
+      "t": 5.813,
+      "zoom": 1.03,
+      "ease": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "at": 5.813,
+      "duration": 0.45,
+      "amplitude": 12,
+      "frequency": 9,
+      "rotate": 0.2,
+      "decay": true
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   },
+   "transitionIn": {
+    "type": "fade",
+    "duration": 0.5
+   }
+  }
+ ],
+ "captions": {
+  "words": [
+   {
+    "text": "You",
+    "start": 0.1,
+    "end": 0.175,
+    "br": true
+   },
+   {
+    "text": "start",
+    "start": 0.175,
+    "end": 0.5
+   },
+   {
+    "text": "growing",
+    "start": 0.5,
+    "end": 0.9
+   },
+   {
+    "text": "one",
+    "start": 0.9,
+    "end": 1.138,
+    "br": true
+   },
+   {
+    "text": "centimetre",
+    "start": 1.138,
+    "end": 1.763
+   },
+   {
+    "text": "every",
+    "start": 1.763,
+    "end": 2.112,
+    "br": true
+   },
+   {
+    "text": "second,",
+    "start": 2.112,
+    "end": 2.675
+   },
+   {
+    "text": "and",
+    "start": 2.775,
+    "end": 2.913,
+    "br": true
+   },
+   {
+    "text": "one",
+    "start": 2.913,
+    "end": 3.175
+   },
+   {
+    "text": "minute",
+    "start": 3.175,
+    "end": 3.45
+   },
+   {
+    "text": "later,",
+    "start": 3.45,
+    "end": 4.025,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 4.15,
+    "end": 4.35
+   },
+   {
+    "text": "head",
+    "start": 4.35,
+    "end": 4.6
+   },
+   {
+    "text": "hits",
+    "start": 4.6,
+    "end": 4.875,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 4.875,
+    "end": 5.013
+   },
+   {
+    "text": "ceiling.",
+    "start": 5.013,
+    "end": 5.43,
+    "emph": true
+   },
+   {
+    "text": "After",
+    "start": 5.58,
+    "end": 5.867,
+    "br": true
+   },
+   {
+    "text": "an",
+    "start": 5.867,
+    "end": 5.992
+   },
+   {
+    "text": "hour,",
+    "start": 5.992,
+    "end": 6.455
+   },
+   {
+    "text": "you've",
+    "start": 6.53,
+    "end": 6.742,
+    "br": true
+   },
+   {
+    "text": "added",
+    "start": 6.742,
+    "end": 7.093
+   },
+   {
+    "text": "thirty-six",
+    "start": 7.093,
+    "end": 7.68,
+    "br": true
+   },
+   {
+    "text": "metres.",
+    "start": 7.68,
+    "end": 8.405
+   },
+   {
+    "text": "You're",
+    "start": 8.516,
+    "end": 8.654,
+    "br": true
+   },
+   {
+    "text": "taller",
+    "start": 8.654,
+    "end": 9.029
+   },
+   {
+    "text": "than",
+    "start": 9.029,
+    "end": 9.129
+   },
+   {
+    "text": "a",
+    "start": 9.129,
+    "end": 9.191,
+    "br": true
+   },
+   {
+    "text": "ten-storey",
+    "start": 9.191,
+    "end": 9.791
+   },
+   {
+    "text": "building,",
+    "start": 9.791,
+    "end": 10.441
+   },
+   {
+    "text": "and",
+    "start": 10.541,
+    "end": 10.654,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 10.654,
+    "end": 10.754
+   },
+   {
+    "text": "car",
+    "start": 10.754,
+    "end": 11.116
+   },
+   {
+    "text": "is",
+    "start": 11.116,
+    "end": 11.266,
+    "br": true
+   },
+   {
+    "text": "now",
+    "start": 11.266,
+    "end": 11.516
+   },
+   {
+    "text": "smaller",
+    "start": 11.516,
+    "end": 12.016
+   },
+   {
+    "text": "than",
+    "start": 12.016,
+    "end": 12.129,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 12.129,
+    "end": 12.316
+   },
+   {
+    "text": "shoe.",
+    "start": 12.316,
+    "end": 12.676
+   },
+   {
+    "text": "That's",
+    "start": 12.826,
+    "end": 13.059,
+    "br": true
+   },
+   {
+    "text": "about",
+    "start": 13.059,
+    "end": 13.334,
+    "br": true
+   },
+   {
+    "text": "twenty",
+    "start": 13.334,
+    "end": 13.671
+   },
+   {
+    "text": "times",
+    "start": 13.671,
+    "end": 14.059
+   },
+   {
+    "text": "taller,",
+    "start": 14.059,
+    "end": 14.771,
+    "br": true
+   },
+   {
+    "text": "which",
+    "start": 14.871,
+    "end": 15.071,
+    "br": true
+   },
+   {
+    "text": "makes",
+    "start": 15.071,
+    "end": 15.321
+   },
+   {
+    "text": "you",
+    "start": 15.321,
+    "end": 15.509
+   },
+   {
+    "text": "eight",
+    "start": 15.509,
+    "end": 15.784,
+    "br": true
+   },
+   {
+    "text": "thousand",
+    "start": 15.784,
+    "end": 16.196,
+    "emph": true
+   },
+   {
+    "text": "times",
+    "start": 16.196,
+    "end": 16.596
+   },
+   {
+    "text": "heavier,",
+    "start": 16.596,
+    "end": 17.321,
+    "br": true
+   },
+   {
+    "text": "but",
+    "start": 17.421,
+    "end": 17.571,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 17.571,
+    "end": 17.759
+   },
+   {
+    "text": "bones",
+    "start": 17.759,
+    "end": 18.196
+   },
+   {
+    "text": "only",
+    "start": 18.196,
+    "end": 18.496,
+    "br": true
+   },
+   {
+    "text": "get",
+    "start": 18.496,
+    "end": 18.721
+   },
+   {
+    "text": "four",
+    "start": 18.721,
+    "end": 19.046,
+    "br": true
+   },
+   {
+    "text": "hundred",
+    "start": 19.046,
+    "end": 19.371
+   },
+   {
+    "text": "times",
+    "start": 19.371,
+    "end": 19.746
+   },
+   {
+    "text": "stronger.",
+    "start": 19.746,
+    "end": 20.336,
+    "br": true
+   },
+   {
+    "text": "Every",
+    "start": 20.486,
+    "end": 20.736,
+    "br": true
+   },
+   {
+    "text": "step",
+    "start": 20.736,
+    "end": 21.036
+   },
+   {
+    "text": "cracks",
+    "start": 21.036,
+    "end": 21.411,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 21.411,
+    "end": 21.536
+   },
+   {
+    "text": "road,",
+    "start": 21.536,
+    "end": 22.136
+   },
+   {
+    "text": "and",
+    "start": 22.236,
+    "end": 22.361,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 22.361,
+    "end": 22.536
+   },
+   {
+    "text": "knees",
+    "start": 22.536,
+    "end": 22.886
+   },
+   {
+    "text": "should",
+    "start": 22.886,
+    "end": 23.074,
+    "br": true
+   },
+   {
+    "text": "fold",
+    "start": 23.074,
+    "end": 23.461
+   },
+   {
+    "text": "right",
+    "start": 23.461,
+    "end": 23.736,
+    "br": true
+   },
+   {
+    "text": "here.",
+    "start": 23.736,
+    "end": 24.311
+   },
+   {
+    "text": "They",
+    "start": 24.298,
+    "end": 24.485,
+    "br": true
+   },
+   {
+    "text": "don't.",
+    "start": 24.485,
+    "end": 25.123
+   },
+   {
+    "text": "You",
+    "start": 25.299,
+    "end": 25.419,
+    "br": true
+   },
+   {
+    "text": "keep",
+    "start": 25.419,
+    "end": 25.669
+   },
+   {
+    "text": "growing.",
+    "start": 25.669,
+    "end": 26.259
+   },
+   {
+    "text": "Nine",
+    "start": 26.434,
+    "end": 26.747,
+    "br": true
+   },
+   {
+    "text": "hours",
+    "start": 26.747,
+    "end": 27.159
+   },
+   {
+    "text": "in,",
+    "start": 27.159,
+    "end": 27.609
+   },
+   {
+    "text": "you're",
+    "start": 27.734,
+    "end": 27.884,
+    "br": true
+   },
+   {
+    "text": "eye",
+    "start": 27.884,
+    "end": 28.022
+   },
+   {
+    "text": "to",
+    "start": 28.022,
+    "end": 28.147,
+    "br": true
+   },
+   {
+    "text": "eye",
+    "start": 28.147,
+    "end": 28.397
+   },
+   {
+    "text": "with",
+    "start": 28.397,
+    "end": 28.497,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 28.497,
+    "end": 28.597
+   },
+   {
+    "text": "top",
+    "start": 28.597,
+    "end": 28.872
+   },
+   {
+    "text": "of",
+    "start": 28.872,
+    "end": 28.947,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 28.947,
+    "end": 29.097
+   },
+   {
+    "text": "Eiffel",
+    "start": 29.097,
+    "end": 29.447
+   },
+   {
+    "text": "Tower.",
+    "start": 29.447,
+    "end": 29.919
+   },
+   {
+    "text": "By",
+    "start": 30.069,
+    "end": 30.177,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 30.177,
+    "end": 30.302
+   },
+   {
+    "text": "second",
+    "start": 30.302,
+    "end": 30.664
+   },
+   {
+    "text": "day,",
+    "start": 30.664,
+    "end": 31.089,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 31.189,
+    "end": 31.389
+   },
+   {
+    "text": "head",
+    "start": 31.389,
+    "end": 31.577
+   },
+   {
+    "text": "is",
+    "start": 31.577,
+    "end": 31.689,
+    "br": true
+   },
+   {
+    "text": "up",
+    "start": 31.689,
+    "end": 31.877
+   },
+   {
+    "text": "in",
+    "start": 31.877,
+    "end": 31.952,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 31.952,
+    "end": 32.039
+   },
+   {
+    "text": "clouds.",
+    "start": 32.039,
+    "end": 32.739
+   },
+   {
+    "text": "About",
+    "start": 32.904,
+    "end": 33.192,
+    "br": true
+   },
+   {
+    "text": "ten",
+    "start": 33.192,
+    "end": 33.454
+   },
+   {
+    "text": "days",
+    "start": 33.454,
+    "end": 33.729
+   },
+   {
+    "text": "in,",
+    "start": 33.729,
+    "end": 34.204,
+    "br": true
+   },
+   {
+    "text": "you",
+    "start": 34.304,
+    "end": 34.454
+   },
+   {
+    "text": "pass",
+    "start": 34.454,
+    "end": 34.779,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 34.779,
+    "end": 34.879
+   },
+   {
+    "text": "top",
+    "start": 34.879,
+    "end": 35.142
+   },
+   {
+    "text": "of",
+    "start": 35.142,
+    "end": 35.254,
+    "br": true
+   },
+   {
+    "text": "Mount",
+    "start": 35.254,
+    "end": 35.517
+   },
+   {
+    "text": "Everest,",
+    "start": 35.517,
+    "end": 36.329,
+    "emph": true
+   },
+   {
+    "text": "and",
+    "start": 36.429,
+    "end": 36.542,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 36.542,
+    "end": 36.667
+   },
+   {
+    "text": "air",
+    "start": 36.667,
+    "end": 36.929
+   },
+   {
+    "text": "around",
+    "start": 36.929,
+    "end": 37.267,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 37.267,
+    "end": 37.417
+   },
+   {
+    "text": "face",
+    "start": 37.417,
+    "end": 37.779
+   },
+   {
+    "text": "is",
+    "start": 37.779,
+    "end": 37.942,
+    "br": true
+   },
+   {
+    "text": "too",
+    "start": 37.942,
+    "end": 38.204
+   },
+   {
+    "text": "thin",
+    "start": 38.204,
+    "end": 38.479
+   },
+   {
+    "text": "to",
+    "start": 38.479,
+    "end": 38.604,
+    "br": true
+   },
+   {
+    "text": "breathe.",
+    "start": 38.604,
+    "end": 39.019
+   },
+   {
+    "text": "Two",
+    "start": 39.179,
+    "end": 39.354,
+    "br": true
+   },
+   {
+    "text": "weeks",
+    "start": 39.354,
+    "end": 39.617
+   },
+   {
+    "text": "in,",
+    "start": 39.617,
+    "end": 39.879
+   },
+   {
+    "text": "airliners",
+    "start": 39.979,
+    "end": 40.567,
+    "br": true
+   },
+   {
+    "text": "cruise",
+    "start": 40.567,
+    "end": 40.954
+   },
+   {
+    "text": "past",
+    "start": 40.954,
+    "end": 41.242,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 41.242,
+    "end": 41.367
+   },
+   {
+    "text": "chin.",
+    "start": 41.367,
+    "end": 41.699
+   },
+   {
+    "text": "After",
+    "start": 41.869,
+    "end": 42.157,
+    "br": true
+   },
+   {
+    "text": "four",
+    "start": 42.157,
+    "end": 42.419
+   },
+   {
+    "text": "months,",
+    "start": 42.419,
+    "end": 42.819
+   },
+   {
+    "text": "your",
+    "start": 42.894,
+    "end": 43.094,
+    "br": true
+   },
+   {
+    "text": "head",
+    "start": 43.094,
+    "end": 43.357
+   },
+   {
+    "text": "crosses",
+    "start": 43.357,
+    "end": 43.807,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 43.807,
+    "end": 43.957
+   },
+   {
+    "text": "edge",
+    "start": 43.957,
+    "end": 44.207
+   },
+   {
+    "text": "of",
+    "start": 44.207,
+    "end": 44.332,
+    "br": true
+   },
+   {
+    "text": "space,",
+    "start": 44.332,
+    "end": 45.044,
+    "emph": true
+   },
+   {
+    "text": "where",
+    "start": 45.144,
+    "end": 45.294,
+    "br": true
+   },
+   {
+    "text": "there's",
+    "start": 45.294,
+    "end": 45.519
+   },
+   {
+    "text": "no",
+    "start": 45.519,
+    "end": 45.782,
+    "br": true
+   },
+   {
+    "text": "air",
+    "start": 45.782,
+    "end": 46.019
+   },
+   {
+    "text": "at",
+    "start": 46.019,
+    "end": 46.119,
+    "br": true
+   },
+   {
+    "text": "all,",
+    "start": 46.119,
+    "end": 46.694
+   },
+   {
+    "text": "while",
+    "start": 46.794,
+    "end": 46.994,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 46.994,
+    "end": 47.169
+   },
+   {
+    "text": "feet",
+    "start": 47.169,
+    "end": 47.407
+   },
+   {
+    "text": "are",
+    "start": 47.407,
+    "end": 47.494,
+    "br": true
+   },
+   {
+    "text": "still",
+    "start": 47.494,
+    "end": 47.782
+   },
+   {
+    "text": "standing",
+    "start": 47.782,
+    "end": 48.257
+   },
+   {
+    "text": "in",
+    "start": 48.257,
+    "end": 48.332,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 48.332,
+    "end": 48.482
+   },
+   {
+    "text": "street.",
+    "start": 48.482,
+    "end": 48.919
+   },
+   {
+    "text": "Eleven",
+    "start": 49.089,
+    "end": 49.439,
+    "br": true
+   },
+   {
+    "text": "years",
+    "start": 49.439,
+    "end": 49.739
+   },
+   {
+    "text": "in,",
+    "start": 49.739,
+    "end": 50.189
+   },
+   {
+    "text": "you're",
+    "start": 50.289,
+    "end": 50.464,
+    "br": true
+   },
+   {
+    "text": "as",
+    "start": 50.464,
+    "end": 50.627
+   },
+   {
+    "text": "tall",
+    "start": 50.627,
+    "end": 50.927
+   },
+   {
+    "text": "as",
+    "start": 50.927,
+    "end": 51.064,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 51.064,
+    "end": 51.202
+   },
+   {
+    "text": "Moon",
+    "start": 51.202,
+    "end": 51.502,
+    "emph": true
+   },
+   {
+    "text": "is",
+    "start": 51.502,
+    "end": 51.652,
+    "br": true
+   },
+   {
+    "text": "wide,",
+    "start": 51.652,
+    "end": 52.339
+   },
+   {
+    "text": "and",
+    "start": 52.439,
+    "end": 52.602,
+    "br": true
+   },
+   {
+    "text": "Earth",
+    "start": 52.602,
+    "end": 52.914
+   },
+   {
+    "text": "is",
+    "start": 52.914,
+    "end": 53.027,
+    "br": true
+   },
+   {
+    "text": "a",
+    "start": 53.027,
+    "end": 53.127
+   },
+   {
+    "text": "ball",
+    "start": 53.127,
+    "end": 53.464
+   },
+   {
+    "text": "not",
+    "start": 53.464,
+    "end": 53.689,
+    "br": true
+   },
+   {
+    "text": "even",
+    "start": 53.689,
+    "end": 54.014
+   },
+   {
+    "text": "four",
+    "start": 54.014,
+    "end": 54.314,
+    "br": true
+   },
+   {
+    "text": "times",
+    "start": 54.314,
+    "end": 54.652
+   },
+   {
+    "text": "your",
+    "start": 54.652,
+    "end": 54.789,
+    "br": true
+   },
+   {
+    "text": "height.",
+    "start": 54.789,
+    "end": 55.119
+   },
+   {
+    "text": "And",
+    "start": 55.269,
+    "end": 55.382,
+    "br": true
+   },
+   {
+    "text": "if",
+    "start": 55.382,
+    "end": 55.519
+   },
+   {
+    "text": "this",
+    "start": 55.519,
+    "end": 55.707,
+    "br": true
+   },
+   {
+    "text": "started",
+    "start": 55.707,
+    "end": 56.157
+   },
+   {
+    "text": "when",
+    "start": 56.157,
+    "end": 56.294,
+    "br": true
+   },
+   {
+    "text": "you",
+    "start": 56.294,
+    "end": 56.419
+   },
+   {
+    "text": "pressed",
+    "start": 56.419,
+    "end": 56.757,
+    "br": true
+   },
+   {
+    "text": "play,",
+    "start": 56.757,
+    "end": 57.394
+   },
+   {
+    "text": "you'd",
+    "start": 57.544,
+    "end": 57.744,
+    "br": true
+   },
+   {
+    "text": "already",
+    "start": 57.744,
+    "end": 58.119
+   },
+   {
+    "text": "be",
+    "start": 58.119,
+    "end": 58.332,
+    "br": true
+   },
+   {
+    "text": "sixty",
+    "start": 58.332,
+    "end": 58.782
+   },
+   {
+    "text": "centimetres",
+    "start": 58.782,
+    "end": 59.432
+   },
+   {
+    "text": "taller,",
+    "start": 59.432,
+    "end": 60.094,
+    "br": true
+   },
+   {
+    "text": "with",
+    "start": 60.194,
+    "end": 60.344,
+    "br": true
+   },
+   {
+    "text": "your",
+    "start": 60.344,
+    "end": 60.519
+   },
+   {
+    "text": "head",
+    "start": 60.519,
+    "end": 60.732
+   },
+   {
+    "text": "on",
+    "start": 60.732,
+    "end": 60.832,
+    "br": true
+   },
+   {
+    "text": "the",
+    "start": 60.832,
+    "end": 60.932
+   },
+   {
+    "text": "ceiling.",
+    "start": 60.932,
+    "end": 61.379
+   }
+  ],
+  "maxWords": 4,
+  "maxChars": 20,
+  "style": {
+   "font": "display",
+   "fontSize": 84,
+   "color": "#fff2c0",
+   "highlight": "#ff5a4a",
+   "highlightMode": "none",
+   "strokeWidth": 12,
+   "strokeColor": "#0b2c3a",
+   "uppercase": true,
+   "y": 0.72
+  }
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/whatif-grow-1cm/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 62.379
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "overlays": {
+  "grain": 0,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "_built": {
+  "by": "pipeline/episodes/auto.py (shots.json)",
+  "timing": "kokoro captions.json",
+  "audio": "studio/public/episodes/whatif-grow-1cm/mix.wav (Spark; rebuild with pipeline.audio.make)",
+  "style": "house (Lantern & Ink): pipeline/episodes/house.py"
+ }
+}

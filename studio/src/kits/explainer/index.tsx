@@ -91,3 +91,8 @@ registerComponent('explainer/Board', Board);
 registerComponent('explainer/IceField', IceField);
 registerComponent('explainer/IceFloe', IceFloe);
 registerComponent('explainer/Coast', Coast);
+// lane C what-if worlds (grow.tsx): a world in metres around a growing YOU, and its clock + height plate
+import {CubeLaw, GrowHud, GrowWorld} from './grow';
+registerComponent('explainer/GrowWorld', GrowWorld);
+registerComponent('explainer/CubeLaw', CubeLaw);
+registerComponent('explainer/GrowHud', GrowHud);

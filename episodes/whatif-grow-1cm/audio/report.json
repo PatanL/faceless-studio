@@ -1,0 +1,209 @@
+{
+ "id": "whatif-grow-1cm",
+ "niche": "explainer",
+ "script": "episodes/whatif-grow-1cm/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 1.1,
+  "synth_s": 19.84,
+  "duration_s": 61.979,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.18,
+  "true_peak_dbtp_4x": -2.02,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.1,
+   "LRA_lu": 1.6,
+   "true_peak_dbtp": -2.0
+  },
+  "duration_s": 62.379,
+  "music": "score",
+  "sfx_placed": [
+   {
+    "cue": "impact",
+    "at": 5.43,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -4.0,
+    "mix_momentary_max": -12.1
+   },
+   {
+    "cue": "whoosh",
+    "at": 12.526,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -12.0
+   },
+   {
+    "cue": "bubbles",
+    "at": 20.186,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 2.818,
+    "level_db": -17.0,
+    "mix_momentary_max": -11.2
+   },
+   {
+    "cue": "boom",
+    "at": 26.259,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 3.5,
+    "level_db": -4.0,
+    "mix_momentary_max": -10.7
+   },
+   {
+    "cue": "whoosh",
+    "at": 29.769,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.3
+   },
+   {
+    "cue": "whoosh_long",
+    "at": 32.604,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.802,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.3
+   },
+   {
+    "cue": "breath",
+    "at": 39.019,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.402,
+    "level_db": -10.0,
+    "mix_momentary_max": -11.2
+   },
+   {
+    "cue": "whoosh_long",
+    "at": 41.699,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.802,
+    "level_db": -10.0,
+    "mix_momentary_max": -11.6
+   },
+   {
+    "cue": "riser",
+    "at": 48.919,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.6,
+    "level_db": -9.0,
+    "mix_momentary_max": -10.9
+   },
+   {
+    "cue": "whoosh",
+    "at": 54.969,
+    "db": -5.0,
+    "source": "cut",
+    "dur": 1.186,
+    "level_db": -15.0,
+    "mix_momentary_max": -11.0
+   }
+  ],
+  "music_rms_db_under_voice": -38.59,
+  "music_rms_db_in_gaps": -50.88,
+  "measured_duck_db": 12.29,
+  "bed_below_voice_db": 18.94,
+  "music_provenance": {
+   "generator": "pipeline.audio.score",
+   "soundfont": "GeneralUser-GS",
+   "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
+   "seed": 604039798
+  },
+  "score": {
+   "cues": [
+    {
+     "t0": 0.0,
+     "t1": 12.676,
+     "mood": "curious",
+     "intensity": 1,
+     "role": "hook"
+    },
+    {
+     "t0": 12.676,
+     "t1": 20.336,
+     "mood": "board",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 20.336,
+     "t1": 32.754,
+     "mood": "curious",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 32.754,
+     "t1": 41.718999999999994,
+     "mood": "curious",
+     "intensity": 2,
+     "role": ""
+    },
+    {
+     "t0": 41.718999999999994,
+     "t1": 55.11899999999999,
+     "mood": "deep",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 55.11899999999999,
+     "t1": 62.3790625,
+     "mood": "curious",
+     "intensity": 1,
+     "role": ""
+    }
+   ],
+   "stings": [
+    {
+     "t": 5.58,
+     "why": "marker impact",
+     "prio": 3.0,
+     "on_boundary": false
+    },
+    {
+     "t": 26.434,
+     "why": "marker boom",
+     "prio": 3.0,
+     "on_boundary": false
+    }
+   ],
+   "drops": [
+    {
+     "t0": 25.834,
+     "t1": 26.414,
+     "why": "marker boom"
+    }
+   ],
+   "risers": [
+    {
+     "t0": 31.724,
+     "t1": 32.754,
+     "len": 1.03,
+     "kind": "swell",
+     "jump": 1
+    }
+   ]
+  }
+ },
+ "words": 198,
+ "wall_s": 35.1
+}
