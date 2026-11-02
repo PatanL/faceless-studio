@@ -14,6 +14,12 @@ reports what the orca_open_v3 judge caught by eye:
   cover       a label (tag, stat, text bubble) sits on top of the hero or a prop (orca_full_v1 0:45: "YOU NOT TO SCALE"
               over an orca and the diver)
   safe        a label or text bubble leaves the safe area (orca_full_v1 0:50: the "YUCK?" bubble cut off at the right edge)
+  setting     (check_settings, REFERENCES_ANALYSIS §4) every scene declares a setting (pipeline/episodes/settings.py);
+              [variety] a setting holds > 40 s or settings change < 5x a minute; [named] a named place does not start
+              on its word; [dressing] set dressing outside the setting's biome list; [waterline] underwater dressing
+              drawn above the waterline; [habitat] a species outside its habitat (biome + depth); [light] a key or sun
+              rays that don't fit the depth/light; [fade] an opaque animal fading in place; [pop] a picture layer
+              jumping within 6 frames; [early] a layer with a `cue` word on screen before the narration says it
   dup         an on-screen headline/tag repeats the caption page under it (same words: fail; most of them: [echo] warning) (regress_bwscale: "BIGGER WINS" headline over
               the caption "BIGGER WINS.")
 
@@ -578,15 +584,217 @@ def check_freeze(scene, t0, W, H) -> list[str]:
 
 
 def check_colour(sb) -> list[str]:
-    """house rule: an episode on the Ocean background shifts its colour key at least once (scale/turn beat)"""
+    """house rule: the colour moves with the story: an Ocean `shiftTo` on the scale/turn beat, or settings whose
+    backgrounds differ (boards in their own field colours, places in their own key ramps)"""
     oceans = [((s.get("background") or {}).get("props") or {}) for s in sb["scenes"]
               if (s.get("background") or {}).get("name") == "explainer/Ocean"]
     if not oceans or any(p.get("look") == "legacy" for p in oceans):
         return []
     if any(p.get("shiftTo") for p in oceans):
         return []
+    looks = {(bg.get("name"), (bg.get("props") or {}).get("key") or (bg.get("props") or {}).get("field"))
+             for bg in ((s.get("background") or {}) for s in sb["scenes"])}
+    if len(looks) >= 3:
+        return []
     return ["[colour] no colour shift: the scale/turn beat needs an Ocean `shiftTo` (STYLE_BIBLE §2.5; house.py adds one "
             "when a builder marks the beat with scene _house.shift)"]
+
+
+# ------------------------------------------------------------------ settings (REFERENCES_ANALYSIS §4)
+
+BG_DEPTH = 0.12
+FADE_LO, FADE_HI = 0.08, 0.92     # an opaque animal between these opacities is fading in place
+POP_S = 0.2                       # a keyed move shorter than this (6 frames) ...
+POP_MOVE, POP_ROT, POP_SCALE = 40, 5, 0.12   # ... by more than this px / deg / scale is a pop
+
+
+def _seg_at(segs, t):
+    for s in segs:
+        if s["at"] - 1e-6 <= t < s["end"]:
+            return s
+    return segs[-1] if segs else None
+
+
+def _waterline_y(seg, cam_xyz, W, H):
+    wl = seg.get("waterline")
+    if wl is None:
+        return None
+    return to_screen(cam_xyz, BG_DEPTH, W / 2, wl * H, W, H)[1]
+
+
+def _ws(sb, t0, dur):
+    words = (sb.get("captions") or {}).get("words") or []
+    return [{**w, "start": w["start"] - t0, "end": w["end"] - t0} for w in words if t0 - 0.01 <= w["start"] < t0 + dur]
+
+
+def check_settings(sb) -> list[str]:
+    """the declared settings hold up: schema, variety (holds <= MAX_HOLD, >= MIN_PER_MIN changes a minute), named places
+    appear on their word, set dressing from the setting's biome and under its waterline, every creature inside its
+    habitat, light that fits the depth, no opaque animal fading in place, no 3-frame pops, nothing before its cue word"""
+    from . import settings as ST
+    if not any(sc.get("setting") for sc in sb["scenes"]):
+        return []                     # built before settings existed (the checker it was built with passes it)
+    W, H = (1080, 1920) if sb.get("format", "9:16") == "9:16" else (1920, 1080)
+    out = list(ST.validate(sb))
+    st = ST.stats(sb)
+    if st["max_hold"] > ST.MAX_HOLD:
+        tl = ST.timeline(sb)
+        r = max(tl, key=lambda r: r["t1"] - r["t0"])
+        out.append(f"[variety] {r['setting'].get('place')} holds {r['t1'] - r['t0']:.1f}s ({r['t0']:.1f}-{r['t1']:.1f}s) "
+                   f"> {ST.MAX_HOLD:.0f}s: change the setting with the story (a board, a map, the next place)")
+    if st["total"] >= ST.MIN_EPISODE_S and st["per_min"] < ST.MIN_PER_MIN:
+        out.append(f"[variety] {st['changes']} setting changes in {st['total']:.0f}s = {st['per_min']}/min "
+                   f"< {ST.MIN_PER_MIN:g}/min (refs 4.8-7.6): one setting per place the narration names, boards for facts")
+    t0 = 0.0
+    for sc in sb["scenes"]:
+        segs = [{**ST.normalise(x), "at": x["at"], "end": x["end"]} for x in ST.segments(sc)]
+        if segs:
+            out += _check_scene_setting(sb, sc, segs, t0, W, H)
+        t0 += sc["duration"]
+    return out
+
+
+def _check_scene_setting(sb, sc, segs, t0, W, H) -> list[str]:
+    from . import settings as ST
+    dur = sc["duration"]
+    ws = _ws(sb, t0, dur)
+    out = []
+    sid = sc["id"]
+    # named places: the segment starts on (or just before) the word that names it
+    for s in segs:
+        cue = s.get("cue")
+        if not cue:
+            continue
+        ct = ST.cue_time(ws, cue)
+        if ct is None:
+            out.append(f"{sid} {t0 + s['at']:.1f}s [named] setting cue {cue!r} is not spoken in this scene")
+        elif not (ct - ST.CUE_EARLY <= s["at"] <= ct + ST.CUE_LATE):
+            out.append(f"{sid} {t0 + s['at']:.1f}s [named] {s.get('place')} starts {s['at'] - ct:+.1f}s from its word "
+                       f"{cue!r}: show a place when the narration names it")
+    # the background fits the light and depth (rule 6)
+    bgseg = next((s for s in segs if s["kind"] != "map"), segs[0])
+    bg = sc.get("background") or {}
+    bp = bg.get("props") or {}
+    if bgseg["kind"] == "place" and bg.get("name") == "explainer/Ocean" and bp.get("look") != "legacy":
+        keys = ST.BIOMES[bgseg["biome"]]["keys"]
+        for k in ("key", "shiftTo"):
+            if bp.get(k) and keys and bp[k] not in keys:
+                out.append(f"{sid} [light] Ocean {k} {bp[k]!r} does not fit {bgseg['biome']} at {bgseg.get('depth')} m "
+                           f"(keys {', '.join(keys)})")
+        if (float(bgseg.get("depth", 0)) >= 200 or bgseg.get("light") == "night") and float(bp.get("rays", 7) or 0) > 0:
+            out.append(f"{sid} [light] sun rays at {bgseg.get('depth')} m / {bgseg.get('light')}: no daylight there")
+    if bgseg["kind"] in ("board",) and bg.get("name") == "explainer/Ocean":
+        out.append(f"{sid} [setting] a board beat drawn on the Ocean: abstract facts go on a plain board")
+    # per-layer checks on the 10 fps grid
+    n = max(1, int(dur * FPS_CHECK))
+    ts = [min(dur - 1e-3, k / FPS_CHECK) for k in range(n)]
+    layers = sc.get("layers", [])
+    cams = [camera_at(sc.get("camera"), t, W, H, dur) for t in ts]
+    flags: dict[tuple, list[bool]] = {}
+
+    def flag(key, k):
+        flags.setdefault(key, [False] * n)[k] = True
+
+    for k, t in enumerate(ts):
+        seg = _seg_at(segs, t)
+        if seg is None or seg["kind"] == "map":
+            continue
+        wl = _waterline_y(seg, cams[k], W, H)
+        for i, l in enumerate(layers):
+            if l.get("setting_rig") or visible(l, t, dur) <= 0.05:
+                continue
+            name = str(l.get("name", "")).split("/", 1)[-1]
+            role = role_of(l)
+            box = screen_box(l, t, cams[k], W, H)
+            if not on_screen(box, W, H):
+                continue
+            if role == "dressing" and name in ST.DRESSING_PLACE and l.get("name", "").startswith("explainer/"):
+                allowed = ST.BIOMES[seg["biome"]]["dressing"] if seg["kind"] == "place" else set()
+                if name not in allowed and seg["kind"] != "analogy":
+                    flag(("dressing", i, seg["biome"]), k)
+                    continue
+                place = ST.DRESSING_PLACE[name]
+                if place == "surface" and abs(l.get("depth", 1) - BG_DEPTH) > 0.02:
+                    flag(("surfdepth", i), k)
+                if wl is not None and place in ("water", "floor") and box[1] < wl - 2:
+                    flag(("waterline", i), k)
+            sp = species_of(l) or ("orca" if name == "Pod" else None)
+            if sp:
+                hab = ST.HABITAT.get(sp.split(":")[0])
+                if hab is not None and seg["kind"] == "place":
+                    d = float(seg.get("depth", 0))
+                    if seg["biome"] not in hab["biomes"] or not hab["depth"][0] <= d <= hab["depth"][1]:
+                        flag(("habitat", i, sp, seg["biome"]), k)
+            pb = ST.PROP_BIOMES.get(l.get("name", ""))
+            if pb is not None and seg["kind"] == "place" and seg["biome"] not in pb:
+                flag(("habitat", i, l["name"].split("/")[-1], seg["biome"]), k)
+            # fading an opaque animal in place (swim it out or cut)
+            if sp and role != "dressing" and not (l.get("props") or {}).get("silhouette"):
+                op = _alpha(l, t, dur)
+                cb = clip(box, W, H)
+                if FADE_LO < op < FADE_HI and area(cb) > 0.5 * max(1.0, area(box)):
+                    flag(("fade", i), k)
+            # nothing before the narration names it
+            cue = l.get("cue")
+            if cue:
+                ct = ST.cue_time(ws, cue)
+                if ct is not None and t < ct - 0.25:
+                    flag(("early", i, cue), k)
+    for key, fl in flags.items():
+        for a, b in _runs(fl):
+            ta, tb = t0 + ts[a], t0 + ts[b] + 1 / FPS_CHECK
+            L = lambda i: _name(layers[i], i)
+            kind = key[0]
+            if kind == "dressing":
+                msg = f"[dressing] {L(key[1])} does not belong in {key[2]} (settings.BIOMES dressing list)"
+            elif kind == "surfdepth":
+                msg = f"[dressing] {L(key[1])} straddles the waterline but is not on the background plane (depth {BG_DEPTH})"
+            elif kind == "waterline":
+                msg = f"[waterline] {L(key[1])} is underwater dressing drawn above the waterline"
+            elif kind == "habitat":
+                msg = f"[habitat] {key[2]} ({L(key[1])}) does not live in {key[3]} (settings.HABITAT)"
+            elif kind == "fade":
+                msg = f"[fade] {L(key[1])} is an opaque animal fading in place: swim it out of frame or cut"
+            else:
+                msg = f"[early] {L(key[1])} is on screen before the narration says {key[2]!r}"
+            out.append(f"{sid} {ta:.1f}-{tb:.1f}s {msg}")
+    out += _check_pops(sc, t0, W, H)
+    return out
+
+
+def _alpha(l, t, dur) -> float:
+    """layer opacity at t from its opacity keys and fade enter/exit (pops and drops are not fades)"""
+    op = sample(sorted(l.get("keyframes", []), key=lambda k: k["t"]), "opacity", t, l.get("opacity", 1))
+    for which in ("enter", "exit"):
+        a = l.get(which) or {}
+        if a.get("type") not in ("fade", "zoomIn", "zoomOut"):
+            continue
+        d = a.get("duration", 0.4)
+        at = a.get("at", (l.get("start") or 0) if which == "enter" else ((l.get("end") or dur) - d))
+        p = max(0.0, min(1.0, (t - at) / max(1e-6, d)))
+        op *= p if which == "enter" else 1 - p
+    return op
+
+
+def _check_pops(sc, t0, W, H) -> list[str]:
+    """a keyed move of a picture layer (not a label or the camera) that changes a lot within POP_S: a 3-frame pop"""
+    out = []
+    for i, l in enumerate(sc.get("layers", [])):
+        if role_of(l) in ("label", "dressing", "fx") or l.get("type") == "rect":
+            continue
+        kfs = sorted(l.get("keyframes", []), key=lambda k: k["t"])
+        for a, b in zip(kfs, kfs[1:]):
+            dt = b["t"] - a["t"]
+            if dt <= 0 or dt >= POP_S:
+                continue
+            mv = max(abs(px(b.get(c_), W if c_ == "x" else H, 0) - px(a.get(c_), W if c_ == "x" else H, 0))
+                     for c_ in ("x", "y") if c_ in a and c_ in b) if any(c_ in a and c_ in b for c_ in ("x", "y")) else 0
+            rot = abs(float(b.get("rotate", 0)) - float(a.get("rotate", 0))) if "rotate" in a and "rotate" in b else 0
+            scl = max((abs(float(b[c_]) - float(a[c_])) for c_ in ("scale", "scaleX", "scaleY") if c_ in a and c_ in b), default=0)
+            if mv > POP_MOVE or rot > POP_ROT or scl > POP_SCALE:
+                out.append(f"{sc['id']} {t0 + a['t']:.1f}-{t0 + b['t']:.2f}s [pop] {_name(l, i)} jumps "
+                           f"({mv:.0f}px / {rot:.0f}deg / x{scl:.2f}) in {dt * 30:.0f} frames: ease it over >= 10 frames")
+    return out
 
 
 WARN_KINDS = ("[echo]",)
@@ -602,7 +810,7 @@ def check(sb: dict) -> list[str]:
     for s in sb["scenes"]:
         out += check_scene(sb, s, t0, W, H)
         t0 += s["duration"]
-    return out + check_colour(sb)
+    return out + check_colour(sb) + check_settings(sb)
 
 
 def main(argv):

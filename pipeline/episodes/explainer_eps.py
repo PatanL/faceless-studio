@@ -25,7 +25,9 @@ OVERLAYS = {"grain": 0, "vignette": 0.2, "fadeIn": 0, "fadeOut": 0}
 # collisions. HOUSE_SKIP = {slug} opts an episode out; HOUSE_OPTS = {slug: {"dressing": False, ...}} tunes the pass.
 HOUSE_STYLE = True
 HOUSE_SKIP: set[str] = set()
-HOUSE_OPTS: dict[str, dict] = {"explainer-orca": {"pod": "orca"}}   # background pod of far orcas in every set
+# (no background pod for the orca: at far-plane size it read as sharks and muddled the counted hunt beats; the
+# settings pass adds native ambient life per biome instead - pipeline/episodes/settings.py)
+HOUSE_OPTS: dict[str, dict] = {}
 EMPHASIS = {"explainer-blue-whale": ["throat", "turn"],
             # red = threat words only, about one every 8-10 s (orca review: not "alone"/"culture")
             "explainer-orca": ["kill", "seconds.", "liver.", "biggest", "ramming", "sunk."]}   # build.py marks these caption words (Word.emph)
@@ -117,8 +119,7 @@ CAPTION_GLUE = {"explainer-blue-whale": ["golf cart", "beach ball", "jet engine"
 
 
 def ocean(depth, **props):
-    if "surface" in props:  # keep the sky dark navy (kit default is a pale sky)
-        props = {"skyTop": "#041531", "skyBottom": "#0c284f", **props}   # house palette dusk-0 / dusk-1
+    # (the sky colour comes from the scene's setting light in house.py; a forced night-navy sky sat over daylight water)
     return {"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2, "props": {"depth": depth, **props}}
 
 

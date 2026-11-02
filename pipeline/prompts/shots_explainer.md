@@ -23,17 +23,30 @@ Visual rules (from the pilot reviews; follow all of them):
 - Background: {{"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2, "props": {{"depth": <m>,
   "rays": 7, "snow": 60}}}}; deeper = darker (the depth picks the palette key: < 30 m tide, < 200 m mid, else deep).
   For a surface shot add "surface": 0.2. Never "look": "legacy".
+- Settings (pipeline/episodes/settings.py; research/frame-analysis/REFERENCES_ANALYSIS.md §4). Give every scene a
+  "setting": where it takes place. One object, or a list for an in-scene change (each later one with "at": "@word"):
+  {{"kind": "place"|"board"|"map"|"analogy", "biome": "open_ocean"|"kelp_forest"|"tropical_reef"|"polar_ice"|
+  "coastal_surface"|"twilight"|"deep", "place": "<caption-able name>", "depth": <m>, "waterline": <0..1 screen y or null>,
+  "light": "day"|"overcast"|"dusk"|"night", "cue": "<the narration word that names the place>"}}.
+  Show a real place only when the narration names it (the setting starts on that word; a map card first is good);
+  abstract facts, numbers, comparisons and questions go on a "board" ({{"kind": "board", "board": "navy"|"blue"}}), which
+  has no creatures or props except the compared items. Change setting with the story: 5-8 changes a minute, no setting
+  longer than 40 s. Every animal must live in the scene's biome and depth (settings.HABITAT: no anglerfish in sunlit
+  water, no scuba diver below 60 m, cars only on a board). Without a setting the builder infers one from the narration.
 - The house pass (pipeline/episodes/house.py) runs on your scenes automatically: it lights every scene (lantern key
-  from the upper left), shades every kit figure, puts the seeded set (ridge, kelp, reef, rocks, jellies, a fish school,
-  a blurred ink-kelp foreground) behind every Ocean scene, turns Headline/Tag/ScaleBar into the title plate / lantern
-  tag / gauge, upgrades "pop"/"drop" enters to popSpring/dropSquash, adds camera drift and pre-roll, and turns cuts into
-  wipe/iris/fade transitions. So: do NOT add your own kelp/reef/fish backdrops, grain, white flashes or hard cuts;
-  spend your layers on the subject, the scale partner and the information.
+  from the upper left), shades every kit figure, draws the background and set dressing of each scene's setting (a
+  board, or the biome's own dressing under the waterline: kelp and rocks in a kelp forest, ice along a polar waterline,
+  a coastline above a coastal surface, only specks and a far bait school in open water), turns Headline/Tag/ScaleBar
+  into the title plate / lantern tag / gauge, upgrades "pop"/"drop" enters to popSpring/dropSquash, adds camera drift
+  and pre-roll, and turns cuts into wipe/iris/fade transitions. So: do NOT add your own kelp/reef/fish backdrops,
+  grain, white flashes or hard cuts; spend your layers on the subject, the scale partner and the information.
+- Motion (staging fails the build): never fade an opaque animal in place (swim it out of frame or cut); never move a
+  picture layer a lot within 6 frames (ease over >= 10 frames); a layer with "cue": "<word>" must not show before that
+  word is spoken.
 - Colour script (scene "_house"): mark the scale/turn beat with "_house": {{"shift": {{"at": "@<word>", "to": "warm"}}}}
-  (the one big colour SHIFT of the video; without a mark the first YOU/ScaleBar/Stat layer gets it), and re-key threat
-  beats (shark, kill, poison) with "_house": {{"key": "danger"}}; deep-sea beats can sit in "dusk". At least 3 hue
-  families must show up over the video: teal water + the warm reef/amber + the coral/danger or dusk beat.
-  "_house": {{"set": false}} only for a full-frame diagram card (Map); "fore": false if the foreground kelp would hide the subject.
+  (only in daylight shallow water; never in polar or deep settings). The settings carry most of the colour change
+  (each place has its own key; boards their own field).
+  "_house": {{"set": false}} drops a scene's set dressing; "fore": false if the foreground kelp would hide the subject.
 - Figures: use kit figures (explainer/Orca, GreatWhite, BlueWhale, Diver, You, ... or explainer/Creature with a
   species): they are shaded and lit. Inline "svg" layers are drawn FLAT (no shading) and break the look: use them only
   for small props or icons (under ~8 % of the frame), never for the subject. Never "shade": false on a figure.

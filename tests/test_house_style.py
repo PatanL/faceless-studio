@@ -57,7 +57,12 @@ class HouseTest(unittest.TestCase):
         self.assertIn("drift", sc0["camera"])
         self.assertNotIn("drift", sc2["camera"], "last scene is the loop bookend: no drift")
         keys = [sc["background"]["props"]["key"] for sc in out["scenes"]]
-        self.assertTrue(all(a != b for a, b in zip(keys, keys[1:])), keys)
+        self.assertEqual(keys, ["royal"] * 3, "one place keeps one key (no recolour-as-variety)")
+        # a different open-ocean place right after it changes key so the setting change shows
+        o2 = {"kind": "place", "biome": "open_ocean", "place": "Bremer Bay", "depth": 10, "light": "day"}
+        out = house.apply(sb([scene(0, [orca()]), scene(1, [orca()], setting=o2)]))
+        k = [sc["background"]["props"]["key"] for sc in out["scenes"]]
+        self.assertNotEqual(k[0], k[1], k)
 
     def test_shift_mark_and_wide_opt_in(self):
         s = sb([scene(0, [orca()]), scene(1, [orca()], _house={"shift": {"at": 1.5, "to": "warm"}}), scene(2, [orca()])])
@@ -65,19 +70,21 @@ class HouseTest(unittest.TestCase):
         p = out["scenes"][1]["background"]["props"]
         self.assertEqual((p["shiftTo"], p["shiftAt"]), ("warm", 1.5))
         self.assertFalse(any("_house" in sc for sc in out["scenes"]))
-        # the v3 set persists through the whole video: every environment scene gets the reef, kelp, jellies and school
+        # no fixed reef set any more: a scene with no declared setting is open ocean (no floor, no plants, no jellies)
         for sc in out["scenes"]:
             names = {l.get("name") for l in sc["layers"] if l.get("role") == "dressing"}
-            self.assertTrue({"explainer/Reef", "explainer/Kelp", "explainer/Jellies", "explainer/FishSchool"} <= names, names)
-        # soft foreground in >= 60 % of scenes, never on the cover / bookend (loop seam)
-        out = house.apply(sb([scene(i, [orca()]) for i in range(6)]))
+            self.assertFalse(names & {"explainer/Reef", "explainer/Kelp", "explainer/Jellies", "explainer/Rocks"}, names)
+        # kelp-forest scenes: soft foreground in >= 60 % of scenes, never on the cover / bookend (loop seam)
+        kelp = {"kind": "place", "biome": "kelp_forest", "place": "kelp forest", "depth": 10, "light": "day"}
+        out = house.apply(sb([scene(i, [orca()], setting=kelp) for i in range(6)]))
         fore = [any(l.get("depth") == 1.45 for l in sc["layers"]) for sc in out["scenes"]]
         self.assertFalse(fore[0] or fore[-1], fore)
         self.assertGreaterEqual(sum(fore[1:-1]) / 4, 0.6, fore)
         self.assertTrue(all(l.get("blur") and l["role"] == "dressing" for sc in out["scenes"] for l in sc["layers"] if l.get("depth") == 1.45))
         # opt out per scene
-        out = house.apply(sb([scene(0, [orca()], _house={"set": False}), scene(1, [orca()])]))
-        self.assertFalse(any(l.get("name") == "explainer/Reef" for l in out["scenes"][0]["layers"]))
+        out = house.apply(sb([scene(0, [orca()], _house={"set": False}, setting=kelp), scene(1, [orca()], setting=kelp)]))
+        self.assertFalse(any(l.get("name") == "explainer/Kelp" for l in out["scenes"][0]["layers"]))
+        self.assertTrue(any(l.get("name") == "explainer/Kelp" for l in out["scenes"][1]["layers"]))
 
     def test_cuts_become_transitions(self):
         out = house.apply(sb([scene(i, [orca()]) for i in range(5)]))
@@ -187,6 +194,76 @@ class StagingTest(unittest.TestCase):
         v = staging.check(sb([scene(0, [orca(), tag, bubble, head])], words))
         kinds = {m.split("[")[1].split("]")[0] for m in v}
         self.assertTrue({"cover", "safe", "dup"} <= kinds, v)
+
+
+class SettingsTest(unittest.TestCase):
+    """per-scene settings (pipeline/episodes/settings.py) and the staging setting checks"""
+    POLAR = {"kind": "place", "biome": "polar_ice", "place": "Antarctic Peninsula", "depth": 3, "waterline": 0.33,
+             "light": "dusk"}
+
+    def words(self, *spec):
+        return [{"text": t, "start": a, "end": a + 0.3} for t, a in spec]
+
+    def test_fill_infers_place_and_board(self):
+        from pipeline.episodes import settings
+        s = sb([scene(0, [orca()], notes="In Antarctica, a pod charges an ice floe."),
+                scene(1, [orca()], notes="It is eight metres long and as heavy as four cars."),
+                scene(2, [orca()], notes="It swims on.")])
+        settings.fill(s)
+        self.assertEqual(s["scenes"][0]["setting"]["biome"], "polar_ice")
+        self.assertEqual(s["scenes"][1]["setting"]["kind"], "board")
+        self.assertEqual(s["scenes"][2]["setting"]["biome"], "polar_ice", "the story stays where it was")
+        self.assertNotIn("cue", s["scenes"][2]["setting"])
+
+    def test_anchor_resolves_words(self):
+        from pipeline.episodes import settings
+        w = self.words(("Off", 0.2), ("South", 0.5), ("Africa,", 0.8), ("the", 1.6), ("shark", 1.8))
+        s = sb([scene(0, [], dur=3, setting=[{"kind": "map", "cue": "South Africa"},
+                                             {"kind": "place", "biome": "kelp_forest", "at": "@the", "depth": 10}])], w)
+        settings.fill(s)
+        self.assertEqual(s["scenes"][0]["setting"][1]["at"], 1.6)
+        self.assertEqual(staging.check_settings(s)[:0], [])
+
+    def test_board_and_biome_rigs(self):
+        out = house.apply(sb([scene(0, [orca()], setting={"kind": "board", "board": "navy"}),
+                              scene(1, [orca()], setting=self.POLAR)]))
+        b0, b1 = out["scenes"][0]["background"], out["scenes"][1]["background"]
+        self.assertEqual(b0["name"], "explainer/Board")
+        self.assertEqual(b1["props"]["key"], "polar")
+        self.assertFalse([l for l in out["scenes"][0]["layers"] if l.get("role") == "dressing"], "a board has no set")
+        names = {l["name"] for l in out["scenes"][1]["layers"] if l.get("role") == "dressing"}
+        self.assertIn("explainer/IceField", names)
+        self.assertFalse(names & {"explainer/Reef", "explainer/Kelp", "explainer/Jellies", "explainer/Pod"}, names)
+        self.assertNotIn("shiftTo", b1["props"], "no warm lift in Antarctica")
+
+    def test_wrong_dressing_habitat_and_waterline_fail(self):
+        jelly = {"type": "component", "name": "explainer/Jellies", "role": "dressing", "x": "50%", "y": "15%",
+                 "width": 1200, "height": 300, "props": {"n": 2}}
+        croc = {"type": "component", "name": "explainer/Crocodile", "x": "50%", "y": "60%", "width": 600, "height": 200,
+                "props": {}}
+        out = house.apply(sb([scene(0, [orca(), jelly, croc], setting=self.POLAR)]))
+        kinds = {m.split("[")[1].split("]")[0] for m in staging.check_settings(out)}
+        self.assertTrue({"dressing", "habitat"} <= kinds, kinds)
+        reef = {"kind": "place", "biome": "tropical_reef", "place": "reef", "depth": 10, "waterline": 0.33, "light": "day"}
+        out = house.apply(sb([scene(0, [orca(), jelly], setting=reef)]))
+        kinds = {m.split("[")[1].split("]")[0] for m in staging.check_settings(out)}
+        self.assertIn("waterline", kinds)
+
+    def test_variety_hold_and_rate(self):
+        out = house.apply(sb([scene(i, [orca()], dur=10, setting=dict(self.POLAR)) for i in range(5)]))
+        msgs = " ".join(staging.check_settings(out))
+        self.assertIn("holds 50.0s", msgs)
+        self.assertIn("/min", msgs)
+
+    def test_fade_pop_and_early(self):
+        fading = orca(keyframes=[{"t": 0, "opacity": 1}, {"t": 1.0, "opacity": 0}])
+        popping = {"type": "component", "name": "explainer/Seal", "x": "50%", "y": "50%", "width": 200, "height": 60,
+                   "props": {}, "keyframes": [{"t": 1.0, "rotate": 0}, {"t": 1.1, "rotate": 20}]}
+        early = {**popping, "keyframes": [], "cue": "seal", "y": "45%"}
+        w = self.words(("the", 1.5), ("seal", 2.0))
+        out = house.apply(sb([scene(0, [fading, popping, early], dur=3, setting=self.POLAR)], w))
+        kinds = {m.split("[")[1].split("]")[0] for m in staging.check_settings(out)}
+        self.assertTrue({"fade", "pop", "early"} <= kinds, kinds)
 
 
 if __name__ == "__main__":

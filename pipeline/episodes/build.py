@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from . import explainer_eps, horror_eps, house, sfx_events, staging
+from . import explainer_eps, horror_eps, house, settings, sfx_events, staging
 from .common import ROOT, load, norm, storyboard, visual_events
 
 MAX_HOLD = 3.0  # s: longest stretch with no visual event (cut, layer in/out, keyframe, camera key, shake)
@@ -148,8 +148,14 @@ def build(slug: str) -> str:
     sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
     if getattr(mod, "HOUSE_STYLE", False) and slug not in getattr(mod, "HOUSE_SKIP", ()):
         # the Lantern & Ink look (pipeline/episodes/house.py), then the staging/collision check: violations fail the build
+        # where each moment takes place (builder declarations, the rest inferred from the narration), then the look
+        settings.fill(sb, getattr(mod, "SETTING_DEFAULT", {}).get(slug))
         sb = house.apply(sb, getattr(mod, "HOUSE_OPTS", {}).get(slug))
         sb["_built"]["style"] = "house (Lantern & Ink): pipeline/episodes/house.py"
+        sb["_built"]["settings"] = settings.stats(sb)
+        st = sb["_built"]["settings"]
+        print(f"{slug}: settings {st['runs']} runs / {st['distinct']} distinct, {st['changes']} changes = "
+              f"{st['per_min']}/min, longest {st['max_hold']}s")
         bad = staging.check(sb)
         for w in [m for m in bad if staging.is_warning(m)]:
             print(f"WARN {slug}: {w}")

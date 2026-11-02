@@ -37,10 +37,14 @@ Anchor grammar: ^@[\\w'*-]+(#\\d+)?(\\.end)?([+-][\\d.]+)?$ or the specials abov
 House style (explainers): every explainer storyboard built here goes through the Lantern & Ink pass
 (pipeline/episodes/house.py, the live look) and then the staging/collision checker (pipeline/episodes/staging.py); a
 staging violation is an ERROR (also with --check), an [echo] (headline nearly repeating the caption) a WARN. The pass
-adds by itself: scene light + key sweep, the palette key ramp and one colour SHIFT, the seeded orca_open_v3 set
-(ridge, kelp, reef, rocks, jellies, school, blurred ink foreground) behind every Ocean scene, title plate / lantern tag
-info design, popSpring / dropSquash motion, camera pre-roll + drift, cuts -> wipe/iris/fade. The shots vocabulary to
-steer it (all optional):
+adds by itself: scene light + key sweep, the background rig and set dressing of each scene's setting (a board, or the
+biome's own dressing under its waterline; pipeline/episodes/settings.py), the palette key ramp and a colour SHIFT where
+the setting allows it, title plate / lantern tag info design, popSpring / dropSquash motion, camera pre-roll + drift,
+cuts -> wipe/iris/fade. The shots vocabulary to steer it (all optional):
+  scene      "setting": {...} or [{...}, {"at": "@word", ...}]   where the scene takes place (settings.py docstring:
+                                          kind place|board|map|analogy, biome, place, depth, waterline, light, cue);
+                                          inferred from the narration when absent. staging fails a build whose
+                                          dressing / animals don't fit it, a setting held > 40 s, < 5 changes a minute
   top level  "house": {"pod": "orca"}      pass options: pod (far silhouettes in every set: "orca"), dressing, set,
                                           info, cuts, motion, auto_shift (true/false)
   scene      "_house": {...}               "shift": {"at": "@word", "to": "warm", "dur": 0.8}  the colour shift beat
@@ -49,12 +53,13 @@ steer it (all optional):
                                           "set": false      no set (a diagram card); "fore": false  no foreground
                                           "proof": false    no warm lift on this proof beat
              "light": {"setup": "lantern|daylight|cold|stellar", "sweep": 8, ...}   (default lantern, sweep on >= 4 s)
-  keys       tide, mid, deep, kelp, dusk, sky, warm, danger, ink (Ocean props "key" / "shiftTo", "_house" key / to)
+  keys       royal, tide, mid, deep, kelp, dusk, sky, warm, danger, ink, polar (Ocean "key" / "shiftTo"; must fit the biome)
   layer      "shade": false | {"core", "hi", "rim", "marks", "cast", "glint", "lod"}  kit figures are shaded by default
                                           (inline svg is NOT shaded: it reads flat next to the house figures)
              "role": hero|prop|label|dressing|fx, "allowOverlap": true (contact beats: a bite, a hand on the fin)
              enter "popSpring" / "dropSquash" ("pop" / "drop" are upgraded to them)
-  dressing   explainer/Kelp, FishSchool, Jellies, Rocks, Reef, Seabed, Ridge, Pod, Specks, Glow, LightEvent: give each a
+  dressing   explainer/Kelp, FishSchool, Jellies, Rocks, Reef, Seabed, Ridge, Pod, Specks, Glow, LightEvent, Board,
+             IceField, IceFloe, Coast (each only in its biome: settings.BIOMES): give each a
              distinct props.seed (two identical seeds draw identical kelp / fish: an ERROR)
   colours    house palette tokens (ink-0..4, tide-0..5, kelp-, dusk-, sky-, coral-, ochre-, amber-, bone-, signal-;
              studio/src/kits/explainer/house/palette.ts) or #hex; "red" stays the signal accent for one word per beat
@@ -239,7 +244,8 @@ def layout_warnings(scenes: list[dict], fmt: str = "9:16") -> list[str]:
 
 HOUSE_SCENE_KEYS = {"shift", "key", "set", "fore", "proof", "dressing"}
 HOUSE_OPTS = {"pod", "dressing", "set", "info", "cuts", "motion", "auto_shift"}
-DRESSING = {f"explainer/{n}" for n in "Kelp FishSchool Jellies Rocks Reef Seabed Ridge Pod Specks Glow LightEvent".split()}
+DRESSING = {f"explainer/{n}" for n in
+            "Kelp FishSchool Jellies Rocks Reef Seabed Ridge Pod Specks Glow LightEvent IceField Coast".split()}
 
 
 def house_keys() -> set:
