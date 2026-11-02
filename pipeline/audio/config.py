@@ -39,9 +39,10 @@ NICHES = {
         "music": "score",
         "score_fallback": "deep_ocean",
         # score levels (override the bed-tuned music_db/duck_db, also those in a script's front matter; a script may set
-        # score_music_db / score_duck_db): voice ~11 LU over the music while it talks (Kurz: 10-11 median)
+        # score_music_db / score_duck_db). Owner (2026-11-01): "music should be background": -7/-3.5 (voice ~10 LU over
+        # the music, Kurz's level) was too loud for our near-continuous narration on phones; now ~6 dB quieter
         # duck_band: while the voice talks the score's 1-4 kHz (consonants, intelligibility) dips a further 6 dB
-        "score_mix": {"music_db": -7.0, "duck_db": -3.5, "duck_band": {"lo": 1000, "hi": 4000, "db": -6.0},
+        "score_mix": {"music_db": -12.0, "duck_db": -4.5, "duck_band": {"lo": 1000, "hi": 4000, "db": -6.0},
                       "true_peak_db": -2.0},
         # bed loudness (LUFS) relative to the voice, between lines. Orca review: -15 / -9 duck put the bed ~24 LU
         # (~26 dB RMS) under the talking voice, inaudible on a phone. -13.5 / -5 = ~18.5 LU, ~20 dB RMS under the voice
