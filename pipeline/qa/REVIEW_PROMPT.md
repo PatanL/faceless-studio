@@ -17,12 +17,13 @@ recently. You write exactly one file, `out/<slug>/qa/review.json`, and nothing e
 - This is round 1, or round 2 after exactly one fix round (`studio-make --from review --review-notes ...` and a
   fresh gate). There is no round 3: a round-2 result other than PASS is `REJECT`.
 
-## 1. Inputs (read these and nothing heavier; at most 6 images per round)
+## 1. Inputs (read these and nothing heavier; at most 7 images per round)
 
 | # | File | What you use it for |
 |---|---|---|
 | 1 | `out/<slug>/qa/sbs.jpg` (image) | Top row ours, bottom row the source at the matched beat. Visual parity and beat order |
 | 2 | `out/<slug>/qa/stills.jpg` (image) | 12 frames: cover (frame 0), 10 evenly spaced, last frame. Cover, holds, captions, loop |
+| 2b | `out/<slug>/qa/timeline.jpg` (image) | One frame per second, in order. The critical-viewer pass (section 3): does every second make sense, and does the setting move with the story |
 | 3-5 | `out/<s>/qa/stills.jpg` of the last 3 published slugs (images; from `data/posts.jsonl`, newest first) | Sameness by eye: would a follower feel they saw this already? |
 | 6 | optional: one extra frame you grab yourself (`ffmpeg -ss T -i mp4 -frames:v 1 -vf scale=540:-1`) only to check a gate WARN | |
 | - | `episodes/<slug>/script.md` (narration block only), `episodes/<slug>/source.json` (angle, hook, skeleton, pacing) | Script quality vs the source's structure |
@@ -46,9 +47,8 @@ Picture
       recognisable and at honest scale against their partner (YOU, bus, diver).
 - [ ] Captions are phrase-complete pages of 1-4 words, clear of subjects, red only on emphasis words.
 - [ ] The last frame (stills cell "LAST") matches or deliberately contrasts the cover so the loop reads.
-- [ ] House style (Lantern & Ink): lit, shaded figures; the set behind every ocean scene; more than one colour family
-      over the video (a warm shift on the scale beat, a danger/dusk beat); no flat inline-svg subject, no label on a
-      figure or the captions. The gate's `staging` / `house_style` WARN lines need a sentence from you.
+- [ ] House style (Lantern & Ink): lit, shaded figures and a real set behind each scene. The gate's `staging` /
+      `house_style` WARN lines need a sentence from you.
 
 Versus the source (sbs.jpg)
 - [ ] Same or better on every column: subject readability, scale device, information per frame, motion density.
@@ -58,7 +58,23 @@ Sameness (stills of the last 3 published)
 - [ ] Different subject, cover composition and colour story from each; no shot that would look like a reused
       clip. A gate WARN on `shot_mix`, `cover_hamming`, `beats_ned` or `subject` needs a sentence from you.
 
-## 3. First-time viewer pass
+## 3. Critical-viewer pass (FEEDBACK.md)
+
+Go through `timeline.jpg` second by second with the narration beside you, the way a sharp, slightly skeptical
+viewer would, and hold every frame to the principles in `FEEDBACK.md`. Don't look for a list of known bugs; ask
+of each second:
+
+- **Does it make sense?** Would anything here make a viewer think "wait, why is that there?" (an animal in the wrong
+  place or depth, the wrong climate or era, an impossible scale, light that disagrees, text on a face)?
+- **Does it show what's being said, right now?**
+- **Has the picture moved on?** Count the distinct settings across the video and compare with the source's
+  (sbs.jpg bottom row). Long stretches of one backdrop with small changes read as static.
+- **Would the reference look better here, and why?** Name the specific difference.
+
+Every "wait, why?" moment is a `must_fix` with its time. If you notice a kind of problem this file and FEEDBACK.md
+don't name, still report it: the principles are the bar, not this list.
+
+## 3b. First-time viewer pass
 
 Imagine scrolling past it on a phone with no context. Answer each in one line in `nice_to_have` or `must_fix`:
 
@@ -96,4 +112,4 @@ Verdict:
 ```
 
 `gate_sha` binds your verdict to that gate run: L3 refuses to post if `gate.json` changed afterwards. List every
-image you opened in `files_viewed` (max 6). Write the file atomically (write `review.json.tmp`, then `mv`).
+image you opened in `files_viewed` (max 7). Write the file atomically (write `review.json.tmp`, then `mv`).

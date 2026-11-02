@@ -1,4 +1,5 @@
-"""Review sheets: out/<slug>/qa/sbs.jpg (ours over the source, one column per beat) and stills.jpg (12 frames).
+"""Review sheets: out/<slug>/qa/sbs.jpg (ours over the source, one column per beat), stills.jpg (12 frames) and
+timeline.jpg (one frame per second, the critical-viewer pass in REVIEW_PROMPT.md section 3).
 
 usage: python -m pipeline.qa.sheet <slug> [--root DIR] [--source-frames auto|none]
 
@@ -107,6 +108,11 @@ def stills(mp4, samples: np.ndarray, dur: float) -> np.ndarray:
     return grid(cells, 6)
 
 
+def timeline(samples: np.ndarray) -> np.ndarray:
+    """Every 1 fps sample in order, 10 per row: shows what each second puts on screen and how often the setting changes."""
+    return grid([cell(f, mmss(i)) for i, f in enumerate(samples)], 10)
+
+
 def source_video(niche: str, ids: list[str]):
     for sid in ids:
         if not sid:
@@ -161,9 +167,10 @@ def sbs(mp4, dur: float, bm, src: dict, fm: dict, niche: str, source_frames: str
 
 def make_all(r, slug: str, mp4, samples, dur: float, sb, bm, src, fm, niche: str, source_frames="auto") -> dict:
     qd = qa_dir(r, slug)
-    out = {"sbs": qd / "sbs.jpg", "stills": qd / "stills.jpg"}
+    out = {"sbs": qd / "sbs.jpg", "stills": qd / "stills.jpg", "timeline": qd / "timeline.jpg"}
     frames.to_jpg(sbs(mp4, dur, bm, src, fm, niche, source_frames), out["sbs"])
     frames.to_jpg(stills(mp4, samples, dur), out["stills"])
+    frames.to_jpg(timeline(samples), out["timeline"])
     return out
 
 

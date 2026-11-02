@@ -17,9 +17,10 @@ look at the current sheet:
 - `python3 -m pipeline.episodes.auto {slug} --check` WARN lines and staging ERRORs (each names the shots.json
   layer: "shots scenes[i].layers[j]")
 - house style (Lantern & Ink, the live look; the house pass adds light, shading, the set and transitions on its own):
-  a frame with only one colour family (no warm reef/amber, no danger/dusk beat: add a `_house` shift or key), a big
-  flat inline-svg subject (replace it with a kit figure), a label sitting on a figure or on the captions, pure white
-  text or fills, a prop passing through the hero
+  a big flat inline-svg subject (replace it with a kit figure), a label on a figure or on the captions
+- anything a sharp viewer would question (`FEEDBACK.md`): an element that doesn't belong in that place, depth,
+  climate or moment; a still that doesn't show what its narration says; several stills in a row on the same
+  backdrop when the story has moved on. These are examples, not the whole list: fix whatever breaks the principles
 Notes from the episode reviewer (address every one that a shots.json edit can fix; if a note needs a script or
 narration change, do not edit the script: reply with a line starting "SCRIPT CHANGE NEEDED:" for it):
 {review_notes}
