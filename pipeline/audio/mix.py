@@ -193,6 +193,15 @@ def hush_gain(cues, total, cfg):
     return g
 
 
+def _rate(x: np.ndarray, rate) -> np.ndarray:
+    """pitch/speed variant of a cue (tape-style resample; rate 1 = unchanged), so repeated hits never sound stamped"""
+    r = float(rate or 1.0)
+    if abs(r - 1.0) < 1e-3 or len(x) < 2:
+        return x
+    n = max(2, int(len(x) / r))
+    return np.interp(np.arange(n) * r, np.arange(len(x)), x).astype(np.float32)
+
+
 def _sfx_bus(cues, total, log):
     """Unscaled mono sum of the SFX (only used as a sidechain key)."""
     if not cues:
@@ -200,7 +209,7 @@ def _sfx_bus(cues, total, log):
     bus = np.zeros(total, np.float32)
     for c in cues:
         try:
-            x = load(find_asset("sfx", c["cue"])).mean(1)
+            x = _rate(load(find_asset("sfx", c["cue"])).mean(1), c.get("rate", 1.0))
         except FileNotFoundError:
             continue
         i = int(round(c["at"] * SR))
@@ -275,6 +284,7 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         except FileNotFoundError as e:
             log(f"[mix] WARNING {e}")
             continue
+        x = _rate(x, c.get("rate", 1.0))
         sq = cfg.get("sfx_squash", {}).get(c["cue"], 0)
         if sq:  # pre-limit the transients (dB) so a featured hit can be loud without slamming the true-peak ceiling
             x = limiter((x / (np.abs(x).max() + 1e-9))[:, None], -float(sq))[:, 0]

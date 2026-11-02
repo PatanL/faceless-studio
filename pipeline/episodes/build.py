@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from . import explainer_eps, horror_eps, house, staging
+from . import explainer_eps, horror_eps, house, sfx_events, staging
 from .common import ROOT, load, norm, storyboard, visual_events
 
 MAX_HOLD = 3.0  # s: longest stretch with no visual event (cut, layer in/out, keyframe, camera key, shake)
@@ -151,8 +151,15 @@ def build(slug: str) -> str:
         sb = house.apply(sb, getattr(mod, "HOUSE_OPTS", {}).get(slug))
         sb["_built"]["style"] = "house (Lantern & Ink): pipeline/episodes/house.py"
         bad = staging.check(sb)
+        for w in [m for m in bad if staging.is_warning(m)]:
+            print(f"WARN {slug}: {w}")
+        bad = [m for m in bad if not staging.is_warning(m)]
         if bad:
             raise SystemExit(f"{slug}: {len(bad)} staging violation(s) (pipeline/episodes/staging.py):\n  " + "\n  ".join(bad))
+        # action SFX for the remix (pipeline.audio.make --reuse-tts --extra-cues episodes/<slug>/audio/sfx_events.json)
+        os.makedirs(os.path.join(ROOT, "episodes", slug, "audio"), exist_ok=True)
+        with open(os.path.join(ROOT, "episodes", slug, "audio", "sfx_events.json"), "w") as f:
+            json.dump(sfx_events.events(sb), f, indent=1, ensure_ascii=False)
     else:
         for s in sb["scenes"]:
             s.pop("_house", None)

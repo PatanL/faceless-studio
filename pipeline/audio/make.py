@@ -5,6 +5,12 @@ usage (Spark, from ~/studio/app):
   python -m pipeline.audio.make stories/x/script.md --niche horror --id ep-x
       [--out studio/public/episodes/ep-x] [--music dread|none] [--voice bm_george] [--speed 1.0]
       [--no-auto-sfx] [--whisper] [--meta-out episodes/ep-x/audio]
+      [--extra-cues episodes/ep-x/audio/sfx_events.json] [--reuse-tts]
+
+  --extra-cues  JSON list [{cue, at, db?, rate?}] added to the mix (e.g. the storyboard's action SFX from
+                pipeline.episodes.sfx_events: drops, pops, punches, light events, transitions). rate = pitch variant.
+  --reuse-tts   reuse the voice + word timings cached by the previous run in --out (tts_cache.npz / tts_cache.json),
+                so a remix with new cues never changes the timings the storyboard was built on.
 
 Writes to --out (default studio/public/episodes/<id>/, so Remotion can load it):
   mix.wav                 final stereo mix, 48 kHz, -14 LUFS integrated, <= -1 dBTP
@@ -83,6 +89,8 @@ def main(argv=None):
     ap.add_argument("--no-auto-sfx", action="store_true")
     ap.add_argument("--whisper", action="store_true", help="force faster-whisper alignment")
     ap.add_argument("--meta-out", help="also copy the small JSON outputs here (e.g. episodes/<id>/audio)")
+    ap.add_argument("--extra-cues", help="JSON list of extra SFX cues [{cue, at, db?, rate?}] (storyboard action SFX)")
+    ap.add_argument("--reuse-tts", action="store_true", help="reuse the cached voice/timings from the previous run in --out")
     a = ap.parse_args(argv)
 
     t0 = time.time()
@@ -111,12 +119,28 @@ def main(argv=None):
     if music in ("none", "off"):
         music = ""
 
-    tts = synthesize(sc, cfg, force_whisper=a.whisper)
+    cache_a, cache_j = os.path.join(out, "tts_cache.npz"), os.path.join(out, "tts_cache.json")
+    if a.reuse_tts:
+        import numpy as np
+        if not (os.path.exists(cache_a) and os.path.exists(cache_j)):
+            raise SystemExit(f"--reuse-tts: no cached voice in {out} (run once without --reuse-tts)")
+        tts = {**json.load(open(cache_j)), "audio": np.load(cache_a)["audio"]}
+        print(f"[make] reusing cached voice ({len(tts['words'])} words) from {out}")
+    else:
+        tts = synthesize(sc, cfg, force_whisper=a.whisper)
+        import numpy as np
+        np.savez_compressed(cache_a, audio=tts["audio"])
+        json.dump({k: tts[k] for k in ("words", "cues", "stats")}, open(cache_j, "w"))
     cues = sorted(tts["cues"], key=lambda c: c["at"])
     if not a.no_auto_sfx:
         cues = sorted(cues + auto_cues(tts["words"], cfg.get("auto_sfx", {}), cues, in_speech_db=cfg.get("auto_sfx_db")), key=lambda c: c["at"])
     if not a.no_auto_sfx:
         cues = sorted(cues + cut_cues(sc, tts["words"], cfg, cues), key=lambda c: c["at"])
+    if a.extra_cues:
+        extra = [c for c in json.load(open(a.extra_cues)) if c.get("cue")]
+        # an action cue never doubles a script/auto cue already within 0.25 s
+        extra = [c for c in extra if not any(abs(c["at"] - o["at"]) < 0.25 for o in cues)]
+        cues = sorted(cues + [{**c, "source": c.get("source", "storyboard")} for c in extra], key=lambda c: c["at"])
     mx = mix(tts["audio"], cues, cfg, music, out)
     dur = mx["report"]["duration_s"]
 
