@@ -319,7 +319,7 @@ function Item({kind, at, t}: {kind: string; at: P2; t: number}) {
 	if (kind === 'candle') {
 		const fl = 1 + 0.12 * Math.sin(t * 19) + 0.06 * Math.sin(t * 31);
 		return (
-			<g>
+			<g transform={`translate(${x} ${y}) scale(1.45) translate(${-x} ${-y})`}>
 				<circle cx={x} cy={y - 74} r={46 * fl} fill={c('amber-4')} opacity={0.22} />
 				<rect x={x - 24} y={y - 6} width={48} height={12} rx={6} fill={K.gold} />
 				<rect x={x - 11} y={y - 56} width={22} height={52} rx={5} fill={c('bone-2')} />

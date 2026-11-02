@@ -152,7 +152,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 	const sweeping = sweepAt >= 0 && t >= sweepAt;
 	const sw = sweeping ? easeOut(clamp((t - sweepAt) / 0.45)) : 0;
 	let hand: P2 = [lerp(rest[0], lerp(lifted[0], target[0], reach), up), lerp(rest[1], lerp(lifted[1], target[1] - 20, reach), up)];
-	if (sweeping) hand = [lerp(400, 780, sw), 560 - Math.sin(sw * Math.PI) * 16];
+	if (sweeping) hand = [lerp(420, 650, sw), 560 - Math.sin(sw * Math.PI) * 20];
 	const sh: P2 = [372, 372];
 	const el: P2 = [lerp(sh[0], hand[0], 0.5) + 30, lerp(sh[1], hand[1], 0.5) + 40 - up * 34];
 
@@ -310,6 +310,13 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 							</g>
 						)}
 						{dark > 0 && <rect x={140} y={642} width={620} height={246} fill={c('ink-0')} opacity={0.6 * dark} />}
+						{xray > 0 && (
+							<g opacity={xray}>
+								<Door hx={140} y0={642} y1={822} w={240} open={doorL} dir={1} wood={wood} shade={woodSh} ghost />
+								<Door hx={400} y0={642} y1={822} w={180} open={doorR} dir={1} wood={wood} shade={woodSh} ghost />
+								<Door hx={760} y0={642} y1={822} w={180} open={doorR2} dir={-1} wood={wood} shade={woodSh} ghost />
+							</g>
+						)}
 						{props.masterCandle === true && (
 							<circle cx={candleXY[0]} cy={candleXY[1]} r={95 + 6 * Math.sin(t * 9)} fill={c('amber-4')} opacity={0.18 + 0.3 * dark} />
 						)}
@@ -329,13 +336,6 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 					<Door hx={140} y0={642} y1={822} w={240} open={doorL} dir={1} wood={wood} shade={woodSh} />
 					<Door hx={400} y0={642} y1={822} w={180} open={doorR} dir={1} wood={wood} shade={woodSh} />
 					<Door hx={760} y0={642} y1={822} w={180} open={doorR2} dir={-1} wood={wood} shade={woodSh} />
-				</g>
-			)}
-			{cut > 0 && xray > 0 && (
-				<g opacity={xray}>
-					<Door hx={140} y0={642} y1={822} w={240} open={doorL} dir={1} wood={wood} shade={woodSh} ghost />
-					<Door hx={400} y0={642} y1={822} w={180} open={doorR} dir={1} wood={wood} shade={woodSh} ghost />
-					<Door hx={760} y0={642} y1={822} w={180} open={doorR2} dir={-1} wood={wood} shade={woodSh} ghost />
 				</g>
 			)}
 			<g opacity={1 - clamp(cut * 2)}>

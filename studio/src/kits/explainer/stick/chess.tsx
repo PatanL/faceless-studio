@@ -77,8 +77,8 @@ function Piece({kind, white, x, y, s, rot = 0}: {kind: string; white: boolean; x
 function TurkHand({x, y, s}: {x: number; y: number; s: number}) {
 	return (
 		<g transform={`translate(${f(x)} ${f(y)}) scale(${f(s)}) rotate(38)`}>
-			<path d="M -40 -420 L 30 -420 L 34 -110 L -36 -110 Z" fill={c('coral-1')} />
-			<path d="M 0 -420 L 30 -420 L 34 -110 L 2 -110 Z" fill={c('coral-0')} />
+			<path d="M -40 -1100 L 30 -1100 L 34 -110 L -36 -110 Z" fill={c('coral-1')} />
+			<path d="M 0 -1100 L 30 -1100 L 34 -110 L 2 -110 Z" fill={c('coral-0')} />
 			<rect x={-46} y={-130} width={86} height={34} rx={14} fill={c('ochre-3')} />
 			<path d="M -38 -98 Q -44 -40 -20 -24 L 26 -24 Q 44 -50 36 -98 Z" fill={c('ochre-2')} />
 			<path d="M 6 -98 L 36 -98 Q 44 -50 26 -24 L 8 -24 Z" fill={c('ochre-1')} />
@@ -92,7 +92,7 @@ function TurkHand({x, y, s}: {x: number; y: number; s: number}) {
 function HumanHand({x, y, s}: {x: number; y: number; s: number}) {
 	return (
 		<g transform={`translate(${f(x)} ${f(y)}) scale(${f(s)}) rotate(-34)`}>
-			<path d="M -34 380 L 34 380 L 30 70 L -30 70 Z" fill={c('dusk-1')} />
+			<path d="M -34 1100 L 34 1100 L 30 70 L -30 70 Z" fill={c('dusk-1')} />
 			<rect x={-40} y={60} width={80} height={30} rx={12} fill={c('bone-2')} />
 			<circle cx={0} cy={36} r={36} fill={c('bone-1')} />
 			<circle cx={8} cy={42} r={26} fill={c('bone-0')} />
@@ -181,12 +181,14 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 	let mv: React.ReactNode = null;
 	let handNode: React.ReactNode = null;
 	if (moving) {
-		const e = easeInOut(moving.k);
+		// the hand first travels in from off-board (k < 0.3), then carries the piece
+		const kin = clamp(moving.k / 0.3);
+		const e = easeInOut(clamp((moving.k - 0.3) / 0.7));
 		const x = lerp(moving.a[0], moving.b[0], e);
 		const y = lerp(moving.a[1], moving.b[1], e) - Math.sin(e * Math.PI) * 120;
 		const s = lerp(moving.s0, moving.s1, e);
 		if (moving.out <= 0) mv = <Piece kind={moving.kind[1]} white={moving.kind[0] === 'w'} x={x} y={y} s={s} />;
-		const o = easeInOut(moving.out);
+		const o = Math.max(easeInOut(moving.out), 1 - easeInOut(kin));
 		if (moving.hand === 'turk') handNode = <TurkHand x={x + o * 520} y={y - 96 * s - o * 640} s={s * 1.1} />;
 		if (moving.hand === 'human') handNode = <HumanHand x={x + 10 - o * 420} y={y - 40 * s + o * 640} s={s * 1.1} />;
 	}
