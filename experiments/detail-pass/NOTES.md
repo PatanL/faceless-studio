@@ -70,3 +70,91 @@ ssh dgx-spark 'bash ~/studio/app/experiments/detail-pass/scripts/stills.sh v11 0
 ssh dgx-spark 'bash ~/studio/app/experiments/detail-pass/scripts/render.sh v11'            # video + texture pass + all metrics
 ssh dgx-spark 'cd ~/studio/app/experiments/detail-pass && bash scripts/ablate.sh'          # D4/specks with one system off
 ```
+
+---
+
+# Orca opening, detail pass (`src/scenes/OrcaOpenDetail.tsx`, composition `OrcaOpenDetail`)
+
+The approved 10 s v3 opening (`kurz-style/engine/src/scenes/OrcaOpen.tsx`, `out/kurz-engine/orca_open_v3.mp4`), re-set with this folder's generators and asset-gen's path-B hero, as a fair A/B:
+
+- **Same beats, camera and type:** the same 292 frames (9.733 s), the same four camera moves, the same caption phrases and word timings, title plate, counters, cars, YOU figure, guides and tags.
+- **Same audio:** the episode's `mix.wav` muxed by the same ffmpeg step. The decoded audio of both clips has the same MD5.
+- **Deliverables:**
+  - `out/detail-pass/orca_open_detail.mp4` (render `r3`)
+  - `out/detail-pass/sbs.jpg` (copied to `proof/orca_sbs.jpg`). Row 1 is v3 and row 2 is the detail pass, at 1.0, 3.6, 5.5, 7.2 and 9.3 s. Row 3 is Kurzgesagt `D_0126_reef`, `D_0630_dumbo-octopus` and `W_0222_whale` (environment, hero close-up, scale beat).
+
+## What changed vs v3
+
+**Hero.** The asset-gen path-B orca: Codex reference, then extraction, then a hand rig with the one-light shading stack and 187 measured marks (50 scars, 137 dots and pores).
+- `src/assets/OrcaB.tsx` is a small **fork** of `asset-gen/orca-b/OrcaB.tsx`. The geometry JSON is still imported read-only from asset-gen.
+- Fork change 1: the eye lid is clipped to the eye disc, inside a skin socket. The original drew a square skin-coloured block over the eye-patch edge, which showed at the 2× push-in.
+- Fork change 2: lit-side marks are a lower value step, +0.13 / +0.20 L instead of +0.34 / +0.5. They read as texture, not as bright specks.
+- `OrcaHero.tsx` rotates the screen-space light into the pitched body, so the key stays fixed, and adds seeded blinks and the menace lid.
+- Scene anchors (fluke tip, snout, fin tip, back) are recomputed with OrcaB's swim-wave formula (`orcaPt`). The YOU figure is scaled so its head lands exactly on the fin tip.
+
+**Set (FEEDBACK 2026-11-01, logical consistency).** v3 put tropical stony corals and jellies behind an orca. This is a cold-water **kelp forest over a rocky reef**:
+- Golden giant-kelp columns reaching the surface, on a deep hazy plane plus the frame-edge back plane.
+- Boulders with coralline-algae crusts, vase, ball and tube sponges, cold-water soft corals, a few red gorgonians, plumose anemones, urchins, sea stars, shells and surfgrass.
+- Fish: herring (orca prey), surfperch, kelp wrasse and sand lance.
+- **No distant pod.** At far-plane size their silhouettes read as sharks, and the owner has ruled out background sharks.
+- All placement is `scatter.ts` (families, edge bias, a calm ellipse around the hero's swim path) from pure data in `orcaLayout.ts`. `scripts/orca_manifest.ts` counts from the same data.
+- `VarKelp` gained an optional `blade` colour.
+
+## Metrics (render `r3`; v3 measured with the same tools in the same session)
+
+`frame_judge.sh` on a 0.5 s grid (19 frames) and `judge_metrics.sh` on the 2 s grid. Data: `data/orca_r3/`, `data/orca_v3ref/`.
+
+| id | metric | Kurzgesagt W / D (env) | ours (orca pilot) | v3 (same tools) | **detail pass r3** | target | |
+|---|---|---|---|---|---|---|---|
+| D1 | shapes / frame | 137 / 112 | 116 | 190 (2 s: 203) | **215** (2 s: 199) | ≥ 110 | PASS |
+| D2 | micro-details / frame | 633 / 658 | 584 | 1834 (1891) | **1896** (2000) | ≥ 600 | PASS |
+| D3 | small specks / frame | 124 / 134 (165–371) | 63 | 285 (159–367) | **406** (227–471; 2 s: 404) | ≥ 120, ≥ 150 env | PASS the floor, about 10 % above the Kurzgesagt env top |
+| D4 | edge density | 0.047 / 0.042 | 0.026 | 0.0699 | **0.0677** (0.054–0.086; 2 s: 0.0686) | 0.040–0.08 | PASS |
+| D5 | outline response | 0.004 / 0.025 | 0.29 | 0.042 (2 s: 0.037) | **0.051** (2 s: 0.052) | ≤ 0.05 | FAIL by 0.001–0.002; see below |
+| J4 | named objects / frame | 15–60 | 5–8 | – | **124 median** (60–147; 38–97 fish), **18 kinds** | ≥ 15 | PASS |
+| J4 | hero surface marks | dozens–hundreds | 0–3 | ~40 | **187** (dots 137, scars 50; body 115, near flipper 33, dorsal 31) | ≥ 30 | PASS |
+| §8 | calm field | top cluster 33–41 % | | 0.187 | **0.254** top cluster; 65 % of 40 px tiles edge-free; design ellipse 39.9 % | 30–50 % | top cluster below range |
+| P4 / P5 | grey / hue families | | | 0.050 / 3 (2 s: 0.055 / 2) | 0.051 / 2 (2 s: 0.065 / 2) | ≤ 0.04 / ≥ 3 | both FAIL (v3 also fails P4) |
+
+Render on the Spark: CPU, nice 10, concurrency 4, render lock. **29.1 s for 9.7 s** of video (3.0 s per second of video) at load 3.4–10.8, plus 2.9 s of texture and mux. v3 took 41.9 s.
+
+**Reading.**
+
+- **D5 is the type, not the art.** The blackhat line map shows the hits on the caption stroke, the title plate, the YOU and FIN tags and the diver.
+  - With `--props '{"off":["type"]}'`, D5 is 0.016–0.022 at frames 30, 120 and 270. With type it is 0.047–0.052.
+  - The type is identical to v3. Our open-water band is a little lighter, so the black caption stroke clears the 45 L* blackhat threshold more often.
+  - The remaining non-type hits are the dark sliver between OrcaB's bone patches and its belly rim.
+- **D3 is about 10 % above the env range.**
+  - Speck maps put about 100 counted specks on the orca's marks. These are the hero marks Kurzgesagt also carries.
+  - The rest comes from herring, micro, kelp and the reef.
+  - Already cut while iterating: the herring school, far schools and micro (45 / 45 / 32), plus the lower mark tone. The stills median was 371, but x264 and the texture pass add about 35.
+- **D4 sits mid-range.** The kelp forest was the edge driver: 0.12 on the first stills. Thinning the groves, moving the columns to a hazier depth-0.2 plane and lowering the mid-reef anchor count brought it down.
+
+**My read side by side (`sbs.jpg`):**
+
+- **Better than v3:**
+  - The hero has a real head mass, teeth, eye socket, saddle and rake-mark texture.
+  - The set makes sense for an orca.
+  - The upper frame is no longer empty, because the kelp columns and herring reach it.
+- **Worse than v3:**
+  - Colour breadth. The cold set is teal plus golden kelp, and the warm reef masses mostly sit off-frame below the captions (P5 2).
+  - The boulders read as plain loaves.
+- **Against the Kurzgesagt reef (`D_0126`),** both are far less saturated and less layered.
+- **Next levers:**
+  - A sunlit golden-kelp canopy mass near the top (warm family, calm-field share).
+  - Coralline-pink and purple-urchin accents on the boulders.
+  - Fixing the bone-patch sliver in `OrcaB`.
+  - Darkening the caption stroke halo, or using a softer caption plate, to pull D5 under 0.05.
+
+## Run
+
+```bash
+rsync -a --exclude node_modules --exclude out --exclude build ~/Documents/faceless-studio/experiments/detail-pass/ dgx-spark:~/studio/app/experiments/detail-pass/
+rsync -a ~/Documents/faceless-studio/experiments/asset-gen/orca-b/orca_geom.json dgx-spark:~/studio/app/experiments/asset-gen/orca-b/
+ssh dgx-spark 'bash ~/studio/app/experiments/detail-pass/scripts/orca_stills.sh s9 0 60 105 150 195 240 288'  # stills + quick metrics
+ssh dgx-spark 'bash ~/studio/app/experiments/detail-pass/scripts/orca_render.sh r4'                           # video + mix + all metrics
+ssh dgx-spark 'cd ~/studio/app/experiments/detail-pass && FRAME=60 bash scripts/orca_ablate.sh'               # D4/D5/specks per system
+python3 -I scripts/orca_sbs.py ../../out/detail-pass/sbs.jpg ../../out/kurz-engine/orca_open_v3.mp4 ../../out/detail-pass/orca_open_detail.mp4 1.0,3.6,5.5,7.2,9.3 <ref stills...>
+```
+
+`remotion.config.ts` aliases `react` and `react-dom` to this project's copy, and `tsconfig.json` maps their types. That way the JSON and any code imported from outside the entry folder never pull in a second React.

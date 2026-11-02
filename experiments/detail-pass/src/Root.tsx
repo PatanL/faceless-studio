@@ -1,6 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Composition, Still} from 'remotion';
 import {DetailShowcase} from './scenes/DetailShowcase';
+import {OrcaOpenDetail} from './scenes/OrcaOpenDetail';
+import {FRAMES as ORCA_FRAMES} from './scenes/orcaLayout';
 import {c} from '../../kurz-style/engine/src/lib/color';
 import {LightProvider} from '../../kurz-style/engine/src/lib/light';
 import {Fish} from './detail/Fish';
@@ -59,6 +61,7 @@ const Hero: React.FC = () => {
 export const RemotionRoot: React.FC = () => (
 	<>
 		<Composition id="DetailShowcase" component={DetailShowcase} width={1080} height={1920} fps={30} durationInFrames={120} />
+		<Composition id="OrcaOpenDetail" component={OrcaOpenDetail} width={1080} height={1920} fps={30} durationInFrames={ORCA_FRAMES} />
 		<Still id="Sheet" component={Sheet} width={1080} height={1920} />
 		<Still id="Hero" component={Hero} width={1080} height={1920} />
 	</>

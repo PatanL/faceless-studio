@@ -419,7 +419,7 @@ export const Soft: React.FC<{seed: string; x: number; y: number; h: number; t: n
 // ---------------------------------------------------------------- kelp, grass, small life
 
 /** kelp with seeded height, curvature, blade style and bladder frequency */
-export const VarKelp: React.FC<{seed: string; x: number; y: number; h: number; t: number; lean?: number; bend?: number; style?: 'lance' | 'broad' | 'frond'; silhouette?: boolean; lod?: Lod}> = ({
+export const VarKelp: React.FC<{seed: string; x: number; y: number; h: number; t: number; lean?: number; bend?: number; style?: 'lance' | 'broad' | 'frond'; silhouette?: boolean; lod?: Lod; blade?: string}> = ({
 	seed,
 	x,
 	y,
@@ -430,6 +430,7 @@ export const VarKelp: React.FC<{seed: string; x: number; y: number; h: number; t
 	style = 'lance',
 	silhouette = false,
 	lod = 'mid',
+	blade,
 }) => {
 	const tint = useTint();
 	const L = useLight();
@@ -448,7 +449,7 @@ export const VarKelp: React.FC<{seed: string; x: number; y: number; h: number; t
 	}
 	const flat = silhouette || lod === 'far';
 	const stipe = tint(flat ? (silhouette ? 'ink-1' : 'kelp-1') : 'kelp-1');
-	const bladeBase = tint(silhouette ? 'ink-1' : mixOk(c('kelp-3'), c('ochre-3'), r() * 0.35));
+	const bladeBase = tint(silhouette ? 'ink-1' : mixOk(blade ? c(blade) : c('kelp-3'), c('ochre-3'), r() * 0.35));
 	const bladeSh = shadowOf(bladeBase, tint(L.ambient), 0.24);
 	const bladeHi = mixOk(bladeBase, tint(L.keyColor), 0.2);
 	const W = style === 'broad' ? 1.5 : style === 'frond' ? 0.7 : 1;

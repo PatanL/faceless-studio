@@ -1,0 +1,25 @@
+[v3] fps 30.000
+grid frames: 5  cuts: 0  freezes: 0
+== v3  (9.7 s)
+P1  pal_conform                 1.0  target >= 0.85            PASS
+P2  pal_vm_share                0.0  target <= 0.08            PASS
+P3  pal_sat_chroma             0.78  target 0.66-0.88          PASS
+P4  pal_grey                  0.055  target <= 0.04            FAIL
+P5  pal_hue_fam                 2.0  target >= 3               FAIL
+P6  pal_near_white           0.0127  target <= 0.015           PASS
+P7  pal_pure_white              0.0  target <= 0.003           PASS
+P8  pal_black                   0.0  target <= 0.005           PASS
+D1  density_shapes            203.0  target >= 110             PASS
+D2  density_micro            1891.0  target >= 600             PASS
+D3  specks_small              288.0  target >= 120             PASS
+D4  fm_edge_den              0.0696  target 0.040-0.08         PASS
+D5  fm_outline                0.037  target <= 0.05            PASS
+M1  alive_pct                 100.0  target >= 95 (pass >= 80) PASS
+M2  longest_quiet_s            0.03  target <= 2.5             PASS
+M3  sec_per_new                 8.0  target <= 3.5 (long-form <= 5) FAIL
+M4  sec_per_change              2.0  target 2.0-4.5            PASS
+M5  hard_cuts_per_min           0.0  target <= 2               PASS
+A1  lufs_i                    -14.1  target -14 +/- 1          PASS
+A2  lra                         1.8  target <= 4               PASS
+A3  silences_045                  0  target 0                  PASS
+automatic checks passed: 18/21
