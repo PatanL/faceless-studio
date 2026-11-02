@@ -40,8 +40,9 @@ export const walking = (t: number, keys: [number, number, number][]) => {
 // ------------------------------------------------------------------------------------------------ framing
 /** an axis-aligned box [x0, y0, z0, x1, y1, z1] (world metres) that a shot must hold */
 export type Box = [number, number, number, number, number, number];
+/** a figure standing (or seated) with its feet at p (p[1] = the floor it stands on); upper = from the chest up */
 export const personBox = (p: V3, seated = false, upper = false): Box =>
-  [p[0] - 0.32, upper ? (seated ? 0.75 : 0.95) : 0, p[2] - 0.12, p[0] + 0.32, seated ? 1.45 : 1.7, p[2] + 0.12];
+  [p[0] - 0.32, p[1] + (upper ? (seated ? 0.75 : 0.95) : 0), p[2] - 0.12, p[0] + 0.32, p[1] + (seated ? 1.45 : 1.7), p[2] + 0.12];
 const FIT_CAM = new THREE.PerspectiveCamera(40, 1080 / 1920, 0.05, 200);
 export type Pad = { x?: number; t?: number; b?: number };
 const corners = (boxes: Box[]) => {
@@ -83,7 +84,10 @@ function solve(boxes: Box[], az: number, el: number, fov: number, pad: Pad) {
 export function inside(b: Box) {
   const cam = FIT_CAM;
   let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-  for (const p of corners([b])) {
+  const cs = corners([b]);
+  const zs = cs.map((p) => p.clone().applyMatrix4(cam.matrixWorldInverse).z);
+  if (zs.every((z) => z > -0.05)) return 0;              // wholly behind the camera
+  for (const p of cs) {
     const v = p.clone().applyMatrix4(cam.matrixWorldInverse);
     if (v.z > -0.05) return 0.5;          // straddles the lens: treat as cut
     const q = p.clone().project(cam);

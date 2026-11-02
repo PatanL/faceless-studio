@@ -107,7 +107,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   TONE.uLitCol.value.set(...P.lit); TONE.uShadeCol.value.set(...P.shade); TONE.uSat.value = P.sat;
   CARD_TONE.uLitTint.value.set(...P.cardLit); CARD_TONE.uShadeTint.value.set(...P.cardShade);
   world.set.key.color.set(P.key); world.set.key.intensity = P.keyI;
-  scene.fog = new THREE.Fog(P.fog, P.fogNear, P.fogFar);
+  const fs = world.set.fogScale ?? 1;
+  scene.fog = new THREE.Fog(P.fog, P.fogNear * fs, P.fogFar * fs);
   scene.background = new THREE.Color(P.bg);
   for (const o of world.set.glows) o.visible = P.glow > 0.05, o.scale.setScalar((o.userData.base ??= o.scale.x) * (0.6 + 0.4 * P.glow));
   fx.grade.set(P.grade);

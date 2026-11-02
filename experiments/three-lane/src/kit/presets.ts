@@ -43,6 +43,17 @@ export const PRESETS: Record<string, Preset> = {
     key: "#a9b8ff", keyI: 1.6, fog: "#141a48", fogNear: 6, fogFar: 26, bg: "#121640", glow: 1.0, sat: 0.84,
     grade: G([0.08, 0.17, 0.28, 0.55, 0.79, 0.92, 1], [0.84, 0.88, 0.84], [0.024, -0.004], [-0.008, 0.012], 0.26),
   },
+  // story-vasa: under the harbour in 1961 (green-blue murk) and the museum hall (dark, warm pools of light)
+  underwater: {
+    lit: [0.62, 0.86, 0.9], shade: [0.26, 0.36, 0.5], cardLit: [0.8, 0.92, 0.94], cardShade: [0.46, 0.54, 0.7],
+    key: "#b8e0d8", keyI: 1.4, fog: "#1f4a52", fogNear: 6, fogFar: 70, bg: "#1b4048", glow: 0.8, sat: 0.84,
+    grade: G([0.08, 0.17, 0.28, 0.55, 0.79, 0.92, 1], [0.84, 0.88, 0.84], [0.0, 0.02], [0.0, 0.008], 0.26),
+  },
+  museum: {
+    lit: [1.2, 1.0, 0.82], shade: [0.34, 0.33, 0.6], cardLit: [0.98, 0.9, 0.82], cardShade: [0.56, 0.54, 0.78],
+    key: "#ffd6a0", keyI: 1.8, fog: "#23263a", fogNear: 30, fogFar: 140, bg: "#1d2034", glow: 0.9, sat: 0.84,
+    grade: G([0.07, 0.16, 0.28, 0.55, 0.8, 0.93, 1], [0.84, 0.88, 0.84], [0.018, 0.0], [-0.008, 0.01], 0.24),
+  },
 };
 
 export const v3 = (a: [number, number, number]) => new THREE.Vector3(...a);

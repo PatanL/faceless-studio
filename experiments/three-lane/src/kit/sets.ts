@@ -10,7 +10,7 @@ import { woodFloor, plaster, lacquer } from "../paint";
 import { paving, stucco, marbleChecker, panelWall, stoneWall, darkBoards, brass, skyGrad, signTex, glow, tex } from "./paint2";
 
 export const lambert = (p: THREE.MeshLambertMaterialParameters) => twoTone(new THREE.MeshLambertMaterial(p));
-const basic = (p: THREE.MeshBasicMaterialParameters) => new THREE.MeshBasicMaterial({ fog: false, ...p });
+export const basic = (p: THREE.MeshBasicMaterialParameters) => new THREE.MeshBasicMaterial({ fog: false, ...p });
 
 export type SetBuild = {
   root: THREE.Group;
@@ -18,6 +18,7 @@ export type SetBuild = {
   glows: THREE.Object3D[];                       // additive light pools (scaled by the preset's glow amount)
   sky?: THREE.Mesh;
   extra: Record<string, THREE.Object3D>;          // named anchors / animated parts for the story
+  fogScale?: number;                               // big outdoor sets push the preset's fog out (1 = as the preset says)
 };
 
 export function makeKey(root: THREE.Group, pos: [number, number, number], target: [number, number, number], span = 9) {
@@ -31,17 +32,17 @@ export function makeKey(root: THREE.Group, pos: [number, number, number], target
   return key;
 }
 
-function box(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number, cast = true) {
+export function box(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number, cast = true) {
   const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
   m.position.set(x, y, z); m.castShadow = cast; m.receiveShadow = true;
   root.add(m); return m;
 }
-function cyl(root: THREE.Object3D, mat: THREE.Material, r: number, h: number, x: number, y: number, z: number, seg = 20) {
+export function cyl(root: THREE.Object3D, mat: THREE.Material, r: number, h: number, x: number, y: number, z: number, seg = 20) {
   const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, h, seg), mat);
   m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
   root.add(m); return m;
 }
-function plane(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, x: number, y: number, z: number, rx = 0, ry = 0) {
+export function plane(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, x: number, y: number, z: number, rx = 0, ry = 0) {
   const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat);
   m.position.set(x, y, z); m.rotation.set(rx, ry, 0); m.receiveShadow = true;
   root.add(m); return m;
@@ -51,11 +52,11 @@ export function glowSprite(root: THREE.Object3D, rgb: [number, number, number], 
   s.scale.set(size, size, 1); s.position.set(x, y, z); s.layers.set(NOINK);
   root.add(s); return s;
 }
-function skyCard(root: THREE.Object3D, t: THREE.Texture, w: number, h: number, x: number, y: number, z: number, ry = 0) {
+export function skyCard(root: THREE.Object3D, t: THREE.Texture, w: number, h: number, x: number, y: number, z: number, ry = 0) {
   const m = plane(root, basic({ map: t }), w, h, x, y, z, 0, ry);
   m.layers.set(NOINK); return m;
 }
-function arch(w: number, h: number) {
+export function arch(w: number, h: number) {
   const s = new THREE.Shape();
   s.moveTo(-w / 2, 0); s.lineTo(-w / 2, h - w / 2); s.absarc(0, h - w / 2, w / 2, Math.PI, 0, true); s.lineTo(w / 2, 0); s.lineTo(-w / 2, 0);
   return new THREE.ShapeGeometry(s, 16);

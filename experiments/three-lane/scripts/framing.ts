@@ -1,17 +1,18 @@
 // Framing check for the 3D story (our own code): replays every frame's camera from story.ts (pure math, no render)
-// and reports figures cut by the frame edge, figures looming in front of the lens, the cabinet cut by the edge and
-// the caption band over the cabinet. Run: node scripts/framing.mjs <storyboard.json> (bundled with esbuild).
+// and reports figures cut by the frame edge, figures looming in front of the lens and (Turk) the cabinet cut by the edge. Run: node scripts/framing.mjs <storyboard.json> (bundled with esbuild).
 import fs from "fs";
 import * as THREE from "three";
 import { Timing } from "../src/kit/timing";
-import { buildStory } from "../src/turk/story";
+import { buildStory as turkStory } from "../src/turk/story";
+import { buildStory as vasaStory } from "../src/vasa/story";
 import { CamPath } from "../src/kit/campath";
 
 const W = 1080, H = 1920, FPS = 30;
 const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least this many frames
 const sb = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const T = new Timing(sb.scenes.map((s: { duration: number }) => s.duration), sb.captions.words);
-const { groups } = buildStory(T);
+// which episode: the storyboard's id (story-chess-turk | story-vasa)
+const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
 const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 200);
 const paths = new Map(groups.map((g) => [g, new CamPath(g.cam, g.t0, g.t1)]));
 const total = Math.round(T.total * FPS);
