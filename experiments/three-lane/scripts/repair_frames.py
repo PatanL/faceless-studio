@@ -25,10 +25,11 @@ def glitch_frames(path, ratio=2.5, floor=3.0):
     # (story-vasa v8: 0.34 above them for the two glitches, under 0.09 for every real frame)
     def period(g):
         H, W = g.shape; sd = np.abs(g - g.mean()).mean() + 1e-3; best = 0.0
-        for k in (2, 3, 4, 5, 6):
-            sh = H // k; best = max(best, 1 - np.abs(g[:-sh] - g[sh:]).mean() / sd)
-        for k in (2, 3, 4):
-            sh = W // k; best = max(best, 1 - np.abs(g[:, :-sh] - g[:, sh:]).mean() / sd)
+        # every shift, not just 1/2..1/6 of the frame (story-vasa v15: a tile period of 59/160 slipped through)
+        for sh in range(16, H // 2 + 1):
+            best = max(best, 1 - np.abs(g[:-sh] - g[sh:]).mean() / sd)
+        for sh in range(12, W // 2 + 1):
+            best = max(best, 1 - np.abs(g[:, :-sh] - g[:, sh:]).mean() / sd)
         return best
     per = [period(g) for g in small]
     for i in range(1, len(small) - 1):

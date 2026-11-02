@@ -393,3 +393,72 @@ The named defects, by principle:
 6. The rulebook's build order for craft: faces on the word, an fx library, insert sets, match transitions.
 
 **Not run:** the owner's phone check (§3), which waits for a version that passes §2.
+
+### story-vasa v15 and panel round 4 (the last on Vasa)
+
+The coordinator asked for a v15 with only the cheap fixes for the flaws round 3 named, then one more panel round.
+The output is `out/story-vasa/story-vasa_v15.mp4` (sha a5c8af61…), with a 25.9 MB phone copy, `story-vasa_v15_phone.mp4`. Captions are unchanged: their style is waiting on the owner.
+
+**Fixes (by round-3 flaw):**
+1. **Heel scale.** The opening test and the ending callback now share one heel scale (`RUN_DUR`, `RUN_GAIN`). Both peaks read 18°, where before they read 9° and 19°.
+2. **Hook.** It is framed on the crew as one column up the deck, from two angles joined by one glide, with every runner in frame and the captions on open deck.
+3. **Gun ports.** They are open from 12.0 s.
+4. **Wobble.** It is filmed bow-on with the whole ship. A slower roll of ±11° lands on "wobbles", and the gauge shows it.
+5. **"Built upside down".** The line now plays over the Vasa's own section. It drops in on "The Vasa", reads HEAVY on top and LIGHT below, and rocks in its tank.
+6. **The 5 s side-on hold.** It is gone. The hook and the ending each use the column shots, and the ending whips to the stern quarter on "at the dock".
+7. **Captions and HUD.**
+   - New kit hooks: `GroupSpec.busy(t, cam)` marks the rigging and the camera-side port rows; `Episode3D` takes `screenAvoid` for HUD panels.
+   - Caption placement weights busy bands 3× and faces and panels 8×.
+   - A caption gate in `scripts/framing.ts` exits 1 when any page sits more than 12 % over a face, a busy band or a panel. It still flags two hook pages at 13-14 %, which the stills show over plain deck.
+   - The gauge is now labelled HEEL and is bigger, the DISTANCE panel is bigger, and the distance panel now appears from the first gust.
+8. **Framing.** The stern banner and every sailor stay in frame (the replay framing check is clean in every Vasa group).
+
+**Also fixed:** `repair_frames.py` now scans every tile period. A mosaic with a 59/160 period slipped through at 59.4 s.
+
+**Measured (v15).** All 17 checks are inside the reference ranges:
+
+| Check | v15 |
+|---|---|
+| words/s | 3.8 |
+| pauses ≥ 0.8 s | 0 |
+| cuts · jumps | 1 · 7 |
+| moving | 100 % at 6.0 px/f |
+| moves / 10 s | 8.86 |
+| quiet zoom | 81 % |
+| saturation · colourfulness | 0.566 · 29 |
+| luma p50 | 0.314 (the floor) |
+| non-ink p5 | 0.137 |
+| shadow chroma · hue | 20 · 54 |
+| ink · soft edge · acutance | 0.59 · 6.6 % · 0.373 |
+
+The rulebook checks are also in range:
+
+| Check | v15 |
+|---|---|
+| shot length, median · max | 3.33 · 8.0 s |
+| transitions per minute | 16.4 |
+| first transition | 3.4 s |
+| move attack · release (median) | 9 · 9 f |
+| snap moves | 3 |
+| hold | 0.2 % |
+
+**Every-frame review (30 fps sheets).** Clean apart from one transient: the stern banner touches the left edge for about 0.2 s during the glide at 60.7 s.
+
+**Panel round 4 (v15).** Each cell is the number of pairs, out of 8, in which a judge rated ours same-or-better (judges 1 · 2 · 3).
+
+| Principle | Round 3 (v14) | **Round 4 (v15)** | Flaw rule (round 4) |
+|---|---|---|---|
+| 1 Hook | 8 · 8 · 8 | **8 · 8 · 8** | fail: masts cut at the top, sailors still small in the overhead deck shot |
+| 2 World | 8 · 8 · 8 | **8 · 8 · 8** | fail: the gauge swings 6°, 2°, 10° as the crew runs back and forth, which reads as jumping backwards |
+| 3 Show what's said | 8 · 8 · 8 | **8 · 8 · 8** | fail: a bare-masted hull at 18.6 s; DISTANCE never named in the narration; the sinking is not clear at 31 s |
+| 4 Smooth | 8 · 8 · 8 | **8 · 8 · 8** | **pass** (was a fail) |
+| 5 Readable | 8 · 8 · 8 | **8 · 8 · 8** | fail: gauge over the mast top at 18.6 s; HEAVY/LIGHT labels small; captions over legs (37 s) and the diagram bottom (56 s) |
+| 6 Sound | 8 · 8 · 8 | **8 · 8 · 8** | pass |
+| 7 Craft | 8 · 0 · 8 | **5 · 5 · 8** (3 of 3) | fail: crowd cut at 24.8 s, banner at the edge at 60.6 s, flat sparse water and sky |
+| 8 Payoff | 8 · 8 · 8 | **8 · 8 · 8** | pass |
+
+**Verdict after the last allowed round: FAIL by the flaw rule on principles 1, 2, 3, 5 and 7.** Principles 4, 6 and 8 pass outright.
+- **On ratings, it passes.** All 8 principles pass with all 3 judges, and craft goes from 2 of 3 judges to 3 of 3.
+- **Which flaws are new.** None of the round-3 flaws that v15 targeted (the 9°/19° gauge mismatch, ports closed at 12.4 s, "upside down" over the bottles, the 5 s hold, captions over the rigging and port row) was named again. The flaws named now are new ones, or ones v15 did not touch: the overhead hook still reads small, the oscillating gauge, label size, and the flat look.
+
+Full data: `research/references/data/story_lane_vasa_panel.json` (rounds 3 and 4).
