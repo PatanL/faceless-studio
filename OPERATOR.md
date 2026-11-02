@@ -152,7 +152,7 @@ In-session jobs left `running` for 90 min (a session died mid-review) go back to
 ## 7. Review procedure (every frame, then one combined visual + viewer review per round)
 
 First the frame pass (`pipeline/qa/REVIEW_PROMPT.md` section 3): split `out/<slug>/qa/f30/` into spans of about
-10 s (5 sheets) and spawn one **frame reviewer** subagent per span, all in parallel, each capped at **30k** tokens.
+10 s (5 sheets) and spawn one **frame reviewer** subagent per span, all in parallel, each capped at **90k** tokens (the first test used 85k for 10 s).
 Every sheet must be read by exactly one frame reviewer; none is skipped or sampled. Merge their findings into
 `out/<slug>/qa/frame_review.json`.
 
