@@ -5,7 +5,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import type { StoryboardInput } from "../../../../studio/src/core/schema";
 import { Tag } from "../../../../studio/src/kits/explainer/ui";
-import { Episode3D } from "../kit/Episode3D";
+import { Episode3D, type ScreenRect } from "../kit/Episode3D";
 import { buildStory, type VasaStory } from "./story";
 
 const W = 1080, H = 1920;
@@ -72,6 +72,12 @@ const Overlays: React.FC<{ s: VasaStory }> = ({ s }) => {
   );
 };
 
+/** where the gauge and the distance panel sit (captions keep off them; also used by the caption gate) */
+export const hudRects = (s: VasaStory, t: number): ScreenRect[] => [
+  ...(s.heel(t) !== null ? [{ x0: W - 385, x1: W - 40, y0: 290, y1: 630 }] : []),
+  ...(s.dist(t) !== null ? [{ x0: 40, x1: 630, y0: 340, y1: 510 }] : []),
+];
+
 export const Vasa3D: React.FC<StoryboardInput> = (props) => (
-  <Episode3D storyboard={props} build={buildStory} overlays={(s) => <Overlays s={s} />} />
+  <Episode3D storyboard={props} build={buildStory} overlays={(s) => <Overlays s={s} />} screenAvoid={hudRects} />
 );

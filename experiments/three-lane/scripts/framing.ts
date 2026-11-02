@@ -10,6 +10,7 @@ import { personBox } from "../src/kit/framing";
 import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
 import { parseStoryboard, sceneTimings } from "../../../studio/src/core/schema";
 import { paginate } from "../../../studio/src/core/captions";
+import { hudRects } from "../src/vasa/Vasa3D";
 
 const W = 1080, H = 1920, FPS = 30;
 const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least this many frames
@@ -84,10 +85,11 @@ for (const [k, hs] of by) {
 console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFixed(2)}`).join(" | ")}`);
 
 // caption gate (story-vasa v15; the v14 panel named captions over the rigging, the gun-port row and legs): for every
-// caption page, the share of its band that lies over a face or over a group's busy bands, worst
+// caption page, the share of its band that lies over a face, a group's busy bands or a HUD panel, worst
 // sampled frame. Pages over CAP_MAX are listed and the script exits 1.
 {
   const CAP_MAX = Number(process.env.CAP_MAX ?? 0.12);
+  const vs = sb.id === "story-vasa" ? vasaStory(T) : null;          // its HUD panels count like faces
   const psb = parseStoryboard(sb);
   const cuts = sceneTimings(psb).timings.slice(1).map((tm) => tm.start / FPS);
   const caps = psb.captions!;
@@ -116,7 +118,8 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
       // union area by rasterising the band on a coarse grid (boxes overlap each other)
       // boxes partly behind the lens are skipped (their screen rectangle is unbounded), as in captionCues
       const rs = boxes.map((b) => { const pts: THREE.Vector3[] = []; for (const x of [b[0], b[3]]) for (const yy of [b[1], b[4]]) for (const z of [b[2], b[5]]) pts.push(new THREE.Vector3(x, yy, z)); return project(pts); })
-        .filter((r) => r.inside > 0 && r.inside !== 0.5 && Number.isFinite(r.x0));
+        .filter((r) => r.inside > 0 && r.inside !== 0.5 && Number.isFinite(r.x0)) as { x0: number; x1: number; y0: number; y1: number; inside: number; minD: number; hFrac: number }[];
+      if (vs) for (const r of hudRects(vs, t)) rs.push({ ...r, inside: 1, minD: 9, hFrac: 0 });
       let hit = 0, n = 0;
       for (let gx = cx - half; gx < cx + half; gx += 12) for (let gy = top; gy < bot; gy += 8) { n++; if (rs.some((r) => gx >= r.x0 && gx <= r.x1 && gy >= r.y0 && gy <= r.y1)) hit++; }
       const share = n ? hit / n : 0;

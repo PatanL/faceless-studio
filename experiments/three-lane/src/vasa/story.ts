@@ -354,9 +354,9 @@ export function buildStory(T: Timing): VasaStory {
     // frame for 1.5 s on "tips her further". No sheds here, and the swing to the quay side is a whip (launch -> gusts).
     const launch: GroupSpec = { id: "launch", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false, sheds: false }), light: "golden",
       cam: [
-        fit(t0, [crowdBox()], 15, 8, 42, { b: 0.45 }),                                            // a huge crowd on the quay
-        fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.45 }),
-        fit(w(5, "sails") + 0.3, [[voyage(w(5, "sails")).x! - 14, 12, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.45 }),   // her sails go up
+        fit(t0, [crowdBox()], 15, 8, 42, { b: 0.9, t: 0.36 }),                    // crowd in the upper half, water under the caption                                            // a huge crowd on the quay
+        fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.9, t: 0.36 }),
+        { ...fit(w(5, "watches") + 0.2, [[voyage(w(5, "sails")).x! - 14, 14, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.02, t: 0.3 }), glide: 0.8 },   // her sails go up (sails to the frame bottom: no port rows under the caption)
         fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], -118, 8, 42, { b: 0.42, t: 0.38 }, crowd.map((c) => personBox([c.x, 1.8, c.z]))),        // the first gust leans her over (seen from the quay)
         fit(waving, [crowdBox(), hullBox(voyage(waving), true)], -150, 8, 40, { b: 0.4 }),       // she shakes it off over the waving crowd
         fit(gust2 + 0.2, [[voyage(gust2 + 0.2).x! - 22, -1, voyage(gust2 + 0.2).z! - 7, voyage(gust2 + 0.2).x! + 20, 8, voyage(gust2 + 0.2).z! - 3]], -125, 4, 38, { b: 0.42, t: 0.42 }),   // low on the port quarter
@@ -364,7 +364,8 @@ export function buildStory(T: Timing): VasaStory {
       ],
       people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9, (t) => { const v = voyage(t); return [v.x!, 0, v.z!]; }),
       rigs: [shipRig(voyage, {}), waterRig()],
-      avoid: (t) => [hullBox(voyage(t), true)] };
+      // the ship's thin busy bands, not its whole box (v15 review: the box pushed the launch captions onto the crowd)
+      avoid: () => [], busy: (t, cam) => busy(voyage(t), cam) };
     const tw = w(6, "one") - 0.15;                                  // the whip lands just before "One light gust"
     groups.push({ ...launch, t1: tw, cam: launch.cam.slice(0, 3) });
     groups.push({ ...launch, id: "gusts", t0: tw, cam: launch.cam.slice(3).map((k, i) => (i === 0 ? { ...k, t: Math.max(k.t, tw) } : k)) });
@@ -611,7 +612,8 @@ export function buildStory(T: Timing): VasaStory {
     if (t >= S(4) + 0.3 && t < w(4, "his", 2) - 0.4) return wobbleHeel(t);
     return null;
   };
-  const dist = (t: number): number | null => (t >= tSail + 0.2 && t < S(9) - 0.2 ? Math.min(1300, Math.max(0, (t - tSail) / (w(8, "sinks") - tSail)) * 1300) : null);
+  // the distance panel comes in with the first gust (v15: earlier it sat under the launch captions above the sails)
+  const dist = (t: number): number | null => (t >= w(6, "one") - 0.1 && t < S(9) - 0.2 ? Math.min(1300, Math.max(0, (t - tSail) / (w(8, "sinks") - tSail)) * 1300) : null);
   return { groups, tags, heel, dist };
 }
 

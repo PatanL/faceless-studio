@@ -20,7 +20,10 @@ const W = 1080, H = 1920;
 export const CAP_SIZE = 74, CAP_W = 880;
 
 /** caption y per page: keep the caption band off the subject boxes of the shot (projected from the story's cameras) */
-export function captionCues(groups: GroupSpec[], pages: { start: number; end: number; words: { text: string }[] }[], fps: number, y0: number): CaptionCue[] {
+export type ScreenRect = { x0: number; x1: number; y0: number; y1: number };
+/** screenAvoid: on-screen panels the episode draws over the shot (gauges, counters), in 1080x1920 pixels */
+export function captionCues(groups: GroupSpec[], pages: { start: number; end: number; words: { text: string }[] }[], fps: number, y0: number,
+  screenAvoid?: (t: number) => ScreenRect[]): CaptionCue[] {
   const paths = new Map<GroupSpec, CamPath>();
   const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 400);
   const BUSY_W = 3, FACE_W = 8;                                     // a busy band costs 3x an avoid box, a face 8x (plus its body box)
@@ -36,7 +39,8 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
     // weight alone pushed a caption onto the admiral's face)
     const faces = figs.map((b): typeof b => [b[0], b[4] - 0.33 * (b[4] - b[1]), b[2], b[3], b[4], b[5]]);
     const boxes = [...busyB, ...faces, ...(g.avoid ? g.avoid(t) : []), ...figs];
-    if (!boxes.length) return [];
+    const panels = (screenAvoid ? screenAvoid(t) : []).map((r) => ({ ...r, w: FACE_W }));   // never under a HUD panel
+    if (!boxes.length) return panels;
     cam.fov = c.fov; cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
     return boxes.map((b, bi) => {
       const wgt = bi < nBusy ? BUSY_W : bi < nBusy + faces.length ? FACE_W : 1;
@@ -51,7 +55,7 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
       // a busy band partly behind the lens cannot be placed on screen: skip it (a figure there still blocks everything)
       if (front && bi < nBusy) return { x0: 0, x1: 0, y0: 0, y1: 0, w: 0 };
       return front ? { x0: 0, x1: W, y0: 0, y1: H, w: wgt } : { x0, x1, y0: yA, y1: yB, w: wgt };
-    });
+    }).concat(panels);
   };
   const cands = [y0, 0.79, 0.3, 0.24];
   const groupAt = (t: number) => [...groups].reverse().find((q) => t >= q.t0 - 1e-6 && t < q.t1) ?? groups[groups.length - 1];
@@ -80,8 +84,9 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
 
 export type Story = { groups: GroupSpec[] };
 
-export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
+export function Episode3D<S extends Story>({ storyboard, build, overlays, screenAvoid }: {
   storyboard: StoryboardInput; build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
+  screenAvoid?: (s: S, t: number) => ScreenRect[];
 }) {
   waitForFonts();
   const { fps } = useVideoConfig();
@@ -96,7 +101,7 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
   const { timings } = useMemo(() => sceneTimings(sb), [sb]);
   const story = useMemo(() => build(new Timing(sb.scenes.map((s) => s.duration), sb.captions?.words ?? [])), [sb, build]);
   const cuts = useMemo(() => timings.slice(1).map((tm) => tm.start / fps), [timings, fps]);
-  const placement = useMemo(() => (sb.captions ? captionCues(story.groups, paginate(sb.captions.words, sb.captions, cuts), fps, sb.captions.style.y ?? 0.72) : []),
+  const placement = useMemo(() => (sb.captions ? captionCues(story.groups, paginate(sb.captions.words, sb.captions, cuts), fps, sb.captions.style.y ?? 0.72, screenAvoid ? (t) => screenAvoid(story, t) : undefined) : []),
     [sb, story, cuts, fps]);
   // the 3D worlds draw text into canvases (labels, tags): build them only once the fonts are in
   const [fontsReady, setReady] = useState(false);
