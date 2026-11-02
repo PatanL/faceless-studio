@@ -109,6 +109,88 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
 - Chess Turk (v6) was a weak fit: one hall and a cabinet, so the judges saw too little change of setting (panel principle 3).
 - **Use.** Screen every story premise with this rule before scripting. The premise should need two to four connected places (for example a town, then the river, the bridge and the far bank), and the mechanism should be visible in the place itself.
 
+### Topic features beyond S1 and S-env (all 24 scored, 2026-11-02)
+
+**Method.** I coded the same 24 story-style Shorts (tiers as above) on topic features only, from the titles, info.json and the deduplicated en-orig captions (`dgx-spark:~/studio/refs/lanes/ricks/{meta,subs}`). One coder (me), no second rater. *Surprise* is a judgement: 3 = the mechanism contradicts a common intuition and can't be guessed from the title or the first 10 s; 2 = interesting but guessable; 1 = no real mechanism, or an obvious one. *Kind* is the primary mechanism, one per video. p-values are one-sided exact tests (top 8 vs the other 16, or bottom 8 vs the other 16), uncorrected; I tested about ten features, so only p < 0.005 would survive a Bonferroni correction.
+
+| # | Short | Era | Region | Mechanism kind | Stakes | Surprise | Title: concrete object, mechanism hidden? | Title form |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Jar | ancient | East Asia | engineering | empire | 3 | yes | The [object] That ... |
+| 2 | Japan job | modern | East Asia | law / institution | one person | 2 | yes | The [object] ... |
+| 3 | Pachinko window | modern | East Asia | law / institution | one person | 3 | yes | The [object] That ... |
+| 4 | Brain idea zone | c. 1900 (Edison) | US | mind / body | you | 2 | no (abstract "zone") | Your ... |
+| 5 | Grave bell | 1800s | West | deception (con) | one person | 2 | yes | What the X Really Meant |
+| 6 | Storm oil | age of sail | West / sea | physics | ship | 3 | yes | Why ... |
+| 7 | Railroads | 1800s | West (US) | physics | train | 2 | yes | Why ... |
+| 8 | Cannonballs | 1700s | West / sea | engineering | fleet | 2 | yes | Levels of ... |
+| 9 | Spear vs shield | ancient (parable) | unplaced | deception (bluff) | two kingdoms | 2 | yes | X vs Y |
+| 10 | Random numbers | modern | US | statistics | one person | 3 | no (no object) | Why ... |
+| 11 | Burglar | modern | unplaced | deception (con) | family | 2 | yes | The [role] Who ... |
+| 12 | Second draw | Old West | US | mind / body | one person | 2 | no (an act) | Why ... |
+| 13 | Teleportation | future | unplaced | speculative | billions | 2 | no | What If ...? |
+| 14 | Cashiers | modern | US | deception (sting) | one person | 2 | yes | Why ... |
+| 15 | Time test | modern | US | mind / body | one person | 2 | no ("test") | The Scientist's ... |
+| 16 | Winning tickets | modern | N. America | statistics | one person | 3 | yes | He Could ... |
+| 17 | Mirror race | c. 1900 | US | deception (con) | one person | 2 | no (tool and outcome given) | How ... |
+| 18 | Upload brain | near future | unplaced | speculative | you | 1 | no | Would You ...? |
+| 19 | Button town | fantasy | unplaced | fiction, no mechanism | town | 1 | yes | The [place] Built Around ... |
+| 20 | Knight loophole | medieval | Europe | deception (con) | one person | 2 | no ("loophole" given) | This X ... |
+| 21 | Tree | modern | beach | mind / body (toxin) | you | 1 | yes | This X ... |
+| 22 | Memory | fantasy | unplaced | fiction, no mechanism | brother | 1 | no | abstract statement |
+| 23 | Painkillers | modern | the body | mind / body | you | 1 | no | How X Actually Works |
+| 24 | Slots | modern | casino | statistics | you | 2 | no | The Science Behind X |
+
+**Counts per tier (top / middle / bottom, 8 each)**
+
+| Feature | Top | Middle | Bottom | Read |
+|---|---|---|---|---|
+| Era: a named past (before about 1920) | 6 | 2 | 2 | overlaps S1 |
+| Region: East Asia | **3** | 0 | 0 | p = 0.03 (top vs rest) |
+| Region: past West (Europe, sea, old America) | 5 | 1 | 2 | overlaps S1 |
+| Region: modern US or unplaced real | 0 | 5 | 4 | |
+| Kind: physics / engineering | **4** | 0 | 0 | p = 0.007, the cleanest new split |
+| Kind: law / institution (a real national system) | 2 | 0 | 0 | both are Japan |
+| Kind: deception / con / sting | 1 | 3 | 2 | not a split (p ≈ 0.3); the commonest kind in the 16 ordinary |
+| Kind: mind / body | 1 | 2 | 2 | not a split |
+| Kind: statistics | 0 | 2 | 1 | never top |
+| Kind: speculative or fiction, no real mechanism | 0 | 1 | 3 | never top |
+| Stakes: nation, empire or world | 1 | 2 | 0 | **not a lever on its own** |
+| Stakes: group (ship, train, fleet, family, town) | 3 | 1 | 1 | |
+| Stakes: one person or "you" | 4 | 5 | 7 | |
+| Surprise 3 | 3 | 2 | 0 | weak |
+| Surprise 1 | 0 | 0 | **5** | p = 0.001 (bottom vs rest), the only split that survives correction |
+| Title names a concrete object, role or place and hides the mechanism | **7** | 4 | 2 | p = 0.03 |
+| Title form "Why ..." | 2 | 3 | 0 | all five ≥ 6.5M |
+| Title form "The [object] that/who ..." | 3 | 1 | 1 | |
+| Title form "How ...", "This X ...", "The Science Behind ...", or a question | 0 | 1 | 6 | |
+| Title states a tension or contradiction ("Perfect Railroads Don't Work", "Breaks Japan's Gambling Law", "Second Draw Always Wins") | 3 | 4 | 0 | p = 0.03 (top + middle vs bottom) |
+| Title length (median words) | 5.5 | 6 | 5 | no split |
+| A famous person named in the script | 1 (Edison) | 0 | 0 | the Jar's inventor (Zhang Heng) is never named |
+| One documented event retold faithfully (no invented plot) | 0 | 2 | 0 | |
+| Topic already done by Zack D. Films | 2 (Jar 10M, Grave bell 108M) | 1 (Teleportation 34M) | 0 | prior coverage didn't block a hit |
+
+**Findings**
+
+- **T1. The mechanism kind that wins is physics or engineering.** (medium-low) 4/8 top, 0/16 others. It is the S3 split seen one level deeper: the four are the ones whose *explanation* is a force or a machine (pendulum, oil film, thermal expansion, shot types), not just a prop on screen. The other top kind is a real national legal system (2/8, both Japan). Confounded with S1, because period settings bring physical mechanisms.
+- **T2. Cons and stings are the ordinary story's default, not the hit's.** (low) Deception is the commonest kind among the 16 below the top (5/16) and appears once in the top 8 (Grave bell, which also carries a real device). Chess Turk, our first story, is a con; Vasa is engineering. Prefer topics where the trick is played by *nature or physics*, not by a swindler.
+- **T3. East Asia has a perfect record so far.** (low) 3/3 East Asian topics are top tier (Jar 30.7M, Japan job 16.0M, Pachinko 13.4M), and no video set there is below the top. n = 3, so treat it as a tiebreaker only.
+- **T4. Bigger stakes alone don't separate.** (low) Nation, empire or world stakes: 1/2/0. The two middle-tier ones are a parable (Spear) and a hypothetical (Teleportation). Big stakes help only on top of a real mechanism (S1). This refines S4: a group of people at risk (ship, train, fleet) is the common top pattern, not a nation.
+- **T5. Low surprise is what sinks a story; high surprise doesn't guarantee a hit.** (medium) Surprise 1 is 0/16 in the top two tiers and 5/8 in the bottom (p = 0.001). Surprise 3 is 3/2/0, a weak gradient. So "a real mechanism you couldn't have guessed" is a floor to clear, and above it topic and setting decide.
+- **T6. The title names the object and its world, hides the how, and often states a tension.** (medium; adds counts to S5)
+  - Concrete object with the mechanism hidden: 7/4/2.
+  - Tension or contradiction stated in the title: 3/4/0.
+  - Title forms:
+    - "Why [group] [did an odd thing]" and "The [object] That [did a big thing]" are 10 of the 16 top and middle titles, with only 1 in the bottom.
+    - "How ...", "This X ...", "The Science Behind ..." and question titles are 6/8 of the bottom and 0/8 of the top.
+    - Length doesn't matter (median 5-6 words in every tier).
+- **T7. No famous names needed, and the plot can be composite.** (medium) No top video retells one documented event faithfully. Each wraps a true mechanism in an invented or composite plot: an unnamed inventor and a palace collapse for the Jar, a fictional young engineer for Railroads, a "you" POV for Japan. Only 1/24 names a famous person. Our rule: dialogue and minor characters may be invented, but every number, date and mechanism stated as fact must be sourced (STORY_TOPIC_QUEUE.md).
+- **T8. Prior coverage isn't a veto.** (low) The Jar and Grave Bell retell topics Zack D. Films had already done (10M and 108M), and both made the top 8. We still prefer uncovered topics, but a strong topic done by someone else in a different style is fair game.
+- **Check of the 10 premises above** (Zack D.'s full Shorts list, 4,122 titles, 2026-11-02):
+  - Two of the ten are covered after all, because the earlier check only looked at Zack D.'s last 400 titles: the floor built to squeak ("Nightingale Floors Were Designed To Stop Ninjas", 30M) and the Broughton bridge ("Why Do Soldiers Break Step On Bridges?", 9.4M).
+  - The *Vasa* is in production.
+  - The vetted queue is research/library/STORY_TOPIC_QUEUE.md.
+- **Screen for new topics** (in order): S1 real + period/foreign → S-env four places → T1 physics/engineering or a real foreign institution, not a con → T5 surprise ≥ 2 → T6 a title with a concrete object and a hidden mechanism → S6 ridicule if the history allows → T3 East Asia as a tiebreaker.
+
 ### 10 story premises that fit S1-S6 (not in Rick's 146 titles, Zack D.'s last 400, or the TikTok lists)
 
 1. **The floor built to squeak** (Nijō Castle, Japan, 1600s). A shogun pays carpenters to make the floor chirp under every step. Courtiers mock the "broken" floor until an assassin crosses it at night. Mechanism: nails rubbing in clamps.
