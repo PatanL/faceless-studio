@@ -13,9 +13,11 @@ GOAL: keep testing formats until one video reaches 10K views; only then lock the
    Pick each topic from a proven viral source with pipeline/ingest and write our own script. For one of them, also try Codex background plates (experiments/asset-gen, style A board attached) animated with parallax, against our flat sets.
 2. Review every frame of each (pipeline/qa/frames30.py, REVIEW_PROMPT section 3, frame reviewers per ~10 s), compare with that lane's references side by side, fix what a viewer would notice most, rebuild. Up to 3 rounds per Short or until the ship bar in FEEDBACK.md is met.
 3. If time remains, make one more Short in whichever lane looks strongest so far.
+4. For the two best finished Shorts, write a caption modelled on the proven viral references in that lane (hook line, share prompt, hashtags; research/R4/report.md and the lane's corpus show what works). If ~/studio/.env on the Spark has a working BUFFER_API_KEY and channel ids, add each as a Buffer DRAFT for YouTube and Instagram with pipeline/publish (APPROVAL_MODE=drafts): never publish or schedule. Otherwise put the caption next to the MP4 in out/ and send both to the owner.
+5. If YouTube Studio or Instagram insight screenshots or CSVs are in data/inbox/, read them (pipeline/analytics), note where viewers drop off and why, and apply the lessons to the next Short.
 
 RULES:
-- Never post or schedule anything; finished videos go to out/ as drafts only.
+- Never publish or schedule anything. Buffer drafts (unpublished, APPROVAL_MODE=drafts) are allowed; the owner approves and publishes.
 - Renders, TTS and heavy ffmpeg run on the DGX Spark, CPU only (never the GPU), nice -n 10, one Remotion render at a time, concurrency 2.
 - Never delete anything; never spend money or use paid APIs; never enter credentials.
 - Keep the Mac's free disk above 15 GB; if it drops below, stop rendering and say so.
@@ -23,5 +25,5 @@ RULES:
 - Commit each working step to main with a clear message.
 - If usage runs low, stop starting new agents and write status; resume after usage resets (check usage, not the clock).
 
-EACH ITERATION: pick the next unfinished step, do it, verify by looking at the frames yourself, then append 3-5 lines to docs/OVERNIGHT_LOG.md (what changed, what still looks wrong, file paths). Send finished videos and comparison sheets with SendUserFile so they reach the owner's phone. Stop the loop when step 3 is done or nothing useful is left, and write a short summary at the top of docs/OVERNIGHT_LOG.md.
+EACH ITERATION: pick the next unfinished step, do it, verify by looking at the frames yourself, then append 3-5 lines to docs/OVERNIGHT_LOG.md (what changed, what still looks wrong, file paths). Send finished videos and comparison sheets with SendUserFile so they reach the owner's phone. Stop the loop when step 5 is done or nothing useful is left, and write a short summary at the top of docs/OVERNIGHT_LOG.md.
 ```
