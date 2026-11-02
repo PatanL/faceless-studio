@@ -223,8 +223,9 @@ def check_captions(sb: dict, bm: dict | None) -> dict:
         for y in caption_ys(s, style, sb):
             cb = (0.09 * W, y * H - ch, 0.91 * W, y * H + ch)
             for l in s.get("layers", []):
-                if l.get("type") != "component" or CREATURE_SKIP.search(l.get("name", "")):
-                    continue
+                if l.get("type") != "component" or CREATURE_SKIP.search(l.get("name", "")) \
+                        or l.get("role") in ("dressing", "fx") or fpmod.DRESSING.search(l.get("name", "")):
+                    continue  # house set dressing sits behind the captions on purpose
                 b = layer_box(l, W, H)
                 if not b:
                     continue

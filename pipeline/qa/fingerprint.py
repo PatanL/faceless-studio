@@ -24,6 +24,13 @@ GENERIC = re.compile(r"/(Ocean|You|Diver|Bus|Car|Elephant|GolfCart|Jet|Sauropod|
                      r"HeightChart|Map|Timer|Options|SpeedBars|Balance|ECG|Krill|Vignette|Flicker|Darkness|Glitch|"
                      r"RedText|EndCard|Heartbeat)$")
 INFOGRAPHIC = re.compile(r"/(Headline|Tag|Stat|DepthMeter|ScaleBar|HeightChart|Map|Timer|Options|SpeedBars|Balance|ECG)$")
+# house-style set dressing (pipeline/episodes/house.py puts the same seeded set behind every explainer scene): never the
+# subject and never part of the shot mix, or every house video would be "Kelp, creature_heavy" and look alike
+DRESSING = re.compile(r"/(Kelp|FishSchool|Jellies|Rocks|Reef|Seabed|Ridge|Pod|Specks|Glow|LightEvent)$")
+
+
+def _content(l: dict) -> bool:
+    return l.get("role") not in ("dressing", "fx") and not DRESSING.search(l.get("name") or "")
 
 S_CODES = {"S1": "HOOK", "S2": "STAKES", "S3": "RUNG", "S4": "TURN", "S5": "PEAK", "S6": "TWIST", "S7": "STINGER"}
 BEAT_WORDS = [  # (label, regex) for the first column of a script's beat-alignment table (pilots have no beatmap)
@@ -81,6 +88,8 @@ def shot_mix(sb: dict) -> dict[str, int]:
         if bg.get("type") == "component":
             names.add(bg.get("name"))
         for l in s.get("layers", []):
+            if not _content(l):
+                continue
             if l.get("type") == "component":
                 names.add(l.get("name"))
             elif l.get("type") in ("text", "svg", "image"):
@@ -98,7 +107,7 @@ def shot_mix_class(sb: dict) -> str:
     """creature_heavy | infographic_heavy | balanced, from which kind of layer dominates each scene."""
     cre = inf = 0
     for s in sb.get("scenes", []):
-        names = [l.get("name", "") for l in s.get("layers", []) if l.get("type") == "component"]
+        names = [l.get("name", "") for l in s.get("layers", []) if l.get("type") == "component" and _content(l)]
         i = sum(1 for n in names if INFOGRAPHIC.search(n))
         c = sum(1 for n in names if not GENERIC.search(n))
         cre += c > i
