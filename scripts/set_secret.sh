@@ -60,12 +60,15 @@ ask() {  # $1 = name, $2 = hidden (1) or shown (0)
 
 hidden_for() { case "$1" in *KEY*|*TOKEN*|*SECRET*|*PASSWORD*) echo 1 ;; *) echo 0 ;; esac; }
 
-if [ "${1:-}" = "--clipboard" ] && [ -n "${2:-}" ]; then  # value = what's on the Mac clipboard (never shown)
+if [ "${1:-}" = "--clipboard" ]; then  # value = what's on the Mac clipboard (never shown); NAME defaults to BUFFER_API_KEY
   v=$(pbpaste)
   [ -n "$v" ] || { echo "clipboard is empty"; exit 1; }
-  write_var "$2" "$v"
+  write_var "${2:-BUFFER_API_KEY}" "$v"
   exit 0
 fi
+for n in "$@"; do
+  case "$n" in -*) echo "unknown option $n (did you mean --clipboard?)"; exit 1 ;; esac
+done
 
 if [ $# -gt 0 ]; then
   for n in "$@"; do ask "$n" "$(hidden_for "$n")"; done
