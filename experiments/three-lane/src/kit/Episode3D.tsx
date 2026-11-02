@@ -23,16 +23,23 @@ export const CAP_SIZE = 74, CAP_W = 880;
 export function captionCues(groups: GroupSpec[], pages: { start: number; end: number; words: { text: string }[] }[], fps: number, y0: number): CaptionCue[] {
   const paths = new Map<GroupSpec, CamPath>();
   const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 400);
+  const BUSY_W = 3, FACE_W = 8;                                     // a busy band costs 3x an avoid box, a face 8x (plus its body box)
   const rects = (t: number) => {
     const g = [...groups].reverse().find((q) => t >= q.t0 - 1e-6 && t < q.t1) ?? groups[groups.length - 1];
-    // the shot's subject boxes plus every visible figure (captions never sit on a face)
-    const boxes = [...(g.avoid ? g.avoid(t) : []),
-      ...g.people.filter((p) => !p.visible || p.visible(t)).map((p) => personBox(p.at(t), (p.props(t) as { seated?: boolean }).seated === true))];
-    if (!boxes.length) return [];
+    // the shot's subject boxes plus every visible figure (captions never sit on a face), plus the busy bands
     if (!paths.has(g)) paths.set(g, new CamPath(g.cam, g.t0, g.t1));
     const c = paths.get(g)!.at(t);
+    const busyB = g.busy ? g.busy(t, [c.pos.x, c.pos.y, c.pos.z]) : [];
+    const nBusy = busyB.length;
+    const figs = g.people.filter((p) => !p.visible || p.visible(t)).map((p) => personBox(p.at(t), (p.props(t) as { seated?: boolean }).seated === true));
+    // faces (the top third of each figure) weigh most: a caption on a face is the worst place (v15 stills: the busy
+    // weight alone pushed a caption onto the admiral's face)
+    const faces = figs.map((b): typeof b => [b[0], b[4] - 0.33 * (b[4] - b[1]), b[2], b[3], b[4], b[5]]);
+    const boxes = [...busyB, ...faces, ...(g.avoid ? g.avoid(t) : []), ...figs];
+    if (!boxes.length) return [];
     cam.fov = c.fov; cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
-    return boxes.map((b) => {
+    return boxes.map((b, bi) => {
+      const wgt = bi < nBusy ? BUSY_W : bi < nBusy + faces.length ? FACE_W : 1;
       let x0 = Infinity, x1 = -Infinity, yA = Infinity, yB = -Infinity, front = false;
       for (const x of [b[0], b[3]]) for (const y of [b[1], b[4]]) for (const z of [b[2], b[5]]) {
         const q = new THREE.Vector3(x, y, z);
@@ -41,7 +48,9 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
         const sx = (q.x * 0.5 + 0.5) * W, sy = (0.5 - q.y * 0.5) * H;
         x0 = Math.min(x0, sx); x1 = Math.max(x1, sx); yA = Math.min(yA, sy); yB = Math.max(yB, sy);
       }
-      return front ? { x0: 0, x1: W, y0: 0, y1: H } : { x0, x1, y0: yA, y1: yB };
+      // a busy band partly behind the lens cannot be placed on screen: skip it (a figure there still blocks everything)
+      if (front && bi < nBusy) return { x0: 0, x1: 0, y0: 0, y1: 0, w: 0 };
+      return front ? { x0: 0, x1: W, y0: 0, y1: H, w: wgt } : { x0, x1, y0: yA, y1: yB, w: wgt };
     });
   };
   const cands = [y0, 0.79, 0.3, 0.24];
@@ -57,7 +66,7 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
       const top = y * H - bandH, bot = y * H + bandH;
       let cost = 0;
       for (let t = p.start; t < p.end; t += 3 / fps)
-        for (const b of rects(t)) cost += Math.max(0, Math.min(cx + half, b.x1) - Math.max(cx - half, b.x0)) * Math.max(0, Math.min(bot, b.y1) - Math.max(top, b.y0));
+        for (const b of rects(t)) cost += b.w * Math.max(0, Math.min(cx + half, b.x1) - Math.max(cx - half, b.x0)) * Math.max(0, Math.min(bot, b.y1) - Math.max(top, b.y0));
       return cost;
     });
   });

@@ -22,14 +22,15 @@ const RollGauge: React.FC<{ heel: number; o: number }> = ({ heel, o }) => {
   const [nx, ny] = pt(Math.max(-60, Math.min(60, deg)), R - 12);
   const danger = Math.abs(deg) >= 14;
   return (
-    <svg width={300} height={230} viewBox="0 0 300 230" style={{ position: "absolute", left: W - 340, top: 350, opacity: o, overflow: "visible" }}>
-      <rect x={10} y={4} width={280} height={222} rx={34} fill="rgba(27, 18, 64, 0.92)" stroke={cream} strokeWidth={5} />
+    <svg width={345} height={300} viewBox="0 -40 300 270" style={{ position: "absolute", left: W - 385, top: 330, opacity: o, overflow: "visible" }}>
+      <rect x={10} y={-36} width={280} height={262} rx={34} fill="rgba(27, 18, 64, 0.92)" stroke={cream} strokeWidth={5} />
+      <text x={cx} y={-2} textAnchor="middle" fontFamily={font} fontSize={34} fill={cream} letterSpacing={4}>HEEL</text>
       <path d={arc(14, 60, R - 8)} stroke={red} strokeWidth={16} fill="none" />
       <path d={arc(-60, -14, R - 8)} stroke={red} strokeWidth={16} fill="none" />
       {[-45, -30, -15, 0, 15, 30, 45].map((a) => { const [x0, y0] = pt(a, R - 26), [x1, y1] = pt(a, R - 2); return <line key={a} x1={x0} y1={y0} x2={x1} y2={y1} stroke={cream} strokeWidth={a === 0 ? 5 : 3} />; })}
       <line x1={cx} y1={cy} x2={nx} y2={ny} stroke={danger ? red : cream} strokeWidth={9} strokeLinecap="round" />
       <circle cx={cx} cy={cy} r={12} fill={cream} />
-      <text x={cx} y={cy + 72} textAnchor="middle" fontFamily={font} fontSize={60} fill={danger ? red : cream} letterSpacing={2}>{`${Math.abs(deg).toFixed(0)}°`}</text>
+      <text x={cx} y={cy + 72} textAnchor="middle" fontFamily={font} fontSize={68} fill={danger ? red : cream} letterSpacing={2}>{`${Math.abs(deg).toFixed(0)}°`}</text>
     </svg>
   );
 };
@@ -38,13 +39,13 @@ const RollGauge: React.FC<{ heel: number; o: number }> = ({ heel, o }) => {
 const Distance: React.FC<{ m: number; o: number }> = ({ m, o }) => {
   const k = m / 1300;
   return (
-    <div style={{ position: "absolute", left: 50, top: 350, width: 560, height: 150, opacity: o, background: "rgba(27, 18, 64, 0.88)", borderRadius: 30, border: `4px solid ${cream}` }}>
-      <div style={{ position: "absolute", left: 24, top: 10, fontFamily: font, fontSize: 30, color: cream, letterSpacing: 3 }}>DISTANCE SAILED</div>
-      <div style={{ position: "absolute", right: 24, top: 6, fontFamily: font, fontSize: 48, color: k >= 1 ? red : cream, letterSpacing: 2 }}>{`${Math.round(m).toLocaleString("en-US")} m`}</div>
-      <div style={{ position: "absolute", left: 24, top: 100, width: 470, height: 10, borderRadius: 5, background: "rgba(255, 242, 192, 0.25)" }} />
-      <div style={{ position: "absolute", left: 24, top: 100, width: 470 * k, height: 10, borderRadius: 5, background: cream }} />
-      <div style={{ position: "absolute", left: 24 + 470 * k - 15, top: 90, width: 30, height: 30, borderRadius: 15, background: k >= 1 ? red : cream, border: `4px solid ${ink}` }} />
-      <div style={{ position: "absolute", left: 24 + 470 - 4, top: 84, width: 8, height: 42, background: red, borderRadius: 4 }} />
+    <div style={{ position: "absolute", left: 40, top: 340, width: 590, height: 170, opacity: o, background: "rgba(27, 18, 64, 0.88)", borderRadius: 30, border: `4px solid ${cream}` }}>
+      <div style={{ position: "absolute", left: 24, top: 8, fontFamily: font, fontSize: 42, color: cream, letterSpacing: 3 }}>DISTANCE</div>
+      <div style={{ position: "absolute", right: 24, top: 6, fontFamily: font, fontSize: 60, color: k >= 1 ? red : cream, letterSpacing: 2 }}>{`${Math.round(m).toLocaleString("en-US")} m`}</div>
+      <div style={{ position: "absolute", left: 24, top: 118, width: 500, height: 12, borderRadius: 5, background: "rgba(255, 242, 192, 0.25)" }} />
+      <div style={{ position: "absolute", left: 24, top: 118, width: 500 * k, height: 12, borderRadius: 5, background: cream }} />
+      <div style={{ position: "absolute", left: 24 + 500 * k - 15, top: 109, width: 30, height: 30, borderRadius: 15, background: k >= 1 ? red : cream, border: `4px solid ${ink}` }} />
+      <div style={{ position: "absolute", left: 24 + 500 - 4, top: 103, width: 8, height: 42, background: red, borderRadius: 4 }} />
     </div>
   );
 };

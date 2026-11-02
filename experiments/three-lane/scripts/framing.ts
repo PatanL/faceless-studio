@@ -6,6 +6,10 @@ import { Timing } from "../src/kit/timing";
 import { buildStory as turkStory } from "../src/turk/story";
 import { buildStory as vasaStory } from "../src/vasa/story";
 import { CamPath } from "../src/kit/campath";
+import { personBox } from "../src/kit/framing";
+import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
+import { parseStoryboard, sceneTimings } from "../../../studio/src/core/schema";
+import { paginate } from "../../../studio/src/core/captions";
 
 const W = 1080, H = 1920, FPS = 30;
 const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least this many frames
@@ -78,3 +82,46 @@ for (const [k, hs] of by) {
   if (rs.length) console.log(`${k}: ${rs.join("; ")}`);
 }
 console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFixed(2)}`).join(" | ")}`);
+
+// caption gate (story-vasa v15; the v14 panel named captions over the rigging, the gun-port row and legs): for every
+// caption page, the share of its band that lies over a face or over a group's busy bands, worst
+// sampled frame. Pages over CAP_MAX are listed and the script exits 1.
+{
+  const CAP_MAX = Number(process.env.CAP_MAX ?? 0.12);
+  const psb = parseStoryboard(sb);
+  const cuts = sceneTimings(psb).timings.slice(1).map((tm) => tm.start / FPS);
+  const caps = psb.captions!;
+  const words = caps.words.map((w, i) => (i === 0 && w.start < 0.4 ? { ...w, start: 0 } : w));
+  const pages = paginate(words, caps, cuts);
+  const cues = captionCues(groups, pages, FPS, caps.style.y ?? 0.72);
+  const bad: string[] = [];
+  pages.forEach((p, i) => {
+    const y = cues[i].y;
+    // text width calibrated on a rendered v15 frame ("THIRTY SAILORS RAN" is about 675 px: 0.51 x CAP_SIZE per
+    // character; 0.56 here to stay on the safe side). captionCues keeps its wider 0.76 for placement.
+    const glyphs = p.words.reduce((n, w) => n + w.text.length, 0) * 0.56 + (p.words.length - 1) * 0.3;
+    const lines = Math.ceil((glyphs * CAP_SIZE) / CAP_W);
+    const half = Math.min(CAP_W, glyphs * CAP_SIZE) / 2, bandH = lines * CAP_SIZE * 0.55;
+    const cx = W / 2, top = y * H - bandH, bot = y * H + bandH, area = 4 * half * bandH;
+    let worst = 0, at = p.start;
+    for (let t = p.start; t < p.end; t += 2 / FPS) {
+      const g = [...groups].reverse().find((q) => t >= q.t0 - 1e-6) ?? groups[0];
+      const c = paths.get(g)!.at(t);
+      cam.fov = c.fov; cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+      // busy bands and faces (the top quarter of each figure); legs and subject boxes are allowed under a caption
+      const boxes = [...(g.busy ? g.busy(t, [c.pos.x, c.pos.y, c.pos.z]) : []),
+        ...g.people.filter((q) => !q.visible || q.visible(t)).map((q) => { const b = personBox(q.at(t), (q.props(t) as { seated?: boolean }).seated === true); return [b[0], b[4] - 0.3 * (b[4] - b[1]), b[2], b[3], b[4], b[5]]; })];
+      // union area by rasterising the band on a coarse grid (boxes overlap each other)
+      // boxes partly behind the lens are skipped (their screen rectangle is unbounded), as in captionCues
+      const rs = boxes.map((b) => { const pts: THREE.Vector3[] = []; for (const x of [b[0], b[3]]) for (const yy of [b[1], b[4]]) for (const z of [b[2], b[5]]) pts.push(new THREE.Vector3(x, yy, z)); return project(pts); })
+        .filter((r) => r.inside > 0 && r.inside !== 0.5 && Number.isFinite(r.x0));
+      let hit = 0, n = 0;
+      for (let gx = cx - half; gx < cx + half; gx += 12) for (let gy = top; gy < bot; gy += 8) { n++; if (rs.some((r) => gx >= r.x0 && gx <= r.x1 && gy >= r.y0 && gy <= r.y1)) hit++; }
+      const share = n ? hit / n : 0;
+      if (share > worst) { worst = share; at = t; }
+    }
+    if (worst > CAP_MAX) bad.push(`${p.start.toFixed(2)}s "${p.words.map((w) => w.text).join(" ")}" y ${y} over ${(100 * worst).toFixed(0)}% at ${at.toFixed(2)}s`);
+  });
+  console.log(`caption gate (band over faces or busy bands > ${(100 * CAP_MAX).toFixed(0)}%): ${bad.length ? "\n  " + bad.join("\n  ") : "clean"}`);
+  if (bad.length) process.exitCode = 1;
+}

@@ -46,6 +46,9 @@ export type GroupSpec = {
   rigs?: Rig[];
   /** world boxes the captions must stay off at time t (the subject of the shot) */
   avoid?: (t: number) => [number, number, number, number, number, number][];
+  // busy bands captions must stay off (rigging, rows of ports): weighted above avoid in caption placement and checked by
+  // the caption gate in scripts/framing.ts (story-vasa v15)
+  busy?: (t: number, cam: [number, number, number]) => [number, number, number, number, number, number][];
 };
 
 export const PERSON_VB = { w: 600, h: 700, padT: 40, padL: 0, padR: 0, padB: 0 };
