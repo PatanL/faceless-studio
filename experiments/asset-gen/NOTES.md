@@ -1,6 +1,8 @@
 # asset-gen: Codex image model → vector assets
 
-> **Default prompt style (owner, 2026-11-01): v3.** Write a short plain description of the scene (what is where, and why it is there), then append `prompts/style_v3_common.txt`, and attach style frames with `REF=$PWD/refs/ks_grid.jpg ./gen_one.sh $PWD/prompts/<name>.txt <out>` (absolute paths). Don't list hex codes, lighting recipes or "dozens of marks": the v1/v2 prompts below did, and got dense painterly art that suits illustration, not 2D animation. Use whole-scene images as art direction for a setting; our own code-built characters stay on screen.
+> **House style A is locked (owner, 2026-11-01): see `docs/HOUSE_STYLE.md`.** Prompts append `prompts/style_A_common.txt` and attach `gen/style_board_A.png` as `REF`. The v3 note below still describes how to write the scene part.
+>
+> **Earlier default prompt style: v3.** Write a short plain description of the scene (what is where, and why it is there), then append `prompts/style_v3_common.txt`, and attach style frames with `REF=$PWD/refs/ks_grid.jpg ./gen_one.sh $PWD/prompts/<name>.txt <out>` (absolute paths). Don't list hex codes, lighting recipes or "dozens of marks": the v1/v2 prompts below did, and got dense painterly art that suits illustration, not 2D animation. Use whole-scene images as art direction for a setting; our own code-built characters stay on screen.
 
 Question: can an image model supply Kurzgesagt-level detail density (bible §8), and which conversion path turns its output into something our code can animate?
 
