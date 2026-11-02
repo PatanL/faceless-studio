@@ -1,9 +1,32 @@
-# src/next: wiring the parity pieces into the 3D story kit
+# src/next pieces: integrated into the kit
 
-Everything in `src/next/` is new and self-contained. Nothing in `src/kit/`, `src/vasa/`, `src/turk/`, `Root.tsx` or
-`episodes/*` was edited. Each piece is usable from a story file **today** (no kit change), and each section ends with
-the small kit change that makes it first-class once the kit is free. The proving reel is the `KitLab` composition in
-its own entry (`src/next/index.ts`); its measurements are in `docs/RND_LOG.md` (2026-11-02, "src/next parity pieces").
+**Status (2026-11-02):** integrated into `src/kit/` (commit b87637b and later). Every module named below now lives in
+`src/kit/<name>` (`src/next/` keeps only the KitLab / DressLab reels and the measuring tools), and the "kit change once
+free" items are done:
+
+| Item | Where it landed |
+|---|---|
+| The Actor | Stage draws `people` as the Actor (`classic: true` on a PersonSpec keeps the old stick/Person) |
+| Per-group lens | `GroupSpec.lens` (`{ cInf, maxCoC }`); the kit default goes from cInf 10 to 12 (`Stage.LENS`) |
+| Light preset objects | `GroupSpec.light` takes a name, a Preset object, or a function returning either |
+| Joins | in `Episode3D` (`GroupSpec.join`): match, push, into, outOf; the whip is kept |
+| Whip ghosting | the whip's overlap frames now wipe the incoming shot in behind a hard edge instead of fading it in |
+| Reference captions | `Episode3D captions="ricks"`, **still opt-in**; the house style stays the default |
+| Kit life | clouds drift round any sky dome (the dome and the clouds now follow the camera inside the far plane); wave detail scrolls over a set's `extra.water`; a group opts out with `clouds: false` / `waves: false` |
+| Label size | world labels (`tagSprite`) are kept at least 64 px tall on screen |
+
+**Gates** (`kit/gates.ts`) run in `Episode3D` and fail the render unless the episode passes `gates="warn"`. Vasa3D and
+Turk3D pass "warn": they were finished before the gates existed. The same gates run in `scripts/framing.ts`, which
+exits 1 on a failure.
+
+| Gate | Fails when | Escape hatch |
+|---|---|---|
+| hold | any view is held for more than 4 s | — |
+| cast | a group's figures are specks (median head < 0.05 of the frame height); or fewer than 25 % of the frames with figures have a head ≥ 0.07 | mark the group `establishing` or `insert` |
+| edge | a head is cut, a body crosses the left or right edge, or a `keepInFrame` box is cut, for 8 or more frames outside a join | — (bottom crops and face close-ups are allowed) |
+| hud | a progress readout goes backwards, or a gauge reverses by more than its tolerance outside the story's `allowBack` windows | wrap readouts in `kit/hud.ts` `progress` / `steadyGauge` |
+
+The sections below are the original wiring notes. Paths in them read `src/kit/` now.
 
 Render KitLab (Mac slot, one render at a time):
 

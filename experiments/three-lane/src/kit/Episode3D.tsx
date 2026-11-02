@@ -89,7 +89,7 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
 // How two groups meet, chosen per group by `join` (how the group is ENTERED; default from xfade: a whip, or a cut).
 // None of them ever draws two places semi-transparently over each other (rule book 1.2: keep the dissolve's
 // function, leave its ghost):
-//   whip   blur + sideways travel; in its overlap frames the incoming shot is revealed by a hard (blurred) wipe that
+//   whip   blur + sideways travel; in its overlap frames the incoming shot is revealed by a feathered wipe that
 //          follows the travel, not faded in under the outgoing one (the opacity overlap left 2-3 blend frames per whip)
 //   cut    a hard cut
 //   match  the incoming shot (framed by match.matchKey so its anchor sits where the outgoing anchor was) is revealed
@@ -112,13 +112,13 @@ const whipF = (j: Join | null, fps: number) => (j && j.kind === "whip" ? Math.ro
 const FULL: [number, number][] = [[0, 0], [W, 0], [W, H], [0, H]];
 const lerpQuad = (a: [number, number][], b: [number, number][], u: number) => a.map(([x, y], i) => [x + (b[i][0] - x) * u, y + (b[i][1] - y) * u] as [number, number]);
 /** whip overlap: the frames at the cut where both shots are drawn (both under the heaviest smear) */
-export const WHIP_OV = 3;
+export const WHIP_OV = 5;
 
 type Style = (abs: number) => React.CSSProperties | null;
 /** host: the style of the shot this layer lives inside (a push's opening, a prop's picture), so the host's whip carries
  * the inner shot with it; only its transform / filter / opacity / clip are taken */
 type Layer = { key: string; g: GroupSpec; from: number; to: number; kind: "main" | "inset"; freezeAt?: number; style: Style; host?: Style };
-const carry = (s: React.CSSProperties | null): React.CSSProperties | null => (s ? { transform: s.transform, filter: s.filter, opacity: s.opacity, clipPath: s.clipPath, WebkitClipPath: s.WebkitClipPath } : null);
+const carry = (s: React.CSSProperties | null): React.CSSProperties | null => (s ? { transform: s.transform, filter: s.filter, opacity: s.opacity, maskImage: s.maskImage, WebkitMaskImage: s.WebkitMaskImage } : null);
 
 /** frame ranges and per-frame styles of every layer (main shots, then the frozen frame-in-frame insets on top) */
 export function layersOf(groups: GroupSpec[], fps: number, endFrame?: number): Layer[] {
@@ -152,11 +152,15 @@ export function layersOf(groups: GroupSpec[], fps: number, endFrame?: number): L
         const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
         const blur = 16 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
         const st: React.CSSProperties = blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {};
-        // the overlap frames: the incoming shot wipes in from the right, the way the whip travels (hard edge, no fade)
+        // the overlap frames: the incoming shot wipes in from the right, the way the whip travels, behind a feathered
+        // edge (a 60 %-wide band under the 16 px smear, over 5 frames). Only the band mixes; the rest of the frame is one shot or the
+        // other, so no frame reads as a dissolve (the opacity fade-in left 2-3 blend frames per whip), and the change
+        // is spread over the overlap frames (a hard edge made 3 one-frame jumps per whip)
         if (nIn > 0 && frame < half + OV / 2) {
-          const u = (frame - (half - OV / 2) + 1) / (OV + 1);
-          const x = Math.round(W * (1 - u));
-          Object.assign(st, { clipPath: `inset(0 0 0 ${x}px)`, WebkitClipPath: `inset(0 0 0 ${x}px)` });
+          const u = (frame - (half - OV / 2) + 1) / (OV + 1), F = 0.6 * W;
+          const edge = (W + F) * (1 - u) - F / 2;
+          const mask = `linear-gradient(to right, transparent ${(edge - F / 2).toFixed(0)}px, #000 ${(edge + F / 2).toFixed(0)}px)`;
+          Object.assign(st, { WebkitMaskImage: mask, maskImage: mask });
         }
         const t = abs / fps;
         // ---- match: a growing hard-edged disc from the anchor
