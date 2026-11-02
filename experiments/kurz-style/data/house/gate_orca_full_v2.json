@@ -1,0 +1,161 @@
+{
+ "v": 1,
+ "slug": "explainer-orca",
+ "at": "2026-11-02T01:54:37Z",
+ "verdict": "PASS",
+ "warn_count": 2,
+ "fail": [],
+ "mp4": "/home/dzliu/studio/lantern2/out/orca_full_v2.mp4",
+ "mp4_sha256": "491a3558c3fa0ac1fa0427ad93c445c003d49e0fb03cfa57fc695c2fd3eea36d",
+ "duration_s": 84.74,
+ "niche": "explainer",
+ "checks": {
+  "duration": {
+   "status": "PASS",
+   "value": 84.74,
+   "threshold": ">= 61.0 and <= 180.0 (WARN > 90.0)"
+  },
+  "loudness": {
+   "status": "PASS",
+   "value": {
+    "I_lufs": -14.1,
+    "true_peak_dbtp": -1.3,
+    "LRA_lu": 1.6
+   },
+   "threshold": "I -14.0 +-1.5 LUFS, true peak <= -0.5 dBTP (WARN > -1.0)"
+  },
+  "black_frames": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no black run > 0.5 s unless the scene marks it intended"
+  },
+  "frozen": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no freeze > visual.max_hold_s + 0.5 = 3.5 s",
+   "detail": "storyboard max hold 2.27 s"
+  },
+  "missing_kit": {
+   "status": "PASS",
+   "value": 0.0,
+   "threshold": "magenta share <= 0.2% in every 1 fps frame",
+   "detail": "magenta pixel share in sampled frames"
+  },
+  "originality": {
+   "status": "PASS",
+   "value": {
+    "max_run": 0,
+    "max_5gram_share": 0.0,
+    "worst": null,
+    "source_id": "VtrcKTkhDHU",
+    "source_transcript": "research/corpus/explainer/raw/VtrcKTkhDHU.txt",
+    "vs_source_5gram_share": 0.0,
+    "vs_source_run": 3
+   },
+   "threshold": "corpus: run < 8 and 5-gram share < 2% per source; source: share < 1% and run < 6"
+  },
+  "sameness": {
+   "status": "PASS",
+   "value": {
+    "vs": [],
+    "max": {}
+   },
+   "threshold": "FAIL: title>=0.6 (and subject words >=0.6; template only = WARN), hook>=0.6, same topic, thumb_hamming<=8, script>=0.15, frames_hamming<=10; WARN: beats_ned<=0.1 vs 3+, shot_mix>=0.95, cover_hamming<=8, same subject/source",
+   "detail": "no published history to compare against",
+   "history_mode": "against",
+   "history": []
+  },
+  "source_title": {
+   "status": "PASS",
+   "value": null,
+   "detail": "no source title (not a --source episode)"
+  },
+  "music": {
+   "status": "PASS",
+   "value": "deep_ocean",
+   "threshold": "one of ['deep_ocean', 'documentary_pulse', 'dread', 'tension_pulse'] or none",
+   "detail": "in-house synth bed"
+  },
+  "captions": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "any (the reviewer decides)",
+   "detail": "0 issue(s)"
+  },
+  "safe_area": {
+   "status": "WARN",
+   "value": [
+    {
+     "what": "captions",
+     "bottom_pct": 77.0,
+     "one_line_bottom_pct": 74.6,
+     "scenes": "all"
+    }
+   ],
+   "threshold": "FAIL: screen-fixed text, or a 1-line caption page, ending below 80 % of the height; WARN: anything (2-line captions) below 66 %, or a text layer within 5 % of an edge",
+   "detail": "0 fail, 1 warn (storyboard geometry; camera moves are not modelled)"
+  },
+  "staging": {
+   "status": "PASS",
+   "value": {
+    "fail": [],
+    "warn": []
+   },
+   "threshold": "house-built storyboard and no staging violation (pipeline/episodes/staging.py; [echo] = WARN)",
+   "detail": "0 violation(s), 0 warning(s)"
+  },
+  "house_style": {
+   "status": "WARN",
+   "value": {
+    "P3": 0.82,
+    "P4": 0.0325,
+    "P5": 3.0,
+    "P7": 0.0,
+    "D1": 127.0,
+    "D2": 1512.5,
+    "D3": 192.0,
+    "D4": 0.0584,
+    "D5": 0.091,
+    "M1": 100.0,
+    "M2": 0.13,
+    "M3": 8.2,
+    "M4": 2.0,
+    "M5": 0.71,
+    "status": {
+     "D5": "WARN",
+     "M3": "WARN"
+    },
+    "metrics_file": "out/explainer-orca/qa/house/house_metrics.json"
+   },
+   "threshold": "JUDGE_RUBRIC automatic metrics, thresholds in pipeline/qa/house_style.py THRESHOLDS",
+   "detail": "WARN D5 fm_outline 0.091 (outline response: FAIL > 0.12, WARN > 0.05); WARN M3 sec_per_new 8.2 (s per new composition: WARN > 3.5 (Shorts target))"
+  },
+  "hook": {
+   "status": "PASS",
+   "value": {
+    "words": 7,
+    "first_speech_s": 0.1,
+    "text": "Wild killer whales could kill you easily."
+   },
+   "threshold": "first speech <= 1.0 s (WARN words > hook.max_words 12)"
+  },
+  "disclosure": {
+   "status": "PASS",
+   "value": {
+    "line": "Narration: synthetic AI voice (Kokoro TTS). Animation: original 2D vector art."
+   },
+   "threshold": "AI-voice disclosure in every platform's caption",
+   "detail": "AI-voice line in youtube, tiktok and instagram captions"
+  },
+  "variant": {
+   "status": "PASS",
+   "value": {},
+   "detail": "no variant.json variables"
+  }
+ },
+ "sheets": {
+  "sbs": "out/explainer-orca/qa/sbs.jpg",
+  "stills": "out/explainer-orca/qa/stills.jpg"
+ },
+ "gate_s": 86.1
+}

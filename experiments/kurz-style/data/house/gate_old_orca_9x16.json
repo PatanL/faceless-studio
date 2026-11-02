@@ -1,0 +1,186 @@
+{
+ "v": 1,
+ "slug": "explainer-orca-oldkit",
+ "at": "2026-11-02T01:55:56Z",
+ "verdict": "FAIL",
+ "warn_count": 1,
+ "fail": [
+  "staging",
+  "house_style"
+ ],
+ "mp4": "/home/dzliu/studio/refs/kurz-style/judge/inputs/old_orca_9x16.mp4",
+ "mp4_sha256": "0717bfd18833d77fc1a6dc7cebc55977680c521d0e00e1f5076f4c9a46b8e5d0",
+ "duration_s": 75.11,
+ "niche": "explainer",
+ "checks": {
+  "duration": {
+   "status": "PASS",
+   "value": 75.11,
+   "threshold": ">= 61.0 and <= 180.0 (WARN > 90.0)"
+  },
+  "loudness": {
+   "status": "PASS",
+   "value": {
+    "I_lufs": -14.0,
+    "true_peak_dbtp": -1.1,
+    "LRA_lu": 1.6
+   },
+   "threshold": "I -14.0 +-1.5 LUFS, true peak <= -0.5 dBTP (WARN > -1.0)"
+  },
+  "black_frames": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no black run > 0.5 s unless the scene marks it intended"
+  },
+  "frozen": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no freeze > visual.max_hold_s + 0.5 = 3.5 s",
+   "detail": "storyboard max hold 2.14 s"
+  },
+  "missing_kit": {
+   "status": "PASS",
+   "value": 0.0,
+   "threshold": "magenta share <= 0.2% in every 1 fps frame",
+   "detail": "magenta pixel share in sampled frames"
+  },
+  "originality": {
+   "status": "PASS",
+   "value": {
+    "max_run": 0,
+    "max_5gram_share": 0.0,
+    "worst": null,
+    "source_id": "VtrcKTkhDHU",
+    "source_transcript": "research/corpus/explainer/raw/VtrcKTkhDHU.txt",
+    "vs_source_5gram_share": 0.0,
+    "vs_source_run": 3
+   },
+   "threshold": "corpus: run < 8 and 5-gram share < 2% per source; source: share < 1% and run < 6"
+  },
+  "sameness": {
+   "status": "PASS",
+   "value": {
+    "vs": [],
+    "max": {}
+   },
+   "threshold": "FAIL: title>=0.6 (and subject words >=0.6; template only = WARN), hook>=0.6, same topic, thumb_hamming<=8, script>=0.15, frames_hamming<=10; WARN: beats_ned<=0.1 vs 3+, shot_mix>=0.95, cover_hamming<=8, same subject/source",
+   "detail": "no published history to compare against",
+   "history_mode": "against",
+   "history": []
+  },
+  "source_title": {
+   "status": "PASS",
+   "value": null,
+   "detail": "no source title (not a --source episode)"
+  },
+  "music": {
+   "status": "PASS",
+   "value": "deep_ocean",
+   "threshold": "one of ['deep_ocean', 'documentary_pulse', 'dread', 'tension_pulse'] or none",
+   "detail": "in-house synth bed"
+  },
+  "captions": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "any (the reviewer decides)",
+   "detail": "0 issue(s)"
+  },
+  "safe_area": {
+   "status": "WARN",
+   "value": [
+    {
+     "what": "captions",
+     "bottom_pct": 77.0,
+     "one_line_bottom_pct": 74.6,
+     "scenes": "all"
+    }
+   ],
+   "threshold": "FAIL: screen-fixed text, or a 1-line caption page, ending below 80 % of the height; WARN: anything (2-line captions) below 66 %, or a text layer within 5 % of an edge",
+   "detail": "0 fail, 1 warn (storyboard geometry; camera moves are not modelled)"
+  },
+  "staging": {
+   "status": "FAIL",
+   "value": {
+    "fail": [
+     "14/14 scenes have no scene light (p00, p01, p02, p03, p04): the house pass (pipeline/episodes/house.py) did not run",
+     "p01 3.4-3.8s [dup] label explainer/Headline#1 repeats the caption under it: drop it or say something the caption doesn't",
+     "p01 8.0-9.6s [hero] explainer/You#8 intersects the hero explainer/Orca#0: block it clear of the body or set allowOverlap",
+     "p02 10.1-14.8s [safe] label explainer/SpeedBars#0 leaves the safe area: keep labels and bubbles inside the frame margins",
+     "p03 19.3-19.5s [hero] explainer/Orca#1 intersects the hero explainer/Orca#0: block it clear of the body or set allowOverlap",
+     "p03 19.3-19.5s [hero] explainer/Orca#2 intersects the hero explainer/Orca#0: block it clear of the body or set allowOverlap",
+     "p05 31.7-32.9s [hero] explainer/Liver#5 intersects the hero explainer/GreatWhite#2: block it clear of the body or set allowOverlap",
+     "p05 33.0-33.9s [hero] explainer/Liver#5 intersects the hero explainer/GreatWhite#2: block it clear of the body or set allowOverlap",
+     "p07 44.8-45.8s [cover] label explainer/Tag#14 sits on top of explainer/Orca#3: move it clear of the subject (or tie it with a leader)",
+     "p09 49.1-55.0s [safe] label explainer/Options#1 leaves the safe area: keep labels and bubbles inside the frame margins",
+     "p09 53.2-55.0s [safe] label explainer/Tag#8 leaves the safe area: keep labels and bubbles inside the frame margins",
+     "p09 53.5-53.9s [caption] label explainer/Tag#8 touches the caption band: move it or set scene captionY/captionYAt",
+     "p09 54.0-54.5s [caption] label explainer/Tag#8 touches the caption band: move it or set scene captionY/captionYAt",
+     "p10 55.1-56.8s [safe] label explainer/Options#1 leaves the safe area: keep labels and bubbles inside the frame margins",
+     "p10 59.2-60.3s [caption] label explainer/Tag#7 touches the caption band: move it or set scene captionY/captionYAt",
+     "[colour] no colour shift: the scale/turn beat needs an Ocean `shiftTo` (STYLE_BIBLE §2.5; house.py adds one when a builder marks the beat with scene _house.shift)"
+    ],
+    "warn": [
+     "p07 43.4-44.0s [echo] label explainer/Tag#8 echoes most of the caption under it (warning): prefer a number or a new fact"
+    ]
+   },
+   "threshold": "house-built storyboard and no staging violation (pipeline/episodes/staging.py; [echo] = WARN)",
+   "detail": "16 violation(s), 1 warning(s)"
+  },
+  "house_style": {
+   "status": "FAIL",
+   "value": {
+    "P3": 0.685,
+    "P4": 0.0275,
+    "P5": 1.0,
+    "P7": 0.0044,
+    "D1": 103.0,
+    "D2": 714.0,
+    "D3": 63.5,
+    "D4": 0.0294,
+    "D5": 0.13,
+    "M1": 98.58,
+    "M2": 0.93,
+    "M3": 10.6,
+    "M4": 2.0,
+    "M5": 7.99,
+    "status": {
+     "P5": "FAIL",
+     "P7": "WARN",
+     "D1": "WARN",
+     "D3": "FAIL",
+     "D4": "FAIL",
+     "D5": "FAIL",
+     "M3": "WARN",
+     "M5": "FAIL"
+    },
+    "metrics_file": "out/explainer-orca-oldkit/qa/house/house_metrics.json"
+   },
+   "threshold": "JUDGE_RUBRIC automatic metrics, thresholds in pipeline/qa/house_style.py THRESHOLDS",
+   "detail": "FAIL P5 pal_hue_fam 1.0 (hue families per frame: FAIL < 2, WARN < 3); FAIL D3 specks_small 63.5 (small specks per frame: FAIL < 100, WARN < 120); FAIL D4 fm_edge_den 0.0294 (edge density: FAIL < 0.035, WARN outside 0.040-0.08); FAIL D5 fm_outline 0.13 (outline response: FAIL > 0.12, WARN > 0.05); FAIL M5 hard_cuts_per_min 7.99 (hard cuts per minute: FAIL > 6, WARN > 2); WARN P7 pal_pure_white 0.0044 (pure-white share: WARN > 0.003); WARN D1 density_shapes 103.0 (shapes per frame: WARN < 110); WARN M3 sec_per_new 10.6 (s per new composition: WARN > 3.5 (Shorts target))"
+  },
+  "hook": {
+   "status": "PASS",
+   "value": {
+    "words": 7,
+    "first_speech_s": 0.1,
+    "text": "Wild killer whales could kill you easily."
+   },
+   "threshold": "first speech <= 1.0 s (WARN words > hook.max_words 12)"
+  },
+  "disclosure": {
+   "status": "PASS",
+   "value": {
+    "line": "Narration: synthetic AI voice (Kokoro TTS). Animation: original 2D vector art."
+   },
+   "threshold": "AI-voice disclosure in every platform's caption",
+   "detail": "AI-voice line in youtube, tiktok and instagram captions"
+  },
+  "variant": {
+   "status": "PASS",
+   "value": {},
+   "detail": "no variant.json variables"
+  }
+ },
+ "sheets": {},
+ "gate_s": 66.4
+}

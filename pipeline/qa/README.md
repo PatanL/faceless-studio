@@ -2,7 +2,7 @@
 
 Lane L2 of `docs/OPERATOR_DESIGN.md` (sections 5.6, 5.7, 7). Deterministic, no LLM, no network, no secrets.
 Runs on the Spark CPU (nice 10, `CUDA_VISIBLE_DEVICES=""`, ffmpeg `-threads 2`, one ffmpeg at a time); a gate on a
-75 s 1080x1920 cut takes about 12-15 s wall and about 2 cores.
+75 s 1080x1920 cut takes about 12-15 s wall and about 2 cores (explainers: about 85 s with the house-style metrics).
 
 ## Commands
 
@@ -56,6 +56,19 @@ As in design 7.2, with these implementation notes:
 - **variant**: measures `hook.max_words`, `pace.wpm`, `visual.max_hold_s`, `pace.rehook_s` and
   `structure.turnstile_pct` (beatmap), `visual.shot_mix` (scene majority creature vs infographic); lists the rest as
   "not measured". WARN only.
+
+- **staging** (explainers): the storyboard was built by the house pass (scene light on every scene, no `look:
+  "legacy"`) and `pipeline/episodes/staging.py` finds no violation; `[echo]` = WARN. Horror = PASS (out of scope).
+- **house_style** (explainers): the automatic metrics of `experiments/kurz-style/JUDGE_RUBRIC.md` measured on the MP4
+  by `house_metrics.py` (2 s grid + 30 fps motion pass; same code as `tools/house/judge_metrics.sh`, so the numbers
+  match the judge's) in a python with opencv (`$STUDIO_HOUSE_PY`, else `~/studio/venvs/r2/bin/python`): about 65 s
+  extra on an 85 s Short, nice 10, 2 threads, one ffmpeg at a time. Writes `qa/house/house_metrics.json` (the grid
+  JPGs are deleted). FAIL lines: P5 hue families < 2, D3 specks < 100, D4 edge density < 0.035, D5 outline > 0.12,
+  M5 hard cuts > 6/min, plus outer bounds on P3/P4/D2/M1/M2; the STYLE_BIBLE targets are WARN lines. Calibration and
+  the table: `house_style.py` docstring and STUDIO.md "House style: Lantern & Ink". Off the Spark (Mac tests) it is a
+  WARN "not measured" unless `STUDIO_HOUSE_PY` is set; on the Spark a missing opencv python is a FAIL.
+- **captions** / **fingerprint** skip house set dressing (`role: dressing` or a dressing component), so the reef under
+  the captions is not a collision and Kelp is never a video's "subject".
 
 ### Sameness (FAIL on any; WARN never blocks)
 

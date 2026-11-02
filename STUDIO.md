@@ -1,7 +1,7 @@
 # Faceless Studio: operating manual
 
 This is how to run everything. `PLAN.md` covers goals and `BRIEF.md` covers rules; this file covers practice.
-Last updated 2026-11-01 ~11:20 UTC (lane H2).
+Last updated 2026-11-01 ~11:20 UTC (lane H2); house style section 2026-11-02 ~02:00 UTC.
 
 ## 0. Machines and hard rules (from BRIEF.md, enforced)
 
@@ -99,6 +99,55 @@ Each line comes from the pilot fix rounds and the side-by-side review against `r
 11. `titles.md` (3 options), `description.md`, thumbnails in both formats, 9:16 master (+16:9 cut for explainers).
 12. Side-by-side sheet vs references (`scripts/side_by_side.sh`) reviewed by a second agent: "same or better" on every shot class, or it goes back for a fix round.
 13. Platform check (R5): original content only, no reused footage, AI-voice disclosure where the platform asks for it.
+14. Explainers are in the house style (next section): the gate's `staging` and `house_style` checks pass.
+
+## House style: Lantern & Ink
+
+**Every explainer is made in the "Lantern & Ink" house style.** The owner saw the rebuilt orca
+(`out/kurz-engine/orca_open_v3.mp4`, then the full pilot `out/lantern/orca_full_v2.mp4`) and called it "way better"
+than the old flat kit; the judge scored it 59/100 (TIS tier) against 24 for the old kit
+(`experiments/kurz-style/JUDGE_RUBRIC.md`). The spec is `experiments/kurz-style/STYLE_BIBLE.md`; the judge's notes and
+remaining gaps are in `experiments/kurz-style/engine/NOTES.md` ("Judge").
+
+| Layer | Where | What it does |
+|---|---|---|
+| Kit | `studio/src/kits/explainer/house/` (+ `README.md` house table) | the 9-layer shading stack on every figure (`shade` per layer), scene light (`scene.light`), the Ocean palette key ramp + colour shift (`key`, `shiftTo`), seeded set dressing (`Kelp`, `Reef`, `Rocks`, `Jellies`, `FishSchool`, `Ridge`, `Pod`), the title plate / lantern tag / gauge info design, the engine orca and diver |
+| Motion | `studio/src/core/anim.ts`, `camera.ts` | `popSpring` (never thinner than 60 % width: the polish-2d YOU-pop fix), `dropSquash`, camera `drift` + `preroll`, iris / wipe transitions |
+| House pass | `pipeline/episodes/house.py` | run on every explainer storyboard, hand builders (`build.py`) and `shots.json` (`auto.py`) alike: light + key sweep, key ramp and one colour SHIFT on the scale beat, warm lift on proof beats, the orca_open_v3 set behind every Ocean scene (blurred foreground in >= 60 % of scenes), YOU tag leaders, popSpring/dropSquash, drift, cuts -> transitions, grade |
+| Staging checker | `pipeline/episodes/staging.py` | fails the build on a prop through the hero, a label on the captions or on a figure, a clipped number, a label outside the safe area, a headline repeating the caption, freeze-then-abrupt-push, no colour shift |
+| Gate | `pipeline/qa/house_style.py` (+ `house_metrics.py`) | `staging` (storyboard built in the house style + the checker) and `house_style` (JUDGE_RUBRIC automatic metrics on the MP4) |
+
+**Writing a storyboard.** Use kit figures (they are shaded; inline svg is flat), let the pass add the set, and steer the
+colour script with scene `_house` marks: `{"shift": {"at": "@word", "to": "warm"}}` on the scale/turn beat,
+`{"key": "danger"}` on threat beats, `{"set": false}` for a full-frame card. `allowOverlap: true` only for a real contact
+beat. The full shots vocabulary is in the `pipeline/episodes/auto.py` docstring; the storyboard artist's rules are in
+`pipeline/prompts/shots_explainer.md`. A hand builder module sets `HOUSE_STYLE = True` (opt out per slug with `HOUSE_SKIP`,
+tune with `HOUSE_OPTS`, e.g. `{"pod": "orca"}`). The horror kit is not touched by any of this.
+
+**Gate thresholds** (`pipeline/qa/house_style.py`, calibrated on the Spark 2026-11-01; numbers equal
+`experiments/kurz-style/tools/house/judge_metrics.sh`):
+
+| id | metric | FAIL | WARN (bible target) | new orca (orca_full_v2) | old-kit orca |
+|---|---|---|---|---|---|
+| P5 | hue families per frame | < 2 | < 3 | 3 | **1** |
+| D3 | small specks per frame | < 100 | < 120 | 192 | **63.5** |
+| D4 | edge density | < 0.035 | outside 0.040-0.08 | 0.058 | **0.029** |
+| D5 | outline response | > 0.12 | > 0.05 | 0.091 (WARN) | **0.13** |
+| M5 | hard cuts / min | > 6 | > 2 | 0.71 | **7.99** |
+| P3 / P4 / D2 / M1 / M2 | saturation / grey / micro-details / alive / near-still | outer bounds | bible targets | pass | pass |
+| P7 / D1 / M3 / M4 | pure white / shapes / s per new composition / s per change | never | bible targets | M3 8.2 s (WARN) | P7, D1, M3 WARN |
+
+Gate on the final orca render (`orca_full_v2.mp4`, Spark, 86 s): **PASS**, `staging` PASS, `house_style` WARN (D5 0.091,
+M3 8.2 s), every other check PASS except the usual captions-at-77 % safe-area WARN
+(`experiments/kurz-style/data/house/gate_orca_full_v2.json`). The old-kit orca with its old storyboard: **FAIL** on
+`staging` (no scene light, 15 collisions) and `house_style` (P5, D3, D4, D5, M5) (`gate_old_orca_9x16.json`).
+Re-calibrate when the look changes: run `house_metrics.py` on the new and the old orca and keep every FAIL line
+between them (D5 has the narrowest margin). Known gaps the WARN lines show: outlines (caption stroke, tag text: D5)
+and composition cadence (M3, a new picture every ~8 s vs the 3.5 s target).
+
+Measure one video by hand (Spark, ~1 min, nice 10, 2 threads):
+`~/studio/venvs/r2/bin/python -I pipeline/qa/house_metrics.py <video.mp4> <outdir>` then
+`python3 -m pipeline.qa.house_style <outdir>/house_metrics.json`.
 
 ## 4. Daily research automation (Spark cron, no LLM)
 

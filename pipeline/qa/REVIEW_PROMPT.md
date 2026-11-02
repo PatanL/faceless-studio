@@ -10,7 +10,8 @@ recently. You write exactly one file, `out/<slug>/qa/review.json`, and nothing e
 - `gate.json` exists and its `mp4_sha256` equals `sha256sum out/<slug>/<slug>_9x16.mp4`. If it is missing or
   stale, do not review: write nothing and report "gate missing / stale" to the journal.
 - `gate.json` `verdict` is `FAIL`: the verdict can never be PASS. Follow OPERATOR.md 7.2: a FAIL that a fix round
-  can repair (captions, safe area, holds, black/frozen frames, loudness) is `FIX` (round 1), with each failing
+  can repair (captions, safe area, holds, black/frozen frames, loudness, `staging`, `house_style`: OPERATOR.md 7,
+  "House style") is `FIX` (round 1), with each failing
   check as a `must_fix`; an originality, sameness or duration FAIL is `REJECT`. You still write review.json (with
   `gate_sha`), so the chain moves on; a visual pass is optional.
 - This is round 1, or round 2 after exactly one fix round (`studio-make --from review --review-notes ...` and a
@@ -45,6 +46,9 @@ Picture
       recognisable and at honest scale against their partner (YOU, bus, diver).
 - [ ] Captions are phrase-complete pages of 1-4 words, clear of subjects, red only on emphasis words.
 - [ ] The last frame (stills cell "LAST") matches or deliberately contrasts the cover so the loop reads.
+- [ ] House style (Lantern & Ink): lit, shaded figures; the set behind every ocean scene; more than one colour family
+      over the video (a warm shift on the scale beat, a danger/dusk beat); no flat inline-svg subject, no label on a
+      figure or the captions. The gate's `staging` / `house_style` WARN lines need a sentence from you.
 
 Versus the source (sbs.jpg)
 - [ ] Same or better on every column: subject readability, scale device, information per frame, motion density.

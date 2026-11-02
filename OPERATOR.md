@@ -166,14 +166,35 @@ Then you:
    `vs_source`, `gate_sha` = `sha256sum out/<slug>/qa/gate.json`, `round`, `files_viewed`, `tokens_estimate`.
 2. Verdict rule: **PASS** only if gate PASS, `viewer_score >= 75`, no `must_fix` and `vs_source` is not `worse`.
    **FIX** if the problems are fixable in shots/storyboard (holds, captions, layout, cover, a weak beat visual)
-   and this is round 1. A gate FAIL that a fix round can repair (captions, safe area, holds, black/frozen frames)
-   is also FIX; gate originality, sameness or duration FAIL is **REJECT** (the script itself is wrong).
+   and this is round 1. A gate FAIL that a fix round can repair (captions, safe area, holds, black/frozen frames,
+   `staging`, `house_style`) is also FIX; gate originality, sameness or duration FAIL is **REJECT** (the script
+   itself is wrong).
    Otherwise REJECT.
 3. Write `out/<slug>/qa/review.json`. For FIX also write `episodes/<slug>/review_notes.md`: one line per must-fix
    (`t`, scene, what to change), nothing else.
 4. `python -m pipeline.ops.state job <job_id> --status done --verdict PASS|FIX|REJECT`
 5. `python -m pipeline.ops.budget add-operator <tokens_estimate> --what review`
 6. Journal one line: slug, verdict, score, the main issue.
+
+### House style: Lantern & Ink (every explainer)
+
+Every explainer the operator makes is in the studio's house style, "Lantern & Ink" (STUDIO.md "House style: Lantern
+& Ink"; spec `experiments/kurz-style/STYLE_BIBLE.md`). You do not switch it on: `studio-make`'s storyboard step
+(`pipeline.episodes.auto`) runs the house pass and the staging/collision checker on every explainer, and the gate has
+two checks for it:
+
+- `staging`: the storyboard was built in the house style (scene light on every scene, no `legacy` look) and has no
+  staging violation (a prop through the hero, a label on the captions or on a figure, a label outside the safe area,
+  a headline repeating the caption, freeze-then-abrupt-push, no colour shift). A FAIL lists each violation with its
+  time and scene: copy them into `must_fix` (fixable in shots.json).
+- `house_style`: the JUDGE_RUBRIC automatic metrics on the MP4 (hue families, specks, edge density, outlines, cut rate
+  and more; thresholds in `pipeline/qa/house_style.py`). A FAIL means the video lost the look (one flat colour, the
+  set missing, outlined flat art, hard cuts): a `must_fix` per failing id (P5: add a `_house` shift/key; D3/D4: the
+  set or the figures are missing, check `_house.set` and inline svgs; D5: outlined inline svg or text; M5: `cut` /
+  `dipBlack` transitions or full-frame cards popping in). Its WARN lines (D5 > 0.05, M3 > 3.5 s per new
+  composition) are known gaps of the current look: mention them, never fail a review on them alone.
+
+Never ask for the old flat look, `look: "legacy"`, or `shade: false` in review notes. The horror kit is unaffected.
 
 ## 8. Weekly routine (Monday after the 07:30 `learning` and `killrule` jobs)
 
