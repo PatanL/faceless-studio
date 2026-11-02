@@ -250,6 +250,25 @@ def niche_module(niche: str):
     return {"explainer": explainer_eps, "horror": horror_eps}[niche]
 
 
+def drop_caption_dups(sb: dict) -> list[str]:
+    """remove headlines / tags that say exactly what the caption under them says (regress_bwscale: a "BIGGER WINS"
+    headline stacked over the caption "BIGGER WINS."); staging.py [dup] finds them"""
+    import re as _re
+    from . import staging
+    hits = {}
+    for m in staging.check(sb):
+        x = _re.match(r"(\S+) \S+ \[dup\] label \S+#(\d+) ", m)
+        if x:
+            hits.setdefault(x.group(1), set()).add(int(x.group(2)))
+    out = []
+    for sc in sb["scenes"]:
+        idx = hits.get(sc["id"])
+        if idx:
+            out += [f"{sc['id']}:{(sc['layers'][i].get('props') or {}).get('text')}" for i in sorted(idx)]
+            sc["layers"] = [l for i, l in enumerate(sc["layers"]) if i not in idx]
+    return out
+
+
 def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, list]:
     """-> (errors, warnings). Writes episodes/<slug>/storyboard.json unless check_only or errors."""
     from .build import STOPWORDS, auto_emphasis, check_holds, mark_emphasis
@@ -314,6 +333,10 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
         paging["glue"] = shots["glue"]
     sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
     sb["_built"]["by"] = "pipeline/episodes/auto.py (shots.json)"
+    if niche == "explainer":
+        dropped = drop_caption_dups(sb)
+        if dropped:
+            warnings.append(f"dropped {len(dropped)} on-screen label(s) that repeated the caption under them: {dropped}")
     path = os.path.join(ep, "storyboard.json")
     tmp = path + ".tmp"  # validate first, replace only on PASS (F03): a failed build keeps the last good file
     with open(tmp, "w") as f:

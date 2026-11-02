@@ -11,6 +11,11 @@ reports what the orca_open_v3 judge caught by eye:
   freeze      a near-freeze longer than 0.6 s (camera still, no visual event) ends in an abrupt push (a move > 0.4 s that
               starts at full speed: ease out / linear / backOut ...) - the 2.25-3.0 s hold + 3.1 s push
   colour      the episode never shifts its colour key (no Ocean `shiftTo` and no key change between scenes)
+  cover       a label (tag, stat, text bubble) sits on top of the hero or a prop (orca_full_v1 0:45: "YOU NOT TO SCALE"
+              over an orca and the diver)
+  safe        a label or text bubble leaves the safe area (orca_full_v1 0:50: the "YUCK?" bubble cut off at the right edge)
+  dup         an on-screen headline/tag repeats the caption page under it (same words: fail; most of them: [echo] warning) (regress_bwscale: "BIGGER WINS" headline over
+              the caption "BIGGER WINS.")
 
 Roles: a layer's `role` (hero | prop | label | dressing | fx) wins; otherwise animals are hero candidates (the largest one
 on screen is the hero), people / vehicles / small figures are props, Tag / Headline / Stat / ScaleBar / text layers are
@@ -31,7 +36,9 @@ KIT = os.path.join(ROOT, "studio", "src", "kits", "explainer")
 FPS_CHECK = 10           # samples per second
 MIN_RUN = 2              # a violation must hold for this many consecutive samples (0.2 s)
 FREEZE_S = 0.6
-CAPTION_GAP = 8          # px of clear space a label needs around the caption band
+CAPTION_GAP = 16         # px of clear space a label needs around the caption band (8 let "LIVER: GONE" all but touch it)
+COVER_SHARE = 0.22       # share of a label's box on the (inset) body of a hero / prop
+SAFE = (0.04, 0.045, 0.96, 0.9)   # safe area (x0, y0, x1, y1) as fractions of the frame: Shorts UI + phone crop
 HERO_OVERLAP = 0.25      # share of a prop's (inset) box inside the hero's (inset) box
 UNDER_PROP = 0.25        # share of a prop's box under the caption band
 UNDER_HERO = 0.45        # share of the hero's box under the caption band
@@ -39,7 +46,8 @@ CLIP_SHARE = 0.08        # share of a number's box covered by a prop drawn above
 
 # ------------------------------------------------------------------ figure metadata (parsed from the kit sources)
 
-HOUSE_BOXES = {"orca": ([14, -58, 990, 470], 8.0, "w")}   # house/figures.tsx (selfShaded engine assets)
+HOUSE_BOXES = {"orca": ([14, -58, 990, 470], 8.0, "w"),    # house/figures.tsx (selfShaded engine assets)
+               "diver": ([-95, 22, 630, 150], 2.6, "w")}
 FIXED = {"SpermWhale": "spermWhale", "ColossalSquid": "colossalSquid", "Orca": "orca", "GreatWhite": "greatWhite",
          "BlueWhale": "blueWhale", "Anglerfish": "anglerfish", "Octopus": "octopus", "Crocodile": "crocodile",
          "Hippo": "hippo", "Grizzly": "grizzly", "Diver": "diver", "You": "you", "Bus": "bus", "Car": "car",
@@ -77,6 +85,7 @@ def figures() -> dict:
             if "grizzly" in src[max(0, m.start() - 300):m.start()]:
                 out[f"grizzly:{m.group(1)}"] = ([float(v) for v in m.group(2).split(",")], float(m.group(3)), m.group(4))
     out["orca:flat"] = out.get("orca", ([20, 2, 974, 356], 8.0, "w"))
+    out["diver:flat"] = out.get("diver", ([-115, 50, 690, 120], 2.6, "w"))
     out.update(HOUSE_BOXES)
     _FIG = out
     return out
@@ -213,7 +222,13 @@ def role_of(layer: dict) -> str:
         return "animal" if base in ANIMALS else "prop"
     if layer.get("type") == "text" or layer.get("name") in LABELS:
         return "label"
+    if layer.get("type") == "svg" and "<text" in str(layer.get("markup", "")):
+        return "label"            # a drawn bubble / card with words in it ("YUCK?") stages like a label
     return "dressing"
+
+
+def _norm_words(s: str) -> list[str]:
+    return [w for w in re.sub(r"[^a-z0-9' ]", " ", s.lower().replace("\n", " ")).split() if w]
 
 
 def _text_of(layer):
@@ -294,6 +309,14 @@ def layer_box(layer, t, W, H):
         longest = max((len(s) for s in txt.split("\n")), default=1)
         if layer.get("name") == "explainer/Stat":
             tw, th = min(bw, max(longest * 0.62 * size, 0.62 * size * len(str(p.get("label", ""))) * 0.4)), size * 1.9
+        elif layer.get("name") == "explainer/Tag" and p.get("look") != "legacy":     # lantern pill (+ dot)
+            tw = min(bw or 1e9, longest * 0.68 * size + 1.6 * size)
+            th = lines * size * 1.1 + 0.6 * size
+        elif layer.get("name") == "explainer/Headline" and p.get("look") != "legacy":  # Anton title plate
+            fs = size * 1.12
+            sub = str(p.get("sub") or "")
+            tw = min(bw or 1e9, max(longest * 0.5 * fs, len(sub) * 0.75 * max(30, fs * 0.36)) + 0.8 * fs)
+            th = lines * fs * 1.06 + 0.4 * fs + (max(30, fs * 0.36) * 1.3 if sub else 0)
         elif layer.get("name") in ("explainer/Tag", "explainer/Headline") or layer.get("type") == "text":
             tw = min(bw or 1e9, longest * 0.6 * size + size)
             th = lines * size * 1.2 + (size * 0.7 if p.get("sub") else 0)
@@ -335,7 +358,7 @@ def on_screen(b, W, H):
 
 # ------------------------------------------------------------------ captions
 
-def caption_band(sb, scene, t_local, t_global, W, H):
+def caption_band(sb, scene, t_local, t_global, W, H, want_page=False):
     cap = sb.get("captions") or {}
     if not cap or cap.get("enabled") is False:
         return None
@@ -357,6 +380,10 @@ def caption_band(sb, scene, t_local, t_global, W, H):
                 break
             page.append(w)
             n += len(w["text"]) + 1
+            if w["text"].rstrip("\"'”’)").endswith((".", "?", "!")):
+                break                             # the pager never carries a sentence end onto the next words
+    if want_page:
+        return page
     chars = sum(len(w["text"]) + 1 for w in page) - 1
     fs = style.get("fontSize") or (104 if sb.get("format", "9:16") == "9:16" else 84)
     maxw = style.get("maxWidth") or 0.82 * W
@@ -443,6 +470,38 @@ def check_scene(sb, scene, t0, W, H) -> list[str]:
                 share = inter(b, band) / max(1.0, area(b))
                 if share > (UNDER_HERO if i == hero else UNDER_PROP):
                     flag(("under", i), k)
+        # labels on top of a subject (a label drawn over a hero / prop it is not attached to)
+        subj = props + ([hero] if hero is not None else [])
+        for i in labels:
+            if layers[i].get("allowOverlap") or layers[i].get("name") in ("explainer/DepthMeter", "explainer/SpeedBars",
+                                                                           "explainer/HeightChart", "explainer/ScaleBar"):
+                continue
+            lb = boxes[i]
+            for j in subj:
+                sb_ = inset(boxes[j], 0.2 if j == hero else 0.1)
+                if area(lb) and inter(lb, sb_) / area(lb) > COVER_SHARE:
+                    flag(("cover", i, j), k)
+        # safe area: labels and text bubbles stay inside it (headlines may sit high: top margin only)
+        sx0, sy0, sx1, sy1 = SAFE[0] * W, SAFE[1] * H, SAFE[2] * W, SAFE[3] * H
+        for i in labels:
+            b = boxes[i]
+            if layers[i].get("name") in ("explainer/DepthMeter", "explainer/HeightChart", "explainer/ScaleBar"):
+                continue      # gauges measure the subject and may run past the frame on a punch-in (the number stays centred)
+            if layers[i].get("type") == "svg" and (px(layers[i].get("height"), H) >= 0.4 * H or px(layers[i].get("width"), W) >= 0.6 * W):
+                continue      # rulers / full cards drawn as svg measure the set like a gauge
+            if b[0] < sx0 - 2 or b[2] > sx1 + 2 or b[1] < sy0 - 2 or b[3] > sy1 + 2:
+                flag(("safe", i), k)
+        # a headline / tag that repeats the caption page under it reads twice (dup)
+        page = caption_band(sb, scene, t, t0 + t, W, H, want_page=True) if band else None
+        if page:
+            cw = _norm_words(" ".join(w["text"] for w in page))
+            for i in labels:
+                if layers[i].get("name") not in ("explainer/Headline", "explainer/Tag") and layers[i].get("type") != "text":
+                    continue
+                lw = _norm_words(_text_of(layers[i]))
+                if len(lw) >= 2 and len(set(lw) & set(cw)) >= 0.8 * len(set(lw)) and len(set(lw)) >= 0.6 * len(set(cw)):
+                    # the same words as the page = a hard fail; a near restatement = a warning (echo)
+                    flag(("dup" if set(lw) == set(cw) else "echo", i), k)
         for i in labels:
             if not re.search(r"\d", _text_of(layers[i])):
                 continue
@@ -462,6 +521,14 @@ def check_scene(sb, scene, t0, W, H) -> list[str]:
                 msg = f"label {L(key[1])} touches the caption band: move it or set scene captionY/captionYAt"
             elif kind == "under":
                 msg = f"{L(key[1])} slides under the caption band: keep props above it while captions are up"
+            elif kind == "cover":
+                msg = f"label {L(key[1])} sits on top of {L(key[2])}: move it clear of the subject (or tie it with a leader)"
+            elif kind == "safe":
+                msg = f"label {L(key[1])} leaves the safe area: keep labels and bubbles inside the frame margins"
+            elif kind == "dup":
+                msg = f"label {L(key[1])} repeats the caption under it: drop it or say something the caption doesn't"
+            elif kind == "echo":
+                msg = f"label {L(key[1])} echoes most of the caption under it (warning): prefer a number or a new fact"
             else:
                 msg = f"number in {L(key[1])} is clipped by {L(key[2])} drawn above it"
             out.append(f"{scene['id']} {ta:.1f}-{tb:.1f}s [{kind}] {msg}")
@@ -520,6 +587,13 @@ def check_colour(sb) -> list[str]:
         return []
     return ["[colour] no colour shift: the scale/turn beat needs an Ocean `shiftTo` (STYLE_BIBLE §2.5; house.py adds one "
             "when a builder marks the beat with scene _house.shift)"]
+
+
+WARN_KINDS = ("[echo]",)
+
+
+def is_warning(msg: str) -> bool:
+    return any(k in msg for k in WARN_KINDS)
 
 
 def check(sb: dict) -> list[str]:

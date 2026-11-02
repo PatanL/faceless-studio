@@ -65,10 +65,37 @@ class HouseTest(unittest.TestCase):
         p = out["scenes"][1]["background"]["props"]
         self.assertEqual((p["shiftTo"], p["shiftAt"]), ("warm", 1.5))
         self.assertFalse(any("_house" in sc for sc in out["scenes"]))
-        self.assertFalse(any(l.get("depth") == 1.45 for sc in out["scenes"] for l in sc["layers"]), "planes are opt-in")
-        out = house.apply(sb([scene(0, [orca()], _house={"wide": True}), scene(1, [orca()])]))
-        fore = [l for l in out["scenes"][0]["layers"] if l.get("depth") == 1.45]
-        self.assertTrue(fore and all(l.get("blur") and l["role"] == "dressing" for l in fore))
+        # the v3 set persists through the whole video: every environment scene gets the reef, kelp, jellies and school
+        for sc in out["scenes"]:
+            names = {l.get("name") for l in sc["layers"] if l.get("role") == "dressing"}
+            self.assertTrue({"explainer/Reef", "explainer/Kelp", "explainer/Jellies", "explainer/FishSchool"} <= names, names)
+        # soft foreground in >= 60 % of scenes, never on the cover / bookend (loop seam)
+        out = house.apply(sb([scene(i, [orca()]) for i in range(6)]))
+        fore = [any(l.get("depth") == 1.45 for l in sc["layers"]) for sc in out["scenes"]]
+        self.assertFalse(fore[0] or fore[-1], fore)
+        self.assertGreaterEqual(sum(fore[1:-1]) / 4, 0.6, fore)
+        self.assertTrue(all(l.get("blur") and l["role"] == "dressing" for sc in out["scenes"] for l in sc["layers"] if l.get("depth") == 1.45))
+        # opt out per scene
+        out = house.apply(sb([scene(0, [orca()], _house={"set": False}), scene(1, [orca()])]))
+        self.assertFalse(any(l.get("name") == "explainer/Reef" for l in out["scenes"][0]["layers"]))
+
+    def test_cuts_become_transitions(self):
+        out = house.apply(sb([scene(i, [orca()]) for i in range(5)]))
+        kinds = [sc.get("transitionIn", {}).get("type", "cut") for sc in out["scenes"][1:]]
+        self.assertNotIn("cut", kinds)
+        self.assertGreaterEqual(len(set(kinds)), 3, kinds)
+
+    def test_you_chip_tether_becomes_leader(self):
+        tether = {"type": "svg", "markup": '<svg viewBox="0 0 10 100"><line x1="5" y1="0" x2="5" y2="100"/></svg>',
+                  "x": "50%", "y": "48%", "width": 10, "height": 40}
+        chip = {"type": "component", "name": "explainer/Tag", "x": "50%", "y": "51%", "width": 175, "height": 77,
+                "props": {"text": "YOU", "at": 0, "size": 32, "bg": "#f3f6f7"}}
+        out = house.apply(sb([scene(0, [orca(), tether, chip])]))
+        layers = out["scenes"][0]["layers"]
+        self.assertFalse(any(l.get("type") == "svg" for l in layers))
+        tag = [l for l in layers if l.get("name") == "explainer/Tag"][0]
+        self.assertLess(tag["props"]["leader"][1], 0)
+        self.assertNotIn("bg", tag["props"])
 
     def test_auto_shift_on_scale_beat(self):
         you = {"type": "component", "name": "explainer/You", "x": "70%", "y": "30%", "width": 150, "height": 230,
@@ -145,7 +172,21 @@ class StagingTest(unittest.TestCase):
             s = json.load(open(p))
             if "house" not in (s.get("_built") or {}).get("style", ""):
                 continue
-            self.assertEqual(staging.check(s), [], slug)
+            self.assertEqual([m for m in staging.check(s) if not staging.is_warning(m)], [], slug)
+
+    def test_new_checks(self):
+        """orca_full_v1 judge misses: a tag on a subject, a bubble off the safe area, a headline that repeats the caption"""
+        words = [{"text": "Bigger", "start": 1.0, "end": 1.4}, {"text": "wins.", "start": 1.4, "end": 2.0},
+                 {"text": "Next", "start": 2.6, "end": 3.0}]
+        tag = {"type": "component", "name": "explainer/Tag", "x": "50%", "y": "35%", "width": 600, "height": 110,
+               "depth": 0, "props": {"text": "NOT TO SCALE", "at": 0.2, "size": 46}}
+        bubble = {"type": "svg", "markup": '<svg viewBox="0 0 260 110"><text>YUCK?</text></svg>', "x": "97%", "y": "40%",
+                  "width": 230, "height": 98}
+        head = {"type": "component", "name": "explainer/Headline", "x": "50%", "y": "13%", "width": 1000, "height": 220,
+                "depth": 0, "props": {"text": "BIGGER WINS", "at": 0.5, "size": 80}}
+        v = staging.check(sb([scene(0, [orca(), tag, bubble, head])], words))
+        kinds = {m.split("[")[1].split("]")[0] for m in v}
+        self.assertTrue({"cover", "safe", "dup"} <= kinds, v)
 
 
 if __name__ == "__main__":
