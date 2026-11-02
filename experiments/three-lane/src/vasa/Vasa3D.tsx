@@ -21,7 +21,7 @@ const RollGauge: React.FC<{ heel: number; o: number }> = ({ heel, o }) => {
   const [nx, ny] = pt(Math.max(-60, Math.min(60, deg)), R - 12);
   const danger = deg >= 14;
   return (
-    <svg width={300} height={190} viewBox="0 0 300 190" style={{ position: "absolute", left: W - 330, top: 250, opacity: o, overflow: "visible" }}>
+    <svg width={300} height={190} viewBox="0 0 300 190" style={{ position: "absolute", left: W - 330, top: 350, opacity: o, overflow: "visible" }}>
       <path d={`${arc(-60, 60, R)} L ${cx} ${cy} Z`} fill="rgba(27, 18, 64, 0.88)" stroke={cream} strokeWidth={5} />
       <path d={arc(14, 60, R - 10)} stroke={red} strokeWidth={16} fill="none" />
       {[-45, -30, -15, 0, 15, 30, 45].map((a) => { const [x0, y0] = pt(a, R - 24), [x1, y1] = pt(a, R - 4); return <line key={a} x1={x0} y1={y0} x2={x1} y2={y1} stroke={cream} strokeWidth={a === 0 ? 5 : 3} />; })}
@@ -36,7 +36,7 @@ const RollGauge: React.FC<{ heel: number; o: number }> = ({ heel, o }) => {
 const Distance: React.FC<{ m: number; o: number }> = ({ m, o }) => {
   const k = m / 1300;
   return (
-    <div style={{ position: "absolute", left: 60, top: 260, width: 520, height: 120, opacity: o }}>
+    <div style={{ position: "absolute", left: 60, top: 350, width: 520, height: 120, opacity: o }}>
       <div style={{ position: "absolute", left: 0, top: 0, padding: "6px 22px", borderRadius: 40, background: "rgba(27, 18, 64, 0.88)", border: `4px solid ${cream}`,
         fontFamily: font, fontSize: 52, color: k >= 1 ? red : cream, letterSpacing: 2 }}>{`${Math.round(m).toLocaleString("en-US")} m`}</div>
       <div style={{ position: "absolute", left: 10, top: 96, width: 480, height: 8, borderRadius: 4, background: "rgba(27, 18, 64, 0.7)" }} />

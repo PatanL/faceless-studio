@@ -56,6 +56,14 @@ export function skyCard(root: THREE.Object3D, t: THREE.Texture, w: number, h: nu
   const m = plane(root, basic({ map: t }), w, h, x, y, z, 0, ry);
   m.layers.set(NOINK); return m;
 }
+/** a sky dome (vertical gradient, unlit, no fog, no ink) so no camera angle ever reaches the edge of a sky card */
+export function skyDome(root: THREE.Object3D, top: string, mid: string, bottom: string, r = 1500, stars = 0) {
+  const t = skyGrad(top, mid, bottom, stars);
+  const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 16), new THREE.MeshBasicMaterial({ map: t, side: THREE.BackSide, fog: false, depthWrite: false }));
+  // SphereGeometry uv.y is 1 at the zenith, so the canvas top (flipY) paints the zenith and its middle the horizon
+  m.layers.set(NOINK); m.renderOrder = -10; root.add(m);
+  return m;
+}
 export function arch(w: number, h: number) {
   const s = new THREE.Shape();
   s.moveTo(-w / 2, 0); s.lineTo(-w / 2, h - w / 2); s.absarc(0, h - w / 2, w / 2, Math.PI, 0, true); s.lineTo(w / 2, 0); s.lineTo(-w / 2, 0);

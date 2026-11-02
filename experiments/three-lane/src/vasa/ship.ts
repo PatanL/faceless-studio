@@ -112,8 +112,20 @@ export class Ship {
     // stern: the gilded transom and the stern-castle galleries
     const sternU = 0.004, sy = deckTop(sternU), sw = halfW(sternU, sy * 0.6);
     if (opts.carvings !== false) {
-      const panel = new THREE.Mesh(new THREE.PlaneGeometry(sw * 2.1, sy * 0.95), lambert({ map: sternTex() }));
-      panel.position.set(X0 - 0.05, sy * 0.52, 0); panel.rotation.y = -Math.PI / 2; this.body.add(panel);
+      const panel = new THREE.Mesh(new THREE.PlaneGeometry(sw * 1.75, sy * 0.9), lambert({ map: sternTex() }));
+      panel.position.set(X0 - 0.08, sy * 0.52, 0); panel.rotation.y = -Math.PI / 2; this.body.add(panel);
+      // the carvings: rows of small gilded figures framing the transom and running along the stern quarters
+      const fig = new THREE.CapsuleGeometry(0.16, 0.55, 4, 8), head = new THREE.SphereGeometry(0.17, 10, 8);
+      const addFig = (x: number, y: number, z: number) => {
+        const f = new THREE.Mesh(fig, gold); f.position.set(x, y, z); this.body.add(f);
+        const h = new THREE.Mesh(head, gold); h.position.set(x, y + 0.48, z); this.body.add(h);
+      };
+      for (let i = 0; i < 9; i++) { const y = 1.2 + i * (sy * 0.85 / 9); addFig(X0 - 0.15, y, sw * 0.92); addFig(X0 - 0.15, y, -sw * 0.92); }
+      for (let i = 0; i < 7; i++) addFig(X0 - 0.15, sy * 0.97 + 0.2, -sw * 0.75 + i * (sw * 1.5 / 6));
+      for (const side of [1, -1]) for (let i = 0; i < 8; i++) {
+        const x = X0 + 0.8 + i * 0.75, u = uOf(x), y = deckTop(u) - 1.2;
+        addFig(x, y, side * (halfW(u, y) + 0.12));
+      }
     }
     for (const side of [1, -1]) {
       const gal = new THREE.Mesh(new THREE.BoxGeometry(5, 1.3, 0.5), gold); gal.position.set(X0 + 3.2, sy - 2.4, side * (halfW(0.07, sy - 2.4) + 0.25)); this.body.add(gal);

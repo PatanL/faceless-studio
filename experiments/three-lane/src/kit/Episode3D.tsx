@@ -1,7 +1,7 @@
 // A 3D story-lane episode (our own code). Props are the episode's storyboard JSON (built by the pipeline; it supplies
 // the scene durations, the Kokoro word timings and the caption style). The episode's story file turns those timings
 // into shot groups; each group is one ThreeCanvas Sequence. Different places join with the group's xfade (the
-// references' 6-8 frame dissolves; 0 = hard cut); angle changes inside a place are camera moves. Captions are the
+// references' 6-8 frame scene changes, done as whip pans; 0 = hard cut); angle changes inside a place are camera moves. Captions are the
 // studio CaptionTrack, placed per page off the shot's subject boxes; tags, titles and props are DOM overlays given by
 // the episode. Video only: the narration mix is muxed afterwards.
 import React, { useEffect, useMemo, useState } from "react";
@@ -13,6 +13,7 @@ import { waitForFonts } from "../../../../studio/src/core/fonts";
 import { Stage, type GroupSpec } from "./Stage";
 import { CamPath } from "./campath";
 import { Timing } from "./timing";
+import { personBox } from "./framing";
 
 const W = 1080, H = 1920;
 // phrase pages run to two lines (caption_rule "phrase"), so 3D episodes use a slightly smaller caption than the house 84
@@ -24,7 +25,9 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
   const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 400);
   const rects = (t: number) => {
     const g = [...groups].reverse().find((q) => t >= q.t0 - 1e-6 && t < q.t1) ?? groups[groups.length - 1];
-    const boxes = g.avoid ? g.avoid(t) : [];
+    // the shot's subject boxes plus every visible figure (captions never sit on a face)
+    const boxes = [...(g.avoid ? g.avoid(t) : []),
+      ...g.people.filter((p) => !p.visible || p.visible(t)).map((p) => personBox(p.at(t), (p.props(t) as { seated?: boolean }).seated === true))];
     if (!boxes.length) return [];
     if (!paths.has(g)) paths.set(g, new CamPath(g.cam, g.t0, g.t1));
     const c = paths.get(g)!.at(t);
@@ -42,21 +45,28 @@ export function captionCues(groups: GroupSpec[], pages: { start: number; end: nu
     });
   };
   const cands = [y0, 0.79, 0.3, 0.24];
-  return pages.map((p) => {
+  const groupAt = (t: number) => [...groups].reverse().find((q) => t >= q.t0 - 1e-6 && t < q.t1) ?? groups[groups.length - 1];
+  // one caption position per shot group (v1 review: captions hopping top/bottom page to page read as a glitch): sum the
+  // overlap of every page shown in the group for each candidate height, keep the cheapest for the whole group
+  const pageCost = pages.map((p) => {
     const glyphs = p.words.reduce((n, w) => n + w.text.length, 0) * 0.76 + (p.words.length - 1) * 0.36;
     const lines = Math.ceil((glyphs * CAP_SIZE) / CAP_W);
     const half = Math.min(CAP_W, glyphs * CAP_SIZE) / 2 + 20, bandH = lines * CAP_SIZE * 0.55 + 24;
     const cx = W / 2 - 20;
-    let best = cands[0], bestCost = Infinity;
-    for (const y of cands) {
+    return cands.map((y) => {
       const top = y * H - bandH, bot = y * H + bandH;
-      let cost = y === cands[0] ? 0 : 400;        // stay at the house position unless it actually overlaps
+      let cost = 0;
       for (let t = p.start; t < p.end; t += 3 / fps)
         for (const b of rects(t)) cost += Math.max(0, Math.min(cx + half, b.x1) - Math.max(cx - half, b.x0)) * Math.max(0, Math.min(bot, b.y1) - Math.max(top, b.y0));
-      if (cost < bestCost - 1) { best = y; bestCost = cost; }
-    }
-    return { at: p.start - 0.001, y: best };
+      return cost;
+    });
   });
+  const choice = new Map<GroupSpec, number>();
+  for (const g of groups) {
+    const tot = cands.map((_, ci) => pages.reduce((n, p, pi) => n + (groupAt((p.start + p.end) / 2) === g ? pageCost[pi][ci] : 0), 0) + (ci === 0 ? 0 : 3000));
+    choice.set(g, cands[tot.indexOf(Math.min(...tot))]);
+  }
+  return pages.map((p) => ({ at: p.start - 0.001, y: choice.get(groupAt((p.start + p.end) / 2))! }));
 }
 
 export type Story = { groups: GroupSpec[] };
@@ -92,7 +102,7 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
         const to = Math.round((g.t1 + nx / 2) * fps);
         return (
           <Sequence key={g.id} from={from} durationInFrames={Math.max(1, to - from)} name={g.id} layout="none">
-            <Fade g={g} from={from} />
+            <Fade g={g} from={from} total={Math.max(1, to - from)} nOut={Math.round(nx * fps)} />
           </Sequence>
         );
       })}
@@ -102,13 +112,21 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
   );
 }
 
-const Fade: React.FC<{ g: GroupSpec; from: number }> = ({ g, from }) => {
+/** place changes are whip pans, not dissolves (v1 review: every cross-dissolve ghosted one place over the other): the
+ * outgoing shot whips off to the left with a motion smear while the incoming one whips in from the right and covers
+ * it within the first frames, so no double exposure is ever readable */
+const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }> = ({ g, from, total, nOut }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width } = useVideoConfig();
   const n = Math.round(g.xfade * fps);
-  const o = n > 0 ? Math.min(1, (frame + 1) / (n + 1)) : 1;
+  const ein = n > 0 ? Math.min(1, (frame + 1) / (n + 1)) : 1;                       // 0..1 through the incoming whip
+  const eout = nOut > 0 ? Math.max(0, (frame - (total - nOut)) / nOut) : 0;          // 0..1 through the outgoing whip
+  const easeIn = 1 - Math.pow(1 - ein, 3), easeOut = eout * eout;
+  const x = (1 - easeIn) * width * 0.35 - easeOut * width * 0.35;
+  const blur = Math.max((1 - easeIn) * 22, easeOut * 22);
+  const o = n > 0 ? Math.min(1, ein * 2.2) : 1;
   return (
-    <AbsoluteFill style={{ opacity: o }}>
+    <AbsoluteFill style={{ opacity: o, transform: x ? `translateX(${x.toFixed(1)}px)` : undefined, filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined }}>
       <Stage g={g} fromFrame={from} />
     </AbsoluteFill>
   );

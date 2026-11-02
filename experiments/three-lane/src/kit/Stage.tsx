@@ -75,6 +75,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     return { root, set, cards, people, rigs, path: new CamPath(g.cam, g.t0, g.t1) };
   }, [g]);
 
+  const { width: vw, height: vh } = useVideoConfig();
   const fx = useMemo(() => {
     const composer = new EffectComposer(gl, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, cam));
@@ -84,9 +85,10 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     composer.addPass(new EffectPass(cam, lens.main));
     const grade = new GradeEffect(PRESETS.day.grade, 1);
     composer.addPass(new EffectPass(cam, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
-    composer.setSize();
+    composer.setSize(vw, vh);       // explicit: a first frame rendered before the canvas settled came out tiled (v1 review)
     return { composer, lens, grade };
-  }, [gl, scene, cam]);
+  }, [gl, scene, cam, vw, vh]);
+  const mounted = React.useRef(false);
   useEffect(() => () => fx.composer.dispose(), [fx]);
 
   useLayoutEffect(() => { scene.add(world.root); return () => { scene.remove(world.root); }; }, [scene, world]);
@@ -122,7 +124,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   useEffect(() => {
     const h = delayRender(`cards ${g.id} ${frame}`, { timeoutInMilliseconds: 60000 });
     const jobs = world.cards.map((r) => { const m = r.card.group.visible ? r.markup(t) : null; return m ? r.tex.draw(m) : Promise.resolve(false); });
-    Promise.all(jobs).then(() => { advance(performance.now()); continueRender(h); })
+    // the first frame after a mount renders twice (targets, shadow maps and card textures settle on the first pass)
+    Promise.all(jobs).then(() => { if (!mounted.current) { advance(performance.now()); mounted.current = true; } advance(performance.now()); continueRender(h); })
       .catch((e) => { console.error(e); continueRender(h); });
   }, [frame]); // eslint-disable-line react-hooks/exhaustive-deps
 

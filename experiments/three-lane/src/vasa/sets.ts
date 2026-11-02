@@ -3,7 +3,7 @@
 // 1961 and the museum hall. Water is a painted plane whose texture the story scrolls (extra.water).
 import * as THREE from "three";
 import { NOINK } from "../ink";
-import { SetBuild, lambert, basic, box, cyl, plane, glowSprite, skyCard, makeKey } from "../kit/sets";
+import { SetBuild, lambert, basic, box, cyl, plane, glowSprite, skyCard, skyDome, makeKey } from "../kit/sets";
 import { skyGrad, darkBoards, stoneWall, paving } from "../kit/paint2";
 import { hullPlanks, waterTex, skylineTex, mudTex, toTex, canvas } from "./paint";
 import { rng } from "../paint";
@@ -37,19 +37,23 @@ export function harbourSet(o: { cannonsOnQuay?: boolean } = {}): SetBuild {
   box(root, timber, 0.6, 16, 0.6, 8, 9.8, -11.5);
   const boom = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.4, 14), timber); boom.position.set(8, 17, -5.5); boom.rotation.x = 0.35; boom.castShadow = true; root.add(boom);
   const bronze = lambert({ color: "#9a6b2c" });
-  if (o.cannonsOnQuay !== false) for (let i = 0; i < 9; i++) {
-    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.26, 2.9, 12), bronze); c.rotation.z = Math.PI / 2;
-    c.position.set(-6 + (i % 5) * 0.7, 2.05 + Math.floor(i / 5) * 0.48, -12.5 - (i % 2) * 0.6); c.castShadow = true; root.add(c);
+  if (o.cannonsOnQuay !== false) for (let i = 0; i < 14; i++) {
+    const prof2 = [[0, 0], [0.3, 0.05], [0.28, 0.4], [0.25, 2.3], [0.29, 2.42], [0.22, 2.6], [0, 2.6]].map(([r, y]) => new THREE.Vector2(r, y));
+    const c = new THREE.Mesh(new THREE.LatheGeometry(prof2, 14), bronze); c.rotation.x = Math.PI / 2;
+    c.position.set(-2 + (i % 7) * 0.68, 2.1 + Math.floor(i / 7) * 0.5, -13.8); c.castShadow = true; root.add(c);
   }
-  const hanging = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.26, 2.9, 12), bronze); hanging.rotation.z = Math.PI / 2; hanging.castShadow = true;
+  // the gun on the derrick: a recognisable barrel (muzzle swell, reinforcing rings, trunnions, cascabel) in a sling
+  const hanging = new THREE.Group();
+  const prof = [[0, 0.3], [0.32, 0.36], [0.34, 0.3], [0.3, 0.6], [0.28, 1.6], [0.25, 2.5], [0.29, 2.62], [0.29, 2.8], [0.22, 2.85], [0, 2.85]].map(([r, y]) => new THREE.Vector2(r, y));
+  const barrel = new THREE.Mesh(new THREE.LatheGeometry(prof, 18), bronze); barrel.rotation.z = Math.PI / 2; barrel.position.x = 1.4; barrel.castShadow = true; hanging.add(barrel);
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), bronze); knob.position.x = 1.4 + 0.15; hanging.add(knob);
+  const trun = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.9, 8), bronze); trun.rotation.x = Math.PI / 2; trun.position.x = 0.1; hanging.add(trun);
+  for (const x of [-0.5, 0.6]) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.05, 6, 18), lambert({ color: "#b58a3a" })); ring.rotation.y = Math.PI / 2; ring.position.x = x; hanging.add(ring); }
   root.add(hanging);
   const line = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1, 4), lambert({ color: "#3a2a1c" })); root.add(line);
   for (let i = 0; i < 6; i++) cyl(root, lambert({ color: "#7a5532" }), 0.45, 1.1, 18 + i * 1.2, 2.35, -13 - (i % 2), 10);
   // the town: across the water (+z) and closing the east; tall skyline cards on low rock
-  const sky = skyCard(root, skyGrad("#6f9fd4", "#b7d0e6", "#f2ddb6"), 900, 260, 120, 60, 330);
-  sky.rotation.y = Math.PI;
-  const sky2 = skyCard(root, skyGrad("#6f9fd4", "#b7d0e6", "#f2ddb6"), 900, 260, 120, 60, -330);
-  void sky2;
+  const sky = skyDome(root, "#5f93d0", "#f0dcb4", "#f0dcb4", 1200);
   const town = new THREE.Mesh(new THREE.PlaneGeometry(260, 65), lambert({ map: skylineTex(), transparent: true, alphaTest: 0.5, side: THREE.DoubleSide }));
   town.position.set(40, 24, 150); town.rotation.y = Math.PI; root.add(town);
   const town2 = new THREE.Mesh(new THREE.PlaneGeometry(220, 55), lambert({ map: skylineTex(23), transparent: true, alphaTest: 0.5, side: THREE.DoubleSide }));
@@ -74,7 +78,15 @@ export function campSet(): SetBuild {
   const cloth = lambert({ color: "#e9dcc0" }), blue = lambert({ color: "#2a5fae" }), gold = lambert({ color: "#f2c230" });
   const tent = new THREE.Mesh(new THREE.CylinderGeometry(3.4, 3.4, 2.6, 16, 1, true), cloth); tent.position.set(0, 1.3, -6); tent.castShadow = true; root.add(tent);
   const top = new THREE.Mesh(new THREE.ConeGeometry(3.7, 2.6, 16), blue); top.position.set(0, 3.9, -6); top.castShadow = true; root.add(top);
-  const door = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 2.3), basic({ color: "#2a2034" })); door.position.set(0, 1.15, -2.58); root.add(door);
+  const door = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 2.0), lambert({ color: "#5a4a6e" })); door.position.set(0, 1.0, -2.58); root.add(door);
+  const flap = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 2.1), lambert({ color: "#d8c9a8", side: THREE.DoubleSide })); flap.position.set(0.75, 1.05, -2.5); flap.rotation.y = -0.6; root.add(flap);
+  // the war: field guns, a palisade, powder smoke drifting over the camp
+  const iron = lambert({ color: "#3a3a46" }), wheel = lambert({ color: "#5b3a22" });
+  for (const [x, z] of [[-9, -12], [7, -14], [12, -10]] as [number, number][]) {
+    const b = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.24, 2.4, 12), iron); b.rotation.z = Math.PI / 2 - 0.15; b.position.set(x, 0.75, z); b.castShadow = true; root.add(b);
+    for (const dz of [-0.4, 0.4]) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.1, 14), wheel); w.rotation.x = Math.PI / 2; w.position.set(x + 0.5, 0.45, z + dz); root.add(w); }
+  }
+  for (let x = -30; x <= 30; x += 1.2) { const p = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 2.2, 6), wheel); p.position.set(x, 1.1, -34 + Math.sin(x) * 0.4); root.add(p); }
   cyl(root, lambert({ color: "#5b3a22" }), 0.05, 2, 0, 6.2, -6);
   const banner = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 1.0), blue); banner.position.set(0.8, 6.8, -6); root.add(banner);
   const cross = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 0.2), gold); cross.position.set(0.8, 6.8, -5.99); root.add(cross);
@@ -91,7 +103,7 @@ export function campSet(): SetBuild {
   }
   box(root, lambert({ color: "#3a2a1c" }), 1.2, 0.2, 1.2, -5, 0.1, -9);
   glows.push(glowSprite(root, [255, 170, 90], 3, -5, 0.8, -9));
-  const sky = skyCard(root, skyGrad("#6d8fc8", "#b9c9de", "#efd7ad"), 400, 140, 0, 50, -120);
+  const sky = skyDome(root, "#5d82c0", "#e8d2ac", "#e8d2ac", 400);
   const key = makeKey(root, [12, 18, 10], [0, 0, -4], 14);
   return { root, key, glows, sky, extra: {}, fogScale: 3 };
 }
@@ -121,7 +133,8 @@ export function gundeckSet(): SetBuild {
     }
   }
   const flood = new THREE.Mesh(new THREE.PlaneGeometry(9.6, 40), new THREE.MeshLambertMaterial({ map: waterTex([3, 12], 7), transparent: true, opacity: 0.88 }));
-  flood.rotation.x = -Math.PI / 2; flood.position.y = -0.2; room.add(flood);
+  flood.rotation.x = -Math.PI / 2; flood.position.y = -0.2; root.add(flood);
+  for (let z = -16; z <= 16; z += 8) glows.push(glowSprite(room, [255, 214, 160], 4, 0, 1.6, z));
   const key = makeKey(root, [12, 6, 4], [0, 0, 0], 22);
   return { root, key, glows, extra: { flood, room } };
 }
@@ -148,7 +161,7 @@ export function seabedSet(): SetBuild {
   const root = new THREE.Group();
   const glows: THREE.Object3D[] = [];
   plane(root, lambert({ map: mudTex([30, 30]) }), 400, 400, 0, -32, 0, -Math.PI / 2);
-  const surf = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), basic({ map: waterTex([30, 30], 3, true), side: THREE.DoubleSide, transparent: true, opacity: 0.85 }));
+  const surf = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), basic({ color: "#7fc0c4", side: THREE.DoubleSide, transparent: true, opacity: 0.6 }));
   surf.rotation.x = Math.PI / 2; surf.position.y = 0; surf.layers.set(NOINK); root.add(surf);
   for (let i = 0; i < 0; i++) {   // light shafts read as dark bars under the ink pass: off
     const s = new THREE.Mesh(new THREE.PlaneGeometry(4, 60), basic({ color: "#cfe9e0", transparent: true, opacity: 0.12, depthWrite: false, side: THREE.DoubleSide }));
@@ -171,7 +184,18 @@ export function museumHallSet(): SetBuild {
   box(root, wall, 140, 70, 1, 0, 30, -40); box(root, wall, 1, 70, 140, -60, 30, 0); box(root, wall, 1, 70, 140, 60, 30, 0);
   const cradle = lambert({ color: "#5c5f6e" });
   for (const x of [-16, -6, 4, 14]) box(root, cradle, 1.2, 2.2, 8, x, -4.1, 0);
-  for (const [x, z] of [[-30, 10], [0, 14], [30, 10], [-20, -18], [20, -18]] as [number, number][]) glows.push(glowSprite(root, [255, 200, 140], 22, x, 8, z));
+  box(root, lambert({ color: "#23263a" }), 140, 1, 140, 0, 64, 0);
+  for (let x = -54; x <= 54; x += 12) box(root, lambert({ color: "#33364a" }), 1.2, 1.6, 140, x, 63, 0);
+  // a gallery walkway with a rail at deck height along the far wall
+  box(root, lambert({ color: "#3d4052" }), 120, 0.5, 6, 0, 6, -30);
+  for (let x = -58; x <= 58; x += 2) box(root, lambert({ color: "#8a8fa6" }), 0.1, 1.1, 0.1, x, 6.8, -27.2);
+  box(root, lambert({ color: "#8a8fa6" }), 120, 0.12, 0.12, 0, 7.4, -27.2);
+  // spotlights: soft cones from the ceiling onto the hull, and their pools
+  for (const [x, z] of [[-18, 9], [0, 10], [18, 9], [-10, -9], [10, -9]] as [number, number][]) {
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(7, 60, 24, 1, true), basic({ color: "#ffe3b8", transparent: true, opacity: 0.07, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending }));
+    cone.position.set(x, 33, z); cone.layers.set(NOINK); root.add(cone);
+    glows.push(glowSprite(root, [255, 210, 150], 16, x, 2, z * 0.6));
+  }
   const key = makeKey(root, [20, 50, 30], [0, 0, 0], 50);
   return { root, key, glows, extra: {}, fogScale: 2.5 };
 }

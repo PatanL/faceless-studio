@@ -26,14 +26,16 @@ export class CamPath {
   private hold(i: number, tau: number): S {
     const k = this.keys[i], n = this.keys[i + 1];
     const pos = new THREE.Vector3(...k.pos), look = new THREE.Vector3(...k.look);
-    const sat = tau >= 0 ? 1 - Math.exp(-tau / TAU) : tau / TAU;   // continuous through 0 (extrapolates linearly back)
+    // before the group starts (inside an incoming transition) the camera holds its first framing: extrapolating back
+    // toward a far next key made the transition frames lurch (v1 review: jumps in every dissolve)
+    const sat = tau >= 0 ? 1 - Math.exp(-tau / TAU) : 0;
     if (n) {
       pos.addScaledVector(new THREE.Vector3(...n.pos).sub(pos), FRAC * sat);
       look.addScaledVector(new THREE.Vector3(...n.look).sub(look), FRAC * sat);
     }
     // push in along the view direction (slow, saturating at PUSH of the distance)
     const toLook = look.clone().sub(pos);
-    pos.addScaledVector(toLook, PUSH * (tau >= 0 ? 1 - Math.exp(-tau / (TAU * 2)) : tau / (TAU * 2)));
+    pos.addScaledVector(toLook, PUSH * (tau >= 0 ? 1 - Math.exp(-tau / (TAU * 2)) : 0));
     return { pos, look, fov: k.fov ?? 40 };
   }
   at(t: number): S {

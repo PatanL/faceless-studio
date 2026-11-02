@@ -1,0 +1,103 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 63.423,
+ "captions": {
+  "src": "episodes/story-vasa/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/story-vasa/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 63.423
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/story-vasa/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 63.423
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/story-vasa/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/story-vasa/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "footsteps",
+   "at": 0.1
+  },
+  {
+   "cue": "whoosh",
+   "at": 6.69
+  },
+  {
+   "cue": "impact",
+   "at": 12.925
+  },
+  {
+   "cue": "door_creak",
+   "at": 16.955
+  },
+  {
+   "cue": "whoosh",
+   "at": 22.066
+  },
+  {
+   "cue": "whoosh_long",
+   "at": 25.016
+  },
+  {
+   "cue": "bubbles",
+   "at": 30.316
+  },
+  {
+   "cue": "knock",
+   "at": 35.986
+  },
+  {
+   "cue": "stinger",
+   "at": 39.262
+  },
+  {
+   "cue": "impact",
+   "at": 43.252
+  },
+  {
+   "cue": "click",
+   "at": 48.807
+  },
+  {
+   "cue": "footsteps",
+   "at": 53.382
+  },
+  {
+   "cue": "underwater_rumble",
+   "at": 56.807
+  }
+ ]
+}

@@ -1,0 +1,246 @@
+{
+ "id": "story-vasa",
+ "niche": "explainer",
+ "script": "episodes/story-vasa/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "speed": 1.33,
+  "synth_s": 20.69,
+  "duration_s": 63.023,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "pyloudnorm_lufs": -14.17,
+  "true_peak_dbtp_4x": -2.09,
+  "ffmpeg_ebur128": {
+   "I_lufs": -14.1,
+   "LRA_lu": 1.5,
+   "true_peak_dbtp": -2.1
+  },
+  "duration_s": 63.423,
+  "music": "score",
+  "sfx_placed": [
+   {
+    "cue": "footsteps",
+    "at": 0.1,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.917,
+    "level_db": -8.0,
+    "mix_momentary_max": -11.1
+   },
+   {
+    "cue": "whoosh",
+    "at": 6.69,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.186,
+    "level_db": -10.0,
+    "mix_momentary_max": -12.3
+   },
+   {
+    "cue": "impact",
+    "at": 12.925,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -4.0,
+    "mix_momentary_max": -12.9
+   },
+   {
+    "cue": "door_creak",
+    "at": 16.955,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 3.008,
+    "level_db": -8.0,
+    "mix_momentary_max": -11.5
+   },
+   {
+    "cue": "whoosh",
+    "at": 22.066,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.186,
+    "level_db": -10.0,
+    "mix_momentary_max": -10.9
+   },
+   {
+    "cue": "whoosh_long",
+    "at": 25.016,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 1.802,
+    "level_db": -10.0,
+    "mix_momentary_max": -12.2
+   },
+   {
+    "cue": "bubbles",
+    "at": 30.316,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.818,
+    "level_db": -12.0,
+    "mix_momentary_max": -11.4
+   },
+   {
+    "cue": "knock",
+    "at": 35.986,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 0.708,
+    "level_db": -3.0,
+    "mix_momentary_max": -12.3
+   },
+   {
+    "cue": "stinger",
+    "at": 39.262,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 4.026,
+    "level_db": -5.0,
+    "mix_momentary_max": -10.6
+   },
+   {
+    "cue": "impact",
+    "at": 43.252,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.545,
+    "level_db": -4.0,
+    "mix_momentary_max": -11.3
+   },
+   {
+    "cue": "click",
+    "at": 48.807,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 0.04,
+    "level_db": -14.0
+   },
+   {
+    "cue": "footsteps",
+    "at": 53.382,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 2.917,
+    "level_db": -8.0,
+    "mix_momentary_max": -10.8
+   },
+   {
+    "cue": "underwater_rumble",
+    "at": 56.807,
+    "db": 0.0,
+    "source": "marker",
+    "dur": 4.969,
+    "level_db": -8.0,
+    "mix_momentary_max": -11.4
+   }
+  ],
+  "music_rms_db_under_voice": -38.7,
+  "music_rms_db_in_gaps": -51.43,
+  "measured_duck_db": 12.73,
+  "bed_below_voice_db": 19.04,
+  "music_provenance": {
+   "generator": "pipeline.audio.score",
+   "soundfont": "GeneralUser-GS",
+   "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
+   "seed": 383067806
+  },
+  "score": {
+   "cues": [
+    {
+     "t0": 0.0,
+     "t1": 16.805,
+     "mood": "curious",
+     "intensity": 1,
+     "role": "hook"
+    },
+    {
+     "t0": 16.805,
+     "t1": 30.166,
+     "mood": "curious",
+     "intensity": 2,
+     "role": ""
+    },
+    {
+     "t0": 30.166,
+     "t1": 39.111999999999995,
+     "mood": "tense",
+     "intensity": 3,
+     "role": ""
+    },
+    {
+     "t0": 39.111999999999995,
+     "t1": 56.657,
+     "mood": "deep",
+     "intensity": 1,
+     "role": ""
+    },
+    {
+     "t0": 56.657,
+     "t1": 63.422875,
+     "mood": "warm",
+     "intensity": 1,
+     "role": ""
+    }
+   ],
+   "stings": [
+    {
+     "t": 12.925,
+     "why": "marker impact",
+     "prio": 3.0,
+     "on_boundary": false
+    },
+    {
+     "t": 27.567,
+     "why": "pivot 'Then'",
+     "prio": 2.5,
+     "on_boundary": false
+    },
+    {
+     "t": 39.262,
+     "why": "marker stinger",
+     "prio": 3.0,
+     "on_boundary": true
+    }
+   ],
+   "drops": [
+    {
+     "t0": 12.325,
+     "t1": 12.905,
+     "why": "marker impact"
+    },
+    {
+     "t0": 38.662,
+     "t1": 39.242,
+     "why": "marker stinger"
+    }
+   ],
+   "risers": [
+    {
+     "t0": 15.785,
+     "t1": 16.805,
+     "len": 1.02,
+     "kind": "swell",
+     "jump": 1
+    },
+    {
+     "t0": 28.106,
+     "t1": 30.166,
+     "len": 2.06,
+     "kind": "cymbal",
+     "jump": 3
+    }
+   ]
+  }
+ },
+ "words": 231,
+ "wall_s": 42.2
+}
