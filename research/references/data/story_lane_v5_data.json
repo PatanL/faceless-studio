@@ -1,0 +1,462 @@
+{
+ "note": "story-chess-turk v5 (out/story-chess-turk/story-chess-turk_v5.mp4, sha256 c2315454...) measured with the same tools/flags as story_lane_check_data.json (run_one.sh = run_all.sh for one video)",
+ "events": {
+  "video": "/home/dzliu/studio/scratch/storylane/v5final.mp4",
+  "fps": 30.0,
+  "start": 0.0,
+  "n_frames": 1768,
+  "duration": 58.93,
+  "thresholds": {
+   "CUT_G": 14.0,
+   "TR_G": 38.0,
+   "COMP_G": 22.0
+  },
+  "n_cuts": 2,
+  "n_flashes": 0,
+  "n_transitions": 7,
+  "n_comp": 17,
+  "cuts_per_min": 2.04,
+  "shots_per_min": 10.18,
+  "comp_per_min": 17.31,
+  "trans_dur_pct_10_25_50_75_90": [
+   0.57,
+   0.83,
+   0.87,
+   0.98,
+   1.35
+  ],
+  "n_trans_fast": 1,
+  "shot_len": {
+   "n": 10,
+   "mean": 5.89,
+   "median": 3.15,
+   "p10_25_75_90": [
+    1.4,
+    2.23,
+    5.45,
+    16.92
+   ],
+   "max": 18.3
+  },
+  "d1_pct_5_25_50_75_95": [
+   1.21,
+   3.71,
+   8.07,
+   12.85,
+   20.1
+  ],
+  "static_frac": 0.0,
+  "low_motion_frac": 0.0017,
+  "cuts": [
+   38.2,
+   42.167
+  ],
+  "flashes": [],
+  "transitions": [
+   {
+    "start": 4.967,
+    "end": 5.833,
+    "dur": 0.867,
+    "g": 56.9
+   },
+   {
+    "start": 8.333,
+    "end": 9.133,
+    "dur": 0.8,
+    "g": 49.1
+   },
+   {
+    "start": 26.433,
+    "end": 27.433,
+    "dur": 1.0,
+    "g": 70.9
+   },
+   {
+    "start": 30.2,
+    "end": 30.433,
+    "dur": 0.233,
+    "g": 100.5
+   },
+   {
+    "start": 31.0,
+    "end": 31.867,
+    "dur": 0.867,
+    "g": 91.5
+   },
+   {
+    "start": 35.2,
+    "end": 36.167,
+    "dur": 0.967,
+    "g": 42.3
+   },
+   {
+    "start": 39.167,
+    "end": 41.033,
+    "dur": 1.867,
+    "g": 89.7
+   }
+  ],
+  "comp_events": [
+   {
+    "t": 1.5,
+    "g": 35.9
+   },
+   {
+    "t": 3.6,
+    "g": 38.6
+   },
+   {
+    "t": 10.2,
+    "g": 33.0
+   },
+   {
+    "t": 11.2,
+    "g": 32.0
+   },
+   {
+    "t": 13.6,
+    "g": 27.1
+   },
+   {
+    "t": 14.633,
+    "g": 35.1
+   },
+   {
+    "t": 16.3,
+    "g": 29.6
+   },
+   {
+    "t": 17.367,
+    "g": 30.9
+   },
+   {
+    "t": 19.2,
+    "g": 36.1
+   },
+   {
+    "t": 21.2,
+    "g": 38.4
+   },
+   {
+    "t": 22.8,
+    "g": 38.5
+   },
+   {
+    "t": 24.3,
+    "g": 34.9
+   },
+   {
+    "t": 25.333,
+    "g": 38.5
+   },
+   {
+    "t": 33.267,
+    "g": 41.5
+   },
+   {
+    "t": 34.867,
+    "g": 22.9
+   },
+   {
+    "t": 55.767,
+    "g": 38.2
+   },
+   {
+    "t": 57.6,
+    "g": 28.9
+   }
+  ],
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.833,
+    "dur": 5.833,
+    "rgb": [
+     137,
+     129,
+     140
+    ],
+    "lum": 131.7,
+    "n_comp": 2
+   },
+   {
+    "start": 5.833,
+    "end": 9.133,
+    "dur": 3.3,
+    "rgb": [
+     185,
+     180,
+     149
+    ],
+    "lum": 179.3,
+    "n_comp": 0
+   },
+   {
+    "start": 9.133,
+    "end": 27.433,
+    "dur": 18.3,
+    "rgb": [
+     138,
+     128,
+     137
+    ],
+    "lum": 131.5,
+    "n_comp": 11
+   },
+   {
+    "start": 27.433,
+    "end": 30.433,
+    "dur": 3.0,
+    "rgb": [
+     56,
+     73,
+     139
+    ],
+    "lum": 74.7,
+    "n_comp": 0
+   },
+   {
+    "start": 30.433,
+    "end": 31.867,
+    "dur": 1.433,
+    "rgb": [
+     167,
+     182,
+     180
+    ],
+    "lum": 179.4,
+    "n_comp": 0
+   },
+   {
+    "start": 31.867,
+    "end": 36.167,
+    "dur": 4.3,
+    "rgb": [
+     115,
+     105,
+     115
+    ],
+    "lum": 108.1,
+    "n_comp": 2
+   },
+   {
+    "start": 36.167,
+    "end": 38.2,
+    "dur": 2.033,
+    "rgb": [
+     90,
+     79,
+     99
+    ],
+    "lum": 83.4,
+    "n_comp": 0
+   },
+   {
+    "start": 38.2,
+    "end": 41.033,
+    "dur": 2.833,
+    "rgb": [
+     80,
+     77,
+     113
+    ],
+    "lum": 80.6,
+    "n_comp": 0
+   },
+   {
+    "start": 41.033,
+    "end": 42.167,
+    "dur": 1.133,
+    "rgb": [
+     131,
+     130,
+     152
+    ],
+    "lum": 132.5,
+    "n_comp": 0
+   },
+   {
+    "start": 42.167,
+    "end": 58.933,
+    "dur": 16.767,
+    "rgb": [
+     80,
+     92,
+     138
+    ],
+    "lum": 93.4,
+    "n_comp": 2
+   }
+  ],
+  "visual_event_gap": {
+   "n": 26,
+   "median": 1.63,
+   "p10_25_75_90": [
+    1.05,
+    1.33,
+    2.1,
+    2.92
+   ]
+  }
+ },
+ "camera": {
+  "video": "/home/dzliu/studio/scratch/storylane/v5final.mp4",
+  "fps": 30.0,
+  "frames": 1768,
+  "fitted_frames": 1750,
+  "masked_frames": 11,
+  "unfit_frames": 7,
+  "tile_only_frames": 7,
+  "hold": 0.008,
+  "drift": 0.212,
+  "move": 0.78,
+  "moving": 0.992,
+  "moving_any": 0.992,
+  "move_any": 0.781,
+  "speed_pct_25_50_75_90": [
+   2.28,
+   5.87,
+   10.0,
+   13.34
+  ],
+  "n_moves": 65,
+  "moves_per_10s": 11.03,
+  "move_peak_pct_25_50_75_90": [
+   8.5,
+   11.6,
+   13.4,
+   16.86
+  ],
+  "move_fwhm_pct_25_50_75": [
+   13.0,
+   21.0,
+   41.0
+  ],
+  "move_len_eq_pct_25_50_75": [
+   24.1,
+   38.9,
+   75.9
+  ],
+  "move_attack_med": [
+   11.0
+  ],
+  "move_release_med": [
+   13.0
+  ],
+  "snaps_attack_le3_peak_ge25": 0,
+  "quiet_frames": 713,
+  "quiet_zoom_active": 0.746,
+  "quiet_pushin_share": 0.498,
+  "quiet_zoom_rate_pct_med": [
+   0.14
+  ]
+ },
+ "look": {
+  "video": "/home/dzliu/studio/scratch/storylane/v5final.mp4",
+  "fps": 30.0,
+  "step": 3,
+  "caption_band": [
+   0.6,
+   0.8
+  ],
+  "all": {
+   "n": 590,
+   "luma_p50_med": [
+    0.394
+   ],
+   "luma_mean_pct_10_50_90": [
+    0.295,
+    0.453,
+    0.581
+   ],
+   "luma_p1_med": [
+    0.089
+   ],
+   "luma_p95_med": [
+    0.842
+   ],
+   "nonink_p5_pct_10_50_90": [
+    0.149,
+    0.218,
+    0.371
+   ],
+   "black_area_share_med": [
+    0.0
+   ],
+   "frames_black_area_over_1pct": 0.0,
+   "ink_px_share_med": [
+    0.045
+   ],
+   "sat_pct_10_50_90": [
+    0.376,
+    0.448,
+    0.621
+   ],
+   "colourfulness_med": [
+    30.3
+   ],
+   "shadow_a_b_med": [
+    [
+     10.605
+    ],
+    [
+     -27.28
+    ]
+   ],
+   "shadow_b_negative_share": 1.0,
+   "shadow_hue_deg_pct_25_50_75": [
+    290.895,
+    291.857,
+    293.155
+   ],
+   "highlight_a_b_med": [
+    [
+     1.2
+    ],
+    [
+     5.85
+    ]
+   ],
+   "highlight_b_positive_share": 0.835,
+   "frame_b_med": [
+    -10.47
+   ],
+   "ink_edge_pct_25_50_75": [
+    0.44,
+    0.592,
+    0.801
+   ],
+   "soft_edge_pct_25_50_75": [
+    0.045,
+    0.054,
+    0.071
+   ],
+   "frames_soft_edge_over_40pct": 0.012,
+   "acutance_med": [
+    0.391
+   ]
+  }
+ },
+ "frames30": {
+  "flash": 0,
+  "jump": 3,
+  "frozen": 0
+ },
+ "pace": {
+  "file": "captions.json",
+  "words": 221,
+  "span_s": 58.31,
+  "wps": 3.79,
+  "median_interval": 0.25,
+  "n_gaps_0_8": 0,
+  "dead_air_s": 0,
+  "gaps": [],
+  "you_see_t": [
+   5.87
+  ],
+  "you_see_pct": [
+   9.9
+  ],
+  "first": "He built a chess robot that beat nearly every player, and before every game he opened it up to prove it was empty."
+ }
+}

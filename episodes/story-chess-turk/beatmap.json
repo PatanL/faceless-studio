@@ -1,7 +1,7 @@
 {
  "v": 1,
  "slug": "story-chess-turk",
- "duration_s": 66.767,
+ "duration_s": 58.9,
  "fps": 30,
  "source_id": null,
  "beats_from": "shots",
@@ -10,65 +10,71 @@
    "scene_id": "p01",
    "p": 1,
    "t0": 0.0,
-   "t1": 6.4,
+   "t1": 5.733,
    "beat": "HOOK",
    "shots_beat": "hook",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "He built a chess robot that could beat anyone, and before every game, he opened it up to prove it was empty.",
+   "text": "He built a chess robot that beat nearly every player, and before every game he opened it up to prove it was empty.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "stick/Person",
     "stick/Chess",
     "explainer/Headline"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.64,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
      "t0": 0.1,
-     "t1": 0.475,
+     "t1": 0.403,
      "text": "He built"
     },
     {
-     "t0": 0.475,
-     "t1": 1.425,
+     "t0": 0.403,
+     "t1": 1.19,
      "text": "a chess robot"
     },
     {
-     "t0": 1.425,
-     "t1": 2.013,
-     "text": "that could beat"
+     "t0": 1.19,
+     "t1": 1.928,
+     "text": "that beat nearly"
     },
     {
-     "t0": 2.013,
-     "t1": 3.487,
-     "text": "anyone, and before"
+     "t0": 1.928,
+     "t1": 3.015,
+     "text": "every player,"
     },
     {
-     "t0": 3.487,
-     "t1": 4.45,
-     "text": "every game,"
+     "t0": 3.015,
+     "t1": 3.453,
+     "text": "and before"
     },
     {
-     "t0": 4.45,
-     "t1": 4.938,
+     "t0": 3.453,
+     "t1": 4.077,
+     "text": "every game"
+    },
+    {
+     "t0": 4.077,
+     "t1": 4.478,
      "text": "he opened"
     },
     {
-     "t0": 4.938,
-     "t1": 5.2,
+     "t0": 4.478,
+     "t1": 4.74,
      "text": "it up"
     },
     {
-     "t0": 5.2,
-     "t1": 5.638,
+     "t0": 4.74,
+     "t1": 5.103,
      "text": "to prove"
     },
     {
-     "t0": 5.638,
-     "t1": 6.54,
+     "t0": 5.103,
+     "t1": 5.87,
      "text": "it was empty."
     }
    ]
@@ -76,56 +82,51 @@
   {
    "scene_id": "p02",
    "p": 2,
-   "t0": 6.4,
-   "t1": 13.633,
+   "t0": 5.733,
+   "t1": 10.3,
    "beat": "SETUP",
    "shots_beat": "setup",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "You see, it's 1770, and an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.",
+   "text": "You see, an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.",
    "components": [
+    "stick/Set",
     "explainer/Tag",
     "stick/Turk",
-    "stick/Person",
-    "stick/Set"
+    "stick/Person"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.74,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 6.54,
-     "t1": 7.115,
+     "t0": 5.87,
+     "t1": 6.365,
      "text": "You see,"
     },
     {
-     "t0": 7.115,
-     "t1": 8.84,
-     "text": "it's 1770,"
+     "t0": 6.365,
+     "t1": 6.965,
+     "text": "an inventor"
     },
     {
-     "t0": 8.84,
-     "t1": 9.615,
-     "text": "and an inventor"
-    },
-    {
-     "t0": 9.615,
-     "t1": 10.515,
+     "t0": 6.965,
+     "t1": 7.765,
      "text": "has just rolled"
     },
     {
-     "t0": 10.515,
-     "t1": 11.515,
+     "t0": 7.765,
+     "t1": 8.678,
      "text": "a wooden cabinet"
     },
     {
-     "t0": 11.515,
-     "t1": 12.477,
+     "t0": 8.678,
+     "t1": 9.415,
      "text": "into the Empress's"
     },
     {
-     "t0": 12.477,
-     "t1": 13.78,
+     "t0": 9.415,
+     "t1": 10.44,
      "text": "palace in Vienna."
     }
    ]
@@ -133,59 +134,65 @@
   {
    "scene_id": "p03",
    "p": 3,
-   "t0": 13.633,
-   "t1": 19.433,
+   "t0": 10.3,
+   "t1": 15.633,
    "beat": "DEVICE + DOUBTERS",
    "shots_beat": "device + doubters",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.",
+   "text": "On top sits a life-size wooden man in a turban, staring down at a chess board. The whole court laughs.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "stick/Person"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.56,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 13.78,
-     "t1": 14.23,
+     "t0": 10.44,
+     "t1": 10.835,
      "text": "On top"
     },
     {
-     "t0": 14.23,
-     "t1": 15.192,
+     "t0": 10.835,
+     "t1": 11.585,
      "text": "sits a life-size"
     },
     {
-     "t0": 15.192,
-     "t1": 15.792,
+     "t0": 11.585,
+     "t1": 12.122,
      "text": "wooden man"
     },
     {
-     "t0": 15.792,
-     "t1": 16.742,
+     "t0": 12.122,
+     "t1": 12.922,
      "text": "in a turban,"
     },
     {
-     "t0": 16.742,
-     "t1": 17.23,
-     "text": "staring"
+     "t0": 12.922,
+     "t1": 13.598,
+     "text": "staring down"
     },
     {
-     "t0": 17.23,
-     "t1": 18.236,
-     "text": "at a chessboard."
+     "t0": 13.598,
+     "t1": 13.985,
+     "text": "at a chess"
     },
     {
-     "t0": 18.236,
-     "t1": 18.531,
+     "t0": 13.985,
+     "t1": 14.563,
+     "text": "board."
+    },
+    {
+     "t0": 14.563,
+     "t1": 14.823,
      "text": "The whole"
     },
     {
-     "t0": 18.531,
-     "t1": 19.586,
+     "t0": 14.823,
+     "t1": 15.78,
      "text": "court laughs."
     }
    ]
@@ -193,8 +200,8 @@
   {
    "scene_id": "p04",
    "p": 4,
-   "t0": 19.433,
-   "t1": 25.133,
+   "t0": 15.633,
+   "t1": 20.267,
    "beat": "PROOF RITUAL",
    "shots_beat": "proof ritual",
    "skeleton_i": null,
@@ -202,40 +209,41 @@
    "source_beat_i": [],
    "text": "So he opens the doors one by one and holds a candle behind them. Nothing but gears.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "stick/Person"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.2,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 19.586,
-     "t1": 20.286,
+     "t0": 15.78,
+     "t1": 16.34,
      "text": "So he opens"
     },
     {
-     "t0": 20.286,
-     "t1": 20.849,
+     "t0": 16.34,
+     "t1": 16.79,
      "text": "the doors"
     },
     {
-     "t0": 20.849,
-     "t1": 22.374,
+     "t0": 16.79,
+     "t1": 18.152,
      "text": "one by one and holds"
     },
     {
-     "t0": 22.374,
-     "t1": 22.961,
+     "t0": 18.152,
+     "t1": 18.615,
      "text": "a candle"
     },
     {
-     "t0": 22.961,
-     "t1": 23.928,
+     "t0": 18.615,
+     "t1": 19.343,
      "text": "behind them."
     },
     {
-     "t0": 23.928,
-     "t1": 25.273,
+     "t0": 19.343,
+     "t1": 20.4,
      "text": "Nothing but gears."
     }
    ]
@@ -243,44 +251,50 @@
   {
    "scene_id": "p05",
    "p": 5,
-   "t0": 25.133,
-   "t1": 28.633,
+   "t0": 20.267,
+   "t1": 23.7,
    "beat": "IT MOVES",
    "shots_beat": "it moves",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "He winds a key, the gears tick, and the Turk lifts its arm.",
+   "text": "He winds a key. The gears start ticking, and the Turk lifts its arm.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "stick/Person"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 0.73,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 25.273,
-     "t1": 25.66,
+     "t0": 20.4,
+     "t1": 20.782,
      "text": "He winds"
     },
     {
-     "t0": 25.66,
-     "t1": 26.173,
-     "text": "a key,"
+     "t0": 20.782,
+     "t1": 21.423,
+     "text": "a key."
     },
     {
-     "t0": 26.173,
-     "t1": 27.273,
-     "text": "the gears tick,"
+     "t0": 21.423,
+     "t1": 21.721,
+     "text": "The gears"
     },
     {
-     "t0": 27.273,
-     "t1": 27.773,
+     "t0": 21.721,
+     "t1": 22.558,
+     "text": "start ticking,"
+    },
+    {
+     "t0": 22.558,
+     "t1": 23.058,
      "text": "and the Turk"
     },
     {
-     "t0": 27.773,
-     "t1": 28.793,
+     "t0": 23.058,
+     "t1": 23.86,
      "text": "lifts its arm."
     }
    ]
@@ -288,92 +302,104 @@
   {
    "scene_id": "p06",
    "p": 6,
-   "t0": 28.633,
-   "t1": 32.5,
+   "t0": 23.7,
+   "t1": 27.333,
    "beat": "TURN",
    "shots_beat": "turn",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "The first count brave enough to play it loses. Nobody's laughing now.",
+   "text": "The first count brave enough to play it gets crushed. No one is laughing now.",
    "components": [
+    "stick/Set",
     "stick/Person",
     "stick/Turk",
     "stick/Chess"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.26,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 28.793,
-     "t1": 29.5,
+     "t0": 23.86,
+     "t1": 24.445,
      "text": "The first count"
     },
     {
-     "t0": 29.5,
-     "t1": 30.113,
+     "t0": 24.445,
+     "t1": 24.995,
      "text": "brave enough"
     },
     {
-     "t0": 30.113,
-     "t1": 30.45,
+     "t0": 24.995,
+     "t1": 25.307,
      "text": "to play"
     },
     {
-     "t0": 30.45,
-     "t1": 31.229,
-     "text": "it loses."
+     "t0": 25.307,
+     "t1": 26.323,
+     "text": "it gets crushed."
     },
     {
-     "t0": 31.229,
-     "t1": 32.639,
-     "text": "Nobody's laughing now."
+     "t0": 26.323,
+     "t1": 26.601,
+     "text": "No one"
+    },
+    {
+     "t0": 26.601,
+     "t1": 27.5,
+     "text": "is laughing now."
     }
    ]
   },
   {
    "scene_id": "p07",
    "p": 7,
-   "t0": 32.5,
-   "t1": 36.3,
+   "t0": 27.333,
+   "t1": 31.767,
    "beat": "ESCALATION 1",
    "shots_beat": "escalation 1",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "For eighty years the Turk tours the world. It beats Benjamin Franklin.",
+   "text": "For eighty years the Turk travels Europe and America. It even beats Benjamin Franklin.",
    "components": [
+    "stick/Set",
     "explainer/Map",
     "explainer/Tag",
     "stick/Person",
     "stick/Turk"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 0.84,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 32.639,
-     "t1": 33.439,
+     "t0": 27.5,
+     "t1": 28.102,
      "text": "For eighty years"
     },
     {
-     "t0": 33.439,
-     "t1": 33.839,
+     "t0": 28.102,
+     "t1": 28.49,
      "text": "the Turk"
     },
     {
-     "t0": 33.839,
-     "t1": 34.675,
-     "text": "tours the world."
+     "t0": 28.49,
+     "t1": 29.29,
+     "text": "travels Europe"
     },
     {
-     "t0": 34.675,
-     "t1": 35.113,
-     "text": "It beats"
+     "t0": 29.29,
+     "t1": 30.163,
+     "text": "and America."
     },
     {
-     "t0": 35.113,
-     "t1": 36.445,
+     "t0": 30.163,
+     "t1": 30.816,
+     "text": "It even beats"
+    },
+    {
+     "t0": 30.816,
+     "t1": 31.92,
      "text": "Benjamin Franklin."
     }
    ]
@@ -381,71 +407,77 @@
   {
    "scene_id": "p08",
    "p": 8,
-   "t0": 36.3,
-   "t1": 43.233,
+   "t0": 31.767,
+   "t1": 38.167,
    "beat": "ESCALATION 2 (RULE OF THREE)",
    "shots_beat": "escalation 2 (rule of three)",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "And when Napoleon tries to cheat, it puts his piece back. Twice. The third time, it sweeps every piece off the board.",
+   "text": "And when Napoleon tries to cheat, it puts his piece right back. Twice. The third time, it sweeps every piece off the board.",
    "components": [
+    "stick/Set",
     "explainer/Tag",
     "stick/Person",
     "stick/Turk",
     "stick/Chess"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.04,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 36.445,
-     "t1": 36.658,
+     "t0": 31.92,
+     "t1": 32.117,
      "text": "And when"
     },
     {
-     "t0": 36.658,
-     "t1": 37.645,
+     "t0": 32.117,
+     "t1": 32.905,
      "text": "Napoleon tries"
     },
     {
-     "t0": 37.645,
-     "t1": 38.37,
+     "t0": 32.905,
+     "t1": 33.605,
      "text": "to cheat,"
     },
     {
-     "t0": 38.37,
-     "t1": 38.708,
+     "t0": 33.605,
+     "t1": 33.917,
      "text": "it puts"
     },
     {
-     "t0": 38.708,
-     "t1": 39.782,
-     "text": "his piece back."
+     "t0": 33.917,
+     "t1": 34.355,
+     "text": "his piece"
     },
     {
-     "t0": 39.782,
-     "t1": 40.598,
+     "t0": 34.355,
+     "t1": 35.088,
+     "text": "right back."
+    },
+    {
+     "t0": 35.088,
+     "t1": 35.846,
      "text": "Twice."
     },
     {
-     "t0": 40.598,
-     "t1": 41.498,
+     "t0": 35.846,
+     "t1": 36.631,
      "text": "The third time,"
     },
     {
-     "t0": 41.498,
-     "t1": 41.936,
+     "t0": 36.631,
+     "t1": 37.056,
      "text": "it sweeps"
     },
     {
-     "t0": 41.936,
-     "t1": 42.573,
+     "t0": 37.056,
+     "t1": 37.619,
      "text": "every piece"
     },
     {
-     "t0": 42.573,
-     "t1": 43.395,
+     "t0": 37.619,
+     "t1": 38.326,
      "text": "off the board."
     }
    ]
@@ -453,50 +485,51 @@
   {
    "scene_id": "p09",
    "p": 9,
-   "t0": 43.233,
-   "t1": 48.967,
+   "t0": 38.167,
+   "t1": 42.133,
    "beat": "DISASTER",
    "shots_beat": "disaster",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "Then in 1854, a fire burns the Turk to ash, and its secret finally comes out.",
+   "text": "Then a museum fire burns the Turk to ash, and its secret finally comes out.",
    "components": [
+    "stick/Set",
     "explainer/Tag",
     "stick/Turk",
     "stick/Paper"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.68,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 43.395,
-     "t1": 45.058,
-     "text": "Then in 1854,"
+     "t0": 38.326,
+     "t1": 38.941,
+     "text": "Then a museum"
     },
     {
-     "t0": 45.058,
-     "t1": 45.633,
-     "text": "a fire"
+     "t0": 38.941,
+     "t1": 39.604,
+     "text": "fire burns"
     },
     {
-     "t0": 45.633,
-     "t1": 46.37,
-     "text": "burns the Turk"
+     "t0": 39.604,
+     "t1": 39.941,
+     "text": "the Turk"
     },
     {
-     "t0": 46.37,
-     "t1": 47.245,
+     "t0": 39.941,
+     "t1": 40.741,
      "text": "to ash,"
     },
     {
-     "t0": 47.245,
-     "t1": 47.933,
+     "t0": 40.741,
+     "t1": 41.366,
      "text": "and its secret"
     },
     {
-     "t0": 47.933,
-     "t1": 49.115,
+     "t0": 41.366,
+     "t1": 42.296,
      "text": "finally comes out."
     }
    ]
@@ -504,8 +537,8 @@
   {
    "scene_id": "p10",
    "p": 10,
-   "t0": 48.967,
-   "t1": 50.4,
+   "t0": 42.133,
+   "t1": 43.267,
    "beat": "REVEAL",
    "shots_beat": "reveal",
    "skeleton_i": null,
@@ -513,19 +546,20 @@
    "source_beat_i": [],
    "text": "There was a man inside.",
    "components": [
+    "stick/Set",
     "stick/Turk"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 0.57,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 49.115,
-     "t1": 49.83,
+     "t0": 42.296,
+     "t1": 42.851,
      "text": "There was a man"
     },
     {
-     "t0": 49.83,
-     "t1": 50.555,
+     "t0": 42.851,
+     "t1": 43.426,
      "text": "inside."
     }
    ]
@@ -533,54 +567,55 @@
   {
    "scene_id": "p11",
    "p": 11,
-   "t0": 50.4,
-   "t1": 57.533,
+   "t0": 43.267,
+   "t1": 48.867,
    "beat": "MECHANISM 1",
    "shots_beat": "mechanism 1",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "A chess master, folded into the cabinet. When each door opened, he slid his seat to the other side, behind fake gears.",
+   "text": "A chess master folded into the cabinet. When each door opened, he slid his seat to the other side, behind fake gears.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "explainer/Tag"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.45,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 50.555,
-     "t1": 51.618,
-     "text": "A chess master,"
+     "t0": 43.426,
+     "t1": 44.599,
+     "text": "A chess master folded"
     },
     {
-     "t0": 51.618,
-     "t1": 53.072,
-     "text": "folded into the cabinet."
+     "t0": 44.599,
+     "t1": 45.449,
+     "text": "into the cabinet."
     },
     {
-     "t0": 53.072,
-     "t1": 53.672,
+     "t0": 45.449,
+     "t1": 45.964,
      "text": "When each door"
     },
     {
-     "t0": 53.672,
-     "t1": 54.834,
+     "t0": 45.964,
+     "t1": 46.927,
      "text": "opened, he slid"
     },
     {
-     "t0": 54.834,
-     "t1": 55.222,
+     "t0": 46.927,
+     "t1": 47.239,
      "text": "his seat"
     },
     {
-     "t0": 55.222,
-     "t1": 56.184,
+     "t0": 47.239,
+     "t1": 47.977,
      "text": "to the other side,"
     },
     {
-     "t0": 56.184,
-     "t1": 57.687,
+     "t0": 47.977,
+     "t1": 49.026,
      "text": "behind fake gears."
     }
    ]
@@ -588,53 +623,69 @@
   {
    "scene_id": "p12",
    "p": 12,
-   "t0": 57.533,
-   "t1": 61.967,
+   "t0": 48.867,
+   "t1": 55.0,
    "beat": "MECHANISM 2",
    "shots_beat": "mechanism 2",
    "skeleton_i": null,
    "playbook": null,
    "source_beat_i": [],
-   "text": "Magnets under the board showed him every move, and a lever moved the Turk's hand.",
+   "text": "Magnets under the board showed him every move, and a lever moved the Turk's hand. His candle smoke slipped out through the turban.",
    "components": [
+    "stick/Set",
     "stick/Turk",
     "explainer/Tag"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 0.76,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 57.687,
-     "t1": 58.349,
+     "t0": 49.026,
+     "t1": 49.584,
      "text": "Magnets under"
     },
     {
-     "t0": 58.349,
-     "t1": 59.049,
+     "t0": 49.584,
+     "t1": 50.234,
      "text": "the board showed"
     },
     {
-     "t0": 59.049,
-     "t1": 60.287,
+     "t0": 50.234,
+     "t1": 51.396,
      "text": "him every move,"
     },
     {
-     "t0": 60.287,
-     "t1": 61.149,
+     "t0": 51.396,
+     "t1": 52.209,
      "text": "and a lever moved"
     },
     {
-     "t0": 61.149,
-     "t1": 62.102,
+     "t0": 52.209,
+     "t1": 53.149,
      "text": "the Turk's hand."
+    },
+    {
+     "t0": 53.149,
+     "t1": 53.997,
+     "text": "His candle smoke"
+    },
+    {
+     "t0": 53.997,
+     "t1": 54.434,
+     "text": "slipped out"
+    },
+    {
+     "t0": 54.434,
+     "t1": 55.149,
+     "text": "through the turban."
     }
    ]
   },
   {
    "scene_id": "p13",
    "p": 13,
-   "t0": 61.967,
-   "t1": 66.767,
+   "t0": 55.0,
+   "t1": 58.9,
    "beat": "STINGER + LOOP",
    "shots_beat": "stinger + loop",
    "skeleton_i": null,
@@ -642,35 +693,36 @@
    "source_beat_i": [],
    "text": "The robot that beat Napoleon was a man in a box, playing by candlelight.",
    "components": [
+    "stick/Set",
     "stick/Person",
     "stick/Turk"
    ],
-   "background": "stick/Set",
-   "max_hold_s": 1.15,
+   "background": "color",
+   "max_hold_s": 0.07,
    "caption_pages": [
     {
-     "t0": 62.102,
-     "t1": 62.647,
+     "t0": 55.149,
+     "t1": 55.597,
      "text": "The robot"
     },
     {
-     "t0": 62.647,
-     "t1": 63.747,
+     "t0": 55.597,
+     "t1": 56.422,
      "text": "that beat Napoleon"
     },
     {
-     "t0": 63.747,
-     "t1": 64.259,
+     "t0": 56.422,
+     "t1": 56.847,
      "text": "was a man"
     },
     {
-     "t0": 64.259,
-     "t1": 65.647,
+     "t0": 56.847,
+     "t1": 57.959,
      "text": "in a box, playing"
     },
     {
-     "t0": 65.647,
-     "t1": 66.772,
+     "t0": 57.959,
+     "t1": 58.899,
      "text": "by candlelight."
     }
    ]

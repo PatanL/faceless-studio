@@ -5,9 +5,9 @@
  "tts": {
   "engine": "kokoro",
   "voice": "am_michael",
-  "speed": 1.1,
-  "synth_s": 23.94,
-  "duration_s": 67.072,
+  "speed": 1.28,
+  "synth_s": 23.76,
+  "duration_s": 59.199,
   "timing_source": [
    "kokoro"
   ],
@@ -15,14 +15,14 @@
  },
  "mix": {
   "target_lufs": -14.0,
-  "pyloudnorm_lufs": -14.19,
-  "true_peak_dbtp_4x": -2.03,
+  "pyloudnorm_lufs": -14.07,
+  "true_peak_dbtp_4x": -2.1,
   "ffmpeg_ebur128": {
-   "I_lufs": -14.2,
-   "LRA_lu": 1.9,
-   "true_peak_dbtp": -2.0
+   "I_lufs": -14.0,
+   "LRA_lu": 1.6,
+   "true_peak_dbtp": -2.1
   },
-  "duration_s": 66.76,
+  "duration_s": 58.9,
   "music": "score",
   "sfx_placed": [
    {
@@ -35,60 +35,69 @@
    },
    {
     "cue": "whoosh",
-    "at": 6.24,
+    "at": 5.57,
     "db": -5.0,
     "source": "cut",
     "dur": 1.186,
     "level_db": -15.0,
-    "mix_momentary_max": -11.4
+    "mix_momentary_max": -11.9
    },
    {
     "cue": "whoosh",
-    "at": 13.78,
+    "at": 10.44,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -12.9
+    "mix_momentary_max": -13.2
    },
    {
     "cue": "door_creak",
-    "at": 19.586,
+    "at": 15.78,
     "db": 0.0,
     "source": "marker",
     "dur": 3.008,
     "level_db": -8.0,
-    "mix_momentary_max": -12.2
+    "mix_momentary_max": -12.5
    },
    {
     "cue": "clock_ticking",
-    "at": 25.273,
+    "at": 20.4,
     "db": 0.0,
     "source": "marker",
     "dur": 3.349,
     "level_db": -12.0,
-    "mix_momentary_max": -11.4
+    "mix_momentary_max": -10.5
    },
    {
     "cue": "click",
-    "at": 28.793,
+    "at": 23.86,
     "db": 0.0,
     "source": "marker",
     "dur": 0.04,
     "level_db": -14.0
    },
    {
+    "cue": "impact",
+    "at": 25.62,
+    "db": 0.0,
+    "source": "auto:crushed.",
+    "dur": 2.545,
+    "level_db": -4.0,
+    "mix_momentary_max": -11.3
+   },
+   {
     "cue": "whoosh",
-    "at": 32.639,
+    "at": 27.5,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -11.5
+    "mix_momentary_max": -13.1
    },
    {
     "cue": "whoosh",
-    "at": 36.445,
+    "at": 31.92,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
@@ -97,25 +106,25 @@
    },
    {
     "cue": "whoosh_long",
-    "at": 43.395,
+    "at": 38.326,
     "db": 0.0,
     "source": "marker",
     "dur": 1.802,
     "level_db": -10.0,
-    "mix_momentary_max": -13.2
+    "mix_momentary_max": -12.6
    },
    {
     "cue": "stinger",
-    "at": 49.115,
+    "at": 42.296,
     "db": 0.0,
     "source": "marker",
     "dur": 4.026,
     "level_db": -5.0,
-    "mix_momentary_max": -11.3
+    "mix_momentary_max": -10.5
    },
    {
     "cue": "whoosh",
-    "at": 50.555,
+    "at": 43.426,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
@@ -124,7 +133,7 @@
    },
    {
     "cue": "click",
-    "at": 57.687,
+    "at": 49.026,
     "db": 0.0,
     "source": "marker",
     "dur": 0.04,
@@ -132,18 +141,18 @@
    },
    {
     "cue": "whoosh",
-    "at": 62.102,
+    "at": 55.149,
     "db": 0.0,
     "source": "marker",
     "dur": 1.186,
     "level_db": -10.0,
-    "mix_momentary_max": -10.0
+    "mix_momentary_max": -11.3
    }
   ],
-  "music_rms_db_under_voice": -38.73,
-  "music_rms_db_in_gaps": -34.97,
-  "measured_duck_db": -3.76,
-  "bed_below_voice_db": 19.09,
+  "music_rms_db_under_voice": -38.69,
+  "music_rms_db_in_gaps": -35.25,
+  "measured_duck_db": -3.44,
+  "bed_below_voice_db": 19.06,
   "music_provenance": {
    "generator": "pipeline.audio.score",
    "soundfont": "GeneralUser-GS",
@@ -155,49 +164,42 @@
    "cues": [
     {
      "t0": 0.0,
-     "t1": 11.878,
+     "t1": 8.99,
      "mood": "curious",
      "intensity": 1,
      "role": "hook"
     },
     {
-     "t0": 11.878,
-     "t1": 23.928,
+     "t0": 8.99,
+     "t1": 25.095000000000002,
      "mood": "curious",
      "intensity": 2,
      "role": ""
     },
     {
-     "t0": 23.928,
-     "t1": 32.489000000000004,
+     "t0": 25.095000000000002,
+     "t1": 35.906000000000006,
      "mood": "curious",
      "intensity": 3,
      "role": ""
     },
     {
-     "t0": 32.489000000000004,
-     "t1": 40.686,
-     "mood": "curious",
-     "intensity": 3,
-     "role": ""
-    },
-    {
-     "t0": 40.686,
-     "t1": 48.965,
+     "t0": 35.906000000000006,
+     "t1": 42.146,
      "mood": "deep",
      "intensity": 1,
      "role": ""
     },
     {
-     "t0": 48.965,
-     "t1": 61.952,
+     "t0": 42.146,
+     "t1": 54.999,
      "mood": "curious",
      "intensity": 1,
      "role": ""
     },
     {
-     "t0": 61.952,
-     "t1": 66.76,
+     "t0": 54.999,
+     "t1": 58.9,
      "mood": "curious",
      "intensity": 1,
      "role": "bookend"
@@ -205,13 +207,13 @@
    ],
    "stings": [
     {
-     "t": 23.928,
+     "t": 19.343,
      "why": "punch 'Nothing but gears.'",
      "prio": 1.5,
-     "on_boundary": true
+     "on_boundary": false
     },
     {
-     "t": 49.115,
+     "t": 42.296,
      "why": "marker stinger",
      "prio": 3.0,
      "on_boundary": true
@@ -219,29 +221,29 @@
    ],
    "drops": [
     {
-     "t0": 48.515,
-     "t1": 49.095,
+     "t0": 41.696,
+     "t1": 42.276,
      "why": "marker stinger"
     }
    ],
    "risers": [
     {
-     "t0": 10.848,
-     "t1": 11.878,
-     "len": 1.03,
+     "t0": 7.99,
+     "t1": 8.99,
+     "len": 1.0,
      "kind": "swell",
      "jump": 1
     },
     {
-     "t0": 22.928,
-     "t1": 23.928,
-     "len": 1.0,
+     "t0": 24.085,
+     "t1": 25.095000000000002,
+     "len": 1.01,
      "kind": "swell",
      "jump": 1
     }
    ]
   }
  },
- "words": 207,
- "wall_s": 39.7
+ "words": 221,
+ "wall_s": 36.1
 }

@@ -113,3 +113,12 @@ What the frames show:
 
 **Next:** plan step 4 (one 3D set, end to end), with a real 10 s story section to re-measure s/frame under
 production load (crossfades, 2 characters, captions).
+
+**Addendum (same day, story-chess-turk v5, the 2D baseline).**
+- The finished 2D v5 Short renders 1767 frames in ~93 s on the Spark (CPU, concurrency 2), about 0.05 s per frame.
+  That includes the set lens blur, ink and grade.
+- The 3D test frame costs 0.88 s per frame, about 17x more. That is still ~28 min per Short, so the verdict stands.
+- The measured gap that the 2D kit cannot close is real parallax:
+  - In v5 the set moves at depth 0.9 against 1.0 for the characters.
+  - Every hold must drift between checked framings so that nobody gets cut by an edge.
+  - In 3D the dolly would move the world while the subject stays framed. That is the case for plan step 4 (one 3D set, end to end).

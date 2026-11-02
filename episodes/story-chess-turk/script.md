@@ -5,8 +5,10 @@ lane: story (RicksClips3000 / Zack D. "clever trick from history", round-head st
 format: short, 9:16
 title: The Chess Robot That Fooled Napoleon
 alt_titles: He Opened The Robot To Prove It Was Empty | The Robot Nobody Could Beat
-target_runtime_s: 62-68 (RicksClips Shorts run ~60-65 s)
-target_words: ~205 spoken
+target_runtime_s: 57-62 (RicksClips Shorts run ~60-65 s; v5 pace 3.75 wps, no pause >= 0.8 s)
+target_words: ~217 spoken
+speed: 1.28
+paragraph_pause: 0.08
 hook: 22 words / ~6.5 s, protagonist doing the strange thing in frame 0 (RicksClips "He put a bronze ball in a dragon's mouth" shape)
 voice: am_michael
 music: score
@@ -70,29 +72,29 @@ on the candle inside the same cabinet.
 ## Narration
 
 ```narration
-[sfx: tick] He built a chess robot that could beat anyone, and before every game, he opened it up to prove it was empty.
+[sfx: tick] He built a chess robot that beat nearly every player, and before every game he opened it up to prove it was empty.
 
-You see, it's 1770, and an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.
+You see, an inventor has just rolled a wooden cabinet into the Empress's palace in Vienna.
 
-[sfx: whoosh] On top sits a life-size wooden man in a turban, staring at a chessboard. The whole court laughs.
+[sfx: whoosh] On top sits a life-size wooden man in a turban, staring down at a chess board. The whole court laughs.
 
 [sfx: door_creak] So he opens the doors one by one and holds a candle behind them. Nothing but gears.
 
-[sfx: clock_ticking] He winds a key, the gears tick, and the Turk lifts its arm.
+[sfx: clock_ticking] He winds a key. The gears start ticking, and the Turk lifts its arm.
 
-[sfx: click] The first count brave enough to play it loses. Nobody's laughing now.
+[sfx: click] The first count brave enough to play it gets crushed. No one is laughing now.
 
-[sfx: whoosh] For eighty years the Turk tours the world. It beats Benjamin Franklin.
+[sfx: whoosh] For eighty years the Turk travels Europe and America. It even beats Benjamin Franklin.
 
-[sfx: whoosh] And when Napoleon tries to cheat, it puts his piece back. Twice. The third time, it sweeps every piece off the board.
+[sfx: whoosh] And when Napoleon tries to cheat, it puts his piece right back. Twice. The third time, it sweeps every piece off the board.
 
-[sfx: whoosh_long] Then in 1854, a fire burns the Turk to ash, and its secret finally comes out.
+[sfx: whoosh_long] Then a museum fire burns the Turk to ash, and its secret finally comes out.
 
 [sfx: stinger] There was a man inside.
 
-[sfx: whoosh] A chess master, folded into the cabinet. When each door opened, he slid his seat to the other side, behind fake gears.
+[sfx: whoosh] A chess master folded into the cabinet. When each door opened, he slid his seat to the other side, behind fake gears.
 
-[sfx: click] Magnets under the board showed him every move, and a lever moved the Turk's hand.
+[sfx: click] Magnets under the board showed him every move, and a lever moved the Turk's hand. His candle smoke slipped out through the turban.
 
 [sfx: whoosh] The robot that beat Napoleon was a man in a box, playing by candlelight.
 ```
