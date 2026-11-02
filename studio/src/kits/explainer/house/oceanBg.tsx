@@ -3,7 +3,7 @@
  * explainer/Ocean; `look: "legacy"` draws the previous flat-teal kit background.
  *
  *   key       field ramp: "tide" (sunlit shallows), "mid" (open water), "deep" (ink, night), "kelp", "dusk", "sky",
- *             "warm" (a lantern-lit proof/scale beat). Default from depth: < 30 m tide, < 200 m mid, else deep.
+ *             "warm" (a lantern-lit proof/scale beat), "danger" (coral sinking to ink: threat beats). Default from depth: < 30 m tide, < 200 m mid, else deep.
  *   shiftTo   the colour shift (mandatory at the scale/turn beat): the field blends to this key in OKLab over
  *   shiftAt   `shiftDur` s (default 0.8) starting at `shiftAt` (scene s). Consecutive scenes should also change key.
  *   depth     m (number or track): darkens the field toward ink and fades the rays, as before.
@@ -34,6 +34,9 @@ export const KEYS: Record<string, string[]> = {
 	warm: ['amber-5', '#e8b45a', 'tide-3', 'tide-1', 'tide-0', 'ink-4'],
 };
 KEYS.ink = KEYS.deep;
+// danger re-key (shark / kill beats, colour script carries meaning): coral water sinking to ink; every stop is a
+// coral -> dusk/ink mix, so it stays inside the palette (P1)
+KEYS.danger = [mixOk('coral-3', 'dusk-2', 0.5), mixOk('coral-2', 'dusk-1', 0.55), mixOk('coral-1', 'dusk-1', 0.62), mixOk('coral-0', 'ink-1', 0.62), mixOk('coral-0', 'ink-0', 0.8), 'ink-0'];
 const OFFS = [0, 0.12, 0.32, 0.55, 0.8, 1];
 
 /** light level 0..1 at a depth (m); same curve as the legacy ocean */

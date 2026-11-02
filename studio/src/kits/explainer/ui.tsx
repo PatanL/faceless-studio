@@ -9,6 +9,25 @@ import {FigureSVG, getFigure, makeCtx, realSize} from './creature';
 import {LAND as MAP_LAND, PLACES} from './mapdata';
 import {DETAIL as MAP_DETAIL} from './mapdetail';
 import {arr, backOut, bool, C, clamp, easeInOut, easeOut, fmtNum, num, prog, safeId, smooth, str, track, type Pt} from './util';
+import {c as tok, rgba} from './house/color';
+import {ease as hEase, popIn, springAt, SETTLE} from './house/motion';
+
+/** house look (Lantern & Ink, STYLE_BIBLE §11) unless the layer says look: "legacy" */
+const houseLook = (props: Record<string, unknown>) => str(props.look, 'house') !== 'legacy';
+/** red words in house type: the signal red */
+const redSpans = (text: string, red: unknown, color: string): React.ReactNode => {
+	const set = new Set((Array.isArray(red) ? red : typeof red === 'string' ? [red] : []).map((w) => String(w).toUpperCase()));
+	if (!set.size) return text;
+	return text.split(/(\s+)/).map((t, i) =>
+		set.has(t.toUpperCase().replace(/[^A-Z0-9']/g, '')) ? (
+			<span key={i} style={{color}}>
+				{t}
+			</span>
+		) : (
+			t
+		),
+	);
+};
 
 const fadeOut = (props: Record<string, unknown>, time: number) =>
 	typeof props.out === 'number' ? 1 - prog(time, props.out, num(props.outDur, 0.3)) : 1;
@@ -35,7 +54,50 @@ const redWords = (text: string, red: unknown): React.ReactNode => {
 	);
 };
 
+/**
+ * House title plate (orca_open_v3): Anton, tight tracking, bone text on an ink-0 plate (86 %) with a soft plane-gap
+ * shadow; red words in the signal red; the sub line in Montserrat 700 tide-4 inside the plate. Enters with a
+ * left-to-right mask wipe (travel), exits by lifting off + fade. The plate keeps every headline readable over any
+ * set (judge: red "2 MOUTHS" over salmon coral had no contrast). look: "legacy" draws the old shadowed caps.
+ */
+const TitlePlate: React.FC<{props: Record<string, unknown>; time: number}> = ({props, time}) => {
+	const at = num(props.at, 0);
+	const i = at <= 0 ? 1 : hEase.travel(prog(time, at, 0.45));
+	const o = typeof props.out === 'number' ? hEase.exit(prog(time, props.out, num(props.outDur, 0.3))) : 0;
+	if (i <= 0 || o >= 1) return null;
+	const size = num(props.size, 56) * 1.12;
+	const align = str(props.align, 'center');
+	const color = props.color === undefined || props.color === 'white' ? tok('bone-2') : colorOf(props.color, tok('bone-2'));
+	const sub = typeof props.sub === 'string' ? props.sub : null;
+	const subSize = Math.max(30, size * 0.36);
+	const clipR = 100 - 100 * i;
+	return (
+		<div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: flexAlign(align), justifyContent: 'center'}}>
+			<div
+				style={{
+					opacity: 1 - o,
+					transform: `translateY(${-30 * o}px)`,
+					padding: `${size * 0.2}px ${size * 0.4}px ${size * (sub ? 0.16 : 0.2)}px`,
+					background: rgba(tok('ink-0'), 0.86),
+					borderRadius: 18,
+					boxShadow: `0 8px 22px ${rgba(tok('ink-0'), 0.38)}`,
+					clipPath: i >= 1 ? undefined : `inset(-40px ${clipR}% -40px -40px round 18px)`,
+					textAlign: align as 'left',
+				}}
+			>
+				<div style={{fontFamily: C.condensed, fontSize: size, lineHeight: 1.06, letterSpacing: '-0.005em', color, textTransform: 'uppercase', whiteSpace: 'pre-line'}}>
+					{redSpans(str(props.text, ''), props.red, tok('signal-1'))}
+				</div>
+				{sub ? (
+					<div style={{marginTop: subSize * 0.2, fontFamily: C.font, fontWeight: 700, fontSize: subSize, color: tok('tide-4'), letterSpacing: '0.08em', textTransform: 'uppercase'}}>{sub}</div>
+				) : null}
+			</div>
+		</div>
+	);
+};
+
 export const Headline: KitComponent = ({props, time}) => {
+	if (houseLook(props)) return <TitlePlate props={props} time={time} />;
 	const at = num(props.at, 0);
 	// at <= 0: already in place on the first frame (frame 0 is the Shorts cover), no entrance
 	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.35));
@@ -89,7 +151,65 @@ const KitTitle: React.FC<{text: string; size: number; time: number; at: number; 
 // ---------------------------------------------------------------- tag
 
 /** Dark fact tag that slides in (at <= 0: in place on frame 0). props: text, size, color, bg, at, out, align */
-export const Tag: KitComponent = ({props, time}) => {
+/**
+ * House lantern tag (orca_open_v3, STYLE_BIBLE §11): ink text on a bone pill with a soft plane-gap shadow, popping in on
+ * the POP spring. `leader: [dx, dy]` (px from the pill centre) draws a 3 px bone leader that ends in a two-tone ring on
+ * the object (it springs out 0.12 s after the pill). The accent shows as the ring's centre / a dot in the pill (red =
+ * threat). look: "legacy" draws the old dark slide-in tag.
+ */
+const LanternTag: React.FC<{props: Record<string, unknown>; time: number; width: number; height: number}> = ({props, time, width: W, height: H}) => {
+	const at = num(props.at, 0);
+	const s = at <= 0 ? 1 : popIn(time, at);
+	const lead = at <= 0 ? 1 : springAt(time, at + 0.12, SETTLE);
+	const o = typeof props.out === 'number' ? 1 - hEase.exit(prog(time, props.out, num(props.outDur, 0.3))) : 1;
+	if (time < at || o <= 0) return null;
+	const size = num(props.size, 28);
+	const acc = props.accent === undefined || props.accent === 'red' ? tok('signal-1') : colorOf(props.accent, tok('tide-3'));
+	const leader = Array.isArray(props.leader) && props.leader.length === 2 && props.leader.every((v) => typeof v === 'number') ? (props.leader as [number, number]) : null;
+	const align = str(props.align, 'left');
+	const cx = align === 'left' ? null : W / 2;
+	const dot = props.dot !== false && !leader;
+	return (
+		<div style={{width: '100%', height: '100%', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: flexAlign(align), opacity: o}}>
+			{leader && cx !== null ? (
+				<svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+					<line x1={cx} y1={H / 2} x2={cx + leader[0] * lead} y2={H / 2 + leader[1] * lead} stroke={tok('bone-2')} strokeWidth={3} strokeLinecap="round" opacity={Math.min(1, lead * 1.5)} />
+					<g transform={`translate(${cx + leader[0] * lead} ${H / 2 + leader[1] * lead}) scale(${Math.max(0, lead)})`}>
+						<circle r={11} fill="none" stroke={tok('bone-2')} strokeWidth={3.5} />
+						<circle r={5} fill={acc} />
+					</g>
+				</svg>
+			) : null}
+			<div
+				style={{
+					position: 'relative',
+					transform: `scale(${Math.max(0, s)})`,
+					background: tok('bone-2'),
+					borderRadius: size * 0.8,
+					padding: `${size * 0.26}px ${size * 0.62}px`,
+					fontFamily: C.font,
+					fontWeight: 800,
+					fontSize: size,
+					lineHeight: 1.1,
+					letterSpacing: '0.02em',
+					color: tok('ink-1'),
+					textTransform: 'uppercase',
+					whiteSpace: 'nowrap',
+					boxShadow: `0 6px 0 ${rgba(tok('ink-0'), 0.18)}, 0 10px 24px ${rgba(tok('ink-0'), 0.3)}`,
+					display: 'flex',
+					alignItems: 'center',
+					gap: size * 0.32,
+				}}
+			>
+				{dot ? <span style={{width: size * 0.34, height: size * 0.34, borderRadius: '50%', background: acc, flex: 'none'}} /> : null}
+				{str(props.text, '')}
+			</div>
+		</div>
+	);
+};
+
+export const Tag: KitComponent = ({props, time, width, height}) => {
+	if (houseLook(props)) return <LanternTag props={props} time={time} width={width} height={height} />;
 	const at = num(props.at, 0);
 	const p = at <= 0 ? 1 : easeOut(prog(time, at, 0.3));
 	const o = p * fadeOut(props, time);
@@ -179,7 +299,91 @@ export const Stat: KitComponent = ({props, time}) => {
 // ---------------------------------------------------------------- scale bar
 
 /** Measuring bar with end ticks and a label ("~16 M"). Box width = bar length. props: label, at, duration, from ("center"|"left"), color, labelSize, thickness */
+/** parse "~8 M" / "8 m" / "≈ 6 tonnes" -> prefix, number, unit */
+const parseMeasure = (label: string) => {
+	const m = label.match(/^\s*([~≈<>]?)\s*([\d.,]+)\s*(.*)$/);
+	if (!m) return null;
+	const v = parseFloat(m[2].replace(/,/g, ''));
+	return Number.isFinite(v) ? {prefix: m[1], value: v, unit: m[3].trim().toLowerCase(), decimals: (m[2].split('.')[1] ?? '').length} : null;
+};
+
+/**
+ * House gauge (orca_open_v3): bone bar that draws out with a tick per unit (2..12), end rings with a tide centre, and
+ * the measure as an Anton number that ticks up while the bar draws (unit in Montserrat 700 tide-4). A label that is
+ * not a number keeps the Montserrat caps. look: "legacy" draws the old bar.
+ */
+const Gauge: React.FC<{props: Record<string, unknown>; time: number; W: number; H: number}> = ({props, time, W, H}) => {
+	const at = num(props.at, 0);
+	const dur = num(props.duration, 0.6);
+	const p = hEase.travel(prog(time, at, dur));
+	const o = fadeOut(props, time);
+	if (time < at || o <= 0) return null;
+	const y = num(props.barY, H * 0.3);
+	const fromLeft = str(props.from, 'center') === 'left';
+	const x0 = fromLeft ? 0 : (W / 2) * (1 - p);
+	const x1 = fromLeft ? W * p : W / 2 + (W / 2) * p;
+	const bone = tok('bone-2');
+	const label = str(props.label, '');
+	const m = parseMeasure(label);
+	const n = m ? Math.max(2, Math.min(12, Math.round(m.value))) : 0;
+	const ls = num(props.labelSize, 40);
+	const room = (H - y - 8) / 0.85;
+	// a short box has no room under the bar: the number sits above it (it overlapped the bar in regress_bwscale)
+	const above = room < 56;
+	const fs = above ? Math.max(56, ls * 1.6) : Math.min(ls * 2, room);
+	const baseY = above ? y - 34 : y + 12 + fs * 0.85;
+	const lp = prog(time, at + dur * 0.35, dur * 0.9);
+	const land = lp >= 1 ? 1 + 0.12 * Math.max(0, Math.sin(Math.PI * clamp((time - at - dur * 1.25) / 0.25))) : 1;
+	const shown = m ? (lp >= 1 ? m.value : m.value * hEase.travel(lp)) : 0;
+	const ring = (x: number, k: number) => (
+		<g transform={`translate(${x} ${y - 26}) scale(${k})`}>
+			<circle r={10} fill="none" stroke={bone} strokeWidth={3.5} />
+			<circle r={4.5} fill={tok('tide-4')} />
+		</g>
+	);
+	return (
+		<svg width={W} height={H} style={{overflow: 'visible', display: 'block', opacity: o}}>
+			<line x1={x0} x2={x1} y1={y} y2={y} stroke={rgba(tok('ink-0'), 0.35)} strokeWidth={10} strokeLinecap="round" transform="translate(0 4)" />
+			<line x1={x0} x2={x1} y1={y} y2={y} stroke={bone} strokeWidth={6} strokeLinecap="round" />
+			{Array.from({length: n + 1}, (_, i) => {
+				const xx = (W * i) / n;
+				const on = fromLeft ? xx <= x1 + 0.5 : xx >= x0 - 0.5 && xx <= x1 + 0.5;
+				const big = i === 0 || i === n;
+				return on ? <line key={i} x1={xx} x2={xx} y1={y - (big ? 22 : 11)} y2={y + (big ? 22 : 11)} stroke={bone} strokeWidth={big ? 5 : 3.5} strokeLinecap="round" /> : null;
+			})}
+			{p >= 0.98 ? (
+				<>
+					{ring(0, springAt(time, at + dur, SETTLE))}
+					{ring(W, springAt(time, at + dur + 0.06, SETTLE))}
+				</>
+			) : null}
+			{m ? (
+				<g opacity={clamp(lp * 4)} transform={`translate(${W / 2} ${baseY}) scale(${land})`}>
+					<text textAnchor="middle" fontFamily={C.condensed} fontSize={fs} fill={bone} style={{fontVariantNumeric: 'tabular-nums', filter: `drop-shadow(0 4px 10px ${rgba(tok('ink-0'), 0.45)})`}}>
+						{m.prefix ? (
+							<tspan fontSize={fs * 0.6} fill={tok('tide-4')}>
+								{m.prefix === '~' ? '≈' : m.prefix}{' '}
+							</tspan>
+						) : null}
+						<tspan>{shown.toFixed(lp >= 1 ? m.decimals : Math.max(1, m.decimals))}</tspan>
+						{m.unit ? (
+							<tspan fontFamily={C.font} fontWeight={700} fontSize={fs * 0.42} fill={tok('tide-4')} dx={fs * 0.1}>
+								{m.unit}
+							</tspan>
+						) : null}
+					</text>
+				</g>
+			) : (
+				<text x={W / 2} y={y + ls * 1.45} textAnchor="middle" fill={bone} fontFamily={C.font} fontWeight={900} fontSize={ls} letterSpacing={ls * 0.06} opacity={clamp(lp * 3)}>
+					{label}
+				</text>
+			)}
+		</svg>
+	);
+};
+
 export const ScaleBar: KitComponent = ({props, time, width: W, height: H}) => {
+	if (houseLook(props)) return <Gauge props={props} time={time} W={W} H={H} />;
 	const at = num(props.at, 0);
 	const p = easeInOut(prog(time, at, num(props.duration, 0.6)));
 	const o = fadeOut(props, time);

@@ -18,6 +18,8 @@
  *                         fraction of box height), density
  *   explainer/Seabed      sand body with ripples and pebbles: props seed, y (fraction)
  *   explainer/Ridge       far ridge / spires silhouette: props seed, y, h, arch, color
+ *   explainer/Pod         background pod (orca_open_v3): n far orca silhouettes cruising across the layer in the plane
+ *                         tint, each at its own size/speed/phase: props n, seed, dir (1 | -1), scale, speed (units/s)
  */
 import React, {useId} from 'react';
 import type {KitComponent} from '../../../core/registry';
@@ -26,6 +28,7 @@ import {PlaneTintProvider, useLight} from './light';
 import {rand, rng} from './rng';
 import {FishSchool, Jelly, Kelp, Ridge, Rock, Seabed, Anemone, Urchin, Shell, SeaGrass, SeaFan} from './sea';
 import {BrainCoral, FanCoral, ReefShelf, Spire, Staghorn, TableCoral, TubeSponge} from './reef';
+import {Orca} from './orca';
 
 /** document-unique prefix for mask/gradient ids (two layers may share a seed) */
 const useUid = () => 'd' + useId().replace(/[^a-zA-Z0-9_-]/g, '');
@@ -220,3 +223,30 @@ export const RidgeLayer: KitComponent = ({props: p, width, height}) => (
 		}}
 	</Space>
 );
+
+export const Pod: KitComponent = ({props: p, time, width, height}) => {
+	const seed = String(p.seed ?? 'pod');
+	const uid = useUid();
+	const n = Math.round(num(p.n, 3));
+	const dir = p.dir === -1 ? -1 : 1;
+	const sc = num(p.scale, 1);
+	const speed = num(p.speed, 22);
+	return (
+		<Space w={width} h={height} plane={p.plane ?? 'far'}>
+			{(H) =>
+				Array.from({length: n}, (_, i) => {
+					const s = sc * (0.13 + 0.07 * rand(`${seed}s`, i)) * (i === 0 ? 1.15 : 1);
+					const span = 1080 + 990 * s * 2;
+					const x0 = rand(`${seed}x`, i) * span;
+					const x = ((((x0 + dir * speed * (0.8 + 0.4 * rand(`${seed}v`, i)) * time) % span) + span) % span) - 990 * s;
+					const y = H * (0.2 + 0.6 * rand(`${seed}y`, i)) + 8 * Math.sin(time * 0.5 + i * 2);
+					return (
+						<g key={i} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${(dir * s).toFixed(4)} ${s.toFixed(4)}) translate(-500 -200)`}>
+							<Orca id={`${uid}${seed}${i}`} t={time + i * 0.7} lod="far" />
+						</g>
+					);
+				})
+			}
+		</Space>
+	);
+};

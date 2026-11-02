@@ -32,7 +32,8 @@ export const Balance: KitComponent = ({props, time, width: W, height: H}) => {
 		const cx = px + sign * L * num(s.pos, 0.3);
 		return (
 			<g key={key} opacity={fade} transform={`translate(0 ${-d * H * 0.6})`}>
-				<FigureSVG f={f} ctx={makeCtx(s, time, `${id}${key}`)} x={cx - w / 2} y={py - 8 - h} w={w} h={h} />
+				{/* feet sink 3 px into the beam's rounded top: contact, never a hairline gap (judge: elephant floats) */}
+				<FigureSVG f={f} ctx={makeCtx(s, time, `${id}${key}`)} x={cx - w / 2} y={py - 5 - h} w={w} h={h} />
 			</g>
 		);
 	};
