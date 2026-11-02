@@ -96,6 +96,11 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
 - **Loops**: 0/24 loop the last line into the first. Videos end on the payoff image (rubble, wave, buckled train) within the last 2-3 s.
 - **Likes**: like rate doesn't track views. The emotional fiction (Memory) has the highest like rate (4.2%) and nearly the lowest views. As at Zack D., emotion earns likes and mechanism earns views.
 
+**S-env. The story happens in a place a camera can travel through.** (owner, 2026-11-02; check pending against the catalog)
+- Owner's observation: RicksClips picks topics where a 3D environment makes sense, such as a town, bridge, ship, prison, mine or market. The set is part of the mechanism, and the camera moving through it is what makes the 3D look worth having.
+- Chess Turk (v6) was a weak fit: one hall and a cabinet, so the judges saw too little change of setting (panel principle 3).
+- Screen every story premise with this rule before scripting. The story agent is counting how this splits outliers from ordinary videos in their catalog.
+
 ### 10 story premises that fit S1-S6 (not in Rick's 146 titles, Zack D.'s last 400, or the TikTok lists)
 
 1. **The floor built to squeak** (Nijō Castle, Japan, 1600s). A shogun pays carpenters to make the floor chirp under every step. Courtiers mock the "broken" floor until an assassin crosses it at night. Mechanism: nails rubbing in clamps.
