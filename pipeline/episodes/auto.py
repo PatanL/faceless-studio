@@ -34,6 +34,32 @@ Anchors resolve only under those time keys and time lists (F05). Anywhere else a
 text (chat handles such as "@Mom", "@Admin who is member #41?") and is left alone.
 Anchor grammar: ^@[\\w'*-]+(#\\d+)?(\\.end)?([+-][\\d.]+)?$ or the specials above; anything else is an error.
 
+House style (explainers): every explainer storyboard built here goes through the Lantern & Ink pass
+(pipeline/episodes/house.py, the live look) and then the staging/collision checker (pipeline/episodes/staging.py); a
+staging violation is an ERROR (also with --check), an [echo] (headline nearly repeating the caption) a WARN. The pass
+adds by itself: scene light + key sweep, the palette key ramp and one colour SHIFT, the seeded orca_open_v3 set
+(ridge, kelp, reef, rocks, jellies, school, blurred ink foreground) behind every Ocean scene, title plate / lantern tag
+info design, popSpring / dropSquash motion, camera pre-roll + drift, cuts -> wipe/iris/fade. The shots vocabulary to
+steer it (all optional):
+  top level  "house": {"pod": "orca"}      pass options: pod (far silhouettes in every set: "orca"), dressing, set,
+                                          info, cuts, motion, auto_shift (true/false)
+  scene      "_house": {...}               "shift": {"at": "@word", "to": "warm", "dur": 0.8}  the colour shift beat
+                                          (default: the first scale beat: a You / ScaleBar / HeightChart / Stat layer)
+                                          "key": "danger"   re-key this scene (colour script: threat beats)
+                                          "set": false      no set (a diagram card); "fore": false  no foreground
+                                          "proof": false    no warm lift on this proof beat
+             "light": {"setup": "lantern|daylight|cold|stellar", "sweep": 8, ...}   (default lantern, sweep on >= 4 s)
+  keys       tide, mid, deep, kelp, dusk, sky, warm, danger, ink (Ocean props "key" / "shiftTo", "_house" key / to)
+  layer      "shade": false | {"core", "hi", "rim", "marks", "cast", "glint", "lod"}  kit figures are shaded by default
+                                          (inline svg is NOT shaded: it reads flat next to the house figures)
+             "role": hero|prop|label|dressing|fx, "allowOverlap": true (contact beats: a bite, a hand on the fin)
+             enter "popSpring" / "dropSquash" ("pop" / "drop" are upgraded to them)
+  dressing   explainer/Kelp, FishSchool, Jellies, Rocks, Reef, Seabed, Ridge, Pod, Specks, Glow, LightEvent: give each a
+             distinct props.seed (two identical seeds draw identical kelp / fish: an ERROR)
+  colours    house palette tokens (ink-0..4, tide-0..5, kelp-, dusk-, sky-, coral-, ochre-, amber-, bone-, signal-;
+             studio/src/kits/explainer/house/palette.ts) or #hex; "red" stays the signal accent for one word per beat
+  never      "look": "legacy" (the old flat style) in an operator episode: an ERROR
+
 The new storyboard is written to storyboard.json.tmp, zod-validated, and only then moved over storyboard.json, so a
 failed build always leaves the last good storyboard in place (F03). On the Spark (STUDIO_LOCAL=1, or
 STUDIO_REQUIRE_ZOD=1, or a checkout at ~/studio/app) a missing zod/node is a failure, not a skip (F08).
@@ -211,6 +237,109 @@ def layout_warnings(scenes: list[dict], fmt: str = "9:16") -> list[str]:
     return out
 
 
+HOUSE_SCENE_KEYS = {"shift", "key", "set", "fore", "proof", "dressing"}
+HOUSE_OPTS = {"pod", "dressing", "set", "info", "cuts", "motion", "auto_shift"}
+DRESSING = {f"explainer/{n}" for n in "Kelp FishSchool Jellies Rocks Reef Seabed Ridge Pod Specks Glow LightEvent".split()}
+
+
+def house_keys() -> set:
+    """palette key ramps the Ocean background knows (studio/src/kits/explainer/house/oceanBg.tsx KEYS)"""
+    try:
+        src = open(os.path.join(ROOT, "studio", "src", "kits", "explainer", "house", "oceanBg.tsx"), encoding="utf-8").read()
+    except OSError:
+        return {"tide", "mid", "deep", "kelp", "dusk", "sky", "warm", "danger", "ink"}
+    block = re.search(r"export const KEYS[^{]*\{(.*?)\n\};", src, re.S)
+    keys = set(re.findall(r"^\s+(\w+):\s*\[", block.group(1), re.M)) if block else set()
+    return keys | set(re.findall(r"^KEYS\.(\w+)\s*=", src, re.M))
+
+
+def house_vocab(shots: dict, scenes: list[dict]) -> tuple[list[str], list[str]]:
+    """the house-style shots vocabulary (module docstring): -> (errors, warnings)"""
+    errs, warns = [], []
+    keys = house_keys()
+    for k in (shots.get("house") or {}):
+        if k not in HOUSE_OPTS:
+            errs.append(f"house.{k}: unknown house option (known: {', '.join(sorted(HOUSE_OPTS))})")
+    seeds: dict = {}
+    for i, s in enumerate(scenes):
+        hs = s.get("_house") or {}
+        if not isinstance(hs, dict):
+            errs.append(f"scenes[{i}]._house must be an object")
+            hs = {}
+        for k in hs:
+            if k not in HOUSE_SCENE_KEYS:
+                errs.append(f"scenes[{i}]._house.{k}: unknown key (known: {', '.join(sorted(HOUSE_SCENE_KEYS))})")
+        sh = hs.get("shift")
+        if sh is not None and not (isinstance(sh, dict) and isinstance(sh.get("at"), (int, float))):
+            errs.append(f"scenes[{i}]._house.shift needs an 'at' time (\"@word\")")
+        for what, v in (("_house.key", hs.get("key")), ("_house.shift.to", (sh or {}).get("to") if isinstance(sh, dict) else None)):
+            if v is not None and v not in keys:
+                errs.append(f"scenes[{i}].{what} {v!r}: not a palette key ({', '.join(sorted(keys))})")
+        bg = s.get("background") or {}
+        bp = bg.get("props") or {}
+        for k in ("key", "shiftTo"):
+            if bp.get(k) is not None and bp[k] not in keys:
+                errs.append(f"scenes[{i}].background.props.{k} {bp[k]!r}: not a palette key ({', '.join(sorted(keys))})")
+        if bp.get("look") == "legacy":
+            errs.append(f"scenes[{i}].background: look 'legacy' is the old flat style; operator episodes use the house look")
+        for j, l in enumerate(s.get("layers", [])):
+            where = f"scenes[{i}].layers[{j}]"
+            p = l.get("props") or {}
+            if p.get("look") == "legacy":
+                errs.append(f"{where}: look 'legacy' is the old flat style; operator episodes use the house look")
+            if l.get("shade") is False and l.get("name") in FIGURE_NAMES:
+                warns.append(f"{where} {l.get('name')}: shade false draws the figure flat next to shaded ones")
+            if l.get("name") in DRESSING:
+                l.setdefault("role", "dressing")
+                sk = (l["name"], str(p.get("seed")))
+                if sk in seeds:
+                    errs.append(f"{where} {l['name']} seed {p.get('seed')!r} repeats {seeds[sk]}: identical set dressing "
+                                f"(give every dressing layer its own props.seed)")
+                seeds.setdefault(sk, where)
+            if l.get("type") == "svg" and l.get("role") not in ("dressing", "fx"):
+                w, h = l.get("width") or 0, l.get("height") or 0
+                if isinstance(w, (int, float)) and isinstance(h, (int, float)) and w * h * float(l.get("scale", 1) or 1) ** 2 > 0.08 * 1080 * 1920:
+                    warns.append(f"{where}: a large inline svg is not house-shaded and reads flat; use a kit figure "
+                                 f"(explainer/Creature species) or keep it small / a silhouette")
+    return errs, warns
+
+
+def house_pass(sb: dict, opts: dict | None) -> tuple[dict, list[str], list[str]]:
+    """house look + caption-dup drop + staging check -> (storyboard, errors, warnings)"""
+    from . import house, staging
+    for sc in sb["scenes"]:
+        for j, l in enumerate(sc.get("layers", [])):
+            l["_src"] = j            # shots.json layer index, so staging messages point at the layer to fix
+    sb = house.apply(sb, opts)
+    sb["_built"]["style"] = "house (Lantern & Ink): pipeline/episodes/house.py"
+    warnings = []
+    dropped = drop_caption_dups(sb)
+    if dropped:
+        warnings.append(f"dropped {len(dropped)} on-screen label(s) that repeated the caption under them: {dropped}")
+    msgs = staging.check(sb)
+    by_id = {sc["id"]: (i, sc) for i, sc in enumerate(sb["scenes"])}
+
+    def where(m: str) -> str:
+        sid = m.split(" ", 1)[0]
+        if sid not in by_id:
+            return m
+        i, sc = by_id[sid]
+
+        def sub(x):
+            k = int(x.group(2))
+            ls = sc.get("layers", [])
+            src = ls[k].get("_src") if k < len(ls) else None
+            return f"{x.group(1)} (shots scenes[{i}].layers[{src}])" if src is not None else f"{x.group(1)} (house set)"
+        return re.sub(r"([\w/]+)#(\d+)", sub, m)
+
+    warnings += [f"staging: {where(m)}" for m in msgs if staging.is_warning(m)]
+    errors = [f"staging: {where(m)}" for m in msgs if not staging.is_warning(m)]
+    for sc in sb["scenes"]:
+        for l in sc.get("layers", []):
+            l.pop("_src", None)
+    return sb, errors, warnings
+
+
 FIGURE_NAMES = {f"explainer/{n}" for n in ("SpermWhale ColossalSquid Orca GreatWhite BlueWhale Anglerfish Octopus Crocodile "
                                            "Hippo Grizzly Diver You Bus Car Elephant GolfCart Sauropod Jet Seal Cookiecutter").split()}
 
@@ -303,6 +432,10 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     names, species = kit_components()
     errors += check_components(built, names, species)
     warnings += layout_warnings(built)
+    if niche == "explainer":
+        e, w = house_vocab(shots, built)
+        errors += e
+        warnings += w
     # captions: emphasis (explicit list, else the niche's auto rule) + phrase-boundary pages
     for w in words:
         w.pop("emph", None)
@@ -326,7 +459,7 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     holds = check_holds(slug, built, limit) if limit != 3.0 else check_holds(slug, built)
     if holds:
         warnings.append(f"visual holds over {limit:g} s (add a layer/keyframe/camera key in that window): " + "; ".join(holds))
-    if errors or check_only:
+    if errors:
         return errors, warnings
     paging = dict(getattr(mod, "CAPTION_PAGING", None) or {})
     if shots.get("glue") and niche != "explainer":
@@ -334,9 +467,16 @@ def build(slug: str, check_only: bool = False, zod: bool = True) -> tuple[list, 
     sb = storyboard(slug, meta, built, words, total, mod.CAPTIONS, mod.OVERLAYS, source, paging)
     sb["_built"]["by"] = "pipeline/episodes/auto.py (shots.json)"
     if niche == "explainer":
-        dropped = drop_caption_dups(sb)
-        if dropped:
-            warnings.append(f"dropped {len(dropped)} on-screen label(s) that repeated the caption under them: {dropped}")
+        # the live look (Lantern & Ink) + the staging/collision checker; --check runs it too, so collisions surface
+        # while shots.json is being written
+        sb, e, w = house_pass(sb, shots.get("house"))
+        errors += e
+        warnings += w
+    else:
+        for s in sb["scenes"]:
+            s.pop("_house", None)
+    if errors or check_only:
+        return errors, warnings
     path = os.path.join(ep, "storyboard.json")
     tmp = path + ".tmp"  # validate first, replace only on PASS (F03): a failed build keeps the last good file
     with open(tmp, "w") as f:

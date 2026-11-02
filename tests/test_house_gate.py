@@ -67,5 +67,44 @@ class Storyboard(unittest.TestCase):
         self.assertEqual(c["status"], "WARN")
 
 
+class AutoVocabulary(unittest.TestCase):
+    """pipeline/episodes/auto.py: the house-style shots vocabulary and the house pass for operator episodes"""
+
+    def scene(self, layers, **kw):
+        return {"id": "p01", "duration": 5.0, "background": {"type": "component", "name": "explainer/Ocean",
+                                                              "props": {"depth": 30}}, "layers": layers, **kw}
+
+    def test_vocab_errors(self):
+        from pipeline.episodes import auto
+        kelp = {"type": "component", "name": "explainer/Kelp", "x": "50%", "y": "80%", "width": 400, "height": 900,
+                "props": {"seed": "a"}}
+        sc = [self.scene([kelp, dict(kelp)], _house={"key": "neon", "bogus": 1, "shift": {"to": "warm"}}),
+              self.scene([], background={"type": "component", "name": "explainer/Ocean", "props": {"look": "legacy"}})]
+        errs, warns = auto.house_vocab({"house": {"pod": "orca", "sparkle": True}}, sc)
+        text = "\n".join(errs)
+        for want in ("house.sparkle", "_house.bogus", "'neon'", "needs an 'at'", "identical set dressing", "legacy"):
+            self.assertIn(want, text)
+        self.assertEqual(sc[0]["layers"][0]["role"], "dressing")
+
+    def test_house_keys_from_the_kit(self):
+        from pipeline.episodes import auto
+        self.assertTrue({"tide", "warm", "danger", "ink", "dusk"} <= auto.house_keys())
+
+    def test_house_pass_lights_dresses_and_maps_staging_to_shots(self):
+        from pipeline.episodes import auto
+        orca = {"type": "component", "name": "explainer/Orca", "x": "50%", "y": "40%", "width": 900, "height": 400,
+                "props": {"pxPerM": 100}}
+        car = {"type": "component", "name": "explainer/Car", "x": "50%", "y": "40%", "width": 450, "height": 200,
+               "props": {"pxPerM": 100}}
+        sb = {"format": "9:16", "fps": 30, "scenes": [self.scene([orca, car]), self.scene([dict(orca)], id="p02")],
+              "captions": {"words": []}, "overlays": {}, "_built": {}}
+        out, errs, warns = auto.house_pass(sb, None)
+        self.assertTrue(all(s.get("light") for s in out["scenes"]))
+        self.assertTrue(any(l.get("name") == "explainer/Reef" for l in out["scenes"][0]["layers"]))
+        self.assertIn("house", out["_built"]["style"])
+        self.assertTrue(any("[hero]" in e and "shots scenes[0].layers[1]" in e for e in errs), errs)
+        self.assertFalse(any("_src" in l for s in out["scenes"] for l in s["layers"]))
+
+
 if __name__ == "__main__":
     unittest.main()
