@@ -1,0 +1,301 @@
+{
+ "v": 1,
+ "source_id": "2d6Ciu3INeA",
+ "url": "https://www.youtube.com/watch?v=2d6Ciu3INeA",
+ "platform": "youtube",
+ "format": "short",
+ "title": "What If You Grew 1cm Every Second?",
+ "channel": "What If",
+ "views": 3324843,
+ "outlier_score": 69.27,
+ "duration_s": 172,
+ "picked_at": "2026-11-02T08:05:26Z",
+ "pick": {
+  "rank": null,
+  "score": 10.383,
+  "reasons": [
+   "views 3,324,843",
+   "outlier 69.27",
+   "short",
+   "transcript",
+   "corpus"
+  ],
+  "candidates_considered": 60
+ },
+ "topic": "grew 1cm second",
+ "kit_component": null,
+ "corpus_file": "research/corpus/explainer/2d6Ciu3INeA.md",
+ "transcript_file": "research/corpus/explainer/raw/2d6Ciu3INeA.txt",
+ "annotation": "research/corpus/explainer/INDEX.json",
+ "angle": "You grow at a tiny constant rate and each time jump is paired with a landmark of your new size, from street damage to galaxy scale, until you are bigger than everything measurable.",
+ "hook": {
+  "code": "H13",
+  "shape": "Tiny rate, huge outcome",
+  "first_speech_s": 2.0,
+  "words": 12,
+  "source_first_line_words": 12
+ },
+ "beats": [
+  {
+   "i": 0,
+   "label": "HOOK",
+   "playbook": "S1",
+   "t0": 0,
+   "t1": 9,
+   "pct0": 0.0,
+   "pct1": 5.2,
+   "device": "premise as conditional + two time-stamped proofs",
+   "purpose": ""
+  },
+  {
+   "i": 1,
+   "label": "RUNG 1",
+   "playbook": "S3",
+   "t0": 9,
+   "t1": 20,
+   "pct0": 5.2,
+   "pct1": 11.6,
+   "device": "first landmark + ground damage",
+   "purpose": ""
+  },
+  {
+   "i": 2,
+   "label": "REALITY",
+   "playbook": "S6",
+   "t0": 20,
+   "t1": 34,
+   "pct0": 11.6,
+   "pct1": 19.8,
+   "device": "honest square-cube answer",
+   "purpose": ""
+  },
+  {
+   "i": 3,
+   "label": "WAIVER",
+   "playbook": "S4",
+   "t0": 34,
+   "t1": 39,
+   "pct0": 19.8,
+   "pct1": 22.7,
+   "device": "re-hook: ignore it, keep growing",
+   "purpose": ""
+  },
+  {
+   "i": 4,
+   "label": "RUNG 2",
+   "playbook": "S3",
+   "t0": 39,
+   "t1": 58,
+   "pct0": 22.7,
+   "pct1": 33.7,
+   "device": "giant act: landmark, panic, military",
+   "purpose": ""
+  },
+  {
+   "i": 5,
+   "label": "RUNG 3-4",
+   "playbook": "S3",
+   "t0": 58,
+   "t1": 84,
+   "pct0": 33.7,
+   "pct1": 48.8,
+   "device": "record ladder: tower, building, mountain, clouds",
+   "purpose": ""
+  },
+  {
+   "i": 6,
+   "label": "RUNG 5",
+   "playbook": "S3",
+   "t0": 84,
+   "t1": 97,
+   "pct0": 48.8,
+   "pct1": 56.4,
+   "device": "edge of space + re-hook",
+   "purpose": ""
+  },
+  {
+   "i": 7,
+   "label": "RUNG 6",
+   "playbook": "S3",
+   "t0": 97,
+   "t1": 121,
+   "pct0": 56.4,
+   "pct1": 70.3,
+   "device": "planetary, identity line",
+   "purpose": ""
+  },
+  {
+   "i": 8,
+   "label": "RUNG 7-8",
+   "playbook": "S3",
+   "t0": 121,
+   "t1": 143,
+   "pct0": 70.3,
+   "pct1": 83.1,
+   "device": "stellar and solar system",
+   "purpose": ""
+  },
+  {
+   "i": 9,
+   "label": "RUNG 9-10",
+   "playbook": "S3",
+   "t0": 143,
+   "t1": 172,
+   "pct0": 83.1,
+   "pct1": 100.0,
+   "device": "+ VERDICT galaxy, universe, loop cut, no CTA",
+   "purpose": ""
+  }
+ ],
+ "pacing": {
+  "wpm": 152,
+  "avg_shot_s": null,
+  "rehook_s": 9.0
+ },
+ "skeleton": [
+  {
+   "i": 0,
+   "label": "HOOK",
+   "playbook": "S1",
+   "from_beats": [
+    0
+   ],
+   "target_pct0": 0.0,
+   "target_pct1": 4.6,
+   "target_s": [
+    0.0,
+    3.5
+   ],
+   "device": "premise as conditional + two time-stamped proofs"
+  },
+  {
+   "i": 1,
+   "label": "STAKES",
+   "playbook": "S2",
+   "from_beats": [],
+   "target_pct0": 4.6,
+   "target_pct1": 6.4,
+   "target_s": [
+    3.5,
+    4.8
+   ],
+   "device": "two numbers (a count and a multiple of something feared) or you as rung 0 (PLAYBOOK default)"
+  },
+  {
+   "i": 2,
+   "label": "RUNG1",
+   "playbook": "S3",
+   "from_beats": [
+    1
+   ],
+   "target_pct0": 6.4,
+   "target_pct1": 12.0,
+   "target_s": [
+    4.8,
+    9.0
+   ],
+   "device": "first landmark + ground damage"
+  },
+  {
+   "i": 3,
+   "label": "RUNG2",
+   "playbook": "S3",
+   "from_beats": [
+    1
+   ],
+   "target_pct0": 12.0,
+   "target_pct1": 17.5,
+   "target_s": [
+    9.0,
+    13.1
+   ],
+   "device": "first landmark + ground damage (second rung, one notch worse)"
+  },
+  {
+   "i": 4,
+   "label": "TURN",
+   "playbook": "S4",
+   "from_beats": [],
+   "target_pct0": 17.5,
+   "target_pct1": 19.4,
+   "target_s": [
+    13.1,
+    14.6
+   ],
+   "device": "4-7 word false reassurance or 'not the worst part' line, background change on the next word (PLAYBOOK default)"
+  },
+  {
+   "i": 5,
+   "label": "PEAK",
+   "playbook": "S5",
+   "from_beats": [],
+   "target_pct0": 19.4,
+   "target_pct1": 21.2,
+   "target_s": [
+    14.6,
+    15.9
+   ],
+   "device": "the worst outcome or the big reveal, through a joke or a euphemism (PLAYBOOK default)"
+  },
+  {
+   "i": 6,
+   "label": "TWIST",
+   "playbook": "S6",
+   "from_beats": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "target_pct0": 21.2,
+   "target_pct1": 53.6,
+   "target_s": [
+    15.9,
+    40.2
+   ],
+   "device": "honest square-cube answer + re-hook: ignore it, keep growing + giant act: landmark, panic, military + record ladder: tower, building, mountain, clouds"
+  },
+  {
+   "i": 7,
+   "label": "TWIST",
+   "playbook": "S6",
+   "from_beats": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "target_pct0": 53.6,
+   "target_pct1": 98.2,
+   "target_s": [
+    40.2,
+    73.7
+   ],
+   "device": "edge of space + re-hook + planetary, identity line + stellar and solar system + + VERDICT galaxy, universe, loop cut, no CTA"
+  },
+  {
+   "i": 8,
+   "label": "STINGER",
+   "playbook": "S7",
+   "from_beats": [],
+   "target_pct0": 98.2,
+   "target_pct1": 100.0,
+   "target_s": [
+    73.7,
+    75.0
+   ],
+   "device": "end on the strongest word; last frame matches the first so it loops; no CTA (PLAYBOOK default)"
+  }
+ ],
+ "target": {
+  "runtime_s": [
+   65,
+   85
+  ],
+  "words": [
+   180,
+   210
+  ]
+ },
+ "heatmap_file": null
+}

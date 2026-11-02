@@ -73,6 +73,11 @@ BIOMES: dict[str, dict] = {
     "map": {"water": False, "floor": False, "depth": (0, 0), "keys": (), "dressing": set(), "ambient": set(),
             "lights": LIGHTS},
 }
+# land / air / space places (lane C what-if Shorts): no water, no ocean dressing; the scene draws its own world as the
+# background component (e.g. explainer/GrowWorld), which house.py leaves alone for place scenes
+for _b in ("home", "town", "city", "mountains", "sky", "space"):
+    BIOMES[_b] = {"water": False, "floor": False, "depth": (0, 0), "keys": (), "dressing": set(), "ambient": set(),
+                  "lights": LIGHTS}
 # water boards (blue, navy) are the owner's pick for the orca look (experiments/asset-gen/gen/orca_set_01/02/07)
 BOARD_FIELDS = ("navy", "blue", "cyan", "violet", "ink", "dusk", "kelp", "amber", "coral", "sky")
 
@@ -106,10 +111,14 @@ HABITAT: dict[str, dict] = {
     "you": {"biomes": {"open_ocean", "polar_ice", "kelp_forest", "coastal_surface", "tropical_reef"}, "depth": (0, 60)},
     # vehicles / land animals are compared on a board (cars floating in mid-water: ORCA_V2_AUDIT I9)
     "car": {"biomes": set(), "depth": (0, 0)}, "bus": {"biomes": set(), "depth": (0, 0)},
-    "golfCart": {"biomes": set(), "depth": (0, 0)}, "jet": {"biomes": set(), "depth": (0, 0)},
+    "golfCart": {"biomes": set(), "depth": (0, 0)}, "jet": {"biomes": {"sky"}, "depth": (0, 0)},
     "elephant": {"biomes": set(), "depth": (0, 0)}, "hippo": {"biomes": set(), "depth": (0, 0)},
     "grizzly": {"biomes": set(), "depth": (0, 0)}, "sauropod": {"biomes": set(), "depth": (0, 0)},
 }
+# people and vehicles on land (lane C what-if Shorts)
+HABITAT["you"]["biomes"] |= {"home", "town", "city", "mountains", "sky", "space"}
+for _sp in ("car", "bus"):
+    HABITAT[_sp]["biomes"] = HABITAT[_sp]["biomes"] | {"town", "city"}
 # kit pieces that only exist in one kind of place
 PROP_BIOMES = {"explainer/Sailboat": {"coastal_surface", "open_ocean"}, "explainer/IceFloe": {"polar_ice"}}
 
