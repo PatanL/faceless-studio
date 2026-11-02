@@ -97,12 +97,25 @@ export const Orca: React.FC<{
 
 	if (lod === 'far') {
 		const col = silColor ?? tint('ink-1');
+		// a distant orca keeps its white eye patch, belly and grey saddle (plane-hazed, so low contrast): a flat
+		// one-colour far orca read as a shark (ORCA_V2_AUDIT I2). A builder silhouette (silColor) stays flat.
+		const marks = silColor === undefined;
 		return (
 			<g>
 				<path d={PEC} transform={pecFar} fill={col} />
 				<path d={w(FLUKE)} fill={col} />
 				<path d={w(dorsal)} fill={col} />
 				<path d={w(BODY)} fill={col} />
+				{marks ? (
+					<g clipPath={`url(#${id}-fc)`}>
+						<clipPath id={`${id}-fc`}>
+							<path d={w(BODY)} />
+						</clipPath>
+						<path d={w(BELLY)} fill={tint('bone-1')} />
+						<path d={w(SADDLE)} fill={tint('bone-0')} opacity={0.55} />
+						<path d={w(EYE_PATCH)} fill={tint('bone-2')} />
+					</g>
+				) : null}
 				<path d={PEC} transform={pecNear} fill={col} />
 			</g>
 		);

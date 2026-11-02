@@ -10,7 +10,8 @@
  *   fore haze 0.8 toward ink-0: dark cropped silhouettes; give the layer `blur` 6-14 and depth 1.3-1.6
  * Put far/mid layers at depth 0.3 / 0.6 so the kit camera's parallax separates them.
  *
- *   explainer/Kelp        n stalks along the bottom: props n, seed, height [min,max] (fraction of box), blade, silhouette, lean
+ *   explainer/Kelp        n stalks along the bottom: props n, seed, height [min,max] (fraction of box), blade, silhouette, lean,
+ *                         golden (golden-brown giant / bamboo kelp instead of green)
  *   explainer/FishSchool  props n, seed, speed, scale, dir (1 | -1), tints
  *   explainer/Jellies     props n, seed, size [min,max] px, colors, rise (px/s): each jelly a different design
  *   explainer/Rocks       props n, seed, life (urchins/anemones/shells, default true)
@@ -82,6 +83,7 @@ export const KelpForest: KitComponent = ({props: p, time, width, height}) => {
 							blade={num(p.blade, 1) * (0.8 + rand(`${seed}b`, i) * 0.4)}
 							silhouette={p.silhouette === true}
 							lean={num(p.lean, 0) + (rand(`${seed}l`, i) - 0.5) * 14}
+							golden={p.golden === true}
 						/>
 					);
 				})

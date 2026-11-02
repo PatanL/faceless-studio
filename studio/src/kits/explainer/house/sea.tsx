@@ -23,7 +23,7 @@ type P = [number, number];
 
 // ---------------------------------------------------------------- kelp
 
-export const Kelp: React.FC<{seed: string; x: number; y: number; h: number; t: number; segs?: number; blade?: number; silhouette?: boolean; lean?: number}> = ({
+export const Kelp: React.FC<{seed: string; x: number; y: number; h: number; t: number; segs?: number; blade?: number; silhouette?: boolean; lean?: number; golden?: boolean}> = ({
 	seed,
 	x,
 	y,
@@ -33,6 +33,7 @@ export const Kelp: React.FC<{seed: string; x: number; y: number; h: number; t: n
 	blade = 1,
 	silhouette = false,
 	lean = 0,
+	golden = false,
 }) => {
 	// Seeded variation (judge orca_open_v3 2.5: "every kelp leaf is the same with a ring node"): per stalk a leaf family
 	// (lance / wavy / broad) and a tint; per leaf its own length, width, curl and side, random gaps, and a gas
@@ -41,7 +42,8 @@ export const Kelp: React.FC<{seed: string; x: number; y: number; h: number; t: n
 	const L = useLight();
 	const R = rng(`${seed}-kelp`);
 	const style = Math.floor(R() * 3);
-	const tints = ['kelp-3', 'kelp-2', mixOk(c('kelp-3'), c('ochre-3'), 0.4)];
+	// golden: the golden-brown of real giant / bamboo kelp (Ecklonia at Gansbaai; art direction orca_set_03)
+	const tints = golden ? [mixOk(c('ochre-3'), c('amber-2'), 0.45), mixOk(c('ochre-2'), c('amber-1'), 0.4), mixOk(c('ochre-3'), c('kelp-3'), 0.3)] : ['kelp-3', 'kelp-2', mixOk(c('kelp-3'), c('ochre-3'), 0.4)];
 	const pts: P[] = [[x, y]];
 	let ang = -90 + lean;
 	let px = x;
@@ -53,7 +55,7 @@ export const Kelp: React.FC<{seed: string; x: number; y: number; h: number; t: n
 		py += Math.sin((ang * Math.PI) / 180) * segL;
 		pts.push([px, py]);
 	}
-	const stipeCol = tint(silhouette ? 'ink-1' : 'kelp-1');
+	const stipeCol = tint(silhouette ? 'ink-1' : golden ? mixOk(c('ochre-1'), c('kelp-1'), 0.4) : 'kelp-1');
 	const bladeBase = tint(silhouette ? 'ink-1' : tints[Math.floor(R() * tints.length)]);
 	const bladeShadow = silhouette ? bladeBase : shadowOf(bladeBase, tint(L.ambient), 0.38);
 	const bladeHi = silhouette ? bladeBase : mixOk(bladeBase, tint(L.keyColor), 0.2);

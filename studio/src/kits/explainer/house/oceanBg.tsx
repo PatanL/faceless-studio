@@ -3,7 +3,9 @@
  * explainer/Ocean; `look: "legacy"` draws the previous flat-teal kit background.
  *
  *   key       field ramp: "tide" (sunlit shallows), "mid" (open water), "deep" (ink, night), "kelp", "dusk", "sky",
- *             "warm" (a lantern-lit proof/scale beat), "danger" (coral sinking to ink: threat beats). Default from depth: < 30 m tide, < 200 m mid, else deep.
+ *             "warm" (a lantern-lit proof/scale beat), "danger" (coral sinking to ink: threat beats), "royal" (open ocean: royal
+ *             blue), "polar" (clear
+ *             cold sea: blue under the surface sinking to indigo). Default from depth: < 30 m tide, < 200 m mid, else deep.
  *   shiftTo   the colour shift (mandatory at the scale/turn beat): the field blends to this key in OKLab over
  *   shiftAt   `shiftDur` s (default 0.8) starting at `shiftAt` (scene s). Consecutive scenes should also change key.
  *   depth     m (number or track): darkens the field toward ink and fades the rays, as before.
@@ -34,6 +36,12 @@ export const KEYS: Record<string, string[]> = {
 	warm: ['amber-5', '#e8b45a', 'tide-3', 'tide-1', 'tide-0', 'ink-4'],
 };
 KEYS.ink = KEYS.deep;
+// open ocean (art direction experiments/asset-gen/gen/orca_set_01/04/05: flat bold royal blue, owner's pick): cyan under
+// the surface sinking to deep navy
+KEYS.royal = ['#38b6f4', '#1f78e6', '#1652d4', '#1240b4', '#0c2c8a', '#071a5c'];
+// polar sea (settings biome polar_ice; art direction experiments/asset-gen/gen/f_antarctic_v3.png): clear cold water,
+// bright blue under the surface sinking to deep indigo, no seabed, no warm stops
+KEYS.polar = [mixOk('sky-1', 'dusk-4', 0.4), 'dusk-4', mixOk('dusk-3', 'dusk-2', 0.4), 'dusk-2', 'dusk-1', 'dusk-0'];
 // danger re-key (shark / kill beats, colour script carries meaning): coral water sinking to ink; every stop is a
 // coral -> dusk/ink mix, so it stays inside the palette (P1)
 KEYS.danger = [mixOk('coral-3', 'dusk-2', 0.5), mixOk('coral-2', 'dusk-1', 0.55), mixOk('coral-1', 'dusk-1', 0.62), mixOk('coral-0', 'ink-1', 0.62), mixOk('coral-0', 'ink-0', 0.8), 'ink-0'];
@@ -104,8 +112,8 @@ export const HouseOcean: KitComponent = ({props, time, width: W, height: H}) => 
 					<stop offset="1" stopColor={rgba(c('ink-0'), num(props.vignette, 0.5))} />
 				</radialGradient>
 				<linearGradient id={`${id}-sky`} x1="0" y1="0" x2="0" y2="1">
-					<stop offset="0" stopColor={str(props.skyTop, c('dusk-1'))} />
-					<stop offset="1" stopColor={str(props.skyBottom, c('dusk-3'))} />
+					<stop offset="0" stopColor={c(str(props.skyTop, 'dusk-1'))} />
+					<stop offset="1" stopColor={c(str(props.skyBottom, 'dusk-3'))} />
 				</linearGradient>
 			</defs>
 			<rect x={0} y={sy} width={W} height={H - sy} fill={`url(#${id}-bg)`} />

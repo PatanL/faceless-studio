@@ -13,6 +13,7 @@
  *               `shade: false` opts out), the orca is the engine hero, explainer/Ocean is the palette background.
  *               set dressing explainer/Kelp FishSchool Jellies Rocks Reef Seabed Ridge Pod (house/dressing.tsx)
  *               light + micro explainer/Specks Glow LightEvent (house/fx.tsx)
+ *               place rigs explainer/Board IceField IceFloe Coast (house/places.tsx; per-scene settings)
  *
  * See README.md in this folder for props.
  */
@@ -24,6 +25,7 @@ import {Balance, ECG} from './balance';
 import {Sailboat} from './orca_kit';
 import {Jellies, KelpForest, Pod, Reef, RidgeLayer, Rocks, School, SeabedLayer} from './house/dressing';
 import {Glow, LightEvent, Specks} from './house/fx';
+import {Board, Coast, IceField, IceFloe} from './house/places';
 
 registerComponent('explainer/Ocean', Ocean);
 registerComponent('explainer/DepthMeter', DepthMeter);
@@ -83,3 +85,8 @@ registerComponent('explainer/Pod', Pod);
 registerComponent('explainer/Specks', Specks);
 registerComponent('explainer/Glow', Glow);
 registerComponent('explainer/LightEvent', LightEvent);
+// place rigs for the per-scene settings (pipeline/episodes/settings.py): boards, polar ice, coasts
+registerComponent('explainer/Board', Board);
+registerComponent('explainer/IceField', IceField);
+registerComponent('explainer/IceFloe', IceFloe);
+registerComponent('explainer/Coast', Coast);

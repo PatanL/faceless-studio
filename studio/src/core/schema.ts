@@ -434,6 +434,10 @@ export const Scene = z.object({
 	grade: Grade.optional(),
 	sfx: z.array(SfxCue).default([]).describe('Scene-local sound cues'),
 	notes: z.string().optional().describe('Narration / intent, ignored by the renderer'),
+	setting: z
+		.any()
+		.optional()
+		.describe('Where the scene takes place (pipeline/episodes/settings.py): drives the house rig and set dressing; ignored by the renderer'),
 	light: SceneLight.optional().describe('One light model for every shaded object in the scene (explainer house style)'),
 	captionY: z.number().min(0).max(1).optional().describe('Caption centre (fraction of height) while this scene plays; overrides captions.style.y'),
 	captionYAt: z
