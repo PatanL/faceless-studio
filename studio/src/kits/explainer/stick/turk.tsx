@@ -19,8 +19,8 @@
  *   pieces      true (default): pieces on the board
  *   char        0..1 burnt (darkens to indigo ash);  fire 0..1 flames over it
  *   dark        0..1 the inside is dark except the candle's pool of light
- *   smoke       0..1 the candle's smoke: a dotted trail from the hidden candle up through the body (on the cutaway) and
- *               puffs curling out of the top of the turban
+ *   smoke       0..1 the candle's smoke: a dotted trail from the hidden candle up the Turk's back to the neck (on the
+ *               cutaway; it never crosses the face) and puffs curling out of the top of the turban
  */
 import React from 'react';
 import type {KitComponentProps} from '../../../core/registry';
@@ -170,9 +170,13 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 		return {x: px + vx * dt, y: py + vy * dt + 1700 * dt * dt, s, r: dt * (320 + i * 40), o: dt > 1.0 ? 0 : 1, white};
 	});
 
+	// the hidden master lowers his hand to the lever as it engages: a pose track, so PersonBody blends it (no snap)
+	const leverKeys = arr<{t: number; v: number}>(props.lever).filter((k) => typeof k.t === 'number' && typeof k.v === 'number');
+	const leverOn = leverKeys.find((k) => k.v >= 0.5);
+	const restPose = props.masterCandle ? 'holdHigh' : 'hold';
 	const masterProps = {
 		costume: 'master', face: props.masterFace ?? 'focus',
-		pose: lever > 0.5 ? 'hold' : props.masterCandle ? 'holdHigh' : 'hold',
+		pose: leverOn ? [{t: 0, v: restPose}, {t: Math.max(0, leverOn.t - 0.35), v: 'hold'}] : lever > 0.5 ? 'hold' : restPose,
 		item: props.masterCandle ? 'candle' : 'none', seated: true, seed: 7, look: 0.5, crouch: 1,
 	};
 	const mx = lerp(150, 470, seat);
@@ -267,9 +271,10 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 				<rect x={400} y={642} width={360} height={180} fill={tint(c('ink-1'))} />
 				{candle > 0 && (
 					<g opacity={candle} stroke="none">
-						<rect x={140} y={642} width={240} height={180} fill={c('amber-3')} opacity={0.3} />
-						<rect x={400} y={642} width={360} height={180} fill={c('amber-3')} opacity={0.32} />
-						<rect x={430} y={672} width={300} height={120} rx={40} fill={c('amber-4')} opacity={0.3} />
+						{/* the candle is held into the left bay: the light pools there and spills into the right one */}
+						<rect x={140} y={642} width={240} height={180} fill={c('amber-3')} opacity={0.42} />
+						<circle cx={260} cy={735} r={110} fill={c('amber-4')} opacity={0.35} />
+						<rect x={400} y={642} width={360} height={180} fill={c('amber-3')} opacity={0.16} />
 					</g>
 				)}
 				{cut <= 0 && gears}
@@ -358,7 +363,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 			{smoke > 0 && (
 				<g stroke="none">
 					{cut > 0.5 && (
-						<path d={`M ${f(candleXY[0])} ${f(candleXY[1] - 40)} C ${f(candleXY[0] + 10)} 560 ${f(330)} 520 300 430 S 300 200 300 92`}
+						<path d={`M ${f(candleXY[0])} ${f(candleXY[1] - 40)} C ${f(candleXY[0] + 10)} 600 430 560 420 470 S 410 360 404 330`}
 							fill="none" stroke={c('bone-1')} strokeWidth={9} strokeDasharray="4 22" strokeLinecap="round"
 							strokeDashoffset={-t * 60} opacity={0.85 * smoke} />
 					)}
@@ -371,7 +376,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 				</g>
 			)}
 			{fire > 0 &&
-				[[200, 600], [420, 420], [620, 600], [300, 300], [520, 880], [760, 700]].map(([x, y], i) => (
+				[[200, 600], [460, 430], [620, 600], [150, 330], [520, 880], [760, 700]].map(([x, y], i) => (
 					<Flame key={i} x={x} y={y} s={(0.9 + (i % 3) * 0.35) * clamp(fire * 1.5 - i * 0.08)} t={t} k={i} />
 				))}
 			</g>

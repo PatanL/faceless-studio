@@ -110,8 +110,8 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 		.sort((a, b) => a.t - b.t);
 	// board state at time t. Each move: the hand travels in from off-board over LEAD s, carries the piece for dur s, then
 	// leaves over OUT s; hands of consecutive moves may overlap (one leaves while the next arrives), pieces never pop.
-	const LEAD = 0.3;
-	const OUT = 0.35;
+	const LEAD = 0.45; // 13 frames in, decelerating onto the piece
+	const OUT = 0.7; // 21 frames out, slow start: the hand eases off the board, never whips
 	const pos: Record<string, string> = {...setup};
 	const flying: {kind: string; a: P2; b: P2; k: number; s0: number; s1: number}[] = [];
 	const hands: {hand: string; x: number; y: number; s: number; o: number}[] = [];
@@ -139,7 +139,7 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 			const kin = clamp((t - m.t + LEAD) / LEAD);
 			const out = clamp((t - m.t - dur) / OUT);
 			hands.push({hand: m.hand, x: lerp(A.p[0], B.p[0], e), y: lerp(A.p[1], B.p[1], e) - Math.sin(e * Math.PI) * 120,
-				s: lerp(A.s, B.s, e), o: Math.max(easeInOut(out), 1 - easeInOut(kin))});
+				s: lerp(A.s, B.s, e), o: Math.max(out * out, 1 - easeOut(kin))});   // the exit starts slow (quadratic in): it eases off the board
 		}
 	}
 	const sweepAt = when(props.sweep);
@@ -190,8 +190,8 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 			y={lerp(p.a[1], p.b[1], e) - Math.sin(e * Math.PI) * 120} s={lerp(p.s0, p.s1, e)} />;
 	});
 	const handNode = hands.map((h, i) =>
-		h.hand === 'turk' ? <TurkHand key={`h${i}`} x={h.x + h.o * 620} y={h.y - 96 * h.s - h.o * 760} s={h.s * 1.1} />
-			: <HumanHand key={`h${i}`} x={h.x + 10 - h.o * 420} y={h.y - 40 * h.s + h.o * 950} s={h.s * 1.1} />);
+		h.hand === 'turk' ? <TurkHand key={`h${i}`} x={h.x + h.o * 420} y={h.y - 96 * h.s - h.o * 560} s={h.s * 1.1} />
+			: <HumanHand key={`h${i}`} x={h.x + 10 + h.o * 420} y={h.y - 40 * h.s + h.o * 820} s={h.s * 1.1} />);   // from the player's side (bottom right)
 	return (
 		<svg viewBox="0 0 1000 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{overflow: 'visible'}}>
 			<defs>
