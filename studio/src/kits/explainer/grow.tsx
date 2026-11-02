@@ -685,7 +685,7 @@ const FONT_A = C.condensed;
 const Level: React.FC<{v: View; it: Item}> = ({v, it}) => {
 	const y = Y(v, num(it.alt, 0));
 	if (y < -20 || y > v.H + 20) return null;
-	const k = typeof it.at === 'number' ? clamp((v.t - it.at) / 0.3) : 1;
+	const k = (typeof it.at === 'number' ? clamp((v.t - it.at) / 0.3) : 1) * (typeof it.until === 'number' ? clamp((it.until - v.t) / 0.25) : 1);
 	if (k <= 0) return null;
 	const text = str(it.text, '');
 	const tw = text.length * 26 + 40;
@@ -799,7 +799,7 @@ const You: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => {
 	const W = (bw / bh) * H;
 	const pose = sched(p.pose, v.t, 'pose', 'stand');
 	const face = sched(p.face, v.t, 'face', 'calm');
-	const blink = arr<Record<string, unknown>>(p.face).some((e) => typeof e.at === 'number' && e.at > 0 && v.t >= e.at - 0.03 && v.t < e.at + 0.04);
+	const blink = false; // a blink on the change read as closed-eye bliss (r2 review): expressions cut like the shots
 	const top = str(p.color, c('amber-1'));
 	const ctx: DrawCtx = {t: v.t, p: {pose, color: top, outline: top, style: 'filled'}, id: 'growYou', idle: true, speed: 1, amp: 1};
 	const ctxSh: DrawCtx = {...ctx, sil: c('amber-0')};
@@ -968,7 +968,7 @@ const XrayLabels: React.FC<{v: View; p: Record<string, unknown>}> = ({v, p}) => 
 			const bob = Math.sin((v.t - xr.weightAt) * 9) * 10;
 			// arrows ride the head; they leave with it when the camera pushes past (never pinned to the screen)
 			for (let i = 0; i < 3; i++) {
-				if (top - 30 < topSafe + 130) break;
+				if (top - 150 < 0.14 * v.H) break;
 				const ax = cx + (i - 1) * W * 0.32;
 				const ay = top - 30 - (i === 1 ? 20 : 0) + bob * (i === 1 ? 1 : 0.6);
 				out.push(<path key={`ar${i}`} d={`M ${ax - 40} ${ay - 120} L ${ax + 40} ${ay - 120} L ${ax + 40} ${ay - 60} L ${ax + 70} ${ay - 60} L ${ax} ${ay} L ${ax - 70} ${ay - 60} L ${ax - 40} ${ay - 60} Z`} fill={c('coral-2')} opacity={Math.min(1, k)} />);
@@ -1048,7 +1048,7 @@ export const GrowHud: KitComponent = ({props: p, time, width: W, height: H}) => 
 				<g>
 			<rect x={x + pw / 2 - 2} y={y + 22} width={4} height={ph - 44} fill={c('dusk-3')} />
 			{/* clock icon, or fast-forward when the first minute plays sped up */}
-			{p.ff === true ? (
+			{p.ff === true && time < num(p.ffUntil, 1e9) ? (
 				<path d={`M ${x + 36} ${y + ph / 2 - 22} L ${x + 60} ${y + ph / 2} L ${x + 36} ${y + ph / 2 + 22} Z M ${x + 62} ${y + ph / 2 - 22} L ${x + 86} ${y + ph / 2} L ${x + 62} ${y + ph / 2 + 22} Z`} fill={c('amber-4')} />
 			) : (
 				<g>
