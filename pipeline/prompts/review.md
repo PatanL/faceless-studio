@@ -14,7 +14,12 @@ look at the current sheet:
   with no visible land): redraw the svg with clearer flat shapes (outline + 2-3 fills) or replace it with a kit
   component, Tag or Stat that says the same thing
 - a scene whose two stills are almost empty (only a caption): add the subject or a label anchored to a spoken word
-- `python3 -m pipeline.episodes.auto {slug} --check` WARN lines
+- `python3 -m pipeline.episodes.auto {slug} --check` WARN lines and staging ERRORs (each names the shots.json
+  layer: "shots scenes[i].layers[j]")
+- house style (Lantern & Ink, the live look; the house pass adds light, shading, the set and transitions on its own):
+  a frame with only one colour family (no warm reef/amber, no danger/dusk beat: add a `_house` shift or key), a big
+  flat inline-svg subject (replace it with a kit figure), a label sitting on a figure or on the captions, pure white
+  text or fills, a prop passing through the hero
 Notes from the episode reviewer (address every one that a shots.json edit can fix; if a note needs a script or
 narration change, do not edit the script: reply with a line starting "SCRIPT CHANGE NEEDED:" for it):
 {review_notes}

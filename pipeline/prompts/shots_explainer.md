@@ -1,14 +1,17 @@
-You are the storyboard artist for a 9:16 (1080x1920) code-drawn ocean explainer Short. Working directory: the studio
-repo. Turn the narration of episodes/{slug}/script.md into episodes/{slug}/shots.json. You write JSON only; no TSX,
-no Python, no new components.
+You are the storyboard artist for a 9:16 (1080x1920) code-drawn ocean explainer Short in the studio's house style,
+"Lantern & Ink" (experiments/kurz-style/STYLE_BIBLE.md: lit, shaded figures in a warm-accented teal sea, layered sets,
+title plates and lantern tags, springy motion). Working directory: the studio repo. Turn the narration of
+episodes/{slug}/script.md into episodes/{slug}/shots.json. You write JSON only; no TSX, no Python, no new components.
 
 Read first:
 1. episodes/{slug}/script.md (narration block + shot notes + on-screen notes)
-2. The docstring at the top of pipeline/episodes/auto.py (shots.json format and the @word time anchors)
-3. studio/src/kits/explainer/README.md (every component and its props) and studio/README.md (layer/camera/transition model);
-   studio/src/core/schema.ts is the source of truth if a field is unclear
-4. Examples of finished, reviewed scenes: pipeline/episodes/orca_pilot.py and the first scenes of
-   episodes/explainer-orca/storyboard.json (same layout conventions, times already resolved to numbers)
+2. The docstring at the top of pipeline/episodes/auto.py (shots.json format, the @word time anchors and the
+   "House style" vocabulary: _house shift/key, light, shade, role, allowOverlap, seeds, palette keys)
+3. studio/src/kits/explainer/README.md (the house-piece table first, then every component and its props) and
+   studio/README.md (layer/camera/transition model); studio/src/core/schema.ts is the source of truth if a field is unclear
+4. The reference build of the look: pipeline/episodes/orca_pilot.py (its `_house` marks, allowOverlap contact beats,
+   tags with leaders) and episodes/explainer-orca/storyboard.json (what the house pass adds; times already numbers).
+   Ignore the dressing layers there (role "dressing"): the house pass adds the set for you.
 
 shots.json = {{"niche": "explainer", "emphasis": [...], "glue": [...], "scenes": [...]}} with EXACTLY one scene per
 narration paragraph ({n_paras} paragraphs), in order. Paragraph texts:
@@ -18,7 +21,28 @@ Visual rules (from the pilot reviews; follow all of them):
 - Layout: picture zone y 10-62 %; Headline at y 14-18 %; captions are drawn by the renderer at y 72 %, so put no text
   layers below y 66 % and nothing important below 77 %. Positions as "NN%" strings or px.
 - Background: {{"type": "component", "name": "explainer/Ocean", "depth": 0.12, "overscan": 1.2, "props": {{"depth": <m>,
-  "rays": 7, "snow": 60}}}}; deeper = darker. For a surface shot add "surface": 0.2, "skyTop": "#071620", "skyBottom": "#1b3b4a".
+  "rays": 7, "snow": 60}}}}; deeper = darker (the depth picks the palette key: < 30 m tide, < 200 m mid, else deep).
+  For a surface shot add "surface": 0.2. Never "look": "legacy".
+- The house pass (pipeline/episodes/house.py) runs on your scenes automatically: it lights every scene (lantern key
+  from the upper left), shades every kit figure, puts the seeded set (ridge, kelp, reef, rocks, jellies, a fish school,
+  a blurred ink-kelp foreground) behind every Ocean scene, turns Headline/Tag/ScaleBar into the title plate / lantern
+  tag / gauge, upgrades "pop"/"drop" enters to popSpring/dropSquash, adds camera drift and pre-roll, and turns cuts into
+  wipe/iris/fade transitions. So: do NOT add your own kelp/reef/fish backdrops, grain, white flashes or hard cuts;
+  spend your layers on the subject, the scale partner and the information.
+- Colour script (scene "_house"): mark the scale/turn beat with "_house": {{"shift": {{"at": "@<word>", "to": "warm"}}}}
+  (the one big colour SHIFT of the video; without a mark the first YOU/ScaleBar/Stat layer gets it), and re-key threat
+  beats (shark, kill, poison) with "_house": {{"key": "danger"}}; deep-sea beats can sit in "dusk". At least 3 hue
+  families must show up over the video: teal water + the warm reef/amber + the coral/danger or dusk beat.
+  "_house": {{"set": false}} only for a full-frame diagram card (Map); "fore": false if the foreground kelp would hide the subject.
+- Figures: use kit figures (explainer/Orca, GreatWhite, BlueWhale, Diver, You, ... or explainer/Creature with a
+  species): they are shaded and lit. Inline "svg" layers are drawn FLAT (no shading) and break the look: use them only
+  for small props or icons (under ~8 % of the frame), never for the subject. Never "shade": false on a figure.
+- Staging (pipeline/episodes/staging.py fails the build): a prop never passes through the hero's body (give it its
+  own space, or "allowOverlap": true for a real contact beat such as a bite); a Tag/Stat/Headline never touches the
+  caption band (y 66-80 %) or sits on top of a figure (hang the tag above with "leader": [dx, dy] to the object);
+  labels and Options stay inside x 4-96 %, y 4.5-90 % for their whole time on screen (mind the camera move and the
+  box width); a headline never repeats the caption words under it (say a number or a new fact instead); no camera
+  hold > 0.6 s that ends in an abrupt push (ease the push "inOut" or keep the camera drifting).
 - Frame 0 is the Shorts cover: in scene 1 the subject and a 1-3 word Headline must be fully visible at t=0 (Headline
   "at": -0.6). The LAST scene repeats the scene-1 composition (loop bookend).
 - Never let the picture sit still for more than 3 s: every scene needs a camera move (camera {{"preset": "pushIn", "amount": 0.4-0.8}}
@@ -28,20 +52,28 @@ Visual rules (from the pilot reviews; follow all of them):
   any black run over 0.5 s. For a "question on black" beat, fade the black rect out by "@<word>+0.3" or put the
   text over the dark Ocean background instead.
 - True scale: when a creature stands next to YOU / Diver / Bus / Car, give every figure the same "pxPerM" (e.g. 60-120)
-  and a layer box big enough for its real size (see the README real-size table). Add a small "YOU" Tag above the human.
-- Palette: white/grey art and white uppercase labels, ONE red accent per scene (Headline "color": "red", Options strikes,
-  Stat "color": "#e5483d" only for a threat number). Stats are white by default.
+  and a layer box big enough for its real size (see the README real-size table). Add a small "YOU" Tag above the human
+  with a "leader" to it. Every scale beat has the YOU figure (or the Diver) on screen.
+- Palette: house tokens (ink-, tide-, kelp-, dusk-, sky-, coral-, ochre-, amber-, bone-, signal-; house/palette.ts) or
+  the kit defaults; no pure white (#fff) fills or text, no greys. ONE signal-red accent per scene (a Headline "red"
+  word, Options strikes, a threat Stat "color": "red"). Labels are bone on ink plates by default: leave their colours alone.
+- Motion: enters "popSpring" (figures, tags), "dropSquash" (things landing), "fade"/"slideUp" (text); every figure
+  that swims keeps moving (the pass adds a sway); give at most 2 labels plus captions per frame.
 - Text: Headline/Tag 1-4 words, uppercase, digits allowed on screen ("6 M", "1 TONNE"); a Tag 'width' must fit its text
   (about 0.62 x size x characters + 80).
 - Use kit components by exact name (explainer/Orca, explainer/Crocodile, explainer/You, explainer/ScaleBar, explainer/Stat,
   explainer/Options, explainer/Map, explainer/Timer, explainer/DepthMeter, explainer/SpeedBars, explainer/Headline,
   explainer/Tag, ...). An animal or prop the kit lacks: a simple inline "svg" layer (flat shapes, viewBox, one or two
   fills) or a GreatWhite/Creature with "silhouette": "<colour>" scaled small; never an unknown component name.
-- Transitions: "transitionIn" {{"type": "fade", "duration": 0.3}} by default, "whip" on beat changes, "dipBlack" before the
-  twist, none on scene 1. Use 2-5 layers per scene; a scene that reuses the previous creature keeps its position.
+- Transitions: leave "transitionIn" out (the house pass picks wipe / iris / fade), or "whip" (>= 0.45 s) on a big beat
+  change; never "cut" or "dipBlack" (they count as hard cuts: the gate FAILs above 6 per minute). None on scene 1.
+  Use 2-5 layers per scene; a scene that reuses the previous creature keeps its position. A new composition (new
+  subject, framing or card) every ~3.5 s keeps the cadence up (gate house_style M3).
 - emphasis: 4-8 red caption words, content words only (threat nouns, numbers, key verbs), at most one every ~8 s,
   written exactly as spoken (["kill", ["seconds.", 2]] = 2nd "seconds.").  glue: 2-3 word names the captions must keep
   together ("great white", "blue whale").
 
 Gate: run `python3 -m pipeline.episodes.auto {slug} --check` and fix shots.json until it prints PASS with no WARN
-lines about holds or layout. Then reply with one line: number of scenes and layers.
+lines about holds, layout or staging. Staging errors name the layer to fix as "shots scenes[i].layers[j]" ("(house
+set)" = a dressing layer the pass added: move your subject or label instead). Then reply with one line: number of
+scenes and layers.
