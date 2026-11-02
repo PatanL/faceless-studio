@@ -78,7 +78,10 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
   const { fps } = useVideoConfig();
   const sb = useMemo(() => {
     const s = parseStoryboard(storyboard);
-    if (s.captions) s.captions = { ...s.captions, style: { ...s.captions.style, fontSize: CAP_SIZE, maxWidth: CAP_W } };
+    if (s.captions) {
+      const words = s.captions.words.map((w, i) => (i === 0 && w.start < 0.4 ? { ...w, start: 0 } : w));   // frame 0 is the cover: it carries the first words
+      s.captions = { ...s.captions, words, style: { ...s.captions.style, fontSize: CAP_SIZE, maxWidth: CAP_W } };
+    }
     return s;
   }, [storyboard]);
   const { timings } = useMemo(() => sceneTimings(sb), [sb]);
@@ -130,7 +133,7 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);   // 0..1 smear
   // directional travel: the outgoing shot whips off to the left, the incoming one arrives from the right
   const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
-  const blur = 28 * Math.sqrt(k), sc = 1 + 0.14 * k, tx = dir * 0.1 * k * 1080;
+  const blur = 13 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
   const op = n > 0 && frame < half + OV / 2 ? (frame - (half - OV / 2) + 1) / (OV + 1) : 1;  // the incoming shot fades in under the smear
   const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
   return (
