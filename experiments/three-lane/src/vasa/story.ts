@@ -230,9 +230,9 @@ export function buildStory(T: Timing): VasaStory {
         // high enough that the hull side (the port rows) is foreshortened out of the caption band
         // the whole crew as a column up the frame (bow quarter, high): every runner inside, big enough to read
         // low, under the yards; the column ends above the caption band (b 0.62), which falls on open deck
-        { ...fit(0, [strip(0, 0, 14)], 86, 32, 38, { b: 0.62, t: 0.28, x: 0.04 }, oth(0)), drift: 0.4 },
-        fit(tB, [strip(tB, 0, 14)], 104, 24, 38, { b: 0.62, t: 0.28, x: 0.04 }, oth(tB)),
-        fit(over, [strip(over, 0, 14)], 78, 30, 40, { b: 0.62, t: 0.28, x: 0.04 }, oth(over)),
+        // two angles, one glide (v15 measured 10.15 camera moves per 10 s with three keys; refs 5.1-9.6)
+        { ...fit(0, [strip(0, 0, 14)], 104, 26, 38, { b: 0.62, t: 0.28, x: 0.04 }, oth(0)), drift: 0.4 },
+        { ...fit(tB + 0.6, [strip(tB + 0.6, 0, 14)], 80, 36, 40, { b: 0.66, t: 0.28, x: 0.04 }, oth(tB + 0.6)), glide: 1.4, drift: 0.3 },
       ];
     }));
   }
@@ -308,7 +308,7 @@ export function buildStory(T: Timing): VasaStory {
   }
   // ================= G6 nobody wants to tell the king his masterpiece wobbles
   const tWob = w(4, "wobbles") - 0.15;
-  const wobbleHeel = (t: number) => ramp(t, S(4), tWob - 0.4, 0.07, 0.2) * Math.cos((2 * Math.PI * (t - tWob)) / 1.6);
+  const wobbleHeel = (t: number) => ramp(t, S(4), tWob - 0.4, 0.07, 0.2) * Math.cos((2 * Math.PI * (t - tWob)) / 2.2);
   const letters = w(4, "his", 2) - 0.1;
   {
     const t0 = S(4), t1 = letters;
@@ -542,8 +542,7 @@ export function buildStory(T: Timing): VasaStory {
       cam: [
         fit(S(10), [bottleBox], 8, 10, 38, { b: 0.42 }),                         // the bottle with sand floats upright
         fit(heavyW, [[BT[0] - 0.95, 0, BT[2] - 0.4, BT[0] + 0.1, 1.5, BT[2] + 0.4]], 4, 6, 34, { b: 0.42 }),   // heavy low, light on top
-        fit(secOn, [secBox], 6, 8, 38, { b: 0.38, x: 0.08 }),                   // the Vasa's section, built upside down
-        fit(bronze, [secBox], 12, 9, 38, { b: 0.38, x: 0.08 }),                  // tons of bronze up high
+        fit(secOn, [secBox], 8, 8, 38, { b: 0.38, x: 0.08 }),                   // the Vasa's section, built upside down, tons of bronze
       ],
       people: [], rigs: [explainRig], avoid: (t) => (t < secOn ? [bottleBox] : [secBox]) });
   }

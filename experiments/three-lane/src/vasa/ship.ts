@@ -79,7 +79,8 @@ export class Ship {
     this.group.add(this.body);
     const oak = lambert({ map: hullPlanks([6, 1]), side: THREE.DoubleSide });
     const hull = new THREE.Mesh(hullGeometry(), oak); hull.castShadow = true; hull.receiveShadow = true; this.body.add(hull);
-    const deckMat = lambert({ map: hullPlanks([1, 6], 7), side: THREE.DoubleSide });
+    // a shade lighter than the hull (v15: the deck now fills the hook and the ending; luma measured 0.313 vs >= 0.314)
+    const deckMat = lambert({ map: hullPlanks([1, 6], 7), side: THREE.DoubleSide, color: "#ffe2bc" });
     const deck = new THREE.Mesh(deckGeometry(), deckMat); deck.receiveShadow = true; this.body.add(deck);
     const red = lambert({ color: "#b8352a" }), gold = lambert({ color: "#e0aa36" }), dark = lambert({ color: "#1a1424" });
     const bronze = lambert({ color: "#9a6b2c" }), wood = lambert({ color: "#5b3a22" }), rope = lambert({ color: "#3a2a1c" });

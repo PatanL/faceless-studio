@@ -105,6 +105,8 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
     const cx = W / 2, top = y * H - bandH, bot = y * H + bandH, area = 4 * half * bandH;
     let worst = 0, at = p.start;
     for (let t = p.start; t < p.end; t += 2 / FPS) {
+      // frames inside a whip are smeared (blur up to 16 px): nothing under the caption reads there, so skip them
+      if (groups.some((q, qi) => qi > 0 && q.xfade > 0 && Math.abs(t - q.t0) < q.xfade / 2)) continue;
       const g = [...groups].reverse().find((q) => t >= q.t0 - 1e-6) ?? groups[0];
       const c = paths.get(g)!.at(t);
       cam.fov = c.fov; cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
