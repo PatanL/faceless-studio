@@ -51,36 +51,45 @@ P = {"piano": (0, 0), "celesta": (0, 8), "glock": (0, 9), "musicbox": (0, 10), "
      "fingerbass": (0, 33), "synthbass": (0, 39), "cello": (0, 42), "contrabass": (0, 43), "tremolo": (0, 44),
      "pizz": (0, 45), "harp": (0, 46), "timpani": (0, 47), "strings": (0, 48), "slowstrings": (0, 49),
      "synthstrings": (0, 50), "choir": (0, 52), "fantasia": (0, 88), "warmpad": (0, 89), "bowedglass": (0, 92),
-     "halopad": (0, 94), "crystal": (0, 98), "atmosphere": (0, 99), "kalimba": (0, 108), "taiko": (0, 116),
+     "halopad": (0, 94), "soundtrack": (0, 97), "crystal": (0, 98), "atmosphere": (0, 99), "kalimba": (0, 108), "taiko": (0, 116),
      "kit": (128, 48), "stdkit": (128, 0)}
 
 # moods: key offset from the episode tonic, progression [(degree semitones, quality)] one chord per bar, instruments
 # per layer, arp pattern / rate, the velocity scale and the base intensity. Layers by intensity:
 #   0 pad + sub + motif/sparse arp | 1 + arp + bass | 2 + pulse | 3 + percussion, arp doubled
 MOODS = {
-    "curious": {"key": 0, "prog": [(0, "maj9"), (2, "add9"), (9, "min7"), (5, "maj7")],
-                "pad": ["warmpad", "slowstrings"], "arp": ["celesta", "harp"], "pulse": "harp", "bass": "fingerbass",
-                "bells": "glock", "pattern": "rolling", "rate": 2, "base": 1, "perc": "soft"},
-    "board": {"key": 0, "prog": [(0, "add9"), (7, "maj"), (9, "min7"), (5, "add9")],
-              "pad": ["synthstrings"], "arp": ["marimba", "kalimba"], "pulse": "pizz", "bass": "pizz",
-              "bells": "glock", "pattern": "updown", "rate": 2, "base": 1, "staccato": True, "perc": "shaker",
-              "prog_alt": [(9, "min7"), (5, "add9"), (0, "add9"), (7, "sus4")]},
-    "tense": {"key": 0, "prog": [(0, "min"), (0, "min"), (8, "maj"), (10, "maj")],
-              "pad": ["slowstrings"], "arp": ["celesta", "vibes"], "pulse": "strings", "bass": "contrabass",
-              "bells": "glock", "pattern": "ostinato", "rate": 2, "base": 2, "perc": "timpani",
-              "prog_alt": [(0, "min"), (10, "maj"), (8, "maj"), (7, "maj")]},
-    "cold": {"key": 0, "prog": [(0, "madd9"), (10, "add9"), (7, "sus2"), (9, "7sus4")],
-             "pad": ["bowedglass", "halopad"], "arp": ["vibes", "crystal"], "pulse": "harp", "bass": "contrabass",
-             "bells": "crystal", "pattern": "wide", "rate": 2, "base": 1, "perc": "timpani"},
-    "warm": {"key": 3, "prog": [(0, "add9"), (4, "min7"), (9, "min7"), (5, "maj7")],
-             "pad": ["slowstrings", "choir"], "arp": ["piano", "harp"], "pulse": "harp", "bass": "cello",
-             "bells": "celesta", "pattern": "broken", "rate": 2, "base": 1, "perc": None},
-    "question": {"key": 0, "prog": [(5, "maj7"), (7, "sus4"), (5, "maj7"), (7, "7sus4")],
-                 "pad": ["halopad", "warmpad"], "arp": ["musicbox", "celesta"], "pulse": "pizz", "bass": None,
-                 "bells": "musicbox", "pattern": "sparkle", "rate": 1, "base": 1, "perc": None},
-    "deep": {"key": 0, "prog": [(0, "min9"), (5, "min7"), (8, "maj7"), (7, "min")],
-             "pad": ["atmosphere", "slowstrings"], "arp": ["vibes", "celesta"], "pulse": "harp", "bass": "contrabass",
-             "bells": "vibes", "pattern": "wide", "rate": 1, "base": 1, "perc": None},
+    # progressions from the Epic Mountain soundtracks (research/music/KURZ_MUSIC.md section 8): modal, slow (two bars a
+    # chord), tonic-centred with sus2/sus4/maj7 colour, no V7-I cadences; pads are synth pads (warm/halo/soundtrack
+    # sit closest to the reference pads), plucks are soft (piano / harp / celesta doubled by a pad, long room)
+    "curious": {"key": 0, "prog": [(0, "sus2"), (0, "maj7"), (8, "maj7"), (10, "add9")],        # I-bVImaj7-bVII (Deep Sea)
+                "prog_alt": [(0, "maj7"), (6, "maj7"), (0, "maj7"), (7, "sus4")],                # Imaj7-#IVmaj7 (Peto's)
+                "pad": ["warmpad", "halopad"], "arp": ["piano", "harp"], "double": "warmpad", "pulse": "harp",
+                "bass": "fingerbass", "bells": "celesta", "pattern": "rolling", "rate": 2, "base": 1, "perc": "soft",
+                "pedal": True},
+    "board": {"key": 0, "prog": [(0, "add9"), (7, "min7"), (10, "maj7"), (0, "sus4")],          # I-v7-bVIImaj7-Isus4 (Friends)
+              "prog_alt": [(9, "min7"), (5, "maj7"), (0, "add9"), (7, "sus4")],
+              "pad": ["soundtrack", "warmpad"], "arp": ["harp", "musicbox"], "double": None, "pulse": "pizz",
+              "bass": "pizz", "bells": "celesta", "pattern": "updown", "rate": 2, "base": 1, "staccato": True,
+              "perc": "shaker"},
+    "tense": {"key": 0, "prog": [(0, "min"), (8, "maj"), (7, "sus4"), (7, "maj")],             # i-bVI-V (Autoimmune)
+              "prog_alt": [(0, "min"), (3, "maj"), (7, "min"), (5, "min")],                     # i-bIII-v-iv (Opt. Nihilism)
+              "pad": ["halopad", "atmosphere"], "arp": ["celesta", "piano"], "double": None, "pulse": "strings",
+              "bass": "contrabass", "bells": "celesta", "pattern": "ostinato", "rate": 2, "base": 2, "perc": "timpani"},
+    "cold": {"key": 0, "prog": [(0, "sus2"), (3, "maj7"), (0, "sus2"), (7, "min")],            # Isus2-bIIImaj7 (Deep Sea)
+             "pad": ["halopad", "atmosphere"], "arp": ["celesta", "musicbox"], "double": "halopad", "pulse": "harp",
+             "bass": "contrabass", "bells": "musicbox", "pattern": "wide", "rate": 2, "base": 1, "perc": "timpani",
+             "pedal": True},
+    "warm": {"key": 3, "prog": [(0, "maj7"), (8, "maj7"), (5, "maj7"), (0, "maj7")],          # Imaj7-bVImaj7 (You vs Cancer)
+             "pad": ["warmpad", "soundtrack"], "arp": ["piano", "harp"], "double": "warmpad", "pulse": "harp",
+             "bass": "cello", "bells": "celesta", "pattern": "broken", "rate": 2, "base": 1, "perc": None},
+    "question": {"key": 0, "prog": [(0, "maj7"), (6, "maj7"), (0, "maj7"), (7, "sus4")],      # Lydian float (Peto's)
+                 "pad": ["halopad", "warmpad"], "arp": ["musicbox", "celesta"], "double": None, "pulse": "pizz",
+                 "bass": None, "bells": "musicbox", "pattern": "sparkle", "rate": 1, "base": 1, "perc": None,
+                 "pedal": True},
+    "deep": {"key": 0, "prog": [(0, "madd9"), (1, "maj7"), (0, "min"), (8, "maj7")],          # i-bIImaj7 (Phrygian)
+             "pad": ["atmosphere", "halopad"], "arp": ["piano", "celesta"], "double": "halopad", "pulse": "harp",
+             "bass": "contrabass", "bells": "celesta", "pattern": "wide", "rate": 1, "base": 1, "perc": None,
+             "pedal": True},
 }
 PATTERNS = {  # chord-tone indexes per arp step (None = rest)
     "rolling": [0, 2, 1, 3, 2, 4, 3, 1], "updown": [0, 1, 2, 3, 4, 3, 2, 1], "ostinato": [0, 0, 2, 0, 1, 0, 2, 3],
@@ -99,7 +108,11 @@ ANSWER = re.compile(r"\b(the|our|my)\s+(\w+\s+)?answer\s+(is|was)\b", re.I)
 # same phrase, so presets of different loudness sit at their role level and the velocities keep their dynamics)
 ROLE_LUFS = {"pad": -22.0, "arp": -26.0, "pulse": -27.0, "bass": -25.0, "motif": -24.5, "bells": -28.0,
              "perc": -26.0, "stab": -30.0, "shaker": -39.0}
-INTENSITY_DB = {0: -3.5, 1: -1.5, 2: 0.0, 3: 1.5}
+# Kurz Shorts keep the music flatter than long form (short-term range median ~4 dB vs 9-12)
+INTENSITY_DB = {0: -2.5, 1: -1.0, 2: 0.0, 3: 1.0}
+BPM = 117.5          # 4 of 6 Epic Mountain soundtracks sit at 117.5 BPM (the others 103-123)
+MIN_CUE, MAX_CUE = 6.0, 17.0
+MAX_STINGS, MAX_DROPS, MAX_RISERS = 3, 2, 2
 REF_KEYS = {"pad": [50, 57, 62, 65], "arp": [74, 79, 81, 86], "motif": [74, 79, 81, 86], "bells": [86, 91],
             "pulse": [50, 57], "bass": [38, 45], "perc": [38, 50], "stab": [38, 45, 50], "shaker": [82]}
 
@@ -196,7 +209,8 @@ def find_reveals(words: list[dict], sfx_cues: list[dict]) -> list[dict]:
     return sorted(keep, key=lambda r: r["t"])
 
 
-def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[dict] | None = None) -> dict:
+def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[dict] | None = None,
+         transitions: bool = False) -> dict:
     import copy
     from pipeline.episodes import settings as S
     tl = [r for r in S.timeline(sb) if r["t0"] < total - 0.05]
@@ -225,33 +239,49 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
         txt = text_in(r["t0"], r["t1"] if st.get("kind") != "map" else (tl[i + 1]["t1"] if i + 1 < len(tl) else r["t1"]))
         runs.append({"t0": r["t0"], "t1": r["t1"], "kind": st.get("kind"), "mood": mood_of(base, txt), "text": text_in(r["t0"], r["t1"]),
                      "place": st.get("place")})
-    # 2) runs -> cues: merge same-mood neighbours up to 16 s; short runs (< 4 s, not the hook) join the next cue
+    # 2) runs -> cues. Kurzgesagt Shorts hold a cue ~12-17 s (3.5 sections/min, 4-6 per Short) while the picture
+    #    changes 10-20x/min: same-mood neighbours merge up to MAX_CUE s, then any cue under MIN_CUE s joins a neighbour
+    #    (a map card the place it names, else the same-mood or the shorter neighbour; the longer part keeps its mood)
     cues: list[Cue] = []
     for i, r in enumerate(runs):
         seg = (r["t0"], r["t1"], r["kind"])
-        if cues and r["kind"] != "map" and (cues[-1].mood == r["mood"] and r["t1"] - cues[-1].t0 <= 16.0 or
-                     (cues[-1].t1 - cues[-1].t0 < 4.0 and cues[-1].role != "hook" and i > 0)):
+        if cues and cues[-1].mood == r["mood"] and r["t1"] - cues[-1].t0 <= MAX_CUE and r["kind"] != "map":
             c = cues[-1]
-            if c.t1 - c.t0 < 4.0 and c.mood != r["mood"] and c.role != "hook":
-                c.mood = r["mood"]  # a short lead-in (map card) takes the following place's mood
             c.t1 = r["t1"]
             c.segs.append(seg)
             c.text += " " + r["text"]
             continue
-        cues.append(Cue(r["t0"], r["t1"], r["mood"], MOODS[r["mood"]]["base"], segs=[seg], text=r["text"],
-                        role="hook" if i == 0 else ""))
-    # a final short cue (< 3 s) folds into the previous one unless it is the loop bookend
-    if len(cues) > 2 and cues[-1].t1 - cues[-1].t0 < 3.0 and not loop:
-        cues[-2].t1 = cues[-1].t1
-        cues[-2].segs += cues[-1].segs
-        cues.pop()
+        cues.append(Cue(r["t0"], r["t1"], r["mood"], MOODS[r["mood"]]["base"], segs=[seg], text=r["text"]))
+
+    def merge(i, j):  # merge cue j into cue i (adjacent), the longer one keeps its mood
+        a, b = (cues[i], cues[j]) if i < j else (cues[j], cues[i])
+        mood = a.mood if (a.t1 - a.t0) >= (b.t1 - b.t0) else b.mood
+        a.t1, a.segs, a.text, a.mood = b.t1, a.segs + b.segs, a.text + " " + b.text, mood
+        a.intensity = MOODS[mood]["base"]
+        cues.remove(b)
+    while True:
+        last_ok = loop and len(cues) > 2  # the loop bookend may stay short
+        short = [k for k, c in enumerate(cues) if c.t1 - c.t0 < MIN_CUE and not (last_ok and k == len(cues) - 1)]
+        if not short or len(cues) == 1:
+            break
+        k = min(short, key=lambda q: cues[q].t1 - cues[q].t0)
+        c = cues[k]
+        nb = [q for q in (k - 1, k + 1) if 0 <= q < len(cues) and not (last_ok and q == len(cues) - 1 and k != q)]
+        if not nb:
+            break
+        if c.segs[0][2] == "map" and k + 1 < len(cues):
+            q = k + 1
+        else:
+            same = [q for q in nb if cues[q].mood == c.mood]
+            q = same[0] if same else min(nb, key=lambda q: cues[q].t1 - cues[q].t0)
+        merge(min(k, q), max(k, q))
     # 2b) a long run (> 18 s, one place held while the narration moves on) is split into ~12 s sections at sentence
     #     starts: same mood, a new colour, and every other section breathes one intensity step down (Kurz: ~15 s cues)
     sent_starts = [x["s"] for x in sentences(words)]
     split: list[Cue] = []
     for c in cues:
         parts = [c]
-        while parts[-1].t1 - parts[-1].t0 > 18.0:
+        while parts[-1].t1 - parts[-1].t0 > MAX_CUE + 1.0:
             last = parts[-1]
             cands = [t for t in sent_starts if last.t0 + 9.0 <= t <= last.t1 - 6.0]
             if not cands:
@@ -274,9 +304,8 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
             b.segs.insert(0, (t, b.segs[0][0], "pivot"))
     # 4) intensity: base by mood, a repeated mood escalates and changes colour, tension past 40 % climbs one more
     for i, c in enumerate(cues):
-        if c.role == "section":  # a split section breathes: alternate one step down
-            c.intensity = max(1, cues[i - 1].intensity - 1) if cues[i - 1].role != "section" or \
-                cues[i - 1].intensity >= c.intensity else min(3, cues[i - 1].intensity + 1)
+        if c.role == "section":  # a split section builds in the first 60 % of the Short, breathes after it
+            c.intensity = min(3, cues[i - 1].intensity + 1) if c.t0 < 0.6 * total else max(1, cues[i - 1].intensity - 1)
             c.role = ""
             continue
         if i and cues[i - 1].mood == c.mood:
@@ -287,16 +316,16 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
         if c.mood == "cold" and TENSION.search(c.text):
             c.intensity = 2
     hook = cues[0]
-    hook.role = "hook"
-    hook.intensity = 0
+    hook.role = "hook"  # Kurz Shorts: the music is at (near) full level from frame 0 (7 of 10 within 0.15 s)
+    hook.intensity = max(1, hook.intensity - 1) if hook.mood != "question" else hook.intensity
     if loop:
         last = cues[-1]
         if last is not hook:
             last.role = "bookend"
-            last.mood, last.intensity, last.variant = hook.mood, 0, 0
+            last.mood, last.intensity, last.variant = hook.mood, hook.intensity, 0
     # 5) keys and chords (one per bar on a per-cue beat grid that lands every boundary on a downbeat)
     tonic = 2  # D: the house key (moods move relative to it)
-    beat0 = 60.0 / 108.0
+    beat0 = 60.0 / BPM
     for c in cues:
         m = MOODS[c.mood]
         c.key = (tonic + m["key"]) % 12
@@ -304,15 +333,19 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
         nb = max(2, int(round(dur / beat0)))
         beat = dur / nb
         prog = list(m["prog_alt"] if (c.variant % 2 and "prog_alt" in m) else m["prog"])
-        if c.role == "bookend":  # end on the chord that leads back into bar 1 of the hook
-            n_bars = max(1, int(np.ceil(nb / 4)))
-            prog = [prog[(k - n_bars) % len(prog)] for k in range(n_bars)]
         bars = [4] * (nb // 4)
         r = nb % 4
         if r == 1 and bars:
             bars[-1] = 5          # never a 1-beat bar: the last bar stretches
         elif r:
             bars.append(r)
+        # harmonic rhythm: Epic Mountain chords last a median 4-10 beats (2-5 s); two bars per chord once a cue has 4+
+        if len(bars) >= 4 and c.role != "bookend":
+            bars = [sum(bars[i:i + 2]) for i in range(0, len(bars), 2)]
+            if len(bars) > 1 and bars[-1] < 4:
+                bars[-2] += bars.pop()
+        if c.role == "bookend":  # end on the chord that leads back into bar 1 of the hook
+            prog = [prog[(k - len(bars)) % len(prog)] for k in range(len(bars))]
         t = c.t0
         for k, bl in enumerate(bars):
             deg, q = prog[k % len(prog)]
@@ -327,13 +360,13 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
             continue
         near_b = any(abs(r["t"] - b) < 0.35 for b in boundaries)
         # stings: strong reveals >= 4 s apart; punch lines (1.5) too when >= 8 s from any other sting
-        if (r["prio"] >= 2.0 and all(abs(r["t"] - s["t"]) >= 4.0 for s in stings)) or \
-                (r["prio"] >= 1.5 and all(abs(r["t"] - s["t"]) >= 8.0 for s in stings)):
+        if len(stings) < MAX_STINGS and ((r["prio"] >= 2.0 and all(abs(r["t"] - s["t"]) >= 6.0 for s in stings)) or
+                                         (r["prio"] >= 1.5 and all(abs(r["t"] - s["t"]) >= 10.0 for s in stings))):
             stings.append({"t": r["t"], "why": r["why"], "prio": r["prio"], "on_boundary": near_b})
         # drop-outs (Kurz: 0.3-1.3 s, under the end of the set-up line, 1.6/min): before sentence-opening reveals and
         # answers, >= 14 s apart, never in the hook
-        if (r["prio"] >= 2.0 and (r["at_sentence_start"] or r["why"].startswith("answer"))
-                and all(abs(r["t"] - d["t1"]) >= 14.0 for d in drops) and r["t"] > 8.0):
+        if (len(drops) < MAX_DROPS and r["prio"] >= 2.0 and (r["at_sentence_start"] or r["why"].startswith("answer"))
+                and all(abs(r["t"] - d["t1"]) >= 20.0 for d in drops) and r["t"] > 8.0):
             drops.append({"t0": round(r["t"] - 0.6, 3), "t1": round(r["t"] - 0.02, 3), "why": r["why"]})
     stings.sort(key=lambda s: s["t"])
     drops.sort(key=lambda d: d["t0"])
@@ -343,17 +376,32 @@ def plan(sb: dict, words: list[dict], total: float, loop: bool, sfx_cues: list[d
     risers = []
     for a, b in zip(cues[:-1], cues[1:]):
         jump = b.intensity - a.intensity
-        rise = jump > 0 or (b.mood == "tense" and a.mood != "tense") or a.role == "hook"
+        rise = jump > 0 or (b.mood == "tense" and a.mood != "tense")
         if not rise or b.role == "bookend":
             continue
         if any(d["t0"] - 0.1 <= b.t0 <= d["t1"] + 0.3 for d in drops):
             continue  # a drop-out already sets this moment up
-        big = a.role == "hook" or jump >= 2 or (b.mood in ("tense", "cold") and a.mood not in ("tense", "cold"))
+        big = jump >= 2 or (b.mood in ("tense", "cold") and a.mood not in ("tense", "cold"))
         beat = a.chords[-1][4]
         L = round(min(0.75 * (a.t1 - a.t0), (4 if big else 2) * beat), 2)
         kind = "cymbal" if (big or b.mood in ("tense", "cold")) else "swell"
-        risers.append({"t0": round(b.t0 - L, 3), "t1": b.t0, "len": L, "kind": kind})
+        risers.append({"t0": round(b.t0 - L, 3), "t1": b.t0, "len": L, "kind": kind, "jump": jump + (2 if big else 0)})
+    # Kurz Shorts: risers are rare (median 0/min, max 0.8/min): keep the MAX_RISERS biggest
+    risers = sorted(sorted(risers, key=lambda r: -r["jump"])[:MAX_RISERS], key=lambda r: r["t0"])
+    # motif development: the warm/resolution cue and the climax (highest intensity, latest) in the second half
+    second = [i for i, c in enumerate(cues) if c.t0 >= 0.4 * total and c.role not in ("hook", "bookend")]
+    motif_cues = sorted({i for i in second if cues[i].mood == "warm"} |
+                        ({max(second, key=lambda i: (cues[i].intensity, cues[i].t0))} if second else set()))
+    # R14: setting changes that get a tonal transition hit (not within 0.4 s of a sting or a cue landing)
+    t_hits = []
+    if transitions:
+        starts = [c.t0 for c in cues[1:]]
+        for r in runs[1:]:
+            x = r["t0"]
+            if x < total - 0.5 and all(abs(x - s_["t"]) > 0.4 for s_ in stings) and all(abs(x - b) > 0.3 for b in starts):
+                t_hits.append(round(x, 3))
     return {"total": round(total, 3), "loop": loop, "tonic": tonic, "cues": [c.__dict__ for c in cues],
+            "motif_cues": motif_cues, "transition_hits": t_hits,
             "reveals": reveals, "stings": stings, "drops": drops, "risers": risers,
             "boundaries": boundaries, "settings": [{"t0": r["t0"], "t1": r["t1"], "kind": r["kind"], "mood": r["mood"],
                                                     "place": r["place"]} for r in runs]}
@@ -426,7 +474,11 @@ def arrange(pl: dict, seed: int) -> tuple[Tracks, dict]:
         stacc = m.get("staccato", False)
         travel_until = c.segs[0][1] if c.segs and c.segs[0][2] == "map" and len(c.segs) > 1 else None
         internal = [s[0] for s in c.segs[1:] if s[0] > c.t0 + 0.5]
-        hook = c.role in ("hook", "bookend")
+        hook = c.role in ("hook", "bookend")  # Kurz Shorts start full: the hook only skips pulse and percussion
+        trans_on = bool(pl.get("transition_hits"))
+        cue_beat = c.chords[0][4]
+        late = c.t0 + (4 * cue_beat if c.t1 - c.t0 > 8 * cue_beat else 0.0)   # layers that enter in bar 2
+        tail_cut = c.t1 - 2 * cue_beat if ci < len(cues) - 1 else c.t1         # percussion rests before a new cue
         for bi, (t0, t1, root, q, beat) in enumerate(c.chords):
             n_beats = int(round((t1 - t0) / beat))
             in_travel = travel_until is not None and t0 < travel_until - 0.05
@@ -436,20 +488,20 @@ def arrange(pl: dict, seed: int) -> tuple[Tracks, dict]:
             # --- pad (legato, voice-led)
             vp = voicing(prev_pad, root, q, 50, 74, 4)
             prev_pad = vp
-            pv = 58 + 10 * min(lvl, 3) - (14 if hook else 0) + (6 if c.mood == "question" else 0)
+            pv = 58 + 10 * min(lvl, 3) - (4 if hook else 0) + (6 if c.mood == "question" else 0)
             if not in_travel or ci == 0:
                 for k in vp:
                     tr.add("pad", pad_p, t0, t1 - t0 + 0.06, k, pv, jitter=0.0)
                 if c.mood == "warm" and lvl >= 1:
                     for k in vp[:2]:
                         tr.add("pad", "choir" if pad_p != "choir" else "slowstrings", t0, t1 - t0 + 0.06, k + 12, pv - 18, 0.0)
-            # --- sub (numpy): root in the 40-80 Hz octave
-            sub_k = 28 + ((root - 28) % 12)
-            if True:
-                extra["sub"].append((t0, t1, sub_k, 0.55 if hook else (0.7 if c.mood in ("board", "question") else 1.0)))
+            # --- sub (numpy): root in the 40-80 Hz octave; colour chords (bII, bIII, #IV) sit on a tonic pedal
+            broot = c.key if (m.get("pedal") and (root - c.key) % 12 in (1, 3, 6)) else root
+            sub_k = 28 + ((broot - 28) % 12)
+            extra["sub"].append((t0, t1, sub_k, 0.85 if hook else (0.7 if c.mood in ("board", "question") else 1.0)))
             # --- bass
-            if m["bass"] and lvl >= 1 and not hook:
-                bk = 36 + ((root - 36) % 12)
+            if m["bass"] and lvl >= 1:
+                bk = 36 + ((broot - 36) % 12)
                 if stacc or c.mood == "board":
                     for b in range(0, n_beats, 2):
                         tr.add("bass", m["bass"], t0 + b * beat, beat * 0.8, bk, 84)
@@ -474,20 +526,22 @@ def arrange(pl: dict, seed: int) -> tuple[Tracks, dict]:
                     lo = 79
                 tones = arp_tones(root, q, lo + (12 if (var % 2 and lo < 72) else 0), 19)
                 pat = PATTERNS[m["pattern"]]
-                steps = n_beats * (rate if not hook else 1)
-                step_len = beat / (rate if not hook else 1)
+                steps = n_beats * rate
+                step_len = beat / rate
                 # riser: double-time over the last 2 beats before a riser boundary
                 rz = [r for r in pl["risers"] if t0 < r["t1"] <= t1 + 0.01]
                 for s in range(steps):
                     t = t0 + s * step_len
                     idx = pat[s % len(pat)]
-                    if idx is None or (hook and s % 2 and c.role == "hook" and t < 1.0):
+                    if idx is None:
                         continue
                     k = tones[idx % len(tones)]
                     accent = 10 if s % (2 * rate) == 0 else 0
-                    v = (54 if hook else 62 + 6 * min(lvl, 3)) + accent
+                    v = 62 + 6 * min(lvl, 3) + accent - (4 if hook else 0)
                     dur = step_len * (0.5 if stacc else 1.6)
                     tr.add("arp", arp_p, t, dur, k, v)
+                    if m.get("double") and s % 2 == 0:  # soft-synth pluck: the pad doubles the note (attack + tail)
+                        tr.add("arp", m["double"], t, step_len * 3.0, k, v - 22, 0.0)
                     if lvl >= 3:
                         tr.add("arp", arp_p, t, dur, k + 12, v - 16)
                     for r in rz:
@@ -500,45 +554,61 @@ def arrange(pl: dict, seed: int) -> tuple[Tracks, dict]:
                     acc = [100, 64, 78, 64, 94, 64, 78, 70]
                     for s in range(n_beats * 2):
                         k = pk if s % 4 != 3 else pk + 7
+                        if not (late <= t0 + s * beat / 2 < tail_cut + 2 * beat):
+                            continue
                         tr.add("pulse", m["pulse"] if c.mood == "tense" else "strings", t0 + s * beat / 2, beat * 0.32,
                                k, acc[s % 8] - (6 if lvl == 2 else 0))
                 else:
                     tones = arp_tones(root, q, 55, 14)
                     for b in range(n_beats):
-                        tr.add("pulse", m["pulse"], t0 + b * beat, beat * 0.6, tones[b % len(tones)], 70 + (10 if b % 4 == 0 else 0))
+                        if late <= t0 + b * beat:
+                            tr.add("pulse", m["pulse"], t0 + b * beat, beat * 0.6, tones[b % len(tones)],
+                                   70 + (10 if b % 4 == 0 else 0))
             # --- percussion (intensity 3 / tense 2)
             perc = m.get("perc")
+            ok = lambda t: late <= t < tail_cut  # noqa: E731  (enter in bar 2, rest 2 beats before the next cue)
             if not hook and not in_travel and perc == "timpani" and lvl >= 2:
-                tk = 38 + ((root - 38) % 12)
-                tr.add("perc", "timpani", t0, beat * 1.5, tk, 92 if lvl >= 3 else 80, 0.0)
-                if lvl >= 3:
-                    for b in (1.5, 2.0, 3.5):
-                        if b < n_beats:
-                            tr.add("perc", "taiko", t0 + b * beat, beat, 50, 70 + (12 if b == 2.0 else 0), 0.004)
+                tk = 38 + ((broot - 38) % 12)
+                for bar in range(0, n_beats, 4):
+                    if ok(t0 + bar * beat):
+                        tr.add("perc", "timpani", t0 + bar * beat, beat * 1.5, tk, 92 if lvl >= 3 else 80, 0.0)
+                    if lvl >= 3:
+                        for b in (1.5, 2.0, 3.5):
+                            if bar + b < n_beats and ok(t0 + (bar + b) * beat):
+                                tr.add("perc", "taiko", t0 + (bar + b) * beat, beat, 50, 70 + (12 if b == 2.0 else 0), 0.004)
             if not hook and not in_travel and perc == "shaker" and lvl >= 2:
                 for s in range(n_beats * 4):
-                    tr.add("shaker", "stdkit", t0 + s * beat / 4, beat / 4, 82, 46 + (16 if s % 2 == 0 else 0))
+                    if ok(t0 + s * beat / 4):
+                        tr.add("shaker", "stdkit", t0 + s * beat / 4, beat / 4, 82, 46 + (16 if s % 2 == 0 else 0))
             if not hook and not in_travel and perc == "soft" and lvl >= 3:
                 for s in range(n_beats * 2):
-                    tr.add("shaker", "stdkit", t0 + s * beat / 2, beat / 2, 82, 40 + (14 if s % 2 else 0))
+                    if ok(t0 + s * beat / 2):
+                        tr.add("shaker", "stdkit", t0 + s * beat / 2, beat / 2, 82, 40 + (14 if s % 2 else 0))
             # --- bells on the first downbeat of a cue and on internal setting changes
             if bi == 0 and not hook:
                 bt = arp_tones(root, q, 84, 12)
                 tr.add("bells", m["bells"], t0, beat * 2, bt[-1], 74)
             for x in internal:
-                if t0 - 0.01 <= x < t1 - 0.01 and not hook:
+                if t0 - 0.01 <= x < t1 - 0.01 and not trans_on:
                     bt = arp_tones(root, q, 84, 12)
                     tr.add("bells", m["bells"], x, beat * 2, bt[len(bt) // 2], 66)
                     extra["booms"].append({"t": x, "gain": 0.35})
-        # --- motif: hook (bars 1-2), bookend, and the first bar of a warm cue
-        if c.role in ("hook", "bookend") or (c.mood == "warm" and c.intensity <= 2):
+        # --- motif (Epic Mountain: a theme returns >= 60 s later in 5 of 6 soundtracks, louder and brighter): stated in
+        #     the hook, developed in the second half (the warm resolution: piano, augmented; the climax: an octave up,
+        #     celesta over piano, louder), restated in the loop bookend so the replay starts where it ended
+        role = "state" if c.role in ("hook", "bookend") else ("develop" if ci in pl.get("motif_cues", []) else None)
+        if role:
             t0, t1, root, q, beat = c.chords[0]
-            tones = arp_tones(root, q, 74, 14)
-            inst = "celesta" if c.role else "piano"
+            up = 12 if (role == "develop" and c.intensity >= 3) else 0
+            tones = arp_tones(root, q, 74 + up, 14)
+            aug = 1.5 if (role == "develop" and c.mood == "warm") else 1.0
+            insts = ["celesta"] if role == "state" else (["piano", "celesta"] if up else ["piano"])
             for off, idx in motif:
-                t = c.t0 + off * beat
+                t = c.t0 + off * beat * aug
                 if t < c.t1 - 0.1:
-                    tr.add("motif", inst, t, beat * 1.4, tones[idx % len(tones)], 66 if c.role else 72)
+                    for j, inst in enumerate(insts):
+                        tr.add("motif", inst, t, beat * 1.4 * aug, tones[idx % len(tones)] + 12 * j,
+                               (70 if role == "state" else 80) - 8 * j)
     # --- stings on reveal words: low hit (timpani + low strings stab + sub boom) + a bell on top
     for s in pl["stings"]:
         c = next((c for c in cues if c.t0 - 0.05 <= s["t"] < c.t1), cues[-1])
@@ -551,6 +621,15 @@ def arrange(pl: dict, seed: int) -> tuple[Tracks, dict]:
         bt = arp_tones(root, q, 86, 12)
         tr.add("bells", MOODS[c.mood]["bells"], t + 0.02, 1.0, bt[-1], 86, 0.0)
         extra["booms"].append({"t": t, "gain": 1.0})
+    # R14 transition hits (sfx_mode musical): at each setting change the score plays a short tonal figure in the
+    # current chord (Kurz SFX: 98 % tonal, ~70 % in key, ~0.15 s, at the music's level) and a soft low thump
+    for x in pl.get("transition_hits", []):
+        c = next((c for c in cues if c.t0 - 0.05 <= x < c.t1), cues[-1])
+        ch = next((y for y in c.chords if y[0] - 0.05 <= x < y[1]), c.chords[0])
+        tones = arp_tones(ch[2], ch[3], 79, 14)
+        tr.add("bells", "harp", x - 0.07, 0.5, tones[len(tones) // 2], 84, 0.0)
+        tr.add("bells", "celesta", x, 0.8, tones[-1], 80, 0.0)
+        extra["booms"].append({"t": x, "gain": 0.3})
     # boundary landings: a softer low hit on every cue start after the hook (Kurz: low hits at setting changes)
     for c in cues[1:]:
         if c.role == "bookend" or any(abs(s["t"] - c.t0) < 0.4 for s in pl["stings"]):
@@ -662,9 +741,12 @@ def fx_chain(name: str, x: np.ndarray, beat: float) -> np.ndarray:
     chains = {
         "pad": [pb.HighpassFilter(110), pb.PeakFilter(2800, -3.0, 0.9), pb.Chorus(rate_hz=0.25, depth=0.12, mix=0.18),
                 pb.Reverb(room_size=0.82, damping=0.45, wet_level=0.30, dry_level=0.80, width=1.0)],
-        "keys": [pb.HighpassFilter(260), pb.PeakFilter(2800, -4.0, 1.0),
-                 pb.Delay(delay_seconds=min(1.5, 0.75 * beat), feedback=0.22, mix=0.14),
-                 pb.Reverb(room_size=0.72, damping=0.4, wet_level=0.28, dry_level=0.82, width=1.0)],
+        # the "room" treatment that brought our plucks closest to the reference note events (palette.py: piano
+        # 1.15 -> 1.06, harp 1.18 -> 1.10 sd): softened top, light chorus, a dotted-8th echo, a long bright room
+        "keys": [pb.HighpassFilter(220), pb.LowpassFilter(6500), pb.PeakFilter(2800, -4.0, 1.0),
+                 pb.Chorus(rate_hz=0.3, depth=0.12, mix=0.2),
+                 pb.Delay(delay_seconds=min(1.5, 0.75 * beat), feedback=0.25, mix=0.15),
+                 pb.Reverb(room_size=0.88, damping=0.5, wet_level=0.36, dry_level=0.8, width=1.0)],
         "pulse": [pb.HighpassFilter(90), pb.PeakFilter(2800, -3.0, 0.9),
                   pb.Reverb(room_size=0.5, damping=0.5, wet_level=0.16, dry_level=0.9, width=0.8)],
         "bass": [pb.HighpassFilter(35), pb.LowpassFilter(2600),
@@ -679,17 +761,17 @@ def fx_chain(name: str, x: np.ndarray, beat: float) -> np.ndarray:
 
 
 def compose(sb: dict, words: list | None, total: float, loop: bool, out_dir: str, sfx_cues: list | None = None,
-            seed_key: str = "", log=print) -> dict:
+            seed_key: str = "", log=print, transitions: bool = False) -> dict:
     """plan + arrange + render the score for `total` seconds; writes score.wav, stems/, score.mid, score_plan.json"""
     import pedalboard as pb
     ws = _words(sb, words)
-    pl = plan(sb, ws, total, loop, sfx_cues)
+    pl = plan(sb, ws, total, loop, sfx_cues, transitions=transitions)
     seed = int(hashlib.sha256((seed_key or sb.get("id", "score")).encode()).hexdigest()[:8], 16)
     tr, extra = arrange(pl, seed)
     tail = 4.0
     n = int((total + tail) * SR)
     stems = render_tracks(tr, total, tail, log)
-    beat = 60 / 108
+    beat = 60 / BPM
     sub = sub_bass(extra["sub"], n)
     sub_st = np.stack([sub, sub], 1) * 10 ** ((-27.0 - _lufs_active(np.stack([sub, sub], 1))) / 20)
     bm = boom()
@@ -717,7 +799,9 @@ def compose(sb: dict, words: list | None, total: float, loop: bool, out_dir: str
     g_db = np.zeros(n, np.float32)
     for c in pl["cues"]:
         sel = (t >= c["t0"]) & (t < c["t1"])
-        g_db[sel] = INTENSITY_DB[c["intensity"]] + (-1.0 if c["role"] in ("hook", "bookend") else 0.0)
+        # the loop seam: the hook's bar 1 also carries the wrapped tail of the bookend (+2-3 dB), so the bookend sits
+        # higher to meet it (orca: 6.5 dB step at the seam before, measured by measure_ab.py)
+        g_db[sel] = INTENSITY_DB[c["intensity"]] + {"hook": -1.0, "bookend": 2.5}.get(c["role"], 0.0)
     g_db[t >= pl["total"]] = g_db[min(n - 1, int(pl["total"] * SR) - 1)]
     from scipy.ndimage import uniform_filter1d
     g_db = uniform_filter1d(g_db, size=int(0.25 * SR))  # 250 ms cross-fades between cue levels
@@ -788,7 +872,7 @@ def write_midi(tr: Tracks, path: str):
         import pretty_midi
     except ImportError:
         return
-    pm = pretty_midi.PrettyMIDI(initial_tempo=108)
+    pm = pretty_midi.PrettyMIDI(initial_tempo=BPM)
     for (role, preset), notes in sorted(tr.notes.items()):
         bank, prog = P[preset]
         inst = pretty_midi.Instrument(program=prog, is_drum=bank == 128, name=f"{role}:{preset}")

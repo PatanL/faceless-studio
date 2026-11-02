@@ -184,7 +184,8 @@ def main():
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
         fig, ax = plt.subplots(3, 1, figsize=(22, 10), sharex=True)
-        for a_, (lab, l) in zip(ax[:2], (("A: deep_ocean bed", la), ("B: score", lb))):
+        labs = (os.environ.get("AB_LABEL_A", "A: deep_ocean bed"), os.environ.get("AB_LABEL_B", "B: score"))
+        for a_, (lab, l) in zip(ax[:2], ((labs[0], la), (labs[1], lb))):
             a_.plot(l["t"], l["vl"], color="#58a6ff", lw=0.6, label="voice M")
             a_.plot(l["t"], l["ml"], color="#f0883e", lw=0.9, label="music M")
             for c in l["changes"]:

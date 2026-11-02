@@ -1,0 +1,533 @@
+{
+ "key": "tZ8i1RxGSYM",
+ "duration_s": 78.2,
+ "analysed": [
+  0.0,
+  78.23351473922902
+ ],
+ "excluded": [],
+ "loudness": {
+  "mix_integrated_lufs": -11.8,
+  "voice_integrated_lufs": -12.1,
+  "music_integrated_lufs": -24.0,
+  "music_M_under_speech_median": -18.3,
+  "music_M_in_gaps_median": -26.2,
+  "voice_M_speech_median": -9.6,
+  "voice_minus_music_under_speech_db": {
+   "p10": 5.3,
+   "median": 8.9,
+   "p90": 17.4
+  },
+  "speech_share": 0.923,
+  "gaps_ge_0p5s": 2,
+  "gap_len_s": {
+   "median": 0.6,
+   "p90": 0.6
+  },
+  "music_LRA_like_p10_p95_short_term": [
+   -21.8,
+   -17.2
+  ],
+  "music_gap_minus_speech_db": -7.9,
+  "gap_vs_preceding_speech_db": {
+   "median": -1.1,
+   "p25": -2.8,
+   "p75": 0.5,
+   "n": 2
+  }
+ },
+ "tempo": {
+  "global_bpm_librosa": 103.4,
+  "window_bpm_median": 103.4,
+  "window_bpm_p25_p75": [
+   103.4,
+   103.4
+  ],
+  "pulse_clarity_median": 0.63,
+  "share_windows_clear_pulse_gt_0p3": 1.0
+ },
+ "n_setting_changes": 20,
+ "boundaries": {
+  "coarse_per_min": 2.3,
+  "fine_per_min": 6.91,
+  "coarse": [
+   19.25,
+   38.25,
+   71.25
+  ],
+  "fine": [
+   2.75,
+   19.25,
+   31.25,
+   38.25,
+   45.75,
+   52.75,
+   57.25,
+   66.25,
+   70.75
+  ]
+ },
+ "alignment": {
+  "coarse_boundaries_vs_setting_changes": {
+   "tol_s": 1.5,
+   "share": 0.1,
+   "null_mean": 0.112,
+   "p_value": 0.801,
+   "n_changes": 20,
+   "n_events": 3,
+   "matched_offset_median_s": 0.3
+  },
+  "fine_boundaries_vs_setting_changes": {
+   "tol_s": 1.0,
+   "share": 0.3,
+   "null_mean": 0.229,
+   "p_value": 0.2465,
+   "n_changes": 20,
+   "n_events": 9,
+   "matched_offset_median_s": 0.1
+  },
+  "setting_changes_vs_coarse_boundaries(precision)": {
+   "tol_s": 1.5,
+   "share": 0.667,
+   "null_mean": 0.673,
+   "p_value": 0.7795,
+   "n_changes": 3,
+   "n_events": 20,
+   "matched_offset_median_s": -0.3
+  },
+  "hits_vs_setting_changes": {
+   "tol_s": 0.6,
+   "share": 0.05,
+   "null_mean": 0.013,
+   "p_value": 0.266,
+   "n_changes": 20,
+   "n_events": 1,
+   "matched_offset_median_s": 0.15
+  },
+  "riser_peaks_vs_setting_changes": {},
+  "dropout_ends_vs_setting_changes": {
+   "tol_s": 1.0,
+   "share": 0.05,
+   "null_mean": 0.023,
+   "p_value": 0.4475,
+   "n_changes": 20,
+   "n_events": 1,
+   "matched_offset_median_s": 0.1
+  },
+  "noise_transients_vs_visual_transitions": {},
+  "noise_transients_vs_setting_changes": {},
+  "hits_near_sentence_starts(-0.4..+0.3)": {
+   "tol_s": 0.35,
+   "share": 1.0,
+   "null_mean": 0.099,
+   "p_value": 0.099,
+   "n_changes": 1,
+   "n_events": 14,
+   "matched_offset_median_s": 0.04
+  },
+  "riser_peaks_near_sentence_starts": {},
+  "dropout_ends_near_sentence_starts": {
+   "tol_s": 0.5,
+   "share": 1.0,
+   "null_mean": 0.137,
+   "p_value": 0.137,
+   "n_changes": 1,
+   "n_events": 14,
+   "matched_offset_median_s": 0.14
+  },
+  "dropout_starts_near_sentence_ends": {
+   "tol_s": 0.5,
+   "share": 1.0,
+   "null_mean": 0.149,
+   "p_value": 0.149,
+   "n_changes": 1,
+   "n_events": 14,
+   "matched_offset_median_s": 0.12
+  },
+  "setting_changes_near_sentence_starts": {
+   "tol_s": 0.5,
+   "share": 0.55,
+   "null_mean": 0.177,
+   "p_value": 0.0,
+   "n_changes": 20,
+   "n_events": 14,
+   "matched_offset_median_s": 0.16
+  }
+ },
+ "setting_change_steps": {
+  "level_step_abs_median_db": 0.6,
+  "texture_dist_median_at_changes": 0.41,
+  "texture_dist_median_random": 0.436,
+  "steps": [
+   {
+    "t": 1.8,
+    "level_step_db": 0.0,
+    "texture_dist": 0.669
+   },
+   {
+    "t": 6.6,
+    "level_step_db": 0.2,
+    "texture_dist": 0.329
+   },
+   {
+    "t": 9.2,
+    "level_step_db": -0.0,
+    "texture_dist": 0.234
+   },
+   {
+    "t": 11.8,
+    "level_step_db": -0.1,
+    "texture_dist": 0.349
+   },
+   {
+    "t": 15.6,
+    "level_step_db": -0.9,
+    "texture_dist": 0.076
+   },
+   {
+    "t": 17.0,
+    "level_step_db": -1.6,
+    "texture_dist": 0.676
+   },
+   {
+    "t": 21.5,
+    "level_step_db": 0.6,
+    "texture_dist": 0.365
+   },
+   {
+    "t": 25.0,
+    "level_step_db": 0.5,
+    "texture_dist": 0.232
+   },
+   {
+    "t": 31.3,
+    "level_step_db": -0.8,
+    "texture_dist": 0.455
+   },
+   {
+    "t": 34.1,
+    "level_step_db": 0.0,
+    "texture_dist": 0.34
+   },
+   {
+    "t": 36.3,
+    "level_step_db": -2.3,
+    "texture_dist": 0.612
+   },
+   {
+    "t": 38.4,
+    "level_step_db": -6.9,
+    "texture_dist": 1.568
+   },
+   {
+    "t": 40.2,
+    "level_step_db": 6.7,
+    "texture_dist": 1.0
+   },
+   {
+    "t": 45.2,
+    "level_step_db": -0.6,
+    "texture_dist": 0.569
+   },
+   {
+    "t": 49.9,
+    "level_step_db": 0.1,
+    "texture_dist": 0.606
+   },
+   {
+    "t": 58.2,
+    "level_step_db": 0.3,
+    "texture_dist": 0.261
+   },
+   {
+    "t": 60.7,
+    "level_step_db": -0.4,
+    "texture_dist": 0.297
+   },
+   {
+    "t": 64.3,
+    "level_step_db": -0.6,
+    "texture_dist": 0.55
+   },
+   {
+    "t": 70.5,
+    "level_step_db": -13.0,
+    "texture_dist": 0.757
+   },
+   {
+    "t": 73.3,
+    "level_step_db": 0.1,
+    "texture_dist": 0.118
+   }
+  ]
+ },
+ "sections": [
+  {
+   "t0": 0.0,
+   "t1": 19.2,
+   "dur": 19.2,
+   "music_M_median": -17.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -18.9,
+    "bass_60_200": -10.8,
+    "lowmid_200_800": -2.6,
+    "mid_800_2500": -4.7,
+    "pres_2500_6000": -18.3,
+    "air_6000_11000": -24.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -11.6,
+    "C3-B3 low": -18.1,
+    "C4-B4 mid": -22.1,
+    "C5-B5 high": -27.6,
+    "C6-B6 bell": -34.3,
+    "C7-B7 sparkle": -50.9
+   },
+   "hi_note_ioi_median_s": 0.302,
+   "harmonic_share": 0.45,
+   "centroid_hz": 958,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.55,
+   "hi_tonal_onsets_per_s": 2.18,
+   "key": "E maj",
+   "key_r": 0.69,
+   "drums_minus_music_db": -38.6,
+   "bass_minus_music_db": -4.7,
+   "other_minus_music_db": -3.8
+  },
+  {
+   "t0": 19.2,
+   "t1": 38.2,
+   "dur": 19.0,
+   "music_M_median": -17.5,
+   "band_dBA_rel_total": {
+    "sub_20_60": -23.8,
+    "bass_60_200": -15.0,
+    "lowmid_200_800": -2.7,
+    "mid_800_2500": -3.8,
+    "pres_2500_6000": -21.6,
+    "air_6000_11000": -28.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -10.6,
+    "C3-B3 low": -17.5,
+    "C4-B4 mid": -16.8,
+    "C5-B5 high": -17.7,
+    "C6-B6 bell": -26.6,
+    "C7-B7 sparkle": -44.3
+   },
+   "hi_note_ioi_median_s": 0.557,
+   "harmonic_share": 0.57,
+   "centroid_hz": 964,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.37,
+   "hi_tonal_onsets_per_s": 1.89,
+   "key": "E min",
+   "key_r": 0.64,
+   "drums_minus_music_db": -38.2,
+   "bass_minus_music_db": -4.2,
+   "other_minus_music_db": -3.6
+  },
+  {
+   "t0": 38.2,
+   "t1": 71.2,
+   "dur": 33.0,
+   "music_M_median": -18.5,
+   "band_dBA_rel_total": {
+    "sub_20_60": -20.8,
+    "bass_60_200": -9.8,
+    "lowmid_200_800": -2.9,
+    "mid_800_2500": -4.5,
+    "pres_2500_6000": -19.1,
+    "air_6000_11000": -25.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -5.0,
+    "C3-B3 low": -12.1,
+    "C4-B4 mid": -19.2,
+    "C5-B5 high": -22.2,
+    "C6-B6 bell": -29.6,
+    "C7-B7 sparkle": -49.8
+   },
+   "hi_note_ioi_median_s": 0.325,
+   "harmonic_share": 0.44,
+   "centroid_hz": 919,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.52,
+   "hi_tonal_onsets_per_s": 2.39,
+   "key": "F# maj",
+   "key_r": 0.73,
+   "drums_minus_music_db": -34.0,
+   "bass_minus_music_db": -3.0,
+   "other_minus_music_db": -5.2
+  },
+  {
+   "t0": 71.2,
+   "t1": 78.2,
+   "dur": 7.0,
+   "music_M_median": -32.2,
+   "band_dBA_rel_total": {
+    "sub_20_60": -49.0,
+    "bass_60_200": -15.4,
+    "lowmid_200_800": -0.6,
+    "mid_800_2500": -10.3,
+    "pres_2500_6000": -20.7,
+    "air_6000_11000": -25.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -24.1,
+    "C2-B2 bass": -3.9,
+    "C3-B3 low": -1.5,
+    "C4-B4 mid": 0.0,
+    "C5-B5 high": -6.3,
+    "C6-B6 bell": -26.3,
+    "C7-B7 sparkle": -42.8
+   },
+   "hi_note_ioi_median_s": 0.325,
+   "harmonic_share": 0.78,
+   "centroid_hz": 1566,
+   "flatness_median": 0.004,
+   "onsets_per_s": 2.0,
+   "hi_tonal_onsets_per_s": 2.58,
+   "key": "F# min",
+   "key_r": 0.79,
+   "drums_minus_music_db": -32.2,
+   "bass_minus_music_db": -34.1,
+   "other_minus_music_db": -0.0
+  }
+ ],
+ "risers": [],
+ "hits": [
+  {
+   "t": 40.35,
+   "jump_db": 20.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "First,",
+    0.09
+   ],
+   "to_setting_change_s": -0.14999999999999858,
+   "words": "the situation isn't hopeless. | First, we can get better at"
+  }
+ ],
+ "dropouts": [
+  {
+   "t0": 39.7,
+   "t1": 40.3,
+   "dur": 0.6,
+   "depth_db": 21.9,
+   "speech_during_share": 0.5,
+   "hit_after": true,
+   "to_setting_change_s": -0.10000000000000142,
+   "words_at_end": "safe. But the situation isn't hopeless. | First, we can get better at measuring groundwater"
+  }
+ ],
+ "noise_transients_per_min": 0.0,
+ "starts_ends": {
+  "first_music_above_-45_lufs_s": 0.05,
+  "first_speech_s": 0.35000000000000003,
+  "music_M_first_5s": [
+   -38.4,
+   -16.6,
+   -16.7,
+   -18.3,
+   -20.3,
+   -20.9,
+   -17.9,
+   -16.1,
+   -18.0,
+   -18.0
+  ],
+  "music_S_last_30s_every_2s": [
+   -18.1,
+   -17.9,
+   -18.3,
+   -18.7,
+   -18.2,
+   -18.1,
+   -18.1,
+   -18.8,
+   -18.5,
+   -18.9,
+   -19.8,
+   -20.5,
+   -31.3,
+   -32.6,
+   -29.7,
+   -32.1
+  ],
+  "last_speech_s": 77.55000000000001
+ },
+ "tempo_windows": [
+  {
+   "t": 0.0,
+   "bpm": 101.3,
+   "clarity": 0.65
+  },
+  {
+   "t": 5.0,
+   "bpm": 103.4,
+   "clarity": 0.74
+  },
+  {
+   "t": 10.0,
+   "bpm": 101.3,
+   "clarity": 0.69
+  },
+  {
+   "t": 15.0,
+   "bpm": 103.4,
+   "clarity": 0.68
+  },
+  {
+   "t": 20.0,
+   "bpm": 103.4,
+   "clarity": 0.61
+  },
+  {
+   "t": 25.0,
+   "bpm": 103.4,
+   "clarity": 0.63
+  },
+  {
+   "t": 30.0,
+   "bpm": 103.4,
+   "clarity": 0.55
+  },
+  {
+   "t": 35.0,
+   "bpm": 103.4,
+   "clarity": 0.58
+  },
+  {
+   "t": 40.0,
+   "bpm": 103.4,
+   "clarity": 0.63
+  },
+  {
+   "t": 45.0,
+   "bpm": 103.4,
+   "clarity": 0.62
+  },
+  {
+   "t": 50.0,
+   "bpm": 103.4,
+   "clarity": 0.65
+  },
+  {
+   "t": 55.0,
+   "bpm": 103.4,
+   "clarity": 0.67
+  },
+  {
+   "t": 60.0,
+   "bpm": 103.4,
+   "clarity": 0.59
+  }
+ ]
+}

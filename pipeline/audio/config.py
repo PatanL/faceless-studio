@@ -44,6 +44,11 @@ NICHES = {
         # duck_band: while the voice talks the score's 1-4 kHz (consonants, intelligibility) dips a further 6 dB
         "score_mix": {"music_db": -12.0, "duck_db": -4.5, "duck_band": {"lo": 1000, "hi": 4000, "db": -6.0},
                       "true_peak_db": -2.0},
+        # R14 switch (research/music/KURZ_MUSIC.md section 9): "full" = a whoosh/bubbles on every cut + every storyboard
+        # action SFX (~57/min on the orca); "musical" = the score plays tonal, in-key transition hits at setting changes,
+        # cut whooshes go, action SFX thin to markers + impacts + a few tonal UI sounds (>= 2.5 s apart, <= 6/min)
+        "sfx_mode": "full",
+        "sfx_musical": {"drop": ["whoosh", "whoosh_long", "bubbles"], "min_gap": 2.5, "max_per_min": 6},
         # bed loudness (LUFS) relative to the voice, between lines. Orca review: -15 / -9 duck put the bed ~24 LU
         # (~26 dB RMS) under the talking voice, inaudible on a phone. -13.5 / -5 = ~18.5 LU, ~20 dB RMS under the voice
         # while it talks (report.json mix.bed_below_voice_db), and it swells back up in the gaps.

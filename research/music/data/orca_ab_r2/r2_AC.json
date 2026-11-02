@@ -1,0 +1,217 @@
+{
+ "A_bed": {
+  "dir": "/home/dzliu/studio/work/orca-ab/R2_A_current",
+  "duration_s": 84.63,
+  "mix_integrated_lufs": -14.07,
+  "mix_sample_peak_dbfs": -2.6,
+  "clipped_samples": 0,
+  "nan": 0,
+  "voice_minus_music_under_speech_lu": {
+   "p10": 14.5,
+   "median": 19.1,
+   "p90": 25.2
+  },
+  "phone_voice_minus_music_under_speech_lu": {
+   "p10": 14.1,
+   "median": 20.8,
+   "p90": 27.9
+  },
+  "phone_music_audible_share": 0.437,
+  "voice_band_1_4k_snr_db_median": 21.9,
+  "music_short_term_p10_p95": [
+   -33.0,
+   -26.6
+  ],
+  "music_short_term_range_db": 6.4,
+  "mix_dead_air_windows": [],
+  "music_silent_windows_outside_dropouts": [
+   62.8,
+   62.9
+  ],
+  "music_at_setting_changes_minus_under_speech_db": 1.8,
+  "seam": {
+   "music_last_200ms_db": -43.3,
+   "music_first_200ms_db": -39.0,
+   "mix_last_200ms_db": -43.3,
+   "mix_first_200ms_db": -18.3,
+   "mix_sample_step": 0.0,
+   "mix_typical_sample_step": 0.0049
+  }
+ },
+ "B_score": {
+  "dir": "/home/dzliu/studio/work/orca-ab/R2_C_new_musical",
+  "duration_s": 84.63,
+  "mix_integrated_lufs": -14.12,
+  "mix_sample_peak_dbfs": -2.72,
+  "clipped_samples": 0,
+  "nan": 0,
+  "voice_minus_music_under_speech_lu": {
+   "p10": 14.8,
+   "median": 18.7,
+   "p90": 22.6
+  },
+  "phone_voice_minus_music_under_speech_lu": {
+   "p10": 14.2,
+   "median": 19.8,
+   "p90": 25.0
+  },
+  "phone_music_audible_share": 0.511,
+  "voice_band_1_4k_snr_db_median": 22.5,
+  "music_short_term_p10_p95": [
+   -31.3,
+   -27.1
+  ],
+  "music_short_term_range_db": 4.2,
+  "mix_dead_air_windows": [],
+  "music_silent_windows_outside_dropouts": [],
+  "music_at_setting_changes_minus_under_speech_db": 0.4,
+  "seam": {
+   "music_last_200ms_db": -32.7,
+   "music_first_200ms_db": -30.6,
+   "mix_last_200ms_db": -32.7,
+   "mix_first_200ms_db": -18.1,
+   "mix_sample_step": 0.0002,
+   "mix_typical_sample_step": 0.0038
+  }
+ },
+ "B_timing": {
+  "cues": [
+   {
+    "t0": 10.866,
+    "mood": "board",
+    "to_setting_change_s": 0.15,
+    "onset": [
+     -0.016,
+     6.4
+    ]
+   },
+   {
+    "t0": 19.346,
+    "mood": "cold",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.016,
+     7.7
+    ]
+   },
+   {
+    "t0": 30.863,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     0.082,
+     6.3
+    ]
+   },
+   {
+    "t0": 42.703,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.018,
+     6.1
+    ]
+   },
+   {
+    "t0": 51.429,
+    "mood": "question",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.014,
+     4.9
+    ]
+   },
+   {
+    "t0": 62.912,
+    "mood": "warm",
+    "to_setting_change_s": -0.18,
+    "onset": [
+     -0.017,
+     7.8
+    ]
+   },
+   {
+    "t0": 70.388,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     0.072,
+     5.4
+    ]
+   },
+   {
+    "t0": 80.074,
+    "mood": "board",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.004,
+     3.3
+    ]
+   }
+  ],
+  "stings": [
+   {
+    "t": 35.889,
+    "why": "marker impact",
+    "word": "The",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.001,
+     18.0
+    ]
+   },
+   {
+    "t": 70.488,
+    "why": "pivot 'Except'",
+    "word": "Except",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.002,
+     5.4
+    ]
+   },
+   {
+    "t": 77.238,
+    "why": "marker stinger",
+    "word": "About",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.002,
+     14.7
+    ]
+   }
+  ],
+  "drops": [
+   {
+    "t0": 35.289,
+    "t1": 35.869,
+    "why": "marker impact",
+    "depth_db": 15.3
+   },
+   {
+    "t0": 76.638,
+    "t1": 77.218,
+    "why": "marker stinger",
+    "depth_db": 10.7
+   }
+  ],
+  "risers": [
+   {
+    "t0": 9.836,
+    "t1": 10.866,
+    "len": 1.03,
+    "kind": "swell",
+    "jump": 1,
+    "rise_db": 6.8
+   },
+   {
+    "t0": 68.398,
+    "t1": 70.388,
+    "len": 1.99,
+    "kind": "cymbal",
+    "jump": 4,
+    "rise_db": 3.8
+   }
+  ]
+ }
+}

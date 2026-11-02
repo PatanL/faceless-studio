@@ -48,9 +48,28 @@ class Plan(unittest.TestCase):
 
     def test_moods_follow_settings_and_words(self):
         moods = [c["mood"] for c in self.pl["cues"]]
-        self.assertEqual(moods[1], "question")         # a board that asks
+        self.assertEqual(moods[0], "question")         # the 4 s hook joins the asking board (cues >= MIN_CUE s)
         self.assertIn("cold", moods)                     # polar
         self.assertEqual(self.pl["cues"][0]["role"], "hook")
+        self.assertGreaterEqual(self.pl["cues"][0]["intensity"], 1)  # Shorts: full from frame 0, not a sparse intro
+
+    def test_cue_lengths_and_device_caps(self):
+        for c in self.pl["cues"][:-1]:
+            self.assertGreaterEqual(c["t1"] - c["t0"], score.MIN_CUE - 0.01)
+        self.assertLessEqual(len(self.pl["stings"]), score.MAX_STINGS)
+        self.assertLessEqual(len(self.pl["drops"]), score.MAX_DROPS)
+        self.assertLessEqual(len(self.pl["risers"]), score.MAX_RISERS)
+
+    def test_slow_harmonic_rhythm(self):
+        long = [c for c in self.pl["cues"] if c["t1"] - c["t0"] > 12 and c["role"] != "bookend"]
+        for c in long:
+            beats = [(ch[1] - ch[0]) / ch[4] for ch in c["chords"]]
+            self.assertGreaterEqual(min(beats[:-1] or beats), 7.5)  # two bars a chord
+
+    def test_transition_hits_only_when_asked(self):
+        self.assertEqual(self.pl["transition_hits"], [])
+        pl = score.plan(self.sb, self.words, 34.5, True, [], transitions=True)
+        self.assertTrue(all(any(abs(x - r["t0"]) < 0.01 for r in pl["settings"]) for x in pl["transition_hits"]))
 
     def test_loop_bookend_returns_to_the_hook(self):
         first, last = self.pl["cues"][0], self.pl["cues"][-1]
@@ -94,6 +113,21 @@ class Plan(unittest.TestCase):
             s.pop("setting")
         pl = score.plan(sb, score._words(sb, None), 34.5, False, [])
         self.assertGreaterEqual(len(pl["cues"]), 2)
+
+
+@unittest.skipIf(score is None, "audio deps missing; run on the Spark venv")
+class MusicalSfx(unittest.TestCase):
+    def test_r14_thins_the_sfx_layer(self):
+        from pipeline.audio.make import musical_sfx
+        cues = [{"cue": "whoosh", "at": float(t), "source": "cut"} for t in range(0, 60, 3)]
+        cues += [{"cue": "pop", "at": t + 0.5, "source": "storyboard"} for t in range(0, 60, 2)]
+        cues += [{"cue": "impact", "at": 20.0, "source": "marker"}, {"cue": "impact", "at": 40.2, "source": "storyboard"}]
+        out = musical_sfx(cues, {"min_gap": 2.5, "max_per_min": 6})
+        self.assertFalse(any(c["cue"] == "whoosh" for c in out))
+        self.assertIn(20.0, [c["at"] for c in out if c["source"] == "marker"])
+        self.assertLessEqual(len(out), 7)
+        ts = sorted(c["at"] for c in out)
+        self.assertTrue(all(b - a >= 2.5 for a, b in zip(ts, ts[1:])))
 
 
 if __name__ == "__main__":

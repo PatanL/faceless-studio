@@ -1,0 +1,493 @@
+{
+ "n_note_events": 900,
+ "clusters": [
+  {
+   "n": 308,
+   "attack_ms": 87.2,
+   "decay_db_per_s": 11.5,
+   "flatness": 0.039,
+   "env_db_by_mel_band": [
+    -7.1,
+    -11.7,
+    -18.7,
+    -18.7,
+    -25.0,
+    -29.6,
+    -34.0,
+    -40.4,
+    -46.1,
+    -54.3
+   ],
+   "closest": [
+    "harp+room",
+    "piano+celesta8va+warmpad",
+    "harp+warmpad",
+    "harp",
+    "harp+fantasia",
+    "dulcimer"
+   ]
+  },
+  {
+   "n": 386,
+   "attack_ms": 88.2,
+   "decay_db_per_s": 12.3,
+   "flatness": 0.031,
+   "env_db_by_mel_band": [
+    -6.3,
+    -13.7,
+    -20.6,
+    -25.4,
+    -29.9,
+    -36.4,
+    -44.9,
+    -52.9,
+    -61.0,
+    -69.0
+   ],
+   "closest": [
+    "piano+room",
+    "piano+warmpad",
+    "piano+celesta8va+warmpad",
+    "piano",
+    "piano+celesta8va",
+    "celesta+room"
+   ]
+  },
+  {
+   "n": 206,
+   "attack_ms": 77.3,
+   "decay_db_per_s": 13.6,
+   "flatness": 0.017,
+   "env_db_by_mel_band": [
+    -6.0,
+    -18.6,
+    -30.7,
+    -33.3,
+    -42.6,
+    -50.0,
+    -59.1,
+    -68.0,
+    -74.2,
+    -78.7
+   ],
+   "closest": [
+    "piano",
+    "piano+room",
+    "piano+soft",
+    "celesta",
+    "celesta+soft",
+    "celesta+room"
+   ]
+  }
+ ],
+ "notes": {
+  "celesta": {
+   "dist_to_clusters": [
+    1.748,
+    1.396,
+    1.343
+   ],
+   "attack_ms": 17.5,
+   "decay_db_per_s": 37.5
+  },
+  "glock": {
+   "dist_to_clusters": [
+    1.698,
+    2.063,
+    2.551
+   ],
+   "attack_ms": 10.0,
+   "decay_db_per_s": 40.8
+  },
+  "musicbox": {
+   "dist_to_clusters": [
+    1.256,
+    1.558,
+    2.109
+   ],
+   "attack_ms": 15.0,
+   "decay_db_per_s": 41.3
+  },
+  "vibes": {
+   "dist_to_clusters": [
+    2.514,
+    2.242,
+    2.115
+   ],
+   "attack_ms": 38.7,
+   "decay_db_per_s": 32.9
+  },
+  "marimba": {
+   "dist_to_clusters": [
+    2.691,
+    2.345,
+    2.137
+   ],
+   "attack_ms": 25.0,
+   "decay_db_per_s": 91.2
+  },
+  "kalimba": {
+   "dist_to_clusters": [
+    2.153,
+    1.941,
+    1.922
+   ],
+   "attack_ms": 10.0,
+   "decay_db_per_s": 56.2
+  },
+  "harp": {
+   "dist_to_clusters": [
+    1.182,
+    1.388,
+    1.922
+   ],
+   "attack_ms": 12.5,
+   "decay_db_per_s": 35.8
+  },
+  "pizz": {
+   "dist_to_clusters": [
+    1.541,
+    2.039,
+    2.698
+   ],
+   "attack_ms": 38.7,
+   "decay_db_per_s": 89.3
+  },
+  "piano": {
+   "dist_to_clusters": [
+    1.552,
+    1.147,
+    1.209
+   ],
+   "attack_ms": 25.0,
+   "decay_db_per_s": 58.2
+  },
+  "crystal": {
+   "dist_to_clusters": [
+    2.305,
+    2.397,
+    2.648
+   ],
+   "attack_ms": 113.8,
+   "decay_db_per_s": 17.2
+  },
+  "tinkerbell": {
+   "dist_to_clusters": [
+    3.033,
+    3.028,
+    3.114
+   ],
+   "attack_ms": 13.8,
+   "decay_db_per_s": 43.2
+  },
+  "fmpiano": {
+   "dist_to_clusters": [
+    2.581,
+    2.486,
+    2.585
+   ],
+   "attack_ms": 41.2,
+   "decay_db_per_s": 9.2
+  },
+  "nylon": {
+   "dist_to_clusters": [
+    1.257,
+    1.677,
+    2.25
+   ],
+   "attack_ms": 15.0,
+   "decay_db_per_s": 36.6
+  },
+  "steeldrum": {
+   "dist_to_clusters": [
+    2.045,
+    2.323,
+    2.822
+   ],
+   "attack_ms": 8.8,
+   "decay_db_per_s": 88.3
+  },
+  "harpsichord": {
+   "dist_to_clusters": [
+    1.918,
+    2.102,
+    2.441
+   ],
+   "attack_ms": 127.5,
+   "decay_db_per_s": 39.4
+  },
+  "dulcimer": {
+   "dist_to_clusters": [
+    1.208,
+    1.805,
+    2.498
+   ],
+   "attack_ms": 15.0,
+   "decay_db_per_s": 42.0
+  },
+  "celesta+soft": {
+   "dist_to_clusters": [
+    1.939,
+    1.515,
+    1.348
+   ],
+   "attack_ms": 26.2,
+   "decay_db_per_s": 41.2
+  },
+  "musicbox+soft": {
+   "dist_to_clusters": [
+    1.326,
+    1.423,
+    1.857
+   ],
+   "attack_ms": 28.7,
+   "decay_db_per_s": 47.2
+  },
+  "vibes+soft": {
+   "dist_to_clusters": [
+    2.616,
+    2.282,
+    2.09
+   ],
+   "attack_ms": 43.8,
+   "decay_db_per_s": 40.7
+  },
+  "marimba+soft": {
+   "dist_to_clusters": [
+    2.861,
+    2.456,
+    2.171
+   ],
+   "attack_ms": 25.0,
+   "decay_db_per_s": 88.5
+  },
+  "kalimba+soft": {
+   "dist_to_clusters": [
+    2.258,
+    1.967,
+    1.865
+   ],
+   "attack_ms": 11.3,
+   "decay_db_per_s": 57.0
+  },
+  "harp+soft": {
+   "dist_to_clusters": [
+    1.235,
+    1.3,
+    1.772
+   ],
+   "attack_ms": 15.0,
+   "decay_db_per_s": 39.3
+  },
+  "piano+soft": {
+   "dist_to_clusters": [
+    1.784,
+    1.304,
+    1.223
+   ],
+   "attack_ms": 28.7,
+   "decay_db_per_s": 59.8
+  },
+  "fmpiano+soft": {
+   "dist_to_clusters": [
+    2.655,
+    2.498,
+    2.544
+   ],
+   "attack_ms": 58.8,
+   "decay_db_per_s": 10.1
+  },
+  "celesta+musicbox": {
+   "dist_to_clusters": [
+    1.335,
+    1.318,
+    1.657
+   ],
+   "attack_ms": 15.0,
+   "decay_db_per_s": 35.9
+  },
+  "celesta+vibes": {
+   "dist_to_clusters": [
+    2.049,
+    1.764,
+    1.687
+   ],
+   "attack_ms": 76.2,
+   "decay_db_per_s": 35.0
+  },
+  "kalimba+celesta": {
+   "dist_to_clusters": [
+    1.801,
+    1.729,
+    1.923
+   ],
+   "attack_ms": 10.0,
+   "decay_db_per_s": 55.3
+  },
+  "harp+marimba": {
+   "dist_to_clusters": [
+    1.265,
+    1.368,
+    1.831
+   ],
+   "attack_ms": 21.2,
+   "decay_db_per_s": 39.9
+  },
+  "piano+celesta8va": {
+   "dist_to_clusters": [
+    1.25,
+    1.159,
+    1.515
+   ],
+   "attack_ms": 25.0,
+   "decay_db_per_s": 54.9
+  },
+  "marimba+kalimba": {
+   "dist_to_clusters": [
+    1.635,
+    1.662,
+    1.968
+   ],
+   "attack_ms": 5.0,
+   "decay_db_per_s": 46.4
+  },
+  "fmpiano+celesta": {
+   "dist_to_clusters": [
+    2.086,
+    1.88,
+    1.944
+   ],
+   "attack_ms": 95.0,
+   "decay_db_per_s": 18.0
+  },
+  "pizz+harp": {
+   "dist_to_clusters": [
+    1.308,
+    1.797,
+    2.46
+   ],
+   "attack_ms": 47.5,
+   "decay_db_per_s": 55.3
+  },
+  "piano+warmpad": {
+   "dist_to_clusters": [
+    1.384,
+    1.11,
+    1.423
+   ],
+   "attack_ms": 45.0,
+   "decay_db_per_s": 33.5
+  },
+  "harp+warmpad": {
+   "dist_to_clusters": [
+    1.174,
+    1.316,
+    1.877
+   ],
+   "attack_ms": 75.0,
+   "decay_db_per_s": 27.1
+  },
+  "celesta+warmpad": {
+   "dist_to_clusters": [
+    1.58,
+    1.325,
+    1.51
+   ],
+   "attack_ms": 38.7,
+   "decay_db_per_s": 39.9
+  },
+  "harp+halopad": {
+   "dist_to_clusters": [
+    1.221,
+    1.567,
+    2.202
+   ],
+   "attack_ms": 23.8,
+   "decay_db_per_s": 21.2
+  },
+  "musicbox+halopad": {
+   "dist_to_clusters": [
+    1.432,
+    1.759,
+    2.337
+   ],
+   "attack_ms": 43.8,
+   "decay_db_per_s": 12.0
+  },
+  "piano+celesta8va+warmpad": {
+   "dist_to_clusters": [
+    1.115,
+    1.114,
+    1.623
+   ],
+   "attack_ms": 45.0,
+   "decay_db_per_s": 33.2
+  },
+  "harp+fantasia": {
+   "dist_to_clusters": [
+    1.203,
+    1.552,
+    2.15
+   ],
+   "attack_ms": 11.2,
+   "decay_db_per_s": 31.5
+  },
+  "piano+room": {
+   "dist_to_clusters": [
+    1.461,
+    1.057,
+    1.22
+   ],
+   "attack_ms": 25.0,
+   "decay_db_per_s": 46.8
+  },
+  "harp+room": {
+   "dist_to_clusters": [
+    1.097,
+    1.325,
+    1.922
+   ],
+   "attack_ms": 11.2,
+   "decay_db_per_s": 30.8
+  },
+  "celesta+room": {
+   "dist_to_clusters": [
+    1.587,
+    1.266,
+    1.358
+   ],
+   "attack_ms": 23.8,
+   "decay_db_per_s": 43.4
+  }
+ },
+ "pads": {
+  "warmpad": 0.499,
+  "halopad": 0.509,
+  "fantasia": 0.656,
+  "slowstrings": 1.565,
+  "synthstrings": 0.81,
+  "bowedglass": 1.041,
+  "atmosphere": 0.665,
+  "choir": 1.853,
+  "polysynth": 2.095,
+  "spacevoice": 2.022,
+  "sweeppad": 1.978,
+  "soundtrack": 0.637,
+  "strings": 1.565
+ },
+ "pads_ranked": [
+  "warmpad",
+  "halopad",
+  "soundtrack",
+  "fantasia",
+  "atmosphere",
+  "synthstrings",
+  "bowedglass",
+  "slowstrings",
+  "strings",
+  "choir",
+  "sweeppad",
+  "spacevoice",
+  "polysynth"
+ ]
+}

@@ -1,0 +1,1089 @@
+{
+"src": "refs/kurz-ost/6Yo8x9BAgRw.flac",
+"stats": {
+"tempo": 123.0,
+"n_chords": 62,
+"chord_len_beats_median": 9.5,
+"quality_share": {
+"maj7": 0.319,
+"min": 0.297,
+"sus2": 0.157,
+"maj": 0.143,
+"sus4": 0.065,
+"min7": 0.015,
+"7": 0.004
+},
+"degree_share": {
+"i": 0.213,
+"Imaj7": 0.18,
+"Isus2": 0.102,
+"bVI": 0.07,
+"IIIsus2": 0.048,
+"iv": 0.047,
+"bVImaj7": 0.038,
+"V": 0.036,
+"#IVmaj7": 0.036,
+"Vsus4": 0.033,
+"I": 0.03,
+"bVIImaj7": 0.025
+},
+"top_bigrams": [
+[
+"bVImaj7-bVIImaj7",
+2
+],
+[
+"bVII-v",
+2
+],
+[
+"IIIsus2-Imaj7",
+2
+],
+[
+"Imaj7-#IVmaj7",
+2
+],
+[
+"#IVmaj7-Imaj7",
+2
+],
+[
+"Imaj7-Vmaj7",
+2
+],
+[
+"Isus2-Vsus4",
+1
+],
+[
+"Vsus4-bVImaj7",
+1
+],
+[
+"bVIImaj7-i7",
+1
+],
+[
+"i7-bVImaj7",
+1
+],
+[
+"bVIImaj7-i",
+1
+],
+[
+"i-IVsus2",
+1
+]
+],
+"top_4grams": [
+[
+"Isus2-Vsus4-bVImaj7-bVIImaj7",
+1
+],
+[
+"Vsus4-bVImaj7-bVIImaj7-i7",
+1
+],
+[
+"bVImaj7-bVIImaj7-i7-bVImaj7",
+1
+],
+[
+"bVIImaj7-i7-bVImaj7-bVIImaj7",
+1
+],
+[
+"i7-bVImaj7-bVIImaj7-i",
+1
+],
+[
+"bVImaj7-bVIImaj7-i-IVsus2",
+1
+],
+[
+"bVIImaj7-i-IVsus2-bVII",
+1
+],
+[
+"i-IVsus2-bVII-v",
+1
+],
+[
+"IVsus2-bVII-v-Isus2",
+1
+],
+[
+"bVII-v-Isus2-bVImaj7",
+1
+]
+],
+"inversion_or_pedal_share": 0.188,
+"keys": [
+{
+"t0": 0.0,
+"t1": 164.37,
+"key": "B min"
+},
+{
+"t0": 164.37,
+"t1": 233.01,
+"key": "F# maj"
+},
+{
+"t0": 233.01,
+"t1": 295.61,
+"key": "B maj"
+},
+{
+"t0": 295.61,
+"t1": 337.06,
+"key": "G maj"
+},
+{
+"t0": 337.06,
+"t1": 415.95,
+"key": "Eb min"
+}
+],
+"modulations": [
+{
+"t": 164.37,
+"from": "B min",
+"to": "F# maj",
+"semitones": 7
+},
+{
+"t": 233.01,
+"from": "F# maj",
+"to": "B maj",
+"semitones": 5
+},
+{
+"t": 295.61,
+"from": "B maj",
+"to": "G maj",
+"semitones": 8
+},
+{
+"t": 337.06,
+"from": "G maj",
+"to": "Eb min",
+"semitones": 8
+}
+],
+"minor_key_share": 0.585
+},
+"chords": [
+{
+"t0": 0.0,
+"t1": 32.3,
+"label": "D",
+"root": 2,
+"q": "maj",
+"key": "B min",
+"roman": "bIII",
+"beats": 1,
+"fit": 0.9,
+"quiet": false,
+"bass": "F#",
+"bass_rel": 4
+},
+{
+"t0": 32.3,
+"t1": 39.31,
+"label": "Bsus2",
+"root": 11,
+"q": "sus2",
+"key": "B min",
+"roman": "Isus2",
+"beats": 14,
+"fit": 0.84,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 39.31,
+"t1": 52.31,
+"label": "F#sus4",
+"root": 6,
+"q": "sus4",
+"key": "B min",
+"roman": "Vsus4",
+"beats": 26,
+"fit": 0.71,
+"quiet": false,
+"bass": "B",
+"bass_rel": 5
+},
+{
+"t0": 52.31,
+"t1": 56.31,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "B min",
+"roman": "bVImaj7",
+"beats": 8,
+"fit": 0.68,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 56.31,
+"t1": 58.31,
+"label": "Amaj7",
+"root": 9,
+"q": "maj7",
+"key": "B min",
+"roman": "bVIImaj7",
+"beats": 4,
+"fit": 0.77,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 58.31,
+"t1": 63.3,
+"label": "Bmin7",
+"root": 11,
+"q": "min7",
+"key": "B min",
+"roman": "i7",
+"beats": 10,
+"fit": 0.5,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 63.3,
+"t1": 66.83,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "B min",
+"roman": "bVImaj7",
+"beats": 7,
+"fit": 0.74,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 66.83,
+"t1": 68.8,
+"label": "Amaj7",
+"root": 9,
+"q": "maj7",
+"key": "B min",
+"roman": "bVIImaj7",
+"beats": 4,
+"fit": 0.79,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 68.8,
+"t1": 74.81,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "B min",
+"roman": "i",
+"beats": 12,
+"fit": 0.47,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 74.81,
+"t1": 77.81,
+"label": "Esus2",
+"root": 4,
+"q": "sus2",
+"key": "B min",
+"roman": "IVsus2",
+"beats": 6,
+"fit": 0.75,
+"quiet": false,
+"bass": "E",
+"bass_rel": 0
+},
+{
+"t0": 77.81,
+"t1": 79.32,
+"label": "A",
+"root": 9,
+"q": "maj",
+"key": "B min",
+"roman": "bVII",
+"beats": 3,
+"fit": 0.9,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 79.32,
+"t1": 80.29,
+"label": "F#min",
+"root": 6,
+"q": "min",
+"key": "B min",
+"roman": "v",
+"beats": 2,
+"fit": 0.89,
+"quiet": false,
+"bass": "A",
+"bass_rel": 3
+},
+{
+"t0": 80.29,
+"t1": 84.31,
+"label": "Bsus2",
+"root": 11,
+"q": "sus2",
+"key": "B min",
+"roman": "Isus2",
+"beats": 8,
+"fit": 0.8,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 84.31,
+"t1": 88.31,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "B min",
+"roman": "bVImaj7",
+"beats": 8,
+"fit": 0.6,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 88.31,
+"t1": 93.81,
+"label": "F#min",
+"root": 6,
+"q": "min",
+"key": "B min",
+"roman": "v",
+"beats": 11,
+"fit": 0.77,
+"quiet": false,
+"bass": "F#",
+"bass_rel": 0
+},
+{
+"t0": 93.81,
+"t1": 96.18,
+"label": "Bmaj7",
+"root": 11,
+"q": "maj7",
+"key": "B min",
+"roman": "Imaj7",
+"beats": 5,
+"fit": 0.53,
+"quiet": false,
+"bass": "Bb",
+"bass_rel": 11
+},
+{
+"t0": 96.18,
+"t1": 113.08,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "B min",
+"roman": "i",
+"beats": 34,
+"fit": 0.94,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 113.08,
+"t1": 121.42,
+"label": "F#",
+"root": 6,
+"q": "maj",
+"key": "B min",
+"roman": "V",
+"beats": 17,
+"fit": 0.76,
+"quiet": false,
+"bass": "Bb",
+"bass_rel": 4
+},
+{
+"t0": 121.42,
+"t1": 151.37,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "B min",
+"roman": "i",
+"beats": 60,
+"fit": 0.85,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 151.37,
+"t1": 154.88,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "B min",
+"roman": "bVImaj7",
+"beats": 7,
+"fit": 0.69,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 154.88,
+"t1": 156.36,
+"label": "A",
+"root": 9,
+"q": "maj",
+"key": "B min",
+"roman": "bVII",
+"beats": 3,
+"fit": 0.84,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 156.36,
+"t1": 157.36,
+"label": "F#min",
+"root": 6,
+"q": "min",
+"key": "B min",
+"roman": "v",
+"beats": 2,
+"fit": 0.87,
+"quiet": false,
+"bass": "Ab",
+"bass_rel": 2
+},
+{
+"t0": 157.36,
+"t1": 162.35,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "B min",
+"roman": "i",
+"beats": 10,
+"fit": 0.69,
+"quiet": false,
+"bass": "F",
+"bass_rel": 6
+},
+{
+"t0": 162.35,
+"t1": 164.37,
+"label": "Cmaj7",
+"root": 0,
+"q": "maj7",
+"key": "B min",
+"roman": "bIImaj7",
+"beats": 4,
+"fit": 0.79,
+"quiet": false,
+"bass": "C",
+"bass_rel": 0
+},
+{
+"t0": 164.37,
+"t1": 165.35,
+"label": "Cmaj7",
+"root": 0,
+"q": "maj7",
+"key": "F# maj",
+"roman": "#IVmaj7",
+"beats": 2,
+"fit": 0.71,
+"quiet": false,
+"bass": "C",
+"bass_rel": 0
+},
+{
+"t0": 165.35,
+"t1": 168.34,
+"label": "Bbsus2",
+"root": 10,
+"q": "sus2",
+"key": "F# maj",
+"roman": "IIIsus2",
+"beats": 6,
+"fit": 0.77,
+"quiet": false,
+"bass": "Bb",
+"bass_rel": 0
+},
+{
+"t0": 168.34,
+"t1": 172.2,
+"label": "F#maj7",
+"root": 6,
+"q": "maj7",
+"key": "F# maj",
+"roman": "Imaj7",
+"beats": 8,
+"fit": 0.56,
+"quiet": false,
+"bass": "B",
+"bass_rel": 5
+},
+{
+"t0": 172.2,
+"t1": 176.87,
+"label": "Cmaj7",
+"root": 0,
+"q": "maj7",
+"key": "F# maj",
+"roman": "#IVmaj7",
+"beats": 9,
+"fit": 0.86,
+"quiet": false,
+"bass": "C",
+"bass_rel": 0
+},
+{
+"t0": 176.87,
+"t1": 184.02,
+"label": "F#maj7",
+"root": 6,
+"q": "maj7",
+"key": "F# maj",
+"roman": "Imaj7",
+"beats": 15,
+"fit": 0.62,
+"quiet": false,
+"bass": "F",
+"bass_rel": 11
+},
+{
+"t0": 184.02,
+"t1": 193.52,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "F# maj",
+"roman": "iv",
+"beats": 19,
+"fit": 0.7,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 193.52,
+"t1": 198.86,
+"label": "C#",
+"root": 1,
+"q": "maj",
+"key": "F# maj",
+"roman": "V",
+"beats": 11,
+"fit": 0.82,
+"quiet": false,
+"bass": "Ab",
+"bass_rel": 7
+},
+{
+"t0": 198.86,
+"t1": 204.27,
+"label": "D",
+"root": 2,
+"q": "maj",
+"key": "F# maj",
+"roman": "bVI",
+"beats": 11,
+"fit": 0.55,
+"quiet": false,
+"bass": "A",
+"bass_rel": 7
+},
+{
+"t0": 204.27,
+"t1": 216.08,
+"label": "F#",
+"root": 6,
+"q": "maj",
+"key": "F# maj",
+"roman": "I",
+"beats": 24,
+"fit": 0.86,
+"quiet": false,
+"bass": "Bb",
+"bass_rel": 4
+},
+{
+"t0": 216.08,
+"t1": 218.04,
+"label": "Bbmin",
+"root": 10,
+"q": "min",
+"key": "F# maj",
+"roman": "iii",
+"beats": 4,
+"fit": 0.89,
+"quiet": false,
+"bass": "Bb",
+"bass_rel": 0
+},
+{
+"t0": 218.04,
+"t1": 226.72,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "F# maj",
+"roman": "iv",
+"beats": 18,
+"fit": 0.56,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 226.72,
+"t1": 232.06,
+"label": "F#maj7",
+"root": 6,
+"q": "maj7",
+"key": "F# maj",
+"roman": "Imaj7",
+"beats": 11,
+"fit": 0.73,
+"quiet": false,
+"bass": "F#",
+"bass_rel": 0
+},
+{
+"t0": 232.06,
+"t1": 233.01,
+"label": "Bmaj7",
+"root": 11,
+"q": "maj7",
+"key": "F# maj",
+"roman": "IVmaj7",
+"beats": 2,
+"fit": 0.64,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 233.01,
+"t1": 239.93,
+"label": "Bmaj7",
+"root": 11,
+"q": "maj7",
+"key": "B maj",
+"roman": "Imaj7",
+"beats": 15,
+"fit": 0.81,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 239.93,
+"t1": 246.85,
+"label": "Fmaj7",
+"root": 5,
+"q": "maj7",
+"key": "B maj",
+"roman": "#IVmaj7",
+"beats": 15,
+"fit": 0.78,
+"quiet": false,
+"bass": "F",
+"bass_rel": 0
+},
+{
+"t0": 246.85,
+"t1": 262.08,
+"label": "Bmaj7",
+"root": 11,
+"q": "maj7",
+"key": "B maj",
+"roman": "Imaj7",
+"beats": 33,
+"fit": 0.84,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 262.08,
+"t1": 263.94,
+"label": "F#maj7",
+"root": 6,
+"q": "maj7",
+"key": "B maj",
+"roman": "Vmaj7",
+"beats": 4,
+"fit": 0.59,
+"quiet": false,
+"bass": "F",
+"bass_rel": 11
+},
+{
+"t0": 263.94,
+"t1": 265.78,
+"label": "Bmaj7",
+"root": 11,
+"q": "maj7",
+"key": "B maj",
+"roman": "Imaj7",
+"beats": 4,
+"fit": 0.8,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 265.78,
+"t1": 271.33,
+"label": "F#maj7",
+"root": 6,
+"q": "maj7",
+"key": "B maj",
+"roman": "Vmaj7",
+"beats": 11,
+"fit": 0.66,
+"quiet": false,
+"bass": "F",
+"bass_rel": 11
+},
+{
+"t0": 271.33,
+"t1": 282.77,
+"label": "Bmin",
+"root": 11,
+"q": "min",
+"key": "B maj",
+"roman": "i",
+"beats": 24,
+"fit": 0.66,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 282.77,
+"t1": 295.61,
+"label": "Bsus2",
+"root": 11,
+"q": "sus2",
+"key": "B maj",
+"roman": "Isus2",
+"beats": 27,
+"fit": 0.81,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 295.61,
+"t1": 302.28,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "G maj",
+"roman": "Imaj7",
+"beats": 14,
+"fit": 0.77,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 302.28,
+"t1": 303.23,
+"label": "Emin",
+"root": 4,
+"q": "min",
+"key": "G maj",
+"roman": "vi",
+"beats": 2,
+"fit": 0.89,
+"quiet": false,
+"bass": "G",
+"bass_rel": 3
+},
+{
+"t0": 303.23,
+"t1": 318.46,
+"label": "Bsus2",
+"root": 11,
+"q": "sus2",
+"key": "G maj",
+"roman": "IIIsus2",
+"beats": 32,
+"fit": 0.52,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 318.46,
+"t1": 332.3,
+"label": "Gmaj7",
+"root": 7,
+"q": "maj7",
+"key": "G maj",
+"roman": "Imaj7",
+"beats": 29,
+"fit": 0.75,
+"quiet": false,
+"bass": "G",
+"bass_rel": 0
+},
+{
+"t0": 332.3,
+"t1": 337.06,
+"label": "Amaj7",
+"root": 9,
+"q": "maj7",
+"key": "G maj",
+"roman": "IImaj7",
+"beats": 10,
+"fit": 0.81,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 337.06,
+"t1": 337.99,
+"label": "Amaj7",
+"root": 9,
+"q": "maj7",
+"key": "Eb min",
+"roman": "#IVmaj7",
+"beats": 2,
+"fit": 0.77,
+"quiet": false,
+"bass": "A",
+"bass_rel": 0
+},
+{
+"t0": 337.99,
+"t1": 352.8,
+"label": "Ebsus2",
+"root": 3,
+"q": "sus2",
+"key": "Eb min",
+"roman": "Isus2",
+"beats": 31,
+"fit": 0.71,
+"quiet": false,
+"bass": "Eb",
+"bass_rel": 0
+},
+{
+"t0": 352.8,
+"t1": 360.03,
+"label": "B",
+"root": 11,
+"q": "maj",
+"key": "Eb min",
+"roman": "bVI",
+"beats": 15,
+"fit": 0.59,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 360.03,
+"t1": 360.95,
+"label": "Fmin7",
+"root": 5,
+"q": "min7",
+"key": "Eb min",
+"roman": "ii7",
+"beats": 2,
+"fit": 0.8,
+"quiet": false,
+"bass": "F",
+"bass_rel": 0
+},
+{
+"t0": 360.95,
+"t1": 374.47,
+"label": "Ebmin",
+"root": 3,
+"q": "min",
+"key": "Eb min",
+"roman": "i",
+"beats": 28,
+"fit": 0.73,
+"quiet": false,
+"bass": "Eb",
+"bass_rel": 0
+},
+{
+"t0": 374.47,
+"t1": 375.91,
+"label": "F7",
+"root": 5,
+"q": "7",
+"key": "Eb min",
+"roman": "II7",
+"beats": 3,
+"fit": 0.75,
+"quiet": false,
+"bass": "F",
+"bass_rel": 0
+},
+{
+"t0": 375.91,
+"t1": 390.0,
+"label": "B",
+"root": 11,
+"q": "maj",
+"key": "Eb min",
+"roman": "bVI",
+"beats": 29,
+"fit": 0.53,
+"quiet": false,
+"bass": "B",
+"bass_rel": 0
+},
+{
+"t0": 390.0,
+"t1": 395.85,
+"label": "C#maj7",
+"root": 1,
+"q": "maj7",
+"key": "Eb min",
+"roman": "bVIImaj7",
+"beats": 12,
+"fit": 0.73,
+"quiet": false,
+"bass": "C#",
+"bass_rel": 0
+},
+{
+"t0": 395.85,
+"t1": 399.75,
+"label": "F#min",
+"root": 6,
+"q": "min",
+"key": "Eb min",
+"roman": "biii",
+"beats": 8,
+"fit": 0.73,
+"quiet": false,
+"bass": "F#",
+"bass_rel": 0
+},
+{
+"t0": 399.75,
+"t1": 403.68,
+"label": "Ebsus4",
+"root": 3,
+"q": "sus4",
+"key": "Eb min",
+"roman": "Isus4",
+"beats": 8,
+"fit": 0.77,
+"quiet": false,
+"bass": "Eb",
+"bass_rel": 0
+},
+{
+"t0": 403.68,
+"t1": 407.6,
+"label": "Esus4",
+"root": 4,
+"q": "sus4",
+"key": "Eb min",
+"roman": "bIIsus4",
+"beats": 8,
+"fit": 0.8,
+"quiet": false,
+"bass": "E",
+"bass_rel": 0
+},
+{
+"t0": 407.6,
+"t1": 411.53,
+"label": "Ebmaj7",
+"root": 3,
+"q": "maj7",
+"key": "Eb min",
+"roman": "Imaj7",
+"beats": 8,
+"fit": 0.8,
+"quiet": false,
+"bass": "Eb",
+"bass_rel": 0
+},
+{
+"t0": 411.53,
+"t1": 415.95,
+"label": "Dsus4",
+"root": 2,
+"q": "sus4",
+"key": "Eb min",
+"roman": "VIIsus4",
+"beats": 9,
+"fit": 0.75,
+"quiet": false,
+"bass": "D",
+"bass_rel": 0
+}
+],
+"keys": [
+{
+"t0": 0.0,
+"t1": 164.37,
+"key": "B min"
+},
+{
+"t0": 164.37,
+"t1": 233.01,
+"key": "F# maj"
+},
+{
+"t0": 233.01,
+"t1": 295.61,
+"key": "B maj"
+},
+{
+"t0": 295.61,
+"t1": 337.06,
+"key": "G maj"
+},
+{
+"t0": 337.06,
+"t1": 415.95,
+"key": "Eb min"
+}
+]
+}

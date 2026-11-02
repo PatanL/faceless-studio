@@ -82,6 +82,21 @@ python -m pipeline.audio.make episodes/<slug>/script.md --id <slug> --reuse-tts 
 python -m pipeline.audio.score episodes/<slug>/storyboard.json --out /tmp/s --loop   # score only
 ```
 
+**v2 (round 2, Kurzgesagt Shorts and Epic Mountain soundtracks, `KURZ_MUSIC.md` sections 8–10).**
+
+- The music is full from frame 0.
+- Cues are 6–17 s (4–7 per Short), with flatter dynamics.
+- Each Short gets at most 3 stings, 2 drop-outs and 2 risers.
+- Harmony holds two bars per chord, with modal progressions per mood and a tonic pedal under colour chords.
+- One motif is stated in the hook, developed in the second half and restated at the loop.
+- Instruments are synth pads and soft plucks (piano, harp, celesta in a long room, doubled by a pad), not marimba,
+  kalimba or glockenspiel.
+- Pulse and percussion enter in bar 2.
+
+**Fewer SFX (R14).** Set `sfx_mode: musical` in config, a script's front matter, or `--sfx-mode musical`. Each cut
+then loses its whoosh, storyboard SFX thin to markers, impacts and a few tonal blips (6/min or fewer), and the score
+plays an in-chord harp and celesta figure at each setting change. The default stays `full` until the owner picks.
+
 **Mix and fallback.**
 
 - Levels for the score (`config.score_mix`): about 10 LU under the voice while it talks, a 3.5 dB duck, and an extra

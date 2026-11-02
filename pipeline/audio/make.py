@@ -79,6 +79,28 @@ def cut_cues(sc, words: list[dict], cfg: dict, existing: list[dict]) -> list[dic
     return out
 
 
+def musical_sfx(cues: list[dict], spec: dict) -> list[dict]:
+    """R14 (research/music/KURZ_MUSIC.md section 9): no whoosh/bubbles on every cut, far fewer action SFX. Script markers
+    always stay; impacts/stingers next; small tonal UI sounds only when >= min_gap s from any kept SFX, capped at
+    max_per_min. Kurzgesagt measured: ~5 SFX/min, tonal, mostly in key, at the music's level."""
+    drop = set(spec.get("drop", ["whoosh", "whoosh_long", "bubbles"]))
+    keep_prio = spec.get("prio", {"impact": 3, "boom": 3, "stinger": 3, "riser": 2, "sonar_ping": 1, "ding": 1,
+                                   "pop": 1, "tick": 0, "click": 0, "knock": 0})
+    gap = float(spec.get("min_gap", 2.5))
+    out = [c for c in cues if c.get("source") == "marker"]
+    rest = [c for c in cues if c.get("source") != "marker" and c["cue"] not in drop and c["source"] != "cut"
+            and c["cue"] in keep_prio]
+    rest.sort(key=lambda c: (-keep_prio[c["cue"]], c["at"]))
+    dur = max([c["at"] for c in cues] + [60.0])
+    cap = int(round(float(spec.get("max_per_min", 6)) * dur / 60))
+    for c in rest:
+        if len(out) >= cap:
+            break
+        if all(abs(c["at"] - o["at"]) >= gap for o in out):
+            out.append(c)
+    return sorted(out, key=lambda c: c["at"])
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("script")
@@ -95,6 +117,9 @@ def main(argv=None):
     ap.add_argument("--extra-cues", help="JSON list of extra SFX cues [{cue, at, db?, rate?}] (storyboard action SFX)")
     ap.add_argument("--reuse-tts", action="store_true", help="reuse the cached voice/timings from the previous run in --out")
     ap.add_argument("--storyboard", help="storyboard.json the score is composed from (default episodes/<id>/storyboard.json)")
+    ap.add_argument("--sfx-mode", choices=["full", "musical"],
+                    help="full: every cut/action SFX; musical (R14, needs the score): no whoosh per cut, far fewer "
+                         "action SFX, tonal transition hits played by the score (default config sfx_mode / front matter)")
     a = ap.parse_args(argv)
 
     t0 = time.time()
@@ -136,6 +161,7 @@ def main(argv=None):
         np.savez_compressed(cache_a, audio=tts["audio"])
         json.dump({k: tts[k] for k in ("words", "cues", "stats")}, open(cache_j, "w"))
     cues = sorted(tts["cues"], key=lambda c: c["at"])
+    sfx_mode = a.sfx_mode or sc.meta.get("sfx_mode") or cfg.get("sfx_mode", "full")
     if not a.no_auto_sfx:
         cues = sorted(cues + auto_cues(tts["words"], cfg.get("auto_sfx", {}), cues, in_speech_db=cfg.get("auto_sfx_db")), key=lambda c: c["at"])
     if not a.no_auto_sfx:
@@ -161,8 +187,12 @@ def main(argv=None):
                 else:
                     cfg[k] = float(sc.meta[f"score_{k}"])
 
+            if sfx_mode == "musical":  # R14: the score carries the transitions, the SFX layer thins out
+                cues = musical_sfx(cues, cfg.get("sfx_musical", {}))
+
             def score_fn(seconds, loop):
-                return compose(sb, None, seconds, loop, out, sfx_cues=cues, seed_key=ep)
+                return compose(sb, None, seconds, loop, out, sfx_cues=cues, seed_key=ep,
+                               transitions=sfx_mode == "musical")
         else:
             fallback = why
             music = cfg.get("score_fallback", "deep_ocean")
