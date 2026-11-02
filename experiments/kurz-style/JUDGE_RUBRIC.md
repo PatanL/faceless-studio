@@ -136,8 +136,8 @@ Checks: J2, J3, J4 (hero marks), §4 of the bible.
 |---|---|---|
 | L0 | 0–3 | flat silhouettes or a single tone; no shadow shape, highlight or rim |
 | L1 | 7 | 2 flat tones with a hard split; no highlight or rim; few marks (TIS §3) |
-| L2 | 12 | heroes have shadow + highlight, but rim, specular, bounce or stipple are missing or inconsistent; shading colours not mixed toward the ambient (greyish or blackish shadows); < 12 hero marks |
-| L3 | 17 | every hero has the full stack (core shadow, stipple terminator, highlight, glint where glossy, rim, contact shadow, ≥ 12 marks); supporting objects have at least 4 layers; hue-shifted shadows; the 2× crop holds up next to the reference crop |
+| L2 | 12 | heroes have shadow + highlight, but rim, specular or bounce are missing or inconsistent; shading colours not mixed toward the ambient (greyish or blackish shadows); < 12 hero marks |
+| L3 | 17 | every hero has the full stack (core shadow with a clean terminator, highlight, glint where glossy, rim, contact shadow, ≥ 12 marks); supporting objects have at least 4 layers; hue-shifted shadows; the 2× crop holds up next to the reference crop |
 | L4 | 20 | as L3, plus the light moves and the shading follows it; construction and marks are as rich as KB W 3:18 or KS L 6:54 at 2× |
 
 ### 2.2 Lighting and atmosphere (12)
@@ -260,20 +260,13 @@ Apply these after picking the level. A cap is the maximum points the category ca
 
 ## 4. Identity gate (pass/fail): ours, not a clone
 
-The video **fails the rubric regardless of score** if any of these fails.
+Owner rule (2026-11-01): **don't be different just to be different.** Techniques are standard craft and may be used freely when they look better: hard shadow terminators, violet/magenta palettes, rim lights, isometric floors, HUD frames, wide-tracked titles, faces on objects. Only *specific creative work* must be ours. The video **fails the rubric regardless of score** only if one of these fails:
 
-1. **P1 ≥ 0.85** (palette conformance) and **P2 ≤ 0.08** (violet/magenta band) on the median frame.
-2. **No borrowed designs:** no birds, ducks or bean mascots; no faces on planets, stars or cells; no isometric grid floor with cube scale references; no porthole HUD; no Kurzgesagt or TIS logo, jingle or title lockups (STYLE_BIBLE §14).
-3. **No wide-tracked thin-caps titles** and no hard offset-block tag shadows (Kurzgesagt type signatures). Titles use Anton on an ink plate; tags are lantern tags.
-4. **House signatures present** in the sampled frames:
-   - stipple terminator on at least one hero;
-   - teal-ink darks;
-   - plane-gap depth;
-   - the ring motif (leaders, pad or spots);
-   - the YOU figure on scale beats.
+1. **No borrowed characters or assets:** no Kurzgesagt birds, duck/bean mascots or other recognisable characters/props from Kurzgesagt, TIS or any reference; our own designs only.
+2. **No borrowed branding:** no Kurzgesagt or TIS logos, jingles, intro/outro lockups or channel-specific title cards.
+3. **No traced or colour-picked reference frames.** Compositions must not overlay a reference frame. Quick check: put our frame and the reference at 50 % opacity; silhouettes must not coincide.
 
-   At least 4 of these 5 must be visible.
-5. **No traced or colour-picked reference frames.** Compositions must not overlay a reference frame. A quick check: place our frame and the reference at 50 % opacity; silhouettes must not coincide.
+Palette conformance (P1) is a consistency/quality metric, scored under Colour, not an identity check. P2 (violet/magenta share) is informational only.
 
 ---
 

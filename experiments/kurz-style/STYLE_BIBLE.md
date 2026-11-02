@@ -1,5 +1,8 @@
 # House style bible: "Lantern & Ink"
 
+> **Owner override (2026-11-01), supersedes anything below that conflicts:** don't be different just to be different. Pick every technique on what looks best at phone size, including standard Kurzgesagt-tier craft (hard flat shadow crescents, violet/magenta in night/space scenes, thin wide-tracked titles where they read better, faces on objects when the story wants it). The **stipple terminator is off by default**: use a clean hard core-shadow terminator (it reads crisper and survives video compression better than fine dots); stipple is an opt-in accent at most. "Ours" means our own characters, assets, compositions and branding only (JUDGE_RUBRIC §4); the "distinctness gate" and P2 cap below no longer apply.
+
+
 Our own house style. The bar is the Kurzgesagt **quality tier**, while the **look** stays clearly ours. Every number here comes from the three measured studies in this folder, `study-kurz-space.md` (**KS**), `study-kurz-bio.md` (**KB**) and `study-infographics.md` (**TIS**), or from our own orca pilot measured with the same tools (**ours**). Section numbers such as "KB §3" point into those studies.
 
 - Judge with `JUDGE_RUBRIC.md` (/100, side by side against reference frames).
