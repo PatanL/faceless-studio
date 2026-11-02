@@ -1,5 +1,7 @@
 # asset-gen: Codex image model → vector assets
 
+> **Default prompt style (owner, 2026-11-01): v3.** Write a short plain description of the scene (what is where, and why it is there), then append `prompts/style_v3_common.txt`, and attach style frames with `REF=$PWD/refs/ks_grid.jpg ./gen_one.sh $PWD/prompts/<name>.txt <out>` (absolute paths). Don't list hex codes, lighting recipes or "dozens of marks": the v1/v2 prompts below did, and got dense painterly art that suits illustration, not 2D animation. Use whole-scene images as art direction for a setting; our own code-built characters stay on screen.
+
 Question: can an image model supply Kurzgesagt-level detail density (bible §8), and which conversion path turns its output into something our code can animate?
 
 Nothing in `studio/src/` or `pipeline/` was touched. The work reads `../kurz-style/engine/src/lib/color.ts` and `../kurz-style/tools/tis/frame_metrics.py` but never edits them. Everything ran on the Mac and stayed light: Codex calls, vtracer, and rsvg stills. Nothing was rendered with Remotion, so the Spark was never used.
