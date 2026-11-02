@@ -4,7 +4,8 @@
 // toward the next framing (saturating, so it never overshoots a checked framing). Velocity is continuous.
 import * as THREE from "three";
 
-export type CamKey = { t: number; pos: [number, number, number]; look: [number, number, number]; fov?: number; glide?: number };
+// drift: scales this hold's push-in and orbit (1 = default); a tight group shot uses less so its edge figures stay whole
+export type CamKey = { t: number; pos: [number, number, number]; look: [number, number, number]; fov?: number; glide?: number; drift?: number };
 type S = { pos: THREE.Vector3; look: THREE.Vector3; fov: number };
 
 // every hold travels steadily FRAC of the way to the next framing and pushes in PUSH of the distance
@@ -41,9 +42,10 @@ export class CamPath {
     }
     // push in along the view direction (slow, saturating at PUSH of the distance)
     const toLook = look.clone().sub(pos);
-    pos.addScaledVector(toLook, PUSH * sat);
+    const d = k.drift ?? 1;
+    pos.addScaledVector(toLook, PUSH * d * sat);
     // swing around the subject (alternate direction per key so consecutive holds don't drift one way)
-    const off = pos.clone().sub(look).applyAxisAngle(new THREE.Vector3(0, 1, 0), ORBIT * sat * (i % 2 ? -1 : 1));
+    const off = pos.clone().sub(look).applyAxisAngle(new THREE.Vector3(0, 1, 0), ORBIT * d * sat * (i % 2 ? -1 : 1));
     pos.copy(look).add(off);
     return { pos, look, fov: k.fov ?? 40 };
   }

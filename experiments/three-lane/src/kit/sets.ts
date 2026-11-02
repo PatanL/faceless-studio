@@ -118,7 +118,7 @@ export function exteriorSet(): SetBuild {
 }
 
 // ------------------------------------------------------------------------------------------------ palace hall
-export function hallSet(night: boolean): SetBuild {
+export function hallSet(night: boolean, o: { throne?: boolean } = {}): SetBuild {
   const root = new THREE.Group();
   const glows: THREE.Object3D[] = [];
   const W = 12, X0 = -6, Z0 = -20, Z1 = 8, H = 7.5;
@@ -159,8 +159,10 @@ export function hallSet(night: boolean): SetBuild {
   const drape = lambert({ color: "#9c2a3a" });
   for (const s of [-1, 1]) box(root, drape, 1.4, 6.2, 0.2, s * 2.4, 3.1, Z0 + 0.35);
   box(root, drape, 6.2, 1.0, 0.25, 0, 6.6, Z0 + 0.4);
-  box(root, gold, 1.2, 0.6, 1.0, 0, 0.8, Z0 + 1.2);
-  box(root, lambert({ color: "#b5283a" }), 1.0, 1.8, 0.2, 0, 1.6, Z0 + 0.8);
+  if (o.throne !== false) {                                          // a hearing room has no throne (story-vasa v10 panel)
+    box(root, gold, 1.2, 0.6, 1.0, 0, 0.8, Z0 + 1.2);
+    box(root, lambert({ color: "#b5283a" }), 1.0, 1.8, 0.2, 0, 1.6, Z0 + 0.8);
+  }
   // entrance doors
   for (const s of [-1, 1]) box(root, lambert({ color: night ? "#4d3a5a" : "#e7d6b0" }), 1.2, 3.6, 0.15, s * 0.62, 1.8, Z1 - 0.05);
   // chandeliers

@@ -147,7 +147,7 @@ export class Ship {
     const addSail = (x: number, yTop: number, w: number, h: number) => {
       const g = new THREE.PlaneGeometry(w, h, 8, 6); g.translate(0, -h / 2, 0);
       const p = g.attributes.position as THREE.BufferAttribute;
-      for (let i = 0; i < p.count; i++) { const zz = p.getX(i) / (w / 2), yy = -p.getY(i) / h; p.setZ(i, 0.9 * (1 - zz * zz) * Math.sin(yy * Math.PI * 0.95)); }
+      for (let i = 0; i < p.count; i++) { const zz = p.getX(i) / (w / 2), yy = -p.getY(i) / h; p.setZ(i, 1.9 * (1 - zz * zz) * Math.sin(yy * Math.PI * 0.95)); }
       g.computeVertexNormals();
       const m = new THREE.Mesh(g, sail); m.rotation.y = Math.PI / 2; m.position.set(x + 0.3, yTop, 0); m.castShadow = true; this.rig.add(m); this.sails.push(m);
     };

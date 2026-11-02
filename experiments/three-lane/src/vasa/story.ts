@@ -167,7 +167,7 @@ export function buildStory(T: Timing): VasaStory {
     const ADM: V3 = [-9.6, 0, 1.4], CAPT: V3 = [-11.4, 0, -2.4];
     const oth = (t: number): Box[] => [...runners.map((r) => personBox(at(r, t))), personBox(shipPt(st(t), [ADM[0], deckY(ADM[0]), ADM[2]])), personBox(shipPt(st(t), [CAPT[0], deckY(CAPT[0]), CAPT[2]]))];
     return {
-      id, t0, t1, xfade, set: () => harbourSet(), light: "day",
+      id, t0, t1, xfade, set: () => harbourSet({ sheds: id !== "warning" }), light: "day",
       cam: cams(st, at, oth),
       people: [
         ...runners.map((r): PersonSpec => ({ id: r.id, flip: false, at: (t) => at(r, t),
@@ -199,7 +199,7 @@ export function buildStory(T: Timing): VasaStory {
     groups.push(deckGroup("test", 0, navy, 0, HOOK_T0, 1.0, 5, 0.3, navy + 1, over + 0.1, (st, at, oth) => {
       const run = (t: number) => runners.slice(3, 8).map((r) => personBox(at(r, t)));
       return [
-        fit(0, runners.slice(4, 7).map((r) => personBox(at(r, 0))), 25, 36, 38, { b: 0.38 }, oth(0)),   // close on the runners, already rolling
+        fit(0, runners.map((r) => personBox(at(r, 0))), 25, 36, 40, { b: 0.38, x: 0.08 }, oth(0)),     // all the runners, already rolling
         fit(over, run(over), -15, 26, 42, { b: 0.35 }, oth(over)),                                // she nearly rolls over
       ];
     }));
@@ -217,8 +217,8 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = S(1), t1 = S(2), mut = w(1, "mutters");
     groups.push(deckGroup("admiral", t0, t1, 0.4, t0 - 3.0, 1.0, 3, 0.2, t0 + 0.2, undefined, (st, at, oth) => [
-      fit(t0, [personBox(ADM(st(t0)), false, true)], -20, 22, 40, { b: 0.55 }, oth(t0)),
-      fit(mut, [personBox(ADM(st(mut)), false, true)], -12, 18, 34, { b: 0.55 }, oth(mut)),            // "If only the king were here."
+      fit(t0, [personBox(ADM(st(t0)), false, true)], -20, 22, 40, { b: 0.55, t: 0.28 }, oth(t0)),
+      fit(mut, [personBox(ADM(st(mut)), false, true)], -12, 18, 34, { b: 0.55, t: 0.28 }, oth(mut)),            // "If only the king were here."
     ], { props: (t: number) => ({ costume: "admiral", seed: 5, pose: t < mut - 0.2 ? "armsUp" : "handIn", face: t < mut - 0.2 ? "shock" : "worried", talk: [[mut + 0.4, t1 - 0.1]] }) }));
   }
   // ================= G4 the king is off at war and wants the mightiest warship afloat
@@ -251,11 +251,11 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = S(3) - 0.35, t1 = S(4);
     const two = w(3, "two"), stacked = w(3, "stacked");
-    const st = (t: number): ShipState => ({ lids: ramp(t, two, two + 0.6, 0, 1), guns: ramp(t, two + 0.2, two + 0.9, 0, 1), sails: 0 });
+    const st = (t: number): ShipState => ({ lids: ramp(t, two - 0.6, two, 0, 1), guns: ramp(t, two - 0.4, two + 0.3, 0, 1), sails: 0 });
     const WR: V3 = [10.5, 1.8, -11.4];
     groups.push({ id: "guns", t0, t1, xfade: 0.4, set: () => harbourSet(), light: "day",
       cam: [
-        fit(t0, [[4, 3, -9, 12, 16, 2]], 30, 10, 40, { b: 0.35 }),                               // from the water: a bronze gun swings aboard
+        fit(t0, [[-14, 0.6, 3, 10, 9, 7]], 30, 8, 40, { b: 0.5 }),                                // from the water: the gun decks open
         fit(two, [[-14, 0.6, 3, 10, 4.6, 7]], 18, 4, 40, { b: 0.35 }),                            // two rows of ports open, guns run out
         fit(stacked, [[-10, -0.6, 4, 8, 4.8, 7]], 24, 1.5, 38, { b: 0.35 }),                      // at the waterline: stacked high
       ],
@@ -266,9 +266,9 @@ export function buildStory(T: Timing): VasaStory {
         return (t) => {
           const u = clamp01((t - (t0 - 0.3)) / 1.8);
           const p = new THREE.Vector3(8, 15 - 10 * sm(u), -6 + 2.5 * sm(u));
-          hang.position.copy(p); hang.visible = u < 1;
+          hang.position.copy(p); hang.visible = false;
           const a = new THREE.Vector3(8, 17.1, -0.5), b = p.clone().add(new THREE.Vector3(0, 0.3, 0));
-          line.position.copy(a).lerp(b, 0.5); line.scale.set(1, a.distanceTo(b), 1); line.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize()); line.visible = u < 1;
+          line.position.copy(a).lerp(b, 0.5); line.scale.set(1, a.distanceTo(b), 1); line.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize()); line.visible = false;
         };
       }],
       avoid: () => [] });
@@ -277,10 +277,13 @@ export function buildStory(T: Timing): VasaStory {
   const letters = w(4, "his", 2) - 0.1;
   {
     const t0 = S(4), t1 = letters;
-    const st = (t: number): ShipState => ({ sails: 0, lids: 0, guns: 0, heel: 0.11 * Math.sin((t - t0) * 2.6) });
-    const Q: V3[] = [[-3.4, 1.8, -10.6], [-2.1, 1.8, -11.0], [-0.8, 1.8, -10.5]];
-    groups.push({ id: "wobble", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false }), light: "day",
-      cam: [fit(t0, [...Q.map((q) => personBox(q))], -160, 10, 40, { b: 0.5, x: 0.18 }), fit(t1, [...Q.map((q) => personBox(q))], -168, 8, 38, { b: 0.5, x: 0.18 })],
+    const st = (t: number): ShipState => ({ sails: 0, lids: 0, guns: 0, heel: 0.15 * Math.sin((t - t0) * 2.6) });
+    const Q: V3[] = [[27.6, 1.8, -9.9], [28.9, 1.8, -11.0], [28.2, 1.8, -12.1]];
+    groups.push({ id: "wobble", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false, sheds: false }), light: "day",
+      // crew in front, the rocking hull behind them; wide x pad so the hold's push-in and orbit never crop the crew
+      cam: [{ ...fit(t0, Q.map((q) => personBox(q)), 112, 10, 40, { b: 0.45, x: 0.3, t: 0.4 }), drift: 0.3 }, 
+        // on "wobbles": low and wide, the crew small in front of the bow and the foremast swinging against the sky
+        { ...fit(w(4, "masterpiece") - 0.1, [...Q.map((q) => personBox(q)), [8, 2, -4, 16, 34, 4]], 118, 2, 44, { b: 0.42, x: 0.12 }), glide: 1.1, drift: 0.3 }],
       people: Q.map((q, i): PersonSpec => ({ id: `q${i}`, at: () => q, faceTo: () => Q[i === 2 ? 1 : i + 1], props: (t) => ({ costume: ["shipwright", "captain", "citizen2"][i], seed: i * 4, pose: i === 1 ? "shrug" : "hips",
         face: step(t, [[0, "worried"], [w(4, "wobbles") - 0.1, i === 0 ? "frown" : "worried"]]), look: i === 0 ? 1 : -1 }) })),
       rigs: [shipRig(st, {}), waterRig()], avoid: () => Q.map((q) => personBox(q)) });
@@ -315,13 +318,13 @@ export function buildStory(T: Timing): VasaStory {
         fit(t0, [crowdBox()], 15, 8, 42, { b: 0.45 }),                                            // a huge crowd on the quay
         fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.45 }),
         fit(w(5, "sails") + 0.3, [[voyage(w(5, "sails")).x! - 14, 12, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.45 }),   // her sails go up
-        fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], -140, 4, 42, { b: 0.42 }),        // the first gust leans her over (seen from the quay)
-        fit(waving, [crowdBox(), hullBox(voyage(waving), true)], -168, 6, 40, { b: 0.4 }),       // she shakes it off over the waving crowd
-        fit(gust2 + 0.2, [[voyage(gust2 + 0.2).x! - 22, -1, voyage(gust2 + 0.2).z! - 7, voyage(gust2 + 0.2).x! + 20, 8, voyage(gust2 + 0.2).z! - 3]], -155, 3, 38, { b: 0.42, t: 0.42 }),   // low along the port side
-        fit(dip, [[voyage(dip).x! - 12, -1, voyage(dip).z! - 7, voyage(dip).x! + 10, 6, voyage(dip).z! - 3]], -162, 2, 34, { b: 0.42, t: 0.42 }),   // the port gun ports dip under
+        fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], -118, 8, 42, { b: 0.42, t: 0.38 }),        // the first gust leans her over (seen from the quay)
+        fit(waving, [crowdBox(), hullBox(voyage(waving), true)], -150, 8, 40, { b: 0.4 }),       // she shakes it off over the waving crowd
+        fit(gust2 + 0.2, [[voyage(gust2 + 0.2).x! - 22, -1, voyage(gust2 + 0.2).z! - 7, voyage(gust2 + 0.2).x! + 20, 8, voyage(gust2 + 0.2).z! - 3]], -125, 4, 38, { b: 0.42, t: 0.42 }),   // low on the port quarter
+        fit(dip, [[voyage(dip).x! - 12, -1, voyage(dip).z! - 7, voyage(dip).x! + 10, 6, voyage(dip).z! - 3]], -130, 3, 34, { b: 0.42, t: 0.42 }),   // the port gun ports dip under
       ],
       people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9, (t) => { const v = voyage(t); return [v.x!, 0, v.z!]; }),
-      rigs: [shipRig(voyage, {}), waterRig(), gustRig([gust1 - 0.2, gust2 - 0.2], (t) => voyage(t).x!)],
+      rigs: [shipRig(voyage, {}), waterRig()],
       avoid: (t) => [hullBox(voyage(t), true)] });
   }
   // ================= G9 the sea pours in (the lower gun deck)
@@ -376,16 +379,16 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = S(9), t1 = S(10);
     setRoom([-5.6, 0.2, -19.6, 5.6, 6, 7.6]);
-    const J1: V3 = [-1.2, 0, -10.4], J2: V3 = [0, 0, -10.6], J3: V3 = [1.2, 0, -10.4], B: V3 = [0.5, 0, -5.8], A: V3 = [-1.4, 0, -6.4];
-    const PORT: V3 = [0, 2.7, -13.4];                              // the king's portrait hung high behind the bench, over the judges' heads
+    const J1: V3 = [-1.2, 0, -10.4], J2: V3 = [0, 0, -10.6], J3: V3 = [1.2, 0, -10.4], B: V3 = [0.6, 0, -5.8], A: V3 = [-0.9, 0, -6.4];
+    const PORT: V3 = [0, 2.7, -11.9];                              // the king's portrait hung high behind the bench, over the judges' heads
     const judges = [J1, J2, J3];
     const only = w(9, "only"), nobody = w(9, "nobody"), man = w(9, "man");
-    const hearing: GroupSpec = { id: "hearing", t0, t1, xfade: 0.4, set: () => hallSet(false), light: "day",
+    const hearing: GroupSpec = { id: "hearing", t0, t1, xfade: 0.4, set: () => hallSet(false, { throne: false }), light: "day",
       cam: [
-        fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A), [PORT[0] - 1.1, PORT[1] - 0.4, PORT[2] - 0.1, PORT[0] + 1.1, PORT[1] + 2.6, PORT[2] + 0.1]], 6, 8, 46, { b: 0.55, x: 0.16 }),
+        { ...fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A), [PORT[0] - 1.1, PORT[1] - 0.4, PORT[2] - 0.1, PORT[0] + 1.1, PORT[1] + 2.6, PORT[2] + 0.1]], 6, 8, 46, { b: 0.55, x: 0.3 }), drift: 0.3 },
         fit(only, [personBox(B, false, true)], 22, 4, 36, { b: 0.55 }, [personBox(A), ...judges.map((j) => personBox(j, true))]),
-        fit(nobody, [...judges.map((j) => personBox(j, true)), personBox(B)], 0, 8, 42, { b: 0.45 }, [personBox(A)]),
-        fit(man, [[PORT[0] - 1.3, PORT[1] - 0.5, PORT[2] - 0.1, PORT[0] + 1.3, PORT[1] + 2.4, PORT[2] + 0.4]], 0, 2, 30, { b: 0.62, t: 0.2 },   // the king, and the cannons he ordered
+        fit(nobody, [...judges.map((j) => personBox(j, true)), personBox(B)], 0, 8, 42, { b: 0.45 }, [personBox(A), [PORT[0] - 1.1, PORT[1] - 0.4, PORT[2] - 0.1, PORT[0] + 1.1, PORT[1] + 2.6, PORT[2] + 0.1]]),
+        fit(man, [[PORT[0] - 1.3, PORT[1] - 0.5, PORT[2] - 0.1, PORT[0] + 1.3, PORT[1] + 2.9, PORT[2] + 0.4]], 0, 6, 30, { b: 0.5, t: 0.14 },   // the king, and the cannons he ordered
           [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)]),
       ],
       people: [
@@ -530,8 +533,8 @@ export function buildStory(T: Timing): VasaStory {
       const run = (t: number) => runners.slice(3, 8).map((r) => personBox(at(r, t)));
       return [
         fit(t0, run(t0), -15, 26, 42, { b: 0.35 }, oth(t0)),                                     // thirty sailors, rolling her at the dock
-        fit(showing, [[-14, -0.5, -8, 10, 9, -4]], -150, 6, 38, { b: 0.42 }),                    // from the quay: the deck rolling over the port row
-        fit(sinkW, [[-10, -1, -8, 6, 5, -4]], -165, 2, 34, { b: 0.42 }),                          // the ports at the water: how she would sink
+        fit(showing, [[-24, -0.5, -8, 12, 12, 8]], -112, 20, 40, { b: 0.42, t: 0.3 }),      // over the sheds: the roll at the dock                    // from the quay: the deck rolling over the port row
+        fit(sinkW, [[-16, -1, -8, 4, 6, -4]], -122, 16, 34, { b: 0.42, t: 0.3 }),                          // the ports at the water: how she would sink
       ];
     }));
   }

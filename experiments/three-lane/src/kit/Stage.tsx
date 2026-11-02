@@ -84,7 +84,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   const fx = useMemo(() => {
     const composer = new EffectComposer(gl, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, cam));
-    composer.addPass(new InkPass(scene, cam, { color: "#0b0a0c", fadeNear: 140, fadeFar: 420, distFar: 160 }));
+    composer.addPass(new InkPass(scene, cam, { color: "#0b0a0c", fadeNear: 140, fadeFar: 420, distFar: 160, widthNear: 5.8, widthFar: 3.9 }));
     const lens = new LensBlur({ maxCoC: 24, nearScale: 1.2 });
     composer.addPass(new EffectPass(cam, lens.pre));
     composer.addPass(new EffectPass(cam, lens.main));

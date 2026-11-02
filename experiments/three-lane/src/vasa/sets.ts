@@ -17,7 +17,7 @@ const grass = (repeat: [number, number]) => {
 
 /** Stockholm harbour: the shipyard quay along the ship's starboard side (z < -9), sheds, a derrick, cannons waiting on
  * the quay, the town across the water (+z) and to the east, open water to the east (+x) where she sails. */
-export function harbourSet(o: { cannonsOnQuay?: boolean } = {}): SetBuild {
+export function harbourSet(o: { cannonsOnQuay?: boolean; sheds?: boolean } = {}): SetBuild {
   const root = new THREE.Group();
   const glows: THREE.Object3D[] = [];
   const water = plane(root, lambert({ map: waterTex([60, 60]) }), 700, 700, 120, 0, 0, -Math.PI / 2);
@@ -28,7 +28,7 @@ export function harbourSet(o: { cannonsOnQuay?: boolean } = {}): SetBuild {
   for (let x = -76; x <= 56; x += 4) cyl(root, lambert({ color: "#4a3420" }), 0.25, 3.6, x, 0.6, -9.1, 8);
   // sheds and the yard
   const wall = lambert({ color: "#b98455" }), roof = lambert({ color: "#7a3b2c" });
-  for (const [x, w] of [[-44, 16], [-22, 12], [30, 14]] as [number, number][]) {
+  for (const [x, w] of (o.sheds === false ? [] : [[-44, 16], [-22, 12], [30, 14]]) as [number, number][]) {
     box(root, wall, w, 6, 8, x, 4.8, -19);
     const r = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 6, 4, 4, 1), roof); r.rotation.y = Math.PI / 4; r.scale.set(w / 8.4, 1, 1.1); r.position.set(x, 9.8, -19); r.castShadow = true; root.add(r);
   }
