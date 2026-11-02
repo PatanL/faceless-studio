@@ -23,7 +23,8 @@ recently. You write exactly one file, `out/<slug>/qa/review.json`, and nothing e
 |---|---|---|
 | 1 | `out/<slug>/qa/sbs.jpg` (image) | Top row ours, bottom row the source at the matched beat. Visual parity and beat order |
 | 2 | `out/<slug>/qa/stills.jpg` (image) | 12 frames: cover (frame 0), 10 evenly spaced, last frame. Cover, holds, captions, loop |
-| 2b | `out/<slug>/qa/timeline.jpg` (image) | One frame per second, in order. The critical-viewer pass (section 3): does every second make sense, and does the setting move with the story |
+| 2b | `out/<slug>/qa/timeline.jpg` (image) | One frame per second, for orientation only |
+| - | `out/<slug>/qa/frame_review.json` | The frame reviewers' findings (section 3): every frame of the video, already reviewed. Read it, don't redo it |
 | 3-5 | `out/<s>/qa/stills.jpg` of the last 3 published slugs (images; from `data/posts.jsonl`, newest first) | Sameness by eye: would a follower feel they saw this already? |
 | 6 | optional: one extra frame you grab yourself (`ffmpeg -ss T -i mp4 -frames:v 1 -vf scale=540:-1`) only to check a gate WARN | |
 | - | `episodes/<slug>/script.md` (narration block only), `episodes/<slug>/source.json` (angle, hook, skeleton, pacing) | Script quality vs the source's structure |
@@ -58,11 +59,22 @@ Sameness (stills of the last 3 published)
 - [ ] Different subject, cover composition and colour story from each; no shot that would look like a reused
       clip. A gate WARN on `shot_mix`, `cover_hamming`, `beats_ned` or `subject` needs a sentence from you.
 
-## 3. Critical-viewer pass (FEEDBACK.md)
+## 3. Critical-viewer pass at the native frame rate (FEEDBACK.md)
 
-Go through `timeline.jpg` second by second with the narration beside you, the way a sharp, slightly skeptical
-viewer would, and hold every frame to the principles in `FEEDBACK.md`. Don't look for a list of known bugs; ask
-of each second:
+Every frame gets looked at. `out/<slug>/qa/f30/` holds every frame in order (30 fps: 60 frames per sheet, 2 s,
+each labelled with its time and frame number; red labels are scene starts), and `qa/frames30.json` lists frames a
+script flagged (`flash`: a one-frame pop; `jump`: a one-frame snap, `transition: true` when it sits in a scene
+transition; `frozen`: >= 0.5 s of identical frames). The operator splits the sheets into spans of about 10 s
+(5 sheets) and gives each span to its own **frame reviewer** subagent, in parallel. Each frame reviewer gets its
+sheets, the narration words and times for its span (`episodes/<slug>/words.json` or the script), the flags in its
+span, and this section; it reads every one of its sheets, frame by frame, and returns
+`{"span": [t0, t1], "findings": [{"t": 24.63, "frame": 739, "issue": "...", "fix": "...", "severity": "must|nice"}]}`.
+The operator merges the spans into `out/<slug>/qa/frame_review.json`.
+
+Frame reviewers look like a sharp, slightly skeptical viewer would, and hold every frame to the principles in
+`FEEDBACK.md`. Don't look for a list of known bugs. Between neighbouring frames, ask: does anything appear,
+vanish, jump, resize or change colour without a reason, does motion ease, does each flagged frame look intended?
+Across the span, ask:
 
 - **Does it make sense?** Would anything here make a viewer think "wait, why is that there?" (an animal in the wrong
   place or depth, the wrong climate or era, an impossible scale, light that disagrees, text on a face)?
@@ -71,7 +83,8 @@ of each second:
   (sbs.jpg bottom row). Long stretches of one backdrop with small changes read as static.
 - **Would the reference look better here, and why?** Name the specific difference.
 
-Every "wait, why?" moment is a `must_fix` with its time. If you notice a kind of problem this file and FEEDBACK.md
+When a cell is too small to judge, grab that frame at full size (`ffmpeg -ss T -i mp4 -frames:v 1 x.png`).
+Every "wait, why?" moment and every unintended pop, snap or vanish is a `must_fix` with its time and frame. If you notice a kind of problem this file and FEEDBACK.md
 don't name, still report it: the principles are the bar, not this list.
 
 ## 3b. First-time viewer pass

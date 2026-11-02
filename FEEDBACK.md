@@ -18,5 +18,5 @@ Keep this file short and general. Reviewers apply these the way a sharp viewer w
 ## Process
 
 - Before building: study the references frame by frame (native frame rate) for this format.
-- After building: compare our frames with the references side by side, as a viewer would, then fix what a viewer would notice most.
+- After building: review every frame at the native frame rate (`pipeline/qa/frames30.py`, REVIEW_PROMPT §3), compare with the references side by side as a viewer would, then fix what a viewer would notice most.
 - Separate formats have separate references (the owner's cinematic "Caught"/Malfoid edits are a different format: motion-and-feeling hooks, continuous POV; don't apply explainer rules there or vice versa).

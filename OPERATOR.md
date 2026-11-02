@@ -149,9 +149,14 @@ In-session jobs left `running` for 90 min (a session died mid-review) go back to
 | 21:00 | TikTok inbox | `tiktok_screens` if screenshots wait |
 | Mon 07:30 | learning, experiment decision, kill rule | section 8 |
 
-## 7. Review procedure (one combined visual + viewer review per round)
+## 7. Review procedure (every frame, then one combined visual + viewer review per round)
 
-Spawn **one reviewer subagent per round** so the images stay out of your context. Token cap: **80k** for round 1,
+First the frame pass (`pipeline/qa/REVIEW_PROMPT.md` section 3): split `out/<slug>/qa/f30/` into spans of about
+10 s (5 sheets) and spawn one **frame reviewer** subagent per span, all in parallel, each capped at **30k** tokens.
+Every sheet must be read by exactly one frame reviewer; none is skipped or sampled. Merge their findings into
+`out/<slug>/qa/frame_review.json`.
+
+Then spawn **one reviewer subagent per round** so the images stay out of your context. Token cap: **80k** for round 1,
 **60k** for round 2 (state the cap in the subagent prompt and tell it to stop at the cap and return what it has).
 Prompt it with: the slug, the round, the paths below, and "follow `pipeline/qa/REVIEW_PROMPT.md` exactly (if it is
 missing: the STUDIO.md section 3 rubric, a first-time-viewer pass and the review.json schema in

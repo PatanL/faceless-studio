@@ -1,5 +1,5 @@
 """Review sheets: out/<slug>/qa/sbs.jpg (ours over the source, one column per beat), stills.jpg (12 frames) and
-timeline.jpg (one frame per second, the critical-viewer pass in REVIEW_PROMPT.md section 3).
+timeline.jpg (one frame per second, for orientation), plus the every-frame sheets in qa/f30/ (frames30.py).
 
 usage: python -m pipeline.qa.sheet <slug> [--root DIR] [--source-frames auto|none]
 
@@ -171,6 +171,9 @@ def make_all(r, slug: str, mp4, samples, dur: float, sb, bm, src, fm, niche: str
     frames.to_jpg(sbs(mp4, dur, bm, src, fm, niche, source_frames), out["sbs"])
     frames.to_jpg(stills(mp4, samples, dur), out["stills"])
     frames.to_jpg(timeline(samples), out["timeline"])
+    from . import frames30
+    out["frames30"] = qd / "frames30.json"
+    frames30.make(r, slug, mp4, sb)
     return out
 
 
