@@ -11,10 +11,11 @@ The owner is collecting references for future formats. Don't start pilots from t
 | goldenretrieverswitze | Golden-retriever jokes (German name) | Not checked, same as above | — | Unknown |
 | antrofrog_ (X) | Painterly 2D character vignettes (a frog-like guy in a black coat doing absurd gags around New York), cut to a song | AI video (bio: "an artist with zero skills so I just use AI"); 1080p 24 fps; owner's idea: Codex image frames plus reference motion | Joined Sep 2026, 33.2K followers; pinned "Englishman in New York" 33M views, 293K likes, 34K reposts | Look needs image-to-video or very heavy code animation. Note: it's set to a commercial song, which would be claimed on YouTube |
 | loxiv.stories (IG), reel De6wom9MexO | A buff macho man who transforms into a cute, soft guy at home. Owner: the second recurring pattern, a **transformation hook and payoff** (the first being relatable couples) | Not checked: the reel is audience-restricted, so it can't be fetched logged out | — | Premise yes (a two-state character swap is easy in code); look unknown |
+| mama.clubnika (IG), post 9e3EZHM1S9g | Relatable cartoons (owner). Russian account, 465K followers; bio is a sewing business plus "teaching AI"; story highlights "Мульт Ai" (AI cartoons) and "Кино Ai" (AI film) | AI video, by the highlight names. The post needs a login (not a YouTube ID; Instagram returned no media logged out) | 465K followers | Same as amodiniolga_art: emotional/relatable AI cartoon look needs a video model |
 
 Reference media on the Spark: ~/studio/refs/ig/ (De19SpSNL6v.mp4, antrofrog_2116118225582718976.mp4).
 
 ## Patterns the owner has named so far
 
-1. **Relatable couples/family life** (bob.figures.it.out, capisean_capisara, amodiniolga_art): shareable to a partner or parent; cute or distinctive recurring characters.
+1. **Relatable couples/family life** (bob.figures.it.out, capisean_capisara, amodiniolga_art, mama.clubnika): shareable to a partner or parent; cute or distinctive recurring characters.
 2. **Transformation hook and payoff** (loxiv.stories): open on one extreme version of a character, pay off with the opposite (macho outside → cute at home). The hook sets an expectation and the payoff flips it.
