@@ -20,7 +20,7 @@ FADE, WHIP, DIP = E.FADE, E.WHIP, E.DIP
 
 PPM0 = 100                         # hook / bookend: orca and diver share pxPerM (honest you-vs-it scale)
 HOOK_ORCA = ("46%", "35%")         # orca fully in frame at zoom 1.0 (left edge ~97 px)
-HOOK_DIVER = ("74%", "42.5%")      # right under the jaw (diver 260 px at zoom 1.0, ~430 px on the cover)
+HOOK_DIVER = ("76%", "44%")      # right under the jaw (diver 260 px at zoom 1.0, ~430 px on the cover); style A hero box is lower
 HOOK_SPEED = 1.1
 # cover camera (frame 0 = last frame): pushed in on the head so the orca fills ~80 % of the width, pulls back to 1.0 by 1 s
 COVER_CAM = (1.65, "63.9%", "39.6%")
@@ -42,9 +42,9 @@ WAVE = ('<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveA
 FLASH = '<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><rect width="10" height="10" fill="#fff"/></svg>'
 DASH = ('<svg viewBox="0 0 600 40" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="20" x2="590" y2="20" stroke="#f3f6f7" '
         'stroke-width="7" stroke-dasharray="26 18" stroke-linecap="round"/><path d="M 590 20 L 560 4 L 560 36 Z" fill="#f3f6f7"/></svg>')
-GLOW_RED = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="r"><stop offset="0" '
-            'stop-color="#ff5a4a" stop-opacity="0.85"/><stop offset="1" stop-color="#ff5a4a" stop-opacity="0"/></radialGradient>'
-            '</defs><circle cx="100" cy="100" r="100" fill="url(#r)"/></svg>')
+# house style A: a light source gets one flat halo ring, no radial gradient (docs/HOUSE_STYLE.md)
+GLOW_RED = ('<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="96" fill="#fa302a" '
+            'opacity="0.28"/><circle cx="100" cy="100" r="62" fill="#fa302a" opacity="0.38"/></svg>')
 BAR = lambda label: ('<svg viewBox="0 0 400 70" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="14" x2="392" y2="14" '
                      'stroke="#f3f6f7" stroke-width="6"/><line x1="8" y1="2" x2="8" y2="26" stroke="#f3f6f7" stroke-width="6"/>'
                      '<line x1="392" y1="2" x2="392" y2="26" stroke="#f3f6f7" stroke-width="6"/><text x="200" y="64" '
@@ -57,7 +57,8 @@ BAR = lambda label: ('<svg viewBox="0 0 400 70" xmlns="http://www.w3.org/2000/sv
 OPEN = {"kind": "place", "biome": "open_ocean", "place": "open ocean", "depth": 25, "waterline": None, "light": "day"}
 HOOK_SET = {**OPEN, "depth": 6, "waterline": 0.044}            # hook / bookend: the surface line at the very top
 # boards: plain water fields (art direction experiments/asset-gen/gen/orca_set_01 size, 02 speed lanes, 07 reasons)
-SCALE_BOARD = {"kind": "board", "board": "blue", "surface": 0.03, "rays": 5}
+# (the size board is a flat sky-cyan field so the change from the royal open water of the hook reads at once)
+SCALE_BOARD = {"kind": "board", "board": "cyan"}
 SPEED_BOARD = {"kind": "board", "board": "blue", "lanes": 3}
 WHY_BOARD = {"kind": "board", "board": "navy", "surface": 0.025}
 # wave-washing: Pitman & Durban 2012 (pack ice); look: experiments/asset-gen/gen/f_antarctic_v3.png (indigo dusk, low sun)
@@ -190,7 +191,7 @@ def build(S_):
                punches=[at(s, "never")], locked=[(0.0, 1.1)])
     sc.append(E.bw_scene(s, surface_bg(), [
         hook_orca([{"t": 0, "x": HOOK_ORCA[0]}, {"t": s.dur, "x": "50%", "ease": "out"}]),
-        *diver(*HOOK_DIVER, PPM0, z=3),
+        *diver(*HOOK_DIVER, PPM0, z=3, chip_dy=3.9),
         cover_headline(E.COVER),
     ], hook, setting={**HOOK_SET, "cue": "Wild"}))
     _ease_key(sc[-1], 1.0)
@@ -238,7 +239,7 @@ def build(S_):
         svg(DASH, "55.5%", "40.5%", 270, 26, start=chase + 0.45, enter={"type": "fade", "at": chase + 0.45, "duration": 0.2},
             end=reach + 0.3, z=1),
         T("50 M", chase + 0.5, x="55.5%", y="36%", size=48, w=260, align="center", end=reach + 0.3),
-        S(3, "seconds to reach you", three, y="55.5%", size=124, duration=0.01),
+        S(3, "seconds to reach you", three, y="24%", size=124, duration=0.01),   # above the chase (it covered YOU)
     ], cam(s, punches=[at(s, "Olympic"), at(s, "You,"), reach], ), trans=WHIP, setting=SPEED_BOARD))
 
     # ------------------------------------------------------------ p03 never just one: head-on orca, then the pod circles YOU
@@ -296,7 +297,7 @@ def build(S_):
         svg(GLOW_RED, "56%", "43%", 300, 300, z=3, start=miss, enter=fade(miss, 0.3),
             idle=[{"type": "pulse", "amount": 0.2, "speed": 1.2}], keyframes=[{"t": miss, "opacity": 0.8}, {"t": took, "opacity": 0.8}, {"t": took + 0.4, "opacity": 0}]),
         comp("explainer/Liver", "56%", "43%", 210, 112, {}, start=liver, enter=pop(liver, 0.3), z=4, allowOverlap=True,  # inside the shark
-             shadow="0 0 26px rgba(255,90,74,0.9)", idle=[{"type": "pulse", "amount": 0.08, "speed": 1.4}],
+             idle=[{"type": "pulse", "amount": 0.08, "speed": 1.4}],
              keyframes=[{"t": liver, "x": "56%", "y": "43%"}, {"t": took, "x": "56%", "y": "43%"},
                         {"t": s.dur, "x": "8%", "y": "33%", "ease": "in"}]),
         T("LIVER: GONE", liver + 0.1, x="50%", y="62.5%", size=50, w=700, accent=RED, align="center"),
@@ -318,9 +319,10 @@ def build(S_):
           for i, (x, y, w) in enumerate([("66%", "34%", 640), ("80%", "50%", 500), ("52%", "54%", 360)])],
         E.headline("GONE FOR MONTHS", at=fled, y="14%", size=72, out=if_),
         # menace shape: lifted off the #06121c water with a cold rim, head in frame by if_+0.3, slow push (QA: #0a2531 was invisible)
-        orca("50%", "40%", 1500, 540, silhouette=MENACE, shadow=MENACE_RIM, speed=0.7, start=if_, z=0, depth=0.6,
-             keyframes=[{"t": if_, "x": "110%", "opacity": 0, "scale": 1.0}, {"t": if_ + 0.3, "opacity": 0.95},
-                        {"t": s.dur, "x": "60%", "opacity": 0.95, "scale": 1.06}], flipX=True),
+        # the orca arrives as itself (markings and all), swimming in from the right edge (v3: a flat dark silhouette
+        # that read as a shape, not an orca)
+        orca("50%", "40%", 1500, 540, speed=0.7, start=if_, z=0, depth=0.6,
+             keyframes=[{"t": if_, "x": "130%", "scale": 1.0}, {"t": s.dur, "x": "62%", "scale": 1.06, "ease": "out"}], flipX=True),
         *diver("50%", "46%", 120, at=if_ + 0.05),
     ], cam(s, punches=[fled, at(s, "you")]), trans=CUT, setting=GANSBAAI))
 
@@ -364,8 +366,8 @@ def build(S_):
     s = S_[8]
     why_head = dict(y="13%", size=96)
     sc.append(E.bw_scene(s, deep_bg(500, rays=3, snow=50), [
-        orca("50%", "40%", 1500, 540, silhouette=MENACE, shadow=MENACE_RIM, speed=0.8, z=0, depth=0.6,
-             keyframes=[{"t": 0, "x": "-40%", "opacity": 0.95, "scale": 1.0}, {"t": s.dur, "x": "40%", "opacity": 0.95, "scale": 1.06}]),
+        orca("50%", "40%", 1500, 540, speed=0.8, z=0, depth=0.6,
+             keyframes=[{"t": 0, "x": "-40%", "scale": 1.0}, {"t": s.dur, "x": "40%", "scale": 1.06}]),
         *diver("50%", "46%", 140),
         E.headline("WHY NOT YOU?", at=at(s, "why", off=-0.1), **why_head),
     ], cam(s, z1=1.08, punches=[at(s, "smart"), at(s, "never")]), trans=DIP, setting=WHY_BOARD))
@@ -421,7 +423,7 @@ def build(S_):
              keyframes=[{"t": cul + 0.45, "x": "-12%"}, {"t": orc + 0.55, "x": "60%", "ease": "out"}, {"t": s.dur, "x": "72%"}],
              idle=[{"type": "float", "amount": 8, "speed": 0.35}]),
         T("MOTHER  +  CALF", orc + 0.05, y="13%", size=48, w=800, align="center", out=no - 0.3),
-        *diver("74%", "55%", 100, at=no + 0.1, chip_dy=4.2),   # tag clear of the caption band
+        *diver("22%", "56%", 100, at=no + 0.1, chip_dy=4.2),   # clear of the calf (v4: YOU sat on the calf) and the captions
         E.headline("NOT ON THE MENU", at=no + 0.1, y="13%", size=76, red="MENU"),
     ], cam(s, punches=[cul, at(s, "mothers"), no]), trans=CUT,
         setting=[WHY_BOARD, {**MOTHERS, "at": round(cul + 0.25, 3), "cue": "mothers"}]))
@@ -477,7 +479,7 @@ def build(S_):
              "list": [{"t": 0, "v": 5}, {"t": s.dur, "v": 30, "ease": "in"}],
              "sink": [{"t": 0, "v": 0}, {"t": s.dur, "v": 150, "ease": "in"}]}, depth=0.12, z=1),
         orca("40%", "40%", 340, 120, speed=1.0, z=2, depth=0.12, keyframes=[{"t": 0, "x": "14%"}, {"t": s.dur, "x": "42%"}]),
-        S(7, "boats sunk since 2020", 0.05, y="50%", size=130, prefix="~", **{"from": 4}, duration=0.7),
+        S(7, "boats sunk since 2020", 0.05, y="57%", size=130, prefix="~", **{"from": 4}, duration=0.7),   # under the ramming orca
     ], _with_shake(cam(s, punches=[at(s, "sunk."), at(s, "Nobody")]), [(0.1, 0.4, 10)]), trans=CUT,
         setting={k: v for k, v in IBERIA.items() if k != "cue"}, _house={"proof": False}))
 
@@ -488,7 +490,7 @@ def build(S_):
     keys = [(0, 1.3, cx0, cy0), (s.dur * 0.35, 1.38, cx0, cy0), (s.dur * 0.7, 1.5, cx0, cy0), (s.dur, z0, cx0, cy0)]
     sc.append(E.bw_scene(s, surface_bg(), [
         hook_orca([{"t": 0, "x": "18%"}, {"t": s.dur, "x": HOOK_ORCA[0], "ease": "out"}], timeOffset=round(toff, 3)),
-        *diver(*HOOK_DIVER, PPM0, z=3),
+        *diver(*HOOK_DIVER, PPM0, z=3, chip_dy=3.9),
         cover_headline(because),
     ], cam(s, keys=keys, locked=[(0.0, s.dur)]), trans=CUT, setting=HOOK_SET))
     return sc
@@ -576,8 +578,8 @@ def p04_layers(s):
     pod, pass2 = [], []
     for i, (dx, dy, to) in enumerate([(0.0, 0.0, 0.0), (-14.0, -2.2, 0.35), (-8.0, 6.5, 0.7)]):   # line abreast, spread
         kf = [{"t": 0, "x": f"{-16 + dx:.1f}%", "y": f"{46 + dy:.1f}%"},
-              {"t": ch, "x": f"{12 + dx:.1f}%", "y": f"{40.5 + dy:.1f}%", "ease": "inOut"},
-              {"t": wave, "x": f"{42 + dx:.1f}%", "y": f"{37 + dy:.1f}%", "ease": "in"},
+              {"t": ch, "x": f"{14 + dx:.1f}%", "y": f"{40.5 + dy:.1f}%", "ease": "linear"},
+              {"t": wave, "x": f"{42 + dx:.1f}%", "y": f"{37 + dy:.1f}%", "ease": "linear"},   # a steady charge, no stall
               {"t": wash + 0.25, "x": f"{76 + dx:.1f}%", "y": f"{47 + dy:.1f}%", "ease": "out"},
               {"t": wash + 1.0, "x": f"{122 + dx:.1f}%", "y": f"{52 + dy:.1f}%", "ease": "in"}]
         pod.append(orca("50%", "50%", 380, 140, speed=1.6, timeOffset=to, z=1, depth=0.12, end=round(wash + 1.05, 3), keyframes=kf))

@@ -113,8 +113,8 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "74%",
-     "y": "42.5%",
+     "x": "76%",
+     "y": "44%",
      "width": 280.0,
      "height": 90.0,
      "props": {
@@ -134,8 +134,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "74%",
-     "y": "47.10%",
+     "x": "76%",
+     "y": "47.90%",
      "width": 175,
      "height": 76.8,
      "props": {
@@ -146,7 +146,7 @@
       "accent": "red",
       "leader": [
        0,
-       -67.6
+       -54.2
       ]
      },
      "depth": 1,
@@ -246,9 +246,9 @@
     "haze": "tide-1"
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -260,11 +260,9 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "field": "blue",
+     "field": "cyan",
      "seed": "bd1",
-     "floor": false,
-     "surface": 0.1083,
-     "rays": 5
+     "floor": false
     }
    },
    "layers": [
@@ -437,9 +435,7 @@
    "notes": "Not because they can't. A big male is eight metres long, as heavy as four cars, and its fin alone is as tall as you.",
    "setting": {
     "kind": "board",
-    "board": "blue",
-    "surface": 0.03,
-    "rays": 5,
+    "board": "cyan",
     "at": 0.0
    },
    "camera": {
@@ -537,9 +533,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "wipe",
@@ -743,7 +739,7 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "55.5%",
+     "y": "24%",
      "width": 900,
      "height": 322.40000000000003,
      "props": {
@@ -834,9 +830,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -1258,9 +1254,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "fade",
@@ -1827,15 +1823,15 @@
       },
       {
        "t": 1.818,
-       "x": "12.0%",
+       "x": "14.0%",
        "y": "40.5%",
-       "ease": "inOut"
+       "ease": "linear"
       },
       {
        "t": 3.868,
        "x": "42.0%",
        "y": "37.0%",
-       "ease": "in"
+       "ease": "linear"
       },
       {
        "t": 4.543,
@@ -1881,15 +1877,15 @@
       },
       {
        "t": 1.818,
-       "x": "-2.0%",
+       "x": "0.0%",
        "y": "38.3%",
-       "ease": "inOut"
+       "ease": "linear"
       },
       {
        "t": 3.868,
        "x": "28.0%",
        "y": "34.8%",
-       "ease": "in"
+       "ease": "linear"
       },
       {
        "t": 4.543,
@@ -1935,15 +1931,15 @@
       },
       {
        "t": 1.818,
-       "x": "4.0%",
+       "x": "6.0%",
        "y": "47.0%",
-       "ease": "inOut"
+       "ease": "linear"
       },
       {
        "t": 3.868,
        "x": "34.0%",
        "y": "43.5%",
-       "ease": "in"
+       "ease": "linear"
       },
       {
        "t": 4.543,
@@ -2413,9 +2409,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -2485,10 +2481,10 @@
      "z": -38,
      "props": {
       "seed": "fk5b",
-      "n": 7,
+      "n": 4,
       "plane": "far",
       "blade": 0.8,
-      "golden": true
+      "golden": false
      },
      "start": 0.75
     },
@@ -2521,18 +2517,18 @@
      "type": "component",
      "name": "explainer/Kelp",
      "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
+     "x": "6%",
+     "y": "62%",
+     "width": 1080,
      "height": 1500,
      "depth": 0.6,
      "z": -37,
      "props": {
-      "seed": "mk5b",
-      "n": 2,
+      "seed": "mk5b0",
+      "n": 1,
       "plane": "mid",
       "height": [
-       0.8,
+       0.85,
        1.0
       ],
       "blade": 1.3,
@@ -2544,21 +2540,44 @@
      "type": "component",
      "name": "explainer/Kelp",
      "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
+     "x": "26%",
+     "y": "62%",
+     "width": 1080,
+     "height": 1500,
      "depth": 0.6,
      "z": -37,
      "props": {
-      "seed": "mk5bb",
+      "seed": "mk5b1",
       "n": 1,
       "plane": "mid",
       "height": [
-       0.65,
-       0.9
+       0.6,
+       0.75
       ],
-      "blade": 1.2,
+      "blade": 1.3,
+      "golden": true
+     },
+     "start": 0.75
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "62%",
+     "width": 1080,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -37,
+     "props": {
+      "seed": "mk5b2",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.7,
+       0.85
+      ],
+      "blade": 1.3,
       "golden": true
      },
      "start": 0.75
@@ -2622,7 +2641,6 @@
      "height": 1500,
      "depth": 1.45,
      "z": 30,
-     "blur": 9,
      "props": {
       "seed": "ek5b",
       "n": 2,
@@ -2764,7 +2782,7 @@
     },
     {
      "type": "svg",
-     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><defs><radialGradient id=\"r\"><stop offset=\"0\" stop-color=\"#ff5a4a\" stop-opacity=\"0.85\"/><stop offset=\"1\" stop-color=\"#ff5a4a\" stop-opacity=\"0\"/></radialGradient></defs><circle cx=\"100\" cy=\"100\" r=\"100\" fill=\"url(#r)\"/></svg>",
+     "markup": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"100\" r=\"96\" fill=\"#fa302a\" opacity=\"0.28\"/><circle cx=\"100\" cy=\"100\" r=\"62\" fill=\"#fa302a\" opacity=\"0.38\"/></svg>",
      "x": "56%",
      "y": "43%",
      "width": 300,
@@ -2814,7 +2832,6 @@
      },
      "z": 4,
      "allowOverlap": true,
-     "shadow": "0 0 26px rgba(255,90,74,0.9)",
      "idle": [
       {
        "type": "pulse",
@@ -3032,9 +3049,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -3102,10 +3119,10 @@
      "z": -40,
      "props": {
       "seed": "fk6a",
-      "n": 7,
+      "n": 4,
       "plane": "far",
       "blade": 0.8,
-      "golden": true
+      "golden": false
      }
     },
     {
@@ -3136,18 +3153,18 @@
      "type": "component",
      "name": "explainer/Kelp",
      "role": "dressing",
-     "x": "5%",
-     "y": "66%",
-     "width": 320,
+     "x": "6%",
+     "y": "62%",
+     "width": 1080,
      "height": 1500,
      "depth": 0.6,
      "z": -39,
      "props": {
-      "seed": "mk6a",
-      "n": 2,
+      "seed": "mk6a0",
+      "n": 1,
       "plane": "mid",
       "height": [
-       0.8,
+       0.85,
        1.0
       ],
       "blade": 1.3,
@@ -3158,21 +3175,43 @@
      "type": "component",
      "name": "explainer/Kelp",
      "role": "dressing",
-     "x": "95%",
-     "y": "68%",
-     "width": 320,
-     "height": 1400,
+     "x": "26%",
+     "y": "62%",
+     "width": 1080,
+     "height": 1500,
      "depth": 0.6,
      "z": -39,
      "props": {
-      "seed": "mk6ab",
+      "seed": "mk6a1",
       "n": 1,
       "plane": "mid",
       "height": [
-       0.65,
-       0.9
+       0.6,
+       0.75
       ],
-      "blade": 1.2,
+      "blade": 1.3,
+      "golden": true
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Kelp",
+     "role": "dressing",
+     "x": "95%",
+     "y": "62%",
+     "width": 1080,
+     "height": 1500,
+     "depth": 0.6,
+     "z": -39,
+     "props": {
+      "seed": "mk6a2",
+      "n": 1,
+      "plane": "mid",
+      "height": [
+       0.7,
+       0.85
+      ],
+      "blade": 1.3,
       "golden": true
      }
     },
@@ -3233,7 +3272,6 @@
      "height": 1500,
      "depth": 1.45,
      "z": 30,
-     "blur": 9,
      "props": {
       "seed": "ek6a",
       "n": 2,
@@ -3376,32 +3414,33 @@
      "width": 1500,
      "height": 540,
      "props": {
-      "silhouette": "#1f4d61",
       "speed": 0.7
      },
-     "shadow": "0 0 3px #3f7f95",
      "start": 2.566,
      "z": 0,
      "depth": 0.6,
      "keyframes": [
       {
        "t": 2.566,
-       "x": "110%",
-       "opacity": 0,
+       "x": "130%",
        "scale": 1.0
       },
       {
-       "t": 2.8659999999999997,
-       "opacity": 0.95
-      },
-      {
        "t": 4.43,
-       "x": "60%",
-       "opacity": 0.95,
-       "scale": 1.06
+       "x": "62%",
+       "scale": 1.06,
+       "ease": "out"
       }
      ],
-     "flipX": true
+     "flipX": true,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 6.8
+      }
+     ]
     },
     {
      "type": "component",
@@ -3529,9 +3568,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "iris",
@@ -4166,9 +4205,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -4195,24 +4234,28 @@
      "width": 1500,
      "height": 540,
      "props": {
-      "silhouette": "#1f4d61",
       "speed": 0.8
      },
-     "shadow": "0 0 3px #3f7f95",
      "z": 0,
      "depth": 0.6,
      "keyframes": [
       {
        "t": 0,
        "x": "-40%",
-       "opacity": 0.95,
        "scale": 1.0
       },
       {
        "t": 3.52,
        "x": "40%",
-       "opacity": 0.95,
        "scale": 1.06
+      }
+     ],
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 8.8
       }
      ]
     },
@@ -4338,9 +4381,9 @@
     "setup": "lantern"
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -4654,9 +4697,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "wipe",
@@ -4941,8 +4984,8 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "74%",
-     "y": "55%",
+     "x": "22%",
+     "y": "56%",
      "width": 280.0,
      "height": 90.0,
      "props": {
@@ -4967,8 +5010,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "74%",
-     "y": "59.20%",
+     "x": "22%",
+     "y": "60.20%",
      "width": 175,
      "height": 76.8,
      "props": {
@@ -5106,9 +5149,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "wipe",
@@ -5894,9 +5937,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    }
   },
   {
@@ -6062,7 +6105,7 @@
      "type": "component",
      "name": "explainer/Stat",
      "x": "50%",
-     "y": "50%",
+     "y": "57%",
      "width": 900,
      "height": 338.0,
      "props": {
@@ -6143,9 +6186,9 @@
     "haze": "tide-1"
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "fade",
@@ -6237,8 +6280,8 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "74%",
-     "y": "42.5%",
+     "x": "76%",
+     "y": "44%",
      "width": 280.0,
      "height": 90.0,
      "props": {
@@ -6258,8 +6301,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "74%",
-     "y": "47.10%",
+     "x": "76%",
+     "y": "47.90%",
      "width": 175,
      "height": 76.8,
      "props": {
@@ -6270,7 +6313,7 @@
       "accent": "red",
       "leader": [
        0,
-       -67.6
+       -54.2
       ]
      },
      "depth": 1,
@@ -6350,9 +6393,9 @@
     "sweep": 8
    },
    "grade": {
-    "brightness": 1.02,
-    "contrast": 1.04,
-    "saturate": 0.94
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
    },
    "transitionIn": {
     "type": "fade",
@@ -7670,7 +7713,7 @@
   "style": "house (Lantern & Ink): pipeline/episodes/house.py",
   "settings": {
    "runs": 14,
-   "distinct": 11,
+   "distinct": 12,
    "changes": 13,
    "per_min": 9.22,
    "max_hold": 11.66,
