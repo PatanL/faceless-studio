@@ -18,6 +18,7 @@ const MAX_ROUNDS = A.rounds || 3
 
 const COMMON = `Repo: /Users/patrickliu/Documents/faceless-studio. Read BRIEF.md, FEEDBACK.md, docs/HOUSE_STYLE.md (style A; the zackd lane uses the realistic variant at the end of it) and docs/FEEDBACK_LOG.md first.
 Episode slug: ${SLUG}. Lane: ${LANE}. Lane references: ${REFS}.
+Lane principles measured from reference outliers vs their channels' ordinary videos: research/library/LANE_PRINCIPLES.md (topic choice, hook, title); follow them unless the reference brief shows otherwise.
 Rules: never publish or schedule anything. Renders, TTS and heavy ffmpeg go through the render dispatcher (scripts/render.sh if present, else scripts/spark_render.sh): Spark CPU only (never its GPU), nice, concurrency 2; the Mac is a second render slot under BRIEF.md rule 2. Never delete files; never spend money or enter credentials. Commit working changes with clear messages ending "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"; touch shared kit/core files only with small targeted edits and say so in the commit.`
 
 const TEXT = { type: 'object', properties: { summary: { type: 'string' } }, required: ['summary'] }
