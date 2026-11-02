@@ -28,3 +28,4 @@ Older files cite the previous numbering. It maps onto the current principles (P)
 - Choose story topics where a 3D environment makes sense, i.e. places the camera can travel through.
 - Don't rework a video once it's posted (Turk went out as v4); its lessons go into the next topic.
 - The Spark overheated (89 °C) running our CPU renders and analysis, so heavy work moves to the Mac. The Spark only takes light jobs, and none while it is above 80 °C.
+- "Ur supposed to decide automatically": the operator makes routine calls itself (posting, sound, captions) and reports them. Decisions made: story lane uses the story_ricks audio profile; captions are a hybrid (RicksClips look, house phrase breaks, one line, about 4 words); Vasa v15 was scheduled for 18:30 CT on YouTube and Instagram.
