@@ -33,7 +33,8 @@ takes the defaults). It rewrites each scene's camera from the framings the shots
 
 per framing (an authored camera key): "drift": -1 | 0 | 1 sideways direction of the hold after it (0 = push only),
 "push": the most that hold may push in (zoom fraction), "cont": true on the first key = start where the previous
-scene's camera ended (same set on both sides of a crossfade: the dissolve then shows no double image).
+scene's camera ended and join the scenes seamlessly (no dissolve): for scenes that share one set and one layout, so the
+join reads as one continuous camera move (the builder keeps poses and props continuous across it).
 options: cuts [ints], glide_s 1.0, min_glide_s 0.8, land_frac 0.3, push 0.003, hold_max_push 0.18, drift_px 3.3, hold_max_drift 130 (screen px per hold), min_push 0.0011, drift_mode free|toward, hold_drift_frac 0.6,
          set_depth 0.9, xfade_s 0.233, swap_s 0.233, min_zoom 1.0, overscan 1.2, set_blur 0
 
@@ -227,7 +228,8 @@ def apply(sb: dict, opts: dict | None = None) -> dict:
     sb = copy.deepcopy(sb)
     prev_end = None
     for si, sc in enumerate(sb["scenes"]):
-        sc["camera"] = scene_camera(sc.get("camera"), sc["duration"], si, o, prev_end)
+        cam0 = sc.get("camera") or {}
+        sc["camera"] = scene_camera(cam0, sc["duration"], si, o, prev_end)
         prev_end = sc["camera"].pop("_end")
         bg = sc.get("background") or {}
         if bg.get("type") == "component" and str(bg.get("name", "")).startswith("stick/"):
@@ -244,8 +246,11 @@ def apply(sb: dict, opts: dict | None = None) -> dict:
                 if o["set_blur"] > 0:
                     l["blur"] = o["set_blur"]
         _swaps(sc, o)
+        seamless = any(k.get("cont") for k in (cam0.get("keyframes") or [])[:1])
         if si > 0:
-            sc["transitionIn"] = {"type": "cut", "duration": 0} if si + 1 in cuts else \
+            # cont: same set, same layout, camera starts where the last one ended -> a seamless join (no dissolve to
+            # ghost the figures); it reads as one continuous shot, so it does not count as a hard cut
+            sc["transitionIn"] = {"type": "cut", "duration": 0} if (si + 1 in cuts or seamless) else \
                 {"type": "fade", "duration": o["xfade_s"]}
     sb.setdefault("_built", {})["camera"] = "pipeline/episodes/story_camera.py (story lane grammar)"
     return sb

@@ -110,3 +110,148 @@ fixed:
   against 1.0 (gap 2 in the check). See the 3D cost test in docs/RND_LOG.md.
 
 **Not done yet:** the blind side-by-side panel (PARITY.md §2) and the owner's phone check (§3).
+
+## 2026-11-02 · story lane · story-chess-turk v6 (v5 open items) + the blind panel
+
+**Video:** `out/story-chess-turk/story-chess-turk_v6.mp4` (58.9 s, sha256 `944a2e6b…`), phone copy
+`out/story-chess-turk/story-chess-turk_v6_phone.mp4` (16.7 MB). Same voice and mix as v5 (−14.0 LUFS, TP −2.1 dBTP).
+
+### What changed from v5
+
+- **One hall, no same-room dissolves.**
+  - p02 (interior) to p06 now share one layout: the same Turk, inventor and court in the same places.
+  - Each scene starts where the last camera ended (`cont`). `story_camera.py` now joins `cont` scenes seamlessly
+    (no crossfade), so 10.3 s and 23.7 s read as camera moves.
+  - The cutaway scenes p10 to p12 are joined the same way.
+  - Poses, faces, props, the dimmed room and the candle glow are carried across every join.
+  - The p03 court laughs at the Turk in the same shot. The p06 count is the man from the court, seated.
+  - The p02 push-in past the Empress is gone.
+- **Hands on the doors.**
+  - He walks along the cabinet and his free hand is on each door as it swings.
+  - In the hook only the left door opens, by hand.
+  - In the cutaway the gear-side door opens first; he slides on "slid", and only then do his doors open.
+- **Candle:** it stands on the cabinet top. He reaches up and takes it on "candle", holds it into the open left bay
+  (the light now pools in that bay), and sets it back before winding the key.
+- **Chess hands:** they enter over 13 frames, decelerating, and leave over 21 frames with a slow start. Napoleon's arm
+  comes from his side. The next hand starts only after the last piece has landed.
+- **Fire, smoke, labels:**
+  - The museum fire builds over about 1.1 s.
+  - No flame sits over the Turk's face.
+  - The smoke trail goes up his back to the neck, and puffs leave the turban.
+  - Labels leave with a 0.3 s fade.
+  - The master's hand blends onto the lever.
+  - The room stays dark under the newspaper.
+
+### Measured (same tools; v6 = the bold column)
+
+| Check | refs range | v4 | v5 | v6 |
+|---|---|---|---|---|
+| words/s · pauses ≥ 0.8 s | 3.33-3.89 · 0-1 | 3.13 · 5 | 3.79 · 0 | **3.79 · 0** |
+| hard cuts · one-frame jumps | 0-3 · 0-12 | 20 · 54 | 2 · 3 | **2 · 3** |
+| camera moving % · median px/f | 96-100 · 5.76-11.09 | 70 · 0.58 | 99 · 5.87 | **100 · 5.46** |
+| moves/10 s · quiet-frame zoom % | 5.1-9.6 · 69-88 | 2.1 · 29 | 11.0 · 75 | **10.9 · 74** |
+| saturation · colourfulness | 0.41-0.61 · 23-34 | 0.73 · 61 | 0.45 · 30 | **0.45 · 30** |
+| luma p50 · non-ink p5 | 0.31-0.58 · 0.09-0.23 | 0.24 · 0.14 | 0.39 · 0.22 | **0.41 · 0.22** |
+| shadow chroma · hue | 9-35 · violet-blue | 83 · 306 | 29 · 292 | **29 · 292** |
+| ink edge · soft edge % · acutance | 0.54-0.66 · 3.8-14.6 · 0.32-0.42 | 0.17 · 1.5 · 0.47 | 0.59 · 5.4 · 0.39 | **0.60 · 5.3 · 0.39** |
+
+Everything is inside the references' range except moves per 10 s (10.9 against a maximum of 9.6).
+
+### Frame review
+
+There were four every-frame rounds on v6 (3 reviewers each, frames30 sheets), plus still checks of the last fixes.
+
+**Fixed:**
+- the ghosted joins;
+- doors opening without a hand;
+- the candle popping in;
+- the candle-to-key pop;
+- the glow lighting the wrong bay;
+- fast hand exits;
+- the fire flare;
+- smoke over the face;
+- the label blink;
+- the lever snap;
+- the backdrop swap under the newspaper;
+- captions over the inventor's face;
+- his face cut at the left edge (he now stands at x 16 %).
+
+**Still open:**
+- In the Turk close-ups (11.6-13.6 s) the inventor sits right above the caption band.
+- The board inserts in p01, p06 and p08 are still dissolves: a different framing of the same room.
+- The sweep reads small.
+- The map shows two pins and no route.
+- The Turk only darkens; he does not visibly turn to ash.
+- The newspaper picture is unreadable.
+- The hidden master is not visibly "folded".
+- The magnets are small.
+- Gear angles jump a few degrees at two joins.
+
+**Caption pages that break mid-phrase** (shared paging in `phrases.py`; left alone while the kurz lane renders with it):
+
+| Now | Would be |
+|---|---|
+| "THAT BEAT NEARLY / EVERY PLAYER," | "THAT BEAT / NEARLY EVERY PLAYER," |
+| "HE OPENED / IT UP" | "HE OPENED IT UP" |
+| "INTO THE EMPRESS'S / PALACE IN VIENNA." | "INTO THE EMPRESS'S PALACE / IN VIENNA." |
+| "SITS A LIFE-SIZE / WOODEN MAN" | "A LIFE-SIZE WOODEN MAN" |
+| "AT A CHESS / BOARD." | "AT A CHESS BOARD." |
+| "THE WHOLE / COURT LAUGHS." | "THE WHOLE COURT LAUGHS." |
+| "ONE BY ONE AND HOLDS / A CANDLE / BEHIND THEM." | "ONE BY ONE / AND HOLDS A CANDLE BEHIND THEM." |
+| "HE WINDS / A KEY." | "HE WINDS A KEY." |
+| "BRAVE ENOUGH / TO PLAY / IT GETS CRUSHED." ("play it" split) | "BRAVE ENOUGH TO PLAY IT / GETS CRUSHED." |
+| "NO ONE / IS LAUGHING NOW." | "NO ONE IS LAUGHING NOW." |
+| "THEN A MUSEUM / FIRE BURNS" ("museum fire" split) | "THEN A MUSEUM FIRE / BURNS THE TURK TO ASH," |
+| "THERE WAS A MAN / INSIDE." | "THERE WAS A MAN INSIDE." |
+| "WHEN EACH DOOR / OPENED, HE SLID / HIS SEAT" | "WHEN EACH DOOR OPENED, / HE SLID HIS SEAT" |
+| "MAGNETS UNDER / THE BOARD SHOWED / HIM EVERY MOVE," | "MAGNETS UNDER THE BOARD / SHOWED HIM EVERY MOVE," |
+| "AND A LEVER MOVED / THE TURK'S HAND." | "AND A LEVER / MOVED THE TURK'S HAND." |
+| "IN A BOX, PLAYING / BY CANDLELIGHT." | "IN A BOX, / PLAYING BY CANDLELIGHT." |
+
+**The rule I'd add:**
+- Never end a page on an article, preposition, auxiliary or conjunction (a, the, at, to, into, and, was).
+- Never split a noun phrase ("museum fire", "chess board") or a verb from its object ("play it", "showed him").
+
+### Blind side-by-side panel (PARITY.md §2)
+
+**Setup:**
+- Eight pairs: v6 against each of the 8 references.
+- Each video is a sheet of 16 matched-moment frames: 0, 0.5, 1, 2 and 3 s, then 10-90 % of the runtime, then the last
+  1.5 s and 0.2 s.
+- Judges also got both narration transcripts.
+- A/B order came from a coin: `sha256(sha256(v6) + sha256(ref)) mod 2`.
+- Three independent judge agents rated every FEEDBACK.md principle per pair and listed concrete flaws.
+- Ratings and the key are in `research/references/data/story_lane_v6_panel.json`. The frame sheets hold reference
+  screenshots, so they are not in the repo.
+
+**Per principle:**
+
+| Principle | J1 | J2 | J3 | Judges with ours ≥ same tier (in ≥ 5 of 8 pairs) | Concrete flaw named in ours | Verdict |
+|---|---|---|---|---|---|---|
+| 1 Hook first | 8/8 | 7/8 | 8/8 | 3/3 | none | **pass** |
+| 2 World makes sense | 8/8 | 8/8 | 8/8 | 3/3 | (edge-cut courtiers at 23.6 s; counted under 5) | **pass** |
+| 3 Show what's said | 3/8 | 1/8 | 5/8 | 1/3 | one hall for 0-27 s, cutaway held 47-59 s; "museum fire" shows the newspaper | **fail** |
+| 4 Consistent and smooth | 8/8 | 8/8 | 8/8 | 3/3 | none | **pass** |
+| 5 Readable on a phone | 8/8 | 8/8 | 8/8 (ours better in 7-8/8) | 3/3 | mid-phrase caption pages; NEW YORK/PARIS labels collide (29.5 s); court figures cut by the right edge (23.6 s); caption on the cabinet art | **fail** (flaw rule) |
+| 6 Natural sound (transcript only) | 8/8 | 8/8 | 7/8 | 3/3 | none | **pass** (voice itself not judged) |
+| 7 Quality over novelty (craft) | 0/8 | 0/8 | 0/8 | 0/3 | flat 2D vector sets against lit 3D/painterly sets | **fail** |
+| 8 Pay off the promise | 8/8 | 8/8 | 8/8 | 3/3 | none | **pass** |
+
+- **Overall per judge (ours same tier or better):** J1 2/8, J2 2/8, J3 4/8. Ours was never rated better overall
+  except by J3 in 2 pairs, the ones with the references' world errors.
+- **Blindness:** all three judges named the two pipelines at once ("flat 2D vector" against "stick figures in lit 3D
+  or painterly sets").
+
+**Verdict: FAIL (principles 3, 5 and 7).**
+
+**Why each failed:**
+- **7 (craft).** This is gap 2 from the check: the references are lit 3D/painterly worlds with depth. The grade, ink and
+  blur numbers now match, but flat layered SVG sets do not. Fix: plan step 4 (one 3D set, end to end), which the cost
+  test says is affordable.
+- **3 (show what's said).** The v6 one-hall staging, done to kill the dissolve ghosts, means 0-27 s is one room and
+  47-59 s one cutaway. The references move through 5-8 settings a minute. Fix: more places and angles per beat (court
+  balcony, a workshop, the road, Paris and Vienna rooms, the board underside), each a real set.
+- **5 (readable).** Ours actually wins this on ratings in nearly every pair. It fails on named flaws, all cheap except
+  the caption paging: the map label collision, the edge-cropped court at 23.6 s, and captions over the cabinet art.
+
+**Not run:** the owner's phone check (§3), which waits for a version that passes §2.
