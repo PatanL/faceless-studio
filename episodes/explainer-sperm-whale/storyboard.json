@@ -81,14 +81,14 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "162.69%",
+     "x": "142.35%",
      "y": "46.00%",
-     "width": 2490,
-     "height": 645,
+     "width": 2158,
+     "height": 559,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 150
+      "pxPerM": 130
      },
      "z": 2,
      "idle": [
@@ -103,55 +103,79 @@
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "43.98%",
-     "y": "42.02%",
-     "width": 110,
-     "height": 380,
+     "x": "39.63%",
+     "y": "42.55%",
+     "width": 104,
+     "height": 420,
      "role": "fx",
      "z": 4,
      "props": {
       "at": -1.0,
       "rate": 3,
       "dir": -1,
-      "life": 0.8,
+      "life": 0.9,
       "arc": 40,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "19.91%",
-     "y": "42.02%",
-     "width": 410,
-     "height": 115,
+     "x": "18.61%",
+     "y": "42.86%",
+     "width": 358,
+     "height": 105,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 130,
       "arms": "side"
      },
      "z": 3,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "18.61%",
+       "rotate": 0
+      },
+      {
+       "t": 1.163,
+       "x": "18.61%",
+       "rotate": 0
+      },
+      {
+       "t": 1.503,
+       "x": "17.31%",
+       "rotate": -6,
+       "ease": "out"
+      },
+      {
+       "t": 1.963,
+       "x": "18.61%",
+       "rotate": 0,
+       "ease": "inOut"
+      }
+     ]
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "19.91%",
-     "y": "35.77%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "18.61%",
+     "y": "36.35%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": 0,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
-       70
+       75
       ]
      }
     },
@@ -198,14 +222,14 @@
      {
       "t": 1.163,
       "zoom": 1.03,
-      "x": "48%",
-      "y": "48%"
+      "x": "46%",
+      "y": "49%"
      },
      {
       "t": 2.27,
-      "zoom": 1.08,
-      "x": "44%",
-      "y": "46%",
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "47%",
       "ease": "inOut"
      }
     ],
@@ -255,25 +279,15 @@
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "50.00%",
-     "y": "30.00%",
-     "width": 996,
-     "height": 258,
+     "y": "31.00%",
+     "width": 963,
+     "height": 249,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 60
+      "pxPerM": 58
      },
      "z": 2,
-     "keyframes": [
-      {
-       "t": 0,
-       "x": "46%"
-      },
-      {
-       "t": 5.62,
-       "x": "50%"
-      }
-     ],
      "idle": [
       {
        "type": "sway",
@@ -287,219 +301,186 @@
      "type": "component",
      "name": "explainer/ScaleBar",
      "x": "50%",
-     "y": "41.5%",
-     "width": 960,
+     "y": "42.5%",
+     "width": 928,
      "height": 140,
      "role": "label",
      "props": {
       "label": "~16 M",
       "at": 0.912,
-      "labelSize": 52
+      "labelSize": 56
      }
     },
     {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "11.11%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
+     "type": "svg",
+     "x": "12.41%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
      "start": 2.587,
      "enter": {
-      "type": "popSpring",
+      "type": "pop",
       "at": 2.587,
-      "duration": 0.5
+      "duration": 0.35
      },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "20.83%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 2.667,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.667,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "30.56%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 2.747,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.747,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "40.28%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 2.827,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.827,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "50.00%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 2.907,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.907,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "59.72%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 2.987,
-     "enter": {
-      "type": "popSpring",
-      "at": 2.987,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "69.44%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 3.067,
-     "enter": {
-      "type": "popSpring",
-      "at": 3.067,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "79.17%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 3.147,
-     "enter": {
-      "type": "popSpring",
-      "at": 3.147,
-      "duration": 0.5
-     },
-     "role": "prop",
-     "z": 3
-    },
-    {
-     "type": "component",
-     "name": "explainer/You",
-     "x": "88.89%",
-     "y": "50.5%",
-     "width": 120,
-     "height": 110,
-     "rotate": -90,
-     "props": {
-      "pxPerM": 60,
-      "pose": "stand",
-      "style": "diver"
-     },
-     "start": 3.227,
-     "enter": {
-      "type": "popSpring",
-      "at": 3.227,
-      "duration": 0.5
-     },
-     "role": "prop",
      "z": 3
     },
     {
      "type": "svg",
-     "x": "79.50%",
-     "y": "21.6%",
-     "width": 320,
+     "x": "21.81%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 2.657,
+     "enter": {
+      "type": "pop",
+      "at": 2.657,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "31.20%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 2.727,
+     "enter": {
+      "type": "pop",
+      "at": 2.727,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "40.60%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 2.797,
+     "enter": {
+      "type": "pop",
+      "at": 2.797,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "50.00%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 2.867,
+     "enter": {
+      "type": "pop",
+      "at": 2.867,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "59.40%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 2.937,
+     "enter": {
+      "type": "pop",
+      "at": 2.937,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "68.80%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 3.007,
+     "enter": {
+      "type": "pop",
+      "at": 3.007,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "78.19%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 3.077,
+     "enter": {
+      "type": "pop",
+      "at": 3.077,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "svg",
+     "x": "87.59%",
+     "y": "49.5%",
+     "width": 102,
+     "height": 48,
+     "markup": "<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='14' fill='#e9f4fc'/><rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' fill='#250192'/></svg>",
+     "role": "prop",
+     "start": 3.147,
+     "enter": {
+      "type": "pop",
+      "at": 3.147,
+      "duration": 0.35
+     },
+     "z": 3
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "40%",
+     "y": "55.5%",
+     "width": 261,
+     "height": 110,
+     "depth": 1,
+     "z": 20,
+     "role": "label",
+     "props": {
+      "text": "YOU ×9",
+      "at": 3.712,
+      "size": 46,
+      "align": "center",
+      "leader": [
+       0,
+       -70
+      ]
+     }
+    },
+    {
+     "type": "svg",
+     "x": "78.52%",
+     "y": "22.5%",
+     "width": 309,
      "height": 50,
      "markup": "<svg viewBox='0 0 400 60' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M 6 54 L 6 14 L 394 14 L 394 54' stroke='#e9f4fc' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>",
      "role": "label",
@@ -514,17 +495,17 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "79.50%",
-     "y": "15.5%",
-     "width": 328,
-     "height": 115,
-     "depth": 0,
+     "x": "78.52%",
+     "y": "17.6%",
+     "width": 338,
+     "height": 120,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "1/3 HEAD",
       "at": 4.725,
-      "size": 48,
+      "size": 50,
       "align": "center"
      }
     }
@@ -534,6 +515,11 @@
     "kind": "board",
     "board": "cyan",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
    },
    "camera": {
     "keyframes": [
@@ -550,43 +536,37 @@
       "y": "48%"
      },
      {
-      "t": 1.312,
-      "zoom": 1.08,
-      "x": "50%",
-      "y": "45%",
-      "ease": "out"
-     },
-     {
       "t": 2.587,
-      "zoom": 1.09,
+      "zoom": 1.03,
       "x": "50%",
-      "y": "46%"
+      "y": "48%"
      },
      {
-      "t": 2.987,
+      "t": 3.275,
+      "zoom": 1.75,
+      "x": "32%",
+      "y": "50%",
+      "ease": "inOut"
+     },
+     {
+      "t": 3.712,
+      "zoom": 1.75,
+      "x": "38%",
+      "y": "50%"
+     },
+     {
+      "t": 4.875,
       "zoom": 1.04,
-      "x": "50%",
-      "y": "48%",
-      "ease": "out"
-     },
-     {
-      "t": 4.625,
-      "zoom": 1.05,
-      "x": "52%",
-      "y": "46%"
-     },
-     {
-      "t": 4.975,
-      "zoom": 1.16,
-      "x": "66%",
-      "y": "38%",
-      "ease": "out"
+      "x": "54%",
+      "y": "47%",
+      "ease": "inOut"
      },
      {
       "t": 5.62,
-      "zoom": 1.19,
-      "x": "67%",
-      "y": "37%"
+      "zoom": 1.05,
+      "x": "60%",
+      "y": "46%",
+      "ease": "inOut"
      }
     ],
     "drift": {
@@ -613,11 +593,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -648,12 +623,21 @@
       "pxPerM": 100,
       "organ": [
        {
-        "t": 1.846,
+        "t": 0.355,
         "v": 0
        },
        {
-        "t": 2.546,
-        "v": 1
+        "t": 1.118,
+        "v": 0.1
+       },
+       {
+        "t": 1.846,
+        "v": 0.1
+       },
+       {
+        "t": 2.901,
+        "v": 1,
+        "ease": "inOut"
        }
       ],
       "click": [
@@ -679,31 +663,53 @@
     },
     {
      "type": "component",
+     "name": "explainer/ClickRings",
+     "x": "82.45%",
+     "y": "31.34%",
+     "width": 369,
+     "height": 560,
+     "role": "fx",
+     "z": 4,
+     "props": {
+      "at": 0.818,
+      "rate": 2.5,
+      "dir": 1,
+      "life": 1.0,
+      "arc": 45,
+      "color": "#e9f4fc",
+      "width": 24,
+      "opacity": 1.0,
+      "out": 1.618
+     }
+    },
+    {
+     "type": "component",
      "name": "explainer/Tag",
      "x": "42.59%",
      "y": "15%",
-     "width": 566,
-     "height": 115,
-     "depth": 0,
+     "width": 586,
+     "height": 120,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "≈ 2,000 L OF OIL",
       "at": 2.214,
-      "size": 48,
+      "size": 50,
       "align": "center",
       "leader": [
        0,
        150
-      ]
+      ],
+      "out": 6.164
      }
     },
     {
      "type": "svg",
-     "x": "25.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "22.22%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.614,
@@ -722,10 +728,10 @@
     },
     {
      "type": "svg",
-     "x": "37.50%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "36.11%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.674,
@@ -745,9 +751,9 @@
     {
      "type": "svg",
      "x": "50.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.734,
@@ -766,10 +772,10 @@
     },
     {
      "type": "svg",
-     "x": "62.50%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "63.89%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.794,
@@ -788,10 +794,10 @@
     },
     {
      "type": "svg",
-     "x": "75.00%",
-     "y": "49.0%",
-     "width": 120,
-     "height": 70,
+     "x": "77.78%",
+     "y": "48.5%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.854,
@@ -810,10 +816,10 @@
     },
     {
      "type": "svg",
-     "x": "25.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "22.22%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.914,
@@ -832,10 +838,10 @@
     },
     {
      "type": "svg",
-     "x": "37.50%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "36.11%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 4.974,
@@ -855,9 +861,9 @@
     {
      "type": "svg",
      "x": "50.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 5.034,
@@ -876,10 +882,10 @@
     },
     {
      "type": "svg",
-     "x": "62.50%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "63.89%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 5.094,
@@ -898,10 +904,10 @@
     },
     {
      "type": "svg",
-     "x": "75.00%",
-     "y": "54.4%",
-     "width": 120,
-     "height": 70,
+     "x": "77.78%",
+     "y": "54.1%",
+     "width": 140,
+     "height": 82,
      "markup": "<svg viewBox='0 0 120 70' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='14' width='112' height='40' rx='18' fill='#e9f4fc'/><rect x='4' y='34' width='112' height='20' rx='10' fill='#bfd3ee'/><rect x='14' y='8' width='92' height='14' rx='7' fill='#fddf35'/><rect x='18' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/><rect x='92' y='52' width='10' height='14' rx='4' fill='#bfd3ee'/></svg>",
      "role": "prop",
      "start": 5.154,
@@ -919,40 +925,60 @@
      "z": 3
     },
     {
+     "type": "svg",
+     "x": "82.41%",
+     "y": "31.34%",
+     "width": 380,
+     "height": 150,
+     "markup": "<svg viewBox='0 0 400 150' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M 0 66 L 400 0 L 400 150 L 0 84 Z' fill='#fddf35' opacity='0.45'/><path d='M 0 71 L 400 45 L 400 105 L 0 79 Z' fill='#fddf35' opacity='0.7'/></svg>",
+     "role": "prop",
+     "start": 6.164,
+     "z": 3,
+     "enter": {
+      "type": "wipeRight",
+      "at": 6.164,
+      "duration": 0.45
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/ClickRings",
      "x": "82.45%",
      "y": "31.34%",
      "width": 369,
-     "height": 300,
+     "height": 200,
      "role": "fx",
      "z": 4,
      "props": {
       "at": 6.164,
-      "rate": 4,
+      "rate": 8,
       "dir": 1,
-      "life": 0.7,
-      "arc": 20,
-      "color": "#e9f4fc",
-      "width": 12,
+      "life": 0.55,
+      "arc": 10,
+      "color": "#fddf35",
+      "width": 26,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "84%",
+     "x": "82%",
      "y": "23%",
-     "width": 209,
-     "height": 115,
-     "depth": 0,
+     "width": 219,
+     "height": 125,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "BEAM",
-      "at": 7.539,
-      "size": 48,
-      "align": "center"
+      "at": 7.339,
+      "size": 52,
+      "align": "center",
+      "leader": [
+       0,
+       120
+      ]
      }
     }
    ],
@@ -961,6 +987,11 @@
     "kind": "board",
     "board": "violet",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
    },
    "camera": {
     "keyframes": [
@@ -971,49 +1002,43 @@
       "y": "50%"
      },
      {
-      "t": 1.846,
+      "t": 1.118,
       "zoom": 1.03,
+      "x": "52%",
+      "y": "48%"
+     },
+     {
+      "t": 1.846,
+      "zoom": 1.04,
       "x": "48%",
       "y": "47%"
      },
      {
-      "t": 2.146,
-      "zoom": 1.12,
-      "x": "44%",
-      "y": "40%",
-      "ease": "backOut"
+      "t": 2.901,
+      "zoom": 1.1,
+      "x": "45%",
+      "y": "42%",
+      "ease": "inOut"
      },
      {
       "t": 4.614,
-      "zoom": 1.12,
-      "x": "45%",
-      "y": "42%"
-     },
-     {
-      "t": 4.914,
-      "zoom": 1.02,
-      "x": "50%",
-      "y": "48%",
-      "ease": "out"
+      "zoom": 1.08,
+      "x": "46%",
+      "y": "44%"
      },
      {
       "t": 6.164,
-      "zoom": 1.03,
+      "zoom": 1.06,
       "x": "52%",
-      "y": "47%"
-     },
-     {
-      "t": 6.464,
-      "zoom": 1.1,
-      "x": "62%",
-      "y": "42%",
-      "ease": "out"
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": 7.926,
       "zoom": 1.12,
-      "x": "63%",
-      "y": "41%"
+      "x": "62%",
+      "y": "42%",
+      "ease": "inOut"
      }
     ],
     "drift": {
@@ -1040,10 +1065,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -1065,9 +1086,9 @@
      "type": "component",
      "name": "explainer/SpeedBars",
      "x": "50%",
-     "y": "24%",
-     "width": 940,
-     "height": 560,
+     "y": "26%",
+     "width": 960,
+     "height": 640,
      "role": "label",
      "depth": 0,
      "z": 15,
@@ -1075,10 +1096,12 @@
       "title": "Loudest animals",
       "max": 90,
       "at": 0.825,
-      "stagger": 2.3,
-      "duration": 0.7,
-      "size": 52,
-      "labelWidth": 360,
+      "stagger": 2.35,
+      "duration": 0.5,
+      "size": 56,
+      "labelWidth": 280,
+      "valueWidth": 190,
+      "titleSize": 76,
       "rows": [
        {
         "label": "Sperm whale",
@@ -1105,7 +1128,7 @@
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "35.19%",
-     "y": "52.00%",
+     "y": "49.00%",
      "width": 498,
      "height": 129,
      "flipX": false,
@@ -1137,19 +1160,19 @@
      "type": "component",
      "name": "explainer/ClickRings",
      "x": "77.94%",
-     "y": "51.20%",
+     "y": "48.20%",
      "width": 437,
-     "height": 320,
+     "height": 300,
      "role": "fx",
      "z": 4,
      "props": {
-      "at": 0.825,
+      "at": 0.463,
       "rate": 3,
       "dir": 1,
       "life": 0.8,
       "arc": 34,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0
      }
     }
@@ -1159,6 +1182,11 @@
     "kind": "board",
     "board": "blue",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
    },
    "camera": {
     "keyframes": [
@@ -1170,48 +1198,23 @@
      },
      {
       "t": 2.35,
-      "zoom": 1.02,
+      "zoom": 1.03,
       "x": "50%",
       "y": "48%"
      },
      {
-      "t": 2.65,
-      "zoom": 1.08,
-      "x": "50%",
-      "y": "40%",
-      "ease": "out"
-     },
-     {
       "t": 4.504,
-      "zoom": 1.09,
-      "x": "50%",
-      "y": "41%"
-     },
-     {
-      "t": 4.804,
-      "zoom": 1.03,
+      "zoom": 1.06,
       "x": "50%",
       "y": "46%",
-      "ease": "out"
-     },
-     {
-      "t": 5.667,
-      "zoom": 1.04,
-      "x": "50%",
-      "y": "46%"
-     },
-     {
-      "t": 5.967,
-      "zoom": 1.1,
-      "x": "50%",
-      "y": "38%",
-      "ease": "out"
+      "ease": "inOut"
      },
      {
       "t": 6.367,
-      "zoom": 1.11,
+      "zoom": 1.08,
       "x": "50%",
-      "y": "38%"
+      "y": "45%",
+      "ease": "inOut"
      }
     ],
     "drift": {
@@ -1238,10 +1241,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -1330,7 +1329,7 @@
      "depth": 0.12,
      "z": -58,
      "start": 2.916,
-     "end": 4.216,
+     "end": 4.716,
      "props": {
       "depth": 500,
       "rays": 0,
@@ -1416,13 +1415,12 @@
      "depth": 0.12,
      "z": -56,
      "start": 4.216,
-     "end": 5.746,
      "props": {
-      "depth": 1000,
+      "depth": 2000,
       "rays": 0,
       "snow": 60,
       "sky": "temperate-day",
-      "key": "deep",
+      "key": "ink",
       "glow": 0,
       "caustics": false
      },
@@ -1468,7 +1466,7 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "43.52%",
+     "x": "57.41%",
      "y": "20.00%",
      "width": 598,
      "height": 155,
@@ -1481,34 +1479,41 @@
      "keyframes": [
       {
        "t": 0,
-       "x": "40%",
-       "y": "20%",
+       "x": "54%",
+       "y": "19%",
        "rotate": 0
       },
       {
        "t": 1.941,
-       "x": "44%",
-       "y": "21%",
-       "rotate": 8
+       "x": "57%",
+       "y": "20%",
+       "rotate": 10
       },
       {
        "t": 2.391,
-       "x": "46%",
-       "y": "28%",
+       "x": "60%",
+       "y": "27%",
        "rotate": 55,
        "ease": "inOut"
       },
       {
        "t": 4.216,
-       "x": "46%",
-       "y": "42%",
-       "rotate": 70
+       "x": "62%",
+       "y": "40%",
+       "rotate": 68
+      },
+      {
+       "t": 5.366,
+       "x": "63%",
+       "y": "52%",
+       "rotate": 72
       },
       {
        "t": 5.746,
-       "x": "46%",
-       "y": "50%",
-       "rotate": 72
+       "x": "64%",
+       "y": "88%",
+       "rotate": 74,
+       "ease": "in"
       }
      ],
      "idle": [
@@ -1521,11 +1526,29 @@
      ]
     },
     {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": 4.216,
+     "enter": {
+      "type": "fade",
+      "at": 4.216,
+      "duration": 0.5
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/DepthMeter",
-     "x": "86%",
-     "y": "38%",
-     "width": 220,
+     "x": "27%",
+     "y": "36%",
+     "width": 260,
      "height": 900,
      "depth": 0,
      "z": 15,
@@ -1548,29 +1571,34 @@
       ],
       "max": 1000,
       "step": 250,
-      "size": 44,
-      "side": "left"
+      "size": 54,
+      "side": "right"
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "40%",
+     "x": "56%",
      "y": "13%",
-     "width": 431,
-     "height": 120,
+     "width": 445,
+     "height": 125,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "NO SUNLIGHT",
       "at": 4.216,
-      "size": 50,
+      "size": 52,
       "align": "center"
      }
     }
    ],
    "notes": "It needs that to hunt. On one breath it dives a kilometre down, where you couldn't see your own hand.",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "place",
@@ -1594,9 +1622,10 @@
      "kind": "place",
      "biome": "deep",
      "place": "deep sea, 1,000 m",
-     "depth": 1000,
+     "depth": 2000,
      "waterline": null,
      "light": "night",
+     "key": "ink",
      "at": 4.216
     }
    ],
@@ -1611,26 +1640,26 @@
      {
       "t": 1.941,
       "zoom": 1.02,
-      "x": "50%",
+      "x": "52%",
       "y": "48%"
      },
      {
       "t": 2.391,
       "zoom": 1.04,
-      "x": "50%",
+      "x": "54%",
       "y": "50%"
      },
      {
-      "t": 3.516,
-      "zoom": 1.1,
-      "x": "48%",
+      "t": 4.216,
+      "zoom": 1.08,
+      "x": "56%",
       "y": "54%",
       "ease": "inOut"
      },
      {
       "t": 5.746,
-      "zoom": 1.14,
-      "x": "48%",
+      "zoom": 1.12,
+      "x": "56%",
       "y": "58%"
      }
     ],
@@ -1659,11 +1688,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "left"
    }
   },
   {
@@ -1675,12 +1699,12 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 1000,
+     "depth": 2000,
      "rays": 0,
      "snow": 60,
      "glow": 0,
      "caustics": false,
-     "key": "deep"
+     "key": "ink"
     }
    },
    "layers": [
@@ -1716,38 +1740,52 @@
      }
     },
     {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": 0,
+     "enter": {
+      "type": "fade",
+      "at": 0,
+      "duration": 0.5
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/ColossalSquid",
-     "x": "84.00%",
-     "y": "44.00%",
-     "width": 440,
-     "height": 280,
+     "x": "80.00%",
+     "y": "46.00%",
+     "width": 220,
+     "height": 140,
      "flipX": true,
      "props": {
-      "pxPerM": 40
+      "pxPerM": 18
      },
      "z": 1,
-     "end": 5.974,
+     "end": 6.174,
      "allowOverlap": true,
      "keyframes": [
       {
        "t": 0,
-       "x": "84.00%"
+       "x": "80.00%"
       },
       {
        "t": 4.386,
-       "x": "81.22%"
-      },
-      {
-       "t": 5.874,
-       "x": "80.30%"
+       "x": "82.00%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "28.00%",
+     "x": "26.00%",
      "y": "44.00%",
      "width": 664,
      "height": 172,
@@ -1769,7 +1807,7 @@
         "v": 1
        },
        {
-        "t": 6.224,
+        "t": 6.174,
         "v": 0
        }
       ]
@@ -1796,12 +1834,12 @@
       },
       {
        "t": 5.874,
-       "x": "58%",
+       "x": "58.93%",
        "ease": "in"
       },
       {
        "t": 6.326,
-       "x": "62%",
+       "x": "61.70%",
        "ease": "out"
       }
      ],
@@ -1817,9 +1855,9 @@
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "65.41%",
-     "y": "42.94%",
-     "width": 162,
+     "x": "64.72%",
+     "y": "44.44%",
+     "width": 190,
      "height": 300,
      "role": "fx",
      "z": 4,
@@ -1843,32 +1881,32 @@
       "life": 0.6,
       "arc": 30,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0,
       "out": 5.324
      },
      "keyframes": [
       {
        "t": 0,
-       "x": "65.41%"
+       "x": "64.72%"
       },
       {
        "t": 2.28,
-       "x": "65.41%"
+       "x": "65.72%"
       },
       {
        "t": 3.33,
-       "x": "69.39%"
+       "x": "69.72%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "65.69%",
-     "y": "42.96%",
-     "width": 116,
-     "height": 260,
+     "x": "66.46%",
+     "y": "44.96%",
+     "width": 132,
+     "height": 240,
      "role": "fx",
      "z": 4,
      "props": {
@@ -1878,25 +1916,25 @@
       "life": 0.6,
       "arc": 28,
       "color": "#0de9e0",
-      "width": 9,
-      "opacity": 0.85,
+      "width": 12,
+      "opacity": 1.0,
       "out": 2.28
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "62%",
-     "y": "31%",
-     "width": 204,
-     "height": 110,
+     "x": "60%",
+     "y": "33%",
+     "width": 209,
+     "height": 115,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "ECHO",
       "at": 1.768,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "out": 2.28
      }
@@ -1904,20 +1942,20 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "66%",
-     "y": "30%",
-     "width": 219,
-     "height": 125,
+     "x": "64%",
+     "y": "33%",
+     "width": 224,
+     "height": 130,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "BUZZ",
       "at": 4.386,
-      "size": 52,
+      "size": 54,
       "align": "center",
       "accent": "red",
-      "out": 6.074
+      "out": 5.874
      }
     }
    ],
@@ -1926,10 +1964,16 @@
     "kind": "place",
     "biome": "deep",
     "place": "deep sea, 1,000 m",
-    "depth": 1000,
+    "depth": 2000,
     "waterline": null,
     "light": "night",
+    "key": "ink",
     "at": 0.0
+   },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
    },
    "camera": {
     "keyframes": [
@@ -1941,41 +1985,36 @@
      },
      {
       "t": 1.768,
-      "zoom": 1.02,
+      "zoom": 1.03,
       "x": "52%",
       "y": "48%"
      },
      {
-      "t": 2.068,
-      "zoom": 1.08,
+      "t": 2.28,
+      "zoom": 1.06,
       "x": "56%",
-      "y": "44%",
-      "ease": "out"
+      "y": "47%",
+      "ease": "inOut"
      },
      {
       "t": 4.386,
-      "zoom": 1.09,
-      "x": "58%",
-      "y": "44%"
-     },
-     {
-      "t": 4.636,
-      "zoom": 1.16,
-      "x": "62%",
-      "y": "42%",
-      "ease": "out"
+      "zoom": 1.12,
+      "x": "60%",
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": 5.874,
-      "zoom": 1.17,
-      "x": "62%",
-      "y": "42%"
+      "zoom": 1.18,
+      "x": "64%",
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": 6.326,
-      "zoom": 1.1,
-      "x": "60%",
-      "y": "44%"
+      "zoom": 1.14,
+      "x": "62%",
+      "y": "47%"
      }
     ],
     "shake": [
@@ -2008,11 +2047,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "wipe",
-    "duration": 0.55,
-    "direction": "up"
    }
   },
   {
@@ -2041,7 +2075,6 @@
      "depth": 0.12,
      "z": -56,
      "start": 2.757,
-     "end": 5.947,
      "props": {
       "depth": 4,
       "surface": 0.25,
@@ -2130,11 +2163,11 @@
      "type": "component",
      "name": "explainer/Diver",
      "x": "50.00%",
-     "y": "36.00%",
-     "width": 410,
-     "height": 115,
+     "y": "41.00%",
+     "width": 592,
+     "height": 150,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 220,
       "arms": "side"
      },
      "end": 2.307,
@@ -2144,20 +2177,20 @@
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
-     "y": "27%",
-     "width": 229,
-     "height": 134,
-     "depth": 0,
+     "y": "29.5%",
+     "width": 239,
+     "height": 144,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU?",
-      "at": 0.2,
-      "size": 56,
+      "at": 0.15,
+      "size": 60,
       "align": "center",
       "leader": [
        0,
-       80
+       90
       ],
       "out": 2.007
      }
@@ -2173,12 +2206,22 @@
      "z": 30,
      "start": 2.007,
      "end": 3.457,
+     "enter": {
+      "type": "wipeDown",
+      "at": 2.007,
+      "duration": 0.35
+     },
+     "exit": {
+      "type": "fade",
+      "at": 3.307,
+      "duration": 0.15
+     },
      "props": {
       "views": [
        {
         "t": 2.007,
         "lon": -66,
-        "lat": 16,
+        "lat": 15,
         "zoom": 3.2
        },
        {
@@ -2196,19 +2239,9 @@
         "label": "Dominica"
        }
       ],
-      "labelSize": 48,
-      "pinSize": 1.4,
+      "labelSize": 52,
+      "pinSize": 1.5,
       "at": -0.5
-     },
-     "enter": {
-      "type": "fade",
-      "at": 2.007,
-      "duration": 0.6
-     },
-     "exit": {
-      "type": "fade",
-      "at": 2.8569999999999998,
-      "duration": 0.6
      }
     },
     {
@@ -2216,41 +2249,46 @@
      "name": "explainer/Tag",
      "x": "50%",
      "y": "13%",
-     "width": 358,
-     "height": 115,
+     "width": 493,
+     "height": 120,
      "depth": 0,
      "z": 31,
      "role": "label",
      "props": {
-      "text": "CARIBBEAN",
+      "text": "CARIBBEAN SEA",
       "at": 2.007,
-      "size": 48,
+      "size": 50,
       "align": "center",
-      "out": 3.457
+      "out": 3.157
      }
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "125.80%",
-     "y": "42.00%",
-     "width": 1162,
-     "height": 301,
+     "x": "142.58%",
+     "y": "43.00%",
+     "width": 1411,
+     "height": 366,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 70
+      "pxPerM": 85
      },
      "z": 2,
-     "start": 2.757,
+     "start": 2.857,
      "keyframes": [
       {
-       "t": 2.757,
-       "x": "125.80%"
+       "t": 2.857,
+       "x": "142.58%"
+      },
+      {
+       "t": 4.144,
+       "x": "118.51%",
+       "ease": "out"
       },
       {
        "t": 5.947,
-       "x": "101.72%"
+       "x": "114.81%"
       }
      ],
      "idle": [
@@ -2265,109 +2303,162 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "26.02%",
-     "y": "40.14%",
-     "width": 202,
-     "height": 75,
+     "x": "27.60%",
+     "y": "41.05%",
+     "width": 241,
+     "height": 82,
      "props": {
-      "pxPerM": 70,
+      "pxPerM": 85,
       "arms": "side"
      },
      "z": 3,
-     "start": 2.757,
+     "start": 2.857,
      "keyframes": [
       {
        "t": 4.144,
-       "x": "26.02%"
+       "x": "27.60%",
+       "rotate": 0
       },
       {
-       "t": 4.224,
-       "x": "25.46%"
+       "t": 4.484,
+       "x": "24.45%",
+       "rotate": -14,
+       "ease": "out"
       },
       {
-       "t": 4.344,
-       "x": "26.02%"
+       "t": 4.804,
+       "x": "27.60%",
+       "rotate": 0,
+       "ease": "inOut"
       },
       {
-       "t": 5.519,
-       "x": "26.02%"
+       "t": 4.857,
+       "x": "27.60%",
+       "rotate": 0
       },
       {
-       "t": 5.599,
-       "x": "25.46%"
+       "t": 5.197,
+       "x": "24.45%",
+       "rotate": -14,
+       "ease": "out"
       },
       {
-       "t": 5.719,
-       "x": "26.02%"
+       "t": 5.517,
+       "x": "27.60%",
+       "rotate": 0,
+       "ease": "inOut"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "49.12%",
-     "y": "40.14%",
-     "width": 419,
-     "height": 280,
+     "x": "46.77%",
+     "y": "40.74%",
+     "width": 193,
+     "height": 320,
      "role": "fx",
      "z": 4,
      "props": {
       "at": 3.457,
-      "rate": 2.2,
+      "rate": 2.4,
       "dir": -1,
-      "life": 0.9,
+      "life": 0.8,
       "arc": 36,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
-     },
-     "keyframes": [
-      {
-       "t": 3.457,
-       "x": "49.12%"
-      },
-      {
-       "t": 5.947,
-       "x": "37.08%"
-      }
-     ]
+     }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "26.02%",
-     "y": "29%",
-     "width": 245,
-     "height": 120,
-     "depth": 0,
+     "x": "27.60%",
+     "y": "30.5%",
+     "width": 257,
+     "height": 130,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "THUMP",
       "at": 4.144,
-      "size": 50,
+      "size": 54,
       "align": "center",
-      "accent": "red"
+      "accent": "red",
+      "leader": [
+       0,
+       70
+      ]
      }
     },
     {
      "type": "svg",
-     "x": "14.91%",
-     "y": "44%",
-     "width": 100,
-     "height": 92,
-     "markup": "<svg viewBox='0 0 120 110' xmlns='http://www.w3.org/2000/svg'><rect x='14' y='30' width='92' height='64' rx='10' fill='#fa302a'/><rect x='14' y='30' width='92' height='18' rx='9' fill='#fc6e0e'/><ellipse cx='60' cy='30' rx='46' ry='14' fill='#e9f4fc'/><path d='M 20 52 L 40 92 L 60 52 L 80 92 L 100 52' stroke='#fddf35' stroke-width='6' fill='none'/><rect x='70' y='0' width='8' height='34' rx='4' fill='#fddf35' transform='rotate(30 74 17)'/></svg>",
+     "x": "30.38%",
+     "y": "41.26%",
+     "width": 150,
+     "height": 150,
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='92' fill='#fa302a' opacity='0.25'/><circle cx='100' cy='100' r='60' fill='none' stroke='#fa302a' stroke-width='10'/></svg>",
      "role": "prop",
-     "start": 5.519,
+     "start": 4.144,
+     "end": 4.744,
+     "z": 5,
      "enter": {
       "type": "pop",
-      "at": 5.519,
+      "at": 4.144,
+      "duration": 0.3
+     },
+     "exit": {
+      "type": "fade",
+      "at": 4.444,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "svg",
+     "x": "30.38%",
+     "y": "41.26%",
+     "width": 150,
+     "height": 150,
+     "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='92' fill='#fa302a' opacity='0.25'/><circle cx='100' cy='100' r='60' fill='none' stroke='#fa302a' stroke-width='10'/></svg>",
+     "role": "prop",
+     "start": 4.857,
+     "end": 5.457,
+     "z": 5,
+     "enter": {
+      "type": "pop",
+      "at": 4.857,
+      "duration": 0.3
+     },
+     "exit": {
+      "type": "fade",
+      "at": 5.157,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "svg",
+     "x": "30.38%",
+     "y": "48%",
+     "width": 170,
+     "height": 156,
+     "markup": "<svg viewBox='0 0 120 110' xmlns='http://www.w3.org/2000/svg'><rect x='14' y='30' width='92' height='64' rx='10' fill='#fa302a'/><rect x='14' y='30' width='92' height='18' rx='9' fill='#fc6e0e'/><ellipse cx='60' cy='30' rx='46' ry='14' fill='#e9f4fc'/><path d='M 20 52 L 40 92 L 60 52 L 80 92 L 100 52' stroke='#fddf35' stroke-width='6' fill='none'/><rect x='70' y='0' width='8' height='34' rx='4' fill='#fddf35' transform='rotate(30 74 17)'/></svg>",
+     "role": "prop",
+     "start": 5.257,
+     "enter": {
+      "type": "pop",
+      "at": 5.257,
       "duration": 0.35
      },
      "z": 4
     }
    ],
    "notes": "So what does that feel like to you? Swimmers off Dominica say the clicks thump through their chest like a drum.",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "board",
@@ -2406,7 +2497,7 @@
       "t": 1.55,
       "zoom": 1.06,
       "x": "50%",
-      "y": "44%",
+      "y": "47%",
       "ease": "inOut"
      },
      {
@@ -2417,22 +2508,17 @@
      },
      {
       "t": 4.144,
-      "zoom": 1.02,
-      "x": "46%",
-      "y": "48%"
-     },
-     {
-      "t": 4.444,
-      "zoom": 1.12,
-      "x": "38%",
-      "y": "42%",
-      "ease": "backOut"
+      "zoom": 1.03,
+      "x": "44%",
+      "y": "48%",
+      "ease": "inOut"
      },
      {
       "t": 5.947,
-      "zoom": 1.14,
-      "x": "37%",
-      "y": "42%"
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "45%",
+      "ease": "inOut"
      }
     ],
     "drift": {
@@ -2459,10 +2545,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -2483,37 +2565,38 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "178.67%",
-     "y": "45.19%",
-     "width": 1992,
-     "height": 516,
+     "x": "145.41%",
+     "y": "45.08%",
+     "width": 1494,
+     "height": 387,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 120
+      "pxPerM": 90
      },
      "z": 2,
      "keyframes": [
       {
        "t": 0,
-       "x": "184.22%"
+       "x": "145.41%"
       },
       {
        "t": 1.175,
-       "x": "178.67%"
+       "x": "121.33%",
+       "ease": "out"
       },
       {
        "t": 2.791,
-       "x": "178.67%"
+       "x": "121.33%"
       },
       {
        "t": 3.479,
-       "x": "135.22%",
+       "x": "104.67%",
        "ease": "inOut"
       },
       {
        "t": 8.49,
-       "x": "134.30%"
+       "x": "103.93%"
       }
      ],
      "idle": [
@@ -2528,31 +2611,60 @@
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "21.00%",
-     "y": "42.00%",
-     "width": 332,
-     "height": 100,
+     "x": "19.00%",
+     "y": "43.00%",
+     "width": 254,
+     "height": 85,
      "props": {
-      "pxPerM": 120,
+      "pxPerM": 90,
       "arms": "side"
      },
      "z": 3,
-     "allowOverlap": true
+     "allowOverlap": true,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": 5.404,
+       "x": "19.00%",
+       "rotate": 0
+      },
+      {
+       "t": 5.744,
+       "x": "16.22%",
+       "rotate": -14,
+       "ease": "out"
+      },
+      {
+       "t": 6.141,
+       "x": "15.67%",
+       "rotate": -10
+      },
+      {
+       "t": 6.867,
+       "x": "17.15%",
+       "rotate": -4,
+       "ease": "inOut"
+      }
+     ]
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "21.00%",
-     "y": "35.75%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "19.00%",
+     "y": "37.01%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": 0.1,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
@@ -2562,17 +2674,56 @@
     },
     {
      "type": "svg",
-     "x": "62.72%",
-     "y": "46.69%",
-     "width": 559,
+     "x": "42.33%",
+     "y": "47.17%",
+     "width": 250,
      "height": 30,
      "markup": "<svg viewBox='0 0 600 40' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><line x1='10' y1='20' x2='590' y2='20' stroke='#e9f4fc' stroke-width='7' stroke-dasharray='24 18' stroke-linecap='round'/></svg>",
      "role": "prop",
      "start": 0.775,
-     "end": 2.791,
+     "end": 2.991,
      "enter": {
       "type": "fade",
       "at": 0.775,
+      "duration": 0.25
+     },
+     "exit": {
+      "type": "fade",
+      "at": 2.691,
+      "duration": 0.3
+     },
+     "z": 4
+    },
+    {
+     "type": "component",
+     "name": "explainer/Tag",
+     "x": "42.33%",
+     "y": "51.33%",
+     "width": 176,
+     "height": 110,
+     "depth": 1,
+     "z": 20,
+     "role": "label",
+     "props": {
+      "text": "3 M",
+      "at": 1.175,
+      "size": 46,
+      "align": "center",
+      "out": 2.791
+     }
+    },
+    {
+     "type": "svg",
+     "x": "34.00%",
+     "y": "47.17%",
+     "width": 74,
+     "height": 30,
+     "markup": "<svg viewBox='0 0 600 40' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><line x1='10' y1='20' x2='590' y2='20' stroke='#e9f4fc' stroke-width='7' stroke-dasharray='24 18' stroke-linecap='round'/></svg>",
+     "role": "prop",
+     "start": 3.479,
+     "enter": {
+      "type": "fade",
+      "at": 3.479,
       "duration": 0.25
      },
      "z": 4
@@ -2580,26 +2731,49 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "41.00%",
-     "y": "52.42%",
-     "width": 176,
-     "height": 110,
+     "x": "34.00%",
+     "y": "51.33%",
+     "width": 179,
+     "height": 115,
      "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "1 M",
       "at": 3.479,
-      "size": 46,
+      "size": 48,
       "align": "center"
+     }
+    },
+    {
+     "type": "svg",
+     "x": "50%",
+     "y": "50%",
+     "width": 1500,
+     "height": 2400,
+     "markup": "<svg viewBox='0 0 1500 2400' xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='0' x2='0' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='100' y1='0' x2='100' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='200' y1='0' x2='200' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='300' y1='0' x2='300' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='400' y1='0' x2='400' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='500' y1='0' x2='500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='600' y1='0' x2='600' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='700' y1='0' x2='700' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='800' y1='0' x2='800' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='900' y1='0' x2='900' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1000' y1='0' x2='1000' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1100' y1='0' x2='1100' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1200' y1='0' x2='1200' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1300' y1='0' x2='1300' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1400' y1='0' x2='1400' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1500' y1='0' x2='1500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='0' x2='1500' y2='0' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='100' x2='1500' y2='100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='200' x2='1500' y2='200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='300' x2='1500' y2='300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='400' x2='1500' y2='400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='500' x2='1500' y2='500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='600' x2='1500' y2='600' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='700' x2='1500' y2='700' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='800' x2='1500' y2='800' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='900' x2='1500' y2='900' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1000' x2='1500' y2='1000' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1100' x2='1500' y2='1100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1200' x2='1500' y2='1200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1300' x2='1500' y2='1300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1400' x2='1500' y2='1400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1500' x2='1500' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1600' x2='1500' y2='1600' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1700' x2='1500' y2='1700' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1800' x2='1500' y2='1800' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1900' x2='1500' y2='1900' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2000' x2='1500' y2='2000' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2100' x2='1500' y2='2100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2200' x2='1500' y2='2200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2300' x2='1500' y2='2300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2400' x2='1500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/></svg>",
+     "role": "dressing",
+     "start": 2.066,
+     "end": 7.467,
+     "depth": 0.3,
+     "z": -5,
+     "enter": {
+      "type": "fade",
+      "at": 2.066,
+      "duration": 0.4
+     },
+     "exit": {
+      "type": "fade",
+      "at": 6.867,
+      "duration": 0.6
      }
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "41.00%",
-     "y": "42.00%",
-     "width": 100,
+     "x": "33.72%",
+     "y": "43.00%",
+     "width": 76,
      "height": 420,
      "role": "fx",
      "z": 4,
@@ -2610,17 +2784,17 @@
       "life": 0.5,
       "arc": 45,
       "color": "#e9f4fc",
-      "width": 16,
+      "width": 20,
       "opacity": 1.0,
       "out": 6.867
      }
     },
     {
      "type": "svg",
-     "x": "32.11%",
-     "y": "41.79%",
-     "width": 190,
-     "height": 190,
+     "x": "27.98%",
+     "y": "42.69%",
+     "width": 200,
+     "height": 200,
      "markup": "<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='92' fill='#fa302a' opacity='0.25'/><circle cx='100' cy='100' r='60' fill='none' stroke='#fa302a' stroke-width='10'/></svg>",
      "role": "prop",
      "start": 5.404,
@@ -2629,7 +2803,12 @@
       "at": 5.404,
       "duration": 0.3
      },
-     "end": 7.167,
+     "end": 7.267,
+     "exit": {
+      "type": "fade",
+      "at": 6.867,
+      "duration": 0.4
+     },
      "z": 5,
      "idle": [
       {
@@ -2644,15 +2823,15 @@
      "name": "explainer/Tag",
      "x": "50%",
      "y": "14%",
-     "width": 368,
-     "height": 134,
+     "width": 388,
+     "height": 144,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
       "text": "UNTESTED",
       "at": 6.867,
-      "size": 56,
+      "size": 60,
       "align": "center",
       "accent": "red"
      }
@@ -2664,11 +2843,16 @@
     "board": "ink",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.04,
+      "zoom": 1.02,
       "x": "50%",
       "y": "50%"
      },
@@ -2686,42 +2870,30 @@
      },
      {
       "t": 3.479,
-      "zoom": 1.1,
-      "x": "36%",
-      "y": "42%",
+      "zoom": 1.08,
+      "x": "40%",
+      "y": "46%",
       "ease": "inOut"
      },
      {
       "t": 5.404,
-      "zoom": 1.12,
+      "zoom": 1.1,
+      "x": "38%",
+      "y": "46%"
+     },
+     {
+      "t": 5.841,
+      "zoom": 1.16,
       "x": "34%",
-      "y": "42%"
-     },
-     {
-      "t": 5.654,
-      "zoom": 1.22,
-      "x": "30%",
-      "y": "40%",
-      "ease": "backOut"
-     },
-     {
-      "t": 6.867,
-      "zoom": 1.18,
-      "x": "36%",
-      "y": "42%"
-     },
-     {
-      "t": 7.267,
-      "zoom": 1.04,
-      "x": "48%",
-      "y": "46%",
-      "ease": "out"
+      "y": "45%",
+      "ease": "inOut"
      },
      {
       "t": 8.49,
-      "zoom": 1.03,
-      "x": "48%",
-      "y": "46%"
+      "zoom": 1.06,
+      "x": "44%",
+      "y": "47%",
+      "ease": "inOut"
      }
     ],
     "shake": [
@@ -2753,10 +2925,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   },
   {
@@ -2768,12 +2936,12 @@
     "depth": 0.12,
     "overscan": 1.2,
     "props": {
-     "depth": 1000,
+     "depth": 2000,
      "rays": 0,
      "snow": 60,
      "glow": 0,
      "caustics": false,
-     "key": "deep"
+     "key": "ink"
     }
    },
    "layers": [
@@ -2820,7 +2988,6 @@
      "depth": 0.12,
      "z": -58,
      "start": 3.586,
-     "end": 9.946,
      "props": {
       "depth": 8,
       "rays": 0,
@@ -2899,7 +3066,7 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "40.00%",
+     "x": "30.00%",
      "y": "42.00%",
      "width": 664,
      "height": 172,
@@ -2909,15 +3076,26 @@
       "pxPerM": 40
      },
      "z": 2,
-     "end": 3.686,
+     "end": 3.586,
      "keyframes": [
       {
        "t": 0,
-       "x": "34%"
+       "x": "28%",
+       "y": "42%",
+       "rotate": 0
       },
       {
-       "t": 3.686,
-       "x": "46%"
+       "t": 3.005,
+       "x": "36%",
+       "y": "44%",
+       "rotate": 8
+      },
+      {
+       "t": 3.586,
+       "x": "44%",
+       "y": "86%",
+       "rotate": 50,
+       "ease": "in"
       }
      ],
      "idle": [
@@ -2930,11 +3108,64 @@
      ]
     },
     {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": 0,
+     "enter": {
+      "type": "fade",
+      "at": 0,
+      "duration": 0.5
+     },
+     "end": 3.586,
+     "exit": {
+      "type": "fade",
+      "at": 3.286,
+      "duration": 0.3
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/ColossalSquid",
+     "x": "86%",
+     "y": "43.98%",
+     "width": 160,
+     "height": 140,
+     "flipX": true,
+     "props": {
+      "pxPerM": 18
+     },
+     "z": 1,
+     "keyframes": [
+      {
+       "t": 0,
+       "x": "84%"
+      },
+      {
+       "t": 3.005,
+       "x": "88%"
+      },
+      {
+       "t": 3.536,
+       "x": "112%",
+       "ease": "in"
+      }
+     ],
+     "end": 3.586
+    },
+    {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "85.01%",
+     "x": "70.00%",
      "y": "40.96%",
-     "width": 314,
+     "width": 206,
      "height": 260,
      "role": "fx",
      "z": 4,
@@ -2945,36 +3176,36 @@
       "life": 0.5,
       "arc": 26,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 16,
       "opacity": 1.0,
       "out": 3.005
      },
      "keyframes": [
       {
        "t": 0,
-       "x": "78%"
+       "x": "67.99%"
       },
       {
        "t": 3.586,
-       "x": "86%"
+       "x": "76.99%"
       }
      ],
-     "end": 3.586
+     "end": 3.005
     },
     {
      "type": "component",
      "name": "explainer/Tag",
      "x": "50%",
      "y": "14%",
-     "width": 298,
-     "height": 115,
+     "width": 462,
+     "height": 120,
      "depth": 0,
      "z": 20,
      "role": "label",
      "props": {
-      "text": "1,000 M",
+      "text": "1,000 M DEEP",
       "at": 0.3,
-      "size": 48,
+      "size": 50,
       "align": "center",
       "out": 3.286
      }
@@ -2982,26 +3213,31 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "27.00%",
-     "y": "30.00%",
-     "width": 365,
-     "height": 95,
+     "x": "-29.81%",
+     "y": "33.00%",
+     "width": 571,
+     "height": 148,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 22,
+      "pxPerM": 34.375,
       "timeOffset": 0.0
      },
      "z": 2,
-     "start": 3.586,
+     "start": 3.986,
      "keyframes": [
       {
-       "t": 3.586,
-       "x": "18.67%"
+       "t": 3.986,
+       "x": "-29.81%"
+      },
+      {
+       "t": 5.299,
+       "x": "35.00%",
+       "ease": "out"
       },
       {
        "t": 9.946,
-       "x": "29.78%"
+       "x": "37.78%"
       }
      ],
      "idle": [
@@ -3016,26 +3252,31 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "22.00%",
-     "y": "37.00%",
-     "width": 149,
-     "height": 39,
+     "x": "-38.81%",
+     "y": "38.50%",
+     "width": 233,
+     "height": 60,
      "flipX": false,
      "role": "hero",
      "props": {
-      "pxPerM": 9,
+      "pxPerM": 14.0625,
       "timeOffset": 0.7
      },
      "z": 2,
-     "start": 3.586,
+     "start": 3.986,
      "keyframes": [
       {
-       "t": 3.586,
-       "x": "13.67%"
+       "t": 3.986,
+       "x": "-38.81%"
+      },
+      {
+       "t": 5.299,
+       "x": "26.00%",
+       "ease": "out"
       },
       {
        "t": 9.946,
-       "x": "24.78%"
+       "x": "28.78%"
       }
      ],
      "idle": [
@@ -3050,26 +3291,31 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "74.00%",
-     "y": "47.00%",
-     "width": 365,
-     "height": 95,
+     "x": "133.81%",
+     "y": "49.00%",
+     "width": 571,
+     "height": 148,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 22,
+      "pxPerM": 34.375,
       "timeOffset": 0.4
      },
      "z": 2,
-     "start": 3.586,
+     "start": 3.986,
      "keyframes": [
       {
-       "t": 3.586,
-       "x": "82.33%"
+       "t": 3.986,
+       "x": "133.81%"
+      },
+      {
+       "t": 5.299,
+       "x": "69.00%",
+       "ease": "out"
       },
       {
        "t": 9.946,
-       "x": "71.22%"
+       "x": "66.22%"
       }
      ],
      "idle": [
@@ -3084,22 +3330,27 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "79.00%",
-     "y": "54.00%",
-     "width": 149,
-     "height": 39,
+     "x": "143.81%",
+     "y": "54.50%",
+     "width": 233,
+     "height": 60,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 9,
+      "pxPerM": 14.0625,
       "timeOffset": 1.1
      },
      "z": 2,
-     "start": 3.586,
+     "start": 3.986,
      "keyframes": [
       {
-       "t": 3.586,
-       "x": "87.33%"
+       "t": 3.986,
+       "x": "143.81%"
+      },
+      {
+       "t": 5.299,
+       "x": "79.00%",
+       "ease": "out"
       },
       {
        "t": 9.946,
@@ -3118,14 +3369,14 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "27%",
-     "y": "23%",
+     "x": "37%",
+     "y": "25.5%",
      "width": 300,
      "height": 60,
      "z": 6,
      "role": "fx",
      "props": {
-      "at": 6.924,
+      "at": 5.299,
       "gaps": [
        0.18,
        0.18,
@@ -3139,14 +3390,14 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "73%",
-     "y": "40%",
+     "x": "36%",
+     "y": "47.5%",
      "width": 300,
      "height": 60,
      "z": 6,
      "role": "fx",
      "props": {
-      "at": 7.424,
+      "at": 5.799,
       "gaps": [
        0.4,
        0.12,
@@ -3160,47 +3411,53 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "27%",
-     "y": "16.5%",
-     "width": 308,
-     "height": 106,
-     "depth": 0,
+     "x": "37%",
+     "y": "19.5%",
+     "width": 318,
+     "height": 110,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "FAMILY 1",
       "at": 8.261,
-      "size": 44,
+      "size": 46,
       "align": "center"
      }
     },
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "73%",
-     "y": "33.5%",
-     "width": 308,
-     "height": 106,
-     "depth": 0,
+     "x": "74%",
+     "y": "40.5%",
+     "width": 318,
+     "height": 110,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "FAMILY 2",
-      "at": 8.511,
-      "size": 44,
+      "at": 8.261,
+      "size": 46,
       "align": "center"
      }
     }
    ],
    "notes": "Good news: full power is for hunting, a kilometre down. Near the surface, they mostly trade softer patterns called codas, and every family has its own dialect.",
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "left"
+   },
    "setting": [
     {
      "kind": "place",
      "biome": "deep",
      "place": "deep sea, 1,000 m",
-     "depth": 1000,
+     "depth": 2000,
      "waterline": null,
      "light": "night",
+     "key": "ink",
      "at": 0.0
     },
     {
@@ -3210,6 +3467,7 @@
      "depth": 8,
      "waterline": 0.14,
      "light": "dusk",
+     "key": "royal",
      "at": 3.586
     }
    ],
@@ -3217,7 +3475,7 @@
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.06,
+      "zoom": 1.04,
       "x": "50%",
       "y": "50%"
      },
@@ -3237,7 +3495,8 @@
       "t": 5.299,
       "zoom": 1.02,
       "x": "50%",
-      "y": "46%"
+      "y": "46%",
+      "ease": "inOut"
      },
      {
       "t": 6.924,
@@ -3284,10 +3543,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "iris",
-    "duration": 0.55
    }
   },
   {
@@ -3342,15 +3597,15 @@
     {
      "type": "component",
      "name": "explainer/SpermWhale",
-     "x": "162.69%",
+     "x": "142.35%",
      "y": "46.00%",
-     "width": 2490,
-     "height": 645,
+     "width": 2158,
+     "height": 559,
      "flipX": true,
      "role": "hero",
      "props": {
-      "pxPerM": 150,
-      "timeOffset": 1.568
+      "pxPerM": 130,
+      "timeOffset": 1.601
      },
      "z": 2,
      "idle": [
@@ -3358,55 +3613,58 @@
        "type": "sway",
        "amount": 0.5,
        "speed": 0.2,
-       "phase": -7.0544
+       "phase": -7.0125
       }
      ],
      "keyframes": [
       {
        "t": 0,
-       "x": "201.57%"
+       "x": "212.72%"
       },
       {
-       "t": 0.92,
-       "x": "177.50%",
+       "t": 0.558,
+       "x": "212.72%"
+      },
+      {
+       "t": 2.47,
+       "x": "144.20%",
        "ease": "out"
       },
       {
-       "t": 5.932,
-       "x": "162.69%",
-       "ease": "out"
+       "t": 5.899,
+       "x": "142.35%"
       }
      ]
     },
     {
      "type": "component",
      "name": "explainer/ClickRings",
-     "x": "43.98%",
-     "y": "42.02%",
-     "width": 110,
-     "height": 380,
+     "x": "39.63%",
+     "y": "42.55%",
+     "width": 104,
+     "height": 420,
      "role": "fx",
      "z": 4,
      "props": {
-      "at": 4.932,
+      "at": 4.899,
       "rate": 3,
       "dir": -1,
-      "life": 0.8,
+      "life": 0.9,
       "arc": 40,
       "color": "#e9f4fc",
-      "width": 12,
+      "width": 18,
       "opacity": 1.0
      }
     },
     {
      "type": "component",
      "name": "explainer/Diver",
-     "x": "19.91%",
-     "y": "42.02%",
-     "width": 410,
-     "height": 115,
+     "x": "18.61%",
+     "y": "42.86%",
+     "width": 358,
+     "height": 105,
      "props": {
-      "pxPerM": 150,
+      "pxPerM": 130,
       "arms": "side"
      },
      "z": 3,
@@ -3415,21 +3673,21 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "19.91%",
-     "y": "35.77%",
-     "width": 176,
-     "height": 110,
-     "depth": 0,
+     "x": "18.61%",
+     "y": "36.35%",
+     "width": 179,
+     "height": 115,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
       "text": "YOU",
       "at": -1,
-      "size": 46,
+      "size": 48,
       "align": "center",
       "leader": [
        0,
-       70
+       75
       ]
      }
     },
@@ -3456,16 +3714,98 @@
     },
     {
      "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "80.00%",
+     "y": "60.00%",
+     "width": 149,
+     "height": 39,
+     "flipX": true,
+     "role": "hero",
+     "props": {
+      "pxPerM": 9,
+      "timeOffset": 0.3
+     },
+     "z": 1,
+     "start": 4.121,
+     "keyframes": [
+      {
+       "t": 4.121,
+       "x": "118.89%"
+      },
+      {
+       "t": 5.046,
+       "x": "80.00%",
+       "ease": "out"
+      },
+      {
+       "t": 5.812,
+       "x": "118.89%",
+       "ease": "in"
+      }
+     ],
+     "end": 5.832,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 9.8
+      }
+     ]
+    },
+    {
+     "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "90.00%",
+     "y": "62.00%",
+     "width": 149,
+     "height": 39,
+     "flipX": true,
+     "role": "hero",
+     "props": {
+      "pxPerM": 9,
+      "timeOffset": 1.0
+     },
+     "z": 1,
+     "start": 4.121,
+     "keyframes": [
+      {
+       "t": 4.121,
+       "x": "128.89%"
+      },
+      {
+       "t": 5.046,
+       "x": "90.00%",
+       "ease": "out"
+      },
+      {
+       "t": 5.812,
+       "x": "128.89%",
+       "ease": "in"
+      }
+     ],
+     "end": 5.832,
+     "idle": [
+      {
+       "type": "sway",
+       "amount": 0.7,
+       "speed": 0.22,
+       "phase": 9.8
+      }
+     ]
+    },
+    {
+     "type": "component",
      "name": "explainer/Coda",
-     "x": "54.63%",
-     "y": "31.08%",
+     "x": "48.15%",
+     "y": "30.57%",
      "width": 260,
      "height": 56,
      "z": 6,
      "role": "fx",
      "props": {
       "at": 1.57,
-      "out": 4.646,
+      "out": 4.446,
       "gaps": [
        0.18,
        0.18,
@@ -3487,22 +3827,27 @@
     "light": "day",
     "at": 0.0
    },
+   "transitionIn": {
+    "type": "wipe",
+    "duration": 0.5,
+    "direction": "up"
+   },
    "camera": {
     "keyframes": [
      {
       "t": 0,
-      "zoom": 1.1,
-      "x": "46%",
-      "y": "46%"
+      "zoom": 1.08,
+      "x": "50%",
+      "y": "48%"
      },
      {
       "t": 2.47,
-      "zoom": 1.08,
-      "x": "47%",
-      "y": "47%"
+      "zoom": 1.06,
+      "x": "48%",
+      "y": "48%"
      },
      {
-      "t": 5.932,
+      "t": 5.899,
       "zoom": 1.0,
       "x": "50%",
       "y": "50%",
@@ -3519,10 +3864,6 @@
     "brightness": 1.0,
     "contrast": 1.0,
     "saturate": 1.0
-   },
-   "transitionIn": {
-    "type": "fade",
-    "duration": 0.5
    }
   }
  ],
@@ -3542,13 +3883,13 @@
    {
     "text": "a",
     "start": 0.287,
-    "end": 0.363,
-    "br": true
+    "end": 0.363
    },
    {
     "text": "sperm",
     "start": 0.363,
-    "end": 0.775
+    "end": 0.775,
+    "br": true
    },
    {
     "text": "whale's",
@@ -3559,19 +3900,18 @@
     "text": "click",
     "start": 1.163,
     "end": 1.462,
-    "emph": true,
-    "br": true
+    "emph": true
    },
    {
     "text": "do",
     "start": 1.462,
-    "end": 1.65
+    "end": 1.65,
+    "br": true
    },
    {
     "text": "to",
     "start": 1.65,
-    "end": 1.738,
-    "br": true
+    "end": 1.738
    },
    {
     "text": "your",
@@ -3613,8 +3953,7 @@
    {
     "text": "metres",
     "start": 3.77,
-    "end": 4.145,
-    "br": true
+    "end": 4.145
    },
    {
     "text": "long,",
@@ -3651,8 +3990,7 @@
    {
     "text": "to",
     "start": 5.845,
-    "end": 5.982,
-    "br": true
+    "end": 5.982
    },
    {
     "text": "toe,",
@@ -3711,13 +4049,13 @@
    {
     "text": "is",
     "start": 8.495,
-    "end": 8.608,
-    "br": true
+    "end": 8.608
    },
    {
     "text": "a",
     "start": 8.608,
-    "end": 8.708
+    "end": 8.708,
+    "br": true
    },
    {
     "text": "sound",
@@ -3727,8 +4065,7 @@
    {
     "text": "machine.",
     "start": 9.008,
-    "end": 9.77,
-    "br": true
+    "end": 9.77
    },
    {
     "text": "Nearly",
@@ -3739,8 +4076,7 @@
    {
     "text": "two",
     "start": 10.104,
-    "end": 10.379,
-    "br": true
+    "end": 10.379
    },
    {
     "text": "thousand",
@@ -3750,13 +4086,13 @@
    {
     "text": "litres",
     "start": 10.791,
-    "end": 11.129
+    "end": 11.129,
+    "br": true
    },
    {
     "text": "of",
     "start": 11.129,
-    "end": 11.254,
-    "br": true
+    "end": 11.254
    },
    {
     "text": "oil",
@@ -3846,8 +4182,7 @@
    {
     "text": "two",
     "start": 17.054,
-    "end": 17.266,
-    "br": true
+    "end": 17.266
    },
    {
     "text": "hundred",
@@ -3885,8 +4220,7 @@
    {
     "text": "on",
     "start": 19.645,
-    "end": 19.845,
-    "br": true
+    "end": 19.845
    },
    {
     "text": "Earth",
@@ -3918,8 +4252,7 @@
    {
     "text": "the",
     "start": 21.395,
-    "end": 21.483,
-    "br": true
+    "end": 21.483
    },
    {
     "text": "blue",
@@ -3945,8 +4278,7 @@
    {
     "text": "that",
     "start": 22.803,
-    "end": 23.053,
-    "br": true
+    "end": 23.053
    },
    {
     "text": "to",
@@ -3988,8 +4320,7 @@
    {
     "text": "a",
     "start": 25.037,
-    "end": 25.099,
-    "br": true
+    "end": 25.099
    },
    {
     "text": "kilometre",
@@ -4015,19 +4346,18 @@
    {
     "text": "couldn't",
     "start": 26.674,
-    "end": 26.912,
-    "br": true
+    "end": 26.912
    },
    {
     "text": "see",
     "start": 26.912,
-    "end": 27.124
+    "end": 27.124,
+    "br": true
    },
    {
     "text": "your",
     "start": 27.124,
-    "end": 27.299,
-    "br": true
+    "end": 27.299
    },
    {
     "text": "own",
@@ -4064,8 +4394,7 @@
    {
     "text": "for",
     "start": 29.434,
-    "end": 29.547,
-    "br": true
+    "end": 29.547
    },
    {
     "text": "the",
@@ -4107,8 +4436,7 @@
    {
     "text": "speed",
     "start": 31.553,
-    "end": 31.853,
-    "br": true
+    "end": 31.853
    },
    {
     "text": "up",
@@ -4151,8 +4479,7 @@
    {
     "text": "is",
     "start": 33.64,
-    "end": 33.803,
-    "br": true
+    "end": 33.803
    },
    {
     "text": "gone.",
@@ -4178,13 +4505,13 @@
    {
     "text": "that",
     "start": 34.855,
-    "end": 35.143,
-    "br": true
+    "end": 35.143
    },
    {
     "text": "feel",
     "start": 35.143,
-    "end": 35.43
+    "end": 35.43,
+    "br": true
    },
    {
     "text": "like",
@@ -4194,8 +4521,7 @@
    {
     "text": "to",
     "start": 35.668,
-    "end": 35.805,
-    "br": true
+    "end": 35.805
    },
    {
     "text": "you?",
@@ -4238,19 +4564,18 @@
     "text": "thump",
     "start": 38.399,
     "end": 38.712,
-    "emph": true,
-    "br": true
+    "emph": true
    },
    {
     "text": "through",
     "start": 38.712,
-    "end": 38.899
+    "end": 38.899,
+    "br": true
    },
    {
     "text": "their",
     "start": 38.899,
-    "end": 39.112,
-    "br": true
+    "end": 39.112
    },
    {
     "text": "chest",
@@ -4287,13 +4612,13 @@
    {
     "text": "from",
     "start": 40.777,
-    "end": 40.914,
-    "br": true
+    "end": 40.914
    },
    {
     "text": "a",
     "start": 40.914,
-    "end": 40.977
+    "end": 40.977,
+    "br": true
    },
    {
     "text": "polite",
@@ -4303,8 +4628,7 @@
    {
     "text": "distance.",
     "start": 41.377,
-    "end": 42.152,
-    "br": true
+    "end": 42.152
    },
    {
     "text": "On",
@@ -4363,19 +4687,18 @@
    {
     "text": "could",
     "start": 45.418,
-    "end": 45.606,
-    "br": true
+    "end": 45.606
    },
    {
     "text": "burst",
     "start": 45.606,
-    "end": 45.906
+    "end": 45.906,
+    "br": true
    },
    {
     "text": "your",
     "start": 45.906,
-    "end": 46.043,
-    "br": true
+    "end": 46.043
    },
    {
     "text": "eardrums.",
@@ -4430,8 +4753,7 @@
    {
     "text": "is",
     "start": 50.134,
-    "end": 50.272,
-    "br": true
+    "end": 50.272
    },
    {
     "text": "for",
@@ -4565,8 +4887,7 @@
    {
     "text": "one",
     "start": 58.996,
-    "end": 59.196,
-    "br": true
+    "end": 59.196
    },
    {
     "text": "swims",
@@ -4592,13 +4913,13 @@
    {
     "text": "clicking",
     "start": 60.208,
-    "end": 60.583
+    "end": 60.583,
+    "br": true
    },
    {
     "text": "at",
     "start": 60.583,
-    "end": 60.708,
-    "br": true
+    "end": 60.708
    },
    {
     "text": "you,",
@@ -4625,13 +4946,13 @@
    {
     "text": "telling",
     "start": 62.759,
-    "end": 63.072,
-    "br": true
+    "end": 63.072
    },
    {
     "text": "its",
     "start": 63.072,
-    "end": 63.234
+    "end": 63.234,
+    "br": true
    },
    {
     "text": "family",
@@ -4641,8 +4962,7 @@
    {
     "text": "about",
     "start": 63.684,
-    "end": 64.022,
-    "br": true
+    "end": 64.022
    },
    {
     "text": "you.",

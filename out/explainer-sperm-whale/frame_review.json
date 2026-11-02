@@ -1,0 +1,7 @@
+{"slug": "explainer-sperm-whale", "method": "pipeline.qa.frames30 + REVIEW_PROMPT section 3, 6 frame reviewers per round (~10 s spans)",
+ "rounds": [
+  {"render": "r1.mp4", "scores": "4-6/10", "top": ["2-word caption fragments", "sunlit flash inside the dive wipe (house rig gap)", "deep sea as bright as twilight", "small subjects in empty fields", "double-exposure fades", "squid slid through the head", "labels left behind by camera moves"]},
+  {"render": "r2.mp4", "scores": "5-7/10", "top": ["nine people read as a dotted line", "nothing shows 'sound machine'", "beam spread instead of focusing", "short chart bars", "map dissolves ghosted", "swimmer barely reacts", "'on paper' had no picture", "punchline had no image"]},
+  {"render": "r3.mp4", "scores": "6-8/10 (hook 7)", "top": ["6.7 s camera pull-back snapped", "deep sea still navy", "whale left over the dusk/deep wipes", "family-2 coda dots on the caption", "distant whales popped at the loop", "beam still read as arcs"], "plates_vs_flat": "plates better in 5 of 6 place settings (deep, Dominica, dusk, surface); flat better on the dive (waterline anchors the 0 m gauge)"},
+  {"render": "r4.mp4 (final)", "check": "self-check of key frames + frames30 flags (only intended wipes/map left)", "fixed": ["eased pull-back", "ink veil makes 1,000 m near-black", "whales dive out of frame before cuts", "yellow beam cone", "bars full width", "codas clear of captions", "distant whales swim off before the loop", "plates: drifting plate layers, Dominica plate regenerated without the slab"]}
+ ]}

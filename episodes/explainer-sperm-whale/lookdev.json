@@ -1,0 +1,272 @@
+{
+ "version": 1,
+ "format": "9:16",
+ "fps": 30,
+ "overlays": {
+  "grain": 0,
+  "vignette": 0.2,
+  "fadeIn": 0,
+  "fadeOut": 0
+ },
+ "id": "lookdev-sperm",
+ "title": "lookdev",
+ "captions": {
+  "enabled": false
+ },
+ "audio": {
+  "voice": [],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "scenes": [
+  {
+   "id": "l0",
+   "duration": 2.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Board",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "field": "cyan",
+     "seed": "bd1",
+     "floor": false
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "50%",
+     "y": "30%",
+     "width": 1000,
+     "height": 320,
+     "props": {
+      "pxPerM": 60
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Elephant",
+     "x": "30%",
+     "y": "55%",
+     "width": 220,
+     "height": 220,
+     "props": {
+      "pxPerM": 60
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Diver",
+     "x": "70%",
+     "y": "55%",
+     "width": 300,
+     "height": 120,
+     "props": {
+      "pxPerM": 100
+     }
+    }
+   ],
+   "notes": "Not because they can't. A big male is eight metres long, as heavy as four cars, and its fin alone is as tall as you.",
+   "setting": {
+    "kind": "board",
+    "board": "cyan",
+    "at": 0.0
+   },
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "x": "50%",
+      "y": "50%"
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   }
+  },
+  {
+   "id": "l1",
+   "duration": 2.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 900,
+     "rays": 0,
+     "snow": 80,
+     "key": "deep"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "50%",
+     "y": "30%",
+     "width": 1000,
+     "height": 320,
+     "props": {
+      "pxPerM": 60
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/ColossalSquid",
+     "x": "50%",
+     "y": "55%",
+     "width": 600,
+     "height": 300,
+     "props": {
+      "pxPerM": 60
+     }
+    }
+   ],
+   "notes": "In twenty nineteen, off Western Australia, a pod brought down the biggest animal on Earth. An adult blue whale, a thousand times your weight.",
+   "setting": [
+    {
+     "kind": "map",
+     "place": "Western Australia",
+     "cue": "Western Australia",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "biome": "open_ocean",
+     "place": "Bremer Bay, Western Australia",
+     "depth": 8,
+     "waterline": 0.1,
+     "light": "day",
+     "at": 2.812
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "x": "50%",
+      "y": "50%"
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "haze": "tide-1",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   }
+  },
+  {
+   "id": "l2",
+   "duration": 2.0,
+   "background": {
+    "type": "component",
+    "name": "explainer/Ocean",
+    "depth": 0.12,
+    "overscan": 1.2,
+    "props": {
+     "depth": 5,
+     "surface": 0.2,
+     "rays": 7,
+     "snow": 60,
+     "key": "royal"
+    }
+   },
+   "layers": [
+    {
+     "type": "component",
+     "name": "explainer/SpermWhale",
+     "x": "50%",
+     "y": "40%",
+     "width": 1080,
+     "height": 360,
+     "props": {
+      "pxPerM": 66
+     }
+    },
+    {
+     "type": "component",
+     "name": "explainer/Map",
+     "x": "50%",
+     "y": "75%",
+     "width": 1080,
+     "height": 700,
+     "props": {
+      "views": [
+       {
+        "t": 0,
+        "lon": -61.4,
+        "lat": 15.4,
+        "zoom": 5
+       }
+      ],
+      "pins": [
+       {
+        "lon": -61.35,
+        "lat": 15.42,
+        "at": 0,
+        "label": "Dominica"
+       }
+      ],
+      "labelSize": 44
+     }
+    }
+   ],
+   "notes": "In twenty nineteen, off Western Australia, a pod brought down the biggest animal on Earth. An adult blue whale, a thousand times your weight.",
+   "setting": [
+    {
+     "kind": "map",
+     "place": "Western Australia",
+     "cue": "Western Australia",
+     "at": 0.0
+    },
+    {
+     "kind": "place",
+     "biome": "open_ocean",
+     "place": "Bremer Bay, Western Australia",
+     "depth": 8,
+     "waterline": 0.1,
+     "light": "day",
+     "at": 2.812
+    }
+   ],
+   "camera": {
+    "keyframes": [
+     {
+      "t": 0,
+      "zoom": 1,
+      "x": "50%",
+      "y": "50%"
+     }
+    ]
+   },
+   "light": {
+    "setup": "lantern",
+    "haze": "tide-1",
+    "sweep": 8
+   },
+   "grade": {
+    "brightness": 1.0,
+    "contrast": 1.0,
+    "saturate": 1.0
+   }
+  }
+ ]
+}

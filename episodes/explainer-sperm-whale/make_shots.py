@@ -116,9 +116,22 @@ PERSON = ("<svg viewBox='0 0 110 40' xmlns='http://www.w3.org/2000/svg'><circle 
           "<rect x='26' y='5' width='54' height='30' rx='14' fill='#fc6e0e'/><rect x='70' y='9' width='39' height='22' rx='10' "
           "fill='#250192'/></svg>")
 WIPE_UP = {"type": "wipe", "duration": 0.5, "direction": "up"}
-GRID = ("<svg viewBox='0 0 1300 1500' xmlns='http://www.w3.org/2000/svg'>"
-        + "".join(f"<line x1='{x}' y1='0' x2='{x}' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for x in range(0, 1301, 100))
-        + "".join(f"<line x1='0' y1='{y}' x2='1300' y2='{y}' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for y in range(0, 1501, 100))
+BEAM = ("<svg viewBox='0 0 400 150' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M 0 66 L 400 0 "
+        "L 400 150 L 0 84 Z' fill='#fddf35' opacity='0.45'/><path d='M 0 71 L 400 45 L 400 105 L 0 79 Z' fill='#fddf35' "
+        "opacity='0.7'/></svg>")
+
+
+def dark(at, out=None):
+    """the midnight zone: an ink veil over the water (above the set, under every figure), so 1,000 m reads near-black"""
+    l = {"type": "rect", "fill": "#08032e", "x": "50%", "y": "50%", "width": 1600, "height": 2600, "depth": 0.12, "z": -20,
+         "role": "fx", "opacity": 0.55, "start": at, "enter": {"type": "fade", "at": at, "duration": 0.5}}
+    if out:
+        l["end"] = out
+        l["exit"] = {"type": "fade", "at": f"{out}-0.3", "duration": 0.3}
+    return l
+GRID = ("<svg viewBox='0 0 1500 2400' xmlns='http://www.w3.org/2000/svg'>"
+        + "".join(f"<line x1='{x}' y1='0' x2='{x}' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for x in range(0, 1501, 100))
+        + "".join(f"<line x1='0' y1='{y}' x2='1500' y2='{y}' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/>" for y in range(0, 2401, 100))
         + "</svg>")
 WIPE_LEFT = {"type": "wipe", "duration": 0.5, "direction": "left"}
 FRAME = 1 / 30
@@ -200,8 +213,8 @@ def build():
                    tag("1/3 HEAD", "@third+0.1", pct(head0 + 2.66 * P1), "17.6%", size=50, depth=1),
                ],
                "camera": cam((0, 1.0, "50%", "50%"), ("@sixteen", 1.02, "50%", "48%"), ("@nine", 1.03, "50%", "48%"),
-                             ("@laid", 1.75, "32%", "50%", "inOut"), ("@toe.end", 1.75, "40%", "50%"),
-                             ("@third", 1.04, "54%", "47%", "inOut"), ("@:end", 1.05, "60%", "46%", "inOut"))})
+                             ("@laid+0.2", 1.75, "32%", "50%", "inOut"), ("@toe", 1.75, "38%", "50%"),
+                             ("@third+0.25", 1.04, "54%", "47%", "inOut"), ("@:end", 1.05, "60%", "46%", "inOut"))})
 
     # p02 the organ: one click on "machine", the oil level rises, ten bathtubs, then the focused beam
     P2 = 100
@@ -222,8 +235,10 @@ def build():
                          width=24),
                    tag("≈ 2,000 L OF OIL", "@two", pct(sx - 2.6 * P2 + 20), "15%", size=50, leader=[0, 150], depth=1, out="@focus"),
                    *tubs,
+                   svg(BEAM, pct((sx + 1080) / 2), pct(sy - 0.51 * P2, H), round(1080 - sx), 150, start="@focus", z=3,
+                       enter={"type": "wipeRight", "at": "@focus", "duration": 0.45}),
                    rings(sx + 6, 1075, sy - 0.51 * P2, "@focus", rate=8, dir=1, life=0.55, arc=10, h=200, width=26, color=YELLOW),
-                   tag("BEAM", "@beam-0.2", "80%", "23%", size=52, leader=[0, 110]),
+                   tag("BEAM", "@beam-0.2", "82%", "23%", size=52, leader=[0, 120], depth=1),
                ],
                "camera": cam((0, 1.0, "50%", "50%"), ("@machine", 1.03, "52%", "48%"), ("@Nearly", 1.04, "48%", "47%"),
                              ("@litres", 1.1, "45%", "42%", "inOut"), ("@ten", 1.08, "46%", "44%"),
@@ -235,7 +250,7 @@ def build():
                "layers": [
                    {"type": "component", "name": "explainer/SpeedBars", "x": "50%", "y": "26%", "width": 960, "height": 640,
                     "role": "label", "depth": 0, "z": 15, "props": {
-                        "title": "Loudest animals", "max": 90, "at": "@hit", "stagger": 2.6, "duration": 0.7, "size": 56,
+                        "title": "Loudest animals", "max": 90, "at": "@hit", "stagger": 2.35, "duration": 0.5, "size": 56,
                         "labelWidth": 280, "valueWidth": 190, "titleSize": 76,
                         "rows": [{"label": "Sperm whale", "value": 86, "text": "236 dB", "color": "red"},
                                  {"label": "Snapping shrimp", "value": 39, "text": "189 dB", "color": CYAN},
@@ -258,7 +273,9 @@ def build():
                    whale(620, 0.2 * H, P4, z=2, keyframes=[
                        {"t": 0, "x": "54%", "y": "19%", "rotate": 0}, {"t": "@breath", "x": "57%", "y": "20%", "rotate": 10},
                        {"t": "@dives", "x": "60%", "y": "27%", "rotate": 55, "ease": "inOut"},
-                       {"t": "@where", "x": "62%", "y": "40%", "rotate": 68}, {"t": "@:end", "x": "63%", "y": "48%", "rotate": 72}]),
+                       {"t": "@where", "x": "62%", "y": "40%", "rotate": 68}, {"t": "@hand", "x": "63%", "y": "52%", "rotate": 72},
+                       {"t": "@:end", "x": "64%", "y": "88%", "rotate": 74, "ease": "in"}]),   # dives out of frame before the cut
+                   dark("@where"),
                    {"type": "component", "name": "explainer/DepthMeter", "x": "27%", "y": "36%", "width": 260, "height": 900,
                     "depth": 0, "z": 15, "role": "label",
                     "props": {"depth": [{"t": 0, "v": 0}, {"t": "@dives", "v": 0}, {"t": "@where", "v": 1000, "ease": "inOut"}],
@@ -278,6 +295,7 @@ def build():
     sn5x = lambda cx: cx + 7.98 * P5
     sc.append({"p": 6, "beat": "hunt", "setting": DEEP, "transitionIn": WIPE_UP,
                "layers": [
+                   dark(0),
                    {"type": "component", "name": "explainer/ColossalSquid", "x": pct(sqx0), "y": pct(mouth_y, H), "width": 220,
                     "height": 140, "flipX": True, "props": {"pxPerM": 18}, "z": 1, "end": "@gone+0.3", "allowOverlap": True,
                     "keyframes": [{"t": 0, "x": pct(sqx0)}, {"t": "@buzz", "x": pct(sqx1)}]},
@@ -365,7 +383,7 @@ def build():
                    svg(DASH, pct((dv_end + near) / 2), pct(dv7[1] + 80, H), round(near - dv_end - 16), 30, start="@blank.end",
                        enter={"type": "fade", "at": "@blank.end", "duration": 0.25}, z=4),
                    tag("1 M", "@blank.end", pct((dv_end + near) / 2), pct(dv7[1] + 160, H), size=48, depth=1),
-                   svg(GRID, "50%", "45%", 1300, 1500, start="@On", end="@Nobody's+0.6", depth=0.3, z=-5, role="dressing",
+                   svg(GRID, "50%", "50%", 1500, 2400, start="@On", end="@Nobody's+0.6", depth=0.3, z=-5, role="dressing",
                        enter={"type": "fade", "at": "@On", "duration": 0.4},
                        exit={"type": "fade", "at": "@Nobody's", "duration": 0.6}),
                    rings(near - 10, dv_end + 4, dv7[1], "@full", out="@Nobody's", rate=3.5, dir=-1, life=0.5, arc=45, h=420,
@@ -388,15 +406,17 @@ def build():
     sc.append({"p": 9, "beat": "twist", "transitionIn": WIPE_LEFT,
                "setting": [dict(DEEP), {**DUSK, "at": "@Near"}],
                "layers": [
-                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near+0.22",
-                         keyframes=[{"t": 0, "x": "28%"}, {"t": "@Near+0.45", "x": "40%"}]),
+                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near",     # dives out of frame before the surface wipe
+                         keyframes=[{"t": 0, "x": "28%", "y": "42%", "rotate": 0}, {"t": "@down", "x": "36%", "y": "44%", "rotate": 8},
+                                    {"t": "@Near", "x": "44%", "y": "86%", "rotate": 50, "ease": "in"}]),
+                   dark(0, out="@Near"),
                    {"type": "component", "name": "explainer/ColossalSquid", "x": "86%", "y": pct(0.42 * H + 38, H), "width": 160,
                     "height": 140, "flipX": True, "props": {"pxPerM": 18}, "z": 1,
                     "keyframes": [{"t": 0, "x": "84%"}, {"t": "@down", "x": "88%"}, {"t": "@Near-0.05", "x": "112%", "ease": "in"}], "end": "@Near"},
                    rings(0.3 * W + 7.98 * 40 + 10, 0.86 * W - 70, 0.42 * H - 20, 0.2, out="@down", rate=6, dir=1, life=0.5,
                          arc=26, h=260, width=16, keyframes=[{"t": 0, "x": pct((0.28 * W + 319 + 0.84 * W - 60) / 2)},
                                                               {"t": "@Near", "x": pct((0.4 * W + 319 + 0.9 * W - 60) / 2)}],
-                         end="@Near+0.22"),
+                         end="@down"),
                    tag("1,000 M DEEP", 0.3, "50%", "14%", size=50, out="@Near-0.3"),
                    *[whale(x + (-700 if not fl else 700), y, s * m / 16, flip=fl, z=2, start="@Near+0.4", timeOffset=to,
                            keyframes=[{"t": "@Near+0.4", "x": pct(x + (-700 if not fl else 700))},
@@ -405,10 +425,10 @@ def build():
                      for x, y, m, fl, to in fam],
                    {"type": "component", "name": "explainer/Coda", "x": "37%", "y": "25.5%", "width": 300, "height": 60,
                     "z": 6, "role": "fx", "props": {"at": "@trade", "gaps": [0.18, 0.18, 0.18, 0.42], "r": 15, "color": YELLOW}},
-                   {"type": "component", "name": "explainer/Coda", "x": "68%", "y": "57%", "width": 300, "height": 60,
+                   {"type": "component", "name": "explainer/Coda", "x": "36%", "y": "47.5%", "width": 300, "height": 60,
                     "z": 6, "role": "fx", "props": {"at": "@trade+0.5", "gaps": [0.4, 0.12, 0.12, 0.12], "r": 15, "color": MAGENTA}},
                    tag("FAMILY 1", "@family", "37%", "19.5%", size=46, depth=1),
-                   tag("FAMILY 2", "@family", "72%", "41.5%", size=46, depth=1),
+                   tag("FAMILY 2", "@family", "74%", "40.5%", size=46, depth=1),
                ],
                "camera": cam((0, 1.04, "50%", "50%"), ("@down", 1.0, "50%", "50%"), ("@Near", 1.0, "50%", "48%"),
                              ("@trade", 1.02, "50%", "46%", "inOut"), ("@codas", 1.05, "50%", "44%", "inOut"),
@@ -420,9 +440,9 @@ def build():
     sc.append({"p": 10, "beat": "bookend", "setting": SURFACE, "transitionIn": WIPE_UP,
                "layers": [*cover_layers(d[9], "@about-0.3", swim_in=k),
                           *[whale(x, y, 9, flip=True, z=1, start="@telling", timeOffset=to,
-                                  keyframes=[{"t": "@telling", "x": pct(x + 420)}, {"t": "@you#2", "x": pct(x), "ease": "out"},
-                                             {"t": round(d[9] - FRAME, 3), "x": pct(x - 10)}], end=round(d[9] - FRAME / 2, 3))
-                            for x, y, to in [(0.8 * W, 0.58 * H, 0.3), (0.9 * W, 0.6 * H, 1.0)]],
+                                  keyframes=[{"t": "@telling", "x": pct(x + 420)}, {"t": "@about", "x": pct(x), "ease": "out"},
+                                             {"t": round(d[9] - 0.12, 3), "x": pct(x + 420), "ease": "in"}], end=round(d[9] - 0.1, 3))
+                            for x, y, to in [(0.8 * W, 0.6 * H, 0.3), (0.9 * W, 0.62 * H, 1.0)]],
                           {"type": "component", "name": "explainer/Coda", "x": pct(C_SNOUT[0] + 20), "y": pct(C_SNOUT[1] - 230, H),
                            "width": 260, "height": 56, "z": 6, "role": "fx",
                            "props": {"at": "@clicking", "out": "@about-0.6", "gaps": [0.18, 0.18, 0.18, 0.42], "r": 14,

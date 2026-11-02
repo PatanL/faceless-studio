@@ -45,10 +45,15 @@ def main():
         ss = segs(sc)
         first = next((s for s in ss if s.get("kind") != "map"), None)
         has_place = any(plate_of(s) for s in ss)
-        if plate_of(first):
-            sc["background"] = {"type": "image", "src": SRC.format(plate_of(first)), "fit": "cover", "depth": 0.12,
-                                "overscan": 1.2}
         layers = []
+        if plate_of(first):
+            # the plate is a layer (not the background) so it can drift: a slow push across the scene on top of the
+            # camera's own moves (Ken Burns), on the background plane
+            sc["background"] = {"type": "color", "color": "#14045c", "depth": 0.12, "overscan": 1.2}
+            dur = sc["duration"]
+            layers.append({"type": "image", "src": SRC.format(plate_of(first)), "fit": "cover", "role": "dressing",
+                           "x": "50%", "y": "50%", "width": 1296, "height": 2304, "depth": 0.12, "z": -80,
+                           "keyframes": [{"t": 0, "scale": 1.0, "y": "50%"}, {"t": dur, "scale": 1.045, "y": "49%", "ease": "linear"}]})
         later = [s for s in ss if s is not first and s.get("kind") == "place"]
         for l in sc["layers"]:
             if l.get("setting_rig"):
@@ -59,8 +64,10 @@ def main():
                     img = {k: l[k] for k in ("x", "y", "width", "height", "depth", "z", "start", "end", "enter") if k in l}
                     layers.append({"type": "image", "src": SRC.format(pl), "fit": "cover", "role": "dressing", **img})
                     continue
-            if l.get("role") == "dressing" and l.get("name") != "explainer/Specks":
+            if l.get("role") == "dressing" and str(l.get("name", "")).startswith("explainer/") and l.get("name") != "explainer/Specks":
                 continue                       # kelp, fish schools, coast...: the plate is the set
+            if l.get("type") == "rect" and l.get("role") == "fx" and has_place:
+                continue                       # the midnight veil: the deep plate is already dark
             layers.append(l)
         if has_place:
             layers.append({"type": "particles", "preset": "bubbles", "count": 14, "seed": 7, "x": "50%", "y": "50%",

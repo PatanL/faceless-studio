@@ -1,0 +1,23 @@
+
+### Lane B, explainer-sperm-whale, round 1 (2026-11-02)
+- Topic: "What would a sperm whale's click do to your body?" from fGcgWaswMns (Depth Theory, 2.3M, x14.7; pipeline.sources pick rank 6). Originality PASS (general + direct). New kit pieces: style-A sperm whale (house/spermWhaleA.tsx, now the kit default), ClickRings + Coda (house/soundfx.tsx). Codex plates: experiments/asset-gen/gen/sw_plate_*_A.png.
+- r1 renders: out/explainer-sperm-whale/r1.mp4 (flat) and r1_plates.mp4; staging PASS; 6 frame reviewers on qa_r1/f30 scored 4-6/10.
+- Viewer-visible problems: 2-word caption fragments, a sunlit flash inside the dive wipe (house rig gap), deep sea as bright as twilight, small subjects in empty fields, double-exposure fades, squid sliding through the head, labels left behind by camera moves.
+- Fixed for r2: explicit phrase caption pages (auto.py "pages"), house.py rig overlap, ink deep key, wipes, bigger subjects/bolder clicks, squid into the jaw, organ fills with a rising level, coda rows fade.
+
+### Lane B, explainer-sperm-whale, round 2
+- r2 renders (out/explainer-sperm-whale/r2.mp4, r2_plates.mp4): 6 frame reviewers scored 5-7/10 (r1 4-6). Fixed per them: sunlit flash in the dive wipe, squid now goes into the jaw, labels ride their objects, coda rows fade, loop seam now near invisible, wipes instead of muddy fades.
+- Still wrong in r2: 'nine of you' read as a dotted line, 'sound machine' showed nothing, beam spread instead of focusing, short chart bars, map dissolves ghosted, swimmer barely reacted, 'on paper' had no picture, punchline had no image.
+- r3 fixes: camera push into the row of people, organ cutaway on 'machine', narrow yellow beam, SpeedBars valueWidth (ui.tsx, shared, default unchanged), map wipes in, bigger recoils + chest hits, paper grid, distant family on 'telling its family'.
+
+## Lane C: whatif-grow-1cm ("What Happens If You Never Stop Growing?"), round 0 -> 1 (2026-11-02)
+- Premise from pipeline.sources pick #1 (What If, "What If You Grew 1cm Every Second?", 3.3M, 69x); own 195-word script, originality PASS (general + vs source), staging PASS. New kit file studio/src/kits/explainer/grow.tsx (GrowWorld in metres around the kit YOU, GrowHud, CubeLaw); land/air/space biomes in settings.py; make.py pull() fixed for macOS openrsync.
+- r0 render (out/whatif-grow-1cm/whatif-grow-1cm_9x16.mp4, 62.4 s) reviewed every frame by 6 reviewers: wavy wipes/fades ghosted the plate and doubled YOU across scale cuts, plate over faces, square-cube as a chart, clock vs voice mismatches, Moon popped, crack read as a spider, planes off-frame, dive ended on nothing.
+- r1 (commit 00ca65f): hard cuts, +CM/+M plate from frame 0, square-cube shown on YOU (x20 bracket, x8,000 arrows, x400 x-ray bones), level lines and markers, one sun, blinks on expression changes. Copy: out/whatif-grow-1cm/whatif-grow-1cm_r1.mp4.
+- Still open after r1: shots hold 2-5 s where Zack cuts every ~1.4 s; flat 2D vs Zack's 3D close-ups; captions sit on the subject at 72 %.
+- Lane C round 1 -> 2 (commit after 00ca65f): r1 re-review fixed all r0 musts in 0-10 s and 50-62 s; new musts were overlays pinned to the screen in the square-cube push, eye line missing the Eiffel tip, knees not folding, Everest crossing not visible, 100 km line appearing after the crossing. r2 fixes: real knee bend, summit line pulse + push-in, top-deck line, line up from the cut, ceiling 2.35 m so the hit is +60 CM at 1 minute, fast-forward icon on the sped-up minute. Copy: out/whatif-grow-1cm/whatif-grow-1cm_r2.mp4.
+
+### Lane B, explainer-sperm-whale, round 3 (final)
+- r3 every-frame review: 6-8/10, hook 7 (ship bar not quite met: smoothness 5-6 in the dive/hunt spans). A plates-vs-flat reviewer picked PLATES in 5 of 6 place settings (deep, Dominica, dusk, surface), FLAT for the dive (its waterline anchors the 0 m gauge).
+- r4 fixes: eased pull-back from the people row, ink veil so 1,000 m reads near-black, whales dive out of frame before the cuts, yellow beam cone, full-width bars, codas clear of captions, distant whales leave before the loop; plates: drifting plate layer (slow push), Dominica plate regenerated without the slab, paper grid kept.
+- Finals: out/explainer-sperm-whale_flat_phone.mp4 (15 MB) and out/explainer-sperm-whale_plates_phone.mp4 (20 MB), 64.6 s. Still wrong: flat sets read as banded fields next to Kurzgesagt's layered art; the swimmer at Dominica is small/face-down; the dive is a held pose over a counter; caption pages still split a few phrases; the caption shows on the last frame but not frame 0.

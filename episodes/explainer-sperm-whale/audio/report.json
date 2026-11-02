@@ -71,59 +71,69 @@
     "at": 4.857,
     "db": -2,
     "rate": 0.878,
-    "why": "p02 explainer/You pops in",
+    "why": "p02 svg pops in",
     "source": "storyboard",
     "dur": 0.137,
     "level_db": -14.0
    },
    {
     "cue": "pop",
-    "at": 5.017,
+    "at": 4.997,
     "db": -2,
     "rate": 0.815,
-    "why": "p02 explainer/You pops in",
+    "why": "p02 svg pops in",
     "source": "storyboard",
     "dur": 0.147,
     "level_db": -14.0
    },
    {
     "cue": "pop",
-    "at": 5.177,
+    "at": 5.137,
     "db": -2,
     "rate": 0.837,
-    "why": "p02 explainer/You pops in",
+    "why": "p02 svg pops in",
     "source": "storyboard",
     "dur": 0.143,
     "level_db": -14.0
    },
    {
     "cue": "pop",
-    "at": 5.337,
+    "at": 5.277,
     "db": -2,
     "rate": 0.947,
-    "why": "p02 explainer/You pops in",
+    "why": "p02 svg pops in",
     "source": "storyboard",
     "dur": 0.127,
     "level_db": -14.0
    },
    {
     "cue": "pop",
-    "at": 5.497,
+    "at": 5.417,
     "db": -2,
     "rate": 0.894,
-    "why": "p02 explainer/You pops in",
+    "why": "p02 svg pops in",
     "source": "storyboard",
     "dur": 0.134,
     "level_db": -14.0
    },
    {
     "cue": "tick",
-    "at": 6.995,
+    "at": 5.982,
     "db": 2,
     "rate": 1.117,
-    "why": "p02 tag '1/3 HEAD' lands",
+    "why": "p02 tag 'YOU \u00d79' lands",
     "source": "storyboard",
     "dur": 0.054,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
+    "at": 6.995,
+    "db": 2,
+    "rate": 1.038,
+    "why": "p02 tag '1/3 HEAD' lands",
+    "source": "storyboard",
+    "dur": 0.058,
     "level_db": -12.0
    },
    {
@@ -139,25 +149,15 @@
     "cue": "tick",
     "at": 10.104,
     "db": 2,
-    "rate": 1.038,
+    "rate": 0.993,
     "why": "p03 tag '\u2248 2,000 L OF OIL' lands",
     "source": "storyboard",
-    "dur": 0.058,
+    "dur": 0.06,
     "level_db": -12.0
    },
    {
     "cue": "pop",
     "at": 12.504,
-    "db": -2,
-    "rate": 0.683,
-    "why": "p03 svg pops in",
-    "source": "storyboard",
-    "dur": 0.176,
-    "level_db": -14.0
-   },
-   {
-    "cue": "pop",
-    "at": 12.624,
     "db": -2,
     "rate": 1.003,
     "why": "p03 svg pops in",
@@ -167,7 +167,7 @@
    },
    {
     "cue": "pop",
-    "at": 12.744,
+    "at": 12.624,
     "db": -2,
     "rate": 0.72,
     "why": "p03 svg pops in",
@@ -177,7 +177,7 @@
    },
    {
     "cue": "pop",
-    "at": 12.864,
+    "at": 12.744,
     "db": -2,
     "rate": 0.977,
     "why": "p03 svg pops in",
@@ -187,13 +187,33 @@
    },
    {
     "cue": "pop",
-    "at": 12.984,
+    "at": 12.864,
     "db": -2,
     "rate": 0.628,
     "why": "p03 svg pops in",
     "source": "storyboard",
     "dur": 0.191,
     "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 12.984,
+    "db": -2,
+    "rate": 0.765,
+    "why": "p03 svg pops in",
+    "source": "storyboard",
+    "dur": 0.157,
+    "level_db": -14.0
+   },
+   {
+    "cue": "tick",
+    "at": 15.229,
+    "db": 2,
+    "rate": 1.073,
+    "why": "p03 tag 'BEAM' lands",
+    "source": "storyboard",
+    "dur": 0.056,
+    "level_db": -12.0
    },
    {
     "cue": "whoosh",
@@ -217,10 +237,10 @@
     "cue": "tick",
     "at": 26.399,
     "db": 2,
-    "rate": 0.964,
+    "rate": 1.055,
     "why": "p05 tag 'NO SUNLIGHT' lands",
     "source": "storyboard",
-    "dur": 0.062,
+    "dur": 0.057,
     "level_db": -12.0
    },
    {
@@ -236,30 +256,30 @@
     "cue": "tick",
     "at": 29.697,
     "db": 2,
-    "rate": 1.073,
+    "rate": 1.116,
     "why": "p06 tag 'ECHO' lands",
     "source": "storyboard",
-    "dur": 0.056,
+    "dur": 0.054,
     "level_db": -12.0
    },
    {
     "cue": "tick",
     "at": 32.315,
     "db": 2,
-    "rate": 1.055,
+    "rate": 0.957,
     "why": "p06 tag 'BUZZ' lands",
     "source": "storyboard",
-    "dur": 0.057,
+    "dur": 0.063,
     "level_db": -12.0
    },
    {
     "cue": "impact",
     "at": 33.803,
     "db": -2,
-    "rate": 0.88,
+    "rate": 0.889,
     "why": "p06 hard camera shake",
     "source": "storyboard",
-    "dur": 2.892,
+    "dur": 2.863,
     "level_db": -6.0,
     "mix_momentary_max": -11.2
    },
@@ -274,22 +294,22 @@
    },
    {
     "cue": "tick",
-    "at": 34.455,
+    "at": 34.405,
     "db": 2,
-    "rate": 0.957,
+    "rate": 0.984,
     "why": "p07 tag 'YOU?' lands",
     "source": "storyboard",
-    "dur": 0.063,
+    "dur": 0.061,
     "level_db": -12.0
    },
    {
     "cue": "tick",
     "at": 36.262,
     "db": 2,
-    "rate": 1.132,
-    "why": "p07 tag 'CARIBBEAN' lands",
+    "rate": 1.05,
+    "why": "p07 tag 'CARIBBEAN SEA' lands",
     "source": "storyboard",
-    "dur": 0.053,
+    "dur": 0.057,
     "level_db": -12.0
    },
    {
@@ -303,23 +323,33 @@
     "level_db": -14.0
    },
    {
-    "cue": "tick",
+    "cue": "pop",
     "at": 38.399,
-    "db": 2,
-    "rate": 0.984,
-    "why": "p07 tag 'THUMP' lands",
+    "db": -2,
+    "rate": 0.897,
+    "why": "p07 svg pops in",
     "source": "storyboard",
-    "dur": 0.061,
-    "level_db": -12.0
+    "dur": 0.134,
+    "level_db": -14.0
    },
    {
     "cue": "pop",
-    "at": 39.774,
+    "at": 39.112,
     "db": -2,
-    "rate": 0.879,
+    "rate": 1.04,
     "why": "p07 svg pops in",
     "source": "storyboard",
-    "dur": 0.137,
+    "dur": 0.115,
+    "level_db": -14.0
+   },
+   {
+    "cue": "pop",
+    "at": 39.512,
+    "db": -2,
+    "rate": 0.653,
+    "why": "p07 svg pops in",
+    "source": "storyboard",
+    "dur": 0.184,
     "level_db": -14.0
    },
    {
@@ -335,7 +365,7 @@
     "cue": "tick",
     "at": 40.302,
     "db": 2,
-    "rate": 0.941,
+    "rate": 0.932,
     "why": "p08 tag 'YOU' lands",
     "source": "storyboard",
     "dur": 0.064,
@@ -343,22 +373,32 @@
    },
    {
     "cue": "tick",
+    "at": 41.377,
+    "db": 2,
+    "rate": 0.915,
+    "why": "p08 tag '3 M' lands",
+    "source": "storyboard",
+    "dur": 0.066,
+    "level_db": -12.0
+   },
+   {
+    "cue": "tick",
     "at": 43.681,
     "db": 2,
-    "rate": 1.061,
+    "rate": 0.975,
     "why": "p08 tag '1 M' lands",
     "source": "storyboard",
-    "dur": 0.057,
+    "dur": 0.062,
     "level_db": -12.0
    },
    {
     "cue": "impact",
     "at": 45.606,
     "db": -2,
-    "rate": 0.769,
+    "rate": 0.853,
     "why": "p08 hard camera shake",
     "source": "storyboard",
-    "dur": 3.309,
+    "dur": 2.983,
     "level_db": -6.0,
     "mix_momentary_max": -12.1
    },
@@ -366,10 +406,10 @@
     "cue": "tick",
     "at": 47.069,
     "db": 2,
-    "rate": 0.919,
+    "rate": 1.135,
     "why": "p08 tag 'UNTESTED' lands",
     "source": "storyboard",
-    "dur": 0.065,
+    "dur": 0.053,
     "level_db": -12.0
    },
    {
@@ -385,30 +425,20 @@
     "cue": "tick",
     "at": 48.992,
     "db": 2,
-    "rate": 0.915,
-    "why": "p09 tag '1,000 M' lands",
+    "rate": 1.003,
+    "why": "p09 tag '1,000 M DEEP' lands",
     "source": "storyboard",
-    "dur": 0.066,
+    "dur": 0.06,
     "level_db": -12.0
    },
    {
     "cue": "tick",
     "at": 56.953,
     "db": 2,
-    "rate": 0.975,
+    "rate": 1.089,
     "why": "p09 tag 'FAMILY 1' lands",
     "source": "storyboard",
-    "dur": 0.062,
-    "level_db": -12.0
-   },
-   {
-    "cue": "tick",
-    "at": 57.203,
-    "db": 2,
-    "rate": 1.027,
-    "why": "p09 tag 'FAMILY 2' lands",
-    "source": "storyboard",
-    "dur": 0.058,
+    "dur": 0.055,
     "level_db": -12.0
    },
    {
@@ -425,7 +455,7 @@
     "at": 63.384,
     "db": -4,
     "rate": 1.5,
-    "why": "p10 title plate '236 dB' wipes in",
+    "why": "p10 title plate '236 DECIBELS' wipes in",
     "source": "storyboard",
     "dur": 0.791,
     "level_db": -14.0,
@@ -495,5 +525,5 @@
   }
  },
  "words": 206,
- "wall_s": 35.0
+ "wall_s": 35.7
 }

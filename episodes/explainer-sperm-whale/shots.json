@@ -502,20 +502,20 @@
       "y": "48%"
      },
      {
-      "t": "@laid",
+      "t": "@laid+0.2",
       "zoom": 1.75,
       "x": "32%",
       "y": "50%",
       "ease": "inOut"
      },
      {
-      "t": "@toe.end",
+      "t": "@toe",
       "zoom": 1.75,
-      "x": "40%",
+      "x": "38%",
       "y": "50%"
      },
      {
-      "t": "@third",
+      "t": "@third+0.25",
       "zoom": 1.04,
       "x": "54%",
       "y": "47%",
@@ -851,6 +851,22 @@
      "z": 3
     },
     {
+     "type": "svg",
+     "x": "82.41%",
+     "y": "31.34%",
+     "width": 380,
+     "height": 150,
+     "markup": "<svg viewBox='0 0 400 150' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><path d='M 0 66 L 400 0 L 400 150 L 0 84 Z' fill='#fddf35' opacity='0.45'/><path d='M 0 71 L 400 45 L 400 105 L 0 79 Z' fill='#fddf35' opacity='0.7'/></svg>",
+     "role": "prop",
+     "start": "@focus",
+     "z": 3,
+     "enter": {
+      "type": "wipeRight",
+      "at": "@focus",
+      "duration": 0.45
+     }
+    },
+    {
      "type": "component",
      "name": "explainer/ClickRings",
      "x": "82.45%",
@@ -873,11 +889,11 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "80%",
+     "x": "82%",
      "y": "23%",
      "width": 219,
      "height": 125,
-     "depth": 0,
+     "depth": 1,
      "z": 20,
      "role": "label",
      "props": {
@@ -887,7 +903,7 @@
       "align": "center",
       "leader": [
        0,
-       110
+       120
       ]
      }
     }
@@ -969,8 +985,8 @@
       "title": "Loudest animals",
       "max": 90,
       "at": "@hit",
-      "stagger": 2.6,
-      "duration": 0.7,
+      "stagger": 2.35,
+      "duration": 0.5,
       "size": 56,
       "labelWidth": 280,
       "valueWidth": 190,
@@ -1151,12 +1167,37 @@
        "rotate": 68
       },
       {
-       "t": "@:end",
+       "t": "@hand",
        "x": "63%",
-       "y": "48%",
+       "y": "52%",
        "rotate": 72
+      },
+      {
+       "t": "@:end",
+       "x": "64%",
+       "y": "88%",
+       "rotate": 74,
+       "ease": "in"
       }
      ]
+    },
+    {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": "@where",
+     "enter": {
+      "type": "fade",
+      "at": "@where",
+      "duration": 0.5
+     }
     },
     {
      "type": "component",
@@ -1262,6 +1303,24 @@
     "direction": "up"
    },
    "layers": [
+    {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": 0,
+     "enter": {
+      "type": "fade",
+      "at": 0,
+      "duration": 0.5
+     }
+    },
     {
      "type": "component",
      "name": "explainer/ColossalSquid",
@@ -2056,10 +2115,10 @@
     {
      "type": "svg",
      "x": "50%",
-     "y": "45%",
-     "width": 1300,
-     "height": 1500,
-     "markup": "<svg viewBox='0 0 1300 1500' xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='0' x2='0' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='100' y1='0' x2='100' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='200' y1='0' x2='200' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='300' y1='0' x2='300' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='400' y1='0' x2='400' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='500' y1='0' x2='500' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='600' y1='0' x2='600' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='700' y1='0' x2='700' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='800' y1='0' x2='800' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='900' y1='0' x2='900' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1000' y1='0' x2='1000' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1100' y1='0' x2='1100' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1200' y1='0' x2='1200' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1300' y1='0' x2='1300' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='0' x2='1300' y2='0' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='100' x2='1300' y2='100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='200' x2='1300' y2='200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='300' x2='1300' y2='300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='400' x2='1300' y2='400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='500' x2='1300' y2='500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='600' x2='1300' y2='600' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='700' x2='1300' y2='700' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='800' x2='1300' y2='800' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='900' x2='1300' y2='900' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1000' x2='1300' y2='1000' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1100' x2='1300' y2='1100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1200' x2='1300' y2='1200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1300' x2='1300' y2='1300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1400' x2='1300' y2='1400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1500' x2='1300' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/></svg>",
+     "y": "50%",
+     "width": 1500,
+     "height": 2400,
+     "markup": "<svg viewBox='0 0 1500 2400' xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='0' x2='0' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='100' y1='0' x2='100' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='200' y1='0' x2='200' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='300' y1='0' x2='300' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='400' y1='0' x2='400' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='500' y1='0' x2='500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='600' y1='0' x2='600' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='700' y1='0' x2='700' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='800' y1='0' x2='800' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='900' y1='0' x2='900' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1000' y1='0' x2='1000' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1100' y1='0' x2='1100' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1200' y1='0' x2='1200' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1300' y1='0' x2='1300' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1400' y1='0' x2='1400' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='1500' y1='0' x2='1500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='0' x2='1500' y2='0' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='100' x2='1500' y2='100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='200' x2='1500' y2='200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='300' x2='1500' y2='300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='400' x2='1500' y2='400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='500' x2='1500' y2='500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='600' x2='1500' y2='600' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='700' x2='1500' y2='700' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='800' x2='1500' y2='800' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='900' x2='1500' y2='900' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1000' x2='1500' y2='1000' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1100' x2='1500' y2='1100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1200' x2='1500' y2='1200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1300' x2='1500' y2='1300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1400' x2='1500' y2='1400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1500' x2='1500' y2='1500' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1600' x2='1500' y2='1600' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1700' x2='1500' y2='1700' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1800' x2='1500' y2='1800' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='1900' x2='1500' y2='1900' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2000' x2='1500' y2='2000' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2100' x2='1500' y2='2100' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2200' x2='1500' y2='2200' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2300' x2='1500' y2='2300' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/><line x1='0' y1='2400' x2='1500' y2='2400' stroke='#e9f4fc' stroke-width='3' opacity='0.16'/></svg>",
      "role": "dressing",
      "start": "@On",
      "end": "@Nobody's+0.6",
@@ -2245,17 +2304,52 @@
       "pxPerM": 40
      },
      "z": 2,
-     "end": "@Near+0.22",
+     "end": "@Near",
      "keyframes": [
       {
        "t": 0,
-       "x": "28%"
+       "x": "28%",
+       "y": "42%",
+       "rotate": 0
       },
       {
-       "t": "@Near+0.45",
-       "x": "40%"
+       "t": "@down",
+       "x": "36%",
+       "y": "44%",
+       "rotate": 8
+      },
+      {
+       "t": "@Near",
+       "x": "44%",
+       "y": "86%",
+       "rotate": 50,
+       "ease": "in"
       }
      ]
+    },
+    {
+     "type": "rect",
+     "fill": "#08032e",
+     "x": "50%",
+     "y": "50%",
+     "width": 1600,
+     "height": 2600,
+     "depth": 0.12,
+     "z": -20,
+     "role": "fx",
+     "opacity": 0.55,
+     "start": 0,
+     "enter": {
+      "type": "fade",
+      "at": 0,
+      "duration": 0.5
+     },
+     "end": "@Near",
+     "exit": {
+      "type": "fade",
+      "at": "@Near-0.3",
+      "duration": 0.3
+     }
     },
     {
      "type": "component",
@@ -2316,7 +2410,7 @@
        "x": "76.99%"
       }
      ],
-     "end": "@Near+0.22"
+     "end": "@down"
     },
     {
      "type": "component",
@@ -2484,8 +2578,8 @@
     {
      "type": "component",
      "name": "explainer/Coda",
-     "x": "68%",
-     "y": "57%",
+     "x": "36%",
+     "y": "47.5%",
      "width": 300,
      "height": 60,
      "z": 6,
@@ -2522,8 +2616,8 @@
     {
      "type": "component",
      "name": "explainer/Tag",
-     "x": "72%",
-     "y": "41.5%",
+     "x": "74%",
+     "y": "40.5%",
      "width": 318,
      "height": 110,
      "depth": 1,
@@ -2725,7 +2819,7 @@
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "80.00%",
-     "y": "58.00%",
+     "y": "60.00%",
      "width": 149,
      "height": 39,
      "flipX": true,
@@ -2742,22 +2836,23 @@
        "x": "118.89%"
       },
       {
-       "t": "@you#2",
+       "t": "@about",
        "x": "80.00%",
        "ease": "out"
       },
       {
-       "t": 5.899,
-       "x": "79.07%"
+       "t": 5.812,
+       "x": "118.89%",
+       "ease": "in"
       }
      ],
-     "end": 5.915
+     "end": 5.832
     },
     {
      "type": "component",
      "name": "explainer/SpermWhale",
      "x": "90.00%",
-     "y": "60.00%",
+     "y": "62.00%",
      "width": 149,
      "height": 39,
      "flipX": true,
@@ -2774,16 +2869,17 @@
        "x": "128.89%"
       },
       {
-       "t": "@you#2",
+       "t": "@about",
        "x": "90.00%",
        "ease": "out"
       },
       {
-       "t": 5.899,
-       "x": "89.07%"
+       "t": 5.812,
+       "x": "128.89%",
+       "ease": "in"
       }
      ],
-     "end": 5.915
+     "end": 5.832
     },
     {
      "type": "component",
