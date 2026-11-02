@@ -1,7 +1,7 @@
 // The Vasa as a 3D model (our own modelling, simplified, about 1:1 in metres): a lofted oak hull with tumblehome and a
 // high stern castle, two rows of gun ports with red lids and bronze muzzles, three masts with yards and four sails that
 // can be set, a gilded stern and rails, a bow beak. The ship group's origin sits on the waterline amidships; x runs
-// stern (-) to bow (+), port side is +z. heel > 0 rolls her to port (the side she went over on), sink lowers her.
+// stern (-) to bow (+), port side is -z (bow +x, up +y). heel > 0 rolls her to port (the side she went over on), sink lowers her.
 import * as THREE from "three";
 import { lambert } from "../kit/sets";
 import { hullPlanks, sailTex, sternTex } from "./paint";
@@ -174,7 +174,7 @@ export class Ship {
   update(s: ShipState) {
     this.group.position.set(s.x ?? 0, -(s.sink ?? 0), s.z ?? 0);
     this.group.rotation.y = s.yaw ?? 0;
-    this.body.rotation.set(s.heel ?? 0, 0, s.pitch ?? 0);
+    this.body.rotation.set(-(s.heel ?? 0), 0, s.pitch ?? 0);        // heel > 0 = over to port (-z), as she went
     const sails = s.sails ?? 0;
     this.sails.forEach((m, i) => { const k = clamp01(sails * 1.25 - i * 0.08); m.scale.set(1, Math.max(0.04, k), 1); m.visible = k > 0.02; });
     const lids = s.lids ?? 0, guns = s.guns ?? 0;

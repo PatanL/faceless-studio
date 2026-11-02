@@ -118,10 +118,9 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
 const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }> = ({ g, from, total, nOut }) => {
   const frame = useCurrentFrame();
   const n = Math.round(g.xfade * 30);
-  // a whip is n frames centred on the cut: blur rises to 28 px at the cut and falls after it; the two shots overlap
-  // only in the OV most-smeared frames around the cut (nothing is readable there, so it reads as motion blur), and the
-  // picture changes a little every frame instead of all at once (v5/v6: a 3-frame switch measured as cuts and jumps)
-  const OV = 6;
+  // a whip is n frames centred on the cut: blur and sideways travel rise to the cut and fall after it; the two shots
+  // overlap only in the OV most-smeared frames at the cut (v8 review: a 6-frame overlap still read as a dissolve)
+  const OV = 2;
   const half = Math.floor(n / 2), outHalf = nOut - Math.floor(nOut / 2);
   if (n > 0 && frame < half - OV / 2) return null;
   if (nOut > 0 && frame >= total - outHalf + OV / 2) return null;
@@ -129,9 +128,11 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const dout = nOut > 0 ? Math.abs(frame - (total - outHalf)) / Math.max(1, outHalf) : 1;
   const inWhip = n > 0 && frame < n, outWhip = nOut > 0 && frame >= total - nOut;
   const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);   // 0..1 smear
-  const blur = 28 * Math.sqrt(k), sc = 1 + 0.06 * k;
+  // directional travel: the outgoing shot whips off to the left, the incoming one arrives from the right
+  const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
+  const blur = 28 * Math.sqrt(k), sc = 1 + 0.14 * k, tx = dir * 0.1 * k * 1080;
   const op = n > 0 && frame < half + OV / 2 ? (frame - (half - OV / 2) + 1) / (OV + 1) : 1;  // the incoming shot fades in under the smear
-  const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
+  const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
   return (
     <AbsoluteFill style={style}>
       <Stage g={g} fromFrame={from} />

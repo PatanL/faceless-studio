@@ -49,8 +49,8 @@ export function harbourSet(o: { cannonsOnQuay?: boolean } = {}): SetBuild {
   const knob = new THREE.Mesh(new THREE.SphereGeometry(0.15, 10, 8), bronze); knob.position.x = 1.4 + 0.15; hanging.add(knob);
   const trun = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.9, 8), bronze); trun.rotation.x = Math.PI / 2; trun.position.x = 0.1; hanging.add(trun);
   for (const x of [-0.5, 0.6]) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.05, 6, 18), lambert({ color: "#b58a3a" })); ring.rotation.y = Math.PI / 2; ring.position.x = x; hanging.add(ring); }
-  root.add(hanging);
-  const line = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1, 4), lambert({ color: "#3a2a1c" })); root.add(line);
+  hanging.visible = false; root.add(hanging);
+  const line = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1, 4), lambert({ color: "#3a2a1c" })); line.visible = false; root.add(line);
   for (let i = 0; i < 6; i++) cyl(root, lambert({ color: "#7a5532" }), 0.45, 1.1, 18 + i * 1.2, 2.35, -13 - (i % 2), 10);
   // the town: across the water (+z) and closing the east; tall skyline cards on low rock
   const sky = skyDome(root, "#5f93d0", "#f0dcb4", "#f0dcb4", 1200);
