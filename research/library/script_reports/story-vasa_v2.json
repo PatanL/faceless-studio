@@ -1,0 +1,620 @@
+{
+ "name": "episodes/story-vasa/script.md",
+ "score": 80.8,
+ "of": 104,
+ "checks": [
+  {
+   "check": "runtime_s",
+   "value": 63.42,
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "55-65.5",
+   "why": "top 8: 39-65 s, median 62; the two shortest refs (31, 35 s) are the two lowest",
+   "note": ""
+  },
+  {
+   "check": "words",
+   "value": 231,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "200-245",
+   "why": "top 8: 145-247 words, median 219",
+   "note": ""
+  },
+  {
+   "check": "wps",
+   "value": 3.72,
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "3.4-3.9",
+   "why": "all 24: 3.36-4.09 words/s, top median 3.67",
+   "note": ""
+  },
+  {
+   "check": "pauses_per_10s",
+   "value": 4.19,
+   "score": 1.0,
+   "points": 2.0,
+   "of": 2,
+   "target": "2.3-5.5",
+   "why": "gaps >= 150 ms: 2.3-5.5 per 10 s in all 24 (median ~3.7), mean gap ~0.22 s",
+   "note": ""
+  },
+  {
+   "check": "pauses_ge400",
+   "value": 2,
+   "score": 0.75,
+   "points": 2.25,
+   "of": 3,
+   "target": "0-1",
+   "why": "8 audio refs: 0-1 gaps >= 0.4 s, none >= 0.8 s",
+   "note": "0 >= 0.8 s, 7.28 s total"
+  },
+  {
+   "check": "mech_slower",
+   "value": 0.08,
+   "score": 1.0,
+   "points": 2.0,
+   "of": 2,
+   "target": "-1.0-0.1",
+   "why": "top 8 slow down after the pivot (mechanism 3.58, last line 3.51 vs 3.67 overall); the rest speed up (3.84 / 4.17)",
+   "note": "mechanism 4.01 w/s, last line 3.6 w/s vs 3.72 overall"
+  },
+  {
+   "check": "hook_words",
+   "value": 24,
+   "score": 0.67,
+   "points": 2.67,
+   "of": 4,
+   "target": "8-21",
+   "why": "hook (sentence 1, or 1-2 when 2 completes the paradox): top 9-21 words, median 14",
+   "note": ""
+  },
+  {
+   "check": "hook_s",
+   "value": 6.24,
+   "score": 0.7,
+   "points": 2.82,
+   "of": 4,
+   "target": "2.5-5.5",
+   "why": "hook spoken in 3.0-5.4 s (top 8)",
+   "note": ""
+  },
+  {
+   "check": "hook_form",
+   "value": "declarative, concrete subject",
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "",
+   "why": "23/24 open on a declarative concrete line at 0.0 s; the one question hook is #23; no date/place opener in any",
+   "note": ""
+  },
+  {
+   "check": "setup_end_pct",
+   "value": 26.7,
+   "score": 1.0,
+   "points": 6.0,
+   "of": 6,
+   "target": "12-36",
+   "why": "first escalation starts at 17-34 % in the top 8 (median 30), 38 % in the rest",
+   "note": "first escalation at sentence 6"
+  },
+  {
+   "check": "esc_steps",
+   "value": 4,
+   "score": 1.0,
+   "points": 8.0,
+   "of": 8,
+   "target": "3-6",
+   "why": "escalation steps: top median 4 (2-6), >= 4 in 6/8 top vs 4/16 rest",
+   "note": "auto-detected (about +-1); override with --beats E=..."
+  },
+  {
+   "check": "pivot_pct",
+   "value": 62.1,
+   "score": 1.0,
+   "points": 8.0,
+   "of": 8,
+   "target": "55-82",
+   "why": "the turn into the reason: top 55-81 % of runtime, median 66; 7/8 top have one",
+   "note": "sentence 17: You see, a ship stays upright like a weighted toy: heavy at "
+  },
+  {
+   "check": "you_see",
+   "value": [
+    62.1
+   ],
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "",
+   "why": "'You see' is either the backstory bridge (<= 12 %, 4/8 top) or the pivot (60-81 %); never in between, at most 2",
+   "note": ""
+  },
+  {
+   "check": "mech_words",
+   "value": 56,
+   "score": 0.97,
+   "points": 4.86,
+   "of": 5,
+   "target": "28-55",
+   "why": "mechanism: top 32-49 words, 9-15 s, 15-32 % of the words",
+   "note": "13.96 s, 0.24 of the words"
+  },
+  {
+   "check": "last_line",
+   "value": "It sits in Stockholm today, never sailing again.",
+   "score": 0.2,
+   "points": 1.0,
+   "of": 5,
+   "target": "",
+   "why": "last line 11-24 words (top median 16.5), not a question (0/8 top), the video ends <= 0.5 s after it",
+   "note": "8 words (11-24); 1.06 s of video after the last word"
+  },
+  {
+   "check": "numbers",
+   "value": 15,
+   "score": 0.0,
+   "points": 0.0,
+   "of": 4,
+   "target": "1-5",
+   "why": "number tokens: top 1-5 (median 3), rest median 5.5 (up to 15)",
+   "note": "Thirty, 1628, seventy-two, two, four, thirteen, hundred, thirty, one, one, two, 120, twice, thirty, 1961"
+  },
+  {
+   "check": "dialogue",
+   "value": 2,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "1-5",
+   "why": "character lines: top median 2 (0-5), >= 2 in 5/8 top vs 5/16 rest",
+   "note": "sentences [8, 17]"
+  },
+  {
+   "check": "sentence_len",
+   "value": {
+    "median": 10,
+    "max": 19,
+    "share_le6": 0.35,
+    "share_ge20": 0.0
+   },
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "",
+   "why": "sentence median 10-15 words (top 12.5), longest <= 30, short punch lines (<= 6 words) in 10-35 %",
+   "note": ""
+  },
+  {
+   "check": "facts",
+   "value": 10.0,
+   "score": 0.57,
+   "points": 3.43,
+   "of": 6,
+   "target": "4-7",
+   "why": "distinct real-world claims: top median 5 (2-7), >= 4 in 7/8 top vs 5/16 rest",
+   "note": "counted at the grain used for the references: the 30-man test stopped after three runs; the king at war orders 72 guns; two gun decks + carvings; the launch crowd and sails; gust/rights/second gust/ports under, sinks 1,300 m out, ~30 dead; the inquiry blames no one ('Only God knows'); the weighted-toy principle; bronze guns over 120 t of stone; twice the ballast would sink the ports; raised 1961, in Stockholm today. Top-8 maximum is 7: it reads as a fact list"
+  },
+  {
+   "check": "jokes",
+   "value": 0.0,
+   "score": 0.0,
+   "points": 0.0,
+   "of": 4,
+   "target": "2-6",
+   "why": "jokes: top median 2 (1-4), >= 2 in 6/8 top vs 6/16 rest",
+   "note": "no line is written for a laugh; 'Only God knows, one builder says' and 'The admiral wishes the king were home' are wry at most"
+  },
+  {
+   "check": "reversal",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 2.0,
+   "of": 2,
+   "target": "1-3",
+   "why": "at least one reversal (the mockers proved wrong, the trap springs)",
+   "note": "'the ship was already warning them' turns the opening test into the warning everyone ignored"
+  },
+  {
+   "check": "ridicule",
+   "value": 0.0,
+   "score": 0.0,
+   "points": 0.0,
+   "of": 2,
+   "target": "1-9",
+   "why": "someone mocks the odd act (S6): Jar, Storm Oil, Railroads, Mirror",
+   "note": "nobody mocks the test or the admiral on the page; the king's letters overrule him but no one laughs or jeers"
+  },
+  {
+   "check": "mechanism_visible",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "1-1",
+   "why": "the cause is a physical thing the camera can watch (S3): 6/8 top",
+   "note": "heavy guns high, light stone low, open ports reaching the water: physical and drawable"
+  },
+  {
+   "check": "shootable_share",
+   "value": 0.96,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "0.9-1.0",
+   "why": "each sentence names something on screen: top median 0.97, all >= 0.68",
+   "note": "all but 'The admiral wishes the king were home' name a concrete thing (that one needs a face close-up)"
+  },
+  {
+   "check": "hook_act_on_screen",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "1-1",
+   "why": "frame 0 shows the protagonist doing the odd act (all 24)",
+   "note": "'Thirty sailors ran back and forth across a brand-new warship' = frame 0"
+  }
+ ],
+ "metrics": {
+  "timing": "measured",
+  "timing_coverage": 0.926,
+  "duration_s": 63.42,
+  "n_words": 231,
+  "n_sentences": 23,
+  "wps": 3.72,
+  "sentence_words": {
+   "median": 10,
+   "max": 19,
+   "share_le6": 0.35,
+   "share_ge20": 0.0
+  },
+  "pauses": {
+   "n": 26,
+   "per_10s": 4.19,
+   "total_s": 7.28,
+   "n_ge_400ms": 2,
+   "n_ge_800ms": 0,
+   "longest": [
+    {
+     "at": 57.54,
+     "len": 0.5,
+     "after": "1961,"
+    },
+    {
+     "at": 34.36,
+     "len": 0.44,
+     "after": "sinks."
+    },
+    {
+     "at": 61.28,
+     "len": 0.38,
+     "after": "today,"
+    },
+    {
+     "at": 31.18,
+     "len": 0.36,
+     "after": "floods,"
+    },
+    {
+     "at": 46.64,
+     "len": 0.36,
+     "after": "decks,"
+    },
+    {
+     "at": 55.1,
+     "len": 0.36,
+     "after": "deck,"
+    }
+   ]
+  },
+  "hook": {
+   "text": "Thirty sailors ran back and forth across a brand-new warship. After the third run, the admiral stopped the test, and the ship sailed anyway.",
+   "words": 24,
+   "sentences": 2,
+   "dur": 6.24
+  },
+  "setup": {
+   "sentences": "3-5",
+   "start": 6.56,
+   "end": 16.5,
+   "dur": 9.94,
+   "words": 35,
+   "wps": 3.52,
+   "pct_start": 10.3
+  },
+  "esc": [
+   {
+    "sentences": "6-8",
+    "start": 16.94,
+    "end": 21.94,
+    "dur": 5.0,
+    "words": 21,
+    "wps": 4.2,
+    "pct_start": 26.7
+   },
+   {
+    "sentences": "9-11",
+    "start": 22.08,
+    "end": 27.32,
+    "dur": 5.24,
+    "words": 20,
+    "wps": 3.82,
+    "pct_start": 34.8
+   },
+   {
+    "sentences": "12-14",
+    "start": 27.32,
+    "end": 35.86,
+    "dur": 8.54,
+    "words": 32,
+    "wps": 3.75,
+    "pct_start": 43.1
+   },
+   {
+    "sentences": "15-16",
+    "start": 36.02,
+    "end": 39.16,
+    "dur": 3.14,
+    "words": 11,
+    "wps": 3.5,
+    "pct_start": 56.8
+   }
+  ],
+  "pivot": {
+   "i": 17,
+   "pct": 62.1,
+   "text": "You see, a ship stays upright like a weighted toy: heavy at the bottom, light at the top."
+  },
+  "mechanism": {
+   "sentences": "17-20",
+   "start": 39.36,
+   "end": 53.32,
+   "dur": 13.96,
+   "words": 56,
+   "wps": 4.01,
+   "pct_start": 62.1
+  },
+  "last": {
+   "i": 23,
+   "text": "It sits in Stockholm today, never sailing again.",
+   "words": 8,
+   "tail_s": 1.06,
+   "wps": 3.6
+  },
+  "you_see_pct": [
+   62.1
+  ],
+  "numbers": [
+   "Thirty",
+   "1628",
+   "seventy-two",
+   "two",
+   "four",
+   "thirteen",
+   "hundred",
+   "thirty",
+   "one",
+   "one",
+   "two",
+   "120",
+   "twice",
+   "thirty",
+   "1961"
+  ],
+  "dialogue": [
+   8,
+   17
+  ],
+  "you_per_100w": 0.4,
+  "setup_end_pct": 26.7
+ },
+ "beats": {
+  "hook": [
+   1,
+   2
+  ],
+  "setup": [
+   3,
+   4,
+   5
+  ],
+  "esc": [
+   [
+    6,
+    7,
+    8
+   ],
+   [
+    9,
+    10,
+    11
+   ],
+   [
+    12,
+    13,
+    14
+   ],
+   [
+    15,
+    16
+   ]
+  ],
+  "pivot": 17,
+  "mech": [
+   17,
+   18,
+   19,
+   20
+  ],
+  "last": 23
+ },
+ "sentences": [
+  {
+   "i": 1,
+   "text": "Thirty sailors ran back and forth across a brand-new warship.",
+   "words": 10,
+   "start": 0.32,
+   "end": 3.02
+  },
+  {
+   "i": 2,
+   "text": "After the third run, the admiral stopped the test, and the ship sailed anyway.",
+   "words": 14,
+   "start": 3.26,
+   "end": 6.56
+  },
+  {
+   "i": 3,
+   "text": "It's 1628 in Stockholm.",
+   "words": 4,
+   "start": 6.56,
+   "end": 8.14
+  },
+  {
+   "i": 4,
+   "text": "The king, away at war, orders seventy-two heavy cannons for his new warship, the Vasa.",
+   "words": 15,
+   "start": 8.14,
+   "end": 12.76
+  },
+  {
+   "i": 5,
+   "text": "So it gets two decks of guns, stacked high above the water, and hundreds of carvings.",
+   "words": 16,
+   "start": 12.76,
+   "end": 16.5
+  },
+  {
+   "i": 6,
+   "text": "But every run rocks it harder.",
+   "words": 6,
+   "start": 16.94,
+   "end": 18.28
+  },
+  {
+   "i": 7,
+   "text": "The admiral wishes the king were home.",
+   "words": 7,
+   "start": 18.62,
+   "end": 20.12
+  },
+  {
+   "i": 8,
+   "text": "The king's letters say: get her to sea.",
+   "words": 8,
+   "start": 20.34,
+   "end": 21.94
+  },
+  {
+   "i": 9,
+   "text": "On August tenth, a huge crowd watches four sails go up.",
+   "words": 11,
+   "start": 22.08,
+   "end": 24.96
+  },
+  {
+   "i": 10,
+   "text": "A gust tips the Vasa over.",
+   "words": 6,
+   "start": 25.06,
+   "end": 26.24
+  },
+  {
+   "i": 11,
+   "text": "It rights itself.",
+   "words": 3,
+   "start": 26.24,
+   "end": 27.32
+  },
+  {
+   "i": 12,
+   "text": "Then a second gust pushes the lower gun ports under the water.",
+   "words": 12,
+   "start": 27.32,
+   "end": 30.22
+  },
+  {
+   "i": 13,
+   "text": "The gun deck floods, and thirteen hundred meters out, in front of everyone, the Vasa sinks.",
+   "words": 16,
+   "start": 30.22,
+   "end": 34.36
+  },
+  {
+   "i": 14,
+   "text": "About thirty people die.",
+   "words": 4,
+   "start": 34.8,
+   "end": 35.86
+  },
+  {
+   "i": 15,
+   "text": "The inquiry punishes no one.",
+   "words": 5,
+   "start": 36.02,
+   "end": 37.28
+  },
+  {
+   "i": 16,
+   "text": "Only God knows, one builder says.",
+   "words": 6,
+   "start": 37.54,
+   "end": 39.16
+  },
+  {
+   "i": 17,
+   "text": "You see, a ship stays upright like a weighted toy: heavy at the bottom, light at the top.",
+   "words": 18,
+   "start": 39.36,
+   "end": 43.14
+  },
+  {
+   "i": 18,
+   "text": "The Vasa was the opposite.",
+   "words": 5,
+   "start": 43.3,
+   "end": 44.36
+  },
+  {
+   "i": 19,
+   "text": "Its bronze cannons sat high on two decks, over just 120 tons of stone.",
+   "words": 14,
+   "start": 44.7,
+   "end": 48.68
+  },
+  {
+   "i": 20,
+   "text": "It needed about twice as much, but more weight would push the lower gun ports down to the waterline.",
+   "words": 19,
+   "start": 48.84,
+   "end": 53.32
+  },
+  {
+   "i": 21,
+   "text": "So when thirty men ran across the deck, the ship was already warning them.",
+   "words": 14,
+   "start": 53.4,
+   "end": 56.78
+  },
+  {
+   "i": 22,
+   "text": "In 1961, they raised it from the mud, almost whole.",
+   "words": 10,
+   "start": 56.78,
+   "end": 59.8
+  },
+  {
+   "i": 23,
+   "text": "It sits in Stockholm today, never sailing again.",
+   "words": 8,
+   "start": 60.14,
+   "end": 62.36
+  }
+ ]
+}
