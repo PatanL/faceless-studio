@@ -19,11 +19,13 @@
  *   pieces      true (default): pieces on the board
  *   char        0..1 burnt (darkens to indigo ash);  fire 0..1 flames over it
  *   dark        0..1 the inside is dark except the candle's pool of light
+ *   smoke       0..1 the candle's smoke: a dotted trail from the hidden candle up through the body (on the cutaway) and
+ *               puffs curling out of the top of the turban
  */
 import React from 'react';
 import type {KitComponentProps} from '../../../core/registry';
 import {arr, clamp, lerp, track, easeOut, easeInOut} from '../util';
-import {c, K, f} from './common';
+import {c, K, f, inkG} from './common';
 import {PersonBody} from './person';
 import {mixOk} from '../house/color';
 
@@ -85,7 +87,7 @@ function Door({hx, y0, y1, w, open, dir, wood, shade, ghost}: {hx: number; y0: n
 	return (
 		<g>
 			<path d={d} fill={back ? shade : wood} />
-			{!back && <path d={inset} fill={shade} opacity={0.55} />}
+			{!back && <path d={inset} fill={shade} opacity={0.55} stroke="none" />}
 			{!back && <circle cx={ex - dir * 22 * Math.cos(th)} cy={(y0 + y1) / 2} r={8} fill={K.gold} />}
 		</g>
 	);
@@ -113,6 +115,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 	const char = clamp(track(props.char, t, 0));
 	const fire = clamp(track(props.fire, t, 0));
 	const dark = clamp(track(props.dark, t, 0));
+	const smoke = clamp(track(props.smoke, t, 0));
 	const tint = (col: string) => (char > 0 ? mixOk(col, c('ink-0'), char * 0.85) : col);
 	const wood = tint(c('ochre-1'));
 	const woodSh = tint(c('ochre-0'));
@@ -141,9 +144,9 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 
 	// right arm: stiff, stepped lift (a machine), then across the board
 	const stepped = (v: number) => {
-		const n = 4;
+		const n = 3;
 		const s = v * n;
-		return (Math.floor(s) + easeInOut(clamp((s % 1) * 2.5))) / n;
+		return (Math.floor(s) + easeInOut(clamp((s % 1) * 1.4))) / n; // clockwork steps, each eased over ~5 frames
 	};
 	const up = armUp >= 1 || armUp <= 0 ? armUp : stepped(armUp);
 	const rest: P2 = [420, 560];
@@ -186,7 +189,8 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 
 	return (
 		<svg viewBox="0 0 900 1000" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" style={{overflow: 'visible'}}>
-			<ellipse cx={450} cy={972} rx={400} ry={24} fill={c('ink-1')} opacity={0.25} />
+			<g {...inkG(props.ink)}>
+			<ellipse cx={450} cy={972} rx={400} ry={24} fill={c('ink-1')} opacity={0.25} stroke="none" />
 			{/* the automaton, seated behind the cabinet top */}
 			<g>
 				<path d="M 236 552 L 120 330" stroke={woodSh} strokeWidth={12} strokeLinecap="round" />
@@ -234,7 +238,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 				const cc = bproj(u + 1, v + 1);
 				const d = bproj(u, v + 1);
 				return <path key={i} d={`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])} L ${f(cc[0])} ${f(cc[1])} L ${f(d[0])} ${f(d[1])} Z`}
-					fill={(u + v) % 2 ? tint(c('bone-1')) : tint(c('ink-2'))} />;
+					fill={(u + v) % 2 ? tint(c('bone-1')) : tint(c('ink-2'))} stroke="none" />;
 			})}
 			{showPieces &&
 				pieces.map((p, i) =>
@@ -256,13 +260,13 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 			))}
 			{/* front */}
 			<rect x={120} y={FRONT + 26} width={660} height={268} fill={wood} />
-			<rect x={600} y={FRONT + 26} width={180} height={268} fill={woodSh} opacity={0.6} />
+			<rect x={600} y={FRONT + 26} width={180} height={268} fill={woodSh} opacity={0.6} stroke="none" />
 			{/* compartments */}
 			<g>
 				<rect x={140} y={642} width={240} height={180} fill={tint(c('ink-0'))} />
 				<rect x={400} y={642} width={360} height={180} fill={tint(c('ink-1'))} />
 				{candle > 0 && (
-					<g opacity={candle}>
+					<g opacity={candle} stroke="none">
 						<rect x={140} y={642} width={240} height={180} fill={c('amber-3')} opacity={0.3} />
 						<rect x={400} y={642} width={360} height={180} fill={c('amber-3')} opacity={0.32} />
 						<rect x={430} y={672} width={300} height={120} rx={40} fill={c('amber-4')} opacity={0.3} />
@@ -294,7 +298,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 							return (
 								<g key={i}>
 									<path d={`M ${f(x)} 650 V ${f(y)}`} stroke={c('bone-0')} strokeWidth={3} />
-									{upm > 0.05 && <circle cx={x} cy={y} r={26} fill={c('coral-3')} opacity={0.5 * upm} />}
+									{upm > 0.05 && <circle cx={x} cy={y} r={26} fill={c('coral-3')} opacity={0.5 * upm} stroke="none" />}
 									<circle cx={x} cy={y} r={14} fill={upm > 0.05 ? c('coral-2') : c('sky-3')} />
 								</g>
 							);
@@ -309,7 +313,7 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 								<circle cx={mx + 210} cy={680} r={10} fill={c('amber-1')} />
 							</g>
 						)}
-						{dark > 0 && <rect x={140} y={642} width={620} height={246} fill={c('ink-0')} opacity={0.6 * dark} />}
+						{dark > 0 && <rect x={140} y={642} width={620} height={246} fill={c('ink-0')} opacity={0.6 * dark} stroke="none" />}
 						{xray > 0 && (
 							<g opacity={xray}>
 								<Door hx={140} y0={642} y1={822} w={240} open={doorL} dir={1} wood={wood} shade={woodSh} ghost />
@@ -318,13 +322,13 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 							</g>
 						)}
 						{props.masterCandle === true && (
-							<circle cx={candleXY[0]} cy={candleXY[1]} r={95 + 6 * Math.sin(t * 9)} fill={c('amber-4')} opacity={0.18 + 0.3 * dark} />
+							<circle cx={candleXY[0]} cy={candleXY[1]} r={95 + 6 * Math.sin(t * 9)} fill={c('amber-4')} opacity={0.18 + 0.3 * dark} stroke="none" />
 						)}
 						<g transform={`translate(${f(mx - 20)} 609) scale(0.4)`}>
 							<PersonBody props={masterProps} t={t} />
 						</g>
 						{/* the false gear panel: in front of him when he slides left */}
-						<rect x={140} y={642} width={244} height={246} fill={c('ink-1')} opacity={0.78} />
+						<rect x={140} y={642} width={244} height={246} fill={c('ink-1')} opacity={0.62} stroke="none" />
 						{gears}
 						<path d="M 384 644 V 886" stroke={c('amber-4')} strokeWidth={6} strokeDasharray="14 10" />
 					</g>
@@ -351,10 +355,26 @@ export const Turk: React.FC<KitComponentProps> = ({props, time}) => {
 					<circle cx={x} cy={950} r={7} fill={K.gold} />
 				</g>
 			))}
+			{smoke > 0 && (
+				<g stroke="none">
+					{cut > 0.5 && (
+						<path d={`M ${f(candleXY[0])} ${f(candleXY[1] - 40)} C ${f(candleXY[0] + 10)} 560 ${f(330)} 520 300 430 S 300 200 300 92`}
+							fill="none" stroke={c('bone-1')} strokeWidth={9} strokeDasharray="4 22" strokeLinecap="round"
+							strokeDashoffset={-t * 60} opacity={0.85 * smoke} />
+					)}
+					{[0, 1, 2, 3, 4].map((i) => {
+						const age = (t * 0.55 + i / 5) % 1;
+						const x = 300 + Math.sin((t + i) * 2.1) * 14 + age * 40 * (i % 2 ? 1 : -1);
+						const y = 70 - age * 230;
+						return <circle key={i} cx={f(x)} cy={f(y)} r={f(14 + age * 34)} fill={c('bone-0')} opacity={smoke * 0.7 * (1 - age)} />;
+					})}
+				</g>
+			)}
 			{fire > 0 &&
 				[[200, 600], [420, 420], [620, 600], [300, 300], [520, 880], [760, 700]].map(([x, y], i) => (
 					<Flame key={i} x={x} y={y} s={(0.9 + (i % 3) * 0.35) * clamp(fire * 1.5 - i * 0.08)} t={t} k={i} />
 				))}
+			</g>
 		</svg>
 	);
 };

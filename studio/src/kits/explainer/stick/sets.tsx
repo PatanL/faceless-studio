@@ -10,7 +10,7 @@
 import React from 'react';
 import type {KitComponentProps} from '../../../core/registry';
 import {clamp, str, track} from '../util';
-import {c, f, hash} from './common';
+import {c, f, hash, inkG} from './common';
 
 const W = 1080;
 const H = 1920;
@@ -20,7 +20,7 @@ function Chandelier({x, y, t, lit}: {x: number; y: number; t: number; lit: boole
 	return (
 		<g transform={`rotate(${f(sway)} ${x} 0)`}>
 			<rect x={x - 4} y={0} width={8} height={y - 60} fill={c('amber-2')} />
-			{lit && <circle cx={x} cy={y} r={170} fill={c('amber-4')} opacity={0.16} />}
+			{lit && <circle cx={x} cy={y} r={170} fill={c('amber-4')} opacity={0.16} stroke="none" />}
 			<ellipse cx={x} cy={y} rx={150} ry={26} fill={c('amber-3')} />
 			<ellipse cx={x} cy={y + 8} rx={150} ry={18} fill={c('amber-1')} />
 			<path d={`M ${x - 40} ${y - 60} L ${x + 40} ${y - 60} L ${x + 18} ${y} L ${x - 18} ${y} Z`} fill={c('amber-3')} />
@@ -46,7 +46,7 @@ function Salon({t, horizon}: {t: number; horizon: number}) {
 			if ((i + r) % 2) continue;
 			const sx = (y: number) => 540 + (i * 130) * (0.45 + 0.55 * (y - horizon) / (H - horizon)) * 1.4;
 			const sx2 = (y: number) => 540 + ((i + 1) * 130) * (0.45 + 0.55 * (y - horizon) / (H - horizon)) * 1.4;
-			tiles.push(<path key={`${r}_${i}`} d={`M ${f(sx(y0))} ${f(y0)} L ${f(sx2(y0))} ${f(y0)} L ${f(sx2(y1))} ${f(y1)} L ${f(sx(y1))} ${f(y1)} Z`} fill={c('sky-3')} />);
+			tiles.push(<path key={`${r}_${i}`} d={`M ${f(sx(y0))} ${f(y0)} L ${f(sx2(y0))} ${f(y0)} L ${f(sx2(y1))} ${f(y1)} L ${f(sx(y1))} ${f(y1)} Z`} fill={c('sky-3')} stroke="none" />);
 		}
 	}
 	const fl = 1 + 0.1 * Math.sin(t * 13);
@@ -59,14 +59,14 @@ function Salon({t, horizon}: {t: number; horizon: number}) {
 				<g key={r}>
 					<rect x={10} y={450 + r * 140} width={130} height={110} fill={c('ochre-0')} />
 					{[0, 1, 2, 3, 4, 5].map((b) => (
-						<rect key={b} x={16 + b * 21} y={470 + r * 140 + (b % 3) * 8} width={17} height={90 - (b % 3) * 8} fill={[c('coral-1'), c('tide-0'), c('kelp-1'), c('amber-3'), c('violet-1'), c('bone-0')][(b + r) % 6]} />
+						<rect key={b} x={16 + b * 21} y={470 + r * 140 + (b % 3) * 8} width={17} height={90 - (b % 3) * 8} fill={[c('coral-1'), c('tide-0'), c('kelp-1'), c('amber-3'), c('violet-1'), c('bone-0')][(b + r) % 6]} stroke="none" />
 					))}
 				</g>
 			))}
 			{/* fireplace + mirror (centre-right) */}
 			<rect x={620} y={300} width={300} height={360} rx={20} fill={c('amber-3')} />
 			<rect x={640} y={320} width={260} height={320} rx={12} fill={c('sky-3')} />
-			<path d="M 660 340 L 720 340 L 660 420 Z" fill={c('bone-2')} opacity={0.7} />
+			<path d="M 660 340 L 720 340 L 660 420 Z" fill={c('bone-2')} opacity={0.7} stroke="none" />
 			<rect x={600} y={horizon - 330} width={340} height={40} fill={c('bone-1')} />
 			<rect x={620} y={horizon - 290} width={300} height={290} fill={c('bone-0')} />
 			<rect x={680} y={horizon - 230} width={180} height={230} rx={70} fill={c('ink-1')} />
@@ -117,7 +117,7 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 					{night &&
 						[0, 1, 2, 3].map((k) => (
 							<circle key={k} cx={x + 30 + hash(i * 9 + k) * 100} cy={460 + hash(i * 5 + k + 2) * 280} r={4} fill={c('bone-1')}
-								opacity={0.5 + 0.5 * Math.sin(t * 2 + k)} />
+								opacity={0.5 + 0.5 * Math.sin(t * 2 + k)} stroke="none" />
 						))}
 					<rect x={x + 76} y={380} width={8} height={horizon - 560} fill={salon ? c('bone-2') : panel} />
 					<rect x={x + 14} y={640} width={132} height={8} fill={salon ? c('bone-2') : panel} />
@@ -127,7 +127,7 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 			{(salon ? [] : [40, 360, 680, 1000]).map((x) => (
 				<g key={x}>
 					<rect x={x} y={150} width={60} height={horizon - 150} fill={pil} />
-					<rect x={x + 34} y={150} width={26} height={horizon - 150} fill={pilSh} />
+					<rect x={x + 34} y={150} width={26} height={horizon - 150} fill={pilSh} stroke="none" />
 					<rect x={x - 10} y={150} width={80} height={30} fill={pil} />
 				</g>
 			))}
@@ -142,14 +142,14 @@ function Hall({t, night, salon}: {t: number; night: boolean; salon: boolean}) {
 			{!salon && Array.from({length: 13}, (_, i) => {
 				const xb = -900 + i * 240;
 				const xt = vx + (xb - vx) * ((horizon - vy) / (H - vy));
-				return <path key={i} d={`M ${f(xt)} ${horizon} L ${f(xb)} ${H} L ${f(xb + 90)} ${H} L ${f(xt + 90 * ((horizon - vy) / (H - vy)))} ${horizon} Z`} fill={floorSh} />;
+				return <path key={i} d={`M ${f(xt)} ${horizon} L ${f(xb)} ${H} L ${f(xb + 90)} ${H} L ${f(xt + 90 * ((horizon - vy) / (H - vy)))} ${horizon} Z`} fill={floorSh} stroke="none" />;
 			})}
 			{/* carpet runner (royal blue: the red caption accent stays readable over it) */}
 			{!salon && <path d={`M 440 ${horizon} L 640 ${horizon} L 1000 ${H} L 80 ${H} Z`} fill={night ? c('ink-1') : c('dusk-1')} />}
-			{!salon && <path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill={night ? c('dusk-1') : c('dusk-2')} />}
+			{!salon && <path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill={night ? c('dusk-1') : c('dusk-2')} stroke="none" />}
 			{!salon && <path d={`M 470 ${horizon} L 610 ${horizon} L 920 ${H} L 160 ${H} Z`} fill="none" stroke={c('amber-4')} strokeWidth={8} opacity={0.8} />}
 			{salon ? <Salon t={t} horizon={horizon} /> : <Chandelier x={540} y={310} t={t} lit={night} />}
-			{night && <rect width={W} height={H} fill={c('ink-1')} opacity={0.18} />}
+			{night && <rect width={W} height={H} fill={c('ink-1')} opacity={0.18} stroke="none" />}
 		</g>
 	);
 }
@@ -181,7 +181,7 @@ function Facade({t}: {t: number}) {
 			{[330, 410, 490, 570, 650, 730].map((x) => (
 				<g key={x}>
 					<rect x={x} y={520} width={26} height={base - 600} fill={c('bone-2')} />
-					<rect x={x + 14} y={520} width={12} height={base - 600} fill={c('bone-0')} />
+					<rect x={x + 14} y={520} width={12} height={base - 600} fill={c('bone-0')} stroke="none" />
 				</g>
 			))}
 			{/* windows */}
@@ -193,7 +193,7 @@ function Facade({t}: {t: number}) {
 					return (
 						<g key={`${row}-${i}`}>
 							<rect x={x} y={y} width={46} height={120} rx={22} fill={c('bone-2')} />
-							<rect x={x + 7} y={y + 8} width={32} height={106} rx={16} fill={c('sky-1')} />
+							<rect x={x + 7} y={y + 8} width={32} height={106} rx={16} fill={c('sky-1')} stroke="none" />
 						</g>
 					);
 				}),
@@ -248,16 +248,16 @@ function Museum({t, fire}: {t: number; fire: number}) {
 			<rect width={W} height={H} fill={c('ink-1')} />
 			<rect y={700} width={W} height={500} fill={c('dusk-1')} />
 			{Array.from({length: 18}, (_, i) => (
-				<circle key={i} cx={hash(i) * W} cy={60 + hash(i + 40) * 560} r={3 + hash(i + 9) * 3} fill={c('bone-1')} opacity={0.5 + 0.4 * Math.sin(t * 2 + i)} />
+				<circle key={i} cx={hash(i) * W} cy={60 + hash(i + 40) * 560} r={3 + hash(i + 9) * 3} fill={c('bone-1')} opacity={0.5 + 0.4 * Math.sin(t * 2 + i)} stroke="none" />
 			))}
-			{fire > 0 && <circle cx={540} cy={700} r={700} fill={c('coral-1')} opacity={0.22 * fire} />}
+			{fire > 0 && <circle cx={540} cy={700} r={700} fill={c('coral-1')} opacity={0.22 * fire} stroke="none" />}
 			{/* smoke */}
 			{fire > 0 &&
 				Array.from({length: 7}, (_, i) => {
 					const age = (t * 0.35 + i / 7) % 1;
 					return (
 						<circle key={i} cx={420 + i * 40 + Math.sin(t + i) * 30 + age * 120} cy={520 - age * 520} r={60 + age * 120}
-							fill={c('ink-2')} opacity={fire * 0.85 * (1 - age)} />
+							fill={c('ink-2')} opacity={fire * 0.85 * (1 - age)} stroke="none" />
 					);
 				})}
 			{/* building */}
@@ -265,11 +265,11 @@ function Museum({t, fire}: {t: number; fire: number}) {
 			<rect x={640} y={600} width={330} height={base - 600} fill={c('dusk-2')} />
 			<path d="M 80 600 L 1000 600 L 540 430 Z" fill={c('dusk-4')} />
 			<path d="M 540 430 L 1000 600 L 540 600 Z" fill={c('dusk-3')} />
-			<text x={540} y={570} textAnchor="middle" fill={c('bone-1')} fontFamily='"Anton", "Arial Narrow", sans-serif' fontSize={64} letterSpacing={8}>MUSEUM</text>
+			<text x={540} y={570} textAnchor="middle" fill={c('bone-1')} fontFamily='"Anton", "Arial Narrow", sans-serif' fontSize={64} letterSpacing={8} stroke="none">MUSEUM</text>
 			{[150, 290, 430, 570, 710, 850].map((x) => (
 				<g key={x}>
 					<rect x={x} y={620} width={56} height={base - 640} fill={c('bone-0')} />
-					<rect x={x + 30} y={620} width={26} height={base - 640} fill={c('sky-3')} />
+					<rect x={x + 30} y={620} width={26} height={base - 640} fill={c('sky-3')} stroke="none" />
 				</g>
 			))}
 			{/* windows glowing with the fire */}
@@ -289,7 +289,7 @@ function Museum({t, fire}: {t: number; fire: number}) {
 			{fire > 0 &&
 				Array.from({length: 14}, (_, i) => {
 					const age = (t * 0.6 + hash(i)) % 1;
-					return <circle key={i} cx={200 + hash(i + 3) * 700 + Math.sin(t * 3 + i) * 20} cy={700 - age * 600} r={6} fill={c('amber-4')} opacity={(1 - age) * fire} />;
+					return <circle key={i} cx={200 + hash(i + 3) * 700 + Math.sin(t * 3 + i) * 20} cy={700 - age * 600} r={6} fill={c('amber-4')} opacity={(1 - age) * fire} stroke="none" />;
 				})}
 		</g>
 	);
@@ -300,12 +300,12 @@ function Blueprint({t}: {t: number}) {
 		<g>
 			<rect width={W} height={H} fill={c('tide-0')} />
 			{Array.from({length: 12}, (_, i) => (
-				<rect key={`v${i}`} x={i * 96} y={0} width={3} height={H} fill={c('tide-1')} />
+				<rect key={`v${i}`} x={i * 96} y={0} width={3} height={H} fill={c('tide-1')} stroke="none" />
 			))}
 			{Array.from({length: 21}, (_, i) => (
-				<rect key={`h${i}`} x={0} y={i * 96} width={W} height={3} fill={c('tide-1')} />
+				<rect key={`h${i}`} x={0} y={i * 96} width={W} height={3} fill={c('tide-1')} stroke="none" />
 			))}
-			<circle cx={540} cy={760} r={620 + Math.sin(t) * 6} fill={c('tide-1')} opacity={0.35} />
+			<circle cx={540} cy={760} r={620 + Math.sin(t) * 6} fill={c('tide-1')} opacity={0.35} stroke="none" />
 		</g>
 	);
 }
@@ -315,12 +315,14 @@ export const StickSet: React.FC<KitComponentProps> = ({props, time}) => {
 	const fire = clamp(track(props.fire, time, 0));
 	return (
 		<svg viewBox={`0 0 ${W} ${H}`} width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+			<g {...inkG(props.ink)}>
 			{place === 'hall' && <Hall t={time} night={false} salon={false} />}
 			{place === 'hallNight' && <Hall t={time} night salon={false} />}
 			{place === 'salon' && <Hall t={time} night={false} salon />}
 			{place === 'facade' && <Facade t={time} />}
 			{place === 'museum' && <Museum t={time} fire={fire} />}
 			{place === 'blueprint' && <Blueprint t={time} />}
+			</g>
 		</svg>
 	);
 };

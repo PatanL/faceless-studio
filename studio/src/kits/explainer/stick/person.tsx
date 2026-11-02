@@ -22,7 +22,7 @@
 import React from 'react';
 import type {KitComponentProps} from '../../../core/registry';
 import {num, str, track, clamp, lerp, easeInOut} from '../util';
-import {c, K, f, hash, inWin, step, stepBlend} from './common';
+import {c, K, f, hash, inWin, inkG, step, stepBlend} from './common';
 
 type P2 = [number, number];
 type Costume = {
@@ -319,8 +319,8 @@ function Item({kind, at, t}: {kind: string; at: P2; t: number}) {
 	if (kind === 'candle') {
 		const fl = 1 + 0.12 * Math.sin(t * 19) + 0.06 * Math.sin(t * 31);
 		return (
-			<g transform={`translate(${x} ${y}) scale(1.45) translate(${-x} ${-y})`}>
-				<circle cx={x} cy={y - 74} r={46 * fl} fill={c('amber-4')} opacity={0.22} />
+			<g transform={`translate(${x} ${y}) scale(1.45) translate(${-x} ${-y})`} stroke="none">
+				<circle cx={x} cy={y - 74} r={46 * fl} fill={c('amber-4')} opacity={0.22} stroke="none" />
 				<rect x={x - 24} y={y - 6} width={48} height={12} rx={6} fill={K.gold} />
 				<rect x={x - 11} y={y - 56} width={22} height={52} rx={5} fill={c('bone-2')} />
 				<rect x={x + 1} y={y - 56} width={10} height={52} rx={4} fill={c('bone-0')} />
@@ -357,7 +357,9 @@ function arm(sh: P2, hand: P2, out: number) {
 
 export const Person: React.FC<KitComponentProps> = ({props, time}) => (
 	<svg viewBox="0 0 600 700" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" style={{overflow: 'visible'}}>
-		<PersonBody props={props} t={time} />
+		<g {...inkG(props.ink)}>
+			<PersonBody props={props} t={time} />
+		</g>
 	</svg>
 );
 
@@ -428,7 +430,7 @@ export const PersonBody: React.FC<{props: Record<string, unknown>; t: number}> =
 				</g>
 			)}
 			{/* ground shadow */}
-			{!seated && <ellipse cx={300} cy={688} rx={150} ry={14} fill={c('ink-1')} opacity={0.22} />}
+			{!seated && <ellipse cx={300} cy={688} rx={150} ry={14} fill={c('ink-1')} opacity={0.22} stroke="none" />}
 			{/* legs */}
 			{!isGown &&
 				legs.map(([h, k, ft], i) => (
@@ -468,7 +470,7 @@ export const PersonBody: React.FC<{props: Record<string, unknown>; t: number}> =
 					<circle cx={HEAD[0]} cy={HEAD[1]} r={HR} fill={K.skinShade} />
 					<circle cx={HEAD[0] - 9} cy={HEAD[1] - 9} r={HR - 8} fill={K.skin} />
 					<circle cx={402 + look * 6} cy={176} r={13} fill={K.skinShade} />
-					<circle cx={296} cy={186} r={13} fill={K.cheek} opacity={0.55} />
+					<circle cx={296} cy={186} r={13} fill={K.cheek} opacity={0.55} stroke="none" />
 					<Hair kind={cos.hair} color={cos.hairColor ?? K.ink} back={false} />
 					<g transform="translate(350 168) scale(1.32) translate(-350 -168)">
 					<Brows face={face} look={look} />

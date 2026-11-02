@@ -12,7 +12,7 @@
 import React from 'react';
 import type {KitComponentProps} from '../../../core/registry';
 import {arr, clamp, easeInOut, easeOut, lerp, num, str} from '../util';
-import {c, f, step} from './common';
+import {c, f, inkG, step} from './common';
 import {when} from './turk';
 
 type P2 = [number, number];
@@ -66,7 +66,7 @@ function Piece({kind, white, x, y, s, rot = 0}: {kind: string; white: boolean; x
 	}
 	return (
 		<g transform={`translate(${f(x)} ${f(y)}) scale(${f(s)}) rotate(${f(rot)} 0 -40)`}>
-			<ellipse cx={4} cy={2} rx={32} ry={9} fill={c('ink-0')} opacity={0.3} />
+			<ellipse cx={4} cy={2} rx={32} ry={9} fill={c('ink-0')} opacity={0.3} stroke="none" />
 			<path d={body} fill={fill} />
 			<path d={body} fill={sh} clipPath="url(#stick-rhalf)" />
 			{head}
@@ -108,33 +108,39 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 	const moves = arr<{t: number; from: string; to: string; dur?: number; hand?: string; illegal?: boolean}>(props.moves)
 		.filter((m) => typeof m.t === 'number')
 		.sort((a, b) => a.t - b.t);
-	// board state at time t; the moving piece is drawn on top
+	// board state at time t. Each move: the hand travels in from off-board over LEAD s, carries the piece for dur s, then
+	// leaves over OUT s; hands of consecutive moves may overlap (one leaves while the next arrives), pieces never pop.
+	const LEAD = 0.3;
+	const OUT = 0.35;
 	const pos: Record<string, string> = {...setup};
-	let moving: {kind: string; a: P2; b: P2; k: number; s0: number; s1: number; hand: string; from: string; out: number} | null = null;
+	const flying: {kind: string; a: P2; b: P2; k: number; s0: number; s1: number}[] = [];
+	const hands: {hand: string; x: number; y: number; s: number; o: number}[] = [];
 	let illegal: {a: P2; b: P2; age: number} | null = null;
 	for (const m of moves) {
 		const dur = m.dur ?? 0.55;
-		if (t < m.t) break;
+		if (t < m.t - LEAD) break;
 		const piece = pos[m.from];
 		if (!piece) continue;
+		const A = proj(...sqUV(m.from));
+		const B = proj(...sqUV(m.to));
+		const k = clamp((t - m.t) / dur);
 		if (m.illegal && t >= m.t + dur && t < m.t + dur + 1.2) {
-			illegal = {a: proj(...sqUV(m.from)).p, b: proj(...sqUV(m.to)).p, age: t - m.t - dur};
+			illegal = {a: A.p, b: B.p, age: t - m.t - dur};
 		}
-		if (t < m.t + dur + 0.4) {
-			const A = proj(...sqUV(m.from));
-			const B = proj(...sqUV(m.to));
-			moving = {kind: piece, a: A.p, b: B.p, k: clamp((t - m.t) / dur), s0: A.s, s1: B.s, hand: m.hand ?? 'none', from: m.from,
-				out: clamp((t - m.t - dur) / 0.4)};
+		if (t >= m.t + dur) {
 			delete pos[m.from];
-			// it lands at the end of the move
-			if (t >= m.t + dur) {
-				pos[m.to] = piece;
-				moving = {...moving, k: 1};
-			}
-			continue;
+			pos[m.to] = piece; // it lands at the end of the move
+		} else if (t >= m.t) {
+			delete pos[m.from];
+			flying.push({kind: piece, a: A.p, b: B.p, k, s0: A.s, s1: B.s});
 		}
-		delete pos[m.from];
-		pos[m.to] = piece;
+		if ((m.hand === 'turk' || m.hand === 'human') && t < m.t + dur + OUT) {
+			const e = easeInOut(k);
+			const kin = clamp((t - m.t + LEAD) / LEAD);
+			const out = clamp((t - m.t - dur) / OUT);
+			hands.push({hand: m.hand, x: lerp(A.p[0], B.p[0], e), y: lerp(A.p[1], B.p[1], e) - Math.sin(e * Math.PI) * 120,
+				s: lerp(A.s, B.s, e), o: Math.max(easeInOut(out), 1 - easeInOut(kin))});
+		}
 	}
 	const sweepAt = when(props.sweep);
 	const topple = arr<{t: number; v: string}>(props.topple).filter((x) => typeof x.t === 'number');
@@ -151,7 +157,7 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 			const d = proj(u, v + 1).p;
 			squares.push(
 				<path key={`${u}${v}`} d={`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])} L ${f(cc[0])} ${f(cc[1])} L ${f(d[0])} ${f(d[1])} Z`}
-					fill={(u + v) % 2 === 0 ? c('ink-2') : c('bone-1')} />,
+					fill={(u + v) % 2 === 0 ? c('ink-2') : c('bone-1')} stroke="none" />,
 			);
 		}
 	const glowSq = step<string>(props.glow, t, '');
@@ -178,20 +184,14 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 			return {sq, p, x, y, s: pr.s, rot, gone};
 		})
 		.sort((a, b) => a.y - b.y);
-	let mv: React.ReactNode = null;
-	let handNode: React.ReactNode = null;
-	if (moving) {
-		// the hand first travels in from off-board (k < 0.3), then carries the piece
-		const kin = clamp(moving.k / 0.3);
-		const e = easeInOut(clamp((moving.k - 0.3) / 0.7));
-		const x = lerp(moving.a[0], moving.b[0], e);
-		const y = lerp(moving.a[1], moving.b[1], e) - Math.sin(e * Math.PI) * 120;
-		const s = lerp(moving.s0, moving.s1, e);
-		if (moving.out <= 0) mv = <Piece kind={moving.kind[1]} white={moving.kind[0] === 'w'} x={x} y={y} s={s} />;
-		const o = Math.max(easeInOut(moving.out), 1 - easeInOut(kin));
-		if (moving.hand === 'turk') handNode = <TurkHand x={x + o * 520} y={y - 96 * s - o * 640} s={s * 1.1} />;
-		if (moving.hand === 'human') handNode = <HumanHand x={x + 10 - o * 420} y={y - 40 * s + o * 640} s={s * 1.1} />;
-	}
+	const mv = flying.map((p, i) => {
+		const e = easeInOut(p.k);
+		return <Piece key={`fly${i}`} kind={p.kind[1]} white={p.kind[0] === 'w'} x={lerp(p.a[0], p.b[0], e)}
+			y={lerp(p.a[1], p.b[1], e) - Math.sin(e * Math.PI) * 120} s={lerp(p.s0, p.s1, e)} />;
+	});
+	const handNode = hands.map((h, i) =>
+		h.hand === 'turk' ? <TurkHand key={`h${i}`} x={h.x + h.o * 620} y={h.y - 96 * h.s - h.o * 760} s={h.s * 1.1} />
+			: <HumanHand key={`h${i}`} x={h.x + 10 - h.o * 420} y={h.y - 40 * h.s + h.o * 950} s={h.s * 1.1} />);
 	return (
 		<svg viewBox="0 0 1000 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{overflow: 'visible'}}>
 			<defs>
@@ -199,8 +199,9 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 					<rect x={4} y={-300} width={200} height={600} />
 				</clipPath>
 			</defs>
+			<g {...inkG(props.ink)}>
 			{props.bg !== false && (
-				<g>
+				<g stroke="none">
 					<rect x={-700} y={-1300} width={2400} height={3400} fill={c(str(props.room, 'violet-0'))} />
 					<rect x={-700} y={FRONT_Y + 40} width={2400} height={1400} fill={c('ochre-0')} />
 					<rect x={-700} y={FRONT_Y + 40} width={2400} height={40} fill={c('ochre-1')} />
@@ -224,7 +225,7 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 					<g opacity={illegal.age > 0.9 ? 1 - clamp((illegal.age - 0.9) / 0.3) : 1}>
 						<path d={`M ${f(illegal.a[0])} ${f(illegal.a[1])} Q ${f(mxp)} ${f(myp - 80)} ${f(illegal.b[0])} ${f(illegal.b[1])}`} fill="none"
 							stroke={c('coral-2')} strokeWidth={12} strokeDasharray="22 14" strokeLinecap="round" />
-						<g transform={`translate(${f(illegal.b[0])} ${f(illegal.b[1] - 70)}) scale(${f(k)})`}>
+						<g transform={`translate(${f(illegal.b[0] + 70)} ${f(illegal.b[1] - 150)}) scale(${f(k * 0.8)})`}>
 							<circle r={58} fill={c('coral-2')} />
 							<path d="M -24 -24 L 24 24 M 24 -24 L -24 24" stroke={c('bone-2')} strokeWidth={14} strokeLinecap="round" />
 						</g>
@@ -241,6 +242,7 @@ export const Chess: React.FC<KitComponentProps> = ({props, time}) => {
 					<path d="M -20 -60 Q 90 -70 120 0 Q 90 70 -20 60 Z" fill={c('ochre-2')} />
 				</g>
 			)}
+			</g>
 		</svg>
 	);
 };
