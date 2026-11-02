@@ -1,0 +1,890 @@
+{
+ "runtime_s": 419.9,
+ "distinct_backdrops": 26,
+ "distinct_places": 27,
+ "backdrop_changes": 44,
+ "backdrop_changes_per_min": 6.29,
+ "place_or_backdrop_changes": 45,
+ "place_changes_per_min": 6.43,
+ "backdrop_hold_s": {
+  "n": 45,
+  "median": 6.0,
+  "p25": 5.0,
+  "p75": 10.5,
+  "max": 34.0
+ },
+ "place_hold_s": {
+  "n": 46,
+  "median": 6.5,
+  "p25": 5.0,
+  "p75": 10.5,
+  "max": 34.0
+ },
+ "world_place_hold_s": {
+  "n": 11,
+  "median": 8.0,
+  "p25": 4.7,
+  "p75": 14.2,
+  "max": 23.5
+ },
+ "shots": {
+  "hard_cuts_per_min": 0.0,
+  "transitions_per_min": 9.43,
+  "transition_dur_s": {
+   "median": 0.35,
+   "p25": 0.25,
+   "p75": 0.6,
+   "share_le_0p35s": 0.52
+  },
+  "shot_len_s": {
+   "median": 4.72,
+   "p25": 2.63,
+   "p75": 7.46,
+   "p90": 11.7
+  },
+  "comp_events_per_min": 11.29,
+  "visual_event_gap_s": {
+   "median": 1.62,
+   "p75": 3.67,
+   "p90": 6.52
+  }
+ },
+ "shots_per_backdrop_hold": {
+  "median": 1.0,
+  "mean": 1.58
+ },
+ "boundary_types_backdrop": {
+  "cut": 0,
+  "transition": 42,
+  "continuous": 2
+ },
+ "boundary_types_place": {
+  "cut": 0,
+  "transition": 42,
+  "continuous": 3
+ },
+ "runtime_share_by_kind": {
+  "analogy": 0.142,
+  "board": 0.59,
+  "world": 0.268
+ },
+ "distinct_backdrops_by_kind": {
+  "analogy": 3,
+  "board": 15,
+  "world": 9
+ },
+ "shot_boundaries_that_change_backdrop": 0.62,
+ "returns_to_backdrop": 19,
+ "top_backdrops": [
+  [
+   "split",
+   0.125
+  ],
+  [
+   "strategy-map",
+   0.102
+  ],
+  [
+   "protein-field",
+   0.081
+  ],
+  [
+   "triptych",
+   0.076
+  ],
+  [
+   "tissue-yellow",
+   0.056
+  ],
+  [
+   "tissue-orange",
+   0.055
+  ],
+  [
+   "yellow-field",
+   0.054
+  ],
+  [
+   "tissue-wall",
+   0.05
+  ]
+ ],
+ "backdrop_segments": [
+  {
+   "start": 0.0,
+   "end": 5.4,
+   "setting": "orange-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "cancer is a creepy thing"
+  },
+  {
+   "start": 5.4,
+   "end": 7.9,
+   "setting": "indigo-lab",
+   "place": "-",
+   "kind": "board",
+   "motivation": "trying to understand it"
+  },
+  {
+   "start": 7.9,
+   "end": 12.9,
+   "setting": "xray-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "large animals... immune to cancer"
+  },
+  {
+   "start": 12.9,
+   "end": 16.4,
+   "setting": "savanna",
+   "place": "rhino on savanna",
+   "kind": "world",
+   "motivation": "big animal named implicitly (rhino)"
+  },
+  {
+   "start": 16.4,
+   "end": 20.9,
+   "setting": "split",
+   "place": "expectation savanna | reality",
+   "kind": "board",
+   "motivation": "the bigger... the more cancer it should have"
+  },
+  {
+   "start": 20.9,
+   "end": 26.4,
+   "setting": "orange-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "look at the nature of cancer itself"
+  },
+  {
+   "start": 32.9,
+   "end": 41.4,
+   "setting": "blue-field",
+   "place": "cell interior",
+   "kind": "board",
+   "motivation": "our cells are protein robots"
+  },
+  {
+   "start": 41.4,
+   "end": 49.4,
+   "setting": "triptych",
+   "place": "cell / mitochondrion / cell",
+   "kind": "board",
+   "motivation": "create and dismantle... metabolism... copies"
+  },
+  {
+   "start": 49.4,
+   "end": 83.4,
+   "setting": "protein-field",
+   "place": "molecular pathways",
+   "kind": "board",
+   "motivation": "pathways... networks upon networks (colour drifts blue->magenta at \"until they don't\")"
+  },
+  {
+   "start": 83.4,
+   "end": 106.9,
+   "setting": "tissue-yellow",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "kill switch / cancer cell / immune system"
+  },
+  {
+   "start": 106.9,
+   "end": 116.4,
+   "setting": "grid",
+   "place": "six animals on tiles",
+   "kind": "board",
+   "motivation": "all animals have to deal with this"
+  },
+  {
+   "start": 116.4,
+   "end": 138.4,
+   "setting": "split",
+   "place": "mouse cells | human cells",
+   "kind": "board",
+   "motivation": "cells of a mouse aren't smaller"
+  },
+  {
+   "start": 138.4,
+   "end": 145.9,
+   "setting": "deep-blue-field",
+   "place": "blue whale",
+   "kind": "board",
+   "motivation": "blue whales... 3000x more cells"
+  },
+  {
+   "start": 145.9,
+   "end": 149.4,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Peto's paradox"
+  },
+  {
+   "start": 149.4,
+   "end": 155.4,
+   "setting": "triptych",
+   "place": "hippo / giraffe / elephant habitats",
+   "kind": "world",
+   "motivation": "large animals have much less cancer"
+  },
+  {
+   "start": 155.4,
+   "end": 160.4,
+   "setting": "split",
+   "place": "evolution | hyper tumours",
+   "kind": "board",
+   "motivation": "two main ways of explaining"
+  },
+  {
+   "start": 160.4,
+   "end": 163.4,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Solution one: evolve"
+  },
+  {
+   "start": 163.4,
+   "end": 173.9,
+   "setting": "primordial-water",
+   "place": "early ocean",
+   "kind": "world",
+   "motivation": "multicellular beings developed 600 million years ago"
+  },
+  {
+   "start": 173.9,
+   "end": 176.9,
+   "setting": "tissue-violet",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "more chances cells could be corrupted"
+  },
+  {
+   "start": 176.9,
+   "end": 183.9,
+   "setting": "grid",
+   "place": "four early creatures",
+   "kind": "board",
+   "motivation": "the ones that did not died out"
+  },
+  {
+   "start": 183.9,
+   "end": 189.9,
+   "setting": "tissue-orange",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "cancer doesn't just happen"
+  },
+  {
+   "start": 189.9,
+   "end": 191.9,
+   "setting": "dna-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "genes"
+  },
+  {
+   "start": 191.9,
+   "end": 196.9,
+   "setting": "chromosome-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "proto-oncogenes"
+  },
+  {
+   "start": 196.9,
+   "end": 213.9,
+   "setting": "tissue-orange",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "mutation sequence"
+  },
+  {
+   "start": 213.9,
+   "end": 226.4,
+   "setting": "chromosome-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "tumour suppressor genes"
+  },
+  {
+   "start": 226.4,
+   "end": 229.9,
+   "setting": "grid",
+   "place": "four animals",
+   "kind": "board",
+   "motivation": "large animals have an increased number"
+  },
+  {
+   "start": 229.9,
+   "end": 238.4,
+   "setting": "split",
+   "place": "murine cell | elephantine cell",
+   "kind": "board",
+   "motivation": "elephant cells require more mutations"
+  },
+  {
+   "start": 238.4,
+   "end": 244.4,
+   "setting": "game-ui",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "comes with a cost"
+  },
+  {
+   "start": 244.4,
+   "end": 249.9,
+   "setting": "split",
+   "place": "elephant | wound",
+   "kind": "board",
+   "motivation": "slow down how quickly injuries heal"
+  },
+  {
+   "start": 249.9,
+   "end": 252.4,
+   "setting": "savanna",
+   "place": "elephant on savanna",
+   "kind": "world",
+   "motivation": "we don't know yet"
+  },
+  {
+   "start": 252.4,
+   "end": 257.9,
+   "setting": "blue-field",
+   "place": "tumour",
+   "kind": "board",
+   "motivation": "something different"
+  },
+  {
+   "start": 257.9,
+   "end": 262.9,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Solution 2: hypertumors"
+  },
+  {
+   "start": 262.9,
+   "end": 271.4,
+   "setting": "violet-field",
+   "place": "hyperparasite",
+   "kind": "board",
+   "motivation": "named after hyperparasites"
+  },
+  {
+   "start": 271.4,
+   "end": 292.4,
+   "setting": "tissue-wall",
+   "place": "tissue and vessel",
+   "kind": "world",
+   "motivation": "cooperation... cancer cells are selfish"
+  },
+  {
+   "start": 292.4,
+   "end": 313.4,
+   "setting": "strategy-map",
+   "place": "tissue as RTS game map",
+   "kind": "analogy",
+   "motivation": "tumors... resources and energy"
+  },
+  {
+   "start": 313.4,
+   "end": 335.9,
+   "setting": "yellow-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "one of the copies... individual again"
+  },
+  {
+   "start": 335.9,
+   "end": 357.9,
+   "setting": "strategy-map",
+   "place": "tissue as RTS game map (night)",
+   "kind": "analogy",
+   "motivation": "the original tumour becomes an enemy"
+  },
+  {
+   "start": 357.9,
+   "end": 360.4,
+   "setting": "blue-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "cancer is killing cancer"
+  },
+  {
+   "start": 360.4,
+   "end": 371.9,
+   "setting": "coast",
+   "place": "elephant seal on rocky coast",
+   "kind": "world",
+   "motivation": "large animals have more hypertumors"
+  },
+  {
+   "start": 371.9,
+   "end": 389.9,
+   "setting": "triptych",
+   "place": "mouse / human / whale tiles",
+   "kind": "board",
+   "motivation": "2 g tumour is 10% of a mouse"
+  },
+  {
+   "start": 389.9,
+   "end": 394.9,
+   "setting": "deep-blue-field",
+   "place": "blue whale",
+   "kind": "board",
+   "motivation": "an old blue whale might be filled with tiny cancers"
+  },
+  {
+   "start": 394.9,
+   "end": 401.9,
+   "setting": "split",
+   "place": "mouse | elephant (thermal)",
+   "kind": "board",
+   "motivation": "metabolic rates"
+  },
+  {
+   "start": 401.9,
+   "end": 409.9,
+   "setting": "lab",
+   "place": "bird lab",
+   "kind": "world",
+   "motivation": "scientists are working on the problem"
+  },
+  {
+   "start": 409.9,
+   "end": 415.9,
+   "setting": "screen-ui",
+   "place": "-",
+   "kind": "board",
+   "motivation": "new therapies"
+  },
+  {
+   "start": 415.9,
+   "end": 426.4,
+   "setting": "battlefield",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "one day we might overcome it"
+  }
+ ],
+ "place_segments": [
+  {
+   "start": 0.0,
+   "end": 5.4,
+   "setting": "orange-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "cancer is a creepy thing",
+   "pk": "orange-field|-"
+  },
+  {
+   "start": 5.4,
+   "end": 7.9,
+   "setting": "indigo-lab",
+   "place": "-",
+   "kind": "board",
+   "motivation": "trying to understand it",
+   "pk": "indigo-lab|-"
+  },
+  {
+   "start": 7.9,
+   "end": 12.9,
+   "setting": "xray-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "large animals... immune to cancer",
+   "pk": "xray-field|-"
+  },
+  {
+   "start": 12.9,
+   "end": 16.4,
+   "setting": "savanna",
+   "place": "rhino on savanna",
+   "kind": "world",
+   "motivation": "big animal named implicitly (rhino)",
+   "pk": "savanna|rhino on savanna"
+  },
+  {
+   "start": 16.4,
+   "end": 20.9,
+   "setting": "split",
+   "place": "expectation savanna | reality",
+   "kind": "board",
+   "motivation": "the bigger... the more cancer it should have",
+   "pk": "split|expectation savanna | reality"
+  },
+  {
+   "start": 20.9,
+   "end": 26.4,
+   "setting": "orange-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "look at the nature of cancer itself",
+   "pk": "orange-field|-"
+  },
+  {
+   "start": 32.9,
+   "end": 41.4,
+   "setting": "blue-field",
+   "place": "cell interior",
+   "kind": "board",
+   "motivation": "our cells are protein robots",
+   "pk": "blue-field|cell interior"
+  },
+  {
+   "start": 41.4,
+   "end": 49.4,
+   "setting": "triptych",
+   "place": "cell / mitochondrion / cell",
+   "kind": "board",
+   "motivation": "create and dismantle... metabolism... copies",
+   "pk": "triptych|cell / mitochondrion / cell"
+  },
+  {
+   "start": 49.4,
+   "end": 83.4,
+   "setting": "protein-field",
+   "place": "molecular pathways",
+   "kind": "board",
+   "motivation": "pathways... networks upon networks (colour drifts blue->magenta at \"until they don't\")",
+   "pk": "protein-field|molecular pathways"
+  },
+  {
+   "start": 83.4,
+   "end": 106.9,
+   "setting": "tissue-yellow",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "kill switch / cancer cell / immune system",
+   "pk": "tissue-yellow|tissue"
+  },
+  {
+   "start": 106.9,
+   "end": 116.4,
+   "setting": "grid",
+   "place": "six animals on tiles",
+   "kind": "board",
+   "motivation": "all animals have to deal with this",
+   "pk": "grid|six animals on tiles"
+  },
+  {
+   "start": 116.4,
+   "end": 129.0,
+   "setting": "split",
+   "place": "mouse cells | human cells",
+   "kind": "board",
+   "motivation": "cells of a mouse aren't smaller",
+   "pk": "split|mouse cells | human cells"
+  },
+  {
+   "start": 129.0,
+   "end": 138.4,
+   "setting": "split",
+   "place": "mouse | human",
+   "kind": "board",
+   "motivation": "humans live 50x longer",
+   "pk": "split|mouse | human"
+  },
+  {
+   "start": 138.4,
+   "end": 145.9,
+   "setting": "deep-blue-field",
+   "place": "blue whale",
+   "kind": "board",
+   "motivation": "blue whales... 3000x more cells",
+   "pk": "deep-blue-field|blue whale"
+  },
+  {
+   "start": 145.9,
+   "end": 149.4,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Peto's paradox",
+   "pk": "title-field|-"
+  },
+  {
+   "start": 149.4,
+   "end": 155.4,
+   "setting": "triptych",
+   "place": "hippo / giraffe / elephant habitats",
+   "kind": "world",
+   "motivation": "large animals have much less cancer",
+   "pk": "triptych|hippo / giraffe / elephant habitats"
+  },
+  {
+   "start": 155.4,
+   "end": 160.4,
+   "setting": "split",
+   "place": "evolution | hyper tumours",
+   "kind": "board",
+   "motivation": "two main ways of explaining",
+   "pk": "split|evolution | hyper tumours"
+  },
+  {
+   "start": 160.4,
+   "end": 163.4,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Solution one: evolve",
+   "pk": "title-field|-"
+  },
+  {
+   "start": 163.4,
+   "end": 173.9,
+   "setting": "primordial-water",
+   "place": "early ocean",
+   "kind": "world",
+   "motivation": "multicellular beings developed 600 million years ago",
+   "pk": "primordial-water|early ocean"
+  },
+  {
+   "start": 173.9,
+   "end": 176.9,
+   "setting": "tissue-violet",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "more chances cells could be corrupted",
+   "pk": "tissue-violet|tissue"
+  },
+  {
+   "start": 176.9,
+   "end": 183.9,
+   "setting": "grid",
+   "place": "four early creatures",
+   "kind": "board",
+   "motivation": "the ones that did not died out",
+   "pk": "grid|four early creatures"
+  },
+  {
+   "start": 183.9,
+   "end": 189.9,
+   "setting": "tissue-orange",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "cancer doesn't just happen",
+   "pk": "tissue-orange|tissue"
+  },
+  {
+   "start": 189.9,
+   "end": 191.9,
+   "setting": "dna-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "genes",
+   "pk": "dna-field|-"
+  },
+  {
+   "start": 191.9,
+   "end": 196.9,
+   "setting": "chromosome-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "proto-oncogenes",
+   "pk": "chromosome-field|-"
+  },
+  {
+   "start": 196.9,
+   "end": 213.9,
+   "setting": "tissue-orange",
+   "place": "tissue",
+   "kind": "world",
+   "motivation": "mutation sequence",
+   "pk": "tissue-orange|tissue"
+  },
+  {
+   "start": 213.9,
+   "end": 226.4,
+   "setting": "chromosome-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "tumour suppressor genes",
+   "pk": "chromosome-field|-"
+  },
+  {
+   "start": 226.4,
+   "end": 229.9,
+   "setting": "grid",
+   "place": "four animals",
+   "kind": "board",
+   "motivation": "large animals have an increased number",
+   "pk": "grid|four animals"
+  },
+  {
+   "start": 229.9,
+   "end": 238.4,
+   "setting": "split",
+   "place": "murine cell | elephantine cell",
+   "kind": "board",
+   "motivation": "elephant cells require more mutations",
+   "pk": "split|murine cell | elephantine cell"
+  },
+  {
+   "start": 238.4,
+   "end": 244.4,
+   "setting": "game-ui",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "comes with a cost",
+   "pk": "game-ui|-"
+  },
+  {
+   "start": 244.4,
+   "end": 249.9,
+   "setting": "split",
+   "place": "elephant | wound",
+   "kind": "board",
+   "motivation": "slow down how quickly injuries heal",
+   "pk": "split|elephant | wound"
+  },
+  {
+   "start": 249.9,
+   "end": 252.4,
+   "setting": "savanna",
+   "place": "elephant on savanna",
+   "kind": "world",
+   "motivation": "we don't know yet",
+   "pk": "savanna|elephant on savanna"
+  },
+  {
+   "start": 252.4,
+   "end": 257.9,
+   "setting": "blue-field",
+   "place": "tumour",
+   "kind": "board",
+   "motivation": "something different",
+   "pk": "blue-field|tumour"
+  },
+  {
+   "start": 257.9,
+   "end": 262.9,
+   "setting": "title-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Solution 2: hypertumors",
+   "pk": "title-field|-"
+  },
+  {
+   "start": 262.9,
+   "end": 271.4,
+   "setting": "violet-field",
+   "place": "hyperparasite",
+   "kind": "board",
+   "motivation": "named after hyperparasites",
+   "pk": "violet-field|hyperparasite"
+  },
+  {
+   "start": 271.4,
+   "end": 292.4,
+   "setting": "tissue-wall",
+   "place": "tissue and vessel",
+   "kind": "world",
+   "motivation": "cooperation... cancer cells are selfish",
+   "pk": "tissue-wall|tissue and vessel"
+  },
+  {
+   "start": 292.4,
+   "end": 313.4,
+   "setting": "strategy-map",
+   "place": "tissue as RTS game map",
+   "kind": "analogy",
+   "motivation": "tumors... resources and energy",
+   "pk": "strategy-map|tissue as RTS game map"
+  },
+  {
+   "start": 313.4,
+   "end": 335.9,
+   "setting": "yellow-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "one of the copies... individual again",
+   "pk": "yellow-field|-"
+  },
+  {
+   "start": 335.9,
+   "end": 357.9,
+   "setting": "strategy-map",
+   "place": "tissue as RTS game map (night)",
+   "kind": "analogy",
+   "motivation": "the original tumour becomes an enemy",
+   "pk": "strategy-map|tissue as RTS game map (night)"
+  },
+  {
+   "start": 357.9,
+   "end": 360.4,
+   "setting": "blue-field",
+   "place": "-",
+   "kind": "board",
+   "motivation": "cancer is killing cancer",
+   "pk": "blue-field|-"
+  },
+  {
+   "start": 360.4,
+   "end": 371.9,
+   "setting": "coast",
+   "place": "elephant seal on rocky coast",
+   "kind": "world",
+   "motivation": "large animals have more hypertumors",
+   "pk": "coast|elephant seal on rocky coast"
+  },
+  {
+   "start": 371.9,
+   "end": 389.9,
+   "setting": "triptych",
+   "place": "mouse / human / whale tiles",
+   "kind": "board",
+   "motivation": "2 g tumour is 10% of a mouse",
+   "pk": "triptych|mouse / human / whale tiles"
+  },
+  {
+   "start": 389.9,
+   "end": 394.9,
+   "setting": "deep-blue-field",
+   "place": "blue whale",
+   "kind": "board",
+   "motivation": "an old blue whale might be filled with tiny cancers",
+   "pk": "deep-blue-field|blue whale"
+  },
+  {
+   "start": 394.9,
+   "end": 401.9,
+   "setting": "split",
+   "place": "mouse | elephant (thermal)",
+   "kind": "board",
+   "motivation": "metabolic rates",
+   "pk": "split|mouse | elephant (thermal)"
+  },
+  {
+   "start": 401.9,
+   "end": 409.9,
+   "setting": "lab",
+   "place": "bird lab",
+   "kind": "world",
+   "motivation": "scientists are working on the problem",
+   "pk": "lab|bird lab"
+  },
+  {
+   "start": 409.9,
+   "end": 415.9,
+   "setting": "screen-ui",
+   "place": "-",
+   "kind": "board",
+   "motivation": "new therapies",
+   "pk": "screen-ui|-"
+  },
+  {
+   "start": 415.9,
+   "end": 426.4,
+   "setting": "battlefield",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "one day we might overcome it",
+   "pk": "battlefield|-"
+  }
+ ]
+}

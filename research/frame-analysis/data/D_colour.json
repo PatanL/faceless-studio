@@ -1,0 +1,694 @@
+{
+ "dE_at_setting_change": {
+  "median": 22.3,
+  "p25": 13.4
+ },
+ "dE_inside_setting": {
+  "median": 1.0,
+  "p75": 4.6
+ },
+ "L_by_kind": {
+  "board": 22.4,
+  "analogy": 9.8,
+  "world": 30.1
+ },
+ "C_by_kind": {
+  "board": 57.0,
+  "analogy": 29.8,
+  "world": 47.6
+ },
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 3.9,
+   "setting": "cruise-deck",
+   "kind": "world",
+   "rgb": [
+    128,
+    157,
+    214
+   ],
+   "L": 64.8,
+   "C": 32.5,
+   "h": 277.0
+  },
+  {
+   "start": 3.9,
+   "end": 7.4,
+   "setting": "coast",
+   "kind": "world",
+   "rgb": [
+    86,
+    199,
+    216
+   ],
+   "L": 74.8,
+   "C": 32.5,
+   "h": 215.0
+  },
+  {
+   "start": 7.4,
+   "end": 9.9,
+   "setting": "split",
+   "kind": "world",
+   "rgb": [
+    72,
+    153,
+    194
+   ],
+   "L": 60.1,
+   "C": 31.0,
+   "h": 246.0
+  },
+  {
+   "start": 9.9,
+   "end": 12.9,
+   "setting": "triptych",
+   "kind": "world",
+   "rgb": [
+    59,
+    116,
+    162
+   ],
+   "L": 47.2,
+   "C": 30.3,
+   "h": 262.0
+  },
+  {
+   "start": 12.9,
+   "end": 26.4,
+   "setting": "deep-cave",
+   "kind": "world",
+   "rgb": [
+    10,
+    7,
+    92
+   ],
+   "L": 9.1,
+   "C": 59.0,
+   "h": 305.0
+  },
+  {
+   "start": 36.4,
+   "end": 40.4,
+   "setting": "ocean-surface",
+   "kind": "world",
+   "rgb": [
+    35,
+    100,
+    218
+   ],
+   "L": 45.2,
+   "C": 69.9,
+   "h": 290.0
+  },
+  {
+   "start": 40.4,
+   "end": 52.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    31,
+    71,
+    165
+   ],
+   "L": 33.2,
+   "C": 59.1,
+   "h": 292.0
+  },
+  {
+   "start": 52.9,
+   "end": 56.4,
+   "setting": "ship-surface",
+   "kind": "world",
+   "rgb": [
+    85,
+    160,
+    227
+   ],
+   "L": 64.1,
+   "C": 40.5,
+   "h": 265.0
+  },
+  {
+   "start": 56.4,
+   "end": 61.9,
+   "setting": "sunlit-shallows",
+   "kind": "world",
+   "rgb": [
+    38,
+    159,
+    232
+   ],
+   "L": 62.6,
+   "C": 46.3,
+   "h": 262.0
+  },
+  {
+   "start": 61.9,
+   "end": 75.4,
+   "setting": "inset-screen",
+   "kind": "board",
+   "rgb": [
+    116,
+    93,
+    143
+   ],
+   "L": 43.8,
+   "C": 31.1,
+   "h": 309.0
+  },
+  {
+   "start": 75.4,
+   "end": 98.4,
+   "setting": "coral-reef",
+   "kind": "world",
+   "rgb": [
+    69,
+    139,
+    218
+   ],
+   "L": 57.0,
+   "C": 47.2,
+   "h": 274.0
+  },
+  {
+   "start": 98.4,
+   "end": 107.0,
+   "setting": "continental-shelf",
+   "kind": "world",
+   "rgb": [
+    68,
+    204,
+    219
+   ],
+   "L": 76.1,
+   "C": 36.2,
+   "h": 210.0
+  },
+  {
+   "start": 107.0,
+   "end": 123.4,
+   "setting": "continental-slope",
+   "kind": "world",
+   "rgb": [
+    52,
+    129,
+    245
+   ],
+   "L": 55.4,
+   "C": 66.6,
+   "h": 284.0
+  },
+  {
+   "start": 123.4,
+   "end": 139.4,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    23,
+    98,
+    229
+   ],
+   "L": 45.1,
+   "C": 77.9,
+   "h": 292.0
+  },
+  {
+   "start": 139.4,
+   "end": 149.4,
+   "setting": "twilight-open",
+   "kind": "world",
+   "rgb": [
+    38,
+    30,
+    163
+   ],
+   "L": 23.7,
+   "C": 83.2,
+   "h": 304.0
+  },
+  {
+   "start": 149.4,
+   "end": 152.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    36,
+    16,
+    140
+   ],
+   "L": 18.7,
+   "C": 78.2,
+   "h": 306.0
+  },
+  {
+   "start": 152.9,
+   "end": 166.9,
+   "setting": "twilight-seabed",
+   "kind": "world",
+   "rgb": [
+    22,
+    44,
+    196
+   ],
+   "L": 29.4,
+   "C": 93.6,
+   "h": 302.0
+  },
+  {
+   "start": 166.9,
+   "end": 173.9,
+   "setting": "twilight-open",
+   "kind": "world",
+   "rgb": [
+    24,
+    46,
+    197
+   ],
+   "L": 30.1,
+   "C": 92.8,
+   "h": 302.0
+  },
+  {
+   "start": 173.9,
+   "end": 181.4,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    35,
+    75,
+    217
+   ],
+   "L": 38.7,
+   "C": 85.2,
+   "h": 297.0
+  },
+  {
+   "start": 181.4,
+   "end": 188.9,
+   "setting": "midnight-water",
+   "kind": "world",
+   "rgb": [
+    37,
+    33,
+    92
+   ],
+   "L": 16.8,
+   "C": 40.9,
+   "h": 301.0
+  },
+  {
+   "start": 188.9,
+   "end": 199.9,
+   "setting": "inset-screen",
+   "kind": "board",
+   "rgb": [
+    58,
+    48,
+    108
+   ],
+   "L": 24.1,
+   "C": 40.3,
+   "h": 302.0
+  },
+  {
+   "start": 199.9,
+   "end": 227.4,
+   "setting": "midnight-water",
+   "kind": "world",
+   "rgb": [
+    47,
+    27,
+    97
+   ],
+   "L": 17.1,
+   "C": 47.6,
+   "h": 306.0
+  },
+  {
+   "start": 227.4,
+   "end": 239.9,
+   "setting": "marine-snow",
+   "kind": "world",
+   "rgb": [
+    23,
+    11,
+    92
+   ],
+   "L": 10.6,
+   "C": 55.6,
+   "h": 306.0
+  },
+  {
+   "start": 239.9,
+   "end": 245.9,
+   "setting": "inset-screen",
+   "kind": "board",
+   "rgb": [
+    78,
+    46,
+    105
+   ],
+   "L": 25.8,
+   "C": 39.5,
+   "h": 313.0
+  },
+  {
+   "start": 245.9,
+   "end": 254.9,
+   "setting": "abyss-seabed",
+   "kind": "world",
+   "rgb": [
+    36,
+    12,
+    121
+   ],
+   "L": 15.7,
+   "C": 70.0,
+   "h": 307.0
+  },
+  {
+   "start": 254.9,
+   "end": 272.4,
+   "setting": "midnight-water",
+   "kind": "world",
+   "rgb": [
+    64,
+    16,
+    187
+   ],
+   "L": 27.0,
+   "C": 98.5,
+   "h": 308.0
+  },
+  {
+   "start": 272.4,
+   "end": 278.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    38,
+    17,
+    143
+   ],
+   "L": 19.3,
+   "C": 78.9,
+   "h": 306.0
+  },
+  {
+   "start": 278.9,
+   "end": 297.4,
+   "setting": "black-zone",
+   "kind": "world",
+   "rgb": [
+    8,
+    6,
+    47
+   ],
+   "L": 3.6,
+   "C": 28.5,
+   "h": 298.0
+  },
+  {
+   "start": 297.4,
+   "end": 316.9,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    47,
+    65,
+    141
+   ],
+   "L": 30.4,
+   "C": 47.8,
+   "h": 293.0
+  },
+  {
+   "start": 316.9,
+   "end": 322.9,
+   "setting": "inset-screen",
+   "kind": "board",
+   "rgb": [
+    51,
+    37,
+    144
+   ],
+   "L": 24.1,
+   "C": 68.4,
+   "h": 304.0
+  },
+  {
+   "start": 322.9,
+   "end": 335.9,
+   "setting": "midnight-water",
+   "kind": "world",
+   "rgb": [
+    30,
+    11,
+    88
+   ],
+   "L": 11.0,
+   "C": 52.3,
+   "h": 307.0
+  },
+  {
+   "start": 335.9,
+   "end": 355.4,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    37,
+    64,
+    148
+   ],
+   "L": 30.1,
+   "C": 53.5,
+   "h": 293.0
+  },
+  {
+   "start": 355.4,
+   "end": 359.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    37,
+    20,
+    151
+   ],
+   "L": 20.7,
+   "C": 82.0,
+   "h": 306.0
+  },
+  {
+   "start": 359.9,
+   "end": 365.9,
+   "setting": "abyss-wreck",
+   "kind": "world",
+   "rgb": [
+    14,
+    13,
+    73
+   ],
+   "L": 7.9,
+   "C": 44.0,
+   "h": 303.0
+  },
+  {
+   "start": 365.9,
+   "end": 395.9,
+   "setting": "abyss-water",
+   "kind": "world",
+   "rgb": [
+    14,
+    8,
+    50
+   ],
+   "L": 4.7,
+   "C": 29.9,
+   "h": 301.0
+  },
+  {
+   "start": 395.9,
+   "end": 405.0,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    35,
+    105,
+    139
+   ],
+   "L": 41.8,
+   "C": 27.0,
+   "h": 250.0
+  },
+  {
+   "start": 405.0,
+   "end": 411.9,
+   "setting": "inset-screen",
+   "kind": "board",
+   "rgb": [
+    59,
+    136,
+    158
+   ],
+   "L": 53.1,
+   "C": 25.2,
+   "h": 228.0
+  },
+  {
+   "start": 411.9,
+   "end": 428.0,
+   "setting": "abyssal-plain",
+   "kind": "world",
+   "rgb": [
+    31,
+    55,
+    87
+   ],
+   "L": 22.8,
+   "C": 22.5,
+   "h": 276.0
+  },
+  {
+   "start": 428.0,
+   "end": 451.4,
+   "setting": "vent-field",
+   "kind": "world",
+   "rgb": [
+    40,
+    49,
+    111
+   ],
+   "L": 23.2,
+   "C": 41.1,
+   "h": 295.0
+  },
+  {
+   "start": 451.4,
+   "end": 471.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    33,
+    19,
+    146
+   ],
+   "L": 19.7,
+   "C": 80.1,
+   "h": 306.0
+  },
+  {
+   "start": 471.9,
+   "end": 481.9,
+   "setting": "hadal-trench",
+   "kind": "world",
+   "rgb": [
+    6,
+    6,
+    64
+   ],
+   "L": 5.2,
+   "C": 41.5,
+   "h": 302.0
+  },
+  {
+   "start": 481.9,
+   "end": 496.4,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    18,
+    91,
+    202
+   ],
+   "L": 41.3,
+   "C": 67.2,
+   "h": 289.0
+  },
+  {
+   "start": 496.4,
+   "end": 500.9,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    16,
+    15,
+    84
+   ],
+   "L": 9.9,
+   "C": 49.2,
+   "h": 303.0
+  },
+  {
+   "start": 500.9,
+   "end": 518.4,
+   "setting": "challenger-deep",
+   "kind": "world",
+   "rgb": [
+    16,
+    25,
+    105
+   ],
+   "L": 14.8,
+   "C": 55.3,
+   "h": 301.0
+  },
+  {
+   "start": 518.4,
+   "end": 522.0,
+   "setting": "analogy-black",
+   "kind": "analogy",
+   "rgb": [
+    23,
+    21,
+    62
+   ],
+   "L": 9.8,
+   "C": 29.8,
+   "h": 300.0
+  },
+  {
+   "start": 522.0,
+   "end": 528.4,
+   "setting": "cross-section",
+   "kind": "board",
+   "rgb": [
+    46,
+    17,
+    99
+   ],
+   "L": 15.0,
+   "C": 55.0,
+   "h": 309.0
+  },
+  {
+   "start": 528.4,
+   "end": 569.9,
+   "setting": "challenger-deep",
+   "kind": "world",
+   "rgb": [
+    53,
+    80,
+    170
+   ],
+   "L": 36.8,
+   "C": 55.3,
+   "h": 292.0
+  },
+  {
+   "start": 569.9,
+   "end": 604.0,
+   "setting": "sub-porthole",
+   "kind": "world",
+   "rgb": [
+    54,
+    143,
+    198
+   ],
+   "L": 56.8,
+   "C": 36.8,
+   "h": 257.0
+  }
+ ]
+}

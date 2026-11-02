@@ -1,0 +1,941 @@
+{
+ "runtime_s": 594.0,
+ "distinct_backdrops": 27,
+ "distinct_places": 48,
+ "backdrop_changes": 47,
+ "backdrop_changes_per_min": 4.75,
+ "place_or_backdrop_changes": 48,
+ "place_changes_per_min": 4.85,
+ "backdrop_hold_s": {
+  "n": 48,
+  "median": 10.0,
+  "p25": 6.0,
+  "p75": 16.7,
+  "max": 41.5
+ },
+ "place_hold_s": {
+  "n": 49,
+  "median": 10.0,
+  "p25": 6.0,
+  "p75": 16.4,
+  "max": 41.5
+ },
+ "world_place_hold_s": {
+  "n": 36,
+  "median": 13.2,
+  "p25": 7.4,
+  "p75": 17.8,
+  "max": 41.5
+ },
+ "shots": {
+  "hard_cuts_per_min": 0.0,
+  "transitions_per_min": 4.75,
+  "transition_dur_s": {
+   "median": 0.45,
+   "p25": 0.24,
+   "p75": 0.71,
+   "share_le_0p35s": 0.38
+  },
+  "shot_len_s": {
+   "median": 9.66,
+   "p25": 5.84,
+   "p75": 17.79,
+   "p90": 24.23
+  },
+  "comp_events_per_min": 6.57,
+  "visual_event_gap_s": {
+   "median": 2.42,
+   "p75": 7.27,
+   "p90": 12.8
+  }
+ },
+ "shots_per_backdrop_hold": {
+  "median": 1.0,
+  "mean": 1.29
+ },
+ "boundary_types_backdrop": {
+  "cut": 0,
+  "transition": 37,
+  "continuous": 10
+ },
+ "boundary_types_place": {
+  "cut": 0,
+  "transition": 37,
+  "continuous": 11
+ },
+ "runtime_share_by_kind": {
+  "analogy": 0.006,
+  "board": 0.171,
+  "world": 0.823
+ },
+ "distinct_backdrops_by_kind": {
+  "analogy": 1,
+  "board": 2,
+  "world": 24
+ },
+ "shot_boundaries_that_change_backdrop": 0.79,
+ "returns_to_backdrop": 21,
+ "top_backdrops": [
+  [
+   "sub-porthole",
+   0.202
+  ],
+  [
+   "midnight-water",
+   0.11
+  ],
+  [
+   "challenger-deep",
+   0.099
+  ],
+  [
+   "cross-section",
+   0.098
+  ],
+  [
+   "inset-screen",
+   0.073
+  ],
+  [
+   "abyss-water",
+   0.051
+  ],
+  [
+   "coral-reef",
+   0.039
+  ],
+  [
+   "vent-field",
+   0.039
+  ]
+ ],
+ "backdrop_segments": [
+  {
+   "start": 0.0,
+   "end": 3.9,
+   "setting": "cruise-deck",
+   "place": "cruise ship deck",
+   "kind": "world",
+   "motivation": "the world feels boring"
+  },
+  {
+   "start": 3.9,
+   "end": 7.4,
+   "setting": "coast",
+   "place": "tropical island coast",
+   "kind": "world",
+   "motivation": "visited all the remote islands"
+  },
+  {
+   "start": 7.4,
+   "end": 9.9,
+   "setting": "split",
+   "place": "island | Arctic ice",
+   "kind": "world",
+   "motivation": "conquered the Arctic"
+  },
+  {
+   "start": 9.9,
+   "end": 12.9,
+   "setting": "triptych",
+   "place": "island | Arctic | jungle",
+   "kind": "world",
+   "motivation": "deepest jungles"
+  },
+  {
+   "start": 12.9,
+   "end": 26.4,
+   "setting": "deep-cave",
+   "place": "deep sea dark rock + glowing animals",
+   "kind": "world",
+   "motivation": "the deep sea"
+  },
+  {
+   "start": 36.4,
+   "end": 40.4,
+   "setting": "ocean-surface",
+   "place": "open ocean surface",
+   "kind": "world",
+   "motivation": "sheer scale of the oceans"
+  },
+  {
+   "start": 40.4,
+   "end": 52.9,
+   "setting": "cross-section",
+   "place": "ocean cross-section",
+   "kind": "board",
+   "motivation": "biomass 2% / 90% in first 200 m"
+  },
+  {
+   "start": 52.9,
+   "end": 56.4,
+   "setting": "ship-surface",
+   "place": "research ship at surface",
+   "kind": "world",
+   "motivation": "this is where we begin our journey"
+  },
+  {
+   "start": 56.4,
+   "end": 61.9,
+   "setting": "sunlit-shallows",
+   "place": "sunlit water 0-50 m",
+   "kind": "world",
+   "motivation": "light can still penetrate"
+  },
+  {
+   "start": 61.9,
+   "end": 75.4,
+   "setting": "inset-screen",
+   "place": "microscope panel over shallows",
+   "kind": "board",
+   "motivation": "phytoplankton / plankton named"
+  },
+  {
+   "start": 75.4,
+   "end": 98.4,
+   "setting": "coral-reef",
+   "place": "shallow reef seafloor",
+   "kind": "world",
+   "motivation": "seafloor at this depth... coral reefs"
+  },
+  {
+   "start": 98.4,
+   "end": 107.0,
+   "setting": "continental-shelf",
+   "place": "continental shelf (top-down)",
+   "kind": "world",
+   "motivation": "edge of the continental shelf"
+  },
+  {
+   "start": 107.0,
+   "end": 123.4,
+   "setting": "continental-slope",
+   "place": "continental slope 200-300 m",
+   "kind": "world",
+   "motivation": "continental slope... no more plants"
+  },
+  {
+   "start": 123.4,
+   "end": 139.4,
+   "setting": "sub-porthole",
+   "place": "twilight zone 257-329 m",
+   "kind": "world",
+   "motivation": "enter the twilight zone"
+  },
+  {
+   "start": 139.4,
+   "end": 149.4,
+   "setting": "twilight-open",
+   "place": "open water ~332 m (scuba record)",
+   "kind": "world",
+   "motivation": "deepest scuba dive 332 m"
+  },
+  {
+   "start": 149.4,
+   "end": 152.9,
+   "setting": "cross-section",
+   "place": "slope cross-section",
+   "kind": "board",
+   "motivation": "only 3% of our journey"
+  },
+  {
+   "start": 152.9,
+   "end": 166.9,
+   "setting": "twilight-seabed",
+   "place": "twilight ledge",
+   "kind": "world",
+   "motivation": "rest and recover... hidden"
+  },
+  {
+   "start": 166.9,
+   "end": 173.9,
+   "setting": "twilight-open",
+   "place": "twilight open water",
+   "kind": "world",
+   "motivation": "at night travel into shallower zones"
+  },
+  {
+   "start": 173.9,
+   "end": 181.4,
+   "setting": "sub-porthole",
+   "place": "600 m",
+   "kind": "world",
+   "motivation": "transition zone between twilight and darkness"
+  },
+  {
+   "start": 181.4,
+   "end": 188.9,
+   "setting": "midnight-water",
+   "place": "~600-700 m dark water",
+   "kind": "world",
+   "motivation": "bioluminescence"
+  },
+  {
+   "start": 188.9,
+   "end": 199.9,
+   "setting": "inset-screen",
+   "place": "examples panel over dark water",
+   "kind": "board",
+   "motivation": "camouflage / mates / hunting"
+  },
+  {
+   "start": 199.9,
+   "end": 227.4,
+   "setting": "midnight-water",
+   "place": "700 m dark water (siphonophore)",
+   "kind": "world",
+   "motivation": "at around 700 metres... siphonophores"
+  },
+  {
+   "start": 227.4,
+   "end": 239.9,
+   "setting": "marine-snow",
+   "place": "dark water with snow",
+   "kind": "world",
+   "motivation": "marine snow"
+  },
+  {
+   "start": 239.9,
+   "end": 245.9,
+   "setting": "inset-screen",
+   "place": "snow ingredients panel",
+   "kind": "board",
+   "motivation": "ingredients listed"
+  },
+  {
+   "start": 245.9,
+   "end": 254.9,
+   "setting": "abyss-seabed",
+   "place": "seabed with whale fall",
+   "kind": "world",
+   "motivation": "life in the deep sea would starve (dead animal parts)"
+  },
+  {
+   "start": 254.9,
+   "end": 272.4,
+   "setting": "midnight-water",
+   "place": "dark water (giant squid vs sperm whale)",
+   "kind": "world",
+   "motivation": "sperm whales hunt giant squid"
+  },
+  {
+   "start": 272.4,
+   "end": 278.9,
+   "setting": "cross-section",
+   "place": "1000 m vs Burj Khalifa",
+   "kind": "board",
+   "motivation": "deeper than the tallest structure"
+  },
+  {
+   "start": 278.9,
+   "end": 297.4,
+   "setting": "black-zone",
+   "place": "midnight zone 1000 m",
+   "kind": "world",
+   "motivation": "midnight zone... utter darkness"
+  },
+  {
+   "start": 297.4,
+   "end": 316.9,
+   "setting": "sub-porthole",
+   "place": "1005-1023 m",
+   "kind": "world",
+   "motivation": "food scarce / vampire squid"
+  },
+  {
+   "start": 316.9,
+   "end": 322.9,
+   "setting": "inset-screen",
+   "place": "energy diagram",
+   "kind": "board",
+   "motivation": "energy efficiency"
+  },
+  {
+   "start": 322.9,
+   "end": 335.9,
+   "setting": "midnight-water",
+   "place": "dark spotlight (anglerfish)",
+   "kind": "world",
+   "motivation": "hunters... first strike"
+  },
+  {
+   "start": 335.9,
+   "end": 355.4,
+   "setting": "sub-porthole",
+   "place": "1200 m (viperfish / frilled shark)",
+   "kind": "world",
+   "motivation": "named predators"
+  },
+  {
+   "start": 355.4,
+   "end": 359.9,
+   "setting": "cross-section",
+   "place": "3800 m (Titanic)",
+   "kind": "board",
+   "motivation": "as deep as the grave of the Titanic"
+  },
+  {
+   "start": 359.9,
+   "end": 365.9,
+   "setting": "abyss-wreck",
+   "place": "Titanic wreck 3800 m",
+   "kind": "world",
+   "motivation": "abyssal depths"
+  },
+  {
+   "start": 365.9,
+   "end": 395.9,
+   "setting": "abyss-water",
+   "place": "abyssal open water",
+   "kind": "world",
+   "motivation": "life happens in slow motion"
+  },
+  {
+   "start": 395.9,
+   "end": 405.0,
+   "setting": "sub-porthole",
+   "place": "4000 m seafloor",
+   "kind": "world",
+   "motivation": "we finally reach ground"
+  },
+  {
+   "start": 405.0,
+   "end": 411.9,
+   "setting": "inset-screen",
+   "place": "seafloor animals panel",
+   "kind": "board",
+   "motivation": "sea cucumbers shrimp urchins worms"
+  },
+  {
+   "start": 411.9,
+   "end": 428.0,
+   "setting": "abyssal-plain",
+   "place": "abyssal plain (top-down)",
+   "kind": "world",
+   "motivation": "manganese nodules"
+  },
+  {
+   "start": 428.0,
+   "end": 451.4,
+   "setting": "vent-field",
+   "place": "rift valley vents",
+   "kind": "world",
+   "motivation": "in the rift valleys... chimneys"
+  },
+  {
+   "start": 451.4,
+   "end": 471.9,
+   "setting": "cross-section",
+   "place": "abyssal plain to trench 6000 m",
+   "kind": "board",
+   "motivation": "deepest point of the abyssal plain"
+  },
+  {
+   "start": 471.9,
+   "end": 481.9,
+   "setting": "hadal-trench",
+   "place": "trench descent",
+   "kind": "world",
+   "motivation": "enter the hadal zone"
+  },
+  {
+   "start": 481.9,
+   "end": 496.4,
+   "setting": "sub-porthole",
+   "place": "8000 m+ (snailfish / black rocks)",
+   "kind": "world",
+   "motivation": "snailfish named"
+  },
+  {
+   "start": 496.4,
+   "end": 500.9,
+   "setting": "cross-section",
+   "place": "trench 10200 m",
+   "kind": "board",
+   "motivation": "more than 10,000"
+  },
+  {
+   "start": 500.9,
+   "end": 518.4,
+   "setting": "challenger-deep",
+   "place": "Challenger Deep floor 11000 m",
+   "kind": "world",
+   "motivation": "the deepest point"
+  },
+  {
+   "start": 518.4,
+   "end": 522.0,
+   "setting": "analogy-black",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "1,800 elephants on top of you"
+  },
+  {
+   "start": 522.0,
+   "end": 528.4,
+   "setting": "cross-section",
+   "place": "trench with elephant stack",
+   "kind": "board",
+   "motivation": "analogy placed back in trench"
+  },
+  {
+   "start": 528.4,
+   "end": 569.9,
+   "setting": "challenger-deep",
+   "place": "Challenger Deep floor (amphipods / plastic)",
+   "kind": "world",
+   "motivation": "amphipods / plastic bags named"
+  },
+  {
+   "start": 569.9,
+   "end": 604.0,
+   "setting": "sub-porthole",
+   "place": "ascent 11000 m -> 0 m (montage)",
+   "kind": "world",
+   "motivation": "we begin our ascent"
+  }
+ ],
+ "place_segments": [
+  {
+   "start": 0.0,
+   "end": 3.9,
+   "setting": "cruise-deck",
+   "place": "cruise ship deck",
+   "kind": "world",
+   "motivation": "the world feels boring",
+   "pk": "cruise-deck|cruise ship deck"
+  },
+  {
+   "start": 3.9,
+   "end": 7.4,
+   "setting": "coast",
+   "place": "tropical island coast",
+   "kind": "world",
+   "motivation": "visited all the remote islands",
+   "pk": "coast|tropical island coast"
+  },
+  {
+   "start": 7.4,
+   "end": 9.9,
+   "setting": "split",
+   "place": "island | Arctic ice",
+   "kind": "world",
+   "motivation": "conquered the Arctic",
+   "pk": "split|island | Arctic ice"
+  },
+  {
+   "start": 9.9,
+   "end": 12.9,
+   "setting": "triptych",
+   "place": "island | Arctic | jungle",
+   "kind": "world",
+   "motivation": "deepest jungles",
+   "pk": "triptych|island | Arctic | jungle"
+  },
+  {
+   "start": 12.9,
+   "end": 26.4,
+   "setting": "deep-cave",
+   "place": "deep sea dark rock + glowing animals",
+   "kind": "world",
+   "motivation": "the deep sea",
+   "pk": "deep-cave|deep sea dark rock + glowing animals"
+  },
+  {
+   "start": 36.4,
+   "end": 40.4,
+   "setting": "ocean-surface",
+   "place": "open ocean surface",
+   "kind": "world",
+   "motivation": "sheer scale of the oceans",
+   "pk": "ocean-surface|open ocean surface"
+  },
+  {
+   "start": 40.4,
+   "end": 52.9,
+   "setting": "cross-section",
+   "place": "ocean cross-section",
+   "kind": "board",
+   "motivation": "biomass 2% / 90% in first 200 m",
+   "pk": "cross-section|ocean cross-section"
+  },
+  {
+   "start": 52.9,
+   "end": 56.4,
+   "setting": "ship-surface",
+   "place": "research ship at surface",
+   "kind": "world",
+   "motivation": "this is where we begin our journey",
+   "pk": "ship-surface|research ship at surface"
+  },
+  {
+   "start": 56.4,
+   "end": 61.9,
+   "setting": "sunlit-shallows",
+   "place": "sunlit water 0-50 m",
+   "kind": "world",
+   "motivation": "light can still penetrate",
+   "pk": "sunlit-shallows|sunlit water 0-50 m"
+  },
+  {
+   "start": 61.9,
+   "end": 75.4,
+   "setting": "inset-screen",
+   "place": "microscope panel over shallows",
+   "kind": "board",
+   "motivation": "phytoplankton / plankton named",
+   "pk": "inset-screen|microscope panel over shallows"
+  },
+  {
+   "start": 75.4,
+   "end": 98.4,
+   "setting": "coral-reef",
+   "place": "shallow reef seafloor",
+   "kind": "world",
+   "motivation": "seafloor at this depth... coral reefs",
+   "pk": "coral-reef|shallow reef seafloor"
+  },
+  {
+   "start": 98.4,
+   "end": 107.0,
+   "setting": "continental-shelf",
+   "place": "continental shelf (top-down)",
+   "kind": "world",
+   "motivation": "edge of the continental shelf",
+   "pk": "continental-shelf|continental shelf (top-down)"
+  },
+  {
+   "start": 107.0,
+   "end": 123.4,
+   "setting": "continental-slope",
+   "place": "continental slope 200-300 m",
+   "kind": "world",
+   "motivation": "continental slope... no more plants",
+   "pk": "continental-slope|continental slope 200-300 m"
+  },
+  {
+   "start": 123.4,
+   "end": 139.4,
+   "setting": "sub-porthole",
+   "place": "twilight zone 257-329 m",
+   "kind": "world",
+   "motivation": "enter the twilight zone",
+   "pk": "sub-porthole|twilight zone 257-329 m"
+  },
+  {
+   "start": 139.4,
+   "end": 149.4,
+   "setting": "twilight-open",
+   "place": "open water ~332 m (scuba record)",
+   "kind": "world",
+   "motivation": "deepest scuba dive 332 m",
+   "pk": "twilight-open|open water ~332 m (scuba record)"
+  },
+  {
+   "start": 149.4,
+   "end": 152.9,
+   "setting": "cross-section",
+   "place": "slope cross-section",
+   "kind": "board",
+   "motivation": "only 3% of our journey",
+   "pk": "cross-section|slope cross-section"
+  },
+  {
+   "start": 152.9,
+   "end": 166.9,
+   "setting": "twilight-seabed",
+   "place": "twilight ledge",
+   "kind": "world",
+   "motivation": "rest and recover... hidden",
+   "pk": "twilight-seabed|twilight ledge"
+  },
+  {
+   "start": 166.9,
+   "end": 173.9,
+   "setting": "twilight-open",
+   "place": "twilight open water",
+   "kind": "world",
+   "motivation": "at night travel into shallower zones",
+   "pk": "twilight-open|twilight open water"
+  },
+  {
+   "start": 173.9,
+   "end": 181.4,
+   "setting": "sub-porthole",
+   "place": "600 m",
+   "kind": "world",
+   "motivation": "transition zone between twilight and darkness",
+   "pk": "sub-porthole|600 m"
+  },
+  {
+   "start": 181.4,
+   "end": 188.9,
+   "setting": "midnight-water",
+   "place": "~600-700 m dark water",
+   "kind": "world",
+   "motivation": "bioluminescence",
+   "pk": "midnight-water|~600-700 m dark water"
+  },
+  {
+   "start": 188.9,
+   "end": 199.9,
+   "setting": "inset-screen",
+   "place": "examples panel over dark water",
+   "kind": "board",
+   "motivation": "camouflage / mates / hunting",
+   "pk": "inset-screen|examples panel over dark water"
+  },
+  {
+   "start": 199.9,
+   "end": 227.4,
+   "setting": "midnight-water",
+   "place": "700 m dark water (siphonophore)",
+   "kind": "world",
+   "motivation": "at around 700 metres... siphonophores",
+   "pk": "midnight-water|700 m dark water (siphonophore)"
+  },
+  {
+   "start": 227.4,
+   "end": 239.9,
+   "setting": "marine-snow",
+   "place": "dark water with snow",
+   "kind": "world",
+   "motivation": "marine snow",
+   "pk": "marine-snow|dark water with snow"
+  },
+  {
+   "start": 239.9,
+   "end": 245.9,
+   "setting": "inset-screen",
+   "place": "snow ingredients panel",
+   "kind": "board",
+   "motivation": "ingredients listed",
+   "pk": "inset-screen|snow ingredients panel"
+  },
+  {
+   "start": 245.9,
+   "end": 254.9,
+   "setting": "abyss-seabed",
+   "place": "seabed with whale fall",
+   "kind": "world",
+   "motivation": "life in the deep sea would starve (dead animal parts)",
+   "pk": "abyss-seabed|seabed with whale fall"
+  },
+  {
+   "start": 254.9,
+   "end": 272.4,
+   "setting": "midnight-water",
+   "place": "dark water (giant squid vs sperm whale)",
+   "kind": "world",
+   "motivation": "sperm whales hunt giant squid",
+   "pk": "midnight-water|dark water (giant squid vs sperm whale)"
+  },
+  {
+   "start": 272.4,
+   "end": 278.9,
+   "setting": "cross-section",
+   "place": "1000 m vs Burj Khalifa",
+   "kind": "board",
+   "motivation": "deeper than the tallest structure",
+   "pk": "cross-section|1000 m vs Burj Khalifa"
+  },
+  {
+   "start": 278.9,
+   "end": 297.4,
+   "setting": "black-zone",
+   "place": "midnight zone 1000 m",
+   "kind": "world",
+   "motivation": "midnight zone... utter darkness",
+   "pk": "black-zone|midnight zone 1000 m"
+  },
+  {
+   "start": 297.4,
+   "end": 316.9,
+   "setting": "sub-porthole",
+   "place": "1005-1023 m",
+   "kind": "world",
+   "motivation": "food scarce / vampire squid",
+   "pk": "sub-porthole|1005-1023 m"
+  },
+  {
+   "start": 316.9,
+   "end": 322.9,
+   "setting": "inset-screen",
+   "place": "energy diagram",
+   "kind": "board",
+   "motivation": "energy efficiency",
+   "pk": "inset-screen|energy diagram"
+  },
+  {
+   "start": 322.9,
+   "end": 335.9,
+   "setting": "midnight-water",
+   "place": "dark spotlight (anglerfish)",
+   "kind": "world",
+   "motivation": "hunters... first strike",
+   "pk": "midnight-water|dark spotlight (anglerfish)"
+  },
+  {
+   "start": 335.9,
+   "end": 355.4,
+   "setting": "sub-porthole",
+   "place": "1200 m (viperfish / frilled shark)",
+   "kind": "world",
+   "motivation": "named predators",
+   "pk": "sub-porthole|1200 m (viperfish / frilled shark)"
+  },
+  {
+   "start": 355.4,
+   "end": 359.9,
+   "setting": "cross-section",
+   "place": "3800 m (Titanic)",
+   "kind": "board",
+   "motivation": "as deep as the grave of the Titanic",
+   "pk": "cross-section|3800 m (Titanic)"
+  },
+  {
+   "start": 359.9,
+   "end": 365.9,
+   "setting": "abyss-wreck",
+   "place": "Titanic wreck 3800 m",
+   "kind": "world",
+   "motivation": "abyssal depths",
+   "pk": "abyss-wreck|Titanic wreck 3800 m"
+  },
+  {
+   "start": 365.9,
+   "end": 395.9,
+   "setting": "abyss-water",
+   "place": "abyssal open water",
+   "kind": "world",
+   "motivation": "life happens in slow motion",
+   "pk": "abyss-water|abyssal open water"
+  },
+  {
+   "start": 395.9,
+   "end": 405.0,
+   "setting": "sub-porthole",
+   "place": "4000 m seafloor",
+   "kind": "world",
+   "motivation": "we finally reach ground",
+   "pk": "sub-porthole|4000 m seafloor"
+  },
+  {
+   "start": 405.0,
+   "end": 411.9,
+   "setting": "inset-screen",
+   "place": "seafloor animals panel",
+   "kind": "board",
+   "motivation": "sea cucumbers shrimp urchins worms",
+   "pk": "inset-screen|seafloor animals panel"
+  },
+  {
+   "start": 411.9,
+   "end": 428.0,
+   "setting": "abyssal-plain",
+   "place": "abyssal plain (top-down)",
+   "kind": "world",
+   "motivation": "manganese nodules",
+   "pk": "abyssal-plain|abyssal plain (top-down)"
+  },
+  {
+   "start": 428.0,
+   "end": 451.4,
+   "setting": "vent-field",
+   "place": "rift valley vents",
+   "kind": "world",
+   "motivation": "in the rift valleys... chimneys",
+   "pk": "vent-field|rift valley vents"
+  },
+  {
+   "start": 451.4,
+   "end": 471.9,
+   "setting": "cross-section",
+   "place": "abyssal plain to trench 6000 m",
+   "kind": "board",
+   "motivation": "deepest point of the abyssal plain",
+   "pk": "cross-section|abyssal plain to trench 6000 m"
+  },
+  {
+   "start": 471.9,
+   "end": 481.9,
+   "setting": "hadal-trench",
+   "place": "trench descent",
+   "kind": "world",
+   "motivation": "enter the hadal zone",
+   "pk": "hadal-trench|trench descent"
+  },
+  {
+   "start": 481.9,
+   "end": 496.4,
+   "setting": "sub-porthole",
+   "place": "8000 m+ (snailfish / black rocks)",
+   "kind": "world",
+   "motivation": "snailfish named",
+   "pk": "sub-porthole|8000 m+ (snailfish / black rocks)"
+  },
+  {
+   "start": 496.4,
+   "end": 500.9,
+   "setting": "cross-section",
+   "place": "trench 10200 m",
+   "kind": "board",
+   "motivation": "more than 10,000",
+   "pk": "cross-section|trench 10200 m"
+  },
+  {
+   "start": 500.9,
+   "end": 518.4,
+   "setting": "challenger-deep",
+   "place": "Challenger Deep floor 11000 m",
+   "kind": "world",
+   "motivation": "the deepest point",
+   "pk": "challenger-deep|Challenger Deep floor 11000 m"
+  },
+  {
+   "start": 518.4,
+   "end": 522.0,
+   "setting": "analogy-black",
+   "place": "-",
+   "kind": "analogy",
+   "motivation": "1,800 elephants on top of you",
+   "pk": "analogy-black|-"
+  },
+  {
+   "start": 522.0,
+   "end": 528.4,
+   "setting": "cross-section",
+   "place": "trench with elephant stack",
+   "kind": "board",
+   "motivation": "analogy placed back in trench",
+   "pk": "cross-section|trench with elephant stack"
+  },
+  {
+   "start": 528.4,
+   "end": 569.9,
+   "setting": "challenger-deep",
+   "place": "Challenger Deep floor (amphipods / plastic)",
+   "kind": "world",
+   "motivation": "amphipods / plastic bags named",
+   "pk": "challenger-deep|Challenger Deep floor (amphipods / plastic)"
+  },
+  {
+   "start": 569.9,
+   "end": 584.9,
+   "setting": "sub-porthole",
+   "place": "ascent 11000 m -> 0 m (montage)",
+   "kind": "world",
+   "motivation": "we begin our ascent",
+   "pk": "sub-porthole|ascent 11000 m -> 0 m (montage)"
+  },
+  {
+   "start": 584.9,
+   "end": 604.0,
+   "setting": "sub-porthole",
+   "place": "sea surface",
+   "kind": "world",
+   "motivation": "back at a calm surface",
+   "pk": "sub-porthole|sea surface"
+  }
+ ]
+}

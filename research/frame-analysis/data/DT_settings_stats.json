@@ -1,0 +1,1411 @@
+{
+ "runtime_s": 587.4,
+ "distinct_backdrops": 27,
+ "distinct_places": 47,
+ "backdrop_changes": 74,
+ "backdrop_changes_per_min": 7.56,
+ "place_or_backdrop_changes": 76,
+ "place_changes_per_min": 7.76,
+ "backdrop_hold_s": {
+  "n": 75,
+  "median": 6.5,
+  "p25": 4.0,
+  "p75": 8.8,
+  "max": 39.5
+ },
+ "place_hold_s": {
+  "n": 77,
+  "median": 6.0,
+  "p25": 4.0,
+  "p75": 8.5,
+  "max": 39.5
+ },
+ "world_place_hold_s": {
+  "n": 39,
+  "median": 6.5,
+  "p25": 4.2,
+  "p75": 9.2,
+  "max": 28.0
+ },
+ "shots": {
+  "hard_cuts_per_min": 5.92,
+  "transitions_per_min": 2.35,
+  "transition_dur_s": {
+   "median": 0.23,
+   "p25": 0.2,
+   "p75": 0.42,
+   "share_le_0p35s": 0.61
+  },
+  "shot_len_s": {
+   "median": 5.82,
+   "p25": 3.53,
+   "p75": 9.28,
+   "p90": 15.1
+  },
+  "comp_events_per_min": 2.45,
+  "visual_event_gap_s": {
+   "median": 4.43,
+   "p75": 6.97,
+   "p90": 10.0
+  }
+ },
+ "shots_per_backdrop_hold": {
+  "median": 1.0,
+  "mean": 1.4
+ },
+ "boundary_types_backdrop": {
+  "cut": 41,
+  "transition": 16,
+  "continuous": 17
+ },
+ "boundary_types_place": {
+  "cut": 43,
+  "transition": 16,
+  "continuous": 17
+ },
+ "runtime_share_by_kind": {
+  "analogy": 0.055,
+  "board": 0.46,
+  "stock": 0.031,
+  "world": 0.454
+ },
+ "distinct_backdrops_by_kind": {
+  "analogy": 6,
+  "board": 11,
+  "stock": 1,
+  "world": 10
+ },
+ "shot_boundaries_that_change_backdrop": 0.7,
+ "returns_to_backdrop": 48,
+ "top_backdrops": [
+  [
+   "dark-board",
+   0.311
+  ],
+  [
+   "surface-split",
+   0.12
+  ],
+  [
+   "open-blue",
+   0.116
+  ],
+  [
+   "dark-water",
+   0.101
+  ],
+  [
+   "stock",
+   0.031
+  ],
+  [
+   "menu",
+   0.03
+  ],
+  [
+   "dive-column",
+   0.029
+  ],
+  [
+   "split",
+   0.025
+  ]
+ ],
+ "backdrop_segments": [
+  {
+   "start": 0.5,
+   "end": 14.4,
+   "setting": "open-blue",
+   "place": "open ocean sunlit midwater",
+   "kind": "world",
+   "motivation": "narration places you: \"floating in the open ocean\""
+  },
+  {
+   "start": 14.4,
+   "end": 23.9,
+   "setting": "dark-water",
+   "place": "open ocean dim midwater",
+   "kind": "world",
+   "motivation": "mood: \"then you feel it\" (grade drops)"
+  },
+  {
+   "start": 23.9,
+   "end": 26.0,
+   "setting": "stock",
+   "place": "real sperm whale + diver",
+   "kind": "stock",
+   "motivation": "narration names the animal: \"that's a sperm whale\""
+  },
+  {
+   "start": 26.0,
+   "end": 29.4,
+   "setting": "dark-water",
+   "place": "open ocean dim midwater",
+   "kind": "world",
+   "motivation": "it already knows where you are"
+  },
+  {
+   "start": 29.4,
+   "end": 35.9,
+   "setting": "black-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "topic shift: dangerous whales list"
+  },
+  {
+   "start": 35.9,
+   "end": 42.4,
+   "setting": "stock",
+   "place": "coast humpback breach",
+   "kind": "stock",
+   "motivation": "narration names humpback breaching"
+  },
+  {
+   "start": 42.4,
+   "end": 45.4,
+   "setting": "surface-day",
+   "place": "sea surface + boat",
+   "kind": "world",
+   "motivation": "narration: whales flipped boats"
+  },
+  {
+   "start": 45.4,
+   "end": 58.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "claims list (abstract)"
+  },
+  {
+   "start": 58.9,
+   "end": 62.9,
+   "setting": "deep-rays",
+   "place": "deep open water with rays",
+   "kind": "world",
+   "motivation": "in the water with one"
+  },
+  {
+   "start": 62.9,
+   "end": 102.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "size/anatomy facts (scale bar bus elephants teeth)"
+  },
+  {
+   "start": 102.4,
+   "end": 110.9,
+   "setting": "split",
+   "place": "humpback mouth vs sperm whale",
+   "kind": "board",
+   "motivation": "comparison in narration"
+  },
+  {
+   "start": 110.9,
+   "end": 135.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "diet: squid specimens"
+  },
+  {
+   "start": 135.4,
+   "end": 140.4,
+   "setting": "stock",
+   "place": "real whale + freediver near surface",
+   "kind": "stock",
+   "motivation": "comes back up with proof"
+  },
+  {
+   "start": 140.4,
+   "end": 162.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "scars / stomach / receipt"
+  },
+  {
+   "start": 162.4,
+   "end": 171.9,
+   "setting": "dive-column",
+   "place": "water column 0-2000 m",
+   "kind": "world",
+   "motivation": "dive more than 2 km down"
+  },
+  {
+   "start": 171.9,
+   "end": 174.9,
+   "setting": "pool",
+   "place": "swimming pool",
+   "kind": "analogy",
+   "motivation": "in a swimming pool"
+  },
+  {
+   "start": 174.9,
+   "end": 179.9,
+   "setting": "dive-column",
+   "place": "water column 0-1000 m",
+   "kind": "world",
+   "motivation": "the deeper it goes the darker"
+  },
+  {
+   "start": 179.9,
+   "end": 183.9,
+   "setting": "black-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "no light at all... how does it find anything"
+  },
+  {
+   "start": 183.9,
+   "end": 192.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "head cutaway (spermaceti)"
+  },
+  {
+   "start": 192.4,
+   "end": 197.4,
+   "setting": "dark-water",
+   "place": "deep dark water",
+   "kind": "world",
+   "motivation": "a flashlight made of sound"
+  },
+  {
+   "start": 197.4,
+   "end": 204.9,
+   "setting": "sonar-screen",
+   "place": "-",
+   "kind": "board",
+   "motivation": "bounce off squid fish rocks"
+  },
+  {
+   "start": 204.9,
+   "end": 218.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "loudness meter"
+  },
+  {
+   "start": 218.9,
+   "end": 225.9,
+   "setting": "open-blue",
+   "place": "open ocean midwater (whale + diver)",
+   "kind": "world",
+   "motivation": "divers feel clicks (callback)"
+  },
+  {
+   "start": 225.9,
+   "end": 230.4,
+   "setting": "xray-scan",
+   "place": "-",
+   "kind": "board",
+   "motivation": "that was you being scanned"
+  },
+  {
+   "start": 230.4,
+   "end": 238.9,
+   "setting": "dark-water",
+   "place": "deep dark water with squid",
+   "kind": "world",
+   "motivation": "stun-prey theory"
+  },
+  {
+   "start": 238.9,
+   "end": 246.4,
+   "setting": "lab",
+   "place": "lab whiteboard",
+   "kind": "analogy",
+   "motivation": "scientists had to sit down"
+  },
+  {
+   "start": 246.4,
+   "end": 260.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "smart / largest brain"
+  },
+  {
+   "start": 260.4,
+   "end": 268.9,
+   "setting": "dark-water",
+   "place": "open water (family)",
+   "kind": "world",
+   "motivation": "family groups communicate"
+  },
+  {
+   "start": 268.9,
+   "end": 276.9,
+   "setting": "map",
+   "place": "Caribbean map (Dominica)",
+   "kind": "board",
+   "motivation": "narration names Dominica"
+  },
+  {
+   "start": 276.9,
+   "end": 285.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "codas alphabet dialects"
+  },
+  {
+   "start": 285.9,
+   "end": 294.9,
+   "setting": "open-blue",
+   "place": "open ocean midwater (whale scans diver)",
+   "kind": "world",
+   "motivation": "picture it again. you're in the water"
+  },
+  {
+   "start": 294.9,
+   "end": 299.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "translating joke"
+  },
+  {
+   "start": 299.4,
+   "end": 327.4,
+   "setting": "surface-split",
+   "place": "Pacific surface 1820 (Essex)",
+   "kind": "world",
+   "motivation": "turned it against people -> Essex"
+  },
+  {
+   "start": 327.4,
+   "end": 330.4,
+   "setting": "book-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Moby-Dick"
+  },
+  {
+   "start": 330.4,
+   "end": 341.9,
+   "setting": "surface-split",
+   "place": "surface 1851 (Ann Alexander)",
+   "kind": "world",
+   "motivation": "narration names second ship"
+  },
+  {
+   "start": 341.9,
+   "end": 349.9,
+   "setting": "dark-water",
+   "place": "open water (males fighting)",
+   "kind": "world",
+   "motivation": "battering-ram hypothesis"
+  },
+  {
+   "start": 349.9,
+   "end": 358.4,
+   "setting": "surface-split",
+   "place": "surface (ship hull / whaleboats)",
+   "kind": "world",
+   "motivation": "wrong shape to argue back"
+  },
+  {
+   "start": 358.4,
+   "end": 361.9,
+   "setting": "document-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "it was a complaint"
+  },
+  {
+   "start": 361.9,
+   "end": 369.9,
+   "setting": "deep-rays",
+   "place": "open water POV from above",
+   "kind": "world",
+   "motivation": "if a sperm whale came straight at you"
+  },
+  {
+   "start": 369.9,
+   "end": 373.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "options list"
+  },
+  {
+   "start": 373.4,
+   "end": 379.4,
+   "setting": "open-blue",
+   "place": "open water chase",
+   "kind": "world",
+   "motivation": "option 1 swim away"
+  },
+  {
+   "start": 379.4,
+   "end": 382.9,
+   "setting": "sonar-screen",
+   "place": "-",
+   "kind": "board",
+   "motivation": "tracking you with sound"
+  },
+  {
+   "start": 382.9,
+   "end": 386.9,
+   "setting": "analogy-room",
+   "place": "dark room full of eyes",
+   "kind": "analogy",
+   "motivation": "sneak out of a room that's watching you"
+  },
+  {
+   "start": 386.9,
+   "end": 388.9,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 2"
+  },
+  {
+   "start": 388.9,
+   "end": 391.4,
+   "setting": "dive-column",
+   "place": "descent",
+   "kind": "world",
+   "motivation": "dive down and hide"
+  },
+  {
+   "start": 391.4,
+   "end": 398.4,
+   "setting": "abyss-floor",
+   "place": "seafloor 2 km",
+   "kind": "world",
+   "motivation": "2 km below you... its kitchen"
+  },
+  {
+   "start": 398.4,
+   "end": 400.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 3"
+  },
+  {
+   "start": 400.4,
+   "end": 405.4,
+   "setting": "open-blue",
+   "place": "open water (still diver)",
+   "kind": "world",
+   "motivation": "stay perfectly still"
+  },
+  {
+   "start": 405.4,
+   "end": 409.4,
+   "setting": "xray-scan",
+   "place": "-",
+   "kind": "board",
+   "motivation": "hears the air in your lungs"
+  },
+  {
+   "start": 409.4,
+   "end": 411.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 4"
+  },
+  {
+   "start": 411.4,
+   "end": 413.9,
+   "setting": "surface-split",
+   "place": "surface daylight (splashing diver)",
+   "kind": "world",
+   "motivation": "splashing at the loudest animal"
+  },
+  {
+   "start": 413.9,
+   "end": 419.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "volume contest"
+  },
+  {
+   "start": 419.9,
+   "end": 427.9,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "verdict"
+  },
+  {
+   "start": 427.9,
+   "end": 432.9,
+   "setting": "sea-chart",
+   "place": "old parchment chart",
+   "kind": "analogy",
+   "motivation": "deep-sea monsters"
+  },
+  {
+   "start": 432.9,
+   "end": 441.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "diet pie chart"
+  },
+  {
+   "start": 441.4,
+   "end": 451.4,
+   "setting": "shallow-rays",
+   "place": "Dominica shallows with swimmers",
+   "kind": "world",
+   "motivation": "narration names Dominica swimmers"
+  },
+  {
+   "start": 451.4,
+   "end": 457.4,
+   "setting": "split",
+   "place": "fly room vs whale water",
+   "kind": "analogy",
+   "motivation": "as much as you want a fly gone"
+  },
+  {
+   "start": 457.4,
+   "end": 470.9,
+   "setting": "open-blue",
+   "place": "open water (sleeping family)",
+   "kind": "world",
+   "motivation": "vertical naps"
+  },
+  {
+   "start": 470.9,
+   "end": 474.9,
+   "setting": "dark-water",
+   "place": "dark water torch on sleepers",
+   "kind": "world",
+   "motivation": "eeriest things you could swim into"
+  },
+  {
+   "start": 474.9,
+   "end": 477.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "the real danger reversed"
+  },
+  {
+   "start": 477.9,
+   "end": 481.4,
+   "setting": "surface-whaling",
+   "place": "whaling ship 1700s-1800s",
+   "kind": "world",
+   "motivation": "whalers hunted for oil for centuries"
+  },
+  {
+   "start": 481.4,
+   "end": 492.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "population unit chart"
+  },
+  {
+   "start": 492.4,
+   "end": 497.9,
+   "setting": "surface-whaling",
+   "place": "steam whaler 1960s",
+   "kind": "world",
+   "motivation": "in the 1960s"
+  },
+  {
+   "start": 497.9,
+   "end": 503.9,
+   "setting": "document-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "moratorium"
+  },
+  {
+   "start": 503.9,
+   "end": 510.9,
+   "setting": "triptych",
+   "place": "ship strikes / fishing gear / noise",
+   "kind": "board",
+   "motivation": "three threats listed"
+  },
+  {
+   "start": 510.9,
+   "end": 515.4,
+   "setting": "stock",
+   "place": "aerial whale at surface",
+   "kind": "stock",
+   "motivation": "plastic / strandings"
+  },
+  {
+   "start": 515.4,
+   "end": 522.9,
+   "setting": "open-blue",
+   "place": "longline fishing (Alaska / Southern Ocean)",
+   "kind": "world",
+   "motivation": "narration names longlines + places"
+  },
+  {
+   "start": 522.9,
+   "end": 529.9,
+   "setting": "lineup",
+   "place": "police lineup",
+   "kind": "analogy",
+   "motivation": "caught stealing dinner"
+  },
+  {
+   "start": 529.9,
+   "end": 533.9,
+   "setting": "red-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "monster"
+  },
+  {
+   "start": 533.9,
+   "end": 538.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "ecosystem web"
+  },
+  {
+   "start": 538.4,
+   "end": 552.4,
+   "setting": "surface-split",
+   "place": "surface + sky (iron plume / plankton / CO2)",
+   "kind": "world",
+   "motivation": "come up to breathe... release waste near the surface"
+  },
+  {
+   "start": 552.4,
+   "end": 562.9,
+   "setting": "southern-ocean",
+   "place": "Southern Ocean surface",
+   "kind": "world",
+   "motivation": "narration names Southern Ocean"
+  },
+  {
+   "start": 562.9,
+   "end": 568.9,
+   "setting": "surface-split",
+   "place": "surface bloom",
+   "kind": "world",
+   "motivation": "gardening the ocean"
+  },
+  {
+   "start": 568.9,
+   "end": 575.4,
+   "setting": "open-blue",
+   "place": "open ocean (diver bookend)",
+   "kind": "world",
+   "motivation": "callback to opening line"
+  },
+  {
+   "start": 575.4,
+   "end": 587.9,
+   "setting": "dark-water",
+   "place": "2 km down in the dark",
+   "kind": "world",
+   "motivation": "2 km down in the dark... listening"
+  }
+ ],
+ "place_segments": [
+  {
+   "start": 0.5,
+   "end": 9.8,
+   "setting": "open-blue",
+   "place": "open ocean sunlit midwater",
+   "kind": "world",
+   "motivation": "narration places you: \"floating in the open ocean\"",
+   "pk": "open-blue|open ocean sunlit midwater"
+  },
+  {
+   "start": 9.8,
+   "end": 14.4,
+   "setting": "open-blue",
+   "place": "open ocean sunlit midwater (backlit)",
+   "kind": "world",
+   "motivation": "same place reframed for \"nothing is hunting you\"",
+   "pk": "open-blue|open ocean sunlit midwater (backlit)"
+  },
+  {
+   "start": 14.4,
+   "end": 23.9,
+   "setting": "dark-water",
+   "place": "open ocean dim midwater",
+   "kind": "world",
+   "motivation": "mood: \"then you feel it\" (grade drops)",
+   "pk": "dark-water|open ocean dim midwater"
+  },
+  {
+   "start": 23.9,
+   "end": 26.0,
+   "setting": "stock",
+   "place": "real sperm whale + diver",
+   "kind": "stock",
+   "motivation": "narration names the animal: \"that's a sperm whale\"",
+   "pk": "stock|real sperm whale + diver"
+  },
+  {
+   "start": 26.0,
+   "end": 29.4,
+   "setting": "dark-water",
+   "place": "open ocean dim midwater",
+   "kind": "world",
+   "motivation": "it already knows where you are",
+   "pk": "dark-water|open ocean dim midwater"
+  },
+  {
+   "start": 29.4,
+   "end": 35.9,
+   "setting": "black-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "topic shift: dangerous whales list",
+   "pk": "black-board|-"
+  },
+  {
+   "start": 35.9,
+   "end": 39.4,
+   "setting": "stock",
+   "place": "coast humpback breach",
+   "kind": "stock",
+   "motivation": "narration names humpback breaching",
+   "pk": "stock|coast humpback breach"
+  },
+  {
+   "start": 39.4,
+   "end": 42.4,
+   "setting": "stock",
+   "place": "orcas underwater",
+   "kind": "stock",
+   "motivation": "narration names orcas as apex predators",
+   "pk": "stock|orcas underwater"
+  },
+  {
+   "start": 42.4,
+   "end": 45.4,
+   "setting": "surface-day",
+   "place": "sea surface + boat",
+   "kind": "world",
+   "motivation": "narration: whales flipped boats",
+   "pk": "surface-day|sea surface + boat"
+  },
+  {
+   "start": 45.4,
+   "end": 58.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "claims list (abstract)",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 58.9,
+   "end": 62.9,
+   "setting": "deep-rays",
+   "place": "deep open water with rays",
+   "kind": "world",
+   "motivation": "in the water with one",
+   "pk": "deep-rays|deep open water with rays"
+  },
+  {
+   "start": 62.9,
+   "end": 102.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "size/anatomy facts (scale bar bus elephants teeth)",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 102.4,
+   "end": 110.9,
+   "setting": "split",
+   "place": "humpback mouth vs sperm whale",
+   "kind": "board",
+   "motivation": "comparison in narration",
+   "pk": "split|humpback mouth vs sperm whale"
+  },
+  {
+   "start": 110.9,
+   "end": 135.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "diet: squid specimens",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 135.4,
+   "end": 140.4,
+   "setting": "stock",
+   "place": "real whale + freediver near surface",
+   "kind": "stock",
+   "motivation": "comes back up with proof",
+   "pk": "stock|real whale + freediver near surface"
+  },
+  {
+   "start": 140.4,
+   "end": 162.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "scars / stomach / receipt",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 162.4,
+   "end": 171.9,
+   "setting": "dive-column",
+   "place": "water column 0-2000 m",
+   "kind": "world",
+   "motivation": "dive more than 2 km down",
+   "pk": "dive-column|water column 0-2000 m"
+  },
+  {
+   "start": 171.9,
+   "end": 174.9,
+   "setting": "pool",
+   "place": "swimming pool",
+   "kind": "analogy",
+   "motivation": "in a swimming pool",
+   "pk": "pool|swimming pool"
+  },
+  {
+   "start": 174.9,
+   "end": 179.9,
+   "setting": "dive-column",
+   "place": "water column 0-1000 m",
+   "kind": "world",
+   "motivation": "the deeper it goes the darker",
+   "pk": "dive-column|water column 0-1000 m"
+  },
+  {
+   "start": 179.9,
+   "end": 183.9,
+   "setting": "black-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "no light at all... how does it find anything",
+   "pk": "black-board|-"
+  },
+  {
+   "start": 183.9,
+   "end": 192.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "head cutaway (spermaceti)",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 192.4,
+   "end": 197.4,
+   "setting": "dark-water",
+   "place": "deep dark water",
+   "kind": "world",
+   "motivation": "a flashlight made of sound",
+   "pk": "dark-water|deep dark water"
+  },
+  {
+   "start": 197.4,
+   "end": 204.9,
+   "setting": "sonar-screen",
+   "place": "-",
+   "kind": "board",
+   "motivation": "bounce off squid fish rocks",
+   "pk": "sonar-screen|-"
+  },
+  {
+   "start": 204.9,
+   "end": 218.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "loudness meter",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 218.9,
+   "end": 225.9,
+   "setting": "open-blue",
+   "place": "open ocean midwater (whale + diver)",
+   "kind": "world",
+   "motivation": "divers feel clicks (callback)",
+   "pk": "open-blue|open ocean midwater (whale + diver)"
+  },
+  {
+   "start": 225.9,
+   "end": 230.4,
+   "setting": "xray-scan",
+   "place": "-",
+   "kind": "board",
+   "motivation": "that was you being scanned",
+   "pk": "xray-scan|-"
+  },
+  {
+   "start": 230.4,
+   "end": 238.9,
+   "setting": "dark-water",
+   "place": "deep dark water with squid",
+   "kind": "world",
+   "motivation": "stun-prey theory",
+   "pk": "dark-water|deep dark water with squid"
+  },
+  {
+   "start": 238.9,
+   "end": 246.4,
+   "setting": "lab",
+   "place": "lab whiteboard",
+   "kind": "analogy",
+   "motivation": "scientists had to sit down",
+   "pk": "lab|lab whiteboard"
+  },
+  {
+   "start": 246.4,
+   "end": 260.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "smart / largest brain",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 260.4,
+   "end": 268.9,
+   "setting": "dark-water",
+   "place": "open water (family)",
+   "kind": "world",
+   "motivation": "family groups communicate",
+   "pk": "dark-water|open water (family)"
+  },
+  {
+   "start": 268.9,
+   "end": 276.9,
+   "setting": "map",
+   "place": "Caribbean map (Dominica)",
+   "kind": "board",
+   "motivation": "narration names Dominica",
+   "pk": "map|Caribbean map (Dominica)"
+  },
+  {
+   "start": 276.9,
+   "end": 285.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "codas alphabet dialects",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 285.9,
+   "end": 294.9,
+   "setting": "open-blue",
+   "place": "open ocean midwater (whale scans diver)",
+   "kind": "world",
+   "motivation": "picture it again. you're in the water",
+   "pk": "open-blue|open ocean midwater (whale scans diver)"
+  },
+  {
+   "start": 294.9,
+   "end": 299.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "translating joke",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 299.4,
+   "end": 327.4,
+   "setting": "surface-split",
+   "place": "Pacific surface 1820 (Essex)",
+   "kind": "world",
+   "motivation": "turned it against people -> Essex",
+   "pk": "surface-split|Pacific surface 1820 (Essex)"
+  },
+  {
+   "start": 327.4,
+   "end": 330.4,
+   "setting": "book-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "Moby-Dick",
+   "pk": "book-card|-"
+  },
+  {
+   "start": 330.4,
+   "end": 341.9,
+   "setting": "surface-split",
+   "place": "surface 1851 (Ann Alexander)",
+   "kind": "world",
+   "motivation": "narration names second ship",
+   "pk": "surface-split|surface 1851 (Ann Alexander)"
+  },
+  {
+   "start": 341.9,
+   "end": 349.9,
+   "setting": "dark-water",
+   "place": "open water (males fighting)",
+   "kind": "world",
+   "motivation": "battering-ram hypothesis",
+   "pk": "dark-water|open water (males fighting)"
+  },
+  {
+   "start": 349.9,
+   "end": 358.4,
+   "setting": "surface-split",
+   "place": "surface (ship hull / whaleboats)",
+   "kind": "world",
+   "motivation": "wrong shape to argue back",
+   "pk": "surface-split|surface (ship hull / whaleboats)"
+  },
+  {
+   "start": 358.4,
+   "end": 361.9,
+   "setting": "document-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "it was a complaint",
+   "pk": "document-card|-"
+  },
+  {
+   "start": 361.9,
+   "end": 369.9,
+   "setting": "deep-rays",
+   "place": "open water POV from above",
+   "kind": "world",
+   "motivation": "if a sperm whale came straight at you",
+   "pk": "deep-rays|open water POV from above"
+  },
+  {
+   "start": 369.9,
+   "end": 373.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "options list",
+   "pk": "menu|-"
+  },
+  {
+   "start": 373.4,
+   "end": 379.4,
+   "setting": "open-blue",
+   "place": "open water chase",
+   "kind": "world",
+   "motivation": "option 1 swim away",
+   "pk": "open-blue|open water chase"
+  },
+  {
+   "start": 379.4,
+   "end": 382.9,
+   "setting": "sonar-screen",
+   "place": "-",
+   "kind": "board",
+   "motivation": "tracking you with sound",
+   "pk": "sonar-screen|-"
+  },
+  {
+   "start": 382.9,
+   "end": 386.9,
+   "setting": "analogy-room",
+   "place": "dark room full of eyes",
+   "kind": "analogy",
+   "motivation": "sneak out of a room that's watching you",
+   "pk": "analogy-room|dark room full of eyes"
+  },
+  {
+   "start": 386.9,
+   "end": 388.9,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 2",
+   "pk": "menu|-"
+  },
+  {
+   "start": 388.9,
+   "end": 391.4,
+   "setting": "dive-column",
+   "place": "descent",
+   "kind": "world",
+   "motivation": "dive down and hide",
+   "pk": "dive-column|descent"
+  },
+  {
+   "start": 391.4,
+   "end": 398.4,
+   "setting": "abyss-floor",
+   "place": "seafloor 2 km",
+   "kind": "world",
+   "motivation": "2 km below you... its kitchen",
+   "pk": "abyss-floor|seafloor 2 km"
+  },
+  {
+   "start": 398.4,
+   "end": 400.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 3",
+   "pk": "menu|-"
+  },
+  {
+   "start": 400.4,
+   "end": 405.4,
+   "setting": "open-blue",
+   "place": "open water (still diver)",
+   "kind": "world",
+   "motivation": "stay perfectly still",
+   "pk": "open-blue|open water (still diver)"
+  },
+  {
+   "start": 405.4,
+   "end": 409.4,
+   "setting": "xray-scan",
+   "place": "-",
+   "kind": "board",
+   "motivation": "hears the air in your lungs",
+   "pk": "xray-scan|-"
+  },
+  {
+   "start": 409.4,
+   "end": 411.4,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "option 4",
+   "pk": "menu|-"
+  },
+  {
+   "start": 411.4,
+   "end": 413.9,
+   "setting": "surface-split",
+   "place": "surface daylight (splashing diver)",
+   "kind": "world",
+   "motivation": "splashing at the loudest animal",
+   "pk": "surface-split|surface daylight (splashing diver)"
+  },
+  {
+   "start": 413.9,
+   "end": 419.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "volume contest",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 419.9,
+   "end": 427.9,
+   "setting": "menu",
+   "place": "-",
+   "kind": "board",
+   "motivation": "verdict",
+   "pk": "menu|-"
+  },
+  {
+   "start": 427.9,
+   "end": 432.9,
+   "setting": "sea-chart",
+   "place": "old parchment chart",
+   "kind": "analogy",
+   "motivation": "deep-sea monsters",
+   "pk": "sea-chart|old parchment chart"
+  },
+  {
+   "start": 432.9,
+   "end": 441.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "diet pie chart",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 441.4,
+   "end": 451.4,
+   "setting": "shallow-rays",
+   "place": "Dominica shallows with swimmers",
+   "kind": "world",
+   "motivation": "narration names Dominica swimmers",
+   "pk": "shallow-rays|Dominica shallows with swimmers"
+  },
+  {
+   "start": 451.4,
+   "end": 457.4,
+   "setting": "split",
+   "place": "fly room vs whale water",
+   "kind": "analogy",
+   "motivation": "as much as you want a fly gone",
+   "pk": "split|fly room vs whale water"
+  },
+  {
+   "start": 457.4,
+   "end": 470.9,
+   "setting": "open-blue",
+   "place": "open water (sleeping family)",
+   "kind": "world",
+   "motivation": "vertical naps",
+   "pk": "open-blue|open water (sleeping family)"
+  },
+  {
+   "start": 470.9,
+   "end": 474.9,
+   "setting": "dark-water",
+   "place": "dark water torch on sleepers",
+   "kind": "world",
+   "motivation": "eeriest things you could swim into",
+   "pk": "dark-water|dark water torch on sleepers"
+  },
+  {
+   "start": 474.9,
+   "end": 477.9,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "the real danger reversed",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 477.9,
+   "end": 481.4,
+   "setting": "surface-whaling",
+   "place": "whaling ship 1700s-1800s",
+   "kind": "world",
+   "motivation": "whalers hunted for oil for centuries",
+   "pk": "surface-whaling|whaling ship 1700s-1800s"
+  },
+  {
+   "start": 481.4,
+   "end": 492.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "population unit chart",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 492.4,
+   "end": 497.9,
+   "setting": "surface-whaling",
+   "place": "steam whaler 1960s",
+   "kind": "world",
+   "motivation": "in the 1960s",
+   "pk": "surface-whaling|steam whaler 1960s"
+  },
+  {
+   "start": 497.9,
+   "end": 503.9,
+   "setting": "document-card",
+   "place": "-",
+   "kind": "board",
+   "motivation": "moratorium",
+   "pk": "document-card|-"
+  },
+  {
+   "start": 503.9,
+   "end": 510.9,
+   "setting": "triptych",
+   "place": "ship strikes / fishing gear / noise",
+   "kind": "board",
+   "motivation": "three threats listed",
+   "pk": "triptych|ship strikes / fishing gear / noise"
+  },
+  {
+   "start": 510.9,
+   "end": 515.4,
+   "setting": "stock",
+   "place": "aerial whale at surface",
+   "kind": "stock",
+   "motivation": "plastic / strandings",
+   "pk": "stock|aerial whale at surface"
+  },
+  {
+   "start": 515.4,
+   "end": 522.9,
+   "setting": "open-blue",
+   "place": "longline fishing (Alaska / Southern Ocean)",
+   "kind": "world",
+   "motivation": "narration names longlines + places",
+   "pk": "open-blue|longline fishing (Alaska / Southern Ocean)"
+  },
+  {
+   "start": 522.9,
+   "end": 529.9,
+   "setting": "lineup",
+   "place": "police lineup",
+   "kind": "analogy",
+   "motivation": "caught stealing dinner",
+   "pk": "lineup|police lineup"
+  },
+  {
+   "start": 529.9,
+   "end": 533.9,
+   "setting": "red-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "monster",
+   "pk": "red-board|-"
+  },
+  {
+   "start": 533.9,
+   "end": 538.4,
+   "setting": "dark-board",
+   "place": "-",
+   "kind": "board",
+   "motivation": "ecosystem web",
+   "pk": "dark-board|-"
+  },
+  {
+   "start": 538.4,
+   "end": 552.4,
+   "setting": "surface-split",
+   "place": "surface + sky (iron plume / plankton / CO2)",
+   "kind": "world",
+   "motivation": "come up to breathe... release waste near the surface",
+   "pk": "surface-split|surface + sky (iron plume / plankton / CO2)"
+  },
+  {
+   "start": 552.4,
+   "end": 562.9,
+   "setting": "southern-ocean",
+   "place": "Southern Ocean surface",
+   "kind": "world",
+   "motivation": "narration names Southern Ocean",
+   "pk": "southern-ocean|Southern Ocean surface"
+  },
+  {
+   "start": 562.9,
+   "end": 568.9,
+   "setting": "surface-split",
+   "place": "surface bloom",
+   "kind": "world",
+   "motivation": "gardening the ocean",
+   "pk": "surface-split|surface bloom"
+  },
+  {
+   "start": 568.9,
+   "end": 575.4,
+   "setting": "open-blue",
+   "place": "open ocean (diver bookend)",
+   "kind": "world",
+   "motivation": "callback to opening line",
+   "pk": "open-blue|open ocean (diver bookend)"
+  },
+  {
+   "start": 575.4,
+   "end": 587.9,
+   "setting": "dark-water",
+   "place": "2 km down in the dark",
+   "kind": "world",
+   "motivation": "2 km down in the dark... listening",
+   "pk": "dark-water|2 km down in the dark"
+  }
+ ]
+}
