@@ -1,4 +1,6 @@
 """Find and repair one-frame render glitches in a three-lane render (our own code).
+Two tests: a frame far from both neighbours while they match each other (a flash), and a frame whose self-similarity
+at 1/2..1/6 of its size jumps above both neighbours' (a tiled mosaic, even inside a whip where neighbours differ).
 
 Chrome's GPU screenshot on the Mac (--gl=angle) now and then returns a frame tiled into a mosaic (story-vasa v1/v2:
 about 7 in 1,900 frames). A glitch frame differs strongly from both neighbours while the neighbours match each other.
@@ -19,6 +21,19 @@ def glitch_frames(path, ratio=2.5, floor=3.0):
             break
         small.append(cv2.resize(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), (90, 160)).astype(np.float32))
     out = []
+    # a mosaic tile repeats itself: its self-similarity at 1/2..1/6 of the frame jumps above both neighbours'
+    # (story-vasa v8: 0.34 above them for the two glitches, under 0.09 for every real frame)
+    def period(g):
+        H, W = g.shape; sd = np.abs(g - g.mean()).mean() + 1e-3; best = 0.0
+        for k in (2, 3, 4, 5, 6):
+            sh = H // k; best = max(best, 1 - np.abs(g[:-sh] - g[sh:]).mean() / sd)
+        for k in (2, 3, 4):
+            sh = W // k; best = max(best, 1 - np.abs(g[:, :-sh] - g[:, sh:]).mean() / sd)
+        return best
+    per = [period(g) for g in small]
+    for i in range(1, len(small) - 1):
+        if per[i] - max(per[i - 1], per[i + 1]) > 0.2:
+            out.append(i)
     if len(small) > 2:   # frame 0 has no left neighbour: compare it with frames 1 and 2
         a0 = np.abs(small[0] - small[1]).mean(); c0 = np.abs(small[1] - small[2]).mean()
         if a0 > floor and a0 > ratio * max(c0, 1.0):
@@ -28,7 +43,7 @@ def glitch_frames(path, ratio=2.5, floor=3.0):
         c = np.abs(small[i - 1] - small[i + 1]).mean()
         if min(a, b) > floor and min(a, b) > ratio * max(c, 1.0):
             out.append(i)
-    return out, len(small)
+    return sorted(set(out)), len(small)
 
 def main():
     ap = argparse.ArgumentParser()
