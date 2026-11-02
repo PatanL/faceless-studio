@@ -85,7 +85,8 @@ def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset
         c += 9                                   # a number never ends a page before what it counts ("seventy-two | cannons")
     if nn == "of" or (nn == "and" and ln in NUMWORDS):
         c += 6                                   # "decks | of guns", "a hundred | and twenty": the phrase goes on
-    if ln in STRICT_WEAK and not (ln in PRONOUN_OBJ and prev_verb):
+    particle_done = ln in OBJ_ADVERB and n >= 2 and _n(ws[-2]) in PRONOUN_OBJ     # "rolled her over" completes the verb
+    if ln in STRICT_WEAK and not (ln in PRONOUN_OBJ and prev_verb) and not particle_done:
         c += 9.5                                 # never end on a connecting word ("play it" may end a page)
     if (ln, nn) in pairs:
         c += 9                                   # a glued phrase

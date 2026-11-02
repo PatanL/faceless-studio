@@ -7,7 +7,7 @@
  *
  * props
  *   costume   kempelen | empress | courtier | courtier2 | count | franklin | napoleon | master | plain |
- *             sailor | sailor2 | admiral | captain | king | shipwright | citizen | citizen2 (1620s Sweden)
+ *             sailor | sailor2 | admiral | captain | king | shipwright | citizen | citizen2 | judge (1620s Sweden)
  *   face      neutral | smile | grin | smug | laugh | shock | worried | frown | angry | focus | sleepy
  *             (constant or [{t, v}] held from t)
  *   pose      stand | point | hold | holdHigh | armsUp | laugh | shrug | push | reach | handIn | wind | hips | sweep
@@ -75,6 +75,8 @@ const COSTUMES: Record<string, Costume> = {
 		hair: 'updo', hairColor: c('ochre-0'), gown: c('kelp-1'), gownShade: c('kelp-0')},
 	citizen2: {coat: c('amber-1'), coatShade: c('amber-0'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'brim',
 		hair: 'short', hairColor: c('ink-1')},
+	judge: {coat: c('ink-1'), coatShade: c('ink-0'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'none',
+		hair: 'side', hairColor: c('bone-0')},
 };
 
 // ------------------------------------------------------------------ geometry (600 x 700 box)

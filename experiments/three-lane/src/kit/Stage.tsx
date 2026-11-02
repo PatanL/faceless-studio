@@ -26,6 +26,8 @@ export type PersonSpec = {
   id: string; flip?: boolean; scale?: number;
   /** false: a flat card facing +z turned by yaw (a portrait, a sign), no contact shadow */
   billboard?: boolean; yaw?: number;
+  /** turn the drawing to face this point on screen (the card mirrors when the camera sees the scene from behind) */
+  faceTo?: (t: number) => V3;
   at: (t: number) => V3;
   props: (t: number) => Record<string, unknown>;
   visible?: (t: number) => boolean;
@@ -106,6 +108,14 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     rec.card.visible = p.visible ? p.visible(t) : true;
     const [x, y, z] = p.at(t);
     rec.card.place(x, y, z, cam, p.yaw ?? 0);
+    if (p.faceTo) {
+      // the drawing faces right; mirror it when the target is to the figure's left on screen
+      const [tx, , tz] = p.faceTo(t);
+      const right = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0);
+      const side = (tx - x) * right.x + (tz - z) * right.z;
+      const base = p.flip ? -1 : 1;                         // the texture is already mirrored when flip is set
+      rec.card.group.scale.x = (side >= 0 ? 1 : -1) * base;
+    }
     rec.card.char = p.char ? p.char(t) : 0;
   });
   for (const r of world.rigs) r(t, cam);

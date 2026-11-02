@@ -12,36 +12,39 @@ const W = 1080, H = 1920;
 const ink = "#1b1240", cream = "#fff2c0", red = "#e0442e";
 const font = '"Anton", Impact, sans-serif';
 
-/** a ship's clinometer: a half dial, the 14 degree mark where the lower gun ports reach the water, a swinging needle */
+/** a ship's clinometer on its own plate (it must read over masts and heads): a half dial with red danger zones on both
+ * sides from 14 degrees (the lower gun ports reach the water), a swinging needle and a large readout */
 const RollGauge: React.FC<{ heel: number; o: number }> = ({ heel, o }) => {
   const deg = (heel * 180) / Math.PI;
-  const R = 120, cx = 150, cy = 140;
+  const R = 112, cx = 150, cy = 136;
   const pt = (a: number, r: number) => [cx + r * Math.sin((a * Math.PI) / 180), cy - r * Math.cos((a * Math.PI) / 180)];
   const arc = (a0: number, a1: number, r: number) => { const [x0, y0] = pt(a0, r), [x1, y1] = pt(a1, r); return `M ${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1}`; };
   const [nx, ny] = pt(Math.max(-60, Math.min(60, deg)), R - 12);
-  const danger = deg >= 14;
+  const danger = Math.abs(deg) >= 14;
   return (
-    <svg width={300} height={190} viewBox="0 0 300 190" style={{ position: "absolute", left: W - 330, top: 350, opacity: o, overflow: "visible" }}>
-      <path d={`${arc(-60, 60, R)} L ${cx} ${cy} Z`} fill="rgba(27, 18, 64, 0.88)" stroke={cream} strokeWidth={5} />
-      <path d={arc(14, 60, R - 10)} stroke={red} strokeWidth={16} fill="none" />
-      {[-45, -30, -15, 0, 15, 30, 45].map((a) => { const [x0, y0] = pt(a, R - 24), [x1, y1] = pt(a, R - 4); return <line key={a} x1={x0} y1={y0} x2={x1} y2={y1} stroke={cream} strokeWidth={a === 0 ? 5 : 3} />; })}
-      <line x1={cx} y1={cy} x2={nx} y2={ny} stroke={danger ? red : cream} strokeWidth={8} strokeLinecap="round" />
+    <svg width={300} height={230} viewBox="0 0 300 230" style={{ position: "absolute", left: W - 340, top: 350, opacity: o, overflow: "visible" }}>
+      <rect x={10} y={4} width={280} height={222} rx={34} fill="rgba(27, 18, 64, 0.92)" stroke={cream} strokeWidth={5} />
+      <path d={arc(14, 60, R - 8)} stroke={red} strokeWidth={16} fill="none" />
+      <path d={arc(-60, -14, R - 8)} stroke={red} strokeWidth={16} fill="none" />
+      {[-45, -30, -15, 0, 15, 30, 45].map((a) => { const [x0, y0] = pt(a, R - 26), [x1, y1] = pt(a, R - 2); return <line key={a} x1={x0} y1={y0} x2={x1} y2={y1} stroke={cream} strokeWidth={a === 0 ? 5 : 3} />; })}
+      <line x1={cx} y1={cy} x2={nx} y2={ny} stroke={danger ? red : cream} strokeWidth={9} strokeLinecap="round" />
       <circle cx={cx} cy={cy} r={12} fill={cream} />
-      <text x={cx} y={cy + 44} textAnchor="middle" fontFamily={font} fontSize={38} fill={danger ? red : cream} letterSpacing={2}>{`${Math.abs(deg).toFixed(0)}°`}</text>
+      <text x={cx} y={cy + 72} textAnchor="middle" fontFamily={font} fontSize={60} fill={danger ? red : cream} letterSpacing={2}>{`${Math.abs(deg).toFixed(0)}°`}</text>
     </svg>
   );
 };
 
-/** distance sailed: a small ship marker running along a line to the point where she sank */
+/** distance sailed: a ship marker running along a track that ends where she sank (1,300 m) */
 const Distance: React.FC<{ m: number; o: number }> = ({ m, o }) => {
   const k = m / 1300;
   return (
-    <div style={{ position: "absolute", left: 60, top: 350, width: 520, height: 120, opacity: o }}>
-      <div style={{ position: "absolute", left: 0, top: 0, padding: "6px 22px", borderRadius: 40, background: "rgba(27, 18, 64, 0.88)", border: `4px solid ${cream}`,
-        fontFamily: font, fontSize: 52, color: k >= 1 ? red : cream, letterSpacing: 2 }}>{`${Math.round(m).toLocaleString("en-US")} m`}</div>
-      <div style={{ position: "absolute", left: 10, top: 96, width: 480, height: 8, borderRadius: 4, background: "rgba(27, 18, 64, 0.7)" }} />
-      <div style={{ position: "absolute", left: 10, top: 96, width: 480 * k, height: 8, borderRadius: 4, background: cream }} />
-      <div style={{ position: "absolute", left: 10 + 480 * k - 14, top: 84, width: 28, height: 28, borderRadius: 14, background: k >= 1 ? red : cream, border: `4px solid ${ink}` }} />
+    <div style={{ position: "absolute", left: 50, top: 350, width: 560, height: 150, opacity: o, background: "rgba(27, 18, 64, 0.88)", borderRadius: 30, border: `4px solid ${cream}` }}>
+      <div style={{ position: "absolute", left: 24, top: 10, fontFamily: font, fontSize: 30, color: cream, letterSpacing: 3 }}>DISTANCE SAILED</div>
+      <div style={{ position: "absolute", right: 24, top: 6, fontFamily: font, fontSize: 48, color: k >= 1 ? red : cream, letterSpacing: 2 }}>{`${Math.round(m).toLocaleString("en-US")} m`}</div>
+      <div style={{ position: "absolute", left: 24, top: 100, width: 470, height: 10, borderRadius: 5, background: "rgba(255, 242, 192, 0.25)" }} />
+      <div style={{ position: "absolute", left: 24, top: 100, width: 470 * k, height: 10, borderRadius: 5, background: cream }} />
+      <div style={{ position: "absolute", left: 24 + 470 * k - 15, top: 90, width: 30, height: 30, borderRadius: 15, background: k >= 1 ? red : cream, border: `4px solid ${ink}` }} />
+      <div style={{ position: "absolute", left: 24 + 470 - 4, top: 84, width: 8, height: 42, background: red, borderRadius: 4 }} />
     </div>
   );
 };

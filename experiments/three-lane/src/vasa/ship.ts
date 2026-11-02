@@ -152,7 +152,7 @@ export class Ship {
       const m = new THREE.Mesh(g, sail); m.rotation.y = Math.PI / 2; m.position.set(x + 0.3, yTop, 0); m.castShadow = true; this.rig.add(m); this.sails.push(m);
     };
     const yF = mast(13, 38, 0.55), yM = mast(1.5, 46, 0.7), yZ = mast(-13, 28, 0.45);
-    const bow = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.4, 16, 8), wood); bow.rotation.z = Math.PI / 2 - 0.45; bow.position.set(-X0 + 5, 9, 0); this.rig.add(bow);
+    const bow = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.4, 16, 8), wood); bow.rotation.z = -(Math.PI / 2 - 0.45); bow.position.set(-X0 + 5.5, 8.2, 0); this.rig.add(bow);
     yard(13, yF + 16, 15); yard(13, yF + 29, 10); yard(1.5, yM + 18, 18); yard(1.5, yM + 33, 12); yard(-13, yZ + 14, 9);
     addSail(13, yF + 16, 14, 12); addSail(13, yF + 29, 9.5, 11); addSail(1.5, yM + 33, 11.5, 12); addSail(-13, yZ + 14, 8.5, 9);
     // shrouds (a few lines down to the rail)

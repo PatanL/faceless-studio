@@ -67,7 +67,7 @@ export function harbourSet(o: { cannonsOnQuay?: boolean } = {}): SetBuild {
   }
   const key = makeKey(root, [-60, 70, 50], [10, 0, 0], 60);
   key.shadow.camera.far = 300;
-  return { root, key, glows, sky, extra: { water, hanging, line }, fogScale: 9 };
+  return { root, key, glows, sky, extra: { water, hanging, line }, fogScale: 16 };
 }
 
 /** the king's camp in Poland: a striped command tent, a field table, banners, distant tents, a campfire */

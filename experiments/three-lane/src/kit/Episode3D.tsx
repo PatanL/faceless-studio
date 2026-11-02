@@ -112,22 +112,24 @@ export function Episode3D<S extends Story>({ storyboard, build, overlays }: {
   );
 }
 
-/** place changes are whip pans, not dissolves (v1 review: every cross-dissolve ghosted one place over the other): the
- * outgoing shot whips off to the left with a motion smear while the incoming one whips in from the right and covers
- * it within the first frames, so no double exposure is ever readable */
+/** place changes are whip pans, never dissolves (v1/v4 review: any opacity blend ghosted one place over the other):
+ * the outgoing shot smears out (blur rising, a slight push) up to the cut point, the incoming shot starts there fully
+ * smeared and sharpens. The two are never drawn at once, so no frame mixes two places. */
 const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }> = ({ g, from, total, nOut }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
-  const n = Math.round(g.xfade * fps);
-  const ein = n > 0 ? Math.min(1, (frame + 1) / (n + 1)) : 1;                       // 0..1 through the incoming whip
-  const eout = nOut > 0 ? Math.max(0, (frame - (total - nOut)) / nOut) : 0;          // 0..1 through the outgoing whip
-  const easeIn = 1 - Math.pow(1 - ein, 3), easeOut = eout * eout;
-  // a short travel with a heavy smear: the eye reads a whip, the frame-difference reads a transition, not a jump
-  const x = (1 - easeIn) * width * 0.16 - easeOut * width * 0.16;
-  const blur = Math.max((1 - easeIn) * 30, easeOut * 30);
-  const o = n > 0 ? Math.min(1, ein * 1.6) : 1;
+  const n = Math.round(g.xfade * 30);
+  const half = Math.floor(n / 2);
+  const outHalf = nOut - Math.floor(nOut / 2);
+  // incoming: hidden for its first half (the outgoing shot is still smearing), then sharpens over the second half
+  if (n > 0 && frame < half) return null;
+  if (nOut > 0 && frame >= total - outHalf) return null;
+  const uin = n > 0 ? Math.min(1, (frame - half + 1) / Math.max(1, n - half)) : 1;           // 0..1 sharpening
+  const uout = nOut > 0 ? Math.max(0, (frame - (total - nOut)) / Math.max(1, nOut - outHalf)) : 0;   // 0..1 smearing
+  const blur = Math.max((1 - uin) * 26, uout * 26);
+  const sc = 1 + Math.max((1 - uin) * 0.06, uout * 0.06);
+  const style: React.CSSProperties = blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `scale(${sc.toFixed(3)})` } : {};
   return (
-    <AbsoluteFill style={{ opacity: o, transform: x ? `translateX(${x.toFixed(1)}px)` : undefined, filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined }}>
+    <AbsoluteFill style={style}>
       <Stage g={g} fromFrame={from} />
     </AbsoluteFill>
   );

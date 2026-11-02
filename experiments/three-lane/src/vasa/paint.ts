@@ -123,6 +123,8 @@ export function skylineTex(seed = 11) {
   spire(620, 230); spire(1380, 260);
   // the castle: a broad block with a round-topped tower
   g.fillStyle = "#e8dcc0"; g.fillRect(900, 190, 300, 240); g.strokeStyle = "#2a2238"; g.strokeRect(900, 190, 300, 240);
+  g.fillStyle = "#3c3550"; for (let wy = 215; wy < 410; wy += 40) for (let wx = 918; wx < 1185; wx += 30) g.fillRect(wx, wy, 14, 22);
+  g.fillStyle = "#8c3a2c"; g.fillRect(890, 180, 320, 14);
   g.fillStyle = "#5a5f7a"; g.fillRect(990, 70, 120, 120); g.beginPath(); g.arc(1050, 70, 60, Math.PI, 0); g.fill();
   g.fillStyle = "#e6b33c"; g.fillRect(1044, -2, 12, 30);
   return toTex(c);

@@ -55,9 +55,9 @@ const RUNS = (t0: number, dur: number, n: number) => (t: number) => {
   return i % 2 === 0 ? -1 + 2 * f : 1 - 2 * f;
 };
 /** the ship answers the crowd with a lag, each run rocking her harder */
-const heelFromRuns = (runs: (t: number) => number, t0: number, dur: number, gain: number) => (t: number) => {
+const heelFromRuns = (runs: (t: number) => number, t0: number, dur: number, gain: number, tPeak?: number) => (t: number) => {
   const lagged = runs(t - 0.35);
-  const n = clamp01((t - t0) / (dur * 3));
+  const n = clamp01((t - t0) / ((tPeak ?? t0 + dur * 3) - t0));
   return lagged * (0.03 + gain * n);
 };
 
@@ -155,16 +155,16 @@ export function buildStory(T: Timing): VasaStory {
   const runners: { id: string; costume: string; x: number; dz: number }[] =
     [-6.8, -5.6, -4.4, -3.2, -2.0, -0.6, 3.4, 4.6, 5.8, 7.0, 8.2, 9.4, 10.6, 11.8].map((x, i) => ({ id: `s${i + 1}`, costume: i % 2 ? "sailor2" : "sailor", x, dz: ((i * 37) % 7) / 7 - 0.5 }));
   const deckGroup = (id: string, t0: number, t1: number, xfade: number, runT0: number, runDur: number, nRuns: number, gain: number,
-    stopAt: number, cams: (st: (t: number) => ShipState, at: (r: typeof runners[0], t: number) => V3, oth: (t: number) => Box[]) => GroupSpec["cam"], admiral: Partial<PersonSpec> = {}): GroupSpec => {
+    stopAt: number, tPeak: number | undefined, cams: (st: (t: number) => ShipState, at: (r: typeof runners[0], t: number) => V3, oth: (t: number) => Box[]) => GroupSpec["cam"], admiral: Partial<PersonSpec> = {}): GroupSpec => {
     const runs = RUNS(runT0, runDur, nRuns);
-    const heel = heelFromRuns(runs, runT0, runDur, gain);
+    const heel = heelFromRuns(runs, runT0, runDur, gain, tPeak);
     const st = (t: number): ShipState => ({ heel: heel(t), lids: 0, sails: 0 });
     const at = (r: typeof runners[0], t: number): V3 => {
       const zz = runs(t) * (halfW(uOf(r.x), deckY(r.x)) - 1.3) + r.dz;
       return shipPt(st(t), [r.x, deckY(r.x), zz]);
     };
     const hold: { ship?: Ship } = {};
-    const ADM: V3 = [-9.6, 0, 1.4], CAPT: V3 = [-9.6, 0, -1.6];
+    const ADM: V3 = [-9.6, 0, 1.4], CAPT: V3 = [-11.4, 0, -2.4];
     const oth = (t: number): Box[] => [...runners.map((r) => personBox(at(r, t))), personBox(shipPt(st(t), [ADM[0], deckY(ADM[0]), ADM[2]])), personBox(shipPt(st(t), [CAPT[0], deckY(CAPT[0]), CAPT[2]]))];
     return {
       id, t0, t1, xfade, set: () => harbourSet(), light: "day",
@@ -193,12 +193,14 @@ export function buildStory(T: Timing): VasaStory {
 
   // ================= G1 the test: thirty sailors run across her until she nearly rolls over
   const navy = w(0, "navy") - 0.25;
+  const over = w(0, "over");
+  const HOOK_T0 = over - 4.3;                                     // the crossings land so the biggest roll falls on "rolled over"
   {
-    groups.push(deckGroup("test", 0, navy, 0, -0.6, 1.0, 5, 0.22, navy + 1, (st, at, oth) => {
-      const run = (t: number) => runners.slice(1, 9).map((r) => personBox(at(r, t)));
+    groups.push(deckGroup("test", 0, navy, 0, HOOK_T0, 1.0, 5, 0.3, navy + 1, over + 0.1, (st, at, oth) => {
+      const run = (t: number) => runners.slice(3, 8).map((r) => personBox(at(r, t)));
       return [
-        fit(0, run(0), 25, 40, 42, { b: 0.3 }, oth(0)),                                           // across the deck, already mid-run
-        fit(w(0, "until"), run(w(0, "until")), -15, 30, 42, { b: 0.3 }, oth(w(0, "until"))),       // she rolls harder each run
+        fit(0, run(0), 25, 40, 40, { b: 0.35 }, oth(0)),                                          // across the deck, already rolling
+        fit(over, run(over), -15, 26, 42, { b: 0.35 }, oth(over)),                                // she nearly rolls over
       ];
     }));
   }
@@ -214,9 +216,9 @@ export function buildStory(T: Timing): VasaStory {
   // ================= G3 the admiral stops the test and mutters
   {
     const t0 = S(1), t1 = S(2), mut = w(1, "mutters");
-    groups.push(deckGroup("admiral", t0, t1, 0.233, t0 - 3.0, 1.0, 3, 0.2, t0 + 0.2, (st, at, oth) => [
-      fit(t0, [personBox(ADM(st(t0)), false, true), ...runners.slice(0, 3).map((r) => personBox(at(r, t0)))], -20, 10, 40, { b: 0.42 }, oth(t0)),
-      fit(mut, [personBox(ADM(st(mut)), false, true)], -15, 6, 34, { b: 0.42 }, oth(mut)),            // "If only the king were here."
+    groups.push(deckGroup("admiral", t0, t1, 0.233, t0 - 3.0, 1.0, 3, 0.2, t0 + 0.2, undefined, (st, at, oth) => [
+      fit(t0, [personBox(ADM(st(t0)), false, true)], -20, 10, 40, { b: 0.55 }, oth(t0)),
+      fit(mut, [personBox(ADM(st(mut)), false, true)], -12, 6, 34, { b: 0.55 }, oth(mut)),            // "If only the king were here."
     ], { props: (t: number) => ({ costume: "admiral", seed: 5, pose: t < mut - 0.2 ? "armsUp" : "handIn", face: t < mut - 0.2 ? "shock" : "worried", talk: [[mut + 0.4, t1 - 0.1]] }) }));
   }
   // ================= G4 the king is off at war and wants the mightiest warship afloat
@@ -224,14 +226,26 @@ export function buildStory(T: Timing): VasaStory {
   const kingPeople = (letter: boolean): PersonSpec[] => [
     { id: "king", at: () => KING, props: (t) => ({ costume: "king", seated: true, seed: 3, pose: letter ? "point" : "hold", item: "letter", face: letter ? "angry" : step(t, [[0, "focus"], [w(2, "wants"), "grin"]]) }) },
     { id: "aide", flip: true, at: () => [1.5, 0, -2.2], props: () => ({ costume: "sailor2", seed: 9, pose: letter ? "reach" : "stand", face: "worried" }) },
-    { id: "sold1", at: () => [-4.5, 0, -8.5], props: () => ({ costume: "sailor", seed: 2, pose: "point", face: "focus" }) },
+    { id: "sold1", at: () => [-5.8, 0, -8.5], props: () => ({ costume: "sailor", seed: 2, pose: "point", face: "focus" }) },
     { id: "sold2", flip: true, at: () => [4.2, 0, -9.5], props: () => ({ costume: "sailor2", seed: 6, pose: "hold", face: "frown" }) }];
   {
     const t0 = S(2), t1 = S(3);
     groups.push({ id: "camp", t0, t1, xfade: 0.233, set: campSet, light: "day",
-      cam: [fit(t0, [personBox(KING, true), [-0.2, 0, -1.9, 1.4, 1.0, -0.9], personBox([-4.5, 0, -8.5]), personBox([4.2, 0, -9.5])], 14, 8, 42, { b: 0.35 }, [personBox([1.5, 0, -2.2])]),
-        fit(w(2, "wants"), [personBox(KING, true, true), [0, 0.7, -1.8, 1.3, 0.9, -1.0]], 30, 12, 36, { b: 0.42 }, [personBox([1.5, 0, -2.2])])],
-      people: kingPeople(false), avoid: () => [[-0.8, 0, -2, 1.6, 1.4, -0.8]] });
+      cam: [fit(t0, [personBox(KING, true), [-0.2, 0, -1.9, 1.4, 1.0, -0.9], personBox([-5.8, 0, -8.5]), personBox([4.2, 0, -9.5]), [-8, 0, -14, 8, 5, -10]], 14, 8, 42, { b: 0.4 }, [personBox([1.5, 0, -2.2])]),
+        fit(w(2, "mightiest"), [personBox(KING, true, true), [0.0, 0.8, -1.7, 1.3, 1.5, -1.1]], 34, 14, 34, { b: 0.45 }, [personBox([1.5, 0, -2.2])])],   // the king and his model warship
+      people: kingPeople(false), rigs: [(ctx) => {
+        // the war on the horizon: smoke from the guns; and the model of the warship he wants, on his table
+        const smoke = [-9, 7, 12].map((x, i) => { const r = new Rising(10, "smoke", 2.6, 20 + i); r.group.position.set(x, 1, -14 + i * 2); ctx.root.add(r.group); return r; });
+        const model = new THREE.Group(); model.position.set(0.75, 0.82, -1.4); model.rotation.y = 0.5; ctx.root.add(model);
+        const hullM = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.14, 0.2), lambert({ color: "#7a4a26" })); hullM.position.y = 0.07; model.add(hullM);
+        const stern = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.12, 0.2), lambert({ color: "#d9a43a" })); stern.position.set(-0.3, 0.2, 0); model.add(stern);
+        for (const [x, h] of [[-0.18, 0.5], [0.05, 0.62], [0.24, 0.48]] as [number, number][]) {
+          const m = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.012, h, 6), lambert({ color: "#4a2e1c" })); m.position.set(x, 0.14 + h / 2, 0); model.add(m);
+          const sl = new THREE.Mesh(new THREE.PlaneGeometry(0.2, h * 0.5), lambert({ color: "#efe4c8", side: THREE.DoubleSide })); sl.position.set(x + 0.01, 0.14 + h * 0.55, 0); sl.rotation.y = Math.PI / 2; model.add(sl);
+        }
+        for (let k = 0; k < 6; k++) for (const row of [0.06, 0.11]) { const port = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.025, 0.21), lambert({ color: "#b8352a" })); port.position.set(-0.22 + k * 0.09, row, 0); model.add(port); }
+        return (t) => { smoke.forEach((r) => r.update(t, 0.8, 9, 4, 4)); };
+      }], avoid: () => [[-0.8, 0, -2, 1.6, 1.4, -0.8]] });
   }
   // ================= G5 two decks of heavy bronze cannons, stacked high above the water
   {
@@ -241,9 +255,9 @@ export function buildStory(T: Timing): VasaStory {
     const WR: V3 = [10.5, 1.8, -11.4];
     groups.push({ id: "guns", t0, t1, xfade: 0.233, set: () => harbourSet(), light: "day",
       cam: [
-        fit(t0, [[-2.5, 1.8, -14.5, 13, 16, -3], personBox(WR)], 150, 10, 42, { b: 0.35 }),       // a gun swings aboard; more wait on the quay
-        fit(two, [[-14, 0.6, 3, 10, 4.6, 7]], 18, 4, 40, { b: 0.3 }),                              // two rows of ports open, guns run out
-        fit(stacked, [[-10, -0.6, 4, 8, 4.8, 7]], 24, 2, 38, { b: 0.32 }),                         // at the waterline: stacked high
+        fit(t0, [[4, 3, -9, 12, 16, 2]], 30, 10, 40, { b: 0.35 }),                               // from the water: a bronze gun swings aboard
+        fit(two, [[-14, 0.6, 3, 10, 4.6, 7]], 18, 4, 40, { b: 0.35 }),                            // two rows of ports open, guns run out
+        fit(stacked, [[-10, -0.6, 4, 8, 4.8, 7]], 24, 1.5, 38, { b: 0.35 }),                      // at the waterline: stacked high
       ],
       people: [{ id: "wright", flip: true, at: () => WR, props: () => ({ costume: "shipwright", seed: 4, pose: "point", face: "smug" }) },
         { id: "wright2", at: () => [5.5, 1.8, -12.5], props: () => ({ costume: "sailor2", seed: 6, pose: "push", face: "focus" }) }],
@@ -263,11 +277,11 @@ export function buildStory(T: Timing): VasaStory {
   const letters = w(4, "his", 2) - 0.1;
   {
     const t0 = S(4), t1 = letters;
-    const st = (t: number): ShipState => ({ sails: 0, lids: 1, guns: 1, heel: 0.07 * Math.sin((t - t0) * 2.4) });
-    const Q: V3[] = [[-3.6, 1.8, -10.8], [-2.2, 1.8, -11.2], [-0.8, 1.8, -10.7]];
+    const st = (t: number): ShipState => ({ sails: 0, lids: 1, guns: 1, heel: 0.11 * Math.sin((t - t0) * 2.6) });
+    const Q: V3[] = [[-3.4, 1.8, -10.6], [-2.1, 1.8, -11.0], [-0.8, 1.8, -10.5]];
     groups.push({ id: "wobble", t0, t1, xfade: 0.233, set: () => harbourSet({ cannonsOnQuay: false }), light: "day",
-      cam: [fit(t0, [...Q.map((q) => personBox(q)), [-12, 0, -6, 10, 9, 6]], -165, 10, 42, { b: 0.3 }), fit(t1, [...Q.map((q) => personBox(q, false, true))], -170, 6, 38, { b: 0.38 })],
-      people: Q.map((q, i): PersonSpec => ({ id: `q${i}`, flip: i === 2, at: () => q, props: (t) => ({ costume: ["shipwright", "captain", "citizen2"][i], seed: i * 4, pose: i === 1 ? "shrug" : "hips",
+      cam: [fit(t0, [...Q.map((q) => personBox(q))], -160, 10, 40, { b: 0.45 }), fit(t1, [...Q.map((q) => personBox(q, false, true))], -170, 6, 36, { b: 0.5 })],
+      people: Q.map((q, i): PersonSpec => ({ id: `q${i}`, at: () => q, faceTo: () => Q[i === 2 ? 1 : i + 1], props: (t) => ({ costume: ["shipwright", "captain", "citizen2"][i], seed: i * 4, pose: i === 1 ? "shrug" : "hips",
         face: step(t, [[0, "worried"], [w(4, "wobbles") - 0.1, i === 0 ? "frown" : "worried"]]), look: i === 0 ? 1 : -1 }) })),
       rigs: [shipRig(st, {}), waterRig()], avoid: () => Q.map((q) => personBox(q)) });
   }
@@ -276,9 +290,9 @@ export function buildStory(T: Timing): VasaStory {
     const t0 = letters, t1 = S(5);
     const AD: V3 = [-1.2, 1.8, -10.9], CR: V3 = [0.4, 1.8, -11.1];
     groups.push({ id: "letters", t0, t1, xfade: 0.233, set: () => harbourSet({ cannonsOnQuay: false }), light: "day",
-      cam: [fit(t0, [personBox(AD), personBox(CR)], -160, 8, 40, { b: 0.38 }), fit(t1, [personBox(AD, false, true), personBox(CR, false, true)], -170, 4, 34, { b: 0.42 })],
-      people: [{ id: "adm", flip: false, at: () => AD, props: (t) => ({ costume: "admiral", seed: 5, pose: t > w(4, "get") - 0.2 ? "hold" : "stand", item: t > w(4, "get") - 0.2 ? "letter" : "none", face: "worried" }) },
-        { id: "courier", flip: true, at: (t) => [CR[0] + 2.2 * (1 - sm((t - t0) / 0.8)), CR[1], CR[2]], props: (t) => ({ costume: "sailor2", seed: 9, pose: "reach", item: t < w(4, "get") - 0.2 ? "letter" : "none", walk: t < t0 + 0.8 ? 1 : 0, face: "focus" }) }],
+      cam: [fit(t0, [personBox(AD), personBox(CR)], -160, 8, 40, { b: 0.45 }), fit(t1, [personBox(AD, false, true), personBox(CR, false, true)], -170, 4, 34, { b: 0.5 })],
+      people: [{ id: "adm", at: () => AD, faceTo: () => CR, props: (t) => ({ costume: "admiral", seed: 5, pose: t > w(4, "get") - 0.2 ? "hold" : "stand", item: t > w(4, "get") - 0.2 ? "letter" : "none", face: "worried" }) },
+        { id: "courier", at: (t) => [CR[0] + 2.2 * (1 - sm((t - t0) / 0.9)), CR[1], CR[2]], faceTo: () => AD, props: (t) => ({ costume: "sailor2", seed: 9, pose: t < t0 + 0.7 ? "stand" : "reach", item: t < w(4, "get") - 0.2 ? "letter" : "none", walk: [{ t: 0, v: 1 }, { t: t0 + 0.6, v: 1 }, { t: t0 + 0.95, v: 0 }], face: "focus" }) }],
       rigs: [shipRig(() => ({ sails: 0, lids: 0 }), {}), waterRig()], avoid: () => [personBox(AD), personBox(CR)] });
   }
 
@@ -288,24 +302,25 @@ export function buildStory(T: Timing): VasaStory {
   const voyageHeel = (t: number) => track(t, [[gust1 - 0.15, 0], [gust1 + 0.5, 0.36], [shakes - 0.1, 0.3], [shakes + 0.55, 0.04], [gust2 - 0.05, 0.04], [gust2 + 0.6, 0.38], [dip + 0.3, 0.5], [S(8) + 1.0, 0.62]]);
   const voyage = (t: number): ShipState => { const d = Math.max(0, t - tSail); return { x: 30 + d * 8, z: d * 3.2, sails: ramp(t, tSail, tSail + 0.9, 0, 1), lids: 1, guns: 0.7, heel: voyageHeel(t) }; };
   const CC = ["citizen", "citizen2", "sailor", "citizen", "citizen2", "shipwright", "sailor2", "citizen", "citizen2", "citizen", "sailor", "citizen2"];
-  const crowd = CC.map((c, i) => ({ id: `c${i + 1}`, costume: c, x: -7 + (i % 6) * 1.6 + (i >= 6 ? 0.8 : 0), z: i >= 6 ? -12.4 : -10.6 }));
-  const crowdPeople = (wave: (t: number) => boolean, shock: number): PersonSpec[] => crowd.map((c, i) => ({ id: c.id, flip: false, at: () => [c.x, 1.8, c.z],
+  const crowd = [...CC, ...CC].map((c, i) => ({ id: `c${i + 1}`, costume: c, x: -8.5 + (i % 8) * 1.3 + (Math.floor(i / 8) % 2) * 0.65, z: -10.5 - Math.floor(i / 8) * 1.1 }));
+  const crowdPeople = (wave: (t: number) => boolean, shock: number, ship: (t: number) => V3 = () => [60, 0, 10]): PersonSpec[] => crowd.map((c, i) => ({ id: c.id, at: () => [c.x, 1.8, c.z], faceTo: ship,
     props: (t) => ({ costume: c.costume, seed: i * 3 + 1, pose: t >= shock ? (i % 2 ? "armsUp" : "shrug") : wave(t) ? (i % 2 ? "armsUp" : "point") : (i % 3 === 0 ? "point" : "stand"),
       face: t >= shock ? "shock" : (i % 2 ? "smile" : "grin") }) }));
-  const crowdBox = (): Box => [-7.4, 1.8, -12.8, 2.0, 3.5, -10.2];
+  const crowdBox = (): Box => [-8.9, 1.8, -13.0, 1.5, 3.5, -10.2];
   {
     const t0 = S(5), t1 = S(8);
     const waving = w(6, "waving");
     groups.push({ id: "launch", t0, t1, xfade: 0.233, set: () => harbourSet({ cannonsOnQuay: false }), light: "golden",
       cam: [
-        fit(t0, [crowdBox()], 15, 6, 40, { b: 0.35 }),                                            // the crowd on the quay
-        fit(w(5, "sails"), [[voyage(w(5, "sails")).x! - 14, 12, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.3 }),   // her sails go up
-        fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], 90, 4, 42, { b: 0.25 }),          // the first gust leans her over
-        fit(waving, [crowdBox(), hullBox(voyage(waving), true)], -160, 8, 42, { b: 0.3 }),       // she shakes it off; the crowd waves
-        fit(gust2 + 0.2, [hullBox(voyage(gust2 + 0.2))], 70, 2, 40, { b: 0.25 }),
+        fit(t0, [crowdBox()], 15, 8, 42, { b: 0.45 }),                                            // a huge crowd on the quay
+        fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.45 }),
+        fit(w(5, "sails") + 0.3, [[voyage(w(5, "sails")).x! - 14, 12, -6, voyage(w(5, "sails")).x! + 16, 50, 6]], 40, -8, 44, { b: 0.45 }),   // her sails go up
+        fit(gust1 + 0.2, [hullBox(voyage(gust1 + 0.2), true)], 90, 4, 42, { b: 0.42 }),          // the first gust leans her over
+        fit(waving, [crowdBox()], 25, 6, 40, { b: 0.45 }),                                        // the crowd keeps waving
+        fit(gust2 + 0.2, [hullBox(voyage(gust2 + 0.2), true)], 50, 2, 42, { b: 0.42 }),
         fit(dip, [[voyage(dip).x! - 16, -0.5, voyage(dip).z! + 3, voyage(dip).x! + 14, 9, voyage(dip).z! + 7]], 20, 3, 36, { b: 0.3 }),   // the ports dip under
       ],
-      people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9),
+      people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9, (t) => { const v = voyage(t); return [v.x!, 0, v.z!]; }),
       rigs: [shipRig(voyage, {}), waterRig(), gustRig([gust1 - 0.2, gust2 - 0.2], (t) => voyage(t).x!)],
       avoid: (t) => [hullBox(voyage(t), true)] });
   }
@@ -337,14 +352,15 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = front, t1 = S(9);
     const sinks = w(8, "sinks"), stop = voyage(t0 - 0.2);
-    const st = (t: number): ShipState => ({ ...stop, heel: track(t, [[t0, 0.62], [sinks, 1.0], [t1, 1.15]]), sink: track(t, [[t0, 1.0], [sinks + 0.5, 12], [t1 + 0.6, 20]]), sails: 1 });
+    // she lies over, then goes down ON "sinks" (v4: the hull was gone before the word)
+    const st = (t: number): ShipState => ({ ...stop, heel: track(t, [[t0, 0.62], [sinks - 0.3, 0.95], [t1, 1.15]]), sink: track(t, [[t0, 1.0], [sinks - 0.35, 2.0], [sinks + 0.7, 13], [t1 + 0.6, 20]]), sails: 1 });
     const sx = stop.x!, sz = stop.z!;
     groups.push({ id: "sinking", t0, t1, xfade: 0.233, set: () => harbourSet({ cannonsOnQuay: false }), light: "golden",
       cam: [
-        fit(t0, [crowdBox(), hullBox(st(t0), true)], -165, 7, 40, { b: 0.25 }),                  // over the crowd, the town beyond: she is going over
-        fit(sinks, [hullBox(st(sinks), true)], 60, 3, 40, { b: 0.25 }),                          // she sinks, in frame
+        fit(t0, [hullBox(st(t0), true)], -165, 6, 38, { b: 0.35 }),                              // from the quay side, the town beyond: she is going over
+        fit(sinks, [hullBox(st(sinks), true)], -158, 4, 34, { b: 0.42 }),                        // closer: she sinks, in frame
       ],
-      people: crowdPeople(() => false, t0),
+      people: crowdPeople(() => false, t0, () => [sx, 0, sz]),
       rigs: [shipRig(st, {}), waterRig(), (ctx) => {
         const bub = new Rising(40, "puff", 1.2, 6); ctx.root.add(bub.group);
         const debris: THREE.Mesh[] = [];
@@ -360,29 +376,36 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = S(9), t1 = S(10);
     setRoom([-5.6, 0.2, -19.6, 5.6, 6, 7.6]);
-    const J1: V3 = [-1.5, 0, -10.4], J2: V3 = [0, 0, -10.6], J3: V3 = [1.5, 0, -10.4], B: V3 = [0.4, 0, -6.6], A: V3 = [-1.6, 0, -6.9];
-    const PORT: V3 = [0, 1.2, -13.2];                              // the king's portrait on an easel behind the bench
+    const J1: V3 = [-1.2, 0, -10.4], J2: V3 = [0, 0, -10.6], J3: V3 = [1.2, 0, -10.4], B: V3 = [0.5, 0, -5.8], A: V3 = [-1.4, 0, -6.4];
+    const PORT: V3 = [-3.7, 1.6, -12.2];                           // the king's portrait on an easel, left of the bench (clear of the judges)
     const judges = [J1, J2, J3];
     const only = w(9, "only"), nobody = w(9, "nobody"), man = w(9, "man");
     groups.push({ id: "hearing", t0, t1, xfade: 0.233, set: () => hallSet(false), light: "day",
       cam: [
-        fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)], 4, 10, 44, { b: 0.32 }, [personBox(B), personBox(A)]),
-        fit(only, [personBox(B, false, true)], 22, 2, 36, { b: 0.42 }, [personBox(A), ...judges.map((j) => personBox(j, true))]),
-        fit(nobody, [...judges.map((j) => personBox(j, true))], 0, 8, 40, { b: 0.35 }),
-        fit(man, [[PORT[0] - 1.1, PORT[1], PORT[2] - 0.1, PORT[0] + 1.1, PORT[1] + 2.4, PORT[2] + 0.1]], 0, 24, 28, { b: 0.3 },   // the king, over their heads
+        fit(t0, [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)], 4, 10, 44, { b: 0.42 }, [personBox(B), personBox(A)]),
+        fit(only, [personBox(B, false, true)], 22, 4, 36, { b: 0.55 }, [personBox(A), ...judges.map((j) => personBox(j, true))]),
+        fit(nobody, [...judges.map((j) => personBox(j, true))], 0, 8, 40, { b: 0.45 }, [personBox(B), personBox(A)]),
+        fit(man, [[PORT[0] - 1.5, PORT[1] - 1.4, PORT[2] - 0.1, PORT[0] + 1.5, PORT[1] + 2.4, PORT[2] + 0.6]], -12, 10, 32, { b: 0.42 },   // the king, and his cannons
           [...judges.map((j) => personBox(j, true)), personBox(B), personBox(A)]),
       ],
       people: [
-        ...judges.map((j, i): PersonSpec => ({ id: `j${i}`, flip: i === 2, at: () => j, props: (t) => ({ costume: "citizen2", seated: true, seed: 11 + i, pose: t >= nobody - 0.1 ? "shrug" : (i === 1 ? "point" : "hold"), face: t >= nobody - 0.1 ? "neutral" : "frown" }) })),
-        { id: "builder", flip: true, at: () => B, props: (t) => ({ costume: "shipwright", seed: 4, pose: t >= only - 0.2 ? "shrug" : "stand", face: t >= only - 0.2 ? "worried" : "neutral", talk: [[only, only + 0.9]] }) },
-        { id: "accused", at: () => A, props: () => ({ costume: "captain", seed: 8, pose: "stand", face: "worried" }) },
-        { id: "portrait", billboard: false, scale: 1.25, at: () => [PORT[0], PORT[1] + 0.12, PORT[2] + 0.06], props: () => ({ costume: "king", seed: 3, pose: "hips", face: "smug" }) },
+        ...judges.map((j, i): PersonSpec => ({ id: `j${i}`, at: () => j, faceTo: () => B, props: (t) => ({ costume: "judge", seated: true, seed: 11 + i, pose: t >= nobody - 0.1 ? "shrug" : (i === 1 ? "point" : "hold"), face: t >= nobody - 0.1 ? "neutral" : "frown" }) })),
+        { id: "builder", at: () => B, faceTo: () => J2, props: (t) => ({ costume: "shipwright", seed: 4, pose: t >= only - 0.2 ? "shrug" : "stand", face: t >= only - 0.2 ? "worried" : "neutral", talk: [[only, only + 0.9]] }) },
+        { id: "accused", at: () => A, faceTo: () => J2, props: () => ({ costume: "captain", seed: 8, pose: "stand", face: "worried" }) },
+        { id: "portrait", billboard: false, scale: 1.25, at: () => [PORT[0], PORT[1] + 0.12, PORT[2] + 0.06], props: (t) => ({ costume: "king", seed: 3, pose: t >= man + 0.6 ? "point" : "hips", face: "smug" }) },
       ],
       rigs: [(ctx) => {
         const tab = new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.8, 1.0), lambert({ color: "#4a2e1c" })); tab.position.set(0, 0.4, -9.6); tab.castShadow = true; ctx.root.add(tab);
         const frame = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.6, 0.08), lambert({ color: "#d9a43a" })); frame.position.set(PORT[0], PORT[1] + 1.2, PORT[2] - 0.02); ctx.root.add(frame);
         const canvasM = new THREE.Mesh(new THREE.PlaneGeometry(1.9, 2.3), lambert({ color: "#3a2f5a" })); canvasM.position.set(PORT[0], PORT[1] + 1.2, PORT[2] + 0.03); ctx.root.add(canvasM);
-        for (const dx of [-0.6, 0.6]) { const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.4, 0.08), lambert({ color: "#5b3a22" })); leg.position.set(PORT[0] + dx, 0.7, PORT[2] - 0.2); ctx.root.add(leg); }
+        for (const dx of [-0.6, 0.6]) { const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, PORT[1] + 0.2, 0.08), lambert({ color: "#5b3a22" })); leg.position.set(PORT[0] + dx, (PORT[1] + 0.2) / 2, PORT[2] - 0.2); ctx.root.add(leg); }
+        // the cannons he ordered, lined up under his portrait
+        const bronzeM = lambert({ color: "#b07a34" });
+        for (let k = 0; k < 3; k++) {
+          const prof = [[0, 0], [0.18, 0.04], [0.17, 0.3], [0.14, 1.4], [0.17, 1.48], [0.12, 1.6], [0, 1.6]].map(([r, y]) => new THREE.Vector2(r, y));
+          const c = new THREE.Mesh(new THREE.LatheGeometry(prof, 14), bronzeM); c.rotation.x = Math.PI / 2 - 0.12; c.position.set(PORT[0] - 1.2 + k * 1.2, 0.3, PORT[2] + 0.2); c.castShadow = true; ctx.root.add(c);
+          const car = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.25, 1.1), lambert({ color: "#b8352a" })); car.position.set(PORT[0] - 1.2 + k * 1.2, 0.13, PORT[2] + 0.8); ctx.root.add(car);
+        }
         return () => undefined;
       }],
       avoid: () => [personBox(B), ...judges.map((j) => personBox(j, true))] });
@@ -422,9 +445,10 @@ export function buildStory(T: Timing): VasaStory {
     wl.position.set(SEC[0], tankTop, SEC[2] + 0.46); wl.layers.set(NOINK); tankParts.push(wl);
     const tankEdge = new THREE.Mesh(new THREE.BoxGeometry(secW * 2 + 1.7, 0.06, 0.95), lambert({ color: "#5b3a22" })); tankEdge.position.set(SEC[0], 0.03, SEC[2]); tankParts.push(tankEdge);
     for (const p of tankParts) ctx.root.add(p);
-    const guns = tagSprite("BRONZE GUNS", 0.28), stones = tagSprite("STONE", 0.28), low = tagSprite("LOWER GUN PORTS", 0.26), cgTag = tagSprite("CENTRE OF GRAVITY", 0.24);
-    const heavy = tagSprite("HEAVY", 0.24), light = tagSprite("LIGHT", 0.24);
-    for (const s2 of [guns, stones, low, cgTag, heavy, light]) ctx.root.add(s2);
+    // labels sit inside the frame, on or right beside what they name (v4: clipped at the edges, too small)
+    const guns = tagSprite("BRONZE GUNS", 0.36), stones = tagSprite("STONE", 0.36), low = tagSprite("LOWER GUN PORTS", 0.32), cgTag = tagSprite("CENTRE OF GRAVITY", 0.28);
+    const heavy = tagSprite("HEAVY", 0.2), light = tagSprite("LIGHT", 0.2), sHeavy = tagSprite("HEAVY", 0.36), sLight = tagSprite("LIGHT", 0.36);
+    for (const s2 of [guns, stones, low, cgTag, heavy, light, sHeavy, sLight]) ctx.root.add(s2);
     const fade = (s2: THREE.Object3D, a: number, b: number, t: number) => { const o = sm((t - a) / 0.25) * (1 - sm((t - b) / 0.25)); s2.visible = o > 0.01; ((s2 as THREE.Sprite).material as THREE.SpriteMaterial).opacity = o; };
     return (t) => {
       // the good bottle floats upright and bobs; the upside-down one is dropped in on "upside" and rolls over
@@ -434,12 +458,12 @@ export function buildStory(T: Timing): VasaStory {
       bad.outer.visible = t >= upside - 0.4;
       bad.g.rotation.z = -(roll + 0.06 * Math.sin(Math.max(0, t - upside) * 6) * (1 - sm((t - upside) / 0.6)));
       bad.g.position.y = 0.4 * (1 - sm((t - (upside - 0.4)) / 0.35)) + 0.03 * Math.sin(t * 3 + 1);
-      heavy.position.set(BT[0] - 0.45 - 0.45, 0.6, BT[2] + 0.4); fade(heavy, heavyW - 0.05, upside - 0.1, t);
-      light.position.set(BT[0] - 0.45 - 0.45, 1.25, BT[2] + 0.4); fade(light, lightW - 0.05, upside - 0.1, t);
+      heavy.position.set(BT[0] - 0.45 + 0.42, 0.62, BT[2] + 0.4); fade(heavy, heavyW - 0.05, upside - 0.1, t);
+      light.position.set(BT[0] - 0.45 + 0.42, 1.22, BT[2] + 0.4); fade(light, lightW - 0.05, upside - 0.1, t);
       // the section: dropped into the tank on "upside", guns pop in on "bronze", a thin layer of stone on "stone",
       // more stone on "more", which pushes the ports down to the waterline
       const on = t >= upside - 0.2;
-      sec.root.visible = on; for (const p of tankParts) p.visible = on;
+      sec.root.visible = on;                                   // the tank is there from the start; the hull drops into it
       const drop = 1 - sm((t - (upside - 0.2)) / 0.5);
       sec.guns.forEach((g, i) => { const k = sm((t - (bronze - 0.15) - i * 0.08) / 0.3); g.visible = k > 0.01; g.scale.setScalar(Math.max(0.001, k)); });
       sec.stones.forEach((s2, i) => { s2.visible = t >= stoneW - 0.4 + i * 0.012; });
@@ -449,19 +473,22 @@ export function buildStory(T: Timing): VasaStory {
       sec.lowPorts.forEach((p) => (p.material as THREE.MeshBasicMaterial).color.set(extra > 0.85 ? "#e0442e" : "#1a1424"));
       sec.cg.position.y = (ramp(t, bronze, bronze + 0.6, -1.2, 2.2) - ramp(t, more, more + 0.5, 0, 0.6)) * SEC_K;
       sec.cg.visible = t >= bronze;
-      guns.position.set(SEC[0], tankTop + (deckTop(0.5) + 0.9) * SEC_K, SEC[2] + 0.5); fade(guns, bronze, more, t);
-      cgTag.position.set(SEC[0] - secW - 0.2, tankTop + sec.cg.position.y, SEC[2] + 0.6); fade(cgTag, bronze + 0.5, lastT, t);
-      stones.position.set(SEC[0] + secW + 0.45, tankTop + (-DRAFT + 0.9) * SEC_K, SEC[2] + 0.6); fade(stones, stoneW - 0.3, pushed, t);
-      low.position.set(SEC[0] + secW + 0.6, sec.root.position.y + 1.45 * SEC_K + 0.3, SEC[2] + 0.6); fade(low, pushed, lastT, t);
+      const y0 = sec.root.position.y;
+      sHeavy.position.set(SEC[0], y0 + 2.6 * SEC_K, SEC[2] + 0.7); fade(sHeavy, upside + 0.3, bronze, t);
+      sLight.position.set(SEC[0], y0 - 2.6 * SEC_K, SEC[2] + 0.7); fade(sLight, upside + 0.3, stoneW - 0.4, t);
+      guns.position.set(SEC[0], y0 + (deckTop(0.5) + 1.1) * SEC_K, SEC[2] + 0.7); fade(guns, bronze, more, t);
+      cgTag.position.set(SEC[0] + 0.9, y0 + sec.cg.position.y + 0.25, SEC[2] + 0.7); fade(cgTag, bronze + 0.5, lastT, t);
+      stones.position.set(SEC[0], y0 + (-DRAFT + 1.9) * SEC_K, SEC[2] + 0.7); fade(stones, stoneW - 0.3, pushed, t);
+      low.position.set(SEC[0], tankTop + 0.32, SEC[2] + 0.7); fade(low, pushed, lastT, t);
     };
   };
   {
     groups.push({ id: "explain", t0: S(10), t1: tooLittle, xfade: 0, set: explainSet, light: "explain",
       cam: [
-        fit(S(10), [bottleBox], 8, 10, 38, { b: 0.35 }),                         // the bottle with sand floats upright
-        fit(heavyW, [bottleBox], 4, 6, 34, { b: 0.35 }),                         // heavy low, light on top
-        fit(upside, [bottleBox, secBox], 6, 12, 42, { b: 0.3 }),                 // built upside down: it rolls over; the Vasa's section
-        fit(bronze, [secBox], 10, 8, 38, { b: 0.3, x: 0.06 }),                   // tons of bronze up high
+        fit(S(10), [bottleBox], 8, 10, 38, { b: 0.42 }),                         // the bottle with sand floats upright
+        fit(heavyW, [[BT[0] - 0.95, 0, BT[2] - 0.4, BT[0] + 0.1, 1.5, BT[2] + 0.4]], 4, 6, 34, { b: 0.42 }),   // heavy low, light on top
+        fit(upside, [bottleBox], 6, 8, 38, { b: 0.42 }),                         // built upside down: the other bottle rolls over
+        fit(bronze, [secBox], 10, 8, 38, { b: 0.38, x: 0.08 }),                  // the Vasa's section: tons of bronze up high
       ],
       people: [], rigs: [explainRig], avoid: (t) => (t < upside ? [bottleBox] : [secBox]) });
   }
@@ -484,8 +511,8 @@ export function buildStory(T: Timing): VasaStory {
   {
     groups.push({ id: "explain2", t0: S(12), t1: lastT, xfade: 0.233, set: explainSet, light: "explain",
       cam: [
-        fit(S(12), [secBox], 6, 10, 38, { b: 0.3, x: 0.06 }),                    // more stone
-        fit(pushed, [secBox], -8, 6, 38, { b: 0.3, x: 0.06 }),                   // pushes the ports down to the waterline
+        fit(S(12), [secBox], 6, 10, 38, { b: 0.38, x: 0.08 }),                   // more stone
+        fit(pushed, [secBox], -8, 6, 38, { b: 0.38, x: 0.08 }),                  // pushes the ports down to the waterline
       ],
       people: [], rigs: [explainRig], avoid: () => [secBox] });
   }
@@ -493,11 +520,14 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = lastT, t1 = T.total;
     const showing = w(13, "showing");
-    groups.push(deckGroup("warning", t0, t1, 0.233, t0 - 1.0, 0.8, 8, 0.3, t1 + 1, (st, at, oth) => {
-      const run = (t: number) => runners.slice(1, 6).map((r) => personBox(at(r, t)));
+    const sinkW = w(13, "sink");
+    const W_T0 = sinkW - 0.05 + 0.35 - 6 * 0.8;                      // the biggest roll lands on "sink"
+    groups.push(deckGroup("warning", t0, t1, 0.233, W_T0, 0.8, 6, 0.32, t1 + 1, sinkW, (st, at, oth) => {
+      const run = (t: number) => runners.slice(3, 8).map((r) => personBox(at(r, t)));
       return [
-        fit(t0, run(t0), 25, 40, 42, { b: 0.38 }, oth(t0)),                                      // thirty sailors, rolling her
-        fit(showing, [[-14, -0.5, 4, 10, 6, 8]], 20, 3, 38, { b: 0.3 }),                          // the lower ports near the water: how she would sink
+        fit(t0, run(t0), -15, 26, 42, { b: 0.35 }, oth(t0)),                                     // thirty sailors, rolling her at the dock
+        fit(showing, [[-14, -0.5, 3, 10, 6, 8]], 20, 3, 38, { b: 0.3 }),                          // the lower ports come down to the water
+        fit(sinkW, run(sinkW), 25, 40, 40, { b: 0.35 }, oth(sinkW)),                              // back to frame 0's view: how she would sink
       ];
     }));
   }
@@ -508,8 +538,9 @@ export function buildStory(T: Timing): VasaStory {
     { text: "10 AUGUST 1628", at: S(5) + 0.1, out: tSail - 0.1 },
   ];
   // the roll gauge (the test, the gusts, the last line) and the distance counter (cast off to the sinking)
-  const hookHeel = (t: number) => heelFromRuns(RUNS(-0.6, 1.0, 5), -0.6, 1.0, 0.22)(t);
-  const lastHeel = (t: number) => heelFromRuns(RUNS(lastT - 1.0, 0.8, 8), lastT - 1.0, 0.8, 0.3)(t);
+  const hookHeel = (t: number) => heelFromRuns(RUNS(HOOK_T0, 1.0, 5), HOOK_T0, 1.0, 0.3, over + 0.1)(t);
+  const sinkW = w(13, "sink"), W_T0 = sinkW - 0.05 + 0.35 - 6 * 0.8;
+  const lastHeel = (t: number) => heelFromRuns(RUNS(W_T0, 0.8, 6), W_T0, 0.8, 0.32, sinkW)(t);
   const heel = (t: number): number | null => {
     if (t < navy) return hookHeel(t);
     if (t >= gust1 - 0.4 && t < S(8)) return voyageHeel(t);
