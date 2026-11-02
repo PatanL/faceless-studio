@@ -34,7 +34,7 @@ Hard rules:
 - Original wording only. Never paraphrase a source line sentence by sentence; take its beat order, its devices and its
   pacing, and write new sentences, new comparisons and new numbers (checked facts).
 - Front matter: id: {slug}, niche: explainer, format: "short, 9:16", title, alt_titles, voice: am_michael,
-  music: deep_ocean (one word, no comment), speed: (only if the variant sets it), source_id: (the source id),
+  music: score (one word, no comment; the soundtrack is composed from the storyboard, no [music:] marker), speed: (only if the variant sets it), source_id: (the source id),
   beat_plan: "0 1 2 2 3 ..." (one skeleton index from the table above per narration paragraph, in order, space
   separated), references: the SOURCE first (id, url, views, outlier_score, why_chosen), then 1-2 corpus neighbours.
   Then a beat alignment table (our paragraph -> skeleton beat -> source beat + its timestamp + device borrowed),

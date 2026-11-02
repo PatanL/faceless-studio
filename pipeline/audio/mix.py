@@ -15,7 +15,7 @@ import soundfile as sf
 from scipy.ndimage import minimum_filter1d, uniform_filter1d
 from scipy.signal import resample_poly
 
-from .config import MUSIC_BEDS, SFX_DB, SR, TARGET_LUFS, TRUE_PEAK_DB
+from .config import MUSIC_BEDS, SCORE, SFX_DB, SR, TARGET_LUFS, TRUE_PEAK_DB
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PUBLIC = os.path.join(ROOT, "studio", "public")
@@ -68,6 +68,9 @@ def find_asset(kind: str, name: str) -> str:
     bed from config.MUSIC_BEDS (by name), looked up under studio/public/music/."""
     if kind == "music":
         bed = music_name(name)
+        if bed == SCORE:
+            raise FileNotFoundError("music 'score' is composed per episode (pipeline.audio.score via mix(score_fn=...)), "
+                                    "not a file")
         if bed not in MUSIC_BEDS or os.path.isabs(str(name)) or ".." in str(name):
             raise FileNotFoundError(f"music {name!r} is not an in-house bed {MUSIC_BEDS} (no third-party or absolute-path "
                                     f"music: it can be Content ID claimed on Shorts over 60 s)")
@@ -219,7 +222,10 @@ def _sfx_bus(cues, total, log):
     return bus
 
 
-def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_dir: str, log=print) -> dict:
+def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_dir: str, log=print,
+        score_fn=None) -> dict:
+    """score_fn(seconds, loop) -> {"audio": (n, 2) float32, "provenance": {...}, "plan": {...}} composes the bed when
+    music is config.SCORE (pipeline.audio.make builds it from the storyboard)."""
     n_voice = len(voice)
     fade_out = cfg.get("music_fade_out", 2.0)
     # length: voice + 0.4 s, extended so SFX tails (e.g. a final stinger) ring out, capped at max_tail
@@ -244,11 +250,24 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
     m = np.zeros((total, 2), np.float32)
     duck_stats = {}
     env_s = None
+    provenance, score_plan = None, None
+    is_score = bool(music) and music_name(music) == SCORE
+    loop = cfg.get("loop_tail") is not None
     if music:
-        bed = load(find_asset("music", music))
-        reps = int(np.ceil(total / len(bed)))
-        bed = np.tile(bed, (reps, 1))[:total]
-        bed *= db2lin(ref + cfg["music_db"] - lufs(bed[: min(len(bed), 30 * SR)]))
+        if is_score:
+            if score_fn is None:
+                raise ValueError("music 'score' needs score_fn (pipeline.audio.make passes one when a storyboard exists)")
+            sc = score_fn(total / SR, loop)
+            bed = sc["audio"][:total]
+            bed = np.pad(bed, ((0, total - len(bed)), (0, 0)))
+            provenance, score_plan = sc["provenance"], sc["plan"]
+            bed_lufs = lufs(bed)  # the whole score: its cues have their own dynamics
+        else:
+            bed = load(find_asset("music", music))
+            reps = int(np.ceil(total / len(bed)))
+            bed = np.tile(bed, (reps, 1))[:total]
+            bed_lufs = lufs(bed[: min(len(bed), 30 * SR)])
+        bed *= db2lin(ref + cfg["music_db"] - bed_lufs)
         mask = speech_mask(voice)
         env = duck_envelope(mask, cfg["attack"], cfg["release"], cfg["lookahead"])
         env_s = frames_to_samples(env, n_voice)
@@ -263,9 +282,16 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
             env_x = np.zeros(total, np.float32)
         gain = db2lin(gain_db)
         t = np.arange(total) / SR
-        fi = np.clip(t / max(cfg.get("music_fade_in", 1.0), 1e-3), 0, 1)
-        fo = np.clip((total / SR - t) / max(fade_out, 1e-3), 0, 1)
+        # a looping score is continuous across the replay seam (its tail is wrapped onto bar 1): only 10 ms anti-click
+        fi = np.clip(t / max(0.01 if (is_score and loop) else cfg.get("music_fade_in", 1.0), 1e-3), 0, 1)
+        fo = np.clip((total / SR - t) / max(0.01 if (is_score and loop) else fade_out, 1e-3), 0, 1)
         m = bed * (gain * fi * fo * hush_gain(cues, total, cfg))[:, None]
+        bd = cfg.get("duck_band")
+        if bd:  # band duck (dynamic EQ): the voice's 1-4 kHz pocket opens further in the music while it talks
+            from scipy.signal import butter, sosfiltfilt
+            sos = butter(2, [bd.get("lo", 1000), bd.get("hi", 4000)], "bandpass", fs=SR, output="sos")
+            band = sosfiltfilt(sos, m, axis=0).astype(np.float32)
+            m = m + band * (db2lin(float(bd["db"]) * env_s) - 1.0)[:, None]
         # measured duck depth: bed level in speech frames vs gap frames (for the report)
         sp = env_s > 0.95
         gp = (env_s < 0.05) & (env_x < 0.05)  # gaps with no voice and no SFX
@@ -304,19 +330,23 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
     # --- gentle 0.8 s fade on music + sfx at the very end (voice has finished by then); loop endings: end_fade
     fl = min(total, max(1, int(float(cfg.get("end_fade", 0.8)) * SR)))
     s[total - fl:] *= np.linspace(1, 0, fl)[:, None] ** 2
-    m[total - fl:] *= np.linspace(1, 0, fl)[:, None] ** 2
+    if not (is_score and loop):
+        m[total - fl:] *= np.linspace(1, 0, fl)[:, None] ** 2
     # --- sum, normalise to target, limit, iterate
     pre = v + m + s
     g = db2lin(TARGET_LUFS - lufs(pre))
-    ceiling = TRUE_PEAK_DB - 0.6
+    # cfg true_peak_db: a lower ceiling for mixes whose transients overshoot in the AAC encode (score timpani/booms:
+    # -1.2 dBTP in the wav measured -0.5 dBTP in the muxed MP4 on the orca A/B)
+    tp_max = float(cfg.get("true_peak_db", TRUE_PEAK_DB))
+    ceiling = tp_max - 0.6
     for _ in range(6):
         out = limiter(pre * g, ceiling)
         err = TARGET_LUFS - lufs(out)
         tp = true_peak_db(out)
-        if abs(err) < 0.2 and tp <= TRUE_PEAK_DB:
+        if abs(err) < 0.2 and tp <= tp_max:
             break
-        if tp > TRUE_PEAK_DB:
-            ceiling -= tp - TRUE_PEAK_DB + 0.1
+        if tp > tp_max:
+            ceiling -= tp - tp_max + 0.1
         g *= db2lin(err)
     os.makedirs(out_dir, exist_ok=True)
     paths = {k: os.path.join(out_dir, f"{k}.wav") for k in ("mix", "voice", "music", "sfx")}
@@ -335,6 +365,10 @@ def mix(voice: np.ndarray, cues: list[dict], cfg: dict, music: str | None, out_d
         "target_lufs": TARGET_LUFS, "pyloudnorm_lufs": round(lufs(out), 2), "true_peak_dbtp_4x": round(true_peak_db(out), 2),
         "ffmpeg_ebur128": meas, "duration_s": round(total / SR, 3), "music": music, "sfx_placed": placed, **duck_stats,
     }
+    if provenance:
+        rep["music_provenance"] = provenance
+        rep["score"] = {"cues": [{k: c[k] for k in ("t0", "t1", "mood", "intensity", "role")} for c in score_plan["cues"]],
+                        "stings": score_plan["stings"], "drops": score_plan["drops"], "risers": score_plan["risers"]}
     log(f"[mix] {meas['I_lufs']} LUFS (ffmpeg), TP {meas['true_peak_dbtp']} dBTP, LRA {meas['LRA_lu']}, "
         f"duck {duck_stats.get('measured_duck_db')} dB, {len(placed)} sfx")
     return {"paths": paths, "report": rep}

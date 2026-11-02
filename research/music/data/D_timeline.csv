@@ -1,0 +1,231 @@
+t,type,detail,words (before | after)
+0.0,setting,cruise-deck / cruise ship deck (world): the world feels boring," | Sometimes the world feels, hmm, boring."
+3.75,hit,"+21.7 dB low flat=0.001 word=('boring.', 0.25)","the world feels, hmm, | boring. We've visited all the remote"
+3.9,setting,coast / tropical island coast (world): visited all the remote islands,"the world feels, hmm, | boring. We've visited all the remote"
+4.9,riser_peak,+27.7 dB over 2.6 s,"world feels, hmm, boring. | We've visited all the remote islands,"
+7.15,hit,"+22.5 dB low flat=0.0 word=('islands,', -0.23)","all the remote islands, | conquered the Arctic, and penetrated the"
+7.4,setting,split / island | Arctic ice (world): conquered the Arctic,"all the remote islands, | conquered the Arctic, and penetrated the"
+8.1,dropout,"0.3 s, -12.2 dB, speech 1.0","all the remote islands, conquered the | Arctic, and penetrated the deepest jungles. But there"
+8.7,dropout,"0.3 s, -13.5 dB, speech 1.0","the remote islands, conquered the Arctic, | and penetrated the deepest jungles. But there is"
+9.65,hit,"+16.2 dB low flat=0.0 word=('penetrated', -0.13)","the Arctic, and penetrated | the deepest jungles. But there is"
+9.9,setting,triptych / island | Arctic | jungle (world): deepest jungles,"the Arctic, and penetrated | the deepest jungles. But there is"
+10.4,dropout,"0.5 s, -14.1 dB, speech 1.0","Arctic, and penetrated the deepest jungles. | But there is still one place to explore."
+11.1,dropout,"0.3 s, -14.6 dB, speech 1.0","Arctic, and penetrated the deepest jungles. | But there is still one place to explore."
+12.55,hit,"+16.4 dB low flat=0.001 word=('there', 0.07)",the deepest jungles. But | there is still one place to
+12.9,setting,deep-cave / deep sea dark rock + glowing animals (world): the deep sea,deepest jungles. But there | is still one place to explore.
+26.25,music_boundary,coarse,sea. Let's dive down. | When we look at the sheer
+26.4,setting,intro / - (intro): channel intro,sea. Let's dive down. | When we look at the sheer
+36.4,setting,ocean-surface / open ocean surface (world): sheer scale of the oceans,sea. Let's dive down. | When we look at the sheer
+36.45,hit,"+12.8 dB low flat=0.004 word=('When', 0.13)",sea. Let's dive down. | When we look at the sheer
+36.75,music_boundary,coarse,Let's dive down. When | we look at the sheer scale
+40.4,setting,cross-section / ocean cross-section (board): biomass 2% / 90% in first 200 m,"Earth's oceans, it's hard | to believe that less than 2"
+45.25,hit,"+16.7 dB low flat=0.0 word=('And', 0.17)","on Earth lives here. | And of that small percentage, around"
+49.7,dropout,"0.7 s, -14.6 dB, speech 1.0",is located close to the surface | in the first 200 metres. This is where
+52.85,hit,+8.4 dB low flat=0.002 word=None,the first 200 metres. | This is where we begin our
+52.9,setting,ship-surface / research ship at surface (world): this is where we begin our journey,the first 200 metres. | This is where we begin our
+53.2,riser_peak,+27.5 dB over 3.2 s,the first 200 metres. | This is where we begin our
+56.2,riser_peak,+23.4 dB over 6.3 s,"we begin our journey. | Here, Neolite can still penetrate the"
+56.4,setting,sunlit-shallows / sunlit water 0-50 m (world): light can still penetrate,"we begin our journey. | Here, Neolite can still penetrate the"
+58.25,music_boundary,coarse,"can still penetrate the | water, which allows photosynthesis to occur."
+61.9,setting,inset-screen / microscope panel over shallows (board): phytoplankton / plankton named,"allows photosynthesis to occur. | Phytoplankton, trillions and trillions of single"
+62.75,hit,"+10.5 dB low flat=0.0 word=('trillions', 0.17)","photosynthesis to occur. Phytoplankton, | trillions and trillions of single -celled"
+66.2,dropout,"0.6 s, -14.6 dB, speech 1.0","-celled algae and bacteria, make up | the foundation of the ocean's ecosystem, and they're"
+66.85,hit,"+21.9 dB low flat=0.0 word=('the', 0.03)","and bacteria, make up | the foundation of the ocean's ecosystem,"
+70.15,hit,"+8.2 dB low flat=0.001 word=('consumed', -0.11)","ecosystem, and they're consumed | by bigger plankton who are consumed"
+71.75,music_boundary,coarse,by bigger plankton who | are consumed by other species. The
+75.25,hit,"+8.6 dB low flat=0.002 word=('The', 0.05)",consumed by other species. | The seafloor at this depth is
+75.4,setting,coral-reef / shallow reef seafloor (world): seafloor at this depth... coral reefs,by other species. The | seafloor at this depth is akin
+76.8,riser_peak,+13.1 dB over 2.7 s,"at this depth is | akin to the Amazon rainforest, and"
+89.25,music_boundary,coarse,"attention on this comparatively | pleasant environment where we fish, swim,"
+98.4,setting,continental-shelf / continental shelf (top-down) (world): edge of the continental shelf,"So, let's dive deeper. | Moving from familiar coastal waters into"
+105.75,music_boundary,coarse,"the continental shelf, where | we're confronted with the continental slope,"
+107.0,setting,continental-slope / continental slope 200-300 m (world): continental slope... no more plants,"confronted with the continental | slope, the long descent down to"
+123.4,setting,sub-porthole / twilight zone 257-329 m (world): enter the twilight zone,"surface of the moon. | Looking out, we're faced by what"
+125.25,music_boundary,coarse,"out, we're faced by | what seems to be endless open"
+129.65,hit,"+9.0 dB low flat=0.0 word=('and', 0.11)",the slope behind us | and enter what's known as the
+133.75,music_boundary,coarse,"to the deep sea. | As we sink down further, the"
+139.4,setting,twilight-open / open water ~332 m (scuba record) (world): deepest scuba dive 332 m,rises to deadly levels. | The deepest scuba dive ever came
+139.5,riser_peak,+7.9 dB over 2.5 s,rises to deadly levels. | The deepest scuba dive ever came
+144.25,music_boundary,coarse,"at 332 meters. At | that depth, the pressure is like"
+149.4,setting,cross-section / slope cross-section (board): only 3% of our journey,on top of you. | Yet we've only completed 3 %
+150.75,hit,+14.5 dB low flat=0.0 word=None,Yet we've only completed | 3 % of our journey. While
+152.9,setting,twilight-seabed / twilight ledge (world): rest and recover... hidden,"% of our journey. | While this region seems pretty grim,"
+154.95,hit,"+13.0 dB low flat=0.0 word=('seems', -0.21)","While this region seems | pretty grim, many fish and other"
+157.75,music_boundary,coarse,and other animals actually | spend at least half their lives
+159.15,hit,"+12.5 dB low flat=0.0 word=('their', 0.05)",spend at least half | their lives down here. During the
+163.35,hit,"+8.1 dB low flat=0.0 word=('and', -0.05)","place to rest and | recover, hidden from predators in the"
+166.9,setting,twilight-open / twilight open water (world): at night travel into shallower zones,"the vast dark waters. | At night, they can travel more"
+167.65,hit,"+9.5 dB low flat=0.0 word=('At', 0.09)","the vast dark waters. | At night, they can travel more"
+168.0,riser_peak,+12.8 dB over 2.9 s,"vast dark waters. At | night, they can travel more safely"
+171.85,hit,"+9.5 dB low flat=0.0 word=('food', -0.07)",feed in the food | -rich surface waters. In this transition
+172.2,riser_peak,+13.8 dB over 2.1 s,in the food -rich | surface waters. In this transition zone
+173.9,setting,sub-porthole / 600 m (world): transition zone between twilight and darkness,food -rich surface waters. | In this transition zone between twilight
+176.15,hit,"+12.4 dB low flat=0.0 word=('twilight', 0.15)","this transition zone between | twilight and darkness, light becomes a"
+180.35,hit,+9.0 dB low flat=0.0 word=None,becomes a powerful tool. | Over 90 % of the species
+180.75,music_boundary,coarse,becomes a powerful tool. | Over 90 % of the species
+181.4,setting,midnight-water / ~600-700 m dark water (world): bioluminescence,a powerful tool. Over | 90 % of the species indigenous
+187.75,hit,+13.0 dB low flat=0.0 word=None,chemicals to create light. | They do so as camouflage against
+188.2,riser_peak,+19.4 dB over 2.2 s,chemicals to create light. | They do so as camouflage against
+188.9,setting,inset-screen / examples panel over dark water (board): camouflage / mates / hunting,to create light. They | do so as camouflage against the
+192.05,hit,"+10.1 dB low flat=0.0 word=('to', -0.01)",very faint sunlight to | send signals to potential mates or
+196.35,hit,+15.3 dB low flat=0.0 word=None,confuse and scare attackers. | Or they use light to hunt.
+199.9,setting,midnight-water / 700 m dark water (siphonophore) (world): at around 700 metres... siphonophores,use light to hunt. | Another tool for survival in the
+200.65,hit,"+10.0 dB low flat=0.0 word=('Another', 0.15)",use light to hunt. | Another tool for survival in the
+201.1,riser_peak,+13.4 dB over 1.7 s,to hunt. Another tool | for survival in the dark is
+204.75,music_boundary,coarse,teamwork. At around 700 | metres we encounter a colony of
+204.85,hit,"+15.7 dB low flat=0.0 word=('700', -0.19)",teamwork. At around 700 | metres we encounter a colony of
+209.05,hit,+12.3 dB low flat=0.0 word=None,a colony of siphonophores. | They can be up to 50
+213.25,music_boundary,coarse,"as a broomstick. To | attract prey, a colony creates a"
+217.55,hit,"+10.7 dB low flat=0.001 word=('beautiful', -0.19)",creates a tragically beautiful | bright blue or red light and
+218.7,riser_peak,+12.3 dB over 1.8 s,tragically beautiful bright blue | or red light and deploys a
+221.75,hit,"+9.6 dB low flat=0.0 word=('tentacles', -0.01)",a curtain of tentacles | filled with toxic needles that kill
+222.25,music_boundary,coarse,a curtain of tentacles | filled with toxic needles that kill
+226.05,hit,"+10.4 dB low flat=0.0 word=('too', -0.01)",anything that comes too | close. But most species living down
+227.4,setting,marine-snow / dark water with snow (world): marine snow,that comes too close. | But most species living down here
+227.5,riser_peak,+10.8 dB over 2.1 s,that comes too close. | But most species living down here
+234.55,hit,"+8.7 dB low flat=0.0 word=('White,', -0.19)","resource, marine snow. White, | flaky stuff that constantly sinks from"
+235.2,riser_peak,+10.4 dB over 1.8 s,"snow. White, flaky stuff | that constantly sinks from the surface"
+238.75,music_boundary,coarse,of the ocean. It | consists of dead plant or animal
+238.85,hit,"+11.6 dB low flat=0.0 word=('It', -0.11)",of the ocean. It | consists of dead plant or animal
+239.5,riser_peak,+11.5 dB over 1.7 s,of the ocean. It | consists of dead plant or animal
+239.9,setting,inset-screen / snow ingredients panel (board): ingredients listed,of the ocean. It | consists of dead plant or animal
+243.05,hit,"+8.4 dB low flat=0.0 word=('matter,', -0.21)","animal parts, fecal matter, | shells, sand or dust. Even though"
+243.9,riser_peak,+11.4 dB over 1.9 s,"parts, fecal matter, shells, | sand or dust. Even though this"
+245.9,setting,abyss-seabed / seabed with whale fall (world): life in the deep sea would starve (dead animal parts),"shells, sand or dust. | Even though this doesn't sound very"
+247.25,music_boundary,coarse,"dust. Even though this | doesn't sound very tasty, without this"
+252.6,riser_peak,+9.1 dB over 2.1 s,deep sea would starve. | It's in this area that the
+254.9,setting,midnight-water / dark water (giant squid vs sperm whale) (world): sperm whales hunt giant squid,It's in this area | that the most fascinating battles between
+255.85,hit,"+10.0 dB low flat=0.0 word=('battles', 0.17)",that the most fascinating | battles between two unlikely enemies could
+259.75,music_boundary,coarse,unlikely enemies could happen. | Sperm whales hunt and attack a
+260.4,riser_peak,+9.6 dB over 2.1 s,could happen. Sperm whales | hunt and attack a giant squid
+264.25,hit,+8.9 dB low flat=0.0 word=None,"of a house. While | the squid fight back ferociously, they"
+268.55,hit,+20.6 dB low flat=0.0 word=None,"don't stand a chance, | but they do leave permanent marks"
+270.4,dropout,"0.3 s, -14.6 dB, speech 1.0",but they do leave permanent marks | on their killer skin. As we reach 1000
+272.4,setting,cross-section / 1000 m vs Burj Khalifa (board): deeper than the tallest structure,"on their killer skin. | As we reach 1000 meters, deeper"
+272.75,hit,+12.8 dB low flat=0.011 word=None,"on their killer skin. | As we reach 1000 meters, deeper"
+273.1,riser_peak,+19.5 dB over 2.5 s,"on their killer skin. | As we reach 1000 meters, deeper"
+273.75,music_boundary,coarse,"As we reach 1000 | meters, deeper than the tallest structure"
+276.3,dropout,"0.5 s, -13.6 dB, speech 1.0","deeper than the tallest structure built | by humans, we need to be careful. This"
+277.05,hit,"+16.0 dB low flat=0.0 word=('humans,', -0.01)","structure built by humans, | we need to be careful. This"
+278.9,setting,black-zone / midnight zone 1000 m (world): midnight zone... utter darkness,"need to be careful. | This is the Midnight Zone, a"
+281.7,riser_peak,+13.9 dB over 5.3 s,"the Midnight Zone, a | place of utter darkness. A barely"
+284.9,dropout,"0.3 s, -13.6 dB, speech 1.0",place of utter darkness. A barely | explored wet wasteland consisting of nothing but endless
+285.35,hit,"+13.8 dB low flat=0.0 word=('explored', -0.11)",darkness. A barely explored | wet wasteland consisting of nothing but
+286.75,music_boundary,coarse,explored wet wasteland consisting | of nothing but endless black open
+289.35,hit,"+8.5 dB low flat=0.0 word=('open', -0.09)","but endless black open | water. At these depths, it's harder"
+293.25,hit,"+13.9 dB low flat=0.0 word=('take', -0.03)",a human to take | a swim than to take a
+297.35,hit,"+8.3 dB low flat=0.0 word=('food', 0.07)",a walk in space. | Finding food down here is really
+297.4,setting,sub-porthole / 1005-1023 m (world): food scarce / vampire squid,a walk in space. | Finding food down here is really
+300.6,dropout,"0.5 s, -14.4 dB, speech 1.0",so life had to adapt and | become extremely energy efficient. Like the 30 -centimetre
+301.25,hit,"+23.0 dB low flat=0.0 word=('become', -0.03)",to adapt and become | extremely energy efficient. Like the 30
+304.75,music_boundary,coarse,Like the 30 -centimetre | -long vampire squid that floats through
+305.25,hit,"+10.2 dB low flat=0.0 word=('vampire', 0.07)",the 30 -centimetre -long | vampire squid that floats through the
+309.05,hit,"+18.8 dB low flat=0.0 word=('long', -0.07)","without motion, with long | and slender catching arms extended. They're"
+313.05,hit,"+13.1 dB low flat=0.0 word=('tiny,', 0.07)","extended. They're covered in | tiny, stiff hairs which brush food"
+316.9,setting,inset-screen / energy diagram (board): energy efficiency,from the water. This | saves a lot of energy compared
+316.95,hit,+10.3 dB low flat=0.001 word=None,from the water. This | saves a lot of energy compared
+320.75,music_boundary,coarse,"to actively catching food. | For carnivorous fish, it's much harder"
+320.85,hit,+11.4 dB low flat=0.0 word=None,"to actively catching food. | For carnivorous fish, it's much harder"
+322.9,setting,midnight-water / dark spotlight (anglerfish) (world): hunters... first strike,"catching food. For carnivorous | fish, it's much harder to find"
+324.85,hit,"+10.3 dB low flat=0.0 word=('food', 0.07)",much harder to find | food since living prey is quite
+328.75,hit,"+11.5 dB low flat=0.0 word=('So', 0.21)",quite rare down here. | So the hunters have to get
+332.65,hit,"+9.3 dB low flat=0.0 word=('otherwise', 0.21)","victim on fur strike, | otherwise it will escape into the"
+335.9,setting,sub-porthole / 1200 m (viperfish / frilled shark) (world): named predators,escape into the dark. | Many deep -sea predators have several
+336.25,music_boundary,coarse,into the dark. Many | deep -sea predators have several sets
+336.75,hit,"+10.6 dB low flat=0.0 word=('predators', 0.13)",dark. Many deep -sea | predators have several sets of long
+340.55,hit,+11.7 dB low flat=0.0 word=None,"and deadly teeth, Like | the Viperfish, which uses its long"
+344.55,hit,"+10.4 dB low flat=0.0 word=('prey', 0.13)",to trap even large | prey and swallow it whole. Or
+348.35,hit,+11.1 dB low flat=0.0 word=None,"Or the Frilled Shark, | with its impressive set of 300"
+352.25,music_boundary,coarse,which are curved backwards | to hook their victims in their
+355.4,setting,cross-section / 3800 m (Titanic) (board): as deep as the grave of the Titanic,"victims in their mouths. | We sink further, below the 3800"
+359.9,setting,abyss-wreck / Titanic wreck 3800 m (world): abyssal depths,"3800 mark, as deep | as the grave of the Titanic."
+360.5,riser_peak,+8.1 dB over 2.7 s,deep as the grave | of the Titanic. We are now
+364.25,hit,"+16.9 dB low flat=0.0 word=('depths.', 0.01)","are now at abyssal | depths. Here, life happens in slow"
+365.9,setting,abyss-water / abyssal open water (world): life happens in slow motion,"at abyssal depths. Here, | life happens in slow motion. Preserving"
+367.75,music_boundary,coarse,life happens in slow | motion. Preserving every last bit of
+368.05,hit,+11.5 dB low flat=0.0 word=None,happens in slow motion. | Preserving every last bit of energy
+372.05,hit,"+14.5 dB low flat=0.0 word=('crucial', -0.09)",of energy is crucial | for survival. Everything down here hovers
+376.05,hit,"+11.4 dB low flat=0.0 word=('motionless', -0.07)","down here hovers motionless | or swims in a slow, elegant"
+379.5,dropout,"0.3 s, -12.8 dB, speech 1.0","swims in a slow, elegant fashion. | The only time the animals living in this"
+379.85,hit,+19.4 dB low flat=0.0 word=None,"a slow, elegant fashion. | The only time the animals living"
+383.75,music_boundary,coarse,in this zone move | fast is when they have to
+383.85,hit,"+9.4 dB low flat=0.0 word=('fast', 0.01)",in this zone move | fast is when they have to
+392.25,music_boundary,coarse,"or the Grenadiers fish | with its slow, eel -like tailbeats."
+395.65,hit,"+9.7 dB low flat=0.0 word=('At', -0.09)","eel -like tailbeats. At | 4 ,000 meters, we finally reach"
+395.9,setting,sub-porthole / 4000 m seafloor (world): we finally reach ground,"eel -like tailbeats. At | 4 ,000 meters, we finally reach"
+399.25,music_boundary,coarse,"finally reach ground again, | the abyssal plain. It's covered in"
+399.55,hit,"+11.3 dB low flat=0.0 word=('abyssal', 0.07)","reach ground again, the | abyssal plain. It's covered in grey"
+403.55,hit,"+18.0 dB low flat=0.0 word=('with', 0.13)","mud and rocks, dusted | with the remains of marine snow,"
+405.0,setting,inset-screen / seafloor animals panel (board): sea cucumbers shrimp urchins worms,"remains of marine snow, | which is consumed by animals like"
+407.45,hit,"+10.5 dB low flat=0.0 word=('sea', -0.05)","by animals like sea | cucumbers, shrimp, sea urchins and sea"
+411.35,hit,+19.5 dB low flat=0.0 word=None,"urchins and sea worms. | In some regions of the seafloor,"
+411.9,setting,abyssal-plain / abyssal plain (top-down) (world): manganese nodules,"and sea worms. In | some regions of the seafloor, small,"
+415.25,music_boundary,coarse,"small, dark mineral deposits | can be seen. These are manganese"
+415.35,hit,"+11.9 dB low flat=0.0 word=('can', -0.01)",dark mineral deposits can | be seen. These are manganese nodules.
+419.25,hit,+15.0 dB low flat=0.0 word=None,These are manganese nodules. | Deep sea corals and sponges use
+423.25,hit,"+12.8 dB low flat=0.0 word=('on', -0.05)",to anchor themselves on | the bottom of the sea. Though
+427.15,hit,"+11.0 dB low flat=0.0 word=('deep', -0.03)","sparse on the deep | sea floor, even down here there"
+428.0,setting,vent-field / rift valley vents (world): in the rift valleys... chimneys,"the deep sea floor, | even down here there are oases."
+431.05,hit,"+9.9 dB low flat=0.0 word=('In', 0.01)","here there are oases. | In the rift valleys, where tectonic"
+432.75,music_boundary,coarse,"rift valleys, where tectonic | plates are splitting apart, magma heats"
+451.4,setting,cross-section / abyssal plain to trench 6000 m (board): deepest point of the abyssal plain,"basis for unique ecosystems. | As we descend further, we reach"
+452.75,music_boundary,coarse,"ecosystems. As we descend | further, we reach the deepest point"
+453.1,dropout,"0.4 s, -13.5 dB, speech 1.0","unique ecosystems. As we descend further, | we reach the deepest point of the abyssal"
+454.8,dropout,"0.4 s, -12.7 dB, speech 1.0","we reach the deepest point of | the abyssal plain at 6 ,000 meters. For"
+463.55,hit,"+12.6 dB low flat=0.0 word=('point', -0.09)","to the deepest point | of the oceans, we're actually only"
+467.75,hit,"+11.2 dB low flat=0.0 word=(""Let's"", 0.17)","actually only halfway there. | Let's enter the Hadal Zone, the"
+467.8,riser_peak,+8.5 dB over 2.3 s,"actually only halfway there. | Let's enter the Hadal Zone, the"
+471.25,music_boundary,coarse,underworld of the sea. | It consists of long narrow trenches
+471.9,setting,hadal-trench / trench descent (world): enter the hadal zone,underworld of the sea. | It consists of long narrow trenches
+471.95,hit,+12.0 dB low flat=0.0 word=None,underworld of the sea. | It consists of long narrow trenches
+476.15,hit,"+10.4 dB low flat=0.0 word=('.25', 0.11)",make up around 0 | .25 % of the oceans and
+478.75,music_boundary,coarse,of the oceans and | are among the most extreme environments
+480.25,hit,"+8.5 dB low flat=0.0 word=('environments', -0.05)",the most extreme environments | on Earth. Only extremophiles exist down
+481.9,setting,sub-porthole / 8000 m+ (snailfish / black rocks) (world): snailfish named,"extreme environments on Earth. | Only extremophiles exist down here, like"
+484.45,hit,"+12.6 dB low flat=0.0 word=('here,', -0.15)","extremophiles exist down here, | like the ethereal snailfish that holds"
+488.65,hit,"+16.1 dB low flat=0.0 word=('fish', 0.11)",for the deepest living | fish ever seen at around 8
+492.85,hit,"+11.4 dB low flat=0.0 word=('We', 0.15)","around 8 ,000 meters. | We see spiky and sharp black"
+493.2,riser_peak,+10.7 dB over 2.4 s,"8 ,000 meters. We | see spiky and sharp black rocks"
+495.75,music_boundary,coarse,black rocks rush by | as we sink down to more
+496.4,setting,"cross-section / trench 10200 m (board): more than 10,000","as we sink down | to more than 10 ,000. Until"
+497.05,hit,"+8.6 dB low flat=0.0 word=('10', -0.01)","to more than 10 | ,000. Until we reach the final"
+497.4,riser_peak,+11.3 dB over 2.5 s,"more than 10 ,000. | Until we reach the final slope."
+500.9,setting,challenger-deep / Challenger Deep floor 11000 m (world): the deepest point,the final slope. A | trench inside the larger Mariana Trench
+501.25,hit,"+8.8 dB low flat=0.0 word=('trench', 0.25)",the final slope. A | trench inside the larger Mariana Trench
+505.35,hit,"+13.4 dB low flat=0.0 word=('sides', -0.03)",with gently sloping sides | that enframe a valley about 1
+509.45,hit,+9.9 dB low flat=0.0 word=None,1 .6 kilometers wide. | This is it. The deepest point.
+513.4,dropout,"0.9 s, -13.1 dB, speech 1.0","The deepest point. The Challenger Deep. | 11 ,000 meters below the surface. The water"
+515.1,dropout,"0.4 s, -13.4 dB, speech 1.0","point. The Challenger Deep. 11 ,000 | meters below the surface. The water pressure here"
+515.75,music_boundary,coarse,"Challenger Deep. 11 ,000 | meters below the surface. The water"
+515.75,hit,"+21.5 dB low flat=0.0 word=('meters', 0.13)","Challenger Deep. 11 ,000 | meters below the surface. The water"
+516.5,riser_peak,+23.9 dB over 2.7 s,"11 ,000 meters below | the surface. The water pressure here"
+518.4,setting,"analogy-black / - (analogy): 1,800 elephants on top of you",meters below the surface. | The water pressure here is 1086
+519.95,hit,"+12.1 dB low flat=0.0 word=('is', 0.11)",The water pressure here | is 1086 bar. Taking a swim
+522.0,setting,cross-section / trench with elephant stack (board): analogy placed back in trench,here is 1086 bar. | Taking a swim here is like
+524.15,hit,"+13.5 dB low flat=0.0 word=('a', -0.03)",1086 bar. Taking a | swim here is like having to
+528.25,hit,+13.2 dB low flat=0.0 word=None,"on top of you. | But even here, life has found"
+528.4,setting,challenger-deep / Challenger Deep floor (amphipods / plastic) (world): amphipods / plastic bags named,"on top of you. | But even here, life has found"
+529.1,riser_peak,+14.1 dB over 1.5 s,"top of you. But | even here, life has found a"
+532.45,hit,+11.2 dB low flat=0.0 word=None,"a way to thrive. | Next to sea cucumbers, white and"
+532.75,music_boundary,coarse,"a way to thrive. | Next to sea cucumbers, white and"
+536.65,hit,"+9.4 dB low flat=0.0 word=('their', 0.05)",light pink amphipods wiggle | their way through the water. Their
+540.75,hit,+8.8 dB low flat=0.001 word=None,Their size is astounding. | While their shallow water cousins are
+545.05,hit,"+12.2 dB low flat=0.0 word=('sea', 0.07)","centimeters long, the deep | sea version can reach up to"
+549.15,hit,"+9.5 dB low flat=0.0 word=('And', -0.07)",to 30 centimeters. And | there are other things floating elegantly
+549.75,music_boundary,coarse,30 centimeters. And there | are other things floating elegantly through
+553.35,hit,"+8.5 dB low flat=0.0 word=('Plastic', 0.23)",elegantly through the water. | Plastic bags that were found by
+553.9,riser_peak,+10.7 dB over 1.6 s,through the water. Plastic | bags that were found by scientists
+557.75,music_boundary,coarse,scientists in 2018. Even | the remotest place on Earth is
+558.1,riser_peak,+12.1 dB over 1.8 s,scientists in 2018. Even | the remotest place on Earth is
+565.85,hit,"+9.4 dB low flat=0.0 word=('oxygen', 0.05)","do now, and our | oxygen is running out, so we"
+569.9,setting,sub-porthole / ascent 11000 m -> 0 m (montage) (world): we begin our ascent,we begin our ascent. | After hours of travelling through dark
+570.05,hit,+8.7 dB low flat=0.0 word=None,we begin our ascent. | After hours of travelling through dark
+579.0,riser_peak,+8.7 dB over 1.6 s,we begin our ascent. | After hours of travelling through dark
+582.75,music_boundary,coarse,"nothingness, we finally see | a glimpse of light. We arrive"
+584.9,setting,sub-porthole / sea surface (world): back at a calm surface,glimpse of light. We | arrive back at a calm surface.
+586.55,hit,"+12.3 dB low flat=0.0 word=('surface.', -0.01)","at a calm surface. | The oceans are so deep, there"
+590.75,hit,"+18.6 dB low flat=0.0 word=('there', 0.21)","oceans are so deep, | there is so much of them."
+594.85,hit,"+9.6 dB low flat=0.0 word=('and', 0.03)",owe it to ourselves | and to our descendants to preserve
+598.95,hit,+14.4 dB low flat=0.0 word=None,well as we can. | There are still so many wondrous
+599.25,music_boundary,coarse,well as we can. | There are still so many wondrous
+602.9,dropout,"1.1 s, -15.5 dB, speech 0.91",wondrous things left to be discovered. | This bird has magical powers. Let's see a

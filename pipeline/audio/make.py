@@ -11,6 +11,9 @@ usage (Spark, from ~/studio/app):
                 pipeline.episodes.sfx_events: drops, pops, punches, light events, transitions). rate = pitch variant.
   --reuse-tts   reuse the voice + word timings cached by the previous run in --out (tts_cache.npz / tts_cache.json),
                 so a remix with new cues never changes the timings the storyboard was built on.
+  --storyboard  storyboard.json for the scored soundtrack (music "score", pipeline.audio.score); default
+                episodes/<id>/storyboard.json. Without one (the first TTS pass, before the storyboard exists) a "score"
+                episode mixes with the fallback bed (config score_fallback) and the remix after the storyboard composes it.
 
 Writes to --out (default studio/public/episodes/<id>/, so Remotion can load it):
   mix.wav                 final stereo mix, 48 kHz, -14 LUFS integrated, <= -1 dBTP
@@ -33,7 +36,7 @@ import time
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-from .config import NICHES
+from .config import NICHES, SCORE
 from .mix import PUBLIC, ROOT, mix
 from .script import parse
 from .tts import auto_cues, synthesize
@@ -91,6 +94,7 @@ def main(argv=None):
     ap.add_argument("--meta-out", help="also copy the small JSON outputs here (e.g. episodes/<id>/audio)")
     ap.add_argument("--extra-cues", help="JSON list of extra SFX cues [{cue, at, db?, rate?}] (storyboard action SFX)")
     ap.add_argument("--reuse-tts", action="store_true", help="reuse the cached voice/timings from the previous run in --out")
+    ap.add_argument("--storyboard", help="storyboard.json the score is composed from (default episodes/<id>/storyboard.json)")
     a = ap.parse_args(argv)
 
     t0 = time.time()
@@ -141,7 +145,31 @@ def main(argv=None):
         # an action cue never doubles a script/auto cue already within 0.25 s
         extra = [c for c in extra if not any(abs(c["at"] - o["at"]) < 0.25 for o in cues)]
         cues = sorted(cues + [{**c, "source": c.get("source", "storyboard")} for c in extra], key=lambda c: c["at"])
-    mx = mix(tts["audio"], cues, cfg, music, out)
+    score_fn, fallback = None, None
+    if music == SCORE:
+        sb_path = a.storyboard or os.path.join(ROOT, "episodes", ep, "storyboard.json")
+        from .sf2 import available
+        ok, why = available()
+        if not os.path.exists(sb_path):
+            ok, why = False, f"no storyboard yet ({os.path.relpath(sb_path, ROOT)})"
+        if ok:
+            from .score import compose
+            sb = json.load(open(sb_path))
+            for k, v in (cfg.get("score_mix") or {}).items():  # score levels win over bed-tuned front matter
+                if sc.meta.get(f"score_{k}") in (None, ""):
+                    cfg[k] = v
+                else:
+                    cfg[k] = float(sc.meta[f"score_{k}"])
+
+            def score_fn(seconds, loop):
+                return compose(sb, None, seconds, loop, out, sfx_cues=cues, seed_key=ep)
+        else:
+            fallback = why
+            music = cfg.get("score_fallback", "deep_ocean")
+            print(f"[make] score unavailable ({why}): mixing with the fallback bed '{music}'")
+    mx = mix(tts["audio"], cues, cfg, music, out, score_fn=score_fn)
+    if fallback:
+        mx["report"]["music_fallback_reason"] = fallback
     dur = mx["report"]["duration_s"]
 
     rel = os.path.relpath(out, PUBLIC) if os.path.abspath(out).startswith(PUBLIC + os.sep) else None
@@ -174,7 +202,8 @@ def main(argv=None):
     json.dump(report, open(os.path.join(out, "report.json"), "w"), indent=1)
     if a.meta_out:
         os.makedirs(a.meta_out, exist_ok=True)
-        for f in ("captions.json", "cues.json", "audio.storyboard.json", "report.json", "waveform.png"):
+        for f in ("captions.json", "cues.json", "audio.storyboard.json", "report.json", "waveform.png", "score_plan.json",
+                  "score.mid"):
             if os.path.exists(os.path.join(out, f)):
                 shutil.copy(os.path.join(out, f), a.meta_out)
     print(f"[make] {ep}: {dur}s, {len(tts['words'])} words, {len(cues)} cues -> {out} ({report['wall_s']}s)")

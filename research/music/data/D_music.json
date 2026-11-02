@@ -1,0 +1,4172 @@
+{
+ "key": "D",
+ "duration_s": 679.2,
+ "analysed": [
+  0.0,
+  604.0
+ ],
+ "excluded": [
+  [
+   26.4,
+   36.4
+  ]
+ ],
+ "loudness": {
+  "mix_integrated_lufs": -17.3,
+  "voice_integrated_lufs": -17.5,
+  "music_integrated_lufs": -26.1,
+  "music_M_under_speech_median": -26.7,
+  "music_M_in_gaps_median": -21.7,
+  "voice_M_speech_median": -15.2,
+  "voice_minus_music_under_speech_db": {
+   "p10": 1.9,
+   "median": 11.1,
+   "p90": 18.8
+  },
+  "speech_share": 0.844,
+  "gaps_ge_0p5s": 83,
+  "gap_len_s": {
+   "median": 0.9,
+   "p90": 1.18
+  },
+  "music_LRA_like_p10_p95_short_term": [
+   -28.6,
+   -16.7
+  ],
+  "music_gap_minus_speech_db": 5.0,
+  "gap_vs_preceding_speech_db": {
+   "median": 3.5,
+   "p25": 0.4,
+   "p75": 8.2,
+   "n": 82
+  }
+ },
+ "tempo": {
+  "global_bpm_librosa": 117.5,
+  "window_bpm_median": 117.5,
+  "window_bpm_p25_p75": [
+   112.3,
+   123.0
+  ],
+  "pulse_clarity_median": 0.2,
+  "share_windows_clear_pulse_gt_0p3": 0.19
+ },
+ "n_setting_changes": 48,
+ "boundaries": {
+  "coarse_per_min": 3.94,
+  "fine_per_min": 7.47,
+  "coarse": [
+   26.25,
+   36.75,
+   58.25,
+   71.75,
+   89.25,
+   105.75,
+   125.25,
+   133.75,
+   144.25,
+   157.75,
+   180.75,
+   204.75,
+   213.25,
+   222.25,
+   238.75,
+   247.25,
+   259.75,
+   273.75,
+   286.75,
+   304.75,
+   320.75,
+   336.25,
+   352.25,
+   367.75,
+   383.75,
+   392.25,
+   399.25,
+   415.25,
+   432.75,
+   452.75,
+   471.25,
+   478.75,
+   495.75,
+   515.75,
+   532.75,
+   549.75,
+   557.75,
+   582.75,
+   599.25
+  ],
+  "fine": [
+   26.25,
+   36.75,
+   42.25,
+   58.25,
+   63.75,
+   67.75,
+   71.75,
+   75.25,
+   80.75,
+   84.25,
+   89.25,
+   97.75,
+   102.25,
+   105.75,
+   121.25,
+   124.75,
+   129.75,
+   133.75,
+   148.25,
+   157.25,
+   163.25,
+   167.75,
+   174.25,
+   180.75,
+   183.75,
+   187.25,
+   196.25,
+   204.75,
+   212.25,
+   217.75,
+   222.25,
+   230.75,
+   238.75,
+   256.25,
+   259.75,
+   268.25,
+   273.75,
+   280.25,
+   286.75,
+   293.25,
+   301.25,
+   304.75,
+   320.75,
+   323.75,
+   336.25,
+   351.75,
+   355.25,
+   364.25,
+   383.75,
+   387.75,
+   392.25,
+   395.25,
+   399.25,
+   405.75,
+   415.25,
+   431.25,
+   452.75,
+   455.75,
+   471.75,
+   478.75,
+   484.25,
+   488.75,
+   495.25,
+   501.25,
+   504.75,
+   509.75,
+   515.75,
+   532.75,
+   549.25,
+   557.75,
+   566.25,
+   582.75,
+   594.75,
+   598.75
+  ]
+ },
+ "alignment": {
+  "coarse_boundaries_vs_setting_changes": {
+   "tol_s": 1.5,
+   "share": 0.208,
+   "null_mean": 0.195,
+   "p_value": 0.4975,
+   "n_changes": 48,
+   "n_events": 39,
+   "matched_offset_median_s": -0.15
+  },
+  "fine_boundaries_vs_setting_changes": {
+   "tol_s": 1.0,
+   "share": 0.271,
+   "null_mean": 0.245,
+   "p_value": 0.393,
+   "n_changes": 48,
+   "n_events": 74,
+   "matched_offset_median_s": 0.35
+  },
+  "setting_changes_vs_coarse_boundaries(precision)": {
+   "tol_s": 1.5,
+   "share": 0.256,
+   "null_mean": 0.241,
+   "p_value": 0.5035,
+   "n_changes": 39,
+   "n_events": 48,
+   "matched_offset_median_s": 0.15
+  },
+  "hits_vs_setting_changes": {
+   "tol_s": 0.6,
+   "share": 0.333,
+   "null_mean": 0.194,
+   "p_value": 0.0185,
+   "n_changes": 48,
+   "n_events": 98,
+   "matched_offset_median_s": -0.1
+  },
+  "riser_peaks_vs_setting_changes": {
+   "tol_s": 1.0,
+   "share": 0.208,
+   "null_mean": 0.089,
+   "p_value": 0.0035,
+   "n_changes": 48,
+   "n_events": 27,
+   "matched_offset_median_s": 0.2
+  },
+  "dropout_ends_vs_setting_changes": {
+   "tol_s": 1.0,
+   "share": 0.042,
+   "null_mean": 0.046,
+   "p_value": 0.703,
+   "n_changes": 48,
+   "n_events": 16,
+   "matched_offset_median_s": 0.05
+  },
+  "noise_transients_vs_visual_transitions": {
+   "tol_s": 0.5,
+   "share": 0.043,
+   "null_mean": 0.01,
+   "p_value": 0.0745,
+   "n_changes": 47,
+   "n_events": 6,
+   "matched_offset_median_s": -0.05
+  },
+  "noise_transients_vs_setting_changes": {
+   "tol_s": 0.6,
+   "share": 0.062,
+   "null_mean": 0.012,
+   "p_value": 0.017,
+   "n_changes": 48,
+   "n_events": 6,
+   "matched_offset_median_s": -0.15
+  },
+  "hits_near_sentence_starts(-0.4..+0.3)": {
+   "tol_s": 0.35,
+   "share": 0.173,
+   "null_mean": 0.109,
+   "p_value": 0.032,
+   "n_changes": 98,
+   "n_events": 94,
+   "matched_offset_median_s": 0.08
+  },
+  "riser_peaks_near_sentence_starts": {
+   "tol_s": 0.5,
+   "share": 0.519,
+   "null_mean": 0.155,
+   "p_value": 0.0,
+   "n_changes": 27,
+   "n_events": 94,
+   "matched_offset_median_s": 0.05
+  },
+  "dropout_ends_near_sentence_starts": {
+   "tol_s": 0.5,
+   "share": 0.062,
+   "null_mean": 0.151,
+   "p_value": 0.9255,
+   "n_changes": 16,
+   "n_events": 94,
+   "matched_offset_median_s": -0.48
+  },
+  "dropout_starts_near_sentence_ends": {
+   "tol_s": 0.5,
+   "share": 0.125,
+   "null_mean": 0.152,
+   "p_value": 0.7435,
+   "n_changes": 16,
+   "n_events": 94,
+   "matched_offset_median_s": 0.23
+  },
+  "setting_changes_near_sentence_starts": {
+   "tol_s": 0.5,
+   "share": 0.396,
+   "null_mean": 0.157,
+   "p_value": 0.0,
+   "n_changes": 48,
+   "n_events": 94,
+   "matched_offset_median_s": 0.08
+  }
+ },
+ "setting_change_steps": {
+  "level_step_abs_median_db": 3.0,
+  "texture_dist_median_at_changes": 0.395,
+  "texture_dist_median_random": 0.354,
+  "steps": [
+   {
+    "t": 3.9,
+    "level_step_db": 16.1,
+    "texture_dist": 0.188
+   },
+   {
+    "t": 7.4,
+    "level_step_db": -12.2,
+    "texture_dist": 0.251
+   },
+   {
+    "t": 9.9,
+    "level_step_db": -5.3,
+    "texture_dist": 0.101
+   },
+   {
+    "t": 12.9,
+    "level_step_db": 10.9,
+    "texture_dist": 0.267
+   },
+   {
+    "t": 36.4,
+    "level_step_db": -6.7,
+    "texture_dist": 1.032
+   },
+   {
+    "t": 40.4,
+    "level_step_db": -6.5,
+    "texture_dist": 0.332
+   },
+   {
+    "t": 52.9,
+    "level_step_db": -0.4,
+    "texture_dist": 0.388
+   },
+   {
+    "t": 56.4,
+    "level_step_db": 4.7,
+    "texture_dist": 0.44
+   },
+   {
+    "t": 61.9,
+    "level_step_db": -4.3,
+    "texture_dist": 0.402
+   },
+   {
+    "t": 75.4,
+    "level_step_db": 5.9,
+    "texture_dist": 0.668
+   },
+   {
+    "t": 98.4,
+    "level_step_db": -1.3,
+    "texture_dist": 0.411
+   },
+   {
+    "t": 107.0,
+    "level_step_db": -0.6,
+    "texture_dist": 0.245
+   },
+   {
+    "t": 123.4,
+    "level_step_db": 0.3,
+    "texture_dist": 0.47
+   },
+   {
+    "t": 139.4,
+    "level_step_db": 1.6,
+    "texture_dist": 0.123
+   },
+   {
+    "t": 149.4,
+    "level_step_db": 3.3,
+    "texture_dist": 0.381
+   },
+   {
+    "t": 152.9,
+    "level_step_db": 5.2,
+    "texture_dist": 0.505
+   },
+   {
+    "t": 166.9,
+    "level_step_db": 2.2,
+    "texture_dist": 0.479
+   },
+   {
+    "t": 173.9,
+    "level_step_db": 2.7,
+    "texture_dist": 0.645
+   },
+   {
+    "t": 181.4,
+    "level_step_db": 5.7,
+    "texture_dist": 1.052
+   },
+   {
+    "t": 188.9,
+    "level_step_db": 5.8,
+    "texture_dist": 0.518
+   },
+   {
+    "t": 199.9,
+    "level_step_db": 5.5,
+    "texture_dist": 0.141
+   },
+   {
+    "t": 227.4,
+    "level_step_db": -3.2,
+    "texture_dist": 0.141
+   },
+   {
+    "t": 239.9,
+    "level_step_db": -2.3,
+    "texture_dist": 0.513
+   },
+   {
+    "t": 245.9,
+    "level_step_db": -1.7,
+    "texture_dist": 0.305
+   },
+   {
+    "t": 254.9,
+    "level_step_db": -5.1,
+    "texture_dist": 0.321
+   },
+   {
+    "t": 272.4,
+    "level_step_db": 11.4,
+    "texture_dist": 0.493
+   },
+   {
+    "t": 278.9,
+    "level_step_db": 1.6,
+    "texture_dist": 0.419
+   },
+   {
+    "t": 297.4,
+    "level_step_db": -1.2,
+    "texture_dist": 0.117
+   },
+   {
+    "t": 316.9,
+    "level_step_db": 3.6,
+    "texture_dist": 0.097
+   },
+   {
+    "t": 322.9,
+    "level_step_db": -3.8,
+    "texture_dist": 0.456
+   },
+   {
+    "t": 335.9,
+    "level_step_db": -0.3,
+    "texture_dist": 0.744
+   },
+   {
+    "t": 355.4,
+    "level_step_db": -0.3,
+    "texture_dist": 0.539
+   },
+   {
+    "t": 359.9,
+    "level_step_db": 2.6,
+    "texture_dist": 0.41
+   },
+   {
+    "t": 365.9,
+    "level_step_db": -1.2,
+    "texture_dist": 0.758
+   },
+   {
+    "t": 395.9,
+    "level_step_db": -0.0,
+    "texture_dist": 0.564
+   },
+   {
+    "t": 405.0,
+    "level_step_db": -1.2,
+    "texture_dist": 0.263
+   },
+   {
+    "t": 411.9,
+    "level_step_db": -0.7,
+    "texture_dist": 0.184
+   },
+   {
+    "t": 428.0,
+    "level_step_db": -2.0,
+    "texture_dist": 0.295
+   },
+   {
+    "t": 451.4,
+    "level_step_db": -8.4,
+    "texture_dist": 0.305
+   },
+   {
+    "t": 471.9,
+    "level_step_db": 4.6,
+    "texture_dist": 0.684
+   },
+   {
+    "t": 481.9,
+    "level_step_db": -2.8,
+    "texture_dist": 0.332
+   },
+   {
+    "t": 496.4,
+    "level_step_db": 5.1,
+    "texture_dist": 0.943
+   },
+   {
+    "t": 500.9,
+    "level_step_db": 1.9,
+    "texture_dist": 0.474
+   },
+   {
+    "t": 518.4,
+    "level_step_db": 0.4,
+    "texture_dist": 0.208
+   },
+   {
+    "t": 522.0,
+    "level_step_db": -2.3,
+    "texture_dist": 0.221
+   },
+   {
+    "t": 528.4,
+    "level_step_db": 6.3,
+    "texture_dist": 0.226
+   },
+   {
+    "t": 569.9,
+    "level_step_db": 7.8,
+    "texture_dist": 0.09
+   },
+   {
+    "t": 584.9,
+    "level_step_db": -1.9,
+    "texture_dist": 0.67
+   }
+  ]
+ },
+ "sections": [
+  {
+   "t0": 0.0,
+   "t1": 26.2,
+   "dur": 26.2,
+   "music_M_median": -29.2,
+   "band_dBA_rel_total": {
+    "sub_20_60": -23.7,
+    "bass_60_200": -6.1,
+    "lowmid_200_800": -2.7,
+    "mid_800_2500": -7.7,
+    "pres_2500_6000": -14.9,
+    "air_6000_11000": -18.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -6.5,
+    "C3-B3 low": -8.7,
+    "C4-B4 mid": -23.0,
+    "C5-B5 high": -30.6,
+    "C6-B6 bell": -45.4,
+    "C7-B7 sparkle": -51.9
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.88,
+   "centroid_hz": 1242,
+   "flatness_median": 0.002,
+   "onsets_per_s": 1.87,
+   "hi_tonal_onsets_per_s": 1.83,
+   "key": "G maj",
+   "key_r": 0.36,
+   "drums_minus_music_db": -7.5,
+   "bass_minus_music_db": -38.4,
+   "other_minus_music_db": -3.3
+  },
+  {
+   "t0": 26.2,
+   "t1": 36.8,
+   "dur": 10.5,
+   "music_M_median": -20.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -26.9,
+    "bass_60_200": -15.3,
+    "lowmid_200_800": -2.7,
+    "mid_800_2500": -3.9,
+    "pres_2500_6000": -16.8,
+    "air_6000_11000": -21.7
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -5.5,
+    "C3-B3 low": -14.0,
+    "C4-B4 mid": -26.9,
+    "C5-B5 high": -20.2,
+    "C6-B6 bell": -43.5,
+    "C7-B7 sparkle": -55.2
+   },
+   "hi_note_ioi_median_s": 0.325,
+   "harmonic_share": 0.79,
+   "centroid_hz": 1332,
+   "flatness_median": 0.003,
+   "onsets_per_s": 1.52,
+   "hi_tonal_onsets_per_s": 1.9,
+   "key": "E maj",
+   "key_r": 0.61,
+   "drums_minus_music_db": -0.3,
+   "bass_minus_music_db": -53.1,
+   "other_minus_music_db": -11.6
+  },
+  {
+   "t0": 36.8,
+   "t1": 58.2,
+   "dur": 21.5,
+   "music_M_median": -33.1,
+   "band_dBA_rel_total": {
+    "sub_20_60": -31.7,
+    "bass_60_200": -18.6,
+    "lowmid_200_800": -4.4,
+    "mid_800_2500": -2.3,
+    "pres_2500_6000": -14.9,
+    "air_6000_11000": -30.0
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.5,
+    "C3-B3 low": -10.9,
+    "C4-B4 mid": -22.5,
+    "C5-B5 high": -16.3,
+    "C6-B6 bell": -19.5,
+    "C7-B7 sparkle": -36.2
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.91,
+   "centroid_hz": 1544,
+   "flatness_median": 0.002,
+   "onsets_per_s": 1.16,
+   "hi_tonal_onsets_per_s": 1.67,
+   "key": "E maj",
+   "key_r": 0.64,
+   "drums_minus_music_db": -20.3,
+   "bass_minus_music_db": -35.6,
+   "other_minus_music_db": -0.3
+  },
+  {
+   "t0": 58.2,
+   "t1": 71.8,
+   "dur": 13.5,
+   "music_M_median": -26.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -25.7,
+    "bass_60_200": -16.5,
+    "lowmid_200_800": -5.1,
+    "mid_800_2500": -1.9,
+    "pres_2500_6000": -18.6,
+    "air_6000_11000": -24.6
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -13.3,
+    "C3-B3 low": -14.7,
+    "C4-B4 mid": -17.2,
+    "C5-B5 high": -19.6,
+    "C6-B6 bell": -23.7,
+    "C7-B7 sparkle": -39.4
+   },
+   "hi_note_ioi_median_s": 0.522,
+   "harmonic_share": 0.92,
+   "centroid_hz": 1183,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.7,
+   "hi_tonal_onsets_per_s": 1.7,
+   "key": "E maj",
+   "key_r": 0.52,
+   "drums_minus_music_db": -6.9,
+   "bass_minus_music_db": -32.3,
+   "other_minus_music_db": -4.1
+  },
+  {
+   "t0": 71.8,
+   "t1": 89.2,
+   "dur": 17.5,
+   "music_M_median": -22.8,
+   "band_dBA_rel_total": {
+    "sub_20_60": -24.6,
+    "bass_60_200": -13.3,
+    "lowmid_200_800": -4.1,
+    "mid_800_2500": -2.7,
+    "pres_2500_6000": -16.3,
+    "air_6000_11000": -28.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -10.5,
+    "C3-B3 low": -12.6,
+    "C4-B4 mid": -17.3,
+    "C5-B5 high": -19.7,
+    "C6-B6 bell": -27.4,
+    "C7-B7 sparkle": -39.0
+   },
+   "hi_note_ioi_median_s": 0.348,
+   "harmonic_share": 0.92,
+   "centroid_hz": 870,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.09,
+   "hi_tonal_onsets_per_s": 1.43,
+   "key": "A maj",
+   "key_r": 0.45,
+   "drums_minus_music_db": -13.6,
+   "bass_minus_music_db": -11.3,
+   "other_minus_music_db": -3.7
+  },
+  {
+   "t0": 89.2,
+   "t1": 105.8,
+   "dur": 16.5,
+   "music_M_median": -23.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -25.6,
+    "bass_60_200": -14.9,
+    "lowmid_200_800": -3.5,
+    "mid_800_2500": -2.9,
+    "pres_2500_6000": -22.6,
+    "air_6000_11000": -36.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.8,
+    "C3-B3 low": -13.2,
+    "C4-B4 mid": -15.6,
+    "C5-B5 high": -18.1,
+    "C6-B6 bell": -26.4,
+    "C7-B7 sparkle": -44.2
+   },
+   "hi_note_ioi_median_s": 0.975,
+   "harmonic_share": 0.94,
+   "centroid_hz": 838,
+   "flatness_median": 0.0,
+   "onsets_per_s": 0.97,
+   "hi_tonal_onsets_per_s": 0.85,
+   "key": "A maj",
+   "key_r": 0.52,
+   "drums_minus_music_db": -21.7,
+   "bass_minus_music_db": -10.9,
+   "other_minus_music_db": -1.3
+  },
+  {
+   "t0": 105.8,
+   "t1": 125.2,
+   "dur": 19.5,
+   "music_M_median": -24.4,
+   "band_dBA_rel_total": {
+    "sub_20_60": -26.5,
+    "bass_60_200": -15.9,
+    "lowmid_200_800": -3.9,
+    "mid_800_2500": -2.6,
+    "pres_2500_6000": -17.7,
+    "air_6000_11000": -34.4
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.1,
+    "C3-B3 low": -13.5,
+    "C4-B4 mid": -14.5,
+    "C5-B5 high": -18.9,
+    "C6-B6 bell": -24.4,
+    "C7-B7 sparkle": -36.9
+   },
+   "hi_note_ioi_median_s": 0.522,
+   "harmonic_share": 0.95,
+   "centroid_hz": 918,
+   "flatness_median": 0.001,
+   "onsets_per_s": 0.77,
+   "hi_tonal_onsets_per_s": 0.97,
+   "key": "A maj",
+   "key_r": 0.45,
+   "drums_minus_music_db": -33.3,
+   "bass_minus_music_db": -10.5,
+   "other_minus_music_db": -1.0
+  },
+  {
+   "t0": 125.2,
+   "t1": 133.8,
+   "dur": 8.5,
+   "music_M_median": -24.8,
+   "band_dBA_rel_total": {
+    "sub_20_60": -52.6,
+    "bass_60_200": -12.3,
+    "lowmid_200_800": -1.9,
+    "mid_800_2500": -5.3,
+    "pres_2500_6000": -25.8,
+    "air_6000_11000": -37.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -28.5,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -8.9,
+    "C4-B4 mid": -10.2,
+    "C5-B5 high": -14.5,
+    "C6-B6 bell": -24.4,
+    "C7-B7 sparkle": -45.7
+   },
+   "hi_note_ioi_median_s": 0.255,
+   "harmonic_share": 0.98,
+   "centroid_hz": 822,
+   "flatness_median": 0.0,
+   "onsets_per_s": 0.71,
+   "hi_tonal_onsets_per_s": 2.0,
+   "key": "D maj",
+   "key_r": 0.74,
+   "drums_minus_music_db": -40.4,
+   "bass_minus_music_db": -15.3,
+   "other_minus_music_db": -0.5
+  },
+  {
+   "t0": 133.8,
+   "t1": 144.2,
+   "dur": 10.5,
+   "music_M_median": -28.1,
+   "band_dBA_rel_total": {
+    "sub_20_60": -33.6,
+    "bass_60_200": -16.0,
+    "lowmid_200_800": -1.1,
+    "mid_800_2500": -7.5,
+    "pres_2500_6000": -16.6,
+    "air_6000_11000": -27.8
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -5.1,
+    "C2-B2 bass": -4.3,
+    "C3-B3 low": 0.0,
+    "C4-B4 mid": -4.8,
+    "C5-B5 high": -13.4,
+    "C6-B6 bell": -27.0,
+    "C7-B7 sparkle": -43.0
+   },
+   "hi_note_ioi_median_s": 0.406,
+   "harmonic_share": 0.76,
+   "centroid_hz": 897,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.24,
+   "hi_tonal_onsets_per_s": 2.19,
+   "key": "A min",
+   "key_r": 0.58,
+   "drums_minus_music_db": -29.3,
+   "bass_minus_music_db": -41.5,
+   "other_minus_music_db": -0.1
+  },
+  {
+   "t0": 144.2,
+   "t1": 157.8,
+   "dur": 13.5,
+   "music_M_median": -28.2,
+   "band_dBA_rel_total": {
+    "sub_20_60": -22.6,
+    "bass_60_200": -14.1,
+    "lowmid_200_800": -2.3,
+    "mid_800_2500": -4.4,
+    "pres_2500_6000": -23.6,
+    "air_6000_11000": -23.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -17.0,
+    "C3-B3 low": -11.7,
+    "C4-B4 mid": -17.6,
+    "C5-B5 high": -24.4,
+    "C6-B6 bell": -29.1,
+    "C7-B7 sparkle": -55.4
+   },
+   "hi_note_ioi_median_s": 0.372,
+   "harmonic_share": 0.9,
+   "centroid_hz": 848,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.63,
+   "hi_tonal_onsets_per_s": 2.07,
+   "key": "A min",
+   "key_r": 0.5,
+   "drums_minus_music_db": -26.6,
+   "bass_minus_music_db": -39.0,
+   "other_minus_music_db": -0.9
+  },
+  {
+   "t0": 157.8,
+   "t1": 180.8,
+   "dur": 23.0,
+   "music_M_median": -26.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -22.7,
+    "bass_60_200": -14.9,
+    "lowmid_200_800": -1.8,
+    "mid_800_2500": -5.3,
+    "pres_2500_6000": -22.8,
+    "air_6000_11000": -32.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -19.7,
+    "C3-B3 low": -13.7,
+    "C4-B4 mid": -16.6,
+    "C5-B5 high": -23.4,
+    "C6-B6 bell": -32.6,
+    "C7-B7 sparkle": -52.4
+   },
+   "hi_note_ioi_median_s": 0.464,
+   "harmonic_share": 0.91,
+   "centroid_hz": 818,
+   "flatness_median": 0.0,
+   "onsets_per_s": 0.78,
+   "hi_tonal_onsets_per_s": 1.74,
+   "key": "A min",
+   "key_r": 0.63,
+   "drums_minus_music_db": -34.2,
+   "bass_minus_music_db": -32.0,
+   "other_minus_music_db": -0.6
+  },
+  {
+   "t0": 180.8,
+   "t1": 204.8,
+   "dur": 24.0,
+   "music_M_median": -22.7,
+   "band_dBA_rel_total": {
+    "sub_20_60": -18.2,
+    "bass_60_200": -10.0,
+    "lowmid_200_800": -1.7,
+    "mid_800_2500": -7.2,
+    "pres_2500_6000": -17.2,
+    "air_6000_11000": -31.6
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.8,
+    "C3-B3 low": -19.6,
+    "C4-B4 mid": -21.5,
+    "C5-B5 high": -27.8,
+    "C6-B6 bell": -38.0,
+    "C7-B7 sparkle": -57.1
+   },
+   "hi_note_ioi_median_s": 0.395,
+   "harmonic_share": 0.95,
+   "centroid_hz": 743,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.71,
+   "hi_tonal_onsets_per_s": 1.96,
+   "key": "A min",
+   "key_r": 0.59,
+   "drums_minus_music_db": -17.9,
+   "bass_minus_music_db": -3.0,
+   "other_minus_music_db": -7.2
+  },
+  {
+   "t0": 204.8,
+   "t1": 213.2,
+   "dur": 8.5,
+   "music_M_median": -22.4,
+   "band_dBA_rel_total": {
+    "sub_20_60": -18.4,
+    "bass_60_200": -9.4,
+    "lowmid_200_800": -1.8,
+    "mid_800_2500": -7.0,
+    "pres_2500_6000": -19.2,
+    "air_6000_11000": -32.8
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -7.6,
+    "C3-B3 low": -20.6,
+    "C4-B4 mid": -23.0,
+    "C5-B5 high": -30.4,
+    "C6-B6 bell": -40.8,
+    "C7-B7 sparkle": -54.9
+   },
+   "hi_note_ioi_median_s": 0.476,
+   "harmonic_share": 0.96,
+   "centroid_hz": 737,
+   "flatness_median": 0.0,
+   "onsets_per_s": 2.24,
+   "hi_tonal_onsets_per_s": 1.76,
+   "key": "A min",
+   "key_r": 0.36,
+   "drums_minus_music_db": -16.3,
+   "bass_minus_music_db": -2.3,
+   "other_minus_music_db": -6.4
+  },
+  {
+   "t0": 213.2,
+   "t1": 222.2,
+   "dur": 9.0,
+   "music_M_median": -20.8,
+   "band_dBA_rel_total": {
+    "sub_20_60": -19.3,
+    "bass_60_200": -8.8,
+    "lowmid_200_800": -1.5,
+    "mid_800_2500": -8.9,
+    "pres_2500_6000": -19.6,
+    "air_6000_11000": -24.9
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -5.7,
+    "C3-B3 low": -19.4,
+    "C4-B4 mid": -20.2,
+    "C5-B5 high": -26.0,
+    "C6-B6 bell": -40.5,
+    "C7-B7 sparkle": -52.9
+   },
+   "hi_note_ioi_median_s": 0.464,
+   "harmonic_share": 0.91,
+   "centroid_hz": 732,
+   "flatness_median": 0.0,
+   "onsets_per_s": 2.11,
+   "hi_tonal_onsets_per_s": 1.89,
+   "key": "B min",
+   "key_r": 0.54,
+   "drums_minus_music_db": -10.2,
+   "bass_minus_music_db": -3.6,
+   "other_minus_music_db": -7.0
+  },
+  {
+   "t0": 222.2,
+   "t1": 238.8,
+   "dur": 16.5,
+   "music_M_median": -21.5,
+   "band_dBA_rel_total": {
+    "sub_20_60": -19.5,
+    "bass_60_200": -12.1,
+    "lowmid_200_800": -2.0,
+    "mid_800_2500": -5.5,
+    "pres_2500_6000": -19.7,
+    "air_6000_11000": -26.5
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.9,
+    "C3-B3 low": -19.4,
+    "C4-B4 mid": -20.8,
+    "C5-B5 high": -24.7,
+    "C6-B6 bell": -33.2,
+    "C7-B7 sparkle": -52.3
+   },
+   "hi_note_ioi_median_s": 0.43,
+   "harmonic_share": 0.96,
+   "centroid_hz": 857,
+   "flatness_median": 0.0,
+   "onsets_per_s": 2.18,
+   "hi_tonal_onsets_per_s": 2.0,
+   "key": "A min",
+   "key_r": 0.6,
+   "drums_minus_music_db": -9.8,
+   "bass_minus_music_db": -3.0,
+   "other_minus_music_db": -5.0
+  },
+  {
+   "t0": 238.8,
+   "t1": 247.2,
+   "dur": 8.5,
+   "music_M_median": -23.1,
+   "band_dBA_rel_total": {
+    "sub_20_60": -21.7,
+    "bass_60_200": -11.1,
+    "lowmid_200_800": -2.8,
+    "mid_800_2500": -4.7,
+    "pres_2500_6000": -14.5,
+    "air_6000_11000": -18.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -7.2,
+    "C3-B3 low": -18.4,
+    "C4-B4 mid": -21.1,
+    "C5-B5 high": -26.2,
+    "C6-B6 bell": -31.8,
+    "C7-B7 sparkle": -47.4
+   },
+   "hi_note_ioi_median_s": 0.406,
+   "harmonic_share": 0.94,
+   "centroid_hz": 1092,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.59,
+   "hi_tonal_onsets_per_s": 1.76,
+   "key": "C maj",
+   "key_r": 0.59,
+   "drums_minus_music_db": -25.8,
+   "bass_minus_music_db": -3.2,
+   "other_minus_music_db": -5.5
+  },
+  {
+   "t0": 247.2,
+   "t1": 259.8,
+   "dur": 12.5,
+   "music_M_median": -24.7,
+   "band_dBA_rel_total": {
+    "sub_20_60": -25.4,
+    "bass_60_200": -13.0,
+    "lowmid_200_800": -2.3,
+    "mid_800_2500": -4.6,
+    "pres_2500_6000": -19.8,
+    "air_6000_11000": -31.0
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -5.5,
+    "C3-B3 low": -14.2,
+    "C4-B4 mid": -15.7,
+    "C5-B5 high": -19.2,
+    "C6-B6 bell": -28.4,
+    "C7-B7 sparkle": -45.4
+   },
+   "hi_note_ioi_median_s": 0.488,
+   "harmonic_share": 0.92,
+   "centroid_hz": 909,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.16,
+   "hi_tonal_onsets_per_s": 1.76,
+   "key": "B min",
+   "key_r": 0.6,
+   "drums_minus_music_db": -14.5,
+   "bass_minus_music_db": -7.6,
+   "other_minus_music_db": -1.8
+  },
+  {
+   "t0": 259.8,
+   "t1": 273.8,
+   "dur": 14.0,
+   "music_M_median": -28.5,
+   "band_dBA_rel_total": {
+    "sub_20_60": -21.3,
+    "bass_60_200": -12.9,
+    "lowmid_200_800": -1.4,
+    "mid_800_2500": -7.1,
+    "pres_2500_6000": -19.1,
+    "air_6000_11000": -22.7
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -13.0,
+    "C3-B3 low": -17.7,
+    "C4-B4 mid": -17.2,
+    "C5-B5 high": -26.3,
+    "C6-B6 bell": -33.5,
+    "C7-B7 sparkle": -58.9
+   },
+   "hi_note_ioi_median_s": 0.348,
+   "harmonic_share": 0.93,
+   "centroid_hz": 943,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.64,
+   "hi_tonal_onsets_per_s": 2.43,
+   "key": "A min",
+   "key_r": 0.62,
+   "drums_minus_music_db": -28.4,
+   "bass_minus_music_db": -18.3,
+   "other_minus_music_db": -3.2
+  },
+  {
+   "t0": 273.8,
+   "t1": 286.8,
+   "dur": 13.0,
+   "music_M_median": -26.4,
+   "band_dBA_rel_total": {
+    "sub_20_60": -26.3,
+    "bass_60_200": -16.6,
+    "lowmid_200_800": -1.0,
+    "mid_800_2500": -7.7,
+    "pres_2500_6000": -27.2,
+    "air_6000_11000": -22.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -8.4,
+    "C3-B3 low": -13.7,
+    "C4-B4 mid": -11.0,
+    "C5-B5 high": -22.4,
+    "C6-B6 bell": -35.8,
+    "C7-B7 sparkle": -56.7
+   },
+   "hi_note_ioi_median_s": 0.325,
+   "harmonic_share": 0.98,
+   "centroid_hz": 849,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.38,
+   "hi_tonal_onsets_per_s": 2.38,
+   "key": "A min",
+   "key_r": 0.37,
+   "drums_minus_music_db": -34.0,
+   "bass_minus_music_db": -16.7,
+   "other_minus_music_db": -0.9
+  },
+  {
+   "t0": 286.8,
+   "t1": 304.8,
+   "dur": 18.0,
+   "music_M_median": -25.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -24.3,
+    "bass_60_200": -15.4,
+    "lowmid_200_800": -2.6,
+    "mid_800_2500": -3.9,
+    "pres_2500_6000": -24.2,
+    "air_6000_11000": -32.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -16.5,
+    "C3-B3 low": -13.7,
+    "C4-B4 mid": -15.8,
+    "C5-B5 high": -20.7,
+    "C6-B6 bell": -28.9,
+    "C7-B7 sparkle": -47.7
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.96,
+   "centroid_hz": 919,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.0,
+   "hi_tonal_onsets_per_s": 1.94,
+   "key": "A min",
+   "key_r": 0.55,
+   "drums_minus_music_db": -31.3,
+   "bass_minus_music_db": -16.2,
+   "other_minus_music_db": -1.0
+  },
+  {
+   "t0": 304.8,
+   "t1": 320.8,
+   "dur": 16.0,
+   "music_M_median": -26.6,
+   "band_dBA_rel_total": {
+    "sub_20_60": -32.0,
+    "bass_60_200": -13.3,
+    "lowmid_200_800": -3.3,
+    "mid_800_2500": -3.5,
+    "pres_2500_6000": -14.8,
+    "air_6000_11000": -32.7
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -1.4,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -9.5,
+    "C4-B4 mid": -22.0,
+    "C5-B5 high": -16.8,
+    "C6-B6 bell": -25.7,
+    "C7-B7 sparkle": -31.3
+   },
+   "hi_note_ioi_median_s": 0.406,
+   "harmonic_share": 0.95,
+   "centroid_hz": 977,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.31,
+   "hi_tonal_onsets_per_s": 1.31,
+   "key": "D min",
+   "key_r": 0.66,
+   "drums_minus_music_db": -37.9,
+   "bass_minus_music_db": -10.0,
+   "other_minus_music_db": -1.1
+  },
+  {
+   "t0": 320.8,
+   "t1": 336.2,
+   "dur": 15.5,
+   "music_M_median": -25.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -21.5,
+    "bass_60_200": -12.1,
+    "lowmid_200_800": -3.7,
+    "mid_800_2500": -3.3,
+    "pres_2500_6000": -14.2,
+    "air_6000_11000": -31.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -12.0,
+    "C3-B3 low": -14.1,
+    "C4-B4 mid": -21.4,
+    "C5-B5 high": -23.2,
+    "C6-B6 bell": -31.4,
+    "C7-B7 sparkle": -39.7
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.93,
+   "centroid_hz": 889,
+   "flatness_median": 0.0,
+   "onsets_per_s": 0.9,
+   "hi_tonal_onsets_per_s": 1.68,
+   "key": "A min",
+   "key_r": 0.55,
+   "drums_minus_music_db": -10.4,
+   "bass_minus_music_db": -6.7,
+   "other_minus_music_db": -3.8
+  },
+  {
+   "t0": 336.2,
+   "t1": 352.2,
+   "dur": 16.0,
+   "music_M_median": -25.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -29.5,
+    "bass_60_200": -10.1,
+    "lowmid_200_800": -3.8,
+    "mid_800_2500": -3.4,
+    "pres_2500_6000": -15.7,
+    "air_6000_11000": -34.9
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -3.0,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -9.3,
+    "C4-B4 mid": -21.4,
+    "C5-B5 high": -19.4,
+    "C6-B6 bell": -27.8,
+    "C7-B7 sparkle": -34.2
+   },
+   "hi_note_ioi_median_s": 0.546,
+   "harmonic_share": 0.92,
+   "centroid_hz": 934,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.25,
+   "hi_tonal_onsets_per_s": 1.56,
+   "key": "D min",
+   "key_r": 0.54,
+   "drums_minus_music_db": -34.7,
+   "bass_minus_music_db": -6.5,
+   "other_minus_music_db": -2.8
+  },
+  {
+   "t0": 352.2,
+   "t1": 367.8,
+   "dur": 15.5,
+   "music_M_median": -27.0,
+   "band_dBA_rel_total": {
+    "sub_20_60": -24.2,
+    "bass_60_200": -13.2,
+    "lowmid_200_800": -4.1,
+    "mid_800_2500": -2.8,
+    "pres_2500_6000": -14.3,
+    "air_6000_11000": -33.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -10.9,
+    "C3-B3 low": -12.7,
+    "C4-B4 mid": -19.4,
+    "C5-B5 high": -20.9,
+    "C6-B6 bell": -27.8,
+    "C7-B7 sparkle": -37.9
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.94,
+   "centroid_hz": 945,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.16,
+   "hi_tonal_onsets_per_s": 1.94,
+   "key": "A min",
+   "key_r": 0.58,
+   "drums_minus_music_db": -23.2,
+   "bass_minus_music_db": -17.0,
+   "other_minus_music_db": -1.5
+  },
+  {
+   "t0": 367.8,
+   "t1": 383.8,
+   "dur": 16.0,
+   "music_M_median": -28.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -31.6,
+    "bass_60_200": -14.3,
+    "lowmid_200_800": -3.6,
+    "mid_800_2500": -3.0,
+    "pres_2500_6000": -15.3,
+    "air_6000_11000": -34.1
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -2.6,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -14.6,
+    "C4-B4 mid": -19.4,
+    "C5-B5 high": -18.0,
+    "C6-B6 bell": -26.6,
+    "C7-B7 sparkle": -33.6
+   },
+   "hi_note_ioi_median_s": 0.569,
+   "harmonic_share": 0.93,
+   "centroid_hz": 1133,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.12,
+   "hi_tonal_onsets_per_s": 1.31,
+   "key": "D min",
+   "key_r": 0.64,
+   "drums_minus_music_db": -26.0,
+   "bass_minus_music_db": -24.6,
+   "other_minus_music_db": -0.6
+  },
+  {
+   "t0": 383.8,
+   "t1": 392.2,
+   "dur": 8.5,
+   "music_M_median": -29.8,
+   "band_dBA_rel_total": {
+    "sub_20_60": -23.0,
+    "bass_60_200": -9.2,
+    "lowmid_200_800": -3.0,
+    "mid_800_2500": -4.7,
+    "pres_2500_6000": -13.9,
+    "air_6000_11000": -30.4
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -8.9,
+    "C3-B3 low": -9.2,
+    "C4-B4 mid": -16.6,
+    "C5-B5 high": -21.2,
+    "C6-B6 bell": -34.6,
+    "C7-B7 sparkle": -39.4
+   },
+   "hi_note_ioi_median_s": 0.279,
+   "harmonic_share": 0.93,
+   "centroid_hz": 824,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.53,
+   "hi_tonal_onsets_per_s": 2.59,
+   "key": "E maj",
+   "key_r": 0.47,
+   "drums_minus_music_db": -24.8,
+   "bass_minus_music_db": -28.8,
+   "other_minus_music_db": -1.0
+  },
+  {
+   "t0": 392.2,
+   "t1": 399.2,
+   "dur": 7.0,
+   "music_M_median": -29.7,
+   "band_dBA_rel_total": {
+    "sub_20_60": -27.0,
+    "bass_60_200": -12.5,
+    "lowmid_200_800": -2.5,
+    "mid_800_2500": -4.3,
+    "pres_2500_6000": -21.7,
+    "air_6000_11000": -25.9
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -9.5,
+    "C3-B3 low": -6.8,
+    "C4-B4 mid": -11.1,
+    "C5-B5 high": -15.2,
+    "C6-B6 bell": -26.0,
+    "C7-B7 sparkle": -43.8
+   },
+   "hi_note_ioi_median_s": 0.302,
+   "harmonic_share": 0.81,
+   "centroid_hz": 1012,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.86,
+   "hi_tonal_onsets_per_s": 2.0,
+   "key": "A maj",
+   "key_r": 0.55,
+   "drums_minus_music_db": -11.5,
+   "bass_minus_music_db": -40.3,
+   "other_minus_music_db": -0.7
+  },
+  {
+   "t0": 399.2,
+   "t1": 415.2,
+   "dur": 16.0,
+   "music_M_median": -30.0,
+   "band_dBA_rel_total": {
+    "sub_20_60": -30.3,
+    "bass_60_200": -10.4,
+    "lowmid_200_800": -3.3,
+    "mid_800_2500": -3.8,
+    "pres_2500_6000": -15.3,
+    "air_6000_11000": -33.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -2.4,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -8.3,
+    "C4-B4 mid": -21.2,
+    "C5-B5 high": -19.8,
+    "C6-B6 bell": -26.2,
+    "C7-B7 sparkle": -39.9
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.95,
+   "centroid_hz": 1056,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.12,
+   "hi_tonal_onsets_per_s": 1.62,
+   "key": "D min",
+   "key_r": 0.76,
+   "drums_minus_music_db": -29.7,
+   "bass_minus_music_db": -11.6,
+   "other_minus_music_db": -1.3
+  },
+  {
+   "t0": 415.2,
+   "t1": 432.8,
+   "dur": 17.5,
+   "music_M_median": -28.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -30.1,
+    "bass_60_200": -12.4,
+    "lowmid_200_800": -3.1,
+    "mid_800_2500": -3.6,
+    "pres_2500_6000": -20.2,
+    "air_6000_11000": -34.6
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -0.8,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -8.6,
+    "C4-B4 mid": -18.3,
+    "C5-B5 high": -17.3,
+    "C6-B6 bell": -24.9,
+    "C7-B7 sparkle": -41.5
+   },
+   "hi_note_ioi_median_s": 0.488,
+   "harmonic_share": 0.92,
+   "centroid_hz": 940,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.31,
+   "hi_tonal_onsets_per_s": 1.66,
+   "key": "C# min",
+   "key_r": 0.38,
+   "drums_minus_music_db": -25.9,
+   "bass_minus_music_db": -7.6,
+   "other_minus_music_db": -2.3
+  },
+  {
+   "t0": 432.8,
+   "t1": 452.8,
+   "dur": 20.0,
+   "music_M_median": -29.1,
+   "band_dBA_rel_total": {
+    "sub_20_60": -40.1,
+    "bass_60_200": -24.0,
+    "lowmid_200_800": -1.3,
+    "mid_800_2500": -5.9,
+    "pres_2500_6000": -25.3,
+    "air_6000_11000": -31.8
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -4.0,
+    "C2-B2 bass": -7.6,
+    "C3-B3 low": -13.5,
+    "C4-B4 mid": 0.0,
+    "C5-B5 high": -12.3,
+    "C6-B6 bell": -20.9,
+    "C7-B7 sparkle": -37.8
+   },
+   "hi_note_ioi_median_s": 0.372,
+   "harmonic_share": 0.96,
+   "centroid_hz": 1012,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.0,
+   "hi_tonal_onsets_per_s": 2.35,
+   "key": "Ab maj",
+   "key_r": 0.38,
+   "drums_minus_music_db": -30.0,
+   "bass_minus_music_db": -40.6,
+   "other_minus_music_db": -0.1
+  },
+  {
+   "t0": 452.8,
+   "t1": 471.2,
+   "dur": 18.5,
+   "music_M_median": -27.7,
+   "band_dBA_rel_total": {
+    "sub_20_60": -28.8,
+    "bass_60_200": -8.4,
+    "lowmid_200_800": -2.9,
+    "mid_800_2500": -4.8,
+    "pres_2500_6000": -17.6,
+    "air_6000_11000": -35.8
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -15.7,
+    "C2-B2 bass": -12.1,
+    "C3-B3 low": 0.0,
+    "C4-B4 mid": -13.7,
+    "C5-B5 high": -23.0,
+    "C6-B6 bell": -24.1,
+    "C7-B7 sparkle": -51.6
+   },
+   "hi_note_ioi_median_s": 0.372,
+   "harmonic_share": 0.69,
+   "centroid_hz": 799,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.73,
+   "hi_tonal_onsets_per_s": 2.16,
+   "key": "F# min",
+   "key_r": 0.47,
+   "drums_minus_music_db": -36.7,
+   "bass_minus_music_db": -41.8,
+   "other_minus_music_db": -0.0
+  },
+  {
+   "t0": 471.2,
+   "t1": 478.8,
+   "dur": 7.5,
+   "music_M_median": -26.6,
+   "band_dBA_rel_total": {
+    "sub_20_60": -20.8,
+    "bass_60_200": -11.8,
+    "lowmid_200_800": -2.9,
+    "mid_800_2500": -3.9,
+    "pres_2500_6000": -25.6,
+    "air_6000_11000": -26.6
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -22.5,
+    "C3-B3 low": -14.0,
+    "C4-B4 mid": -22.1,
+    "C5-B5 high": -25.5,
+    "C6-B6 bell": -32.0,
+    "C7-B7 sparkle": -59.8
+   },
+   "hi_note_ioi_median_s": 0.372,
+   "harmonic_share": 0.9,
+   "centroid_hz": 797,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.47,
+   "hi_tonal_onsets_per_s": 2.67,
+   "key": "F# min",
+   "key_r": 0.41,
+   "drums_minus_music_db": -6.9,
+   "bass_minus_music_db": -40.2,
+   "other_minus_music_db": -1.2
+  },
+  {
+   "t0": 478.8,
+   "t1": 495.8,
+   "dur": 17.0,
+   "music_M_median": -27.2,
+   "band_dBA_rel_total": {
+    "sub_20_60": -23.3,
+    "bass_60_200": -13.2,
+    "lowmid_200_800": -2.1,
+    "mid_800_2500": -4.9,
+    "pres_2500_6000": -19.5,
+    "air_6000_11000": -34.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -20.9,
+    "C3-B3 low": -12.4,
+    "C4-B4 mid": -18.1,
+    "C5-B5 high": -22.8,
+    "C6-B6 bell": -30.5,
+    "C7-B7 sparkle": -48.2
+   },
+   "hi_note_ioi_median_s": 0.418,
+   "harmonic_share": 0.88,
+   "centroid_hz": 884,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.29,
+   "hi_tonal_onsets_per_s": 2.35,
+   "key": "F# min",
+   "key_r": 0.49,
+   "drums_minus_music_db": -12.2,
+   "bass_minus_music_db": -40.4,
+   "other_minus_music_db": -0.6
+  },
+  {
+   "t0": 495.8,
+   "t1": 515.8,
+   "dur": 20.0,
+   "music_M_median": -27.4,
+   "band_dBA_rel_total": {
+    "sub_20_60": -25.6,
+    "bass_60_200": -14.5,
+    "lowmid_200_800": -2.2,
+    "mid_800_2500": -4.8,
+    "pres_2500_6000": -16.5,
+    "air_6000_11000": -32.8
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -18.5,
+    "C3-B3 low": -18.2,
+    "C4-B4 mid": -16.8,
+    "C5-B5 high": -23.2,
+    "C6-B6 bell": -31.0,
+    "C7-B7 sparkle": -49.7
+   },
+   "hi_note_ioi_median_s": 0.348,
+   "harmonic_share": 0.88,
+   "centroid_hz": 992,
+   "flatness_median": 0.001,
+   "onsets_per_s": 0.9,
+   "hi_tonal_onsets_per_s": 2.0,
+   "key": "C# min",
+   "key_r": 0.65,
+   "drums_minus_music_db": -18.6,
+   "bass_minus_music_db": -30.6,
+   "other_minus_music_db": -1.0
+  },
+  {
+   "t0": 515.8,
+   "t1": 532.8,
+   "dur": 17.0,
+   "music_M_median": -20.0,
+   "band_dBA_rel_total": {
+    "sub_20_60": -18.8,
+    "bass_60_200": -8.5,
+    "lowmid_200_800": -2.4,
+    "mid_800_2500": -6.0,
+    "pres_2500_6000": -17.9,
+    "air_6000_11000": -30.9
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -6.9,
+    "C3-B3 low": -17.4,
+    "C4-B4 mid": -22.2,
+    "C5-B5 high": -31.7,
+    "C6-B6 bell": -37.7,
+    "C7-B7 sparkle": -58.2
+   },
+   "hi_note_ioi_median_s": 0.372,
+   "harmonic_share": 0.93,
+   "centroid_hz": 636,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.88,
+   "hi_tonal_onsets_per_s": 2.29,
+   "key": "F# min",
+   "key_r": 0.5,
+   "drums_minus_music_db": -14.0,
+   "bass_minus_music_db": -3.4,
+   "other_minus_music_db": -5.7
+  },
+  {
+   "t0": 532.8,
+   "t1": 549.8,
+   "dur": 17.0,
+   "music_M_median": -20.7,
+   "band_dBA_rel_total": {
+    "sub_20_60": -21.6,
+    "bass_60_200": -9.7,
+    "lowmid_200_800": -1.9,
+    "mid_800_2500": -6.6,
+    "pres_2500_6000": -17.7,
+    "air_6000_11000": -31.2
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -4.4,
+    "C3-B3 low": -18.5,
+    "C4-B4 mid": -20.4,
+    "C5-B5 high": -27.3,
+    "C6-B6 bell": -38.3,
+    "C7-B7 sparkle": -52.4
+   },
+   "hi_note_ioi_median_s": 0.395,
+   "harmonic_share": 0.94,
+   "centroid_hz": 694,
+   "flatness_median": 0.0,
+   "onsets_per_s": 2.47,
+   "hi_tonal_onsets_per_s": 2.06,
+   "key": "C# min",
+   "key_r": 0.51,
+   "drums_minus_music_db": -19.2,
+   "bass_minus_music_db": -3.1,
+   "other_minus_music_db": -5.3
+  },
+  {
+   "t0": 549.8,
+   "t1": 557.8,
+   "dur": 8.0,
+   "music_M_median": -23.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -21.7,
+    "bass_60_200": -9.8,
+    "lowmid_200_800": -2.9,
+    "mid_800_2500": -4.3,
+    "pres_2500_6000": -21.1,
+    "air_6000_11000": -34.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -4.5,
+    "C3-B3 low": -16.1,
+    "C4-B4 mid": -21.9,
+    "C5-B5 high": -23.2,
+    "C6-B6 bell": -31.0,
+    "C7-B7 sparkle": -50.4
+   },
+   "hi_note_ioi_median_s": 0.406,
+   "harmonic_share": 0.95,
+   "centroid_hz": 786,
+   "flatness_median": 0.0,
+   "onsets_per_s": 1.75,
+   "hi_tonal_onsets_per_s": 2.12,
+   "key": "C# maj",
+   "key_r": 0.63,
+   "drums_minus_music_db": -26.2,
+   "bass_minus_music_db": -5.8,
+   "other_minus_music_db": -2.4
+  },
+  {
+   "t0": 557.8,
+   "t1": 582.8,
+   "dur": 25.0,
+   "music_M_median": -17.9,
+   "band_dBA_rel_total": {
+    "sub_20_60": -24.0,
+    "bass_60_200": -11.9,
+    "lowmid_200_800": -3.1,
+    "mid_800_2500": -3.9,
+    "pres_2500_6000": -14.7,
+    "air_6000_11000": -27.4
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": 0.0,
+    "C2-B2 bass": -5.4,
+    "C3-B3 low": -16.4,
+    "C4-B4 mid": -19.9,
+    "C5-B5 high": -24.5,
+    "C6-B6 bell": -32.6,
+    "C7-B7 sparkle": -45.6
+   },
+   "hi_note_ioi_median_s": 0.511,
+   "harmonic_share": 0.94,
+   "centroid_hz": 886,
+   "flatness_median": 0.001,
+   "onsets_per_s": 2.48,
+   "hi_tonal_onsets_per_s": 1.52,
+   "key": "F# min",
+   "key_r": 0.54,
+   "drums_minus_music_db": -19.2,
+   "bass_minus_music_db": -4.1,
+   "other_minus_music_db": -4.5
+  },
+  {
+   "t0": 582.8,
+   "t1": 599.2,
+   "dur": 16.5,
+   "music_M_median": -27.3,
+   "band_dBA_rel_total": {
+    "sub_20_60": -28.2,
+    "bass_60_200": -10.9,
+    "lowmid_200_800": -1.4,
+    "mid_800_2500": -7.7,
+    "pres_2500_6000": -17.5,
+    "air_6000_11000": -27.4
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -0.6,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -9.7,
+    "C4-B4 mid": -10.9,
+    "C5-B5 high": -23.6,
+    "C6-B6 bell": -31.2,
+    "C7-B7 sparkle": -49.3
+   },
+   "hi_note_ioi_median_s": 0.488,
+   "harmonic_share": 0.96,
+   "centroid_hz": 1031,
+   "flatness_median": 0.001,
+   "onsets_per_s": 1.64,
+   "hi_tonal_onsets_per_s": 1.58,
+   "key": "F# min",
+   "key_r": 0.84,
+   "drums_minus_music_db": -35.0,
+   "bass_minus_music_db": -28.6,
+   "other_minus_music_db": -0.3
+  },
+  {
+   "t0": 599.2,
+   "t1": 604.0,
+   "dur": 4.8,
+   "music_M_median": -40.6,
+   "band_dBA_rel_total": {
+    "sub_20_60": -26.6,
+    "bass_60_200": -10.0,
+    "lowmid_200_800": -0.6,
+    "mid_800_2500": -18.4,
+    "pres_2500_6000": -24.0,
+    "air_6000_11000": -29.3
+   },
+   "octave_db_rel_max": {
+    "C1-B1 sub": -1.8,
+    "C2-B2 bass": 0.0,
+    "C3-B3 low": -18.1,
+    "C4-B4 mid": -10.3,
+    "C5-B5 high": -38.4,
+    "C6-B6 bell": -45.1,
+    "C7-B7 sparkle": -56.7
+   },
+   "hi_note_ioi_median_s": 0.325,
+   "harmonic_share": 0.98,
+   "centroid_hz": 1675,
+   "flatness_median": 0.003,
+   "onsets_per_s": 1.68,
+   "hi_tonal_onsets_per_s": 2.11,
+   "key": "F# min",
+   "key_r": 0.54,
+   "drums_minus_music_db": -28.0,
+   "bass_minus_music_db": -21.5,
+   "other_minus_music_db": -0.5
+  }
+ ],
+ "risers": [
+  {
+   "t_start": 2.2,
+   "t_peak": 4.9,
+   "rise_db": 27.7,
+   "dur_s": 2.6,
+   "centroid_ratio": 0.27,
+   "to_setting_change_s": -0.9500000000000006,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "world feels, hmm, boring. | We've visited all the remote islands,"
+  },
+  {
+   "t_start": 50.0,
+   "t_peak": 53.2,
+   "rise_db": 27.5,
+   "dur_s": 3.2,
+   "centroid_ratio": 0.43,
+   "to_setting_change_s": -0.2500000000000071,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "the first 200 metres. | This is where we begin our"
+  },
+  {
+   "t_start": 50.0,
+   "t_peak": 56.2,
+   "rise_db": 23.4,
+   "dur_s": 6.3,
+   "centroid_ratio": 0.48,
+   "to_setting_change_s": 0.14999999999999858,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "we begin our journey. | Here, Neolite can still penetrate the"
+  },
+  {
+   "t_start": 74.0,
+   "t_peak": 76.8,
+   "rise_db": 13.1,
+   "dur_s": 2.7,
+   "centroid_ratio": 0.6,
+   "to_setting_change_s": -1.3499999999999943,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "at this depth is | akin to the Amazon rainforest, and"
+  },
+  {
+   "t_start": 137.0,
+   "t_peak": 139.5,
+   "rise_db": 7.9,
+   "dur_s": 2.5,
+   "centroid_ratio": 0.79,
+   "to_setting_change_s": -0.05000000000001137,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "rises to deadly levels. | The deepest scuba dive ever came"
+  },
+  {
+   "t_start": 165.1,
+   "t_peak": 168.0,
+   "rise_db": 12.8,
+   "dur_s": 2.9,
+   "centroid_ratio": 0.55,
+   "to_setting_change_s": -1.0500000000000114,
+   "peak_in_speech": true,
+   "peak_in_gap": true,
+   "words": "vast dark waters. At | night, they can travel more safely"
+  },
+  {
+   "t_start": 170.2,
+   "t_peak": 172.2,
+   "rise_db": 13.8,
+   "dur_s": 2.1,
+   "centroid_ratio": 0.36,
+   "to_setting_change_s": 1.6500000000000057,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "in the food -rich | surface waters. In this transition zone"
+  },
+  {
+   "t_start": 186.1,
+   "t_peak": 188.2,
+   "rise_db": 19.4,
+   "dur_s": 2.2,
+   "centroid_ratio": 0.45,
+   "to_setting_change_s": 0.6500000000000057,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "chemicals to create light. | They do so as camouflage against"
+  },
+  {
+   "t_start": 199.4,
+   "t_peak": 201.1,
+   "rise_db": 13.4,
+   "dur_s": 1.7,
+   "centroid_ratio": 0.61,
+   "to_setting_change_s": -1.1500000000000057,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "to hunt. Another tool | for survival in the dark is"
+  },
+  {
+   "t_start": 216.9,
+   "t_peak": 218.7,
+   "rise_db": 12.3,
+   "dur_s": 1.8,
+   "centroid_ratio": 0.45,
+   "to_setting_change_s": 8.75,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "tragically beautiful bright blue | or red light and deploys a"
+  },
+  {
+   "t_start": 225.4,
+   "t_peak": 227.5,
+   "rise_db": 10.8,
+   "dur_s": 2.1,
+   "centroid_ratio": 0.41,
+   "to_setting_change_s": -0.05000000000001137,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "that comes too close. | But most species living down here"
+  },
+  {
+   "t_start": 233.5,
+   "t_peak": 235.2,
+   "rise_db": 10.4,
+   "dur_s": 1.8,
+   "centroid_ratio": 0.52,
+   "to_setting_change_s": 4.650000000000006,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "snow. White, flaky stuff | that constantly sinks from the surface"
+  },
+  {
+   "t_start": 237.8,
+   "t_peak": 239.5,
+   "rise_db": 11.5,
+   "dur_s": 1.7,
+   "centroid_ratio": 0.67,
+   "to_setting_change_s": 0.44999999999998863,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "of the ocean. It | consists of dead plant or animal"
+  },
+  {
+   "t_start": 242.0,
+   "t_peak": 243.9,
+   "rise_db": 11.4,
+   "dur_s": 1.9,
+   "centroid_ratio": 0.54,
+   "to_setting_change_s": 2.049999999999983,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "parts, fecal matter, shells, | sand or dust. Even though this"
+  },
+  {
+   "t_start": 250.5,
+   "t_peak": 252.6,
+   "rise_db": 9.1,
+   "dur_s": 2.1,
+   "centroid_ratio": 0.46,
+   "to_setting_change_s": 2.3499999999999943,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "deep sea would starve. | It's in this area that the"
+  },
+  {
+   "t_start": 258.2,
+   "t_peak": 260.4,
+   "rise_db": 9.6,
+   "dur_s": 2.1,
+   "centroid_ratio": 0.52,
+   "to_setting_change_s": -5.450000000000017,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "could happen. Sperm whales | hunt and attack a giant squid"
+  },
+  {
+   "t_start": 270.6,
+   "t_peak": 273.1,
+   "rise_db": 19.5,
+   "dur_s": 2.5,
+   "centroid_ratio": 1.01,
+   "to_setting_change_s": -0.6500000000000341,
+   "peak_in_speech": true,
+   "peak_in_gap": true,
+   "words": "on their killer skin. | As we reach 1000 meters, deeper"
+  },
+  {
+   "t_start": 276.4,
+   "t_peak": 281.7,
+   "rise_db": 13.9,
+   "dur_s": 5.3,
+   "centroid_ratio": 0.19,
+   "to_setting_change_s": -2.750000000000057,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "the Midnight Zone, a | place of utter darkness. A barely"
+  },
+  {
+   "t_start": 357.8,
+   "t_peak": 360.5,
+   "rise_db": 8.1,
+   "dur_s": 2.7,
+   "centroid_ratio": 0.56,
+   "to_setting_change_s": -0.5500000000000682,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "deep as the grave | of the Titanic. We are now"
+  },
+  {
+   "t_start": 465.5,
+   "t_peak": 467.8,
+   "rise_db": 8.5,
+   "dur_s": 2.3,
+   "centroid_ratio": 0.63,
+   "to_setting_change_s": 4.149999999999977,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "actually only halfway there. | Let's enter the Hadal Zone, the"
+  },
+  {
+   "t_start": 490.8,
+   "t_peak": 493.2,
+   "rise_db": 10.7,
+   "dur_s": 2.4,
+   "centroid_ratio": 0.45,
+   "to_setting_change_s": 3.249999999999943,
+   "peak_in_speech": true,
+   "peak_in_gap": true,
+   "words": "8 ,000 meters. We | see spiky and sharp black rocks"
+  },
+  {
+   "t_start": 494.9,
+   "t_peak": 497.4,
+   "rise_db": 11.3,
+   "dur_s": 2.5,
+   "centroid_ratio": 0.42,
+   "to_setting_change_s": -0.9500000000000455,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "more than 10 ,000. | Until we reach the final slope."
+  },
+  {
+   "t_start": 513.8,
+   "t_peak": 516.5,
+   "rise_db": 23.9,
+   "dur_s": 2.7,
+   "centroid_ratio": 0.26,
+   "to_setting_change_s": 1.9499999999999318,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "11 ,000 meters below | the surface. The water pressure here"
+  },
+  {
+   "t_start": 527.6,
+   "t_peak": 529.1,
+   "rise_db": 14.1,
+   "dur_s": 1.5,
+   "centroid_ratio": 0.6,
+   "to_setting_change_s": -0.650000000000091,
+   "peak_in_speech": false,
+   "peak_in_gap": false,
+   "words": "top of you. But | even here, life has found a"
+  },
+  {
+   "t_start": 552.2,
+   "t_peak": 553.9,
+   "rise_db": 10.7,
+   "dur_s": 1.6,
+   "centroid_ratio": 0.65,
+   "to_setting_change_s": 16.049999999999955,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "through the water. Plastic | bags that were found by scientists"
+  },
+  {
+   "t_start": 556.4,
+   "t_peak": 558.1,
+   "rise_db": 12.1,
+   "dur_s": 1.8,
+   "centroid_ratio": 0.54,
+   "to_setting_change_s": 11.75,
+   "peak_in_speech": true,
+   "peak_in_gap": false,
+   "words": "scientists in 2018. Even | the remotest place on Earth is"
+  },
+  {
+   "t_start": 577.4,
+   "t_peak": 579.0,
+   "rise_db": 8.7,
+   "dur_s": 1.6,
+   "centroid_ratio": 0.45,
+   "to_setting_change_s": 5.949999999999932,
+   "peak_in_speech": false,
+   "peak_in_gap": true,
+   "words": "we begin our ascent. | After hours of travelling through dark"
+  }
+ ],
+ "hits": [
+  {
+   "t": 3.75,
+   "jump_db": 21.7,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": false,
+   "word": [
+    "boring.",
+    0.25
+   ],
+   "to_setting_change_s": 0.1499999999999999,
+   "words": "the world feels, hmm, | boring. We've visited all the remote"
+  },
+  {
+   "t": 7.15,
+   "jump_db": 22.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "islands,",
+    -0.23
+   ],
+   "to_setting_change_s": 0.25,
+   "words": "all the remote islands, | conquered the Arctic, and penetrated the"
+  },
+  {
+   "t": 9.65,
+   "jump_db": 16.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "penetrated",
+    -0.13
+   ],
+   "to_setting_change_s": 0.25,
+   "words": "the Arctic, and penetrated | the deepest jungles. But there is"
+  },
+  {
+   "t": 12.55,
+   "jump_db": 16.4,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": true,
+   "word": [
+    "there",
+    0.07
+   ],
+   "to_setting_change_s": 0.34999999999999964,
+   "words": "the deepest jungles. But | there is still one place to"
+  },
+  {
+   "t": 36.45,
+   "jump_db": 12.8,
+   "band": "low",
+   "flatness": 0.004,
+   "in_speech": true,
+   "word": [
+    "When",
+    0.13
+   ],
+   "to_setting_change_s": -0.05000000000000426,
+   "words": "sea. Let's dive down. | When we look at the sheer"
+  },
+  {
+   "t": 45.25,
+   "jump_db": 16.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "And",
+    0.17
+   ],
+   "to_setting_change_s": -4.850000000000001,
+   "words": "on Earth lives here. | And of that small percentage, around"
+  },
+  {
+   "t": 52.85,
+   "jump_db": 8.4,
+   "band": "low",
+   "flatness": 0.002,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": 0.04999999999999716,
+   "words": "the first 200 metres. | This is where we begin our"
+  },
+  {
+   "t": 62.75,
+   "jump_db": 10.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "trillions",
+    0.17
+   ],
+   "to_setting_change_s": -0.8500000000000014,
+   "words": "photosynthesis to occur. Phytoplankton, | trillions and trillions of single -celled"
+  },
+  {
+   "t": 66.85,
+   "jump_db": 21.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "the",
+    0.03
+   ],
+   "to_setting_change_s": -4.95000000000001,
+   "words": "and bacteria, make up | the foundation of the ocean's ecosystem,"
+  },
+  {
+   "t": 70.15,
+   "jump_db": 8.2,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": true,
+   "word": [
+    "consumed",
+    -0.11
+   ],
+   "to_setting_change_s": 5.25,
+   "words": "ecosystem, and they're consumed | by bigger plankton who are consumed"
+  },
+  {
+   "t": 75.25,
+   "jump_db": 8.6,
+   "band": "low",
+   "flatness": 0.002,
+   "in_speech": false,
+   "word": [
+    "The",
+    0.05
+   ],
+   "to_setting_change_s": 0.15000000000000568,
+   "words": "consumed by other species. | The seafloor at this depth is"
+  },
+  {
+   "t": 129.65,
+   "jump_db": 9.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "and",
+    0.11
+   ],
+   "to_setting_change_s": -6.25,
+   "words": "the slope behind us | and enter what's known as the"
+  },
+  {
+   "t": 150.75,
+   "jump_db": 14.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": -1.3499999999999943,
+   "words": "Yet we've only completed | 3 % of our journey. While"
+  },
+  {
+   "t": 154.95,
+   "jump_db": 13.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "seems",
+    -0.21
+   ],
+   "to_setting_change_s": -2.0500000000000114,
+   "words": "While this region seems | pretty grim, many fish and other"
+  },
+  {
+   "t": 159.15,
+   "jump_db": 12.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "their",
+    0.05
+   ],
+   "to_setting_change_s": -6.25,
+   "words": "spend at least half | their lives down here. During the"
+  },
+  {
+   "t": 163.35,
+   "jump_db": 8.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "and",
+    -0.05
+   ],
+   "to_setting_change_s": 3.549999999999983,
+   "words": "place to rest and | recover, hidden from predators in the"
+  },
+  {
+   "t": 167.65,
+   "jump_db": 9.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "At",
+    0.09
+   ],
+   "to_setting_change_s": -0.75,
+   "words": "the vast dark waters. | At night, they can travel more"
+  },
+  {
+   "t": 171.85,
+   "jump_db": 9.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "food",
+    -0.07
+   ],
+   "to_setting_change_s": 2.049999999999983,
+   "words": "feed in the food | -rich surface waters. In this transition"
+  },
+  {
+   "t": 176.15,
+   "jump_db": 12.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "twilight",
+    0.15
+   ],
+   "to_setting_change_s": -2.25,
+   "words": "this transition zone between | twilight and darkness, light becomes a"
+  },
+  {
+   "t": 180.35,
+   "jump_db": 9.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": 1.049999999999983,
+   "words": "becomes a powerful tool. | Over 90 % of the species"
+  },
+  {
+   "t": 187.75,
+   "jump_db": 13.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 1.1500000000000057,
+   "words": "chemicals to create light. | They do so as camouflage against"
+  },
+  {
+   "t": 192.05,
+   "jump_db": 10.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "to",
+    -0.01
+   ],
+   "to_setting_change_s": -3.1500000000000057,
+   "words": "very faint sunlight to | send signals to potential mates or"
+  },
+  {
+   "t": 196.35,
+   "jump_db": 15.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 3.549999999999983,
+   "words": "confuse and scare attackers. | Or they use light to hunt."
+  },
+  {
+   "t": 200.65,
+   "jump_db": 10.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "Another",
+    0.15
+   ],
+   "to_setting_change_s": -0.75,
+   "words": "use light to hunt. | Another tool for survival in the"
+  },
+  {
+   "t": 204.85,
+   "jump_db": 15.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "700",
+    -0.19
+   ],
+   "to_setting_change_s": -4.950000000000017,
+   "words": "teamwork. At around 700 | metres we encounter a colony of"
+  },
+  {
+   "t": 209.05,
+   "jump_db": 12.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -9.150000000000006,
+   "words": "a colony of siphonophores. | They can be up to 50"
+  },
+  {
+   "t": 217.55,
+   "jump_db": 10.7,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": true,
+   "word": [
+    "beautiful",
+    -0.19
+   ],
+   "to_setting_change_s": 9.849999999999994,
+   "words": "creates a tragically beautiful | bright blue or red light and"
+  },
+  {
+   "t": 221.75,
+   "jump_db": 9.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "tentacles",
+    -0.01
+   ],
+   "to_setting_change_s": 5.650000000000006,
+   "words": "a curtain of tentacles | filled with toxic needles that kill"
+  },
+  {
+   "t": 226.05,
+   "jump_db": 10.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "too",
+    -0.01
+   ],
+   "to_setting_change_s": 1.3499999999999943,
+   "words": "anything that comes too | close. But most species living down"
+  },
+  {
+   "t": 234.55,
+   "jump_db": 8.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "White,",
+    -0.19
+   ],
+   "to_setting_change_s": 5.349999999999994,
+   "words": "resource, marine snow. White, | flaky stuff that constantly sinks from"
+  },
+  {
+   "t": 238.85,
+   "jump_db": 11.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "It",
+    -0.11
+   ],
+   "to_setting_change_s": 1.049999999999983,
+   "words": "of the ocean. It | consists of dead plant or animal"
+  },
+  {
+   "t": 243.05,
+   "jump_db": 8.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "matter,",
+    -0.21
+   ],
+   "to_setting_change_s": 2.8499999999999943,
+   "words": "animal parts, fecal matter, | shells, sand or dust. Even though"
+  },
+  {
+   "t": 255.85,
+   "jump_db": 10.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "battles",
+    0.17
+   ],
+   "to_setting_change_s": -0.950000000000017,
+   "words": "that the most fascinating | battles between two unlikely enemies could"
+  },
+  {
+   "t": 264.25,
+   "jump_db": 8.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 8.149999999999977,
+   "words": "of a house. While | the squid fight back ferociously, they"
+  },
+  {
+   "t": 268.55,
+   "jump_db": 20.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 3.849999999999966,
+   "words": "don't stand a chance, | but they do leave permanent marks"
+  },
+  {
+   "t": 272.75,
+   "jump_db": 12.8,
+   "band": "low",
+   "flatness": 0.011,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -0.35000000000002274,
+   "words": "on their killer skin. | As we reach 1000 meters, deeper"
+  },
+  {
+   "t": 277.05,
+   "jump_db": 16.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "humans,",
+    -0.01
+   ],
+   "to_setting_change_s": 1.849999999999966,
+   "words": "structure built by humans, | we need to be careful. This"
+  },
+  {
+   "t": 285.35,
+   "jump_db": 13.8,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "explored",
+    -0.11
+   ],
+   "to_setting_change_s": -6.4500000000000455,
+   "words": "darkness. A barely explored | wet wasteland consisting of nothing but"
+  },
+  {
+   "t": 289.35,
+   "jump_db": 8.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "open",
+    -0.09
+   ],
+   "to_setting_change_s": 8.049999999999955,
+   "words": "but endless black open | water. At these depths, it's harder"
+  },
+  {
+   "t": 293.25,
+   "jump_db": 13.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "take",
+    -0.03
+   ],
+   "to_setting_change_s": 4.149999999999977,
+   "words": "a human to take | a swim than to take a"
+  },
+  {
+   "t": 297.35,
+   "jump_db": 8.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "food",
+    0.07
+   ],
+   "to_setting_change_s": 0.049999999999954525,
+   "words": "a walk in space. | Finding food down here is really"
+  },
+  {
+   "t": 301.25,
+   "jump_db": 23.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "become",
+    -0.03
+   ],
+   "to_setting_change_s": -3.8500000000000227,
+   "words": "to adapt and become | extremely energy efficient. Like the 30"
+  },
+  {
+   "t": 305.25,
+   "jump_db": 10.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "vampire",
+    0.07
+   ],
+   "to_setting_change_s": -7.850000000000023,
+   "words": "the 30 -centimetre -long | vampire squid that floats through the"
+  },
+  {
+   "t": 309.05,
+   "jump_db": 18.8,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "long",
+    -0.07
+   ],
+   "to_setting_change_s": 7.849999999999966,
+   "words": "without motion, with long | and slender catching arms extended. They're"
+  },
+  {
+   "t": 313.05,
+   "jump_db": 13.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "tiny,",
+    0.07
+   ],
+   "to_setting_change_s": 3.849999999999966,
+   "words": "extended. They're covered in | tiny, stiff hairs which brush food"
+  },
+  {
+   "t": 316.95,
+   "jump_db": 10.3,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": -0.05000000000006821,
+   "words": "from the water. This | saves a lot of energy compared"
+  },
+  {
+   "t": 320.85,
+   "jump_db": 11.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 2.0499999999999545,
+   "words": "to actively catching food. | For carnivorous fish, it's much harder"
+  },
+  {
+   "t": 324.85,
+   "jump_db": 10.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "food",
+    0.07
+   ],
+   "to_setting_change_s": -1.9500000000000455,
+   "words": "much harder to find | food since living prey is quite"
+  },
+  {
+   "t": 328.75,
+   "jump_db": 11.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "So",
+    0.21
+   ],
+   "to_setting_change_s": -5.850000000000023,
+   "words": "quite rare down here. | So the hunters have to get"
+  },
+  {
+   "t": 332.65,
+   "jump_db": 9.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "otherwise",
+    0.21
+   ],
+   "to_setting_change_s": 3.249999999999943,
+   "words": "victim on fur strike, | otherwise it will escape into the"
+  },
+  {
+   "t": 336.75,
+   "jump_db": 10.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "predators",
+    0.13
+   ],
+   "to_setting_change_s": -0.8500000000000227,
+   "words": "dark. Many deep -sea | predators have several sets of long"
+  },
+  {
+   "t": 340.55,
+   "jump_db": 11.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -4.650000000000034,
+   "words": "and deadly teeth, Like | the Viperfish, which uses its long"
+  },
+  {
+   "t": 344.55,
+   "jump_db": 10.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "prey",
+    0.13
+   ],
+   "to_setting_change_s": -8.650000000000034,
+   "words": "to trap even large | prey and swallow it whole. Or"
+  },
+  {
+   "t": 348.35,
+   "jump_db": 11.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": 7.0499999999999545,
+   "words": "Or the Frilled Shark, | with its impressive set of 300"
+  },
+  {
+   "t": 364.25,
+   "jump_db": 16.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "depths.",
+    0.01
+   ],
+   "to_setting_change_s": 1.6499999999999773,
+   "words": "are now at abyssal | depths. Here, life happens in slow"
+  },
+  {
+   "t": 368.05,
+   "jump_db": 11.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": null,
+   "to_setting_change_s": -2.150000000000034,
+   "words": "happens in slow motion. | Preserving every last bit of energy"
+  },
+  {
+   "t": 372.05,
+   "jump_db": 14.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "crucial",
+    -0.09
+   ],
+   "to_setting_change_s": -6.150000000000034,
+   "words": "of energy is crucial | for survival. Everything down here hovers"
+  },
+  {
+   "t": 376.05,
+   "jump_db": 11.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "motionless",
+    -0.07
+   ],
+   "to_setting_change_s": -10.150000000000034,
+   "words": "down here hovers motionless | or swims in a slow, elegant"
+  },
+  {
+   "t": 379.85,
+   "jump_db": 19.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -13.950000000000045,
+   "words": "a slow, elegant fashion. | The only time the animals living"
+  },
+  {
+   "t": 383.85,
+   "jump_db": 9.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "fast",
+    0.01
+   ],
+   "to_setting_change_s": 12.049999999999955,
+   "words": "in this zone move | fast is when they have to"
+  },
+  {
+   "t": 395.65,
+   "jump_db": 9.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "At",
+    -0.09
+   ],
+   "to_setting_change_s": 0.24999999999994316,
+   "words": "eel -like tailbeats. At | 4 ,000 meters, we finally reach"
+  },
+  {
+   "t": 399.55,
+   "jump_db": 11.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "abyssal",
+    0.07
+   ],
+   "to_setting_change_s": -3.650000000000034,
+   "words": "reach ground again, the | abyssal plain. It's covered in grey"
+  },
+  {
+   "t": 403.55,
+   "jump_db": 18.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "with",
+    0.13
+   ],
+   "to_setting_change_s": 1.4499999999999886,
+   "words": "mud and rocks, dusted | with the remains of marine snow,"
+  },
+  {
+   "t": 407.45,
+   "jump_db": 10.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "sea",
+    -0.05
+   ],
+   "to_setting_change_s": -2.4500000000000455,
+   "words": "by animals like sea | cucumbers, shrimp, sea urchins and sea"
+  },
+  {
+   "t": 411.35,
+   "jump_db": 19.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": 0.5499999999999545,
+   "words": "urchins and sea worms. | In some regions of the seafloor,"
+  },
+  {
+   "t": 415.35,
+   "jump_db": 11.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "can",
+    -0.01
+   ],
+   "to_setting_change_s": -3.4500000000000455,
+   "words": "dark mineral deposits can | be seen. These are manganese nodules."
+  },
+  {
+   "t": 419.25,
+   "jump_db": 15.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -7.350000000000023,
+   "words": "These are manganese nodules. | Deep sea corals and sponges use"
+  },
+  {
+   "t": 423.25,
+   "jump_db": 12.8,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "on",
+    -0.05
+   ],
+   "to_setting_change_s": 4.75,
+   "words": "to anchor themselves on | the bottom of the sea. Though"
+  },
+  {
+   "t": 427.15,
+   "jump_db": 11.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "deep",
+    -0.03
+   ],
+   "to_setting_change_s": 0.8499999999999659,
+   "words": "sparse on the deep | sea floor, even down here there"
+  },
+  {
+   "t": 431.05,
+   "jump_db": 9.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "In",
+    0.01
+   ],
+   "to_setting_change_s": -3.0500000000000114,
+   "words": "here there are oases. | In the rift valleys, where tectonic"
+  },
+  {
+   "t": 463.55,
+   "jump_db": 12.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "point",
+    -0.09
+   ],
+   "to_setting_change_s": 8.349999999999966,
+   "words": "to the deepest point | of the oceans, we're actually only"
+  },
+  {
+   "t": 467.75,
+   "jump_db": 11.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "Let's",
+    0.17
+   ],
+   "to_setting_change_s": 4.149999999999977,
+   "words": "actually only halfway there. | Let's enter the Hadal Zone, the"
+  },
+  {
+   "t": 471.95,
+   "jump_db": 12.0,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -0.05000000000006821,
+   "words": "underworld of the sea. | It consists of long narrow trenches"
+  },
+  {
+   "t": 476.15,
+   "jump_db": 10.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    ".25",
+    0.11
+   ],
+   "to_setting_change_s": -4.250000000000057,
+   "words": "make up around 0 | .25 % of the oceans and"
+  },
+  {
+   "t": 480.25,
+   "jump_db": 8.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "environments",
+    -0.05
+   ],
+   "to_setting_change_s": 1.6499999999999773,
+   "words": "the most extreme environments | on Earth. Only extremophiles exist down"
+  },
+  {
+   "t": 484.45,
+   "jump_db": 12.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "here,",
+    -0.15
+   ],
+   "to_setting_change_s": -2.550000000000068,
+   "words": "extremophiles exist down here, | like the ethereal snailfish that holds"
+  },
+  {
+   "t": 488.65,
+   "jump_db": 16.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "fish",
+    0.11
+   ],
+   "to_setting_change_s": -6.750000000000057,
+   "words": "for the deepest living | fish ever seen at around 8"
+  },
+  {
+   "t": 492.85,
+   "jump_db": 11.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "We",
+    0.15
+   ],
+   "to_setting_change_s": 3.5499999999999545,
+   "words": "around 8 ,000 meters. | We see spiky and sharp black"
+  },
+  {
+   "t": 497.05,
+   "jump_db": 8.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "10",
+    -0.01
+   ],
+   "to_setting_change_s": -0.6500000000000341,
+   "words": "to more than 10 | ,000. Until we reach the final"
+  },
+  {
+   "t": 501.25,
+   "jump_db": 8.8,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "trench",
+    0.25
+   ],
+   "to_setting_change_s": -0.35000000000002274,
+   "words": "the final slope. A | trench inside the larger Mariana Trench"
+  },
+  {
+   "t": 505.35,
+   "jump_db": 13.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "sides",
+    -0.03
+   ],
+   "to_setting_change_s": -4.4500000000000455,
+   "words": "with gently sloping sides | that enframe a valley about 1"
+  },
+  {
+   "t": 509.45,
+   "jump_db": 9.9,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -8.550000000000068,
+   "words": "1 .6 kilometers wide. | This is it. The deepest point."
+  },
+  {
+   "t": 515.75,
+   "jump_db": 21.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "meters",
+    0.13
+   ],
+   "to_setting_change_s": 2.6499999999999773,
+   "words": "Challenger Deep. 11 ,000 | meters below the surface. The water"
+  },
+  {
+   "t": 519.95,
+   "jump_db": 12.1,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "is",
+    0.11
+   ],
+   "to_setting_change_s": -1.5500000000000682,
+   "words": "The water pressure here | is 1086 bar. Taking a swim"
+  },
+  {
+   "t": 524.15,
+   "jump_db": 13.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "a",
+    -0.03
+   ],
+   "to_setting_change_s": -2.1499999999999773,
+   "words": "1086 bar. Taking a | swim here is like having to"
+  },
+  {
+   "t": 528.25,
+   "jump_db": 13.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": 0.14999999999997726,
+   "words": "on top of you. | But even here, life has found"
+  },
+  {
+   "t": 532.45,
+   "jump_db": 11.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -4.050000000000068,
+   "words": "a way to thrive. | Next to sea cucumbers, white and"
+  },
+  {
+   "t": 536.65,
+   "jump_db": 9.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "their",
+    0.05
+   ],
+   "to_setting_change_s": -8.25,
+   "words": "light pink amphipods wiggle | their way through the water. Their"
+  },
+  {
+   "t": 540.75,
+   "jump_db": 8.8,
+   "band": "low",
+   "flatness": 0.001,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -12.350000000000023,
+   "words": "Their size is astounding. | While their shallow water cousins are"
+  },
+  {
+   "t": 545.05,
+   "jump_db": 12.2,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "sea",
+    0.07
+   ],
+   "to_setting_change_s": -16.65000000000009,
+   "words": "centimeters long, the deep | sea version can reach up to"
+  },
+  {
+   "t": 549.15,
+   "jump_db": 9.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "And",
+    -0.07
+   ],
+   "to_setting_change_s": -20.75,
+   "words": "to 30 centimeters. And | there are other things floating elegantly"
+  },
+  {
+   "t": 553.35,
+   "jump_db": 8.5,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "Plastic",
+    0.23
+   ],
+   "to_setting_change_s": 16.549999999999955,
+   "words": "elegantly through the water. | Plastic bags that were found by"
+  },
+  {
+   "t": 565.85,
+   "jump_db": 9.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "oxygen",
+    0.05
+   ],
+   "to_setting_change_s": 4.0499999999999545,
+   "words": "do now, and our | oxygen is running out, so we"
+  },
+  {
+   "t": 570.05,
+   "jump_db": 8.7,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -0.15000000000009095,
+   "words": "we begin our ascent. | After hours of travelling through dark"
+  },
+  {
+   "t": 586.55,
+   "jump_db": 12.3,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "surface.",
+    -0.01
+   ],
+   "to_setting_change_s": -1.650000000000091,
+   "words": "at a calm surface. | The oceans are so deep, there"
+  },
+  {
+   "t": 590.75,
+   "jump_db": 18.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": [
+    "there",
+    0.21
+   ],
+   "to_setting_change_s": -5.850000000000023,
+   "words": "oceans are so deep, | there is so much of them."
+  },
+  {
+   "t": 594.85,
+   "jump_db": 9.6,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": true,
+   "word": [
+    "and",
+    0.03
+   ],
+   "to_setting_change_s": -9.950000000000045,
+   "words": "owe it to ourselves | and to our descendants to preserve"
+  },
+  {
+   "t": 598.95,
+   "jump_db": 14.4,
+   "band": "low",
+   "flatness": 0.0,
+   "in_speech": false,
+   "word": null,
+   "to_setting_change_s": -14.050000000000068,
+   "words": "well as we can. | There are still so many wondrous"
+  }
+ ],
+ "dropouts": [
+  {
+   "t0": 8.1,
+   "t1": 8.4,
+   "dur": 0.3,
+   "depth_db": 12.2,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -1.0,
+   "words_at_end": "all the remote islands, conquered the | Arctic, and penetrated the deepest jungles. But there"
+  },
+  {
+   "t0": 8.7,
+   "t1": 9.0,
+   "dur": 0.3,
+   "depth_db": 13.5,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": 0.9000000000000004,
+   "words_at_end": "the remote islands, conquered the Arctic, | and penetrated the deepest jungles. But there is"
+  },
+  {
+   "t0": 10.4,
+   "t1": 10.9,
+   "dur": 0.5,
+   "depth_db": 14.1,
+   "speech_during_share": 1.0,
+   "hit_after": false,
+   "to_setting_change_s": -1.0,
+   "words_at_end": "Arctic, and penetrated the deepest jungles. | But there is still one place to explore."
+  },
+  {
+   "t0": 11.1,
+   "t1": 11.4,
+   "dur": 0.3,
+   "depth_db": 14.6,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -1.5,
+   "words_at_end": "Arctic, and penetrated the deepest jungles. | But there is still one place to explore."
+  },
+  {
+   "t0": 49.7,
+   "t1": 50.4,
+   "dur": 0.7,
+   "depth_db": 14.6,
+   "speech_during_share": 1.0,
+   "hit_after": false,
+   "to_setting_change_s": 2.499999999999993,
+   "words_at_end": "is located close to the surface | in the first 200 metres. This is where"
+  },
+  {
+   "t0": 66.2,
+   "t1": 66.8,
+   "dur": 0.6,
+   "depth_db": 14.6,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -4.899999999999999,
+   "words_at_end": "-celled algae and bacteria, make up | the foundation of the ocean's ecosystem, and they're"
+  },
+  {
+   "t0": 270.4,
+   "t1": 270.7,
+   "dur": 0.3,
+   "depth_db": 14.6,
+   "speech_during_share": 1.0,
+   "hit_after": false,
+   "to_setting_change_s": 1.6999999999999886,
+   "words_at_end": "but they do leave permanent marks | on their killer skin. As we reach 1000"
+  },
+  {
+   "t0": 276.3,
+   "t1": 276.8,
+   "dur": 0.5,
+   "depth_db": 13.6,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": 2.099999999999966,
+   "words_at_end": "deeper than the tallest structure built | by humans, we need to be careful. This"
+  },
+  {
+   "t0": 284.9,
+   "t1": 285.2,
+   "dur": 0.3,
+   "depth_db": 13.6,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -6.300000000000011,
+   "words_at_end": "place of utter darkness. A barely | explored wet wasteland consisting of nothing but endless"
+  },
+  {
+   "t0": 300.6,
+   "t1": 301.1,
+   "dur": 0.5,
+   "depth_db": 14.4,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -3.7000000000000455,
+   "words_at_end": "so life had to adapt and | become extremely energy efficient. Like the 30 -centimetre"
+  },
+  {
+   "t0": 379.5,
+   "t1": 379.8,
+   "dur": 0.3,
+   "depth_db": 12.8,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": -13.900000000000034,
+   "words_at_end": "swims in a slow, elegant fashion. | The only time the animals living in this"
+  },
+  {
+   "t0": 453.1,
+   "t1": 453.5,
+   "dur": 0.4,
+   "depth_db": 13.5,
+   "speech_during_share": 1.0,
+   "hit_after": false,
+   "to_setting_change_s": -2.1000000000000227,
+   "words_at_end": "unique ecosystems. As we descend further, | we reach the deepest point of the abyssal"
+  },
+  {
+   "t0": 454.8,
+   "t1": 455.2,
+   "dur": 0.4,
+   "depth_db": 12.7,
+   "speech_during_share": 1.0,
+   "hit_after": false,
+   "to_setting_change_s": -3.800000000000068,
+   "words_at_end": "we reach the deepest point of | the abyssal plain at 6 ,000 meters. For"
+  },
+  {
+   "t0": 513.4,
+   "t1": 514.3,
+   "dur": 0.9,
+   "depth_db": 13.1,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": 4.099999999999909,
+   "words_at_end": "The deepest point. The Challenger Deep. | 11 ,000 meters below the surface. The water"
+  },
+  {
+   "t0": 515.1,
+   "t1": 515.5,
+   "dur": 0.4,
+   "depth_db": 13.4,
+   "speech_during_share": 1.0,
+   "hit_after": true,
+   "to_setting_change_s": 2.8999999999999773,
+   "words_at_end": "point. The Challenger Deep. 11 ,000 | meters below the surface. The water pressure here"
+  },
+  {
+   "t0": 602.9,
+   "t1": 604.0,
+   "dur": 1.1,
+   "depth_db": 15.5,
+   "speech_during_share": 0.91,
+   "hit_after": false,
+   "to_setting_change_s": -19.100000000000023,
+   "words_at_end": "wondrous things left to be discovered. | This bird has magical powers. Let's see a"
+  }
+ ],
+ "noise_transients_per_min": 0.61,
+ "starts_ends": {
+  "first_music_above_-45_lufs_s": 0.35000000000000003,
+  "first_speech_s": 1.1500000000000001,
+  "music_M_first_5s": [
+   -57.0,
+   -38.2,
+   -38.3,
+   -44.9,
+   -46.6,
+   -48.0,
+   -42.7,
+   -30.7,
+   -20.7,
+   -24.5
+  ],
+  "music_S_last_30s_every_2s": [
+   -13.4,
+   -12.8,
+   -13.8,
+   -14.5,
+   -24.7,
+   -25.3,
+   -25.4,
+   -25.5,
+   -21.7,
+   -20.8,
+   -23.4,
+   -23.1,
+   -24.6,
+   -23.9,
+   -38.4,
+   -50.2
+  ],
+  "last_speech_s": 603.85
+ },
+ "tempo_windows": [
+  {
+   "t": 0.0,
+   "bpm": 110.0,
+   "clarity": 0.08
+  },
+  {
+   "t": 5.0,
+   "bpm": 105.5,
+   "clarity": 0.09
+  },
+  {
+   "t": 10.0,
+   "bpm": 105.5,
+   "clarity": 0.09
+  },
+  {
+   "t": 40.0,
+   "bpm": 117.5,
+   "clarity": 0.09
+  },
+  {
+   "t": 45.0,
+   "bpm": 117.5,
+   "clarity": 0.1
+  },
+  {
+   "t": 50.0,
+   "bpm": 117.5,
+   "clarity": 0.13
+  },
+  {
+   "t": 55.0,
+   "bpm": 117.5,
+   "clarity": 0.11
+  },
+  {
+   "t": 60.0,
+   "bpm": 101.3,
+   "clarity": 0.09
+  },
+  {
+   "t": 65.0,
+   "bpm": 143.6,
+   "clarity": 0.11
+  },
+  {
+   "t": 70.0,
+   "bpm": 143.6,
+   "clarity": 0.12
+  },
+  {
+   "t": 75.0,
+   "bpm": 143.6,
+   "clarity": 0.08
+  },
+  {
+   "t": 80.0,
+   "bpm": 112.3,
+   "clarity": 0.18
+  },
+  {
+   "t": 85.0,
+   "bpm": 112.3,
+   "clarity": 0.17
+  },
+  {
+   "t": 90.0,
+   "bpm": 112.3,
+   "clarity": 0.18
+  },
+  {
+   "t": 95.0,
+   "bpm": 117.5,
+   "clarity": 0.18
+  },
+  {
+   "t": 100.0,
+   "bpm": 112.3,
+   "clarity": 0.18
+  },
+  {
+   "t": 105.0,
+   "bpm": 112.3,
+   "clarity": 0.18
+  },
+  {
+   "t": 110.0,
+   "bpm": 112.3,
+   "clarity": 0.13
+  },
+  {
+   "t": 115.0,
+   "bpm": 80.7,
+   "clarity": 0.1
+  },
+  {
+   "t": 120.0,
+   "bpm": 78.3,
+   "clarity": 0.13
+  },
+  {
+   "t": 125.0,
+   "bpm": 86.1,
+   "clarity": 0.09
+  },
+  {
+   "t": 130.0,
+   "bpm": 112.3,
+   "clarity": 0.16
+  },
+  {
+   "t": 135.0,
+   "bpm": 112.3,
+   "clarity": 0.22
+  },
+  {
+   "t": 140.0,
+   "bpm": 112.3,
+   "clarity": 0.18
+  },
+  {
+   "t": 145.0,
+   "bpm": 84.7,
+   "clarity": 0.15
+  },
+  {
+   "t": 150.0,
+   "bpm": 84.7,
+   "clarity": 0.11
+  },
+  {
+   "t": 155.0,
+   "bpm": 107.7,
+   "clarity": 0.14
+  },
+  {
+   "t": 160.0,
+   "bpm": 112.3,
+   "clarity": 0.09
+  },
+  {
+   "t": 165.0,
+   "bpm": 112.3,
+   "clarity": 0.09
+  },
+  {
+   "t": 170.0,
+   "bpm": 107.7,
+   "clarity": 0.1
+  },
+  {
+   "t": 175.0,
+   "bpm": 97.5,
+   "clarity": 0.15
+  },
+  {
+   "t": 180.0,
+   "bpm": 112.3,
+   "clarity": 0.2
+  },
+  {
+   "t": 185.0,
+   "bpm": 112.3,
+   "clarity": 0.22
+  },
+  {
+   "t": 190.0,
+   "bpm": 112.3,
+   "clarity": 0.22
+  },
+  {
+   "t": 195.0,
+   "bpm": 136.0,
+   "clarity": 0.2
+  },
+  {
+   "t": 200.0,
+   "bpm": 112.3,
+   "clarity": 0.21
+  },
+  {
+   "t": 205.0,
+   "bpm": 112.3,
+   "clarity": 0.2
+  },
+  {
+   "t": 210.0,
+   "bpm": 112.3,
+   "clarity": 0.17
+  },
+  {
+   "t": 215.0,
+   "bpm": 112.3,
+   "clarity": 0.25
+  },
+  {
+   "t": 220.0,
+   "bpm": 112.3,
+   "clarity": 0.32
+  },
+  {
+   "t": 225.0,
+   "bpm": 112.3,
+   "clarity": 0.41
+  },
+  {
+   "t": 230.0,
+   "bpm": 112.3,
+   "clarity": 0.37
+  },
+  {
+   "t": 235.0,
+   "bpm": 112.3,
+   "clarity": 0.38
+  },
+  {
+   "t": 240.0,
+   "bpm": 112.3,
+   "clarity": 0.36
+  },
+  {
+   "t": 245.0,
+   "bpm": 112.3,
+   "clarity": 0.31
+  },
+  {
+   "t": 250.0,
+   "bpm": 83.4,
+   "clarity": 0.18
+  },
+  {
+   "t": 255.0,
+   "bpm": 83.4,
+   "clarity": 0.08
+  },
+  {
+   "t": 260.0,
+   "bpm": 112.3,
+   "clarity": 0.11
+  },
+  {
+   "t": 265.0,
+   "bpm": 112.3,
+   "clarity": 0.09
+  },
+  {
+   "t": 270.0,
+   "bpm": 117.5,
+   "clarity": 0.12
+  },
+  {
+   "t": 275.0,
+   "bpm": 92.3,
+   "clarity": 0.13
+  },
+  {
+   "t": 280.0,
+   "bpm": 117.5,
+   "clarity": 0.15
+  },
+  {
+   "t": 285.0,
+   "bpm": 120.2,
+   "clarity": 0.12
+  },
+  {
+   "t": 290.0,
+   "bpm": 123.0,
+   "clarity": 0.16
+  },
+  {
+   "t": 295.0,
+   "bpm": 123.0,
+   "clarity": 0.2
+  },
+  {
+   "t": 300.0,
+   "bpm": 123.0,
+   "clarity": 0.25
+  },
+  {
+   "t": 305.0,
+   "bpm": 120.2,
+   "clarity": 0.25
+  },
+  {
+   "t": 310.0,
+   "bpm": 123.0,
+   "clarity": 0.3
+  },
+  {
+   "t": 315.0,
+   "bpm": 123.0,
+   "clarity": 0.32
+  },
+  {
+   "t": 320.0,
+   "bpm": 123.0,
+   "clarity": 0.14
+  },
+  {
+   "t": 325.0,
+   "bpm": 123.0,
+   "clarity": 0.17
+  },
+  {
+   "t": 330.0,
+   "bpm": 123.0,
+   "clarity": 0.24
+  },
+  {
+   "t": 335.0,
+   "bpm": 123.0,
+   "clarity": 0.22
+  },
+  {
+   "t": 340.0,
+   "bpm": 123.0,
+   "clarity": 0.24
+  },
+  {
+   "t": 345.0,
+   "bpm": 123.0,
+   "clarity": 0.13
+  },
+  {
+   "t": 350.0,
+   "bpm": 123.0,
+   "clarity": 0.14
+  },
+  {
+   "t": 355.0,
+   "bpm": 123.0,
+   "clarity": 0.13
+  },
+  {
+   "t": 360.0,
+   "bpm": 123.0,
+   "clarity": 0.22
+  },
+  {
+   "t": 365.0,
+   "bpm": 123.0,
+   "clarity": 0.25
+  },
+  {
+   "t": 370.0,
+   "bpm": 123.0,
+   "clarity": 0.32
+  },
+  {
+   "t": 375.0,
+   "bpm": 123.0,
+   "clarity": 0.27
+  },
+  {
+   "t": 380.0,
+   "bpm": 123.0,
+   "clarity": 0.31
+  },
+  {
+   "t": 385.0,
+   "bpm": 120.2,
+   "clarity": 0.26
+  },
+  {
+   "t": 390.0,
+   "bpm": 123.0,
+   "clarity": 0.28
+  },
+  {
+   "t": 395.0,
+   "bpm": 123.0,
+   "clarity": 0.29
+  },
+  {
+   "t": 400.0,
+   "bpm": 123.0,
+   "clarity": 0.31
+  },
+  {
+   "t": 405.0,
+   "bpm": 123.0,
+   "clarity": 0.22
+  },
+  {
+   "t": 410.0,
+   "bpm": 123.0,
+   "clarity": 0.31
+  },
+  {
+   "t": 415.0,
+   "bpm": 123.0,
+   "clarity": 0.37
+  },
+  {
+   "t": 420.0,
+   "bpm": 123.0,
+   "clarity": 0.32
+  },
+  {
+   "t": 425.0,
+   "bpm": 123.0,
+   "clarity": 0.21
+  },
+  {
+   "t": 430.0,
+   "bpm": 123.0,
+   "clarity": 0.09
+  },
+  {
+   "t": 435.0,
+   "bpm": 97.5,
+   "clarity": 0.09
+  },
+  {
+   "t": 440.0,
+   "bpm": 97.5,
+   "clarity": 0.07
+  },
+  {
+   "t": 445.0,
+   "bpm": 99.4,
+   "clarity": 0.13
+  },
+  {
+   "t": 450.0,
+   "bpm": 114.8,
+   "clarity": 0.18
+  },
+  {
+   "t": 455.0,
+   "bpm": 114.8,
+   "clarity": 0.27
+  },
+  {
+   "t": 460.0,
+   "bpm": 114.8,
+   "clarity": 0.25
+  },
+  {
+   "t": 465.0,
+   "bpm": 114.8,
+   "clarity": 0.21
+  },
+  {
+   "t": 470.0,
+   "bpm": 117.5,
+   "clarity": 0.14
+  },
+  {
+   "t": 475.0,
+   "bpm": 114.8,
+   "clarity": 0.19
+  },
+  {
+   "t": 480.0,
+   "bpm": 114.8,
+   "clarity": 0.17
+  },
+  {
+   "t": 485.0,
+   "bpm": 114.8,
+   "clarity": 0.1
+  },
+  {
+   "t": 490.0,
+   "bpm": 114.8,
+   "clarity": 0.13
+  },
+  {
+   "t": 495.0,
+   "bpm": 114.8,
+   "clarity": 0.21
+  },
+  {
+   "t": 500.0,
+   "bpm": 114.8,
+   "clarity": 0.33
+  },
+  {
+   "t": 505.0,
+   "bpm": 114.8,
+   "clarity": 0.23
+  },
+  {
+   "t": 510.0,
+   "bpm": 112.3,
+   "clarity": 0.23
+  },
+  {
+   "t": 515.0,
+   "bpm": 112.3,
+   "clarity": 0.2
+  },
+  {
+   "t": 520.0,
+   "bpm": 114.8,
+   "clarity": 0.25
+  },
+  {
+   "t": 525.0,
+   "bpm": 114.8,
+   "clarity": 0.24
+  },
+  {
+   "t": 530.0,
+   "bpm": 112.3,
+   "clarity": 0.24
+  },
+  {
+   "t": 535.0,
+   "bpm": 117.5,
+   "clarity": 0.31
+  },
+  {
+   "t": 540.0,
+   "bpm": 117.5,
+   "clarity": 0.32
+  },
+  {
+   "t": 545.0,
+   "bpm": 117.5,
+   "clarity": 0.35
+  },
+  {
+   "t": 550.0,
+   "bpm": 117.5,
+   "clarity": 0.37
+  },
+  {
+   "t": 555.0,
+   "bpm": 114.8,
+   "clarity": 0.37
+  },
+  {
+   "t": 560.0,
+   "bpm": 114.8,
+   "clarity": 0.43
+  },
+  {
+   "t": 565.0,
+   "bpm": 117.5,
+   "clarity": 0.38
+  },
+  {
+   "t": 570.0,
+   "bpm": 117.5,
+   "clarity": 0.39
+  },
+  {
+   "t": 575.0,
+   "bpm": 117.5,
+   "clarity": 0.22
+  },
+  {
+   "t": 580.0,
+   "bpm": 117.5,
+   "clarity": 0.2
+  },
+  {
+   "t": 585.0,
+   "bpm": 117.5,
+   "clarity": 0.17
+  }
+ ]
+}

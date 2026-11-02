@@ -608,6 +608,32 @@ class Make:
         self.pull(f"episodes/{self.slug}/beatmap.json", optional=True)
         warns = [l for l in out.splitlines() if l.startswith("WARN")]
         self.log(f"storyboard: PASS ({len(warns)} warnings)")
+        self.remix_score()
+
+    def remix_score(self):
+        """Explainers score their soundtrack from the storyboard (pipeline.audio.score, music "score"): once the
+        storyboard exists, remix with the cached voice (timings unchanged) so the render picks up the composed music.
+        The first TTS pass mixed with the fallback bed; a missing FluidSynth/SoundFont keeps that bed (logged)."""
+        from pipeline.audio.config import NICHES, SCORE
+        meta = open(os.path.join(self.ep, "script.md"), encoding="utf-8").read()
+        fm = re.search(r"^music:\s*(\S+)", meta, re.M)
+        marker = re.findall(r"\[music:\s*([^\]\s]+)", meta)
+        music = marker[-1] if marker else (fm.group(1) if fm else NICHES.get(self.niche, {}).get("music"))
+        if music != SCORE:
+            return
+        extra = f"episodes/{self.slug}/audio/sfx_events.json"
+        extra = f" --extra-cues {extra}" if os.path.exists(os.path.join(ROOT, extra)) else ""
+        t0 = time.time()
+        with self.code_lock():
+            self.spark(f"nice -n 10 python -m pipeline.audio.make episodes/{self.slug}/script.md --id {self.slug} "
+                       f"--niche {self.niche} --reuse-tts --meta-out episodes/{self.slug}/audio{extra}",
+                       timeout=1800, quiet=True)
+        self.pull(f"episodes/{self.slug}/audio/")
+        rep = json.load(open(os.path.join(self.ep, "audio", "report.json")))["mix"]
+        sc = rep.get("score") or {}
+        self.log(f"score: music={rep.get('music')} {len(sc.get('cues', []))} cues, {len(sc.get('stings', []))} stings, "
+                 f"{len(sc.get('drops', []))} drop-outs, {rep['ffmpeg_ebur128']['I_lufs']} LUFS in {time.time() - t0:.0f}s"
+                 + (f" (fallback: {rep['music_fallback_reason']})" if rep.get("music_fallback_reason") else ""))
 
     def stills_times(self) -> list[float]:
         sb = json.load(open(os.path.join(self.ep, "storyboard.json")))

@@ -110,6 +110,14 @@ class GateChecks(Root):
                             ("ext/some_track", "FAIL")):
             (ep / "report.json").write_text(json.dumps({"mix": {"music": music}}))  # pipeline.audio.make's shape
             self.assertEqual(G.check_music(self.r, "s")["status"], want, music)
+        # the composed score passes only with its provenance and a licence-cleared SoundFont
+        from pipeline.audio.config import SOUNDFONTS
+        sha = next(iter(SOUNDFONTS.values()))["sha256"]
+        for prov, want in (({"generator": "pipeline.audio.score", "soundfont": "GeneralUser-GS", "soundfont_sha256": sha}, "PASS"),
+                           ({"generator": "pipeline.audio.score", "soundfont_sha256": "0" * 64}, "FAIL"), (None, "FAIL")):
+            mix = {"music": "score", **({"music_provenance": prov} if prov else {})}
+            (ep / "report.json").write_text(json.dumps({"mix": mix}))
+            self.assertEqual(G.check_music(self.r, "s")["status"], want, prov)
         self.assertEqual(G.DUR_FAIL, 180.0)
 
     def test_disclosure_checks_every_built_caption(self):

@@ -409,8 +409,8 @@ def check_source_title(src: dict, titles: list[str], hook: str) -> dict:
 
 
 def check_music(r, slug: str) -> dict:
-    """The mix may use only an in-house synth bed (pipeline/audio/config.MUSIC_BEDS)."""
-    from pipeline.audio.config import MUSIC_BEDS
+    """The mix may use only an in-house synth bed or the in-house score (pipeline/audio/config.MUSIC_BEDS)."""
+    from pipeline.audio.config import MUSIC_BEDS, SCORE, SOUNDFONTS
     rep = read_json(r / "episodes" / slug / "audio" / "report.json")
     if rep is None:
         return chk("WARN", None, f"one of {list(MUSIC_BEDS)} or none", "no episodes/<slug>/audio/report.json")
@@ -420,6 +420,15 @@ def check_music(r, slug: str) -> dict:
     if not name or name.lower() in ("none", "off"):
         return chk("PASS", None, detail="no music bed")
     ok = name in MUSIC_BEDS and not str(m).startswith("/")
+    if ok and name == SCORE:
+        # the composed score: every note from pipeline.audio.score, samples only from a licence-cleared SoundFont
+        prov = (rep.get("mix") or {}).get("music_provenance") or {}
+        cleared = {v["sha256"] for v in SOUNDFONTS.values()}
+        if prov.get("generator") != "pipeline.audio.score" or prov.get("soundfont_sha256") not in cleared:
+            return chk("FAIL", m, "score composed by pipeline.audio.score with a SoundFont in config.SOUNDFONTS",
+                       f"score provenance missing or not cleared: {prov or 'none'}")
+        return chk("PASS", m, f"one of {list(MUSIC_BEDS)} or none",
+                   f"in-house score ({prov.get('soundfont')}, licence-cleared SoundFont)")
     return chk("PASS" if ok else "FAIL", m, f"one of {list(MUSIC_BEDS)} or none",
                "in-house synth bed" if ok else "not an in-house bed: third-party music can be claimed on Shorts > 60 s")
 

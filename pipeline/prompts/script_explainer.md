@@ -18,7 +18,7 @@ Read first (in this order, skim the long ones):
 
 Hard rules:
 - Original wording only. Borrow structure and devices from the references, never their sentences.
-- Front matter: id, niche: explainer, format: "short, 9:16", title, alt_titles, voice: am_michael, music: deep_ocean,
+- Front matter: id, niche: explainer, format: "short, 9:16", title, alt_titles, voice: am_michael, music: score,
   references: (2-3 corpus ids with url, views, outlier_score, why_chosen). Then a beat alignment table
   (our beat -> reference id + timestamp + device borrowed), "Facts to verify" with a real source per fact, and shot notes
   per paragraph naming the kit components.

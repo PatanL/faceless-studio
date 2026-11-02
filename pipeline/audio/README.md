@@ -53,9 +53,50 @@ Kokoro token timestamps are merged into words (punctuation and contractions atta
 
 SFX in `studio/public/sfx/<cue>.wav` (B2 `cue` names): boom, breath, bubbles, click, clock_ticking, ding, door_creak, drone, footsteps, glitch, heartbeat, heartbeat_fast, heartbeat_slow, impact, knock, knock3, knock3_slow, message_pop, message_send, notify, phone_buzz, phone_buzz_long, pop, riser, sonar_ping, static, stinger, tick, typing, underwater_rumble, whoosh, whoosh_long.
 
-Seamlessly looping beds in `studio/public/music/`: `deep_ocean` and `documentary_pulse` (explainer), `dread` and `tension_pulse` (horror).
+Seamlessly looping beds in `studio/public/music/`: `deep_ocean` and `documentary_pulse` (explainer; `deep_ocean` is
+the fallback for the score), `dread` and `tension_pulse` (horror).
 
 `python -m pipeline.audio.synth --sheet sfx.png` draws every SFX (waveform over spectrogram) for a visual check.
+
+## Scored soundtrack (`score.py`, music `score`, the explainer default)
+
+The research behind it is in `research/music/KURZ_MUSIC.md`. The music is composed per episode from the storyboard's
+per-scene `setting` timeline, the word timings and the script's SFX markers:
+
+- **Moods.** A mood per setting run, from the place, its light and the words spoken there: curious, board, tense,
+  cold, warm, question or deep.
+- **Cues.** Cues last 4–16 s (longer runs split at sentence starts). A cue boundary moves onto a pivot or answer word
+  up to 1.2 s before a setting change. Inside a cue, every setting change adds colour.
+- **Reveals.** Stings land on reveal words, at most 3 drop-outs come before the strongest reveals, and risers lead into
+  cues whose intensity rises.
+- **Hook and loop.** The hook is sparse and lands with a hit on the first setting change. For `ending: loop`, a bookend
+  cue resolves into bar 1 and the tail is wrapped onto the start.
+- **Rendering.** Notes are rendered with FluidSynth from GeneralUser GS (`sf2.py`, licence-pinned by sha256). The sub
+  bass and booms are synthesized in numpy. Effects (reverb, EQ, compression) come from pedalboard.
+
+```bash
+bash scripts/spark_music_setup.sh          # once: FluidSynth (user space), the SoundFont, pretty_midi/mido/pedalboard
+# after the storyboard exists (studio-make does this itself: Make.remix_score after the storyboard step)
+python -m pipeline.audio.make episodes/<slug>/script.md --id <slug> --reuse-tts --music score \
+    [--extra-cues episodes/<slug>/audio/sfx_events.json]
+python -m pipeline.audio.score episodes/<slug>/storyboard.json --out /tmp/s --loop   # score only
+```
+
+**Mix and fallback.**
+
+- Levels for the score (`config.score_mix`): about 10 LU under the voice while it talks, a 3.5 dB duck, and an extra
+  −6 dB band duck at 1–4 kHz under the voice (`duck_band`), with a true-peak ceiling of −2 dBTP so the AAC encode stays
+  under −1.
+- Without a storyboard (the first TTS pass), or if FluidSynth or the SoundFont is missing, the mix uses `deep_ocean`
+  and records `music_fallback_reason` in `report.json`.
+
+**QA.**
+
+- `report.json` carries `music_provenance` (generator, SoundFont, sha256). The gate passes `score` only when the
+  SoundFont is one of the cleared ones.
+- `score_plan.json` and `score.mid` are copied to `episodes/<slug>/audio/`.
+- `research/music/tools/measure_ab.py` measures an old-vs-new pair: loudness, voice gap on a phone model, the
+  1–4 kHz SNR, cue timing, drop-out depth and the loop seam.
 
 ## Proof (2026-11-01)
 

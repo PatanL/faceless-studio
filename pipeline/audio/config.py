@@ -3,7 +3,22 @@
 # Music beds a video may use: only the in-house beds that pipeline/audio/synth.py generates (CC0, LICENSES.md), so
 # nothing can draw a Content ID claim on a Short over 60 s. mix.find_asset("music", ...) refuses anything else and the
 # QA gate FAILs a mix whose report.json names another bed. Keep in sync with synth.BEDS.
-MUSIC_BEDS = ("deep_ocean", "documentary_pulse", "dread", "tension_pulse")
+# "score" is the per-episode soundtrack composed in code by pipeline/audio/score.py (every note generated here, rendered
+# from a licence-cleared SoundFont listed in SOUNDFONTS below); the gate also checks its provenance in report.json.
+SCORE = "score"
+MUSIC_BEDS = ("deep_ocean", "documentary_pulse", "dread", "tension_pulse", SCORE)
+
+# SoundFonts the score may render with, pinned by sha256 (licence text and source in pipeline/audio/LICENSES.md).
+# sf2.soundfont() refuses any other file, so a swapped or unvetted bank can never reach a mix.
+SOUNDFONTS = {
+    "GeneralUser-GS": {
+        "file": "GeneralUser-GS/GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or "
+                   "commercial, including profit from recordings made with it",
+        "source": "https://github.com/mrbumpy409/GeneralUser-GS @684543d5 (S. Christian Collins)",
+    },
+}
 
 NICHES = {
     "explainer": {
@@ -19,7 +34,15 @@ NICHES = {
         "trim_head_every": 0.05,  # Kokoro's ~0.2-0.3 s lead silence on every later chunk too (paragraph gaps ~0.3 s)
         # no EQ/compressor chain: it cost ~0.1 UTMOS and the owner preferred the clean read (lab INDEX.md)
         "voice_chain": "",
-        "music": "deep_ocean",
+        # the scored soundtrack composed from the storyboard (pipeline/audio/score.py, research/music/KURZ_MUSIC.md);
+        # before a storyboard exists (first TTS pass) or without FluidSynth/the SoundFont it falls back to deep_ocean
+        "music": "score",
+        "score_fallback": "deep_ocean",
+        # score levels (override the bed-tuned music_db/duck_db, also those in a script's front matter; a script may set
+        # score_music_db / score_duck_db): voice ~11 LU over the music while it talks (Kurz: 10-11 median)
+        # duck_band: while the voice talks the score's 1-4 kHz (consonants, intelligibility) dips a further 6 dB
+        "score_mix": {"music_db": -7.0, "duck_db": -3.5, "duck_band": {"lo": 1000, "hi": 4000, "db": -6.0},
+                      "true_peak_db": -2.0},
         # bed loudness (LUFS) relative to the voice, between lines. Orca review: -15 / -9 duck put the bed ~24 LU
         # (~26 dB RMS) under the talking voice, inaudible on a phone. -13.5 / -5 = ~18.5 LU, ~20 dB RMS under the voice
         # while it talks (report.json mix.bed_below_voice_db), and it swells back up in the gaps.

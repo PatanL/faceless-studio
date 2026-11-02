@@ -1,0 +1,274 @@
+{
+ "A_bed": {
+  "dir": "/home/dzliu/studio/work/orca-ab/A_bed",
+  "duration_s": 84.63,
+  "mix_integrated_lufs": -14.12,
+  "mix_sample_peak_dbfs": -1.6,
+  "clipped_samples": 0,
+  "nan": 0,
+  "voice_minus_music_under_speech_lu": {
+   "p10": 9.7,
+   "median": 13.2,
+   "p90": 16.7
+  },
+  "phone_voice_minus_music_under_speech_lu": {
+   "p10": 11.1,
+   "median": 16.5,
+   "p90": 21.3
+  },
+  "phone_music_audible_share": 0.803,
+  "voice_band_1_4k_snr_db_median": 25.5,
+  "music_short_term_p10_p95": [
+   -25.2,
+   -23.6
+  ],
+  "music_short_term_range_db": 1.6,
+  "mix_dead_air_windows": [],
+  "music_silent_windows_outside_dropouts": [],
+  "music_at_setting_changes_minus_under_speech_db": 0.1,
+  "seam": {
+   "music_last_200ms_db": -32.4,
+   "music_first_200ms_db": -35.6,
+   "mix_last_200ms_db": -32.4,
+   "mix_first_200ms_db": -18.0,
+   "mix_sample_step": 0.0,
+   "mix_typical_sample_step": 0.0046
+  }
+ },
+ "B_score": {
+  "dir": "/home/dzliu/studio/work/orca-ab/B_score",
+  "duration_s": 84.63,
+  "mix_integrated_lufs": -14.06,
+  "mix_sample_peak_dbfs": -2.6,
+  "clipped_samples": 0,
+  "nan": 0,
+  "voice_minus_music_under_speech_lu": {
+   "p10": 8.5,
+   "median": 13.1,
+   "p90": 19.2
+  },
+  "phone_voice_minus_music_under_speech_lu": {
+   "p10": 8.1,
+   "median": 14.8,
+   "p90": 21.9
+  },
+  "phone_music_audible_share": 0.833,
+  "voice_band_1_4k_snr_db_median": 15.9,
+  "music_short_term_p10_p95": [
+   -27.0,
+   -20.7
+  ],
+  "music_short_term_range_db": 6.3,
+  "mix_dead_air_windows": [],
+  "music_silent_windows_outside_dropouts": [],
+  "music_at_setting_changes_minus_under_speech_db": 1.8,
+  "seam": {
+   "music_last_200ms_db": -37.7,
+   "music_first_200ms_db": -33.7,
+   "mix_last_200ms_db": -37.7,
+   "mix_first_200ms_db": -18.2,
+   "mix_sample_step": 0.0,
+   "mix_typical_sample_step": 0.0054
+  }
+ },
+ "B_timing": {
+  "cues": [
+   {
+    "t0": 3.33,
+    "mood": "board",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.02,
+     5.3
+    ]
+   },
+   {
+    "t0": 10.716,
+    "mood": "board",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.016,
+     5.5
+    ]
+   },
+   {
+    "t0": 19.346,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     0.129,
+     5.6
+    ]
+   },
+   {
+    "t0": 24.036,
+    "mood": "cold",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     0.024,
+     6.3
+    ]
+   },
+   {
+    "t0": 30.863,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.018,
+     8.6
+    ]
+   },
+   {
+    "t0": 42.703,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.018,
+     7.5
+    ]
+   },
+   {
+    "t0": 51.429,
+    "mood": "question",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.019,
+     5.4
+    ]
+   },
+   {
+    "t0": 62.912,
+    "mood": "warm",
+    "to_setting_change_s": -0.18,
+    "onset": [
+     0.003,
+     19.3
+    ]
+   },
+   {
+    "t0": 70.388,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     0.072,
+     5.7
+    ]
+   },
+   {
+    "t0": 80.074,
+    "mood": "tense",
+    "to_setting_change_s": 0.0,
+    "onset": [
+     -0.084,
+     2.5
+    ]
+   }
+  ],
+  "stings": [
+   {
+    "t": 35.889,
+    "why": "marker impact",
+    "word": "The",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.001,
+     21.7
+    ]
+   },
+   {
+    "t": 62.942,
+    "why": "answer 'culture.'",
+    "word": "culture.",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.003,
+     19.3
+    ]
+   },
+   {
+    "t": 70.488,
+    "why": "pivot 'Except'",
+    "word": "Except",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.002,
+     5.7
+    ]
+   },
+   {
+    "t": 77.238,
+    "why": "marker stinger",
+    "word": "About",
+    "to_word_start_s": -0.03,
+    "onset": [
+     0.002,
+     16.8
+    ]
+   }
+  ],
+  "drops": [
+   {
+    "t0": 35.289,
+    "t1": 35.869,
+    "why": "marker impact",
+    "depth_db": 23.9
+   },
+   {
+    "t0": 62.342,
+    "t1": 62.922,
+    "why": "answer 'culture.'",
+    "depth_db": 29.4
+   },
+   {
+    "t0": 76.638,
+    "t1": 77.218,
+    "why": "marker stinger",
+    "depth_db": 22.3
+   }
+  ],
+  "risers": [
+   {
+    "t0": 1.11,
+    "t1": 3.33,
+    "len": 2.22,
+    "kind": "cymbal",
+    "rise_db": 10.1
+   },
+   {
+    "t0": 9.576,
+    "t1": 10.716000000000001,
+    "len": 1.14,
+    "kind": "swell",
+    "rise_db": 4.9
+   },
+   {
+    "t0": 17.186,
+    "t1": 19.346000000000004,
+    "len": 2.16,
+    "kind": "cymbal",
+    "rise_db": 2.4
+   },
+   {
+    "t0": 29.723,
+    "t1": 30.863000000000007,
+    "len": 1.14,
+    "kind": "cymbal",
+    "rise_db": 3.3
+   },
+   {
+    "t0": 41.573,
+    "t1": 42.70300000000001,
+    "len": 1.13,
+    "kind": "cymbal",
+    "rise_db": 2.9
+   },
+   {
+    "t0": 68.088,
+    "t1": 70.388,
+    "len": 2.3,
+    "kind": "cymbal",
+    "rise_db": 4.5
+   }
+  ]
+ }
+}
