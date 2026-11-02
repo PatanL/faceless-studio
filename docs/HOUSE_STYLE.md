@@ -31,3 +31,7 @@ REF=$PWD/gen/style_board_A.png ./gen_one.sh $PWD/prompts/<name>.txt <out-name>
 ```
 
 Codex images are art direction only; what moves on screen is built in code.
+
+## Lane variant: Zack D.-style "what if" (owner, 2026-11-02)
+
+The Zack D. lane is **more realistic** than style A: polished, slightly realistic 3D-CGI look (believable materials and anatomy, soft cinematic light, close and low camera angles that fill the frame), even though we build in 2D. Kurzgesagt-type explainers keep style A. For Codex art direction and plates in this lane, append `experiments/asset-gen/prompts/style_ZD_common.txt` and attach `refs/zd_grid.jpg` (`REF=$PWD/refs/zd_grid.jpg`). First tests: `gen/zd_grow_ceiling.png`, `gen/zd_grow_street.png`.
