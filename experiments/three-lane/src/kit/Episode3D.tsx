@@ -123,7 +123,9 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const n = Math.round(g.xfade * 30);
   // a whip is n frames centred on the cut: blur and sideways travel rise to the cut and fall after it; the two shots
   // overlap only in the OV most-smeared frames at the cut (v8 review: a 6-frame overlap still read as a dissolve)
-  const OV = 2;
+  // v11 measured 15 one-frame jumps (ref 0-12) with 2: three overlap frames under a heavier smear split each place change
+  // into smaller steps without reading as a dissolve
+  const OV = 3;
   const half = Math.floor(n / 2), outHalf = nOut - Math.floor(nOut / 2);
   if (n > 0 && frame < half - OV / 2) return null;
   if (nOut > 0 && frame >= total - outHalf + OV / 2) return null;
@@ -133,7 +135,7 @@ const Fade: React.FC<{ g: GroupSpec; from: number; total: number; nOut: number }
   const k = Math.max(inWhip ? 1 - Math.min(1, din) : 0, outWhip ? 1 - Math.min(1, dout) : 0);   // 0..1 smear
   // directional travel: the outgoing shot whips off to the left, the incoming one arrives from the right
   const dir = inWhip && frame >= half - OV / 2 && (!outWhip || frame < total - nOut) ? 1 : -1;
-  const blur = 13 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
+  const blur = 16 * Math.sqrt(k), sc = 1 + 0.18 * k, tx = dir * 0.16 * k * 1080;
   const op = n > 0 && frame < half + OV / 2 ? (frame - (half - OV / 2) + 1) / (OV + 1) : 1;  // the incoming shot fades in under the smear
   const style: React.CSSProperties = { ...(blur > 0.3 ? { filter: `blur(${blur.toFixed(1)}px)`, transform: `translateX(${tx.toFixed(1)}px) scale(${sc.toFixed(3)})` } : {}), opacity: Math.max(0, Math.min(1, op)) };
   return (

@@ -232,7 +232,7 @@ export function buildStory(T: Timing): VasaStory {
     const t0 = S(2), t1 = S(3) - 0.35;
     groups.push({ id: "camp", t0, t1, xfade: 0.4, set: campSet, light: "day",
       cam: [fit(t0, [personBox(KING, true), [-0.2, 0, -1.9, 1.4, 1.0, -0.9], personBox([-5.8, 0, -8.5]), personBox([4.2, 0, -9.5]), [-8, 0, -14, 8, 5, -10]], 14, 8, 42, { b: 0.4 }, [personBox([1.5, 0, -2.2])]),
-        fit(w(2, "mightiest"), [personBox(KING, true, true), [0.0, 0.8, -1.7, 1.3, 1.5, -1.1]], 34, 14, 34, { b: 0.55, t: 0.3 }, [personBox([1.5, 0, -2.2]), personBox([-5.8, 0, -8.5]), personBox([4.2, 0, -9.5])])],   // the king and his model warship
+        { ...fit(w(2, "mightiest"), [personBox(KING, true, true), [0.0, 0.8, -1.7, 1.3, 1.5, -1.1]], 34, 14, 34, { b: 0.55, t: 0.3, x: 0.2 }, [personBox([1.5, 0, -2.2]), personBox([-5.8, 0, -8.5]), personBox([4.2, 0, -9.5])]), drift: 0.4 }],   // the king and his model warship
       people: kingPeople(false), rigs: [(ctx) => {
         // the war on the horizon: smoke from the guns; and the model of the warship he wants, on his table
         const smoke = [-9, 7, 12].map((x, i) => { const r = new Rising(10, "smoke", 2.6, 20 + i); r.group.position.set(x, 1, -14 + i * 2); ctx.root.add(r.group); return r; });
@@ -255,9 +255,10 @@ export function buildStory(T: Timing): VasaStory {
     const WR: V3 = [10.5, 1.8, -11.4];
     groups.push({ id: "guns", t0, t1, xfade: 0.4, set: () => harbourSet(), light: "day",
       cam: [
-        fit(t0, [[-14, 0.6, 3, 10, 9, 7]], 30, 8, 40, { b: 0.5 }),                                // from the water: the gun decks open
-        fit(two, [[-14, 0.6, 3, 10, 4.6, 7]], 18, 4, 40, { b: 0.35 }),                            // two rows of ports open, guns run out
-        fit(stacked, [[-10, -0.6, 4, 8, 4.8, 7]], 24, 1.5, 38, { b: 0.35 }),                      // at the waterline: stacked high
+        // v13 review: a 24 m box made the ports specks between sky and water; frame a few ports at a time, along the hull
+        fit(t0, [[-8, 0.6, 3, 6, 9, 7]], 34, 10, 40, { b: 0.5 }),                                 // from the water: the gun decks open
+        fit(two, [[-5, 0.6, 3, 3, 4.6, 7]], 40, 8, 40, { b: 0.4 }),                               // two rows of ports open, guns run out
+        fit(stacked, [[-3, -0.6, 4, 2.5, 4.8, 7]], 22, 2, 38, { b: 0.4 }),                        // at the waterline: stacked high
       ],
       people: [{ id: "wright", flip: true, at: () => WR, props: () => ({ costume: "shipwright", seed: 4, pose: "point", face: "smug" }) },
         { id: "wright2", at: () => [5.5, 1.8, -12.5], props: () => ({ costume: "sailor2", seed: 6, pose: "push", face: "focus" }) }],
@@ -293,7 +294,7 @@ export function buildStory(T: Timing): VasaStory {
     const t0 = letters, t1 = S(5);
     const AD: V3 = [-1.0, 1.8, -10.9], CR: V3 = [0.05, 1.8, -11.0];
     groups.push({ id: "letters", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false }), light: "day",
-      cam: [fit(t0, [personBox(AD), personBox(CR)], -160, 8, 40, { b: 0.45 }), fit(t1, [personBox(AD, false, true), personBox(CR, false, true)], -170, 4, 34, { b: 0.5 })],
+      cam: [{ ...fit(t0, [personBox(AD), personBox(CR)], -160, 8, 40, { b: 0.45, x: 0.2 }), drift: 0.4 }, fit(t1, [personBox(AD, false, true), personBox(CR, false, true)], -170, 4, 34, { b: 0.5, x: 0.2 })],
       people: [{ id: "adm", at: () => AD, faceTo: () => CR, props: (t) => ({ costume: "admiral", seed: 5, pose: t > w(4, "get") + 0.3 ? "hold" : t > w(4, "get") - 0.6 ? "reach" : "stand", item: t > w(4, "get") - 0.2 ? "letter" : "none", face: "worried" }) },
         { id: "courier", at: (t) => [CR[0] + 2.2 * (1 - sm((t - t0) / 0.9)), CR[1], CR[2]], faceTo: () => AD, props: (t) => ({ costume: "sailor2", seed: 9, pose: t < t0 + 0.7 ? "stand" : "reach", item: t < w(4, "get") - 0.2 ? "letter" : "none", walk: [{ t: 0, v: 1 }, { t: t0 + 0.6, v: 1 }, { t: t0 + 0.95, v: 0 }], face: "focus" }) }],
       rigs: [shipRig(() => ({ sails: 0, lids: 0 }), {}), waterRig()], avoid: () => [personBox(AD), personBox(CR)] });
@@ -313,7 +314,9 @@ export function buildStory(T: Timing): VasaStory {
   {
     const t0 = S(5), t1 = S(8);
     const waving = w(6, "waving");
-    groups.push({ id: "launch", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false }), light: "golden",
+    // v13 review: the glide from under the sails to the quay-side view flew through the rigging, and a shed filled the
+    // frame for 1.5 s on "tips her further". No sheds here, and the swing to the quay side is a whip (launch -> gusts).
+    const launch: GroupSpec = { id: "launch", t0, t1, xfade: 0.4, set: () => harbourSet({ cannonsOnQuay: false, sheds: false }), light: "golden",
       cam: [
         fit(t0, [crowdBox()], 15, 8, 42, { b: 0.45 }),                                            // a huge crowd on the quay
         fit(w(5, "watches"), [crowdBox()], 22, 10, 40, { b: 0.45 }),
@@ -325,7 +328,10 @@ export function buildStory(T: Timing): VasaStory {
       ],
       people: crowdPeople((t) => t >= waving - 0.6, S(8) + 9, (t) => { const v = voyage(t); return [v.x!, 0, v.z!]; }),
       rigs: [shipRig(voyage, {}), waterRig()],
-      avoid: (t) => [hullBox(voyage(t), true)] });
+      avoid: (t) => [hullBox(voyage(t), true)] };
+    const tw = w(6, "one") - 0.15;                                  // the whip lands just before "One light gust"
+    groups.push({ ...launch, t1: tw, cam: launch.cam.slice(0, 3) });
+    groups.push({ ...launch, id: "gusts", t0: tw, cam: launch.cam.slice(3).map((k, i) => (i === 0 ? { ...k, t: Math.max(k.t, tw) } : k)) });
   }
   // ================= G9 the sea pours in (the lower gun deck)
   const front = w(8, "in", 2) - 0.1;
@@ -411,7 +417,8 @@ export function buildStory(T: Timing): VasaStory {
         }
         return () => undefined;
       }],
-      avoid: () => [personBox(B), ...judges.map((j) => personBox(j, true))] };
+      // the portrait too (v13 review: "Nobody is punished" sat on the king's face)
+      avoid: () => [personBox(B), ...judges.map((j) => personBox(j, true)), [PORT[0] - 1.3, PORT[1] - 0.2, PORT[2] - 0.1, PORT[0] + 1.3, PORT[1] + 2.6, PORT[2] + 0.4]] };
     // the king's portrait is its own shot (a whip in from the bench), so its caption can sit under it
     const pt0 = man - 0.25;
     groups.push({ ...hearing, t1: pt0, cam: hearing.cam.slice(0, 3) });
@@ -528,8 +535,10 @@ export function buildStory(T: Timing): VasaStory {
     const t0 = lastT, t1 = T.total;
     const showing = w(13, "showing");
     const sinkW = w(13, "sink");
-    const W_T0 = sinkW - 0.05 + 0.35 - 6 * 0.8;                      // the biggest roll lands on "sink"
-    groups.push(deckGroup("warning", t0, t1, 0.4, W_T0, 0.8, 6, 0.32, t1 + 1, sinkW, (st, at, oth) => {
+    // four slower runs, not six quick ones (v12 measured 10.96 camera moves per 10 s against the refs' 5.1-9.6; each
+    // roll of the masts reads as a move)
+    const W_T0 = sinkW - 0.05 + 0.35 - 4 * 1.1;                      // the biggest roll lands on "sink"
+    groups.push(deckGroup("warning", t0, t1, 0.4, W_T0, 1.1, 4, 0.32, t1 + 1, sinkW, (st, at, oth) => {
       const run = (t: number) => runners.slice(3, 8).map((r) => personBox(at(r, t)));
       return [
         fit(t0, run(t0), -15, 26, 42, { b: 0.35 }, oth(t0)),                                     // thirty sailors, rolling her at the dock
@@ -546,8 +555,8 @@ export function buildStory(T: Timing): VasaStory {
   ];
   // the roll gauge (the test, the gusts, the last line) and the distance counter (cast off to the sinking)
   const hookHeel = (t: number) => heelFromRuns(RUNS(HOOK_T0, 1.0, 5), HOOK_T0, 1.0, 0.3, over + 0.1)(t);
-  const sinkW = w(13, "sink"), W_T0 = sinkW - 0.05 + 0.35 - 6 * 0.8;
-  const lastHeel = (t: number) => heelFromRuns(RUNS(W_T0, 0.8, 6), W_T0, 0.8, 0.32, sinkW)(t);
+  const sinkW = w(13, "sink"), W_T0 = sinkW - 0.05 + 0.35 - 4 * 1.1;
+  const lastHeel = (t: number) => heelFromRuns(RUNS(W_T0, 1.1, 4), W_T0, 1.1, 0.32, sinkW)(t);
   const heel = (t: number): number | null => {
     if (t < navy) return hookHeel(t);
     if (t >= gust1 - 0.4 && t < S(8)) return voyageHeel(t);
