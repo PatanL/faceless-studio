@@ -1,0 +1,25 @@
+{
+ "v": 1,
+ "slug": "story-myeongnyang",
+ "verdict": "PASS",
+ "gate_sha": "1b7dafd4260f449f53fc3f655a021ded09ddd4f50d1eb5d26a6fe4d6008d9791",
+ "reviewer": "operator (Claude); not posted (owner decides)",
+ "evidence": {
+  "every_frame_review": "30 fps review of 0-15 s of v3 (hook, laugh, collar, odds, parking, nolook, corkdrop, wait): clean after one fix round (collar grab, cork empty frames, wait-pair overlap); the rest (15-66 s) checked on contact sheets at about 1.3 s spacing plus spot frames on every changed shot, not at 30 fps",
+  "kit_gates": "scripts/framing.ts: kit gates clean (holds <= 3.98 s, cast median head 0.142, edge clean); joins: dissolve 17, match dissolve 1, whip 6, cut 1, travel 0",
+  "gate_warnings_accepted": [
+   "5-word caption pages",
+   "caption bottom at 77% (one line 74.6%)",
+   "20-word hook (spec 9-21)",
+   "originality WARN: compared with the corpus only (not a --source episode)",
+   "house_style not measured off the Spark"
+  ],
+  "known_nits": [
+   "odds shot (7.2-9.2 s): the 10 and 1 labels sit outside the final framing; his one ship shows only at the lower right",
+   "spit shot (35.7-38.5 s): the two admirals are small behind the enemy hull",
+   "corkback (62.9-66.1 s): he is small at the top of the frame (marked insert)"
+  ]
+ },
+ "mp4": "out/story-myeongnyang/story-myeongnyang_v3.mp4",
+ "phone_mp4": "out/story-myeongnyang/story-myeongnyang_v3_phone.mp4"
+}
