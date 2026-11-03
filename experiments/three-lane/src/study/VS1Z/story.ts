@@ -12,6 +12,7 @@ import { bokeh } from "../../kit/depth";
 import { glaze } from "../../kit/materials";
 import { orb } from "../../kit/heroprops";
 import { candelabra } from "../../kit/interior";
+import { walkers, shifters, birds, smokeColumns, flagsRig } from "../../kit/worldbuild";
 import { PRESETS, type Preset } from "../../kit/presets";
 import { hallSet, balconySet, flamesRig, ballRig, mouthOf, frogMouthOf, headOf, JAR, EMPEROR, GUARDS, THRONE_Z, BAL_EMP } from "./sets";
 
@@ -70,6 +71,13 @@ const banquet = (): Rig => (ctx) => {
   g.traverse((o) => { if ((o as THREE.Mesh).isMesh) { o.castShadow = true; o.receiveShadow = true; } });
   return () => {};
 };
+/** world building (round 3): background life in the hall: servants walking the side aisles and across the back, courtiers
+ * shifting their weight either side of the dais (all extras: exempt from cast/edge gates) */
+const hallLife = (): PersonSpec[] => [
+  ...walkers("servant", [[[-6.4, 0, -1.5], [-6.4, 0, -12.5]], [[6.4, 0, -12.5], [6.4, 0, -2.0]], [[-3.6, 0, -9.8], [3.6, 0, -9.8]]], { costumes: ["courtOfficial2", "scholar", "courtOfficial"], speed: 0.8 }),
+  ...shifters("courtier", [[-3.4, 0, -12.2], [-2.6, 0, -11.6], [2.6, 0, -11.6], [3.4, 0, -12.2]], { costumes: ["courtOfficial", "courtOfficial2"], poses: ["stand", "hold", "hips", "stand"], every: 2.6, face: [0, 1, 0] }),
+];
+const balconyLife = (): Rig[] => [birds({ from: [-80, 30, -90], to: [80, 42, -120], n: 9, size: 1.4, period: 12 }), smokeColumns([[-50, -2, -205], [25, -2, -210], [70, -2, -235]], { scale: 4 }), flagsRig()];
 const DBG = (p: V3): Rig => (ctx) => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.06), new THREE.MeshBasicMaterial({ color: "#ff0000", depthTest: false })); m.renderOrder = 99; m.position.set(...p); ctx.root.add(m); return () => {}; };
 export function buildStudy(_T: Timing): StudyStory {
   const groups: GroupSpec[] = [];
@@ -86,7 +94,7 @@ export function buildStudy(_T: Timing): StudyStory {
   {
     const invFace = steps([[0, "smug"], [14, "stunned"]]);
     groups.push({
-      id: "hook", place: "hall", t0: 0, t1: F(92), xfade: 0, set: hallSet, env: "candle", light: HALL, lens: { cInf: 18 },
+      id: "hook", place: "hall", t0: 0, t1: F(92), xfade: 0, set: hallSet, env: "candle", light: HALL, lens: { cInf: 11 },
       cam: [
         frameKey(0, head(INV), 0.33, 0.47, HEAD_H, 0.19, 10, 4),
         frameKey(20, head(INV), 0.335, 0.47, HEAD_H, 0.2, 10, 4, 40, "lin"),
@@ -114,7 +122,7 @@ export function buildStudy(_T: Timing): StudyStory {
     const empH = head(EMPEROR, 1.05);
     groups.push({
       id: "warning", place: "hall", t0: F(92), t1: F(225), xfade: 0, join: { kind: "cut" }, cropOK: ["guard0", "guard1"],   // the master crops the flanking guards on purpose (F168-F192)
-      set: hallSet, env: "candle", light: HALL, lens: { cInf: 16 },
+      set: hallSet, env: "candle", light: HALL, lens: { cInf: 10 },
       cam: [
         frameKey(92, head(INV), 0.36, 0.47, HEAD_H, 0.19, 4, 3),
         frameKey(142, head(INV), 0.37, 0.47, HEAD_H, 0.2, 4, 3, 40, "lin"),
@@ -139,11 +147,11 @@ export function buildStudy(_T: Timing): StudyStory {
   // ===== shot 3, F225-F404 (4 f dissolve in): the jar from high on the right, orbiting to the front and coming down
   // ("eight dragons coiled around a giant bronze jar"), a push to the front dragon, a tilt down to the frog's mouth
   {
-    const k345 = frameKey(345, JC, 0.5, 0.47, 3.4, 0.85, 2, 17, 42, "lin", true);   // the jar fills the frame (master F349)
-    const orbit = [frameKey(223, JC, 0.5, 0.44, 3.4, 0.42, -48, 21, 44), frameKey(260, JC, 0.5, 0.44, 3.4, 0.43, -24, 20, 44, "lin", true),
+    const k345 = frameKey(352, JC, 0.5, 0.47, 3.4, 0.67, 2, 17, 42, "lin", true);   // the push F300-F345 at the master's 0.57 %/f (was 1.07)   // the jar fills the frame (master F349)
+    const orbit = [frameKey(217, JC, 0.5, 0.44, 3.4, 0.42, -40, 21, 44), frameKey(250, JC, 0.5, 0.44, 3.4, 0.43, -22, 20, 44, "lin", true),   // -40: clear of the column; keys set 6-10 f early against the 4 f smoothing   // -38: clear of the column
       frameKey(300, JC, 0.5, 0.45, 3.4, 0.52, -2, 19, 44, "lin", true)];
     groups.push({
-      id: "jar", place: "hall", t0: F(225), t1: F(405), xfade: 0, join: { kind: "dissolve", frames: 4 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 8 },
+      id: "jar", place: "hall", t0: F(225), t1: F(405), xfade: 0, join: { kind: "dissolve", frames: 4 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 6 },
       cam: [
         // round 3 shot-3 fix (owner: "theirs actually orbits"), measured on the master with camera_motion.py:
         // F225-F300 an orbit (background -2.4..-3.1 px/f at 720, zoom from F260 at 0.6 %/f), F300-F345 a slow push
@@ -151,9 +159,9 @@ export function buildStudy(_T: Timing): StudyStory {
         ...orbit, k345,
         // the master's push to the dragon and tilt to the frog are lens moves from one spot (uniform zoom 1.0 %/f with a
         // tilt up, then a tilt down of ~0.36 frame with a slight zoom out), not dollies: aimed from the F345 position
-        aimKey(362, k345.pos, headOf(1), 0.5, 0.3, 35.5, "io"),
-        aimKey(404, k345.pos, frogMouthOf(1), 0.5, 0.8, 43, "out"),
-        aimKey(406, k345.pos, frogMouthOf(1), 0.5, 0.8, 43, "lin"),
+        aimKey(368, k345.pos, headOf(1), 0.5, 0.42, 30, "io"),   // tight on the dragon, the frog below frame; a tilt up (content down, as theirs)
+        aimKey(410, k345.pos, frogMouthOf(1), 0.5, 0.78, 38, "out"),   // the tilt down to the frog, fast then settling (theirs -12, -9 px/f)
+        aimKey(412, k345.pos, frogMouthOf(1), 0.5, 0.78, 38, "lin"),
       ],
       people: [emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]]))].map((p) => ({ ...p, extra: true })),   // specks far behind the jar, as in the master
       rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i))],
@@ -186,7 +194,7 @@ export function buildStudy(_T: Timing): StudyStory {
   // with an impact burst on "fell,", he jolts awake; the camera starts a fast push to the right
   {
     groups.push({
-      id: "later", place: "hall", t0: F(536), t1: F(600), xfade: 0, join: { kind: "dissolve", frames: 5 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 14 },
+      id: "later", place: "hall", t0: F(536), t1: F(600), xfade: 0, join: { kind: "dissolve", frames: 5 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 9 },
       cam: [
         frameKey(534, head(INV2), 0.27, 0.6, HEAD_H, 0.09, -12, 9),
         frameKey(594, head(INV2), 0.3, 0.58, HEAD_H, 0.1, -12, 9, 40, "lin"),
@@ -197,6 +205,11 @@ export function buildStudy(_T: Timing): StudyStory {
       rigs: [flamesRig(), hallBokeh(), banquet(), ballRig((i, t) => (i === 1 ? fall(1, 555, 569)(t) : mouthOf(i))), burst([{ at: frogMouthOf(1), t: F(569), size: 0.9, n: 10 }])],
       alive: [[F(536), F(600)]],
     });
+  }
+  // round 3 world building: hall groups get the background life, the balcony its birds, smoke and flags
+  for (const g of groups) {
+    if (g.env === "candle") g.people = [...g.people, ...hallLife()];
+    if (g.id === "balcony") g.rigs = [...(g.rigs ?? []), ...balconyLife()];
   }
   return { groups };
 }

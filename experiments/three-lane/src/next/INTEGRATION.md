@@ -351,3 +351,15 @@ Gates added: `still` (nothing visibly changes for more than 2 s: camera under 2.
 | `kit/fx2.ts` `fall`, `drop(cues)` | Drop a prop on a word, with an impact burst. |
 | Gates | `PersonSpec.extra` (background figure: no cast or edge check), `GroupSpec.cropOK: ids` (deliberate edge crops). New `smooth` gate: no camera velocity step above 44 px/f^2 at 1080 outside snaps, no hold jitter. |
 | Camera (`kit/campath.ts`) | Every path is now filtered in time (Gaussian, 4 frames), aim slerped on the position's ease; `ease: "snap"` or `sharp: true` keeps a deliberate snap; `soft: n` widens one segment (a fly-past). Stage adds camera motion blur from the path's real per-frame motion (`kit/camblur.ts`). |
+
+### World building (round 3, after the owner's "far more detail")
+
+- `kit/worldbuild.ts` pieces: `tapestry`, `shelf` (stocked), `pottery`, `plant`, `lantern`, `flagPole`, `windowView`,
+  `townCard` (a painted town and skyline), `mountainCard`.
+- Presets: `dressPlace(root, kind, area, { wall })` for hall, deck, harbour, street, workshop and camp. It returns the
+  light points for `bokeh`.
+- Life: `walkers` (servants on looping routes), `shifters` (figures shifting pose on their own clocks), `birds`,
+  `smokeColumns`, `flickers`, `flagsRig`. Every figure is `extra`, so the gates don't judge it.
+- Ornament: `metal(..., { engrave | rivets | scales | relief })`.
+- Post-render gate: `scripts/detail_gate.py <ffmpeg> <video> --ref out/study/VS1Z/detail_ref.json`. It fails when a
+  region's (hero, midground, background) median edge or texture falls under 80 % of the master's.

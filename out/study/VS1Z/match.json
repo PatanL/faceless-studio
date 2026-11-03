@@ -9,7 +9,10 @@
   "v4": "round 3 (visual track): kit hero props (sculpted gold dragons in real metal, cast-relief jar, toads, bronze balls), interior kit hall, candle preset + env, bokeh discs, court costumes, gate exemptions",
   "v5": "palette re-measured on the master (warm practicals over grey-lavender stone, lifted blacks), light grey jar, gold throne, balcony pull-back per the corrected decode",
   "v6-v9": "camera smoothness: Gaussian-filtered paths (sigma 4 f, snaps kept sharp), slerped aim, per-segment soft windows on the fly-past and laugh pull-back, camera motion blur",
-  "v10": "lifted candle shade, longer dragon snout, brighter gold env, balcony clouds and sharp focus (final)"
+  "v10": "lifted candle shade, longer dragon snout, brighter gold env, balcony clouds and sharp focus (final)",
+  "v11": "shot-3 orbit spliced into v10",
+  "v12": "world building: tapestries, shelves, pottery, plants, chandeliers, walking servants, shifting courtiers; balcony painted town, flags, birds, smoke; engraved jar bands and throne; shot-3 phase keys",
+  "v13": "smaller stone courses and floor tiles, stone columns, less lens blur in the hall (final)"
  },
  "shots": [
   {
@@ -56,6 +59,13 @@
      "motion_corr": 0.79,
      "motion_lag_f": 0,
      "motion_energy_ratio": 1.31
+    },
+    "v13": {
+     "ssim": 0.221,
+     "dE": 35.1,
+     "motion_corr": 0.8,
+     "motion_lag_f": 0,
+     "motion_energy_ratio": 1.4
     }
    },
    "mismatches_left": [
@@ -135,6 +145,13 @@
      "motion_corr": 0.71,
      "motion_lag_f": 0,
      "motion_energy_ratio": 1.09
+    },
+    "v13": {
+     "ssim": 0.164,
+     "dE": 32.7,
+     "motion_corr": 0.72,
+     "motion_lag_f": 0,
+     "motion_energy_ratio": 1.1
     }
    },
    "mismatches_left": [
@@ -220,6 +237,13 @@
      "motion_corr": -0.01,
      "motion_lag_f": 6,
      "motion_energy_ratio": 1.38
+    },
+    "v13": {
+     "ssim": 0.178,
+     "dE": 31.3,
+     "motion_corr": 0.1,
+     "motion_lag_f": -8,
+     "motion_energy_ratio": 1.09
     }
    },
    "mismatches_left": [
@@ -392,6 +416,50 @@
      ]
     ],
     "status": "orbit and zoom now match (tx -3.9/-2.7 vs -2.4/-3.1 px/f on F225-F300; zoom 0.60 vs 0.59 %/f on F260-F300; tx 0.29 vs 0.46 on F300-F345; per-frame tx corr 0.15 -> 0.71, zoom 0.34 -> 0.73). Not fixed: the push and tilt land in the wrong phase (ours moves the content up 200 px on F345-F362, theirs 64 px down, then theirs tilts down 460 px on F362-F404 and ours barely moves: our F362 framing is too wide, so the frog is already in frame), so overall motion-energy correlation fell (compare.py 0.15 -> -0.01). F229-F231 open on a column the orbit's start passes through. Fix for the next pass: start at az -38, frame the dragon at F362 tight enough that the frog is out of frame, then tilt down to it. Stopped at the 3-iteration limit (a 4th render replaced a lighting regression in iteration 3)."
+   },
+   "shot3_pass2": {
+    "span_render_p2": {
+     "vertical_corr": 0.41,
+     "tx_corr": 0.56,
+     "zoom_corr": 0.72,
+     "energy": 0.12
+    },
+    "v13_full": {
+     "corr": {
+      "tx": 0.56,
+      "ty": 0.41,
+      "zoom": 0.5
+     },
+     "energy": 0.18,
+     "compare_motion_corr": 0.1
+    },
+    "phase_boundaries_theirs_v13": {
+     "orbit start": [
+      228,
+      227
+     ],
+     "zoom start": [
+      251,
+      251
+     ],
+     "orbit end": [
+      300,
+      312
+     ],
+     "push start": [
+      340,
+      352
+     ],
+     "tilt start": [
+      366,
+      358
+     ],
+     "tilt end": [
+      399,
+      368
+     ]
+    },
+    "status": "vertical correlation positive (0.36 v10 -> -0.28 v11 -> 0.41); orbit start and zoom start land within 1 f; orbit end and push start 12 f late; the tilt starts 8 f early and is still about a third of theirs (-3.4 / -1.1 vs -12.1 / -9.0 px/f)"
    }
   },
   {
@@ -438,6 +506,13 @@
      "motion_corr": 0.63,
      "motion_lag_f": 3,
      "motion_energy_ratio": 0.96
+    },
+    "v13": {
+     "ssim": 0.335,
+     "dE": 29.6,
+     "motion_corr": 0.63,
+     "motion_lag_f": 3,
+     "motion_energy_ratio": 0.95
     }
    },
    "mismatches_left": [
@@ -516,6 +591,13 @@
      "motion_corr": 0.4,
      "motion_lag_f": -3,
      "motion_energy_ratio": 0.89
+    },
+    "v13": {
+     "ssim": 0.175,
+     "dE": 28.4,
+     "motion_corr": 0.41,
+     "motion_lag_f": -3,
+     "motion_energy_ratio": 0.97
     }
    },
    "mismatches_left": [
@@ -551,5 +633,131 @@
    "gaps_v10": "the inventor smaller than the master's; dragons read bronze not gleaming gold; the hall sparser and less warm"
   }
  ],
- "score_round3": "match_score_v10 = same formula; judgement = timing/move/acting/join kept from v3 (unchanged), framing/props_graphics/look from one fresh blind judge who scored v3 and v10 side by side against the reference (order hidden per shot); match_score_v3_blind uses that judge's v3 numbers"
+ "score_round3": "match_score_v10 = same formula; judgement = timing/move/acting/join kept from v3 (unchanged), framing/props_graphics/look from one fresh blind judge who scored v3 and v10 side by side against the reference (order hidden per shot); match_score_v3_blind uses that judge's v3 numbers",
+ "detail_by_region": {
+  "method": "experiments/three-lane/scripts/detail_gate.py, every 10th frame of F0-F599, 360x640 grey, caption band masked; hero = centre box x 0.22-0.78 y 0.18-0.70, background = outside it above y 0.42, midground = the rest; medians",
+  "median_ref_v11_v13": {
+   "hero_edge": [
+    0.1449,
+    0.1259,
+    0.1289
+   ],
+   "hero_texture": [
+    24.7974,
+    18.1384,
+    21.102
+   ],
+   "hero_busy": [
+    0.5319,
+    0.4703,
+    0.5405
+   ],
+   "background_edge": [
+    0.1223,
+    0.0722,
+    0.1063
+   ],
+   "background_texture": [
+    16.5371,
+    9.6368,
+    10.8255
+   ],
+   "background_busy": [
+    0.4099,
+    0.303,
+    0.4124
+   ],
+   "midground_edge": [
+    0.0983,
+    0.0901,
+    0.1052
+   ],
+   "midground_texture": [
+    13.7702,
+    9.9105,
+    12.8839
+   ],
+   "midground_busy": [
+    0.3543,
+    0.3748,
+    0.4148
+   ]
+  },
+  "gate_v13": "fails only background_texture (10.8 vs 16.5: 65 % of the master; gate 80 %)",
+  "hand_counts_6_frames_theirs_v11_v13": {
+   "F12 hook": {
+    "objects": [
+     16,
+     12,
+     15
+    ],
+    "depth_layers": [
+     4,
+     3,
+     4
+    ],
+    "hero_ornament": [
+     "scaled dragon, ball, cast frog",
+     "scaled dragon",
+     "scaled dragon, engraved bands"
+    ]
+   },
+   "F50 dragon close-up": {
+    "objects": [
+     6,
+     4,
+     4
+    ],
+    "hero_ornament": [
+     "scales, teeth, horns, crest, ball",
+     "scales, teeth, horns",
+     "scales, teeth, horns"
+    ]
+   },
+   "F175 emperor": {
+    "objects": [
+     10,
+     6,
+     6
+    ],
+    "hero_ornament": [
+     "carved gothic throne, crest shield, quatrefoils, fleur pattern, riveted armour",
+     "flat tufted panel, plate armour",
+     "same panel (the carved throne sits behind it), plate armour, mian beads"
+    ]
+   },
+   "F290 jar wide": {
+    "objects": [
+     28,
+     22,
+     30
+    ],
+    "depth_layers": [
+     5,
+     4,
+     5
+    ]
+   },
+   "F470 balcony": {
+    "object_kinds": [
+     20,
+     10,
+     14
+    ],
+    "note": "ours now has a painted town of several hundred houses, domed towers, flags, birds, smoke; the painted mountains are hidden by the town card's haze band"
+   },
+   "F560 later": {
+    "objects": [
+     20,
+     12,
+     18
+    ]
+   },
+   "moving_background_things_in_20s": {
+    "theirs": "candle flames; courtiers react in place",
+    "v11": "flames only",
+    "v13": "flames, 3 servants walking, 4 courtiers shifting, birds, smoke, flags"
+   }
+  }
+ }
 }

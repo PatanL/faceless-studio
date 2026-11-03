@@ -11,9 +11,10 @@ import { NOINK } from "../../ink";
 import { SetBuild, lambert, basic, box, cyl, plane, glowSprite, skyDome, makeKey } from "../../kit/sets";
 import { stoneCourses, clouds } from "../../kit/dressing";
 import { tex } from "../../kit/paint2";
-import { metal, reliefNormal, grainNormal } from "../../kit/materials";
+import { metal, reliefNormal, grainNormal, engraveNormal } from "../../kit/materials";
 import { dragonHead, vessel, toad, orb } from "../../kit/heroprops";
 import { stoneMat, arcade, archway, roseWindow, banner, throne, carpet, candelabra } from "../../kit/interior";
+import { tapestry, dressPlace, plant, pottery, townCard, mountainCard, flagPole } from "../../kit/worldbuild";
 import { roundTower, wallRun, house } from "../../kit/architecture";
 import { rng } from "../../paint";
 import { Flame } from "../../kit/fx";
@@ -38,8 +39,8 @@ export const frogMouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ
 export function jar(root: THREE.Object3D) {
   const g = new THREE.Group(); g.position.set(...JAR);
   const prof: [number, number][] = [[0, 0], [1.11, 0], [1.15, 0.1], [1.05, 0.26], [1.0, 0.7], [1.03, 1.4], [1.05, 1.95], [1.01, 2.2], [0.86, 2.42], [0.6, 2.56], [0.57, 2.66], [0.42, 2.76], [0.26, 2.84], [0.16, 2.94], [0.1, 3.02], [0, 3.04]];
-  const greyBody = new THREE.MeshStandardMaterial({ color: "#e2eaf8", metalness: 0, roughness: 0.75, normalMap: grainNormal(9) });   // the master's jar reads pale grey-white on screen greyBody.userData.env = true;
-  const greyBand = new THREE.MeshStandardMaterial({ color: "#cad2e2", metalness: 0, roughness: 0.6, normalMap: reliefNormal() }); greyBand.userData.env = true;
+  const greyBody = new THREE.MeshStandardMaterial({ color: "#d6e2ff", metalness: 0, roughness: 0.75, normalMap: grainNormal(9) });   // the master's jar reads pale grey-white on screen greyBody.userData.env = true;
+  const greyBand = new THREE.MeshStandardMaterial({ color: "#c2cde8", metalness: 0, roughness: 0.6, normalMap: engraveNormal() });   // engraved bands (round 3: hero ornament) greyBand.userData.env = true;
   g.add(vessel(prof, { body: greyBody, band: greyBand, bands: [[0.4, 1.04], [1.05, 1.0], [2.1, 1.03]], knob: 0.17 }));   // the master's jar reads light grey with gold dragons
   const gold = metal("gold", { scales: 10, repeat: [3, 2] }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
   DRAGON_AZ.forEach((az, i) => {
@@ -77,12 +78,12 @@ export function hallSet(): SetBuild & { flames: Flame[]; flameAt: V3[]; lights: 
   const glows: THREE.Object3D[] = [], lights: V3[] = [];
   const stone = stoneMat({ light: 72, hue: 255 }), stoneDark = stoneMat({ light: 58, hue: 250, seed: 4 });   // grey-lavender stone (VS1Z)
   const pale = lambert({ color: "#d4ccd0" });
-  const floor = lambert({ map: stoneCourses([10, 14], { hue: 230, light: 58, seed: 3 }), color: "#b8b4c4" });
+  const floor = lambert({ map: stoneCourses([20, 28], { hue: 230, light: 58, seed: 3 }), color: "#b8b4c4" });
   plane(root, floor, 22, 40, 0, 0, -6, -Math.PI / 2);
   const run = carpet(2.6, 17, { field: "#2c3a6a", border: "#9a2230", accent: "#e0a840" }); run.position.z = THRONE_Z + 8.4; root.add(run);
-  arcade(root, { x: 5.0, z0: 5, z1: -15, step: 3.6, h: 7.0, mat: pale, gold: true });
+  arcade(root, { x: 5.0, z0: 5, z1: -15, step: 3.6, h: 7.0, mat: stoneMat({ light: 74, hue: 250, seed: 6, rep: [2, 3] }), gold: true });
   for (const sx of [-1, 1]) {
-    box(root, stone, 0.4, 14, 40, sx * 8.0, 7, -6, true, 2.5);
+    box(root, stone, 0.4, 14, 40, sx * 8.0, 7, -6, true, 1.2);   // smaller courses: the master's walls carry many more joints
     for (let z = 3.2; z > -15; z -= 3.6) {
       const ar = archway(1.4, 3.6, { depth: 0.3, mat: stoneDark }); ar.position.set(sx * 7.78, 3.4, z); ar.rotation.y = -sx * Math.PI / 2; root.add(ar);
       const win = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 3.0), basic({ color: "#ffd9a0" })); (win.material as THREE.MeshBasicMaterial).color.multiplyScalar(1.3);
@@ -94,7 +95,23 @@ export function hallSet(): SetBuild & { flames: Flame[]; flameAt: V3[]; lights: 
       lights.push([sx * 7.55, 3.1, cz]);
     }
   }
-  box(root, stone, 16, 15, 0.4, 0, 7.5, THRONE_Z - 3.4, true, 2.5);                   // back wall
+  box(root, stone, 16, 15, 0.4, 0, 7.5, THRONE_Z - 3.4, true, 1.2);                   // back wall
+  // world building (round 3, owner: "far more detail"): tapestries between the windows, stocked shelves, pottery and
+  // plants along the side aisles, chandeliers over the aisle, shields and tapestries flanking the throne
+  for (const sx of [-1, 1]) for (let z = 1.4; z > -15; z -= 3.6) {
+    const tp = tapestry(1.6, 2.4, { field: ["#7a2a3a", "#2a3a6a", "#3f5a3a"][Math.abs(Math.round(z)) % 3], seed: Math.round(z * 3 + sx * 7) });
+    tp.position.set(sx * 7.75, 7.0, z); tp.rotation.y = -sx * Math.PI / 2; root.add(tp);
+  }
+  for (const sx of [-1, 1]) lights.push(...dressPlace(root, "hall", sx < 0 ? [-7.4, 3, -7.0, -14] : [7.0, 3, 7.4, -14], { wall: sx < 0 ? "left" : "right", n: 7, seed: sx < 0 ? 5 : 9 }));
+  for (const [x, z] of [[-6.2, 0.5], [6.2, -2.8], [-6.2, -6.4], [6.2, -9.8], [-6.2, -12.5]] as [number, number][]) { const pl = plant({ seed: Math.round(x * z), h: 1.3 }); pl.position.set(x, 0, z); root.add(pl); }
+  for (const z of [-2.5, -7.5, -12.0]) {
+    const ch = new THREE.Group(), gold2 = metal("gold", { grain: true });
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.9, 0.05, 8, 40), gold2); ring.rotation.x = Math.PI / 2; ch.add(ring);
+    const chain = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 5.5, 6), gold2); chain.position.y = 2.75; ch.add(chain);
+    for (let k = 0; k < 10; k++) { const a = (k / 10) * Math.PI * 2, c = candelabra({ n: 1, h: 0.12 }); c.position.set(Math.cos(a) * 0.9, 0, Math.sin(a) * 0.9); ch.add(c); lights.push([Math.cos(a) * 0.9, 8.5 + 0.42, z + Math.sin(a) * 0.9]); }
+    ch.position.set(0, 8.5, z); root.add(ch);
+  }
+  for (const sx of [-1, 1]) { const tp = tapestry(1.4, 4.2, { field: "#5a1e2a", seed: 40 + sx }); tp.position.set(sx * 4.3, 8.0, THRONE_Z - 3.15); root.add(tp); }
   box(root, lambert({ color: "#2a1c16" }), 16, 0.4, 40, 0, 14.5, -6);                  // ceiling, lost in the dark
   for (let z = 5; z > -16; z -= 3.6) box(root, lambert({ color: "#3a2618" }), 16, 0.5, 0.5, 0, 14.0, z);   // beams
   const rose = roseWindow(1.9, { mat: pale }); rose.position.set(0, 10.4, THRONE_Z - 3.18); root.add(rose);
@@ -107,7 +124,7 @@ export function hallSet(): SetBuild & { flames: Flame[]; flameAt: V3[]; lights: 
   const drape = lambert({ map: drapeTex() });
   for (const sx of [-1, 1]) box(root, drape, 0.9, 7.0, 0.25, sx * 2.0, 3.5, THRONE_Z - 1.2);
   box(root, drape, 5, 0.8, 0.35, 0, 7.1, THRONE_Z - 1.0); box(root, metal("gold", { grain: true }), 5.1, 0.16, 0.4, 0, 6.66, THRONE_Z - 0.95);
-  const th = throne({ wood: metal("gold", { grain: true, rough: 0.42 }), cushion: "#b8302f" }); th.position.set(0, DAIS_Y, THRONE_Z - 0.4); root.add(th);
+  const th = throne({ wood: metal("gold", { engrave: true, rough: 0.42, repeat: [3, 3] }), cushion: "#b8302f" }); th.position.set(0, DAIS_Y, THRONE_Z - 0.4); root.add(th);
   // candelabras down the aisle and fire bowls near the jar (practicals)
   const flames: Flame[] = [], flameAt: V3[] = [];
   for (const z of [-3.5, -7.5, -11]) for (const sx of [-1, 1]) {
@@ -185,10 +202,13 @@ export function balconySet(): SetBuild {
   for (const s of [-1, 1]) for (let z = -20; z > -160; z -= 12) { box(root, lambert({ color: "#e9e1d4" }), 10, 16, 8, s * 56, GY + 8, z); box(root, lambert({ color: "#5d6a9a" }), 10.6, 3, 8.6, s * 56, GY + 17.5, z); }
   const rr = rng(4);
   for (let k = 0; k < 140; k++) { const h = house({ w: 5 + rr() * 4, h: 5 + rr() * 6, d: 5, seed: k, base: ["#f4efe6", "#ece4d6", "#f7f2ea"][k % 3] }); h.position.set((rr() - 0.5) * 220, GY, -185 - rr() * 70); root.add(h); }   // round 3: a white town (the reference's city reads white under mountains)
-  const mt = lambert({ color: "#9fb0cf" });
-  const snow = lambert({ color: "#f4f6fa" });
-  for (let k = 0; k < 14; k++) { const hh = 90 + rr() * 60, rad = 50 + rr() * 30, c = new THREE.Mesh(new THREE.ConeGeometry(rad, hh, 7), mt); c.position.set(-260 + k * 40 + rr() * 20, GY + hh / 2 - 10, -330 - rr() * 60); root.add(c);
-    const cap = new THREE.Mesh(new THREE.ConeGeometry(rad * 0.3, hh * 0.3, 7), snow); cap.position.set(c.position.x, c.position.y + hh * 0.35 + 0.5, c.position.z); root.add(cap); }
+  // round 3 world building: a painted town and skyline behind the walls, painted ridges with snow, flags on the walls,
+  // planters and pottery on the balcony (the cone mountains read low-poly)
+  for (const [z, w, hh, sd] of [[-200, 300, 70, 3], [-232, 360, 80, 5]] as [number, number, number, number][]) { const t = townCard(w, hh, { seed: sd }); t.position.set(0, GY + hh / 2 - 2, z); root.add(t); }
+  const mtn = mountainCard(900, 240, { seed: 7 }); mtn.position.set(0, GY + 100, -360); root.add(mtn);   // inside the 400 m far plane
+  for (const x of [-60, -30, 30, 60]) { const fp = flagPole({ h: 8, color: ["#b8302f", "#e0b04a"][Math.abs(x) % 2], seed: x }); fp.position.set(x, GY + 9, -165); root.add(fp); }
+  for (const x of [-5.2, 5.2]) { const pl = plant({ seed: Math.round(x * 3), h: 1.2 }); pl.position.set(x, 0, 0.2); root.add(pl); }
+  for (const x of [-4.4, 4.4]) { const pt = pottery({ seed: Math.round(x * 5), h: 0.9 }); pt.position.set(x, 0, -0.6); root.add(pt); }
   clouds(root, { n: 14, x: [-260, 260], y: [60, 140], z: [-420, -260], size: 70, seed: 3 });   // round 3 (judge: "a plain gradient sky")
   const key = makeKey(root, [-30, 40, 30], [0, GY, -50], 120);
   return { root, key, glows, extra: {}, fogScale: 6 };

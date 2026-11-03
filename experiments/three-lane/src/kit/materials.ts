@@ -1,7 +1,8 @@
 // Hero-prop materials (our own code; visual track round 3, replication lesson 1: "hero props are primitives with flat
 // two-tone gold"). Physically based metal, gold, bronze and glaze with specular highlights and environment reflections,
 // kept inside the ink, lens and grade chain (they render on the world layer, so the ink pass outlines them).
-//   metal("gold" | "bronze" | "darkBronze" | "silver" | "iron", { scales?, relief?, rough? })
+//   metal("gold" | "bronze" | "darkBronze" | "silver" | "iron", { scales?, relief?, engrave?, rivets?, rough? })
+//   engraveNormal(), rivetNormal(), reliefNormal(), scalesNormal(), grainNormal()   surface ornament as normal maps
 //   glaze(color, { crackle? })                     glazed ceramic: a clear coat over a coloured body
 //   applyEnv(root, renderer, mood)                 Stage calls this once per mounted set: every material that asked for
 //                                                  reflections gets a shared PMREM environment ("candle" | "day" | "night")
@@ -65,6 +66,32 @@ export function grainNormal(seed = 3): THREE.Texture {
   const t = heightToNormal(h, W, H, 2.0); cache.set(key, t); return t;
 }
 
+/** engraved filigree: scrolls, curls and dots in a running band (worked metal, lacquer, carved wood) */
+export function engraveNormal(): THREE.Texture {
+  if (cache.has("engrave")) return cache.get("engrave")!;
+  const W = 256, H = 128, [c, g] = canvas(W, H);
+  g.fillStyle = "#000"; g.fillRect(0, 0, W, H); g.strokeStyle = "#fff"; g.lineWidth = 4; g.lineCap = "round";
+  for (let x = 0; x < W; x += 64) {
+    g.beginPath(); for (let k = 0; k <= 40; k++) { const a = k * 0.32, rr = 4 + k * 0.6; g.lineTo(x + 32 + Math.cos(a) * rr, 64 + Math.sin(a) * rr * 0.8); } g.stroke();
+    g.beginPath(); g.moveTo(x, 64); g.bezierCurveTo(x + 16, 20, x + 48, 108, x + 64, 64); g.stroke();
+    g.fillStyle = "#fff"; for (const [dx, dy] of [[8, 20], [56, 20], [8, 108], [56, 108]]) { g.beginPath(); g.arc(x + dx, dy, 4, 0, 7); g.fill(); }
+  }
+  g.fillRect(0, 4, W, 4); g.fillRect(0, H - 8, W, 4);
+  const d = g.getImageData(0, 0, W, H).data, h = new Float32Array(W * H);
+  for (let i = 0; i < W * H; i++) h[i] = d[i * 4] / 255;
+  const t = heightToNormal(h, W, H, 2.2); cache.set("engrave", t); return t;
+}
+/** rivet rows on plates (armour, fittings, ship ironwork) */
+export function rivetNormal(): THREE.Texture {
+  if (cache.has("rivet")) return cache.get("rivet")!;
+  const W = 128, H = 128, h = new Float32Array(W * H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const cx = (Math.floor(x / 32) + 0.5) * 32, cy = (Math.floor(y / 32) + 0.5) * 32, q = Math.hypot(x - cx, y - cy) / 7;
+    h[y * W + x] = (q < 1 ? Math.sqrt(1 - q * q) : 0) + ((x % 64 < 2 || y % 64 < 2) ? -0.4 : 0);
+  }
+  const t = heightToNormal(h, W, H, 3); cache.set("rivet", t); return t;
+}
+
 // ---------------------------------------------------------------- materials
 const METALS = {
   gold: { color: "#f2bf4a", rough: 0.28 }, bronze: { color: "#c98a46", rough: 0.36 }, darkBronze: { color: "#6f6a62", rough: 0.5 },
@@ -72,9 +99,9 @@ const METALS = {
 } as const;
 export type MetalKind = keyof typeof METALS;
 /** a real metal: specular highlights and environment reflections (the env arrives via applyEnv) */
-export function metal(kind: MetalKind, o: { scales?: number; relief?: boolean; grain?: boolean; rough?: number; repeat?: [number, number]; color?: string } = {}): THREE.MeshStandardMaterial {
+export function metal(kind: MetalKind, o: { scales?: number; relief?: boolean; engrave?: boolean; rivets?: boolean; grain?: boolean; rough?: number; repeat?: [number, number]; color?: string } = {}): THREE.MeshStandardMaterial {
   const m = new THREE.MeshStandardMaterial({ color: o.color ?? METALS[kind].color, metalness: 1, roughness: o.rough ?? METALS[kind].rough });
-  const nm = o.scales ? scalesNormal(o.scales) : o.relief ? reliefNormal() : o.grain !== false ? grainNormal(kind.length) : null;
+  const nm = o.scales ? scalesNormal(o.scales) : o.engrave ? engraveNormal() : o.rivets ? rivetNormal() : o.relief ? reliefNormal() : o.grain !== false ? grainNormal(kind.length) : null;
   if (nm) { const t = nm.clone(); t.needsUpdate = true; t.repeat.set(...(o.repeat ?? [1, 1])); m.normalMap = t; m.normalScale.set(0.9, 0.9); }
   m.userData.env = true; m.envMapIntensity = 1.6;
   return m;

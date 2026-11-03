@@ -523,3 +523,46 @@ not a camera step.
 
 - **Still outside the master's range:** the median attack and release of the measured moves. These are unreliable:
   our fast moves border frames the fit cannot solve.
+
+## 2026-11-03 ~08:30 UTC: round 3: world building and the shot-3 pass
+
+**Detail by region.**
+- Measured with `scripts/detail_gate.py` on VS1Z F0-F599, every 10th frame.
+- Each value is a median; the reference's run is `out/study/VS1Z/detail_ref.json`.
+
+| Region · measure | Master | v11 (before) | v13 (world-built) |
+|---|---|---|---|
+| hero edge · texture | 0.145 · 24.8 | 0.126 · 18.1 | 0.129 · 21.1 |
+| background edge · texture | 0.122 · 16.5 | 0.072 · 9.6 | 0.106 · 10.8 |
+| midground edge · texture | 0.098 · 13.8 | 0.090 · 9.9 | 0.105 · 12.9 |
+
+- **Gate (80 % of the master's median):**
+  - v11 failed four checks: hero texture, background edge and texture, midground texture.
+  - v13 fails one: background texture, at 65 %.
+- **Hand counts on 6 matched frames (master / v11 / v13):**
+  - objects: F12 16/12/15, F175 10/6/6, F290 28/22/30, F560 20/12/18;
+  - balcony object kinds: 20/10/14;
+  - moving background things: the master has flames and in-place reactions; v13 adds 3 walking servants, 4 shifting
+    courtiers, birds, smoke and flags.
+
+**What moved the numbers.**
+- Smaller stone courses, finer floor tiles, stone columns and less lens blur in the hall: background edge went 0.074
+  (v12, dressing only) → 0.106.
+- The dressing itself (tapestries, shelves, plants, chandeliers, extras, the painted town) added objects but little
+  measured edge, because it sits in the blurred background.
+
+**Still short.**
+- **Background texture** (65 %): the master's walls and windows carry painted fine detail.
+- **The emperor close-up's throne:** a flat panel hides the carved throne.
+- **The balcony's painted mountains** are covered by the town card's haze band.
+
+**Shot 3, pass 2.** Start at −40°, a lens push to the dragon, then a lens tilt to the frog from the same spot.
+- Vertical correlation with the master is now positive (0.41; it was −0.28).
+- Within 1 frame: orbit start (227 / 228) and zoom start (251 / 251).
+- Late: orbit end and push start, 12 frames each.
+- Tilt: it starts 8 frames early and is about a third of theirs (−3.4 / −1.1 against −12.1 / −9.0 px/f).
+
+**Camera smoothness (v13 against the master).**
+- Accel max 30.9 (master 29.5).
+- Jerk max 28.8 (master 53.2).
+- Hold jitter 0.18 (master 0.39).
