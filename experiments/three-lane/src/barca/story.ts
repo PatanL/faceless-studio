@@ -94,7 +94,8 @@ export function buildStory(T: Timing): BarcaStory {
         props: () => ({ costume: i % 2 ? "persian2" : "persian", seed: 90 + i, face: i === 0 ? "sly" : "furious", item: i % 3 === 1 ? "spade" : "none",
           pose: [{ t: 0, v: i % 2 ? "armsUp" : "point" }, { t: 0.5 + i * 0.13, v: i % 2 ? "point" : "armsUp" }, { t: 1.1 + i * 0.11, v: i % 2 ? "armsUp" : "point" }] }) })),
         // the army behind the front rank (round-2 craft: "the army as tiny distant tents"): ranks of Persians facing the wall
-        ...crowd("pa", [10.0, 16.5, 14.0, 22.5], 9, { costumes: ["persian", "persian2"], faces: ["furious", "frown", "focus", "sly"], poses: ["armsUp", "point", "hold", "stand"], face: [12, 0, 0], seed: 41 }),],
+        ...crowd("pa", [5.0, 15.0, 9.4, 22.0], 6, { costumes: ["persian", "persian2"], faces: ["furious", "frown", "focus", "sly"], poses: ["armsUp", "point", "hold", "stand"], face: [12, 0, 0], seed: 41 }),
+        ...crowd("pb", [15.4, 15.0, 19.0, 22.0], 6, { costumes: ["persian", "persian2"], faces: ["furious", "frown", "focus", "sly"], poses: ["armsUp", "point", "hold", "stand"], face: [12, 0, 0], seed: 52 }),],
       rigs: [(ctx) => { const sm = [-9, 2, 16].map((x, i) => { const r = new Rising(10, "smoke", 3.2, 60 + i); r.group.position.set(x, 2, 18 + i * 3); ctx.root.add(r.group); return r; }); return (t) => sm.forEach((r) => r.update(t, 1, 1.0, 0.8, 16)); }] });
   }
   ROOM = CITY;
@@ -113,8 +114,8 @@ export function buildStory(T: Timing): BarcaStory {
     const f1 = faceTrack(words, "sly", [{ word: "cracked", face: "cackle", react: [{ face: "squeeze", frames: 2 }] }], t0);
     const f2 = faceTrack(words, "deadpan", [{ word: "cracked", face: "grin", lead: -6 }], t0);
     const tRev = tCracked - 0.25;
-    groups.push({ sun: "auto", id: "doubt", place: "walk", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 8 }, light: GOLD,
-      cam: [cK(t0, [G1, G2], "medium", 196, 6, 36), { ...cK(t1 - 0.2, [G1, G2], "medium", 218, 0, 36), glide: 1.6 }],   // a slow orbit along the walk
+    groups.push({ sun: "auto", id: "doubt", place: "walk", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 6 }, light: GOLD,
+      cam: [cK(t0, [G1, G2], "medium", 196, 14, 36), { ...cK(t1 - 0.2, [G1, G2], "medium", 218, 0, 36), glide: 1.6 }],   // a slow orbit along the walk
       people: [
         { id: "g1", at: () => G1, faceTo: () => SM0, props: () => ({ costume: "hoplite", seed: 7, face: f1, pose: poseTrack(words, "hips", [["cracked", "point"]], t0) }) },
         { id: "g2", at: () => G2, faceTo: () => SM0, props: () => ({ costume: "hoplite2", seed: 9, face: f2, pose: "laugh" }) },
@@ -274,7 +275,7 @@ export function buildStory(T: Timing): BarcaStory {
         { ...fit(tEvery, [[SEC.shieldHollow - 1.6, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.6, 1.7, 0.8]], 30, 16, 38, { b: 0.58, t: 0.06, x: 0.12 }), drift: 0.3 }],
       people: sectionCast(t0).map((p) => ({ ...p, visible: (t: number) => t >= tBut2 - 0.2 })), clouds: false,
       keepInFrame: (t) => [...(t < tBut2 + 0.6 && t > t0 + 0.3 ? [[SEC.shieldSolid - 0.9, 1.1, 0.65, SEC.shieldSolid + 0.9, 1.4, 0.75] as Box] : []), ...(t > tBut2 + 1.0 ? [[SEC.shieldHollow - 0.9, 1.1, 0.65, SEC.shieldHollow + 0.9, 1.4, 0.75] as Box] : [])],
-      rigs: [label("SOLID GROUND", [SEC.shieldSolid, 1.25, 0.7], t0 + 0.1, tBut2 + 0.6, 0.55), label("HOLLOW TUNNEL", [SEC.shieldHollow, 1.25, 0.7], tBut2 + 0.2, t1, 0.55),
+      rigs: [label("SOLID GROUND", [SEC.shieldSolid, 1.25, 0.7], t0 + 0.1, tBut2 + 0.6, 0.55), label("HOLLOW TUNNEL", [SEC.shieldHollow - 1.2, 1.25, 0.7], tBut2 + 0.2, t1, 0.55),
         debris([{ at: [SEC.shieldSolid, 0.2, -0.4], t: w("thuds."), n: 12, kind: "shard", size: 0.03, floorY: 0.12, up: 0.5 }]),
         burst([{ at: pickTip, t: w("pick"), size: 0.7 }, ...waves, { at: [SEC.shieldHollow, 0.25, -0.4], t: tRing, size: 1.1 }, { at: [SEC.shieldHollow, 0.25, -0.4], t: w("bell."), size: 1.3 }]),
         glints([{ at: [SEC.shieldHollow + 0.3, 0.3, -0.2], t: tRing + 0.05, size: 0.12 }])] });

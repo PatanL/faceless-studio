@@ -9,7 +9,7 @@ import * as THREE from "three";
 import { continueRender, delayRender, useCurrentFrame, useVideoConfig } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { useFrame, useThree } from "@react-three/fiber";
-import { BlendFunction, BloomEffect, EffectComposer, EffectPass, NormalPass, RenderPass, SSAOEffect, ToneMappingEffect, ToneMappingMode } from "postprocessing";
+import { BlendFunction, SelectiveBloomEffect, EffectComposer, EffectPass, NormalPass, RenderPass, SSAOEffect, ToneMappingEffect, ToneMappingMode } from "postprocessing";
 import { InkPass } from "../ink";
 import { LensBlur } from "../lensblur";
 import { GradeEffect } from "../grade";
@@ -57,7 +57,7 @@ export type GroupSpec = {
   busy?: (t: number, cam: [number, number, number]) => [number, number, number, number, number, number][];
   /** lens blur strength: cInf = blur radius (px at 1080x1920) at infinity; default LENS.cInf (macro shots ~22) */
   lens?: { cInf?: number; maxCoC?: number };
-  /** lighting (round 2): ambient occlusion strength (0 = off, default 1) and bloom on light sources (default 0.55) */
+  /** lighting (round 2): ambient occlusion strength (default 0 = off; contact shadows come from soft shadow maps and blobs) and bloom on light sources (default 0.55) */
   ao?: number; bloom?: number;
   /** kit life: drifting clouds round a sky dome and wave detail over extra.water (default on) */
   clouds?: boolean; waves?: boolean;
@@ -88,7 +88,7 @@ export function personCard(props: (t: number) => Record<string, unknown> | null,
   const tex = new SvgTex(pw, ph, !!o.flip);
   const sc = (o.scale ?? 1) * PERSON_K;
   const card = new Card3D(tex.tex, { w: 600 * sc, h: 740 * sc, contact: o.contact ?? 0.9 * (o.scale ?? 1), billboard: o.billboard });
-  return { tex, card, markup: (t) => { const p = props(t); return p ? svgMarkup(<Person props={{ ink: 6, ...p }} time={t} frame={0} fps={30} width={600} height={700} sceneDuration={60} />, PERSON_VB, pw, ph) : null; } };
+  return { tex, card, markup: (t) => { const p = props(t); return p ? svgMarkup(<Person props={{ ink: 6, ...p }} time={t} frame={0} fps={30} width={600} height={700} sceneDuration={60} />, PERSON_VB, tex.pxW, tex.pxH) : null; } };
 }
 
 const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf }) => {
@@ -130,29 +130,40 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const composer = new EffectComposer(gl, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, cam));
     // ambient occlusion (round-2 craft: "no contact shadows"): violet, multiplied, before the ink so the lines stay crisp
-    const normal = new NormalPass(scene, cam);
-    composer.addPass(normal);
+    // the normals come from a world-only camera: the character cards (NOINK) would enter the normal pass as whole
+    // quads (no alpha cut-out there) and leave a rectangular AO halo round every figure
+    const aoCam = cam.clone(); aoCam.layers.set(0);
+    const normal = new NormalPass(scene, aoCam);
     const ao = new SSAOEffect(cam, normal.texture, {
-      blendFunction: BlendFunction.MULTIPLY, samples: 12, rings: 4, distanceScaling: true, depthAwareUpsampling: true,
+      // half resolution, upsampled depth-aware: smooth (full-res AO left a grain on the white heads)
+      blendFunction: BlendFunction.MULTIPLY, samples: 16, rings: 7, distanceScaling: true, depthAwareUpsampling: true, resolutionScale: 0.5,
       worldDistanceThreshold: 60, worldDistanceFalloff: 10, worldProximityThreshold: 0.6, worldProximityFalloff: 0.3,
-      luminanceInfluence: 0.3, minRadiusScale: 0.25, radius: 0.1, intensity: 3.4 * (g.ao ?? 1), bias: 0.025, fade: 0.012, color: new THREE.Color("#3a2a5a"),
+      luminanceInfluence: 0.3, minRadiusScale: 0.25, radius: 0.1, intensity: 2.6 * (g.ao ?? 0), bias: 0.025, fade: 0.012, color: new THREE.Color("#3a2a5a"),
     });
-    if ((g.ao ?? 1) > 0) composer.addPass(new EffectPass(cam, ao));
+    if ((g.ao ?? 0) > 0) { composer.addPass(normal); composer.addPass(new EffectPass(cam, ao)); }   // off by default: on the character cards it mixed the cards' depth with the world's normals and left grain on the white heads (round-2 face judge)
     composer.addPass(new InkPass(scene, cam, { color: "#0b0a0c", fadeNear: 140, fadeFar: 420, distFar: 160, widthNear: 5.8, widthFar: 3.9 }));
     const lens = new LensBlur({ maxCoC: g.lens?.maxCoC ?? LENS.maxCoC, nearScale: 1.2 });
     composer.addPass(new EffectPass(cam, lens.pre));
     composer.addPass(new EffectPass(cam, lens.main));
     const grade = new GradeEffect(PRESETS.day.grade, 1);
     // bloom on light sources only (glows, lamps, fire, sunlit highlights above the threshold), then the tone map
-    const bloom = new BloomEffect({ luminanceThreshold: 0.82, luminanceSmoothing: 0.18, intensity: g.bloom ?? 0.55, mipmapBlur: true, radius: 0.7 });
+    // round 10: selective (the set's glows and anything tagged userData.bloom): the white heads are pushed far above
+    // 1.0 before the tone map (card3d.ts) and a threshold bloom made them glow
+    const bloom = new SelectiveBloomEffect(scene, cam, { luminanceThreshold: 0.3, luminanceSmoothing: 0.25, intensity: g.bloom ?? 0.55, mipmapBlur: true, radius: 0.7 });
+    bloom.ignoreBackground = true;
     composer.addPass(new EffectPass(cam, bloom, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
     composer.setSize(vw, vh);       // explicit: a first frame rendered before the canvas settled came out tiled (v1 review)
-    return { composer, lens, grade };
+    return { composer, lens, grade, aoCam, bloom };
   }, [gl, scene, cam, vw, vh, g]);
   const mounted = React.useRef(false);
   useEffect(() => () => fx.composer.dispose(), [fx]);
 
   useLayoutEffect(() => { scene.add(world.root); return () => { scene.remove(world.root); }; }, [scene, world]);
+  useLayoutEffect(() => {
+    const sel: THREE.Object3D[] = [...world.set.glows];
+    world.root.traverse((o) => { if (o.userData.bloom) sel.push(o); });
+    fx.bloom.selection.set(sel);
+  }, [fx, world]);
 
   const t = tOf(frame);
   // ---- pose everything for this frame (during render, before ThreeCanvas advances)
@@ -175,6 +186,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     rec.card.char = p.char ? p.char(t) : 0;
   });
   for (const r of world.rigs) r(t, cam);
+  fx.aoCam.copy(cam); fx.aoCam.layers.set(0);
   minLabel(world.root, cam);
   TONE.uLitCol.value.set(...P.lit); TONE.uShadeCol.value.set(...P.shade); TONE.uSat.value = P.sat;
   // rim light: the key's colour, weaker at night; the hemisphere fill keeps cool above and warm below
@@ -196,6 +208,15 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   // ---- redraw the cards whose svg changed, then render again and release the frame
   useEffect(() => {
     const h = delayRender(`cards ${g.id} ${frame}`, { timeoutInMilliseconds: 60000 });
+    // each card's raster follows its size on screen (close-ups get up to 4x, see SvgTex.fit)
+    const fwd = new THREE.Vector3(), wp = new THREE.Vector3(), ws = new THREE.Vector3(); cam.getWorldDirection(fwd);
+    const tanH = Math.tan((cam.fov * Math.PI) / 360);
+    for (const r of world.cards) {
+      if (!r.card.group.visible) continue;
+      r.card.plane.getWorldPosition(wp); r.card.plane.getWorldScale(ws);
+      const d = Math.max(0.05, wp.sub(cam.position).dot(fwd));
+      r.tex.fit((r.card.o.h * Math.abs(ws.y)) / (2 * d * tanH) * vh);
+    }
     const jobs = world.cards.map((r) => { const m = r.card.group.visible ? r.markup(t) : null; return m ? r.tex.draw(m) : Promise.resolve(false); });
     // the first frame after a mount renders twice (targets, shadow maps and card textures settle on the first pass)
     // release the frame two animation frames after the last draw: on the Mac GPU path a screenshot taken straight after

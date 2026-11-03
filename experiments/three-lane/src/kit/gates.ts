@@ -67,6 +67,9 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
       const body: Box = s === 1 ? b : [b[0], b[1], b[2], b[0] + (b[3] - b[0]) * s, b[1] + (b[4] - b[1]) * s, b[5]];
       const head: Box = [body[0], body[4] - 0.3 * (body[4] - body[1]), body[2], body[3], body[4], body[5]];
       const rh = boxOnScreen(cam, head), rb = boxOnScreen(cam, body);
+      // a figure looming in front of the lens (closer than 1 m) blocks the shot
+      const pc = new THREE.Vector3((body[0] + body[3]) / 2, (body[1] + body[4]) / 2, (body[2] + body[5]) / 2);
+      if (rb.inside > 0 && pc.distanceTo(cam.position) < 1.0 && !(g.people.length === 1)) cut(`${g.id}:${p.id}:lens`);
       if (rb.hFrac > 1.2 || rh.hFrac > 0.3 || rb.inside <= 0.02) continue;   // a face close-up (head > 30 % of the frame), or out of the shot
       if ((rh.inside > 0.02 && rh.inside < 0.95) || (rb.sides && rb.inside < 0.95)) cut(`${g.id}:${p.id}`);
     }

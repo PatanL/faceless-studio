@@ -183,7 +183,7 @@ export function shieldMacroSet(o: { night?: boolean } = {}): SetBuild {
 export const SEC = { W: 12, cav: { x: 2.2, y: -2.6, w: 6.0, h: 2.0 }, shieldSolid: -3.6, shieldHollow: 2.2 };
 export function sectionSet(): SetBuild {
   const bands: Band[] = [{ h: 0.6, color: "#b98a52", speck: "#8e6a45" }, { h: 1.6, color: "#c8692f", speck: "#a24f22" }, { h: 1.6, color: "#9b8a7a", speck: "#6f6258" }, { h: 1.6, color: "#6a5a7a", speck: "#4a3e5a" }];
-  const s = crossSectionSet({ bands, width: SEC.W, depth: 4, cavity: { ...SEC.cav, d: 1.6, color: "#3a2a26" }, grass: false, frame: true, sky: ["#1e2a5a", "#3a3a7a", "#7a6a9a"], seed: 8 });
+  const s = crossSectionSet({ bands, width: SEC.W, depth: 4, cavity: { ...SEC.cav, d: 1.6, color: "#3a2a26" }, grass: false, frame: true, sky: ["#3a3a7a", "#b07a8a", "#f0b880"], seed: 8 });
   // the earth round the cut (panel round 1: "an empty navy void" under and beside the section): dark soil on all
   // sides of the diorama, lit by the scene so it reads as more ground, not a backdrop
   const earth = lambert({ map: dirtTex([8, 8], 31, "#4a3428") });
@@ -239,6 +239,10 @@ function dressBarca(root: THREE.Group, glows: THREE.Object3D[], night: boolean) 
   // the hook's own view (behind the Persian front rank, looking at the gate): their stores, carts and standards
   fill(root, "camp", [4, 3.6, 20, 15], { n: 16, keep: [...keepOut, B(9.6, 9.6, 13.2, 13.2)], seed: 15 });
   fill(root, "wallfoot", [5, 2, 20, 6], { n: 14, keep: keepOut, seed: 16 });
+  // the hook's foreground, either side of the camera's corridor behind the front rank (round-1 judge: "empty sand")
+  fill(root, "camp", [2.5, 14, 8.6, 21], { n: 7, keep: keepOut, seed: 17 });
+  fill(root, "camp", [14.4, 14, 20.5, 21], { n: 7, keep: keepOut, seed: 18 });
+  fill(root, "wallfoot", [8.6, 16, 14.4, 24], { n: 6, keep: [...keepOut, B(10.2, 14, 13.4, 26)], seed: 19 });
   fill(root, "camp", [-60, 30, 60, 60], { n: 22, keep: keepOut, seed: 6 });
   // the plain: rocks and palms for depth, scattered wide
   const r = rng(29);

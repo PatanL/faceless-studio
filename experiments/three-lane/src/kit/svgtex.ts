@@ -21,13 +21,26 @@ export class SvgTex {
   readonly tex: THREE.CanvasTexture;
   private g: CanvasRenderingContext2D;
   private last = "";
-  constructor(readonly pxW: number, readonly pxH: number, readonly flip = false) {
+  private baseW: number; private baseH: number; private tier = 1;
+  constructor(public pxW: number, public pxH: number, readonly flip = false) {
+    this.baseW = pxW; this.baseH = pxH;
     this.canvas = document.createElement("canvas");
     this.canvas.width = pxW; this.canvas.height = pxH;
     this.g = this.canvas.getContext("2d")!;
     this.tex = new THREE.CanvasTexture(this.canvas);
     this.tex.colorSpace = THREE.SRGBColorSpace;
     this.tex.anisotropy = 4;
+  }
+  /** face round 3: a card filling a close-up was upscaled ~3x from its 480 px raster, so every ink line went soft
+   * and the grade tinted the grey edge pixels navy. Raise the raster in steps (x1..x4, never back down within a
+   * mount) so a texel is no bigger than a screen pixel; the caller passes the card's height on screen in px. */
+  fit(screenPxH: number) {
+    const tier = Math.min(4, Math.max(1, Math.ceil(screenPxH / this.baseH - 0.15)));
+    if (tier <= this.tier) return;
+    this.tier = tier; this.pxW = this.baseW * tier; this.pxH = this.baseH * tier;
+    this.canvas.width = this.pxW; this.canvas.height = this.pxH;
+    this.g = this.canvas.getContext("2d")!;
+    this.tex.dispose(); this.last = "";
   }
   /** redraw if the markup changed; resolves true when the texture was updated */
   async draw(markup: string): Promise<boolean> {

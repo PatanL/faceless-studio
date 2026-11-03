@@ -8,7 +8,7 @@ import * as THREE from "three";
 import { SvgTex, svgMarkup } from "./svgtex";
 import { Card3D } from "./card3d";
 import { PERSON_K, type CardRec, type PersonSpec, type Rig } from "./Stage";
-import { Actor, headPose } from "./actor";
+import { Actor, headPose, HEAD_AX } from "./actor";
 
 export const ACTOR_VB = { w: 600, h: 700, padT: 120, padL: 0, padR: 0, padB: 0 };
 const VB_H = 700 + 120;
@@ -25,8 +25,8 @@ export function actorCard(props: (t: number) => Record<string, unknown> | null, 
       if (!p) return null;
       // the head circle in texture uv (flipY: v = 1 at the top of the svg), for the sphere shading in card3d.ts
       const hp = headPose(p, t);
-      card.head(hp.x / 600, 1 - (hp.y + 120) / VB_H, hp.r / 600, hp.r / VB_H);
-      return svgMarkup(<Actor props={{ ink: 6, ...p }} time={t} />, ACTOR_VB, pw, ph);
+      card.head(hp.x / 600, 1 - (hp.y + 120) / VB_H, (hp.r * HEAD_AX) / 600, hp.r / VB_H);
+      return svgMarkup(<Actor props={{ ink: 6, ...p }} time={t} />, ACTOR_VB, tex.pxW, tex.pxH);
     },
   };
 }

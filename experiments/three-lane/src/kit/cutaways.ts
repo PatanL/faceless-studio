@@ -64,6 +64,9 @@ export function crossSectionSet(o: CrossOpts = {}): SetBuild {
     }
     y0 += b.h;
   });
+  // the deepest band: a water table with a crack network (dark veins)
+  { const yb = (H - bands[bands.length - 1].h * 0.5) * PX; g.strokeStyle = "rgba(20, 15, 40, 0.55)"; g.lineWidth = 3;
+    for (let k = 0; k < W * 3; k++) { let x = r() * c.width, y = yb + (r() - 0.5) * 60; g.beginPath(); g.moveTo(x, y); for (let q = 0; q < 5; q++) { x += (r() - 0.5) * 50; y += (r() - 0.5) * 30; g.lineTo(x, y); } g.stroke(); } }
   g.strokeStyle = INK; g.lineWidth = 6;
   edges.slice(0, -1).forEach((e) => { g.beginPath(); e.forEach((y, k) => (k ? g.lineTo((k / 32) * c.width, y) : g.moveTo(0, y))); g.stroke(); });
   // roots under the grass
