@@ -21,16 +21,23 @@ const INK = "#1b1240";
 
 /** packed earth: tan with darker clods, pebbles with an ink rim, scuffs (never a flat fill) */
 export function dirtTex(rep: [number, number] = [1, 1], seed = 9, base = "#c9a06a") {
+  // round-2 craft (judge: "a flat colour with stamped dot decals"): broad tonal drifts, wind ripples, fine grain and a
+  // few pebbles; only the biggest pebbles carry ink
   const [c, g] = canvas(512, 512); const r = rng(seed);
   g.fillStyle = base; g.fillRect(0, 0, 512, 512);
-  for (let k = 0; k < 90; k++) { g.fillStyle = `rgba(120, 78, 40, ${0.08 + r() * 0.12})`; g.beginPath(); g.ellipse(r() * 512, r() * 512, 20 + r() * 60, 10 + r() * 30, r() * 3, 0, Math.PI * 2); g.fill(); }
-  for (let k = 0; k < 160; k++) {
-    const x = r() * 512, y = r() * 512, rr = 2 + r() * 6;
-    g.fillStyle = ["#a98257", "#8e6a45", "#d9bd8c"][k % 3]; g.beginPath(); g.ellipse(x, y, rr, rr * 0.7, r() * 3, 0, Math.PI * 2); g.fill();
-    if (rr > 5) { g.strokeStyle = INK; g.lineWidth = 1.5; g.stroke(); }
+  for (let k = 0; k < 40; k++) { g.fillStyle = r() < 0.5 ? `rgba(120, 78, 40, ${0.06 + r() * 0.08})` : `rgba(255, 236, 200, ${0.05 + r() * 0.07})`; g.beginPath(); g.ellipse(r() * 512, r() * 512, 60 + r() * 120, 30 + r() * 60, r() * 3, 0, Math.PI * 2); g.fill(); }
+  g.lineWidth = 3;
+  for (let k = 0; k < 50; k++) {
+    const x = r() * 512, y = r() * 512, L = 24 + r() * 50;
+    g.strokeStyle = `rgba(110, 72, 38, ${0.04 + r() * 0.05})`; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + L / 2, y - 6 + r() * 12, x + L, y + (r() - 0.5) * 8); g.stroke();
+    g.strokeStyle = `rgba(255, 238, 205, ${0.04 + r() * 0.05})`; g.beginPath(); g.moveTo(x, y - 3); g.quadraticCurveTo(x + L / 2, y - 9 + r() * 12, x + L, y - 3 + (r() - 0.5) * 8); g.stroke();
   }
-  g.strokeStyle = "rgba(90, 60, 30, 0.35)"; g.lineWidth = 2;
-  for (let k = 0; k < 40; k++) { const x = r() * 512, y = r() * 512; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (r() - 0.5) * 40, y + (r() - 0.5) * 12); g.stroke(); }
+  for (let k = 0; k < 900; k++) { g.fillStyle = r() < 0.5 ? "rgba(110, 76, 44, 0.35)" : "rgba(250, 230, 196, 0.35)"; g.fillRect(r() * 512, r() * 512, 1.5, 1.5); }
+  for (let k = 0; k < 26; k++) {
+    const x = r() * 512, y = r() * 512, rr = 2.5 + r() * 5;
+    g.fillStyle = ["#a98257", "#8e6a45", "#d9bd8c"][k % 3]; g.beginPath(); g.ellipse(x, y, rr, rr * 0.7, r() * 3, 0, Math.PI * 2); g.fill();
+    if (rr > 6.5) { g.strokeStyle = INK; g.lineWidth = 1.2; g.stroke(); }
+  }
   return ctex(c, rep);
 }
 
@@ -55,23 +62,24 @@ export const CAMP = { lord: [-14, 0, 46] as [number, number, number] };
 export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean } = {}): SetBuild {
   const root = new THREE.Group(), glows: THREE.Object3D[] = [];
   const r = rng(17);
-  const stone = lambert({ map: stoneCourses([6, 2], { hue: 34, light: 54, seed: 3 }) });
-  const stoneDark = lambert({ map: stoneCourses([2, 2], { hue: 30, light: 50, seed: 5 }) });
+  const stone = lambert({ map: stoneCourses([1, 1], { hue: 34, light: 54, seed: 3 }) });
+  const stoneDark = lambert({ map: stoneCourses([1, 1], { hue: 30, light: 50, seed: 5 }) });
+  const TILE = 4;   // world-scaled bricks: one 8-course tile per 4 m on every wall, merlon and tower face
   // ground: the plain (sun-baked earth) and the packed dirt inside
   plane(root, lambert({ map: dirtTex([60, 60], 4, "#bf9560") }), 600, 600, 0, 0, 0, -Math.PI / 2);
   // the wall, in segments round the gate (opening 3.4 m wide, 4.6 m high)
   const segs: [number, number][] = [[-40, WALL.gateX - 1.7], [WALL.gateX + 1.7, 44]];
-  for (const [a, b] of segs) box(root, stone, b - a, WALL.h, WALL.z1 - WALL.z0, (a + b) / 2, WALL.h / 2, 0);
-  box(root, stone, 3.4, WALL.h - 4.6, WALL.z1 - WALL.z0, WALL.gateX, 4.6 + (WALL.h - 4.6) / 2, 0);
+  for (const [a, b] of segs) box(root, stone, b - a, WALL.h, WALL.z1 - WALL.z0, (a + b) / 2, WALL.h / 2, 0, true, TILE);
+  box(root, stone, 3.4, WALL.h - 4.6, WALL.z1 - WALL.z0, WALL.gateX, 4.6 + (WALL.h - 4.6) / 2, 0, true, TILE);
   // gate doors (planks) and the merlons along the outer edge of the walk
   const planks = lambert({ map: grainPlanks([2, 1], { hue: 26, light: 40, vertical: true }) });
   box(root, planks, 3.4, 4.6, 0.3, WALL.gateX, 2.3, 0.9);
-  for (let x = -39; x < 44; x += 1.6) if (Math.abs(x - WALL.gateX) > 0.2 || true) box(root, stone, 0.9, 1.1, 0.5, x, WALL.h + 0.55, 1.25);
+  for (let x = -39; x < 44; x += 1.6) if (Math.abs(x - WALL.gateX) > 0.2 || true) box(root, stone, 0.9, 1.1, 0.5, x, WALL.h + 0.55, 1.25, true, TILE);
   // a low inner parapet so the guards lean on something
-  box(root, stoneDark, 84, 0.5, 0.3, 2, WALL.h + 0.25, -1.35);
+  box(root, stoneDark, 84, 0.5, 0.3, 2, WALL.h + 0.25, -1.35, true, TILE);
   // the tower at the corner
-  box(root, stoneDark, 5.5, 11, 5.5, WALL.towerX, 5.5, 0);
-  for (let i = 0; i < 4; i++) for (const [dx, dz] of [[-2.2, 0], [2.2, 0], [0, -2.2], [0, 2.2]]) box(root, stoneDark, dx ? 0.5 : 1.0, 1.0, dz ? 0.5 : 1.0, WALL.towerX + dx + (dz ? (i - 1.5) * 1.2 : 0), 11.5, dz + (dx ? (i - 1.5) * 1.2 : 0));
+  box(root, stoneDark, 5.5, 11, 5.5, WALL.towerX, 5.5, 0, true, TILE);
+  for (let i = 0; i < 4; i++) for (const [dx, dz] of [[-2.2, 0], [2.2, 0], [0, -2.2], [0, 2.2]]) box(root, stoneDark, dx ? 0.5 : 1.0, 1.0, dz ? 0.5 : 1.0, WALL.towerX + dx + (dz ? (i - 1.5) * 1.2 : 0), 11.5, dz + (dx ? (i - 1.5) * 1.2 : 0), true, TILE);
   // inside: the dirt strip, then the street (paving) and a row of houses with flat roofs, doors and windows
   plane(root, lambert({ map: dirtTex([10, 2], 8, "#b88c58") }), 84, 4, 2, 0.01, -3.5, -Math.PI / 2);
   plane(root, lambert({ map: stoneCourses([20, 2], { hue: 30, light: 60, seed: 9 }) }), 84, 5, 2, 0.012, -8, -Math.PI / 2);
@@ -102,7 +110,7 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   for (let y = 2; y < 15; y += 2.5) box(tower, lambert({ color: "#4b2e1a" }), 4.4, 0.25, 4.4, 0, y, 0);
   const tTop = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 3.4, 2.4, 4), lambert({ color: "#7a3b2c" })); tTop.rotation.y = Math.PI / 4; tTop.position.y = 16.2; tower.add(tTop);
   tower.position.set(-6.5, 0, 6.5); root.add(tower);
-  for (const [x, z, col] of [[-1.5, 5.0, "#7a2a4a"], [-10, 5.5, "#e0b04a"], [3.5, 5.2, "#c94b3a"]] as [number, number, string][]) {
+  for (const [x, z, col] of [[-17, 9.0, "#7a2a4a"], [-24, 10.5, "#e0b04a"], [27, 9.5, "#c94b3a"]] as [number, number, string][]) {   // round-2 craft: clear of the walk shots
     cyl(root, lambert({ color: "#5b3a22" }), 0.14, 19, x, 9.5, z, 6);
     const flag = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2.2), lambert({ color: col, side: THREE.DoubleSide })); flag.position.set(x + 1.7, 17.6, z); root.add(flag);
   }
@@ -138,7 +146,7 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   const big = new THREE.Mesh(new THREE.CylinderGeometry(3.6, 4.2, 3.2, 12), lambert({ map: stripes() })); big.position.y = 1.6; lt.add(big);
   const top = new THREE.Mesh(new THREE.ConeGeometry(4.6, 2.6, 12), lambert({ color: "#7a2a4a" })); top.position.y = 4.5; lt.add(top);
   lt.position.set(CAMP.lord[0] - 10, 0, CAMP.lord[2] + 2); root.add(lt);   // beside him, not a backdrop (judges read it as a stage curtain)
-  for (const [x, z, col] of [[-6, 9, "#c94b3a"], [6, 10, "#e0b04a"], [22, 9, "#5f7fbf"], [-22, 11, "#c94b3a"], [CAMP.lord[0] + 4, CAMP.lord[2] + 3, "#7a2a4a"]] as [number, number, string][]) {
+  for (const [x, z, col] of [[-16, 11, "#c94b3a"], [17, 12, "#e0b04a"], [22, 9, "#5f7fbf"], [-22, 11, "#c94b3a"], [CAMP.lord[0] + 4, CAMP.lord[2] + 3, "#7a2a4a"]] as [number, number, string][]) {
     cyl(root, lambert({ color: "#5b3a22" }), 0.12, 16, x, 8, z, 6);
     const flag = new THREE.Mesh(new THREE.PlaneGeometry(3, 1.8), lambert({ color: col, side: THREE.DoubleSide })); flag.position.set(x + 1.5, 15, z); root.add(flag);
   }
@@ -192,7 +200,7 @@ export function sectionSet(): SetBuild {
   // the surface: packed dirt on top of the block
   box(s.root, lambert({ map: dirtTex([4, 1], 13) }), SEC.W, 0.12, 4, 0, 0.06, -2);
   // a slice of Barca's wall standing on it (right end, over the tunnel's far end) and the gate's ram beyond
-  box(s.root, lambert({ map: stoneCourses([2, 2], { hue: 34, light: 60, seed: 3 }) }), 2.2, 4.2, 3.6, 4.6, 2.1, -1.9);
+  box(s.root, lambert({ map: stoneCourses([1, 1], { hue: 34, light: 60, seed: 3 }) }), 2.2, 4.2, 3.6, 4.6, 2.1, -1.9, true, 4);
   const sh1 = shieldMesh(0.42), sh2 = shieldMesh(0.42);
   sh1.position.set(SEC.shieldSolid, 0.12, -0.6); sh2.position.set(SEC.shieldHollow, 0.12, -0.6); s.root.add(sh1, sh2);
   // tunnel timbers and a lamp on the back wall
@@ -212,6 +220,10 @@ export function sectionSet(): SetBuild {
     m.position.set(x, y, 0.04); m.rotation.set(rr() * 3, rr() * 3, 0); s.root.add(m);
   }
   for (const x of [-4.8, -1.6]) { const b = model("wooden_barrels_01", { scale: 0.5, seed: 1 }); b.position.set(x, 0.12, -1.6); s.root.add(b); }
+  // round-2 craft (judge: "dead space, flat bands"): the surface is dressed like the wall foot behind the shields
+  // (stones, baskets, tools, a palm), so the top of the diorama is a place, not a strip
+  fill(s.root, "street", [-SEC.W / 2 + 0.4, -3.7, SEC.W / 2 - 0.4, -2.5], { n: 9, y: 0.12, keep: [[3.4, 0, -3.8, 5.8, 5, 0]], seed: 61 });
+  { const p = palm(4.2); p.position.set(-5.0, 0.12, -3.3); p.scale.setScalar(0.7); s.root.add(p); }
   const sp = model("rusted_spade_01", { scale: 1, seed: 2 }); sp.position.set(-2.4, 0.12, -1.2); sp.rotation.z = 0.3; s.root.add(sp);
   // the countershaft (grown by the story rig): a dark slot in front of the face, from the surface down
   const shaft = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1), lambert({ color: "#2a1d1a" }));
@@ -237,11 +249,11 @@ function dressBarca(root: THREE.Group, glows: THREE.Object3D[], night: boolean) 
   fill(root, "wallfoot", [-30, 1.8, 34, 3.4], { n: 34, keep: keepOut, seed: 3 });
   fill(root, "camp", [-34, 16, 34, 30], { n: 26, keep: keepOut, seed: 5 });
   // the hook's own view (behind the Persian front rank, looking at the gate): their stores, carts and standards
-  fill(root, "camp", [4, 3.6, 20, 15], { n: 16, keep: [...keepOut, B(9.6, 9.6, 13.2, 13.2)], seed: 15 });
+  fill(root, "campLow", [4, 3.6, 20, 15], { n: 16, keep: [...keepOut, B(9.6, 9.6, 13.2, 13.2)], seed: 15 });
   fill(root, "wallfoot", [5, 2, 20, 6], { n: 14, keep: keepOut, seed: 16 });
   // the hook's foreground, either side of the camera's corridor behind the front rank (round-1 judge: "empty sand")
-  fill(root, "camp", [2.5, 14, 8.6, 21], { n: 7, keep: keepOut, seed: 17 });
-  fill(root, "camp", [14.4, 14, 20.5, 21], { n: 7, keep: keepOut, seed: 18 });
+  fill(root, "campLow", [2.5, 14, 8.6, 21], { n: 7, keep: keepOut, seed: 17 });
+  fill(root, "campLow", [14.4, 14, 20.5, 21], { n: 7, keep: keepOut, seed: 18 });
   fill(root, "wallfoot", [8.6, 16, 14.4, 24], { n: 6, keep: [...keepOut, B(10.2, 14, 13.4, 26)], seed: 19 });
   fill(root, "camp", [-60, 30, 60, 60], { n: 22, keep: keepOut, seed: 6 });
   // the plain: rocks and palms for depth, scattered wide

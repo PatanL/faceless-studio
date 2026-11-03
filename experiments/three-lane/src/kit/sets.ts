@@ -33,8 +33,17 @@ export function makeKey(root: THREE.Group, pos: [number, number, number], target
   return key;
 }
 
-export function box(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number, cast = true) {
-  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+/** uvTile (m): world-scaled UVs, one texture tile per uvTile metres on every face, so one painted material reads at the
+ * same brick size on a 40 m wall and a 1 m merlon (round-2 craft judge: "a tiny repeating brick texture") */
+export function box(root: THREE.Object3D, mat: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number, cast = true, uvTile = 0) {
+  const geo = new THREE.BoxGeometry(w, h, d);
+  if (uvTile > 0) {
+    const uv = geo.getAttribute("uv") as THREE.BufferAttribute;
+    const dims: [number, number][] = [[d, h], [d, h], [w, d], [w, d], [w, h], [w, h]];   // px nx py ny pz nz
+    for (let f = 0; f < 6; f++) for (let k = 0; k < 4; k++) { const i = f * 4 + k; uv.setXY(i, uv.getX(i) * dims[f][0] / uvTile, uv.getY(i) * dims[f][1] / uvTile); }
+    uv.needsUpdate = true;
+  }
+  const m = new THREE.Mesh(geo, mat);
   m.position.set(x, y, z); m.castShadow = cast; m.receiveShadow = true;
   root.add(m); return m;
 }

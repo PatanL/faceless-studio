@@ -2,7 +2,7 @@
 // Fill the midground and background up to the references' detail (frames30 tiles: edge density median 0.092, flat
 // share 0.40; Barca v14 and Vasa sat at ~0.07 / ~0.5). Deterministic, keep-out boxes for actors and camera paths.
 //   fill(root, preset, area, o)   scatter a preset's models and architecture over [x0, z0, x1, z1]
-//     presets: "camp" (tents, standards, fire pits, carts, stores), "market" (stalls, baskets, pots, carts), "street"
+//     presets: "camp" (tents, standards, fire pits, carts, stores), "campLow" (camp without the tall standards), "market" (stalls, baskets, pots, carts), "street"
 //     (barrels, crates, amphorae, baskets against walls), "wallfoot" (stones, baskets, timber, ladders, tools),
 //     "workshop" (anvil-like stumps, tools, buckets, shelves), "shore" (rocks, boats' gear, barrels, pier bits)
 //   crowd(area, n, o)   PersonSpec[] for a readable crowd: Actors in staggered rows, mixed costumes and faces,
@@ -19,6 +19,10 @@ const M = (id: string, s = 1, r = 0.4): Item => ({ make: (seed) => model(id, { s
 const PRESETS: Record<string, Item[]> = {
   camp: [{ make: (s) => tent({ seed: s, a: ["#e9dcc0", "#d8c49c", "#c94b3a", "#e0b04a"][s % 4], b: ["#d8c49c", "#efe3c8", "#e9dcc0", "#c9a46a"][s % 4] }), r: 4.2, w: 3 },
     { make: (s) => standard(["#c94b3a", "#7a2a4a", "#e0b04a", "#2f5aa8"][s % 4], 5 + (s % 3)), r: 0.8, w: 1 },
+    { make: () => model("stone_fire_pit"), r: 1.2, w: 1 }, { make: (s) => cart({ seed: s }), r: 2.2, w: 1 },
+    M("wooden_crate_01"), M("barrel_03"), M("wicker_basket_01"), M("wooden_barrels_01", 0.8, 0.9)],
+  // camp without the tall standards (for foregrounds: a 6 m pole beside the lens reads as an uncomposed stripe)
+  campLow: [{ make: (s) => tent({ seed: s, a: ["#e9dcc0", "#d8c49c", "#c94b3a", "#e0b04a"][s % 4], b: ["#d8c49c", "#efe3c8", "#e9dcc0", "#c9a46a"][s % 4] }), r: 4.2, w: 3 },
     { make: () => model("stone_fire_pit"), r: 1.2, w: 1 }, { make: (s) => cart({ seed: s }), r: 2.2, w: 1 },
     M("wooden_crate_01"), M("barrel_03"), M("wicker_basket_01"), M("wooden_barrels_01", 0.8, 0.9)],
   market: [{ make: (s) => stall({ seed: s, a: ["#c94b3a", "#2f5aa8", "#3f8a5a", "#e0b04a"][s % 4] }), r: 2.0, w: 3 },
