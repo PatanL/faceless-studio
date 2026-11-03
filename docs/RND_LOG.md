@@ -684,3 +684,19 @@ The gain comes mostly from the rail and hull textures, not from the reference's 
 - the fleet sits up the strait behind him.
 
 Side-by-side (reference | pass 1 | pass 2): `out/study/VS1Z/myeong_hook_pass2_side_by_side_phone.mp4`.
+
+## 2026-11-03: Myeongnyang hook pass 3 (operator, inline, against kf_myeong_v4.png)
+- The turned-ship layout from the pass-3 agent is kept. Changes on top of it:
+  - the anchor starts straight above the splash (falls on his right, never across his face), drawn at 0.75 size and already mid-drop at frame 0 (LEAD 16 f);
+  - the splash ray moved to (0.82, 0.68);
+  - the rail is thinner and lower (RAIL 0.5, posts 0.09, corner post 0.12);
+  - the camera is at EL 5 and FOV 40.
+- Stills render with `--chrome-mode=chrome-for-testing` (the default Chrome crashed with "Target closed").
+- The full shot renders at concurrency 1 in about 2 min.
+- Still off against the reference:
+  - the sky reads beige instead of violet dusk;
+  - the dragon prow sits low centre and faces the lens;
+  - the splash is partly behind the blue bow block;
+  - the nearest enemy ship is a flat box close behind him;
+  - no cliffs in frame.
+- Side-by-side: out/study/VS1Z/myeong_hook_pass3_side_by_side_phone.mp4.
