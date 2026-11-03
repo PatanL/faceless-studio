@@ -1,4 +1,15 @@
 
+
+## 2026-11-03 10:15 PST: status (weekly usage at 90%, agents paused until the reset on Nov 8)
+- **Posted:**
+  - Vasa v15: Nov 2, 18:30 CT.
+  - Grow-1cm v2: Nov 3, 11:30 CT.
+  - Sperm whale r5 is scheduled for Nov 3, 18:30 CT; it was re-hosted after the Spark reboot and the link is held open by pipeline/publish/rehost.py.
+- **Hook (priority 1):** the Myeongnyang v3 hook is coded in experiments/three-lane/src/study/myeong/hook.tsx (uncommitted), as the turned ship against kf_myeong_v4.png. It is not rendered: the Mac is at 14 GB free against the 15 GB floor. A 4 GB folder of old renders is waiting in the Trash, and the owner decides how to free space. The last still hung for 8 h; next time, test with a half-scale still and a 10-minute kill.
+- **Voice (priority 2):** Kokoro am_michael with `melody: rules`, and the script's stress lists now feed the shaper (ab3afa8). An ASR check of the v3 narration matched 244/246 words; "one of ours" was reworded (b4583df).
+- **Script (priority 3):** Myeongnyang v3 is in Storm Oil form with an anonymous admiral, stress marks and a 2/3 cold-read pass. Optional: one line on how he knows the tide turns.
+- **Next once usage resets:** render the hook (Mac, after disk is freed), build Myeongnyang v3 with the Kokoro + shaper narration, run the every-frame review, run one panel round, then post if it passes the gate.
+
 ### Lane B, explainer-sperm-whale, round 1 (2026-11-02)
 - Topic: "What would a sperm whale's click do to your body?" from fGcgWaswMns (Depth Theory, 2.3M, x14.7; pipeline.sources pick rank 6). Originality PASS (general + direct). New kit pieces: style-A sperm whale (house/spermWhaleA.tsx, now the kit default), ClickRings + Coda (house/soundfx.tsx). Codex plates: experiments/asset-gen/gen/sw_plate_*_A.png.
 - r1 renders: out/explainer-sperm-whale/r1.mp4 (flat) and r1_plates.mp4; staging PASS; 6 frame reviewers on qa_r1/f30 scored 4-6/10.
