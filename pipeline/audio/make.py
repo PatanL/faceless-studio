@@ -112,7 +112,9 @@ def main(argv=None):
     ap.add_argument("--music", help="bed name in studio/public/music, a path, or 'none'")
     ap.add_argument("--voice")
     ap.add_argument("--speed", type=float)
-    ap.add_argument("--engine", choices=["kokoro", "piper"])
+    ap.add_argument("--engine", choices=["kokoro", "piper", "qwen3", "qwen_api"])
+    ap.add_argument("--qwen3-voice", help="qwen3 voice id (config.QWEN3_VOICES; front matter qwen3_voice)")
+    ap.add_argument("--emphasis", choices=["on", "off"], help="qwen3: rule-marked word stress, default off (front matter emphasis)")
     ap.add_argument("--no-auto-sfx", action="store_true")
     ap.add_argument("--whisper", action="store_true", help="force faster-whisper alignment")
     ap.add_argument("--meta-out", help="also copy the small JSON outputs here (e.g. episodes/<id>/audio)")
@@ -136,10 +138,16 @@ def main(argv=None):
         if profile not in PROFILES:
             raise SystemExit(f"audio_profile {profile!r} is not in config.PROFILES {sorted(PROFILES)}")
         cfg.update(copy.deepcopy(PROFILES[profile]))
+    if sc.meta.get("tts") and not sc.meta.get("engine"):  # `tts: qwen3` is the front-matter name for the engine
+        sc.meta["engine"] = sc.meta["tts"]
     for k in ("voice", "speed", "engine"):
         v = getattr(a, k) or sc.meta.get(k)
         if v:
             cfg[k] = float(v) if k == "speed" else v
+    for k in ("qwen3_voice", "emphasis"):  # qwen3 only; Kokoro ignores them
+        v = getattr(a, k) or sc.meta.get(k)
+        if v:
+            cfg[k] = v
     for k in ("paragraph_pause", "music_db", "duck_db"):  # per-script overrides (front matter)
         if sc.meta.get(k) not in (None, ""):
             cfg[k] = float(sc.meta[k])

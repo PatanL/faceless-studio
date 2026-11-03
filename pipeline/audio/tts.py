@@ -1,6 +1,7 @@
 """Narration -> 48 kHz mono voice track + word timings + SFX cue times.
 
-Kokoro-82M (CPU) gives per-token timestamps; tokens are merged into words and aligned to the
+Kokoro-82M (CPU) gives per-token timestamps; Qwen3-TTS (`tts: qwen3`, qwen3_tts.py, own venv) gives forced-aligned
+word times; tokens are merged into words and aligned to the
 script's own words, so captions show exactly the script text. If the engine gives no usable
 timings (Piper, or Kokoro coverage < 60 %), faster-whisper (CPU, int8) aligns instead.
 """
@@ -241,11 +242,19 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
             plan.append((sub, gap, seg.gain_db, seg.speed or speed))
     gains = []  # (start sample, end sample, dB) from [vox: dB], applied after the voice chain
     speeds = set()
+    pre = []  # out-of-env engines (qwen3, qwen_api): every chunk rendered in one call, consumed in order below
+    if engine in ("qwen3", "qwen_api"):
+        from .qwen3_tts import render_many
+        t0 = time.time()
+        pre = render_many([sub.text for sub, *_ in plan if sub.words], cfg, script.meta, log=log)
+        synth_s += time.time() - t0
     for sub, gap, gain_db, sp in plan:
         if sub.words:
             t0 = time.time()
             speeds.add(sp)
-            if engine == "piper":
+            if pre:
+                a, sr, timed = pre.pop(0)
+            elif engine == "piper":
                 a, sr, timed = _piper(sub.text, voice)
             elif cfg.get("sentence_mode"):
                 a, sr, timed = _kokoro_sentences(sub.text, voice, lang, sp, float(cfg.get("sentence_gap", 0.26)) / sp)
@@ -303,6 +312,10 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
         g[: len(ramp)] = ramp
         audio[i:j] *= g[: max(0, min(j, len(audio)) - i)]
     n_words = sum(c[0] for c in coverage) or 1
+    if engine == "qwen3":
+        from .config import QWEN3
+        voice = f"qwen3:{cfg.get('qwen3_voice') or QWEN3['default_voice']}" + (
+            " +emphasis" if str(cfg.get("emphasis", "off")).lower() in ("1", "on", "true", "yes", "y") else "")
     stats = {
         "engine": engine, "voice": voice, "speed": speed if len(speeds) <= 1 else sorted(speeds), "synth_s": round(synth_s, 2),
         "duration_s": round(len(audio) / SR, 3),

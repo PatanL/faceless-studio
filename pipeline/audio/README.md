@@ -113,6 +113,77 @@ plays an in-chord harp and celesta figure at each setting change. The default st
 - `research/music/tools/measure_ab.py` measures an old-vs-new pair: loudness, voice gap on a phone model, the
   1–4 kHz SNR, cue timing, drop-out depth and the loop seam.
 
+## Qwen3-TTS backend (`tts: qwen3`, opt-in; Kokoro stays the default)
+
+Built by the voice track (research/music/VOICE_CADENCE.md) to reach RicksClips / Zack D. cadence on an **original**
+voice. It is in the pipeline but no episode uses it until the owner has heard `out/rnd-voice/voice_AB.m4a`.
+
+```yaml
+# script front matter
+tts: qwen3            # or --engine qwen3
+qwen3_voice: ember    # config.QWEN3_VOICES: ember (default) | nova | spark | iris (--qwen3-voice)
+emphasis: off         # rule-marked word stress in capitals, default off (--emphasis on|off); see the caveat below
+stress: brush, thirteen   # optional: force these words stressed
+unstress: navy            # optional: never stress these
+audio_profile: story_ricks  # recommended: cuts pauses to 0.10 s (voicefx.tighten) and sets the story mix
+```
+
+- **Voices.** Each voice was designed once from a text description with Qwen3-TTS VoiceDesign. The designed clip
+  (`pipeline/audio/voices/<id>_ref.flac`, our own audio) is then the voice prompt for the Base model, so the voice is
+  identical in every chunk and episode. The descriptions, seeds and reference texts are in `config.QWEN3_VOICES`.
+  To add a voice, design it with `qwen3_worker.py` (a job with `instruct` and no `ref_audio`, VoiceDesign model) and
+  register its clip. A voice prompt is never a real person's or a reference narrator's audio.
+- **Emphasis.** `emphasis.py` marks about a quarter of the words from the measured rules: the hook's act verb and
+  the object after it, numbers, contrast and negation words, "so" + adjective, superlatives, names, SEE in "You
+  see", and the last word of a short punch line or of the hook. Those words go to the TTS in capitals (the pilot
+  measured this as the most reliable control on the Base model). Captions keep the script's own text.
+  **Caveat, so it is off by default:** capitals raise the marked words (+3.4 to +3.9 st over the rest, against
+  +1.0 to +1.6 plain) but sometimes make the model spell or bend a word. Examples: WROTE read as letters, LAUGHING
+  heard as "lacking", and JAPAN'S, YI and VASA bent. `*asterisks*` were worse (a doubled "-ing"). Turn it on per
+  script and veto any bent word with `unstress:`.
+  `python -m pipeline.audio.emphasis file.txt` prints the marks.
+- **Timings.** The worker force-aligns each chunk's script words (torchaudio MMS_FA, a CTC aligner). synthesize()
+  gets `(audio, sr, [(word, start, end)])` exactly as it does from Kokoro, so captions, `[sfx:]` markers, cut cues
+  and the mix work unchanged (coverage 1.0, `timing_source: ["qwen3"]`). If alignment ever covers under 60 % of the
+  words, the existing faster-whisper fallback runs.
+- **Where it runs.** It runs in its own venv through `qwen3_worker.py`, with every chunk of a script in one worker
+  call (the model loads once). It uses MPS on the Mac or the CPU, and refuses CUDA. On an M1 Pro (bf16, MPS) it runs
+  at about 2.1–2.4× real time, so a 62 s Short takes ~2.5 min. The Spark has no Qwen venv yet: running it there on
+  CPU needs the same install (below) and is untested.
+- **Install (Mac, done 2026-11-02):**
+  ```bash
+  git clone https://github.com/QwenLM/Qwen3-TTS ~/faceless-work/src/Qwen3-TTS   # read at 022e286
+  /opt/homebrew/bin/python3.13 -m venv ~/faceless-work/venvs/qwen3tts
+  ~/faceless-work/venvs/qwen3tts/bin/pip install ~/faceless-work/src/Qwen3-TTS   # transformers 4.57.3, torch 2.15
+  cd ~/faceless-work/models
+  ~/faceless-work/venvs/qwen3tts/bin/hf download Qwen/Qwen3-TTS-12Hz-1.7B-Base --revision fd4b254389122332181a7c3db7f27e918eec64e3 --local-dir Qwen3-TTS-12Hz-1.7B-Base
+  ~/faceless-work/venvs/qwen3tts/bin/hf download Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign --revision 5ecdb67327fd37bb2e042aab12ff7391903235d3 --local-dir Qwen3-TTS-12Hz-1.7B-VoiceDesign
+  ```
+  Each model is 4.5 GB, and peak memory is about 5.8 GB. Paths come from `config.QWEN3`, or from the
+  `QWEN3_TTS_PYTHON` and `QWEN3_TTS_MODELS` environment variables.
+
+### Hosted engine: `qwen_api` (designed for, not wired)
+
+`tts: qwen_api` is the slot for Alibaba Cloud Model Studio (DashScope) TTS, e.g. the Qwen-Audio TTS Plus model that
+leads the Artificial Analysis arena (about $19 per 1M characters, roughly 2–3 cents per Short). It already plugs into
+the same `render_many()` interface as `qwen3`. Today it stops with a clear message, because there is no key and
+spending is the owner's decision. To finish it:
+
+- **Key:** `DASHSCOPE_API_KEY` in the environment, or in `~/studio/.env` on the Spark (the engine already reads both).
+- **Endpoint:** `POST https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation`
+  (Singapore; Beijing is `dashscope.aliyuncs.com`), `Authorization: Bearer <key>`. Body:
+  `{"model": <model id>, "input": {"text", "voice", "language_type": "English", "instructions"}}`. The reply carries
+  a URL to the audio. The documented SDK call is `dashscope.MultiModalConversation.call`.
+- **Style and emphasis:** on the instruct models (`qwen3-tts-instruct-flash` in the docs), `instructions` takes the
+  same text as `emphasis.instruct_for(marks, description)`. Send the capitalised text from `plan_texts()` either way.
+  Requests are limited to about 600 characters, so send one paragraph chunk per request.
+- **Voice:** the API has its own preset voices (e.g. "Cherry", "Ethan"). Ours can only be used if the API offers
+  voice design from a text description; never upload anyone else's audio.
+- **Word timings:** the API returns none, so align the downloaded audio with `qwen3_worker.align()` (the same MMS_FA
+  forced alignment, run in the qwen3 venv), or let the faster-whisper fallback handle it.
+- Check the exact model id and parameter names against the current Model Studio reference before wiring it. These
+  were taken from the docs page and are not yet tested. Once a key exists, the engine joins the voice A/B.
+
 ## Audio profiles (`config.PROFILES`, opt-in per episode)
 
 A profile overlays a niche's settings when the script's front matter says `audio_profile: <name>`, or when make is run

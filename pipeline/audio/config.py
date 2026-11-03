@@ -147,3 +147,35 @@ SFX_DB = {
 TARGET_LUFS = -14.0
 TRUE_PEAK_DB = -1.0     # ceiling for the final mix (dBTP)
 SR = 48000
+
+# Qwen3-TTS backend (pipeline/audio/qwen3_tts.py; research/music/VOICE_CADENCE.md). Opt-in per episode with
+# `tts: qwen3` in the script's front matter (or --engine qwen3); Kokoro stays the default. It runs in its own venv on
+# the Mac (MPS) or a CPU, never a CUDA GPU. Override the paths with QWEN3_TTS_PYTHON / QWEN3_TTS_MODELS.
+QWEN3 = {
+    "python": "~/faceless-work/venvs/qwen3tts/bin/python",
+    "models": "~/faceless-work/models",              # official Qwen HF repos, downloaded with `hf download`
+    "base_model": "Qwen3-TTS-12Hz-1.7B-Base",         # rev fd4b254: reads a voice from one of our designed clips
+    "design_model": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",  # rev 5ecdb67: used once per voice to design it
+    "dtype": "bf16",
+    "default_voice": "ember",  # when a script says `tts: qwen3` without qwen3_voice (blind judge #1, 2026-11-02)
+}
+# Our original narrator voices. Each was designed from the text description alone (VoiceDesign, the given seed, plus
+# the delivery instruction named in design_instruct: emphasis.instruct_for(short or long)); the designed clip in pipeline/audio/voices/ is then
+# the Base model's voice prompt, so the voice is the same in every chunk. Never point ref_audio at a real person.
+_REF_SHORT = ("Okay, this sounds made up, but it really happened. A baker in a tiny mountain town hid one gold coin "
+              "inside a single loaf every morning, and the whole town lined up before sunrise to find it.")
+_REF_LONG = _REF_SHORT + " Nobody ever did. He was baking it into his own bread."
+QWEN3_VOICES = {
+    "nova": {"description": "Energetic, warm young male storyteller in his mid twenties, bright clear tenor, a smile in "
+                            "the voice, playful and a little mischievous, crisp consonants, lively and expressive.",
+             "design_seed": 5, "design_instruct": "short", "ref_audio": "voices/nova_ref.flac", "ref_text": _REF_SHORT, "seed": 11},
+    "spark": {"description": "Upbeat, friendly male narrator around thirty, light bright voice with a slightly raspy "
+                             "edge, fast and punchy, sounds like he is telling a friend an unbelievable true story.",
+              "design_seed": 8, "design_instruct": "long", "ref_audio": "voices/spark_ref.flac", "ref_text": _REF_LONG, "seed": 11},
+    "ember": {"description": "Confident, warm male storyteller with a clear, resonant mid-range voice, animated and "
+                             "conversational, builds suspense and lands every twist with relish.",
+              "design_seed": 5, "design_instruct": "long", "ref_audio": "voices/ember_ref.flac", "ref_text": _REF_LONG, "seed": 11},
+    "iris": {"description": "Energetic young female storyteller, bright, clear and warm, quick-witted and playful, very "
+                            "expressive with big rises and falls, sounds like she can't wait to tell you what happened.",
+             "design_seed": 5, "design_instruct": "long", "ref_audio": "voices/iris_ref.flac", "ref_text": _REF_LONG, "seed": 11},
+}
