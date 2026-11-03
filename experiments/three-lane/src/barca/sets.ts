@@ -51,10 +51,10 @@ export const CAMP = { lord: [-14, 0, 46] as [number, number, number] };
 export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean } = {}): SetBuild {
   const root = new THREE.Group(), glows: THREE.Object3D[] = [];
   const r = rng(17);
-  const stone = lambert({ map: stoneCourses([6, 2], { hue: 34, light: 62, seed: 3 }) });
+  const stone = lambert({ map: stoneCourses([6, 2], { hue: 34, light: 54, seed: 3 }) });
   const stoneDark = lambert({ map: stoneCourses([2, 2], { hue: 30, light: 50, seed: 5 }) });
   // ground: the plain (sun-baked earth) and the packed dirt inside
-  plane(root, lambert({ map: dirtTex([60, 60], 4, "#d2ad74") }), 600, 600, 0, 0, 0, -Math.PI / 2);
+  plane(root, lambert({ map: dirtTex([60, 60], 4, "#bf9560") }), 600, 600, 0, 0, 0, -Math.PI / 2);
   // the wall, in segments round the gate (opening 3.4 m wide, 4.6 m high)
   const segs: [number, number][] = [[-40, WALL.gateX - 1.7], [WALL.gateX + 1.7, 44]];
   for (const [a, b] of segs) box(root, stone, b - a, WALL.h, WALL.z1 - WALL.z0, (a + b) / 2, WALL.h / 2, 0);
@@ -69,8 +69,8 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   box(root, stoneDark, 5.5, 11, 5.5, WALL.towerX, 5.5, 0);
   for (let i = 0; i < 4; i++) for (const [dx, dz] of [[-2.2, 0], [2.2, 0], [0, -2.2], [0, 2.2]]) box(root, stoneDark, dx ? 0.5 : 1.0, 1.0, dz ? 0.5 : 1.0, WALL.towerX + dx + (dz ? (i - 1.5) * 1.2 : 0), 11.5, dz + (dx ? (i - 1.5) * 1.2 : 0));
   // inside: the dirt strip, then the street (paving) and a row of houses with flat roofs, doors and windows
-  plane(root, lambert({ map: dirtTex([10, 2], 8) }), 84, 4, 2, 0.01, -3.5, -Math.PI / 2);
-  plane(root, lambert({ map: stoneCourses([20, 2], { hue: 30, light: 70, seed: 9 }) }), 84, 5, 2, 0.012, -8, -Math.PI / 2);
+  plane(root, lambert({ map: dirtTex([10, 2], 8, "#b88c58") }), 84, 4, 2, 0.01, -3.5, -Math.PI / 2);
+  plane(root, lambert({ map: stoneCourses([20, 2], { hue: 30, light: 60, seed: 9 }) }), 84, 5, 2, 0.012, -8, -Math.PI / 2);
   const walls = ["#e7d3ad", "#dcc29a", "#efdcb8", "#d8b98d"];
   for (let x = -36; x < 40; x += 6.5) {
     const h = 4.5 + r() * 2.5, w = 5.6 + r() * 0.6;
