@@ -28,7 +28,7 @@ RULES:
 - Keep the Mac's free disk above 15 GB. Before a render, keep at least 5 GB of RAM available, or 4 GB for a single-process render (CONC=1); the owner's browsers use the rest. Stop a render below 3.5 GB available, and if the limits can't be met, say so.
 - Keep FEEDBACK.md general; put dated notes in docs/FEEDBACK_LOG.md.
 - Commit each working step to main with a clear message.
-- If usage runs low, stop starting new agents and write status; resume after usage resets (check usage, not the clock).
+- Pace usage to the weekly limit (check it with the usage tool before starting agents): aim for about (100% - used) / days-to-reset per day. When over pace, run one agent at a time, cap panels at one round, review only the spans that changed, and stop starting new agents below 10% left. Scheduled posts and metric pulls are cheap, so keep those going.
 
 EACH ITERATION: pick the next unfinished step, do it, verify by looking at the frames yourself, then append 3-5 lines to docs/OVERNIGHT_LOG.md (what changed, what still looks wrong, file paths). Send finished videos and comparison sheets with SendUserFile so they reach the owner's phone. Keep going while there is useful work; if nothing useful is left, and write a short summary at the top of docs/OVERNIGHT_LOG.md.
 ```
