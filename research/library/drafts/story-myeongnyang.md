@@ -3,7 +3,7 @@ id: story-myeongnyang
 lane: story (RicksClips3000 parity)
 status: v2 draft from the script track (research/library/STORY_TOPIC_QUEUE.md rank 2); proposal only, episodes/story-myeongnyang is not touched
 title: The Korean Strait That Changed Sides
-target_runtime_s: 62-64 at 3.7-3.8 words/s (236 words)
+target_runtime_s: 63-65 at 3.7-3.8 words/s (239 words)
 facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, Kim 2015)
 ---
 
@@ -14,6 +14,9 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 > words" counts our English paraphrase, not what he wrote. Before voicing, change it to something true that keeps the
 > hook's shape, e.g. "wrote back one line" or "answered with a single sentence", and re-run the hook ranking only if
 > the meaning changes.
+>
+> **Resolved (script track, 2026-11-02):** the hook now reads "answered with one line". The meaning is unchanged, so it
+> was not re-ranked. Line 4 says "Yi answers", not "writes back".
 
 
 ## What changed from v1, and why
@@ -23,6 +26,8 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
   - v2's hook ranked 3.7 of 19, between the Jar and Storm Oil (details below and in HOOK_BANK.md section 5).
   - It names an act one character does: Yi writing back.
   - It withholds what he said, which line 4 pays off.
+  - **Accuracy fix (2026-11-02):** "wrote back four words" is now "answered with one line". His reply was a longer
+    letter, and the famous line comes from it. This wording change was not re-ranked.
 - **First 20 s:** rebuilt on the Jar's line-by-line architecture (hook, doubt, "You see" bridge, the ruler's word
   answered, the powerful side's "but", the odd choice).
 - **Cold-reader fixes:**
@@ -31,6 +36,10 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
   - "Historians think" now attaches to the tide's timing only.
   - The outcome is spelled out (the jam in front of his cannons, 31 lost, the rest turn back).
   - The last line credits both the plan (the strait) and the luck (the sea).
+- **Ending (COMEDY_ENDINGS.md P1 + P2):**
+  - comeuppance callback on the doubting captains ("Suddenly, his captains can't wait to follow him");
+  - then the ironic one-liner that closes the hook's "one line" ("...but he had one line and a sea that switched sides").
+  - The last ~10 s, from "Korean records count", run 40 words; the captains' line is invented and plainly a joke.
 - **Removed:**
   - "four times a day" (now "every few hours", keeping the numbers at 5 tokens);
   - the "roaring stops" line that confused two readers.
@@ -38,13 +47,13 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 ## Narration
 
 ```narration
-[sfx: brush] Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three.
+[sfx: brush] Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.
 
 [sfx: knock] His captains thought he was mad.
 
 [sfx: whoosh] You see, Japan's invasion fleet has just wiped out Korea's navy. Yi's ships are all that's left.
 
-[sfx: knock] So when the king tells him to give up the navy, Yi writes back: "I still have ships."
+[sfx: knock] So when the king tells him to give up the navy, Yi answers: "I still have ships."
 
 [sfx: whoosh_long] But the Japanese fleet fills the horizon.
 
@@ -62,21 +71,23 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 
 [sfx: tick] Historians who rebuilt that day's tides think the tide turned mid-battle.
 
-[sfx: whoosh_long] Now the water runs back out to sea. The front Japanese ships get shoved back into their own ships, and the tangle is stuck in front of Yi's cannons.
+[sfx: whoosh_long] Now the water runs back out. The front Japanese ships get shoved back into their own ships, and the tangle is stuck in front of Yi's cannons.
 
 [sfx: impact] Korean records count thirty-one Japanese ships lost, and none of Yi's. The rest turn back.
 
-[sfx: stinger] The king thought Yi had nothing left. Yi had a narrow strait, and that day the sea switched sides.
+[sfx: knock] Suddenly, his captains can't wait to follow him.
+
+[sfx: stinger] The king thought Yi had nothing left, but he had one line and a sea that switched sides.
 ```
 
 ## Frame 0 and the opening (for the integrator)
 
 - **0.0-2.0 s (the hook's act):** Yi close, by lamplight on his ship, brushing his reply onto paper (the key prop),
-  on "Told to give up the navy, Admiral Yi wrote back four words".
+  on "Told to give up the navy, Admiral Yi answered with one line".
 - **2.0-4.0 s (context):** pull out or cut to his thirteen ships facing the 133, on "and sailed thirteen ships at a
   hundred and thirty-three". The planned 13-vs-133 image belongs here, not at frame 0 (LANE_PRINCIPLES S-hook:
   Barca's context-first opening scored 0/8 on the hook panel).
-- **12 s:** "I still have ships": the letter seen from the king's side (pays off "four words").
+- **12 s:** "I still have ships": the letter seen from the king's side (pays off "one line").
 - Keep the 13 and 133 numbers on screen as tags. Readers lose them by ear, and 31 later collides with 13.
 
 ## Facts and hedges
@@ -99,8 +110,10 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 ## Scores
 
 - **script_judge** (estimated timing, rubric by this track):
-  - **97.0**; measured checks only: 98.8 (`story-myeongnyang.judge.md`).
-  - Lost points: 1 joke, where the spec wants 2; mechanism 58 words, where the target is 28-55.
+  - **98.5** with the comedy ending; measured checks only: 98.0 (`story-myeongnyang.judge.md`).
+  - Lost points: 6 number tokens, where the spec allows 5 ("one line" is counted twice); a mechanism slightly over
+    range; a hook 0.2 s long.
+  - 240 words: 65.6 s at the reference pace of 3.67 w/s, 64 s at 3.75. Trim a word or two if the voice runs slow.
 - **Hook, blind ranking:** mean rank 3.7 of 19 (3 judges: 5, 3, 3), mean score 7.3/10. v1's hook: 14.0, 5.7/10
   (`research/library/cold_reads/myeongnyang_hook_ranking.json`).
 - **Cold reader**, one fresh reader per round, narration only (`research/library/cold_reads/`).
@@ -113,11 +126,12 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 | 3 | + tide named | all | 1 | 8 | 2 | 35 | "shoved backwards ... right under Yi's cannons" read as moving away |
 | 4 | + jam rewrite | all | 1 | 8 | 2 | 40 | one 33-word paragraph; plan vs luck again |
 | 5 | v2 minus final edits | all | 2 | 6 | 1 | 38 | the "plan was only the strait" line; picturing the jam |
-| - | **v2 (this file)** | not re-read | - | - | - | - | the round-5 lost lines rewritten; needs one fresh reader |
+| 6 | **v2 (this file)**, with the comedy ending and "one line" | all | **0** | 5 | **0** | 69 | **PASS** (one reader; confidence 4/5; ending 3/5 funny; took no joke as fact) |
 
-**Result: not yet a pass.**
+**Result: round 6 passed. That is one reader; confirm with 3 before voicing.**
 - Every reader retold every beat (who, what, why, twist), and every reader rated the hook 4/5.
-- No round reached "no lost line and no blocking jump".
+- Rounds 0-5 never reached "no lost line and no blocking jump". Round 6 did: 0 lost, 0 blocking, 5 slowed; report in
+  `research/library/cold_reads/story-myeongnyang-v2b.cold_report.md`.
 - Each fix removed the flagged problem, but the next fresh reader found a different one.
 - Friction stayed in a 35-47 band with no trend. One picky reader per round can't separate versions that close, so
   the pass rule should use 3 readers and a majority.

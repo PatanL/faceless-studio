@@ -63,7 +63,7 @@ H1 and H2 are the same family: the top tier's H1 lines usually carry a second ha
   cutting gaps into new track.
   - Ours: "A shogun paid his carpenters to build a floor that squeaks."
   - Ours: "Every morning the smith pressed his ear to a shield lying in the dirt."
-  - Ours: "Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three." (won the blind test below)
+  - Ours: "Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three." (won the blind test below as "wrote back four words"; reworded for accuracy)
 - **H2 Odd act + warning.** Refs: a ball set in a dragon's mouth, with "if it falls, run"; oil poured out while the
   pirates close in.
   - Ours: "He tied a bell to the city gate and told the guards that if it ever rang on a still night, they should flee."
@@ -150,6 +150,8 @@ Every line leaves one question, and the next line answers the previous one while
 | **14.0** | Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three. | **our v1** |
 | 19.0 | the moving-hair premise (paraphrase) | Zack D., 20.5M |
 
+- **Accuracy fix after the ranking:** "wrote back four words" became "answered with one line" (his reply was a longer
+  letter). The changed wording was not re-ranked.
 - **Why it won (judges' notes):** a withheld detail ("four words") on top of the odds. Like the Jar's warning, it
   is something the protagonist said that the viewer wants to hear.
 - **What separated the rest:** the fleet-count-only hooks ranked 11-17; those that end on an act or a slight ranked
@@ -159,10 +161,10 @@ Every line leaves one question, and the next line answers the previous one while
 
 | s | Jar job | Myeongnyang v2 line |
 |---|---|---|
-| 0.0 | Hook: odd act + something said to the ruler | Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three. |
+| 0.0 | Hook: odd act + something said to the ruler | Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three. |
 | 5.7 | Doubt (6 words) | His captains thought he was mad. |
 | 7.4 | "You see" bridge (11 %) | You see, Japan's invasion fleet has just wiped out Korea's navy. Yi's ships are all that's left. |
-| 12.0 | The ruler's word, answered (the open question closed) | So when the king tells him to give up the navy, Yi writes back: "I still have ships." |
+| 12.0 | The ruler's word, answered (the open question closed) | So when the king tells him to give up the navy, Yi answers: "I still have ships." |
 | 16.9 | The powerful side's "but" | But the Japanese fleet fills the horizon. |
 | 18.8 | E1: the odd choice | So Yi picks his spot: a strait so narrow the huge fleet has to squeeze through it. |
 

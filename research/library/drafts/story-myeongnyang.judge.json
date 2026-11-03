@@ -1,13 +1,13 @@
 {
  "name": "research/library/drafts/story-myeongnyang.md",
- "score": 97.0,
+ "score": 98.5,
  "of": 92,
  "checks": [
   {
    "check": "runtime_s",
-   "value": 64.56,
-   "score": 1.0,
-   "points": 5.0,
+   "value": 65.65,
+   "score": 0.98,
+   "points": 4.92,
    "of": 5,
    "target": "55-65.5",
    "why": "top 8: 39-65 s, median 62; the two shortest refs (31, 35 s) are the two lowest",
@@ -15,7 +15,7 @@
   },
   {
    "check": "words",
-   "value": 236,
+   "value": 240,
    "score": 1.0,
    "points": 3.0,
    "of": 3,
@@ -55,7 +55,7 @@
   },
   {
    "check": "setup_end_pct",
-   "value": 18.6,
+   "value": 18.3,
    "score": 1.0,
    "points": 6.0,
    "of": 6,
@@ -75,7 +75,7 @@
   },
   {
    "check": "pivot_pct",
-   "value": 60.8,
+   "value": 59.3,
    "score": 1.0,
    "points": 8.0,
    "of": 8,
@@ -86,8 +86,8 @@
   {
    "check": "you_see",
    "value": [
-    11.4,
-    60.8
+    11.2,
+    59.4
    ],
    "score": 1.0,
    "points": 3.0,
@@ -98,17 +98,17 @@
   },
   {
    "check": "mech_words",
-   "value": 58,
-   "score": 0.91,
-   "points": 4.57,
+   "value": 56,
+   "score": 0.97,
+   "points": 4.86,
    "of": 5,
    "target": "28-55",
    "why": "mechanism: top 32-49 words, 9-15 s, 15-32 % of the words",
-   "note": "15.8 s, 0.25 of the words"
+   "note": "15.26 s, 0.23 of the words"
   },
   {
    "check": "last_line",
-   "value": "Yi had a narrow strait, and that day the sea switched sides.",
+   "value": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
    "score": 1.0,
    "points": 5.0,
    "of": 5,
@@ -118,13 +118,13 @@
   },
   {
    "check": "numbers",
-   "value": 5,
-   "score": 1.0,
-   "points": 4.0,
+   "value": 6,
+   "score": 0.8,
+   "points": 3.2,
    "of": 4,
    "target": "1-5",
    "why": "number tokens: top 1-5 (median 3), rest median 5.5 (up to 15)",
-   "note": "four, thirteen, hundred, thirty-three, thirty-one"
+   "note": "one, thirteen, hundred, thirty-three, thirty-one, one"
   },
   {
    "check": "dialogue",
@@ -141,7 +141,7 @@
    "value": {
     "median": 11,
     "max": 21,
-    "share_le6": 0.19,
+    "share_le6": 0.24,
     "share_ge20": 0.14
    },
    "score": 1.0,
@@ -163,13 +163,13 @@
   },
   {
    "check": "jokes",
-   "value": 1.0,
-   "score": 0.5,
-   "points": 2.0,
+   "value": 2.0,
+   "score": 1.0,
+   "points": 4.0,
    "of": 4,
    "target": "2-6",
    "why": "jokes: top median 2 (1-4), >= 2 in 6/8 top vs 6/16 rest",
-   "note": "'His captains hang back, happy to let the admiral go first' (the 'His captains thought he was mad' line is doubt, not a joke). v1 had 2; the second went in the length trim"
+   "note": "'His captains hang back, happy to let the admiral go first' and the callback 'Suddenly, his captains can't wait to follow him' (the cold reader named the second as the joke and took neither as fact)"
   },
   {
    "check": "reversal",
@@ -225,19 +225,19 @@
  "metrics": {
   "timing": "estimated at 3.67 words/s",
   "timing_coverage": null,
-  "duration_s": 64.56,
-  "n_words": 236,
+  "duration_s": 65.65,
+  "n_words": 240,
   "n_sentences": 21,
   "wps": 3.67,
   "sentence_words": {
    "median": 11,
    "max": 21,
-   "share_le6": 0.19,
+   "share_le6": 0.24,
    "share_ge20": 0.14
   },
   "pauses": null,
   "hook": {
-   "text": "Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three.",
+   "text": "Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.",
    "words": 21,
    "sentences": 1,
    "dur": 5.72
@@ -249,84 +249,85 @@
    "dur": 6.27,
    "words": 23,
    "wps": 3.67,
-   "pct_start": 8.9
+   "pct_start": 8.7
   },
   "esc": [
    {
     "sentences": "5-6",
     "start": 11.99,
-    "end": 18.8,
-    "dur": 6.81,
-    "words": 25,
+    "end": 18.53,
+    "dur": 6.54,
+    "words": 24,
     "wps": 3.67,
-    "pct_start": 18.6
+    "pct_start": 18.3
    },
    {
     "sentences": "7-8",
-    "start": 18.8,
-    "end": 26.7,
+    "start": 18.53,
+    "end": 26.43,
     "dur": 7.9,
     "words": 29,
     "wps": 3.67,
-    "pct_start": 29.1
+    "pct_start": 28.2
    },
    {
     "sentences": "9-10",
-    "start": 26.7,
-    "end": 30.52,
+    "start": 26.43,
+    "end": 30.25,
     "dur": 3.82,
     "words": 14,
     "wps": 3.66,
-    "pct_start": 41.4
+    "pct_start": 40.3
    },
    {
     "sentences": "11-12",
-    "start": 30.52,
-    "end": 39.24,
-    "dur": 8.72,
+    "start": 30.25,
+    "end": 38.96,
+    "dur": 8.71,
     "words": 32,
     "wps": 3.67,
-    "pct_start": 47.3
+    "pct_start": 46.1
    }
   ],
   "pivot": {
    "i": 13,
-   "pct": 60.8,
+   "pct": 59.3,
    "text": "You see, that rushing water is the tide."
   },
   "mechanism": {
    "sentences": "13-17",
-   "start": 39.24,
-   "end": 55.04,
-   "dur": 15.8,
-   "words": 58,
+   "start": 38.96,
+   "end": 54.22,
+   "dur": 15.26,
+   "words": 56,
    "wps": 3.67,
-   "pct_start": 60.8
+   "pct_start": 59.3
   },
   "last": {
    "i": 21,
-   "text": "Yi had a narrow strait, and that day the sea switched sides.",
-   "words": 12,
+   "text": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
+   "words": 18,
    "tail_s": 0.25,
    "wps": 3.67
   },
   "you_see_pct": [
-   11.4,
-   60.8
+   11.2,
+   59.4
   ],
   "numbers": [
-   "four",
+   "one",
    "thirteen",
    "hundred",
    "thirty-three",
-   "thirty-one"
+   "thirty-one",
+   "one"
   ],
   "dialogue": [
    5,
    7
   ],
   "you_per_100w": 0.8,
-  "setup_end_pct": 18.6
+  "setup_end_pct": 18.3
  },
  "beats": {
   "hook": [
@@ -368,7 +369,7 @@
  "sentences": [
   {
    "i": 1,
-   "text": "Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three.",
+   "text": "Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.",
    "words": 21,
    "start": 0.0,
    "end": 5.72
@@ -396,122 +397,122 @@
   },
   {
    "i": 5,
-   "text": "So when the king tells him to give up the navy, Yi writes back: \"I still have ships.\"",
-   "words": 18,
+   "text": "So when the king tells him to give up the navy, Yi answers: \"I still have ships.\"",
+   "words": 17,
    "start": 11.99,
-   "end": 16.89
+   "end": 16.62
   },
   {
    "i": 6,
    "text": "But the Japanese fleet fills the horizon.",
    "words": 7,
-   "start": 16.89,
-   "end": 18.8
+   "start": 16.62,
+   "end": 18.53
   },
   {
    "i": 7,
    "text": "So Yi picks his spot: a strait so narrow the huge fleet has to squeeze through it.",
    "words": 17,
-   "start": 18.8,
-   "end": 23.43
+   "start": 18.53,
+   "end": 23.16
   },
   {
    "i": 8,
    "text": "Locals call it the crying strait, for the sound of its water.",
    "words": 12,
-   "start": 23.43,
-   "end": 26.7
+   "start": 23.16,
+   "end": 26.43
   },
   {
    "i": 9,
    "text": "The Japanese pour in, carried by that rushing water.",
    "words": 9,
-   "start": 26.7,
-   "end": 29.16
+   "start": 26.43,
+   "end": 28.88
   },
   {
    "i": 10,
    "text": "Ship after ship after ship.",
    "words": 5,
-   "start": 29.16,
-   "end": 30.52
+   "start": 28.88,
+   "end": 30.25
   },
   {
    "i": 11,
    "text": "His captains hang back, happy to let the admiral go first.",
    "words": 11,
-   "start": 30.52,
-   "end": 33.51
+   "start": 30.25,
+   "end": 33.24
   },
   {
    "i": 12,
    "text": "The strait is so tight only a few Japanese ships can reach Yi at once, and his cannons hold them off.",
    "words": 21,
-   "start": 33.51,
-   "end": 39.24
+   "start": 33.24,
+   "end": 38.96
   },
   {
    "i": 13,
    "text": "You see, that rushing water is the tide.",
    "words": 8,
-   "start": 39.24,
-   "end": 41.42
+   "start": 38.96,
+   "end": 41.14
   },
   {
    "i": 14,
    "text": "Every few hours, it stops and runs the other way.",
    "words": 10,
-   "start": 41.42,
-   "end": 44.14
+   "start": 41.14,
+   "end": 43.87
   },
   {
    "i": 15,
    "text": "Historians who rebuilt that day's tides think the tide turned mid-battle.",
    "words": 11,
-   "start": 44.14,
-   "end": 47.14
+   "start": 43.87,
+   "end": 46.87
   },
   {
    "i": 16,
-   "text": "Now the water runs back out to sea.",
-   "words": 8,
-   "start": 47.14,
-   "end": 49.32
+   "text": "Now the water runs back out.",
+   "words": 6,
+   "start": 46.87,
+   "end": 48.5
   },
   {
    "i": 17,
    "text": "The front Japanese ships get shoved back into their own ships, and the tangle is stuck in front of Yi's cannons.",
    "words": 21,
-   "start": 49.32,
-   "end": 55.04
+   "start": 48.5,
+   "end": 54.22
   },
   {
    "i": 18,
    "text": "Korean records count thirty-one Japanese ships lost, and none of Yi's.",
    "words": 11,
-   "start": 55.04,
-   "end": 58.04
+   "start": 54.22,
+   "end": 57.22
   },
   {
    "i": 19,
    "text": "The rest turn back.",
    "words": 4,
-   "start": 58.04,
-   "end": 59.13
+   "start": 57.22,
+   "end": 58.31
   },
   {
    "i": 20,
-   "text": "The king thought Yi had nothing left.",
-   "words": 7,
-   "start": 59.13,
-   "end": 61.04
+   "text": "Suddenly, his captains can't wait to follow him.",
+   "words": 8,
+   "start": 58.31,
+   "end": 60.49
   },
   {
    "i": 21,
-   "text": "Yi had a narrow strait, and that day the sea switched sides.",
-   "words": 12,
-   "start": 61.04,
-   "end": 64.31
+   "text": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
+   "words": 18,
+   "start": 60.49,
+   "end": 65.4
   }
  ]
 }
