@@ -1,63 +1,25 @@
 {
  "verdict": "PASS",
- "mp4": "out/story-myeongnyang/story-myeongnyang_v3b.mp4",
- "phone_mp4": "out/story-myeongnyang/story-myeongnyang_v3b_phone.mp4",
- "round": "v3b re-review of the v3 must-fixes (every frame of each changed span plus 1 s either side, at 30 fps)",
- "sheets_viewed": 16,
+ "mp4": "out/story-myeongnyang/story-myeongnyang_v3c.mp4",
+ "phone_mp4": "out/story-myeongnyang/story-myeongnyang_v3c_phone.mp4",
+ "round": "v3c owner fix: the enemy admiral floated in the air at 0:38 (spit shot); every frame of the changed span plus 1-2 s either side reviewed at 30 fps",
+ "sheets_viewed": 3,
  "sheets": [
-  "out/story-myeongnyang/qa/f30/12_0m24s0.jpg",
-  "out/story-myeongnyang/qa/f30/13_0m26s0.jpg",
+  "out/story-myeongnyang/qa/f30/17_0m34s0.jpg",
   "out/story-myeongnyang/qa/f30/18_0m36s0.jpg",
-  "out/story-myeongnyang/qa/f30/19_0m38s0.jpg",
-  "out/story-myeongnyang/qa/f30/20_0m40s0.jpg",
-  "out/story-myeongnyang/qa/f30/21_0m42s0.jpg",
-  "out/story-myeongnyang/qa/f30/22_0m44s0.jpg",
-  "out/story-myeongnyang/qa/f30/23_0m46s0.jpg",
-  "out/story-myeongnyang/qa/f30/24_0m48s0.jpg",
-  "out/story-myeongnyang/qa/f30/25_0m50s0.jpg",
-  "out/story-myeongnyang/qa/f30/26_0m52s0.jpg",
-  "out/story-myeongnyang/qa/f30/27_0m54s0.jpg",
-  "out/story-myeongnyang/qa/f30/28_0m56s0.jpg",
-  "out/story-myeongnyang/qa/f30/29_0m58s0.jpg",
-  "out/story-myeongnyang/qa/f30/31_1m02s0.jpg",
-  "out/story-myeongnyang/qa/f30/32_1m04s0.jpg"
+  "out/story-myeongnyang/qa/f30/19_0m38s0.jpg"
  ],
  "frames30_flags": {
   "flash": 0,
   "jump": 1,
   "frozen": 0,
-  "note": "the one jump is the intended hard cut at 35.7 s F1071 (unchanged); the two v3 flash flags in the explainer (40.23, 41.1) are gone"
+  "note": "the one jump is the intended hard cut into the spit shot at 35.7 s F1071 (unchanged from v3b)"
  },
  "changes": [
   {
-   "t": "38.45-48.02",
-   "fix": "must_fix 1. Cause: depth precision. The streak and whirlpool planes sat 5-7 cm above the water; from the explainer camera (about 200 m up, near plane 0.05) that is under one depth step, so they z-fought the water and dropped out on single frames (same at 45.2 in the shove wide). sets.ts: polygon offset (factor -2, units -8) on the streak and pool materials in every strait set, and the explainer set lifts them 0.5 m (no ships there).",
-   "result": "F1150-F1439 viewed: streaks and pools present on every frame, no A-B-A dips; frames30 flash count 2 -> 0"
-  },
-  {
-   "t": "43.56-44.5",
-   "fix": "extra: on 'it stops' the water speed eases from -9 m/s to slack at 'turns' (phase is the integral of the speed) and the streaks thin to 20 %, then ease back up the other way over 0.5 s",
-   "result": "F1305-F1335: streaks thin and hold, then return with the arrows turned"
-  },
-  {
-   "t": "54.09-57.74",
-   "fix": "must_fix 2. The two burning wrecks are enemy atake (tan hull, white crest sail; was a panokseon); wreckRig takes a ship maker. Camera now high and side-on (pos 20,45,30 -> 23,43,28, look 100,8,-20, nearly locked) and the fleet drifts stern-first at 9 m/s (was 5 m/s with the camera following it).",
-   "result": "F1620-F1739: no red hull or tan batten sail anywhere; the whole enemy fleet slides steadily up and right across the frame through the shot; the burning wrecks sit in the foreground"
-  },
-  {
-   "t": "62.94-65.93",
-   "fix": "must_fix 3. Camera locked on him (no pan); the cork enters at the right and crosses to the left at 1.4 m/s, passing under him on 'past'; the streaks run the same way (the drop shot at 11.3-13.8 reads left to right).",
-   "result": "F1890-F1978: cork right (63.1) -> under him (64.3) -> left edge (65.9), clearly right to left"
-  },
-  {
-   "t": "25.11-26.09",
-   "fix": "must_fix 4. The HIM tag now pops in on 'well' (25.11) instead of 2 frames before the whip.",
-   "result": "F756-F777: sharp and readable for 0.73 s before the whip blur starts at F778"
-  },
-  {
-   "t": "50.73-54.09",
-   "fix": "extra: the jam opens wide and side-on on the two hulls (the front ship shoved back into the one behind, impact burst and splinters at the join), then pushes in to the two crewmen on 'and his cannons'. Marked establishing (it opens wide); kit gates clean (edge, cast, smooth 14 px/f^2).",
-   "result": "F1522-F1590: the collision reads; the push-in at 52.6-53.0 is fast and passes close to a banner but is continuous"
+   "t": "35.70-38.45",
+   "fix": "owner must-fix. Cause: the enemy admiral stood at local x 6.4 on the atake, past its deck (deck runs to local x 5.2; the bow block below deck height), so he hung in the air beside our admiral. story3.ts: he now stands on his own deck at local x 3.4, z 1.0 (between the mast and the bow); the enemy flagship comes alongside (JF.z 7.4 -> 6.0, hulls 0.4 m apart, still sliding in 3 m); the camera is reframed from the enemy side (az -20/-10, figures 4-7 m apart across a portrait frame) to over our admiral's shoulder on his own deck (az -94 -> -86, el 15 -> 13, fov 42 -> 38, fit with 0.2 side margins) so the enemy rides up toward the lens.",
+   "result": "F1071-F1153 viewed: the enemy admiral stands on his deck planks on every frame, rides in from the back to the right third and stays there; our admiral at left on his bow, both faces readable (heads 0.10-0.14 and 0.065-0.072 of the frame height by the camera replay), neither cut by an edge; cackle -> angry squeeze on 'spit' reads; whip blur into the explainer from F1149 as before. Kit gates (scripts/framing.ts): clean, cast median head 0.14, 86 % >= 0.07 (v3b 78 %)."
   }
  ],
  "must_fix": [],
@@ -108,35 +70,47 @@
    "what": "The bottom of a cloud peeks in at the top edge."
   },
   {
-   "t": "35.7-38.5",
-   "frame": "1071-1155",
-   "what": "Known: small admirals. Not worse than described."
+   "t": "35.7-38.4",
+   "frame": "1071-1153",
+   "what": "Our admiral stands at the very front of his bow, on the red bow rail line, with the rail block filling the lower left foreground (his position is unchanged from v3b; only the enemy and camera moved). Two thin mast and banner poles stand between the admirals."
   }
  ],
  "previous": {
-  "verdict": "FAIL",
-  "mp4": "out/story-myeongnyang/story-myeongnyang_v3.mp4",
-  "must_fix": [
+  "verdict": "PASS",
+  "mp4": "out/story-myeongnyang/story-myeongnyang_v3b.mp4",
+  "round": "v3b re-review of the v3 must-fixes (every frame of each changed span plus 1 s either side, at 30 fps)",
+  "changes": [
    {
-    "t": "38.6-44.6",
-    "frame": "1158-1338 (e.g. 1161, 1177, 1182, 1206, 1208, 1216, 1229, 1234, 1270, 1293, 1310)",
-    "what": "Explainer map of the channel strobes. The white current streaks and the whirlpool swirls drop out on single frames about 50 times in 6 s, so the water flickers between streaked and plain blue (A-B-A brightness dips of about 20 levels). The detector only flagged 2 of them (40.23, 41.1). Same bug, one instance, at 45.20 F1356."
+    "t": "38.45-48.02",
+    "fix": "must_fix 1. Cause: depth precision. The streak and whirlpool planes sat 5-7 cm above the water; from the explainer camera (about 200 m up, near plane 0.05) that is under one depth step, so they z-fought the water and dropped out on single frames (same at 45.2 in the shove wide). sets.ts: polygon offset (factor -2, units -8) on the streak and pool materials in every strait set, and the explainer set lifts them 0.5 m (no ships there).",
+    "result": "F1150-F1439 viewed: streaks and pools present on every frame, no A-B-A dips; frames30 flash count 2 -> 0"
    },
    {
-    "t": "54.2-57.7",
-    "frame": "1626-1730",
-    "what": "Contradicts the narration. In 'By sunset, the whole enemy fleet is drifting backwards' the centre of the frame is a burning, capsizing ship with a red hull and tan batten sails. That is the design of Yi's ships (compare F740), while every enemy ship has a tan hull and a white crest sail. It reads as one of HIS ships sinking. The fleet also doesn't clearly drift; only the camera moves."
+    "t": "43.56-44.5",
+    "fix": "extra: on 'it stops' the water speed eases from -9 m/s to slack at 'turns' (phase is the integral of the speed) and the streaks thin to 20 %, then ease back up the other way over 0.5 s",
+    "result": "F1305-F1335: streaks thin and hold, then return with the arrows turned"
    },
    {
-    "t": "63.0-65.93",
-    "frame": "1890-1978",
-    "what": "The payoff isn't shown. On 'drifts right back past him, going the other way' the cork drifts left to right along the hull. That is the same screen direction as the drift he watched at 11.3-13.8 s (F360-F410) and the same way as the first current arrows in the explainer. Nothing on screen says 'the other way'."
+    "t": "54.09-57.74",
+    "fix": "must_fix 2. The two burning wrecks are enemy atake (tan hull, white crest sail; was a panokseon); wreckRig takes a ship maker. Camera now high and side-on (pos 20,45,30 -> 23,43,28, look 100,8,-20, nearly locked) and the fleet drifts stern-first at 9 m/s (was 5 m/s with the camera following it).",
+    "result": "F1620-F1739: no red hull or tan batten sail anywhere; the whole enemy fleet slides steadily up and right across the frame through the shot; the burning wrecks sit in the foreground"
    },
    {
-    "t": "25.83-26.10",
-    "frame": "775-783",
-    "what": "A 'HIM' tag fades onto the lead ship's sail on 'him', 2 frames before the zoom-blur transition. It is sharp for only about 0.1 s and then smears away, so it reads as a glitchy flash, not a label."
+    "t": "62.94-65.93",
+    "fix": "must_fix 3. Camera locked on him (no pan); the cork enters at the right and crosses to the left at 1.4 m/s, passing under him on 'past'; the streaks run the same way (the drop shot at 11.3-13.8 reads left to right).",
+    "result": "F1890-F1978: cork right (63.1) -> under him (64.3) -> left edge (65.9), clearly right to left"
+   },
+   {
+    "t": "25.11-26.09",
+    "fix": "must_fix 4. The HIM tag now pops in on 'well' (25.11) instead of 2 frames before the whip.",
+    "result": "F756-F777: sharp and readable for 0.73 s before the whip blur starts at F778"
+   },
+   {
+    "t": "50.73-54.09",
+    "fix": "extra: the jam opens wide and side-on on the two hulls (the front ship shoved back into the one behind, impact burst and splinters at the join), then pushes in to the two crewmen on 'and his cannons'. Marked establishing (it opens wide); kit gates clean (edge, cast, smooth 14 px/f^2).",
+    "result": "F1522-F1590: the collision reads; the push-in at 52.6-53.0 is fast and passes close to a banner but is continuous"
    }
-  ]
+  ],
+  "must_fix": []
  }
 }

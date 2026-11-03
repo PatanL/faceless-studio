@@ -1,12 +1,12 @@
 {
  "v": 1,
  "slug": "story-myeongnyang",
- "at": "2026-11-03T19:24:44Z",
+ "at": "2026-11-03T22:03:21Z",
  "verdict": "PASS",
  "warn_count": 5,
  "fail": [],
- "mp4": "out/story-myeongnyang/story-myeongnyang_v3b.mp4",
- "mp4_sha256": "26406bfc0a3c270c9b54901542b9e981287a92f012419a4a7c4080f6bee86601",
+ "mp4": "out/story-myeongnyang/story-myeongnyang_v3c.mp4",
+ "mp4_sha256": "657c7d808d3db0394a5e91711d6cf7de99ac2a7687f28a333232542ec0a77f21",
  "duration_s": 65.97,
  "niche": "explainer",
  "checks": {
@@ -19,7 +19,7 @@
    "status": "PASS",
    "value": {
     "I_lufs": -14.0,
-    "true_peak_dbtp": -5.3,
+    "true_peak_dbtp": -5.1,
     "LRA_lu": 1.2
    },
    "threshold": "I -14.0 +-1.5 LUFS, true peak <= -0.5 dBTP (WARN > -1.0)"
@@ -153,5 +153,5 @@
   }
  },
  "sheets": {},
- "gate_s": 20.1
+ "gate_s": 20.2
 }

@@ -2,11 +2,11 @@
  "v": 1,
  "slug": "story-myeongnyang",
  "verdict": "PASS",
- "gate_sha": "e1d300fafcac0dd8559aa149d3e98fd47037c9cf5f3a378220668397cf791c5e",
+ "gate_sha": "8d851d3849fd6bdbefff9212ce5619710cc3d0bb059a72b8f4aa01f482f3c926",
  "reviewer": "operator (Claude); not posted (owner decides)",
  "evidence": {
-  "every_frame_review": "v3: 30 fps review of 0-15 s, contact sheets for 15-66 s; v3b (this file): the four prepost must-fixes fixed and every frame of each changed span plus 1 s either side reviewed at 30 fps on 16 f30 sheets (24-28 s, 36-60 s, 62-66 s): explainer streak dropouts gone (frames30 flash 2 -> 0), sunset wrecks are enemy hulls and the fleet drifts backwards on screen, corkback cork crosses right to left, HIM tag sharp 0.73 s; prepost_review.json PASS",
-  "kit_gates": "scripts/framing.ts on v3b: kit gates clean (holds <= 3.98 s, cast median head 0.14, edge clean, jam smooth 14 px/f^2); joins: dissolve 17, match dissolve 1, whip 6, cut 1, travel 0",
+  "every_frame_review": "v3: 30 fps review of 0-15 s, contact sheets for 15-66 s; v3b: the four prepost must-fixes, every changed span at 30 fps on 16 f30 sheets; v3c (this file): owner fix for the enemy admiral floating in the air at 0:38 (spit shot) - he stands on his own deck, his flagship alongside, the shot reframed over our admiral's shoulder; every frame of 34-40 s reviewed at 30 fps on 3 f30 sheets (17-19); frames30 flash 0, jump 1 (the intended cut at 35.7 s), frozen 0; prepost_review.json PASS",
+  "kit_gates": "scripts/framing.ts on v3c: kit gates clean (holds <= 3.98 s, cast median head 0.14, 86 % >= 0.07, edge clean, spit smooth); joins: dissolve 17, match dissolve 1, whip 6, cut 1, travel 0",
   "gate_warnings_accepted": [
    "5-word caption pages",
    "caption bottom at 77% (one line 74.6%)",
@@ -16,11 +16,11 @@
   ],
   "known_nits": [
    "odds shot (7.2-9.2 s): the 10 and 1 labels sit outside the final framing; his one ship shows only at the lower right",
-   "spit shot (35.7-38.5 s): the two admirals are small behind the enemy hull",
    "corkback (62.9-66.1 s): he is small at the top of the frame and the cloud sits behind his head (camera now locked so the cork crosses right to left)",
-   "jam (52.6-53.0 s): fast push from the collision wide to the crew, close past a banner; impact rings cross the crew at 53.2-53.5 s (unchanged)"
+   "jam (52.6-53.0 s): fast push from the collision wide to the crew, close past a banner; impact rings cross the crew at 53.2-53.5 s (unchanged)",
+   "spit shot (35.7-38.5 s): our admiral stands at the very front of his bow on the rail line, the red bow rail fills the lower left; two thin poles between the admirals"
   ]
  },
- "mp4": "out/story-myeongnyang/story-myeongnyang_v3b.mp4",
- "phone_mp4": "out/story-myeongnyang/story-myeongnyang_v3b_phone.mp4"
+ "mp4": "out/story-myeongnyang/story-myeongnyang_v3c.mp4",
+ "phone_mp4": "out/story-myeongnyang/story-myeongnyang_v3c_phone.mp4"
 }
