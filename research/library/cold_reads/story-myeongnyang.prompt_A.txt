@@ -1,0 +1,38 @@
+You are a viewer who has never heard of this story. Below is the narration of a 60-second animated Short, exactly as
+it is spoken, one paragraph per line. You hear it once at normal speed; you cannot pause or look anything up. Don't
+use outside knowledge to fill gaps: if the narration doesn't say it, it's a gap.
+
+NARRATION:
+Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.
+Even his own captains think he has lost his mind.
+Korea's navy has just been wiped out by a Japanese invasion fleet.
+So the king tells Yi to come ashore and fight on land. Yi writes back, "I still have ships."
+Then he anchors them at the mouth of a narrow strait off Jindo island. The locals call it the crying strait, for the roar of its water.
+The Japanese fleet pours in with the current behind it. Ship after ship after ship.
+His captains hang back and politely let the admiral go first. His flagship fights almost alone.
+Then, historians think, the roaring stops.
+You see, the water in that strait runs like a river, and it turns around four times a day.
+The Japanese had ridden the current into a gap so narrow only a few ships could reach him.
+And when it turned, that same current shoved their ships backwards into each other.
+Korean records count thirty-one Japanese ships lost that day, and none of his.
+The king thought Yi had no navy left, but he had a sea that changes sides.
+
+
+
+Answer in JSON only, with these keys:
+
+- `hook`: after hearing only the first line, `{"keep_watching": 1-5, "question_in_my_head": "...", "why": "..."}`.
+- `who`: every character or group and what they want, in your own words.
+- `what_happened`: the events in order, one short sentence each.
+- `why`: the reason the story turns out the way it does (the mechanism), in your own words, as you would explain
+  it to a friend.
+- `twist`: what the ending reveals or flips, in one sentence.
+- `reread_lines`: every line you'd have to hear twice to follow, as `{"line": "<quote>", "why": "..."}`.
+  Include lines where a pronoun is unclear, two numbers collide, a term arrives before it's explained, or a sentence
+  is too long to hold.
+- `unexplained_terms`: words or names a typical 16-year-old wouldn't know and the narration never explains.
+- `logic_jumps`: places where the story skips a step, as `{"between": "<line> -> <line>", "missing": "..."}`.
+- `sounds_wrong`: claims that sound false, contradictory or confusing, with why.
+- `confidence`: 1-5, how sure you are you understood the whole story.
+
+Be picky. A flag costs nothing; a viewer who swipes away costs everything.

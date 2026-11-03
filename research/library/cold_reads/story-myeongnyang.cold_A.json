@@ -1,0 +1,128 @@
+{
+ "reader": "fresh agent (Claude Sonnet, no tools, no context), 2026-11-02, narration of episodes/story-myeongnyang/script.md",
+ "hook": {
+  "keep_watching": 4,
+  "question_in_my_head": "Why would one admiral with 13 ships take on 133, and how does he possibly survive or win?",
+  "why": "Strong David-vs-Goliath setup with a concrete number mismatch and a hint that even his own people think he's crazy. Slight confusion over 'ordered to give up the navy', but it adds intrigue."
+ },
+ "who": {
+  "Admiral Yi": "Korean admiral who wants to keep fighting at sea with his last 13 ships instead of giving up the navy.",
+  "Yi's captains": "Think he is crazy; they are afraid and hang back, leaving him to fight nearly alone.",
+  "The king": "Wants Yi to give up the navy and fight on land; believes Yi has no navy left.",
+  "Japanese invasion fleet": "Wants to destroy Yi and push through the strait with 133 ships.",
+  "Historians / Korean records": "Narrator's sources.",
+  "The locals": "Named the strait 'the crying strait' because of the roar of its water."
+ },
+ "what_happened": [
+  "Korea's navy was wiped out by a Japanese invasion fleet.",
+  "The king ordered Yi to give up the navy and fight on land.",
+  "Yi refused, saying he still had ships.",
+  "Yi anchored his 13 ships at the mouth of a narrow strait off Jindo island.",
+  "The Japanese fleet of 133 ships rushed in with the current behind them.",
+  "Yi's captains hung back, so his flagship fought almost alone.",
+  "The roaring of the water stopped, as the current turned.",
+  "The current reversed and pushed the Japanese ships backwards into each other.",
+  "Thirty-one Japanese ships were lost and none of Yi's."
+ ],
+ "why": "The strait's current flips direction four times a day. The Japanese rode it in and got squeezed into a narrow gap where only a few ships could attack at once. When the tide turned, the same current that carried them in pushed them backward into one another, so Yi's few ships beat a much bigger fleet by using the water.",
+ "twist": "The king thought Yi had no navy, but Yi's real weapon was the sea itself, whose current switches sides.",
+ "reread_lines": [
+  {
+   "line": "Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.",
+   "why": "dense: two big numbers; 'ordered to give up the navy' while he still has ships is contradictory until later; who ordered it?",
+   "level": "slowed"
+  },
+  {
+   "line": "Korea's navy has just been wiped out by a Japanese invasion fleet.",
+   "why": "contradicts 'last thirteen ships' until you realise 13 survived; told out of order",
+   "level": "slowed"
+  },
+  {
+   "line": "His captains hang back and politely let the admiral go first. His flagship fights almost alone.",
+   "why": "'politely' reads sarcastic, tone unclear; cowardice or strategy? 'flagship' unexplained",
+   "level": "slowed"
+  },
+  {
+   "line": "Then, historians think, the roaring stops.",
+   "why": "'the roaring' refers back several lines; unclear why it stops and why historians hedge",
+   "level": "slowed"
+  },
+  {
+   "line": "You see, the water in that strait runs like a river, and it turns around four times a day.",
+   "why": "key mechanism delivered fast; 'turns around' ambiguous; comes after the stopping so you rewind",
+   "level": "slowed"
+  },
+  {
+   "line": "The Japanese had ridden the current into a gap so narrow only a few ships could reach him.",
+   "why": "'him' unclear (Yi or flagship); 'a gap' vague (the strait or Yi's formation?)",
+   "level": "slowed"
+  },
+  {
+   "line": "And when it turned, that same current shoved their ships backwards into each other.",
+   "why": "'it' and 'their' ambiguous without the previous line",
+   "level": "slowed"
+  },
+  {
+   "line": "Korean records count thirty-one Japanese ships lost that day, and none of his.",
+   "why": "another number competing with 13 and 133; 31 vs 13 easy to mix up by ear",
+   "level": "slowed"
+  }
+ ],
+ "unexplained_terms": [
+  "Admiral Yi (who, which side)",
+  "Jindo island",
+  "flagship",
+  "strait",
+  "the current / tide",
+  "'crying strait' (why it matters)",
+  "Japanese invasion (why, when)",
+  "'a sea that changes sides'"
+ ],
+ "logic_jumps": [
+  {
+   "between": "Ordered to give up the navy... -> Korea's navy has just been wiped out",
+   "missing": "why the king wanted it given up; how 13 ships survived",
+   "blocks_understanding": false
+  },
+  {
+   "between": "\"I still have ships.\" -> he anchors them at the mouth of a narrow strait",
+   "missing": "why that strait; no sign Yi knew about the current",
+   "blocks_understanding": true
+  },
+  {
+   "between": "The Japanese fleet pours in -> His captains hang back",
+   "missing": "why the captains hang back; why Yi isn't overrun alone",
+   "blocks_understanding": false
+  },
+  {
+   "between": "His flagship fights almost alone -> the roaring stops",
+   "missing": "the current's role isn't introduced until the next line",
+   "blocks_understanding": false
+  },
+  {
+   "between": "turns around four times a day -> The Japanese had ridden the current into a gap",
+   "missing": "did Yi know it would turn mid-battle, or luck? why didn't the Japanese know?",
+   "blocks_understanding": false
+  },
+  {
+   "between": "shoved their ships backwards into each other -> thirty-one Japanese ships lost",
+   "missing": "how collisions became 31 losses; what happened to the other 102",
+   "blocks_understanding": true
+  },
+  {
+   "between": "none of his -> The king thought Yi had no navy left",
+   "missing": "what happened afterwards",
+   "blocks_understanding": false
+  }
+ ],
+ "sounds_wrong": [
+  "'Ordered to give up the navy' vs 'I still have ships' sounds contradictory at first",
+  "'politely let the admiral go first' sounds sarcastic in a tense battle",
+  "'Historians think' the roaring stops, yet later lines state it as fact",
+  "current stopping vs reversing are conflated",
+  "only 31 of 133 lost sounds modest for an 'impossible' victory",
+  "'a sea that changes sides' may not land for someone who missed the tide line"
+ ],
+ "confidence": 3,
+ "severity_source": "levels and blocking jumps from the same reader's second-pass reply"
+}

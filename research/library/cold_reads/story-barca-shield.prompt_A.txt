@@ -1,0 +1,37 @@
+You are a viewer who has never heard of this story. Below is the narration of a 60-second animated Short, exactly as
+it is spoken, one paragraph per line. You hear it once at normal speed; you cannot pause or look anything up. Don't
+use outside knowledge to fill gaps: if the narration doesn't say it, it's a gap.
+
+NARRATION:
+With an army outside the walls, the city's bronze-smith spent every day laying his shield down in the dirt.
+The guards on the wall think the siege has finally cracked him.
+It's about 2,500 years ago in Barca, in what's now Libya, and a Persian army has the city surrounded.
+For months they hammer the walls, and the walls hold. But the Persians don't give up, and they don't go home.
+So the smith starts walking the inside of the wall. He sets his shield down, kneels, listens, then moves a few steps and does it again.
+"Lost something?" a guard laughs. "The enemy's out there, not down there."
+For days, nothing. Just a dull thud, wherever he puts it.
+Then, at one spot by the wall, he sets it down and it rings, and the dust on the bronze starts to shiver.
+You see, while the Persians were hammering the walls, they were also digging under them.
+Over solid ground, a bronze shield just thuds. But over a hollow tunnel, every pick striking below makes it ring like a bell.
+So wherever it rang, the defenders dug straight down and broke into the tunnel from above.
+An army spent months digging in secret, and a shield lying in the dirt heard every swing.
+
+
+
+Answer in JSON only, with these keys:
+
+- `hook`: after hearing only the first line, `{"keep_watching": 1-5, "question_in_my_head": "...", "why": "..."}`.
+- `who`: every character or group and what they want, in your own words.
+- `what_happened`: the events in order, one short sentence each.
+- `why`: the reason the story turns out the way it does (the mechanism), in your own words, as you would explain
+  it to a friend.
+- `twist`: what the ending reveals or flips, in one sentence.
+- `reread_lines`: every line you'd have to hear twice to follow, as `{"line": "<quote>", "why": "..."}`.
+  Include lines where a pronoun is unclear, two numbers collide, a term arrives before it's explained, or a sentence
+  is too long to hold.
+- `unexplained_terms`: words or names a typical 16-year-old wouldn't know and the narration never explains.
+- `logic_jumps`: places where the story skips a step, as `{"between": "<line> -> <line>", "missing": "..."}`.
+- `sounds_wrong`: claims that sound false, contradictory or confusing, with why.
+- `confidence`: 1-5, how sure you are you understood the whole story.
+
+Be picky. A flag costs nothing; a viewer who swipes away costs everything.

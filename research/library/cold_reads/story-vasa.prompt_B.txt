@@ -1,0 +1,55 @@
+Second pass. Same story, but now you also get the shot list, as if you watched the video. Answer again from scratch with the same JSON keys, and add `fixed_by_pictures` (what the images cleared up) and `still_confusing`.
+
+You are a viewer who has never heard of this story. Below is the narration of a 60-second animated Short, exactly as
+it is spoken, one paragraph per line. You hear it once at normal speed; you cannot pause or look anything up. Don't
+use outside knowledge to fill gaps: if the narration doesn't say it, it's a gap.
+
+NARRATION:
+Thirty sailors ran across a brand-new warship until she nearly rolled over, and the navy sent her to sea anyway.
+The admiral stops the test and mutters, "If only the king were here."
+But the king is off at war, and he wants the mightiest warship afloat.
+So the Vasa gets two decks of heavy bronze cannons, stacked high above the water.
+Nobody wants to tell the king his masterpiece wobbles. His letters keep arriving: "Get her to sea."
+On launch day, a huge crowd watches her sails go up.
+One light gust leans her over. She shakes it off, and the crowd keeps waving.
+Then a second gust tips her further, and her open lower gun ports dip under the water.
+The sea pours in, and in front of the whole city, the Vasa sinks inside her own harbour.
+At the hearing, one builder's best explanation is, "Only God knows." Nobody is punished. The man who ordered the cannons was the king.
+You see, a ship stays upright like a bottle with sand in the bottom: heavy low, light on top.
+The Vasa was built upside down, with tons of bronze up high and too little stone below.
+And more stone would only have pushed those gun ports down to the waterline.
+So when thirty sailors nearly rolled her over at the dock, the Vasa was showing them exactly how she would sink.
+
+SHOT LIST (what is on screen during each line; you now also see the pictures):
+Line 1: the Vasa's deck at the shipyard quay (the running test), then the ship under sail
+Line 2: the admiral on the deck
+Line 3: the king's war camp in Poland
+Line 4: the shipyard quay: guns swung aboard, two rows of gun ports at the waterline
+Line 5: the deck rocking, then the king's camp with a letter
+Line 6: the crowd on the quay, the sails
+Line 7: the harbour: the first gust
+Line 8: the harbour: the second gust, the ports under
+Line 9: the flooding gun deck, then the sinking seen from the quay
+Line 10: the inquiry hall and the king's portrait
+Line 11: an explanation room at night: bottles with sand
+Line 12: the hull cross-section; the ballast at the quay
+Line 13: the hull cross-section and the waterline
+Line 14: the deck at the dock, rolling
+
+Answer in JSON only, with these keys:
+
+- `hook`: after hearing only the first line, `{"keep_watching": 1-5, "question_in_my_head": "...", "why": "..."}`.
+- `who`: every character or group and what they want, in your own words.
+- `what_happened`: the events in order, one short sentence each.
+- `why`: the reason the story turns out the way it does (the mechanism), in your own words, as you would explain
+  it to a friend.
+- `twist`: what the ending reveals or flips, in one sentence.
+- `reread_lines`: every line you'd have to hear twice to follow, as `{"line": "<quote>", "why": "..."}`.
+  Include lines where a pronoun is unclear, two numbers collide, a term arrives before it's explained, or a sentence
+  is too long to hold.
+- `unexplained_terms`: words or names a typical 16-year-old wouldn't know and the narration never explains.
+- `logic_jumps`: places where the story skips a step, as `{"between": "<line> -> <line>", "missing": "..."}`.
+- `sounds_wrong`: claims that sound false, contradictory or confusing, with why.
+- `confidence`: 1-5, how sure you are you understood the whole story.
+
+Be picky. A flag costs nothing; a viewer who swipes away costs everything.

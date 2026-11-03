@@ -1,0 +1,508 @@
+{
+ "judges": "3 fresh agents (Claude Sonnet, no tools), each a different shuffle, 2026-11-02",
+ "orders": [
+  [
+   "M11",
+   "M05",
+   "R5",
+   "R6",
+   "M09",
+   "M00",
+   "R4",
+   "M01",
+   "R3",
+   "M06",
+   "M10",
+   "R1",
+   "R2",
+   "M12",
+   "M07",
+   "M03",
+   "M08",
+   "M02",
+   "M04"
+  ],
+  [
+   "M07",
+   "M06",
+   "R2",
+   "M08",
+   "R6",
+   "M05",
+   "M09",
+   "M00",
+   "M03",
+   "M12",
+   "M04",
+   "M10",
+   "R3",
+   "R4",
+   "R1",
+   "M11",
+   "R5",
+   "M02",
+   "M01"
+  ],
+  [
+   "M08",
+   "M03",
+   "M06",
+   "M05",
+   "R3",
+   "R4",
+   "M02",
+   "M12",
+   "M00",
+   "M01",
+   "R1",
+   "M10",
+   "R6",
+   "M09",
+   "R2",
+   "M11",
+   "M04",
+   "R5",
+   "M07"
+  ]
+ ],
+ "raw": [
+  {
+   "scores": {
+    "A": 6,
+    "B": 7,
+    "C": 7,
+    "D": 4,
+    "E": 6,
+    "F": 6,
+    "G": 7,
+    "H": 6,
+    "I": 9,
+    "J": 6,
+    "K": 6,
+    "L": 8,
+    "M": 8,
+    "N": 6,
+    "O": 6,
+    "P": 6,
+    "Q": 5,
+    "R": 7,
+    "S": 7
+   },
+   "ranking": [
+    "I",
+    "L",
+    "M",
+    "G",
+    "R",
+    "S",
+    "C",
+    "B",
+    "A",
+    "K",
+    "J",
+    "E",
+    "F",
+    "N",
+    "O",
+    "P",
+    "H",
+    "Q",
+    "D"
+   ]
+  },
+  {
+   "scores": {
+    "A": 7,
+    "B": 6,
+    "C": 8,
+    "D": 6,
+    "E": 4,
+    "F": 7,
+    "G": 8,
+    "H": 6,
+    "I": 5,
+    "J": 7,
+    "K": 6,
+    "L": 5,
+    "M": 9,
+    "N": 8,
+    "O": 8,
+    "P": 5,
+    "Q": 5,
+    "R": 8,
+    "S": 5
+   },
+   "ranking": [
+    "M",
+    "G",
+    "R",
+    "C",
+    "N",
+    "O",
+    "A",
+    "J",
+    "F",
+    "D",
+    "H",
+    "K",
+    "B",
+    "L",
+    "I",
+    "S",
+    "P",
+    "Q",
+    "E"
+   ]
+  },
+  {
+   "scores": {
+    "A": 7,
+    "B": 6,
+    "C": 5,
+    "D": 6,
+    "E": 9,
+    "F": 7,
+    "G": 7,
+    "H": 6,
+    "I": 5,
+    "J": 5,
+    "K": 9,
+    "L": 6,
+    "M": 4,
+    "N": 7,
+    "O": 7,
+    "P": 5,
+    "Q": 7,
+    "R": 5,
+    "S": 5
+   },
+   "ranking": [
+    "E",
+    "K",
+    "G",
+    "Q",
+    "N",
+    "A",
+    "O",
+    "F",
+    "L",
+    "H",
+    "D",
+    "B",
+    "S",
+    "C",
+    "R",
+    "J",
+    "P",
+    "I",
+    "M"
+   ]
+  }
+ ],
+ "table": [
+  {
+   "id": "R3",
+   "mean_rank": 1,
+   "ranks": [
+    1,
+    1,
+    1
+   ],
+   "mean_score": 9,
+   "scores": [
+    9,
+    9,
+    9
+   ],
+   "text": "They buried a man alive with a bell tied to his finger."
+  },
+  {
+   "id": "R1",
+   "mean_rank": 3.3,
+   "ranks": [
+    2,
+    6,
+    2
+   ],
+   "mean_score": 8.33,
+   "scores": [
+    8,
+    8,
+    9
+   ],
+   "text": "He put a bronze ball in a dragon's mouth and told the emperor if this ever falls out, run."
+  },
+  {
+   "id": "M02",
+   "mean_rank": 3.7,
+   "ranks": [
+    5,
+    3,
+    3
+   ],
+   "mean_score": 7.33,
+   "scores": [
+    7,
+    8,
+    7
+   ],
+   "text": "Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three."
+  },
+  {
+   "id": "R2",
+   "mean_rank": 4.7,
+   "ranks": [
+    3,
+    4,
+    7
+   ],
+   "mean_score": 7.67,
+   "scores": [
+    8,
+    8,
+    7
+   ],
+   "text": "He poured cooking oil into the sea, with a pirate ship so close behind them he could hear the pirates laughing."
+  },
+  {
+   "id": "R4",
+   "mean_rank": 5.7,
+   "ranks": [
+    4,
+    5,
+    8
+   ],
+   "mean_score": 7.33,
+   "scores": [
+    7,
+    8,
+    7
+   ],
+   "text": "He sawed gaps into a railroad every 39 feet."
+  },
+  {
+   "id": "M09",
+   "mean_rank": 6.3,
+   "ranks": [
+    12,
+    2,
+    5
+   ],
+   "mean_score": 7,
+   "scores": [
+    6,
+    8,
+    7
+   ],
+   "text": "Admiral Yi sailed out to fight a hundred and thirty-three warships, and his own captains hid behind him."
+  },
+  {
+   "id": "M04",
+   "mean_rank": 7.3,
+   "ranks": [
+    6,
+    12,
+    4
+   ],
+   "mean_score": 6.67,
+   "scores": [
+    7,
+    6,
+    7
+   ],
+   "text": "Admiral Yi anchored his last thirteen ships in a strait so loud the locals called it crying, and waited for a hundred and thirty-three."
+  },
+  {
+   "id": "M05",
+   "mean_rank": 9.3,
+   "ranks": [
+    8,
+    9,
+    11
+   ],
+   "mean_score": 6.67,
+   "scores": [
+    7,
+    7,
+    6
+   ],
+   "text": "With thirteen ships left, Admiral Yi didn't run from a hundred and thirty-three. He waited for them in the roaring water."
+  },
+  {
+   "id": "M12",
+   "mean_rank": 10.7,
+   "ranks": [
+    14,
+    8,
+    10
+   ],
+   "mean_score": 6.33,
+   "scores": [
+    6,
+    7,
+    6
+   ],
+   "text": "The king told Admiral Yi his navy was finished, and Yi answered by parking thirteen ships in front of a hundred and thirty-three."
+  },
+  {
+   "id": "M10",
+   "mean_rank": 11,
+   "ranks": [
+    10,
+    14,
+    9
+   ],
+   "mean_score": 5.67,
+   "scores": [
+    6,
+    5,
+    6
+   ],
+   "text": "Admiral Yi refused the king's order to quit, then picked the one place in Korea where the sea runs like a river."
+  },
+  {
+   "id": "M08",
+   "mean_rank": 11.3,
+   "ranks": [
+    18,
+    10,
+    6
+   ],
+   "mean_score": 6,
+   "scores": [
+    5,
+    6,
+    7
+   ],
+   "text": "Korea had no navy left, so Admiral Yi stood at the bow and fought a hundred and thirty-three ships with thirteen."
+  },
+  {
+   "id": "M07",
+   "mean_rank": 11.7,
+   "ranks": [
+    15,
+    7,
+    13
+   ],
+   "mean_score": 6,
+   "scores": [
+    6,
+    7,
+    5
+   ],
+   "text": "His king told him to quit the sea, so Admiral Yi took thirteen ships and blocked a hundred and thirty-three."
+  },
+  {
+   "id": "M06",
+   "mean_rank": 12.7,
+   "ranks": [
+    11,
+    13,
+    14
+   ],
+   "mean_score": 5.67,
+   "scores": [
+    6,
+    6,
+    5
+   ],
+   "text": "Admiral Yi dropped anchor in the narrowest, loudest strait in Korea, with thirteen ships and a hundred and thirty-three coming."
+  },
+  {
+   "id": "R5",
+   "mean_rank": 13.3,
+   "ranks": [
+    7,
+    18,
+    15
+   ],
+   "mean_score": 5.67,
+   "scores": [
+    7,
+    5,
+    5
+   ],
+   "text": "If every atom in your body suddenly lost its heat for 10 seconds, your skin would freeze solid and your organs would do the same."
+  },
+  {
+   "id": "M00",
+   "mean_rank": 14,
+   "ranks": [
+    13,
+    11,
+    18
+   ],
+   "mean_score": 5.67,
+   "scores": [
+    6,
+    6,
+    5
+   ],
+   "text": "Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three."
+  },
+  {
+   "id": "M11",
+   "mean_rank": 14.3,
+   "ranks": [
+    9,
+    17,
+    17
+   ],
+   "mean_score": 5.33,
+   "scores": [
+    6,
+    5,
+    5
+   ],
+   "text": "Admiral Yi waited at the bow for the water to change direction, with thirteen ships against a hundred and thirty-three."
+  },
+  {
+   "id": "M03",
+   "mean_rank": 14.3,
+   "ranks": [
+    16,
+    15,
+    12
+   ],
+   "mean_score": 5.67,
+   "scores": [
+    6,
+    5,
+    6
+   ],
+   "text": "Admiral Yi parked his last thirteen ships in the loudest stretch of water in Korea and waited for a hundred and thirty-three."
+  },
+  {
+   "id": "M01",
+   "mean_rank": 16.3,
+   "ranks": [
+    17,
+    16,
+    16
+   ],
+   "mean_score": 5.33,
+   "scores": [
+    6,
+    5,
+    5
+   ],
+   "text": "Admiral Yi stood at the bow of his last thirteen ships and sailed them straight at a hundred and thirty-three."
+  },
+  {
+   "id": "R6",
+   "mean_rank": 19,
+   "ranks": [
+    19,
+    19,
+    19
+   ],
+   "mean_score": 4,
+   "scores": [
+    4,
+    4,
+    4
+   ],
+   "text": "If every strand of your hair moved on its own, it could braid itself or even carry small items."
+  }
+ ]
+}

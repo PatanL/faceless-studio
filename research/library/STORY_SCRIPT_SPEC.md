@@ -151,3 +151,11 @@ pivot, mechanism and last line by phrase heuristics (calibrated on the 24: escal
 pivot sentence right in 15/24), prints the beat map so a human can correct it with `--beats`, and scores 18 measured
 checks plus 7 rubric items. Scores: references top 90.6, middle 70.0, bottom 63.9 (deterministic part). Reports for
 our scripts: `research/library/script_reports/`.
+
+## Required alongside the judge: the cold-reader test (2026-11-02)
+
+`script_judge.py` checks structure, not whether a viewer follows the story. Before voicing, every story script also
+passes `pipeline/qa/cold_read.py` / `COLD_READ_PROMPT.md`: a fresh agent reads only the narration, retells who / what
+/ why / twist, and flags lines it had to reread (`lost` or `slowed`), unexplained terms, logic jumps and claims that
+sound wrong. The pass requires every beat retold, no `lost` line and no blocking jump. Hooks are chosen with
+`research/library/HOOK_BANK.md` (rubric and blind ranking).

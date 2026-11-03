@@ -1,0 +1,41 @@
+You are a viewer who has never heard of this story. Below is the narration of a 60-second animated Short, exactly as
+it is spoken, one paragraph per line. You hear it once at normal speed; you cannot pause or look anything up. Don't
+use outside knowledge to fill gaps: if the narration doesn't say it, it's a gap.
+
+NARRATION:
+Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three.
+His captains thought he was mad.
+You see, Japan's invasion fleet had just wiped out Korea's navy, and Yi's ships were all that was left.
+So the king ordered him ashore to fight on land. Yi's answer: "I still have ships."
+But the Japanese fleet filled the horizon, and nobody on it feared a few leftover boats.
+So Yi picked his spot: the mouth of a strait so narrow only a few ships could reach him at once.
+The locals called it the crying strait, for the roar of its water.
+The Japanese pour in with the current at their backs. Ship after ship after ship.
+His captains hang back, happy to let the admiral go first. His flagship holds the gap almost alone.
+You see, that strait runs like a river, and every few hours it stops and flows the other way.
+Historians think that day it turned in the middle of the battle.
+The current that carried the Japanese in now shoved their ships backwards into each other, right in front of Yi's guns.
+Korean records count thirty-one Japanese ships lost, and none of Yi's. The rest turned back.
+The king thought Yi had nothing left to fight with. But Yi had the sea, and that day the sea switched sides.
+
+
+
+Answer in JSON only, with these keys:
+
+- `hook`: after hearing only the first line, `{"keep_watching": 1-5, "question_in_my_head": "...", "why": "..."}`.
+- `who`: every character or group and what they want, in your own words.
+- `what_happened`: the events in order, one short sentence each.
+- `why`: the reason the story turns out the way it does (the mechanism), in your own words, as you would explain
+  it to a friend.
+- `twist`: what the ending reveals or flips, in one sentence.
+- `reread_lines`: every line you'd have to hear twice to follow, as `{"line": "<quote>", "why": "...", "level": "lost" | "slowed"}`.
+  Include lines where a pronoun is unclear, two numbers collide, a term arrives before it's explained, or a sentence
+  is too long to hold. `lost` = after hearing it once you could not say what just happened (you'd lose the thread);
+  `slowed` = you followed it, but it cost effort.
+- `unexplained_terms`: words or names a typical 16-year-old wouldn't know and the narration never explains.
+- `logic_jumps`: places where the story skips a step, as `{"between": "<line> -> <line>", "missing": "...", "blocks_understanding": true | false}`
+  (true only if the gap stops you understanding the story, not for nice-to-know details).
+- `sounds_wrong`: claims that sound false, contradictory or confusing, with why.
+- `confidence`: 1-5, how sure you are you understood the whole story.
+
+Be picky. A flag costs nothing; a viewer who swipes away costs everything.

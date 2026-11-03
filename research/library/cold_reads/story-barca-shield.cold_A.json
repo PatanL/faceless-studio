@@ -1,0 +1,115 @@
+{
+ "reader": "fresh agent (Claude Sonnet, no tools, no context), 2026-11-02, narration of episodes/story-barca-shield/script.md (v15)",
+ "hook": {
+  "keep_watching": 4,
+  "question_in_my_head": "Why would a smith lay his shield in the dirt every day while an army is outside the city? What is he doing?",
+  "why": "The image is odd and concrete against the stakes of a siege; 'bronze-smith' and 'the city's' are slightly vague."
+ },
+ "who": {
+  "bronze_smith": "A smith inside a besieged city who listens with his shield; his goal is only implied until the end: find the Persians' tunnel.",
+  "city_guards_defenders": "Laugh at him; later 'the defenders' dig down into the tunnel.",
+  "persian_army": "Besieging Barca; pound the walls in the open and secretly dig a tunnel under them."
+ },
+ "what_happened": [
+  "A Persian army besieges the city of Barca in ancient Libya, and the smith keeps putting his shield on the ground.",
+  "The guards think the siege has driven him mad.",
+  "For months the Persians pound the walls and fail, but they stay.",
+  "The smith walks along the inside of the wall, setting the shield down and listening at spot after spot.",
+  "A guard mocks him, saying the enemy is outside, not underground.",
+  "For days the shield only thuds.",
+  "At one spot the shield rings and the dust on it trembles.",
+  "We learn the Persians were secretly digging under the walls the whole time.",
+  "The defenders dig down wherever the shield rings and break into the tunnel from above.",
+  "The Persians' months of secret digging were detected by one shield."
+ ],
+ "why": "A bronze shield on solid ground just thuds. Over a hollow tunnel with people swinging picks below, the shield picks up the vibrations and rings like a bell, so the ringing marks where an enemy tunnel is. The defenders dug down at those spots. I'm taking the physics on trust: the narration only asserts it.",
+ "twist": "The enemy wasn't only attacking the walls from outside; they were secretly tunneling underneath, and the smith's 'crazy' shield behavior was how the city found out.",
+ "reread_lines": [
+  {
+   "line": "It's about 2,500 years ago in Barca, in what's now Libya, and a Persian army has the city surrounded.",
+   "why": "a date, two place names and the enemy in one sentence; 'Barca' unfamiliar",
+   "level": "slowed"
+  },
+  {
+   "line": "So the smith starts walking the inside of the wall. He sets his shield down, kneels, listens, then moves a few steps and does it again.",
+   "why": "'So' implies a reason never given; listening for what? does he strike the shield?",
+   "level": "slowed"
+  },
+  {
+   "line": "Then, at one spot by the wall, he sets it down and it rings, and the dust on the bronze starts to shiver.",
+   "why": "'it' twice (shield or ground); nothing said a shield could ring",
+   "level": "slowed"
+  },
+  {
+   "line": "You see, while the Persians were hammering the walls, they were also digging under them.",
+   "why": "first mention of tunnelling; tense shift",
+   "level": "slowed"
+  },
+  {
+   "line": "Over solid ground, a bronze shield just thuds. But over a hollow tunnel, every pick striking below makes it ring like a bell.",
+   "why": "core mechanism delivered once and fast; 'hollow tunnel' and 'pick' in one breath",
+   "level": "slowed"
+  },
+  {
+   "line": "So wherever it rang, the defenders dug straight down and broke into the tunnel from above.",
+   "why": "'wherever' implies several spots; no sign anyone believed the smith; outcome unclear",
+   "level": "lost"
+  },
+  {
+   "line": "An army spent months digging in secret, and a shield lying in the dirt heard every swing.",
+   "why": "'months' collides with the earlier months of hammering; outcome left unclear",
+   "level": "slowed"
+  }
+ ],
+ "unexplained_terms": [
+  "siege / 'cracked him'",
+  "bronze-smith",
+  "Barca (sounds like Barcelona / Barça)",
+  "Persian army (who, why)",
+  "pick (pickaxe)",
+  "digging under walls as a siege tactic",
+  "the defenders (guards or citizens?)"
+ ],
+ "logic_jumps": [
+  {
+   "between": "The guards ... think the siege has finally cracked him. -> So the smith starts walking the inside of the wall.",
+   "missing": "why he does it; line 1 says every day, later it sounds like he only starts after months",
+   "blocks_understanding": false
+  },
+  {
+   "between": "kneels, listens -> Just a dull thud, wherever he puts it.",
+   "missing": "what he listens to; a thud sounds like the shield landing",
+   "blocks_understanding": false
+  },
+  {
+   "between": "it rings ... -> You see, ... digging under them.",
+   "missing": "the smith's reaction; no moment of realising or telling anyone",
+   "blocks_understanding": false
+  },
+  {
+   "between": "ring like a bell -> the defenders dug straight down",
+   "missing": "how the mocking guards came to trust him; what happened inside",
+   "blocks_understanding": true
+  },
+  {
+   "between": "broke into the tunnel -> An army spent months digging in secret",
+   "missing": "the result: did the city survive, the siege end?",
+   "blocks_understanding": true
+  },
+  {
+   "between": "the walls hold -> they were also digging under them",
+   "missing": "why the Persians dug and how hammering and digging fit one plan",
+   "blocks_understanding": false
+  }
+ ],
+ "sounds_wrong": [
+  "shield detecting a tunnel stated with no explanation; vibration would travel through solid ground too",
+  "does the shield ring by itself or must it be struck? 'dull thud wherever he puts it' sounds like dropping it",
+  "'the walls hold' against months of hammering, yet the stakes feel unclear",
+  "the guard's 'not down there' hint is too on-the-nose",
+  "'don't give up, don't go home' is filler",
+  "tense shifts"
+ ],
+ "confidence": 3,
+ "severity_source": "levels and blocking jumps from the same reader's second-pass reply (it labelled its own pass-A flags)"
+}

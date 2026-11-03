@@ -1,0 +1,60 @@
+Second pass. Same story, but now you also get the shot list, as if you watched the video. Answer again from scratch with the same JSON keys, and add `fixed_by_pictures` (what the images cleared up) and `still_confusing`.
+
+You are a viewer who has never heard of this story. Below is the narration of a 60-second animated Short, exactly as
+it is spoken, one paragraph per line. You hear it once at normal speed; you cannot pause or look anything up. Don't
+use outside knowledge to fill gaps: if the narration doesn't say it, it's a gap.
+
+NARRATION:
+Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.
+Even his own captains think he has lost his mind.
+Korea's navy has just been wiped out by a Japanese invasion fleet.
+So the king tells Yi to come ashore and fight on land. Yi writes back, "I still have ships."
+Then he anchors them at the mouth of a narrow strait off Jindo island. The locals call it the crying strait, for the roar of its water.
+The Japanese fleet pours in with the current behind it. Ship after ship after ship.
+His captains hang back and politely let the admiral go first. His flagship fights almost alone.
+Then, historians think, the roaring stops.
+You see, the water in that strait runs like a river, and it turns around four times a day.
+The Japanese had ridden the current into a gap so narrow only a few ships could reach him.
+And when it turned, that same current shoved their ships backwards into each other.
+Korean records count thirty-one Japanese ships lost that day, and none of his.
+The king thought Yi had no navy left, but he had a sea that changes sides.
+
+SHOT LIST (what is on screen during each line; you now also see the pictures):
+0.00-2.66 s, "Ordered to give up the navy, Admiral Yi took his last": Yi at the bow pointing, twelve ahead, the 133 beyond; 13 / 133 tags; slow push
+2.66-5.35 s, "thirteen ships to fight a hundred and thirty-three": a samurai and an ashigaru on the lead Japanese ship laugh at the thin line; "133" tag on "hundred"
+5.35-7.79 s, "Even his own captains think he has lost his mind": two captains on a column ship: worried, then dizzy and facepalm on "lost"
+7.79-11.48 s, "Korea's navy has just been wiped out by a Japanese invasion fleet": burning, listing panokseon wrecks, Japanese ships sailing past
+11.48-13.97 s, "So the king tells Yi to come ashore and fight on land": the king points from the dais; an official kneels with the order
+13.97-15.88 s, "Yi writes back, "I still have ships."": Yi at a desk by lamplight on his deck, letter in hand; his fleet lit behind
+15.88-19.25 s, "Then he anchors them at the mouth of a narrow strait off Jindo island": the thirteen settle; anchor splashes; JINDO ISLAND / KOREA / THE STRAIT tags
+19.25-22.30 s, "The locals call it the crying strait, for the roar of its water": two villagers on the Jindo slope cover their ears; whirlpools and white water below
+22.30-25.07 s, "The Japanese fleet pours in with the current behind it": the fleet streams west on the current
+25.07-26.52 s, "Ship after ship after ship": low on the water as ships sweep past
+26.52-29.80 s, "His captains hang back and politely let the admiral go first": the captains sweep "after you"; the flagship passes between the columns
+29.80-31.65 s, "His flagship fights almost alone": Yi at the front, guns flashing, the Japanese closing
+31.65-33.82 s, "Then, historians think, the roaring stops": Yi at the rail; the white water dies away; dusk creeps in
+33.82-38.65 s, "You see, the water in that strait runs like a river, and it turns around four times a day": high over the strait: arrows and streaks run west, swing round on "turns"; a TURNS / A DAY tally 1-4
+38.65-43.11 s, "The Japanese had ridden the current into a gap so narrow only a few ships could reach him": high oblique: the jam in the gap, the front three glinting at Yi's flagship; ONLY A FEW CAN REACH HIM
+43.11-44.88 s, "And when it turned, that same current": the arrows swing east, the fleet starts drifting back and yawing
+44.88-46.96 s, "shoved their ships backwards into each other": two Japanese ships collide on "into": burst, splinters, the crew terrified
+46.96-51.26 s, "Korean records count thirty-one Japanese ships lost that day, and none of his": a scribe on Yi's deck at a tally board: JAPAN 31 SHIPS LOST, then YI 0 on "none"
+51.26-53.03 s, "The king thought Yi had no navy left": the king, smug, shrugs and cackles on "left"
+53.03-55.46 s, "but he had a sea that changes sides": Yi at his bow at dusk, the current running east, lamps lit; the camera rises and pulls back to the end
+
+Answer in JSON only, with these keys:
+
+- `hook`: after hearing only the first line, `{"keep_watching": 1-5, "question_in_my_head": "...", "why": "..."}`.
+- `who`: every character or group and what they want, in your own words.
+- `what_happened`: the events in order, one short sentence each.
+- `why`: the reason the story turns out the way it does (the mechanism), in your own words, as you would explain
+  it to a friend.
+- `twist`: what the ending reveals or flips, in one sentence.
+- `reread_lines`: every line you'd have to hear twice to follow, as `{"line": "<quote>", "why": "..."}`.
+  Include lines where a pronoun is unclear, two numbers collide, a term arrives before it's explained, or a sentence
+  is too long to hold.
+- `unexplained_terms`: words or names a typical 16-year-old wouldn't know and the narration never explains.
+- `logic_jumps`: places where the story skips a step, as `{"between": "<line> -> <line>", "missing": "..."}`.
+- `sounds_wrong`: claims that sound false, contradictory or confusing, with why.
+- `confidence`: 1-5, how sure you are you understood the whole story.
+
+Be picky. A flag costs nothing; a viewer who swipes away costs everything.
