@@ -1,7 +1,7 @@
 // Hero props (our own code and geometry; visual track round 3, replication lesson 1). Sculpted procedurally, in
 // real metal / glaze materials (kit/materials.ts), so a close-up of a story's key object reads as a crafted thing:
 // deformed and displaced surfaces instead of bare spheres and cones, tapered horns and whiskers, rows of teeth, a
-// flame-like mane, cast scales. No third-party geometry, so nothing to license (logged in public/models/LICENSES.md).
+// flame-like mane, cast scales. All our own geometry.
 //   dragonHead(o)          a coiling Chinese dragon head and neck, built pointing +z from its origin (mouth open)
 //   vessel(profile, o)     a lathed vessel (bronze jar, vase) with cast relief bands and a lid
 //   toad(o)                a squat toad with an open mouth, bumpy skin, gaze up
