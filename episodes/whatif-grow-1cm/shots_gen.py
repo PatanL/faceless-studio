@@ -162,7 +162,8 @@ def scenes():
     S[-1]["background"]["props"]["shake"] = [shake("@cracks", 18, 0.5), shake("@don't", 6, 0.3)]
 
     # P5 Paris: eye to eye with the top of the Eiffel Tower
-    clk = [k(0, 30700), k("@top", 31100, "inOut"), k("@:end", 31150)]
+    # opens on exactly 9 hours (+324 M, as the script says), not 8.5 h rounded up
+    clk = [k(0, 9 * 3600), k("@top", 9 * 3600 + 400, "inOut"), k("@:end", 9 * 3600 + 450)]
     items5 = [SUN, {"kind": "skyline", "x0": -4000, "x1": 4000, "seed": "pa"},
               {"kind": "paris", "x0": -2500, "x1": -80, "seed": "pr1"},
               {"kind": "paris", "x0": 80, "x1": 2500, "seed": "pr2"},
@@ -214,27 +215,36 @@ def scenes():
                                   cx=[k(0, 0.22), k("@days", 0.22), k("@top", 0.2, "inOut"), k("@and", 0.2),
                                       k("@face", 0.5, "inOut")],
                                   face=[{"at": 0, "face": "calm"}, {"at": "@pass", "face": "wow"},
-                                        {"at": "@thin", "face": "gasp"}],
+                                        {"at": "@face", "face": "gasp"}],
                                   pose=[{"at": 0, "pose": "stand"}],
-                                  puffs=[{"at": "@thin"}, {"at": "@thin+0.3"}, {"at": "@breathe"},
-                                         {"at": "@breathe+0.3"}]),
+                                  # each puff lives 0.9 s: the last one has faded before the dissolve into P8
+                                  puffs=[{"at": "@face"}, {"at": "@face+0.3"}, {"at": "@too"}]),
               "layers": [hud(clk)]})
 
-    # P8 airliners cross under your chin (planes drawn 5x so they read)
-    clk = [k(0, 14 * DAY), k("@:end", 14.4 * DAY)]
-    yh = 1.75 + 0.01 * 14 * DAY
+    # P8 cruising altitude: a short dissolve from the Everest close-up to a WIDE shot (whole body, ground and low
+    # clouds) while the clock fast-forwards 10 -> 14 days on "Two weeks in"; then push in to the chin as two
+    # airliners cross just under it. Planes drawn 12x so they read on a phone (~200 px long in the close-up).
+    clk = [k(0, 9.07e5), k("@in.end", 14 * DAY, "inOut"), k("@:end", 14.4 * DAY)]
+    yh = 1.75 + 0.01 * 14.28 * DAY             # height while the planes pass the chin (~2.1 s into the scene)
     chin = yh * (1 - (92 + 4 - 12) / 344)
-    planes = [{"kind": "plane", "x": -1300, "alt": chin - 70, "v": 1500, "at": "@airliners", "dir": 1, "scale": 5,
+    planes = [{"kind": "plane", "x": -1650, "alt": chin - 60, "v": 1500, "at": "@airliners", "dir": 1, "scale": 12,
                "trail": 3000, "front": True},
-              {"kind": "plane", "x": 1400, "alt": chin - 260, "v": 1400, "at": "@cruise", "dir": -1, "scale": 5,
+              {"kind": "plane", "x": 1000, "alt": chin - 380, "v": 1400, "at": "@cruise", "dir": -1, "scale": 12,
                "trail": 2600, "front": True}]
+    low = [{"kind": "cloud", "x": x, "alt": alt, "w": w, "seed": f"c8l{i}", "front": front, "drift": d}
+           for i, (x, alt, w, front, d) in enumerate([(-4200, 1900, 2600, False, 60), (-1900, 1500, 2200, True, -60),
+                                                      (2300, 1700, 2400, True, 60), (4600, 2100, 2800, False, -60)])]
     S.append({"p": 8, "beat": "rung", "setting": setting("place", "sky", "cruising altitude"),
-              "background": world(clk, [SUN, {"kind": "cloud", "x": -3000, "alt": 7000, "w": 3000, "seed": "c81"},
-                                        {"kind": "cloud", "x": 4200, "alt": 6400, "w": 2600, "seed": "c82"}] + planes,
-                                  ground="land", seed="pl", lppm=[k(0, L(0.25)), k("@:end", L(0.28))],
-                                  focusAlt=0.8, focusY=0.5, cx=0.5,
+              "background": world(clk, [SUN, {"kind": "hills", "x0": -9000, "x1": 9000, "h": 500, "seed": "h8"}] + low +
+                                  [{"kind": "cloud", "x": -3000, "alt": 7000, "w": 3000, "seed": "c81"},
+                                   {"kind": "cloud", "x": 4200, "alt": 6400, "w": 2600, "seed": "c82"}] + planes,
+                                  ground="land", seed="pl",
+                                  lppm=[k(0, L(0.1)), k("@airliners", L(0.1)), k("@past", L(0.3), "inOut")],
+                                  focusAlt=[k(0, 0.0), k("@airliners", 0.0), k("@past", 0.75, "inOut")],
+                                  focusY=[k(0, 0.86), k("@airliners", 0.86), k("@past", 0.6, "inOut")], cx=0.5,
                                   face=[{"at": 0, "face": "gasp"}, {"at": "@airliners", "face": "shock"}]),
-              "layers": [hud(clk)]})
+              # ffUntil is not an anchored key (GrowHud reads it raw): 0.85 s = end of "in," (the clock key above)
+              "layers": [hud(clk, ff=True, ffUntil=0.85)]})
 
     # P9 the edge of space: mountains and clouds at your feet, the 100 km line, then one dive to the street
     clk = [k(0, 9.5e6), k("@space.end", 1.03e7, "linear"), k("@while", 1.04e7)]
@@ -268,7 +278,7 @@ def scenes():
     S.append({"p": 10, "beat": "top", "setting": setting("place", "space", "Earth orbit", light="night"),
               "background": world(clk, [{"kind": "moon", "x": mx, "alt": 1737400, "from": "@Moon"},
                                         {"kind": "marker", "x": mx, "alt": 3474800 + 150000, "dx": 0, "dy": -170,
-                                         "text": "3,475 KM WIDE", "at": "@wide", "until": "@Earth", "front": True,
+                                         "text": "3,474 KM WIDE", "at": "@wide", "until": "@Earth", "front": True,
                                          "size": 44},
                                         {"kind": "marker", "x": 0, "alt": -6371000, "dx": 0, "dy": 0,
                                          "text": "EARTH 12,742 KM", "at": "@ball+0.2", "front": True, "size": 46}],
@@ -300,6 +310,9 @@ def scenes():
         s["_house"] = {"set": False}
         if s["p"] > 1:
             s["transitionIn"] = {"type": "cut"}      # Zack-style hard cuts (house "cuts": false keeps them)
+        if s["p"] == 8:
+            # Everest close-up -> cruising altitude wide: a 10-frame dissolve, so the new place reads as a move
+            s["transitionIn"] = {"type": "fade", "duration": 0.33}
     return S
 
 
