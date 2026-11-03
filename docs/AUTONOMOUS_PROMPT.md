@@ -25,7 +25,7 @@ RULES:
 - Decide routine calls yourself (posting, sound and caption choices, topic order) from the evidence, and tell the owner what you decided and why. Ask only for what you can't look up or decide: money, credentials, or deleting data.
 - Heavy work runs on the Mac (owner, 2026-11-02, after the Spark hit 89 °C): Remotion renders (RENDER_SLOT=mac scripts/render.sh; the Mac GPU is allowed, e.g. --gl=angle), every-frame sheets and measurement batches, all niced and one render at a time. The DGX Spark gets only light jobs (TTS, ffprobe), CPU only (never the GPU), nice -n 10, one at a time, and nothing while its hottest thermal zone (/sys/class/thermal/thermal_zone*/temp) is above 80 °C.
 - Never delete anything; never spend money or use paid APIs; never enter credentials.
-- Keep the Mac's free disk above 15 GB and at least 5 GB of RAM available before starting a render; if either drops below, stop rendering and say so.
+- Keep the Mac's free disk above 15 GB. Before a render, keep at least 5 GB of RAM available, or 4 GB for a single-process render (CONC=1); the owner's browsers use the rest. Stop a render below 3.5 GB available, and if the limits can't be met, say so.
 - Keep FEEDBACK.md general; put dated notes in docs/FEEDBACK_LOG.md.
 - Commit each working step to main with a clear message.
 - If usage runs low, stop starting new agents and write status; resume after usage resets (check usage, not the clock).
