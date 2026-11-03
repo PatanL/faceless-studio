@@ -566,3 +566,45 @@ not a camera step.
 - Accel max 30.9 (master 29.5).
 - Jerk max 28.8 (master 53.2).
 - Hold jitter 0.18 (master 0.39).
+
+## 2026-11-03 ~09:30 UTC: round 3 pilot: Codex key frames as targets, 2.5D projection, a code-sculpted SDF dragon
+
+The owner's rule is that everything is built in code. The Codex key frames are the reference.
+`experiments/asset-gen/gen_one.sh` now takes the newest `~/.codex/generated_images` file. The hook's key frame is
+`experiments/asset-gen/gen/kf_hook_shot1.png`. The side-by-side (theirs | key frame | 2.5D | code) is
+`out/study/VS1Z/VS1Z_pilot_keyframe_side_by_side_phone.mp4`.
+
+**Main path: the hook in code.**
+- **Dragon:** `scripts/sdf_dragon.py` sculpts the head as signed distance fields:
+  - cranium, snout, nose pad, lips, brows and cheeks;
+  - an open jaw with the mouth cavity cut;
+  - segmented horns, a mane, beard fins, a crest and an S-curved neck.
+
+  It uses smooth unions and is meshed with marching cubes (83k triangles). It carries a gold scale normal map and our
+  ink, and `kit/codemodels.ts` places the teeth, eyes and whiskers at its anchors.
+- **Foreground:** world-placed props after the key frame (candles in a bowl, an incense burner, a table with scrolls and
+  a brush pot).
+- **Hook detail (F0-F58):** hero edge and texture 0.140 · 18.8. That matches theirs (0.138 · 19.1); v13 was 0.128 ·
+  17.3. It is well under the key frame (0.194 · 29.4).
+- **Motion:** shot-1 correlation 0.77.
+
+**Trial: key frame + depth (2.5D).**
+- **Build:** Depth Anything V2 small (official weights, run on MPS) gives depth. A camera-space grid is textured from
+  the key camera (`kit/plate.ts`, `scripts/kf_depth.py`, `scripts/kf_plate.py`), and our live inventor card stands on
+  the painted one.
+- **Measured limits** (share of the frame stretched beyond rigid magnification · frame coverage):
+  - push 0.1 m: 2.9 % · 100 %;
+  - orbit 1° (about 3.2 m): 7.6 % · 97.6 %;
+  - truck 5 cm: 6.3 % · 97.6 %;
+  - tilt 1°: 0 % · 97.6 % (the plate's edge shows);
+  - zoom: never stretches, but a 941 px key frame is upscaled 2.9× at a 2.5× lens push.
+
+  So the hook's 3× push works only as a lens push (zoom) plus about 0.1 m of dolly, and the crane over the jar is out
+  of reach.
+- **Hook detail:** 0.160 · 19.9 on the hero, and 0.161 · 15.7 on the background (closest to the key frame).
+
+**Shot 3 with the SDF dragons.**
+- The orbit is unlimited in full 3D.
+- Region detail is under v13's procedural head (hero texture 14.8 against 21.0; theirs 21.2): the heads read dark in
+  the orbit's shade.
+- Motion correlation is unchanged (0.11).

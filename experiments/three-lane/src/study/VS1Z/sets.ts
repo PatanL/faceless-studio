@@ -12,7 +12,8 @@ import { SetBuild, lambert, basic, box, cyl, plane, glowSprite, skyDome, makeKey
 import { stoneCourses, clouds } from "../../kit/dressing";
 import { tex } from "../../kit/paint2";
 import { metal, reliefNormal, grainNormal, engraveNormal } from "../../kit/materials";
-import { dragonHead, vessel, toad, orb } from "../../kit/heroprops";
+import { vessel, toad, orb } from "../../kit/heroprops";
+import { sdfDragon } from "../../kit/codemodels";
 import { stoneMat, arcade, archway, roseWindow, banner, throne, carpet, candelabra } from "../../kit/interior";
 import { tapestry, dressPlace, plant, pottery, townCard, mountainCard, flagPole } from "../../kit/worldbuild";
 import { roundTower, wallRun, house } from "../../kit/architecture";
@@ -42,10 +43,10 @@ export function jar(root: THREE.Object3D) {
   const greyBody = new THREE.MeshStandardMaterial({ color: "#d6e2ff", metalness: 0, roughness: 0.75, normalMap: grainNormal(9) });   // the master's jar reads pale grey-white on screen greyBody.userData.env = true;
   const greyBand = new THREE.MeshStandardMaterial({ color: "#c2cde8", metalness: 0, roughness: 0.6, normalMap: engraveNormal() });   // engraved bands (round 3: hero ornament) greyBand.userData.env = true;
   g.add(vessel(prof, { body: greyBody, band: greyBand, bands: [[0.4, 1.04], [1.05, 1.0], [2.1, 1.03]], knob: 0.17 }));   // the master's jar reads light grey with gold dragons
-  const gold = metal("gold", { scales: 10, repeat: [3, 2] }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
+  const gold = metal("gold", { scales: 14, repeat: [1, 1] }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
   DRAGON_AZ.forEach((az, i) => {
     const a = (az * Math.PI) / 180;
-    const d = dragonHead({ mat: gold, seed: i, open: 0.6 }); d.scale.setScalar(D_S);
+    const d = sdfDragon({ mat: gold }); d.scale.setScalar(D_S);   // the code-sculpted SDF head (scripts/sdf_dragon.py), shaped on the Codex key frame
     d.position.set(Math.sin(a) * D_R, D_Y, Math.cos(a) * D_R); d.rotation.y = a; d.rotateX(0.12); g.add(d);
     const f = toad({ mat: toadMat }); f.position.set(Math.sin(a) * FROG_R, 0, Math.cos(a) * FROG_R); f.rotation.y = a + Math.PI; f.scale.setScalar(0.85); g.add(f);
   });

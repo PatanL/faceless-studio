@@ -9,7 +9,10 @@ import type { Timing } from "../../kit/timing";
 import { glints, burst, fall as kitFall } from "../../kit/fx2";
 import { frameKey as kitFrameKey } from "../../kit/framing";
 import { bokeh } from "../../kit/depth";
-import { glaze } from "../../kit/materials";
+import { glaze, metal } from "../../kit/materials";
+import { depthPlate } from "../../kit/plate";
+import { makeKey } from "../../kit/sets";
+import { NOINK } from "../../ink";
 import { orb } from "../../kit/heroprops";
 import { candelabra } from "../../kit/interior";
 import { walkers, shifters, birds, smokeColumns, flagsRig } from "../../kit/worldbuild";
@@ -79,7 +82,52 @@ const hallLife = (): PersonSpec[] => [
 ];
 const balconyLife = (): Rig[] => [birds({ from: [-80, 30, -90], to: [80, 42, -120], n: 9, size: 1.4, period: 12 }), smokeColumns([[-50, -2, -205], [25, -2, -210], [70, -2, -235]], { scale: 4 }), flagsRig()];
 const DBG = (p: V3): Rig => (ctx) => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.06), new THREE.MeshBasicMaterial({ color: "#ff0000", depthTest: false })); m.renderOrder = 99; m.position.set(...p); ctx.root.add(m); return () => {}; };
-export function buildStudy(_T: Timing): StudyStory {
+/** a world point at screen (sx, sy) and distance dist from a CamKey's camera (for props framed in a key frame) */
+const atScreen = (k: CamKey, sx: number, sy: number, dist: number): V3 => {
+  const c = new THREE.PerspectiveCamera(k.fov ?? 40, 9 / 16); c.position.set(...k.pos); c.lookAt(new THREE.Vector3(...k.look)); c.updateMatrixWorld();
+  const th = Math.tan(((k.fov ?? 40) * Math.PI) / 360), v = new THREE.Vector3((sx - 0.5) * 2 * th * (9 / 16) * dist, -(sy - 0.5) * 2 * th * dist, -dist).applyMatrix4(c.matrixWorld);
+  return [v.x, v.y, v.z];
+};
+/** the hook's foreground, after the Codex key frame (main path): candles in a gold bowl bottom-left, an incense burner,
+ * a low table with scroll rolls and a blue-and-white brush pot bottom-right; world-placed from the F0 camera so the push
+ * leaves them behind (a real near layer, blurred by the lens) */
+const hookForeground = (k: CamKey): Rig => (ctx) => {
+  const gold = metal("gold", { engrave: true, repeat: [2, 1] }), wax = glaze("#f2ead6", { rough: 0.5 }), flameM = new THREE.MeshBasicMaterial({ color: new THREE.Color("#ffd890").multiplyScalar(2.4) });
+  const put = (o: THREE.Object3D, sx: number, sy: number, d: number, dy = 0) => { const p = atScreen(k, sx, sy, d); o.position.set(p[0], p[1] + dy, p[2]); o.lookAt(new THREE.Vector3(k.pos[0], o.position.y, k.pos[2])); ctx.root.add(o); return o; };
+  const candles = new THREE.Group();
+  const bowl = new THREE.Mesh(new THREE.LatheGeometry([[0, 0], [0.3, 0.02], [0.36, 0.14], [0.34, 0.16], [0, 0.16]].map(([x, y]) => new THREE.Vector2(x, y)), 32), gold); candles.add(bowl);
+  for (const [x, z, h] of [[-0.12, 0.02, 0.32], [0.1, -0.05, 0.24], [0.02, 0.12, 0.18]]) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, h, 16), wax); c.position.set(x, 0.16 + h / 2, z); candles.add(c);
+    const f = new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8), flameM); f.scale.set(1, 2, 1); f.position.set(x, 0.16 + h + 0.05, z); f.layers.set(NOINK); f.userData.bloom = true; candles.add(f); }
+  put(candles, 0.1, 0.9, 1.5, -0.25);
+  const burner = new THREE.Mesh(new THREE.LatheGeometry([[0, 0], [0.12, 0], [0.16, 0.08], [0.2, 0.2], [0.17, 0.3], [0.08, 0.36], [0.1, 0.42], [0.04, 0.5], [0, 0.52]].map(([x, y]) => new THREE.Vector2(x, y)), 32), gold);
+  put(burner, 0.36, 0.95, 1.6, -0.3);
+  const table = new THREE.Group(); const wood = glaze("#5a2418", { rough: 0.4 });
+  const top = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.06, 0.6), wood); top.position.y = 0.3; table.add(top);
+  for (const [x, z] of [[-0.5, -0.25], [0.5, -0.25], [-0.5, 0.25], [0.5, 0.25]]) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.3, 0.05), wood); l.position.set(x, 0.15, z); table.add(l); }
+  for (let i = 0; i < 3; i++) { const sc = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.42, 16), glaze("#efe0bc", { rough: 0.6 })); sc.rotation.z = Math.PI / 2; sc.position.set(-0.25 + i * 0.06, 0.37 + (i === 2 ? 0.08 : 0), -0.1 + i * 0.09); table.add(sc);
+    const tie = new THREE.Mesh(new THREE.TorusGeometry(0.047, 0.008, 6, 16), glaze("#b8302f")); tie.rotation.y = Math.PI / 2; tie.position.copy(sc.position); table.add(tie); }
+  const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.09, 0.24, 24), glaze("#e8eef8", { rough: 0.25 })); pot.position.set(0.32, 0.45, 0.05); table.add(pot);
+  for (let i = 0; i < 4; i++) { const br = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.012, 0.36, 6), glaze("#3a2a1a")); br.position.set(0.3 + i * 0.02, 0.6, 0.05 + (i % 2) * 0.03); br.rotation.z = -0.15 + i * 0.1; table.add(br); }
+  put(table, 0.86, 0.93, 1.7, -0.32);
+  ctx.root.traverse((o) => { if ((o as THREE.Mesh).isMesh && !(o as THREE.Mesh).castShadow) { o.castShadow = true; o.receiveShadow = true; } });
+  return () => {};
+};
+
+/** round 3 pilot, technique 1 (trial): the hook push-in as a key frame + depth plate. The key camera sits at KEYCAM; the
+ * plate (public/kf/hook_*) is the Codex key frame displaced by Depth Anything V2; our live inventor card stands on the
+ * painted one (feet at screen (0.22, 0.79), 3.4 m); the push is a lens push (zoom) with a 0.1 m dolly, within the
+ * plate's measured limits */
+const KEYCAM: CamKey = { t: 0, pos: [0, 1.6, 10], look: [0, 1.6, 0], fov: 40 };
+function plateHook(groups: GroupSpec[], invFace: { t: number; v: string }[]) {
+  const dragon = atScreen(KEYCAM, 0.62, 0.42, 4.06), feet = atScreen(KEYCAM, 0.22, 0.79, 3.4);
+  const fwd = (d: number): V3 => [0, 1.6, 10 - d];
+  groups[0] = { ...groups[0], set: () => { const root = new THREE.Group(); return { root, key: makeKey(root, [-6, 9, 14], [0, 1, 5], 12), glows: [], extra: {} }; }, light: HALL, lens: { cInf: 0.01 },
+    cam: [{ ...KEYCAM, ease: "lin" }, { t: F(20), pos: fwd(0.04), look: [0.02, 1.6, 0], fov: 39.4, ease: "lin" },
+      aimKey(33, fwd(0.1), dragon, 0.45, 0.4, 15.5, "io"), aimKey(58, fwd(0.12), dragon, 0.45, 0.4, 14.5, "lin"), aimKey(92, fwd(0.12), dragon, 0.45, 0.4, 14.5, "lin")],
+    people: [{ id: "inventor", scale: 0.62, at: () => feet, faceTo: () => dragon, props: () => ({ costume: "scholar", seed: 1, face: invFace, pose: steps([[0, "holdHigh"]]), blinks: [] }) }],
+    rigs: [depthPlate("hook", KEYCAM)], alive: [[0, F(92)]] };
+}
+export function buildStudy(_T: Timing, o: { plate?: boolean } = {}): StudyStory {
   const groups: GroupSpec[] = [];
   const INV: V3 = [-1.45, 0, 1.25];
   const INV2: V3 = [-0.55, 0, 2.55];
@@ -108,7 +156,7 @@ export function buildStudy(_T: Timing): StudyStory {
         { id: "inventor", at: () => INV, faceTo: () => headOf(0), props: () => ({ costume: "scholar", seed: 1, face: invFace, pose: steps([[0, "holdHigh"]]), blinks: [] }) },
         emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]])),
       ],
-      rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i)), armRig([-1.15, 1.15, 1.35], mouthOf(0), 21, 36, 43),
+      rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i)), armRig([-1.15, 1.15, 1.35], mouthOf(0), 21, 36, 43), hookForeground(frameKey(0, head(INV), 0.33, 0.47, HEAD_H, 0.19, 10, 4)),
         glints([{ at: mouthOf(0), t: F(52), size: 0.16, life: 8 }])],
       alive: [[0, F(92)]],
     });
@@ -206,6 +254,7 @@ export function buildStudy(_T: Timing): StudyStory {
       alive: [[F(536), F(600)]],
     });
   }
+  if (o.plate) plateHook(groups, steps([[0, "smug"], [14, "stunned"]]));
   // round 3 world building: hall groups get the background life, the balcony its birds, smoke and flags
   for (const g of groups) {
     if (g.env === "candle") g.people = [...g.people, ...hallLife()];

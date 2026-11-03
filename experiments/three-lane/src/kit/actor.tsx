@@ -519,7 +519,7 @@ function hatPopAt(pops: unknown, t: number): {dy: number; rot: number} {
 // ------------------------------------------------------------------ the figure
 export const Actor: React.FC<{props: Record<string, unknown>; time: number}> = ({props, time}) => (
 	<svg viewBox="0 0 600 700" width="100%" height="100%" preserveAspectRatio="xMidYMax meet" style={{overflow: 'visible'}}>
-		<g {...((props.ink ?? 6) > 0 ? {stroke: FINK, strokeWidth: props.ink ?? 6, strokeLinejoin: 'round', strokeLinecap: 'round'} : {})}>{/* round 3: near-black ink (refs), not the explainer kit's violet */}
+		<g {...(num(props.ink, 6) > 0 ? {stroke: FINK, strokeWidth: num(props.ink, 6), strokeLinejoin: 'round' as const, strokeLinecap: 'round' as const} : {})}>{/* round 3: near-black ink (refs), not the explainer kit's violet */}
 			<ActorBody props={props} t={time} />
 		</g>
 	</svg>

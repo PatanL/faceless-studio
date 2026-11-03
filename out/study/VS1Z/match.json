@@ -759,5 +759,227 @@
     "v13": "flames, 3 servants walking, 4 courtiers shifting, birds, smoke, flags"
    }
   }
+ },
+ "pilot_keyframe": {
+  "key_frames": {
+   "hook": "experiments/asset-gen/gen/kf_hook_shot1.png (Codex, our style board; gen_one.sh fixed to take the newest ~/.codex/generated_images file)",
+   "dragon": "scratchpad kf/out_1.png (coordinator)"
+  },
+  "technique_1_depth_plate": {
+   "how": "Depth Anything V2 small (official weights, MPS) -> metric depth 1.1-26 m -> 180x320 camera-space grid textured from the key camera (kit/plate.ts); our live inventor card stands on the painted one; the push is a lens push (zoom 40 -> 14.5 deg) with a 0.12 m dolly",
+   "limits_share_of_frame_stretched_and_coverage": {
+    "push_m": {
+     "0.1": [
+      0.029,
+      1.0
+     ],
+     "0.2": [
+      0.0696,
+      1.0
+     ],
+     "0.35": [
+      0.1164,
+      1.0
+     ],
+     "0.5": [
+      0.1315,
+      1.0
+     ],
+     "0.8": [
+      0.2089,
+      1.0
+     ],
+     "1.2": [
+      0.3295,
+      1.0
+     ],
+     "1.8": [
+      0.478,
+      1.0
+     ]
+    },
+    "orbit_deg_about_3.2m": {
+     "1": [
+      0.076,
+      0.976
+     ],
+     "2": [
+      0.1662,
+      0.976
+     ],
+     "4": [
+      0.3273,
+      0.951
+     ],
+     "6": [
+      0.4798,
+      0.927
+     ],
+     "10": [
+      0.7686,
+      0.871
+     ],
+     "15": [
+      1.0,
+      0.819
+     ]
+    },
+    "tilt_deg": {
+     "1": [
+      0.0,
+      0.976
+     ],
+     "2": [
+      0.0,
+      0.951
+     ],
+     "5": [
+      0.0,
+      0.872
+     ],
+     "8": [
+      0.0,
+      0.772
+     ]
+    },
+    "truck_m": {
+     "0.05": [
+      0.0632,
+      0.976
+     ],
+     "0.1": [
+      0.1294,
+      0.951
+     ],
+     "0.2": [
+      0.2449,
+      0.878
+     ],
+     "0.4": [
+      0.3927,
+      0.78
+     ]
+    },
+    "zoom_x": {
+     "1.2": [
+      0.0,
+      1.0
+     ],
+     "1.6": [
+      0.0,
+      1.0
+     ],
+     "2.0": [
+      0.0,
+      1.0
+     ],
+     "3.0": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "usable_range": "push <= ~0.1 m (2.9 % stretched), orbit <= ~1 deg (7.6 %), truck <= ~5 cm (6.3 %), tilt <= ~1 deg (plate edge: 97.6 % covered), zoom unlimited by stretch but resolution-limited (941 px key frame: 2.5x zoom = 2.9x upscale at 1080 wide)",
+   "hook_match": {
+    "ssim": 0.22,
+    "dE": 34.1,
+    "motion_corr": 0.18,
+    "note": "the trial covers the push F0-F58 and holds; the crane F59-F91 is outside the plate"
+   }
+  },
+  "technique_2_sdf_dragon": {
+   "how": "scripts/sdf_dragon.py: SDF primitives (cranium, snout, nose pad, lips, brows, cheeks, open jaw, mouth cavity, segmented horns, mane and beard blades, crest, S-neck), smooth unions, marching cubes (step 14 mm, 83k triangles), scale normal map, gold, ink; teeth, eyes, whiskers, ball as kit parts at exported anchors (kit/codemodels.ts)",
+   "camera_range": "full 3D: any move (the shot-3 orbit of ~45 deg, the push and tilt)",
+   "v14_match": {
+    "shot1": {
+     "ssim": 0.216,
+     "dE": 35.6,
+     "motion_corr": 0.77
+    },
+    "shot3": {
+     "ssim": 0.173,
+     "dE": 31.5,
+     "motion_corr": 0.11
+    }
+   }
+  },
+  "detail_by_region_median": {
+   "hook F0-F58 (hero edge, hero texture, bg edge, bg texture, mid edge, mid texture)": {
+    "theirs": [
+     0.138,
+     19.1,
+     0.068,
+     9.98,
+     0.028,
+     5.54
+    ],
+    "key frame": [
+     0.194,
+     29.4,
+     0.186,
+     19.8,
+     0.141,
+     14.0
+    ],
+    "v13 before": [
+     0.128,
+     17.3,
+     0.098,
+     10.7,
+     0.087,
+     9.44
+    ],
+    "main path v14 (code, SDF)": [
+     0.14,
+     18.8,
+     0.108,
+     10.9,
+     0.085,
+     9.62
+    ],
+    "2.5D trial": [
+     0.16,
+     19.9,
+     0.161,
+     15.7,
+     0.107,
+     11.7
+    ]
+   },
+   "shot 3 F225-F404": {
+    "theirs": [
+     0.127,
+     21.2,
+     0.163,
+     23.9,
+     0.104,
+     13.5
+    ],
+    "key frame (dragon)": [
+     0.238,
+     32.1,
+     0.179,
+     23.9,
+     0.143,
+     12.1
+    ],
+    "v13 before": [
+     0.128,
+     21.0,
+     0.136,
+     17.0,
+     0.119,
+     12.3
+    ],
+    "v14 SDF": [
+     0.113,
+     14.8,
+     0.132,
+     16.0,
+     0.113,
+     10.9
+    ]
+   }
+  }
  }
 }

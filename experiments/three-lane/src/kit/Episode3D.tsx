@@ -18,6 +18,8 @@ import { RicksCaptions, type CapWord } from "./captions";
 import { clipCss, covers, homography, type Shape } from "./match";
 import { runGates, type HudTrack } from "./gates";
 import { preloadModels } from "./models";
+import { preloadCodeModels } from "./codemodels";
+import { preloadPlate } from "./plate";
 
 const W = 1080, H = 1920;
 // phrase pages run to two lines (caption_rule "phrase"), so 3D episodes use a slightly smaller caption than the house 84
@@ -230,13 +232,15 @@ export type Story = { groups: GroupSpec[]; hud?: HudTrack[] };
  * panels and busy bands), "ricks" (the reference style: opt-in, the owner has not chosen it), "none".
  * gates (kit/gates.ts: holds <= 4 s, no speck figures, nothing cut by the edge, HUD never backwards): "fail" (default)
  * stops the render with the list, "warn" logs it, "off". */
-export function Episode3D<S extends Story>({ storyboard, words: wordsIn, durations, build, overlays, screenAvoid, captions = "house", gates = "fail", joins }: {
+export function Episode3D<S extends Story>({ storyboard, words: wordsIn, durations, build, overlays, screenAvoid, captions = "house", gates = "fail", joins, plates }: {
   storyboard?: StoryboardInput; words?: CapWord[]; durations?: number[];
   /** "ricks": also gate the join mix against the RicksClips counts (kit/gates.ts joinMix) */
   joins?: "ricks";
   build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
   screenAvoid?: (s: S, t: number) => ScreenRect[];
   captions?: "house" | "ricks" | "ricks-phrase" | "none"; gates?: "fail" | "warn" | "off";
+  /** key-frame depth plates to preload (kit/plate.ts) */
+  plates?: string[];
 }) {
   waitForFonts();
   const { fps, durationInFrames } = useVideoConfig();
@@ -268,7 +272,7 @@ export function Episode3D<S extends Story>({ storyboard, words: wordsIn, duratio
   const [fontsReady, setReady] = useState(false);
   const [handle] = useState(() => delayRender("three-lane fonts"));
   useEffect(() => {
-    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"'), document.fonts.load('800 64px "Montserrat"'), preloadModels()])
+    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"'), document.fonts.load('800 64px "Montserrat"'), preloadModels(), preloadCodeModels(), ...(plates ?? []).map((id) => preloadPlate(id))])
       .catch(() => null).finally(() => { setReady(true); continueRender(handle); });
   }, [handle]);
   return (

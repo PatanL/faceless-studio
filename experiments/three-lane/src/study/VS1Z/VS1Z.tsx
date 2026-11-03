@@ -21,3 +21,8 @@ export const VS1Z: React.FC = () => (
   <Episode3D words={STUDY_WORDS} durations={[20]} build={buildStudy} captions="ricks-phrase" gates="warn"
     overlays={() => <SpeedLines f0={142} f1={160} cx={600} cy={1050} />} />
 );
+
+/** round 3 pilot (trial): the hook push-in as a key frame + depth plate (render frames 0-58) */
+export const VS1Z25: React.FC = () => (
+  <Episode3D words={STUDY_WORDS} durations={[20]} build={(T) => buildStudy(T, { plate: true })} captions="ricks-phrase" gates="off" plates={["hook"]} />
+);
