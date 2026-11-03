@@ -36,9 +36,17 @@ const FPS = 30;
 // ------------------------------------------------------------------ costumes (same names and colours as stick/Person)
 type Costume = {
 	coat: string; coatShade: string; vest?: string; cravat?: string; legs: string; shoes: string;
-	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'helmet' | 'tiara' | 'tugu' | 'ikseon' | 'kabuto' | 'hachimaki' | 'gat' | 'none';
+	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'helmet' | 'tiara' | 'tugu' | 'ikseon' | 'kabuto' | 'hachimaki' | 'gat' | 'guan' | 'mian' | 'none';
 	hair?: 'wig' | 'wigTall' | 'updo' | 'side' | 'short' | 'messy' | 'bob' | 'none'; hairColor?: string;
 	gown?: string; gownShade?: string; glasses?: boolean; epaulettes?: boolean; buttons?: boolean;
+	// round 3 (replication lesson 4: "costumes are flat blocks of colour"): period detail
+	trim?: string;            // a border along the hem, the front and the cuffs (gold, contrasting silk)
+	collar?: 'cross' | 'round';   // 'cross': the East Asian crossed collar (left over right), drawn in the trim colour
+	pattern?: 'dots' | 'diamond' | 'cloud' | 'scale'; patternColor?: string;   // a woven / embroidered repeat, clipped to the coat
+	robe?: string; robeShade?: string;   // a long under-robe to the ankles, under the coat
+	sash?: string;            // a belt sash with hanging ends
+	armour?: string;          // lamellar plates over the torso, shoulder guards
+	hatOrn?: string;          // a jewel / pin colour on the hat
 };
 const COSTUMES: Record<string, Costume> = {
 	kempelen: {coat: c('violet-1'), coatShade: c('violet-0'), vest: c('amber-4'), cravat: c('bone-2'), legs: K.ink, shoes: c('ink-0'), hat: 'tricorn', hair: 'wig', hairColor: c('bone-0'), buttons: true},
@@ -84,6 +92,13 @@ const COSTUMES: Record<string, Costume> = {
 	official: {coat: '#3d4f8f', coatShade: '#2a3768', vest: c('bone-1'), legs: c('ink-1'), shoes: c('ink-0'), hat: 'gat', hair: 'none'},
 	samurai: {coat: '#2c2f45', coatShade: '#1b1d2e', vest: '#b8342c', legs: '#3a3d55', shoes: c('ink-0'), hat: 'kabuto', hair: 'none'},
 	samurai2: {coat: '#6b2a2a', coatShade: '#4a1c1c', vest: '#2c2f45', legs: '#3a3d55', shoes: c('ink-0'), hat: 'kabuto', hair: 'none'},
+	// round 3: an East Asian court (replication study VS1Z and period courts): an inventor-scholar, officials, an emperor
+	// in a yellow dragon robe and a flat-topped crown, palace guards in lamellar armour
+	scholar: {coat: '#2f5fa8', coatShade: '#22467e', legs: c('ink-1'), shoes: c('ink-0'), hat: 'guan', hair: 'none', trim: '#e3b448', collar: 'cross', pattern: 'cloud', patternColor: '#4f82c8', robe: '#e9e2d0', robeShade: '#c9bfa8', sash: '#9a2a2a', hatOrn: '#e3b448'},
+	courtOfficial: {coat: '#7a2a3a', coatShade: '#561c28', legs: c('ink-1'), shoes: c('ink-0'), hat: 'guan', hair: 'none', trim: '#e3b448', collar: 'cross', pattern: 'diamond', patternColor: '#94404f', robe: '#2a2a3a', robeShade: '#1c1c28', sash: '#e3b448', hatOrn: '#c0202a'},
+	courtOfficial2: {coat: '#2f6a5a', coatShade: '#1f4a3f', legs: c('ink-1'), shoes: c('ink-0'), hat: 'guan', hair: 'none', trim: '#e3b448', collar: 'cross', pattern: 'dots', patternColor: '#4a8a78', robe: '#e9e2d0', robeShade: '#c9bfa8', sash: '#7a2a3a', hatOrn: '#e3b448'},
+	hanEmperor: {coat: '#e2a92c', coatShade: '#b47e1a', legs: c('ink-1'), shoes: c('ink-0'), hat: 'mian', hair: 'none', trim: '#a3202a', collar: 'cross', pattern: 'scale', patternColor: '#f2c45a', robe: '#a3202a', robeShade: '#741620', sash: '#a3202a', hatOrn: '#e3b448'},
+	hanGuard: {coat: '#8e2a2a', coatShade: '#661c1c', legs: c('ink-1'), shoes: c('ink-0'), hat: 'helmet', hair: 'none', trim: '#d9a53a', armour: '#7a7f90', sash: '#d9a53a', robe: '#8e2a2a', robeShade: '#661c1c'},
 	ashigaru: {coat: '#4a5a6e', coatShade: '#33404f', legs: '#c9b994', shoes: c('ink-0'), hat: 'hachimaki', hair: 'short', hairColor: c('ink-1')},
 };
 
@@ -321,6 +336,31 @@ function fillLevel(fills: Fill[], t: number): {k: number; color: string} | null 
 }
 
 // ------------------------------------------------------------------ hats, hair, items
+/** round 3 costume detail, drawn over the coat (all clipped to the coat shape, so nothing leaves the silhouette) */
+const COAT_D = "M 236 262 Q 300 246 364 262 L 398 470 Q 300 490 202 470 Z";
+function CostumeDetail({cos}: {cos: Costume}) {
+	if (!cos.pattern && !cos.armour && !cos.trim && !cos.collar && !cos.sash) return null;
+	const pc = cos.patternColor ?? cos.coatShade, items: React.ReactNode[] = [];
+	if (cos.pattern) for (let y = 270; y < 490; y += 34) for (let x = 196 + ((y / 34) % 2) * 22; x < 404; x += 44) {
+		const k = `${x}-${y}`;
+		if (cos.pattern === 'dots') items.push(<circle key={k} cx={x} cy={y} r={5} fill={pc} />);
+		else if (cos.pattern === 'diamond') items.push(<path key={k} d={`M ${x} ${y - 9} L ${x + 9} ${y} L ${x} ${y + 9} L ${x - 9} ${y} Z`} fill="none" stroke={pc} strokeWidth={3} />);
+		else if (cos.pattern === 'cloud') items.push(<path key={k} d={`M ${x - 12} ${y + 3} q 0 -10 8 -8 q 4 -9 12 -2 q 9 -2 8 8`} fill="none" stroke={pc} strokeWidth={3} strokeLinecap="round" />);
+		else items.push(<path key={k} d={`M ${x - 11} ${y - 4} q 11 16 22 0`} fill="none" stroke={pc} strokeWidth={3} />);
+	}
+	return <g>
+		<defs><clipPath id="coatclip"><path d={COAT_D} /></clipPath></defs>
+		<g clipPath="url(#coatclip)" stroke="none">
+			{items}
+			{cos.armour && <g>{[0, 1, 2, 3, 4, 5].map((r) => <g key={r}>{[0, 1, 2, 3, 4, 5, 6, 7].map((k) => <rect key={k} x={200 + k * 26 + (r % 2) * 13} y={284 + r * 30} width={24} height={32} rx={8} fill={cos.armour} stroke={FINK} strokeWidth={3} />)}</g>)}</g>}
+			{cos.trim && <path d="M 202 470 Q 300 490 398 470" stroke={cos.trim} strokeWidth={16} fill="none" />}
+			{cos.collar === 'cross' && <path d="M 252 258 Q 280 300 342 372 M 348 260 Q 330 288 312 314" stroke={cos.trim ?? cos.coatShade} strokeWidth={18} fill="none" strokeLinecap="round" />}
+			{cos.collar === 'round' && <path d="M 256 262 Q 300 300 344 262" stroke={cos.trim ?? cos.coatShade} strokeWidth={14} fill="none" />}
+		</g>
+		{cos.armour && <g>{[-1, 1].map((sd) => <path key={sd} d={`M ${300 + sd * 58} 256 Q ${300 + sd * 112} 250 ${300 + sd * 118} 300 L ${300 + sd * 74} 292 Z`} fill={cos.armour} stroke={FINK} strokeWidth={4} />)}</g>}
+		{cos.sash && <g><path d="M 206 420 Q 300 440 394 420 L 397 448 Q 300 468 203 448 Z" fill={cos.sash} /><path d="M 330 444 L 340 520 L 356 516 L 348 442 Z M 352 442 L 372 510 L 386 504 L 366 440 Z" fill={cos.sash} />{cos.trim && cos.trim !== cos.sash && <path d="M 206 434 Q 300 454 394 434" stroke={cos.trim} strokeWidth={4} fill="none" />}</g>}
+	</g>;
+}
 function Hair({kind, color, back}: {kind?: string; color: string; back: boolean}) {
 	const sh = c('bone-0') === color ? c('sky-3') : c('ink-0');
 	if (kind === 'wig' || kind === 'wigTall') {
@@ -359,7 +399,7 @@ function Hair({kind, color, back}: {kind?: string; color: string; back: boolean}
 	}
 	return null;
 }
-function Hat({kind}: {kind?: string}) {
+function Hat({kind, orn}: {kind?: string; orn?: string}) {
 	if (kind === 'tricorn') return <g><path d="M 160 78 Q 300 120 450 70 Q 420 4 300 -6 Q 186 2 160 78 Z" fill={c('ink-1')} /><path d="M 160 78 Q 300 120 450 70 L 444 84 Q 300 136 166 92 Z" fill={c('amber-3')} /></g>;
 	if (kind === 'bicorne') return <g><path d="M 128 76 Q 300 120 470 74 Q 420 -36 300 -40 Q 176 -36 128 76 Z" fill={c('ink-1')} /><circle cx={384} cy={40} r={20} fill={c('tide-0')} /><circle cx={384} cy={40} r={9} fill={c('coral-2')} /></g>;
 	if (kind === 'crown') return <g><path d="M 238 44 L 252 -4 L 276 26 L 300 -14 L 324 26 L 348 -4 L 362 44 Z" fill={K.gold} /><circle cx={300} cy={28} r={7} fill={c('coral-2')} /></g>;
@@ -373,6 +413,10 @@ function Hat({kind}: {kind?: string}) {
 	if (kind === 'ikseon') return <g><ellipse cx={244} cy={-14} rx={30} ry={15} fill="#1e1b26" transform="rotate(-40 244 -14)" /><ellipse cx={356} cy={-14} rx={30} ry={15} fill="#1e1b26" transform="rotate(40 356 -14)" /><path d="M 196 112 Q 192 30 248 22 Q 250 -26 300 -30 Q 350 -26 352 22 Q 408 30 404 112 Q 300 90 196 112 Z" fill="#26222e" /><path d="M 200 112 Q 300 92 400 112 L 400 98 Q 300 78 200 98 Z" fill="#e2b33c" /></g>;
 	if (kind === 'kabuto') return <g><path d="M 142 176 Q 160 110 196 100 L 404 100 Q 440 110 458 176 Q 430 150 404 140 L 196 140 Q 170 150 142 176 Z" fill="#23263a" /><path d="M 190 116 Q 184 14 300 4 Q 416 14 410 116 Q 300 94 190 116 Z" fill="#2c2f45" /><path d="M 220 70 Q 300 52 380 70 M 210 94 Q 300 76 390 94" stroke="#4a4e6a" strokeWidth={6} fill="none" /><path d="M 300 20 Q 256 -10 236 -70 Q 270 -30 300 -20 Q 330 -30 364 -70 Q 344 -10 300 20 Z" fill="#e2b33c" /><circle cx={300} cy={22} r={14} fill="#b8342c" /></g>;
 	if (kind === 'hachimaki') return <g><path d="M 186 96 Q 300 70 414 96 L 414 124 Q 300 98 186 124 Z" fill="#f2efe6" /><path d="M 412 104 Q 452 92 470 120 Q 446 112 430 120 Q 452 130 456 156 Q 432 130 412 124 Z" fill="#f2efe6" /></g>;
+	// round 3: a Han official's cap (a black crown over the topknot, a pin through it) and an emperor's mian (a flat board
+	// with bead strings front and back, a jewel)
+	if (kind === 'guan') return <g><path d="M 236 70 Q 232 6 300 -6 Q 368 6 364 70 Z" fill="#1c1a24" /><rect x={226} y={60} width={148} height={22} rx={8} fill="#2c2836" /><rect x={196} y={20} width={208} height={12} rx={6} fill={K.gold} /><circle cx={300} cy={44} r={11} fill={orn ?? K.gold} /></g>;
+	if (kind === 'mian') return <g><path d="M 230 74 Q 230 22 300 16 Q 370 22 370 74 Z" fill="#1c1a24" /><rect x={150} y={0} width={300} height={22} rx={4} fill="#1c1a24" /><rect x={150} y={18} width={300} height={8} fill={K.gold} />{[166, 196, 226, 256, 344, 374, 404, 434].map((x) => <g key={x}><line x1={x} y1={26} x2={x} y2={84} stroke={K.gold} strokeWidth={3} />{[40, 56, 72].map((y) => <circle key={y} cx={x} cy={y} r={5} fill={y === 56 ? '#c0202a' : K.gold} />)}</g>)}<rect x={236} y={64} width={128} height={14} rx={5} fill={K.gold} /><circle cx={300} cy={71} r={9} fill={orn ?? '#c0202a'} /></g>;
 	if (kind === 'gat') return <g><ellipse cx={300} cy={74} rx={196} ry={26} fill="#1e1b26" opacity={0.92} /><path d="M 236 74 L 242 -12 Q 300 -24 358 -12 L 364 74 Z" fill="#1e1b26" opacity={0.92} /><path d="M 222 80 Q 214 150 234 210 M 378 80 Q 386 150 366 210" stroke="#1e1b26" strokeWidth={4} fill="none" /></g>;
 	if (kind === 'bonnet') return <path d="M 186 110 Q 176 10 300 2 Q 424 10 414 110 Q 380 60 300 56 Q 220 60 186 110 Z" fill={c('bone-2')} />;
 	if (kind === 'furcap') return <g><path d="M 196 96 Q 186 40 214 20 Q 226 -10 262 -6 Q 290 -24 320 -8 Q 356 -16 378 14 Q 414 34 404 96 Z" fill={c('amber-0')} />{[200, 236, 272, 308, 344, 380].map((x) => <circle key={x} cx={x + 10} cy={96} r={22} fill={c('ochre-0')} />)}</g>;
@@ -554,8 +598,10 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 				<Hair kind={cos.hair} color={cos.hairColor ?? K.ink} back />
 				<Limb sh={SH_L} hand={hl} out={-1} sleeve={cos.coatShade} skin={K.skinShade} />
 				{isGown && <path d={`M 236 404 Q 150 560 110 ${700 - bodyY} L 490 ${700 - bodyY} Q 450 560 364 404 Z`} fill={cos.gown} />}
+				{cos.robe && <g><path d={`M 222 430 L 196 ${f(Math.min(652, 652 - bodyY * 0.6))} Q 300 ${f(Math.min(672, 672 - bodyY * 0.6))} 404 ${f(Math.min(652, 652 - bodyY * 0.6))} L 378 430 Z`} fill={cos.robe} /><path d={`M 300 440 L 300 ${f(Math.min(668, 668 - bodyY * 0.6))} Q 360 ${f(Math.min(664, 664 - bodyY * 0.6))} 404 ${f(Math.min(652, 652 - bodyY * 0.6))} L 378 430 Z`} fill={cos.robeShade ?? cos.robe} />{cos.trim && <path d={`M 196 ${f(Math.min(652, 652 - bodyY * 0.6))} Q 300 ${f(Math.min(672, 672 - bodyY * 0.6))} 404 ${f(Math.min(652, 652 - bodyY * 0.6))}`} stroke={cos.trim} strokeWidth={12} fill="none" />}</g>}
 				<path d="M 236 262 Q 300 246 364 262 L 398 470 Q 300 490 202 470 Z" fill={cos.coat} />
 				<path d="M 300 254 Q 336 252 364 262 L 398 470 Q 350 482 318 484 Z" fill={cos.coatShade} />
+				<CostumeDetail cos={cos} />
 				{cos.vest && <path d="M 284 262 L 316 262 L 322 452 L 278 452 Z" fill={cos.vest} />}
 				{cos.buttons && [300, 340, 380, 420].map((y) => <circle key={y} cx={300} cy={y} r={5.5} fill={K.goldShade} />)}
 				{cos.epaulettes && <g><rect x={214} y={262} width={50} height={20} rx={10} fill={K.gold} /><rect x={336} y={262} width={50} height={20} rx={10} fill={K.goldShade} /></g>}
@@ -579,7 +625,7 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 						<MouthShape kind={flapMouth ?? face.mouth} />
 					</g>
 					<Marks marks={marks} t={t} />
-					<g transform={`translate(0 ${f(pop.dy)}) rotate(${f(pop.rot)} 300 40)`} stroke={FINK} strokeWidth={7.5} strokeLinejoin="round"><Hat kind={cos.hat} /></g>
+					<g transform={`translate(0 ${f(pop.dy)}) rotate(${f(pop.rot)} 300 40)`} stroke={FINK} strokeWidth={7.5} strokeLinejoin="round"><Hat kind={cos.hat} orn={cos.hatOrn} /></g>
 				</g>
 				<Limb sh={SH_R} hand={hr} out={1} sleeve={cos.coat} skin={K.skin} />
 				{item !== 'none' && <Item kind={item} at={[hr[0], hr[1] - 6]} swing={swing} t={t} />}

@@ -72,3 +72,20 @@ The scores and their notes are in `out/study/VS1Z/match.json`.
 - **Motion.** Correlation of the motion-energy curves after the best lag: 0.4-0.8.
 - **Judgement.** Timing and joins are good to close. Framing is good after the fixes. The flatter look comes from the
   props and sets (rows 1-4).
+
+## Round 3 (visual track, 2026-11-03): what the kit now does about rows 1-8
+
+- **Rows 1-4** are now kit pieces (`kit/materials.ts`, `kit/heroprops.ts`, `kit/interior.ts`, the `candle` preset,
+  `kit/depth.ts`, the court costumes). The replica uses them in v4-v10 (`renders/ours_v10r.mp4`).
+- **Rows 6 and 8** are promoted: `frameKey` is in `kit/framing.ts`, `SpeedLines` in `kit/speedlines.tsx`, `fall` and
+  `drop` in `kit/fx2.ts`.
+- **Row 7** is done: `PersonSpec.extra` and `GroupSpec.cropOK`.
+- **Camera smoothness** (owner):
+  - `scripts/cam_smooth.py` measures it.
+  - Paths are filtered in time (`kit/campath.ts`), with camera motion blur.
+  - The `smooth` gate fails unintended velocity steps.
+
+Per-shot scores before and after are in `out/study/VS1Z/match.json` (`match_score_v3_blind`, `match_score_v10`). No
+shot reaches 8: the measured term (SSIM ~0.2 with our own sets, by design) caps it near 7.5 even at a judgement of 8.5,
+and the blind judge still puts props and look at 4-6 (dragons read dark against the master's polished gold, the
+balcony has no painted town, and the throne room is plainer).

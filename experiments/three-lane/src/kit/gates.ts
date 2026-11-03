@@ -1,6 +1,8 @@
 // Build gates for 3D story episodes (our own code). Episode3D runs them when it builds the story and fails the
 // render on a failure (an episode can ask for warnings instead); scripts/framing.ts runs them and exits 1.
 //   hold   no view held longer than 4 s without a change of place, angle, subject or size (planner.ts; rule book P1-P3)
+//   smooth  (round 3) no camera velocity step above the master's max (44 px/f^2 at 1080) outside snaps; no hold jitter
+//   (round 3) PersonSpec.extra figures are exempt from cast and edge, GroupSpec.cropOK ids from edge
 //   cast   no group whose figures are specks (median head < 0.05 of the frame height) unless it is marked
 //          establishing or insert, and heads >= 0.07 in at least 25 % of the frames with figures (refs: median head
 //          0.08, 47 % >= 0.07; castframe.ts)
@@ -16,11 +18,11 @@ import * as THREE from "three";
 import type { GroupSpec, V3 } from "./Stage";
 import { planReport } from "./planner";
 import { castCheck, peopleCast } from "./castframe";
-import { camAt, project, W, H } from "./match";
+import { camAt, project, pathOf, W, H } from "./match";
 import { personBox, type Box } from "./framing";
 
 export type HudTrack = { name: string; kind: "progress" | "gauge"; value: (t: number) => number | null; tol?: number; allowBack?: [number, number][] };
-export type GateOpts = { fps?: number; maxStill?: number; minCamPx?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[]; joins?: "ricks" };
+export type GateOpts = { maxAccel?: number; maxReverse?: number; fps?: number; maxStill?: number; minCamPx?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[]; joins?: "ricks" };
 export type GateResult = { failures: string[]; notes: string[] };
 
 /** frames inside a join (whip smear, dissolve, push): nothing is judged there */
@@ -103,6 +105,8 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
     // bottom edge is a framing choice (the refs' figures fill the lower half), not a cut
     for (const p of g.people) {
       if (p.visible && !p.visible(t)) continue;
+      // round 3: extras and deliberate crops are the shot's choice; the hero stays strict
+      if (p.extra || g.cropOK?.includes(p.id)) continue;
       const b = personBox(p.at(t), (p.props(t) as { seated?: boolean }).seated === true), s = p.scale ?? 1;
       const body: Box = s === 1 ? b : [b[0], b[1], b[2], b[0] + (b[3] - b[0]) * s, b[1] + (b[4] - b[1]) * s, b[5]];
       const head: Box = [body[0], body[4] - 0.3 * (body[4] - body[1]), body[2], body[3], body[4], body[5]];
@@ -121,6 +125,49 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
     for (const f of [...fs.slice(1), -1]) {
       if (f !== prev + 1) { if (prev - s + 1 >= (o.edgeMinF ?? 8)) failures.push(`edge: ${k} cut by the frame edge ${(s / fps).toFixed(2)}-${(prev / fps).toFixed(2)} s`); s = f; }
       prev = f;
+    }
+  }
+  // smooth (round 3, owner: "our camera isn't as smooth as RicksClips'"): the camera's screen motion at the subject's
+  // depth must not step by more than the master's largest per-frame velocity change (VS1Z, scripts/cam_smooth.py: max
+  // 29.5 px/f^2 at 720 = 44 at 1080) outside deliberate snaps (ease "snap" / sharp keys) and joins, and must not
+  // jitter on holds (direction reversals while slower than 3 px/f in more than 10 % of hold frames; master 6 %)
+  {
+    const maxA = o.maxAccel ?? 44, maxRev = o.maxReverse ?? 0.1;
+    const cA = new THREE.PerspectiveCamera(), cB = new THREE.PerspectiveCamera();
+    for (const g of groups) {
+      const f0 = Math.round(g.t0 * fps), f1 = Math.round(g.t1 * fps);
+      const sharp = (t: number) => g.cam.some((k, i) => i > 0 && (k.ease === "snap" || k.sharp) && t >= g.cam[i - 1].t - 0.1 && t <= k.t + 0.15);
+      let prev: number[] | null = null, holds = 0, revs = 0, worst = 0, worstT = 0;
+      for (let f = f0; f < f1 - 1; f++) {
+        const t = f / fps;
+        if (inJoin(groups, t) || inJoin(groups, t + 1 / fps)) { prev = null; continue; }
+        cA.copy(camAt(g, t)); cB.copy(camAt(g, t + 1 / fps));
+        const fwd = new THREE.Vector3(); cA.getWorldDirection(fwd);
+        const vis = g.people.filter((q) => !q.visible || q.visible(t)).map((q) => { const [x, y, z] = q.at(t); return cA.position.distanceTo(new THREE.Vector3(x, y + 0.8, z)); }).sort((u, w) => u - w);
+        // subject depth: the figures' median distance, or the aim distance when the shot has no figures
+        const d = vis.length ? Math.max(2, vis[Math.floor(vis.length / 2)]) : Math.max(2, pathOf(g).at(t).look.distanceTo(cA.position));
+        const right = new THREE.Vector3().setFromMatrixColumn(cA.matrixWorld, 0), up = new THREE.Vector3().setFromMatrixColumn(cA.matrixWorld, 1);
+        const c = cA.position.clone().addScaledVector(fwd, d);
+        let vx = 0, vy = 0, vz = 0, n = 0;
+        for (const i of [-1, 0, 1]) for (const j of [-1, 0, 1]) {
+          const p = c.clone().addScaledVector(right, i * 0.3 * d).addScaledVector(up, j * 0.5 * d), a = project(cA, [p.x, p.y, p.z]), b = project(cB, [p.x, p.y, p.z]);
+          if (a.behind || b.behind) continue;
+          const dx = b.x - a.x, dy = b.y - a.y, rx = a.x - W / 2, ry = a.y - H / 2, rl = Math.hypot(rx, ry) || 1;
+          vx += dx; vy += dy; vz += (dx * rx + dy * ry) / rl; n++;
+        }
+        if (!n) { prev = null; continue; }
+        const v = [vx / n, vy / n, vz / n];
+        if (prev && !sharp(t)) {
+          const acc = Math.hypot(v[0] - prev[0], v[1] - prev[1], v[2] - prev[2]);
+          if (acc > worst) { worst = acc; worstT = t; }
+          const sp = Math.hypot(v[0], v[1], v[2]);
+          if (sp < 3) { holds++; if (v[0] * prev[0] + v[1] * prev[1] < 0 && sp > 0.2 && Math.hypot(prev[0], prev[1]) > 0.2) revs++; }
+        }
+        prev = v;
+      }
+      if (worst > maxA) failures.push(`smooth: ${g.id} camera velocity steps ${worst.toFixed(1)} px/f^2 at ${worstT.toFixed(2)} s (max ${maxA}); ease the move or mark a deliberate snap`);
+      if (holds > 10 && revs / holds > maxRev) failures.push(`smooth: ${g.id} hold jitter: ${Math.round((100 * revs) / holds)} % direction reversals (max ${Math.round(100 * maxRev)} %)`);
+      notes.push(`smooth: ${g.id} max step ${worst.toFixed(1)} px/f^2`);
     }
   }
   // still: per frame, does anything visibly change?

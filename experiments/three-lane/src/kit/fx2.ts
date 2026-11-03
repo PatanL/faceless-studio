@@ -224,3 +224,24 @@ export const scan = (panel: ReturnType<typeof scanPanel>, t0: number, nFrames = 
   panel.uni.uDir.value = dir;
   panel.uni.uLine.value = fr < 0 ? (dir > 0 ? -0.1 : 1.1) : dir > 0 ? u : 1 - u;
 };
+
+// ---------------------------------------------------------------- drop a prop on a word (round 3, replication lesson 8)
+/** a gravity fall from `from` to `to` between t0 and t1 (seconds): before t0 it rests at `from`; after t1 at `to`, or
+ * gone with `vanish` (a ball swallowed by a frog). Horizontal motion is linear, vertical accelerates. */
+export const fall = (from: V3, to: V3, t0: number, t1: number, vanish = false) => (t: number): V3 | null => {
+  if (t >= t1) return vanish ? null : to;
+  if (t < t0) return from;
+  const u = (t - t0) / (t1 - t0);
+  return [from[0] + (to[0] - from[0]) * u, from[1] + (to[1] - from[1]) * u * u, from[2] + (to[2] - from[2]) * u];
+};
+export type DropCue = { make: () => THREE.Object3D; from: V3; to: V3; t: number; dur?: number; vanish?: boolean; impact?: number; visibleFrom?: number };
+/** drop props on words: each cue falls from `from` onto `to` starting at its word time t (dur s, default 10 f), with an
+ * impact burst on landing (impact = burst size, 0 = none) */
+export const drop = (cues: DropCue[]): Rig => (ctx) => {
+  const objs = cues.map((c) => { const o = c.make(); ctx.root.add(o); return o; });
+  const hits = burst(cues.filter((c) => (c.impact ?? 0.4) > 0).map((c) => ({ at: c.to, t: c.t + (c.dur ?? 1 / 3), size: c.impact ?? 0.4 })))(ctx);
+  return (t, cam) => {
+    cues.forEach((c, i) => { const p = fall(c.from, c.to, c.t, c.t + (c.dur ?? 1 / 3), c.vanish)(t); const o = objs[i]; o.visible = !!p && (c.visibleFrom === undefined || t >= c.visibleFrom); if (p) o.position.set(...p); });
+    hits(t, cam);
+  };
+};

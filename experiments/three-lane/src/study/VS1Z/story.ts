@@ -6,27 +6,20 @@ import * as THREE from "three";
 import type { GroupSpec, PersonSpec, V3, Rig } from "../../kit/Stage";
 import type { CamKey, Ease } from "../../kit/campath";
 import type { Timing } from "../../kit/timing";
-import { glints, burst } from "../../kit/fx2";
+import { glints, burst, fall as kitFall } from "../../kit/fx2";
+import { frameKey as kitFrameKey } from "../../kit/framing";
+import { bokeh } from "../../kit/depth";
+import { glaze } from "../../kit/materials";
+import { orb } from "../../kit/heroprops";
+import { candelabra } from "../../kit/interior";
 import { PRESETS, type Preset } from "../../kit/presets";
 import { hallSet, balconySet, flamesRig, ballRig, mouthOf, frogMouthOf, headOf, JAR, EMPEROR, GUARDS, THRONE_Z, BAL_EMP } from "./sets";
 
 export type StudyStory = { groups: GroupSpec[] };
 const F = (f: number) => f / 30;
-const D2R = Math.PI / 180;
-const ASPECT = 9 / 16;
 
-/** a framing: world point S lands at screen (sx, sy) (0..1, y down), a world height h fills `frac` of the frame height,
- * seen from azimuth az (degrees from +z toward +x) and elevation el (camera above, looking down) */
-export function frameKey(f: number, S: V3, sx: number, sy: number, h: number, frac: number, az: number, el: number, fov = 40, ease?: Ease, curve?: boolean): CamKey {
-  const visH = h / frac, d = visH / (2 * Math.tan((fov * D2R) / 2)), visW = visH * ASPECT;
-  const a = az * D2R, e = el * D2R;
-  const fwd = new THREE.Vector3(-Math.sin(a) * Math.cos(e), -Math.sin(e), -Math.cos(a) * Math.cos(e));
-  const right = new THREE.Vector3(Math.cos(a), 0, -Math.sin(a));
-  const up = new THREE.Vector3().crossVectors(right, fwd);
-  const look = new THREE.Vector3(...S).addScaledVector(right, -(sx - 0.5) * visW).addScaledVector(up, (sy - 0.5) * visH);
-  const pos = look.clone().addScaledVector(fwd, -d);
-  return { t: F(f), pos: pos.toArray() as V3, look: look.toArray() as V3, fov, ease: ease ?? "lin", curve };
-}
+/** frameKey with reference frame numbers (the kit's framing.ts frameKey takes seconds) */
+const frameKey = (f: number, S: V3, sx: number, sy: number, h: number, frac: number, az: number, el: number, fov = 40, ease?: Ease, curve?: boolean): CamKey => kitFrameKey(F(f), S, sx, sy, h, frac, az, el, fov, ease ?? "lin", curve);
 const K = (f: number, pos: V3, look: V3, fov = 40, ease: Ease = "lin", curve = false): CamKey => ({ t: F(f), pos, look, fov, ease, curve });
 /** a step track from [frame, value] pairs */
 const steps = <T,>(keys: [number, T][]) => keys.map(([f, v]) => ({ t: F(f), v }));
@@ -34,7 +27,7 @@ const steps = <T,>(keys: [number, T][]) => keys.map(([f, v]) => ({ t: F(f), v })
 const HEAD_Y = 1.375, HEAD_H = 0.59;                       // Actor: head centre above the feet, head height (scale 1)
 const head = (p: V3, s = 1): V3 => [p[0], p[1] + HEAD_Y * s, p[2]];
 
-const HALL: Preset = { ...PRESETS.golden, lit: [1.2, 1.08, 0.96], shade: [0.5, 0.5, 0.62], sat: 0.7, cardShade: [0.72, 0.68, 0.88], fog: "#5c5070", fogNear: 18, fogFar: 70, bg: "#3c3354", glow: 0.8 };
+const HALL: Preset = { ...PRESETS.candle };   // round 3: the kit's candle-lit interior (was golden with a violet shade)
 const DAY: Preset = { ...PRESETS.day, fogNear: 60, fogFar: 420 };
 
 /** the inventor's arm as a stick reaching into the dragon's mouth with the ball, then withdrawn (the hook close-up) */
@@ -52,24 +45,32 @@ const armRig = (from: V3, to: V3, f0: number, fOut0: number, fOut1: number): Rig
     hand.position.copy(tip);
   };
 };
-/** a ball falling from a dragon mouth into its frog (gravity, landing at f1); hidden after landing */
-const fall = (i: number, f0: number, f1: number) => (t: number): V3 | null => {
-  const fr = t * 30; if (fr >= f1) return null;
-  const a = mouthOf(i), b = frogMouthOf(i);
-  if (fr < f0) return a;
-  const u = (fr - f0) / (f1 - f0);
-  return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u * u, a[2] + (b[2] - a[2]) * u];
+/** a ball falling from a dragon mouth into its frog (the kit's drop path, gravity, landing at f1, swallowed) */
+const fall = (i: number, f0: number, f1: number) => kitFall(mouthOf(i), frogMouthOf(i), F(f0), F(f1), true);
+/** bokeh discs on the hall's candles and fire bowls (round 3, kit/depth.ts) */
+const hallBokeh = (k = 5): Rig => (ctx) => bokeh((ctx.set as unknown as { lights: V3[] }).lights, { color: "#ffb45c", k })(ctx);
+/** shot 5's banquet: a long lacquered table across the hall behind the jar, dishes and candles (round 3) */
+const COURT: V3[] = [-3.6, -2.4, -1.2, 1.6, 2.8, 4.0].map((x) => [x, 0, -5.6] as V3);
+const banquet = (): Rig => (ctx) => {
+  const g = new THREE.Group(); g.position.set(0.2, 0, -4.9); ctx.root.add(g);
+  const top = new THREE.Mesh(new THREE.BoxGeometry(9.5, 0.12, 1.1), glaze("#5a1e1a", { rough: 0.35 })); top.position.y = 0.82; g.add(top);
+  const cloth = new THREE.Mesh(new THREE.BoxGeometry(9.6, 0.5, 1.12), new THREE.MeshLambertMaterial({ color: "#c49a3a" })); cloth.position.y = 0.6; g.add(cloth);
+  for (let k = 0; k < 9; k++) { const d = orb("gold", 0.11); d.scale.set(1.4, 0.35, 1.4); d.position.set(-4.2 + k * 1.05, 0.9, 0.1); g.add(d);
+    const fr = orb("bronze", 0.05); fr.position.set(-4.2 + k * 1.05, 0.98, 0.1); g.add(fr); }
+  const c = candelabra({ n: 3, h: 0.6, spread: 0.2 }); c.position.set(-1.0, 0.88, 0.2); g.add(c);
+  const c2 = candelabra({ n: 3, h: 0.6, spread: 0.2 }); c2.position.set(2.6, 0.88, 0.2); g.add(c2);
+  g.traverse((o) => { if ((o as THREE.Mesh).isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  return () => {};
 };
-
 const DBG = (p: V3): Rig => (ctx) => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.06), new THREE.MeshBasicMaterial({ color: "#ff0000", depthTest: false })); m.renderOrder = 99; m.position.set(...p); ctx.root.add(m); return () => {}; };
 export function buildStudy(_T: Timing): StudyStory {
   const groups: GroupSpec[] = [];
   const INV: V3 = [-1.45, 0, 1.25];
   const INV2: V3 = [-0.55, 0, 2.55];
   const emperorSpec = (face: { t: number; v: string }[], pose: { t: number; v: string }[] = steps([[0, "stand"]])): PersonSpec =>
-    ({ id: "emperor", scale: 1.05, at: () => EMPEROR, props: () => ({ costume: "persianLord", seed: 3, face, pose, blinks: [] }) });
+    ({ id: "emperor", scale: 1.05, at: () => EMPEROR, props: () => ({ costume: "hanEmperor", seed: 3, face, pose, blinks: [] }) });
   const guardSpecs = (face: { t: number; v: string }[], pose: { t: number; v: string }[] = steps([[0, "stand"]])): PersonSpec[] =>
-    GUARDS.map((g, k) => ({ id: `guard${k}`, at: () => g, faceTo: () => EMPEROR, props: () => ({ costume: "hoplite", seed: 7 + k, face, pose, blinks: [] }) }));
+    GUARDS.map((g, k) => ({ id: `guard${k}`, at: () => g, faceTo: () => EMPEROR, props: () => ({ costume: "hanGuard", seed: 7 + k, face, pose, blinks: [] }) }));
   const JC: V3 = [JAR[0], 1.5, JAR[2]];
 
   // ===== shot 1, F0-F91 (one camera move): the inventor at the jar (smug), push into the dragon's mouth as the arm
@@ -77,7 +78,7 @@ export function buildStudy(_T: Timing): StudyStory {
   {
     const invFace = steps([[0, "smug"], [14, "stunned"]]);
     groups.push({
-      id: "hook", place: "hall", t0: 0, t1: F(92), xfade: 0, set: hallSet, light: HALL, lens: { cInf: 18 },
+      id: "hook", place: "hall", t0: 0, t1: F(92), xfade: 0, set: hallSet, env: "candle", light: HALL, lens: { cInf: 18 },
       cam: [
         frameKey(0, head(INV), 0.33, 0.47, HEAD_H, 0.19, 10, 4),
         frameKey(20, head(INV), 0.335, 0.47, HEAD_H, 0.2, 10, 4, 40, "lin"),
@@ -88,10 +89,10 @@ export function buildStudy(_T: Timing): StudyStory {
         K(91, [0.4, 3.83, 1.2], [0.05, 1.75, THRONE_Z], 26, "lin"),
       ],
       people: [
-        { id: "inventor", at: () => INV, faceTo: () => headOf(0), props: () => ({ costume: "master", seed: 1, face: invFace, pose: steps([[0, "holdHigh"]]), blinks: [] }) },
+        { id: "inventor", at: () => INV, faceTo: () => headOf(0), props: () => ({ costume: "scholar", seed: 1, face: invFace, pose: steps([[0, "holdHigh"]]), blinks: [] }) },
         emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]])),
       ],
-      rigs: [flamesRig(), ballRig((i) => mouthOf(i)), armRig([-1.15, 1.15, 1.35], mouthOf(0), 21, 36, 43),
+      rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i)), armRig([-1.15, 1.15, 1.35], mouthOf(0), 21, 36, 43),
         glints([{ at: mouthOf(0), t: F(52), size: 0.16, life: 8 }])],
       alive: [[0, F(92)]],
     });
@@ -104,25 +105,26 @@ export function buildStudy(_T: Timing): StudyStory {
     const invPose = steps([[92, "hold"], [120, "point"], [130, "hold"], [143, "strikeUp"]]);
     const empH = head(EMPEROR, 1.05);
     groups.push({
-      id: "warning", place: "hall", t0: F(92), t1: F(225), xfade: 0, join: { kind: "cut" }, set: hallSet, light: HALL, lens: { cInf: 16 },
+      id: "warning", place: "hall", t0: F(92), t1: F(225), xfade: 0, join: { kind: "cut" }, cropOK: ["guard0", "guard1"],   // the master crops the flanking guards on purpose (F168-F192)
+      set: hallSet, env: "candle", light: HALL, lens: { cInf: 16 },
       cam: [
         frameKey(92, head(INV), 0.36, 0.47, HEAD_H, 0.19, 4, 3),
         frameKey(142, head(INV), 0.37, 0.47, HEAD_H, 0.2, 4, 3, 40, "lin"),
         frameKey(150, head(INV), 0.55, 0.56, HEAD_H, 0.222, 0, 3, 40, "snap"),
         frameKey(158, head(INV), 0.58, 0.58, HEAD_H, 0.23, -2, 3, 40, "lin"),
-        K(162, [-2.2, 2.0, 2.6], [1.5, 1.7, -5], 40, "in", true),
-        K(166, [-1.9, 2.1, -3.0], [0, 1.95, THRONE_Z], 40, "lin", true),
+        { ...K(161, [-2.2, 2.0, 2.6], [1.5, 1.7, -5], 40, "in", true), soft: 5 },
+        { ...K(166, [-1.9, 2.1, -3.0], [0, 1.95, THRONE_Z], 40, "io", true), soft: 5 },   // the fly-past past the jar: smoothed wider (round 3)
         frameKey(170, empH, 0.48, 0.38, HEAD_H * 1.05, 0.21, 0, 2, 40, "out", true),
         frameKey(185, empH, 0.48, 0.38, HEAD_H * 1.05, 0.22, 0, 2, 40, "lin"),
-        frameKey(200, empH, 0.5, 0.45, HEAD_H * 1.05, 0.07, 0, 7, 55, "io"),
+        { ...frameKey(200, empH, 0.5, 0.45, HEAD_H * 1.05, 0.07, 0, 7, 55, "io"), soft: 6 },   // round 3: the laugh pull-back eased wider (it stepped 32 px/f^2 against the master's max 30)
         frameKey(225, empH, 0.5, 0.45, HEAD_H * 1.05, 0.075, 0, 7, 55, "lin"),
       ],
       people: [
-        { id: "inventor", at: () => INV, faceTo: (t) => (t < F(143) ? headOf(0) : [-4, 2, 0]), props: () => ({ costume: "master", seed: 1, face: invFace, pose: invPose, blinks: [F(117)], marks: [{ t0: F(136), kind: "sweat" }] }) },
+        { id: "inventor", at: () => INV, faceTo: (t) => (t < F(143) ? headOf(0) : [-4, 2, 0]), props: () => ({ costume: "scholar", seed: 1, face: invFace, pose: invPose, blinks: [F(117)], marks: [{ t0: F(136), kind: "sweat" }] }) },
         emperorSpec(steps([[0, "frown"], [180, "grimace"], [183, "laugh"], [193, "cackle"]]), steps([[0, "stand"], [193, "laugh"]])),
         ...guardSpecs(steps([[0, "frown"], [186, "laugh"], [196, "cackle"]]), steps([[0, "stand"], [190, "laugh"]])),
       ],
-      rigs: [flamesRig(), ballRig((i, t) => (i === 0 ? fall(0, 121, 131)(t) : mouthOf(i)))],
+      rigs: [flamesRig(), hallBokeh(), ballRig((i, t) => (i === 0 ? fall(0, 121, 131)(t) : mouthOf(i)))],
       alive: [[F(92), F(225)]],
     });
   }
@@ -130,7 +132,7 @@ export function buildStudy(_T: Timing): StudyStory {
   // ("eight dragons coiled around a giant bronze jar"), a push to the front dragon, a tilt down to the frog's mouth
   {
     groups.push({
-      id: "jar", place: "hall", t0: F(225), t1: F(405), xfade: 0, join: { kind: "dissolve", frames: 4 }, set: hallSet, light: HALL, lens: { cInf: 8 },
+      id: "jar", place: "hall", t0: F(225), t1: F(405), xfade: 0, join: { kind: "dissolve", frames: 4 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 8 },
       cam: [
         frameKey(223, JC, 0.34, 0.42, 3.1, 0.45, 30, 22, 44),
         frameKey(300, JC, 0.36, 0.45, 3.1, 0.5, 16, 16, 44, "lin", true),
@@ -139,8 +141,8 @@ export function buildStudy(_T: Timing): StudyStory {
         frameKey(382, frogMouthOf(1), 0.5, 0.75, 0.9, 0.4, 8, 4, 40, "io"),
         frameKey(406, frogMouthOf(1), 0.5, 0.75, 0.9, 0.42, 8, 4, 40, "lin"),
       ],
-      people: [emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]]))],
-      rigs: [flamesRig(), ballRig((i) => mouthOf(i))],
+      people: [emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]]))].map((p) => ({ ...p, extra: true })),   // specks far behind the jar, as in the master
+      rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i))],
       alive: [[F(225), F(405)]],
     });
   }
@@ -149,18 +151,20 @@ export function buildStudy(_T: Timing): StudyStory {
   {
     const H = head(BAL_EMP, 1.05);
     groups.push({
-      id: "balcony", place: "balcony", t0: F(405), t1: F(536), xfade: 0, join: { kind: "dissolve", frames: 6 }, set: balconySet, light: DAY, lens: { cInf: 4 },
+      id: "balcony", place: "balcony", t0: F(405), t1: F(536), xfade: 0, join: { kind: "dissolve", frames: 6 }, set: balconySet, light: DAY, lens: { cInf: 1.5 },
       cam: [
-        frameKey(402, H, 0.6, 0.42, HEAD_H * 1.05, 0.14, -8, 2),
-        frameKey(427, H, 0.58, 0.42, HEAD_H * 1.05, 0.145, -8, 2, 40, "lin"),
-        K(432, [0.25, 5.2, 7.6], [0, -4, -40], 40, "in", true),
-        K(441, [0.2, 7.5, 11], [0, -11, -50], 40, "out", true),
-        K(497, [0.2, 7.3, 10.4], [0, -11, -50], 40, "lin"),
-        K(504, [0.3, 4.6, 6.8], [0, -1, -40], 40, "in", true),
-        frameKey(512, H, 0.55, 0.42, HEAD_H * 1.05, 0.13, 5, 2, 40, "out", true),
+        // round 3: DECODE (corrected, 61a134b): a slow rise and pull-back drifting him to (0.3, 0.45) by F420, then a
+        // rising pull-back with a tilt down that keeps him in frame, small at the bottom (head 0.05 at (0.5, 0.93)) over
+        // the army, a drift, a crane back down to his frown at (0.55, 0.4)
+        frameKey(402, H, 0.55, 0.40, HEAD_H * 1.05, 0.13, -8, 2),
+        frameKey(420, H, 0.3, 0.45, HEAD_H * 1.05, 0.115, -8, 6, 40, "lin"),
+        frameKey(427, H, 0.32, 0.5, HEAD_H * 1.05, 0.105, -8, 8, 40, "lin"),
+        frameKey(445, H, 0.5, 0.92, HEAD_H * 1.05, 0.045, -4, 14, 50, "io5"),   // the master's wide: parade ground, city and mountains, horizon high
+        frameKey(497, H, 0.5, 0.91, HEAD_H * 1.05, 0.047, -4, 14, 50, "lin"),
+        frameKey(512, H, 0.55, 0.40, HEAD_H * 1.05, 0.13, 5, 2, 40, "io"),
         frameKey(540, H, 0.55, 0.42, HEAD_H * 1.05, 0.135, 5, 2, 40, "lin"),
       ],
-      people: [{ id: "emperor", scale: 1.05, at: () => BAL_EMP, props: () => ({ costume: "persianLord", seed: 3, face: steps([[0, "frown"], [503, "angry"], [512, "frown"]]), pose: steps([[0, "stand"]]), blinks: [F(470)] }) }],
+      people: [{ id: "emperor", scale: 1.05, at: () => BAL_EMP, props: () => ({ costume: "hanEmperor", seed: 3, face: steps([[0, "frown"], [503, "angry"], [512, "frown"]]), pose: steps([[0, "stand"]]), blinks: [F(470)] }) }],
       alive: [[F(405), F(536)]],
     });
   }
@@ -168,14 +172,15 @@ export function buildStudy(_T: Timing): StudyStory {
   // with an impact burst on "fell,", he jolts awake; the camera starts a fast push to the right
   {
     groups.push({
-      id: "later", place: "hall", t0: F(536), t1: F(600), xfade: 0, join: { kind: "dissolve", frames: 5 }, set: hallSet, light: HALL, lens: { cInf: 14 },
+      id: "later", place: "hall", t0: F(536), t1: F(600), xfade: 0, join: { kind: "dissolve", frames: 5 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 14 },
       cam: [
         frameKey(534, head(INV2), 0.27, 0.6, HEAD_H, 0.09, -12, 9),
         frameKey(594, head(INV2), 0.3, 0.58, HEAD_H, 0.1, -12, 9, 40, "lin"),
         frameKey(603, head(INV2), 0.05, 0.6, HEAD_H, 0.19, 14, 6, 40, "out"),
       ],
-      people: [{ id: "inventor", at: () => INV2, faceTo: () => headOf(1), props: () => ({ costume: "master", seed: 1, face: steps([[0, "sleepy"], [570, "stunned"], [575, "grimace"], [585, "stunned"], [594, "sly"]]), pose: steps([[0, "stand"], [570, "shrug"], [580, "stand"]]), blinks: [] }) }],
-      rigs: [flamesRig(), ballRig((i, t) => (i === 1 ? fall(1, 555, 569)(t) : mouthOf(i))), burst([{ at: frogMouthOf(1), t: F(569), size: 0.9, n: 10 }])],
+      people: [...COURT.map((p, k) => ({ id: `court${k}`, extra: true, at: () => p, faceTo: () => [0, 1, 6] as V3, props: () => ({ costume: ["courtOfficial", "courtOfficial2"][k % 2], seed: 20 + k, face: ["neutral", "smug", "focus", "sly"][k % 4], pose: "stand", blinks: [] }) })),
+        { id: "inventor", at: () => INV2, faceTo: () => headOf(1), props: () => ({ costume: "scholar", seed: 1, face: steps([[0, "sleepy"], [570, "stunned"], [575, "grimace"], [585, "stunned"], [594, "sly"]]), pose: steps([[0, "stand"], [570, "shrug"], [580, "stand"]]), blinks: [] }) }],
+      rigs: [flamesRig(), hallBokeh(), banquet(), ballRig((i, t) => (i === 1 ? fall(1, 555, 569)(t) : mouthOf(i))), burst([{ at: frogMouthOf(1), t: F(569), size: 0.9, n: 10 }])],
       alive: [[F(536), F(600)]],
     });
   }

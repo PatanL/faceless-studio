@@ -9,7 +9,12 @@ export type CamKey = { t: number; pos: [number, number, number]; look: [number, 
   /** exact mode (replication study, 2026-11-02): when any key of a path sets `ease`, the path goes through every key at
    * its time with no automatic glide, drift, push or orbit; `ease` shapes the segment that ENDS at this key and
    * `curve` runs that segment on a Catmull-Rom spline through the neighbouring keys (orbits, crane arcs) */
-  ease?: Ease; curve?: boolean };
+  ease?: Ease; curve?: boolean;
+  /** round 3 (smoothness): keep the segment that ends at this key sharp (no temporal smoothing across it): an
+   * intentional snap. Segments with ease "snap" are sharp anyway. */
+  sharp?: boolean;
+  /** round 3: a wider smoothing window (frames) for the segment ending at this key (a long fly-past) */
+  soft?: number };
 export type Ease = "lin" | "io" | "in" | "out" | "io5" | "snap";
 const EASE: Record<Ease, (u: number) => number> = {
   lin: (u) => u, io: (u) => u * u * (3 - 2 * u), in: (u) => u * u, out: (u) => 1 - (1 - u) * (1 - u),
@@ -28,8 +33,21 @@ type S = { pos: THREE.Vector3; look: THREE.Vector3; fov: number };
 // ORBIT: each hold also swings the camera a few degrees around its subject (parallax: v7 still measured 4.6 px/f)
 const GLIDE = 0.9, LAND = 0.3, FRAC = 0.85, PUSH = 0.25, ORBIT = (9 * Math.PI) / 180;
 
+// round 3 (owner: "our camera isn't as smooth as RicksClips'"; scripts/cam_smooth.py on the VS1Z replica): every path
+// is a raw path (exact keys, or the glide/hold grammar) filtered in time by a Gaussian of SMOOTH frames, so velocity and
+// acceleration are continuous through every key, start and stop: the raw exact path changed velocity in one frame at
+// key joins (lin -> io), starts (1.4 -> 55 px/f at F59) and stops (33 -> 2 px/f at F171), where the master's moves take
+// 2-4 frames. Position, aim and zoom are filtered together; aim is slerped between keys (exact mode), so rotation and
+// position share one ease. Sharp segments (ease "snap", sharp: true) keep a near-zero window: snaps stay deliberate.
+const SMOOTH = 4.0, SMOOTH_SHARP = 0.5, FPS = 30;
+const _m = new THREE.Matrix4(), _up = new THREE.Vector3(0, 1, 0);
+const quatOf = (pos: THREE.Vector3, look: THREE.Vector3) => new THREE.Quaternion().setFromRotationMatrix(_m.lookAt(pos, look, _up));
+const fwdOf = (q: THREE.Quaternion) => new THREE.Vector3(0, 0, -1).applyQuaternion(q);
+
 export class CamPath {
   private keys: CamKey[];
+  /** temporal smoothing window (frames, Gaussian sigma); 0 = the raw path */
+  smooth = SMOOTH;
   private glides: { s: number; e: number }[] = [];
   private exact: boolean;
   constructor(keys: CamKey[], private t0: number, private t1: number) {
@@ -81,9 +99,13 @@ export class CamPath {
     let i = 0; while (t >= K[i + 1].t) i++;
     const b = K[i + 1], u = EASE[b.ease ?? "io"]((t - K[i].t) / (b.t - K[i].t));
     const seg = (f: "pos" | "look") => (b.curve ? cr(v(i - 1, f), v(i, f), v(i + 1, f), v(i + 2, f), u) : v(i, f).lerp(v(i + 1, f), u));
-    return { pos: seg("pos"), look: seg("look"), fov: (K[i].fov ?? 40) + ((b.fov ?? 40) - (K[i].fov ?? 40)) * u };
+    // the aim: the view direction slerped (quaternion) on the same ease as the position, the aim distance lerped
+    const pos = seg("pos"), pa = v(i, "pos"), pb = v(i + 1, "pos"), la = v(i, "look"), lb = v(i + 1, "look");
+    const q = quatOf(pa, la).slerp(quatOf(pb, lb), u), dist = la.distanceTo(pa) + (lb.distanceTo(pb) - la.distanceTo(pa)) * u;
+    const look = pos.clone().addScaledVector(fwdOf(q), dist);
+    return { pos, look, fov: (K[i].fov ?? 40) + ((b.fov ?? 40) - (K[i].fov ?? 40)) * u };
   }
-  at(t: number): S {
+  private rawAt(t: number): S {
     if (this.exact) return this.exactAt(t);
     const holdStart = (i: number) => (i === 0 ? this.t0 : this.glides[i - 1].e);
     for (let i = 0; i < this.glides.length; i++) {
@@ -97,5 +119,29 @@ export class CamPath {
     }
     const last = this.keys.length - 1;
     return this.hold(last, t - holdStart(last));
+  }
+  /** deliberate snaps: [start, end] of every segment whose key has ease "snap" or sharp */
+  private sharps(): [number, number][] { const K = this.keys; const out: [number, number][] = []; for (let i = 1; i < K.length; i++) if (K[i].ease === "snap" || K[i].sharp) out.push([K[i - 1].t, K[i].t]); return out; }
+  at(t: number): S {
+    if (this.smooth <= 0) return this.rawAt(t);
+    // inside a snap: (nearly) raw; outside: the window never reaches across a snap, so the snap stays a deliberate
+    // velocity step and the moves either side are still smooth
+    const sh = this.sharps(), inSnap = sh.some(([a, b]) => t >= a - 0.5 / FPS && t <= b + 0.5 / FPS);
+    const K = this.keys; let soft = this.smooth;
+    for (let i = 1; i < K.length; i++) if (K[i].soft) {
+      // the wider window fades in and out over 10 frames either side, so the filter itself never steps
+      const out = Math.max(0, K[i - 1].t - t, t - K[i].t) * FPS, w = Math.max(0, 1 - out / 10);
+      soft = Math.max(soft, this.smooth + (K[i].soft! - this.smooth) * w * w * (3 - 2 * w));
+    }
+    const sig = inSnap ? SMOOTH_SHARP : soft;
+    const R = Math.ceil(3 * sig), pos = new THREE.Vector3(), look = new THREE.Vector3();
+    let fov = 0, wsum = 0;
+    for (let k = -R; k <= R; k++) {
+      const tk = t + k / FPS;
+      if (!inSnap && sh.some(([a, b]) => (t < a && tk > a) || (t > b && tk < b))) continue;
+      const w = Math.exp(-(k * k) / (2 * sig * sig)), s = this.rawAt(tk);
+      pos.addScaledVector(s.pos, w); look.addScaledVector(s.look, w); fov += s.fov * w; wsum += w;
+    }
+    return { pos: pos.divideScalar(wsum), look: look.divideScalar(wsum), fov: fov / wsum };
   }
 }

@@ -450,3 +450,75 @@ commit that adds this entry (still-gate fix, Barca mechanism move, docs). Kit us
 - **At 240p against the 24 refs:** everything is in range except ink and soft edge, the known encoder artefact.
 - **Saturation:** the drop comes from the whiter heads and paler sand. One small fix is lifting the Barca world
   saturation.
+
+## 2026-11-03 ~07:00 UTC: round 3: replication lessons in the kit, and camera smoothness
+
+The test bed is the VS1Z 20 s replica (internal study only). Renders v4-v10 are in `out/study/VS1Z/renders/`, the
+sheets in `out/study/VS1Z/compare/v4`-`v10`, and the three-way side-by-side (reference | v3 | v10) is
+`out/study/VS1Z/VS1Z_side_by_side_v10_phone.mp4` (9.8 MB). Everything was rendered on the Mac at concurrency 1, niced,
+under the lock. Kit usage is in INTEGRATION.md, "Round 3 kit additions".
+
+**Look (lessons 1-4).**
+- **Hero props:**
+  - sculpted gold dragon heads in a real metal (scale normal maps, spec, a painted env);
+  - a cast-relief jar;
+  - toads and bronze orbs.
+- **Interior kit:**
+  - fluted columns with gold capitals, pointed arcades, a rose window, banners, a carved gold throne;
+  - runners and candelabras;
+  - a `candle` preset measured on the master's hall (mean RGB 133/112/100, luma p10/p50 60/113), a warm key over
+    grey-lavender stone.
+- **Depth:** bokeh discs and a foreground-mass helper.
+- **Costumes:** court costumes with trims, crossed collars, patterns, robes, sashes, lamellar armour, a guan and a mian.
+- **Colour:** v4 went too warm and dark (hook luma p50 56 against 113). It was re-measured and corrected in v5. The
+  hall's colour against the master: v3 63/112/... → v10 (mean RGB hook 115/88/91, p50 78).
+- **Block dE stays 29-35:** it is dominated by layout (our own sets by design), so it is not a useful look target here.
+
+**Per-shot match** (0.7 × judgement + 0.3 × measured; framing, props and look come from one fresh blind judge who saw v3
+and v10 side by side against the reference):
+
+| Shot | v3 (study's own score) | v3 (blind judge) | v10 | Props / look, v3 → v10 |
+|---|---|---|---|---|
+| 1 hook take | 7.0 | 6.7 | 7.1 | 3/4 → 6/5 |
+| 2 warning, travel, laugh | 7.3 | 6.6 | 6.3 | 3/4 → 4/4 |
+| 3 jar orbit to frog | 5.7 | 5.7 | 6.0 | 3/4 → 6/5 |
+| 4 balcony crane | 6.4 | 6.0 | 6.5 | 4/4 → 4/4 |
+| 5 weeks later | 6.2 | 5.7 | 5.9 | 3/4 → 5/5 |
+
+- **Below target.** No shot reaches 8. With SSIM ~0.2, the measured term caps a shot near 7.5 even at an 8.5 judgement.
+- **Remaining look gaps (judge):**
+  - the dragons read dark bronze against the master's bright polished gold;
+  - shot 2's bell falls to silhouette in the wide;
+  - the balcony has no painted town or spires;
+  - the throne room is plainer.
+- **Judge variance:** an earlier judge rated v9 look 6 on shots 1-3 and 5.
+
+**Camera smoothness (owner).**
+- **Tool:** `scripts/cam_smooth.py`. Per-frame raw motion from camera_motion.py (translation, zoom, roll at 720 px),
+  with speed, acceleration, jerk, velocity steps, ramps and hold jitter. The cuts, dissolves and speed-line frames are
+  left out for both videos.
+- **Where ours was rough (v3):**
+  - one-frame starts and stops at key joins: lin → io and in/out segments; the crane start 1.4 → 55 px/f at F59; the
+    stop 33 → 2 at F171; the fly-past start 7 → 58 at F159;
+  - not jitter: our holds were steadier than the master's.
+- **Fix (`kit/campath.ts`):**
+  - every path is filtered in time by a Gaussian of 4 frames, so velocity and acceleration are continuous;
+  - snaps (`ease: "snap"`, `sharp`) keep their own window, and the filter never reaches across them;
+  - `soft: n` widens a long fly-past;
+  - aim is slerped on the position's ease;
+  - camera motion blur comes from the path's real per-frame motion (`kit/camblur.ts`, 180° shutter).
+- **Gate:** `smooth` in `kit/gates.ts`. No velocity step above 44 px/f² at 1080 (the master's max, 29.5 at 720) outside
+  snaps and joins, and hold reversals ≤ 10 %. The study and Barca both pass.
+
+| Measure (720 px) | Master | v3 | v9 | v10 |
+|---|---|---|---|---|
+| accel p50 / p95 / p99 / max | 0.70 / 13.9 / 24.0 / 29.5 | 0.19 / 10.7 / 29.4 / **55.1** | 0.24 / 8.1 / 18.5 / **26.7** | 0.25 / 8.2 / 18.3 / 31.9* |
+| jerk p50 / p95 / p99 / max | 0.99 / 16.0 / 30.8 / 53.2 | 0.32 / 7.8 / 29.5 / **71.6** | 0.31 / 8.8 / 23.5 / **31.8** | 0.33 / 8.0 / 22.6 / 56.2* |
+| velocity steps | 57 | 37 | 35 | 31 |
+| hold jitter (mean accel) · reversals | 0.39 · 4.9 % | 0.16 · 0 % | 0.16 · 0.6 % | 0.18 · 0.6 % |
+
+\* v10's camera is the same as v9's. Its max is a single-frame phase-correlation spike at F199 (15.8 → 32.2 → 11.1 px/f),
+not a camera step.
+
+- **Still outside the master's range:** the median attack and release of the measured moves. These are unreliable:
+  our fast moves border frames the fit cannot solve.

@@ -19,6 +19,9 @@ import { SvgTex, svgMarkup } from "./svgtex";
 import { Card3D, CARD_TONE } from "./card3d";
 import { CamKey, CamPath } from "./campath";
 import { PRESETS, Preset } from "./presets";
+import { applyEnv, type EnvMood } from "./materials";
+import { LENS_STATE } from "./depth";
+import { CamBlurEffect } from "./camblur";
 import { actorCard } from "./actorCard";
 import { skyLife, waterLife, minLabel, type Life } from "./ambient";
 import type { SetBuild } from "./sets";
@@ -37,6 +40,9 @@ export type PersonSpec = {
   /** draw with the old stick/Person (idle breathing, regular blinks) instead of the Actor (the default since the
    * src/next integration: whole-face swaps, still body, rare short blinks, marks, prop follow-through) */
   classic?: boolean;
+  /** round 3 (replication lesson 7): a background extra (a court far behind the jar, a crowd): exempt from the cast and
+   * edge gates, which judge the named cast only */
+  extra?: boolean;
 };
 /** an SVG card a rig draws every frame (markup null = keep the last drawing) */
 export type CardRec = { tex: SvgTex; card: Card3D; markup: (t: number) => string | null };
@@ -72,6 +78,10 @@ export type GroupSpec = {
   sun?: "auto" | { from: V3; at?: V3; span?: number };
   /** windows where the group's rigs visibly animate (fire, smoke, a falling weight): the still gate counts them */
   alive?: [number, number][];
+  /** the painted environment that real-metal hero props reflect (kit/materials.ts): candle | day | night (default day) */
+  env?: EnvMood;
+  /** ids of figures this shot crops at the frame edge on purpose (guards flanking a close-up); the edge gate skips them */
+  cropOK?: string[];
 };
 
 /** kit-wide lens default (src/next integration): cInf 10 left KitLab's soft-edge share at 2.6 % (refs 4-15 % at 720p) */
@@ -108,6 +118,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     });
     const ctx: Ctx = { root, set, addCard: (c) => cards.push(c) };
     const rigs = (g.rigs ?? []).map((r) => r(ctx));
+    applyEnv(root, gl, g.env ?? "day");   // real-metal hero props (and rigs' props) reflect the group's environment
     const life = [g.clouds === false ? null : skyLife(set.root), g.waves === false ? null : waterLife(set.extra.water)].filter(Boolean) as Life[];
     const path = new CamPath(g.cam, g.t0, g.t1);
     if (g.sun) {
@@ -145,6 +156,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const lens = new LensBlur({ maxCoC: g.lens?.maxCoC ?? LENS.maxCoC, nearScale: 1.2 });
     composer.addPass(new EffectPass(cam, lens.pre));
     composer.addPass(new EffectPass(cam, lens.main));
+    // round 3: camera motion blur matched to the camera's real per-frame motion (180-degree shutter)
+    const camBlur = new CamBlurEffect(0.5); composer.addPass(new EffectPass(cam, camBlur));
     const grade = new GradeEffect(PRESETS.day.grade, 1);
     // bloom on light sources only (glows, lamps, fire, sunlit highlights above the threshold), then the tone map
     // round 10: selective (the set's glows and anything tagged userData.bloom): the white heads are pushed far above
@@ -153,7 +166,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     bloom.ignoreBackground = true;
     composer.addPass(new EffectPass(cam, bloom, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
     composer.setSize(vw, vh);       // explicit: a first frame rendered before the canvas settled came out tiled (v1 review)
-    return { composer, lens, grade, aoCam, bloom };
+    return { composer, lens, grade, aoCam, bloom, camBlur, nextCam: new THREE.PerspectiveCamera() };
   }, [gl, scene, cam, vw, vh, g]);
   const mounted = React.useRef(false);
   useEffect(() => () => fx.composer.dispose(), [fx]);
@@ -170,6 +183,7 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   const P: Preset = presetOf(typeof g.light === "function" ? g.light(t) : g.light);
   const c = world.path.at(t);
   cam.position.copy(c.pos); cam.lookAt(c.look); cam.fov = c.fov; cam.near = 0.05; cam.far = 400; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+  { const f0 = new THREE.Vector3(); cam.getWorldDirection(f0); LENS_STATE.focus = Math.max(0.3, c.look.clone().sub(cam.position).dot(f0)); LENS_STATE.cInf = g.lens?.cInf ?? LENS.cInf; }   // for kit/depth.ts bokeh
   g.people.forEach((p, i) => {
     const rec = world.people[i];
     rec.card.visible = p.visible ? p.visible(t) : true;
@@ -202,6 +216,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
   fx.lens.focus = Math.max(0.3, c.look.clone().sub(cam.position).dot(fwd));
   fx.lens.cInf = g.lens?.cInf ?? LENS.cInf;
+  { const n = world.path.at(t + 1 / 30), nc = fx.nextCam; nc.copy(cam); nc.position.copy(n.pos); nc.lookAt(n.look); nc.fov = n.fov; nc.updateProjectionMatrix(); nc.updateMatrixWorld();
+    fx.camBlur.setFrom(cam, nc, fx.lens.focus); }
 
   useFrame(() => { fx.composer.render(); }, 1);
 

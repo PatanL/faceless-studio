@@ -5,7 +5,11 @@
  "iterations": {
   "v1": "first full render",
   "v2": "jar/dragon resized, hall desaturated, balcony head to y 0.42, crane over the army, jar orbit re-placed, push to the frog sped up",
-  "v3": "jar slimmer and further, hall palette warm stone, balcony crane faster (F427-F441) and lower look, lens blur off the balcony"
+  "v3": "jar slimmer and further, hall palette warm stone, balcony crane faster (F427-F441) and lower look, lens blur off the balcony",
+  "v4": "round 3 (visual track): kit hero props (sculpted gold dragons in real metal, cast-relief jar, toads, bronze balls), interior kit hall, candle preset + env, bokeh discs, court costumes, gate exemptions",
+  "v5": "palette re-measured on the master (warm practicals over grey-lavender stone, lifted blacks), light grey jar, gold throne, balcony pull-back per the corrected decode",
+  "v6-v9": "camera smoothness: Gaussian-filtered paths (sigma 4 f, snaps kept sharp), slerped aim, per-segment soft windows on the fly-past and laugh pull-back, camera motion blur",
+  "v10": "lifted candle shade, longer dragon snout, brighter gold env, balcony clouds and sharp focus (final)"
  },
  "shots": [
   {
@@ -45,6 +49,13 @@
      "motion_corr": 0.76,
      "motion_lag_f": 1,
      "motion_energy_ratio": 0.88
+    },
+    "v10": {
+     "ssim": 0.221,
+     "dE": 35.6,
+     "motion_corr": 0.79,
+     "motion_lag_f": 0,
+     "motion_energy_ratio": 1.31
     }
    },
    "mismatches_left": [
@@ -52,7 +63,33 @@
     "inventor head 0.19 vs their 0.17 and sits at x 0.33 vs 0.27 (about 6 % of width: inside tolerance)",
     "dragon close-up: primitive gold model, no scales or specular; their candle-bowl bokeh is big discs, ours small glows",
     "hall reads cooler and emptier (dE 32 after warming, 37 in v1)"
-   ]
+   ],
+   "judgement_v3_blind": {
+    "timing": 9,
+    "framing": 6,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 3,
+    "look": 4,
+    "join": 10
+   },
+   "judgement_v10": {
+    "timing": 9,
+    "framing": 7,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 6,
+    "look": 5,
+    "join": 10
+   },
+   "judgement_v9_blind_first_judge": {
+    "framing": 7,
+    "props_graphics": 6,
+    "look": 6
+   },
+   "match_score_v3_blind": 6.7,
+   "match_score_v10": 7.1,
+   "gaps_v10": "ball in the dragon's mouth lost at F45; the throne room plainer than the reference's ornate canopy and drapery"
   },
   {
    "shot": "2 warning, travel, laugh",
@@ -91,13 +128,46 @@
      "motion_corr": 0.81,
      "motion_lag_f": 1,
      "motion_energy_ratio": 0.77
+    },
+    "v10": {
+     "ssim": 0.166,
+     "dE": 32.9,
+     "motion_corr": 0.71,
+     "motion_lag_f": 0,
+     "motion_energy_ratio": 1.09
     }
    },
    "mismatches_left": [
     "guards' laugh stagger is 3 f, theirs 3-6 f with a body lean we cannot pose (no lean pose in the Actor)",
     "travel past the jar: ours passes nearer the jar, so the wipe covers more of the frame for 2 f longer",
     "throne back is a flat tufted panel; theirs a carved gothic throne"
-   ]
+   ],
+   "judgement_v3_blind": {
+    "timing": 9,
+    "framing": 6,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 3,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v10": {
+    "timing": 9,
+    "framing": 5,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 4,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v9_blind_first_judge": {
+    "framing": 7,
+    "props_graphics": 5,
+    "look": 6
+   },
+   "match_score_v3_blind": 6.6,
+   "match_score_v10": 6.3,
+   "gaps_v10": "the bell and dragons fall into silhouette in the wide; the gold throne reads dark; the laugh wide reads small"
   },
   {
    "shot": "3 jar orbit to frog",
@@ -136,6 +206,13 @@
      "motion_corr": 0.05,
      "motion_lag_f": -1,
      "motion_energy_ratio": 0.66
+    },
+    "v10": {
+     "ssim": 0.187,
+     "dE": 31.6,
+     "motion_corr": 0.15,
+     "motion_lag_f": -5,
+     "motion_energy_ratio": 0.87
     }
    },
    "mismatches_left": [
@@ -143,7 +220,33 @@
     "dragons read as thin insects at orbit distance (the largest look gap of the study)",
     "motion-energy correlation ~0: their orbit is smooth parallax over a dense background; ours has little background texture to measure, so the number is not informative here",
     "frog is a soft blob: no carved detail"
-   ]
+   ],
+   "judgement_v3_blind": {
+    "timing": 8,
+    "framing": 7,
+    "move": 7,
+    "acting": 10,
+    "props_graphics": 3,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v10": {
+    "timing": 8,
+    "framing": 7,
+    "move": 7,
+    "acting": 10,
+    "props_graphics": 6,
+    "look": 5,
+    "join": 9
+   },
+   "judgement_v9_blind_first_judge": {
+    "framing": 7,
+    "props_graphics": 6,
+    "look": 6
+   },
+   "match_score_v3_blind": 5.7,
+   "match_score_v10": 6.0,
+   "gaps_v10": "dragon heads textured but dark against the master's bright polished gold; F390 lands on the frog's back, not its mouth; hard shadows on the bell"
   },
   {
    "shot": "4 balcony crane",
@@ -182,13 +285,46 @@
      "motion_corr": 0.36,
      "motion_lag_f": 8,
      "motion_energy_ratio": 0.71
+    },
+    "v10": {
+     "ssim": 0.306,
+     "dE": 29.6,
+     "motion_corr": 0.63,
+     "motion_lag_f": 3,
+     "motion_energy_ratio": 0.96
     }
    },
    "mismatches_left": [
     "their move is a rising pull-back with the emperor kept in frame and drifting to x 0.3; ours cranes over him and he leaves at the bottom (motion lag 8 f)",
     "their city is a dense white town under mountains; ours is a near brown wall that fills the top third",
     "v1 head placed at y 0.6 instead of 0.42 (fixed in v2)"
-   ]
+   ],
+   "judgement_v3_blind": {
+    "timing": 7,
+    "framing": 6,
+    "move": 6,
+    "acting": 9,
+    "props_graphics": 4,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v10": {
+    "timing": 7,
+    "framing": 7,
+    "move": 6,
+    "acting": 9,
+    "props_graphics": 4,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v9_blind_first_judge": {
+    "framing": 7,
+    "props_graphics": 4,
+    "look": 4
+   },
+   "match_score_v3_blind": 6.0,
+   "match_score_v10": 6.5,
+   "gaps_v10": "no painted town or castle spires, low-poly mountains; the army a uniform texture without banners and gate"
   },
   {
    "shot": "5 weeks later",
@@ -227,13 +363,47 @@
      "motion_corr": 0.41,
      "motion_lag_f": 4,
      "motion_energy_ratio": 0.58
+    },
+    "v10": {
+     "ssim": 0.185,
+     "dE": 29.3,
+     "motion_corr": 0.4,
+     "motion_lag_f": -3,
+     "motion_energy_ratio": 0.89
     }
    },
    "mismatches_left": [
     "no banquet table of courtiers in the background (their F540-F599 has a long table behind)",
     "wake-up lacks the hair-shock tuft (no hair-spike mark in the Actor)",
     "final push to the frog starts F594 like theirs but carries less distance by F599"
-   ]
+   ],
+   "judgement_v3_blind": {
+    "timing": 8,
+    "framing": 6,
+    "move": 7,
+    "acting": 7,
+    "props_graphics": 3,
+    "look": 4,
+    "join": 9
+   },
+   "judgement_v10": {
+    "timing": 8,
+    "framing": 6,
+    "move": 7,
+    "acting": 7,
+    "props_graphics": 5,
+    "look": 5,
+    "join": 9
+   },
+   "judgement_v9_blind_first_judge": {
+    "framing": 6,
+    "props_graphics": 6,
+    "look": 6
+   },
+   "match_score_v3_blind": 5.7,
+   "match_score_v10": 5.9,
+   "gaps_v10": "the inventor smaller than the master's; dragons read bronze not gleaming gold; the hall sparser and less warm"
   }
- ]
+ ],
+ "score_round3": "match_score_v10 = same formula; judgement = timing/move/acting/join kept from v3 (unchanged), framing/props_graphics/look from one fresh blind judge who scored v3 and v10 side by side against the reference (order hidden per shot); match_score_v3_blind uses that judge's v3 numbers"
 }

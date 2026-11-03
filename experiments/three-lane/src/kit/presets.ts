@@ -30,6 +30,13 @@ export const PRESETS: Record<string, Preset> = {
     key: "#ffcf96", keyI: 2.0, fog: "#e9c79a", fogNear: 10, fogFar: 50, bg: "#e9c79a", glow: 0.7, sat: 0.94,
     grade: G([0.05, 0.13, 0.31, 0.6, 0.84, 0.93, 1.0], [0.96, 1.0, 0.98], [0.016, 0.008], [-0.012, 0.01], 0.2),
   },
+  // round 3 (replication lesson 2): a candle-lit interior. Measured on the VS1Z hall (mean RGB 133/112/100, luma p10 60,
+  // p50 113): warm key and practicals over cool grey stone, a neutral-lavender shade, lifted blacks, strong practicals. Use with GroupSpec.env "candle" and kit/interior.ts.
+  candle: {
+    lit: [1.5, 1.32, 1.08], shade: [0.72, 0.66, 0.72], cardLit: [1.08, 1.0, 0.92], cardShade: [0.82, 0.78, 0.84],
+    key: "#ffcf90", keyI: 2.2, fog: "#5a4a4c", fogNear: 14, fogFar: 60, bg: "#463a3e", glow: 1.0, sat: 0.86,
+    grade: G([0.09, 0.17, 0.34, 0.62, 0.85, 0.94, 1.0], [0.94, 1.0, 0.96], [0.012, 0.004], [-0.01, 0.01], 0.22),
+  },
   night: {
     lit: [0.72, 0.78, 1.12], shade: [0.3, 0.31, 0.6], cardLit: [0.86, 0.88, 1.06], cardShade: [0.5, 0.5, 0.76],
     key: "#b4c4ff", keyI: 1.6, fog: "#1c2150", fogNear: 10, fogFar: 46, bg: "#161a44", glow: 1.0, sat: 0.94,

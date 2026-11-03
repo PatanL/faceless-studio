@@ -10,7 +10,7 @@ import type { Box } from "./framing";
 export const W = 1080, H = 1920;
 const paths = new WeakMap<GroupSpec, CamPath>();
 const CAM = new THREE.PerspectiveCamera(40, W / H, 0.05, 400);
-const pathOf = (g: GroupSpec) => { let p = paths.get(g); if (!p) { p = new CamPath(g.cam, g.t0, g.t1); paths.set(g, p); } return p; };
+export const pathOf = (g: GroupSpec) => { let p = paths.get(g); if (!p) { p = new CamPath(g.cam, g.t0, g.t1); paths.set(g, p); } return p; };
 
 /** the camera of group g at global time t (exactly as Stage poses it) */
 export function camAt(g: GroupSpec, t: number, cam = CAM) {

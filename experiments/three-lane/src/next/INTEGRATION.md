@@ -336,3 +336,18 @@ All of this is in `src/kit` already; nothing needs wiring. Details and measureme
 Gates added: `still` (nothing visibly changes for more than 2 s: camera under 2.5 px/frame, figures unchanged, no
 `alive` window) and the edge gate's lens-loom check (a figure under 1 m from the lens in a group shot).
 `scripts/visible_change.py` is the post-render twin of `still`.
+
+## Round 3 kit additions (replication lessons, camera smoothness)
+
+| Piece | Use |
+|---|---|
+| `kit/materials.ts` | `metal("gold" \| "bronze" \| "darkBronze" \| "silver" \| "iron", { scales, relief, grain })`, `glaze(color)`: physically based hero materials with spec highlights and environment reflections, kept in the ink/lens/grade chain. `GroupSpec.env` ("candle" \| "day" \| "night") picks the painted environment they reflect. |
+| `kit/heroprops.ts` | `dragonHead()`, `vessel(profile)`, `toad()`, `orb()`, `taperTube()`: sculpted hero props (features snapped onto the sculpt by raycast). |
+| `kit/interior.ts` | `column`, `archway`, `arcade`, `roseWindow`, `banner`, `throne`, `carpet`, `candelabra` (returns flame points), `stoneMat`. Light with the `candle` preset. |
+| `kit/depth.ts` | `bokeh(points)`: round discs on out-of-focus lights, sized by the lens. `foreground(make, { sx, sy, dist, from, to })`: a near-plane mass or an in-world wipe. |
+| Actor costumes | `trim`, `collar: "cross" \| "round"`, `pattern`, `robe`, `sash`, `armour`, `hatOrn`; hats `guan`, `mian`; costumes `scholar`, `courtOfficial`, `courtOfficial2`, `hanEmperor`, `hanGuard`. |
+| `kit/framing.ts` `frameKey(t, S, sx, sy, h, frac, az, el, fov, ease, curve)` | Frame by subject, size and screen spot (seconds). |
+| `kit/speedlines.tsx` `SpeedLines` | Episode3D overlay for a snap punch-in. |
+| `kit/fx2.ts` `fall`, `drop(cues)` | Drop a prop on a word, with an impact burst. |
+| Gates | `PersonSpec.extra` (background figure: no cast or edge check), `GroupSpec.cropOK: ids` (deliberate edge crops). New `smooth` gate: no camera velocity step above 44 px/f^2 at 1080 outside snaps, no hold jitter. |
+| Camera (`kit/campath.ts`) | Every path is now filtered in time (Gaussian, 4 frames), aim slerped on the position's ease; `ease: "snap"` or `sharp: true` keeps a deliberate snap; `soft: n` widens one segment (a fly-past). Stage adds camera motion blur from the path's real per-frame motion (`kit/camblur.ts`). |

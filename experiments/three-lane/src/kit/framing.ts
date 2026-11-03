@@ -153,3 +153,22 @@ export function tagSprite(text: string, h = 0.07) {
   s.userData.minPx = 64;          // never shorter than 64 px on a 1920 frame (text cap ~36 px; Vasa panel: labels too small)
   return s;
 }
+
+/** round 3 (replication lesson 6, promoted from the VS1Z study): frame by subject, size and screen spot. World point S
+ * lands at screen (sx, sy) (0..1, y down); a world height h fills `frac` of the frame height; seen from azimuth az
+ * (degrees from +z toward +x) and elevation el (camera above, looking down). Thirds framing off-centre, the way the
+ * references compose ("inventor head 0.17 at (0.27, 0.48)"); pair it with kit/depth.ts foreground() for the near mass.
+ * `ease` / `curve` use the exact camera-path mode (kit/campath.ts). */
+export function frameKey(t: number, S: V3, sx: number, sy: number, h: number, frac: number, az: number, el: number, fov = 40, ease?: CamKey["ease"], curve?: boolean): CamKey {
+  const D2R = Math.PI / 180, ASPECT = 9 / 16;
+  const visH = h / frac, d = visH / (2 * Math.tan((fov * D2R) / 2)), visW = visH * ASPECT;
+  const a = az * D2R, e = el * D2R;
+  const fwd = new THREE.Vector3(-Math.sin(a) * Math.cos(e), -Math.sin(e), -Math.cos(a) * Math.cos(e));
+  const right = new THREE.Vector3(Math.cos(a), 0, -Math.sin(a));
+  const up = new THREE.Vector3().crossVectors(right, fwd);
+  const look = new THREE.Vector3(...S).addScaledVector(right, -(sx - 0.5) * visW).addScaledVector(up, (sy - 0.5) * visH);
+  const pos = look.clone().addScaledVector(fwd, -d);
+  return { t, pos: pos.toArray() as V3, look: look.toArray() as V3, fov, ease: ease ?? "lin", curve };
+}
+/** the Actor's head centre above its feet and its head height (scale 1), for frameKey on faces */
+export const ACTOR_HEAD = { y: 1.375, h: 0.59 };

@@ -91,5 +91,6 @@ export function castCheck(groups: GroupSpec[], castOf: (g: GroupSpec, t: number)
     flagged: rows.filter((r) => r.small).map((r) => r.group) };
 }
 /** cast of a kit group: its visible people */
-export const peopleCast = (g: GroupSpec, t: number): V3[] => g.people.filter((p) => !p.visible || p.visible(t)).map((p) => p.at(t));
+/** the named cast (background extras excluded, round 3) */
+export const peopleCast = (g: GroupSpec, t: number): V3[] => g.people.filter((p) => !p.extra && (!p.visible || p.visible(t))).map((p) => p.at(t));
 export { headBox as castHeadBox };
