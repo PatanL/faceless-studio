@@ -213,7 +213,7 @@ def build():
                    tag("1/3 HEAD", "@third+0.1", pct(head0 + 2.66 * P1), "17.6%", size=50, depth=1),
                ],
                "camera": cam((0, 1.0, "50%", "50%"), ("@sixteen", 1.02, "50%", "48%"), ("@nine", 1.03, "50%", "48%"),
-                             ("@laid+0.2", 1.75, "32%", "50%", "inOut"), ("@toe", 1.75, "38%", "50%"),
+                             ("@laid+0.2", 1.4, "62%", "50%", "inOut"), ("@toe", 1.4, "63%", "50%"),   # head stays in frame
                              ("@third+0.25", 1.04, "54%", "47%", "inOut"), ("@:end", 1.05, "60%", "46%", "inOut"))})
 
     # p02 the organ: one click on "machine", the oil level rises, ten bathtubs, then the focused beam
@@ -335,13 +335,13 @@ def build():
                    tag("YOU?", 0.15, "50%", "29.5%", size=60, leader=[0, 90], out="@Swimmers", depth=1),
                    {"type": "component", "name": "explainer/Map", "x": "50%", "y": "50%", "width": 1080, "height": 1920,
                     "depth": 0, "z": 30, "start": "@Swimmers", "end": "@say",
-                    "enter": {"type": "wipeDown", "at": "@Swimmers", "duration": 0.35},
+                    "enter": {"type": "waveDown", "at": "@Swimmers", "duration": 0.5},   # the house wave edge
                     "exit": {"type": "fade", "at": "@say-0.15", "duration": 0.15},
                     "props": {"views": [{"t": "@Swimmers", "lon": -66, "lat": 15, "zoom": 3.2},
                                         {"t": "@Dominica", "lon": -61.4, "lat": 15.4, "zoom": 6}],
                               "pins": [{"lon": -61.35, "lat": 15.42, "at": "@Dominica", "label": "Dominica"}],
                               "labelSize": 52, "pinSize": 1.5, "at": -0.5}},
-                   tag("CARIBBEAN SEA", "@Swimmers", "50%", "13%", size=50, z=31, out="@say-0.3"),
+                   tag("CARIBBEAN SEA", "@Swimmers+0.2", "50%", "13%", size=50, z=31, out="@say-0.3"),   # once the map is under it
                    whale(sw[0] + 300, sw[1], P6, flip=True, z=2, start="@say-0.6",
                          keyframes=[{"t": "@say-0.6", "x": pct(sw[0] + 300)}, {"t": "@thump", "x": pct(sw[0] + 40), "ease": "out"},
                                     {"t": "@:end", "x": pct(sw[0])}]),
@@ -406,9 +406,9 @@ def build():
     sc.append({"p": 9, "beat": "twist", "transitionIn": WIPE_LEFT,
                "setting": [dict(DEEP), {**DUSK, "at": "@Near"}],
                "layers": [
-                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near",     # dives out of frame before the surface wipe
-                         keyframes=[{"t": 0, "x": "28%", "y": "42%", "rotate": 0}, {"t": "@down", "x": "36%", "y": "44%", "rotate": 8},
-                                    {"t": "@Near", "x": "44%", "y": "86%", "rotate": 50, "ease": "in"}]),
+                   whale(0.3 * W, 0.42 * H, 40, z=2, end="@Near+0.2",     # dives out of the bottom before the surface wave
+                         keyframes=[{"t": 0, "x": "28%", "y": "42%", "rotate": 0}, {"t": "@down-0.25", "x": "36%", "y": "44%", "rotate": 8},
+                                    {"t": "@Near+0.15", "x": "45%", "y": "125%", "rotate": 58, "ease": "in"}]),
                    dark(0, out="@Near"),
                    {"type": "component", "name": "explainer/ColossalSquid", "x": "86%", "y": pct(0.42 * H + 38, H), "width": 160,
                     "height": 140, "flipX": True, "props": {"pxPerM": 18}, "z": 1,
@@ -435,6 +435,7 @@ def build():
                              ("@family", 1.06, "50%", "42%"), ("@:end", 1.1, "50%", "42%"))})
 
     # p09 bookend: the whale swims up on "swims", ends on the frame-0 cover exactly (codas fade before the headline)
+    # (r5: the camera opens at x 47 %, not 50 %, so the diver's fins clear the left edge at zoom 1.08)
     k = [{"t": 0, "x": pct(C_WHALE[0] + 760)}, {"t": "@swims", "x": pct(C_WHALE[0] + 760)},
          {"t": "@relax", "x": pct(C_WHALE[0] + 20), "ease": "out"}, {"t": round(d[9] - FRAME, 3), "x": pct(C_WHALE[0])}]
     sc.append({"p": 10, "beat": "bookend", "setting": SURFACE, "transitionIn": WIPE_UP,
@@ -447,7 +448,7 @@ def build():
                            "width": 260, "height": 56, "z": 6, "role": "fx",
                            "props": {"at": "@clicking", "out": "@about-0.6", "gaps": [0.18, 0.18, 0.18, 0.42], "r": 14,
                                      "color": YELLOW}}],
-               "camera": {"keyframes": [{"t": 0, "zoom": 1.08, "x": "50%", "y": "48%"}, {"t": "@relax", "zoom": 1.06, "x": "48%", "y": "48%"},
+               "camera": {"keyframes": [{"t": 0, "zoom": 1.08, "x": "47%", "y": "48%"}, {"t": "@relax", "zoom": 1.06, "x": "48%", "y": "48%"},
                                         {"t": round(d[9] - FRAME, 3), "zoom": 1.0, "x": "50%", "y": "50%", "ease": "inOut"}]}})
     # the bookend rings must only start once the whale is in place (their phase still matches frame 0 at the end)
     sc[-1]["layers"][1]["props"]["at"] = round(d[9] - FRAME - 1.0, 3)

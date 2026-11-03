@@ -16,6 +16,10 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = "plates/explainer-sperm-whale/{}.jpg"
+# an in-scene plate change rises in behind the house wave edge (the scene wipe's polygon, as a layer enter) instead of
+# the rig's hard wipeDown blind: from the bottom, so on the dive the dark comes up from below. 0.6 s over the 1.2x
+# plate box = the scene wipe's 0.5 s across the frame (r5: the r4 blinds read as screen tearing)
+WAVE = {"type": "waveUp", "duration": 0.6}
 
 
 def plate_of(seg: dict) -> str | None:
@@ -62,6 +66,8 @@ def main():
                 pl = plate_of(seg)
                 if pl:
                     img = {k: l[k] for k in ("x", "y", "width", "height", "depth", "z", "start", "end", "enter") if k in l}
+                    if img.get("enter", {}).get("type") == "wipeDown":
+                        img["enter"] = {**WAVE, "at": img["enter"]["at"]}
                     layers.append({"type": "image", "src": SRC.format(pl), "fit": "cover", "role": "dressing", **img})
                     continue
             if l.get("role") == "dressing" and str(l.get("name", "")).startswith("explainer/") and l.get("name") != "explainer/Specks":
@@ -73,6 +79,12 @@ def main():
             layers.append({"type": "particles", "preset": "bubbles", "count": 14, "seed": 7, "x": "50%", "y": "50%",
                            "width": 1300, "height": 2200, "depth": 1.45, "z": 25, "opacity": 0.45, "role": "dressing",
                            "color": "#e9f4fc", "size": [6, 16], "speed": 0.6})
+        # a plate that hands over to the next one stays up until that one's wave has fully covered it
+        plates = [l for l in layers if l.get("type") == "image" and "start" in l]
+        for a in plates:
+            nxt = [b for b in plates if b["start"] > a["start"] and b.get("enter", {}).get("type") == WAVE["type"]]
+            if "end" in a and nxt:
+                a["end"] = max(a["end"], round(min(b["start"] for b in nxt) + WAVE["duration"] + 0.05, 3))
         sc["layers"] = layers
     path = os.path.join(HERE, "storyboard_plates.json")
     json.dump(out, open(path, "w"), indent=1, ensure_ascii=False)
