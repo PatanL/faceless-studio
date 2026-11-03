@@ -608,3 +608,43 @@ The owner's rule is that everything is built in code. The Codex key frames are t
 - Region detail is under v13's procedural head (hero texture 14.8 against 21.0; theirs 21.2): the heads read dark in
   the orbit's shade.
 - Motion correlation is unchanged (0.11).
+
+## 2026-11-03 ~10:30 UTC: the code path: dragon fix, and the Myeongnyang v3 hook built in code
+
+**Owner decision.** Full code with SDF-sculpted props; no 2.5D for now.
+
+**Dragon fix** (VS1Z hook, F0-F58, `out/study/VS1Z/renders/ours_hookfix.mp4`):
+- a shorter, rising snout and a big nose bulb;
+- the jaw opened wider and the ball brought forward into it;
+- larger, brighter scales (6 rows, `#ffcf4a`, roughness 0.24);
+- an unshadowed hero fill light that only the PBR metals see.
+
+Hook detail moved from 0.140 · 18.8 / 0.108 · 10.9 to 0.143 · 19.7 / 0.120 · 12.7 (hero · background, edge · texture).
+Theirs is 0.138 · 19.1 / 0.068 · 10.0; the key frame is 0.194 · 29.4 / 0.186 · 19.8.
+
+**Myeongnyang v3 hook** (`src/study/myeong/hook.tsx`, composition `MyeongHook`, 3.7 s).
+- **Reference:** `experiments/asset-gen/gen/kf_myeong_v3.png`. A Codex key frame from our style board, with East Asian
+  warships (a panokseon bow and atakebune), dusk, an anonymous admiral letting the anchor go.
+- **The code build:**
+  - the episode's strait world (cliffs, current streaks, whirlpools, the Japanese fleet with lanterns), used read-only;
+  - the bow deck, the painted hull and rail, a carved SDF dragon post (lacquer), dark dusk water;
+  - the anchor (wood and riveted iron) with its chain and rope mid-drop, a splash (spray, foam ring, burst);
+  - laughing sailors on the near enemy decks;
+  - the admiral framed by subject, with the camera already moving at frame 0.
+- **Render:** `experiments/three-lane/out/kitlab/myeong_hook_v2.mp4`.
+- **Detail against the reference** (edge · texture):
+  - hero 0.108 · 11.8 against 0.255 · 32.5;
+  - background 0.060 · 6.9 against 0.187 · 24.3;
+  - midground 0.043 · 4.0 against 0.276 · 34.8.
+
+  That is about 1/3 to 1/8 of the reference.
+- **Short of the reference:**
+  - the composition: our camera runs along the hull, so the rail fills more of the frame as the push goes on;
+  - the cliffs are low green hills, not rock walls with pines;
+  - the sky is a flat dusk gradient with no cloud bands;
+  - the water has streaks but no foam crests or depth;
+  - the enemy ships are coarse boxes with plain banners;
+  - the admiral is smaller (head 0.15 against 0.2) and his rope hand is not on the rope.
+
+Side-by-side (the VS1Z hook fix, then the Myeongnyang reference and ours):
+`out/study/VS1Z/round3_codepath_side_by_side_phone.mp4`.

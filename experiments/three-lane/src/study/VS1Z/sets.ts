@@ -32,7 +32,7 @@ const dirOf = (az: number) => [Math.sin((az * Math.PI) / 180), Math.cos((az * Ma
 /** world position of dragon i's mouth (where its ball sits) */
 // round 3 (visual track): the dragons are kit/heroprops.ts sculpted heads in real gold, origin at r JAR_R + 0.25
 const D_R = JAR_R + 0.28, D_Y = DRAGON_Y + 0.15, D_S = 0.72;   // big, readable heads at the shoulder, as on screen in the master
-export const mouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.29; return [JAR[0] + sx * r, D_Y - 0.11, JAR[2] + cz * r]; };
+export const mouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.36; return [JAR[0] + sx * r, D_Y - 0.17, JAR[2] + cz * r]; };   // in the open jaw of the SDF head
 export const headOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.2; return [JAR[0] + sx * r, D_Y + 0.04, JAR[2] + cz * r]; };
 /** frog i's open mouth */
 export const frogMouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = FROG_R - 0.25; return [JAR[0] + sx * r, 0.37, JAR[2] + cz * r]; };
@@ -43,7 +43,7 @@ export function jar(root: THREE.Object3D) {
   const greyBody = new THREE.MeshStandardMaterial({ color: "#d6e2ff", metalness: 0, roughness: 0.75, normalMap: grainNormal(9) });   // the master's jar reads pale grey-white on screen greyBody.userData.env = true;
   const greyBand = new THREE.MeshStandardMaterial({ color: "#c2cde8", metalness: 0, roughness: 0.6, normalMap: engraveNormal() });   // engraved bands (round 3: hero ornament) greyBand.userData.env = true;
   g.add(vessel(prof, { body: greyBody, band: greyBand, bands: [[0.4, 1.04], [1.05, 1.0], [2.1, 1.03]], knob: 0.17 }));   // the master's jar reads light grey with gold dragons
-  const gold = metal("gold", { scales: 14, repeat: [1, 1] }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
+  const gold = metal("gold", { scales: 6, repeat: [1, 1], rough: 0.24, color: "#ffcf4a" }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
   DRAGON_AZ.forEach((az, i) => {
     const a = (az * Math.PI) / 180;
     const d = sdfDragon({ mat: gold }); d.scale.setScalar(D_S);   // the code-sculpted SDF head (scripts/sdf_dragon.py), shaped on the Codex key frame
@@ -143,6 +143,9 @@ export function hallSet(): SetBuild & { flames: Flame[]; flameAt: V3[]; lights: 
   }
   jar(root);
   const key = makeKey(root, [-9, 13, 7], [0, 0, -4], 16);
+  // a hero fill for the metals (round 3: the dragons fell into shade): a second, unshadowed directional light from the
+  // front, added after the key so the key stays directional light 0; the two-tone world and the character cards only read directional light 0, so only the PBR props see it
+  const fill = new THREE.DirectionalLight("#ffe2b0", 1.6); fill.position.set(4, 6, 12); fill.target.position.set(0.4, 1.8, -0.2); root.add(fill, fill.target);
   return { root, key, glows, extra: {}, flames, flameAt, lights };
 }
 /** fire bowls flicker (rig) */

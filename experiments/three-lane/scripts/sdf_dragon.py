@@ -79,21 +79,21 @@ def blade(p, c, length, width, ax, ay, az):
 
 def dragon(p):
     d = ellipsoid(p, np.array([0, 0.13, -0.08]), np.array([0.29, 0.27, 0.33]))                    # cranium
-    d = smin(d, round_cone(p, [0, 0.10, 0.08], [0, 0.07, 0.78], 0.19, 0.115), 0.08)               # snout
-    d = smin(d, ellipsoid(p, np.array([0, 0.15, 0.80]), np.array([0.17, 0.12, 0.12])), 0.06)      # nose pad
+    d = smin(d, round_cone(p, [0, 0.12, 0.08], [0, 0.13, 0.6], 0.2, 0.13), 0.09)                  # snout: shorter, rising (key frame)
+    d = smin(d, ellipsoid(p, np.array([0, 0.21, 0.63]), np.array([0.18, 0.14, 0.13])), 0.07)      # nose pad: a big curled bulb
     for s in (-1, 1):
-        d = smin(d, round_cone(p, [s * 0.15, -0.01, 0.06], [s * 0.115, -0.03, 0.80], 0.06, 0.045), 0.05)   # rolled upper lip
+        d = smin(d, round_cone(p, [s * 0.15, -0.01, 0.06], [s * 0.12, 0.02, 0.64], 0.065, 0.05), 0.05)     # rolled upper lip
         d = smin(d, round_cone(p, [s * 0.11, 0.30, 0.16], [s * 0.21, 0.37, -0.12], 0.075, 0.05), 0.06)     # brow ridge
         d = smin(d, ellipsoid(p, np.array([s * 0.2, 0.0, -0.08]), np.array([0.13, 0.16, 0.19])), 0.07)     # cheek
-        d = smin(d, round_cone(p, [s * 0.06, 0.26, 0.42], [s * 0.05, 0.22, 0.68], 0.04, 0.03), 0.04)       # snout ridge
+        d = smin(d, round_cone(p, [s * 0.06, 0.27, 0.3], [s * 0.06, 0.3, 0.52], 0.045, 0.035), 0.04)       # snout ridge
     for s in (-1, 1):
-        d = smax(d, -sphere(p, np.array([s * 0.08, 0.21, 0.88]), 0.045), 0.015)                    # nostrils
+        d = smax(d, -sphere(p, np.array([s * 0.08, 0.28, 0.72]), 0.05), 0.015)                    # nostrils
         d = smax(d, -sphere(p, np.array([s * 0.19, 0.22, 0.16]), 0.075), 0.02)                     # eye sockets
     # lower jaw, open, with a chin; then the mouth cavity between the jaws
-    jaw = round_cone(p, [0, -0.13, -0.06], [0, -0.40, 0.62], 0.14, 0.075)
-    jaw = smin(jaw, ellipsoid(p, np.array([0, -0.43, 0.6]), np.array([0.09, 0.06, 0.07])), 0.04)
+    jaw = round_cone(p, [0, -0.13, -0.06], [0, -0.48, 0.5], 0.14, 0.08)
+    jaw = smin(jaw, ellipsoid(p, np.array([0, -0.5, 0.49]), np.array([0.1, 0.07, 0.08])), 0.04)
     d = smin(d, jaw, 0.05)
-    cav = round_cone(p, [0, -0.09, 0.0], [0, -0.21, 0.74], 0.115, 0.085)
+    cav = round_cone(p, [0, -0.1, 0.0], [0, -0.27, 0.62], 0.12, 0.1)
     d = smax(d, -cav, 0.03)
     # horns: long, segmented, sweeping back and up, curling forward at the tips
     for s in (-1, 1):
@@ -134,10 +134,10 @@ def main():
     b64 = lambda a, t: base64.b64encode(np.ascontiguousarray(a, t).tobytes()).decode()
     anchors = {
         "eyes": [[s * 0.19, 0.22, 0.17] for s in (-1, 1)],
-        "nostrils": [[s * 0.08, 0.2, 0.89] for s in (-1, 1)],
-        "upperTeeth": [[s * (0.14 - 0.012 * k), -0.07, 0.12 + 0.1 * k] for s in (-1, 1) for k in range(7)],
-        "lowerTeeth": [[s * (0.1 - 0.008 * k), -0.2 - 0.04 * k, 0.12 + 0.085 * k] for s in (-1, 1) for k in range(7)],
-        "mouth": [0, -0.16, 0.5], "whiskerRoots": [[s * 0.15, 0.1, 0.86] for s in (-1, 1)], "tongue": [0, -0.2, 0.35],
+        "nostrils": [[s * 0.08, 0.28, 0.73] for s in (-1, 1)],
+        "upperTeeth": [[s * (0.14 - 0.012 * k), -0.06, 0.12 + 0.075 * k] for s in (-1, 1) for k in range(7)],
+        "lowerTeeth": [[s * (0.11 - 0.008 * k), -0.22 - 0.035 * k, 0.1 + 0.06 * k] for s in (-1, 1) for k in range(7)],
+        "mouth": [0, -0.2, 0.42], "whiskerRoots": [[s * 0.16, 0.16, 0.68] for s in (-1, 1)], "tongue": [0, -0.24, 0.3],
     }
     json.dump({"generator": "experiments/three-lane/scripts/sdf_dragon.py", "step": STEP, "count": int(len(v)), "tris": int(len(f)),
                "position": b64(v, np.float32), "normal": b64(n, np.float32), "uv": b64(uv, np.float32), "index": b64(f, np.uint32), "anchors": anchors}, open(out, "w"))
