@@ -59,7 +59,7 @@ function rayToWater(k: CamKey, sx: number, sy: number, y = 0.05): V3 {
 // the splash is where the first key's screen ray (0.78, 0.86) meets the water. The bow face (from the rail corner at
 // BOW_X, raked 0.3 forward to the centreline) ends 0.5 m short of it in ship x, so the drop is over open water and never
 // behind the hull.
-const SPLASH: V3 = rayToWater(CAM0, 0.82, 0.68);   // further out, so the drop reads whole and smaller
+const SPLASH: V3 = rayToWater(CAM0, 0.86, 0.6);   // further out, so the drop reads whole and smaller
 const SPLASH_L = [(SPLASH[0] - SHIP_O[0]) * HD[0] + (SPLASH[2] - SHIP_O[2]) * HD[1], (SPLASH[0] - SHIP_O[0]) * OUT[0] + (SPLASH[2] - SHIP_O[2]) * OUT[1]];
 const BOW_X = Math.min(0.7, SPLASH_L[0] - 0.5 - (0.3 * (RL - Math.min(SPLASH_L[1], RL))) / RL);
 const ANCHOR_K = 0.75;   // the anchor drawn large, as on the reference (1.3 crowded the lens at frame 0)
@@ -173,7 +173,7 @@ const anchorRig = (): Rig => (ctx) => {
     drops.forEach((d, i) => { const a = (i / drops.length) * Math.PI * 2, sp = 1.4 + (i % 5) * 0.45, up = 3.0 + (i % 7) * 0.55;
       d.visible = ts > 0 && ts < 1.5; if (!d.visible) return;
       d.position.set(S.x + Math.cos(a) * sp * ts, S.y + up * ts - 4.9 * ts * ts, S.z + Math.sin(a) * sp * ts * 0.7); });
-    foam.visible = ts > 0; if (ts > 0) { const r = 0.7 + ts * 1.8; foam.scale.setScalar(r); (foam.material as THREE.MeshBasicMaterial).opacity = Math.max(0, 0.9 - ts * 0.3); }
+    foam.visible = ts > 0; if (ts > 0) { const r = 0.5 + ts * 0.8; foam.scale.setScalar(r); (foam.material as THREE.MeshBasicMaterial).opacity = Math.max(0, 0.9 - ts * 0.6); }   // a small foam ring that fades fast (a big inked ring read as a hoop)
   };
 };
 
