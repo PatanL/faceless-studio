@@ -17,6 +17,7 @@ import { sdfDragon } from "../../kit/codemodels";
 import { taperTube } from "../../kit/heroprops";
 import { burst } from "../../kit/fx2";
 import { bokeh } from "../../kit/depth";
+import { PRESETS } from "../../kit/presets";
 import { frameKey } from "../../kit/framing";
 import { NOINK } from "../../ink";
 import { straitSet, currentRig, fleetRig, japanese, japaneseFleet, lanternGlows, onDeck, DECK_K } from "../../myeongnyang/sets";
@@ -31,6 +32,8 @@ const WORDS: (CapWord & { br: boolean })[] = [[0, "He anchored"], [22, "his last
 // recedes to the left, so the right of the frame is open water. The anchor goes over the bow corner on its chain and lands
 // in the lower right-centre. The deck sits HK above the water: a cartoon cheat, because the real 3.4 m deck puts the water
 // under him out of any frame that holds his head at 0.2.
+// golden light, but dusk fog and background: the golden preset's beige fog/bg washed the violet sky and the fleet out
+const DUSK = { ...PRESETS.golden, fog: "#b8668e", bg: "#6a3a9a", fogNear: 14, fogFar: 70 };
 const D2R = Math.PI / 180, HK = 0.35, RAIL = 0.5, RL = 2.4, AZ = -88, EL = 5, FOV = 40, BOW_G = 100;
 const ADM: V3 = [18, HK, 0];
 const HEAD: V3 = [ADM[0], ADM[1] + 1.375, ADM[2]];
@@ -82,7 +85,7 @@ function bowSet() {
   box(hero, red, L + 0.2, 0.16, 0.26, MX, RAIL, RL); box(hero, red, L, 0.1, 0.14, MX, RAIL * 0.45, RL);
   box(hero, red, 0.12, 0.08, 2 * RL, BOW_X, RAIL, 0); box(hero, red, 0.12, RAIL + 0.2, 0.12, BOW_X, (RAIL + 0.2) / 2, RL);   // the bow rail and corner post
   // the carved dragon prow on the bow's lens side (the SDF dragon in red lacquer), looking out over the water
-  const post = sdfDragon({ mat: lambert({ color: "#c8352a" }), whiskers: true }); post.scale.setScalar(0.55); post.position.set(BOW_X - 0.7, -0.15, RL + 0.35); post.rotation.y = 0; hero.add(post);
+  const post = sdfDragon({ mat: lambert({ color: "#c8352a" }), whiskers: true }); post.scale.setScalar(0.45); post.position.set(BOW_X - 1.8, -0.05, RL + 0.3); post.rotation.y = Math.PI / 2;   // in profile on the hull side, facing the drop (v4) hero.add(post);
   // the mast and a furled-sail edge behind him (top left, as on v4)
   const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 9, 10), brown); mast.position.set(-2.2, 4.5, 0); hero.add(mast);
   box(hero, lambert({ color: "#efe2c4" }), 0.08, 4.5, 3.2, -2.3, 5.2, 0.2);
@@ -92,9 +95,10 @@ function bowSet() {
   const coil = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.1, 10, 28), lambert({ color: "#d0a868" })); coil.rotation.x = Math.PI / 2; coil.position.set(-1.2, 0.1, 1.2); hero.add(coil);
   // pass 3: a smooth dusk sky as on v4 (violet zenith, magenta, orange at the horizon) with a few soft lit clouds
   const sc = document.createElement("canvas"); sc.width = 64; sc.height = 1024; const sg = sc.getContext("2d")!;
-  const grd = sg.createLinearGradient(0, 0, 0, 1024); grd.addColorStop(0, "#3a2a7a"); grd.addColorStop(0.3, "#6a3a9a"); grd.addColorStop(0.4, "#b8508a"); grd.addColorStop(0.47, "#f07a4a"); grd.addColorStop(0.52, "#f8a860"); grd.addColorStop(1, "#3a3050");
+  const grd = sg.createLinearGradient(0, 0, 0, 1024); grd.addColorStop(0, "#3a2a7a"); grd.addColorStop(0.36, "#6a3a9a"); grd.addColorStop(0.45, "#b8508a"); grd.addColorStop(0.485, "#f07a4a"); grd.addColorStop(0.5, "#f8a860"); grd.addColorStop(1, "#3a3050");
   sg.fillStyle = grd; sg.fillRect(0, 0, 64, 1024);
   const sky = (s as unknown as { sky?: THREE.Mesh }).sky;
+  if (sky) { sky.scale.setScalar(0.2); sky.position.set(ADM[0], 0, ADM[2]); }   // a 1500 m dome sits past the 400 m far plane: bring it inside, centred on the shot
   if (sky) { const W = 2048, Hh = 1024, [cc, cg] = (() => { const c2 = document.createElement("canvas"); c2.width = W; c2.height = Hh; return [c2, c2.getContext("2d")!] as const; })();
     cg.drawImage(sc, 0, 0, W, Hh);
     let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
@@ -174,7 +178,7 @@ const anchorRig = (): Rig => (ctx) => {
 };
 
 export function buildHook(): { groups: GroupSpec[] } {
-  const fleet = japaneseFleet(46, 40);   // pass 3: the fleet starts nearer, so the nearest ship reads big (v4)
+  const fleet = japaneseFleet(75, 40);   // further back, so the dusk sky and cliffs show above the fleet (v4)
   // the enemy pours in: the fleet slides toward the strait's mouth, the near ships fastest
   const move = (t: number, b: { x: number; k: number }) => ({ dx: -(2.4 + 0.02 * (120 - b.x)) * t });
   const near = fleet.slice(0, 3), lanterns = fleet.slice(0, 18).flatMap((b) => [onDeck(b, 2, 2.4, DECK_K + 2.2), onDeck(b, -3, -2.2, DECK_K + 2.6)]);
@@ -183,7 +187,7 @@ export function buildHook(): { groups: GroupSpec[] } {
   // framed by subject (kit frameKey, see CAM0/CAM1): the rail across the lower left, the anchor drop on the right
   const cam: CamKey[] = [CAM0, CAM1];
   return { groups: [{
-    id: "hook", place: "bow", t0: 0, t1: F(110), xfade: 0, set: bowSet, light: "golden", env: "day", lens: { cInf: 6 }, cam,
+    id: "hook", place: "bow", t0: 0, t1: F(110), xfade: 0, set: bowSet, light: DUSK, env: "day", lens: { cInf: 6 }, cam,
     people: [{ id: "admiral", at: () => ADM, faceTo: () => HAND, props: () => ({ costume: "yi", seed: 13, face: [{ t: 0, v: "focus" }], pose: [{ t: 0, v: "point" }], blinks: [] }) }, ...laughers],
     rigs: [currentRig((t) => 6 * t, () => 1), fleetRig((b) => japanese(b.k), fleet, move), lanternGlows(lanterns, 2.4), bokeh(lanterns, { color: "#ffb860", k: 4 }), anchorRig(), foamCrests()],
     alive: [[0, F(110)]], clouds: false,
