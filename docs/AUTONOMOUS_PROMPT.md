@@ -16,7 +16,7 @@ GOAL 2: grow the channel. Keep testing lanes until one video reaches 10K views, 
 
 PARITY TRACKS (owner, 2026-11-02): one owner per part of RicksClips parity. Each owns its own files, so two agents never edit the same ones. Keep these running, restart one when it finishes, and route each track's output to the integrator.
 - TOPIC: catalog scoring (hits vs ordinary) and a fact-checked queue of 10 topics. Owns research/library/STORY_TOPIC_QUEUE.md and the story-lane findings it adds to LANE_PRINCIPLES.md.
-- SCRIPT AND PACING: beat maps of the 24 references, research/library/STORY_SCRIPT_SPEC.md, pipeline/qa/script_judge.py, drafts in research/library/drafts/.
+- SCRIPT AND PACING (owner priority: the hook, and scripts that make sense; reference Zack D. Films and RicksClips): beat maps, research/library/STORY_SCRIPT_SPEC.md, research/library/HOOK_BANK.md, pipeline/qa/script_judge.py plus the cold-reader "makes sense" check, drafts in research/library/drafts/. No script is voiced until its hook has won a blind ranking and a cold reader gets every beat.
 - VISUALS: the 3D story kit (experiments/three-lane), working through research/library/RICKSCLIPS_RULEBOOK.md (from the every-frame 30 fps study of 24 Shorts) gap by gap, each fix measured.
 - SOUND: research/music/RICKS_SOUND.md and the "story_ricks" audio profile in pipeline/audio. Existing defaults stay as they are.
 - INTEGRATOR (story agent): builds each episode from the tracks' outputs and runs the every-frame review, the measurements and the blind panel (PARITY.md). Owns episodes/story-*.
