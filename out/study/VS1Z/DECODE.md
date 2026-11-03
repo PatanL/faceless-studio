@@ -89,8 +89,8 @@ the emperor to reveal the army ("biggest army in the world"), then comes back do
 
 | Frames | Words | Picture | Framing | Camera |
 |---|---|---|---|---|
-| F405-F426 | the emperor, had the | The emperor on a palace balcony: balustrade, a stone urn, a banner left, red carpet. Day sky with clouds; the city behind. | Head 0.13 at (0.55, 0.40). | Slow push. |
-| F427-F445 | biggest, army | The emperor sinks out of the bottom of frame; the parade ground comes into view below, packed with soldiers either side of a red runner up to the city gate. | — | Crane up and tilt down: fast ease-in, slower ease-out (measured F420: peak 15). |
+| F405-F426 | the emperor, had the | The emperor on a palace balcony: balustrade, a stone urn, a banner left, red carpet. Day sky with clouds; the city behind. | Head 0.13 at (0.55, 0.40), drifting to (0.3, 0.45) by F420. | A slow rise and pull-back: the parade ground already shows behind him by F426. |
+| F427-F445 | biggest, army | The emperor sinks to the bottom of frame and stays in shot, small; the parade ground fills the frame, packed with soldiers either side of a red runner up to the city gate. | — | A rising pull-back plus tilt down, not a crane over him: fast ease-in, slower ease-out (measured F420: peak 15). |
 | F445-F497 | in the world, and, he wasn't | The army fills the frame. The emperor is a tiny head at the bottom centre. | Head 0.05 at (0.5, 0.93). | A slow drift. |
 | F497-F512 | about, to run | The camera comes back down to the emperor. | — | Crane down; measured moves F481-F507, with a 1 f attack at F507. |
 | F512-F535 | from, a jar. | The emperor again, frowning. | Head 0.13 at (0.55, 0.4). | Slow push. |
