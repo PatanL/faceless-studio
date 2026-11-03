@@ -123,7 +123,7 @@ export function buildStory(T: Timing): BarcaStory {
       light: GOLD,
       // a slow sideways pan with no push (quiet frames without zoom: v4 measured 91 % quiet zoom against <= 88)
       cam: [{ ...fit(t0, [[-1.7, 0.8, -1.2, 1.7, 0.85, 1.2]], 90, 72, 40, { b: 0.06, t: 0.06, x: 0.02 }), drift: 0 }, { ...fit(tWhats, [[-1.4, 0.8, -1.1, 1.7, 0.85, 1.2]], 96, 72, 40, { b: 0.06, t: 0.06, x: 0.02 }), drift: 0 }],
-      people: [], rigs: [routeRig(t0 + 0.1, tBarca - 0.1, [tBarca, w("Libya,")]), label("BARCA", [(0.36 - 0.5) * 3.4, 1.15, (0.4 - 0.5) * 2.4 - 0.15], tBarca, t1 + 1, 0.24), label("ABOUT 2,500 YEARS AGO", [1.2, 1.1, 0], t0 + 0.1, tBarca + 0.4, 0.2), label("LIBYA", [(0.42 - 0.5) * 3.4, 1.05, (0.74 - 0.5) * 2.4], w("Libya,"), t1 + 1, 0.22)], clouds: false });
+      people: [], rigs: [routeRig(t0 + 0.1, tBarca - 0.1, [tBarca, w("Libya,")]), label("BARCA", [(0.36 - 0.5) * 3.4, 1.15, (0.4 - 0.5) * 2.4 - 0.15], tBarca, t1 + 1, 0.24), label("ABOUT 2,500 YEARS AGO", [-1.3, 1.1, 0.3], t0 + 0.1, tBarca, 0.2), label("LIBYA", [(0.42 - 0.5) * 3.4, 1.05, (0.74 - 0.5) * 2.4], w("Libya,"), t1 + 1, 0.22)], clouds: false });
   }
   // ================= 4 the Persian army has the city surrounded (establishing, high)
   {
