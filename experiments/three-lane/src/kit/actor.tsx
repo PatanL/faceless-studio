@@ -321,7 +321,7 @@ function Hat({kind}: {kind?: string}) {
 	if (kind === 'bowler') return <g><ellipse cx={300} cy={58} rx={140} ry={22} fill={c('ink-1')} /><path d="M 206 58 Q 204 -30 300 -34 Q 396 -30 394 58 Z" fill={c('ink-1')} /><path d="M 208 44 Q 300 58 392 44 L 392 30 Q 300 44 208 30 Z" fill={c('coral-0')} /></g>;
 	if (kind === 'cap') return <g><path d="M 192 92 Q 186 18 300 4 Q 404 14 410 70 Q 430 40 470 58 Q 436 80 408 96 Z" fill={c('coral-1')} /><rect x={186} y={78} width={226} height={26} rx={12} fill={c('coral-0')} /></g>;
 	if (kind === 'helmet') return <g><path d="M 210 34 Q 300 -76 392 34 Q 300 -18 210 34 Z" fill={c('coral-1')} /><path d="M 188 150 Q 180 18 300 8 Q 420 18 412 150 L 390 150 L 390 98 Q 300 82 210 98 L 210 150 Z" fill={c('amber-2')} /><path d="M 204 86 Q 300 70 396 86" stroke={c('amber-0')} strokeWidth={8} fill="none" /></g>;
-	if (kind === 'tiara') return <g><path d="M 190 172 Q 184 12 300 -10 Q 404 4 412 88 Q 440 64 452 80 Q 430 96 412 104 L 412 172 Q 400 180 390 168 L 390 100 Q 300 84 210 100 L 210 168 Q 200 180 190 172 Z" fill={c('ochre-1')} /><path d="M 200 98 Q 300 80 400 98" stroke={c('amber-0')} strokeWidth={10} fill="none" /></g>;
+	if (kind === 'tiara') return <g><path d="M 190 172 Q 184 12 300 -10 Q 404 4 412 88 Q 440 64 452 80 Q 430 96 412 104 L 412 172 Q 400 180 390 168 L 390 100 Q 300 84 210 100 L 210 168 Q 200 180 190 172 Z" fill={c('bone-2')} /><path d="M 200 98 Q 300 80 400 98" stroke={c('magenta-1')} strokeWidth={12} fill="none" /></g>;
 	if (kind === 'bonnet') return <path d="M 186 110 Q 176 10 300 2 Q 424 10 414 110 Q 380 60 300 56 Q 220 60 186 110 Z" fill={c('bone-2')} />;
 	if (kind === 'furcap') return <g><path d="M 196 96 Q 186 40 214 20 Q 226 -10 262 -6 Q 290 -24 320 -8 Q 356 -16 378 14 Q 414 34 404 96 Z" fill={c('amber-0')} />{[200, 236, 272, 308, 344, 380].map((x) => <circle key={x} cx={x + 10} cy={96} r={22} fill={c('ochre-0')} />)}</g>;
 	return null;
@@ -496,7 +496,9 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 				<g>
 					<defs><clipPath id="headclip"><circle cx={HEAD[0]} cy={HEAD[1]} r={HR - 3} /></clipPath></defs>
 					<circle cx={HEAD[0]} cy={HEAD[1]} r={HR} fill={K.skinShade} />
-					<circle cx={HEAD[0] - 9} cy={HEAD[1] - 9} r={HR - 8} fill={K.skin} />
+					{/* the highlight disc has no ink outline: its outlined arc ran from the ear to the mouth and read as a headset
+					    microphone (story-barca-shield panel round 1, all three judges) */}
+					<circle cx={HEAD[0] - 9} cy={HEAD[1] - 9} r={HR - 8} fill={K.skin} stroke="none" />
 					{fill && <path clipPath="url(#headclip)" d={`M 160 300 L 160 ${f(level)} ${wave} L 450 300 Z`} fill={fill.color} stroke="none" />}
 					<circle cx={402 + look * 6} cy={176} r={13} fill={fill && fill.k > 0.4 ? fill.color : K.skinShade} />
 					{!fill && <circle cx={296} cy={186} r={13} fill={K.cheek} opacity={0.55} stroke="none" />}
