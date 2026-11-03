@@ -1,0 +1,476 @@
+{
+ "name": "research/library/drafts/story-myeongnyang.md",
+ "score": 98.7,
+ "of": 92,
+ "checks": [
+  {
+   "check": "runtime_s",
+   "value": 58.83,
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "55-65.5",
+   "why": "top 8: 39-65 s, median 62; the two shortest refs (31, 35 s) are the two lowest",
+   "note": "estimated from word count"
+  },
+  {
+   "check": "words",
+   "value": 215,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "200-245",
+   "why": "top 8: 145-247 words, median 219",
+   "note": ""
+  },
+  {
+   "check": "hook_words",
+   "value": 19,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "8-21",
+   "why": "hook (sentence 1, or 1-2 when 2 completes the paradox): top 9-21 words, median 14",
+   "note": ""
+  },
+  {
+   "check": "hook_s",
+   "value": 5.18,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "2.5-5.5",
+   "why": "hook spoken in 3.0-5.4 s (top 8)",
+   "note": "estimated"
+  },
+  {
+   "check": "hook_form",
+   "value": "declarative, concrete subject",
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "",
+   "why": "23/24 open on a declarative concrete line at 0.0 s; the one question hook is #23; no date/place opener in any",
+   "note": ""
+  },
+  {
+   "check": "setup_end_pct",
+   "value": 28.7,
+   "score": 1.0,
+   "points": 6.0,
+   "of": 6,
+   "target": "12-36",
+   "why": "first escalation starts at 17-34 % in the top 8 (median 30), 38 % in the rest",
+   "note": "first escalation at sentence 6"
+  },
+  {
+   "check": "esc_steps",
+   "value": 4,
+   "score": 1.0,
+   "points": 8.0,
+   "of": 8,
+   "target": "3-6",
+   "why": "escalation steps: top median 4 (2-6), >= 4 in 6/8 top vs 4/16 rest",
+   "note": "auto-detected (about +-1); override with --beats E=..."
+  },
+  {
+   "check": "pivot_pct",
+   "value": 61.1,
+   "score": 1.0,
+   "points": 8.0,
+   "of": 8,
+   "target": "55-82",
+   "why": "the turn into the reason: top 55-81 % of runtime, median 66; 7/8 top have one",
+   "note": "sentence 12: You see, the water in that strait runs like a river, and it "
+  },
+  {
+   "check": "you_see",
+   "value": [
+    61.1
+   ],
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "",
+   "why": "'You see' is either the backstory bridge (<= 12 %, 4/8 top) or the pivot (60-81 %); never in between, at most 2",
+   "note": ""
+  },
+  {
+   "check": "mech_words",
+   "value": 53,
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "28-55",
+   "why": "mechanism: top 32-49 words, 9-15 s, 15-32 % of the words",
+   "note": "14.44 s, 0.25 of the words"
+  },
+  {
+   "check": "last_line",
+   "value": "The king thought Yi had no navy left, but he had a sea that changes sides.",
+   "score": 1.0,
+   "points": 5.0,
+   "of": 5,
+   "target": "",
+   "why": "last line 11-24 words (top median 16.5), not a question (0/8 top), the video ends <= 0.5 s after it",
+   "note": ""
+  },
+  {
+   "check": "numbers",
+   "value": 5,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "1-5",
+   "why": "number tokens: top 1-5 (median 3), rest median 5.5 (up to 15)",
+   "note": "thirteen, hundred, thirty-three, four, one"
+  },
+  {
+   "check": "dialogue",
+   "value": 1,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "1-5",
+   "why": "character lines: top median 2 (0-5), >= 2 in 5/8 top vs 5/16 rest",
+   "note": "sentences [5]"
+  },
+  {
+   "check": "sentence_len",
+   "value": {
+    "median": 14.0,
+    "max": 19,
+    "share_le6": 0.06,
+    "share_ge20": 0.0
+   },
+   "score": 0.7,
+   "points": 2.8,
+   "of": 4,
+   "target": "",
+   "why": "sentence median 10-15 words (top 12.5), longest <= 30, short punch lines (<= 6 words) in 10-35 %",
+   "note": "short lines 0.06"
+  },
+  {
+   "check": "facts",
+   "value": 6.0,
+   "score": 1.0,
+   "points": 6.0,
+   "of": 6,
+   "target": "4-7",
+   "why": "distinct real-world claims: top median 5 (2-7), >= 4 in 7/8 top vs 5/16 rest",
+   "note": "fleet destroyed, king orders Yi ashore, his reply; 13 ships vs about 133; the crying strait and its reversing current; a gap only a few ships wide; the turn shoved them back (hedged: historians reckon); Korean records: their losses, none of his"
+  },
+  {
+   "check": "jokes",
+   "value": 2.0,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "2-6",
+   "why": "jokes: top median 2 (1-4), >= 2 in 6/8 top vs 6/16 rest",
+   "note": "'Even his own captains think he has lost his mind'; 'politely let the admiral go first'"
+  },
+  {
+   "check": "reversal",
+   "value": 2.0,
+   "score": 1.0,
+   "points": 2.0,
+   "of": 2,
+   "target": "1-3",
+   "why": "at least one reversal (the mockers proved wrong, the trap springs)",
+   "note": "the current that carried the Japanese in pushes them back; the admiral with 'no navy' wins"
+  },
+  {
+   "check": "ridicule",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 2.0,
+   "of": 2,
+   "target": "1-9",
+   "why": "someone mocks the odd act (S6): Jar, Storm Oil, Railroads, Mirror",
+   "note": "his own captains think he has lost his mind"
+  },
+  {
+   "check": "mechanism_visible",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "1-1",
+   "why": "the cause is a physical thing the camera can watch (S3): 6/8 top",
+   "note": "water running like a river, slack water, the flow reversing, ships shoved into each other"
+  },
+  {
+   "check": "shootable_share",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 4.0,
+   "of": 4,
+   "target": "0.9-1.0",
+   "why": "each sentence names something on screen: top median 0.97, all >= 0.68",
+   "note": "every sentence names a thing: fleet, king, letter, strait, ships, flagship, current"
+  },
+  {
+   "check": "hook_act_on_screen",
+   "value": 1.0,
+   "score": 1.0,
+   "points": 3.0,
+   "of": 3,
+   "target": "1-1",
+   "why": "frame 0 shows the protagonist doing the odd act (all 24)",
+   "note": "Yi's thirteen ships sailing at a fleet ten times bigger = frame 0"
+  }
+ ],
+ "metrics": {
+  "timing": "estimated at 3.67 words/s",
+  "timing_coverage": null,
+  "duration_s": 58.83,
+  "n_words": 215,
+  "n_sentences": 16,
+  "wps": 3.67,
+  "sentence_words": {
+   "median": 14.0,
+   "max": 19,
+   "share_le6": 0.06,
+   "share_ge20": 0.0
+  },
+  "pauses": null,
+  "hook": {
+   "text": "Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.",
+   "words": 19,
+   "sentences": 1,
+   "dur": 5.18
+  },
+  "setup": {
+   "sentences": "2-5",
+   "start": 5.18,
+   "end": 16.89,
+   "dur": 11.71,
+   "words": 43,
+   "wps": 3.67,
+   "pct_start": 8.8
+  },
+  "esc": [
+   {
+    "sentences": "6-7",
+    "start": 16.89,
+    "end": 24.25,
+    "dur": 7.36,
+    "words": 27,
+    "wps": 3.67,
+    "pct_start": 28.7
+   },
+   {
+    "sentences": "8-8",
+    "start": 24.25,
+    "end": 29.43,
+    "dur": 5.18,
+    "words": 19,
+    "wps": 3.67,
+    "pct_start": 41.2
+   },
+   {
+    "sentences": "9-10",
+    "start": 29.43,
+    "end": 34.88,
+    "dur": 5.45,
+    "words": 20,
+    "wps": 3.67,
+    "pct_start": 50.0
+   },
+   {
+    "sentences": "11-11",
+    "start": 34.88,
+    "end": 35.97,
+    "dur": 1.09,
+    "words": 4,
+    "wps": 3.67,
+    "pct_start": 59.3
+   }
+  ],
+  "pivot": {
+   "i": 12,
+   "pct": 61.1,
+   "text": "You see, the water in that strait runs like a river, and it turns around four times a day."
+  },
+  "mechanism": {
+   "sentences": "12-14",
+   "start": 35.97,
+   "end": 50.41,
+   "dur": 14.44,
+   "words": 53,
+   "wps": 3.67,
+   "pct_start": 61.1
+  },
+  "last": {
+   "i": 16,
+   "text": "The king thought Yi had no navy left, but he had a sea that changes sides.",
+   "words": 16,
+   "tail_s": 0.25,
+   "wps": 3.67
+  },
+  "you_see_pct": [
+   61.1
+  ],
+  "numbers": [
+   "thirteen",
+   "hundred",
+   "thirty-three",
+   "four",
+   "one"
+  ],
+  "dialogue": [
+   5
+  ],
+  "you_per_100w": 0.5,
+  "setup_end_pct": 28.7
+ },
+ "beats": {
+  "hook": [
+   1
+  ],
+  "setup": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "esc": [
+   [
+    6,
+    7
+   ],
+   [
+    8
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    11
+   ]
+  ],
+  "pivot": 12,
+  "mech": [
+   12,
+   13,
+   14
+  ],
+  "last": 16
+ },
+ "sentences": [
+  {
+   "i": 1,
+   "text": "Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.",
+   "words": 19,
+   "start": 0.0,
+   "end": 5.18
+  },
+  {
+   "i": 2,
+   "text": "Even his own captains think he has lost his mind.",
+   "words": 10,
+   "start": 5.18,
+   "end": 7.9
+  },
+  {
+   "i": 3,
+   "text": "Korea's fleet has just been burned to the waterline by a Japanese invasion fleet.",
+   "words": 14,
+   "start": 7.9,
+   "end": 11.72
+  },
+  {
+   "i": 4,
+   "text": "So the king tells Yi to come ashore and fight on land.",
+   "words": 12,
+   "start": 11.72,
+   "end": 14.99
+  },
+  {
+   "i": 5,
+   "text": "Yi writes back, \"I still have ships.\"",
+   "words": 7,
+   "start": 14.99,
+   "end": 16.89
+  },
+  {
+   "i": 6,
+   "text": "Then he anchors them at the mouth of the narrowest, loudest strait in Korea.",
+   "words": 14,
+   "start": 16.89,
+   "end": 20.71
+  },
+  {
+   "i": 7,
+   "text": "The locals call it the crying strait, for the roar of its water.",
+   "words": 13,
+   "start": 20.71,
+   "end": 24.25
+  },
+  {
+   "i": 8,
+   "text": "The Japanese fleet pours in with the current behind it, ship after ship, faster than any oar could row.",
+   "words": 19,
+   "start": 24.25,
+   "end": 29.43
+  },
+  {
+   "i": 9,
+   "text": "His captains hang back and politely let the admiral go first.",
+   "words": 11,
+   "start": 29.43,
+   "end": 32.43
+  },
+  {
+   "i": 10,
+   "text": "For hours, his flagship holds the front almost alone.",
+   "words": 9,
+   "start": 32.43,
+   "end": 34.88
+  },
+  {
+   "i": 11,
+   "text": "Then the roaring stops.",
+   "words": 4,
+   "start": 34.88,
+   "end": 35.97
+  },
+  {
+   "i": 12,
+   "text": "You see, the water in that strait runs like a river, and it turns around four times a day.",
+   "words": 19,
+   "start": 35.97,
+   "end": 41.14
+  },
+  {
+   "i": 13,
+   "text": "The Japanese had ridden the current into a gap so narrow only a few ships could reach him.",
+   "words": 18,
+   "start": 41.14,
+   "end": 46.05
+  },
+  {
+   "i": 14,
+   "text": "When the tide turned, historians reckon, that same current shoved their ships backwards into each other.",
+   "words": 16,
+   "start": 46.05,
+   "end": 50.41
+  },
+  {
+   "i": 15,
+   "text": "Korean records count ship after ship lost that day, and not one of his.",
+   "words": 14,
+   "start": 50.41,
+   "end": 54.22
+  },
+  {
+   "i": 16,
+   "text": "The king thought Yi had no navy left, but he had a sea that changes sides.",
+   "words": 16,
+   "start": 54.22,
+   "end": 58.58
+  }
+ ]
+}

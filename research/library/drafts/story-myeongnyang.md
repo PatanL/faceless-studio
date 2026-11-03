@@ -1,14 +1,126 @@
 ---
 id: story-myeongnyang
 lane: story (RicksClips3000 parity)
-status: draft from the script track (research/library/STORY_TOPIC_QUEUE.md rank 2); not an episode yet
+status: v2 draft from the script track (research/library/STORY_TOPIC_QUEUE.md rank 2); proposal only, episodes/story-myeongnyang is not touched
 title: The Korean Strait That Changed Sides
-alt_titles: Why Admiral Yi Fought 133 Ships With 13 | The Crying Strait
-target_runtime_s: 60-63 at 3.65-3.75 words/s (Kokoro am_michael, speed ~1.27, paragraph_pause 0.08)
-facts_source: STORY_TOPIC_QUEUE.md section 2, verified facts 1-5
+target_runtime_s: 62-64 at 3.7-3.8 words/s (236 words)
+facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, Kim 2015)
 ---
 
-# The Korean Strait That Changed Sides (draft)
+# The Korean Strait That Changed Sides: v2
+
+## What changed from v1, and why
+
+- **Hook**
+  - v1's hook ranked 14 of 19 in a blind test against 6 real top hooks.
+  - v2's hook ranked 3.7 of 19, between the Jar and Storm Oil (details below and in HOOK_BANK.md section 5).
+  - It names an act one character does: Yi writing back.
+  - It withholds what he said, which line 4 pays off.
+- **First 20 s:** rebuilt on the Jar's line-by-line architecture (hook, doubt, "You see" bridge, the ruler's word
+  answered, the powerful side's "but", the odd choice).
+- **Cold-reader fixes:**
+  - The plan is now stated: the narrow strait, so only a few ships reach him at once.
+  - The reversal is named as the tide.
+  - "Historians think" now attaches to the tide's timing only.
+  - The outcome is spelled out (the jam in front of his cannons, 31 lost, the rest turn back).
+  - The last line credits both the plan (the strait) and the luck (the sea).
+- **Removed:**
+  - "four times a day" (now "every few hours", keeping the numbers at 5 tokens);
+  - the "roaring stops" line that confused two readers.
+
+## Narration
+
+```narration
+[sfx: brush] Told to give up the navy, Admiral Yi wrote back four words and sailed thirteen ships at a hundred and thirty-three.
+
+[sfx: knock] His captains thought he was mad.
+
+[sfx: whoosh] You see, Japan's invasion fleet has just wiped out Korea's navy. Yi's ships are all that's left.
+
+[sfx: knock] So when the king tells him to give up the navy, Yi writes back: "I still have ships."
+
+[sfx: whoosh_long] But the Japanese fleet fills the horizon.
+
+[sfx: whoosh] So Yi picks his spot: a strait so narrow the huge fleet has to squeeze through it.
+
+[sfx: whoosh] Locals call it the crying strait, for the sound of its water.
+
+[sfx: impact] The Japanese pour in, carried by that rushing water. Ship after ship after ship.
+
+[sfx: knock] His captains hang back, happy to let the admiral go first.
+
+[sfx: impact] The strait is so tight only a few Japanese ships can reach Yi at once, and his cannons hold them off.
+
+[sfx: stinger] You see, that rushing water is the tide. Every few hours, it stops and runs the other way.
+
+[sfx: tick] Historians who rebuilt that day's tides think the tide turned mid-battle.
+
+[sfx: whoosh_long] Now the water runs back out to sea. The front Japanese ships get shoved back into their own ships, and the tangle is stuck in front of Yi's cannons.
+
+[sfx: impact] Korean records count thirty-one Japanese ships lost, and none of Yi's. The rest turn back.
+
+[sfx: stinger] The king thought Yi had nothing left. Yi had a narrow strait, and that day the sea switched sides.
+```
+
+## Frame 0 and the opening (for the integrator)
+
+- **0.0-2.0 s (the hook's act):** Yi close, by lamplight on his ship, brushing his reply onto paper (the key prop),
+  on "Told to give up the navy, Admiral Yi wrote back four words".
+- **2.0-4.0 s (context):** pull out or cut to his thirteen ships facing the 133, on "and sailed thirteen ships at a
+  hundred and thirty-three". The planned 13-vs-133 image belongs here, not at frame 0 (LANE_PRINCIPLES S-hook:
+  Barca's context-first opening scored 0/8 on the hook panel).
+- **12 s:** "I still have ships": the letter seen from the king's side (pays off "four words").
+- Keep the 13 and 133 numbers on screen as tags. Readers lose them by ear, and 31 later collides with 13.
+
+## Facts and hedges
+
+- Every fact is from the queue's verified list:
+  - the navy destroyed (Chilcheollyang);
+  - the king's order;
+  - Yi's reply (a paraphrase of the traditional quotation, which has "twelve" warships);
+  - 13 against about 133;
+  - the crying strait;
+  - the current that reverses;
+  - the tide turning mid-battle;
+  - Korean records' 31 and none of Yi's.
+- **Hedged on air:** the tide turning mid-battle ("historians who rebuilt that day's tides think", queue fact 5,
+  CONTESTED) and the losses ("Korean records count", queue fact 3).
+- **Re-check before voicing:**
+  - "The rest turn back": the Japanese fleet withdrew from the strait; check against Encykorea.
+  - "Yi picks his spot" (choosing the narrows): consistent with the queue's story notes and Kim 2015.
+
+## Scores
+
+- **script_judge** (estimated timing, rubric by this track):
+  - **97.0**; measured checks only: 98.8 (`story-myeongnyang.judge.md`).
+  - Lost points: 1 joke, where the spec wants 2; mechanism 58 words, where the target is 28-55.
+- **Hook, blind ranking:** mean rank 3.7 of 19 (3 judges: 5, 3, 3), mean score 7.3/10. v1's hook: 14.0, 5.7/10
+  (`research/library/cold_reads/myeongnyang_hook_ranking.json`).
+- **Cold reader**, one fresh reader per round, narration only (`research/library/cold_reads/`).
+
+| Round | Version | Beats retold | lost lines | slowed | blocking jumps | Friction (0-100) | Main new confusion |
+|---|---|---|---|---|---|---|---|
+| 0 | episode v1 text | all | 0 | 8 | 2 | 47 | did Yi plan the tide or get lucky; how 31 ships were lost |
+| 1 | first rewrite | all | 0 | 10 | 2 | 40 | same two, plus why a turning current moves oared ships |
+| 2 | + plan/luck line | all | 1 | 8 | 2 | 37 | the hedge line itself ("nobody knows if he counted on the turn") |
+| 3 | + tide named | all | 1 | 8 | 2 | 35 | "shoved backwards ... right under Yi's cannons" read as moving away |
+| 4 | + jam rewrite | all | 1 | 8 | 2 | 40 | one 33-word paragraph; plan vs luck again |
+| 5 | v2 minus final edits | all | 2 | 6 | 1 | 38 | the "plan was only the strait" line; picturing the jam |
+| - | **v2 (this file)** | not re-read | - | - | - | - | the round-5 lost lines rewritten; needs one fresh reader |
+
+**Result: not yet a pass.**
+- Every reader retold every beat (who, what, why, twist), and every reader rated the hook 4/5.
+- No round reached "no lost line and no blocking jump".
+- Each fix removed the flagged problem, but the next fresh reader found a different one.
+- Friction stayed in a 35-47 band with no trend. One picky reader per round can't separate versions that close, so
+  the pass rule should use 3 readers and a majority.
+- What did hold across rounds: the mechanism paragraph is where readers stumble. Pictures fixed most of it in pass B
+  for v1 (the arrows swinging, the tally board). So the shot list should carry the jam, and the narration should
+  stay as short as above.
+
+---
+
+## v1 (2026-11-02, kept for reference; the episode copy in episodes/story-myeongnyang/ is a lightly edited v1)
 
 **Beat plan (spec template, 62 s):** hook = the paradox act (ordered to quit, fights ten to one); doubt line (his own
 captains); setup: the burned fleet, the king's order, his reply (a character line); escalations: he anchors at the
@@ -21,7 +133,7 @@ Left out: 330 at Eoranpo, 293 m, 11.5 knots, 31 ships, the tidal power station (
 
 ## Narration
 
-```narration
+```text
 [sfx: whoosh] Ordered to give up the navy, Admiral Yi took his last thirteen ships to fight a hundred and thirty-three.
 
 [sfx: knock] Even his own captains think he has lost his mind.

@@ -102,3 +102,68 @@ python3 -m pipeline.qa.script_judge --calibrate
 The `*.whisper.json` files are faster-whisper medium.en word timings of the rendered audio (Mac, int8):
 `story-chess-turk_v4.mp4` (posted) and `out/story-vasa/story-vasa_v{1,2}.mp4`. The Vasa v2 report is a snapshot of
 `episodes/story-vasa/script.md` as of 2026-11-02 ~11:00; re-run after any script change.
+
+## Cold-reader "makes sense" test (2026-11-02)
+
+- **Method:** one fresh reader per script (Claude Sonnet, no tools, no context). Pass A: the narration only. Pass B:
+  the same reader with the shot list.
+- **Scoring:** keys and scores in `research/library/cold_reads/`; method in `pipeline/qa/COLD_READ_PROMPT.md`.
+- **All three readers retold every key beat** (who, what, why, twist).
+- **None passed the "no lost line, no blocking jump" bar.**
+
+| Script | Score (A) | Hook (keep watching) | Lost lines | Blocking jumps | Friction |
+|---|---|---|---|---|---|
+| story-vasa (posted text) | 50.0 | 3/5 | 3 | 6 | 0 |
+| story-barca-shield v15 | 72.5 | 4/5 | 1 | 2 | 45 |
+| story-myeongnyang (episode text = lightly edited draft v1) | 73.5 | 4/5 | 0 | 2 | 47 |
+
+### What confused each reader
+
+**story-vasa**
+- **Lost lines (narration only):**
+  - "If only the king were here" (why does the admiral want him there?);
+  - the hearing beat (three ideas; never says the king can't be blamed);
+  - "more stone would only have pushed those gun ports down" (the ballast trade-off is never said; it sounds like it
+    contradicts the bottle-with-sand line).
+- **Still confusing with the pictures:**
+  - the guns "stacked high above the water" against "lower gun ports dip under", which is the most serious;
+  - the more-stone line;
+  - the admiral's meaning;
+  - "sent her to sea" against sinking inside the harbour.
+- **Unexplained terms:** Vasa, gun ports, ballast, waterline, hearing.
+
+**story-barca-shield v15**
+- **Lost line:** "So wherever it rang, the defenders dug straight down": no beat where anyone believes the smith.
+- **Blocking jumps:**
+  - the smith's motive (why would he suspect a tunnel?);
+  - how the mocking guards came to act;
+  - no outcome: did the city survive, did the siege fail?
+- **Fixed by the pictures:** the map, the cross-section labels and the ringing macro fixed setting, tunnel and
+  mechanism.
+- **Not fixed by the pictures:** the motive and the missing ending.
+- **Also flagged:** "Barca" heard as Barcelona or Barça; months of hammering against months of digging; tense shifts.
+
+**story-myeongnyang (episode text)**
+- **Slowed lines:** 8; no lost lines.
+- **Blocking jumps:**
+  - did Yi plan for the current or get lucky?
+  - how the collisions became 31 losses, and what the other ships did.
+- **Fixed by the pictures:** the 13/133 tags, the "after you" gestures, the arrows swinging and the JAPAN 31 / YI 0
+  board fixed most of the slowed lines.
+- **Not fixed by the pictures:** "Then, historians think, the roaring stops" (the stop arrives before the
+  explanation, and the hedge makes the mechanism sound unproven).
+
+### What to change
+
+**Vasa** (posted, so for the next ship story):
+- Say "gun ports, the holes the cannons fire through".
+- Say "more stone makes her sit lower".
+- Say "nobody can punish the king".
+- Keep "high" and "low" consistent with the picture.
+
+**Barca:**
+- Give the smith one line of reason ("the attacks had stopped, and he wondered why").
+- Add one line where a guard grabs a shovel.
+- End on the outcome before the quip.
+
+**Myeongnyang:** see the v2 rewrite and its rounds in `research/library/drafts/story-myeongnyang.md`.
