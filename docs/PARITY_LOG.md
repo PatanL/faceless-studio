@@ -462,3 +462,93 @@ The rulebook checks are also in range:
 - **Which flaws are new.** None of the round-3 flaws that v15 targeted (the 9°/19° gauge mismatch, ports closed at 12.4 s, "upside down" over the bottles, the 5 s hold, captions over the rigging and port row) was named again. The flaws named now are new ones, or ones v15 did not touch: the overhead hook still reads small, the oscillating gauge, label size, and the flat look.
 
 Full data: `research/references/data/story_lane_vasa_panel.json` (rounds 3 and 4).
+
+## 2026-11-02 · story lane · story-barca-shield v1-v14: the first episode on the integrated kit, three blind panel rounds
+
+- **Topic.** Barca, c. 515 BC: the bronze-smith whose shield rang over the Persian mines. It is rank 1 in STORY_TOPIC_QUEUE.md.
+- **Script.** The script track's draft, fact-checked against Herodotus 4.200, Aeneas Tacticus 37.6-7 and the Wikipedia article on Barca.
+  - **Two fixes.** The attacks never stopped; the mines were dug while the walls were assaulted. Barca was inland, not "on the coast".
+  - **Judge.** 100 on estimated timings, 98.1 on the voiced timings.
+- **Audio.** Profile `story_ricks` at speed 1.18: 3.74 words/s, no gap above 0.08 s, last word at 57.35 s.
+- **Captions.** The hybrid: the reference look with one-line phrase pages (`caption_rule: phrase1`, `captions="ricks-phrase"`).
+- **Build.** `experiments/three-lane/src/barca` on the integrated kit, gates set to fail. Every rendered version passed the hold, cast, edge and caption gates.
+- **Final.** `out/story-barca-shield/story-barca-shield_v14.mp4` (sha 15d6d0ad…). The phone copy is 24.4 MB.
+
+### Measured (v14, every frame)
+
+All 17 checks are inside the reference ranges:
+
+| Check | v14 |
+|---|---|
+| words/s | 3.74 |
+| pauses ≥ 0.8 s | 0 |
+| cuts · jumps | 2 · 7 |
+| moving | 99 % at 6.39 px/f |
+| moves / 10 s | 9.17 |
+| quiet zoom | 81 % |
+| saturation · colourfulness | 0.503 · 24 |
+| luma p50 · non-ink p5 | 0.518 · 0.224 |
+| shadow chroma · hue | 16 · 300 |
+| ink · soft edge · acutance | 0.605 · 5.9 % · 0.334 |
+
+The rulebook checks are also in range:
+
+| Check | v14 |
+|---|---|
+| shot length, median · max | 3.43 · 7.4 s |
+| transitions per minute | 15.6 |
+| first transition | 0.77 s |
+| move attack · release | 9 · 9 f |
+| plan | 20.8 place changes/min, 11 places |
+| cast | median head 0.114, 63 % ≥ 0.07 |
+
+How v1 got into range:
+- **Jumps (56 → 7).** The whips were lengthened from 0.4 to 0.6 s.
+- **Luma (0.60 → 0.52).** Darker ground and walls, with day and golden light leaned toward night.
+- **Acutance.** Less lens blur on the world shots.
+- **Motion.** Fewer camera keys plus slow orbits.
+
+### Blind panel (PARITY.md §2): 3 rounds, 3 judges, 8 pairs
+
+Each cell is the number of pairs, out of 8, in which a judge rated ours same-or-better (judges 1 · 2 · 3).
+
+| Principle | Round 1 (v7) | Round 2 (v12) | **Round 3 (v14)** |
+|---|---|---|---|
+| 1 Hook | 0 · 0 · 0 | 0 · 0 · 0 | **0 · 0 · 0** |
+| 2 World | 8 · 8 · 4 | 4 · 2 · 7 | **8 · 8 · 8** |
+| 3 Show what's said | 0 · 0 · 5 | 0 · 0 · 0 | **0 · 1 · 0** |
+| 4 Smooth | 0 · 8 · 8 | 8 · 2 · 8 | **8 · 8 · 3** |
+| 5 Readable | 8 · 8 · 8 | 8 · 8 · 8 | **8 · 8 · 8** |
+| 6 Sound | 8 · 8 · 8 | 8 · 8 · 8 | **8 · 8 · 8** |
+| 7 Craft | 0 · 0 · 0 | 0 · 0 · 0 | **0 · 0 · 0** |
+| 8 Payoff | 4 · 8 · 7 | 5 · 2 · 8 | **8 · 8 · 3** |
+
+**Verdict after the last allowed round: FAIL on the ratings for hook, show what's said and craft (0 of 3 judges each).**
+- World, smooth, readable, sound and payoff pass on ratings.
+- Every principle also fails the flaw rule.
+
+Unlike Vasa, this is a ratings failure, not just named flaws. The judges preferred the references' richer, finished sets.
+
+**What the judges said:**
+- **Hook.** Frame 0 never shows the odd act (the shield laid in the dirt) together with the army.
+  - Round 1: a static smith at a wall.
+  - Round 3: a shouting Persian at the wall, with the smith only from 1.8 s.
+- **Show what's said.**
+  - The siege and the hammering are barely shown.
+  - "Kneels, listens" plays with the smith standing (the Actor's crouch is shallow).
+  - The map doesn't read as Libya.
+- **Craft.**
+  - Flat, low-detail sets.
+  - One tunnel cut held about 17 s from 40 s to the end.
+  - Near-identical end frames.
+  - Shields and figures cut at the edges in single frames.
+  - The Actor's arms read as detached.
+- **Wins.** All three judges credited the whole-phrase captions (readable 8/8 every round) and the coherent world. The references' recurring losses were one-word captions, edge cuts, ghosted dissolves and era mismatches.
+
+**Kit findings for the visual track:**
+- The Actor's head highlight was drawn as an ink arc from ear to mouth that read as a headset microphone (round 1, all 3 judges). Fixed in f91c214.
+- The Actor's `crouch` reads as standing at phone size; a real kneel pose is needed.
+- The arm-to-hand joint reads as detached.
+- The gates pass shots that judges still call static or empty (a held cross-section, a void around a table): the hold gate counts view changes, not visual change.
+
+Full data: `research/references/data/story_lane_barca_panel.json`.
