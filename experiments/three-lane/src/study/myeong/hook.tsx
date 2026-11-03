@@ -111,7 +111,7 @@ function bowSet() {
   const rock = lambert({ color: "#6a5a62" }), rockLit = lambert({ color: "#8a7470" }), pine = lambert({ color: "#2f4a3a" });
   let rs = 11; const rr = () => ((rs = (rs * 16807) % 2147483647) / 2147483647);
   for (const side of [-1, 1]) for (let k = 0; k < 9; k++) {
-    const x = 45 + k * 14 + rr() * 6, z = side * (34 + rr() * 10 + (k > 5 ? 12 : 0)), h = 28 + rr() * 26, r0 = 7 + rr() * 5;
+    const x = 85 + k * 16 + rr() * 6, z = side * (19 + rr() * 5 + k * 2.6)   /* a narrow channel: at 9:16 the view is only ~23 degrees wide, so the old 34-56 m shores never showed */, h = 28 + rr() * 26, r0 = 7 + rr() * 5;
     const geo = new THREE.CylinderGeometry(r0 * 0.7, r0, h, 14, 8), p = geo.getAttribute("position") as THREE.BufferAttribute;
     for (let i = 0; i < p.count; i++) { const a = Math.atan2(p.getZ(i), p.getX(i)), y = p.getY(i), n = 1 + 0.18 * Math.sin(a * 5 + y * 0.4 + k) + 0.1 * Math.sin(a * 11 - y * 0.9) + (Math.round(y / 4) % 2 ? 0.05 : -0.05);
       p.setX(i, p.getX(i) * n); p.setZ(i, p.getZ(i) * n); }
