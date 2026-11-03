@@ -648,3 +648,39 @@ Theirs is 0.138 · 19.1 / 0.068 · 10.0; the key frame is 0.194 · 29.4 / 0.186 
 
 Side-by-side (the VS1Z hook fix, then the Myeongnyang reference and ours):
 `out/study/VS1Z/round3_codepath_side_by_side_phone.mp4`.
+
+## 2026-11-03 ~11:00 UTC: Myeongnyang hook pass 2 (camera, admiral, sky, foam, cliffs)
+
+**Built** (`src/study/myeong/hook.tsx`):
+- the admiral's head at 0.2 of the frame;
+- his hand placed on the rope, computed from the card's point pose;
+- a painted dusk sky with lit cloud bands;
+- 260 foam crests drifting with the current;
+- sculpted rock cliffs (noise-displaced columns) with pines on both shores;
+- only the bow is built, so no rail runs past the lens.
+
+**Not built:** the atakebune rework.
+
+**Composition** (`out/kitlab/myeong_hook_v3.mp4`): it regressed.
+- I tried four camera keys. Each frames his head at 0.2 from outboard of the bow, but that puts the hull and rail
+  between the lens and the water: the anchor and the splash are hidden behind the hull, and the long lens leaves little
+  sky.
+- Pass 1 (`myeong_hook_v2.mp4`) still shows the anchor drop better.
+
+**Detail against the reference** (edge · texture; pass 1 → pass 2, reference):
+
+| Region | Pass 1 | Pass 2 | Reference |
+|---|---|---|---|
+| hero | 0.108 · 11.8 | 0.144 · 17.0 | 0.255 · 32.5 |
+| background | 0.060 · 6.9 | 0.107 · 12.6 | 0.187 · 24.3 |
+| midground | 0.043 · 4.0 | 0.106 · 13.5 | 0.276 · 34.8 |
+
+The gain comes mostly from the rail and hull textures, not from the reference's content.
+
+**The fix the reference implies.** Turn the hero ship, not the camera: lay the bow broadside across the frame
+(bow toward the lens's left, the hull side facing away), with the camera low over the water off the bow's quarter. Then:
+- the rail runs across the lower left;
+- the water and the anchor drop fill the right;
+- the fleet sits up the strait behind him.
+
+Side-by-side (reference | pass 1 | pass 2): `out/study/VS1Z/myeong_hook_pass2_side_by_side_phone.mp4`.
