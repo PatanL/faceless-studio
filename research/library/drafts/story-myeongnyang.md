@@ -5,6 +5,10 @@ status: v3 draft (Storm Oil form, anonymous) from the script track; v2 and v1 ke
 title: The Korean Strait That Changed Sides
 target_runtime_s: 62-63 at 3.9 words/s (about 4.0 in setup and escalation, 3.7 on the mechanism; 245 words)
 facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, Kim 2015)
+stress: cork, parking, doesn't, dead, flagship, politely, sunset, jam
+unstress: enemy, says, look, called, ones, right, once, busy, drift, well
+melody: rules
+emphasis: off
 ---
 
 # The Strait That Changed Sides: v3 (Storm Oil form)
@@ -23,7 +27,22 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
   - the cork, all the dialogue, the captains and the enemy admiral;
   - the comeuppance.
 
-**Hook (Rick shape):** "He [anchored his last ships in a roaring strait], with [an enemy fleet] so close [he could hear
+**Stress marks for the melody shaper (2026-11-03).** These are the `stress:` and `unstress:` front-matter lists, read by
+`melody: rules` and `pipeline/audio/emphasis.py`; `emphasis: off` keeps capitals out of the TTS text.
+- **What the marks land on** (research/music/VOICE_CADENCE.md priority):
+  - the hook's act verb (ANCHORED, the pitch peak);
+  - the strange object (CORK, every time);
+  - the joke word (PARKING, both times);
+  - negation (DOESN'T);
+  - DEAD, FLAGSHIP, POLITELY, SUNSET, JAM;
+  - plus the rule marks: numbers (TEN), contrast (BUT, ONLY, EVERY, WHOLE, AREN'T), SEE, punch-line ends.
+- **Vetoed:** words the rules over-mark, which are speech verbs (says, called), function or filler (ones, right, once,
+  well, busy, look, drift), and "enemy" so the stress falls on FLEET and FLAGSHIP.
+- **Result:** 56 of 246 words stressed (23 %, about one word in four).
+- **ASR-safe hook:** "strait" sounds exactly like "straight", so the narration now says "channel" (and "narrow sea
+  channels" at the turn). That also clears the readers' "strait" term flag. The title stays as written.
+
+**Hook (Rick shape):** "He [anchored his last ships in a roaring channel], with [an enemy fleet] so close [he could hear
 them laughing]."
 - **Frame 0:** him at the bow, close, letting the anchor go.
 - **At 2-4 s:** the laughing enemy fleet beyond.
@@ -31,7 +50,7 @@ them laughing]."
 ## Narration
 
 ```narration
-[sfx: anchor] He anchored his last ships in a roaring strait, with an enemy fleet so close he could hear them laughing.
+[sfx: anchor] He anchored his last ships in a roaring channel, with an enemy fleet so close he could hear them laughing.
 
 [sfx: knock] His captain grabs his collar. "They've got ten ships for every one of ours, and you're parking?"
 
@@ -39,19 +58,19 @@ them laughing]."
 
 [sfx: knock] "Wait for the water," he says. "Watch the cork."
 
-[sfx: whoosh_long] Then the enemy charges into the strait, the current carrying them in like a river.
+[sfx: whoosh_long] Then the enemy charges into the channel, the current carrying them in like a river.
 
 [sfx: crowd] Their admiral is thrilled. The sea is doing all the rowing.
 
 [sfx: knock] His own captains anchor well behind him, politely letting him face the enemy first.
 
-[sfx: impact] But the strait is so narrow only a few ships fit at once, and his cannons keep those busy.
+[sfx: impact] But the channel is so narrow only a few ships fit at once, and his cannons keep those busy.
 
 [sfx: tick] Meanwhile, the cork is slowing down.
 
 [sfx: stinger] Then it stops dead, just as the enemy flagship pulls close enough to spit on.
 
-[sfx: whoosh] You see, some narrow straits really do this. The tide runs through like a river, and every few hours it stops and turns around.
+[sfx: whoosh] You see, some narrow sea channels really do this. The tide runs through like a river, and every few hours it stops and turns around.
 
 [sfx: whoosh_long] Now the water that rushed them in shoves them back, harder than they can row.
 
@@ -59,7 +78,7 @@ them laughing]."
 
 [sfx: impact] Their front ships pile into the ones behind, and his cannons pound the jam.
 
-[sfx: whoosh] By sunset, the whole enemy fleet is drifting backwards out of the strait, their admiral close enough to wave goodbye.
+[sfx: whoosh] By sunset, the whole enemy fleet is drifting backwards out of the channel, their admiral close enough to wave goodbye.
 
 [sfx: knock] His captain, who called it parking, now says it was his idea.
 
@@ -75,7 +94,10 @@ them laughing]."
   - 4 escalation steps;
   - "You see" at 57 %;
   - 2 number tokens.
-- **Cold read: 3 fresh readers, majority rule. PASS, 2 of 3** (rounds in
+- **Cold read, final text (round C, 2026-11-03): 3 fresh readers, majority rule. PASS, 2 of 3.**
+  - 0 lost lines and every beat retold by all three.
+  - One reader's block: how he knows when the tide will turn.
+- **Earlier round B: PASS, 2 of 3** (rounds in
   `research/library/cold_reads/story-myeongnyang-v3-reads.md`).
   - All three retold every beat (the cork as a tide clock, the jam, the anchors, the retreat, the captain taking
     credit).

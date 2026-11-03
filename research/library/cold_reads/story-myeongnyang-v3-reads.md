@@ -14,7 +14,17 @@ blocking jump. A round passes when 2 of 3 readers pass.**
 | **B** | | 2 | all | 0 | 9 | 0 | 3 | **yes** |
 | **B** | | 3 | all | 0 | 8 | 0 | 3 | **yes** |
 
+| **C (final)** | **v3 with "anchor well behind him" and "channel" for "strait" (2026-11-03)** | 1 | all | 0 | 5 | 0 | 3 | **yes** |
+| **C** | | 2 | all | 0 | 9 | 0 | 3 | **yes** |
+| **C** | | 3 | all | 0 | 8 | 1 (how he knows the tide will turn) | 3 | no |
+
 **Round B: PASS (2 of 3).**
+
+**Round C (final text): PASS (2 of 3).**
+- No `lost` line from any reader; the anchored-captains fix held.
+- The one block: nothing says how he knows when the tide will turn. If it's wanted, a fix is one line before the turn,
+  "Fishermen call it the slack: the water stops before it turns."
+- All three readers again read the battle as a tale and only the tide as the fact.
 
 **Round A blockers, fixed for B:**
 - who won: "drifts backwards past him" read as an escape. Now: "his cannons pound the jam" and "the whole enemy fleet
