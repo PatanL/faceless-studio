@@ -191,9 +191,11 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
   - The vetted queue is research/library/STORY_TOPIC_QUEUE.md.
 - **Screen for new topics** (in order): S1 real + period/foreign → S-env four places → T1 physics/engineering or a real foreign institution, not a con → T5 surprise ≥ 2 → T6 a title with a concrete object and a hidden mechanism → S6 ridicule if the history allows → T3 East Asia as a tiebreaker.
 
-**S-hook. The first frame must show the strange act and its context together.** (operator, 2026-11-02, from the Barca panels; confidence: medium)
-- Barca (shield listening under a siege) got a hook rating of 0/8 from all three judges in four rounds. Every staging hid either the act (the smith) or the context (the army) behind the city wall. Vasa's opening (sailors running across a warship) fits in one shot and passed.
-- Screen topics with this: sketch the frame-0 shot before scripting. If the act and its context can't share one readable phone-size frame, rank the topic lower.
+**S-hook. Frame 0 is one character in the middle of the strange act, close up, holding the key prop. Context comes after.** (operator, 2026-11-02, corrected the same day after comparing opening frames; confidence: medium)
+- RicksClips openings: a man lying in a grave with a bell cord (Grave Bell), a ruler's hand on the bronze jar (Jar), a cook pouring oil over the side (Storm Oil). Each is one person, big in frame, doing the odd thing on the first word. None shows the wider threat in frame 0.
+- Barca (hook 0/8 in four rounds) opened on context instead: "With an army outside the walls…" over three soldiers at a wall (no army visible), then the smith standing still holding a shield. The strange act (an ear pressed to a shield in the dirt) never opened the video. An earlier note blamed the topic ("the wall hides the act or the army"). That was wrong: the brief asked for act and threat together, and the references don't do that.
+- Vasa passed with its act in frame 0 (sailors running across the deck), though they were small.
+- Rule: the first line names the strange act, and frame 0 shows a character doing it, filling at least a third of the frame height. The threat or setting comes in by about 2–4 s.
 
 ### 10 story premises that fit S1-S6 (not in Rick's 146 titles, Zack D.'s last 400, or the TikTok lists)
 
