@@ -138,7 +138,8 @@ function stripes() {
  * dirt surface) and the shield at the origin */
 export function shieldMacroSet(o: { night?: boolean } = {}): SetBuild {
   const s = macroSet({ surface: "wood", bokeh: o.night ? [[120, 140, 255], [255, 190, 120]] : [[255, 196, 120], [255, 150, 90], [250, 220, 160]], wall: o.night ? "#1c1838" : "#6a4a3a", seed: 11 });
-  const dirt = plane(s.root, lambert({ map: dirtTex([3, 3], 21) }), 6, 6, 0, 0.004, -1.5, -Math.PI / 2);
+  // a wide dirt ground (a 6 m plane showed its edge in the last shot) and a darker earth at night
+  const dirt = plane(s.root, lambert({ map: dirtTex([12, 12], 21, o.night ? "#7a6a72" : "#c9a06a") }), 24, 24, 0, 0.004, -6, -Math.PI / 2);
   dirt.receiveShadow = true;
   // pebbles and a few clods around the shield, inked
   const r = rng(5);
