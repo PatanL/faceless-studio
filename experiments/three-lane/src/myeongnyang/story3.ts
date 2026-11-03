@@ -104,18 +104,18 @@ export function buildStory(T: Timing): MyeongStory {
   // ================= 3 his captain grabs his collar (on his deck; he stays still)
   {
     const t0 = w("His", 5), t1 = w('"They\'ve');
-    const C = onDeck(FLAG, 5.3, 1.6, DECK_K);
+    const C = onDeck(FLAG, 5.5, 1.85, DECK_K);   // at arm's length: his straight arm ends at the collar
     add({ id: "collar", place: "mydeck", t0, t1, xfade: 0.2, join: WHIP, set: () => straitSet(), light: "golden", lens: { cInf: 6 },
       cam: [pair(t0, [ADM, C], -30, 8, 40, 0), { ...pair(t1, [ADM, C], -22, 8, 36, 0), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "adm", at: () => ADM, faceTo: () => [ADM[0] + 10, ADM[1], ADM[2]], props: () => admProps(faceTrack(words, "focus", [{ word: "collar.", face: "deadpan" }], t0), "stand") },
-        { id: "cap", at: () => C, faceTo: () => ADM, props: () => capProps(faceTrack(words, "angry", [{ word: "grabs", face: "angry" }], t0), poseTrack(words, "point", [["grabs", "reach"]], t0), { marks: [markAt(words, "collar.", "sweat")] }) }],
+        { id: "cap", at: () => C, faceTo: () => ADM, props: () => capProps(faceTrack(words, "angry", [{ word: "grabs", face: "angry" }], t0), "point", { marks: [markAt(words, "collar.", "sweat")] }) }],
       rigs: [westCur, myFleet, fleetRig((b) => japanese(b.k), JB, pour(0, 0.9))] });
   }
   // ================= 4 "They've brought ten ships for every one we have": high, his one flagship against the many
   {
     const t0 = w('"They\'ve'), t1 = w("and", w("have,"));
     add({ id: "odds", place: "mouth", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: () => straitSet({ fog: 9 }), light: "golden", lens: { cInf: 3 },
-      cam: [{ t: t0, pos: [-24, 46, -34], look: [70, 0, 0], fov: 46, drift: 0.3 }, { t: t1, pos: [-16, 40, -30], look: [74, 0, 0], fov: 46, glide: 1 }],
+      cam: [{ t: t0, pos: [-14, 30, -16], look: [62, 0, 2], fov: 46, drift: 0.3 }, { t: t1, pos: [-8, 27, -14], look: [66, 0, 2], fov: 46, glide: 1 }],
       people: [],
       rigs: [westCur, myFleet, fleetRig((b) => japanese(b.k), JB, pour(t0, 1.2)),
         label("10", [150, 34, 0], w("ten") - 0.05, t1 + 1, 12), label("1", [18, 14, 0], w("one", w("every")) - 0.05, t1 + 1, 5)] });
@@ -148,13 +148,13 @@ export function buildStory(T: Timing): MyeongStory {
     add({ id: "corkdrop", place: "water", insert: true, t0, t1, xfade: 0.2, join: D(5), set: () => straitSet(), light: "golden", lens: { cInf: 9 },
       cam: [{ ...camAt(t0, t0), drift: 0 }, { ...camAt(tLand, tLand), glide: 0.5 }, { ...camAt(t1, t1), glide: 1 }],
       people: [],
-      rigs: [currentRig((t) => -0.75 * t, () => 0.6), myFleet, corkRig(corkIn, HAND, t0 + 0.1, tLand)] });
+      rigs: [currentRig((t) => -0.75 * t, () => 0.6), myFleet, corkRig(corkIn, [CORK0[0] + 0.1, 2.3, CORK0[2] - 0.2], t0 - 0.15, tLand)] });
   }
   // ================= 8 "Wait for the water... Watch the cork." (the pair on deck, he points down at the water)
   {
     const t0 = w('"Wait'), t1 = w("Then");
     add({ id: "wait", place: "mydeck", t0, t1, xfade: 0.2, join: D(6), set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [ADM, CAP], 20, 8, 40, 0), { ...pair(w('"Watch'), [ADM, CAP], 34, 10, 38, 0), glide: 1 }, { ...pair(t1, [ADM, CAP], 38, 10, 36, 0), glide: 1 }], alive: [[t0, t1]],
+      cam: [pair(t0, [ADM, CAP], 8, 8, 40, 0), { ...pair(w('"Watch'), [ADM, CAP], -4, 10, 38, 0), glide: 1 }, { ...pair(t1, [ADM, CAP], -8, 10, 36, 0), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "adm", at: () => ADM, faceTo: () => CAP, props: () => admProps(faceTrack(words, "focus", [{ word: '"Watch', face: "sly" }], t0), poseTrack(words, "hold", [['"Watch', "point"]], t0)) },
         { id: "cap", at: () => CAP, faceTo: () => ADM, props: () => capProps(faceTrack(words, "worried", [{ word: 'cork."', face: "stunned", react: [{ face: "blank", frames: 2 }] }], t0 + 0.13), poseTrack(words, "shrug", [['cork."', "facepalm"]], t0)) }],
       rigs: [westCur, myFleet] });
@@ -163,9 +163,9 @@ export function buildStory(T: Timing): MyeongStory {
   {
     const t0 = w("Then"), t1 = w("the", w("channel,", w("Then")));
     add({ id: "charge", place: "gap", establishing: true, t0, t1, xfade: 0.2, join: WHIP, set: () => straitSet({ fog: 8 }), light: "golden", lens: { cInf: 3 },
-      cam: [{ t: t0, pos: [175, 70, 70], look: [60, 0, -6], fov: 46 }, { t: t1, pos: [150, 58, 64], look: [40, 0, -4], fov: 46, glide: 1 }],
+      cam: [{ t: t0, pos: [210, 62, 64], look: [80, 0, -4], fov: 46 }, { t: t1, pos: [190, 52, 58], look: [64, 0, -4], fov: 46, glide: 1 }],
       people: [],
-      rigs: [currentRig((t) => -6 * t, () => 1), fleetRig((b) => japanese(b.k), JB.map((b) => ({ ...b, x: b.x + 40 })), pour(t0)), myFleet] });
+      rigs: [currentRig((t) => -6 * t, () => 1), fleetRig((b) => japanese(b.k), JB.map((b) => ({ ...b, x: b.x + 30 })), pour(t0)), myFleet] });
   }
   // ================= 10 "...the current carrying them in like a river": low on the water as they sweep past
   {
@@ -181,9 +181,9 @@ export function buildStory(T: Timing): MyeongStory {
     const t0 = w("Their"), t1 = w("His", w("rowing."));
     const JF: Berth = { x: 74, z: -4, yaw: Math.PI, k: 2 };
     const at = (lx: number, lz: number) => (t: number) => onDeck({ ...JF, x: JF.x - 2 * (t - t0) }, lx, lz, DECK_J);
-    const EA = at(2.2, 0.8), R1 = at(0.6, -1.2);
+    const EA = at(6.2, 0.9), R1 = at(5.4, -1.0);
     add({ id: "thrilled", place: "jflag", t0, t1, xfade: 0.2, join: D(6), set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [EA(t0), R1(t0), EA(t0 + 1.9), R1(t0 + 1.9)], 140, 8, 40, 0), { ...pair(w("The", t0 + 1), [EA(t0 + 1.9), R1(t0 + 1.9), EA(t1), R1(t1)], 118, 10, 38, 0), glide: 1 }, { ...pair(t1, [EA(t0 + 1.9), R1(t0 + 1.9), EA(t1), R1(t1)], 110, 10, 36, 0), glide: 1 }],
+      cam: [cK(t0, [EA(t0), R1(t0)], "medium", -100, 8, 40), { ...cK(w("The", t0 + 1), [EA(w("The", t0 + 1)), R1(w("The", t0 + 1))], "medium", -84, 8, 38), glide: 1 }, { ...cK(t1, [EA(t1), R1(t1)], "medium", -80, 8, 36), glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "ea", at: EA, faceTo: () => [0, DECK_J, -4], props: () => ({ costume: "samurai2", seed: 71, face: faceTrack(words, "grin", [{ word: "thrilled.", face: "cackle" }], t0), pose: poseTrack(words, "point", [["thrilled.", "armsUp"]], t0) }) },
         { id: "rower", at: R1, faceTo: () => [100, DECK_J, -4], props: () => ({ costume: "ashigaru", seed: 72, face: faceTrack(words, "sleepy", [{ word: "rowing.", face: "bliss" }], t0), pose: "hips" }) }],
@@ -206,7 +206,7 @@ export function buildStory(T: Timing): MyeongStory {
     const B = BEHIND[1];
     const C1 = onDeck(B, 4.6, 0.9, DECK_K), C2 = onDeck(B, 3.4, -0.4, DECK_K);
     add({ id: "polite", place: "reardeck", t0, t1, xfade: 0.2, join: WHIP, set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [C1, C2], -110, 10, 44, 0), { ...pair(t1, [C1, C2], -96, 12, 40, 0), glide: 1 }], alive: [[t0, t1]],
+      cam: [pair(t0, [C1, C2], 196, 14, 46, 0), { ...pair(t1, [C1, C2], 186, 14, 42, 0), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "c1", at: () => C1, faceTo: () => [100, DECK_K, 0], props: () => ({ costume: "jcaptain2", seed: 42, face: faceTrack(words, "grin", [{ word: "politely", face: "sly" }], t0), pose: poseTrack(words, "stand", [["politely", "sweep"]], t0) }) },
         { id: "c2", at: () => C2, faceTo: () => [100, DECK_K, 0], props: () => ({ costume: "jsailor", seed: 43, face: faceTrack(words, "worried", [{ word: "face", face: "grin" }], t0 + 0.1), pose: poseTrack(words, "stand", [["face", "sweep"]], t0) }) }],
       rigs: [westCur, myFleet] });
@@ -297,9 +297,9 @@ export function buildStory(T: Timing): MyeongStory {
     const t0 = w("Theirs"), t1 = w("Their", t0);
     const JS: Berth = { x: 60, z: -2, yaw: Math.PI, k: 5 };
     const at = (lx: number, lz: number) => (t: number) => onDeck({ ...JS, x: JS.x + 4 * (t - t0) }, lx, lz, DECK_J);
-    const E1 = at(2.0, 0.6), E2 = at(0.8, -0.8);
+    const E1 = at(6.2, 0.9), E2 = at(5.4, -1.0);
     add({ id: "theirs", place: "jdeck2", t0, t1, xfade: 0.2, join: D(6), set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [cK(t0, [E1(t0), E2(t0), E1(t1), E2(t1)], "medium", -30, 8, 40), { ...cK(t1, [E1(t0), E2(t0), E1(t1), E2(t1)], "medium", -24, 8, 38), glide: 1 }], alive: [[t0, t1]],
+      cam: [cK(t0, [E1(t0), E2(t0), E1(t1), E2(t1)], "medium", -96, 8, 40), { ...cK(t1, [E1(t0), E2(t0), E1(t1), E2(t1)], "medium", -90, 8, 38), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "e1", at: E1, faceTo: () => [0, DECK_J, 0], props: () => ({ costume: "samurai", seed: 81, face: faceTrack(words, "worried", [{ word: "aren't.", face: "terrified" }], t0), pose: poseTrack(words, "point", [["aren't.", "armsUp"]], t0) }) },
         { id: "e2", at: E2, faceTo: () => [0, DECK_J, 0], props: () => ({ costume: "ashigaru", seed: 82, face: faceTrack(words, "terrified", [{ word: "aren't.", face: "scream" }], t0 + 0.1), pose: "armsUp" }) }],
       rigs: [currentRig((t) => 6 * t, () => 1), fleetRig((b) => japanese(b.k), [JS], (t) => ({ dx: 4 * (t - t0), heel: 0.05 * Math.sin(t * 4) }))] });

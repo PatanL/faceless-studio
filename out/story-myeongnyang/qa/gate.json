@@ -1,0 +1,157 @@
+{
+ "v": 1,
+ "slug": "story-myeongnyang",
+ "at": "2026-11-03T18:54:47Z",
+ "verdict": "PASS",
+ "warn_count": 5,
+ "fail": [],
+ "mp4": "out/story-myeongnyang/story-myeongnyang_v3.mp4",
+ "mp4_sha256": "0ccb1c3b75e5186c46e89c325571dcf0fbe54fb005d36968f2c225355cd4c50f",
+ "duration_s": 65.97,
+ "niche": "explainer",
+ "checks": {
+  "duration": {
+   "status": "PASS",
+   "value": 65.97,
+   "threshold": ">= 61.0 and <= 180.0 (WARN > 90.0)"
+  },
+  "loudness": {
+   "status": "PASS",
+   "value": {
+    "I_lufs": -14.0,
+    "true_peak_dbtp": -5.3,
+    "LRA_lu": 1.2
+   },
+   "threshold": "I -14.0 +-1.5 LUFS, true peak <= -0.5 dBTP (WARN > -1.0)"
+  },
+  "black_frames": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no black run > 0.5 s unless the scene marks it intended"
+  },
+  "frozen": {
+   "status": "PASS",
+   "value": [],
+   "threshold": "no freeze > visual.max_hold_s + 0.5 = 3.5 s",
+   "detail": "storyboard max hold 6.32 s"
+  },
+  "missing_kit": {
+   "status": "PASS",
+   "value": 0.0,
+   "threshold": "magenta share <= 0.2% in every 1 fps frame",
+   "detail": "magenta pixel share in sampled frames"
+  },
+  "originality": {
+   "status": "WARN",
+   "value": {
+    "max_run": 0,
+    "max_5gram_share": 0.0,
+    "worst": null,
+    "source_id": null,
+    "source_transcript": null
+   },
+   "threshold": "corpus: run < 8 and 5-gram share < 2% per source; source: share < 1% and run < 6",
+   "detail": "source transcript for None not found: compared with the corpus only"
+  },
+  "sameness": {
+   "status": "PASS",
+   "value": {
+    "vs": [],
+    "max": {}
+   },
+   "threshold": "FAIL: title>=0.6 (and subject words >=0.6; template only = WARN), hook>=0.6, same topic, thumb_hamming<=8, script>=0.15, frames_hamming<=10; WARN: beats_ned<=0.1 vs 3+, shot_mix>=0.95, cover_hamming<=8, same subject/source",
+   "detail": "no published history to compare against",
+   "history_mode": "default",
+   "history": []
+  },
+  "source_title": {
+   "status": "PASS",
+   "value": null,
+   "detail": "no source title (not a --source episode)"
+  },
+  "music": {
+   "status": "PASS",
+   "value": null,
+   "detail": "no music bed"
+  },
+  "captions": {
+   "status": "WARN",
+   "value": [
+    {
+     "t": 8.311,
+     "scene_id": "p02",
+     "issue": "caption page of 5 words"
+    },
+    {
+     "t": 11.341,
+     "scene_id": "p03",
+     "issue": "caption page of 5 words"
+    },
+    {
+     "t": 22.668,
+     "scene_id": "p06",
+     "issue": "caption page of 5 words"
+    },
+    {
+     "t": 29.48,
+     "scene_id": "p08",
+     "issue": "caption page of 5 words"
+    }
+   ],
+   "threshold": "any (the reviewer decides)",
+   "detail": "4 issue(s)"
+  },
+  "safe_area": {
+   "status": "WARN",
+   "value": [
+    {
+     "what": "captions",
+     "bottom_pct": 77.0,
+     "one_line_bottom_pct": 74.6,
+     "scenes": "all"
+    }
+   ],
+   "threshold": "FAIL: screen-fixed text, or a 1-line caption page, ending below 80 % of the height; WARN: anything (2-line captions) below 66 %, or a text layer within 5 % of an edge",
+   "detail": "0 fail, 1 warn (storyboard geometry; camera moves are not modelled)"
+  },
+  "staging": {
+   "status": "PASS",
+   "value": {
+    "fail": [],
+    "warn": []
+   },
+   "threshold": "house-built storyboard and no staging violation (pipeline/episodes/staging.py; [echo] = WARN)",
+   "detail": "0 violation(s), 0 warning(s)"
+  },
+  "house_style": {
+   "status": "WARN",
+   "value": null,
+   "threshold": "JUDGE_RUBRIC automatic metrics, thresholds in pipeline/qa/house_style.py THRESHOLDS",
+   "detail": "not measured off the Spark (set STUDIO_HOUSE_PY to a python with opencv)"
+  },
+  "hook": {
+   "status": "WARN",
+   "value": {
+    "words": 20,
+    "first_speech_s": 0.1,
+    "text": "He anchored his last ships in a roaring channel, with an enemy fleet so close he could hear them laughing."
+   },
+   "threshold": "first speech <= 1.0 s (WARN words > hook.max_words 12)"
+  },
+  "disclosure": {
+   "status": "PASS",
+   "value": {
+    "line": "Narration: synthetic AI voice (Kokoro TTS). Animation: original code-made 3D animation."
+   },
+   "threshold": "AI-voice disclosure in every platform's caption",
+   "detail": "AI-voice line in youtube, tiktok and instagram captions"
+  },
+  "variant": {
+   "status": "PASS",
+   "value": {},
+   "detail": "no variant.json variables"
+  }
+ },
+ "sheets": {},
+ "gate_s": 19.7
+}
