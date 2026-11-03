@@ -304,6 +304,11 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
             t += int(gap * SR) / SR
     pieces.append(np.zeros(int(TAIL * SR), np.float32))
     audio = np.concatenate(pieces)
+    if str(cfg.get("melody", "off")).lower() == "rules" and words:  # rule-based melody shaper (melody.py), opt-in
+        from .melody import apply_external, remap
+        audio, words, tmap = apply_external(audio, words, cfg, SR, log=log)
+        cues = [{**c, "at": round(remap(c["at"], tmap), 3)} for c in cues]
+        gains = [(int(remap(i / SR, tmap) * SR), int(remap(j / SR, tmap) * SR), db) for i, j, db in gains]
     audio = voice_chain(audio, cfg.get("voice_chain", ""))
     fadeN = int(0.03 * SR)
     for i, j, db in gains:  # after the compressor, so a quiet passage stays quiet
@@ -321,6 +326,7 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
         "duration_s": round(len(audio) / SR, 3),
         "timing_source": sorted({c[2] for c in coverage}),
         "timing_coverage": round(sum(c[0] * c[1] for c in coverage) / n_words, 3),
+        "melody": str(cfg.get("melody", "off")),
     }
     log(f"[tts] {voice} {stats['duration_s']}s audio in {stats['synth_s']}s, timings {stats['timing_source']} "
         f"coverage {stats['timing_coverage']}")

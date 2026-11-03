@@ -139,6 +139,8 @@ def main(argv=None):
     ap.add_argument("--speed", type=float)
     ap.add_argument("--engine", choices=["kokoro", "piper", "qwen3", "qwen_api"])
     ap.add_argument("--qwen3-voice", help="qwen3 voice id (config.QWEN3_VOICES; front matter qwen3_voice)")
+    ap.add_argument("--melody", choices=["off", "rules"], help="rule-based melody shaper after TTS, default off "
+                    "(front matter melody; pipeline/audio/melody.py)")
     ap.add_argument("--emphasis", choices=["on", "off"], help="qwen3: rule-marked word stress, default off (front matter emphasis)")
     ap.add_argument("--no-auto-sfx", action="store_true")
     ap.add_argument("--whisper", action="store_true", help="force faster-whisper alignment")
@@ -169,7 +171,7 @@ def main(argv=None):
         v = getattr(a, k) or sc.meta.get(k)
         if v:
             cfg[k] = float(v) if k == "speed" else v
-    for k in ("qwen3_voice", "emphasis"):  # qwen3 only; Kokoro ignores them
+    for k in ("qwen3_voice", "emphasis", "melody"):  # qwen3_voice / emphasis: qwen3 only; melody: any engine
         v = getattr(a, k) or sc.meta.get(k)
         if v:
             cfg[k] = v

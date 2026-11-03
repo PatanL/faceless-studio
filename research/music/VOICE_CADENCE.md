@@ -293,3 +293,63 @@ Next, in order of measured payoff:
 4. **Drama 3**, if the owner puts it on the GPU, and **qwen_api**, if a key is added: both join this same A/B and
    the same measurements.
 
+
+## 8. The rule-based melody shaper (`melody: rules`) and Ming-3.0-tts
+
+**The shaper** (`pipeline/audio/melody.py`) is the gap-test transplant, but with no reference. It marks stress with
+the section 3 rules (`emphasis.mark`, 35 % density) and builds a target melody:
+- a declining line through each sentence;
+- stressed words +5 st over it, the hook's act verb +7, and contrast words +2.6 as a reset;
+- the last word falling to −5.6.
+
+It blends that target 40/60 with the TTS's own word-level melody (that melody already correlates ~0.75 with real
+reads), keeps the TTS's micro-melody, and scales the result to the measured 17.2 st range. Timing changes too:
+stressed words ×1.25, function words ×0.85, punch lines of 5 words or fewer ×1.25, pauses of 90 ms at full stops and
+60 ms at commas, and pace pulled toward 3.75 w/s. PSOLA applies all of it to our own take.
+
+Three passes, one each, no judge:
+1. Pass 1 used the rules-only contour. It **flattened** the read (range ~10 st, Jar match 57–64).
+2. Pass 2 added the blend and range scaling.
+3. Pass 3 changed density and timing. Its numbers, the means over 3 texts × 2 takes, are below.
+
+| Voice | Closeness, plain → shaped | Jar match, plain → shaped (per take) | Range | Movement | Stressed vs rest | w/s | New misreads | Spectral change (MCD-DTW) |
+|---|---|---|---|---|---|---|---|---|
+| ember | 83.9 → **90.8** | 73.6 / 80.8 → 74.0 / 75.7 | 17.5 | 8.2 | 6.1 | 3.75 | 0 | 30 |
+| nova | 79.9 → 86.4 | 79.0 / 72.3 → 76.9 / 71.1 | 16.4 | 6.0 | 5.6 | 3.75 | 0 | 35 |
+| Kokoro | 72.1 → 89.1 | 67.4 → **84.3** | 16.2 | 9.0 | 7.5 | 3.76 | 1 (sea/see) | 28 |
+
+- **Spectral change, for scale:** the gap-test transplant, which kept the words intact, measures 31–45. Two takes of
+  the same text measure 51. So the shaper's 26–39 is a smaller spectral change than either.
+- **The shaper reaches the RicksClips numbers.** On range, movement, stress size, pace and pauses it takes ember to
+  90.8 closeness, the highest of any condition, with no misread words.
+- **It does not reach the 88 Jar-match target.** Ember and nova land at 71–77, about where their plain takes were,
+  because the rules put stress on different words than RicksClips chose for these exact lines (stressed-word overlap
+  0.65–0.77). Kokoro gains the most (67 → 84) because its own placement already matched theirs (r 0.85), but its
+  register stays at 113 Hz.
+- **What 88 needs is the word choice, not the size.** The transplant scored 94 by copying their exact word choices.
+- **One intelligibility risk:** in the end-to-end test, the shaped ember take had "one line" heard as "online".
+
+**Ming-3.0-tts-0.5b** (inclusionAI; official repo @a39b806, HF weights rev 7247f4c, own venv, CPU bf16):
+- **Setup.** Its MPS path fails on mixed bf16/f32 operations written for CUDA autocast, so it runs on CPU under bf16
+  autocast at about 5–6× real time. The voice is our own, designed once (VOICE_DESIGN, from a text description of a
+  young male storyteller) and reused from that clip.
+
+| Ming condition | Jar match | Closeness | f0 | Range | Movement | Misreads |
+|---|---|---|---|---|---|---|
+| plain (designed voice reused) | 59.4 | 74.3 / 74.5 | ~253 Hz | 13.3 / 10.8 | 3.3 / 3.0 | 0 |
+| emotion `惊讶` (surprised) | 58.6 | 73.0 / 68.2 | 381–403 Hz | 12.4 / 9.9 | 6.2 / 4.4 | 0 |
+| freeform instruction naming the words to hit | 37.8 | 63.5 / 75.4 | 236 / 156 Hz | — | — | dropped 2 of 3 Jar sentences; the voice changed |
+| plain + shaper | 69.6 | 70.6 / 77.7 | ~250 Hz | 10.6 / 12.9 | 2.5 / 3.6 | 0 |
+
+(Where two values are given, they are Jar / Myeongnyang.)
+
+- **Ming does not beat ember or nova natively.** Its closeness of 73–75 compares with 80–85, and its Jar match of 59
+  with 76–78. Its melody is the flattest of the candidates (3 st movement). The emotion control mostly raises the
+  register, and the freeform control is unreliable on long text.
+
+**Wiring.** `melody: rules` (front matter, or `--melody rules`) runs after any engine (`tts: qwen3` and Kokoro):
+- it is **off by default**;
+- it runs in the qwen3 venv, which has parselmouth;
+- word times and SFX cues are remapped; caption starts land within 14 ms (median) of a fresh forced alignment.
+
+Listen: `out/rnd-voice/melody_AB.m4a` (order in `melody_AB.txt`).

@@ -162,6 +162,17 @@ audio_profile: story_ricks  # recommended: cuts pauses to 0.10 s (voicefx.tighte
   Each model is 4.5 GB, and peak memory is about 5.8 GB. Paths come from `config.QWEN3`, or from the
   `QWEN3_TTS_PYTHON` and `QWEN3_TTS_MODELS` environment variables.
 
+### Rule-based melody shaper (`melody: rules`, opt-in, any engine)
+
+`pipeline/audio/melody.py` reshapes the finished voice track toward the measured RicksClips delivery
+(research/music/VOICE_CADENCE.md section 8). Pitch: a declining sentence line, stressed words +5 st, the hook's act
+verb +7, blended with the TTS's own melody and scaled to a 17.2 st range. Timing: stressed words ×1.25, punch lines
+×1.25, pauses of 90 / 60 ms, pace toward 3.75 w/s. It is applied with Praat PSOLA (parselmouth). Word times, SFX cues
+and `[vox:]` gains are remapped through its time map. It runs in a venv with parselmouth (the qwen3 venv by default;
+set `melody_python` in config or front matter to change it), and `melody_spec` overrides any of its parameters. It
+is off by default. Measured on 3 texts × 2 takes: ember closeness 83.9 → 90.8 and Kokoro 72.1 → 89.1, with no new
+misread words. The Jar match did not improve for the Qwen voices.
+
 ### Hosted engine: `qwen_api` (designed for, not wired)
 
 `tts: qwen_api` is the slot for Alibaba Cloud Model Studio (DashScope) TTS, e.g. the Qwen-Audio TTS Plus model that
