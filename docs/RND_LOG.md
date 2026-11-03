@@ -471,7 +471,8 @@ under the lock. Kit usage is in INTEGRATION.md, "Round 3 kit additions".
 - **Depth:** bokeh discs and a foreground-mass helper.
 - **Costumes:** court costumes with trims, crossed collars, patterns, robes, sashes, lamellar armour, a guan and a mian.
 - **Colour:** v4 went too warm and dark (hook luma p50 56 against 113). It was re-measured and corrected in v5. The
-  hall's colour against the master: v3 63/112/... → v10 (mean RGB hook 115/88/91, p50 78).
+  hook's colour, measured as mean RGB and luma p10/p50: master 133/112/100 and 60/113; v3 110/79/76 and 26/84; v4
+  100/65/45 and 29/56; v10 137/104/93 and 49/108.
 - **Block dE stays 29-35:** it is dominated by layout (our own sets by design), so it is not a useful look target here.
 
 **Per-shot match** (0.7 × judgement + 0.3 × measured; framing, props and look come from one fresh blind judge who saw v3
