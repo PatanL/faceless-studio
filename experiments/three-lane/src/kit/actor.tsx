@@ -36,7 +36,7 @@ const FPS = 30;
 // ------------------------------------------------------------------ costumes (same names and colours as stick/Person)
 type Costume = {
 	coat: string; coatShade: string; vest?: string; cravat?: string; legs: string; shoes: string;
-	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'none';
+	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'helmet' | 'tiara' | 'none';
 	hair?: 'wig' | 'wigTall' | 'updo' | 'side' | 'short' | 'messy' | 'bob' | 'none'; hairColor?: string;
 	gown?: string; gownShade?: string; glasses?: boolean; epaulettes?: boolean; buttons?: boolean;
 };
@@ -62,6 +62,15 @@ const COSTUMES: Record<string, Costume> = {
 	// KitLab's keeper (a lighthouse keeper in oilskins) and her apprentice
 	keeper: {coat: c('amber-3'), coatShade: c('amber-1'), legs: K.ink, shoes: c('ink-0'), hat: 'none', hair: 'bob', hairColor: c('ink-1'), buttons: true},
 	apprentice: {coat: c('sky-1'), coatShade: c('sky-0'), legs: K.ink, shoes: c('ink-0'), hat: 'bowler', hair: 'short', hairColor: c('ochre-0')},
+	// story-barca-shield (Barca, c. 515 BC): a Greek bronze-smith in a work tunic, Greek guards (hoplites) in crested
+	// bronze helmets, Persian soldiers and diggers in soft caps and trousers, and their commander
+	smith: {coat: c('amber-1'), coatShade: c('amber-0'), legs: c('bone-1'), shoes: c('ochre-0'), hat: 'none', hair: 'messy', hairColor: c('ink-1')},
+	hoplite: {coat: c('coral-1'), coatShade: c('coral-0'), legs: c('bone-1'), shoes: c('ochre-0'), hat: 'helmet', hair: 'none'},
+	hoplite2: {coat: c('sky-1'), coatShade: c('sky-0'), legs: c('bone-1'), shoes: c('ochre-0'), hat: 'helmet', hair: 'none'},
+	persian: {coat: c('magenta-1'), coatShade: c('magenta-0'), legs: c('amber-2'), shoes: c('ink-0'), hat: 'tiara', hair: 'none'},
+	persian2: {coat: c('kelp-1'), coatShade: c('kelp-0'), legs: c('ochre-1'), shoes: c('ink-0'), hat: 'tiara', hair: 'none'},
+	digger: {coat: c('ochre-0'), coatShade: c('amber-0'), legs: c('amber-2'), shoes: c('ink-0'), hat: 'tiara', hair: 'none'},
+	persianLord: {coat: c('violet-1'), coatShade: c('violet-0'), vest: c('amber-4'), legs: c('magenta-0'), shoes: c('ink-0'), hat: 'tiara', hair: 'none', buttons: true},
 };
 
 // ------------------------------------------------------------------ geometry (Person's 600 x 700 box)
@@ -311,6 +320,8 @@ function Hat({kind}: {kind?: string}) {
 	if (kind === 'brim') return <g><ellipse cx={300} cy={66} rx={176} ry={30} fill={c('ink-1')} /><path d="M 214 66 Q 210 -6 300 -14 Q 390 -6 386 66 Z" fill={c('ink-1')} /><path d="M 214 60 Q 300 74 386 60 L 386 46 Q 300 60 214 46 Z" fill={c('amber-3')} /></g>;
 	if (kind === 'bowler') return <g><ellipse cx={300} cy={58} rx={140} ry={22} fill={c('ink-1')} /><path d="M 206 58 Q 204 -30 300 -34 Q 396 -30 394 58 Z" fill={c('ink-1')} /><path d="M 208 44 Q 300 58 392 44 L 392 30 Q 300 44 208 30 Z" fill={c('coral-0')} /></g>;
 	if (kind === 'cap') return <g><path d="M 192 92 Q 186 18 300 4 Q 404 14 410 70 Q 430 40 470 58 Q 436 80 408 96 Z" fill={c('coral-1')} /><rect x={186} y={78} width={226} height={26} rx={12} fill={c('coral-0')} /></g>;
+	if (kind === 'helmet') return <g><path d="M 210 34 Q 300 -76 392 34 Q 300 -18 210 34 Z" fill={c('coral-1')} /><path d="M 188 150 Q 180 18 300 8 Q 420 18 412 150 L 390 150 L 390 98 Q 300 82 210 98 L 210 150 Z" fill={c('amber-2')} /><path d="M 204 86 Q 300 70 396 86" stroke={c('amber-0')} strokeWidth={8} fill="none" /></g>;
+	if (kind === 'tiara') return <g><path d="M 190 172 Q 184 12 300 -10 Q 404 4 412 88 Q 440 64 452 80 Q 430 96 412 104 L 412 172 Q 400 180 390 168 L 390 100 Q 300 84 210 100 L 210 168 Q 200 180 190 172 Z" fill={c('ochre-1')} /><path d="M 200 98 Q 300 80 400 98" stroke={c('amber-0')} strokeWidth={10} fill="none" /></g>;
 	if (kind === 'bonnet') return <path d="M 186 110 Q 176 10 300 2 Q 424 10 414 110 Q 380 60 300 56 Q 220 60 186 110 Z" fill={c('bone-2')} />;
 	if (kind === 'furcap') return <g><path d="M 196 96 Q 186 40 214 20 Q 226 -10 262 -6 Q 290 -24 320 -8 Q 356 -16 378 14 Q 414 34 404 96 Z" fill={c('amber-0')} />{[200, 236, 272, 308, 344, 380].map((x) => <circle key={x} cx={x + 10} cy={96} r={22} fill={c('ochre-0')} />)}</g>;
 	return null;
@@ -337,6 +348,15 @@ function Item({kind, at, swing, t}: {kind: string; at: P2; swing: number; t: num
 			<path d={`M ${x - 24} ${y + 78} H ${x + 24} M ${x - 24} ${y + 104} H ${x + 24}`} stroke={c('ink-1')} strokeWidth={5} />
 			<rect x={x - 30} y={y + 124} width={60} height={14} rx={6} fill={c('ink-1')} />
 		</g>);
+	}
+	if (kind === 'pick') {
+		return <g transform={`rotate(${f(-30 + swing)} ${x} ${y})`}><rect x={x - 7} y={y - 120} width={14} height={140} rx={6} fill={c('ochre-1')} /><path d={`M ${x - 78} ${y - 112} Q ${x} ${y - 156} ${x + 78} ${y - 112} L ${x + 72} ${y - 100} Q ${x} ${y - 136} ${x - 72} ${y - 100} Z`} fill={c('sky-0')} /></g>;
+	}
+	if (kind === 'shield') {
+		return <g><circle cx={x + 10} cy={y + 10} r={78} fill={c('amber-0')} /><circle cx={x + 10} cy={y + 10} r={66} fill={K.gold} /><circle cx={x + 10} cy={y + 10} r={18} fill={c('amber-2')} /></g>;
+	}
+	if (kind === 'spade') {
+		return <g transform={`rotate(${f(-20 + swing)} ${x} ${y})`}><rect x={x - 6} y={y - 110} width={12} height={150} rx={5} fill={c('ochre-1')} /><path d={`M ${x - 30} ${y + 36} H ${x + 30} V ${y + 80} Q ${x} ${y + 104} ${x - 30} ${y + 80} Z`} fill={c('sky-0')} /></g>;
 	}
 	if (kind === 'hammer') {
 		return <g transform={`rotate(${f(-30 + swing)} ${x} ${y})`}><rect x={x - 7} y={y - 110} width={14} height={130} rx={6} fill={c('ochre-1')} /><rect x={x - 40} y={y - 132} width={80} height={34} rx={8} fill={c('sky-0')} /></g>;

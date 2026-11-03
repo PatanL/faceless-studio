@@ -53,10 +53,22 @@ export function ricksPages(words: CapWord[], endT: number, maxWords = 3, maxChar
   }));
 }
 
-export const RicksCaptions: React.FC<{ words: CapWord[]; y?: number; size?: number; maxWidth?: number }> = ({ words, y = RICKS_Y, size = 92, maxWidth = 940 }) => {
+/** pages from the pipeline's phrase breaks (Word.br, caption_rule "phrase1": whole phrases, one line), with the
+ * reference timing: from frame 0 to the last frame, hard swaps, no gaps */
+export function brPages(words: (CapWord & { br?: boolean })[], endT: number): RicksPage[] {
+  const ws = words.filter((w) => w.text.trim());
+  const groups: CapWord[][] = [];
+  ws.forEach((w, i) => { if (i === 0 || w.br) groups.push([]); groups[groups.length - 1].push(w); });
+  return groups.map((p, i) => ({ text: p.map((w) => w.text).join(" "), words: p, start: i === 0 ? 0 : p[0].start,
+    end: i + 1 < groups.length ? groups[i + 1][0].start : endT }));
+}
+
+/** breaks: "ricks" (1-3 word pages, the reference paging) or "phrase" (the pipeline's phrase breaks, Word.br; the
+ * story-lane hybrid: the reference look with whole-phrase pages) */
+export const RicksCaptions: React.FC<{ words: CapWord[]; y?: number; size?: number; maxWidth?: number; breaks?: "ricks" | "phrase" }> = ({ words, y = RICKS_Y, size = 92, maxWidth = 940, breaks = "ricks" }) => {
   const frame = useCurrentFrame();
   const { fps, width, height, durationInFrames } = useVideoConfig();
-  const pages = useMemo(() => ricksPages(words, durationInFrames / fps), [words, fps, durationInFrames]);
+  const pages = useMemo(() => (breaks === "phrase" ? brPages(words, durationInFrames / fps) : ricksPages(words, durationInFrames / fps)), [words, fps, durationInFrames, breaks]);
   const t = frame / fps;
   const page = pages.find((p) => t >= p.start - 1e-6 && t < p.end - 1e-6) ?? (t >= (pages[pages.length - 1]?.start ?? 0) ? pages[pages.length - 1] : undefined);
   if (!page) return null;

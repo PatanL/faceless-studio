@@ -298,3 +298,20 @@ light: lightArc([[t0, "night"], [wordT(words, "until"), "dawn", 0.8]],          
 **Kit change once free:**
 - In `Stage.tsx`, accept `light: (t) => Preset` objects as well as names. This drops the registry.
 - Optionally tween `PRESETS` switches between groups of the same place.
+
+## Caption hybrid: the reference look with whole-phrase pages (story lane default from story-barca-shield)
+
+The coordinator's 2026-11-02 decision combines two things: the RicksClips caption look (`RicksCaptions`: white
+Montserrat 800, mixed case, one line, fixed at y 0.71) and the house phrase rule for the page breaks, so no page splits
+a phrase.
+
+| Where | Change (opt-in) |
+|---|---|
+| `pipeline/episodes/phrases.py` | `caption_rule: "phrase1"` keeps the phrase rule's boundaries on a single line: at most 5 words and 25 characters, with the length cost starting at 14 characters. `"phrase"` and the default paging are unchanged (the stored story-vasa pages reproduce exactly). |
+| `kit/captions.tsx` | `brPages(words, endT)` builds pages from the pipeline's `Word.br` breaks, with the reference timing: from frame 0 to the last frame, hard swaps, no gaps. `RicksCaptions breaks="phrase"` uses them. |
+| `kit/Episode3D.tsx` | `captions="ricks-phrase"` renders the reference look with those pages. `"house"` (the default) and `"ricks"` are unchanged. |
+
+Long pages shrink to fit one line, as `RicksCaptions` already did (about 63 px type at 25 characters).
+
+Because the caption no longer moves, the camera has to keep faces out of the 0.64-0.78 band. Use `castKey` "close" (it
+keeps head bottoms at or above 0.6) or `fit(..., { b: 0.62 })` on chest-up shots.

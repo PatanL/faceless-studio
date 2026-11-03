@@ -59,14 +59,15 @@ def _verbish(w: str) -> bool:
                                                                "pieces", "magnets", "doors", "years", "moves")
 
 
-def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset()) -> float:
-    """rule="phrase": a page ends only at a phrase boundary"""
+def _cost_phrase(ws: list[str], nxt: str | None, max_chars: int, pairs=frozenset(), one: bool = False) -> float:
+    """rule="phrase": a page ends only at a phrase boundary. one=True (rule="phrase1"): the same boundaries on a
+    single caption line, at most 5 words / 25 characters, the length cost starting at 14 characters"""
     n = len(ws)
     chars = sum(len(w) for w in ws) + n - 1
-    if n > (7 if chars <= 32 else 6) or chars > max_chars:
+    if n > (5 if one else 7 if chars <= 32 else 6) or chars > max_chars:
         return float("inf")
     c = 2.0 + (0.3 if n == 5 else 0.9 if n == 6 else 1.4 if n == 7 else 0) + (2.0 if n == 1 and not SENT_END.search(ws[-1]) else 0)
-    c += 0.25 * max(0, chars - 24)
+    c += (0.3 * max(0, chars - 14)) if one else 0.25 * max(0, chars - 24)
     last, ln = ws[-1], _n(ws[-1])
     if SENT_END.search(last):
         return c - 1.0
@@ -151,8 +152,12 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
     """Mark word["br"] on caption page starts (in place); returns words. glue: extra phrases never split.
     max_card_s: a card never stays up longer than this (first word start -> last word end).
     rule: "default" (the live behaviour) or "phrase" (opt-in, module doc)."""
-    strict = rule == "phrase"
-    if strict:
+    # rule="phrase1" (opt-in, story lane with the reference caption look): the phrase rule's boundaries on one line
+    one = rule == "phrase1"
+    strict = rule in ("phrase", "phrase1")
+    if one:
+        max_chars, max_card_s = 25, max(max_card_s, 3.0)
+    elif strict:
         max_chars, max_card_s = max(max_chars, 32), max(max_card_s, 3.6)
     pairs, ends = set(), set()
     for ph in [*GLUE, *glue]:
@@ -173,8 +178,8 @@ def phrase_pages(words: list[dict], max_chars: int = 16, gap_break: float = 0.45
         best = [0.0] + [float("inf")] * m
         back = [0] * (m + 1)
         for j in range(1, m + 1):
-            for i in range(max(0, j - (7 if strict else 5)), j):
-                c = _cost_phrase(toks[i:j], toks[j] if j < m else None, max_chars, pairs) if strict else \
+            for i in range(max(0, j - (5 if one else 7 if strict else 5)), j):
+                c = _cost_phrase(toks[i:j], toks[j] if j < m else None, max_chars, pairs, one) if strict else \
                     _cost(toks[i:j], toks[j] if j < m else None, i == 0, max_chars, pairs, ends)
                 if j - i > 1 and words[a + j - 1]["end"] - words[a + i]["start"] > max_card_s:
                     c = float("inf")

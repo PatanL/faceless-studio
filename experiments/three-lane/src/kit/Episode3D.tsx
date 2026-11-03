@@ -223,7 +223,7 @@ export function Episode3D<S extends Story>({ storyboard, words: wordsIn, duratio
   storyboard?: StoryboardInput; words?: CapWord[]; durations?: number[];
   build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
   screenAvoid?: (s: S, t: number) => ScreenRect[];
-  captions?: "house" | "ricks" | "none"; gates?: "fail" | "warn" | "off";
+  captions?: "house" | "ricks" | "ricks-phrase" | "none"; gates?: "fail" | "warn" | "off";
 }) {
   waitForFonts();
   const { fps, durationInFrames } = useVideoConfig();
@@ -268,6 +268,7 @@ export function Episode3D<S extends Story>({ storyboard, words: wordsIn, duratio
       {overlays ? overlays(story) : null}
       {captions === "house" && sb?.captions ? <CaptionTrack captions={sb.captions} format={sb.format} theme={sb.theme} placement={placement} cuts={cuts} /> : null}
       {captions === "ricks" ? <RicksCaptions words={words} /> : null}
+      {captions === "ricks-phrase" ? <RicksCaptions words={words} breaks="phrase" /> : null}
     </AbsoluteFill>
   );
 }
