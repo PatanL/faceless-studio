@@ -1,0 +1,239 @@
+{
+ "study": "VS1Z first 20 s (F0-F599)",
+ "internal_only": true,
+ "score": "0-10 = 0.7 x mean judgement (timing, framing, move, acting, props/graphics, look, join) + 0.3 x measured (0.5 aligned motion-energy correlation + 0.5 x min(1, SSIM/0.5)); SSIM on blurred luma at 180x320 with the caption band masked; dE = mean Lab difference of 8 px blocks",
+ "iterations": {
+  "v1": "first full render",
+  "v2": "jar/dragon resized, hall desaturated, balcony head to y 0.42, crane over the army, jar orbit re-placed, push to the frog sped up",
+  "v3": "jar slimmer and further, hall palette warm stone, balcony crane faster (F427-F441) and lower look, lens blur off the balcony"
+ },
+ "shots": [
+  {
+   "shot": "1 hook take",
+   "frames": [
+    0,
+    91
+   ],
+   "match_score": 7.0,
+   "judgement": {
+    "timing": 9,
+    "framing": 7,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 6,
+    "look": 3,
+    "join": 10
+   },
+   "measured": {
+    "v1": {
+     "ssim": 0.27,
+     "dE": 36.8,
+     "motion_corr": 0.72,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.89
+    },
+    "v2": {
+     "ssim": 0.241,
+     "dE": 36.5,
+     "motion_corr": 0.74,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.92
+    },
+    "v3": {
+     "ssim": 0.25,
+     "dE": 32.1,
+     "motion_corr": 0.76,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.88
+    }
+   },
+   "mismatches_left": [
+    "push into the dragon starts 1-2 f late and is slower: their inventor leaves frame left by F27, ours by F31",
+    "inventor head 0.19 vs their 0.17 and sits at x 0.33 vs 0.27 (about 6 % of width: inside tolerance)",
+    "dragon close-up: primitive gold model, no scales or specular; their candle-bowl bokeh is big discs, ours small glows",
+    "hall reads cooler and emptier (dE 32 after warming, 37 in v1)"
+   ]
+  },
+  {
+   "shot": "2 warning, travel, laugh",
+   "frames": [
+    92,
+    223
+   ],
+   "match_score": 7.3,
+   "judgement": {
+    "timing": 9,
+    "framing": 8,
+    "move": 8,
+    "acting": 8,
+    "props_graphics": 8,
+    "look": 4,
+    "join": 9
+   },
+   "measured": {
+    "v1": {
+     "ssim": 0.233,
+     "dE": 34.2,
+     "motion_corr": 0.82,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.73
+    },
+    "v2": {
+     "ssim": 0.233,
+     "dE": 32.0,
+     "motion_corr": 0.81,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.77
+    },
+    "v3": {
+     "ssim": 0.233,
+     "dE": 28.7,
+     "motion_corr": 0.81,
+     "motion_lag_f": 1,
+     "motion_energy_ratio": 0.77
+    }
+   },
+   "mismatches_left": [
+    "guards' laugh stagger is 3 f, theirs 3-6 f with a body lean we cannot pose (no lean pose in the Actor)",
+    "travel past the jar: ours passes nearer the jar, so the wipe covers more of the frame for 2 f longer",
+    "throne back is a flat tufted panel; theirs a carved gothic throne"
+   ]
+  },
+  {
+   "shot": "3 jar orbit to frog",
+   "frames": [
+    224,
+    403
+   ],
+   "match_score": 5.7,
+   "judgement": {
+    "timing": 8,
+    "framing": 6,
+    "move": 7,
+    "acting": 10,
+    "props_graphics": 4,
+    "look": 4,
+    "join": 9
+   },
+   "measured": {
+    "v1": {
+     "ssim": 0.273,
+     "dE": 32.5,
+     "motion_corr": -0.0,
+     "motion_lag_f": 0,
+     "motion_energy_ratio": 0.78
+    },
+    "v2": {
+     "ssim": 0.284,
+     "dE": 28.5,
+     "motion_corr": 0.02,
+     "motion_lag_f": -1,
+     "motion_energy_ratio": 0.64
+    },
+    "v3": {
+     "ssim": 0.268,
+     "dE": 26.5,
+     "motion_corr": 0.05,
+     "motion_lag_f": -1,
+     "motion_energy_ratio": 0.66
+    }
+   },
+   "mismatches_left": [
+    "jar centre at x ~0.44 vs their 0.35 at F240 (9 % of width) and ours is wider (radius kept for the hook's framing)",
+    "dragons read as thin insects at orbit distance (the largest look gap of the study)",
+    "motion-energy correlation ~0: their orbit is smooth parallax over a dense background; ours has little background texture to measure, so the number is not informative here",
+    "frog is a soft blob: no carved detail"
+   ]
+  },
+  {
+   "shot": "4 balcony crane",
+   "frames": [
+    404,
+    534
+   ],
+   "match_score": 6.4,
+   "judgement": {
+    "timing": 7,
+    "framing": 6,
+    "move": 6,
+    "acting": 9,
+    "props_graphics": 7,
+    "look": 5,
+    "join": 9
+   },
+   "measured": {
+    "v1": {
+     "ssim": 0.365,
+     "dE": 27.9,
+     "motion_corr": 0.49,
+     "motion_lag_f": 7,
+     "motion_energy_ratio": 0.84
+    },
+    "v2": {
+     "ssim": 0.357,
+     "dE": 29.1,
+     "motion_corr": 0.38,
+     "motion_lag_f": 8,
+     "motion_energy_ratio": 0.72
+    },
+    "v3": {
+     "ssim": 0.334,
+     "dE": 31.9,
+     "motion_corr": 0.36,
+     "motion_lag_f": 8,
+     "motion_energy_ratio": 0.71
+    }
+   },
+   "mismatches_left": [
+    "their move is a rising pull-back with the emperor kept in frame and drifting to x 0.3; ours cranes over him and he leaves at the bottom (motion lag 8 f)",
+    "their city is a dense white town under mountains; ours is a near brown wall that fills the top third",
+    "v1 head placed at y 0.6 instead of 0.42 (fixed in v2)"
+   ]
+  },
+  {
+   "shot": "5 weeks later",
+   "frames": [
+    535,
+    599
+   ],
+   "match_score": 6.2,
+   "judgement": {
+    "timing": 8,
+    "framing": 7,
+    "move": 7,
+    "acting": 7,
+    "props_graphics": 7,
+    "look": 4,
+    "join": 9
+   },
+   "measured": {
+    "v1": {
+     "ssim": 0.236,
+     "dE": 30.5,
+     "motion_corr": 0.45,
+     "motion_lag_f": 6,
+     "motion_energy_ratio": 0.36
+    },
+    "v2": {
+     "ssim": 0.215,
+     "dE": 28.7,
+     "motion_corr": 0.41,
+     "motion_lag_f": 4,
+     "motion_energy_ratio": 0.57
+    },
+    "v3": {
+     "ssim": 0.222,
+     "dE": 26.2,
+     "motion_corr": 0.41,
+     "motion_lag_f": 4,
+     "motion_energy_ratio": 0.58
+    }
+   },
+   "mismatches_left": [
+    "no banquet table of courtiers in the background (their F540-F599 has a long table behind)",
+    "wake-up lacks the hair-shock tuft (no hair-spike mark in the Actor)",
+    "final push to the frog starts F594 like theirs but carries less distance by F599"
+   ]
+  }
+ ]
+}
