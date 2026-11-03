@@ -127,9 +127,15 @@ PROFILES = {
         "action_sfx": True,
         "sfx_db": {"whoosh": -16.0, "whoosh_long": -16.0, "impact": -20.0, "boom": -20.0, "stinger": -18.0,
                    "pop": -15.0, "message_pop": -15.0, "tick": -16.0, "click": -16.0, "ding": -16.0,
-                   "door_creak": -18.0, "clock_ticking": -20.0, "knock": -14.0, "footsteps": -16.0, "riser": -18.0},
+                   "door_creak": -18.0, "clock_ticking": -20.0, "knock": -14.0, "footsteps": -16.0, "riser": -18.0,
+                   "swish": -15.8, "swish_fall": -15.8},
         "sfx_rate": {"whoosh": 2.0, "whoosh_long": 2.6},   # our whooshes are 1.2-1.8 s swells; the refs' are 0.1-0.3 s
-        "cut_sfx": {"cues": ["whoosh"], "lead": 0.12, "db": 0.0},
+        "cut_sfx": {"cues": ["whoosh"], "lead": 0.05, "db": 0.0},
+        # swishes (RICKS_SOUND.md section 7, 45 swishes in the 8 refs): every whoosh becomes a dry mono swish (synth.py
+        # swish / swish_fall: ~0.12 s, attack 0.04, centroid ~2 kHz, flat or falling) at ~-16 LU under the speech,
+        # ~5.5 a minute, >= 2.5 s apart, only on script markers and scene changes (none on camera punch-ins/whips)
+        "swish": {"replace": ["whoosh", "whoosh_long"], "prio": {"marker": 0, "cut": 1}, "per_min": 5.5,
+                  "min_gap": 2.5, "fall_share": 0.27, "rates": [0.94, 1.0, 1.06]},
         "sfx_duck_db": -1.0,
     },
 }

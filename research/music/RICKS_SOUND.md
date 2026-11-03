@@ -291,6 +291,71 @@ the voice crest, spread, air and brightness.
 
 Nobody has listened to these yet: every check above is measured. The clips need the owner's ear (phone, A then B).
 
+## 7. Swishes, one by one (owner request, 2026-11-02)
+
+The owner likes RicksClips' swishes: their level, their pitch, and the fact that there are fewer of them.
+
+**Tools and data.** Every swish was measured with `tools/swish.py` (numbers in
+`research/references/data/ricks24_swish.json`). The sample is the 8 references: 45 swishes over 8.1 minutes (one
+reference, 5WMQ, has none). Ours were measured on our own SFX stems at the placed cues, except Barca, which used Demucs
+because its stems are on the Spark (82 °C at the time).
+
+| Swish feature | RicksClips (median, p25 to p75) | Turk current (explainer) | story_ricks before | Vasa v1 | Barca v15 | **New (Turk, Vasa)** |
+|---|---|---|---|---|---|---|
+| Level vs the speech around it | **−16.2 LU** (−18.6 to −13.1) | −7.5 | −14.2 | −7.3 | n/a (Demucs) | **−16.1, −16.7** |
+| Duration (−20 dB span) | **0.12 s** (0.065 to 0.24) | 0.64 | 0.35 | 0.64 | 0.18 | **0.115, 0.12** |
+| Attack / release | **0.04 / 0.075 s** | 0.25 / 0.39 | 0.17 / 0.18 | 0.25 / 0.39 | 0.05 / 0.15 | **0.03 / 0.085, 0.035 / 0.085** |
+| Spectral centroid | **2.0 kHz** (1.5 to 3.0) | 2.5 | **5.0** | 2.5 | 5.8 | **1.98, 2.12** |
+| Pitch movement | **−0.06 oct**; 60 % flat, 27 % falling, 9 % rising, 4 % arch | arch (100 %) | arch | arch | flat / falling | flat (−0.13 to −0.16 oct); 27 % placed as `swish_fall` (−0.4 oct) |
+| Brightness (> 4 kHz share) | **0.04** (0.017 to 0.21) | 0.07 | **0.69** | 0.07 | 1.0 | **0.033, 0.052** |
+| Noise vs tone (band flatness) | 0.015 (0.003 to 0.065): band-limited noise | ~0 | 0.07 | ~0 | 0.017 | 0.001 to 0.002 (narrower band) |
+| Stereo width | **mono**: side 24 dB under mid, L/R r = 1.0 | mono | mono | mono | mono | mono |
+| Rate | **5.1 a minute** per-video median (0 to 13.9; pooled 5.6) | 7.1 | 7.1 | 3.1 | 3.1 | **5.1 placed** (4.1 measured) |
+| Gap between swishes | p50 3.4 s | | | | | at least 2.5 s |
+
+**What a RicksClips swish lands on** (±0.25 s):
+
+- nothing visible: 51 %;
+- a dissolve: 33 %;
+- a motion onset (a prop moving or appearing): 13 %;
+- a hard cut: 2 %.
+
+**What gets no swish:**
+
+- 131 of 147 dissolves (89 %);
+- 23 of 25 camera whips (92 %);
+- 5 of 6 hard cuts;
+- 118 of 128 motion onsets (92 %).
+
+A swish marks perhaps one transition in nine, and almost never a camera move.
+
+**Changes.**
+
+- **Sound.** `synth.py` gains `swish` (noise band gliding 1.9 to 1.7 kHz, attack 0.04 s, release tau 35 ms, dry, mono)
+  and `swish_fall` (3.2 to 1.2 kHz, a little longer). Both are CC0 and listed in `LICENSES.md`.
+- **Level.** `story_ricks` levels them at `sfx_db −15.8`, which measures −16.1 to −16.7 LU in the mix.
+- **Placement.** `make.swish_rule`:
+  - every `whoosh` and `whoosh_long` becomes a swish (`swish_fall` about 27 % of the time, rates 0.94 to 1.06);
+  - script markers come first, then scene changes;
+  - storyboard whooshes (camera punch-ins) are dropped;
+  - kept swishes are at least 2.5 s apart, with at most 5.5 a minute.
+
+**Remaining differences.**
+
+- Our band is narrower (flatness 0.002 against 0.015).
+- About half of theirs land on nothing visible. Ours always sit on a marker or a scene change.
+- `swish.py` drops one of ours in Turk (it overlaps the stinger), so 4 of the 5 placed are measured.
+
+**A/B.** `out/rnd-sound/swish_AB.m4a` (20 s) plays four 4.8 s parts:
+
+1. A RicksClips clip's swishes, isolated (0m6G, 3.0 to 7.8 s, Demucs drums gated to its swishes).
+2. Our old swishes (Turk current mix, 27.3 to 32.1 s, SFX stem gated to the whooshes).
+3. Our new swishes (same window).
+4. The same Turk window, fully mixed with the new swishes.
+
+Each part keeps its mix level. The peaks are −18.6, −12.2, −18.4 and −4.5 dBFS. Because part 1 is reference audio, the
+file lives in `~/faceless-work/ricks-sound/` and `out/rnd-sound/swish_AB.m4a` is a symlink to it.
+
 ## 6. Re-running
 
 ```bash
@@ -301,6 +366,8 @@ $P -I $T/story_sound.py --stems stems/<id> --key <id> --out meas/<id>.json --wor
    --frames research/references/data/ricks24_metrics.json:<id> --you-see 7.2
 $P -I $T/analyze.py --stems stems/<id> --words words/<id>.json --settings-json vis/<id>.json --key <id> --out an
 $P -I $T/motion_spikes.py video vis/<id>_motion.json
+$P -I $T/swish.py --stem stems/<id>/drums.flac --voice stems/<id>/vocals.flac --events meas/<id>.json --key <id> \
+   --out swish/<id>.json --frames research/references/data/ricks24_metrics.json:<id> --motion vis/<id>_motion.json
 $P -I $T/story_sound_summary.py ~/faceless-work/ricks-sound research/references/data/ricks24_metrics.json \
    research/references/data/ricks24_audio.json
 # a story mix with the profile (FluidSynth: STUDIO_FLUIDSYNTH_LIB / STUDIO_SOUNDFONTS on the Mac)

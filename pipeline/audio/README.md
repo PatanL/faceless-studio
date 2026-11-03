@@ -198,6 +198,7 @@ in `out/rnd-sound/`). It sets the following:
   voice (`music_db −13`, `duck −2.5`).
 - **Voice.** `voicefx.tighten` cuts pauses to 0.10 s at TTS time, before caching. `voicefx.process` runs at mix time:
   HPF 90 Hz, EQ, parallel compression, a limiter and an air exciter.
+- **Swishes.** Every whoosh becomes a dry mono `swish` or `swish_fall` (`synth.py`): about 0.12 s, centroid about 2 kHz, about 16 LU under the speech. `make.swish_rule` keeps about 5.5 a minute, at least 2.5 s apart, and only on script markers and scene changes, never on camera punch-ins.
 - **SFX.** Storyboard action cues are on (`action_sfx`). Whooshes are shorter (`sfx_rate`) and per-cue levels sit
   15–21 LU under the voice (`sfx_db`).
 

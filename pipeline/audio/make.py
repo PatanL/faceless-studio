@@ -103,6 +103,31 @@ def musical_sfx(cues: list[dict], spec: dict) -> list[dict]:
     return sorted(out, key=lambda c: c["at"])
 
 
+def swish_rule(cues: list[dict], spec: dict, dur: float, seed: str = "") -> list[dict]:
+    """Profile swish placement (research/music/RICKS_SOUND.md section 7). RicksClips3000 swish ~5.5 times a minute,
+    about one in nine scene transitions and almost never a camera whip. Whoosh cues become `swish` (or `swish_fall`
+    for about a quarter of them). Script markers come first, then scene changes. Storyboard whooshes (camera punch-ins)
+    are dropped. Kept swishes are >= min_gap s apart and at most per_min a minute."""
+    import random
+    repl = set(spec.get("replace", ["whoosh", "whoosh_long"]))
+    prio = spec.get("prio", {"marker": 0, "cut": 1})
+    rest = [c for c in cues if c["cue"] not in repl]
+    cand = [c for c in cues if c["cue"] in repl and str(c.get("source", "")).split(":")[0] in prio]
+    cand.sort(key=lambda c: (prio[str(c.get("source", "")).split(":")[0]], c["at"]))
+    cap = max(1, int(round(float(spec.get("per_min", 5.5)) * dur / 60)))
+    gap = float(spec.get("min_gap", 2.5))
+    rnd = random.Random(f"swish:{seed}")
+    keep = []
+    for c in cand:
+        if len(keep) >= cap:
+            break
+        if all(abs(c["at"] - k["at"]) >= gap for k in keep):
+            fall = rnd.random() < float(spec.get("fall_share", 0.27))
+            keep.append({**c, "cue": "swish_fall" if fall else "swish", "db": 0.0,
+                         "rate": rnd.choice(spec.get("rates", [0.94, 1.0, 1.06])), "swish_from": c["cue"]})
+    return sorted(rest + keep, key=lambda c: c["at"])
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("script")
@@ -200,6 +225,9 @@ def main(argv=None):
             extra = [c for c in events(json.load(open(sb_path))) if c.get("cue")]
             extra = [c for c in extra if not any(abs(c["at"] - o["at"]) < 0.25 for o in cues)]
             cues = sorted(cues + [{**c, "source": c.get("source", "storyboard")} for c in extra], key=lambda c: c["at"])
+    if cfg.get("swish"):  # profile: rare, short swishes on the scene changes the script marks
+        dur_est = max([1.0] + [float(w.get("end") or w["start"]) for w in tts["words"]]) if tts["words"] else 60.0
+        cues = swish_rule(cues, cfg["swish"], dur_est, ep)
     score_fn, fallback = None, None
     if music == SCORE:
         sb_path = a.storyboard or os.path.join(ROOT, "episodes", ep, "storyboard.json")

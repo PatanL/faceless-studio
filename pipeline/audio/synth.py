@@ -163,6 +163,25 @@ def sfx_whoosh(dur=0.9, seed=11, lo=250, hi=3200):
     return reverb(y, 0.6, 0.15)
 
 
+def _swish(dur, f0, f1, attack, tau, seed, width=1.0, lp_hz=7000):
+    """A short, dry, mono noise swish (the RicksClips3000 kind, research/music/RICKS_SOUND.md section 7): a band of
+    noise ~1 octave wide gliding f0 -> f1, a fast power-curve attack and an exponential release (tau s)."""
+    y = shaped_noise(dur, lambda u: f0 * (f1 / f0) ** u, lambda u: width * f0 * (f1 / f0) ** u, lambda u: 1.0, seed)
+    t = t_axis(dur)[: len(y)]
+    env = np.where(t < attack, (t / attack) ** 1.5, np.exp(-(t - attack) / tau))
+    return lp(y * env, lp_hz, 2)
+
+
+def sfx_swish():
+    # flat, the common one: centroid ~2 kHz, ~0.12 s at -20 dB, attack 0.04 s, release ~0.08 s
+    return _swish(0.24, 1900, 1700, 0.04, 0.035, 61)
+
+
+def sfx_swish_fall():
+    # the falling variant (about a quarter of theirs): ~2.6 -> 1.8 kHz over its -20 dB span, a little longer
+    return _swish(0.3, 3200, 1200, 0.035, 0.06, 62)
+
+
 def sfx_whoosh_long():
     return sfx_whoosh(1.6, 12, 180, 2600)
 
