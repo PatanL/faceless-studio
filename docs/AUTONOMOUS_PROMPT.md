@@ -18,6 +18,7 @@ PARITY TRACKS (owner, 2026-11-02): one owner per part of RicksClips parity. Each
 - TOPIC: catalog scoring (hits vs ordinary) and a fact-checked queue of 10 topics. Owns research/library/STORY_TOPIC_QUEUE.md and the story-lane findings it adds to LANE_PRINCIPLES.md.
 - SCRIPT AND PACING (owner priority: the hook, and scripts that make sense; reference Zack D. Films and RicksClips): beat maps, research/library/STORY_SCRIPT_SPEC.md, research/library/HOOK_BANK.md, pipeline/qa/script_judge.py plus the cold-reader "makes sense" check, drafts in research/library/drafts/. No script is voiced until its hook has won a blind ranking and a cold reader gets every beat.
 - VISUALS: the 3D story kit (experiments/three-lane), working through research/library/RICKSCLIPS_RULEBOOK.md (from the every-frame 30 fps study of 24 Shorts) gap by gap, each fix measured.
+- VOICE (owner priority): RicksClips/Zack D. cadence and word emphasis on an original voice (research/music/VOICE_CADENCE.md, Qwen3-TTS backend). Never clone a real narrator's voice.
 - SOUND: research/music/RICKS_SOUND.md and the "story_ricks" audio profile in pipeline/audio. Existing defaults stay as they are.
 - INTEGRATOR (story agent): builds each episode from the tracks' outputs and runs the every-frame review, the measurements and the blind panel (PARITY.md). Owns episodes/story-*.
 
