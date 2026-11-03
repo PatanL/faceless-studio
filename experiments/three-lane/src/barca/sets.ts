@@ -81,6 +81,27 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   }
   // street life: sacks, barrels, buckets, crates along the house fronts (kept off the dirt strip and the walk)
   dress(root, { area: [-34, -10.3, 38, -9.6], y: 0, n: 22, kit: ["sack", "barrel", "bucket", "crate"], seed: 12 });
+  // the city's side of the siege (panel round 1: "flat, sparse"): stacked stones and baskets at the wall foot between
+  // the smith's spots, cloth banners and torches on the inner face of the wall
+  for (const [x, kind] of [[-24, "crate"], [-22.6, "barrel"], [-11.6, "sack"], [-5.6, "barrel"], [-1.2, "crate"], [0.4, "sack"], [2.2, "barrel"], [6, "crate"]] as [number, "crate" | "barrel" | "sack"][]) {
+    dress(root, { area: [x - 0.4, -2.0, x + 0.4, -1.7], y: 0, n: 2, kit: [kind], seed: Math.round(x * 7 + 50) });
+  }
+  const bannerCols = ["#c94b3a", "#2f5aa8", "#e0b04a", "#3f8a5a"];
+  for (let k = 0; k < 12; k++) {
+    const x = -36 + k * 7, ban = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 3.2), lambert({ color: bannerCols[k % 4], side: THREE.DoubleSide }));
+    ban.position.set(x, 4.9, WALL.z0 - 0.04); ban.rotation.y = Math.PI; root.add(ban);
+    box(root, lambert({ color: "#5b3a22" }), 1.7, 0.12, 0.12, x, 6.55, WALL.z0 - 0.08);
+  }
+  // outside, just beyond the wall behind the hook: a siege tower and tall Persian standards that show over the wall
+  const tower = new THREE.Group();
+  box(tower, planks, 4.2, 15, 4.2, 0, 7.5, 0);
+  for (let y = 2; y < 15; y += 2.5) box(tower, lambert({ color: "#4b2e1a" }), 4.4, 0.25, 4.4, 0, y, 0);
+  const tTop = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 3.4, 2.4, 4), lambert({ color: "#7a3b2c" })); tTop.rotation.y = Math.PI / 4; tTop.position.y = 16.2; tower.add(tTop);
+  tower.position.set(-6.5, 0, 6.5); root.add(tower);
+  for (const [x, z, col] of [[-1.5, 5.0, "#7a2a4a"], [-10, 5.5, "#e0b04a"], [3.5, 5.2, "#c94b3a"]] as [number, number, string][]) {
+    cyl(root, lambert({ color: "#5b3a22" }), 0.14, 19, x, 9.5, z, 6);
+    const flag = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2.2), lambert({ color: col, side: THREE.DoubleSide })); flag.position.set(x + 1.7, 17.6, z); root.add(flag);
+  }
   // outside: ladders and the ram at the gate (the assault), the plain and the Persian camp
   if (o.ladders !== false) for (const x of [-2, 3, 20]) {
     const lad = new THREE.Group(); const pole = lambert({ color: "#7a4a26" });
@@ -157,6 +178,11 @@ export const SEC = { W: 12, cav: { x: 2.2, y: -2.6, w: 6.0, h: 2.0 }, shieldSoli
 export function sectionSet(): SetBuild {
   const bands: Band[] = [{ h: 0.6, color: "#b98a52", speck: "#8e6a45" }, { h: 1.6, color: "#c8692f", speck: "#a24f22" }, { h: 1.6, color: "#9b8a7a", speck: "#6f6258" }, { h: 1.6, color: "#6a5a7a", speck: "#4a3e5a" }];
   const s = crossSectionSet({ bands, width: SEC.W, depth: 4, cavity: { ...SEC.cav, d: 1.6, color: "#3a2a26" }, grass: false, frame: true, sky: ["#1e2a5a", "#3a3a7a", "#7a6a9a"], seed: 8 });
+  // the earth round the cut (panel round 1: "an empty navy void" under and beside the section): dark soil on all
+  // sides of the diorama, lit by the scene so it reads as more ground, not a backdrop
+  const earth = lambert({ map: dirtTex([8, 8], 31, "#4a3428") });
+  box(s.root, earth, 60, 30, 1, 0, -20.6, -2);            // below the cut
+  box(s.root, earth, 30, 30, 4, -SEC.W / 2 - 15.4, -15, -2); box(s.root, earth, 30, 30, 4, SEC.W / 2 + 15.4, -15, -2);
   // the surface: packed dirt on top of the block
   box(s.root, lambert({ map: dirtTex([4, 1], 13) }), SEC.W, 0.12, 4, 0, 0.06, -2);
   // a slice of Barca's wall standing on it (right end, over the tunnel's far end) and the gate's ram beyond
