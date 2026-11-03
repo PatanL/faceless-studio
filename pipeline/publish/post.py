@@ -138,9 +138,15 @@ def effective_mode(platform: str, cfg: dict, cli_mode: str | None) -> tuple[str,
     return want, None
 
 
+AI_LABEL_DEFAULT = {"youtube": False, "tiktok": False, "instagram": False}
+
+
 def build_input(platform: str, channel_id: str, cap: dict, video_url: str, slot_at: str, mode: str,
-                cover_offset_ms: int | None, yt_category: str) -> dict:
-    """CreatePostInput for one platform (field names per developers.buffer.com/reference.md, 2026-11-01)."""
+                cover_offset_ms: int | None, yt_category: str, ai_label: dict | None = None) -> dict:
+    """CreatePostInput for one platform (field names per developers.buffer.com/reference.md, 2026-11-01).
+    ai_label: platform -> isAiGenerated (config.ai_label). Off by default on every platform (owner, 2026-11-02: our
+    Shorts are clearly animated renders); the caption keeps its "synthetic AI voice" line."""
+    label = {**AI_LABEL_DEFAULT, **(ai_label or {})}
     video: dict = {"url": video_url}
     if platform in ("instagram", "tiktok") and cover_offset_ms is not None:
         video["metadata"] = {"thumbnailOffset": int(cover_offset_ms)}
@@ -158,13 +164,13 @@ def build_input(platform: str, channel_id: str, cap: dict, video_url: str, slot_
         inp["text"] = cap["youtube"]["description"]
         inp["metadata"] = {"youtube": {
             "title": cap["youtube"]["title"], "categoryId": yt_category, "privacy": "public",
-            "madeForKids": False, "isAiGenerated": True, "notifySubscribers": True, "embeddable": True}}
+            "madeForKids": False, "isAiGenerated": bool(label["youtube"]), "notifySubscribers": True, "embeddable": True}}
     elif platform == "tiktok":
         inp["text"] = cap["tiktok"]["text"]
-        inp["metadata"] = {"tiktok": {"isAiGenerated": True}}
+        inp["metadata"] = {"tiktok": {"isAiGenerated": bool(label["tiktok"])}}
     elif platform == "instagram":
         inp["text"] = cap["instagram"]["text"]
-        inp["metadata"] = {"instagram": {"type": "reel", "shouldShareToFeed": True, "isAiGenerated": True}}
+        inp["metadata"] = {"instagram": {"type": "reel", "shouldShareToFeed": True, "isAiGenerated": bool(label["instagram"])}}
     else:
         raise ValueError(platform)
     return inp
@@ -350,7 +356,7 @@ def cmd_post(a) -> int:
     with H.hosted(mp4, ttl_s=a.hold_max_h * 3600, dry_run=dry, name=f"{slug}.mp4") as hosted:
         for p in platforms:
             ch_id = allenv.get(CHANNEL_VAR[p]) or f"<{CHANNEL_VAR[p]}>"
-            inp = build_input(p, ch_id, cap, hosted.url, slot_at, modes[p], cover, yt_cat)
+            inp = build_input(p, ch_id, cap, hosted.url, slot_at, modes[p], cover, yt_cat, cfg.get("ai_label"))
             base = {"post_key": f"{slug}:{p}", "slug": slug, "platform": p, "source_id": _source_id(slug),
                     "experiment_id": var.get("experiment_id"), "arm": var.get("arm"), "mode": modes[p],
                     "buffer_channel_id": allenv.get(CHANNEL_VAR[p]), "scheduled_at": slot_at.replace(".000Z", "Z"), "published_at": None,

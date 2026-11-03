@@ -102,7 +102,9 @@ class TestPostDryRun(Fixture):
         self.assertFalse(yt["metadata"]["youtube"]["madeForKids"])
         self.assertNotIn("metadata", yt["assets"][0]["video"])
         self.assertEqual(ig["metadata"]["instagram"]["type"], "reel")
-        self.assertTrue(tt["metadata"]["tiktok"]["isAiGenerated"])
+        # AI-content flag is off by default on every platform (owner, 2026-11-02); config.ai_label turns it on
+        for inp, p in ((yt, "youtube"), (tt, "tiktok"), (ig, "instagram")):
+            self.assertFalse(inp["metadata"][p]["isAiGenerated"])
         self.assertIn("#shorts", yt["text"])
         self.assertNotIn("#shorts", tt["text"])
         cap = json.loads((self.tmp / "out" / SLUG / "publish" / "captions.json").read_text())
