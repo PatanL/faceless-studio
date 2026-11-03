@@ -134,3 +134,35 @@ consequence the viewer can feel. No debunk.
    - When it isn't obvious, mark the dramatisation in the script's fact notes.
 5. **Check with the cold reader.** Ask "did you take any joke as a real fact?"; the answer must be no. (Myeongnyang v2:
    no, 3/5 funny.)
+
+## 5. The Storm Oil form: invent the story, keep the mechanism (owner, 2026-11-02)
+
+- **What the data shows.** None of the RicksClips top 8 retells a named historical event. Each wraps a true mechanism
+  in an invented story about an anonymous "he" or "a man":
+  - the pirate chase around storm oil;
+  - the inventor and the bronze-ball jar;
+  - the man buried with a bell;
+  - the railroad sawyer.
+
+  The invented plot is free to be big:
+  - huge stakes;
+  - a captain mocking the hero;
+  - comic dialogue;
+  - the wave landing exactly on the pirates' deck.
+
+  Our Vasa, Barca and Myeongnyang v1-v2 scripts retold real named events faithfully, so they could never exaggerate.
+- **Rule:**
+  1. **Invented anonymous characters and plots may be exaggerated freely for entertainment:**
+     - stakes, odds, dialogue and timing;
+     - mockers and comeuppances;
+     - impossible coincidences ("the cork comes back past him the moment it turns").
+  2. **Never attach invented events to real, named people in a way that could be mistaken for history.**
+     - If a real person, place or date is named, everything said about them is sourced.
+     - If the story is invented, keep it anonymous ("he", "a captain", "a glassmaker").
+     - Don't put a real name next to a made-up battle.
+  3. **The mechanism and every stated fact stay sourced:** the "You see" line, numbers given as fact, and real-world
+     claims ("some narrow straits really do this").
+  4. **A real-world anchor is optional and stays separate from the story.** Use a true line in the "You see" beat (one
+     reference does this: "sailors really carried oil just for this"), never a claim that the invented battle happened.
+  5. **Cold-read check:** "is this a real historical event, and which parts are presented as true?" The readers must
+  answer that the story is a tale and the mechanism is the fact. Myeongnyang v3: 6 of 6 readers did.

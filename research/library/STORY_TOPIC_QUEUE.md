@@ -621,3 +621,33 @@ It only rewrites that column in this file. Pick the highest open row.
   - Relief of Leiden, 1574: overlaps rank 3.
   - Halley's diving bell, 1690.
   - The Siege of Ambracia smoke-out, 189 BC (Polybius).
+
+---
+
+## Re-pitch in the Storm Oil form (script track, 2026-11-02)
+
+**Why.** The owner's direction is the RicksClips top-8 formula: an invented, exaggerated story about an anonymous "he",
+wrapped around a true mechanism (`COMEDY_ENDINGS.md` section 5, LANE_PRINCIPLES S-invent).
+- Each open topic below gets three sentences: the strange act, the escalation with the mockers, the comeuppance.
+- Real names stay out of the invented plot.
+- The "You see" mechanism and any stated number come from the verified facts above.
+
+**Ranking.** By how big and funny the exaggeration can get while the mechanism stays true and visible.
+Story-barca-shield and story-myeongnyang are already used (Myeongnyang v3 is the worked example, in
+`research/library/drafts/story-myeongnyang.md`).
+
+| New rank | Topic | Exaggeration room | Invented story (strange act → mockers → comeuppance) | True mechanism kept |
+|---|---|---|---|---|
+| 1 | story-dutch-waterline | **very high**: slapstick on a huge army | A farmer floods his own fields knee-deep with an invading army marching up the road, and his whole village calls him mad. The enemy general laughs at a country "defended by puddles" and sends his cavalry galloping across. Every ditch is hidden under the same flat water, so horse after horse vanishes mid-charge, and the boats sent to rescue them scrape aground in water too shallow to float. | Water about 40 cm deep: too deep to march or drag cannon through, too shallow for boats, and it hides every ditch (facts 2). The real 1672 frost and thaw make a sequel. |
+| 2 | story-edo-firemen | **very high**: the wrong house, a broom chase | When a house catches fire, the firemen run straight past it and start tearing down the house next door, with its owner still eating breakfast inside. He chases them down the street with a broom while the neighbours jeer. The wind drives the fire right up to the empty gap where his house stood, and it starves there, so the whole street is saved except the two houses nobody can stop talking about. | Hand pumps couldn't throw water far, so crews pulled down houses downwind to starve the fire of fuel (facts 1). Say "tens of thousands" if the Meireki fire is mentioned. |
+| 3 | story-storm-bells | **high**: dark comedy | Every time a storm rolls in, the village sends one man up the bell tower to ring the lightning away, and the job has a new man every summer. A stranger refuses and nails an iron rod to the top of his barn instead, and the priest preaches a whole sermon about his arrogance. That night the lightning hits the barn rod again and again and runs harmlessly into the ground, while the bell tower, ringing its heart out, gets hit too. | Lightning takes the tallest path to the ground; ringing does nothing and the ringer is at the top of it; a grounded rod carries the strike down (facts 1, 5). Use "about 120 bell-ringers killed in 33 years, by one German count" only as a hedged fact, never as the story. |
+| 4 | story-fresnel-lens | **medium-high**: the "broken" lens | To make the lighthouse brighter, a glassmaker smashes its giant lens and keeps only the rings. The keepers laugh at the broken lamp and take bets on the first shipwreck. That night the beam reaches more than twice as far as before, and the first captain to spot it sails over to complain it's too bright. | Only the surface bends light, so thin concentric rings do the job of a thick lens with less glass in the way; range over 20 miles against under 10 (facts 2-3). |
+| 5 | story-copper-navy | **medium**: comeuppance on the admirals | An admiral wraps every ship in shiny copper so no worm can eat the hulls, and boasts his fleet is untouchable. Rival captains laugh when his ships start losing rudders mid-voyage, as the iron bolts quietly vanish. You see, copper and iron in seawater make a battery, and the iron is the part that gets eaten, so the fix is bolts made of something more like the copper. | Galvanic corrosion of iron under copper; copper-alloy bolts as the fix (facts 1-2). The mechanism is invisible, so it needs a strong visual (a battery cutaway). |
+| 6 | story-dujiangyan | **medium** | A governor refuses to build a dam and instead has his workers dump bamboo baskets of stones into the river, while the court laughs at his basket-weaving. The engineers bet on the first flood, and it comes roaring down the mountains. The split sends most of the flood away from the farms in summer and most of the water to them in the dry months, and the farms are still being watered 2,300 years later. | The fish-mouth split: about 60 % to the inner river in the dry season, 40 % in flood; the weir spills silt (facts 2-3). Keep Li Bing's name out of any invented scene. |
+| 7 | story-thames-shipworm | **medium-low** | An engineer stares at a rotten plank for hours while his investors scream that the river is coming in. He builds a giant iron worm that digs and lines the tunnel in the same motion, and the investors call it a toy. The tunnel holds, and the investors give speeches about their vision at the opening. | The shipworm grinds wood and lines its burrow at once; the shield digs and the bricks go in right behind it (facts 1, 4). The real tunnel still flooded twice, so don't promise "it never leaked". |
+| 8 | story-eupalinos | **low**: the mechanism is contested | Two crews start digging into opposite sides of a mountain, and everyone in town bets they'll miss each other in the dark. The engineer keeps bending the tunnel on purpose, and the crews call him lost. They meet, and the town's bookies are the ones who end up in the dark. | The measured meeting error (about 50-60 cm) is true; the "deliberate bend" is CONTESTED (fact 4), so the mechanism needs a hedge, which weakens the joke. |
+
+**Picks:**
+- Waterline and Edo firemen first: both have a visual slapstick comeuppance that is itself the mechanism (vanishing
+  horses, a fire starving at a gap).
+- Storm bells next, if the dark tone suits the channel.

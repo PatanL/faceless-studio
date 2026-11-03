@@ -1,13 +1,13 @@
 {
  "name": "research/library/drafts/story-myeongnyang.md",
- "score": 98.5,
+ "score": 98.4,
  "of": 92,
  "checks": [
   {
    "check": "runtime_s",
-   "value": 65.65,
-   "score": 0.98,
-   "points": 4.92,
+   "value": 63.07,
+   "score": 1.0,
+   "points": 5.0,
    "of": 5,
    "target": "55-65.5",
    "why": "top 8: 39-65 s, median 62; the two shortest refs (31, 35 s) are the two lowest",
@@ -15,7 +15,7 @@
   },
   {
    "check": "words",
-   "value": 240,
+   "value": 245,
    "score": 1.0,
    "points": 3.0,
    "of": 3,
@@ -25,7 +25,7 @@
   },
   {
    "check": "hook_words",
-   "value": 21,
+   "value": 20,
    "score": 1.0,
    "points": 4.0,
    "of": 4,
@@ -35,9 +35,9 @@
   },
   {
    "check": "hook_s",
-   "value": 5.72,
-   "score": 0.91,
-   "points": 3.65,
+   "value": 5.13,
+   "score": 1.0,
+   "points": 4.0,
    "of": 4,
    "target": "2.5-5.5",
    "why": "hook spoken in 3.0-5.4 s (top 8)",
@@ -55,13 +55,13 @@
   },
   {
    "check": "setup_end_pct",
-   "value": 18.3,
+   "value": 25.2,
    "score": 1.0,
    "points": 6.0,
    "of": 6,
    "target": "12-36",
    "why": "first escalation starts at 17-34 % in the top 8 (median 30), 38 % in the rest",
-   "note": "first escalation at sentence 5"
+   "note": "first escalation at sentence 8"
   },
   {
    "check": "esc_steps",
@@ -75,19 +75,18 @@
   },
   {
    "check": "pivot_pct",
-   "value": 59.3,
+   "value": 57.7,
    "score": 1.0,
    "points": 8.0,
    "of": 8,
    "target": "55-82",
    "why": "the turn into the reason: top 55-81 % of runtime, median 66; 7/8 top have one",
-   "note": "sentence 13: You see, that rushing water is the tide."
+   "note": "sentence 15: You see, some narrow straits really do this."
   },
   {
    "check": "you_see",
    "value": [
-    11.2,
-    59.4
+    57.7
    ],
    "score": 1.0,
    "points": 3.0,
@@ -98,17 +97,17 @@
   },
   {
    "check": "mech_words",
-   "value": 56,
-   "score": 0.97,
-   "points": 4.86,
+   "value": 45,
+   "score": 1.0,
+   "points": 5.0,
    "of": 5,
    "target": "28-55",
    "why": "mechanism: top 32-49 words, 9-15 s, 15-32 % of the words",
-   "note": "15.26 s, 0.23 of the words"
+   "note": "11.54 s, 0.18 of the words"
   },
   {
    "check": "last_line",
-   "value": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
+   "value": "And the cork drifts right back past him, going the other way.",
    "score": 1.0,
    "points": 5.0,
    "of": 5,
@@ -118,31 +117,31 @@
   },
   {
    "check": "numbers",
-   "value": 6,
-   "score": 0.8,
-   "points": 3.2,
+   "value": 2,
+   "score": 1.0,
+   "points": 4.0,
    "of": 4,
    "target": "1-5",
    "why": "number tokens: top 1-5 (median 3), rest median 5.5 (up to 15)",
-   "note": "one, thirteen, hundred, thirty-three, thirty-one, one"
+   "note": "ten, one"
   },
   {
    "check": "dialogue",
-   "value": 2,
+   "value": 4,
    "score": 1.0,
    "points": 3.0,
    "of": 3,
    "target": "1-5",
    "why": "character lines: top median 2 (0-5), >= 2 in 5/8 top vs 5/16 rest",
-   "note": "sentences [5, 7]"
+   "note": "sentences [3, 6, 7, 22]"
   },
   {
    "check": "sentence_len",
    "value": {
-    "median": 11,
-    "max": 21,
-    "share_le6": 0.24,
-    "share_ge20": 0.14
+    "median": 12,
+    "max": 20,
+    "share_le6": 0.35,
+    "share_ge20": 0.09
    },
    "score": 1.0,
    "points": 4.0,
@@ -153,23 +152,23 @@
   },
   {
    "check": "facts",
-   "value": 7.0,
-   "score": 1.0,
-   "points": 6.0,
+   "value": 3.0,
+   "score": 0.75,
+   "points": 4.5,
    "of": 6,
    "target": "4-7",
    "why": "distinct real-world claims: top median 5 (2-7), >= 4 in 7/8 top vs 5/16 rest",
-   "note": "Korea's navy wiped out, the king's order and Yi's reply; 13 ships against about 133; Yi picks a narrow strait; the crying strait; the tide reverses every few hours; historians reconstruct the turn mid-battle; Korean records: 31 lost, none of Yi's, the rest withdrew"
+   "note": "stated as true: some narrow straits' tide runs like a river and stops and reverses every few hours; that current is stronger than oars; only a few ships fit through narrows at once. Everything else is invented story (by design in this form, so the spec's 4-7 facts doesn't apply as-is)"
   },
   {
    "check": "jokes",
-   "value": 2.0,
+   "value": 6.0,
    "score": 1.0,
    "points": 4.0,
    "of": 4,
    "target": "2-6",
    "why": "jokes: top median 2 (1-4), >= 2 in 6/8 top vs 6/16 rest",
-   "note": "'His captains hang back, happy to let the admiral go first' and the callback 'Suddenly, his captains can't wait to follow him' (the cold reader named the second as the joke and took neither as fact)"
+   "note": "'you're parking?'; the sea doing all the rowing; captains politely letting him face the enemy first; close enough to spit on; close enough to wave goodbye; the captain says it was his idea"
   },
   {
    "check": "reversal",
@@ -179,17 +178,17 @@
    "of": 2,
    "target": "1-3",
    "why": "at least one reversal (the mockers proved wrong, the trap springs)",
-   "note": "the water that carried the fleet in shoves it back; the king who thought Yi had nothing is wrong"
+   "note": "the current that carried them in drives them out; the mocker claims the credit"
   },
   {
    "check": "ridicule",
-   "value": 1.0,
+   "value": 3.0,
    "score": 1.0,
    "points": 2.0,
    "of": 2,
    "target": "1-9",
    "why": "someone mocks the odd act (S6): Jar, Storm Oil, Railroads, Mirror",
-   "note": "his captains thought he was mad"
+   "note": "the enemy laughing; the captain's 'parking'; the thrilled enemy admiral"
   },
   {
    "check": "mechanism_visible",
@@ -199,7 +198,7 @@
    "of": 4,
    "target": "1-1",
    "why": "the cause is a physical thing the camera can watch (S3): 6/8 top",
-   "note": "water running in, slack, running out; ships shoved into ships"
+   "note": "the cork slowing, stopping and reversing; anchored ships holding while theirs are shoved back"
   },
   {
    "check": "shootable_share",
@@ -209,7 +208,7 @@
    "of": 4,
    "target": "0.9-1.0",
    "why": "each sentence names something on screen: top median 0.97, all >= 0.68",
-   "note": "every line names a thing: letter, captains, wrecks, king, fleet, strait, water, flagship, cannons, tally"
+   "note": "every line names a thing: anchor, collar, cork, fleet, admiral, cannons, flagship, jam"
   },
   {
    "check": "hook_act_on_screen",
@@ -219,115 +218,112 @@
    "of": 3,
    "target": "1-1",
    "why": "frame 0 shows the protagonist doing the odd act (all 24)",
-   "note": "Yi writing his reply by lamplight, brush on paper = frame 0; the 13 facing the 133 at 2-4 s"
+   "note": "him at the bow letting the anchor go, the laughing fleet behind"
   }
  ],
  "metrics": {
-  "timing": "estimated at 3.67 words/s",
+  "timing": "estimated at 3.9 words/s",
   "timing_coverage": null,
-  "duration_s": 65.65,
-  "n_words": 240,
-  "n_sentences": 21,
-  "wps": 3.67,
+  "duration_s": 63.07,
+  "n_words": 245,
+  "n_sentences": 23,
+  "wps": 3.9,
   "sentence_words": {
-   "median": 11,
-   "max": 21,
-   "share_le6": 0.24,
-   "share_ge20": 0.14
+   "median": 12,
+   "max": 20,
+   "share_le6": 0.35,
+   "share_ge20": 0.09
   },
   "pauses": null,
   "hook": {
-   "text": "Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.",
-   "words": 21,
+   "text": "He anchored his last ships in a roaring strait, with an enemy fleet so close he could hear them laughing.",
+   "words": 20,
    "sentences": 1,
-   "dur": 5.72
+   "dur": 5.13
   },
   "setup": {
-   "sentences": "2-4",
-   "start": 5.72,
-   "end": 11.99,
-   "dur": 6.27,
-   "words": 23,
-   "wps": 3.67,
-   "pct_start": 8.7
+   "sentences": "2-7",
+   "start": 5.13,
+   "end": 15.9,
+   "dur": 10.77,
+   "words": 42,
+   "wps": 3.9,
+   "pct_start": 8.1
   },
   "esc": [
    {
-    "sentences": "5-6",
-    "start": 11.99,
-    "end": 18.53,
-    "dur": 6.54,
-    "words": 24,
-    "wps": 3.67,
-    "pct_start": 18.3
+    "sentences": "8-10",
+    "start": 15.9,
+    "end": 22.56,
+    "dur": 6.66,
+    "words": 26,
+    "wps": 3.9,
+    "pct_start": 25.2
    },
    {
-    "sentences": "7-8",
-    "start": 18.53,
-    "end": 26.43,
-    "dur": 7.9,
-    "words": 29,
-    "wps": 3.67,
-    "pct_start": 28.2
-   },
-   {
-    "sentences": "9-10",
-    "start": 26.43,
-    "end": 30.25,
-    "dur": 3.82,
+    "sentences": "11-11",
+    "start": 22.56,
+    "end": 26.15,
+    "dur": 3.59,
     "words": 14,
-    "wps": 3.66,
-    "pct_start": 40.3
+    "wps": 3.9,
+    "pct_start": 35.8
    },
    {
-    "sentences": "11-12",
-    "start": 30.25,
-    "end": 38.96,
-    "dur": 8.71,
-    "words": 32,
-    "wps": 3.67,
-    "pct_start": 46.1
+    "sentences": "12-12",
+    "start": 26.15,
+    "end": 31.03,
+    "dur": 4.88,
+    "words": 19,
+    "wps": 3.89,
+    "pct_start": 41.5
+   },
+   {
+    "sentences": "13-14",
+    "start": 31.03,
+    "end": 36.41,
+    "dur": 5.38,
+    "words": 21,
+    "wps": 3.9,
+    "pct_start": 49.2
    }
   ],
   "pivot": {
-   "i": 13,
-   "pct": 59.3,
-   "text": "You see, that rushing water is the tide."
+   "i": 15,
+   "pct": 57.7,
+   "text": "You see, some narrow straits really do this."
   },
   "mechanism": {
-   "sentences": "13-17",
-   "start": 38.96,
-   "end": 54.22,
-   "dur": 15.26,
-   "words": 56,
-   "wps": 3.67,
-   "pct_start": 59.3
+   "sentences": "15-19",
+   "start": 36.41,
+   "end": 47.95,
+   "dur": 11.54,
+   "words": 45,
+   "wps": 3.9,
+   "pct_start": 57.7
   },
   "last": {
-   "i": 21,
-   "text": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
-   "words": 18,
+   "i": 23,
+   "text": "And the cork drifts right back past him, going the other way.",
+   "words": 12,
    "tail_s": 0.25,
-   "wps": 3.67
+   "wps": 3.9
   },
   "you_see_pct": [
-   11.2,
-   59.4
+   57.7
   ],
   "numbers": [
-   "one",
-   "thirteen",
-   "hundred",
-   "thirty-three",
-   "thirty-one",
+   "ten",
    "one"
   ],
   "dialogue": [
-   5,
-   7
+   3,
+   6,
+   7,
+   22
   ],
   "you_per_100w": 0.8,
-  "setup_end_pct": 18.3
+  "setup_end_pct": 25.2
  },
  "beats": {
   "hook": [
@@ -336,183 +332,199 @@
   "setup": [
    2,
    3,
-   4
+   4,
+   5,
+   6,
+   7
   ],
   "esc": [
    [
-    5,
-    6
-   ],
-   [
-    7,
-    8
-   ],
-   [
+    8,
     9,
     10
    ],
    [
-    11,
+    11
+   ],
+   [
     12
+   ],
+   [
+    13,
+    14
    ]
   ],
-  "pivot": 13,
+  "pivot": 15,
   "mech": [
-   13,
-   14,
    15,
    16,
-   17
+   17,
+   18,
+   19
   ],
-  "last": 21
+  "last": 23
  },
  "sentences": [
   {
    "i": 1,
-   "text": "Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.",
-   "words": 21,
+   "text": "He anchored his last ships in a roaring strait, with an enemy fleet so close he could hear them laughing.",
+   "words": 20,
    "start": 0.0,
-   "end": 5.72
+   "end": 5.13
   },
   {
    "i": 2,
-   "text": "His captains thought he was mad.",
-   "words": 6,
-   "start": 5.72,
-   "end": 7.36
+   "text": "His captain grabs his collar.",
+   "words": 5,
+   "start": 5.13,
+   "end": 6.41
   },
   {
    "i": 3,
-   "text": "You see, Japan's invasion fleet has just wiped out Korea's navy.",
-   "words": 11,
-   "start": 7.36,
-   "end": 10.35
+   "text": "\"They've got ten ships for every one of ours, and you're parking?\"",
+   "words": 12,
+   "start": 6.41,
+   "end": 9.49
   },
   {
    "i": 4,
-   "text": "Yi's ships are all that's left.",
-   "words": 6,
-   "start": 10.35,
-   "end": 11.99
+   "text": "He doesn't look up.",
+   "words": 4,
+   "start": 9.49,
+   "end": 10.51
   },
   {
    "i": 5,
-   "text": "So when the king tells him to give up the navy, Yi answers: \"I still have ships.\"",
-   "words": 17,
-   "start": 11.99,
-   "end": 16.62
+   "text": "He just drops a cork over the side and watches it drift.",
+   "words": 12,
+   "start": 10.51,
+   "end": 13.59
   },
   {
    "i": 6,
-   "text": "But the Japanese fleet fills the horizon.",
-   "words": 7,
-   "start": 16.62,
-   "end": 18.53
+   "text": "\"Wait for the water,\" he says.",
+   "words": 6,
+   "start": 13.59,
+   "end": 15.13
   },
   {
    "i": 7,
-   "text": "So Yi picks his spot: a strait so narrow the huge fleet has to squeeze through it.",
-   "words": 17,
-   "start": 18.53,
-   "end": 23.16
+   "text": "\"Watch the cork.\"",
+   "words": 3,
+   "start": 15.13,
+   "end": 15.9
   },
   {
    "i": 8,
-   "text": "Locals call it the crying strait, for the sound of its water.",
-   "words": 12,
-   "start": 23.16,
-   "end": 26.43
+   "text": "Then the enemy charges into the strait, the current carrying them in like a river.",
+   "words": 15,
+   "start": 15.9,
+   "end": 19.74
   },
   {
    "i": 9,
-   "text": "The Japanese pour in, carried by that rushing water.",
-   "words": 9,
-   "start": 26.43,
-   "end": 28.88
+   "text": "Their admiral is thrilled.",
+   "words": 4,
+   "start": 19.74,
+   "end": 20.77
   },
   {
    "i": 10,
-   "text": "Ship after ship after ship.",
-   "words": 5,
-   "start": 28.88,
-   "end": 30.25
+   "text": "The sea is doing all the rowing.",
+   "words": 7,
+   "start": 20.77,
+   "end": 22.56
   },
   {
    "i": 11,
-   "text": "His captains hang back, happy to let the admiral go first.",
-   "words": 11,
-   "start": 30.25,
-   "end": 33.24
+   "text": "His own captains anchor well behind him, politely letting him face the enemy first.",
+   "words": 14,
+   "start": 22.56,
+   "end": 26.15
   },
   {
    "i": 12,
-   "text": "The strait is so tight only a few Japanese ships can reach Yi at once, and his cannons hold them off.",
-   "words": 21,
-   "start": 33.24,
-   "end": 38.96
+   "text": "But the strait is so narrow only a few ships fit at once, and his cannons keep those busy.",
+   "words": 19,
+   "start": 26.15,
+   "end": 31.03
   },
   {
    "i": 13,
-   "text": "You see, that rushing water is the tide.",
-   "words": 8,
-   "start": 38.96,
-   "end": 41.14
+   "text": "Meanwhile, the cork is slowing down.",
+   "words": 6,
+   "start": 31.03,
+   "end": 32.56
   },
   {
    "i": 14,
-   "text": "Every few hours, it stops and runs the other way.",
-   "words": 10,
-   "start": 41.14,
-   "end": 43.87
+   "text": "Then it stops dead, just as the enemy flagship pulls close enough to spit on.",
+   "words": 15,
+   "start": 32.56,
+   "end": 36.41
   },
   {
    "i": 15,
-   "text": "Historians who rebuilt that day's tides think the tide turned mid-battle.",
-   "words": 11,
-   "start": 43.87,
-   "end": 46.87
+   "text": "You see, some narrow straits really do this.",
+   "words": 8,
+   "start": 36.41,
+   "end": 38.46
   },
   {
    "i": 16,
-   "text": "Now the water runs back out.",
-   "words": 6,
-   "start": 46.87,
-   "end": 48.5
+   "text": "The tide runs through like a river, and every few hours it stops and turns around.",
+   "words": 16,
+   "start": 38.46,
+   "end": 42.56
   },
   {
    "i": 17,
-   "text": "The front Japanese ships get shoved back into their own ships, and the tangle is stuck in front of Yi's cannons.",
-   "words": 21,
-   "start": 48.5,
-   "end": 54.22
+   "text": "Now the water that rushed them in shoves them back, harder than they can row.",
+   "words": 15,
+   "start": 42.56,
+   "end": 46.41
   },
   {
    "i": 18,
-   "text": "Korean records count thirty-one Japanese ships lost, and none of Yi's.",
-   "words": 11,
-   "start": 54.22,
-   "end": 57.22
+   "text": "His ships are anchored.",
+   "words": 4,
+   "start": 46.41,
+   "end": 47.44
   },
   {
    "i": 19,
-   "text": "The rest turn back.",
-   "words": 4,
-   "start": 57.22,
-   "end": 58.31
+   "text": "Theirs aren't.",
+   "words": 2,
+   "start": 47.44,
+   "end": 47.95
   },
   {
    "i": 20,
-   "text": "Suddenly, his captains can't wait to follow him.",
-   "words": 8,
-   "start": 58.31,
-   "end": 60.49
+   "text": "Their front ships pile into the ones behind, and his cannons pound the jam.",
+   "words": 14,
+   "start": 47.95,
+   "end": 51.54
   },
   {
    "i": 21,
-   "text": "The king thought Yi had nothing left, but he had one line and a sea that switched sides.",
-   "words": 18,
-   "start": 60.49,
-   "end": 65.4
+   "text": "By sunset, the whole enemy fleet is drifting backwards out of the strait, their admiral close enough to wave goodbye.",
+   "words": 20,
+   "start": 51.54,
+   "end": 56.67
+  },
+  {
+   "i": 22,
+   "text": "His captain, who called it parking, now says it was his idea.",
+   "words": 12,
+   "start": 56.67,
+   "end": 59.74
+  },
+  {
+   "i": 23,
+   "text": "And the cork drifts right back past him, going the other way.",
+   "words": 12,
+   "start": 59.74,
+   "end": 62.82
   }
  ]
 }

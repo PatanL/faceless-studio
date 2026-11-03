@@ -210,6 +210,19 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
 9. **Vinegar on a mountain** (Hannibal crossing the Alps, as told by Livy). A boulder blocks 40,000 men and the elephants. They light a fire on it and pour sour wine, the soldiers laugh, and the rock cracks. Mechanism: thermal shock; say on screen that the vinegar part is disputed.
 10. **The bridge that marched itself apart** (Broughton Suspension Bridge, 1831). Soldiers march in step and the bridge collapses, so armies still "break step" on bridges. Mechanism: resonance, shown with a swing.
 
+**S-invent. Invent the story, keep the mechanism (owner, 2026-11-02; from the 24-Short data).** (confidence: medium)
+- **The data:**
+  - none of the top 8 retells a named historical event;
+  - each wraps a true mechanism in an invented, exaggerated story about an anonymous "he" or "a man";
+  - comic or comeuppance last lines: 6/8 top against 5/16 rest;
+  - mocker running gags: 4/8 against 3/16 (`research/library/COMEDY_ENDINGS.md`).
+- **Rule:**
+  - Invented anonymous characters and plots may be exaggerated freely for entertainment.
+  - Never attach invented events to real named people in a way that could be mistaken for history.
+  - The mechanism and every stated fact (numbers, dates, real-world claims) stay sourced.
+- Named-event retellings (Vasa, Barca, Myeongnyang v1-v2) can't exaggerate, so prefer the anonymous form for new
+  story scripts.
+
 ---
 
 ## Lane 2: What-if (Zack D. Films + What if? @man_ia_c + meanwhileanimations + polystoriesdaily)

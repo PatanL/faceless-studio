@@ -458,6 +458,7 @@ def main(argv=None):
     ap.add_argument("target", nargs="?")
     ap.add_argument("--timings")
     ap.add_argument("--duration", type=float, help="video length in s (default: last word end + 0.25)")
+    ap.add_argument("--wps", type=float, help="words/s for estimated timings when there is no audio (default 3.67)")
     ap.add_argument("--beats")
     ap.add_argument("--rubric")
     ap.add_argument("--out")
@@ -465,6 +466,8 @@ def main(argv=None):
     ap.add_argument("--ref")
     ap.add_argument("--calibrate", action="store_true")
     a = ap.parse_args(argv)
+    if a.wps:
+        globals()["REF_WPS"] = a.wps
     rubric = json.loads(pathlib.Path(a.rubric).read_text()) if a.rubric else None
     if a.calibrate:
         refs = json.loads(REFS.read_text())["videos"]

@@ -1,13 +1,96 @@
 ---
 id: story-myeongnyang
 lane: story (RicksClips3000 parity)
-status: v2 draft from the script track (research/library/STORY_TOPIC_QUEUE.md rank 2); proposal only, episodes/story-myeongnyang is not touched
+status: v3 draft (Storm Oil form, anonymous) from the script track; v2 and v1 kept below (research/library/STORY_TOPIC_QUEUE.md rank 2); proposal only, episodes/story-myeongnyang is not touched
 title: The Korean Strait That Changed Sides
-target_runtime_s: 63-65 at 3.7-3.8 words/s (239 words)
+target_runtime_s: 62-63 at 3.9 words/s (about 4.0 in setup and escalation, 3.7 on the mechanism; 245 words)
 facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, Kim 2015)
 ---
 
-# The Korean Strait That Changed Sides: v2
+# The Strait That Changed Sides: v3 (Storm Oil form)
+
+**Why a new form (owner, 2026-11-02).**
+- None of RicksClips' top 8 retells a named historical event. Each wraps a true mechanism in an invented story about
+  an anonymous "he" or "a man" (the pirate chase, the bronze-ball inventor, the bell, the railroad sawyer).
+- The invented plot can be big and exaggerated; only the "You see" mechanism and the stated facts stay true.
+- v3 drops Admiral Yi, the king and the 1597 record. The hero is "he", the strait is unnamed, and everything around
+  the tide is invented and played for laughs.
+- **True and stated:** some narrow straits have a tidal current that runs like a river and stops and reverses every
+  few hours (Uldolmok/Myeongnyang: up to 11.5 knots, reversing about four times a day; Encykorea, PNNL). That's
+  stronger than oars, and only a few ships fit through narrows at once.
+- **Invented:**
+  - the ten-to-one odds (a character's line, roughly the real 13 vs 133);
+  - the cork, all the dialogue, the captains and the enemy admiral;
+  - the comeuppance.
+
+**Hook (Rick shape):** "He [anchored his last ships in a roaring strait], with [an enemy fleet] so close [he could hear
+them laughing]."
+- **Frame 0:** him at the bow, close, letting the anchor go.
+- **At 2-4 s:** the laughing enemy fleet beyond.
+
+## Narration
+
+```narration
+[sfx: anchor] He anchored his last ships in a roaring strait, with an enemy fleet so close he could hear them laughing.
+
+[sfx: knock] His captain grabs his collar. "They've got ten ships for every one of ours, and you're parking?"
+
+[sfx: splash] He doesn't look up. He just drops a cork over the side and watches it drift.
+
+[sfx: knock] "Wait for the water," he says. "Watch the cork."
+
+[sfx: whoosh_long] Then the enemy charges into the strait, the current carrying them in like a river.
+
+[sfx: crowd] Their admiral is thrilled. The sea is doing all the rowing.
+
+[sfx: knock] His own captains anchor well behind him, politely letting him face the enemy first.
+
+[sfx: impact] But the strait is so narrow only a few ships fit at once, and his cannons keep those busy.
+
+[sfx: tick] Meanwhile, the cork is slowing down.
+
+[sfx: stinger] Then it stops dead, just as the enemy flagship pulls close enough to spit on.
+
+[sfx: whoosh] You see, some narrow straits really do this. The tide runs through like a river, and every few hours it stops and turns around.
+
+[sfx: whoosh_long] Now the water that rushed them in shoves them back, harder than they can row.
+
+[sfx: knock] His ships are anchored. Theirs aren't.
+
+[sfx: impact] Their front ships pile into the ones behind, and his cannons pound the jam.
+
+[sfx: whoosh] By sunset, the whole enemy fleet is drifting backwards out of the strait, their admiral close enough to wave goodbye.
+
+[sfx: knock] His captain, who called it parking, now says it was his idea.
+
+[sfx: splash] And the cork drifts right back past him, going the other way.
+```
+
+## Scores
+
+- **script_judge** at 3.9 words/s (no audio yet): see `story-myeongnyang.judge.md`.
+  - 245 words, about 63 s;
+  - hook 20 words / 5.1 s;
+  - setup ends at 25 %;
+  - 4 escalation steps;
+  - "You see" at 57 %;
+  - 2 number tokens.
+- **Cold read: 3 fresh readers, majority rule. PASS, 2 of 3** (rounds in
+  `research/library/cold_reads/story-myeongnyang-v3-reads.md`).
+  - All three retold every beat (the cork as a tide clock, the jam, the anchors, the retreat, the captain taking
+    credit).
+  - Funny 4, 3, 3 out of 5.
+  - All three said nothing marks the battle as a real event, and the only thing presented as true is the tide.
+  - **The one fail** was the line where his captains "back their ships away" although they are anchored (one reader
+    lost the thread). It now reads "anchor well behind him". That edit came after the reads.
+  - An earlier draft (no anchored line, an unclear outcome) failed 0 of 3.
+- **Before voicing:** give the anchoring one more beat if readers still ask why his ships hold. The reader questions
+  were "why the enemy didn't anchor" and "why the current doesn't move his ships".
+
+---
+
+
+## v2 (2026-11-02, the named-history version, kept for reference)
 
 > **Fact flag (operator, 2026-11-02): "wrote back four words" is not supported.** Yi's reply to the king was a longer
 > letter, usually rendered as "I still have twelve ships" (a translation of a classical Chinese sentence), so "four
@@ -46,7 +129,7 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 
 ## Narration
 
-```narration
+```text
 [sfx: brush] Told to give up the navy, Admiral Yi answered with one line and sailed thirteen ships at a hundred and thirty-three.
 
 [sfx: knock] His captains thought he was mad.
