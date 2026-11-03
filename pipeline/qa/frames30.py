@@ -33,7 +33,9 @@ SECONDS_PER_SHEET = 2
 def probe_fps(mp4) -> float:
     p = subprocess.run([tool("ffprobe"), "-v", "error", "-select_streams", "v:0", "-show_entries",
                         "stream=avg_frame_rate", "-of", "csv=p=0", str(mp4)], capture_output=True, text=True)
-    num, _, den = (p.stdout.strip() or "30/1").partition("/")
+    # Mac renders tag a colour profile, so csv output reads "30/1," (side data adds fields); keep the rate only
+    rate = (p.stdout.strip().splitlines() or ["30/1"])[0].split(",")[0].strip() or "30/1"
+    num, _, den = rate.partition("/")
     return float(num) / float(den or 1)
 
 
