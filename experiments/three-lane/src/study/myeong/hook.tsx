@@ -12,7 +12,7 @@ import type { CapWord } from "../../kit/captions";
 import type { GroupSpec, Rig, V3, PersonSpec } from "../../kit/Stage";
 import type { CamKey } from "../../kit/campath";
 import { lambert, box } from "../../kit/sets";
-import { richWater } from "../../kit/dressing";
+import { richWater, grainPlanks } from "../../kit/dressing";
 import { sdfDragon } from "../../kit/codemodels";
 import { taperTube } from "../../kit/heroprops";
 import { burst } from "../../kit/fx2";
@@ -75,7 +75,7 @@ function bowSet() {
   const hero = new THREE.Group(); hero.matrixAutoUpdate = false; root.add(hero);
   hero.matrix.makeBasis(new THREE.Vector3(HD[0], 0, HD[1]), new THREE.Vector3(0, 1, 0), new THREE.Vector3(OUT[0], 0, OUT[1])).setPosition(SHIP_O[0], HK, SHIP_O[2]);
   const AFT = -10, L = BOW_X - AFT, MX = (AFT + BOW_X) / 2, HH = HK + 0.6;
-  const deckM = lambert({ color: "#b07a48" }), blue = lambert({ color: "#3b56a0" }), brown = lambert({ color: "#7a4a2a" }), red = lambert({ color: "#c8382c" }), gold = lambert({ color: "#e8b040" });
+  const deckM = lambert({ color: "#b07a48" }), blue = lambert({ map: grainPlanks([2, 1], { hue: 222, light: 42, boards: 5, seed: 5 }) }), brown = lambert({ map: grainPlanks([2, 1], { hue: 24, light: 32, boards: 6, seed: 9 }) })   /* painted planks, as on v4, not flat boxes */, red = lambert({ color: "#c8382c" }), gold = lambert({ color: "#e8b040" });
   box(hero, deckM, L, 0.25, 2 * RL, MX, -0.12, 0);                                              // the deck
   box(hero, blue, L, 0.42, 0.3, MX, -0.2, RL + 0.12); box(hero, gold, L, 0.08, 0.32, MX, -0.44, RL + 0.12);   // blue planks, gold trim
   box(hero, brown, L, HH - 0.48, 0.3, MX, -0.48 - (HH - 0.48) / 2, RL + 0.1);                  // the lower hull
@@ -85,7 +85,7 @@ function bowSet() {
   box(hero, red, L + 0.2, 0.16, 0.26, MX, RAIL, RL); box(hero, red, L, 0.1, 0.14, MX, RAIL * 0.45, RL);
   box(hero, red, 0.12, 0.08, 2 * RL, BOW_X, RAIL, 0); box(hero, red, 0.12, RAIL + 0.2, 0.12, BOW_X, (RAIL + 0.2) / 2, RL);   // the bow rail and corner post
   // the carved dragon prow on the bow's lens side (the SDF dragon in red lacquer), looking out over the water
-  const post = sdfDragon({ mat: lambert({ color: "#c8352a" }), whiskers: true }); post.scale.setScalar(0.45); post.position.set(BOW_X - 1.8, -0.05, RL + 0.3); post.rotation.y = Math.PI / 2;   // in profile on the hull side, facing the drop (v4) hero.add(post);
+  const post = sdfDragon({ mat: lambert({ color: "#c8352a" }), whiskers: true }); post.scale.setScalar(0.4); post.position.set(BOW_X + 0.1, -0.1, RL + 0.25); post.rotation.y = Math.PI / 2;   // in profile on the hull side, facing the drop (v4) hero.add(post);
   // the mast and a furled-sail edge behind him (top left, as on v4)
   const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 9, 10), brown); mast.position.set(-2.2, 4.5, 0); hero.add(mast);
   box(hero, lambert({ color: "#efe2c4" }), 0.08, 4.5, 3.2, -2.3, 5.2, 0.2);
