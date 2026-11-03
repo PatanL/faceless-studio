@@ -99,6 +99,29 @@ export function dropSquashAt(ts: number, distance: number, fall = 0.22, squash =
 	return {dy: 0, sx: 1 / Math.sqrt(Math.max(0.5, sy)), sy};
 }
 
+/**
+ * The house wave-wipe edge (same polygon as the scene 'wipe' transition in transitions.tsx), in the layer's own box:
+ * at p = 0 the edge sits just past the leading side (nothing shown), at p = 1 past the far side (all shown).
+ */
+export function wavePolygon(type: 'waveUp' | 'waveDown' | 'waveLeft' | 'waveRight', p: number): string {
+	const q = clamp01(p);
+	const e = ease('inOut', q);
+	const pts: string[] = [];
+	const n = 14;
+	for (let i = 0; i <= n; i++) {
+		const u = (i / n) * 100;
+		const wv = Math.sin(i * 1.3 + q * 9) * 2.2 + Math.sin(i * 0.55 - q * 5) * 1.4;
+		const edge = (1 - e) * 112 - 6 + wv;
+		if (type === 'waveLeft') pts.push(`${edge.toFixed(2)}% ${u}%`);
+		else if (type === 'waveRight') pts.push(`${(100 - edge).toFixed(2)}% ${u}%`);
+		else if (type === 'waveUp') pts.push(`${u}% ${edge.toFixed(2)}%`);
+		else pts.push(`${u}% ${(100 - edge).toFixed(2)}%`);
+	}
+	const far =
+		type === 'waveLeft' ? ['120% 100%', '120% 0%'] : type === 'waveRight' ? ['-20% 100%', '-20% 0%'] : type === 'waveUp' ? ['100% 120%', '0% 120%'] : ['100% -20%', '0% -20%'];
+	return `polygon(${[...pts, ...far].join(', ')})`;
+}
+
 /** p = 0 means hidden, 1 means fully shown. */
 function animAt(a: Anim, p: number): AnimState {
 	const e = ease('out', p);
@@ -131,6 +154,11 @@ function animAt(a: Anim, p: number): AnimState {
 			const k = popSpringScale(ts);
 			return {...NEUTRAL, opacity: p <= 0 ? 0 : clamp01(ts / 0.1), sx: k, sy: k};
 		}
+		case 'waveUp':
+		case 'waveDown':
+		case 'waveLeft':
+		case 'waveRight':
+			return {...NEUTRAL, clip: p >= 1 ? undefined : wavePolygon(a.type, p)};
 		case 'dropSquash': {
 			const ts = p * a.duration;
 			const fall = Math.min(0.22, a.duration * 0.4);

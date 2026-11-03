@@ -67,6 +67,12 @@ export const AnimType = z.enum([
 	// (fixes the polish-2d YOU glitch), and a gravity drop with a volume-keeping landing squash about the layer bottom
 	'popSpring',
 	'dropSquash',
+	// the house scene wipe (transitions.tsx 'wipe') as a layer enter: the layer rises/slides in behind the same wavy
+	// water-line edge (an in-scene setting change that should read like the scene wipes, not a hard blind)
+	'waveUp',
+	'waveDown',
+	'waveLeft',
+	'waveRight',
 ]);
 export const Anim = z.object({
 	type: AnimType.default('fade'),
