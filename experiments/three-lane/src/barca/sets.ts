@@ -132,7 +132,7 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   const lt = new THREE.Group();
   const big = new THREE.Mesh(new THREE.CylinderGeometry(3.6, 4.2, 3.2, 12), lambert({ map: stripes() })); big.position.y = 1.6; lt.add(big);
   const top = new THREE.Mesh(new THREE.ConeGeometry(4.6, 2.6, 12), lambert({ color: "#7a2a4a" })); top.position.y = 4.5; lt.add(top);
-  lt.position.set(CAMP.lord[0], 0, CAMP.lord[2] + 5); root.add(lt);
+  lt.position.set(CAMP.lord[0] - 10, 0, CAMP.lord[2] + 2); root.add(lt);   // beside him, not a backdrop (judges read it as a stage curtain)
   for (const [x, z, col] of [[-6, 9, "#c94b3a"], [6, 10, "#e0b04a"], [22, 9, "#5f7fbf"], [-22, 11, "#c94b3a"], [CAMP.lord[0] + 4, CAMP.lord[2] + 3, "#7a2a4a"]] as [number, number, string][]) {
     cyl(root, lambert({ color: "#5b3a22" }), 0.12, 16, x, 8, z, 6);
     const flag = new THREE.Mesh(new THREE.PlaneGeometry(3, 1.8), lambert({ color: col, side: THREE.DoubleSide })); flag.position.set(x + 1.5, 15, z); root.add(flag);
