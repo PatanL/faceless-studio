@@ -33,7 +33,8 @@ DEFAULT = {"line_on": 1.0, "line_off": -4.0, "end_st": -5.6, "func_st": -1.5, "s
            "contrast_st": 2.6, "alpha": 1.0, "keep_own": 0.6, "target_range_st": 17.2, "range_clip": [0.8, 2.0],
            "len_stress": 1.25, "len_func": 0.85, "short_sentence": 5, "short_slow": 1.25, "gap_stop": 0.09,
            "gap_comma": 0.06, "target_wps": 3.75, "pace_clip": [0.85, 1.15],
-           "density": 0.35}  # pass 3 (VOICE_CADENCE.md section 8); pass 1's rules-only contour flattened the read
+           "density": 0.35,
+           "hook_boost": 1.0, "hook_act_st": 7.0}  # hook: extra range on sentence 1 and its act-verb peak (refs: Jar hook spans ~23 st)  # pass 3 (VOICE_CADENCE.md section 8); pass 1's rules-only contour flattened the read
 
 
 def _plan(words, text, p):
@@ -63,7 +64,7 @@ def _plan(words, text, p):
             n = E._norm(words[i][0])
             r = marks.get(i)
             if r == "act verb":
-                kind, off, lf = "act", p["act_st"], p["len_stress"]
+                kind, off, lf = "act", (p["hook_act_st"] if si == 0 else p["act_st"]), p["len_stress"]
             elif r == "contrast":
                 kind, off, lf = "contrast", p["contrast_st"], 1.0
             elif r:
@@ -136,6 +137,10 @@ def shape(audio, sr, words, text, spec=None):
     cur = float(np.percentile(target, 95) - np.percentile(target, 5))
     k = float(np.clip(p["target_range_st"] / max(cur, 1e-3), *p["range_clip"]))
     target = np.clip(c + (target - c) * k, -12.0, 14.0)
+    if float(p.get("hook_boost", 1.0)) != 1.0 and sents:  # the hook line gets a wider melody than the rest
+        h0, h1 = words[sents[0][0]][1], words[sents[0][-1]][2] + 0.05
+        m = (ts >= h0) & (ts <= h1)
+        target[m] = np.clip(c + (target[m] - c) * float(p["hook_boost"]), -12.0, 16.0)
     new = call("Create PitchTier", "melody", 0.0, dur)
     for t, v in zip(ts, target):
         call(new, "Add point", float(t), float(med * 2 ** (v / 12)))

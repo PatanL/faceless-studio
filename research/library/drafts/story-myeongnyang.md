@@ -8,6 +8,9 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 stress: cork, parking, doesn't, dead, flagship, politely, sunset, jam
 unstress: enemy, says, look, called, ones, right, once, busy, drift, well
 melody: rules
+voice: am_eric
+hook_boost: 1.35
+hook_act_st: 9
 emphasis: off
 ---
 
