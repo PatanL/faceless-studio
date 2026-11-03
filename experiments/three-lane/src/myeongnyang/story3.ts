@@ -115,10 +115,10 @@ export function buildStory(T: Timing): MyeongStory {
   {
     const t0 = w('"They\'ve'), t1 = w("and", w("have,"));
     add({ id: "odds", place: "mouth", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: () => straitSet({ fog: 9 }), light: "golden", lens: { cInf: 3 },
-      cam: [{ t: t0, pos: [-14, 30, -16], look: [62, 0, 2], fov: 46, drift: 0.3 }, { t: t1, pos: [-8, 27, -14], look: [66, 0, 2], fov: 46, glide: 1 }],
+      cam: [{ t: t0, pos: [-8, 26, -26], look: [40, 0, 0], fov: 46, drift: 0.3 }, { t: t1, pos: [-4, 24, -24], look: [44, 0, 0], fov: 46, glide: 1 }],
       people: [],
       rigs: [westCur, myFleet, fleetRig((b) => japanese(b.k), JB, pour(t0, 1.2)),
-        label("10", [150, 34, 0], w("ten") - 0.05, t1 + 1, 12), label("1", [18, 14, 0], w("one", w("every")) - 0.05, t1 + 1, 5)] });
+        label("10", [120, 18, 0], w("ten") - 0.05, t1 + 1, 12), label("1", [16, 10, 0], w("one", w("every")) - 0.05, t1 + 1, 5)] });
   }
   // ================= 5 "...and you're parking?": the captain close, screaming
   {
@@ -206,7 +206,7 @@ export function buildStory(T: Timing): MyeongStory {
     const B = BEHIND[1];
     const C1 = onDeck(B, 4.6, 0.9, DECK_K), C2 = onDeck(B, 3.4, -0.4, DECK_K);
     add({ id: "polite", place: "reardeck", t0, t1, xfade: 0.2, join: WHIP, set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [C1, C2], 196, 14, 46, 0), { ...pair(t1, [C1, C2], 186, 14, 42, 0), glide: 1 }], alive: [[t0, t1]],
+      cam: [pair(t0, [C1, C2], 24, 12, 44, 0), { ...pair(t1, [C1, C2], 14, 12, 40, 0), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "c1", at: () => C1, faceTo: () => [100, DECK_K, 0], props: () => ({ costume: "jcaptain2", seed: 42, face: faceTrack(words, "grin", [{ word: "politely", face: "sly" }], t0), pose: poseTrack(words, "stand", [["politely", "sweep"]], t0) }) },
         { id: "c2", at: () => C2, faceTo: () => [100, DECK_K, 0], props: () => ({ costume: "jsailor", seed: 43, face: faceTrack(words, "worried", [{ word: "face", face: "grin" }], t0 + 0.1), pose: poseTrack(words, "stand", [["face", "sweep"]], t0) }) }],
       rigs: [westCur, myFleet] });
