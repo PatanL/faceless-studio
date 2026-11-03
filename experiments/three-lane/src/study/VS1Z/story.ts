@@ -20,6 +20,14 @@ const F = (f: number) => f / 30;
 
 /** frameKey with reference frame numbers (the kit's framing.ts frameKey takes seconds) */
 const frameKey = (f: number, S: V3, sx: number, sy: number, h: number, frac: number, az: number, el: number, fov = 40, ease?: Ease, curve?: boolean): CamKey => kitFrameKey(F(f), S, sx, sy, h, frac, az, el, fov, ease ?? "lin", curve);
+/** a lens move from a fixed spot: aim so world point T lands at screen (sx, sy) with this fov */
+const aimKey = (f: number, pos: V3, T: V3, sx: number, sy: number, fov: number, ease: Ease = "lin"): CamKey => {
+  const P = new THREE.Vector3(...pos), d0 = new THREE.Vector3(...T).sub(P), dist = d0.length(); d0.normalize();
+  const th = Math.tan((fov * Math.PI) / 360), pitch = Math.atan((sy - 0.5) * 2 * th), yaw = Math.atan((sx - 0.5) * 2 * th * (9 / 16));
+  const right = new THREE.Vector3().crossVectors(d0, new THREE.Vector3(0, 1, 0)).normalize(), up = new THREE.Vector3().crossVectors(right, d0);
+  const dir = d0.clone().applyAxisAngle(right, pitch).applyAxisAngle(up, yaw);
+  return { t: F(f), pos, look: P.clone().addScaledVector(dir, dist).toArray() as V3, fov, ease };
+};
 const K = (f: number, pos: V3, look: V3, fov = 40, ease: Ease = "lin", curve = false): CamKey => ({ t: F(f), pos, look, fov, ease, curve });
 /** a step track from [frame, value] pairs */
 const steps = <T,>(keys: [number, T][]) => keys.map(([f, v]) => ({ t: F(f), v }));
@@ -131,15 +139,21 @@ export function buildStudy(_T: Timing): StudyStory {
   // ===== shot 3, F225-F404 (4 f dissolve in): the jar from high on the right, orbiting to the front and coming down
   // ("eight dragons coiled around a giant bronze jar"), a push to the front dragon, a tilt down to the frog's mouth
   {
+    const k345 = frameKey(345, JC, 0.5, 0.47, 3.4, 0.85, 2, 17, 42, "lin", true);   // the jar fills the frame (master F349)
+    const orbit = [frameKey(223, JC, 0.5, 0.44, 3.4, 0.42, -48, 21, 44), frameKey(260, JC, 0.5, 0.44, 3.4, 0.43, -24, 20, 44, "lin", true),
+      frameKey(300, JC, 0.5, 0.45, 3.4, 0.52, -2, 19, 44, "lin", true)];
     groups.push({
       id: "jar", place: "hall", t0: F(225), t1: F(405), xfade: 0, join: { kind: "dissolve", frames: 4 }, set: hallSet, env: "candle", light: HALL, lens: { cInf: 8 },
       cam: [
-        frameKey(223, JC, 0.34, 0.42, 3.1, 0.45, 30, 22, 44),
-        frameKey(300, JC, 0.36, 0.45, 3.1, 0.5, 16, 16, 44, "lin", true),
-        frameKey(345, JC, 0.45, 0.52, 3.1, 0.66, 8, 10, 40, "lin", true),
-        frameKey(362, [JC[0] + 0.15, 1.3, JC[2] + 1.05], 0.5, 0.5, 3.0, 1.05, 8, 2, 40, "io"),
-        frameKey(382, frogMouthOf(1), 0.5, 0.75, 0.9, 0.4, 8, 4, 40, "io"),
-        frameKey(406, frogMouthOf(1), 0.5, 0.75, 0.9, 0.42, 8, 4, 40, "lin"),
+        // round 3 shot-3 fix (owner: "theirs actually orbits"), measured on the master with camera_motion.py:
+        // F225-F300 an orbit (background -2.4..-3.1 px/f at 720, zoom from F260 at 0.6 %/f), F300-F345 a slow push
+        // (0.57 %/f), F345-F362 the push to one dragon (1.0 %/f), F362-F404 the tilt down to the frog (-9..-12 px/f)
+        ...orbit, k345,
+        // the master's push to the dragon and tilt to the frog are lens moves from one spot (uniform zoom 1.0 %/f with a
+        // tilt up, then a tilt down of ~0.36 frame with a slight zoom out), not dollies: aimed from the F345 position
+        aimKey(362, k345.pos, headOf(1), 0.5, 0.3, 35.5, "io"),
+        aimKey(404, k345.pos, frogMouthOf(1), 0.5, 0.8, 43, "out"),
+        aimKey(406, k345.pos, frogMouthOf(1), 0.5, 0.8, 43, "lin"),
       ],
       people: [emperorSpec(steps([[0, "frown"]])), ...guardSpecs(steps([[0, "frown"]]))].map((p) => ({ ...p, extra: true })),   // specks far behind the jar, as in the master
       rigs: [flamesRig(), hallBokeh(), ballRig((i) => mouthOf(i))],

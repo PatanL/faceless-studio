@@ -29,17 +29,17 @@ export const DRAGON_AZ = Array.from({ length: 8 }, (_, i) => -36.9 + 45 * i);
 const dirOf = (az: number) => [Math.sin((az * Math.PI) / 180), Math.cos((az * Math.PI) / 180)] as const;
 /** world position of dragon i's mouth (where its ball sits) */
 // round 3 (visual track): the dragons are kit/heroprops.ts sculpted heads in real gold, origin at r JAR_R + 0.25
-const D_R = JAR_R + 0.25, D_Y = DRAGON_Y + 0.05, D_S = 0.6;
-export const mouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.24; return [JAR[0] + sx * r, D_Y - 0.09, JAR[2] + cz * r]; };
-export const headOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.17; return [JAR[0] + sx * r, DRAGON_Y, JAR[2] + cz * r]; };
+const D_R = JAR_R + 0.28, D_Y = DRAGON_Y + 0.15, D_S = 0.72;   // big, readable heads at the shoulder, as on screen in the master
+export const mouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.29; return [JAR[0] + sx * r, D_Y - 0.11, JAR[2] + cz * r]; };
+export const headOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = D_R + 0.2; return [JAR[0] + sx * r, D_Y + 0.04, JAR[2] + cz * r]; };
 /** frog i's open mouth */
 export const frogMouthOf = (i: number): V3 => { const [sx, cz] = dirOf(DRAGON_AZ[i]); const r = FROG_R - 0.25; return [JAR[0] + sx * r, 0.37, JAR[2] + cz * r]; };
 
 export function jar(root: THREE.Object3D) {
   const g = new THREE.Group(); g.position.set(...JAR);
   const prof: [number, number][] = [[0, 0], [1.11, 0], [1.15, 0.1], [1.05, 0.26], [1.0, 0.7], [1.03, 1.4], [1.05, 1.95], [1.01, 2.2], [0.86, 2.42], [0.6, 2.56], [0.57, 2.66], [0.42, 2.76], [0.26, 2.84], [0.16, 2.94], [0.1, 3.02], [0, 3.04]];
-  const greyBody = new THREE.MeshStandardMaterial({ color: "#c6ccdc", metalness: 0.05, roughness: 0.6, normalMap: grainNormal(9) }); greyBody.userData.env = true;
-  const greyBand = new THREE.MeshStandardMaterial({ color: "#aab0c2", metalness: 0.1, roughness: 0.5, normalMap: reliefNormal() }); greyBand.userData.env = true;
+  const greyBody = new THREE.MeshStandardMaterial({ color: "#e2eaf8", metalness: 0, roughness: 0.75, normalMap: grainNormal(9) });   // the master's jar reads pale grey-white on screen greyBody.userData.env = true;
+  const greyBand = new THREE.MeshStandardMaterial({ color: "#cad2e2", metalness: 0, roughness: 0.6, normalMap: reliefNormal() }); greyBand.userData.env = true;
   g.add(vessel(prof, { body: greyBody, band: greyBand, bands: [[0.4, 1.04], [1.05, 1.0], [2.1, 1.03]], knob: 0.17 }));   // the master's jar reads light grey with gold dragons
   const gold = metal("gold", { scales: 10, repeat: [3, 2] }), toadMat = new THREE.MeshStandardMaterial({ color: "#a8aab2", metalness: 0.2, roughness: 0.6, normalMap: grainNormal(5) });
   DRAGON_AZ.forEach((az, i) => {
@@ -54,7 +54,7 @@ export function jar(root: THREE.Object3D) {
 
 /** the bronze balls: one per dragon mouth, or a function of time (a falling ball) */
 export const ballRig = (pos: (i: number, t: number) => V3 | null): Rig => (ctx) => {
-  const balls = DRAGON_AZ.map(() => { const m = orb("bronze", 0.066); ctx.root.add(m); return m; });
+  const balls = DRAGON_AZ.map(() => { const m = orb("bronze", 0.085); ctx.root.add(m); return m; });
   return (t) => balls.forEach((m, i) => { const p = pos(i, t); m.visible = !!p; if (p) m.position.set(...p); });
 };
 

@@ -213,6 +213,13 @@
      "motion_corr": 0.15,
      "motion_lag_f": -5,
      "motion_energy_ratio": 0.87
+    },
+    "v11_shot3": {
+     "ssim": 0.179,
+     "dE": 33.5,
+     "motion_corr": -0.01,
+     "motion_lag_f": 6,
+     "motion_energy_ratio": 1.38
     }
    },
    "mismatches_left": [
@@ -246,7 +253,146 @@
    },
    "match_score_v3_blind": 5.7,
    "match_score_v10": 6.0,
-   "gaps_v10": "dragon heads textured but dark against the master's bright polished gold; F390 lands on the frog's back, not its mouth; hard shadows on the bell"
+   "gaps_v10": "dragon heads textured but dark against the master's bright polished gold; F390 lands on the frog's back, not its mouth; hard shadows on the bell",
+   "shot3_fix": {
+    "what": "owner feedback: theirs orbits, starts wider, pushes to one dragon, tilts down to the frog; the jar reads pale grey-white with bright gold dragons. Rebuilt in exact mode: an orbit of 46 deg F223-F300 (az -48 -> -2) with a dolly from F260, a push F300-F345, a lens push to dragon 1 F345-F362 and a lens tilt to its frog F362-F404 from one spot; jar #e2eaf8, dragons 0.72 scale. Only F225-F404 re-rendered (renders/ours_v11_shot3.mp4 = v10 with the new span spliced in).",
+    "camera_motion_per_phase_theirs_vs_v10_vs_v11": {
+     "225-260": {
+      "theirs": [
+       -2.43,
+       0.56,
+       0.04
+      ],
+      "v10": [
+       -0.28,
+       1.04,
+       -0.06
+      ],
+      "v11": [
+       -3.92,
+       -0.24,
+       0.02
+      ]
+     },
+     "260-300": {
+      "theirs": [
+       -3.05,
+       1.1,
+       0.59
+      ],
+      "v10": [
+       0.9,
+       0.65,
+       -0.06
+      ],
+      "v11": [
+       -2.65,
+       0.9,
+       0.6
+      ]
+     },
+     "300-345": {
+      "theirs": [
+       0.46,
+       -0.49,
+       0.57
+      ],
+      "v10": [
+       1.66,
+       2.5,
+       0.48
+      ],
+      "v11": [
+       0.29,
+       1.62,
+       1.08
+      ]
+     },
+     "345-362": {
+      "theirs": [
+       -1.2,
+       3.76,
+       1.0
+      ],
+      "v10": [
+       2.44,
+       -7.77,
+       1.54
+      ],
+      "v11": [
+       -3.86,
+       -11.71,
+       0.95
+      ]
+     },
+     "362-385": {
+      "theirs": [
+       -0.66,
+       -12.11,
+       -0.39
+      ],
+      "v10": [
+       0.26,
+       -9.24,
+       0.43
+      ],
+      "v11": [
+       -0.73,
+       -0.48,
+       -0.56
+      ]
+     },
+     "385-405": {
+      "theirs": [
+       -0.28,
+       -8.96,
+       -0.5
+      ],
+      "v10": [
+       -0.02,
+       -0.86,
+       0.19
+      ],
+      "v11": [
+       -0.13,
+       0.19,
+       -0.2
+      ]
+     }
+    },
+    "per_component_corr_v10": {
+     "tx": 0.15,
+     "ty": 0.36,
+     "zoom": 0.34
+    },
+    "per_component_corr_v11": {
+     "tx": 0.71,
+     "ty": -0.28,
+     "zoom": 0.73
+    },
+    "motion_energy_corr_v10_v11": [
+     0.24,
+     -0.04
+    ],
+    "totals_theirs_v10_v11": [
+     [
+      -228.0,
+      -352.0,
+      1.62
+     ],
+     [
+      148.0,
+      -188.0,
+      1.77
+     ],
+     [
+      -311.0,
+      -106.0,
+      2.06
+     ]
+    ],
+    "status": "orbit and zoom now match (tx -3.9/-2.7 vs -2.4/-3.1 px/f on F225-F300; zoom 0.60 vs 0.59 %/f on F260-F300; tx 0.29 vs 0.46 on F300-F345; per-frame tx corr 0.15 -> 0.71, zoom 0.34 -> 0.73). Not fixed: the push and tilt land in the wrong phase (ours moves the content up 200 px on F345-F362, theirs 64 px down, then theirs tilts down 460 px on F362-F404 and ours barely moves: our F362 framing is too wide, so the frog is already in frame), so overall motion-energy correlation fell (compare.py 0.15 -> -0.01). F229-F231 open on a column the orbit's start passes through. Fix for the next pass: start at az -38, frame the dragon at F362 tight enough that the frog is out of frame, then tilt down to it. Stopped at the 3-iteration limit (a 4th render replaced a lighting regression in iteration 3)."
+   }
   },
   {
    "shot": "4 balcony crane",
