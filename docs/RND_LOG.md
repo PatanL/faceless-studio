@@ -344,3 +344,109 @@ look_stats on the same video three ways:
   These are lab-content effects (night rooms, flat inserts, close-ups at a fixed focus), not kit regressions. Vasa on
   the same kit is in range on all of them.
 - **0 blend frames.** The whips' mixed-pixel share fell from 0.37-0.67 to 0.19-0.30.
+
+## 2026-11-03 ~04:15 UTC: kit round 2, craft and faces (owner priority: the face), Barca benchmark
+
+Commits 4d3dd37 (library, lighting, density, kneel, arms, still gate), dd51a78 (faces), bc3a916 (craft round 4) and the
+commit that adds this entry (still-gate fix, Barca mechanism move, docs). Kit usage is in
+`experiments/three-lane/src/next/INTEGRATION.md`, "Round 2 kit additions".
+
+**Built.**
+- **CC0 model library:** 38 Poly Haven models, geometry only, fetched from the official API by
+  `scripts/fetch_models.py`, licences in `public/models/ph/LICENSES.md`. Every model is restyled to our look with painted
+  materials (`kit/models.ts`). Built pieces are in `kit/architecture.ts`. Kenney (403 to scripted requests) and
+  Quaternius (itch.io browser flow) were not scraped.
+- **Light and post:**
+  - soft PCF shadows;
+  - `sun: "auto"` side key;
+  - hemisphere fill and rim in the two-tone shader;
+  - NEUTRAL tone map;
+  - **selective** bloom (set glows and `userData.bloom` only);
+  - SSAO available per group but off (it put grain on the heads).
+- **Density presets** (`kit/density.ts`): `fill` and `crowd`, with `campLow` for foregrounds.
+- **Actor:** a real kneel, and arms inked as one silhouette with the hand.
+- **Visible-change gate:**
+  - `still` in `kit/gates.ts`, plus `scripts/visible_change.py` on renders (calibrated on the 8 refs: their 2 s windows
+    never have a median frame difference under 1.5);
+  - Barca showed the gate was blind to two cases, both now fixed: a camera drift that a 4 m grid overstated (the grid
+    now sits at the subject's depth), and small figures acting (only figures at least 0.2 of the frame height count).
+- **Bricks:** `box(..., uvTile)` gives world-scaled bricks.
+
+**Faces (owner priority).**
+- **Study:** `src/next/tools/face_study.py`, 103 reference heads, numbers only kept. Medians (IQR):
+  - aspect 1.15;
+  - outline 5.8 % of D (4.1-7.2);
+  - lit 0.97, darkest 0.87 (0.78-0.90), darker toward the lower right (47°);
+  - eye height 0.157 D, eye gap 0.235 D, eye stroke 0.072 D, brow stroke 0.061 D.
+
+  Radial profiles of the matched ref crop showed the lit head is clipped white (255) with a cool grey crescent away
+  from the light.
+- **Rebuild:**
+  - card rasters scale with their size on screen (close-ups were upscaled ~3x, so lines went soft and the grade
+    tinted the edges navy);
+  - the head is shaded in the card shader as a sphere: its target output is inverted through the tone map so the lit
+    side is white, with a cool crescent toward a blend of the key and an upper-left studio light;
+  - near-black ink everywhere;
+  - an organic head with a tapered outline;
+  - plain oval eyes, curved lids, arched tapered brows and tapered mouths;
+  - soft contact shadows under hats and hair;
+  - a soft cheek tint (a one-line removal in `actor.tsx` if the owner dislikes it);
+  - the soft cap and the messy hair redrawn;
+  - all 27 expressions kept.
+- **Measured on the final smith close-up:** lit 0.988, darkest 0.859, gradient strength 0.070 (ref median 0.069),
+  outline 4.7 % of D (in the IQR).
+- **Blind face A/B:** our face against the matched ref (Mz72 10.7 s) at matched head scale, hidden A/B order, fresh judges;
+  two judges per round from round 10.
+
+| Round | Same tier (ours ≥ ref) | Note |
+|---|---|---|
+| 1-7 | 0 of 2 each | conf 4-5 → 3; grain, lavender cast, navy rings, double brows, flat head |
+| 8 | 1 of 2 | smith same tier |
+| 9-11 | 0 | flat head, hat pasted on, white notches |
+| 12 | 1 of 4 | |
+| 13 | 2 of 4 | one judge: both pairs same tier |
+| 14-15 | 0 of 4 | conf 2-3, "close to same tier" |
+| 16 | 2 of 4 | smith same tier for both judges |
+| 17 | 0 of 4 | conf 2-3; a lid-patch artefact (fixed after) |
+
+  Not same tier in most pairs yet. The cap character still loses on "the beanie looks pasted on", and some judges
+  still find the line weight uniform. Stills: `scratchpad/kitlab/face/faces_after_sheet.jpg` (session scratch).
+
+**Craft loop (4 Barca shots against matched ref frames, blind, craft only).**
+
+| Round | Wins | Note |
+|---|---|---|
+| 0 (v14) | 1 of 4 | macro ours |
+| 1-3 | 1 of 4 | |
+| 4 (two judges) | 1 of 4 both | |
+
+- The macro wins; hook, wall and section lose with confidence 3-4.
+- The remaining notes are mostly lighting mood and composition:
+  - flat daylight against the refs' night scenes with lanterns;
+  - empty sky;
+  - the section's dark bottom band and plain back wall;
+  - small figures in the section.
+
+  Those are story-file choices (light presets, cameras); the kit can now do them (glows bloom, light arcs, night presets).
+- A global cosine-modelling increase was tried and reverted (no visible gain).
+
+**Barca benchmark on the upgraded kit.**
+- **Render:** Mac, niced, under the lock, about 3.5 min. One mosaic frame was repaired. Audio is muxed from v14.
+- **Files:** `experiments/three-lane/out/kitlab/barca_r2.mp4`, phone copy `barca_r2_phone.mp4` (13.5 MB). Not
+  committed.
+- **Gates:** clean (20.8 place changes/min, 11 places, longest hold 3.89 s, cast median 0.117, 63 % ≥ 0.07).
+
+| Check (720p, 8 refs) | Range | v14 | r2 |
+|---|---|---|---|
+| hard cuts · jumps | 0-3 · 0-12 | 2 · 7 | 2 · 6 |
+| moving % · median px/f | 96.4-100 · 5.8-11.1 | 98.8 · 6.69 | 99.5 · 6.78 |
+| moves / 10 s | 5.1-9.6 | 10.4 (high) | 10.4 (high) |
+| quiet zoom % | 69-88 | 81.1 | 90.6 (high; 24 refs: up to 96.8) |
+| saturation · colourfulness | 0.41-0.61 · 23-34 | 0.501 · 23.5 | 0.406 · 21.6 (both low; in the 24-ref range) |
+| luma · non-ink p5 · shadow chroma | 0.31-0.58 · 0.09-0.23 · 9-35 | 0.519 · 0.225 · 16.1 | 0.471 · 0.131 · 16.8 |
+| ink · soft · acutance | 0.54-0.66 · 3.8-14.6 % · 0.32-0.42 | 0.596 · 6.0 · 0.331 | 0.636 · 4.8 · 0.336 |
+| visible change p5 · p25 · quiet share · still windows | refs p5 ≥ 1.75 | 1.83 · 2.68 · 0.205 · 0-2.3 s, 9.7-12.8 s | 2.14 · 2.97 · 0.117 · none |
+
+- **At 240p against the 24 refs:** everything is in range except ink and soft edge, the known encoder artefact.
+- **Saturation:** the drop comes from the whiter heads and paler sand. One small fix is lifting the Barca world
+  saturation.

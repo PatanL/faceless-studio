@@ -315,3 +315,24 @@ Long pages shrink to fit one line, as `RicksCaptions` already did (about 63 px t
 
 Because the caption no longer moves, the camera has to keep faces out of the 0.64-0.78 band. Use `castKey` "close" (it
 keeps head bottoms at or above 0.6) or `fit(..., { b: 0.62 })` on chest-up shots.
+
+## Round 2 kit additions (craft and faces): what a story file can use
+
+All of this is in `src/kit` already; nothing needs wiring. Details and measurements: `docs/RND_LOG.md`, round 2.
+
+| Piece | Use |
+|---|---|
+| `kit/models.ts` | `model(id, { scale, tint, seed })` places a restyled CC0 Poly Haven model (38 ids in `LIBRARY`; licences in `public/models/ph/LICENSES.md`). Episode3D preloads them. |
+| `kit/architecture.ts` | `tent`, `cart`, `stall`, `wallRun`, `roundTower`, `house`, `palm`, `well`, `standard`, `cloth`, `mudBrick`. |
+| `kit/density.ts` | `fill(root, preset, [x0, z0, x1, z1], { n, keep, seed, face })` with `camp`, `campLow` (no tall standards: use it in foregrounds), `market`, `street`, `wallfoot`, `workshop`, `shore`; `crowd(id, area, n, { costumes, faces, poses, face })` returns `PersonSpec[]`. |
+| `kit/sets.ts` `box(..., cast, uvTile)` | World-scaled UVs: one texture tile per `uvTile` metres on every face (paint the material with repeat `[1, 1]`). |
+| `GroupSpec.sun: "auto"` | A side key at 75° to the lens, shadows fitted to the shot. |
+| `GroupSpec.alive` | Windows where something visibly changes though the camera and figures are still (the `still` gate counts them). |
+| `GroupSpec.bloom`, `userData.bloom` | Bloom is selective: the set's `glows` and any object with `userData.bloom = true`. Heads and white cloth never glow. |
+| `GroupSpec.ao` | SSAO, off by default (it put grain on the white heads). |
+| Actor `kneel: 0..1` | A real kneel; arms are inked as one silhouette with the hand. |
+| Faces | Automatic: the head is shaded by the card shader as a sphere (white, a cool crescent away from the light); card rasters scale with their size on screen, so close-ups stay crisp. |
+
+Gates added: `still` (nothing visibly changes for more than 2 s: camera under 2.5 px/frame, figures unchanged, no
+`alive` window) and the edge gate's lens-loom check (a figure under 1 m from the lens in a group shot).
+`scripts/visible_change.py` is the post-render twin of `still`.

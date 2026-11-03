@@ -95,16 +95,23 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
       for (let f = f0; f < f1; f++) {
         const t = f / fps;
         const a = camAt(g, t), look = new THREE.Vector3(); a.getWorldDirection(look);
-        const d = 4, centre = a.position.clone().addScaledVector(look, d);
+        // the grid sits at the subject's depth (median distance to the visible figures, else 4 m): a 4 m grid overstated
+        // a slow drift on a distant subject (Barca r2: the section at 45.6-48.7 s passed the gate, then read as still)
+        const vis = g.people.filter((q) => !q.visible || q.visible(t)).map((q) => { const [x, y, z] = q.at(t); return a.position.distanceTo(new THREE.Vector3(x, y + 0.8, z)); }).sort((u, v) => u - v);
+        const d = vis.length ? Math.max(2, vis[Math.floor(vis.length / 2)]) : 4, centre = a.position.clone().addScaledVector(look, d);
         const right = new THREE.Vector3().setFromMatrixColumn(a.matrixWorld, 0), up = new THREE.Vector3().setFromMatrixColumn(a.matrixWorld, 1);
         const pts: V3[] = [];
-        for (const i of [-1, 0, 1]) for (const j of [-1, 0, 1]) { const p = centre.clone().addScaledVector(right, i * 1.2).addScaledVector(up, j * 2.0); pts.push([p.x, p.y, p.z]); }
+        for (const i of [-1, 0, 1]) for (const j of [-1, 0, 1]) { const p = centre.clone().addScaledVector(right, i * 0.3 * d).addScaledVector(up, j * 0.5 * d); pts.push([p.x, p.y, p.z]); }
         const p0 = pts.map((p) => project(a, p));
         cam2.copy(camAt(g, t + 1 / fps));
         const p1 = pts.map((p) => project(cam2, p));
         const camPx = p0.reduce((n, q, i) => n + Math.hypot(q.x - p1[i].x, q.y - p1[i].y), 0) / pts.length;
-        const props = g.people.filter((q) => !q.visible || q.visible(t)).map((q) => JSON.stringify([q.at(t).map((x) => Math.round((x ?? 0) * 100)), q.props(t)]));
-        const figure = prevProps !== null && (props.length !== prevProps.length || props.some((x, i) => x !== prevProps![i]));
+        // a figure's change counts only if the figure is big enough on screen for it to show (>= 0.2 of the frame
+        // height): small miners swinging picks read as still in the render (Barca r2, visible_change.py)
+        const shown = g.people.filter((q) => !q.visible || q.visible(t));
+        const props = shown.map((q) => JSON.stringify([q.at(t).map((x) => Math.round((x ?? 0) * 100)), q.props(t)]));
+        const tall = shown.map((q) => { const [x, y, z] = q.at(t), lo = project(a, [x, y, z]), hi = project(a, [x, y + 1.9 * (q.scale ?? 1), z]); return Math.abs(lo.y - hi.y) / H; });
+        const figure = prevProps !== null && (props.length !== prevProps.length || props.some((x, i) => x !== prevProps![i] && tall[i] >= 0.2));
         prevProps = props;
         const changing = camPx >= minPx || figure || alive.some(([x, y]) => t >= x && t <= y) || inJoin(groups, t);
         if (changing) { if (run > maxStill) failures.push(`still: ${g.id} shows nothing changing ${(runStart / fps).toFixed(2)}-${((runStart + run) / fps).toFixed(2)} s (${(run / fps).toFixed(1)} s; camera < ${minPx} px/f, figures still); move the camera, act, or mark rig motion in alive`); run = 0; }

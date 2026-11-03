@@ -272,7 +272,8 @@ export function buildStory(T: Timing): BarcaStory {
       cam: [fit(t0, [[SEC.shieldSolid - 1.8, -1.6, -1, SEC.shieldSolid + 1.8, 1.6, 0.8]], 0, 22, 38, { b: 0.5, t: 0.1 }),
         fit(tBut2 - 0.5, [[SEC.shieldSolid - 1.6, -1.4, -1, SEC.shieldSolid + 1.6, 1.6, 0.8]], 8, 26, 36, { b: 0.5, t: 0.1 }),   // a slow push on the solid side (the drift toward the hollow side pushed the label out)
         { ...fit(tBut2, [[SEC.shieldHollow - 1.6, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.6, 1.6, 0.8]], 0, 14, 40, { b: 0.42, t: 0.08 }), glide: 1.0 },
-        { ...fit(tEvery, [[SEC.shieldHollow - 1.6, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.6, 1.7, 0.8]], 30, 16, 38, { b: 0.58, t: 0.06, x: 0.12 }), drift: 0.3 }],
+        { ...fit(tEvery, [[SEC.shieldHollow - 1.6, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.6, 1.7, 0.8]], 30, 16, 38, { b: 0.58, t: 0.06, x: 0.12 }), drift: 0.3 },
+        fit(t1, [[SEC.shieldHollow - 1.0, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.0, 1.3, 0.8]], 58, 8, 30, { b: 0.58, t: 0.06, x: 0.12 })],   // round-2: an orbit-push to the end (the drift read as a still frame, visible_change 45.6-48.7 s)
       people: sectionCast(t0).map((p) => ({ ...p, visible: (t: number) => t >= tBut2 - 0.2 })), clouds: false,
       keepInFrame: (t) => [...(t < tBut2 + 0.6 && t > t0 + 0.3 ? [[SEC.shieldSolid - 0.9, 1.1, 0.65, SEC.shieldSolid + 0.9, 1.4, 0.75] as Box] : []), ...(t > tBut2 + 1.0 ? [[SEC.shieldHollow - 0.9, 1.1, 0.65, SEC.shieldHollow + 0.9, 1.4, 0.75] as Box] : [])],
       rigs: [label("SOLID GROUND", [SEC.shieldSolid, 1.25, 0.7], t0 + 0.1, tBut2 + 0.6, 0.55), label("HOLLOW TUNNEL", [SEC.shieldHollow - 1.2, 1.25, 0.7], tBut2 + 0.2, t1, 0.55),
