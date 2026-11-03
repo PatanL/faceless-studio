@@ -8,7 +8,7 @@ import { Timing } from "../src/kit/timing";
 import { buildStory as turkStory } from "../src/turk/story";
 import { buildStory as vasaStory } from "../src/vasa/story";
 import { buildStory as barcaStory } from "../src/barca/story";
-import { buildStory as myeongStory } from "../src/myeongnyang/story";
+import { buildStory as myeongStory } from "../src/myeongnyang/story3";
 import { CamPath } from "../src/kit/campath";
 import { personBox } from "../src/kit/framing";
 import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
@@ -102,7 +102,7 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
   const words = caps.words.map((w, i) => (i === 0 && w.start < 0.4 ? { ...w, start: 0 } : w));
   const pages = paginate(words, caps, cuts);
   // ricks-phrase episodes (story-barca-shield on): the caption is fixed at y 0.71, pages are the pipeline's breaks
-  const fixedY = sb.id === "story-barca-shield" ? 0.71 : null;
+  const fixedY = sb.id === "story-barca-shield" || sb.id === "story-myeongnyang" ? 0.71 : null;
   const cues0 = captionCues(groups, pages, FPS, caps.style.y ?? 0.72);
   const cues = fixedY === null ? cues0 : cues0.map((c) => ({ ...c, y: fixedY }));
   const bad: string[] = [];

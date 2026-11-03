@@ -1,0 +1,29 @@
+{
+ "id": "story-myeongnyang",
+ "niche": "explainer",
+ "audio_profile": "story_ricks",
+ "script": "episodes/story-myeongnyang/script.md",
+ "tts": {
+  "engine": "kokoro",
+  "voice": "am_eric",
+  "speed": 1.1,
+  "synth_s": 24.92,
+  "duration_s": 63.019,
+  "timing_source": [
+   "kokoro"
+  ],
+  "timing_coverage": 1.0,
+  "melody": "rules",
+  "tighten": {
+   "removed_s": 0.9,
+   "gaps": 19,
+   "duration_before_s": 63.019,
+   "duration_after_s": 62.119
+  }
+ },
+ "mix": {
+  "target_lufs": -14.0,
+  "duration_s": 65.967,
+  "_note": "rebuilt 2026-11-03: the scratch report was truncated after true_peak; duration from mix.wav"
+ }
+}

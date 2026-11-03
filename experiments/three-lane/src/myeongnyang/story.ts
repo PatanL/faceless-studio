@@ -374,7 +374,7 @@ function tilted(rx: number, r: Rig, p: V3): Rig {
   return (ctx) => { const h = new THREE.Group(); h.position.set(...p); h.rotation.x = rx; ctx.root.add(h); return r({ ...ctx, root: h }); };
 }
 /** big glowing chevrons on the water showing the current's direction (dir -1 west, +1 east); they swing round at tFlip */
-function arrowsRig(dir: (t: number) => number, tFlip: number, scale = 1): Rig {
+export function arrowsRig(dir: (t: number) => number, tFlip: number, scale = 1): Rig {
   return (ctx) => {
     const shape = new THREE.Shape(); shape.moveTo(0, 0); shape.lineTo(-6, 4); shape.lineTo(-4, 0); shape.lineTo(-6, -4); shape.lineTo(0, 0);
     const geo = new THREE.ShapeGeometry(shape); geo.rotateX(-Math.PI / 2);
