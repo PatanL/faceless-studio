@@ -552,3 +552,48 @@ Unlike Vasa, this is a ratings failure, not just named flaws. The judges preferr
 - The gates pass shots that judges still call static or empty (a held cross-section, a void around a table): the hold gate counts view changes, not visual change.
 
 Full data: `research/references/data/story_lane_barca_panel.json`.
+
+### story-barca-shield v15 (on the visual track's round-2 kit) and one more panel round
+
+The coordinator asked for a v15 with one panel round. The output is `out/story-barca-shield/story-barca-shield_v15.mp4`, with a 24 MB phone copy, `story-barca-shield_v15_phone.mp4`.
+
+**Changes in v15:**
+- the kit's real kneel everywhere the smith kneels;
+- a ram battering the wall slice above the tunnel cut while the miners dig;
+- lantern-lit night for the countermine and the ending;
+- the ending is back on people: the smith kneeling by the shield, which rings on every swing, so the cut is no longer held to the end;
+- a pick-scarred, timbered tunnel back wall and lighter earth under the cut;
+- the siege tower with an open platform;
+- day and golden light with lifted saturation.
+
+**Hook.** I tried three openings that put the act and the army in one frame from inside the walls: a low view looking over the 7 m wall, a breach in the wall, and a view up from the street. In every one, the wall hid either the army or the smith. So v15 keeps the round-2 kit's opening: the army at the wall, then the smith on "the city's".
+
+**Measured.** 15 of 17 checks are in range, with world saturation 0.465 and colourfulness 29.
+- Quiet zoom is 91 % (limit 88).
+- Shadow hue is 311 (limit 306).
+- Both rose with the round-2 kit's push-ins and cooler shadows.
+
+**Panel (one round).** Each cell is the number of pairs, out of 8, in which a judge rated ours same-or-better (judges 1 · 2 · 3).
+
+| Principle | v15 | Result |
+|---|---|---|
+| Hook | 0 · 0 · 0 | fail |
+| World | 8 · 6 · 8 | pass |
+| Show what's said | 1 · 1 · 7 | fail |
+| Smooth | 8 · 5 · 8 | pass |
+| Readable | 8 · 8 · 8 | pass |
+| Sound | 8 · 8 · 8 | pass |
+| Craft | 2 · 0 · 6 | fail |
+| Payoff | 8 · 7 · 8 | pass |
+
+**Not ready.** No gate run and no `qa/review.json`, as instructed.
+
+**What the judges named:**
+- the cover shows a shouting soldier, not the shield in the dirt;
+- the shield held upright on "laying his shield down in the dirt";
+- a stray blue rectangle at 2-3 s and 5.8 s (an inner-wall banner seen edge-on);
+- Persians in caps like the defenders';
+- an unreadable map;
+- idle diggers at 46 s;
+- a ring overlay read as a reticle;
+- a static last shot.
