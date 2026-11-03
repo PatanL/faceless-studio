@@ -191,6 +191,10 @@ Built 2026-11-02 from metadata, auto-captions and 240p frame analysis pulled on 
   - The vetted queue is research/library/STORY_TOPIC_QUEUE.md.
 - **Screen for new topics** (in order): S1 real + period/foreign → S-env four places → T1 physics/engineering or a real foreign institution, not a con → T5 surprise ≥ 2 → T6 a title with a concrete object and a hidden mechanism → S6 ridicule if the history allows → T3 East Asia as a tiebreaker.
 
+**S-hook. The first frame must show the strange act and its context together.** (operator, 2026-11-02, from the Barca panels; confidence: medium)
+- Barca (shield listening under a siege) got a hook rating of 0/8 from all three judges in four rounds. Every staging hid either the act (the smith) or the context (the army) behind the city wall. Vasa's opening (sailors running across a warship) fits in one shot and passed.
+- Screen topics with this: sketch the frame-0 shot before scripting. If the act and its context can't share one readable phone-size frame, rank the topic lower.
+
 ### 10 story premises that fit S1-S6 (not in Rick's 146 titles, Zack D.'s last 400, or the TikTok lists)
 
 1. **The floor built to squeak** (Nijō Castle, Japan, 1600s). A shogun pays carpenters to make the floor chirp under every step. Courtiers mock the "broken" floor until an assassin crosses it at night. Mechanism: nails rubbing in clamps.
