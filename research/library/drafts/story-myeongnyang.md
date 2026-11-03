@@ -9,6 +9,13 @@ facts_source: STORY_TOPIC_QUEUE.md section 2 (Encykorea, JoongAng Daily, PNNL, K
 
 # The Korean Strait That Changed Sides: v2
 
+> **Fact flag (operator, 2026-11-02): "wrote back four words" is not supported.** Yi's reply to the king was a longer
+> letter, usually rendered as "I still have twelve ships" (a translation of a classical Chinese sentence), so "four
+> words" counts our English paraphrase, not what he wrote. Before voicing, change it to something true that keeps the
+> hook's shape, e.g. "wrote back one line" or "answered with a single sentence", and re-run the hook ranking only if
+> the meaning changes.
+
+
 ## What changed from v1, and why
 
 - **Hook**
