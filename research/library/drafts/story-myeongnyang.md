@@ -49,10 +49,12 @@ them laughing]."
 
 ## Narration
 
+<!-- operator 2026-11-03: speech recognition heard "one of ours" as "one of hours" in the Kokoro + shaper take, so the captain's line now ends "every one we have". -->
+
 ```narration
 [sfx: anchor] He anchored his last ships in a roaring channel, with an enemy fleet so close he could hear them laughing.
 
-[sfx: knock] His captain grabs his collar. "They've got ten ships for every one of ours, and you're parking?"
+[sfx: knock] His captain grabs his collar. "They've brought ten ships for every one we have, and you're parking?"
 
 [sfx: splash] He doesn't look up. He just drops a cork over the side and watches it drift.
 
