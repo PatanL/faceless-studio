@@ -7,6 +7,7 @@ import * as THREE from "three";
 import { Timing } from "../src/kit/timing";
 import { buildStory as turkStory } from "../src/turk/story";
 import { buildStory as vasaStory } from "../src/vasa/story";
+import { buildStory as barcaStory } from "../src/barca/story";
 import { CamPath } from "../src/kit/campath";
 import { personBox } from "../src/kit/framing";
 import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
@@ -21,7 +22,7 @@ const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least thi
 const sb = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const T = new Timing(sb.scenes.map((s: { duration: number }) => s.duration), sb.captions.words);
 // which episode: the storyboard's id (story-chess-turk | story-vasa)
-const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
+const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : sb.id === "story-barca-shield" ? barcaStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
 const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 200);
 const paths = new Map(groups.map((g) => [g, new CamPath(g.cam, g.t0, g.t1)]));
 const total = Math.round(T.total * FPS);
@@ -99,7 +100,10 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
   const caps = psb.captions!;
   const words = caps.words.map((w, i) => (i === 0 && w.start < 0.4 ? { ...w, start: 0 } : w));
   const pages = paginate(words, caps, cuts);
-  const cues = captionCues(groups, pages, FPS, caps.style.y ?? 0.72);
+  // ricks-phrase episodes (story-barca-shield on): the caption is fixed at y 0.71, pages are the pipeline's breaks
+  const fixedY = sb.id === "story-barca-shield" ? 0.71 : null;
+  const cues0 = captionCues(groups, pages, FPS, caps.style.y ?? 0.72);
+  const cues = fixedY === null ? cues0 : cues0.map((c) => ({ ...c, y: fixedY }));
   const bad: string[] = [];
   pages.forEach((p, i) => {
     const y = cues[i].y;

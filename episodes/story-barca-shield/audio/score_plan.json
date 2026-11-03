@@ -1,488 +1,98 @@
 {
- "total": 58.61,
+ "total": 58.353,
  "loop": false,
- "tonic": 2,
+ "style": "story_ricks",
+ "bpm": 104.0,
+ "tonic": 7,
+ "mode": "min",
+ "bar_s": 2.3077,
+ "n_bars": 26,
  "cues": [
   {
    "t0": 0.0,
-   "t1": 7.970000000000001,
-   "mood": "curious",
+   "t1": 9.231,
+   "mood": "story_A",
+   "kind": "A",
    "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     0.0,
-     5.16,
-     "place"
-    ],
-    [
-     5.16,
-     7.970000000000001,
-     "place"
-    ]
-   ],
-   "text": "With an army outside the walls, the city's bronze-smith spent every day laying his shield down in the dirt. The guards on the wall think the siege has finally cracked him.",
-   "role": "hook",
-   "key": 2,
-   "chords": [
-    [
-     0.0,
-     3.985,
-     2,
-     "sus2",
-     0.49812500000000004
-    ],
-    [
-     3.985,
-     7.97,
-     2,
-     "maj7",
-     0.49812500000000004
-    ]
-   ]
+   "role": "hook"
   },
   {
-   "t0": 7.970000000000001,
-   "t1": 14.040000000000001,
-   "mood": "deep",
-   "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     7.970000000000001,
-     14.040000000000001,
-     "place"
-    ]
-   ],
-   "text": "It's about 2,500 years ago in Barca, in what's now Libya, and a Persian army has the city surrounded.",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     7.97,
-     9.9933,
-     2,
-     "madd9",
-     0.5058333333333334
-    ],
-    [
-     9.9933,
-     12.0167,
-     3,
-     "maj7",
-     0.5058333333333334
-    ],
-    [
-     12.0167,
-     14.04,
-     2,
-     "min",
-     0.5058333333333334
-    ]
-   ]
-  },
-  {
-   "t0": 14.040000000000001,
-   "t1": 29.5,
-   "mood": "curious",
-   "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     14.040000000000001,
-     19.12,
-     "place"
-    ],
-    [
-     19.12,
-     25.61,
-     "place"
-    ],
-    [
-     25.61,
-     29.5,
-     "place"
-    ]
-   ],
-   "text": "For months they hammer the walls, and the walls hold. But the Persians don't give up, and they don't go home. So the smith starts walking the inside of the wall. He sets his shield down, kneels, listens, then moves a few steps and does it again. \"Lost something?\" a guard laughs. \"The enemy's out there, not down there.\"",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     14.04,
-     18.1627,
-     2,
-     "sus2",
-     0.5153333333333333
-    ],
-    [
-     18.1627,
-     22.2853,
-     2,
-     "maj7",
-     0.5153333333333333
-    ],
-    [
-     22.2853,
-     26.408,
-     10,
-     "maj7",
-     0.5153333333333333
-    ],
-    [
-     26.408,
-     29.5,
-     0,
-     "add9",
-     0.5153333333333333
-    ]
-   ]
-  },
-  {
-   "t0": 29.5,
-   "t1": 42.04,
-   "mood": "deep",
-   "intensity": 1,
-   "variant": 0,
-   "segs": [
-    [
-     29.5,
-     32.64,
-     "place"
-    ],
-    [
-     32.64,
-     38.01,
-     "place"
-    ],
-    [
-     38.01,
-     42.04,
-     "place"
-    ]
-   ],
-   "text": "For days, nothing. Just a dull thud, wherever he puts it. Then, at one spot by the wall, he sets it down and it rings, and the dust on the bronze starts to shiver. You see, while the Persians were hammering the walls, they were also digging under them.",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     29.5,
-     33.5128,
-     2,
-     "madd9",
-     0.5015999999999999
-    ],
-    [
-     33.5128,
-     37.5256,
-     3,
-     "maj7",
-     0.5015999999999999
-    ],
-    [
-     37.5256,
-     42.04,
-     2,
-     "min",
-     0.5015999999999999
-    ]
-   ]
-  },
-  {
-   "t0": 42.04,
-   "t1": 58.61,
-   "mood": "deep",
+   "t0": 9.231,
+   "t1": 18.462,
+   "mood": "story_A2",
+   "kind": "A2",
    "intensity": 2,
-   "variant": 1,
-   "segs": [
-    [
-     42.04,
-     48.629999999999995,
-     "place"
-    ],
-    [
-     48.629999999999995,
-     52.92999999999999,
-     "place"
-    ],
-    [
-     52.92999999999999,
-     58.61,
-     "place"
-    ]
-   ],
-   "text": "Over solid ground, a bronze shield just thuds. But over a hollow tunnel, every pick striking below makes it ring like a bell. So wherever it rang, the defenders dug straight down and broke into the tunnel from above. An army spent months digging in secret, and a shield lying in the dirt heard every swing.",
-   "role": "",
-   "key": 2,
-   "chords": [
-    [
-     42.04,
-     46.1825,
-     2,
-     "madd9",
-     0.5178125
-    ],
-    [
-     46.1825,
-     50.325,
-     3,
-     "maj7",
-     0.5178125
-    ],
-    [
-     50.325,
-     54.4675,
-     2,
-     "min",
-     0.5178125
-    ],
-    [
-     54.4675,
-     58.61,
-     10,
-     "maj7",
-     0.5178125
-    ]
-   ]
+   "role": ""
+  },
+  {
+   "t0": 18.462,
+   "t1": 27.692,
+   "mood": "story_B",
+   "kind": "B",
+   "intensity": 3,
+   "role": ""
+  },
+  {
+   "t0": 27.692,
+   "t1": 36.923,
+   "mood": "story_A3",
+   "kind": "A3",
+   "intensity": 0,
+   "role": ""
+  },
+  {
+   "t0": 36.923,
+   "t1": 46.154,
+   "mood": "story_C",
+   "kind": "C",
+   "intensity": 3,
+   "role": ""
+  },
+  {
+   "t0": 46.154,
+   "t1": 55.385,
+   "mood": "story_A2",
+   "kind": "A2",
+   "intensity": 2,
+   "role": ""
+  },
+  {
+   "t0": 55.385,
+   "t1": 58.353,
+   "mood": "story_B2",
+   "kind": "B2",
+   "intensity": 3,
+   "role": ""
   }
  ],
- "motif_cues": [
-  4
- ],
- "transition_hits": [],
- "reveals": [
-  {
-   "t": 0.1,
-   "prio": 3.0,
-   "why": "marker impact",
-   "prev_end": 0.0,
-   "at_sentence_start": false
-  },
-  {
-   "t": 4.94,
-   "prio": 1.0,
-   "why": "emph 'dirt.'",
-   "prev_end": 4.94,
-   "at_sentence_start": false
-  },
-  {
-   "t": 14.19,
-   "prio": 3.0,
-   "why": "marker impact",
-   "prev_end": 14.11,
-   "at_sentence_start": true
-  },
-  {
-   "t": 16.755,
-   "prio": 2.5,
-   "why": "pivot 'But'",
-   "sentence_start": true,
-   "prev_end": 16.81,
-   "at_sentence_start": true
-  },
-  {
-   "t": 25.76,
-   "prio": 1.5,
-   "why": "punch '\"Lost something?\"'",
-   "sentence_start": true,
-   "prev_end": 25.67,
-   "at_sentence_start": true
-  },
-  {
-   "t": 29.65,
-   "prio": 1.5,
-   "why": "punch 'For days, nothing.'",
-   "sentence_start": true,
-   "prev_end": 29.57,
-   "at_sentence_start": true
-  },
-  {
-   "t": 32.79,
-   "prio": 2.5,
-   "why": "pivot 'Then,'",
-   "sentence_start": true,
-   "prev_end": 32.71,
-   "at_sentence_start": true
-  },
-  {
-   "t": 38.16,
-   "prio": 3.0,
-   "why": "marker stinger",
-   "prev_end": 38.08,
-   "at_sentence_start": true
-  },
-  {
-   "t": 42.19,
-   "prio": 3.0,
-   "why": "marker impact",
-   "prev_end": 42.11,
-   "at_sentence_start": true
-  },
-  {
-   "t": 44.915,
-   "prio": 2.5,
-   "why": "pivot 'But'",
-   "sentence_start": true,
-   "prev_end": 45.005,
-   "at_sentence_start": true
-  }
- ],
- "stings": [
-  {
-   "t": 14.19,
-   "why": "marker impact",
-   "prio": 3.0,
-   "on_boundary": true
-  },
-  {
-   "t": 38.16,
-   "why": "marker stinger",
-   "prio": 3.0,
-   "on_boundary": false
-  },
-  {
-   "t": 44.915,
-   "why": "pivot 'But'",
-   "prio": 2.5,
-   "on_boundary": false
-  }
- ],
- "drops": [
-  {
-   "t0": 13.59,
-   "t1": 14.17,
-   "why": "marker impact"
-  },
-  {
-   "t0": 37.56,
-   "t1": 38.14,
-   "why": "marker stinger"
-  }
- ],
+ "stings": [],
+ "drops": [],
  "risers": [
   {
-   "t0": 41.04,
-   "t1": 42.04,
-   "len": 1.0,
+   "t0": 16.154,
+   "t1": 18.462,
+   "len": 2.308,
    "kind": "swell",
    "jump": 1
   }
  ],
- "boundaries": [
-  7.970000000000001,
-  14.040000000000001,
-  29.5,
-  42.04
- ],
- "settings": [
-  {
-   "t0": 0.0,
-   "t1": 5.16,
-   "kind": "place",
-   "mood": "curious",
-   "place": "the walls of Barca at dusk: the smith kneeling with his shield on the dirt, the Persian camp beyond"
-  },
-  {
-   "t0": 5.16,
-   "t1": 7.970000000000001,
-   "kind": "place",
-   "mood": "curious",
-   "place": "the wall walk: guards leaning over the parapet, laughing down at the smith"
-  },
-  {
-   "t0": 7.970000000000001,
-   "t1": 14.040000000000001,
-   "kind": "place",
-   "mood": "deep",
-   "place": "the plain outside Barca: the Persian army's camp ringing the city; a map of Barca inland in Libya"
-  },
-  {
-   "t0": 14.040000000000001,
-   "t1": 19.12,
-   "kind": "place",
-   "mood": "curious",
-   "place": "the walls under assault (ladders, a ram at the gate), the walls holding; the Persian camp that stays"
-  },
-  {
-   "t0": 19.12,
-   "t1": 25.61,
-   "kind": "place",
-   "mood": "curious",
-   "place": "the street along the inside of the wall: the smith's walk, shield down, kneel, listen, move on"
-  },
-  {
-   "t0": 25.61,
-   "t1": 29.5,
-   "kind": "place",
-   "mood": "curious",
-   "place": "the wall walk: a guard laughs down at him"
-  },
-  {
-   "t0": 29.5,
-   "t1": 32.64,
-   "kind": "place",
-   "mood": "deep",
-   "place": "days pass along the wall: the shield set down again and again, a dull thud each time"
-  },
-  {
-   "t0": 32.64,
-   "t1": 38.01,
-   "kind": "place",
-   "mood": "deep",
-   "place": "one spot by the wall: the shield rings, dust shivers on the bronze (macro)"
-  },
-  {
-   "t0": 38.01,
-   "t1": 42.04,
-   "kind": "place",
-   "mood": "deep",
-   "place": "cross-section under the wall: the Persian tunnel, diggers by lamplight, picks striking"
-  },
-  {
-   "t0": 42.04,
-   "t1": 48.629999999999995,
-   "kind": "place",
-   "mood": "deep",
-   "place": "the shield over solid earth (still) vs over the tunnel (rings drawn in the dust), cross-section below"
-  },
-  {
-   "t0": 48.629999999999995,
-   "t1": 52.92999999999999,
-   "kind": "place",
-   "mood": "deep",
-   "place": "the defenders dig straight down and break into the tunnel from above"
-  },
-  {
-   "t0": 52.92999999999999,
-   "t1": 58.61,
-   "kind": "place",
-   "mood": "deep",
-   "place": "the shield lying in the dirt above the tunnel, the army's camp beyond"
-  }
- ],
+ "rhythm": 1,
+ "contour_seed": 178569111,
  "provenance": {
   "generator": "pipeline.audio.score",
+  "arrangement": "story_ricks",
   "soundfont": "GeneralUser-GS",
   "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
   "soundfont_licence": "GeneralUser GS License v2.0 (v2.0.3): use without restriction for music creation, private or commercial, including profit from recordings made with it",
-  "seed": 3512381238
+  "seed": 839539391
  },
- "n_notes": 402,
+ "n_notes": 513,
  "tracks": [
-  "arp:celesta",
-  "arp:halopad",
-  "arp:piano",
-  "arp:warmpad",
-  "bass:contrabass",
+  "arp:harp",
   "bass:fingerbass",
   "bells:celesta",
-  "motif:celesta",
-  "motif:piano",
-  "pad:atmosphere",
-  "pad:halopad",
-  "pad:warmpad",
-  "perc:timpani",
-  "pulse:harp",
-  "stab:strings"
+  "bells:harp",
+  "motif:pizz",
+  "pad:halopad"
  ]
 }

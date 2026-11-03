@@ -7,11 +7,12 @@ title: The Ancient Shield That Heard an Army Underground
 alt_titles: Why a Smith Kept Putting His Shield on the Ground | The Shield That Listened
 target_runtime_s: 58-63 (RicksClips Shorts run ~60-65 s; 3.4-3.9 words per second)
 target_words: ~215 spoken
-speed: 1.27
+speed: 1.18
 paragraph_pause: 0.08
 hook: strange act in frame 0 (a bronze-smith laying his shield on the ground while an army is camped outside)
 voice: am_michael
 music: score
+audio_profile: story_ricks
 ending: the payoff line (the shield in the dirt heard every swing), video ends within 0.5 s of it
 premise_evidence: research/library/STORY_TOPIC_QUEUE.md rank 1 (story lane S1-S6 plus S-env). Real mechanism from a named place and era (Barca, Libya, c. 515-510 BC), a strange act first, the "You see," pivot into the mechanism at about 2/3, a mechanism you can watch (a shield that rings over a tunnel), a city at stake, and places the camera travels through (the Persian camp, the walls, the streets behind them, the tunnel under the wall). Not told by RicksClips3000.
 references:
