@@ -8,11 +8,14 @@ import type { Timing } from "../kit/timing";
 import { fit as fit0, personBox, sm, tagSprite, setRoom, type Box } from "../kit/framing";
 import { castKey } from "../kit/castframe";
 import { crowd } from "../kit/density";
+import { lanternPost } from "../kit/dressing";
+import { glowSprite } from "../kit/sets";
 import type { CamKey } from "../kit/campath";
 import { faceTrack, poseTrack, wordT, markAt, type Word } from "../kit/acting";
 import { mapSet, routeRig } from "../kit/cutaways";
 import { glints, burst, debris, counter } from "../kit/fx2";
 import { lightArc, mixKey } from "../kit/lightarc";
+import { PRESETS } from "../kit/presets";
 import { Rising } from "../kit/fx";
 import { barcaSet, shieldMacroSet, sectionSet, shieldMesh, SEC, WALL, CAMP } from "./sets";
 
@@ -49,6 +52,11 @@ const shiver = (t0: number): Rig => (ctx) => {
   return (t) => { const k = t >= t0 ? Math.min(1, (t - t0) / 0.4) : 0; const f = Math.floor(t * 30);
     for (const s of specks) { const j = Math.sin(f * 2.1 + s.ph); s.m.position.set(s.x + k * 0.006 * j, s.y + k * 0.012 * Math.abs(Math.sin(f * 1.3 + s.ph)), s.z + k * 0.006 * Math.cos(f * 1.7 + s.ph)); } };
 };
+/** lantern posts with a warm glow (night scenes by lantern light) */
+const lanterns = (at: V3[]): Rig => (ctx) => {
+  for (const p of at) { const l = lanternPost(2.0); l.position.set(...p); ctx.root.add(l); const g = glowSprite(ctx.root, [255, 190, 110], 2.6, p[0], p[1] + 1.9, p[2]); (g as THREE.Object3D).userData.bloom = true; ctx.set.glows.push(g); }
+  return () => {};
+};
 /** a label that fades in and out at fixed times */
 const label = (text: string, at: V3, t0: number, t1: number, h = 0.12): Rig => (ctx) => {
   const s = tagSprite(text, h); s.position.set(...at); ctx.root.add(s);
@@ -57,7 +65,11 @@ const label = (text: string, at: V3, t0: number, t1: number, h = 0.12): Rig => (
 };
 
 export function buildStory(T: Timing): BarcaStory {
-  const DAY = mixKey("day", "night", 0.12), GOLD = mixKey("golden", "night", 0.1);
+  // v15: richer colour (v15 first render measured saturation 0.385 and colourfulness 21 against >= 0.414 and >= 23 after
+  // the kit's white faces): plain day and golden with world and grade saturation lifted, registered as named presets
+  const vivid = (name: string, k: number) => { const p = PRESETS[name]; const key = `${name}+vivid`;
+    PRESETS[key] = { ...p, sat: p.sat * k, grade: { ...p.grade, sat: p.grade.sat.map((v) => v * (1 + (k - 1) * 1.6)) as [number, number, number] } }; return key; };
+  const DAY = vivid("day", 1.22), GOLD = vivid("golden", 1.22);
   const words = T.words as Word[];
   const w = (word: string, after = -1, n = 1) => wordT(words, word, n, after);
   const END = words[words.length - 1].end + 0.4;
@@ -78,6 +90,7 @@ export function buildStory(T: Timing): BarcaStory {
   const SPOT: V3 = [-6.6, 0, -3.0];                                  // where it rings, by the tower
   const smith = (face: unknown, extra: Record<string, unknown> = {}) => ({ costume: "smith", seed: 3, face, ...extra });
 
+  ROOM = CITY;
   ROOM = CITY;
   // ================= 1a hook, "With an army outside the walls,": the Persian army massed at Barca's wall, ladders up, the
   // ram at the gate, smoke (panel rounds 1-2: "no army visible" on a static wall); then 1b the smith, close
@@ -104,8 +117,8 @@ export function buildStory(T: Timing): BarcaStory {
     const faces = faceTrack(words, "focus", [{ word: "spent", face: "puzzled" }, { word: "dirt.", face: "focus" }], t0);
     const down = w("laying") + 0.4;                                  // the shield leaves his hands and lies in the dirt
     groups.push({ sun: "auto", id: "hook", place: "inside", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 8 }, light: GOLD,
-      cam: [cK(t0, [SM0], "close", 196, 2, 36), cK(w("laying"), [SM0], "close", 160, 12, 36)],
-      people: [{ id: "smith", at: () => SM0, faceTo: () => [SM0[0] + 1, 0, SM0[2]], props: (t) => smith(faces, { crouch: t < down ? 0.3 : 1, pose: t < down - 0.1 ? "hold" : "push", item: t < down ? "shield" : "none" }) }],
+      cam: [cK(t0, [SM0], "close", 196, 2, 36)],
+      people: [{ id: "smith", at: () => SM0, faceTo: () => [SM0[0] + 1, 0, SM0[2]], props: (t) => smith(faces, { kneel: t < down ? 0 : 1, pose: t < down - 0.1 ? "hold" : "reach", item: t < down ? "shield" : "none" }) }],
       rigs: [groundShield([SM0[0] + 0.85, 0.01, SM0[2] + 0.1], (t) => t >= down), debris([{ at: [SM0[0] + 0.85, 0.05, SM0[2] + 0.1], t: down, n: 14, kind: "shard", size: 0.03, floorY: 0.02, up: 1.2 }])] });
   }
   // ================= 2 the guards on the wall laugh down at him
@@ -186,7 +199,7 @@ export function buildStory(T: Timing): BarcaStory {
     const faces = faceTrack(words, "focus", [{ word: "listens,", face: "puzzled" }, { word: "again.", face: "focus" }], t0);
     groups.push({ sun: "auto", id: "walk", place: "inside", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 8 }, light: DAY,
       cam: [cK(t0, [at(t0), at(tHe)], "medium", 160, 8, 40), cK(tHe + 0.2, [at(tHe + 0.4)], "close", 196, 8, 36), { ...fit(tThen, [personBox(at(tThen)), personBox(at(t1)), [-19.8, 0, -3.6, -12.8, 0.1, -2.4]], 172, 26, 40, { b: 0.12, t: 0.1, x: 0.1 }), glide: 0.6, drift: 0.15 }],   // fit, not castKey: castKey zooms to a head size and lets a walker leave
-      people: [{ id: "smith", at, faceTo: (t) => [x(t) + 1, 0, -3], props: (t) => smith(faces, { crouch: kneel(t), pose: "hold", item: kneel(t) ? "none" : "shield", walk: kneel(t) ? 0 : 1 }) }],
+      people: [{ id: "smith", at, faceTo: (t) => [x(t) + 1, 0, -3], props: (t) => smith(faces, { kneel: kneel(t), pose: kneel(t) ? "reach" : "hold", item: kneel(t) ? "none" : "shield", walk: kneel(t) ? 0 : 1 }) }],
       rigs: [groundShield([-15.2, 0.01, -2.9], (t) => t >= tHe + 0.5 && t < tThen), groundShield([-13.5, 0.01, -2.9], (t) => t >= w("again.") - 0.3),
         dustRings([{ at: [-19.5, 0, -2.9], t: 0 }, { at: [-17.4, 0, -2.9], t: 0 }, { at: [-15.2, 0, -2.9], t: tThen }])] });
   }
@@ -211,7 +224,7 @@ export function buildStory(T: Timing): BarcaStory {
     const at = (t: number): V3 => [xs[k(t)], 0, -3.0];
     groups.push({ sun: "auto", id: "days", place: "inside", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 8 }, light: lightArc([[t0, DAY], [t0 + 0.4, GOLD, 0.3], [t0 + 0.8, DAY, 0.3]]),
       cam: [cK(t0, xs.map((x): V3 => [x, 0, -3]), "medium", 196, 10, 40, 1, [[-11.4, 1.6, -1.6, -7.8, 3.2, -1.5]])],
-      people: [{ id: "smith", at, faceTo: () => [0, 0, -3], props: () => smith(faceTrack(words, "worried", [{ word: "nothing.", face: "deadpan" }], t0), { crouch: 1, pose: "hold" }) }],
+      people: [{ id: "smith", at, faceTo: () => [0, 0, -3], props: () => smith(faceTrack(words, "worried", [{ word: "nothing.", face: "deadpan" }], t0), { kneel: 1, pose: "reach" }) }],
       rigs: [counter({ at: [-9.6, 2.4, -1.47], rotY: Math.PI, w: 1.5, digits: 1, from: 3, to: 9, t0, t1, steps: [[t0, 3], [t0 + 0.45, 5], [t0 + 0.9, 7], [w("nothing."), 9]], label: "DAY" }),
         (ctx) => { const s = shieldMesh(0.42); ctx.root.add(s); return (t) => { const p = at(t); s.position.set(p[0] + 0.85, 0.01, -2.9); }; }] });
   }
@@ -228,7 +241,7 @@ export function buildStory(T: Timing): BarcaStory {
     const t0 = tThen2, t1 = tSets2;
     groups.push({ sun: "auto", id: "spot", place: "tower", t0, t1, xfade: 0.6, set: () => barcaSet(), lens: { cInf: 8 }, light: GOLD,
       cam: [cK(t0, [SPOT], "close", 214, 10, 36, 1, [])],
-      people: [{ id: "smith", at: () => SPOT, faceTo: () => [SPOT[0] + 1, 0, SPOT[2]], props: () => smith("focus", { crouch: 1, pose: "hold" }) }],
+      people: [{ id: "smith", at: () => SPOT, faceTo: () => [SPOT[0] + 1, 0, SPOT[2]], props: () => smith("focus", { kneel: 1, pose: "reach" }) }],
       rigs: [groundShield([SPOT[0] + 0.85, 0.01, SPOT[2] + 0.1])] });
   }
   // ================= 12 it rings, and the dust on the bronze starts to shiver (macro)
@@ -255,14 +268,27 @@ export function buildStory(T: Timing): BarcaStory {
     return { id: `dig${i}`, scale: 0.8, at: () => [x, floor, -0.7], faceTo: () => [x - 1, floor, -0.7],
       props: (t) => ({ costume: "digger", seed: 40 + i, face: "focus", item: "pick", pose: Math.floor((t - t0) / 0.3 + i) % 2 ? "strike" : "strikeUp" }) };
   });
+  /** above the tunnel, while they dig: a ram swinging into the wall slice, dust bursting off it (v15: "show the walls
+   * under attack while the miners dig") */
+  const siegeAbove = (t0: number): Rig => (ctx) => {
+    const g = new THREE.Group(); g.position.set(6.6, 0.12, -2.0); ctx.root.add(g);
+    const wood = new THREE.MeshLambertMaterial({ color: "#6b4426" });
+    const roof = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.18, 1.6), wood); roof.position.set(0.3, 1.5, 0); g.add(roof);
+    for (const [x, z] of [[-0.4, -0.7], [1.0, -0.7], [-0.4, 0.7], [1.0, 0.7]]) { const p = new THREE.Mesh(new THREE.BoxGeometry(0.12, 1.5, 0.12), wood); p.position.set(x, 0.75, z); g.add(p); }
+    const log = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 2.4, 10), wood); log.rotation.z = Math.PI / 2; log.position.set(0, 0.9, 0); g.add(log);
+    const dust = burst(Array.from({ length: 12 }, (_, k) => ({ at: [5.75, 1.2, -1.6] as V3, t: t0 + 0.55 + k * 0.7, size: 0.7 })))(ctx);
+    return (t, cam) => { const ph = ((t - t0) / 0.7) % 1; log.position.x = -0.35 * Math.sin(Math.min(1, ph / 0.25) * Math.PI / 2) * (ph < 0.25 ? 1 : 1 - (ph - 0.25) / 0.75) * -1 - 0.2; (dust as (t: number, c: unknown) => void)(t, cam); };
+  };
   /** chips flying off the tunnel face as the picks strike */
   const chips = (t0: number, t1: number): Rig => debris(Array.from({ length: Math.max(1, Math.floor((t1 - t0) / 0.6)) }, (_, k) => ({ at: [SEC.cav.x - SEC.cav.w / 2 + 0.6 + (k % 3) * 1.6, SEC.cav.y - SEC.cav.h + 1.2, -0.6] as V3, t: t0 + 0.2 + k * 0.6, n: 10, kind: "shard" as const, size: 0.04, floorY: SEC.cav.y - SEC.cav.h + 0.05, up: 0.8, seed: k })));
   {
     const t0 = tYou, t1 = tOver;
     groups.push({ sun: "auto", id: "under", place: "section", insert: true, t0, t1, xfade: 0.6, set: () => sectionSet(), lens: { cInf: 3 }, light: lightArc([[t0, "explain"]]),
-      cam: [fit(t0, [[-3.0, -5.2, -1, 6.0, 4.2, 0.4]], 0, 8, 40, { b: 0.36, t: 0.06, x: 0.02 }), fit(tAlso, [[-0.6, SEC.cav.y - SEC.cav.h, -1, 5.0, SEC.cav.y + 0.6, 0.2]], -26, 4, 32, { b: 0.42, t: 0.18 })],
-      people: sectionCast(t0), clouds: false,
-      rigs: [chips(t0, t1), (ctx) => { const lamp = ctx.set.extra.lamp as THREE.Mesh; return (t) => { lamp.scale.setScalar(1 + 0.15 * Math.sin(Math.floor(t * 12) * 1.7)); }; }] });
+      cam: [{ ...fit(t0, [[1.0, -4.8, -1, 8.4, 2.8, 0.4]], 0, 8, 40, { b: 0.36, t: 0.06, x: 0.04 }), drift: 0.2 }, fit(tAlso, [[-0.6, SEC.cav.y - SEC.cav.h, -1, 5.0, SEC.cav.y + 0.6, 0.2]], -26, 4, 32, { b: 0.42, t: 0.18 })],
+      people: [...sectionCast(t0), ...[[5.7, -2.4], [6.3, -1.4], [6.9, -2.0]].map(([x, z], i): PersonSpec => ({ id: `ps${i}`, scale: 0.8, at: () => [x, 0.12, z], faceTo: () => [4, 0.12, z], visible: (t: number) => t < tAlso - 0.3,
+        props: (t) => ({ costume: i % 2 ? "persian2" : "persian", seed: 85 + i, face: "furious", pose: Math.floor((t - t0) / 0.35 + i) % 2 ? "push" : "armsUp" }) }))],
+      clouds: false,
+      rigs: [siegeAbove(t0), chips(t0, t1), (ctx) => { const lamp = ctx.set.extra.lamp as THREE.Mesh; return (t) => { lamp.scale.setScalar(1 + 0.15 * Math.sin(Math.floor(t * 12) * 1.7)); }; }] });
   }
   {
     const t0 = tOver, t1 = tSo2;
@@ -290,7 +316,7 @@ export function buildStory(T: Timing): BarcaStory {
       cam: [{ ...fit(t0, [personBox(SPOT), ...D.map((d) => personBox(d))], 196, 14, 40, { b: 0.1, t: 0.12, x: 0.14 }), drift: 0.3 }],
       people: [{ id: "smith", at: () => SPOT, faceTo: () => [SPOT[0] + 1, 0, SPOT[2]], props: () => smith("focus", { pose: "point" }) },
         ...D.map((p, i): PersonSpec => ({ id: `d${i}`, at: () => p, faceTo: () => [SPOT[0] + 0.85, 0, SPOT[2]], props: (t) => ({ costume: i ? "hoplite2" : "hoplite", seed: 50 + i, face: "furious", item: "spade", pose: Math.floor((t - t0) * 2.5 + i) % 2 ? "strike" : "strikeUp" }) }))],
-      rigs: [dustRings([{ at: [SPOT[0] + 0.85, 0, SPOT[2] + 0.1], t: 0 }])] });
+      rigs: [dustRings([{ at: [SPOT[0] + 0.85, 0, SPOT[2] + 0.1], t: 0 }]), lanterns([[SPOT[0] - 0.4, 0, SPOT[2] + 0.9], [SPOT[0] + 2.8, 0, SPOT[2] + 0.5]])] });
   }
   ROOM = null;
   // ================= 17 they dug straight down and broke into the tunnel from above (section)
@@ -317,17 +343,24 @@ export function buildStory(T: Timing): BarcaStory {
       cam: [fit(t0, [[-30, 0, 4, 34, 10, 70]], 196, 22, 44, { b: 0.3, t: 0.1 })],
       people: [], rigs: [] });
   }
-  // ================= 19 and a shield lying in the dirt heard every swing: the cut once more, from the picks in the
-  // tunnel up to the shield on the surface, ringing on every swing (panel round 2: "the payoff is told, not shown")
+  // ================= 19 (v15) and a shield lying in the dirt heard every swing: back to people at the end, at night by
+  // lantern light: the smith kneeling, ear down to the shield, the defenders with spades behind him, the shield ringing
+  // on every swing (panel round 3: "the cross-section held for the last 17 s")
+  ROOM = CITY;
   {
     const t0 = tAnd3, t1 = END;
     const rings = ["heard", "every", "swing."].map((x) => w(x, tAnd3));
-    groups.push({ sun: "auto", id: "last", place: "section-end", insert: true, t0, t1, xfade: 0.6, set: () => sectionSet(), lens: { cInf: 3 }, light: "explain",
-      cam: [fit(t0, [[SEC.shieldHollow - 1.8, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 1.8, SEC.cav.y + 0.4, 0.4]], 8, 4, 38, { b: 0.42, t: 0.12 }),
-        { ...fit(rings[0], [[SEC.shieldHollow - 2.4, SEC.cav.y - SEC.cav.h, -1, SEC.shieldHollow + 2.4, 1.2, 0.6]], -6, 28, 38, { b: 0.42, t: 0.08, x: 0.06 }), glide: 1.2 }],
-      people: sectionCast(t0), clouds: false,
-      rigs: [chips(t0, t1), burst(rings.flatMap((t) => [{ at: [SEC.cav.x, SEC.cav.y - 0.6, 0.1] as V3, t: t - 0.12, size: 0.6 }, { at: [SEC.shieldHollow, 0.3, -0.4] as V3, t, size: 1.2 }])),
-        glints(rings.map((t, k) => ({ at: [SEC.shieldHollow + 0.3 - k * 0.2, 0.32, -0.2] as V3, t: t + 0.04, size: 0.12 })))] });
+    const SH: V3 = [SPOT[0] + 0.75, 0.01, SPOT[2] + 0.15];
+    const D: V3[] = [[SPOT[0] - 1.2, 0, SPOT[2] - 1.6], [SPOT[0] + 2.0, 0, SPOT[2] - 1.4]];
+    groups.push({ sun: "auto", id: "last", place: "tower-night", t0, t1, xfade: 0.6, set: () => barcaSet({ night: true }), lens: { cInf: 8 }, light: "night", alive: [[t0, t1]],
+      // kneeling: framed on his kneeling height with the caption band below him (castKey assumes a standing head)
+      cam: [fit(t0, [[SPOT[0] - 0.4, 0, SPOT[2] - 0.3, SPOT[0] + 1.3, 1.25, SPOT[2] + 0.4]], 200, 10, 36, { b: 0.46, t: 0.16 }),
+        { ...fit(rings[0], [[SPOT[0] - 0.8, 0, SPOT[2] - 0.4, SPOT[0] + 1.6, 1.25, SPOT[2] + 0.5]], 186, 18, 40, { b: 0.46, t: 0.22 }), glide: 1.2 }],
+      people: [{ id: "smith", at: () => SPOT, faceTo: () => [SPOT[0] + 1, 0, SPOT[2]], props: () => smith(faceTrack(words, "focus", [{ word: "heard", after: tAnd3, face: "sly" }], t0), { kneel: 1, pose: "reach" }) },
+      ],
+      rigs: [groundShield(SH), lanterns([[SPOT[0] - 0.4, 0, SPOT[2] + 0.9], [SPOT[0] + 2.8, 0, SPOT[2] + 0.5]]),
+        burst(rings.map((t) => ({ at: [SH[0], 0.1, SH[2]] as V3, t, size: 1.0 }))), glints(rings.map((t) => ({ at: [SH[0] + 0.2, 0.08, SH[2] + 0.1] as V3, t: t + 0.04, size: 0.09 })))] });
   }
+  ROOM = null;
   return { groups };
 }

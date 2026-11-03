@@ -74,7 +74,7 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   // gate doors (planks) and the merlons along the outer edge of the walk
   const planks = lambert({ map: grainPlanks([2, 1], { hue: 26, light: 40, vertical: true }) });
   box(root, planks, 3.4, 4.6, 0.3, WALL.gateX, 2.3, 0.9);
-  for (let x = -39; x < 44; x += 1.6) if (Math.abs(x - WALL.gateX) > 0.2 || true) box(root, stone, 0.9, 1.1, 0.5, x, WALL.h + 0.55, 1.25, true, TILE);
+  for (let x = -39; x < 44; x += 1.6) box(root, stone, 0.9, 1.1, 0.5, x, WALL.h + 0.55, 1.25, true, TILE);
   // a low inner parapet so the guards lean on something
   box(root, stoneDark, 84, 0.5, 0.3, 2, WALL.h + 0.25, -1.35, true, TILE);
   // the tower at the corner
@@ -107,8 +107,9 @@ export function barcaSet(o: { ram?: boolean; ladders?: boolean; night?: boolean 
   // outside, just beyond the wall behind the hook: a siege tower and tall Persian standards that show over the wall
   const tower = new THREE.Group();
   box(tower, planks, 4.2, 15, 4.2, 0, 7.5, 0);
+  for (const [x, z] of [[-2, -2], [2, -2], [-2, 2], [2, 2]]) box(tower, lambert({ color: "#4b2e1a" }), 0.25, 1.4, 0.25, x, 15.7, z);   // the open fighting platform (v15: soldiers stand on it)
   for (let y = 2; y < 15; y += 2.5) box(tower, lambert({ color: "#4b2e1a" }), 4.4, 0.25, 4.4, 0, y, 0);
-  const tTop = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 3.4, 2.4, 4), lambert({ color: "#7a3b2c" })); tTop.rotation.y = Math.PI / 4; tTop.position.y = 16.2; tower.add(tTop);
+  const tTop = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 3.4, 2.4, 4), lambert({ color: "#7a3b2c" })); tTop.rotation.y = Math.PI / 4; tTop.position.y = 17.8; tTop.scale.set(1, 0.6, 1); tower.add(tTop);
   tower.position.set(-6.5, 0, 6.5); root.add(tower);
   for (const [x, z, col] of [[-17, 9.0, "#7a2a4a"], [-24, 10.5, "#e0b04a"], [27, 9.5, "#c94b3a"]] as [number, number, string][]) {   // round-2 craft: clear of the walk shots
     cyl(root, lambert({ color: "#5b3a22" }), 0.14, 19, x, 9.5, z, 6);
@@ -194,7 +195,7 @@ export function sectionSet(): SetBuild {
   const s = crossSectionSet({ bands, width: SEC.W, depth: 4, cavity: { ...SEC.cav, d: 1.6, color: "#3a2a26" }, grass: false, frame: true, sky: ["#3a3a7a", "#b07a8a", "#f0b880"], seed: 8 });
   // the earth round the cut (panel round 1: "an empty navy void" under and beside the section): dark soil on all
   // sides of the diorama, lit by the scene so it reads as more ground, not a backdrop
-  const earth = lambert({ map: dirtTex([8, 8], 31, "#4a3428") });
+  const earth = lambert({ map: dirtTex([8, 8], 31, "#8a6446") });   // v15: lighter (judges: "a dark band at the bottom")
   box(s.root, earth, 60, 30, 1, 0, -20.6, -2);            // below the cut
   box(s.root, earth, 30, 30, 4, -SEC.W / 2 - 15.4, -15, -2); box(s.root, earth, 30, 30, 4, SEC.W / 2 + 15.4, -15, -2);
   // the surface: packed dirt on top of the block
@@ -203,6 +204,10 @@ export function sectionSet(): SetBuild {
   box(s.root, lambert({ map: stoneCourses([1, 1], { hue: 34, light: 60, seed: 3 }) }), 2.2, 4.2, 3.6, 4.6, 2.1, -1.9, true, 4);
   const sh1 = shieldMesh(0.42), sh2 = shieldMesh(0.42);
   sh1.position.set(SEC.shieldSolid, 0.12, -0.6); sh2.position.set(SEC.shieldHollow, 0.12, -0.6); s.root.add(sh1, sh2);
+  // v15 (judges: "a plain back wall"): the tunnel's back wall is pick-scarred rock with timber lagging
+  const rockBack = lambert({ map: stoneCourses([3, 1], { hue: 26, light: 34, seed: 12 }) });
+  box(s.root, rockBack, SEC.cav.w - 0.1, SEC.cav.h - 0.1, 0.04, SEC.cav.x, SEC.cav.y - SEC.cav.h / 2, -1.56);
+  for (let k = 0; k < 9; k++) box(s.root, lambert({ map: grainPlanks([1, 1], { hue: 24, light: 30 }) }), SEC.cav.w - 0.2, 0.08, 0.05, SEC.cav.x, SEC.cav.y - 0.1 - k * 0.22, -1.52, false);
   // tunnel timbers and a lamp on the back wall
   const wood = lambert({ map: grainPlanks([1, 1], { hue: 26, light: 38 }) });
   for (const x of [-0.4, 2.2, 4.8]) { box(s.root, wood, 0.16, SEC.cav.h, 0.16, x, SEC.cav.y - SEC.cav.h / 2, -1.4); box(s.root, wood, 0.9, 0.14, 1.5, x, SEC.cav.y - 0.07, -0.8); }
