@@ -8,3 +8,7 @@ experiments/tis-remake/ref/
 experiments/tis-remake/**/*.mp4
 experiments/tis-remake/remotion/out/
 experiments/tis-remake/remotion/node_modules
+
+# voice track A/Bs: they hold reference clips (RicksClips) for comparison, so audio stays out of git
+out/rnd-voice/*.m4a
+out/rnd-voice/*.wav
