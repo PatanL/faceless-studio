@@ -306,7 +306,9 @@ def synthesize(script: Script, cfg: dict, force_whisper: bool = False, log=print
     audio = np.concatenate(pieces)
     if str(cfg.get("melody", "off")).lower() == "rules" and words:  # rule-based melody shaper (melody.py), opt-in
         from .melody import apply_external, remap
-        audio, words, tmap = apply_external(audio, words, cfg, SR, log=log)
+        mspec = {**(cfg.get("melody_spec") or {}),  # the script's own stress/unstress lists guide the shaper
+                 **{k: script.meta[k] for k in ("stress", "unstress") if script.meta.get(k)}}
+        audio, words, tmap = apply_external(audio, words, {**cfg, "melody_spec": mspec}, SR, log=log)
         cues = [{**c, "at": round(remap(c["at"], tmap), 3)} for c in cues]
         gains = [(int(remap(i / SR, tmap) * SR), int(remap(j / SR, tmap) * SR), db) for i, j, db in gains]
     audio = voice_chain(audio, cfg.get("voice_chain", ""))

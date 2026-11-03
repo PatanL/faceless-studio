@@ -44,7 +44,10 @@ def _plan(words, text, p):
         sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
         from pipeline.audio import emphasis as E
     toks = text.split()
-    marks = {m.index: m.reason for m in E.mark(text, density=p["density"])} if len(toks) == len(words) else {}
+    def _ls(v):  # front matter "stress: a, b" or a list
+        return [x.strip() for x in v.split(",") if x.strip()] if isinstance(v, str) else list(v or [])
+    marks = {m.index: m.reason for m in E.mark(text, force=_ls(p.get("stress")), veto=_ls(p.get("unstress")),
+                                               density=p["density"])} if len(toks) == len(words) else {}
     sents, cur = [], []
     for i, (w, _, _) in enumerate(words):
         cur.append(i)
