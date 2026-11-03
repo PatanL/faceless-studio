@@ -249,14 +249,18 @@ export function buildStory(T: Timing): MyeongStory {
       rigs: [currentRig((t) => -0.75 * Math.min(t, tDead), (t) => 1 - 0.85 * clamp01((t - tSlow) / (tDead - tSlow))), corkRig(corkP), glints([{ at: [cx(tDead), 0.7, CORK0[2]], t: tDead, size: 1.2 }])] });
   }
   // ================= 17 just as the enemy flagship pulls close enough to spit on (alongside his bow)
-  const JF: Berth = { x: 31, z: 7.4, yaw: Math.PI, k: 3 };
+  const JF: Berth = { x: 31, z: 6.0, yaw: Math.PI, k: 3 };
   {
     const t0 = w("just", tDead), t1 = w("You");
     const slide = (t: number) => 3 * (1 - sm((t - t0) / (w("close", t0) - t0 + 0.3)));
-    const EA = (t: number) => onDeck({ ...JF, x: JF.x + slide(t) }, 6.4, 1.6, DECK_J);
+    const EA = (t: number) => onDeck({ ...JF, x: JF.x + slide(t) }, 3.4, 1.0, DECK_J);
     const A2 = onDeck(FLAG, 8.0, 2.6, DECK_K);
+    // from his own deck, behind his shoulder: the enemy rides up alongside toward the lens (a side-on view from the
+    // enemy side put the admirals 4-7 m apart across a portrait frame, heads 0.03-0.05); a wider side margin keeps
+    // his big near head off the left edge
+    const key = (t: number, az: number, el: number, fov: number): CamKey => ({ ...fit(t, [A2, EA(t0), EA(t1)].map((p) => personBox(p)), az, el, fov, { b: 0.34, t: 0.16, x: 0.2 }), drift: 0 });
     add({ id: "spit", place: "bow", t0, t1, xfade: 0, join: { kind: "cut" }, set: () => straitSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [A2, EA(t0), EA(t1)], -20, 6, 42, 0), { ...pair(t1, [A2, EA(t0), EA(t1)], -10, 6, 38, 0), glide: 1 }], alive: [[t0, t1]],
+      cam: [key(t0, -94, 15, 42), { ...key(t1, -86, 13, 38), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "adm", at: () => A2, faceTo: () => EA(t1), props: () => admProps(faceTrack(words, "deadpan", [], t0), "hold") },
         { id: "ea", at: EA, faceTo: () => A2, props: () => ({ costume: "samurai2", seed: 71, face: faceTrack(words, "cackle", [{ word: "spit", face: "angry", react: [{ face: "squeeze", frames: 2 }] }], t0), pose: poseTrack(words, "point", [["spit", "strikeUp"]], t0) }) }],
       rigs: [currentRig(() => 0, () => 0.15), fleetRig((b) => korean(b.k === 0, true), MINE), fleetRig((b) => japanese(b.k), [JF], (t) => ({ dx: slide(t) })), fleetRig((b) => japanese(b.k), FRONT.slice(3, 20))] });
