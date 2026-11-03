@@ -8,6 +8,7 @@ import { Timing } from "../src/kit/timing";
 import { buildStory as turkStory } from "../src/turk/story";
 import { buildStory as vasaStory } from "../src/vasa/story";
 import { buildStory as barcaStory } from "../src/barca/story";
+import { buildStory as myeongStory } from "../src/myeongnyang/story";
 import { CamPath } from "../src/kit/campath";
 import { personBox } from "../src/kit/framing";
 import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
@@ -22,7 +23,7 @@ const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least thi
 const sb = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const T = new Timing(sb.scenes.map((s: { duration: number }) => s.duration), sb.captions.words);
 // which episode: the storyboard's id (story-chess-turk | story-vasa)
-const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : sb.id === "story-barca-shield" ? barcaStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
+const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : sb.id === "story-barca-shield" ? barcaStory(T).groups : sb.id === "story-myeongnyang" ? myeongStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
 const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 200);
 const paths = new Map(groups.map((g) => [g, new CamPath(g.cam, g.t0, g.t1)]));
 const total = Math.round(T.total * FPS);
@@ -146,7 +147,7 @@ console.log(`groups: ${groups.map((g) => `${g.id} ${g.t0.toFixed(2)}-${g.t1.toFi
     { name: "DISTANCE panel", kind: "progress", value: vs.dist },
     { name: "HEEL gauge", kind: "gauge", tol: 2, value: (t) => { const h = vs.heel(t); return h === null ? null : Math.abs((h * 180) / Math.PI); } },
   ] : [];
-  const r = runGates(groups as unknown as GroupSpec[], T.words, { fps: FPS, hud });
+  const r = runGates(groups as unknown as GroupSpec[], T.words, { fps: FPS, hud, joins: sb.id === "story-myeongnyang" ? "ricks" : undefined });
   console.log(`kit gates: ${r.failures.length ? r.failures.length + " failure(s)\n  " + r.failures.join("\n  ") : "clean"}\n  ${r.notes.join("\n  ")}`);
   if (r.failures.length) process.exitCode = 1;
 }

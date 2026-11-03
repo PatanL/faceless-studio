@@ -5,6 +5,7 @@ import { GLInfo } from "./GLInfo";
 import { Turk3D } from "./turk/Turk3D";
 import { Vasa3D } from "./vasa/Vasa3D";
 import { Barca3D } from "./barca/Barca3D";
+import { Myeongnyang3D } from "./myeongnyang/Myeongnyang3D";
 import { parseStoryboard, sceneTimings } from "../../../studio/src/core/schema";
 
 // 90 frames = the ~3 s dolly; a Short would be ~1900 frames of shots like this.
@@ -33,6 +34,17 @@ export const Root: React.FC = () => (
       }} />
     {/* story-barca-shield: props = episodes/story-barca-shield/storyboard.json; ends 0.4 s after the last word */}
     <Composition id="Barca3D" component={Barca3D} width={1080} height={1920} fps={30} durationInFrames={1734}
+      defaultProps={{} as never}
+      calculateMetadata={({ props }) => {
+        try {
+          const sb = parseStoryboard(props);
+          const ws = sb.captions?.words ?? [];
+          const end = ws.length ? Math.ceil((ws[ws.length - 1].end + 0.4) * 30) : sceneTimings(sb).totalFrames;
+          return { durationInFrames: Math.min(end, sceneTimings(sb).totalFrames) };
+        } catch { return {}; }
+      }} />
+    {/* story-myeongnyang: props = episodes/story-myeongnyang/storyboard.json; ends 0.4 s after the last word */}
+    <Composition id="Myeongnyang3D" component={Myeongnyang3D} width={1080} height={1920} fps={30} durationInFrames={1680}
       defaultProps={{} as never}
       calculateMetadata={({ props }) => {
         try {

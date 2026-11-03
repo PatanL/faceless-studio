@@ -105,7 +105,13 @@ export type Join =
   | { kind: "match"; frames?: number; anchor: (t: number) => [number, number]; feather?: number }
   | { kind: "push"; frames: number; portal: (t: number) => Shape }
   | { kind: "into"; frames: number; quad: (t: number) => [number, number][]; until?: number }
-  | { kind: "outOf"; frames: number; quad: (t: number) => [number, number][]; pre?: number };
+  | { kind: "outOf"; frames: number; quad: (t: number) => [number, number][]; pre?: number }
+  // story-myeongnyang (owner, 2026-11-02, the RicksClips join mix): a short cross-dissolve (5-8 f, centred on the
+  // change; match: the incoming shot is framed so an object keeps its spot on screen), and a travel join: the camera
+  // flies on through one connected world, so the change of group is a seam the viewer never sees (the gate checks that
+  // the camera is continuous across it and that both groups build the same world)
+  | { kind: "dissolve"; frames?: number; match?: boolean }
+  | { kind: "travel"; world: string };
 
 const sm = (u: number) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
 const joinOf = (g: GroupSpec | undefined): Join | null => (!g ? null : g.join ?? (g.xfade > 0 ? { kind: "whip", dur: g.xfade } : { kind: "cut" }));
@@ -132,8 +138,10 @@ export function layersOf(groups: GroupSpec[], fps: number, endFrame?: number): L
     if (inJ?.kind === "whip") from = Math.round((g.t0 - nIn / fps / 2) * fps);
     if (inJ?.kind === "match") from = T - Math.floor((inJ.frames ?? 7) / 2);
     if (inJ?.kind === "push") from = T - inJ.frames;
+    if (inJ?.kind === "dissolve") from = T - Math.floor((inJ.frames ?? 6) / 2);
     if (outJ?.kind === "whip") to = Math.round((g.t1 + nOut / fps / 2) * fps);
     if (outJ?.kind === "match") to = T1 + ((outJ.frames ?? 7) - Math.floor((outJ.frames ?? 7) / 2));
+    if (outJ?.kind === "dissolve") to = T1 + ((outJ.frames ?? 6) - Math.floor((outJ.frames ?? 6) / 2));
     if (i === groups.length - 1 && endFrame) to = Math.max(to, endFrame);       // the last shot runs to the last frame
     const total = Math.max(1, to - from);
     const outgoing = L[L.length - 1];
@@ -173,6 +181,8 @@ export function layersOf(groups: GroupSpec[], fps: number, endFrame?: number): L
           const mask = `radial-gradient(circle at ${ax.toFixed(1)}px ${ay.toFixed(1)}px, #000 ${r.toFixed(1)}px, transparent ${(r + fe).toFixed(1)}px)`;
           Object.assign(st, { WebkitMaskImage: mask, maskImage: mask });
         }
+        // ---- dissolve: the incoming shot fades in over the outgoing one (which stays opaque under it)
+        if (inJ?.kind === "dissolve" && abs < from + (inJ.frames ?? 6)) Object.assign(st, { opacity: (abs - from + 1) / ((inJ.frames ?? 6) + 1) });
         // ---- push: clipped to the opening's outline until it covers the frame
         if (inJ?.kind === "push" && abs < T) {
           const shp = inJ.portal(t);
@@ -220,8 +230,10 @@ export type Story = { groups: GroupSpec[]; hud?: HudTrack[] };
  * panels and busy bands), "ricks" (the reference style: opt-in, the owner has not chosen it), "none".
  * gates (kit/gates.ts: holds <= 4 s, no speck figures, nothing cut by the edge, HUD never backwards): "fail" (default)
  * stops the render with the list, "warn" logs it, "off". */
-export function Episode3D<S extends Story>({ storyboard, words: wordsIn, durations, build, overlays, screenAvoid, captions = "house", gates = "fail" }: {
+export function Episode3D<S extends Story>({ storyboard, words: wordsIn, durations, build, overlays, screenAvoid, captions = "house", gates = "fail", joins }: {
   storyboard?: StoryboardInput; words?: CapWord[]; durations?: number[];
+  /** "ricks": also gate the join mix against the RicksClips counts (kit/gates.ts joinMix) */
+  joins?: "ricks";
   build: (T: Timing) => S; overlays?: (s: S) => React.ReactNode;
   screenAvoid?: (s: S, t: number) => ScreenRect[];
   captions?: "house" | "ricks" | "ricks-phrase" | "none"; gates?: "fail" | "warn" | "off";
@@ -242,7 +254,7 @@ export function Episode3D<S extends Story>({ storyboard, words: wordsIn, duratio
   const story = useMemo(() => build(new Timing(durs, words)), [durs, words, build]);
   useMemo(() => {
     if (gates === "off") return;
-    const r = runGates(story.groups, words, { fps, hud: story.hud });
+    const r = runGates(story.groups, words, { fps, hud: story.hud, joins });
     const msg = `[three-lane gates] ${r.failures.length} failure(s)\n  ${r.failures.join("\n  ")}\n  ${r.notes.join("\n  ")}`;
     if (r.failures.length && gates === "fail") throw new Error(msg + "\n(pass gates=\"warn\" to render anyway)");
     if (r.failures.length) console.warn(msg);

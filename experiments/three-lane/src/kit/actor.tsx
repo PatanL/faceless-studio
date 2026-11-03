@@ -23,7 +23,7 @@
 //   quote    [[t0, t1], ...] mouth flaps (Person's `talk` is read as quote)
 //   blinkF   frames closed (1-4, default 2); blinkHalf: true adds a half-lid frame either side; blinks: [t...] to
 //            place them by hand (default: seeded irregular schedule); noBlink: true
-//   snapF    pose snap length in frames (default 4)
+//   snapF    pose snap length in frames (default 10)
 //   hatPop   [t, ...] the hat jumps half a head and lands, tumbling, over ~20 f
 //   stepF    frames per walk step (default 7)
 import React from 'react';
@@ -36,7 +36,7 @@ const FPS = 30;
 // ------------------------------------------------------------------ costumes (same names and colours as stick/Person)
 type Costume = {
 	coat: string; coatShade: string; vest?: string; cravat?: string; legs: string; shoes: string;
-	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'helmet' | 'tiara' | 'none';
+	hat?: 'tricorn' | 'bicorne' | 'crown' | 'furcap' | 'brim' | 'cap' | 'bonnet' | 'bowler' | 'helmet' | 'tiara' | 'tugu' | 'ikseon' | 'kabuto' | 'hachimaki' | 'gat' | 'none';
 	hair?: 'wig' | 'wigTall' | 'updo' | 'side' | 'short' | 'messy' | 'bob' | 'none'; hairColor?: string;
 	gown?: string; gownShade?: string; glasses?: boolean; epaulettes?: boolean; buttons?: boolean;
 };
@@ -71,6 +71,20 @@ const COSTUMES: Record<string, Costume> = {
 	persian2: {coat: c('kelp-1'), coatShade: c('kelp-0'), legs: c('ochre-1'), shoes: c('ink-0'), hat: 'tiara', hair: 'none'},
 	digger: {coat: c('ochre-0'), coatShade: c('amber-0'), legs: c('amber-2'), shoes: c('ink-0'), hat: 'tiara', hair: 'none'},
 	persianLord: {coat: c('violet-1'), coatShade: c('violet-0'), vest: c('amber-4'), legs: c('magenta-0'), shoes: c('ink-0'), hat: 'tiara', hair: 'none', buttons: true},
+	// story-myeongnyang (Korea, 1597): Admiral Yi in a dark-red war coat and a spiked Joseon helmet (tugu), his captains
+	// in blue and green coats, Joseon sailors and villagers in white, the king in a red robe and winged cap (ikseon), a
+	// court official in a gat; Japanese samurai in dark coats and crested helmets (kabuto), sailors in headbands
+	yi: {coat: '#a3322c', coatShade: '#6e1f22', vest: c('amber-4'), legs: c('ink-1'), shoes: c('ink-0'), hat: 'tugu', hair: 'none', buttons: true},
+	jcaptain: {coat: '#2f5f9e', coatShade: '#1f3f72', vest: c('bone-1'), legs: c('ink-1'), shoes: c('ink-0'), hat: 'tugu', hair: 'none'},
+	jcaptain2: {coat: '#3f7a52', coatShade: '#2a5638', vest: c('bone-1'), legs: c('ink-1'), shoes: c('ink-0'), hat: 'tugu', hair: 'none'},
+	jsailor: {coat: '#ece4d2', coatShade: '#c4b89c', legs: '#d8ccb0', shoes: c('ink-0'), hat: 'hachimaki', hair: 'short', hairColor: c('ink-1')},
+	villager: {coat: '#ece4d2', coatShade: '#c4b89c', legs: '#d8ccb0', shoes: c('ink-0'), hat: 'gat', hair: 'none'},
+	villager2: {coat: '#c98e5a', coatShade: '#9a6638', legs: '#e6dcc4', shoes: c('ink-0'), hat: 'none', hair: 'bob', hairColor: c('ink-1')},
+	jking: {coat: '#c0392b', coatShade: '#8e2a20', vest: '#e2b33c', legs: '#8e2a20', shoes: c('ink-0'), hat: 'ikseon', hair: 'none'},
+	official: {coat: '#3d4f8f', coatShade: '#2a3768', vest: c('bone-1'), legs: c('ink-1'), shoes: c('ink-0'), hat: 'gat', hair: 'none'},
+	samurai: {coat: '#2c2f45', coatShade: '#1b1d2e', vest: '#b8342c', legs: '#3a3d55', shoes: c('ink-0'), hat: 'kabuto', hair: 'none'},
+	samurai2: {coat: '#6b2a2a', coatShade: '#4a1c1c', vest: '#2c2f45', legs: '#3a3d55', shoes: c('ink-0'), hat: 'kabuto', hair: 'none'},
+	ashigaru: {coat: '#4a5a6e', coatShade: '#33404f', legs: '#c9b994', shoes: c('ink-0'), hat: 'hachimaki', hair: 'short', hairColor: c('ink-1')},
 };
 
 // ------------------------------------------------------------------ geometry (Person's 600 x 700 box)
@@ -354,6 +368,12 @@ function Hat({kind}: {kind?: string}) {
 	if (kind === 'cap') return <g><path d="M 192 92 Q 186 18 300 4 Q 404 14 410 70 Q 430 40 470 58 Q 436 80 408 96 Z" fill={c('coral-1')} /><rect x={186} y={78} width={226} height={26} rx={12} fill={c('coral-0')} /></g>;
 	if (kind === 'helmet') return <g><path d="M 210 34 Q 300 -76 392 34 Q 300 -18 210 34 Z" fill={c('coral-1')} /><path d="M 188 150 Q 180 18 300 8 Q 420 18 412 150 L 390 150 L 390 98 Q 300 82 210 98 L 210 150 Z" fill={c('amber-2')} /><path d="M 204 86 Q 300 70 396 86" stroke={c('amber-0')} strokeWidth={8} fill="none" /></g>;
 	if (kind === 'tiara') return <g transform="translate(0 -8)"><defs><clipPath id="capclip"><path d="M 182 124 A 122 122 0 0 1 418 124 C 360 88 240 88 182 124 Z" /></clipPath></defs><path d="M 182 124 A 122 122 0 0 1 418 124 C 360 88 240 88 182 124 Z" fill="#3f7a86" /><g clipPath="url(#capclip)" stroke="none"><ellipse cx={330} cy={150} rx={150} ry={92} fill="#0a1e30" opacity={0.30} /><ellipse cx={262} cy={46} rx={70} ry={30} fill="#ffffff" opacity={0.16} /></g><path d="M 248 36 Q 262 66 256 96 M 300 26 Q 304 58 300 90 M 352 36 Q 340 66 346 96" fill="none" stroke="rgba(10,30,40,0.35)" strokeWidth={4} strokeLinecap="round" /><path d="M 182 124 A 122 122 0 0 1 418 124 C 360 88 240 88 182 124 Z" fill="none" /><path d="M 186 122 C 242 88 358 88 414 122 L 410 104 C 356 72 244 72 190 104 Z" fill={c('magenta-1')} /></g>;   // round 15: a soft cap wrapping the skull; painted form (a darker underside, a soft top light) clipped to the cap, thin fold lines
+	// story-myeongnyang hats
+	if (kind === 'tugu') return <g><path d="M 190 120 Q 186 22 300 12 Q 414 22 410 120 Q 300 96 190 120 Z" fill="#3a3340" /><path d="M 186 124 Q 300 98 414 124 L 414 104 Q 300 80 186 104 Z" fill="#c9a24a" /><path d="M 292 14 L 300 -52 L 308 14 Z" fill="#c9a24a" /><path d="M 300 -50 Q 270 -70 282 -96 Q 300 -76 318 -96 Q 330 -70 300 -50 Z" fill="#c0392b" /><path d="M 230 60 Q 300 40 370 60" stroke="#5a5060" strokeWidth={6} fill="none" /></g>;
+	if (kind === 'ikseon') return <g><ellipse cx={244} cy={-14} rx={30} ry={15} fill="#1e1b26" transform="rotate(-40 244 -14)" /><ellipse cx={356} cy={-14} rx={30} ry={15} fill="#1e1b26" transform="rotate(40 356 -14)" /><path d="M 196 112 Q 192 30 248 22 Q 250 -26 300 -30 Q 350 -26 352 22 Q 408 30 404 112 Q 300 90 196 112 Z" fill="#26222e" /><path d="M 200 112 Q 300 92 400 112 L 400 98 Q 300 78 200 98 Z" fill="#e2b33c" /></g>;
+	if (kind === 'kabuto') return <g><path d="M 142 176 Q 160 110 196 100 L 404 100 Q 440 110 458 176 Q 430 150 404 140 L 196 140 Q 170 150 142 176 Z" fill="#23263a" /><path d="M 190 116 Q 184 14 300 4 Q 416 14 410 116 Q 300 94 190 116 Z" fill="#2c2f45" /><path d="M 220 70 Q 300 52 380 70 M 210 94 Q 300 76 390 94" stroke="#4a4e6a" strokeWidth={6} fill="none" /><path d="M 300 20 Q 256 -10 236 -70 Q 270 -30 300 -20 Q 330 -30 364 -70 Q 344 -10 300 20 Z" fill="#e2b33c" /><circle cx={300} cy={22} r={14} fill="#b8342c" /></g>;
+	if (kind === 'hachimaki') return <g><path d="M 186 96 Q 300 70 414 96 L 414 124 Q 300 98 186 124 Z" fill="#f2efe6" /><path d="M 412 104 Q 452 92 470 120 Q 446 112 430 120 Q 452 130 456 156 Q 432 130 412 124 Z" fill="#f2efe6" /></g>;
+	if (kind === 'gat') return <g><ellipse cx={300} cy={74} rx={196} ry={26} fill="#1e1b26" opacity={0.92} /><path d="M 236 74 L 242 -12 Q 300 -24 358 -12 L 364 74 Z" fill="#1e1b26" opacity={0.92} /><path d="M 222 80 Q 214 150 234 210 M 378 80 Q 386 150 366 210" stroke="#1e1b26" strokeWidth={4} fill="none" /></g>;
 	if (kind === 'bonnet') return <path d="M 186 110 Q 176 10 300 2 Q 424 10 414 110 Q 380 60 300 56 Q 220 60 186 110 Z" fill={c('bone-2')} />;
 	if (kind === 'furcap') return <g><path d="M 196 96 Q 186 40 214 20 Q 226 -10 262 -6 Q 290 -24 320 -8 Q 356 -16 378 14 Q 414 34 404 96 Z" fill={c('amber-0')} />{[200, 236, 272, 308, 344, 380].map((x) => <circle key={x} cx={x + 10} cy={96} r={22} fill={c('ochre-0')} />)}</g>;
 	return null;
@@ -392,6 +412,13 @@ function Item({kind, at, swing, t}: {kind: string; at: P2; swing: number; t: num
 	}
 	if (kind === 'hammer') {
 		return <g transform={`rotate(${f(-30 + swing)} ${x} ${y})`}><rect x={x - 7} y={y - 110} width={14} height={130} rx={6} fill={c('ochre-1')} /><rect x={x - 40} y={y - 132} width={80} height={34} rx={8} fill={c('sky-0')} /></g>;
+	}
+	// story-myeongnyang: a drawn sword raised (a long single-edged blade, a round guard) and a calligraphy brush
+	if (kind === 'sword') {
+		return <g transform={`rotate(${f(-18 + swing)} ${x} ${y})`}><rect x={x - 7} y={y - 6} width={14} height={46} rx={5} fill={c('ink-1')} /><ellipse cx={x} cy={y - 8} rx={22} ry={7} fill={K.gold} /><path d={`M ${x - 8} ${y - 12} L ${x - 8} ${y - 200} Q ${x - 2} ${y - 226} ${x + 10} ${y - 236} L ${x + 8} ${y - 12} Z`} fill="#e8eef4" /><path d={`M ${x + 2} ${y - 20} L ${x + 2} ${y - 200}`} stroke="#9aa6b4" strokeWidth={3} /></g>;
+	}
+	if (kind === 'brush') {
+		return <g transform={`rotate(${f(28 + swing)} ${x} ${y})`}><rect x={x - 5} y={y - 70} width={10} height={96} rx={4} fill={c('ochre-1')} /><path d={`M ${x - 7} ${y + 24} Q ${x} ${y + 60} ${x + 7} ${y + 24} Z`} fill={c('ink-1')} /></g>;
 	}
 	if (kind === 'letter' || kind === 'photo') {
 		return <g transform={`rotate(${f(-12 + swing * 0.4)} ${x} ${y})`}><rect x={x - 34} y={y - 58} width={68} height={86} rx={4} fill={c('bone-2')} />
@@ -458,7 +485,9 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 	const cos = COSTUMES[str(props.costume, 'plain')] ?? COSTUMES.plain;
 	const faceName = step<string>(props.face, t, 'neutral');
 	const face = FACES[faceName] ?? FACES.neutral;
-	const snapF = clamp(num(props.snapF, 4), 1, 12);
+	// owner 2026-11-02 (story lane): poses blend over 8-12 frames, never a one-frame snap (Barca v15 snapped the smith
+	// from standing to kneeling at 4.17 s); the default was 4
+	const snapF = clamp(num(props.snapF, 10), 1, 12);
 	const pb = stepBlend<string>(props.pose, t, 'stand');
 	const u = snapEase(Math.floor(pb.since * FPS + 1e-6) / snapF);  // on 1s, overshoots a little, settles at snapF
 	const P0 = POSES[pb.prev] ?? POSES.stand, P1 = POSES[pb.cur] ?? POSES.stand;

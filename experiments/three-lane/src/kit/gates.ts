@@ -20,11 +20,38 @@ import { camAt, project, W, H } from "./match";
 import { personBox, type Box } from "./framing";
 
 export type HudTrack = { name: string; kind: "progress" | "gauge"; value: (t: number) => number | null; tol?: number; allowBack?: [number, number][] };
-export type GateOpts = { fps?: number; maxStill?: number; minCamPx?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[] };
+export type GateOpts = { fps?: number; maxStill?: number; minCamPx?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[]; joins?: "ricks" };
 export type GateResult = { failures: string[]; notes: string[] };
 
 /** frames inside a join (whip smear, dissolve, push): nothing is judged there */
-const inJoin = (groups: GroupSpec[], t: number) => groups.some((g, i) => i > 0 && Math.abs(t - g.t0) < Math.max(g.xfade / 2, 0.3));
+const inJoin = (groups: GroupSpec[], t: number) => groups.some((g, i) => i > 0 && Math.abs(t - g.t0) < Math.max(g.xfade / 2, 0.3, (g.join as { frames?: number } | undefined)?.frames ? ((g.join as { frames: number }).frames / 60) : 0));
+
+/** the join mix (story-myeongnyang, owner 2026-11-02: match the RicksClips counts, RICKSCLIPS_RULEBOOK C3-C7, T2-T4).
+ * Every join is classified: travel (the camera continues through one world: same world name on both sides and the
+ * camera pose continuous across the seam, else it counts as a cut), dissolve (5-8 f; "match" dissolves counted too),
+ * whip, push / into / outOf / match (push-throughs), cut. */
+export function joinMix(groups: GroupSpec[], fps = 30) {
+  const counts: Record<string, number> = { travel: 0, dissolve: 0, matchDissolve: 0, whip: 0, push: 0, cut: 0 };
+  const bad: string[] = [];
+  groups.forEach((g, i) => {
+    if (i === 0) return;
+    const j = (g.join ?? (g.xfade > 0 ? { kind: "whip" } : { kind: "cut" })) as { kind: string; frames?: number; match?: boolean; world?: string };
+    if (j.kind === "travel") {
+      const p = groups[i - 1], a = camAt(p, g.t0 - 1e-4, new THREE.PerspectiveCamera()), b = camAt(g, g.t0, new THREE.PerspectiveCamera());
+      const dp = a.position.distanceTo(b.position), dq = a.quaternion.angleTo(b.quaternion) * 180 / Math.PI;
+      const pj = p.join as { world?: string } | undefined;
+      const sameWorld = (p as GroupSpec & { world?: string }).world === j.world || pj?.world === j.world || (g as GroupSpec & { world?: string }).world === j.world;
+      if (dp < 0.05 * Math.max(1, a.position.length() * 0.01) + 0.05 && dq < 0.5 && sameWorld) counts.travel++;
+      else { counts.cut++; bad.push(`join into ${g.id} at ${g.t0.toFixed(2)} s is declared travel but the camera jumps ${dp.toFixed(2)} m / ${dq.toFixed(1)} deg`); }
+    } else if (j.kind === "dissolve") {
+      counts[j.match ? "matchDissolve" : "dissolve"]++;
+      if ((j.frames ?? 6) > 8 || (j.frames ?? 6) < 3) bad.push(`dissolve into ${g.id} is ${j.frames} f (3-8)`);
+    } else if (j.kind === "whip") counts.whip++;
+    else if (j.kind === "cut") counts.cut++;
+    else counts.push++;
+  });
+  return { counts, bad };
+}
 
 function boxOnScreen(cam: THREE.PerspectiveCamera, b: Box) {
   let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity, behind = false;
@@ -44,6 +71,19 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
   const plan = planReport(groups, words, o.maxHold ?? 4);
   for (const h of plan.flagged) failures.push(`hold: ${h.t0}-${h.t1} s (${h.len} s) in ${h.group}; change the view at ${h.splitAt.join(", ")} s`);
   notes.push(`plan: ${plan.placeChangesPerMin} place changes/min, ${plan.distinctPlaces} places, longest hold ${plan.longestHold} s`);
+  // joins (opt-in): cuts <= 1, whips <= 8, dissolves 4-20 (match dissolves included), at least one match dissolve,
+  // each dissolve <= 8 f, the first transition no earlier than 0.7 s
+  if (o.joins === "ricks") {
+    const { counts, bad } = joinMix(groups, fps);
+    const diss = counts.dissolve + counts.matchDissolve;
+    if (counts.cut > 1) failures.push(`joins: ${counts.cut} hard cuts (refs 0-1)`);
+    if (counts.whip > 8) failures.push(`joins: ${counts.whip} whips (refs median 5, at most 8)`);
+    if (diss < 4 || diss > 20) failures.push(`joins: ${diss} dissolves (refs 4-20, about 12)`);
+    if (counts.matchDissolve < 1) failures.push(`joins: no match dissolve (refs: an object keeps its spot)`);
+    if (groups.length > 1 && groups[1].t0 < 0.7) failures.push(`joins: first transition at ${groups[1].t0.toFixed(2)} s (refs >= 0.7 s)`);
+    failures.push(...bad.map((b) => `joins: ${b}`));
+    notes.push(`joins: ${Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", ")}`);
+  }
   // cast
   const cast = castCheck(groups, peopleCast, fps, o.minHead ?? 0.05);
   for (const r of cast.rows) {
