@@ -28,6 +28,7 @@ export function makeKey(root: THREE.Group, pos: [number, number, number], target
   key.shadow.mapSize.set(2048, 2048);
   Object.assign(key.shadow.camera, { left: -span, right: span, top: span, bottom: -span, near: 0.5, far: 60 });
   key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
+  key.shadow.radius = 5;          // soft shadow edges (PCF with a Vogel-disc radius; round-2 craft: "no soft shadows")
   root.add(key, key.target);
   return key;
 }

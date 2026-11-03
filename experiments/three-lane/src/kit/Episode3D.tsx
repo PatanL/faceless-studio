@@ -17,6 +17,7 @@ import { personBox } from "./framing";
 import { RicksCaptions, type CapWord } from "./captions";
 import { clipCss, covers, homography, type Shape } from "./match";
 import { runGates, type HudTrack } from "./gates";
+import { preloadModels } from "./models";
 
 const W = 1080, H = 1920;
 // phrase pages run to two lines (caption_rule "phrase"), so 3D episodes use a slightly smaller caption than the house 84
@@ -255,7 +256,7 @@ export function Episode3D<S extends Story>({ storyboard, words: wordsIn, duratio
   const [fontsReady, setReady] = useState(false);
   const [handle] = useState(() => delayRender("three-lane fonts"));
   useEffect(() => {
-    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"'), document.fonts.load('800 64px "Montserrat"')])
+    Promise.all([document.fonts.load('400 64px "Anton"'), document.fonts.load('900 64px "Montserrat"'), document.fonts.load('800 64px "Montserrat"'), preloadModels()])
       .catch(() => null).finally(() => { setReady(true); continueRender(handle); });
   }, [handle]);
   return (

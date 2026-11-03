@@ -28,6 +28,9 @@ export const TONE = {
   uShadeLift: { value: new THREE.Vector3() }, uLambert: { value: 0.35 }, uSideK: { value: 0.84 }, uTerm: { value: 0.2 },
   uBounce: { value: new THREE.Vector3() }, // warm bounce on shaded faces turned to the camera (golden only; day = 0)
   uSat: { value: 1 }, // world albedo saturation around its luminance (characters are not twoTone, so unaffected)
+  // round 2 (craft): a rim light on silhouettes turned away from the lens, and a hemisphere fill on the shaded side
+  // (cool from the sky above, warm and darker from the ground below); Stage sets them from the preset
+  uRim: { value: new THREE.Vector3(0.25, 0.24, 0.3) }, uHemiSky: { value: new THREE.Vector3(1.06, 1.06, 1.16) }, uHemiGround: { value: new THREE.Vector3(0.92, 0.85, 0.8) },
 };
 // directional light 0 = the sun = the only shadow caster (three sorts shadow-casting lights first). Only the
 // UNROLLED index 0 compiles the shadow block, so sunVis is written once.
@@ -48,13 +51,16 @@ const TWO_TONE = /* glsl */ `
   vec3 lit = uLitCol * mix( 1.0, ndl, uLambert );                             // keep some cosine modelling
   float facing = max( dot( geometryNormal, geometryViewDir ), 0.0 );        // 1 = faces the lens
   vec3 alb = max( mix( vec3( dot( diffuseColor.rgb, vec3( 0.2126, 0.7152, 0.0722 ) ) ), diffuseColor.rgb, uSat ), 0.0 );
-  reflectedLight.directDiffuse = alb * ( mix( uShadeCol, lit, sunTerm ) * skyK + uBounce * facing * clamp( 1.0 - dot( geometryNormal, upV ), 0.0, 1.0 ) * ( 1.0 - sunTerm ) )
-    + uShadeLift * LIFT_K * ( 1.0 - sunTerm );
+  float upK = 0.5 + 0.5 * dot( geometryNormal, upV );
+  vec3 shadeH = uShadeCol * mix( uHemiGround, uHemiSky, upK );              // hemisphere fill on the shaded side
+  float rimK = pow( 1.0 - facing, 3.0 );                                     // silhouettes turned away from the lens
+  reflectedLight.directDiffuse = alb * ( mix( shadeH, lit, sunTerm ) * skyK + uBounce * facing * clamp( 1.0 - dot( geometryNormal, upV ), 0.0, 1.0 ) * ( 1.0 - sunTerm ) )
+    + uShadeLift * LIFT_K * ( 1.0 - sunTerm ) + alb * uRim * rimK * ( 0.4 + 0.6 * sunTerm );
   reflectedLight.indirectDiffuse = vec3( 0.0 );                               // hemisphere/fill no longer used here
 }
 #endif
 `;
-const DECL = "#include <common>\nuniform vec3 uLitCol; uniform vec3 uShadeCol; uniform vec3 uShadeLift; uniform float uLambert; uniform float uSideK; uniform float uTerm; uniform vec3 uBounce; uniform float uSat;";
+const DECL = "#include <common>\nuniform vec3 uLitCol; uniform vec3 uShadeCol; uniform vec3 uShadeLift; uniform float uLambert; uniform float uSideK; uniform float uTerm; uniform vec3 uBounce; uniform float uSat; uniform vec3 uRim; uniform vec3 uHemiSky; uniform vec3 uHemiGround;";
 
 /** Lambert (or Phong: its specular term is kept, masked by the shadow) -> two-tone. Call once per material. */
 export function twoTone<T extends THREE.MeshLambertMaterial | THREE.MeshPhongMaterial>(m: T, liftK = 1): T {
@@ -65,7 +71,7 @@ export function twoTone<T extends THREE.MeshLambertMaterial | THREE.MeshPhongMat
       .replace("#include <lights_fragment_begin>", "float sunVis = 1.0;\n" + LFB)
       .replace("#include <lights_fragment_end>", "#include <lights_fragment_end>\n" + TWO_TONE);
   };
-  m.customProgramCacheKey = () => "twoTone5_" + liftK.toFixed(3);
+  m.customProgramCacheKey = () => "twoTone6_" + liftK.toFixed(3);
   return m;
 }
 

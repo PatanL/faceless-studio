@@ -9,7 +9,7 @@ import * as THREE from "three";
 import { continueRender, delayRender, useCurrentFrame, useVideoConfig } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { useFrame, useThree } from "@react-three/fiber";
-import { EffectComposer, EffectPass, RenderPass, ToneMappingEffect, ToneMappingMode } from "postprocessing";
+import { BlendFunction, BloomEffect, EffectComposer, EffectPass, NormalPass, RenderPass, SSAOEffect, ToneMappingEffect, ToneMappingMode } from "postprocessing";
 import { InkPass } from "../ink";
 import { LensBlur } from "../lensblur";
 import { GradeEffect } from "../grade";
@@ -57,6 +57,8 @@ export type GroupSpec = {
   busy?: (t: number, cam: [number, number, number]) => [number, number, number, number, number, number][];
   /** lens blur strength: cInf = blur radius (px at 1080x1920) at infinity; default LENS.cInf (macro shots ~22) */
   lens?: { cInf?: number; maxCoC?: number };
+  /** lighting (round 2): ambient occlusion strength (0 = off, default 1) and bloom on light sources (default 0.55) */
+  ao?: number; bloom?: number;
   /** kit life: drifting clouds round a sky dome and wave detail over extra.water (default on) */
   clouds?: boolean; waves?: boolean;
   /** how the group is entered (Episode3D joins; default from xfade: whip, or cut when 0) */
@@ -65,6 +67,11 @@ export type GroupSpec = {
   place?: string; insert?: boolean; establishing?: boolean;
   /** world boxes that must stay whole in frame (a banner, a mast top); figures are checked anyway */
   keepInFrame?: (t: number) => [number, number, number, number, number, number][];
+  /** the key light for this group: "auto" = a warm side key 75 degrees round from the camera, 34 degrees up, aimed at the
+   * group's first framing (so subjects are lit and cast shadows toward the background); or explicit from/at */
+  sun?: "auto" | { from: V3; at?: V3; span?: number };
+  /** windows where the group's rigs visibly animate (fire, smoke, a falling weight): the still gate counts them */
+  alive?: [number, number][];
 };
 
 /** kit-wide lens default (src/next integration): cInf 10 left KitLab's soft-edge share at 2.6 % (refs 4-15 % at 720p) */
@@ -102,19 +109,43 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
     const ctx: Ctx = { root, set, addCard: (c) => cards.push(c) };
     const rigs = (g.rigs ?? []).map((r) => r(ctx));
     const life = [g.clouds === false ? null : skyLife(set.root), g.waves === false ? null : waterLife(set.extra.water)].filter(Boolean) as Life[];
-    return { root, set, cards, people, rigs, life, path: new CamPath(g.cam, g.t0, g.t1) };
+    const path = new CamPath(g.cam, g.t0, g.t1);
+    if (g.sun) {
+      const c0 = path.at(g.t0), look = c0.look.clone();
+      let from: THREE.Vector3, span: number;
+      if (g.sun === "auto") {
+        const toCam = c0.pos.clone().sub(look); toCam.y = 0; toCam.normalize();
+        from = toCam.applyAxisAngle(new THREE.Vector3(0, 1, 0), (75 * Math.PI) / 180).multiplyScalar(Math.cos(0.6)).add(new THREE.Vector3(0, Math.sin(0.6), 0)).normalize();
+        span = Math.max(10, c0.pos.distanceTo(look) * 1.4);
+      } else { from = new THREE.Vector3(...g.sun.from).normalize(); if (g.sun.at) look.set(...g.sun.at); span = g.sun.span ?? 30; }
+      set.key.position.copy(look).addScaledVector(from, span * 2.5); set.key.target.position.copy(look); set.key.target.updateMatrixWorld();
+      Object.assign(set.key.shadow.camera, { left: -span, right: span, top: span, bottom: -span, near: 0.5, far: span * 6 });
+      set.key.shadow.camera.updateProjectionMatrix();
+    }
+    return { root, set, cards, people, rigs, life, path };
   }, [g]);
 
   const { width: vw, height: vh } = useVideoConfig();
   const fx = useMemo(() => {
     const composer = new EffectComposer(gl, { multisampling: 4, frameBufferType: THREE.HalfFloatType });
     composer.addPass(new RenderPass(scene, cam));
+    // ambient occlusion (round-2 craft: "no contact shadows"): violet, multiplied, before the ink so the lines stay crisp
+    const normal = new NormalPass(scene, cam);
+    composer.addPass(normal);
+    const ao = new SSAOEffect(cam, normal.texture, {
+      blendFunction: BlendFunction.MULTIPLY, samples: 12, rings: 4, distanceScaling: true, depthAwareUpsampling: true,
+      worldDistanceThreshold: 60, worldDistanceFalloff: 10, worldProximityThreshold: 0.6, worldProximityFalloff: 0.3,
+      luminanceInfluence: 0.3, minRadiusScale: 0.25, radius: 0.1, intensity: 3.4 * (g.ao ?? 1), bias: 0.025, fade: 0.012, color: new THREE.Color("#3a2a5a"),
+    });
+    if ((g.ao ?? 1) > 0) composer.addPass(new EffectPass(cam, ao));
     composer.addPass(new InkPass(scene, cam, { color: "#0b0a0c", fadeNear: 140, fadeFar: 420, distFar: 160, widthNear: 5.8, widthFar: 3.9 }));
     const lens = new LensBlur({ maxCoC: g.lens?.maxCoC ?? LENS.maxCoC, nearScale: 1.2 });
     composer.addPass(new EffectPass(cam, lens.pre));
     composer.addPass(new EffectPass(cam, lens.main));
     const grade = new GradeEffect(PRESETS.day.grade, 1);
-    composer.addPass(new EffectPass(cam, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
+    // bloom on light sources only (glows, lamps, fire, sunlit highlights above the threshold), then the tone map
+    const bloom = new BloomEffect({ luminanceThreshold: 0.82, luminanceSmoothing: 0.18, intensity: g.bloom ?? 0.55, mipmapBlur: true, radius: 0.7 });
+    composer.addPass(new EffectPass(cam, bloom, new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }), grade));
     composer.setSize(vw, vh);       // explicit: a first frame rendered before the canvas settled came out tiled (v1 review)
     return { composer, lens, grade };
   }, [gl, scene, cam, vw, vh, g]);
@@ -146,6 +177,8 @@ const Inner: React.FC<{ g: GroupSpec; tOf: (f: number) => number }> = ({ g, tOf 
   for (const r of world.rigs) r(t, cam);
   minLabel(world.root, cam);
   TONE.uLitCol.value.set(...P.lit); TONE.uShadeCol.value.set(...P.shade); TONE.uSat.value = P.sat;
+  // rim light: the key's colour, weaker at night; the hemisphere fill keeps cool above and warm below
+  const kc = new THREE.Color(P.key); TONE.uRim.value.set(kc.r, kc.g, kc.b).multiplyScalar(0.28 * Math.min(1, P.keyI / 2));
   CARD_TONE.uLitTint.value.set(...P.cardLit); CARD_TONE.uShadeTint.value.set(...P.cardShade);
   world.set.key.color.set(P.key); world.set.key.intensity = P.keyI;
   const fs = world.set.fogScale ?? 1;

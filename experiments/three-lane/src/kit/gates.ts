@@ -6,17 +6,21 @@
 //          0.08, 47 % >= 0.07; castframe.ts)
 //   edge   no figure's head cut and no body cut by the left or right edge (bottom crops are allowed), and nothing in
 //          a group's keepInFrame cut by any edge, for 8+ frames outside a join
+//   still  nothing on screen visibly changes for more than 2 s: the camera moves < 2.5 px/frame (screen motion of a grid
+//          of points at the subject's distance) and no figure changes pose, face, item or place; a group's
+//          `alive` windows (rigs animating: fire, smoke, a dropping weight) count as change (coordinator round 2:
+//          "the hold gate passes shots the judges call static"). scripts/visible_change.py checks the render itself.
 //   hud    a progress readout never goes backwards and a gauge never reverses direction (by more than its tolerance)
 //          outside the windows the story allows (Vasa panel round 4: the heel gauge swinging 6, 2, 10 degrees)
 import * as THREE from "three";
-import type { GroupSpec } from "./Stage";
+import type { GroupSpec, V3 } from "./Stage";
 import { planReport } from "./planner";
 import { castCheck, peopleCast } from "./castframe";
 import { camAt, project, W, H } from "./match";
 import { personBox, type Box } from "./framing";
 
 export type HudTrack = { name: string; kind: "progress" | "gauge"; value: (t: number) => number | null; tol?: number; allowBack?: [number, number][] };
-export type GateOpts = { fps?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[] };
+export type GateOpts = { fps?: number; maxStill?: number; minCamPx?: number; maxHold?: number; minHead?: number; minShare07?: number; edgeMinF?: number; hud?: HudTrack[] };
 export type GateResult = { failures: string[]; notes: string[] };
 
 /** frames inside a join (whip smear, dissolve, push): nothing is judged there */
@@ -74,6 +78,36 @@ export function runGates(groups: GroupSpec[], words: { text: string; start: numb
     for (const f of [...fs.slice(1), -1]) {
       if (f !== prev + 1) { if (prev - s + 1 >= (o.edgeMinF ?? 8)) failures.push(`edge: ${k} cut by the frame edge ${(s / fps).toFixed(2)}-${(prev / fps).toFixed(2)} s`); s = f; }
       prev = f;
+    }
+  }
+  // still: per frame, does anything visibly change?
+  {
+    const maxStill = Math.round((o.maxStill ?? 2) * fps), minPx = o.minCamPx ?? 2.5;
+    const cam2 = new THREE.PerspectiveCamera();
+    for (const g of groups) {
+      let run = 0, runStart = 0;
+      const alive = (g as GroupSpec & { alive?: [number, number][] }).alive ?? [];
+      const f0 = Math.round(g.t0 * fps), f1 = Math.round(g.t1 * fps);
+      let prevProps: string[] | null = null;
+      for (let f = f0; f < f1; f++) {
+        const t = f / fps;
+        const a = camAt(g, t), look = new THREE.Vector3(); a.getWorldDirection(look);
+        const d = 4, centre = a.position.clone().addScaledVector(look, d);
+        const right = new THREE.Vector3().setFromMatrixColumn(a.matrixWorld, 0), up = new THREE.Vector3().setFromMatrixColumn(a.matrixWorld, 1);
+        const pts: V3[] = [];
+        for (const i of [-1, 0, 1]) for (const j of [-1, 0, 1]) { const p = centre.clone().addScaledVector(right, i * 1.2).addScaledVector(up, j * 2.0); pts.push([p.x, p.y, p.z]); }
+        const p0 = pts.map((p) => project(a, p));
+        cam2.copy(camAt(g, t + 1 / fps));
+        const p1 = pts.map((p) => project(cam2, p));
+        const camPx = p0.reduce((n, q, i) => n + Math.hypot(q.x - p1[i].x, q.y - p1[i].y), 0) / pts.length;
+        const props = g.people.filter((q) => !q.visible || q.visible(t)).map((q) => JSON.stringify([q.at(t).map((x) => Math.round((x ?? 0) * 100)), q.props(t)]));
+        const figure = prevProps !== null && (props.length !== prevProps.length || props.some((x, i) => x !== prevProps![i]));
+        prevProps = props;
+        const changing = camPx >= minPx || figure || alive.some(([x, y]) => t >= x && t <= y) || inJoin(groups, t);
+        if (changing) { if (run > maxStill) failures.push(`still: ${g.id} shows nothing changing ${(runStart / fps).toFixed(2)}-${((runStart + run) / fps).toFixed(2)} s (${(run / fps).toFixed(1)} s; camera < ${minPx} px/f, figures still); move the camera, act, or mark rig motion in alive`); run = 0; }
+        else { if (run === 0) runStart = f; run++; }
+      }
+      if (run > maxStill) failures.push(`still: ${g.id} shows nothing changing ${(runStart / fps).toFixed(2)}-${((runStart + run) / fps).toFixed(2)} s (${(run / fps).toFixed(1)} s)`);
     }
   }
   // hud

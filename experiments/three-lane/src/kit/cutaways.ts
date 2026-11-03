@@ -50,10 +50,17 @@ export function crossSectionSet(o: CrossOpts = {}): SetBuild {
     top.forEach((y, k) => (k ? g.lineTo((k / 32) * c.width, y) : g.moveTo(0, y)));
     for (let k = 32; k >= 0; k--) g.lineTo((k / 32) * c.width, bot[k]);
     g.closePath(); g.fill();
-    if (b.speck) for (let k = 0; k < W * b.h * 26; k++) {
-      const x = r() * c.width, yy = (y0 + r() * b.h) * PX, rr = 3 + r() * 9;
-      g.fillStyle = b.speck; g.strokeStyle = INK; g.lineWidth = 2.5;
-      g.beginPath(); g.ellipse(x, yy, rr, rr * 0.7, r() * 3, 0, Math.PI * 2); g.fill(); if (rr > 8) g.stroke();
+    if (b.speck) {
+      // soil grain: fine mottling, then stones of mixed size and shape (irregular polygons with a lit facet and an ink
+      // rim on the big ones) - round-2 judge: "the same oval-pebble pattern, like wallpaper"
+      for (let k = 0; k < W * b.h * 60; k++) { g.fillStyle = r() < 0.5 ? "rgba(0,0,0,0.07)" : "rgba(255,240,220,0.07)"; g.fillRect(r() * c.width, (y0 + r() * b.h) * PX, 2 + r() * 5, 2 + r() * 4); }
+      for (let k = 0; k < W * b.h * (8 + (i % 3) * 6); k++) {
+        const x = r() * c.width, yy = (y0 + 0.05 + r() * (b.h - 0.1)) * PX, rr = r() < 0.15 ? 10 + r() * 14 : 2.5 + r() * 6, n = 5 + Math.floor(r() * 3), a0 = r() * 6;
+        g.beginPath();
+        for (let q = 0; q < n; q++) { const a = a0 + (q / n) * Math.PI * 2, k2 = rr * (0.7 + r() * 0.5); g.lineTo(x + Math.cos(a) * k2, yy + Math.sin(a) * k2 * 0.75); }
+        g.closePath(); g.fillStyle = b.speck; g.fill();
+        if (rr > 9) { g.strokeStyle = INK; g.lineWidth = 2.5; g.stroke(); g.fillStyle = "rgba(255,240,220,0.3)"; g.beginPath(); g.ellipse(x - rr * 0.25, yy - rr * 0.25, rr * 0.35, rr * 0.2, 0, 0, 7); g.fill(); }
+      }
     }
     y0 += b.h;
   });

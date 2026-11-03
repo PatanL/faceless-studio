@@ -146,27 +146,28 @@ export const FACE_NAMES = Object.keys(FACES);
 const OPEN_EYES: Eye[] = ['dot', 'wide', 'ring', 'half', 'side', 'deadDot'];
 
 function Eyes({eyes, look, lid}: {eyes: Eye; look: number; lid: 0 | 1 | 2}) {
-	const xs = [322, 378].map((x) => x + look * 12);
-	const y = 148;
+	const xs = [329, 371].map((x) => x + look * 10);
+	const y = 135;
 	// lid: 0 open, 1 half (blink in/out), 2 closed
 	const kind: Eye = lid === 2 && OPEN_EYES.includes(eyes) ? 'closed' : eyes;
-	const ink = K.ink;
+	const ink = FINK;
 	return (
 		<g>
 			{xs.map((x, i) => {
 				const key = i;
 				let el: React.ReactNode = null;
 				switch (kind === 'wink' ? (i === 0 ? 'happy' : 'dot') : kind) {
-					case 'dot': el = <ellipse cx={x} cy={y} rx={10} ry={14} fill={ink} />; break;
-					case 'wide': el = <g><circle cx={x} cy={y} r={21} fill={c('bone-2')} /><circle cx={x + 3} cy={y} r={8} fill={ink} /></g>; break;
+					// bold black oval under a heavy upper lid (the refs' resting eye)
+					case 'dot': el = <g><ellipse cx={x} cy={y + 1} rx={10.5} ry={14} fill={ink} /><rect x={x - 15} y={y - 18} width={30} height={10} fill={WHITE} stroke="none" /><path d={`M ${x - 14} ${y - 7} Q ${x} ${y - 11} ${x + 14} ${y - 7}`} stroke={ink} strokeWidth={6.5} strokeLinecap="round" fill="none" /></g>; break;
+					case 'wide': el = <g><circle cx={x} cy={y} r={20} fill={WHITE} stroke={ink} strokeWidth={5} /><circle cx={x + 3} cy={y} r={9} fill={ink} stroke="none" /></g>; break;
 					case 'ring': el = <g><circle cx={x} cy={y} r={20} fill="#fbf8f2" stroke={ink} strokeWidth={7} /><circle cx={x} cy={y} r={6.5} fill={ink} stroke="none" /></g>; break;
 					case 'deadDot': el = <circle cx={x} cy={y + 2} r={4.5} fill={ink} stroke="none" />; break;
 					case 'half':
-						el = <g><ellipse cx={x} cy={y + 3} rx={10} ry={10} fill={ink} /><rect x={x - 14} y={y - 12} width={28} height={11} rx={4} fill={K.skin} stroke="none" /><rect x={x - 13} y={y - 3} width={26} height={5} rx={2.5} fill={ink} stroke="none" /></g>; break;
+						el = <g><ellipse cx={x} cy={y + 3} rx={10} ry={10} fill={ink} /><rect x={x - 15} y={y - 13} width={30} height={12} fill={WHITE} stroke="none" /><rect x={x - 15} y={y - 4} width={30} height={7} rx={3.5} fill={ink} stroke="none" /></g>; break;
 					case 'side':
-						el = <g><ellipse cx={x + 5} cy={y + 4} rx={8} ry={9} fill={ink} /><rect x={x - 14} y={y - 2} width={28} height={6} rx={3} fill={ink} stroke="none" /></g>; break;
-					case 'squint': el = <rect x={x - 12} y={y - 3} width={24} height={7} rx={3.5} fill={ink} />; break;
-					case 'happy': el = <path d={`M ${x - 13} ${y + 5} Q ${x} ${y - 13} ${x + 13} ${y + 5}`} stroke={ink} strokeWidth={7} strokeLinecap="round" fill="none" />; break;
+						el = <g><ellipse cx={x + 5} cy={y + 4} rx={8} ry={9} fill={ink} /><rect x={x - 15} y={y - 3} width={30} height={7} rx={3.5} fill={ink} stroke="none" /></g>; break;
+					case 'squint': el = <rect x={x - 13} y={y - 4} width={26} height={9} rx={4.5} fill={ink} />; break;
+					case 'happy': el = <path d={`M ${x - 13} ${y + 5} Q ${x} ${y - 13} ${x + 13} ${y + 5}`} stroke={ink} strokeWidth={8.5} strokeLinecap="round" fill="none" />; break;
 					case 'squeeze': {
 						const s = i === 0 ? 1 : -1;     // > <
 						el = <path d={`M ${x - 12 * s} ${y - 12} L ${x + 10 * s} ${y} L ${x - 12 * s} ${y + 12}`} stroke={ink} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" fill="none" />; break;
@@ -181,7 +182,7 @@ function Eyes({eyes, look, lid}: {eyes: Eye; look: number; lid: 0 | 1 | 2}) {
 					default: el = <path d={`M ${x - 12} ${y} Q ${x} ${y + 8} ${x + 12} ${y}`} stroke={ink} strokeWidth={6} strokeLinecap="round" fill="none" />;
 				}
 				// the half-lid blink frame: a skin lid over the top half of an open eye
-				return <g key={key}>{el}{lid === 1 && OPEN_EYES.includes(eyes) && <rect x={x - 24} y={y - 26} width={48} height={24} fill={K.skin} stroke="none" />}{lid === 1 && OPEN_EYES.includes(eyes) && <rect x={x - 16} y={y - 4} width={32} height={6} rx={3} fill={ink} stroke="none" />}</g>;
+				return <g key={key}>{el}{lid === 1 && OPEN_EYES.includes(eyes) && <rect x={x - 24} y={y - 26} width={48} height={24} fill={WHITE} stroke="none" />}{lid === 1 && OPEN_EYES.includes(eyes) && <rect x={x - 16} y={y - 4} width={32} height={6} rx={3} fill={ink} stroke="none" />}</g>;
 			})}
 		</g>
 	);
@@ -189,30 +190,39 @@ function Eyes({eyes, look, lid}: {eyes: Eye; look: number; lid: 0 | 1 | 2}) {
 
 function Brows({face, look}: {face: FaceDef; look: number}) {
 	if (!face.brow) return null;
-	const xs = [322, 378].map((x) => x + look * 10);
-	const y = 110 + face.browY;
-	return <g>{xs.map((x, i) => <rect key={i} x={x - 15} y={y - 4} width={30} height={9} rx={4.5} fill={K.ink} transform={`rotate(${face.brow![i]} ${x} ${y})`} />)}</g>;
+	const xs = [329, 371].map((x) => x + look * 9);
+	const y = 99 + face.browY;
+	return <g>{xs.map((x, i) =>  <rect key={i} x={x - 16} y={y - 5.5} width={32} height={11} rx={5.5} fill={FINK} transform={`rotate(${face.brow![i]} ${x} ${y})`} />)}</g>;
 }
 
+/** the face ink (near black, as the refs) and the head white the card shader shades as a sphere */
+export const FINK = '#16121c', WHITE = '#ffffff';
+/** where a hat brim or hairline meets the head (svg y), for its soft shadow on the forehead; null = bare head */
+function brimY(cos: {hat?: string; hair?: string}): number | null {
+	const h: Record<string, number> = {tricorn: 84, bicorne: 76, crown: 44, brim: 66, bowler: 58, cap: 96, bonnet: 104, furcap: 98, tiara: 70, helmet: 84};
+	if (cos.hat && cos.hat !== 'none' && h[cos.hat] !== undefined) return h[cos.hat];
+	if (cos.hair && ['short', 'messy', 'bob', 'wig', 'wigTall', 'updo'].includes(cos.hair)) return 84;
+	return null;
+}
 const FLAPS: Mouth[] = ['o', 'flat', 'bigO', 'grid'];
 function MouthShape({kind}: {kind: Mouth}) {
-	const x = 352, y = 204, ink = K.ink;
+	const x = 350, y = 188, ink = FINK;
 	switch (kind) {
-		case 'smile': return <path d={`M ${x - 24} ${y - 4} Q ${x} ${y + 18} ${x + 24} ${y - 6}`} stroke={ink} strokeWidth={7} strokeLinecap="round" fill="none" />;
-		case 'smallSmile': return <path d={`M ${x - 15} ${y - 2} Q ${x} ${y + 9} ${x + 15} ${y - 3}`} stroke={ink} strokeWidth={6.5} strokeLinecap="round" fill="none" />;
+		case 'smile': return <path d={`M ${x - 24} ${y - 4} Q ${x} ${y + 18} ${x + 24} ${y - 6}`} stroke={ink} strokeWidth={9} strokeLinecap="round" fill="none" />;
+		case 'smallSmile': return <path d={`M ${x - 15} ${y - 2} Q ${x} ${y + 9} ${x + 15} ${y - 3}`} stroke={ink} strokeWidth={8.5} strokeLinecap="round" fill="none" />;
 		case 'grin': return <g><path d={`M ${x - 32} ${y - 10} Q ${x} ${y + 34} ${x + 32} ${y - 12} Z`} fill={c('ink-0')} /><path d={`M ${x - 26} ${y - 8} L ${x + 26} ${y - 10} L ${x + 22} ${y - 2} L ${x - 22} ${y} Z`} fill={c('bone-2')} stroke="none" /></g>;
 		case 'laugh': return <g><path d={`M ${x - 30} ${y - 12} Q ${x} ${y + 44} ${x + 32} ${y - 12} Z`} fill={c('ink-0')} /><ellipse cx={x + 2} cy={y + 14} rx={14} ry={7} fill={c('coral-3')} stroke="none" /></g>;
-		case 'smirk': return <path d={`M ${x - 20} ${y + 2} Q ${x + 6} ${y + 8} ${x + 24} ${y - 10}`} stroke={ink} strokeWidth={7} strokeLinecap="round" fill="none" />;
+		case 'smirk': return <path d={`M ${x - 20} ${y + 2} Q ${x + 6} ${y + 8} ${x + 24} ${y - 10}`} stroke={ink} strokeWidth={9} strokeLinecap="round" fill="none" />;
 		case 'o': return <ellipse cx={x} cy={y + 4} rx={12} ry={17} fill={c('ink-0')} />;
 		case 'bigO': return <g><ellipse cx={x} cy={y + 8} rx={19} ry={26} fill={c('ink-0')} /><ellipse cx={x} cy={y + 22} rx={11} ry={7} fill={c('coral-3')} stroke="none" /></g>;
-		case 'wavy': return <path d={`M ${x - 22} ${y + 2} q 7 -8 14 0 t 14 0 t 14 0`} stroke={ink} strokeWidth={6} strokeLinecap="round" fill="none" />;
-		case 'wobble': return <path d={`M ${x - 24} ${y + 6} q 6 -10 12 0 t 12 0 t 12 0 t 12 0`} stroke={ink} strokeWidth={6} strokeLinecap="round" fill="none" />;
-		case 'frown': return <path d={`M ${x - 22} ${y + 8} Q ${x} ${y - 10} ${x + 22} ${y + 8}`} stroke={ink} strokeWidth={7} strokeLinecap="round" fill="none" />;
+		case 'wavy': return <path d={`M ${x - 22} ${y + 2} q 7 -8 14 0 t 14 0 t 14 0`} stroke={ink} strokeWidth={8} strokeLinecap="round" fill="none" />;
+		case 'wobble': return <path d={`M ${x - 24} ${y + 6} q 6 -10 12 0 t 12 0 t 12 0 t 12 0`} stroke={ink} strokeWidth={8} strokeLinecap="round" fill="none" />;
+		case 'frown': return <path d={`M ${x - 22} ${y + 8} Q ${x} ${y - 10} ${x + 22} ${y + 8}`} stroke={ink} strokeWidth={9} strokeLinecap="round" fill="none" />;
 		case 'teeth':
 			return <g><rect x={x - 26} y={y - 8} width={52} height={22} rx={6} fill={c('ink-0')} /><rect x={x - 22} y={y - 4} width={44} height={14} rx={3} fill={c('bone-2')} stroke="none" /><path d={`M ${x - 22} ${y + 3} H ${x + 22} M ${x - 8} ${y - 4} V ${y + 10} M ${x + 7} ${y - 4} V ${y + 10}`} stroke={c('bone-0')} strokeWidth={2.5} /></g>;
 		case 'grid':     // the grid-teeth grimace: a white box with an ink grid (two rows, four columns)
-			return <g><rect x={x - 28} y={y - 10} width={56} height={30} rx={7} fill="#fbf8f2" stroke={ink} strokeWidth={6} /><path d={`M ${x - 28} ${y + 5} H ${x + 28} M ${x - 14} ${y - 10} V ${y + 20} M ${x} ${y - 10} V ${y + 20} M ${x + 14} ${y - 10} V ${y + 20}`} stroke={ink} strokeWidth={4} fill="none" /></g>;
-		case 'tongue': return <g><path d={`M ${x - 18} ${y} H ${x + 18}`} stroke={ink} strokeWidth={6} strokeLinecap="round" /><path d={`M ${x - 2} ${y} q 0 22 10 22 q 10 0 10 -22`} fill={c('coral-3')} /></g>;
+			return <g><rect x={x - 28} y={y - 10} width={56} height={30} rx={7} fill="#fbf8f2" stroke={ink} strokeWidth={8} /><path d={`M ${x - 28} ${y + 5} H ${x + 28} M ${x - 14} ${y - 10} V ${y + 20} M ${x} ${y - 10} V ${y + 20} M ${x + 14} ${y - 10} V ${y + 20}`} stroke={ink} strokeWidth={4} fill="none" /></g>;
+		case 'tongue': return <g><path d={`M ${x - 18} ${y} H ${x + 18}`} stroke={ink} strokeWidth={8} strokeLinecap="round" /><path d={`M ${x - 2} ${y} q 0 22 10 22 q 10 0 10 -22`} fill={c('coral-3')} /></g>;
 		default: return <rect x={x - 16} y={y - 3} width={32} height={7} rx={3.5} fill={ink} />;
 	}
 }
@@ -232,11 +242,11 @@ function Marks({marks, t}: {marks: Mark[]; t: number}) {
 			out.push(<path key={i} d={`M 206 ${84 + dy} Q 222 ${114 + dy} 206 ${128 + dy} Q 190 ${114 + dy} 206 ${84 + dy} Z`} fill="#a9d8f2" />);
 		} else if (m.kind === 'tears') {
 			// two streams from under the eyes; three drops per side ride each stream (a new one every 4 f)
-			for (const x0 of [313, 387]) {
-				out.push(<path key={`${i}s${x0}`} d={`M ${x0 - 7} 166 Q ${x0 - 10} 214 ${x0 - 4} 262 L ${x0 + 8} 262 Q ${x0 + 10} 214 ${x0 + 7} 166 Z`} fill="#a9d8f2" />);
+			for (const x0 of [303, 359]) {
+				out.push(<path key={`${i}s${x0}`} d={`M ${x0 - 7} 128 Q ${x0 - 10} 180 ${x0 - 4} 232 L ${x0 + 8} 232 Q ${x0 + 10} 180 ${x0 + 7} 128 Z`} fill="#a9d8f2" />);
 				for (let k = 0; k < 3; k++) {
 					const ph = ((fr + k * 4) % 12) / 12;
-					out.push(<circle key={`${i}d${x0}${k}`} cx={x0 + 1} cy={176 + ph * 92} r={7} fill="#dff2fb" stroke="none" />);
+					out.push(<circle key={`${i}d${x0}${k}`} cx={x0 + 1} cy={138 + ph * 90} r={7} fill="#dff2fb" stroke="none" />);
 				}
 			}
 		} else if (m.kind === 'steam') {
@@ -256,9 +266,9 @@ function Marks({marks, t}: {marks: Mark[]; t: number}) {
 				<path d="M -18 -6 Q -6 -6 -6 -18" /><path d="M 6 -18 Q 6 -6 18 -6" /><path d="M 18 6 Q 6 6 6 18" /><path d="M -6 18 Q -6 6 -18 6" />
 			</g>);
 		} else if (m.kind === 'blush') {
-			for (const x of [300, 404]) {
-				out.push(<ellipse key={`${i}b${x}`} cx={x} cy={196} rx={26} ry={12} fill="#f4a3b4" stroke="none" opacity={0.9} />);
-				out.push(<path key={`${i}h${x}`} d={`M ${x - 14} 202 l 6 -12 M ${x - 2} 202 l 6 -12 M ${x + 10} 202 l 6 -12`} stroke="#d0607a" strokeWidth={3.5} strokeLinecap="round" />);
+			for (const x of [288, 374]) {
+				out.push(<ellipse key={`${i}b${x}`} cx={x} cy={162} rx={26} ry={12} fill="#f4a3b4" stroke="none" opacity={0.9} />);
+				out.push(<path key={`${i}h${x}`} d={`M ${x - 14} 168 l 6 -12 M ${x - 2} 168 l 6 -12 M ${x + 10} 168 l 6 -12`} stroke="#d0607a" strokeWidth={3.5} strokeLinecap="round" />);
 			}
 		}
 	});
@@ -434,6 +444,9 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 	const hr = lerp2(P0[1], P1[1], u);
 	const seated = props.seated === true;
 	const crouch = clamp(track(props.crouch, t, 0));
+	// kneel (round 2: "kneels, listens" played standing - crouch reads as standing at phone size): 0..1, the hips drop
+	// 165 units, the far knee goes down on the ground with its shin lying back, the near knee comes up in front
+	const kneel = clamp(typeof props.kneel === 'boolean' ? (props.kneel ? 1 : 0) : track(props.kneel, t, 0));
 	const walk = clamp(track(props.walk, t, 0));
 	const look = track(props.look, t, face.look ?? 0);
 	const item = step<string>(props.item, t, 'none');
@@ -461,8 +474,13 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 			return [hip, [(hip[0] + foot[0]) / 2 + Math.abs(a) * 20, (hip[1] + foot[1]) / 2], foot];
 		};
 		legs = [kn([HIP_L[0] - 6, HIP_L[1]], -0.08 + sw), kn([HIP_R[0] + 6, HIP_R[1]], 0.08 - sw)];
+		if (kneel > 0) {
+			const K2: [P2, P2, P2][] = [[[262, 470], [236, 520], [112, 522]], [[338, 470], [436, 426], [446, 522]]];   // relative to hips at 470; feet land on 686 after the drop
+			legs = legs.map((l, i) => l.map((p, j) => lerp2(p, K2[i][j], kneel)) as [P2, P2, P2]);
+		}
 	}
-	const bodyY = bob + crouch * 120;
+	const kneelDrop = kneel * 165;
+	const bodyY = bob + crouch * 120 + kneelDrop;
 	const level = fill ? 268 - (268 - 26) * fill.k : 300;
 	const wave = fill ? Array.from({length: 13}, (_, i) => `L ${170 + i * 22} ${f(level + Math.sin(i * 1.3 + Math.floor(t * 12)) * 5)}`).join(' ') : '';
 
@@ -477,14 +495,13 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 			)}
 			{!isGown && legs.map(([h, k, ft], i) => (
 				<g key={i}>
-					<path d={`M ${f(h[0])} ${f(h[1] + bodyY * 0.4)} L ${f(k[0])} ${f(k[1] + crouch * 60)} L ${f(ft[0])} ${f(ft[1])}`} stroke={cos.legs} strokeWidth={LIMB + 4} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-					<ellipse cx={ft[0] + 16} cy={ft[1] + 2} rx={34} ry={16} fill={cos.shoes} />
+					<path d={`M ${f(h[0])} ${f(h[1] + (bodyY - kneelDrop) * 0.4 + kneelDrop)} L ${f(k[0])} ${f(k[1] + crouch * 60 + kneelDrop)} L ${f(ft[0])} ${f(ft[1] + kneelDrop)}`} stroke={cos.legs} strokeWidth={LIMB + 4} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+					<ellipse cx={ft[0] + 16} cy={ft[1] + 2 + kneelDrop} rx={34} ry={16} fill={cos.shoes} />
 				</g>
 			))}
 			<g transform={`translate(0 ${f(bodyY)}) rotate(${f(lean)} 300 470)`}>
 				<Hair kind={cos.hair} color={cos.hairColor ?? K.ink} back />
-				<path d={arm(SH_L, hl, -1)} stroke={cos.coatShade} strokeWidth={LIMB} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-				<circle cx={hl[0]} cy={hl[1]} r={17} fill={K.skinShade} />
+				<Limb sh={SH_L} hand={hl} out={-1} sleeve={cos.coatShade} skin={K.skinShade} />
 				{isGown && <path d={`M 236 404 Q 150 560 110 ${700 - bodyY} L 490 ${700 - bodyY} Q 450 560 364 404 Z`} fill={cos.gown} />}
 				<path d="M 236 262 Q 300 246 364 262 L 398 470 Q 300 490 202 470 Z" fill={cos.coat} />
 				<path d="M 300 254 Q 336 252 364 262 L 398 470 Q 350 482 318 484 Z" fill={cos.coatShade} />
@@ -494,32 +511,62 @@ export const ActorBody: React.FC<{props: Record<string, unknown>; t: number}> = 
 				{cos.cravat && <path d="M 270 258 Q 300 300 330 258 Q 300 252 270 258 Z" fill={cos.cravat} />}
 				{/* head: skin, then the colour fill (clipped to the head, under hair and features), hair, face, marks, hat */}
 				<g>
-					<defs><clipPath id="headclip"><circle cx={HEAD[0]} cy={HEAD[1]} r={HR - 3} /></clipPath></defs>
-					<circle cx={HEAD[0]} cy={HEAD[1]} r={HR} fill={K.skinShade} />
-					{/* the highlight disc has no ink outline: its outlined arc ran from the ear to the mouth and read as a headset
-					    microphone (story-barca-shield panel round 1, all three judges) */}
-					<circle cx={HEAD[0] - 9} cy={HEAD[1] - 9} r={HR - 8} fill={K.skin} stroke="none" />
+					<defs><clipPath id="headclip"><circle cx={HEAD[0]} cy={HEAD[1]} r={HR - 3} /></clipPath><filter id="soft" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="9" /></filter></defs>
+					{/* round 2 (owner): the head is a pure white disc with a thick near-black outline (refs: 5.8 % of the head
+					    diameter); the card shader shades it as a sphere lit by the scene's key light (card3d.ts), so no shading
+					    is painted here. No ear, no cheek dot (both read as odd marks) */}
+					<circle cx={HEAD[0]} cy={HEAD[1]} r={HR} fill={WHITE} stroke={FINK} strokeWidth={14} />
 					{fill && <path clipPath="url(#headclip)" d={`M 160 300 L 160 ${f(level)} ${wave} L 450 300 Z`} fill={fill.color} stroke="none" />}
-					<circle cx={402 + look * 6} cy={176} r={13} fill={fill && fill.k > 0.4 ? fill.color : K.skinShade} />
-					{!fill && <circle cx={296} cy={186} r={13} fill={K.cheek} opacity={0.55} stroke="none" />}
+					{brimY(cos) !== null && <ellipse clipPath="url(#headclip)" cx={300} cy={brimY(cos)! + 16} rx={130} ry={24} fill="rgba(58, 52, 92, 0.30)" stroke="none" filter="url(#soft)" />}
 					<Hair kind={cos.hair} color={cos.hairColor ?? K.ink} back={false} />
-					<g transform="translate(350 168) scale(1.32) translate(-350 -168)">
+					<g transform="translate(318 150) scale(1.32) translate(-340 -168)">
 						<Brows face={face} look={look} />
 						<Eyes eyes={face.eyes} look={look} lid={lid} />
-						{cos.glasses && <g fill="none" stroke={c('ink-1')} strokeWidth={5}><circle cx={322 + look * 12} cy={148} r={24} /><circle cx={378 + look * 12} cy={148} r={24} /></g>}
+						{cos.glasses && <g fill="none" stroke={c('ink-1')} strokeWidth={5}><circle cx={329 + look * 10} cy={135} r={22} /><circle cx={371 + look * 10} cy={135} r={22} /></g>}
 						<MouthShape kind={flapMouth ?? face.mouth} />
 					</g>
 					<Marks marks={marks} t={t} />
 					<g transform={`translate(0 ${f(pop.dy)}) rotate(${f(pop.rot)} 300 40)`}><Hat kind={cos.hat} /></g>
 				</g>
-				<path d={arm(SH_R, hr, 1)} stroke={cos.coat} strokeWidth={LIMB} strokeLinecap="round" strokeLinejoin="round" fill="none" />
-				<circle cx={hr[0]} cy={hr[1]} r={17} fill={K.skin} />
+				<Limb sh={SH_R} hand={hr} out={1} sleeve={cos.coat} skin={K.skin} />
 				{item !== 'none' && <Item kind={item} at={[hr[0], hr[1] - 6]} swing={swing} t={t} />}
 			</g>
 		</g>
 	);
 };
+/** an arm drawn as one inked silhouette with its hand (round 2: "the arms read as detached from the hands"): an ink
+ * underlay round sleeve and hand together, the sleeve stopping just short of the hand's centre, the hand on top
+ * without its own outline, so the sleeve runs into the hand like a cuff */
+function Limb({sh, hand, out, sleeve, skin}: {sh: P2; hand: P2; out: number; sleeve: string; skin: string}) {
+	const el = ik(sh, hand, UPPER, LOWER, out);
+	const dx = hand[0] - el[0], dy = hand[1] - el[1], d = Math.hypot(dx, dy) || 1;
+	const cuff: P2 = [hand[0] - (dx / d) * 9, hand[1] - (dy / d) * 9];
+	const path = `M ${f(sh[0])} ${f(sh[1])} L ${f(el[0])} ${f(el[1])} L ${f(cuff[0])} ${f(cuff[1])}`;
+	return (
+		<g>
+			<path d={`M ${f(sh[0])} ${f(sh[1])} L ${f(el[0])} ${f(el[1])} L ${f(hand[0])} ${f(hand[1])}`} stroke={K.ink} strokeWidth={LIMB + 12} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+			<circle cx={hand[0]} cy={hand[1]} r={23} fill={K.ink} stroke="none" />
+			<path d={path} stroke={sleeve} strokeWidth={LIMB} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+			<circle cx={hand[0]} cy={hand[1]} r={17} fill={skin} stroke="none" />
+			<path d={`M ${f(cuff[0] - (dy / d) * 13)} ${f(cuff[1] + (dx / d) * 13)} L ${f(cuff[0] + (dy / d) * 13)} ${f(cuff[1] - (dx / d) * 13)}`} stroke={K.ink} strokeWidth={4} strokeLinecap="round" />
+		</g>
+	);
+}
 function arm(sh: P2, hand: P2, out: number) {
 	const el = ik(sh, hand, UPPER, LOWER, out);
 	return `M ${f(sh[0])} ${f(sh[1])} L ${f(el[0])} ${f(el[1])} L ${f(hand[0])} ${f(hand[1])}`;
+}
+
+/** where the head's centre is (svg units, 600 x 700 box) and its radius at t, after the walk bob, crouch, lean and
+ * kneel: the card shader shades the head as a sphere there */
+export function headPose(props: Record<string, unknown>, t: number): {x: number; y: number; r: number} {
+	const crouch = clamp(track(props.crouch, t, 0));
+	const kneel = clamp(typeof props.kneel === 'boolean' ? (props.kneel ? 1 : 0) : track(props.kneel, t, 0));
+	const walk = clamp(track(props.walk, t, 0));
+	const stepF = clamp(num(props.stepF, 7), 3, 14);
+	const wp = Math.floor((t * FPS) / stepF) % 4;
+	const bob = walk > 0.5 ? (wp % 2 ? -10 : 0) : 0;
+	const bodyY = bob + crouch * 120 + kneel * 165;
+	const a = (crouch * 8 * Math.PI) / 180, dx = HEAD[0] - 300, dy = HEAD[1] - 470;
+	return {x: 300 + dx * Math.cos(a) - dy * Math.sin(a), y: 470 + dx * Math.sin(a) + dy * Math.cos(a) + bodyY, r: HR};
 }

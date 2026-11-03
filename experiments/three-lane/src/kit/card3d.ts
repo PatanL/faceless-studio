@@ -30,16 +30,17 @@ export class Card3D {
   readonly plane: THREE.Mesh;
   readonly mat: THREE.MeshLambertMaterial;
   private contact: THREE.Mesh | null = null;
-  private uni: { uEmit: { value: number }; uOpacity: { value: number }; uChar: { value: number }; uBurn: { value: number } };
+  private uni: { uEmit: { value: number }; uOpacity: { value: number }; uChar: { value: number }; uBurn: { value: number }; uHead: { value: THREE.Vector4 }; uMirror: { value: number } };
   constructor(readonly tex: THREE.Texture, readonly o: CardOpts) {
     const footY = o.footY ?? 0;
     this.mat = new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5, side: THREE.DoubleSide, transparent: false });
-    this.uni = { uEmit: { value: o.emissive ?? 0 }, uOpacity: { value: 1 }, uChar: { value: 0 }, uBurn: { value: 0 } };
+    this.uni = { uEmit: { value: o.emissive ?? 0 }, uOpacity: { value: 1 }, uChar: { value: 0 }, uBurn: { value: 0 },
+      uHead: { value: new THREE.Vector4(0, 0, 0, 0) }, uMirror: { value: 1 } };
     const uni = this.uni;
     this.mat.onBeforeCompile = (sh) => {
       Object.assign(sh.uniforms, CARD_TONE, uni);
       sh.fragmentShader = sh.fragmentShader
-        .replace("#include <common>", "#include <common>\nuniform vec3 uLitTint; uniform vec3 uShadeTint; uniform float uEmit; uniform float uChar; uniform float uBurn;")
+        .replace("#include <common>", "#include <common>\nuniform vec3 uLitTint; uniform vec3 uShadeTint; uniform float uEmit; uniform float uChar; uniform float uBurn; uniform vec4 uHead; uniform float uMirror;")
         // burning to ash: blocks of the card drop out, from the top down, with a glowing edge
         .replace("#include <alphatest_fragment>", "#include <alphatest_fragment>\n" +
           "float nz = fract( sin( dot( floor( vMapUv * vec2( 48.0, 96.0 ) ), vec2( 12.9898, 78.233 ) ) ) * 43758.5453 );\n" +
@@ -50,9 +51,26 @@ export class Card3D {
         .replace("vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + totalEmissiveRadiance;",
           "vec3 lightK = mix( uShadeTint, uLitTint, sunVis );\n" +
           "vec3 base = mix( diffuseColor.rgb, vec3( 0.05, 0.045, 0.06 ) * (0.6 + 0.4 * diffuseColor.r), uChar );\n" +
+          // the head (round 2, owner): pure-white pixels inside the head circle are shaded as a sphere lit by the key
+          // light (half-Lambert, soft ramp; refs: lit 0.97, darkest ~0.87 of white, falling away from the key), with
+          // a little extra fall-off toward the rim so the roundness reads
+          "#if NUM_DIR_LIGHTS > 0\n" +
+          "if ( uHead.z > 0.0 ) {\n" +
+          "  vec2 hd = ( vMapUv - uHead.xy ) / vec2( uHead.z, uHead.w );\n" +
+          "  float rr = dot( hd, hd );\n" +
+          "  float white = step( 0.93, min( diffuseColor.r, min( diffuseColor.g, diffuseColor.b ) ) );\n" +
+          "  if ( rr < 1.0 && white > 0.5 ) {\n" +
+          "    vec3 nrm = normalize( vec3( hd.x * uMirror, hd.y, sqrt( max( 0.0, 1.0 - rr ) ) ) );\n" +
+          "    vec3 Lv = normalize( directionalLights[ 0 ].direction );\n" +
+          "    float hl = 0.5 + 0.5 * dot( nrm, Lv );\n" +
+          "    float k = mix( 0.80, 1.0, smoothstep( 0.18, 0.92, hl ) ) * mix( 0.93, 1.0, smoothstep( 0.0, 0.55, nrm.z ) );\n" +
+          "    base *= k * mix( vec3( 0.97, 0.97, 1.03 ), vec3( 1.0 ), smoothstep( 0.8, 1.0, k ) );\n" +
+          "  }\n" +
+          "}\n" +
+          "#endif\n" +
           "vec3 outgoingLight = mix( base * lightK, base, uEmit ) + vec3( 1.6, 0.55, 0.12 ) * ember;");
     };
-    this.mat.customProgramCacheKey = () => "turkCard3";
+    this.mat.customProgramCacheKey = () => "turkCard4";
     this.plane = new THREE.Mesh(new THREE.PlaneGeometry(o.w, o.h), this.mat);
     this.plane.position.y = o.h / 2 - footY * o.h;
     this.plane.castShadow = o.shadow ?? true;
@@ -75,6 +93,8 @@ export class Card3D {
   }
   set emit(v: number) { this.uni.uEmit.value = v; }
   set char(v: number) { this.uni.uChar.value = v; }
+  /** the head circle in texture uv (centre u, v and radius in u, v; radius 0 = no sphere shading) */
+  head(u: number, v: number, ru: number, rv: number) { this.uni.uHead.value.set(u, v, ru, rv); this.uni.uMirror.value = Math.sign(this.group.scale.x) || 1; }
   set burn(v: number) { this.uni.uBurn.value = v; }
   set visible(v: boolean) { this.group.visible = v; }
   /** place feet at (x, y, z); yaw to the camera unless billboard: false (then face +z rotated by yaw) */
