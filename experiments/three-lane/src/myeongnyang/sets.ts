@@ -100,14 +100,19 @@ export function straitSet(o: StraitOpts = {}): SetBuild {
     : o.dusk ? skyDome(root, "#3d4688", "#d8785c", "#f3b47c", 1500)
     : skyDome(root, "#3f7fd0", "#9cc4e8", "#f3d8ae", 1500);
   // the current: a band of streaks over the strait's water (scrolled by currentRig); never inked
-  const cur = new THREE.Mesh(new THREE.PlaneGeometry(700, 300), new THREE.MeshBasicMaterial({ map: streaks().clone(), transparent: true, depthWrite: false, opacity: 0.0, fog: true }));
+  // The streak and pool planes sit a few cm over the water; from a high camera (the explainer map, 200 m up, near 0.05)
+  // that is under one depth step, so they z-fought the water and dropped out on single frames. A polygon offset pulls
+  // them toward the camera by a fixed number of depth steps at any distance, and the explainer (no ships) also lifts them.
+  const lift = o.explain ? 0.5 : 0;
+  const zfix = { polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -8 };
+  const cur = new THREE.Mesh(new THREE.PlaneGeometry(700, 300), new THREE.MeshBasicMaterial({ map: streaks().clone(), transparent: true, depthWrite: false, opacity: 0.0, fog: true, ...zfix }));
   (cur.material as THREE.MeshBasicMaterial).map!.needsUpdate = true;
-  cur.rotation.x = -Math.PI / 2; cur.position.set(110, 0.05, 0); cur.layers.set(NOINK); cur.renderOrder = 2; root.add(cur);
+  cur.rotation.x = -Math.PI / 2; cur.position.set(110, 0.05 + lift, 0); cur.layers.set(NOINK); cur.renderOrder = 2; root.add(cur);
   // whirlpools in the gap
   const pools = new THREE.Group(); root.add(pools);
   for (const [x, z, s] of [[52, -20, 16], [84, 16, 20], [70, -2, 12], [104, -14, 14], [40, 22, 11]] as [number, number, number][]) {
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(s, s), new THREE.MeshBasicMaterial({ map: whirl(), transparent: true, depthWrite: false, fog: true }));
-    m.rotation.x = -Math.PI / 2; m.position.set(x, 0.07, z); m.layers.set(NOINK); m.renderOrder = 3; pools.add(m);
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(s, s), new THREE.MeshBasicMaterial({ map: whirl(), transparent: true, depthWrite: false, fog: true, ...zfix }));
+    m.rotation.x = -Math.PI / 2; m.position.set(x, 0.07 + lift, z); m.layers.set(NOINK); m.renderOrder = 3; pools.add(m);
   }
   const key = o.night || o.explain ? makeKey(root, [-60, 80, -40], [40, 0, 0], 90) : o.dusk ? makeKey(root, [-160, 50, 60], [40, 0, 0], 90) : makeKey(root, [-90, 110, 70], [40, 0, 0], 90);
   key.shadow.camera.far = 400;
@@ -301,10 +306,11 @@ export const lanternGlows = (ps: V3[], size = 3): Rig => (ctx) => {
 export { NOINK };
 
 // ------------------------------------------------------------------------------------------------ wrecks
-/** burning wrecks: broken, listing panokseon hulls with fire and smoke ([x, z, list]) */
-export const wreckRig = (at: [number, number, number][]): Rig => (ctx) => {
+/** burning wrecks: broken, listing hulls with fire and smoke ([x, z, list]); panokseon by default, or make(i) (e.g. an
+ * enemy atake: japanese) */
+export const wreckRig = (at: [number, number, number][], make: (i: number) => THREE.Group = () => korean(false)): Rig => (ctx) => {
   const items = at.map(([x, z, list], i) => {
-    const g = korean(false); g.position.set(x, -1.4, z); g.rotation.set(list * 0.5, i * 1.3, list); ctx.root.add(g);
+    const g = make(i); g.position.set(x, -1.4, z); g.rotation.set(list * 0.5, i * 1.3, list); ctx.root.add(g);
     g.traverse((o) => { if (o.name === "flag") o.visible = false; });
     const fl = [0, 1, 2].map((k) => { const f = new Flame(4 + k, i * 3 + k); f.mesh.position.set(x - 3 + k * 3, 1.5, z + (k - 1)); ctx.root.add(f.mesh); return f; });
     const sm = new Rising(12, "smoke", 6, 40 + i); sm.group.position.set(x, 3, z); ctx.root.add(sm.group);

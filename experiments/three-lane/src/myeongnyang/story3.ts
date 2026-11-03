@@ -198,7 +198,7 @@ export function buildStory(T: Timing): MyeongStory {
       people: [],
       rigs: [westCur, fleetRig((b) => korean(b.k === 0, b.k !== 0), MINE, (t, b) => ({ dx: b.k ? 6 * (1 - sm((t - t0) / (tA - t0 + 0.4))) : 0 })),
         burst(BEHIND.map((b) => ({ at: [b.x + 7, 0.5, b.z + 3.4] as V3, t: tA + (b.k % 4) * 0.1, size: 2.4 }))),
-        label("HIM", [16, 12, 0], w("him,", t0) - 0.05, t1 + 1, 4)] });
+        label("HIM", [16, 12, 0], w("well", t0) - 0.2, t1 + 1, 4)] });
   }
   // ================= 13 "...politely letting him face the enemy first": two captains bowing him on
   {
@@ -264,12 +264,15 @@ export function buildStory(T: Timing): MyeongStory {
   // ================= 18 you see: some narrow sea channels run like a river, and every few hours stop and turn around
   {
     const t0 = w("You"), t1 = w("Now");
-    const tTurns = w("turns");
-    const ph = (t: number) => (t < tTurns ? -9 * (t - t0) : -9 * (tTurns - t0) + 9 * (t - tTurns));
+    const tTurns = w("turns"), tStop = w("stops", t0);
+    // water speed: -9 m/s, easing to slack from "stops" to "turns", then easing up to +9 m/s; the phase is its integral
+    const vel = (t: number) => (t < tTurns ? -9 * (1 - sm((t - tStop) / (tTurns - tStop))) : 9 * sm((t - tTurns) / 0.5));
+    const ph = (t: number) => { let p = 0; const dt = 1 / 240; for (let u = t0; u < t; u += dt) p += vel(Math.min(t, u + dt / 2)) * Math.min(dt, t - u); return p; };
+    const slack = (t: number) => sm((t - tStop) / (tTurns - tStop)) * (1 - sm((t - tTurns) / 0.5));
     add({ id: "explain", place: "explain", insert: true, t0, t1, xfade: 0.2, join: WHIP, set: () => straitSet({ explain: true, fog: 14 }), light: "explain", lens: { cInf: 2 },
       cam: [{ t: t0, pos: [70, 190, -80], look: [70, 0, 0], fov: 44 }, { t: w("The", t0), pos: [150, 150, -110], look: [72, 0, 0], fov: 44, glide: 1 }, { t: t1, pos: [160, 135, -96], look: [74, 0, 0], fov: 44, glide: 1 }],
       people: [],
-      rigs: [currentRig(ph, (t) => 1 - 0.85 * Math.max(0, 1 - Math.abs(t - tTurns) / 0.35)), arrowsRig((t) => (t < tTurns ? -1 : 1), tTurns),
+      rigs: [currentRig(ph, (t) => 1 - 0.8 * slack(t)), arrowsRig((t) => (t < tTurns ? -1 : 1), tTurns),
         label("NARROW SEA CHANNEL", [70, 14, 0], w("narrow", t0), w("The", t0) - 0.1, 7), label("EVERY FEW HOURS", [76, 14, 0], w("every", t0), t1 + 1, 7)] });
   }
   // ================= 19 now the water that rushed them in shoves them back (the jam drifting backwards)
@@ -313,9 +316,11 @@ export function buildStory(T: Timing): MyeongStory {
     const mB = (t: number) => ({ dx: 1.5 * sm((t - t0) / (tHit - t0)), dyaw: -0.4 * sm((t - tHit) / 0.6), heel: t > tHit ? -0.12 * Math.sin((t - tHit) * 6) * Math.exp(-(t - tHit)) : 0 });
     const crewA = [[2.4, 0.9], [0.2, -1.0]].map(([lx, lz], j): PersonSpec => ({ id: `ca${j}`, at: (t) => { const m = mA(t); return onDeck({ ...A, x: A.x + m.dx, yaw: A.yaw + m.dyaw }, lx, lz, DECK_J); }, faceTo: () => [B2.x, DECK_J, B2.z],
       props: () => ({ costume: j ? "ashigaru" : "samurai", seed: 83 + j, face: faceTrack(words, "worried", [{ word: "into", after: t0, face: "terrified", react: [{ face: "scream", frames: 3 }] }], t0 + j * 0.1), pose: [{ t: t0, v: "point" }, { t: tHit, v: "armsUp" }] }) }));
-    add({ id: "jam", place: "gap-low", t0, t1, xfade: 0.2, join: D(6), set: () => straitSet(), light: lightArc([[t0, "golden"]], [tPound, tJam].map((t) => ({ kind: "flash" as const, t, frames: 2 }))), lens: { cInf: 5 },
+    const crewLate = [tHit + 0.3, tHit + 0.7, w("and", tHit), tPound, tJam, t1].flatMap((t) => crewA.map((p) => p.at(t)));
+    add({ id: "jam", place: "gap-low", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: () => straitSet(), light: lightArc([[t0, "golden"]], [tPound, tJam].map((t) => ({ kind: "flash" as const, t, frames: 2 }))), lens: { cInf: 5 },
       alive: [[t0, t1]],
-      cam: [pair(t0, [...crewA.map((p) => p.at(t0)), ...crewA.map((p) => p.at(t1)), ...crewA.map((p) => p.at(tHit + 0.3))], 28, 12, 52, 0.4), { ...pair(tPound, [...crewA.map((p) => p.at(t1)), ...crewA.map((p) => p.at(tHit + 0.3))], 40, 16, 48, 0.4), glide: 1 }],
+      cam: [{ t: t0, pos: [61, 18, 34], look: [76, 2, 5], fov: 52, drift: 0.3 }, { t: tHit + 0.35, pos: [61, 17, 32], look: [73.5, 2.5, 5.5], fov: 50, glide: 1 },
+        { ...pair(w("and", tHit) + 0.1, crewLate, 30, 14, 50, 0.2), glide: 1 }, { ...pair(t1, crewLate, 26, 14, 50, 0.2), glide: 1 }],
       people: crewA,
       rigs: [currentRig((t) => 5 * t, () => 1), fleetRig((b) => japanese(b.k), [A], (t) => mA(t)), fleetRig((b) => japanese(b.k), [B2], (t) => mB(t)),
         burst([{ at: [78, 3, 4], t: tHit, size: 4 }, { at: [79, 4, 5], t: tHit + 0.25, size: 3 }, { at: [74, 4, 9], t: tPound, size: 4.4 }, { at: [84, 4, 0], t: tJam, size: 5 }]),
@@ -325,11 +330,11 @@ export function buildStory(T: Timing): MyeongStory {
   const SUN = DUSK;
   {
     const t0 = w("By"), t1 = w("their", w("By"));
-    const back = (t: number, b: Berth) => ({ dx: 30 + 5 * (t - t0) * (1 + ((b.k * 37) % 10) / 20), dyaw: ((b.k * 53) % 7 - 3) * 0.08 });
+    const back = (t: number, b: Berth) => ({ dx: 14 + 9 * (t - t0) * (1 + ((b.k * 37) % 10) / 20), dyaw: ((b.k * 53) % 7 - 3) * 0.08 });
     add({ id: "sunset", place: "mouth-dusk", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: () => straitSet({ dusk: true }), light: SUN, lens: { cInf: 3 },
-      cam: [{ t: t0, pos: [-10, 30, 26], look: [110, 0, 0], fov: 44 }, { t: t1, pos: [-2, 24, 22], look: [112, 0, 0], fov: 44, glide: 1 }],
+      cam: [{ t: t0, pos: [20, 45, 30], look: [100, 8, -20], fov: 46, drift: 0 }, { t: t1, pos: [23, 43, 28], look: [101, 8, -20], fov: 46, glide: 1 }],
       people: [],
-      rigs: [currentRig((t) => 6 * t, () => 1), myFleet, fleetRig((b) => japanese(b.k), jam, back), wreckRig([[60, -10, 0.4], [76, 12, -0.5]])] });
+      rigs: [currentRig((t) => 9 * t, () => 1), myFleet, fleetRig((b) => japanese(b.k), jam, back), wreckRig([[60, -10, 0.4], [76, 12, -0.5]], (i) => japanese(i + 1))] });
   }
   // ================= 24 their admiral close enough to wave goodbye (at his bow, drifting away backwards)
   {
@@ -353,12 +358,12 @@ export function buildStory(T: Timing): MyeongStory {
   // ================= 26 and the cork drifts right back past him, going the other way (at the water by his hull)
   {
     const t0 = w("And", w("idea.")), t1 = END;
-    const corkB = (t: number): V3 => [ADM[0] - 2.4 + 1.3 * (t - t0), 0.08, CORK0[2]];
+    const corkB = (t: number): V3 => [ADM[0] + 2.0 - 1.4 * (t - t0), 0.08, CORK0[2]];
     add({ id: "corkback", place: "water-dusk", insert: true, t0, t1, xfade: 0.2, join: D(6), set: () => straitSet({ dusk: true }), light: SUN, lens: { cInf: 7 },
-      cam: [{ t: t0, pos: [ADM[0] - 1.2, 2.0, 13], look: [ADM[0] - 0.6, 2.4, 3], fov: 50, drift: 0 }, { t: t1, pos: [ADM[0] + 0.6, 2.2, 12.2], look: [ADM[0] + 0.6, 2.5, 3], fov: 48, glide: 1 }],
+      cam: [{ t: t0, pos: [ADM[0], 2.0, 13], look: [ADM[0], 2.4, 3], fov: 50, drift: 0 }, { t: t1, pos: [ADM[0], 2.1, 12.5], look: [ADM[0], 2.45, 3], fov: 49, glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "adm", at: () => ADM, faceTo: () => [ADM[0], ADM[1], ADM[2] + 10], props: () => admProps(faceTrack(words, "focus", [{ word: "past", face: "sly" }], t0), "hold") }],
-      rigs: [currentRig((t) => 1.3 * t, () => 0.6), myFleet, corkRig(corkB)] });
+      rigs: [currentRig((t) => -1.4 * t, () => 0.6), myFleet, corkRig(corkB)] });
   }
   void DECK_J;
   return { groups };
