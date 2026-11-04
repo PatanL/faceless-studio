@@ -288,7 +288,9 @@ export function sectionSet(): SetBuild {
   const water = new THREE.Mesh(new THREE.BoxGeometry(SEC.x1 - SEC.x0, 1, 2 * SEC.z + 0.02), new THREE.MeshLambertMaterial({ color: "#3a8ac8", transparent: true, opacity: 0.5, depthWrite: false }));
   water.position.set(0, 0.5, 0); water.renderOrder = 2; root.add(water);
   const top = new THREE.Mesh(new THREE.PlaneGeometry(SEC.x1 - SEC.x0, 2 * SEC.z), new THREE.MeshLambertMaterial({ map: richWater([6, 1]), transparent: true, opacity: 0.85, depthWrite: false })); top.rotation.x = -Math.PI / 2; top.renderOrder = 3; root.add(top);
-  const ditchW: THREE.Mesh[] = SEC.ditches.map((x) => { const m = new THREE.Mesh(new THREE.BoxGeometry(SEC.dw, SEC.dd, 2 * SEC.z + 0.02), new THREE.MeshLambertMaterial({ color: "#2a6aa8", transparent: true, opacity: 0.6, depthWrite: false })); m.position.set(x, -SEC.dd / 2, 0); m.renderOrder = 2; root.add(m); return m; });
+  const ditchBack = lambert({ color: "#3a2618" });
+  for (const x of SEC.ditches) box(root, ditchBack, SEC.dw, SEC.dd, 0.1, x, -SEC.dd / 2, -SEC.z + 0.05);
+  const ditchW: THREE.Mesh[] = SEC.ditches.map((x) => { const m = new THREE.Mesh(new THREE.BoxGeometry(SEC.dw, SEC.dd, 2 * SEC.z + 0.02), new THREE.MeshLambertMaterial({ color: "#2a5a98", transparent: true, opacity: 0.8, depthWrite: false })); m.position.set(x, -SEC.dd / 2, 0); m.renderOrder = 2; root.add(m); return m; });
   // the back: a pale sky card and a strip of flooded polder behind the slice
   const [c, g] = canvas(16, 256); const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, "#9cc8ec"); gr.addColorStop(1, "#e8f2f8"); g.fillStyle = gr; g.fillRect(0, 0, 16, 256);
   const sky = new THREE.Mesh(new THREE.PlaneGeometry(200, 80), new THREE.MeshBasicMaterial({ map: tex(c), fog: false })); sky.position.set(0, 20, -60); root.add(sky);
