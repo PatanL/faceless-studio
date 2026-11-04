@@ -1,0 +1,74 @@
+{
+ "verdict": "PASS",
+ "mp4": "out/story-dutch-waterline/story-dutch-waterline_v1.mp4",
+ "phone_mp4": "out/story-dutch-waterline/story-dutch-waterline_v1_phone.mp4",
+ "round": "v1: every frame of the first render reviewed on all 33 f30 sheets; must-fixes fixed and re-rendered once; every changed span re-viewed at 30 fps",
+ "sheets_viewed": 37,
+ "sheets": [
+  "out/story-dutch-waterline/qa/f30/09_0m18s0.jpg",
+  "out/story-dutch-waterline/qa/f30/17_0m34s0.jpg",
+  "out/story-dutch-waterline/qa/f30/18_0m36s0.jpg",
+  "out/story-dutch-waterline/qa/f30/30_1m00s0.jpg"
+ ],
+ "frames30_flags": {
+  "flash": 0,
+  "jump": 5,
+  "frozen": 0,
+  "note": "the jumps are joins: the whip into the neighbour (F127-F138) and the hard cut into the 'puddles' close (F844)"
+ },
+ "changes": [
+  {
+   "t": "33.1-38.1",
+   "fix": "a rider and horse crossed the lens at 35.6-35.8 s (the whole frame went tan for 3 frames). The vanish shot now pulls round to look past the hat toward the column (az 130 -> 105) and 'Then another' holds on the hat with the second plunge behind it.",
+   "result": "F1020-F1139 viewed: no frame is filled by a horse; the second rider goes down behind the hat at 37.4 s; riders still pass close at 36.4-36.9 s (minor)."
+  },
+  {
+   "t": "17.3-19.5",
+   "fix": "the mill camera pushed into the tower with the neighbour small under the caption; it now ends medium on him (castKey).",
+   "result": "F540-F585 viewed: he pumps at the mill door with the sails turning; head clear of the caption."
+  },
+  {
+   "t": "56.9-60.9",
+   "fix": "the soldier walked over the ditch before falling; he now walks to the edge and steps off; the ditch has a back wall.",
+   "result": "F1785-F1829 viewed: he falls into the ditch at the edge; HIDDEN DITCH tag stays in frame."
+  },
+  {
+   "t": "60.9-65.5",
+   "fix": "the general's boat floated above his raised hands; it now rests on them.",
+   "result": "F1830-F1965 viewed."
+  },
+  {
+   "t": "30.0-33.1",
+   "fix": "the cavalry charge framed closer beside the lanes.",
+   "result": "riders read against the water."
+  }
+ ],
+ "must_fix": [],
+ "minor": [
+  {
+   "t": "35.2-37.0 s",
+   "what": "vanish/another (35.2-37.0 s): the cavalry gallops past the floating hat close to the lens; a rider and horse fill the right half for about 1 s behind the ONE HAT tag (continuous, no pop)"
+  },
+  {
+   "t": "0-4.4 s",
+   "what": "hook (0-4.4 s): the general laughs from the far bank road at 1.5x scale; he reads small (head about 0.03) and is an extra, so the cast gate does not measure him"
+  },
+  {
+   "t": "46.6-50.9 s",
+   "what": "map (46.6-50.9 s): a high oblique of the polder; HOLLAND and 1672 tags sit near the top edge and the 1672 tag is clipped by the top edge 50.3-50.8 s"
+  },
+  {
+   "t": "51-61 s",
+   "what": "explainer (51-61 s): flat studio slice, plain sky card; the soldier's knee line reads, but the explainer set is simpler than the polder"
+  },
+  {
+   "t": "60.9-65.5 s",
+   "what": "home (60.9-65.5 s): the boat is carried hull-up above his head and rests on the tips of his hands; he is small in a wide frame for the first second"
+  },
+  {
+   "t": "the caption shows the right word",
+   "what": "ASR: faster-whisper medium.en hears 'wading' as 'waiting' in the last line (the caption shows the right word)"
+  }
+ ],
+ "previous": null
+}

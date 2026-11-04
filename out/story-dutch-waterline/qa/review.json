@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "slug": "story-dutch-waterline",
+ "verdict": "PASS",
+ "gate_sha": "96fe450815172c787de2a357b7b80a7b35fb2216a49815a2b60eb450678e9395",
+ "reviewer": "operator (Claude); not posted (owner decides)",
+ "evidence": {
+  "every_frame_review": "v1: frames30 over the whole video (33 f30 sheets, every frame at 30 fps), every sheet viewed; must-fixes (a rider crossing the lens at 35.6 s, the mill camera pushing into the tower with the neighbour under the caption, the soldier walking over the ditch before falling, the general's boat floating above his hands) fixed and re-rendered once; the changed spans (18-20 s, 34-38 s, 60-62 s) re-viewed at 30 fps; frames30 flash 0, jump 5 (all at joins: the hook-to-neighbour whip 4.2-4.6 s and the hard cut into 'puddles' at 28.13 s), frozen 0",
+  "kit_gates": "scripts/framing.ts on v1: kit gates clean (holds <= 3.09 s, cast median head 0.114, 95 % >= 0.07, edge clean, smooth); caption gate clean; joins: dissolves, 1 match dissolve (the floating hat), whips, 1 cut",
+  "gate_warnings_accepted": [
+   "5-word caption pages",
+   "caption bottom at 77% (one line 74.6%)",
+   "17-word hook (WARN, spec 9-21)",
+   "originality WARN: compared with the corpus only (not a --source episode)",
+   "house_style not measured off the Spark"
+  ],
+  "known_nits": [
+   "vanish/another (35.2-37.0 s): the cavalry gallops past the floating hat close to the lens; a rider and horse fill the right half for about 1 s behind the ONE HAT tag (continuous, no pop)",
+   "hook (0-4.4 s): the general laughs from the far bank road at 1.5x scale; he reads small (head about 0.03) and is an extra, so the cast gate does not measure him",
+   "map (46.6-50.9 s): a high oblique of the polder; HOLLAND and 1672 tags sit near the top edge and the 1672 tag is clipped by the top edge 50.3-50.8 s",
+   "explainer (51-61 s): flat studio slice, plain sky card; the soldier's knee line reads, but the explainer set is simpler than the polder",
+   "home (60.9-65.5 s): the boat is carried hull-up above his head and rests on the tips of his hands; he is small in a wide frame for the first second",
+   "ASR: faster-whisper medium.en hears 'wading' as 'waiting' in the last line (the caption shows the right word)"
+  ]
+ },
+ "mp4": "out/story-dutch-waterline/story-dutch-waterline_v1.mp4",
+ "phone_mp4": "out/story-dutch-waterline/story-dutch-waterline_v1_phone.mp4"
+}
