@@ -1,0 +1,95 @@
+{
+ "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
+ "duration_s": 65.553,
+ "captions": {
+  "src": "episodes/story-dutch-waterline/captions.json"
+ },
+ "audio": {
+  "voice": [
+   {
+    "src": "episodes/story-dutch-waterline/mix.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 65.553
+   }
+  ],
+  "music": [],
+  "sfx": [],
+  "duckOn": "none"
+ },
+ "audio_stems": {
+  "voice": [
+   {
+    "src": "episodes/story-dutch-waterline/voice.wav",
+    "start": 0,
+    "volume": 1,
+    "duration": 65.553
+   }
+  ],
+  "music": [
+   {
+    "src": "episodes/story-dutch-waterline/music.wav",
+    "start": 0,
+    "volume": 1,
+    "duckTo": 1,
+    "loop": false,
+    "fadeIn": 0,
+    "fadeOut": 0
+   }
+  ],
+  "sfx": [
+   {
+    "src": "episodes/story-dutch-waterline/sfx.wav",
+    "at": 0,
+    "volume": 1
+   }
+  ],
+  "duckOn": "none"
+ },
+ "cues": [
+  {
+   "cue": "knock",
+   "at": 4.387
+  },
+  {
+   "cue": "knock",
+   "at": 13.01
+  },
+  {
+   "cue": "tick",
+   "at": 19.509
+  },
+  {
+   "cue": "knock",
+   "at": 28.128
+  },
+  {
+   "cue": "swish_fall",
+   "at": 29.997
+  },
+  {
+   "cue": "knock",
+   "at": 38.125
+  },
+  {
+   "cue": "tick",
+   "at": 41.834
+  },
+  {
+   "cue": "swish",
+   "at": 46.576
+  },
+  {
+   "cue": "swish",
+   "at": 53.091
+  },
+  {
+   "cue": "swish",
+   "at": 56.863
+  },
+  {
+   "cue": "impact",
+   "at": 60.874
+  }
+ ]
+}

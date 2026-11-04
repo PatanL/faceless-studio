@@ -1,0 +1,465 @@
+{
+ "niche": "explainer",
+ "house": {
+  "cuts": false
+ },
+ "render": "3D: experiments/three-lane composition Dutch3D (src/dutch/story.ts, v1; this storyboard supplies timings, captions and the mix only)",
+ "emphasis": [
+  "flooded",
+  "cabbages?",
+  "knee,",
+  "puddles!",
+  "vanishes,",
+  "hat",
+  "knee-deep",
+  "shallow",
+  "boat."
+ ],
+ "glue": [
+  "invading army",
+  "horses snorting",
+  "the floodgate",
+  "to the knee",
+  "Not yet,",
+  "That'll do.",
+  "the whole village",
+  "with a windmill",
+  "their general",
+  "with puddles!",
+  "shiny water",
+  "one hat floating.",
+  "in the mud",
+  "against his knee",
+  "stops pumping",
+  "in 1672",
+  "a French invasion",
+  "about knee-deep",
+  "on purpose",
+  "horses and cannon",
+  "float a boat",
+  "every ditch",
+  "between the fields",
+  "a plunge",
+  "soaked to the knee",
+  "his own boat"
+ ],
+ "caption_rule": "phrase1",
+ "scenes": [
+  {
+   "p": 1,
+   "beat": "b1",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "floodgate: he cranks his own floodgate open, the army and the laughing general on the road behind",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 2,
+   "beat": "b2",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "farm: the neighbour drops his pitchfork by the cabbages",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 3,
+   "beat": "b3",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "floodgate: he props the gate, rolls his trousers, wades in",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 4,
+   "beat": "b4",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "field: the water at his shin, not yet",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 5,
+   "beat": "b5",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "village: the furious village, the neighbour pumping with a windmill",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 6,
+   "beat": "b6",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "floodgate: the water touches his knee, he slams the gate",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 7,
+   "beat": "b7",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "road: the army reaches the flood, the general laughs on his horse",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 8,
+   "beat": "b8",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "road: the general jeers about puddles",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 9,
+   "beat": "b9",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "polder: the cavalry gallops across the shiny water",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 10,
+   "beat": "b10",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "polder: a horse vanishes, one hat floating",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 11,
+   "beat": "b11",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "polder: the troop boats scrape to a stop in the mud",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 12,
+   "beat": "b12",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "floodgate: the knee check, the neighbour stops pumping",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 13,
+   "beat": "b13",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "explainer: the flooded polder in section, knee-deep",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 14,
+   "beat": "b14",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "explainer: too deep for horses and cannon, too shallow for a boat",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 15,
+   "beat": "b15",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "explainer: the hidden ditches under the water",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  },
+  {
+   "p": 16,
+   "beat": "b16",
+   "setting": {
+    "kind": "place",
+    "depth": 0,
+    "waterline": null,
+    "biome": "home",
+    "place": "polder at sunset: the general wading home carrying his boat",
+    "light": "day"
+   },
+   "background": {
+    "type": "component",
+    "name": "stick/Set",
+    "depth": 0.3,
+    "overscan": 1.2,
+    "props": {
+     "place": "hall",
+     "ink": 5
+    }
+   },
+   "layers": [],
+   "_house": {
+    "set": false
+   }
+  }
+ ]
+}
