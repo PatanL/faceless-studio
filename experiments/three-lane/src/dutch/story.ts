@@ -84,8 +84,9 @@ export function buildStory(T: Timing): DutchStory {
   const column = (t: number, x0: number, n: number, v: number): V3[] => Array.from({ length: n }, (_, i) => [x0 - v * t + (i >> 1) * 2.6, FAR, ROAD_Z + (i % 2 ? 1.1 : -1.1)] as V3);
   const armyRig = (x0: number, n = 24, v = 1.6) => crowdRig((i) => (i % 3 === 2 ? soldier({ pike: true }) : rider({ horseCoat: ["#8a5a34", "#5a3a26", "#c8a070"][i % 3] })), (t) => column(t, x0, n, v), () => Math.PI,
     (o, t, i) => { const h = o.userData.horse as THREE.Group | undefined; if (h) gallop(h, t * 1.1 + i * 0.37, 0.35); else o.position.y += 0.06 * Math.abs(Math.sin(t * 6 + i)); });
-  const GEN_HORSE: V3 = [4.6, DIKE_H, DIKE_Z - 0.3];
-  const genSeat = (h: V3): V3 => [h[0], h[1] + 1.4 - 0.575, h[2] + 0.05];
+  const genSeat = (h: V3, k = 1): V3 => [h[0], h[1] + (1.4 - 0.575) * k, h[2] + 0.05];
+  // the hook's general rides on the far bank with the column (drawn 1.5x: a cartoon cheat so his laugh reads at 33 m)
+  const GK = 1.5, HOOK_GEN = (t: number): V3 => [15 - 1.6 * t, FAR, ROAD_Z + 3.4];
 
   // ================= 1 the hook: he cranks his own floodgate open, the army on the road behind, the general laughing
   {
@@ -96,8 +97,8 @@ export function buildStory(T: Timing): DutchStory {
       frameKey(tClose + 0.5, HEAD, 0.24, 0.44, 0.59, 0.115, -22, 7, 40, "io"), frameKey(t1, HEAD, 0.24, 0.45, 0.59, 0.11, -24, 7.5, 40, "io")];
     add({ id: "hook", place: "gate", t0, t1, xfade: 0, set: () => polderSet(), light: "golden", lens: { cInf: 4 }, cam, alive: [[t0, t1]],
       people: [{ id: "farmer", at: () => F_GATE, faceTo: () => WHEEL, props: () => farmerP(faceTrack(words, "angry", [{ word: "snorting.", face: "focus" }], t0), crankPose(t0 - 1, t1 + 1)) },
-        { id: "gen", extra: true, at: () => genSeat(GEN_HORSE), faceTo: () => F_GATE, props: () => genP(faceTrack(words, "grin", [{ word: "close", face: "cackle", react: [{ face: "squeeze", frames: 3 }] }], t0), poseTrack(words, "hold", [["close", "point"]], t0), { seated: true, chair: false }) }],
-      rigs: [farm, armyRig(10), propRig(() => horse({ coat: "#f2ece0", mane: "#c8b8a0" }), () => GEN_HORSE, () => Math.PI, (o, t) => gallop(o as THREE.Group, 0, 0)),
+        { id: "gen", extra: true, scale: GK, at: (t) => genSeat(HOOK_GEN(t), GK), faceTo: () => F_GATE, props: () => genP(faceTrack(words, "grin", [{ word: "close", face: "cackle", react: [{ face: "squeeze", frames: 3 }] }], t0), poseTrack(words, "hold", [["close", "point"]], t0), { seated: true, chair: false }) }],
+      rigs: [farm, armyRig(10), propRig(() => { const h = horse({ coat: "#f2ece0", mane: "#c8b8a0" }); h.scale.setScalar(GK); return h; }, HOOK_GEN, () => Math.PI, (o, t) => gallop(o as THREE.Group, t * 1.1, 0.3)),
         splash(Array.from({ length: 16 }, (_, k) => ({ at: [(k % 3 - 1) * 0.6, 0.08, GATE_Z + 1.2] as V3, t: k * 0.28, size: 1.1, n: 10 })))] });
   }
   // ================= 2 his neighbour drops his pitchfork (in the cabbages, the water spreading behind)
@@ -143,7 +144,7 @@ export function buildStory(T: Timing): DutchStory {
   {
     const t0 = w("rolls"), t1 = w('"Not');
     add({ id: "rolls", place: "field", t0, t1, xfade: 0.2, join: D(6), set: () => polderSet(), light: "golden", lens: { cInf: 6 },
-      cam: [pair(t0, [wadeP(t0, tWade0, tWade1), F_IN], -40, 6, 40, 0), { ...pair(t1, [wadeP(t0, tWade0, tWade1), F_IN], -32, 5, 38, 0), glide: 1 }], alive: [[t0, t1]],
+      cam: [{ ...cK(t0, [wadeP(t0, tWade0, tWade1)], "medium", -40, 6, 40), drift: 0 }, { ...cK(tWade0, [wadeP(tWade0, tWade0, tWade1)], "medium", -36, 6, 40), glide: 1 }, { ...cK(t1, [F_IN], "medium", -30, 5, 38), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "farmer", at: (t) => wadeP(t, tWade0, tWade1), faceTo: () => [6, 0, 6], props: (t) => farmerP(faceTrack(words, "focus", [{ word: "wades", face: "deadpan" }], t0),
         poseTrack(words, "reach", [["knee,", "hips"], ["wades", "stand"]], t0), { crouch: [{ t: t0, v: 0.55 }, { t: w("knee,", t0) - 0.1, v: 0 }], walk: t > tWade0 && t < tWade1 ? 1 : 0 }) }],
       rigs: [farm, splash([0, 1, 2, 3].map((k) => { const tt = tWade0 + 0.1 + k * 0.15; const p = wadeP(tt, tWade0, tWade1); return { at: [p[0], 0.07, p[2]] as V3, t: tt, size: 0.6, n: 8 }; }))] });
@@ -170,7 +171,7 @@ export function buildStory(T: Timing): DutchStory {
   {
     const t0 = w("and", w("furious,")), t1 = w("Then", w("windmill."));
     add({ id: "mill", place: "mill", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: () => polderSet({ dawn: true }), light: "golden", lens: { cInf: 4 },
-      cam: [{ t: t0, pos: [-14, 4.5, 16], look: [-29, 5.2, -2], fov: 44, drift: 0.3 }, { t: w("windmill."), pos: [-19, 3.2, 10], look: [-28.5, 3.6, -0.5], fov: 44, glide: 1 }, { t: t1, pos: [-19.5, 3.1, 9.6], look: [-28.5, 3.5, -0.5], fov: 44, glide: 1 }],
+      cam: [{ t: t0, pos: [-24, 6, 26], look: [-29.5, 5, -2], fov: 44, drift: 0.3 }, { t: w("windmill."), pos: [-26.3, 2.3, 10.5], look: [-28.2, 1.0, -0.5], fov: 44, glide: 1 }, { t: t1, pos: [-26.4, 2.2, 10.2], look: [-28.2, 0.95, -0.5], fov: 44, glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "neigh", at: () => N_MILL, faceTo: () => [-32, 0, 0], props: () => neighP(faceTrack(words, "angry", [{ word: "pumping", face: "grimace" }], t0), [{ t: t0, v: "push" }, ...Array.from({ length: 12 }, (_, k) => ({ t: tPump + k * 0.3, v: k % 2 ? "push" : "reach" }))], { marks: [markAt(words, "windmill.", "sweat")] }) }],
       rigs: [farm, pumpSplash(t0, t1)] });
@@ -241,7 +242,7 @@ export function buildStory(T: Timing): DutchStory {
   {
     const t0 = w("The", w('"They\'re')), t1 = w("Seconds");
     add({ id: "charge", place: "polder", establishing: true, t0, t1, xfade: 0.2, join: D(6), set: day, light: "day", lens: { cInf: 4 },
-      cam: [{ t: t0, pos: [RISE_X - 18, 2.6, 34], look: [RISE_X + 2, 1.2, 17], fov: 44, drift: 0 }, { t: t1, pos: [RISE_X - 30, 1.6, 31], look: [RISE_X - 18, 1.0, 17], fov: 44, glide: 1 }],
+      cam: [{ t: t0, pos: [RISE_X - 6, 1.9, 28], look: [RISE_X + 3, 1.3, 17], fov: 44, drift: 0 }, { t: t1, pos: [RISE_X - 17, 1.6, 27], look: [RISE_X - 8, 1.0, 17], fov: 44, glide: 1 }],
       people: [], alive: [[t0, t1]],
       rigs: [farm, cav(), cavSplash(t0, t1), genHorse(0), campRig, label("SHINY WATER", [RISE_X - 26, 3.2, 17], w("shiny") - 0.1, t1 + 1, 1.2)] });
   }
@@ -309,11 +310,11 @@ export function buildStory(T: Timing): DutchStory {
   {
     const t0 = w("You"), t1 = w("keeping");
     add({ id: "map", place: "map", insert: true, t0, t1, xfade: 0.2, join: WHIP, set: () => polderSet({ high: true }), light: "day", lens: { cInf: 1 },
-      cam: [{ t: t0, pos: [40, 150, 120], look: [20, 0, 0], fov: 44, drift: 0 }, { t: w("stop", t0), pos: [52, 78, 62], look: [38, 0, 6], fov: 44, glide: 1 }, { t: t1, pos: [54, 74, 58], look: [40, 0, 6], fov: 44, glide: 1 }],
+      cam: [{ t: t0, pos: [RISE_X + 70, 120, 20], look: [10, 0, 14], fov: 44, drift: 0 }, { t: w("stop", t0), pos: [RISE_X + 24, 62, 19], look: [28, 0, 15], fov: 44, glide: 1 }, { t: t1, pos: [RISE_X + 20, 58, 19], look: [26, 0, 15], fov: 44, glide: 1 }],
       people: [], alive: [[t0, t1]],
-      rigs: [farm, campRig, label("1672", [-20, 26, 20], w("1672") - 0.1, t1 + 1, 16), label("HOLLAND", [-40, 10, 0], w("Dutch") - 0.1, t1 + 1, 9),
-        label("FRENCH ARMY", [RISE_X + 46, 12, 20], w("French") - 0.1, t1 + 1, 9), arrowRig([RISE_X + 70, 0, 20], [RISE_X - 2, 0, 20], w("stop", t0) - 0.2, w("stop", t0) + 0.6, "#c8382c"),
-        label("WATER LINE", [30, 8, 40], w("invasion,") - 0.1, t1 + 1, 8)] });
+      rigs: [farm, campRig, label("1672", [10, 30, 14], w("1672") - 0.1, t1 + 1, 12), label("HOLLAND", [-10, 8, 14], w("Dutch") - 0.1, t1 + 1, 7),
+        label("FRENCH ARMY", [RISE_X + 22, 8, 14], w("French") - 0.1, t1 + 1, 5), arrowRig([RISE_X + 70, 0, 20], [RISE_X - 2, 0, 20], w("stop", t0) - 0.2, w("stop", t0) + 0.6, "#c8382c"),
+        label("WATER LINE", [50, 5, 14], w("invasion,") - 0.1, t1 + 1, 5)] });
   }
   // ---- the explainer slice: he stands in it to show the depth; a horse, a cannon, a boat, a ditch
   const SX = (x: number): V3 => [x, 0, 0.3];
@@ -325,17 +326,17 @@ export function buildStory(T: Timing): DutchStory {
     add({ id: "kneedeep", place: "section", insert: true, t0, t1, xfade: 0.2, join: D(6), set: sectionSet, light: "explain", lens: { cInf: 2 },
       cam: [{ ...secCam(t0, -8.2, 6.4, 6, 0.9), drift: 0 }, { ...secCam(t1, -8.0, 5.8, 6, 0.85), glide: 1 }], alive: [[t0, t1]],
       people: [{ id: "farmer", at: () => F, faceTo: () => [0, 0, 6], props: () => farmerP(faceTrack(words, "smug", [{ word: "knee-deep", face: "bliss" }], t0), poseTrack(words, "hips", [["knee-deep", "point"]], t0)) }],
-      rigs: [water, label("KNEE-DEEP", [-6.6, 0.5, 0.6], w("knee-deep") - 0.1, t1 + 1, 0.38), label("ON PURPOSE", [-8.2, 2.25, 0.4], w("purpose.") - 0.1, t1 + 1, 0.34)] });
+      rigs: [water, label("KNEE-DEEP", [-8.2, -0.45, 1.7], w("knee-deep") - 0.1, t1 + 1, 0.24), label("ON PURPOSE", [-8.2, 2.25, 0.4], w("purpose.") - 0.1, t1 + 1, 0.34)] });
   }
   {
     const t0 = w("That's"), t1 = w("but", t0);
     add({ id: "toodeep", place: "section", insert: true, t0, t1, xfade: 0.2, join: D(5), set: sectionSet, light: "explain", lens: { cInf: 2 },
-      cam: [{ ...secCam(t0, -1.0, 8.6, 8, 1.0), drift: 0 }, { ...secCam(t1, 0.2, 8.0, 8, 1.0), glide: 1 }], alive: [[t0, t1]],
+      cam: [{ ...secCam(t0, -0.9, 8.6, 8, 1.0), drift: 0 }, { ...secCam(t1, -0.4, 8.0, 8, 1.0), glide: 1 }], alive: [[t0, t1]],
       people: [],
-      rigs: [water, propRig(() => rider(), () => [-2.2, -0.05, 0.2], () => 0, (o, t) => { const h = o.userData.horse as THREE.Group; gallop(h, t * 1.6, 0.5); o.rotation.z = 0.05 * Math.sin(t * 5); }),
-        propRig(cannon, (t) => [1.6 + 0.06 * Math.sin(t * 9), -0.12, 0.3], () => 0), propRig(() => soldier({}), (t) => [0.25, 0, 0.3 + 0.03 * Math.sin(t * 8)], () => 0, (o, t) => { o.rotation.z = -0.35 + 0.05 * Math.sin(t * 8); }),
+      rigs: [water, propRig(() => rider(), () => [-1.9, -0.05, 0.2], () => 0, (o, t) => { const h = o.userData.horse as THREE.Group; gallop(h, t * 1.6, 0.5); o.rotation.z = 0.05 * Math.sin(t * 5); }),
+        propRig(cannon, (t) => [0.0 + 0.04 * Math.sin(t * 9), -0.12, 0.3], () => 0), propRig(() => soldier({}), (t) => [1.15, 0, 0.3 + 0.03 * Math.sin(t * 8)], () => Math.PI, (o, t) => { o.rotation.z = 0.35 + 0.05 * Math.sin(t * 8); }),
         splash([0, 1, 2, 3, 4].map((k) => ({ at: [-1.6 + (k % 2) * 0.5, KNEE, 0.6] as V3, t: t0 + k * 0.42, size: 0.9, n: 8 }))),
-        label("TOO DEEP TO MARCH", [-0.4, 2.7, 0.5], w("deep", t0) - 0.1, t1 + 1, 0.42)] });
+        label("TOO DEEP TO MARCH", [-0.6, 2.7, 0.5], w("deep", t0) - 0.1, t1 + 1, 0.42)] });
   }
   {
     const t0 = w("but", w("That's")), t1 = w("And", t0);
@@ -353,7 +354,7 @@ export function buildStory(T: Timing): DutchStory {
       cam: [{ t: t0, pos: [D2 - 1, 8.5, 8.0], look: [D2 - 1, 0.2, 0], fov: 40, drift: 0 }, { ...secCam(w("every", t0) + 0.6, D2 - 1.0, 9.4, 6, 0.3), glide: 1 }, { ...secCam(t1, D2 - 0.9, 9.0, 5, 0.2), glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "sol", at: sx, faceTo: () => [D2 + 4, 0, 0], props: (t) => ({ costume: "fsoldier", seed: 61, face: faceTrack(words, "smug", [{ word: "step", face: "worried" }, { word: "plunge.", face: "terrified", react: [{ face: "scream", frames: 3 }] }], t0), pose: poseTrack(words, "stand", [["plunge.", "armsUp"]], t0), walk: t > w("so", t0) && t < tPl ? 1 : 0 }) }],
-      rigs: [sectionWater((t) => KNEE), splash([{ at: [D2, KNEE, 0.6], t: tPl + 0.2, size: 1.8, n: 20 }]), label("HIDDEN DITCH", [D2, -0.9, 1.75], w("ditch") - 0.1, t1 + 1, 0.4),
+      rigs: [sectionWater((t) => KNEE), splash([{ at: [D2, KNEE, 0.6], t: tPl + 0.2, size: 1.8, n: 20 }]), label("HIDDEN DITCH", [D2 - 0.9, -1.1, 1.75], w("ditch") - 0.1, t1 + 1, 0.3),
         (ctx) => { const top = ctx.set.extra.top as THREE.Mesh, m = top.material as THREE.MeshLambertMaterial, ws = ctx.set.extra.ditchW as unknown as THREE.Mesh[];
           return (t) => { const reveal = sm((t - w("every", t0) - 0.2) / 0.6); m.opacity = 0.98 - 0.45 * reveal; ws.forEach((d) => { (d.material as THREE.MeshLambertMaterial).opacity = 0.6; }); }; }] });
   }
@@ -362,11 +363,12 @@ export function buildStory(T: Timing): DutchStory {
     const t0 = w("By", w("plunge.")), t1 = END;
     const g = (t: number): V3 => [40 + 0.9 * (t - t0), 0, 30];
     const tSoak = w("soaked");
+    const boatBox = (p: V3): [number, number, number, number, number, number] => [p[0] - 1.25, 1.7, p[2] - 0.45, p[0] + 1.25, 2.5, p[2] + 0.45];
     add({ id: "home", place: "polder-dusk", t0, t1, xfade: 0.2, join: D(8), set: () => polderSet({ dusk: true }), light: DUSK, lens: { cInf: 5 },
-      cam: [{ ...fit(t0, [personBox(g(t0)), personBox(g(tSoak))], -20, 7, 44, { b: 0.3, t: 0.22, x: 0.12 }), drift: 0 }, { ...fit(tSoak, [personBox(g(tSoak))], -12, 4, 40, { b: 0.24, t: 0.26, x: 0.18 }), glide: 1 }, { ...fit(t1, [personBox(g(t1))], -8, 3, 36, { b: 0.24, t: 0.26, x: 0.18 }), glide: 1 }],
+      cam: [{ ...fit(t0, [personBox(g(t0)), personBox(g(tSoak)), boatBox(g(t0)), boatBox(g(tSoak))], -20, 7, 44, { b: 0.3, t: 0.12, x: 0.1 }), drift: 0 }, { ...fit(tSoak, [personBox(g(tSoak)), boatBox(g(tSoak))], -12, 4, 40, { b: 0.24, t: 0.1, x: 0.1 }), glide: 1 }, { ...fit(t1, [personBox(g(t1)), boatBox(g(t1))], -8, 3, 36, { b: 0.24, t: 0.1, x: 0.1 }), glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "gen", at: g, faceTo: (t) => [g(t)[0] + 10, 0, g(t)[2]], props: () => genP(faceTrack(words, "sob", [{ word: "soaked", face: "grimace" }, { word: "boat.", face: "sob" }], t0), "armsUp", { walk: 1, stepF: 9, marks: [markAt(words, "soaked", "tears")] }) }],
-      rigs: [floodRig(() => KNEE, () => 0), propRig(() => { const b = troopBoat({}); b.scale.setScalar(0.42); return b; }, (t) => { const p = g(t); return [p[0] + 0.05, 2.05 + 0.03 * Math.abs(Math.sin(t * 6.6)), p[2] - 0.05]; }, () => 0, (o) => { o.rotation.x = Math.PI; }),
+      rigs: [floodRig(() => KNEE, () => 0), propRig(() => { const b = troopBoat({}); b.scale.setScalar(0.42); return b; }, (t) => { const p = g(t); return [p[0] + 0.05, 2.05 + 0.03 * Math.abs(Math.sin(t * 6.6)), p[2] - 0.05]; }, () => 0.55, (o) => { o.rotation.x = Math.PI - 0.25; }),
         splash(Array.from({ length: Math.ceil((t1 - t0) / 0.6) }, (_, k) => { const tt = t0 + k * 0.6; const p = g(tt); return { at: [p[0] + 0.2, KNEE + 0.01, p[2] + 0.1] as V3, t: tt, size: 0.7, n: 8 }; }))] });
   }
   return { groups };

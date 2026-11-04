@@ -231,7 +231,7 @@ export function polderSet(o: PolderOpts = {}): SetBuild {
   for (let x = -12; x <= 14; x += 1.1) for (let z = -3.4; z <= 16; z += 1.0) { if (x > -3.6 && x < 2 && z < 0.6) continue; cg.push(...cabbageGeo(x + (r() - 0.5) * 0.2, z + (r() - 0.5) * 0.2, 0.9 + r() * 0.35)); }
   const cabbages = new THREE.Mesh(mergeGeometries(cg.map((g) => g.toNonIndexed())), lambert({ color: "#7ec05a" })); cabbages.castShadow = true; cabbages.receiveShadow = true; root.add(cabbages);
   // the farmhouse on its mound, the neighbour's windmill at the dike foot, the village, poplars along the dike
-  box(root, grass, 14, 0.5, 12, -18, 0.25, 8); dutchHouse(root, -18, 8, 6, 3.4, 7, 1); box(root, mat("barn", () => lambert({ color: "#6a4a3a" })), 5, 2.6, 5, -24, 1.55, 6);
+  box(root, grass, 14, 0.5, 12, -18, 0.25, 8); dutchHouse(root, -18, 8, 6, 3.4, 7, 1); box(root, mat("barn", () => lambert({ color: "#6a4a3a" })), 5, 2.6, 5, -12, 1.55, 15);
   const sails = windmill(root, -30, -2.5);
   for (let k = 0; k < 9; k++) { box(root, grass, 9, 0.5, 9, -56 - k * 7, 0.25, 6 + (k % 3) * 6); dutchHouse(root, -56 - k * 7, 6 + (k % 3) * 6, 4.5 + (k % 2), 3 + (k % 3) * 0.6, 5, k + 2); }
   const church = new THREE.Mesh(new THREE.ConeGeometry(1.4, 9, 8), mat("spire", () => lambert({ color: "#3a4a5a" }))); church.position.set(-80, 12, 2); root.add(church); box(root, mat("chb", () => lambert({ color: "#a04a34" })), 4, 8, 4, -80, 4, 2);
