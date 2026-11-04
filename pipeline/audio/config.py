@@ -185,3 +185,20 @@ QWEN3_VOICES = {
                             "expressive with big rises and falls, sounds like she can't wait to tell you what happened.",
              "design_seed": 5, "design_instruct": "long", "ref_audio": "voices/iris_ref.flac", "ref_text": _REF_LONG, "seed": 11},
 }
+
+# Ming-3.0-tts-0.5b backend (pipeline/audio/ming_backend.py + ming_worker.py), the story-lane voice: Ming clones our
+# own designed ember clip (the same s5 take as QWEN3_VOICES["ember"], kept at 48 kHz) and reads with an expressive
+# instruction (owner pick, 2026-11-03: segment 5 of out/rnd-voice/ming_vs_current_AB.m4a, Ming ember, no shaper).
+# Opt-in with `tts: ming` (or --engine ming). Own venv, CPU only (MPS crashes in the model). Override the paths with
+# MING_TTS_PYTHON / MING_TTS_SRC / MING_TTS_MODEL.
+MING = {
+    "python": "~/faceless-work/venvs/ming/bin/python",
+    "src": "~/faceless-work/src/Ming-3.0-tts",          # the model code (MingTTS); the worker imports it from here
+    "model": "~/faceless-work/models/Ming-3.0-tts-0.5b",
+    "ref_audio": "voices/ember_ref_ming.flac",
+    "ref_text": _REF_LONG,
+    "instruction": ("Excited, playful storytelling, like telling a friend an unbelievable true story: fast and "
+                    "continuous, big pitch rises and falls, punchy emphasis on the key words, a grin in the voice."),
+    "seed": 11,  # the same seed for every chunk (temperature 0): one voice and delivery across the narration
+    "threads": 6,
+}

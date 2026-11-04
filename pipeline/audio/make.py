@@ -128,6 +128,15 @@ def swish_rule(cues: list[dict], spec: dict, dur: float, seed: str = "") -> list
     return sorted(rest + keep, key=lambda c: c["at"])
 
 
+def _jsonable(o):
+    """json.dump default: numpy scalars / arrays (e.g. float32 from the mix or the melody shaper) as plain Python."""
+    if hasattr(o, "tolist"):
+        return o.tolist()
+    if hasattr(o, "item"):
+        return o.item()
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("script")
@@ -137,7 +146,7 @@ def main(argv=None):
     ap.add_argument("--music", help="bed name in studio/public/music, a path, or 'none'")
     ap.add_argument("--voice")
     ap.add_argument("--speed", type=float)
-    ap.add_argument("--engine", choices=["kokoro", "piper", "qwen3", "qwen_api"])
+    ap.add_argument("--engine", choices=["kokoro", "piper", "qwen3", "qwen_api", "ming"])
     ap.add_argument("--qwen3-voice", help="qwen3 voice id (config.QWEN3_VOICES; front matter qwen3_voice)")
     ap.add_argument("--melody", choices=["off", "rules"], help="rule-based melody shaper after TTS, default off "
                     "(front matter melody; pipeline/audio/melody.py)")
@@ -208,7 +217,7 @@ def main(argv=None):
                                                                    cfg["tighten_gaps"])
             tts["stats"]["tighten"] = st
         np.savez_compressed(cache_a, audio=tts["audio"])
-        json.dump({k: tts[k] for k in ("words", "cues", "stats")}, open(cache_j, "w"))
+        json.dump({k: tts[k] for k in ("words", "cues", "stats")}, open(cache_j, "w"), default=_jsonable)
     cues = sorted(tts["cues"], key=lambda c: c["at"])
     sfx_mode = a.sfx_mode or sc.meta.get("sfx_mode") or cfg.get("sfx_mode", "full")
     if not a.no_auto_sfx:
@@ -265,8 +274,8 @@ def main(argv=None):
 
     rel = os.path.relpath(out, PUBLIC) if os.path.abspath(out).startswith(PUBLIC + os.sep) else None
     json.dump({"words": tts["words"], "source": tts["stats"]["timing_source"], "voice": cfg["voice"]},
-              open(os.path.join(out, "captions.json"), "w"), indent=1)
-    json.dump(mx["report"]["sfx_placed"], open(os.path.join(out, "cues.json"), "w"), indent=1)
+              open(os.path.join(out, "captions.json"), "w"), indent=1, default=_jsonable)
+    json.dump(mx["report"]["sfx_placed"], open(os.path.join(out, "cues.json"), "w"), indent=1, default=_jsonable)
     frag = {
         "_note": "paths are relative to studio/public. 'audio' plays the finished mix (music+sfx baked in, "
                  "so duckOn none); 'audio_stems' lets Remotion mix the stems instead.",
@@ -282,7 +291,7 @@ def main(argv=None):
         } if rel else None,
         "cues": [{"cue": c["cue"], "at": c["at"]} for c in mx["report"]["sfx_placed"]],
     }
-    json.dump(frag, open(os.path.join(out, "audio.storyboard.json"), "w"), indent=1)
+    json.dump(frag, open(os.path.join(out, "audio.storyboard.json"), "w"), indent=1, default=_jsonable)
     try:
         waveform_png(mx["paths"], os.path.join(out, "waveform.png"), mx["report"]["sfx_placed"], dur)
     except subprocess.CalledProcessError as e:
@@ -290,7 +299,7 @@ def main(argv=None):
     report = {"id": ep, "niche": niche, "audio_profile": profile, "script": os.path.relpath(os.path.abspath(a.script), ROOT),
               "tts": tts["stats"], "mix": mx["report"], "words": len(tts["words"]),
               "wall_s": round(time.time() - t0, 1)}
-    json.dump(report, open(os.path.join(out, "report.json"), "w"), indent=1)
+    json.dump(report, open(os.path.join(out, "report.json"), "w"), indent=1, default=_jsonable)
     if a.meta_out:
         os.makedirs(a.meta_out, exist_ok=True)
         for f in ("captions.json", "cues.json", "audio.storyboard.json", "report.json", "waveform.png", "score_plan.json",

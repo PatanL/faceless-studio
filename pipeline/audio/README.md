@@ -162,6 +162,37 @@ audio_profile: story_ricks  # recommended: cuts pauses to 0.10 s (voicefx.tighte
   Each model is 4.5 GB, and peak memory is about 5.8 GB. Paths come from `config.QWEN3`, or from the
   `QWEN3_TTS_PYTHON` and `QWEN3_TTS_MODELS` environment variables.
 
+## Ming-3.0-tts backend (`tts: ming`, the story-lane voice)
+
+The owner's pick for the story lane (2026-11-03, segment 5 of `out/rnd-voice/ming_vs_current_AB.m4a`): Ming-3.0-tts-0.5b
+cloning our own designed **ember** clip, read with an expressive instruction, **no melody shaper**. The test renders
+are `~/faceless-work/voice-cadence/scripts/ming_myv3.py` (clone_ember) and `myv3_ab.py` (measure / shape / A/B).
+
+```yaml
+# script front matter (story lane)
+tts: ming             # or --engine ming
+melody: off           # the pick is unshaped; `melody: rules` still works after it (stress / unstress / hook_boost)
+audio_profile: story_ricks
+```
+```bash
+python -m pipeline.audio.make research/library/drafts/story-edo-firemen.md --profile story_ricks --music none \
+  --out out/rnd-voice/edo_ming        # run from the repo root in an env with the pipeline deps (e.g. venvs/voicelab)
+```
+
+- **Voice.** Every chunk clones `voices/ember_ref_ming.flac` (the designed ember s5 take, 48 kHz, the same clip as
+  `ember_ref.flac`; `ref_text` is its transcript) with the TTS task, speaker embedding on, temperature 0, the same
+  seed (11) and the same instruction (`config.MING["instruction"]`, "Excited, playful storytelling ..."). Override
+  per script with `ming_instruction:` / `ming_seed:`. No real person's audio is ever the reference.
+- **Chunks.** synthesize()'s own plan (one chunk per paragraph, split again at `[pause]` markers), and Ming splits
+  each chunk into short fragments, each conditioned on the same reference, so takes do not drift and the voice
+  stays the same across the narration.
+- **Timings.** `ming_worker.py` force-aligns each chunk's script words with `qwen3_worker.align` (torchaudio MMS_FA),
+  so captions, `[sfx:]` markers and the mix work unchanged (`timing_source: ["ming"]`); under 60 % coverage the
+  faster-whisper fallback runs.
+- **Where it runs.** Its own venv (`~/faceless-work/venvs/ming`, torch 2.6), CPU only and niced (MPS crashes inside
+  the model), all chunks in one worker call. The worker runs the model under CPU bf16 autocast and keeps the ONNX
+  speaker encoder out of it. Paths come from `config.MING`, or `MING_TTS_PYTHON` / `MING_TTS_SRC` / `MING_TTS_MODEL`.
+
 ### Rule-based melody shaper (`melody: rules`, opt-in, any engine)
 
 `pipeline/audio/melody.py` reshapes the finished voice track toward the measured RicksClips delivery
