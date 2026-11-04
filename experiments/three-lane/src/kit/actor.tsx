@@ -99,6 +99,14 @@ const COSTUMES: Record<string, Costume> = {
 	courtOfficial2: {coat: '#2f6a5a', coatShade: '#1f4a3f', legs: c('ink-1'), shoes: c('ink-0'), hat: 'guan', hair: 'none', trim: '#e3b448', collar: 'cross', pattern: 'dots', patternColor: '#4a8a78', robe: '#e9e2d0', robeShade: '#c9bfa8', sash: '#7a2a3a', hatOrn: '#e3b448'},
 	hanEmperor: {coat: '#e2a92c', coatShade: '#b47e1a', legs: c('ink-1'), shoes: c('ink-0'), hat: 'mian', hair: 'none', trim: '#a3202a', collar: 'cross', pattern: 'scale', patternColor: '#f2c45a', robe: '#a3202a', robeShade: '#741620', sash: '#a3202a', hatOrn: '#e3b448'},
 	hanGuard: {coat: '#8e2a2a', coatShade: '#661c1c', legs: c('ink-1'), shoes: c('ink-0'), hat: 'helmet', hair: 'none', trim: '#d9a53a', armour: '#7a7f90', sash: '#d9a53a', robe: '#8e2a2a', robeShade: '#661c1c'},
+	// story-dutch-waterline (Holland, 1672, anonymous): a Dutch farmer in a green waistcoat, brown breeches and yellow
+	// clogs under a wide brown hat; his neighbour in a straw-coloured smock and cap; villagers; the invading general in a
+	// blue coat and a plumed tricorn over a brown wig; his soldiers in blue coats and steel morions
+	farmer: {coat: '#4f6a3a', coatShade: '#36502a', vest: '#efe6d2', legs: '#8a5a34', shoes: '#e0a83a', hat: 'brim', hair: 'short', hairColor: '#6a4428'},
+	neighbour: {coat: '#c9a85a', coatShade: '#a0823c', legs: '#5a6a7a', shoes: '#e0a83a', hat: 'cap', hair: 'messy', hairColor: '#8a8a8a'},
+	villager3: {coat: '#a84a3a', coatShade: '#7a3428', cravat: c('bone-2'), legs: '#5a4a3a', shoes: '#e0a83a', hat: 'bonnet', hair: 'updo', hairColor: '#c08a3a', gown: '#a84a3a', gownShade: '#7a3428'},
+	general: {coat: '#2f4f9e', coatShade: '#203a78', vest: c('amber-4'), cravat: c('bone-2'), legs: c('bone-1'), shoes: c('ink-0'), hat: 'tricorn', hair: 'wig', hairColor: '#7a4a2a', epaulettes: true, buttons: true, trim: '#e3b448'},
+	fsoldier: {coat: '#2f4f9e', coatShade: '#203a78', cravat: c('bone-2'), legs: c('bone-1'), shoes: c('ink-0'), hat: 'helmet', hair: 'none'},
 	ashigaru: {coat: '#4a5a6e', coatShade: '#33404f', legs: '#c9b994', shoes: c('ink-0'), hat: 'hachimaki', hair: 'short', hairColor: c('ink-1')},
 };
 

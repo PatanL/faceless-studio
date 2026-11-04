@@ -9,6 +9,7 @@ import { buildStory as turkStory } from "../src/turk/story";
 import { buildStory as vasaStory } from "../src/vasa/story";
 import { buildStory as barcaStory } from "../src/barca/story";
 import { buildStory as myeongStory } from "../src/myeongnyang/story3";
+import { buildStory as dutchStory } from "../src/dutch/story";
 import { CamPath } from "../src/kit/campath";
 import { personBox } from "../src/kit/framing";
 import { captionCues, CAP_SIZE, CAP_W } from "../src/kit/Episode3D";
@@ -23,7 +24,7 @@ const MIN_F = Number(process.env.MIN_F ?? 8);   // report cuts held at least thi
 const sb = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const T = new Timing(sb.scenes.map((s: { duration: number }) => s.duration), sb.captions.words);
 // which episode: the storyboard's id (story-chess-turk | story-vasa)
-const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : sb.id === "story-barca-shield" ? barcaStory(T).groups : sb.id === "story-myeongnyang" ? myeongStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
+const groups = (sb.id === "story-vasa" ? vasaStory(T).groups : sb.id === "story-barca-shield" ? barcaStory(T).groups : sb.id === "story-myeongnyang" ? myeongStory(T).groups : sb.id === "story-dutch-waterline" ? dutchStory(T).groups : turkStory(T).groups) as (ReturnType<typeof turkStory>["groups"][number] & { avoid?: unknown })[];
 const cam = new THREE.PerspectiveCamera(40, W / H, 0.05, 200);
 const paths = new Map(groups.map((g) => [g, new CamPath(g.cam, g.t0, g.t1)]));
 const total = Math.round(T.total * FPS);
