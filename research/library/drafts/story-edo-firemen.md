@@ -7,7 +7,8 @@ target_runtime_s: about 62 at 3.9 words/s (about 4.0 in setup and escalation, 3.
 facts_source: STORY_TOPIC_QUEUE.md section 6 (Cabinet Office Meireki report, Tokyo Fire Department, Tokyo Metropolitan Library)
 stress: tea, broom, bowl, wrong, roof, buckets, gust, finger, quiet, pumps, starve, politely
 unstress: says, just, then, out, back, fire, house, street
-melody: rules
+tts: ming
+melody: off
 voice: am_eric
 hook_boost: 1.35
 hook_act_st: 9
