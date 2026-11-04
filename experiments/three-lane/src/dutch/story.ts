@@ -84,21 +84,30 @@ export function buildStory(T: Timing): DutchStory {
   const column = (t: number, x0: number, n: number, v: number): V3[] => Array.from({ length: n }, (_, i) => [x0 - v * t + (i >> 1) * 2.6, FAR, ROAD_Z + (i % 2 ? 1.1 : -1.1)] as V3);
   const armyRig = (x0: number, n = 24, v = 1.6) => crowdRig((i) => (i % 3 === 2 ? soldier({ pike: true }) : rider({ horseCoat: ["#8a5a34", "#5a3a26", "#c8a070"][i % 3] })), (t) => column(t, x0, n, v), () => Math.PI,
     (o, t, i) => { const h = o.userData.horse as THREE.Group | undefined; if (h) gallop(h, t * 1.1 + i * 0.37, 0.35); else o.position.y += 0.06 * Math.abs(Math.sin(t * 6 + i)); });
+  const HOOK_GX = -7.4;
   const genSeat = (h: V3, k = 1): V3 => [h[0], h[1] + (1.4 - 0.575) * k, h[2] + 0.05];
-  // the hook's general rides on the far bank with the column (drawn 1.5x: a cartoon cheat so his laugh reads at 33 m)
-  const GK = 1.5, HOOK_GEN = (t: number): V3 => [15 - 1.6 * t, FAR, ROAD_Z + 3.4];
+  // the hook's general rides in east along the dike crown just west of the gate and reins in behind the farmer, his
+  // column on the crown behind him and more on the far bank road (drawn 1.15x: a cartoon cheat so his laugh reads on a
+  // phone; the camera swings round to the farmer's front so the general stands over his shoulder, as in the key frame)
+  const GK = 1.15, HOOK_GEN = (t: number): V3 => [HOOK_GX - 6.5 * (1 - sm(t / 2.4)), DIKE_H, DIKE_Z + 0.35];
+  const crownColumn = (t: number, n: number): V3[] => Array.from({ length: n }, (_, i) => [HOOK_GEN(t)[0] - 3.4 - (i >> 1) * 2.4 - (i % 2) * 0.9, DIKE_H, DIKE_Z + (i % 2 ? -0.75 : 0.55)] as V3);
+  const crownRig = crowdRig((i) => (i % 3 === 2 ? soldier({ pike: true }) : rider({ horseCoat: ["#8a5a34", "#5a3a26", "#c8a070"][i % 3] })), (t) => crownColumn(t, 14), () => 0,
+    (o, t, i) => { const h = o.userData.horse as THREE.Group | undefined; const go = 0.08 + 0.3 * (1 - sm((t - 1.6) / 1.2)); if (h) gallop(h, t * 1.1 + i * 0.37, go); else o.position.y += 0.06 * go * Math.abs(Math.sin(t * 6 + i)); });
 
   // ================= 1 the hook: he cranks his own floodgate open, the army on the road behind, the general laughing
   {
     const t0 = 0, t1 = w("His", 4);
     const HEAD: V3 = [F_GATE[0], 1.375, F_GATE[2]];
-    const tArmy = w("army"), tClose = w("close");
-    const cam: CamKey[] = [frameKey(t0, HEAD, 0.3, 0.33, 0.59, 0.2, -12, 3, 40, "io"), frameKey(tArmy + 0.3, HEAD, 0.27, 0.36, 0.59, 0.165, -16, 5, 40, "io"),
-      frameKey(tClose + 0.5, HEAD, 0.24, 0.44, 0.59, 0.115, -22, 7, 40, "io"), frameKey(t1, HEAD, 0.24, 0.45, 0.59, 0.11, -24, 7.5, 40, "io")];
+        // one smooth orbit (sampled every 0.3 s so the farmer stays framed on the arc): from his close at the wheel round to
+    // his front, pulling back until the general on the crown stands over his shoulder (by 2.5 s), then a slow drift
+    const tSwing = 3.0;
+    const hk = (t: number): CamKey => { const u = sm(t / tSwing), v = clamp01((t - tSwing) / (t1 - tSwing));
+      return frameKey(t, HEAD, 0.3 - 0.02 * u, 0.33 + 0.18 * u + 0.01 * v, 0.59, 0.2 - 0.09 * u - 0.006 * v, -12 + 58 * u + 2 * v, 3 + 3 * u + 0.5 * v, 40, "lin"); };
+    const cam: CamKey[] = [...Array.from({ length: 11 }, (_, k) => hk(k * 0.3)), hk(t1)];
     add({ id: "hook", place: "gate", t0, t1, xfade: 0, set: () => polderSet(), light: "golden", lens: { cInf: 4 }, cam, alive: [[t0, t1]],
       people: [{ id: "farmer", at: () => F_GATE, faceTo: () => WHEEL, props: () => farmerP(faceTrack(words, "angry", [{ word: "snorting.", face: "focus" }], t0), crankPose(t0 - 1, t1 + 1)) },
         { id: "gen", extra: true, scale: GK, at: (t) => genSeat(HOOK_GEN(t), GK), faceTo: () => F_GATE, props: () => genP(faceTrack(words, "grin", [{ word: "close", face: "cackle", react: [{ face: "squeeze", frames: 3 }] }], t0), poseTrack(words, "hold", [["close", "point"]], t0), { seated: true, chair: false }) }],
-      rigs: [farm, armyRig(10), propRig(() => { const h = horse({ coat: "#f2ece0", mane: "#c8b8a0" }); h.scale.setScalar(GK); return h; }, HOOK_GEN, () => Math.PI, (o, t) => gallop(o as THREE.Group, t * 1.1, 0.3)),
+      rigs: [farm, armyRig(-52, 28), crownRig, propRig(() => { const h = horse({ coat: "#f2ece0", mane: "#c8b8a0" }); h.scale.setScalar(GK); return h; }, HOOK_GEN, () => 0, (o, t) => gallop(o as THREE.Group, t * 1.1, 0.06 + 0.3 * (1 - sm((t - 1.6) / 1.2)))),
         splash(Array.from({ length: 16 }, (_, k) => ({ at: [(k % 3 - 1) * 0.6, 0.08, GATE_Z + 1.2] as V3, t: k * 0.28, size: 1.1, n: 10 })))] });
   }
   // ================= 2 his neighbour drops his pitchfork (in the cabbages, the water spreading behind)
@@ -226,7 +235,9 @@ export function buildStory(T: Timing): DutchStory {
       rigs: [farm, genHorse(0), campRig] });
   }
   // ---- the cavalry charge: ten riders down the ramp and west across the water
-  const LANE = (i: number) => 17 + ((i * 5) % 9) - 4;
+  // lane 13 is the first plunge's alone and the rest ride 4+ m north of it (the hat shots look past the hat from beside
+  // it): v1 had riders in lanes 13-16 galloping right past the lens at 35.5-36.9 s; they now ride in a pack at 17-21
+  const LANE = (i: number) => [13, 18, 17.6, 19, 19.8, 20, 17, 21, 18.3, 20.6][i];
   const tGo = w("sends", w("general", 29)) + 0.2;
   const charge = (t: number, i: number): V3 => { const u = Math.max(0, t - tGo - (i % 5) * 0.12 - Math.floor(i / 5) * 0.5); const x = RISE_X + 6 + (i % 5) * 1.4 + Math.floor(i / 5) * 3 - 6.5 * u; return [x, x > RISE_X ? RISE : Math.max(0, RISE - (RISE_X - x) * 0.12), LANE(i)]; };
   const tV1 = w("vanishes,"), tV2 = w("another.") - 0.1;
@@ -310,9 +321,9 @@ export function buildStory(T: Timing): DutchStory {
   {
     const t0 = w("You"), t1 = w("keeping");
     add({ id: "map", place: "map", insert: true, t0, t1, xfade: 0.2, join: WHIP, set: () => polderSet({ high: true }), light: "day", lens: { cInf: 1 },
-      cam: [{ t: t0, pos: [RISE_X + 70, 120, 20], look: [10, 0, 14], fov: 44, drift: 0 }, { t: w("stop", t0), pos: [RISE_X + 24, 62, 19], look: [28, 0, 15], fov: 44, glide: 1 }, { t: t1, pos: [RISE_X + 20, 58, 19], look: [26, 0, 15], fov: 44, glide: 1 }],
+      cam: [{ t: t0, pos: [RISE_X + 70, 120, 20], look: [10, 0, 14], fov: 44, drift: 0 }, { t: w("stop", t0), pos: [RISE_X + 24, 62, 19], look: [28, 0, 15], fov: 44, glide: 1, drift: 0.2 }, { t: t1, pos: [RISE_X + 20, 58, 19], look: [26, 0, 15], fov: 44, glide: 1, drift: 0.2 }],
       people: [], alive: [[t0, t1]],
-      rigs: [farm, campRig, label("1672", [10, 30, 14], w("1672") - 0.1, t1 + 1, 12), label("HOLLAND", [-10, 8, 14], w("Dutch") - 0.1, t1 + 1, 7),
+      rigs: [farm, campRig, label("1672", [10, 24, 14], w("1672") - 0.1, t1 + 1, 11), label("HOLLAND", [-10, 5.5, 14], w("Dutch") - 0.1, t1 + 1, 7),
         label("FRENCH ARMY", [RISE_X + 22, 8, 14], w("French") - 0.1, t1 + 1, 5), arrowRig([RISE_X + 70, 0, 20], [RISE_X - 2, 0, 20], w("stop", t0) - 0.2, w("stop", t0) + 0.6, "#c8382c"),
         label("WATER LINE", [50, 5, 14], w("invasion,") - 0.1, t1 + 1, 5)] });
   }
@@ -363,12 +374,15 @@ export function buildStory(T: Timing): DutchStory {
     const t0 = w("By", w("plunge.")), t1 = END;
     const g = (t: number): V3 => [40 + 0.9 * (t - t0), 0, 30];
     const tSoak = w("soaked");
-    const boatBox = (p: V3): [number, number, number, number, number, number] => [p[0] - 1.25, 1.7, p[2] - 0.45, p[0] + 1.25, 2.5, p[2] + 0.45];
+    // he holds it up right side up (v1 carried it hull-up over his head): the keel on his raised hands, the hull just
+    // behind his head, tipped toward the camera so the seats show
+    const BOAT_Y = 1.47;
+    const boatBox = (p: V3): [number, number, number, number, number, number] => [p[0] - 1.25, BOAT_Y, p[2] - 0.95, p[0] + 1.25, BOAT_Y + 0.4, p[2] - 0.15];
     add({ id: "home", place: "polder-dusk", t0, t1, xfade: 0.2, join: D(8), set: () => polderSet({ dusk: true }), light: DUSK, lens: { cInf: 5 },
       cam: [{ ...fit(t0, [personBox(g(t0)), personBox(g(tSoak)), boatBox(g(t0)), boatBox(g(tSoak))], -20, 7, 44, { b: 0.3, t: 0.12, x: 0.1 }), drift: 0 }, { ...fit(tSoak, [personBox(g(tSoak)), boatBox(g(tSoak))], -12, 4, 40, { b: 0.24, t: 0.1, x: 0.1 }), glide: 1 }, { ...fit(t1, [personBox(g(t1)), boatBox(g(t1))], -8, 3, 36, { b: 0.24, t: 0.1, x: 0.1 }), glide: 1 }],
       alive: [[t0, t1]],
       people: [{ id: "gen", at: g, faceTo: (t) => [g(t)[0] + 10, 0, g(t)[2]], props: () => genP(faceTrack(words, "sob", [{ word: "soaked", face: "grimace" }, { word: "boat.", face: "sob" }], t0), "armsUp", { walk: 1, stepF: 9, marks: [markAt(words, "soaked", "tears")] }) }],
-      rigs: [floodRig(() => KNEE, () => 0), propRig(() => { const b = troopBoat({}); b.scale.setScalar(0.42); return b; }, (t) => { const p = g(t); return [p[0] + 0.05, 1.93 + 0.03 * Math.abs(Math.sin(t * 6.6)), p[2] - 0.05]; }, () => 0.55, (o) => { o.rotation.x = Math.PI - 0.25; }),
+      rigs: [floodRig(() => KNEE, () => 0), propRig(() => { const b = troopBoat({}); b.scale.setScalar(0.42); return b; }, (t) => { const p = g(t); return [p[0] + 0.1, BOAT_Y + 0.025 * Math.abs(Math.sin(t * 6.6)), p[2] - 0.55]; }, () => 0.45, (o, t) => { o.rotation.x = 0.28; o.rotation.z = 0.04 * Math.sin(t * 3.3); }),
         splash(Array.from({ length: Math.ceil((t1 - t0) / 0.6) }, (_, k) => { const tt = t0 + k * 0.6; const p = g(tt); return { at: [p[0] + 0.2, KNEE + 0.01, p[2] + 0.1] as V3, t: tt, size: 0.7, n: 8 }; }))] });
   }
   return { groups };

@@ -295,6 +295,17 @@ export function sectionSet(): SetBuild {
   const [c, g] = canvas(16, 256); const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, "#9cc8ec"); gr.addColorStop(1, "#e8f2f8"); g.fillStyle = gr; g.fillRect(0, 0, 16, 256);
   const sky = new THREE.Mesh(new THREE.PlaneGeometry(200, 80), new THREE.MeshBasicMaterial({ map: tex(c), fog: false })); sky.position.set(0, 20, -60); root.add(sky);
   const back = new THREE.Mesh(new THREE.PlaneGeometry(200, 60), lambert({ map: richWater([30, 10]) })); back.rotation.x = -Math.PI / 2; back.position.set(0, 0.0, -32); root.add(back);
+  // the flooded polder behind the slice: a far dike with poplars, two mills, a farm or two standing in the water, clouds
+  const grass = lambert({ map: grassTex([8, 1]) });
+  dike(root, -90, 90, -52, 1.2, 2, 6, grass);
+  for (let k = 0; k < 30; k++) { const x = -60 + k * 4 + (k % 3) * 0.8; if (Math.abs(x - 15) < 3 || Math.abs(x + 18) < 3) continue; poplar(root, x, -54.2, 5 + (k % 4) * 0.8, 0.6); }
+  windmill(root, 15, -56); windmill(root, -18, -58);
+  for (const [x, z, s] of [[-24, -36, 1], [21, -40, 2], [-4, -44, 3]] as [number, number, number][]) { box(root, grass, 7, 0.4, 7, x, 0.1, z); dutchHouse(root, x, z, 4.2, 2.8, 4.5, s); }
+  for (const [x, z] of [[-6, -14], [9, -16], [-13, -12], [2, -12]] as [number, number][]) box(root, mat("post", () => lambert({ color: "#6a4a2a" })), 0.12, 0.9, 0.12, x, 0.35, z);
+  const cloudM = new THREE.MeshBasicMaterial({ color: "#ffffff", fog: false });
+  for (const [x, y, s] of [[-14, 15, 2.2], [6, 18, 2.8], [20, 14, 2.0], [-30, 19, 2.6]] as [number, number, number][]) {
+    const cl = new THREE.Group(); for (const [dx, dy, r] of [[0, 0, 1], [1.1, 0.3, 0.8], [-1.0, 0.1, 0.75], [0.4, 0.6, 0.7]]) { const m = new THREE.Mesh(new THREE.SphereGeometry(r, 12, 8), cloudM); m.position.set(dx, dy, 0); m.scale.set(1.3, 0.85, 0.6); cl.add(m); }
+    cl.scale.setScalar(s); cl.position.set(x, y, -59); root.add(cl); }
   const key = makeKey(root, [-8, 16, 14], [0, 0, 0], 20);
   return { root, key, glows: [], extra: { water, top, ditchW } as unknown as Record<string, THREE.Object3D>, fogScale: 6 };
 }
