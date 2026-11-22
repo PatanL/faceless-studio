@@ -1,10 +1,13 @@
-"""scripts/spark_sync.sh and scripts/spark_render.sh (findings F07, F08/F27, F25, F26, F28, F29).
+"""scripts/spark_sync.sh, scripts/spark_render.sh (findings F07, F08/F27, F25, F26, F28, F29) and the slot choice
+of scripts/render.sh (Spark first, the Mac when the Spark render lock is held and the Mac has room).
 
 ssh and rsync are replaced by stubs on PATH that only record their argv/stdin, so nothing
 touches the network or the Spark. Safe to run anywhere bash exists.
 """
+import fcntl
 import glob
 import os
+import platform
 import shlex
 import stat
 import subprocess
@@ -113,6 +116,72 @@ class SparkRender(unittest.TestCase):
         npm = [s for t, _, s in calls if t == "ssh" and "npm ci" in s]
         for s in npm:
             self.assertTrue("flock" in s and s.index("flock") < s.index("npm ci"), "npm ci outside the lock")
+
+
+LOCK_STUB = """#!/usr/bin/env bash
+# ssh stub for render.sh: answers the lock probe with $STUB_LOCK_STATE (free | held | empty = unreachable)
+cat >/dev/null
+[ -n "$STUB_LOCK_STATE" ] && echo "$STUB_LOCK_STATE"
+exit 0
+"""
+
+
+class RenderDispatch(unittest.TestCase):
+    """RENDER_DRY_RUN=1: only the slot decision, nothing is synced or rendered."""
+
+    def decide(self, lock_state, **env_extra):
+        tmp = tempfile.mkdtemp()
+        bindir = os.path.join(tmp, "bin")
+        os.makedirs(bindir)
+        p = os.path.join(bindir, "ssh")
+        with open(p, "w") as f:
+            f.write(LOCK_STUB)
+        os.chmod(p, os.stat(p).st_mode | stat.S_IEXEC)
+        env = {k: v for k, v in os.environ.items() if k not in ("STUDIO_LOCAL", "RENDER_SLOT", "SPARK_LOCK")}
+        env.update(PATH=bindir + os.pathsep + env["PATH"], SPARK_HOST="stub-host", RENDER_DRY_RUN="1",
+                   STUB_LOCK_STATE=lock_state, MAC_LOCK=os.path.join(tmp, "mac.lock"))
+        env.update(env_extra)
+        r = subprocess.run(["bash", os.path.join(_util.ROOT, "scripts", "render.sh"), "Storyboard", "x.mp4"], env=env,
+                           capture_output=True, text=True, timeout=60)
+        return r, r.stdout + r.stderr, env["MAC_LOCK"]
+
+    def test_spark_first_when_its_lock_is_free(self):
+        r, out, _ = self.decide("free", MAC_MIN_FREE_GB="0", MAC_MIN_DISK_GB="0")
+        self.assertEqual(r.returncode, 0, out)
+        self.assertIn("[render] slot: spark", out)
+
+    @unittest.skipUnless(platform.system() == "Darwin", "Mac slot needs macOS")
+    def test_mac_when_spark_lock_held_and_mac_has_room(self):
+        r, out, _ = self.decide("held", MAC_MIN_FREE_GB="0", MAC_MIN_DISK_GB="0")
+        self.assertEqual(r.returncode, 0, out)
+        self.assertIn("[render] slot: mac", out)
+
+    @unittest.skipUnless(platform.system() == "Darwin", "Mac slot needs macOS")
+    def test_waits_for_spark_when_mac_short_on_ram_or_disk(self):
+        for env in ({"MAC_MIN_FREE_GB": "100000", "MAC_MIN_DISK_GB": "0"},
+                    {"MAC_MIN_FREE_GB": "0", "MAC_MIN_DISK_GB": "100000000"}):
+            r, out, _ = self.decide("held", **env)
+            self.assertIn("[render] slot: spark", out)
+            self.assertIn("mac not eligible", out)
+
+    @unittest.skipUnless(platform.system() == "Darwin", "Mac slot needs macOS")
+    def test_one_mac_render_at_a_time(self):
+        tmp = tempfile.mkdtemp()
+        lock = os.path.join(tmp, "mac.lock")
+        with open(lock, "a") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)  # lockf(1) uses flock(2): same lock
+            r, out, _ = self.decide("held", MAC_MIN_FREE_GB="0", MAC_MIN_DISK_GB="0", MAC_LOCK=lock)
+        self.assertIn("[render] slot: spark", out)
+        self.assertIn("mac render lock held", out)
+
+    def test_operator_on_the_spark_never_uses_the_mac(self):
+        r, out, _ = self.decide("held", STUDIO_LOCAL="1", MAC_MIN_FREE_GB="0", MAC_MIN_DISK_GB="0")
+        self.assertIn("[render] slot: spark", out)
+
+    def test_forced_mac_refused_when_rules_fail(self):
+        r, out, _ = self.decide("free", RENDER_SLOT="mac", MAC_MIN_FREE_GB="100000")
+        self.assertEqual(r.returncode, 3, out)
+        self.assertNotIn("slot: mac (", out)
 
 
 if __name__ == "__main__":

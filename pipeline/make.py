@@ -25,7 +25,8 @@ Steps (in order):
   storyboard  pipeline.episodes.auto (anchors -> times, kit/holds/layout checks, zod) -> storyboard.json + beatmap.json
   review      stills contact sheet -> claude -p looks at it and fixes shots.json -> rebuild (--review-rounds N,
               --review-notes FILE); a round that fails is rolled back and the make continues
-  render      Remotion on the Spark (render lock, --concurrency CONC<=4) -> out/<slug>/<slug>_9x16.mp4 + contact sheet
+  render      Remotion via scripts/render.sh: Spark (render lock, --concurrency CONC<=4), or the Mac when the Spark
+              lock is held and the Mac has room (--concurrency 2) -> out/<slug>/<slug>_9x16.mp4 + contact sheet
   package     claude -p with pipeline/prompts/package.md -> titles.md, description.md, thumbs.json, package.json
   thumbs      thumbnail stills (thumbs kit) -> out/<slug>/thumbs/ (package.json thumb_pick filled in)
   collect     copies titles/description/package into out/<slug>/, writes out/<slug>/MANIFEST.md
@@ -706,10 +707,14 @@ class Make:
         t0 = time.time()
         conc = os.environ.get("CONC", "4")
         with self.code_lock():
-            self.run(["scripts/spark_render.sh", "Storyboard", name],
-                     env={"CONC": conc, "PROPS": f"episodes/{self.slug}/storyboard.json"}, timeout=3 * 3600, quiet=True)
+            # scripts/render.sh: the Spark when its render lock is free, else the Mac if it has room (Mac mode only)
+            out = self.run(["scripts/render.sh", "Storyboard", name],
+                           env={"CONC": conc, "PROPS": f"episodes/{self.slug}/storyboard.json"}, timeout=3 * 3600,
+                           quiet=True)
+        slot = next((l.split("slot:", 1)[1].strip() for l in out.splitlines() if l.startswith("[render] slot:")), "?")
         mp4 = os.path.join(self.out, f"{self.slug}_9x16.mp4")
-        self.log(f"render: {os.path.relpath(mp4, ROOT)} ({os.path.getsize(mp4) / 1e6:.1f} MB) in {time.time() - t0:.0f}s")
+        self.log(f"render: {os.path.relpath(mp4, ROOT)} ({os.path.getsize(mp4) / 1e6:.1f} MB) in {time.time() - t0:.0f}s"
+                 f" [slot: {slot}]")
         # contact sheet (Spark ffmpeg): 12 frames across the video
         self.spark(f"cd studio/out/{self.slug} && D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 {self.slug}_9x16.mp4) && "
                    f"nice -n 10 ffmpeg -v error -y -threads 2 -i {self.slug}_9x16.mp4 -vf \"fps=12/$D,scale=270:-2,tile=6x2:padding=4\" "

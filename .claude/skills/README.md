@@ -13,7 +13,7 @@
   - `remotion-saas`, `remotion-interactivity`, `remotion-maps` (standalone; markup still nests its copy): out of scope.
   The full set stays in `experiments/vendor/remotion-skills/skills/` for reading.
 - BRIEF.md wins over these skills:
-  - Render on the Spark only (`scripts/spark_render.sh`, `nice -n 10`, concurrency ≤ 4, swangle, CPU).
+  - Render through `scripts/render.sh` only: the Spark (`nice -n 10`, concurrency ≤ 4, swangle, CPU), or the Mac slot it picks when the Spark render lock is held (BRIEF rule 2). Never start a render on the Mac by hand.
   - Never open Studio on the Mac. `remotion-captions` ends with "open the Remotion Studio, unless instructed otherwise", and BRIEF instructs otherwise.
   - Don't run `npx remotion add` or upgrade inside `studio/`. It is the operator's live pipeline. Add packages in an experiment folder first.
 - To update: `git -C experiments/vendor/remotion-skills pull`, re-copy the same five folders, and bump the commit above.

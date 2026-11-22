@@ -1,0 +1,110 @@
+{
+ "hook": {
+  "keep_watching": 4,
+  "question_in_my_head": "Who is 'he', and why would anyone smash a house during breakfast with a fire nearby? Is he a villain or a hero?",
+  "why": "absurd vivid opening; boiling tea shows the fire is close; 'he' never named"
+ },
+ "who": {
+  "he / the fireman": "An old Edo firefighter who wants to tear houses down, presumably to stop the fire.",
+  "the house owner": "A man at breakfast who wants his house left alone; says the fire is next door and chases the fireman with a broom.",
+  "the street crowd": "Neighbours who laugh at the fireman as incompetent; at the end they go quiet and one puts down a bucket.",
+  "the fire": "Pushed sideways by the wind toward the street; leaps across and dies."
+ },
+ "what_happened": [
+  "A fireman smashes a man's house while the man is eating breakfast and a fire is very close.",
+  "The owner jumps up with his rice bowl and says the fire is next door, so the fireman has the wrong house.",
+  "The fireman hooks a pole into the roof and pulls half of it into the street.",
+  "The owner chases him around the house with a broom.",
+  "The street laughs and mocks the fireman for not finding the fire.",
+  "The fireman tests the wind with a licked finger and pulls down the last wall.",
+  "The wind shifts and pushes the fire toward the street.",
+  "The flames jump across and land on the bare ground where the house stood.",
+  "The fire has nothing to burn and dies in front of the rice bowl.",
+  "The street goes quiet and somebody puts down his bucket.",
+  "The narrator explains that Edo firemen really did this because their pumps were weak.",
+  "You can't drown a fire in a wooden city, but you can starve it by removing what's in its path.",
+  "A week later the fireman's new house is finished, the house next door catches fire, and there's a polite knock at his door."
+ ],
+ "why": "Water pumps back then were too weak to stop a big fire in a city made of wood with the wind blowing. So firemen pulled down the buildings in the fire's path. When the fire reached the gap, it had no fuel and went out. The one house sacrificed saved the street. The crowd thought he was a fool because they couldn't see the fire's route, but he was reading the wind and predicting where it would go.",
+ "twist": "The man everyone mocked as incompetent was right, and the final joke is that the 'wrong house' is now the fireman's own, since the same thing is about to be done to him (I think), with the neighbour's fire as the cause.",
+ "reread_lines": [
+  {
+   "line": "He smashed a man's house during breakfast...",
+   "why": "'he' has no referent; boiling tea literal or joke?",
+   "level": "slowed"
+  },
+  {
+   "line": "Soon the wind shoves the fire sideways, straight at the laughing street.",
+   "why": "which fire, which direction; did the wind change or blow toward the house all along",
+   "level": "lost"
+  },
+  {
+   "line": "Seconds later, the flames leap across and land on the bare dirt where the house used to be.",
+   "why": "across what",
+   "level": "slowed"
+  },
+  {
+   "line": "And there they stop. ... right in front of the rice bowl.",
+   "why": "rice bowl focus hard to picture",
+   "level": "slowed"
+  },
+  {
+   "line": "The street goes quiet, and somebody slowly puts down his bucket.",
+   "why": "buckets never set up",
+   "level": "slowed"
+  },
+  {
+   "line": "You see, firemen in old Edo really did this...",
+   "why": "sudden shift; Edo and hand pumps at once",
+   "level": "slowed"
+  },
+  {
+   "line": "A week later, his new house is finished...",
+   "why": "'his' ambiguous (fireman or owner); who knocks and why",
+   "level": "lost"
+  }
+ ],
+ "unexplained_terms": [
+  "Edo",
+  "hand pumps",
+  "firemen in this setting",
+  "the long pole"
+ ],
+ "logic_jumps": [
+  {
+   "between": "owner protests -> he hooks a pole",
+   "missing": "why the fireman ignores the protest; looks like a vandal until the explanation",
+   "blocks_understanding": true
+  },
+  {
+   "between": "licks a finger -> wind shoves the fire",
+   "missing": "that the wind check showed the fire's path toward this house; looks like luck",
+   "blocks_understanding": true
+  },
+  {
+   "between": "wind shoves -> flames leap across",
+   "missing": "how the fire gets to the empty plot",
+   "blocks_understanding": false
+  },
+  {
+   "between": "there they stop -> street goes quiet",
+   "missing": "crowd realises he was right (implied)",
+   "blocks_understanding": false
+  },
+  {
+   "between": "starve it -> a week later his new house",
+   "missing": "whose new house; the torn-down house was the owner's",
+   "blocks_understanding": true
+  }
+ ],
+ "sounds_wrong": [
+  "tea boiling from a nearby fire exaggerated",
+  "'fire's next door' vs 'so close'",
+  "'his new house' reads as the fireman's",
+  "fire stops right in front of the rice bowl despite strong wind",
+  "wind changes on cue after the finger test"
+ ],
+ "confidence": 3,
+ "funny": 3,
+ "story_vs_fact": "Edo firemen tearing down houses because pumps were weak taken as true; breakfast, broom, tea, laughing street, fire on dirt and the knock taken as dramatised; ending clearly invented."
+}

@@ -47,17 +47,23 @@ ssh dgx-spark 'source ~/studio/app/scripts/spark_env.sh && cd ~/studio/app/studi
 
 # 5. Look-dev stills (cheap, no render lock), then render the first 10 s, then the full video
 scripts/spark_stills.sh episodes/<slug>/storyboard.json 0.5,3,8,15,30 out/stills/<slug>.jpg
-CONC=4 PROPS=episodes/<slug>/storyboard.json scripts/spark_render.sh Storyboard <slug>.mp4 --frames=0-299
-CONC=4 PROPS=episodes/<slug>/storyboard.json scripts/spark_render.sh Storyboard <slug>.mp4
+CONC=4 PROPS=episodes/<slug>/storyboard.json scripts/render.sh Storyboard <slug>.mp4 --frames=0-299
+CONC=4 PROPS=episodes/<slug>/storyboard.json scripts/render.sh Storyboard <slug>.mp4
 
 # 6. Extras: 16:9 cut, thumbnails, QA sheet against the references
-python3 -m pipeline.episodes.reformat <slug> && CONC=4 PROPS=episodes/<slug>/storyboard_16x9.json scripts/spark_render.sh Storyboard <slug>_16x9.mp4
+python3 -m pipeline.episodes.reformat <slug> && CONC=4 PROPS=episodes/<slug>/storyboard_16x9.json scripts/render.sh Storyboard <slug>_16x9.mp4
 OUT=pilots/<slug>/thumbs scripts/thumbs_render.sh episodes/<slug>/thumbs.json
 scripts/side_by_side.sh out/<slug>.mp4 <explainer|horror>
 python3 scripts/loudness_timeline.py out/<slug>.mp4      # horror: the scare must be the loudest moment
 ```
 
-`spark_render.sh` serializes renders with `~/studio/locks/render.lock`. Finished MP4s come back to `out/`, and
+`scripts/render.sh` is the render dispatcher (same args/env as `spark_render.sh`, which it calls for the Spark slot and
+which still works on its own). It prints `[render] slot: spark|mac (<why>)`: the Spark when `~/studio/locks/render.lock`
+is free; the Mac when that lock is held and the Mac has >= 5 GB available RAM, >= 20 GB free disk and no other Mac
+render (`nice -n 15`, `--concurrency=2`, inputs pulled from the Spark, MP4 pushed back to the Spark's `studio/out/`);
+otherwise it waits for the Spark. `RENDER_SLOT=spark|mac` forces a slot (the Mac rules still apply),
+`RENDER_DRY_RUN=1` only prints the decision. On the Spark (`STUDIO_LOCAL=1`) it always uses the Spark.
+`spark_render.sh` serializes Spark renders with `~/studio/locks/render.lock`. Finished MP4s come back to `out/`, and
 pilots live in `out/pilots/<slug>/` with `titles.md`, `description.md`, `thumbs/` and `qa/`.
 `mix.wav` exists only on the Spark (`studio/public/episodes/<slug>/`, gitignored). Rerun step 2 if it is missing.
 
